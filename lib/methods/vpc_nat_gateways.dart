@@ -33,21 +33,32 @@ Future<VpcNatGateways> vpcnatgatewaysList(ClientConfig config,
   return (await sdkRequest<VpcNatGateways>('GET', '/v2/vpc_nat_gateways',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'state': SdkQueryValue(SdkUtils.unwrapOptional(state), style: 'form', explode: true),
-            'region': SdkQueryValue(SdkUtils.unwrapOptional(region), style: 'form', explode: true),
-            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_), style: 'form', explode: true),
-            'name': SdkQueryValue(SdkUtils.unwrapOptional(name), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'state': SdkQueryValue(SdkUtils.unwrapOptional(state),
+                style: 'form', explode: true),
+            'region': SdkQueryValue(SdkUtils.unwrapOptional(region),
+                style: 'form', explode: true),
+            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_),
+                style: 'form', explode: true),
+            'name': SdkQueryValue(SdkUtils.unwrapOptional(name),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcnatgatewaysList',
-          fromJsonRaw: (value) => VpcNatGateways.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VpcNatGateways.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To create a new VPC NAT gateway, send a POST request to `/v2/vpc_nat_gateways` setting the required attributes. The response body will contain a JSON object with a key called `vpc_nat_gateway` containing the standard attributes for the new VPC NAT gateway.
 ///
@@ -89,12 +100,17 @@ Future<VpcNatGatewayCreateResponse> vpcnatgatewaysCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcnatgatewaysCreate',
-          fromJsonRaw: (value) => VpcNatGatewayCreateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VpcNatGatewayCreateResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To show information about an individual VPC NAT gateway, send a GET request to `/v2/vpc_nat_gateways/$VPC_NAT_GATEWAY_ID`.
 ///
@@ -106,12 +122,18 @@ Future<VpcNatGateway> vpcnatgatewaysGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcnatgatewaysGet',
-          fromJsonRaw: (value) => VpcNatGateway.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VpcNatGateway.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To update the configuration of an existing VPC NAT Gateway, send a PUT request to `/v2/vpc_nat_gateways/$VPC_NAT_GATEWAY_ID`. The request must contain a full representation of the VPC NAT Gateway including existing attributes.
 ///
@@ -144,12 +166,18 @@ Future<VpcNatGatewayUpdateResponse> vpcnatgatewaysUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcnatgatewaysUpdate',
-          fromJsonRaw: (value) => VpcNatGatewayUpdateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VpcNatGatewayUpdateResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To destroy a VPC NAT Gateway, send a DELETE request to the `/v2/vpc_nat_gateways/$VPC_NAT_GATEWAY_ID` endpoint. A successful response will include a 202 response code and no content.
 ///
@@ -162,6 +190,12 @@ Future<void> vpcnatgatewaysDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'vpcnatgatewaysDelete',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

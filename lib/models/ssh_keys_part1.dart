@@ -14,45 +14,74 @@ part of 'ssh_keys.dart';
 class SshKeys {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique identification number for this key. Can be used to embed a specific SSH key into a Droplet.
   final SdkOptional<int> id;
+
   /// A unique identifier that differentiates this key from other keys using a format that SSH recognizes. The fingerprint is created when the key is added to your account.
   final SdkOptional<String> fingerprint;
+
   /// The entire public key string that was uploaded. Embedded into the root user's `authorized_keys` file if you include this key during Droplet creation.
   final String publicKey;
+
   /// A human-readable display name for this key, used to easily identify the SSH keys when they are displayed.
   final String name;
 
-  const SshKeys({this.id = const SdkOmitted(), this.fingerprint = const SdkOmitted(), required this.publicKey, required this.name});
+  const SshKeys(
+      {this.id = const SdkOmitted(),
+      this.fingerprint = const SdkOmitted(),
+      required this.publicKey,
+      required this.name});
 
-  SshKeys Function({SdkOptional<int> id, SdkOptional<String> fingerprint, String publicKey, String name}) get copyWith => _copyWith;
+  SshKeys Function(
+      {SdkOptional<int> id,
+      SdkOptional<String> fingerprint,
+      String publicKey,
+      String name}) get copyWith => _copyWith;
 
-  SshKeys _copyWith({Object? id = sdkOmittedValue, Object? fingerprint = sdkOmittedValue, Object? publicKey = sdkOmittedValue, Object? name = sdkOmittedValue}) => SshKeys(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
-    fingerprint: identical(fingerprint, sdkOmittedValue) ? this.fingerprint : fingerprint as SdkOptional<String>,
-    publicKey: identical(publicKey, sdkOmittedValue) ? this.publicKey : publicKey as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+  SshKeys _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? fingerprint = sdkOmittedValue,
+          Object? publicKey = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      SshKeys(
+        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
+        fingerprint: identical(fingerprint, sdkOmittedValue)
+            ? this.fingerprint
+            : fingerprint as SdkOptional<String>,
+        publicKey: identical(publicKey, sdkOmittedValue)
+            ? this.publicKey
+            : publicKey as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
   factory SshKeys.fromJson(Map<String, dynamic> json) => SshKeys(
-    id: json['id'] != null ? SdkPresent(((json['id'] as num?)?.toInt())!) : const SdkOmitted(),
-    fingerprint: json['fingerprint'] != null ? SdkPresent((json['fingerprint'] as String?)!) : const SdkOmitted(),
-    publicKey: (json['public_key'] as String?)!,
-    name: (json['name'] as String?)!,
-  );
+        id: json['id'] != null
+            ? SdkPresent(((json['id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        fingerprint: json['fingerprint'] != null
+            ? SdkPresent((json['fingerprint'] as String?)!)
+            : const SdkOmitted(),
+        publicKey: (json['public_key'] as String?)!,
+        name: (json['name'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<int>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fingerprint) {
-      SdkPresent<String>(value: final value) => {'fingerprint': value,},
-      _ => const <String, dynamic>{},
-    },
-    'public_key': publicKey,
-    'name': name,
-  };
+        ...switch (id) {
+          SdkPresent<int>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fingerprint) {
+          SdkPresent<String>(value: final value) => {
+              'fingerprint': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'public_key': publicKey,
+        'name': name,
+      };
 }
 
 class SshKeysAllVariant0 {
@@ -62,22 +91,33 @@ class SshKeysAllVariant0 {
 
   const SshKeysAllVariant0({this.sshKeys = const SdkOmitted()});
 
-  SshKeysAllVariant0 Function({SdkOptional<List<SshKeys>> sshKeys}) get copyWith => _copyWith;
+  SshKeysAllVariant0 Function({SdkOptional<List<SshKeys>> sshKeys})
+      get copyWith => _copyWith;
 
-  SshKeysAllVariant0 _copyWith({Object? sshKeys = sdkOmittedValue}) => SshKeysAllVariant0(
-    sshKeys: identical(sshKeys, sdkOmittedValue) ? this.sshKeys : sshKeys as SdkOptional<List<SshKeys>>,
-  );
+  SshKeysAllVariant0 _copyWith({Object? sshKeys = sdkOmittedValue}) =>
+      SshKeysAllVariant0(
+        sshKeys: identical(sshKeys, sdkOmittedValue)
+            ? this.sshKeys
+            : sshKeys as SdkOptional<List<SshKeys>>,
+      );
 
-  factory SshKeysAllVariant0.fromJson(Map<String, dynamic> json) => SshKeysAllVariant0(
-    sshKeys: json['ssh_keys'] != null ? SdkPresent(((json['ssh_keys'] as List?)?.map((e) => SshKeys.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory SshKeysAllVariant0.fromJson(Map<String, dynamic> json) =>
+      SshKeysAllVariant0(
+        sshKeys: json['ssh_keys'] != null
+            ? SdkPresent(((json['ssh_keys'] as List?)
+                ?.map((e) => SshKeys.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sshKeys) {
-      SdkPresent<List<SshKeys>>(value: final value) => {'ssh_keys': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sshKeys) {
+          SdkPresent<List<SshKeys>>(value: final value) => {
+              'ssh_keys': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `SshKeysAll` API schema.
@@ -85,71 +125,116 @@ class SshKeysAll {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<SshKeys>> sshKeys;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const SshKeysAll({this.sshKeys = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const SshKeysAll(
+      {this.sshKeys = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  SshKeysAll Function({SdkOptional<List<SshKeys>> sshKeys, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  SshKeysAll Function(
+      {SdkOptional<List<SshKeys>> sshKeys,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  SshKeysAll _copyWith({Object? sshKeys = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => SshKeysAll(
-    sshKeys: identical(sshKeys, sdkOmittedValue) ? this.sshKeys : sshKeys as SdkOptional<List<SshKeys>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  SshKeysAll _copyWith(
+          {Object? sshKeys = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      SshKeysAll(
+        sshKeys: identical(sshKeys, sdkOmittedValue)
+            ? this.sshKeys
+            : sshKeys as SdkOptional<List<SshKeys>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
   factory SshKeysAll.fromJson(Map<String, dynamic> json) => SshKeysAll(
-    sshKeys: json['ssh_keys'] != null ? SdkPresent(((json['ssh_keys'] as List?)?.map((e) => SshKeys.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+        sshKeys: json['ssh_keys'] != null
+            ? SdkPresent(((json['ssh_keys'] as List?)
+                ?.map((e) => SshKeys.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sshKeys) {
-      SdkPresent<List<SshKeys>>(value: final value) => {'ssh_keys': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (sshKeys) {
+          SdkPresent<List<SshKeys>>(value: final value) => {
+              'ssh_keys': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 /// Typed representation of the `SshKeysExisting` API schema.
 class SshKeysExisting {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `ssh_key` wire field.
   final SdkOptional<SshKeys> sshKey;
 
   const SshKeysExisting({this.sshKey = const SdkOmitted()});
 
-  SshKeysExisting Function({SdkOptional<SshKeys> sshKey}) get copyWith => _copyWith;
+  SshKeysExisting Function({SdkOptional<SshKeys> sshKey}) get copyWith =>
+      _copyWith;
 
-  SshKeysExisting _copyWith({Object? sshKey = sdkOmittedValue}) => SshKeysExisting(
-    sshKey: identical(sshKey, sdkOmittedValue) ? this.sshKey : sshKey as SdkOptional<SshKeys>,
-  );
+  SshKeysExisting _copyWith({Object? sshKey = sdkOmittedValue}) =>
+      SshKeysExisting(
+        sshKey: identical(sshKey, sdkOmittedValue)
+            ? this.sshKey
+            : sshKey as SdkOptional<SshKeys>,
+      );
 
-  factory SshKeysExisting.fromJson(Map<String, dynamic> json) => SshKeysExisting(
-    sshKey: json['ssh_key'] != null ? SdkPresent((json['ssh_key'] != null ? SshKeys.fromJson(json['ssh_key'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory SshKeysExisting.fromJson(Map<String, dynamic> json) =>
+      SshKeysExisting(
+        sshKey: json['ssh_key'] != null
+            ? SdkPresent((json['ssh_key'] != null
+                ? SshKeys.fromJson(json['ssh_key'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sshKey) {
-      SdkPresent<SshKeys>(value: final value) => {'ssh_key': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sshKey) {
+          SdkPresent<SshKeys>(value: final value) => {
+              'ssh_key': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `SshKeysNew` API schema.
 class SshKeysNew {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `ssh_key` wire field.
   final SdkOptional<SshKeys> sshKey;
 
@@ -158,46 +243,62 @@ class SshKeysNew {
   SshKeysNew Function({SdkOptional<SshKeys> sshKey}) get copyWith => _copyWith;
 
   SshKeysNew _copyWith({Object? sshKey = sdkOmittedValue}) => SshKeysNew(
-    sshKey: identical(sshKey, sdkOmittedValue) ? this.sshKey : sshKey as SdkOptional<SshKeys>,
-  );
+        sshKey: identical(sshKey, sdkOmittedValue)
+            ? this.sshKey
+            : sshKey as SdkOptional<SshKeys>,
+      );
 
   factory SshKeysNew.fromJson(Map<String, dynamic> json) => SshKeysNew(
-    sshKey: json['ssh_key'] != null ? SdkPresent((json['ssh_key'] != null ? SshKeys.fromJson(json['ssh_key'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        sshKey: json['ssh_key'] != null
+            ? SdkPresent((json['ssh_key'] != null
+                ? SshKeys.fromJson(json['ssh_key'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sshKey) {
-      SdkPresent<SshKeys>(value: final value) => {'ssh_key': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sshKey) {
+          SdkPresent<SshKeys>(value: final value) => {
+              'ssh_key': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `SshKeysRequest` API schema.
 class SshKeysRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The entire public key string that was uploaded. Embedded into the root user's `authorized_keys` file if you include this key during Droplet creation.
   final String publicKey;
+
   /// A human-readable display name for this key, used to easily identify the SSH keys when they are displayed.
   final String name;
 
   const SshKeysRequest({required this.publicKey, required this.name});
 
-  SshKeysRequest Function({String publicKey, String name}) get copyWith => _copyWith;
+  SshKeysRequest Function({String publicKey, String name}) get copyWith =>
+      _copyWith;
 
-  SshKeysRequest _copyWith({Object? publicKey = sdkOmittedValue, Object? name = sdkOmittedValue}) => SshKeysRequest(
-    publicKey: identical(publicKey, sdkOmittedValue) ? this.publicKey : publicKey as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+  SshKeysRequest _copyWith(
+          {Object? publicKey = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      SshKeysRequest(
+        publicKey: identical(publicKey, sdkOmittedValue)
+            ? this.publicKey
+            : publicKey as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
   factory SshKeysRequest.fromJson(Map<String, dynamic> json) => SshKeysRequest(
-    publicKey: (json['public_key'] as String?)!,
-    name: (json['name'] as String?)!,
-  );
+        publicKey: (json['public_key'] as String?)!,
+        name: (json['name'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'public_key': publicKey,
-    'name': name,
-  };
+        'public_key': publicKey,
+        'name': name,
+      };
 }

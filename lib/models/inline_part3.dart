@@ -5,12 +5,12 @@ part of 'inline.dart';
 
 // Inline operation models (part 3)
 final class SchemaSchemadba9253b {
-
   final String value;
 
   const SchemaSchemadba9253b._(this.value);
 
-  factory SchemaSchemadba9253b.fromJson(String value) => SchemaSchemadba9253b._(value);
+  factory SchemaSchemadba9253b.fromJson(String value) =>
+      SchemaSchemadba9253b._(value);
 
   static const active = SchemaSchemadba9253b._('active');
   static const deprecated = SchemaSchemadba9253b._('deprecated');
@@ -18,42 +18,48 @@ final class SchemaSchemadba9253b {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SchemaSchemadba9253b && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SchemaSchemadba9253b && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class SchemaSchema3f399be3 {
-
   final String value;
 
   const SchemaSchema3f399be3._(this.value);
 
-  factory SchemaSchema3f399be3.fromJson(String value) => SchemaSchema3f399be3._(value);
+  factory SchemaSchema3f399be3.fromJson(String value) =>
+      SchemaSchema3f399be3._(value);
 
   static const application = SchemaSchema3f399be3._('application');
   static const distribution = SchemaSchema3f399be3._('distribution');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SchemaSchema3f399be3 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SchemaSchema3f399be3 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class SchemaSchemaae407830 {
-
   final String value;
 
   const SchemaSchemaae407830._(this.value);
 
-  factory SchemaSchemaae407830.fromJson(String value) => SchemaSchemaae407830._(value);
+  factory SchemaSchemaae407830.fromJson(String value) =>
+      SchemaSchemaae407830._(value);
 
   static const createdAt = SchemaSchemaae407830._('created_at');
   static const userId = SchemaSchemaae407830._('user_id');
@@ -62,21 +68,24 @@ final class SchemaSchemaae407830 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SchemaSchemaae407830 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SchemaSchemaae407830 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class SchemaSchema4e60cfc6 {
-
   final String value;
 
   const SchemaSchema4e60cfc6._(this.value);
 
-  factory SchemaSchema4e60cfc6.fromJson(String value) => SchemaSchema4e60cfc6._(value);
+  factory SchemaSchema4e60cfc6.fromJson(String value) =>
+      SchemaSchema4e60cfc6._(value);
 
   static const nyc1 = SchemaSchema4e60cfc6._('nyc1');
   static const nyc2 = SchemaSchema4e60cfc6._('nyc2');
@@ -96,21 +105,24 @@ final class SchemaSchema4e60cfc6 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SchemaSchema4e60cfc6 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SchemaSchema4e60cfc6 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class SchemaSchema08bd8b38 {
-
   final String value;
 
   const SchemaSchema08bd8b38._(this.value);
 
-  factory SchemaSchema08bd8b38.fromJson(String value) => SchemaSchema08bd8b38._(value);
+  factory SchemaSchema08bd8b38.fromJson(String value) =>
+      SchemaSchema08bd8b38._(value);
 
   static const new_ = SchemaSchema08bd8b38._('new');
   static const provisioning = SchemaSchema08bd8b38._('provisioning');
@@ -121,41 +133,47 @@ final class SchemaSchema08bd8b38 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SchemaSchema08bd8b38 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SchemaSchema08bd8b38 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class SchemaSchemaa5e30895 {
-
   final String value;
 
   const SchemaSchemaa5e30895._(this.value);
 
-  factory SchemaSchemaa5e30895.fromJson(String value) => SchemaSchemaa5e30895._(value);
+  factory SchemaSchemaa5e30895.fromJson(String value) =>
+      SchemaSchemaa5e30895._(value);
 
   static const public = SchemaSchemaa5e30895._('public');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SchemaSchemaa5e30895 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SchemaSchemaa5e30895 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class SchemaSchemadc8bc0f2 {
-
   final String value;
 
   const SchemaSchemadc8bc0f2._(this.value);
 
-  factory SchemaSchemadc8bc0f2.fromJson(String value) => SchemaSchemadc8bc0f2._(value);
+  factory SchemaSchemadc8bc0f2.fromJson(String value) =>
+      SchemaSchemadc8bc0f2._(value);
 
   static const droplet = SchemaSchemadc8bc0f2._('droplet');
   static const loadbalancer = SchemaSchemadc8bc0f2._('loadbalancer');
@@ -167,22 +185,25 @@ final class SchemaSchemadc8bc0f2 {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SchemaSchemadc8bc0f2 && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SchemaSchemadc8bc0f2 && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Current state of the Accelerator.
 final class AcceleratorConfigSpecStatus {
-
   final String value;
 
   const AcceleratorConfigSpecStatus._(this.value);
 
-  factory AcceleratorConfigSpecStatus.fromJson(String value) => AcceleratorConfigSpecStatus._(value);
+  factory AcceleratorConfigSpecStatus.fromJson(String value) =>
+      AcceleratorConfigSpecStatus._(value);
 
   static const new_ = AcceleratorConfigSpecStatus._('new');
   static const provisioning = AcceleratorConfigSpecStatus._('provisioning');
@@ -190,68 +211,81 @@ final class AcceleratorConfigSpecStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AcceleratorConfigSpecStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AcceleratorConfigSpecStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The current lifecycle status of an access point. There is no ACCESS_POINT_DELETING state: DELETE soft-deletes the access point synchronously (mirroring share deletion); the response of a delete request returns the access point already in ACCESS_POINT_DELETED.
 final class AccessPointResponseStatus {
-
   final String value;
 
   const AccessPointResponseStatus._(this.value);
 
-  factory AccessPointResponseStatus.fromJson(String value) => AccessPointResponseStatus._(value);
+  factory AccessPointResponseStatus.fromJson(String value) =>
+      AccessPointResponseStatus._(value);
 
-  static const accessPointCreating = AccessPointResponseStatus._('ACCESS_POINT_CREATING');
-  static const accessPointActive = AccessPointResponseStatus._('ACCESS_POINT_ACTIVE');
-  static const accessPointFailed = AccessPointResponseStatus._('ACCESS_POINT_FAILED');
-  static const accessPointDeleted = AccessPointResponseStatus._('ACCESS_POINT_DELETED');
+  static const accessPointCreating =
+      AccessPointResponseStatus._('ACCESS_POINT_CREATING');
+  static const accessPointActive =
+      AccessPointResponseStatus._('ACCESS_POINT_ACTIVE');
+  static const accessPointFailed =
+      AccessPointResponseStatus._('ACCESS_POINT_FAILED');
+  static const accessPointDeleted =
+      AccessPointResponseStatus._('ACCESS_POINT_DELETED');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AccessPointResponseStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AccessPointResponseStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `protocols[]` wire field.
 final class AccessPolicyProtocolsItem {
-
   final String value;
 
   const AccessPolicyProtocolsItem._(this.value);
 
-  factory AccessPolicyProtocolsItem.fromJson(String value) => AccessPolicyProtocolsItem._(value);
+  factory AccessPolicyProtocolsItem.fromJson(String value) =>
+      AccessPolicyProtocolsItem._(value);
 
   static const nfs4 = AccessPolicyProtocolsItem._('NFS4');
   static const nfs = AccessPolicyProtocolsItem._('NFS');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AccessPolicyProtocolsItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AccessPolicyProtocolsItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The squash mode applied to the access point export.
 final class AccessPolicySquashConfig {
-
   final String value;
 
   const AccessPolicySquashConfig._(this.value);
 
-  factory AccessPolicySquashConfig.fromJson(String value) => AccessPolicySquashConfig._(value);
+  factory AccessPolicySquashConfig.fromJson(String value) =>
+      AccessPolicySquashConfig._(value);
 
   static const noSquash = AccessPolicySquashConfig._('NO_SQUASH');
   static const rootSquash = AccessPolicySquashConfig._('ROOT_SQUASH');
@@ -259,17 +293,19 @@ final class AccessPolicySquashConfig {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AccessPolicySquashConfig && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AccessPolicySquashConfig && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// This value is one of "active", "warning" or "locked".
 final class AccountStatus {
-
   final String value;
 
   const AccountStatus._(this.value);
@@ -282,10 +318,13 @@ final class AccountStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AccountStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AccountStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

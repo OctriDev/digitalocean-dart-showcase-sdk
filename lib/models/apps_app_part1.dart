@@ -8,174 +8,393 @@ part of 'apps_app.dart';
 class App {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `active_deployment` wire field.
   final SdkOptional<AppsDeployment> activeDeployment;
+
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
+
   /// Optional `string` value serialized in the `default_ingress` wire field.
   final SdkOptional<String> defaultIngress;
+
   /// Optional array value serialized in the `domains` wire field.
   final SdkOptional<List<AppsDomain>> domains;
+
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String> id;
+
   /// Optional object value serialized in the `in_progress_deployment` wire field.
   final SdkOptional<AppsDeployment> inProgressDeployment;
+
   /// Optional `date-time`-formatted value serialized in the `last_deployment_created_at` wire field.
   final SdkOptional<String> lastDeploymentCreatedAt;
+
   /// Optional `string` value serialized in the `live_domain` wire field.
   final SdkOptional<String> liveDomain;
+
   /// Optional `string` value serialized in the `live_url` wire field.
   final SdkOptional<String> liveUrl;
+
   /// Optional `string` value serialized in the `live_url_base` wire field.
   final SdkOptional<String> liveUrlBase;
+
   /// Optional `string` value serialized in the `owner_uuid` wire field.
   final SdkOptional<String> ownerUuid;
+
   /// The most recent pending deployment. For CreateApp and UpdateApp transactions this is guaranteed to reflect the associated deployment.
   final SdkOptional<AppsDeployment> pendingDeployment;
+
   /// Requires `project:read` scope.
   final SdkOptional<String> projectId;
+
   /// Optional object value serialized in the `region` wire field.
   final SdkOptional<AppsRegion> region;
+
   /// The desired configuration of an application.
   final AppSpec spec;
+
   /// Optional `string` value serialized in the `tier_slug` wire field.
   final SdkOptional<String> tierSlug;
+
   /// Optional `date-time`-formatted value serialized in the `updated_at` wire field.
   final SdkOptional<String> updatedAt;
+
   /// The deployment that the app is pinned to.
   final SdkOptional<AppsDeployment> pinnedDeployment;
+
   /// Optional array value serialized in the `dedicated_ips` wire field.
   final SdkOptional<List<AppsDedicatedEgressIp>> dedicatedIps;
+
   /// Optional object value serialized in the `vpc` wire field.
   final SdkOptional<AppsVpc> vpc;
 
-  const App({this.activeDeployment = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.defaultIngress = const SdkOmitted(), this.domains = const SdkOmitted(), this.id = const SdkOmitted(), this.inProgressDeployment = const SdkOmitted(), this.lastDeploymentCreatedAt = const SdkOmitted(), this.liveDomain = const SdkOmitted(), this.liveUrl = const SdkOmitted(), this.liveUrlBase = const SdkOmitted(), this.ownerUuid = const SdkOmitted(), this.pendingDeployment = const SdkOmitted(), this.projectId = const SdkOmitted(), this.region = const SdkOmitted(), required this.spec, this.tierSlug = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.pinnedDeployment = const SdkOmitted(), this.dedicatedIps = const SdkOmitted(), this.vpc = const SdkOmitted()});
+  const App(
+      {this.activeDeployment = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.defaultIngress = const SdkOmitted(),
+      this.domains = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.inProgressDeployment = const SdkOmitted(),
+      this.lastDeploymentCreatedAt = const SdkOmitted(),
+      this.liveDomain = const SdkOmitted(),
+      this.liveUrl = const SdkOmitted(),
+      this.liveUrlBase = const SdkOmitted(),
+      this.ownerUuid = const SdkOmitted(),
+      this.pendingDeployment = const SdkOmitted(),
+      this.projectId = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      required this.spec,
+      this.tierSlug = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.pinnedDeployment = const SdkOmitted(),
+      this.dedicatedIps = const SdkOmitted(),
+      this.vpc = const SdkOmitted()});
 
-  App Function({SdkOptional<AppsDeployment> activeDeployment, SdkOptional<String> createdAt, SdkOptional<String> defaultIngress, SdkOptional<List<AppsDomain>> domains, SdkOptional<String> id, SdkOptional<AppsDeployment> inProgressDeployment, SdkOptional<String> lastDeploymentCreatedAt, SdkOptional<String> liveDomain, SdkOptional<String> liveUrl, SdkOptional<String> liveUrlBase, SdkOptional<String> ownerUuid, SdkOptional<AppsDeployment> pendingDeployment, SdkOptional<String> projectId, SdkOptional<AppsRegion> region, AppSpec spec, SdkOptional<String> tierSlug, SdkOptional<String> updatedAt, SdkOptional<AppsDeployment> pinnedDeployment, SdkOptional<List<AppsDedicatedEgressIp>> dedicatedIps, SdkOptional<AppsVpc> vpc}) get copyWith => _copyWith;
+  App Function(
+      {SdkOptional<AppsDeployment> activeDeployment,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> defaultIngress,
+      SdkOptional<List<AppsDomain>> domains,
+      SdkOptional<String> id,
+      SdkOptional<AppsDeployment> inProgressDeployment,
+      SdkOptional<String> lastDeploymentCreatedAt,
+      SdkOptional<String> liveDomain,
+      SdkOptional<String> liveUrl,
+      SdkOptional<String> liveUrlBase,
+      SdkOptional<String> ownerUuid,
+      SdkOptional<AppsDeployment> pendingDeployment,
+      SdkOptional<String> projectId,
+      SdkOptional<AppsRegion> region,
+      AppSpec spec,
+      SdkOptional<String> tierSlug,
+      SdkOptional<String> updatedAt,
+      SdkOptional<AppsDeployment> pinnedDeployment,
+      SdkOptional<List<AppsDedicatedEgressIp>> dedicatedIps,
+      SdkOptional<AppsVpc> vpc}) get copyWith => _copyWith;
 
-  App _copyWith({Object? activeDeployment = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? defaultIngress = sdkOmittedValue, Object? domains = sdkOmittedValue, Object? id = sdkOmittedValue, Object? inProgressDeployment = sdkOmittedValue, Object? lastDeploymentCreatedAt = sdkOmittedValue, Object? liveDomain = sdkOmittedValue, Object? liveUrl = sdkOmittedValue, Object? liveUrlBase = sdkOmittedValue, Object? ownerUuid = sdkOmittedValue, Object? pendingDeployment = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? region = sdkOmittedValue, Object? spec = sdkOmittedValue, Object? tierSlug = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? pinnedDeployment = sdkOmittedValue, Object? dedicatedIps = sdkOmittedValue, Object? vpc = sdkOmittedValue}) => App(
-    activeDeployment: identical(activeDeployment, sdkOmittedValue) ? this.activeDeployment : activeDeployment as SdkOptional<AppsDeployment>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    defaultIngress: identical(defaultIngress, sdkOmittedValue) ? this.defaultIngress : defaultIngress as SdkOptional<String>,
-    domains: identical(domains, sdkOmittedValue) ? this.domains : domains as SdkOptional<List<AppsDomain>>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    inProgressDeployment: identical(inProgressDeployment, sdkOmittedValue) ? this.inProgressDeployment : inProgressDeployment as SdkOptional<AppsDeployment>,
-    lastDeploymentCreatedAt: identical(lastDeploymentCreatedAt, sdkOmittedValue) ? this.lastDeploymentCreatedAt : lastDeploymentCreatedAt as SdkOptional<String>,
-    liveDomain: identical(liveDomain, sdkOmittedValue) ? this.liveDomain : liveDomain as SdkOptional<String>,
-    liveUrl: identical(liveUrl, sdkOmittedValue) ? this.liveUrl : liveUrl as SdkOptional<String>,
-    liveUrlBase: identical(liveUrlBase, sdkOmittedValue) ? this.liveUrlBase : liveUrlBase as SdkOptional<String>,
-    ownerUuid: identical(ownerUuid, sdkOmittedValue) ? this.ownerUuid : ownerUuid as SdkOptional<String>,
-    pendingDeployment: identical(pendingDeployment, sdkOmittedValue) ? this.pendingDeployment : pendingDeployment as SdkOptional<AppsDeployment>,
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<AppsRegion>,
-    spec: identical(spec, sdkOmittedValue) ? this.spec : spec as AppSpec,
-    tierSlug: identical(tierSlug, sdkOmittedValue) ? this.tierSlug : tierSlug as SdkOptional<String>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-    pinnedDeployment: identical(pinnedDeployment, sdkOmittedValue) ? this.pinnedDeployment : pinnedDeployment as SdkOptional<AppsDeployment>,
-    dedicatedIps: identical(dedicatedIps, sdkOmittedValue) ? this.dedicatedIps : dedicatedIps as SdkOptional<List<AppsDedicatedEgressIp>>,
-    vpc: identical(vpc, sdkOmittedValue) ? this.vpc : vpc as SdkOptional<AppsVpc>,
-  );
+  App _copyWith(
+          {Object? activeDeployment = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? defaultIngress = sdkOmittedValue,
+          Object? domains = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? inProgressDeployment = sdkOmittedValue,
+          Object? lastDeploymentCreatedAt = sdkOmittedValue,
+          Object? liveDomain = sdkOmittedValue,
+          Object? liveUrl = sdkOmittedValue,
+          Object? liveUrlBase = sdkOmittedValue,
+          Object? ownerUuid = sdkOmittedValue,
+          Object? pendingDeployment = sdkOmittedValue,
+          Object? projectId = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? spec = sdkOmittedValue,
+          Object? tierSlug = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? pinnedDeployment = sdkOmittedValue,
+          Object? dedicatedIps = sdkOmittedValue,
+          Object? vpc = sdkOmittedValue}) =>
+      App(
+        activeDeployment: identical(activeDeployment, sdkOmittedValue)
+            ? this.activeDeployment
+            : activeDeployment as SdkOptional<AppsDeployment>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        defaultIngress: identical(defaultIngress, sdkOmittedValue)
+            ? this.defaultIngress
+            : defaultIngress as SdkOptional<String>,
+        domains: identical(domains, sdkOmittedValue)
+            ? this.domains
+            : domains as SdkOptional<List<AppsDomain>>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        inProgressDeployment: identical(inProgressDeployment, sdkOmittedValue)
+            ? this.inProgressDeployment
+            : inProgressDeployment as SdkOptional<AppsDeployment>,
+        lastDeploymentCreatedAt:
+            identical(lastDeploymentCreatedAt, sdkOmittedValue)
+                ? this.lastDeploymentCreatedAt
+                : lastDeploymentCreatedAt as SdkOptional<String>,
+        liveDomain: identical(liveDomain, sdkOmittedValue)
+            ? this.liveDomain
+            : liveDomain as SdkOptional<String>,
+        liveUrl: identical(liveUrl, sdkOmittedValue)
+            ? this.liveUrl
+            : liveUrl as SdkOptional<String>,
+        liveUrlBase: identical(liveUrlBase, sdkOmittedValue)
+            ? this.liveUrlBase
+            : liveUrlBase as SdkOptional<String>,
+        ownerUuid: identical(ownerUuid, sdkOmittedValue)
+            ? this.ownerUuid
+            : ownerUuid as SdkOptional<String>,
+        pendingDeployment: identical(pendingDeployment, sdkOmittedValue)
+            ? this.pendingDeployment
+            : pendingDeployment as SdkOptional<AppsDeployment>,
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as SdkOptional<String>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<AppsRegion>,
+        spec: identical(spec, sdkOmittedValue) ? this.spec : spec as AppSpec,
+        tierSlug: identical(tierSlug, sdkOmittedValue)
+            ? this.tierSlug
+            : tierSlug as SdkOptional<String>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+        pinnedDeployment: identical(pinnedDeployment, sdkOmittedValue)
+            ? this.pinnedDeployment
+            : pinnedDeployment as SdkOptional<AppsDeployment>,
+        dedicatedIps: identical(dedicatedIps, sdkOmittedValue)
+            ? this.dedicatedIps
+            : dedicatedIps as SdkOptional<List<AppsDedicatedEgressIp>>,
+        vpc: identical(vpc, sdkOmittedValue)
+            ? this.vpc
+            : vpc as SdkOptional<AppsVpc>,
+      );
 
   factory App.fromJson(Map<String, dynamic> json) => App(
-    activeDeployment: json['active_deployment'] != null ? SdkPresent((json['active_deployment'] != null ? AppsDeployment.fromJson(json['active_deployment'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    defaultIngress: json['default_ingress'] != null ? SdkPresent((json['default_ingress'] as String?)!) : const SdkOmitted(),
-    domains: json['domains'] != null ? SdkPresent(((json['domains'] as List?)?.map((e) => AppsDomain.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    inProgressDeployment: json['in_progress_deployment'] != null ? SdkPresent((json['in_progress_deployment'] != null ? AppsDeployment.fromJson(json['in_progress_deployment'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    lastDeploymentCreatedAt: json['last_deployment_created_at'] != null ? SdkPresent((json['last_deployment_created_at'] as String?)!) : const SdkOmitted(),
-    liveDomain: json['live_domain'] != null ? SdkPresent((json['live_domain'] as String?)!) : const SdkOmitted(),
-    liveUrl: json['live_url'] != null ? SdkPresent((json['live_url'] as String?)!) : const SdkOmitted(),
-    liveUrlBase: json['live_url_base'] != null ? SdkPresent((json['live_url_base'] as String?)!) : const SdkOmitted(),
-    ownerUuid: json['owner_uuid'] != null ? SdkPresent((json['owner_uuid'] as String?)!) : const SdkOmitted(),
-    pendingDeployment: json['pending_deployment'] != null ? SdkPresent((json['pending_deployment'] != null ? AppsDeployment.fromJson(json['pending_deployment'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] != null ? AppsRegion.fromJson(json['region'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    spec: (json['spec'] != null ? AppSpec.fromJson(json['spec'] as Map<String, dynamic>) : null)!,
-    tierSlug: json['tier_slug'] != null ? SdkPresent((json['tier_slug'] as String?)!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-    pinnedDeployment: json['pinned_deployment'] != null ? SdkPresent((json['pinned_deployment'] != null ? AppsDeployment.fromJson(json['pinned_deployment'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    dedicatedIps: json['dedicated_ips'] != null ? SdkPresent(((json['dedicated_ips'] as List?)?.map((e) => AppsDedicatedEgressIp.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    vpc: json['vpc'] != null ? SdkPresent((json['vpc'] != null ? AppsVpc.fromJson(json['vpc'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        activeDeployment: json['active_deployment'] != null
+            ? SdkPresent((json['active_deployment'] != null
+                ? AppsDeployment.fromJson(
+                    json['active_deployment'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        defaultIngress: json['default_ingress'] != null
+            ? SdkPresent((json['default_ingress'] as String?)!)
+            : const SdkOmitted(),
+        domains: json['domains'] != null
+            ? SdkPresent(((json['domains'] as List?)
+                ?.map((e) => AppsDomain.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        inProgressDeployment: json['in_progress_deployment'] != null
+            ? SdkPresent((json['in_progress_deployment'] != null
+                ? AppsDeployment.fromJson(
+                    json['in_progress_deployment'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        lastDeploymentCreatedAt: json['last_deployment_created_at'] != null
+            ? SdkPresent((json['last_deployment_created_at'] as String?)!)
+            : const SdkOmitted(),
+        liveDomain: json['live_domain'] != null
+            ? SdkPresent((json['live_domain'] as String?)!)
+            : const SdkOmitted(),
+        liveUrl: json['live_url'] != null
+            ? SdkPresent((json['live_url'] as String?)!)
+            : const SdkOmitted(),
+        liveUrlBase: json['live_url_base'] != null
+            ? SdkPresent((json['live_url_base'] as String?)!)
+            : const SdkOmitted(),
+        ownerUuid: json['owner_uuid'] != null
+            ? SdkPresent((json['owner_uuid'] as String?)!)
+            : const SdkOmitted(),
+        pendingDeployment: json['pending_deployment'] != null
+            ? SdkPresent((json['pending_deployment'] != null
+                ? AppsDeployment.fromJson(
+                    json['pending_deployment'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        projectId: json['project_id'] != null
+            ? SdkPresent((json['project_id'] as String?)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] != null
+                ? AppsRegion.fromJson(json['region'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        spec: (json['spec'] != null
+            ? AppSpec.fromJson(json['spec'] as Map<String, dynamic>)
+            : null)!,
+        tierSlug: json['tier_slug'] != null
+            ? SdkPresent((json['tier_slug'] as String?)!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+        pinnedDeployment: json['pinned_deployment'] != null
+            ? SdkPresent((json['pinned_deployment'] != null
+                ? AppsDeployment.fromJson(
+                    json['pinned_deployment'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        dedicatedIps: json['dedicated_ips'] != null
+            ? SdkPresent(((json['dedicated_ips'] as List?)
+                ?.map((e) =>
+                    AppsDedicatedEgressIp.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        vpc: json['vpc'] != null
+            ? SdkPresent((json['vpc'] != null
+                ? AppsVpc.fromJson(json['vpc'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (activeDeployment) {
-      SdkPresent<AppsDeployment>(value: final value) => {'active_deployment': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (defaultIngress) {
-      SdkPresent<String>(value: final value) => {'default_ingress': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (domains) {
-      SdkPresent<List<AppsDomain>>(value: final value) => {'domains': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inProgressDeployment) {
-      SdkPresent<AppsDeployment>(value: final value) => {'in_progress_deployment': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastDeploymentCreatedAt) {
-      SdkPresent<String>(value: final value) => {'last_deployment_created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (liveDomain) {
-      SdkPresent<String>(value: final value) => {'live_domain': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (liveUrl) {
-      SdkPresent<String>(value: final value) => {'live_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (liveUrlBase) {
-      SdkPresent<String>(value: final value) => {'live_url_base': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ownerUuid) {
-      SdkPresent<String>(value: final value) => {'owner_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pendingDeployment) {
-      SdkPresent<AppsDeployment>(value: final value) => {'pending_deployment': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (projectId) {
-      SdkPresent<String>(value: final value) => {'project_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<AppsRegion>(value: final value) => {'region': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'spec': spec.toJson(),
-    ...switch (tierSlug) {
-      SdkPresent<String>(value: final value) => {'tier_slug': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pinnedDeployment) {
-      SdkPresent<AppsDeployment>(value: final value) => {'pinned_deployment': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dedicatedIps) {
-      SdkPresent<List<AppsDedicatedEgressIp>>(value: final value) => {'dedicated_ips': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (vpc) {
-      SdkPresent<AppsVpc>(value: final value) => {'vpc': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (activeDeployment) {
+          SdkPresent<AppsDeployment>(value: final value) => {
+              'active_deployment': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (defaultIngress) {
+          SdkPresent<String>(value: final value) => {
+              'default_ingress': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (domains) {
+          SdkPresent<List<AppsDomain>>(value: final value) => {
+              'domains': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inProgressDeployment) {
+          SdkPresent<AppsDeployment>(value: final value) => {
+              'in_progress_deployment': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastDeploymentCreatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'last_deployment_created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (liveDomain) {
+          SdkPresent<String>(value: final value) => {
+              'live_domain': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (liveUrl) {
+          SdkPresent<String>(value: final value) => {
+              'live_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (liveUrlBase) {
+          SdkPresent<String>(value: final value) => {
+              'live_url_base': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ownerUuid) {
+          SdkPresent<String>(value: final value) => {
+              'owner_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pendingDeployment) {
+          SdkPresent<AppsDeployment>(value: final value) => {
+              'pending_deployment': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (projectId) {
+          SdkPresent<String>(value: final value) => {
+              'project_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<AppsRegion>(value: final value) => {
+              'region': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'spec': spec.toJson(),
+        ...switch (tierSlug) {
+          SdkPresent<String>(value: final value) => {
+              'tier_slug': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pinnedDeployment) {
+          SdkPresent<AppsDeployment>(value: final value) => {
+              'pinned_deployment': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dedicatedIps) {
+          SdkPresent<List<AppsDedicatedEgressIp>>(value: final value) => {
+              'dedicated_ips': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (vpc) {
+          SdkPresent<AppsVpc>(value: final value) => {
+              'vpc': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

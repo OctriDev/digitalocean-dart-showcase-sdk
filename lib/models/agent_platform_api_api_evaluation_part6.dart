@@ -8,108 +8,220 @@ part of 'agent_platform_api_api_evaluation.dart';
 class ApiEvaluationTestCaseMetricList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `metric_uuids` wire field.
   final SdkOptional<List<String>> metricUuids;
 
-  const ApiEvaluationTestCaseMetricList({this.metricUuids = const SdkOmitted()});
+  const ApiEvaluationTestCaseMetricList(
+      {this.metricUuids = const SdkOmitted()});
 
-  ApiEvaluationTestCaseMetricList Function({SdkOptional<List<String>> metricUuids}) get copyWith => _copyWith;
+  ApiEvaluationTestCaseMetricList Function(
+      {SdkOptional<List<String>> metricUuids}) get copyWith => _copyWith;
 
-  ApiEvaluationTestCaseMetricList _copyWith({Object? metricUuids = sdkOmittedValue}) => ApiEvaluationTestCaseMetricList(
-    metricUuids: identical(metricUuids, sdkOmittedValue) ? this.metricUuids : metricUuids as SdkOptional<List<String>>,
-  );
+  ApiEvaluationTestCaseMetricList _copyWith(
+          {Object? metricUuids = sdkOmittedValue}) =>
+      ApiEvaluationTestCaseMetricList(
+        metricUuids: identical(metricUuids, sdkOmittedValue)
+            ? this.metricUuids
+            : metricUuids as SdkOptional<List<String>>,
+      );
 
-  factory ApiEvaluationTestCaseMetricList.fromJson(Map<String, dynamic> json) => ApiEvaluationTestCaseMetricList(
-    metricUuids: json['metric_uuids'] != null ? SdkPresent(((json['metric_uuids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory ApiEvaluationTestCaseMetricList.fromJson(Map<String, dynamic> json) =>
+      ApiEvaluationTestCaseMetricList(
+        metricUuids: json['metric_uuids'] != null
+            ? SdkPresent(((json['metric_uuids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (metricUuids) {
-      SdkPresent<List<String>>(value: final value) => {'metric_uuids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (metricUuids) {
+          SdkPresent<List<String>>(value: final value) => {
+              'metric_uuids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Represents a span within an evaluatioin trace (e.g., LLM call, tool call, etc.)
 class ApiEvaluationTraceSpan {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// When the span was created
   final SdkOptional<String> createdAt;
+
   /// Input data for the span (flexible structure - can be messages array, string, etc.)
   final SdkOptional<Map<String, dynamic>> input;
+
   /// Name/identifier for the span
   final SdkOptional<String> name;
+
   /// Output data from the span (flexible structure - can be message, string, etc.)
   final SdkOptional<Map<String, dynamic>> output;
+
   /// Any retriever span chunks that were included as part of the span.
   final SdkOptional<List<ApiPromptChunk>> retrieverChunks;
+
   /// The span-level metric results.
   final SdkOptional<List<ApiEvaluationMetricResult>> spanLevelMetricResults;
+
   /// Child spans - must contain between 1 and 999 spans Allowed types: agent, llm, tool, retriever (not workflow)
   final SdkOptional<List<ApiTraceSpan>> spans;
+
   /// Types of spans in a trace
   final SdkOptional<ApiTraceSpanType> type_;
 
-  const ApiEvaluationTraceSpan({this.createdAt = const SdkOmitted(), this.input = const SdkOmitted(), this.name = const SdkOmitted(), this.output = const SdkOmitted(), this.retrieverChunks = const SdkOmitted(), this.spanLevelMetricResults = const SdkOmitted(), this.spans = const SdkOmitted(), this.type_ = const SdkOmitted()});
+  const ApiEvaluationTraceSpan(
+      {this.createdAt = const SdkOmitted(),
+      this.input = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.output = const SdkOmitted(),
+      this.retrieverChunks = const SdkOmitted(),
+      this.spanLevelMetricResults = const SdkOmitted(),
+      this.spans = const SdkOmitted(),
+      this.type_ = const SdkOmitted()});
 
-  ApiEvaluationTraceSpan Function({SdkOptional<String> createdAt, SdkOptional<Map<String, dynamic>> input, SdkOptional<String> name, SdkOptional<Map<String, dynamic>> output, SdkOptional<List<ApiPromptChunk>> retrieverChunks, SdkOptional<List<ApiEvaluationMetricResult>> spanLevelMetricResults, SdkOptional<List<ApiTraceSpan>> spans, SdkOptional<ApiTraceSpanType> type_}) get copyWith => _copyWith;
+  ApiEvaluationTraceSpan Function(
+      {SdkOptional<String> createdAt,
+      SdkOptional<Map<String, dynamic>> input,
+      SdkOptional<String> name,
+      SdkOptional<Map<String, dynamic>> output,
+      SdkOptional<List<ApiPromptChunk>> retrieverChunks,
+      SdkOptional<List<ApiEvaluationMetricResult>> spanLevelMetricResults,
+      SdkOptional<List<ApiTraceSpan>> spans,
+      SdkOptional<ApiTraceSpanType> type_}) get copyWith => _copyWith;
 
-  ApiEvaluationTraceSpan _copyWith({Object? createdAt = sdkOmittedValue, Object? input = sdkOmittedValue, Object? name = sdkOmittedValue, Object? output = sdkOmittedValue, Object? retrieverChunks = sdkOmittedValue, Object? spanLevelMetricResults = sdkOmittedValue, Object? spans = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => ApiEvaluationTraceSpan(
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<Map<String, dynamic>>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<Map<String, dynamic>>,
-    retrieverChunks: identical(retrieverChunks, sdkOmittedValue) ? this.retrieverChunks : retrieverChunks as SdkOptional<List<ApiPromptChunk>>,
-    spanLevelMetricResults: identical(spanLevelMetricResults, sdkOmittedValue) ? this.spanLevelMetricResults : spanLevelMetricResults as SdkOptional<List<ApiEvaluationMetricResult>>,
-    spans: identical(spans, sdkOmittedValue) ? this.spans : spans as SdkOptional<List<ApiTraceSpan>>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ApiTraceSpanType>,
-  );
+  ApiEvaluationTraceSpan _copyWith(
+          {Object? createdAt = sdkOmittedValue,
+          Object? input = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? retrieverChunks = sdkOmittedValue,
+          Object? spanLevelMetricResults = sdkOmittedValue,
+          Object? spans = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      ApiEvaluationTraceSpan(
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as SdkOptional<Map<String, dynamic>>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<Map<String, dynamic>>,
+        retrieverChunks: identical(retrieverChunks, sdkOmittedValue)
+            ? this.retrieverChunks
+            : retrieverChunks as SdkOptional<List<ApiPromptChunk>>,
+        spanLevelMetricResults:
+            identical(spanLevelMetricResults, sdkOmittedValue)
+                ? this.spanLevelMetricResults
+                : spanLevelMetricResults
+                    as SdkOptional<List<ApiEvaluationMetricResult>>,
+        spans: identical(spans, sdkOmittedValue)
+            ? this.spans
+            : spans as SdkOptional<List<ApiTraceSpan>>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ApiTraceSpanType>,
+      );
 
-  factory ApiEvaluationTraceSpan.fromJson(Map<String, dynamic> json) => ApiEvaluationTraceSpan(
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    input: json['input'] != null ? SdkPresent((json['input'] == null ? null : json['input'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    output: json['output'] != null ? SdkPresent((json['output'] == null ? null : json['output'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    retrieverChunks: json['retriever_chunks'] != null ? SdkPresent(((json['retriever_chunks'] as List?)?.map((e) => ApiPromptChunk.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    spanLevelMetricResults: json['span_level_metric_results'] != null ? SdkPresent(((json['span_level_metric_results'] as List?)?.map((e) => ApiEvaluationMetricResult.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    spans: json['spans'] != null ? SdkPresent(((json['spans'] as List?)?.map((e) => ApiTraceSpan.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ApiTraceSpanType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory ApiEvaluationTraceSpan.fromJson(Map<String, dynamic> json) =>
+      ApiEvaluationTraceSpan(
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        input: json['input'] != null
+            ? SdkPresent((json['input'] == null
+                ? null
+                : json['input'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        output: json['output'] != null
+            ? SdkPresent((json['output'] == null
+                ? null
+                : json['output'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        retrieverChunks: json['retriever_chunks'] != null
+            ? SdkPresent(((json['retriever_chunks'] as List?)
+                ?.map((e) => ApiPromptChunk.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        spanLevelMetricResults: json['span_level_metric_results'] != null
+            ? SdkPresent(((json['span_level_metric_results'] as List?)
+                ?.map((e) => ApiEvaluationMetricResult.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        spans: json['spans'] != null
+            ? SdkPresent(((json['spans'] as List?)
+                ?.map((e) => ApiTraceSpan.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ApiTraceSpanType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (input) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'input': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (output) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'output': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (retrieverChunks) {
-      SdkPresent<List<ApiPromptChunk>>(value: final value) => {'retriever_chunks': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (spanLevelMetricResults) {
-      SdkPresent<List<ApiEvaluationMetricResult>>(value: final value) => {'span_level_metric_results': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (spans) {
-      SdkPresent<List<ApiTraceSpan>>(value: final value) => {'spans': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<ApiTraceSpanType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (input) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'input': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (output) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'output': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (retrieverChunks) {
+          SdkPresent<List<ApiPromptChunk>>(value: final value) => {
+              'retriever_chunks': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (spanLevelMetricResults) {
+          SdkPresent<List<ApiEvaluationMetricResult>>(value: final value) => {
+              'span_level_metric_results':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (spans) {
+          SdkPresent<List<ApiTraceSpan>>(value: final value) => {
+              'spans': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<ApiTraceSpanType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

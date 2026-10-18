@@ -8,242 +8,410 @@ part of 'nfs.dart';
 class NfsGetResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `share` wire field.
   final SdkOptional<NfsResponse> share;
 
   const NfsGetResponse({this.share = const SdkOmitted()});
 
-  NfsGetResponse Function({SdkOptional<NfsResponse> share}) get copyWith => _copyWith;
+  NfsGetResponse Function({SdkOptional<NfsResponse> share}) get copyWith =>
+      _copyWith;
 
   NfsGetResponse _copyWith({Object? share = sdkOmittedValue}) => NfsGetResponse(
-    share: identical(share, sdkOmittedValue) ? this.share : share as SdkOptional<NfsResponse>,
-  );
+        share: identical(share, sdkOmittedValue)
+            ? this.share
+            : share as SdkOptional<NfsResponse>,
+      );
 
   factory NfsGetResponse.fromJson(Map<String, dynamic> json) => NfsGetResponse(
-    share: json['share'] != null ? SdkPresent((json['share'] != null ? NfsResponse.fromJson(json['share'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        share: json['share'] != null
+            ? SdkPresent((json['share'] != null
+                ? NfsResponse.fromJson(json['share'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (share) {
-      SdkPresent<NfsResponse>(value: final value) => {'share': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (share) {
+          SdkPresent<NfsResponse>(value: final value) => {
+              'share': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `NfsListResponse` API schema.
 class NfsListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `shares` wire field.
   final SdkOptional<List<NfsResponse>> shares;
 
   const NfsListResponse({this.shares = const SdkOmitted()});
 
-  NfsListResponse Function({SdkOptional<List<NfsResponse>> shares}) get copyWith => _copyWith;
+  NfsListResponse Function({SdkOptional<List<NfsResponse>> shares})
+      get copyWith => _copyWith;
 
-  NfsListResponse _copyWith({Object? shares = sdkOmittedValue}) => NfsListResponse(
-    shares: identical(shares, sdkOmittedValue) ? this.shares : shares as SdkOptional<List<NfsResponse>>,
-  );
+  NfsListResponse _copyWith({Object? shares = sdkOmittedValue}) =>
+      NfsListResponse(
+        shares: identical(shares, sdkOmittedValue)
+            ? this.shares
+            : shares as SdkOptional<List<NfsResponse>>,
+      );
 
-  factory NfsListResponse.fromJson(Map<String, dynamic> json) => NfsListResponse(
-    shares: json['shares'] != null ? SdkPresent(((json['shares'] as List?)?.map((e) => NfsResponse.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory NfsListResponse.fromJson(Map<String, dynamic> json) =>
+      NfsListResponse(
+        shares: json['shares'] != null
+            ? SdkPresent(((json['shares'] as List?)
+                ?.map((e) => NfsResponse.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (shares) {
-      SdkPresent<List<NfsResponse>>(value: final value) => {'shares': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (shares) {
+          SdkPresent<List<NfsResponse>>(value: final value) => {
+              'shares': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `NfsRequest` API schema.
 class NfsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The human-readable name of the share.
   final String name;
+
   /// The desired/provisioned size of the share in GiB (Gibibytes). Must be &gt;= 50.
   final int sizeGib;
+
   /// The DigitalOcean region slug (e.g., nyc2, atl1) where the NFS share resides.
   final String region;
+
   /// List of VPC IDs that should be able to access the share.
   final List<String> vpcIds;
+
   /// The performance tier of the share.
   final SdkOptional<String> performanceTier;
 
-  const NfsRequest({required this.name, required this.sizeGib, required this.region, required this.vpcIds, this.performanceTier = const SdkOmitted()});
+  const NfsRequest(
+      {required this.name,
+      required this.sizeGib,
+      required this.region,
+      required this.vpcIds,
+      this.performanceTier = const SdkOmitted()});
 
-  NfsRequest Function({String name, int sizeGib, String region, List<String> vpcIds, SdkOptional<String> performanceTier}) get copyWith => _copyWith;
+  NfsRequest Function(
+      {String name,
+      int sizeGib,
+      String region,
+      List<String> vpcIds,
+      SdkOptional<String> performanceTier}) get copyWith => _copyWith;
 
-  NfsRequest _copyWith({Object? name = sdkOmittedValue, Object? sizeGib = sdkOmittedValue, Object? region = sdkOmittedValue, Object? vpcIds = sdkOmittedValue, Object? performanceTier = sdkOmittedValue}) => NfsRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    sizeGib: identical(sizeGib, sdkOmittedValue) ? this.sizeGib : sizeGib as int,
-    region: identical(region, sdkOmittedValue) ? this.region : region as String,
-    vpcIds: identical(vpcIds, sdkOmittedValue) ? this.vpcIds : vpcIds as List<String>,
-    performanceTier: identical(performanceTier, sdkOmittedValue) ? this.performanceTier : performanceTier as SdkOptional<String>,
-  );
+  NfsRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? sizeGib = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? vpcIds = sdkOmittedValue,
+          Object? performanceTier = sdkOmittedValue}) =>
+      NfsRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        sizeGib:
+            identical(sizeGib, sdkOmittedValue) ? this.sizeGib : sizeGib as int,
+        region:
+            identical(region, sdkOmittedValue) ? this.region : region as String,
+        vpcIds: identical(vpcIds, sdkOmittedValue)
+            ? this.vpcIds
+            : vpcIds as List<String>,
+        performanceTier: identical(performanceTier, sdkOmittedValue)
+            ? this.performanceTier
+            : performanceTier as SdkOptional<String>,
+      );
 
   factory NfsRequest.fromJson(Map<String, dynamic> json) => NfsRequest(
-    name: (json['name'] as String?)!,
-    sizeGib: ((json['size_gib'] as num?)?.toInt())!,
-    region: (json['region'] as String?)!,
-    vpcIds: ((json['vpc_ids'] as List?)?.map((e) => e as String).toList())!,
-    performanceTier: json['performance_tier'] != null ? SdkPresent((json['performance_tier'] as String?)!) : const SdkOmitted(),
-  );
+        name: (json['name'] as String?)!,
+        sizeGib: ((json['size_gib'] as num?)?.toInt())!,
+        region: (json['region'] as String?)!,
+        vpcIds: ((json['vpc_ids'] as List?)?.map((e) => e as String).toList())!,
+        performanceTier: json['performance_tier'] != null
+            ? SdkPresent((json['performance_tier'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'size_gib': sizeGib,
-    'region': region,
-    'vpc_ids': vpcIds,
-    ...switch (performanceTier) {
-      SdkPresent<String>(value: final value) => {'performance_tier': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        'size_gib': sizeGib,
+        'region': region,
+        'vpc_ids': vpcIds,
+        ...switch (performanceTier) {
+          SdkPresent<String>(value: final value) => {
+              'performance_tier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `NfsResponse` API schema.
 class NfsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier of the NFS share.
   final String id;
+
   /// The human-readable name of the share.
   final String name;
+
   /// The desired/provisioned size of the share in GiB (Gibibytes). Must be &gt;= 50.
   final int sizeGib;
+
   /// The DigitalOcean region slug (e.g., nyc2, atl1) where the NFS share resides.
   final String region;
+
   /// The current status of the share. `INACTIVE` means the share exists but is not attached to any VPC.
   final NfsResponseStatus status;
+
   /// Timestamp for when the NFS share was created.
   final String createdAt;
+
   /// List of VPC IDs that should be able to access the share.
   final SdkOptional<List<String>> vpcIds;
+
   /// The performance tier of the share.
   final SdkOptional<String> performanceTier;
+
   /// Path at which the share will be available, to be mounted at a target of the user's choice within the client
   final SdkOptional<String> mountPath;
+
   /// The host IP of the NFS server that will be accessible from the associated VPC
   final SdkOptional<String> host;
+
   /// Access points configured on this share. The default access point is returned first.
   final SdkOptional<List<AccessPointResponse>> accessPoints;
 
-  const NfsResponse({required this.id, required this.name, required this.sizeGib, required this.region, required this.status, required this.createdAt, this.vpcIds = const SdkOmitted(), this.performanceTier = const SdkOmitted(), this.mountPath = const SdkOmitted(), this.host = const SdkOmitted(), this.accessPoints = const SdkOmitted()});
+  const NfsResponse(
+      {required this.id,
+      required this.name,
+      required this.sizeGib,
+      required this.region,
+      required this.status,
+      required this.createdAt,
+      this.vpcIds = const SdkOmitted(),
+      this.performanceTier = const SdkOmitted(),
+      this.mountPath = const SdkOmitted(),
+      this.host = const SdkOmitted(),
+      this.accessPoints = const SdkOmitted()});
 
-  NfsResponse Function({String id, String name, int sizeGib, String region, NfsResponseStatus status, String createdAt, SdkOptional<List<String>> vpcIds, SdkOptional<String> performanceTier, SdkOptional<String> mountPath, SdkOptional<String> host, SdkOptional<List<AccessPointResponse>> accessPoints}) get copyWith => _copyWith;
+  NfsResponse Function(
+          {String id,
+          String name,
+          int sizeGib,
+          String region,
+          NfsResponseStatus status,
+          String createdAt,
+          SdkOptional<List<String>> vpcIds,
+          SdkOptional<String> performanceTier,
+          SdkOptional<String> mountPath,
+          SdkOptional<String> host,
+          SdkOptional<List<AccessPointResponse>> accessPoints})
+      get copyWith => _copyWith;
 
-  NfsResponse _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? sizeGib = sdkOmittedValue, Object? region = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? vpcIds = sdkOmittedValue, Object? performanceTier = sdkOmittedValue, Object? mountPath = sdkOmittedValue, Object? host = sdkOmittedValue, Object? accessPoints = sdkOmittedValue}) => NfsResponse(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    sizeGib: identical(sizeGib, sdkOmittedValue) ? this.sizeGib : sizeGib as int,
-    region: identical(region, sdkOmittedValue) ? this.region : region as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as NfsResponseStatus,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    vpcIds: identical(vpcIds, sdkOmittedValue) ? this.vpcIds : vpcIds as SdkOptional<List<String>>,
-    performanceTier: identical(performanceTier, sdkOmittedValue) ? this.performanceTier : performanceTier as SdkOptional<String>,
-    mountPath: identical(mountPath, sdkOmittedValue) ? this.mountPath : mountPath as SdkOptional<String>,
-    host: identical(host, sdkOmittedValue) ? this.host : host as SdkOptional<String>,
-    accessPoints: identical(accessPoints, sdkOmittedValue) ? this.accessPoints : accessPoints as SdkOptional<List<AccessPointResponse>>,
-  );
+  NfsResponse _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? sizeGib = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? vpcIds = sdkOmittedValue,
+          Object? performanceTier = sdkOmittedValue,
+          Object? mountPath = sdkOmittedValue,
+          Object? host = sdkOmittedValue,
+          Object? accessPoints = sdkOmittedValue}) =>
+      NfsResponse(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        sizeGib:
+            identical(sizeGib, sdkOmittedValue) ? this.sizeGib : sizeGib as int,
+        region:
+            identical(region, sdkOmittedValue) ? this.region : region as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as NfsResponseStatus,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        vpcIds: identical(vpcIds, sdkOmittedValue)
+            ? this.vpcIds
+            : vpcIds as SdkOptional<List<String>>,
+        performanceTier: identical(performanceTier, sdkOmittedValue)
+            ? this.performanceTier
+            : performanceTier as SdkOptional<String>,
+        mountPath: identical(mountPath, sdkOmittedValue)
+            ? this.mountPath
+            : mountPath as SdkOptional<String>,
+        host: identical(host, sdkOmittedValue)
+            ? this.host
+            : host as SdkOptional<String>,
+        accessPoints: identical(accessPoints, sdkOmittedValue)
+            ? this.accessPoints
+            : accessPoints as SdkOptional<List<AccessPointResponse>>,
+      );
 
   factory NfsResponse.fromJson(Map<String, dynamic> json) => NfsResponse(
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    sizeGib: ((json['size_gib'] as num?)?.toInt())!,
-    region: (json['region'] as String?)!,
-    status: (json['status'] != null ? NfsResponseStatus.fromJson(json['status'] as String) : null)!,
-    createdAt: (json['created_at'] as String?)!,
-    vpcIds: json['vpc_ids'] != null ? SdkPresent(((json['vpc_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    performanceTier: json['performance_tier'] != null ? SdkPresent((json['performance_tier'] as String?)!) : const SdkOmitted(),
-    mountPath: json['mount_path'] != null ? SdkPresent((json['mount_path'] as String?)!) : const SdkOmitted(),
-    host: json['host'] != null ? SdkPresent((json['host'] as String?)!) : const SdkOmitted(),
-    accessPoints: json['access_points'] != null ? SdkPresent(((json['access_points'] as List?)?.map((e) => AccessPointResponse.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        sizeGib: ((json['size_gib'] as num?)?.toInt())!,
+        region: (json['region'] as String?)!,
+        status: (json['status'] != null
+            ? NfsResponseStatus.fromJson(json['status'] as String)
+            : null)!,
+        createdAt: (json['created_at'] as String?)!,
+        vpcIds: json['vpc_ids'] != null
+            ? SdkPresent(
+                ((json['vpc_ids'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        performanceTier: json['performance_tier'] != null
+            ? SdkPresent((json['performance_tier'] as String?)!)
+            : const SdkOmitted(),
+        mountPath: json['mount_path'] != null
+            ? SdkPresent((json['mount_path'] as String?)!)
+            : const SdkOmitted(),
+        host: json['host'] != null
+            ? SdkPresent((json['host'] as String?)!)
+            : const SdkOmitted(),
+        accessPoints: json['access_points'] != null
+            ? SdkPresent(((json['access_points'] as List?)
+                ?.map((e) =>
+                    AccessPointResponse.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'size_gib': sizeGib,
-    'region': region,
-    'status': status.toJson(),
-    'created_at': createdAt,
-    ...switch (vpcIds) {
-      SdkPresent<List<String>>(value: final value) => {'vpc_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (performanceTier) {
-      SdkPresent<String>(value: final value) => {'performance_tier': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (mountPath) {
-      SdkPresent<String>(value: final value) => {'mount_path': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (host) {
-      SdkPresent<String>(value: final value) => {'host': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (accessPoints) {
-      SdkPresent<List<AccessPointResponse>>(value: final value) => {'access_points': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        'name': name,
+        'size_gib': sizeGib,
+        'region': region,
+        'status': status.toJson(),
+        'created_at': createdAt,
+        ...switch (vpcIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'vpc_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (performanceTier) {
+          SdkPresent<String>(value: final value) => {
+              'performance_tier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (mountPath) {
+          SdkPresent<String>(value: final value) => {
+              'mount_path': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (host) {
+          SdkPresent<String>(value: final value) => {
+              'host': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (accessPoints) {
+          SdkPresent<List<AccessPointResponse>>(value: final value) => {
+              'access_points': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `NfsSnapshotGetResponse` API schema.
 class NfsSnapshotGetResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Represents an NFS snapshot.
   final SdkOptional<NfsSnapshotResponse> snapshot;
 
   const NfsSnapshotGetResponse({this.snapshot = const SdkOmitted()});
 
-  NfsSnapshotGetResponse Function({SdkOptional<NfsSnapshotResponse> snapshot}) get copyWith => _copyWith;
+  NfsSnapshotGetResponse Function({SdkOptional<NfsSnapshotResponse> snapshot})
+      get copyWith => _copyWith;
 
-  NfsSnapshotGetResponse _copyWith({Object? snapshot = sdkOmittedValue}) => NfsSnapshotGetResponse(
-    snapshot: identical(snapshot, sdkOmittedValue) ? this.snapshot : snapshot as SdkOptional<NfsSnapshotResponse>,
-  );
+  NfsSnapshotGetResponse _copyWith({Object? snapshot = sdkOmittedValue}) =>
+      NfsSnapshotGetResponse(
+        snapshot: identical(snapshot, sdkOmittedValue)
+            ? this.snapshot
+            : snapshot as SdkOptional<NfsSnapshotResponse>,
+      );
 
-  factory NfsSnapshotGetResponse.fromJson(Map<String, dynamic> json) => NfsSnapshotGetResponse(
-    snapshot: json['snapshot'] != null ? SdkPresent((json['snapshot'] != null ? NfsSnapshotResponse.fromJson(json['snapshot'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory NfsSnapshotGetResponse.fromJson(Map<String, dynamic> json) =>
+      NfsSnapshotGetResponse(
+        snapshot: json['snapshot'] != null
+            ? SdkPresent((json['snapshot'] != null
+                ? NfsSnapshotResponse.fromJson(
+                    json['snapshot'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (snapshot) {
-      SdkPresent<NfsSnapshotResponse>(value: final value) => {'snapshot': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (snapshot) {
+          SdkPresent<NfsSnapshotResponse>(value: final value) => {
+              'snapshot': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `NfsSnapshotListResponse` API schema.
 class NfsSnapshotListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `snapshots` wire field.
   final SdkOptional<List<NfsSnapshotResponse>> snapshots;
 
   const NfsSnapshotListResponse({this.snapshots = const SdkOmitted()});
 
-  NfsSnapshotListResponse Function({SdkOptional<List<NfsSnapshotResponse>> snapshots}) get copyWith => _copyWith;
+  NfsSnapshotListResponse Function(
+          {SdkOptional<List<NfsSnapshotResponse>> snapshots})
+      get copyWith => _copyWith;
 
-  NfsSnapshotListResponse _copyWith({Object? snapshots = sdkOmittedValue}) => NfsSnapshotListResponse(
-    snapshots: identical(snapshots, sdkOmittedValue) ? this.snapshots : snapshots as SdkOptional<List<NfsSnapshotResponse>>,
-  );
+  NfsSnapshotListResponse _copyWith({Object? snapshots = sdkOmittedValue}) =>
+      NfsSnapshotListResponse(
+        snapshots: identical(snapshots, sdkOmittedValue)
+            ? this.snapshots
+            : snapshots as SdkOptional<List<NfsSnapshotResponse>>,
+      );
 
-  factory NfsSnapshotListResponse.fromJson(Map<String, dynamic> json) => NfsSnapshotListResponse(
-    snapshots: json['snapshots'] != null ? SdkPresent(((json['snapshots'] as List?)?.map((e) => NfsSnapshotResponse.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory NfsSnapshotListResponse.fromJson(Map<String, dynamic> json) =>
+      NfsSnapshotListResponse(
+        snapshots: json['snapshots'] != null
+            ? SdkPresent(((json['snapshots'] as List?)
+                ?.map((e) =>
+                    NfsSnapshotResponse.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (snapshots) {
-      SdkPresent<List<NfsSnapshotResponse>>(value: final value) => {'snapshots': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (snapshots) {
+          SdkPresent<List<NfsSnapshotResponse>>(value: final value) => {
+              'snapshots': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

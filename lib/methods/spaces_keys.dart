@@ -37,22 +37,36 @@ Future<KeyList> spacesKeyList(ClientConfig config,
   return (await sdkRequest<KeyList>('GET', '/v2/spaces/keys',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'sort': SdkQueryValue(SdkUtils.unwrapOptional(sort), style: 'form', explode: true),
-            'sort_direction': SdkQueryValue(SdkUtils.unwrapOptional(sortDirection), style: 'form', explode: true),
-            'name': SdkQueryValue(SdkUtils.unwrapOptional(name), style: 'form', explode: true),
-            'bucket': SdkQueryValue(SdkUtils.unwrapOptional(bucket), style: 'form', explode: true),
-            'permission': SdkQueryValue(SdkUtils.unwrapOptional(permission), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'sort': SdkQueryValue(SdkUtils.unwrapOptional(sort),
+                style: 'form', explode: true),
+            'sort_direction': SdkQueryValue(
+                SdkUtils.unwrapOptional(sortDirection),
+                style: 'form',
+                explode: true),
+            'name': SdkQueryValue(SdkUtils.unwrapOptional(name),
+                style: 'form', explode: true),
+            'bucket': SdkQueryValue(SdkUtils.unwrapOptional(bucket),
+                style: 'form', explode: true),
+            'permission': SdkQueryValue(SdkUtils.unwrapOptional(permission),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'spacesKeyList',
-          fromJsonRaw: (value) => KeyList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              KeyList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To create a new Spaces Access Key, send a POST request to `/v2/spaces/keys`. At the moment, you cannot mix a fullaccess permission with scoped permissions. A fullaccess permission will be prioritized if fullaccess and scoped permissions are both added.
 ///
@@ -70,12 +84,18 @@ Future<KeyCreate> spacesKeyCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'spacesKeyCreate',
-          fromJsonRaw: (value) => KeyCreate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              KeyCreate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To get a Spaces Access Key, send a GET request to `/v2/spaces/keys/$ACCESS_KEY`. A successful request will return the Access Key.
 ///
@@ -87,12 +107,18 @@ Future<KeyGet> spacesKeyGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'spacesKeyGet',
-          fromJsonRaw: (value) => KeyGet.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              KeyGet.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To delete a Spaces Access Key, send a DELETE request to `/v2/spaces/keys/$ACCESS_KEY`. A successful request will return a `204 No Content` status code.
 ///
@@ -105,10 +131,15 @@ Future<void> spacesKeyDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'spacesKeyDelete',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To update Spaces Access Key, send a PUT or PATCH request to `/v2/spaces/keys/$ACCESS_KEY`. At the moment, you cannot convert a fullaccess key to a scoped key or vice versa. You can only update the name of the key.
 ///
@@ -129,12 +160,19 @@ Future<KeyUpdate> spacesKeyUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'spacesKeyUpdate',
-          fromJsonRaw: (value) => KeyUpdate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              KeyUpdate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To update Spaces Access Key, send a PUT or PATCH request to `/v2/spaces/keys/$ACCESS_KEY`. At the moment, you cannot convert a fullaccess key to a scoped key or vice versa. You can only update the name of the key.
 ///
@@ -155,8 +193,16 @@ Future<KeyUpdate> spacesKeyPatch(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'spacesKeyPatch',
-          fromJsonRaw: (value) => KeyUpdate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              KeyUpdate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

@@ -9,24 +9,41 @@ class AllPartnerAttachmentRemoteRoutesVariant0 {
   static const String constructionSurface = 'named';
   final SdkOptional<List<PartnerAttachmentRemoteRoute>> remoteRoutes;
 
-  const AllPartnerAttachmentRemoteRoutesVariant0({this.remoteRoutes = const SdkOmitted()});
+  const AllPartnerAttachmentRemoteRoutesVariant0(
+      {this.remoteRoutes = const SdkOmitted()});
 
-  AllPartnerAttachmentRemoteRoutesVariant0 Function({SdkOptional<List<PartnerAttachmentRemoteRoute>> remoteRoutes}) get copyWith => _copyWith;
+  AllPartnerAttachmentRemoteRoutesVariant0 Function(
+          {SdkOptional<List<PartnerAttachmentRemoteRoute>> remoteRoutes})
+      get copyWith => _copyWith;
 
-  AllPartnerAttachmentRemoteRoutesVariant0 _copyWith({Object? remoteRoutes = sdkOmittedValue}) => AllPartnerAttachmentRemoteRoutesVariant0(
-    remoteRoutes: identical(remoteRoutes, sdkOmittedValue) ? this.remoteRoutes : remoteRoutes as SdkOptional<List<PartnerAttachmentRemoteRoute>>,
-  );
+  AllPartnerAttachmentRemoteRoutesVariant0 _copyWith(
+          {Object? remoteRoutes = sdkOmittedValue}) =>
+      AllPartnerAttachmentRemoteRoutesVariant0(
+        remoteRoutes: identical(remoteRoutes, sdkOmittedValue)
+            ? this.remoteRoutes
+            : remoteRoutes as SdkOptional<List<PartnerAttachmentRemoteRoute>>,
+      );
 
-  factory AllPartnerAttachmentRemoteRoutesVariant0.fromJson(Map<String, dynamic> json) => AllPartnerAttachmentRemoteRoutesVariant0(
-    remoteRoutes: json['remote_routes'] != null ? SdkPresent(((json['remote_routes'] as List?)?.map((e) => PartnerAttachmentRemoteRoute.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AllPartnerAttachmentRemoteRoutesVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      AllPartnerAttachmentRemoteRoutesVariant0(
+        remoteRoutes: json['remote_routes'] != null
+            ? SdkPresent(((json['remote_routes'] as List?)
+                ?.map((e) => PartnerAttachmentRemoteRoute.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (remoteRoutes) {
-      SdkPresent<List<PartnerAttachmentRemoteRoute>>(value: final value) => {'remote_routes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (remoteRoutes) {
+          SdkPresent<List<PartnerAttachmentRemoteRoute>>(value: final value) =>
+            {
+              'remote_routes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllPartnerAttachmentRemoteRoutes` API schema.
@@ -34,38 +51,74 @@ class AllPartnerAttachmentRemoteRoutes {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<PartnerAttachmentRemoteRoute>> remoteRoutes;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllPartnerAttachmentRemoteRoutes({this.remoteRoutes = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllPartnerAttachmentRemoteRoutes(
+      {this.remoteRoutes = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllPartnerAttachmentRemoteRoutes Function({SdkOptional<List<PartnerAttachmentRemoteRoute>> remoteRoutes, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllPartnerAttachmentRemoteRoutes Function(
+      {SdkOptional<List<PartnerAttachmentRemoteRoute>> remoteRoutes,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllPartnerAttachmentRemoteRoutes _copyWith({Object? remoteRoutes = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllPartnerAttachmentRemoteRoutes(
-    remoteRoutes: identical(remoteRoutes, sdkOmittedValue) ? this.remoteRoutes : remoteRoutes as SdkOptional<List<PartnerAttachmentRemoteRoute>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllPartnerAttachmentRemoteRoutes _copyWith(
+          {Object? remoteRoutes = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllPartnerAttachmentRemoteRoutes(
+        remoteRoutes: identical(remoteRoutes, sdkOmittedValue)
+            ? this.remoteRoutes
+            : remoteRoutes as SdkOptional<List<PartnerAttachmentRemoteRoute>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AllPartnerAttachmentRemoteRoutes.fromJson(Map<String, dynamic> json) => AllPartnerAttachmentRemoteRoutes(
-    remoteRoutes: json['remote_routes'] != null ? SdkPresent(((json['remote_routes'] as List?)?.map((e) => PartnerAttachmentRemoteRoute.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory AllPartnerAttachmentRemoteRoutes.fromJson(
+          Map<String, dynamic> json) =>
+      AllPartnerAttachmentRemoteRoutes(
+        remoteRoutes: json['remote_routes'] != null
+            ? SdkPresent(((json['remote_routes'] as List?)
+                ?.map((e) => PartnerAttachmentRemoteRoute.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (remoteRoutes) {
-      SdkPresent<List<PartnerAttachmentRemoteRoute>>(value: final value) => {'remote_routes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (remoteRoutes) {
+          SdkPresent<List<PartnerAttachmentRemoteRoute>>(value: final value) =>
+            {
+              'remote_routes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 class AllPartnerAttachmentsVariant0 {
@@ -73,24 +126,40 @@ class AllPartnerAttachmentsVariant0 {
   static const String constructionSurface = 'named';
   final SdkOptional<List<PartnerAttachment>> partnerAttachments;
 
-  const AllPartnerAttachmentsVariant0({this.partnerAttachments = const SdkOmitted()});
+  const AllPartnerAttachmentsVariant0(
+      {this.partnerAttachments = const SdkOmitted()});
 
-  AllPartnerAttachmentsVariant0 Function({SdkOptional<List<PartnerAttachment>> partnerAttachments}) get copyWith => _copyWith;
+  AllPartnerAttachmentsVariant0 Function(
+          {SdkOptional<List<PartnerAttachment>> partnerAttachments})
+      get copyWith => _copyWith;
 
-  AllPartnerAttachmentsVariant0 _copyWith({Object? partnerAttachments = sdkOmittedValue}) => AllPartnerAttachmentsVariant0(
-    partnerAttachments: identical(partnerAttachments, sdkOmittedValue) ? this.partnerAttachments : partnerAttachments as SdkOptional<List<PartnerAttachment>>,
-  );
+  AllPartnerAttachmentsVariant0 _copyWith(
+          {Object? partnerAttachments = sdkOmittedValue}) =>
+      AllPartnerAttachmentsVariant0(
+        partnerAttachments: identical(partnerAttachments, sdkOmittedValue)
+            ? this.partnerAttachments
+            : partnerAttachments as SdkOptional<List<PartnerAttachment>>,
+      );
 
-  factory AllPartnerAttachmentsVariant0.fromJson(Map<String, dynamic> json) => AllPartnerAttachmentsVariant0(
-    partnerAttachments: json['partner_attachments'] != null ? SdkPresent(((json['partner_attachments'] as List?)?.map((e) => PartnerAttachment.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AllPartnerAttachmentsVariant0.fromJson(Map<String, dynamic> json) =>
+      AllPartnerAttachmentsVariant0(
+        partnerAttachments: json['partner_attachments'] != null
+            ? SdkPresent(((json['partner_attachments'] as List?)
+                ?.map((e) =>
+                    PartnerAttachment.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (partnerAttachments) {
-      SdkPresent<List<PartnerAttachment>>(value: final value) => {'partner_attachments': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (partnerAttachments) {
+          SdkPresent<List<PartnerAttachment>>(value: final value) => {
+              'partner_attachments':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllPartnerAttachments` API schema.
@@ -98,194 +167,391 @@ class AllPartnerAttachments {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<PartnerAttachment>> partnerAttachments;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllPartnerAttachments({this.partnerAttachments = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllPartnerAttachments(
+      {this.partnerAttachments = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllPartnerAttachments Function({SdkOptional<List<PartnerAttachment>> partnerAttachments, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllPartnerAttachments Function(
+      {SdkOptional<List<PartnerAttachment>> partnerAttachments,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllPartnerAttachments _copyWith({Object? partnerAttachments = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllPartnerAttachments(
-    partnerAttachments: identical(partnerAttachments, sdkOmittedValue) ? this.partnerAttachments : partnerAttachments as SdkOptional<List<PartnerAttachment>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllPartnerAttachments _copyWith(
+          {Object? partnerAttachments = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllPartnerAttachments(
+        partnerAttachments: identical(partnerAttachments, sdkOmittedValue)
+            ? this.partnerAttachments
+            : partnerAttachments as SdkOptional<List<PartnerAttachment>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AllPartnerAttachments.fromJson(Map<String, dynamic> json) => AllPartnerAttachments(
-    partnerAttachments: json['partner_attachments'] != null ? SdkPresent(((json['partner_attachments'] as List?)?.map((e) => PartnerAttachment.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory AllPartnerAttachments.fromJson(Map<String, dynamic> json) =>
+      AllPartnerAttachments(
+        partnerAttachments: json['partner_attachments'] != null
+            ? SdkPresent(((json['partner_attachments'] as List?)
+                ?.map((e) =>
+                    PartnerAttachment.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (partnerAttachments) {
-      SdkPresent<List<PartnerAttachment>>(value: final value) => {'partner_attachments': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (partnerAttachments) {
+          SdkPresent<List<PartnerAttachment>>(value: final value) => {
+              'partner_attachments':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 /// The BGP configuration for the partner attachment.
 class PartnerAttachmentBgp {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// ASN of the local router.
   final SdkOptional<int> localAsn;
+
   /// ASN of the peer router
   final SdkOptional<int> peerAsn;
+
   /// IP of the DigitalOcean router
   final SdkOptional<String> localRouterIp;
+
   /// IP of the peer router
   final SdkOptional<String> peerRouterIp;
 
-  const PartnerAttachmentBgp({this.localAsn = const SdkOmitted(), this.peerAsn = const SdkOmitted(), this.localRouterIp = const SdkOmitted(), this.peerRouterIp = const SdkOmitted()});
+  const PartnerAttachmentBgp(
+      {this.localAsn = const SdkOmitted(),
+      this.peerAsn = const SdkOmitted(),
+      this.localRouterIp = const SdkOmitted(),
+      this.peerRouterIp = const SdkOmitted()});
 
-  PartnerAttachmentBgp Function({SdkOptional<int> localAsn, SdkOptional<int> peerAsn, SdkOptional<String> localRouterIp, SdkOptional<String> peerRouterIp}) get copyWith => _copyWith;
+  PartnerAttachmentBgp Function(
+      {SdkOptional<int> localAsn,
+      SdkOptional<int> peerAsn,
+      SdkOptional<String> localRouterIp,
+      SdkOptional<String> peerRouterIp}) get copyWith => _copyWith;
 
-  PartnerAttachmentBgp _copyWith({Object? localAsn = sdkOmittedValue, Object? peerAsn = sdkOmittedValue, Object? localRouterIp = sdkOmittedValue, Object? peerRouterIp = sdkOmittedValue}) => PartnerAttachmentBgp(
-    localAsn: identical(localAsn, sdkOmittedValue) ? this.localAsn : localAsn as SdkOptional<int>,
-    peerAsn: identical(peerAsn, sdkOmittedValue) ? this.peerAsn : peerAsn as SdkOptional<int>,
-    localRouterIp: identical(localRouterIp, sdkOmittedValue) ? this.localRouterIp : localRouterIp as SdkOptional<String>,
-    peerRouterIp: identical(peerRouterIp, sdkOmittedValue) ? this.peerRouterIp : peerRouterIp as SdkOptional<String>,
-  );
+  PartnerAttachmentBgp _copyWith(
+          {Object? localAsn = sdkOmittedValue,
+          Object? peerAsn = sdkOmittedValue,
+          Object? localRouterIp = sdkOmittedValue,
+          Object? peerRouterIp = sdkOmittedValue}) =>
+      PartnerAttachmentBgp(
+        localAsn: identical(localAsn, sdkOmittedValue)
+            ? this.localAsn
+            : localAsn as SdkOptional<int>,
+        peerAsn: identical(peerAsn, sdkOmittedValue)
+            ? this.peerAsn
+            : peerAsn as SdkOptional<int>,
+        localRouterIp: identical(localRouterIp, sdkOmittedValue)
+            ? this.localRouterIp
+            : localRouterIp as SdkOptional<String>,
+        peerRouterIp: identical(peerRouterIp, sdkOmittedValue)
+            ? this.peerRouterIp
+            : peerRouterIp as SdkOptional<String>,
+      );
 
-  factory PartnerAttachmentBgp.fromJson(Map<String, dynamic> json) => PartnerAttachmentBgp(
-    localAsn: json['local_asn'] != null ? SdkPresent(((json['local_asn'] as num?)?.toInt())!) : const SdkOmitted(),
-    peerAsn: json['peer_asn'] != null ? SdkPresent(((json['peer_asn'] as num?)?.toInt())!) : const SdkOmitted(),
-    localRouterIp: json['local_router_ip'] != null ? SdkPresent((json['local_router_ip'] as String?)!) : const SdkOmitted(),
-    peerRouterIp: json['peer_router_ip'] != null ? SdkPresent((json['peer_router_ip'] as String?)!) : const SdkOmitted(),
-  );
+  factory PartnerAttachmentBgp.fromJson(Map<String, dynamic> json) =>
+      PartnerAttachmentBgp(
+        localAsn: json['local_asn'] != null
+            ? SdkPresent(((json['local_asn'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        peerAsn: json['peer_asn'] != null
+            ? SdkPresent(((json['peer_asn'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        localRouterIp: json['local_router_ip'] != null
+            ? SdkPresent((json['local_router_ip'] as String?)!)
+            : const SdkOmitted(),
+        peerRouterIp: json['peer_router_ip'] != null
+            ? SdkPresent((json['peer_router_ip'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (localAsn) {
-      SdkPresent<int>(value: final value) => {'local_asn': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (peerAsn) {
-      SdkPresent<int>(value: final value) => {'peer_asn': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (localRouterIp) {
-      SdkPresent<String>(value: final value) => {'local_router_ip': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (peerRouterIp) {
-      SdkPresent<String>(value: final value) => {'peer_router_ip': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (localAsn) {
+          SdkPresent<int>(value: final value) => {
+              'local_asn': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (peerAsn) {
+          SdkPresent<int>(value: final value) => {
+              'peer_asn': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (localRouterIp) {
+          SdkPresent<String>(value: final value) => {
+              'local_router_ip': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (peerRouterIp) {
+          SdkPresent<String>(value: final value) => {
+              'peer_router_ip': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `PartnerAttachment` API schema.
 class PartnerAttachment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique ID that can be used to identify and reference the partner attachment.
   final SdkOptional<String> id;
+
   /// The name of the partner attachment. Must be unique and may only contain alphanumeric characters, dashes, and periods.
   final SdkOptional<String> name;
+
   /// The current operational state of the attachment.
   final SdkOptional<String> state;
+
   /// The bandwidth (in Mbps) of the connection.
   final SdkOptional<int> connectionBandwidthInMbps;
+
   /// The region where the partner attachment is located.
   final SdkOptional<String> region;
+
   /// The Network as a Service (NaaS) provider for the partner attachment.
   final SdkOptional<String> naasProvider;
+
   /// An array of VPC network IDs.
   final SdkOptional<List<String>> vpcIds;
+
   /// The BGP configuration for the partner attachment.
   final SdkOptional<PartnerAttachmentBgp> bgp;
+
   /// A time value given in ISO8601 combined date and time format.
   final SdkOptional<String> createdAt;
+
   /// Associated partner attachment UUID
   final SdkOptional<String> parentUuid;
+
   /// An array of associated partner attachment UUIDs.
   final SdkOptional<List<String>> children;
 
-  const PartnerAttachment({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.state = const SdkOmitted(), this.connectionBandwidthInMbps = const SdkOmitted(), this.region = const SdkOmitted(), this.naasProvider = const SdkOmitted(), this.vpcIds = const SdkOmitted(), this.bgp = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.parentUuid = const SdkOmitted(), this.children = const SdkOmitted()});
+  const PartnerAttachment(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.state = const SdkOmitted(),
+      this.connectionBandwidthInMbps = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      this.naasProvider = const SdkOmitted(),
+      this.vpcIds = const SdkOmitted(),
+      this.bgp = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.parentUuid = const SdkOmitted(),
+      this.children = const SdkOmitted()});
 
-  PartnerAttachment Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> state, SdkOptional<int> connectionBandwidthInMbps, SdkOptional<String> region, SdkOptional<String> naasProvider, SdkOptional<List<String>> vpcIds, SdkOptional<PartnerAttachmentBgp> bgp, SdkOptional<String> createdAt, SdkOptional<String> parentUuid, SdkOptional<List<String>> children}) get copyWith => _copyWith;
+  PartnerAttachment Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<String> state,
+      SdkOptional<int> connectionBandwidthInMbps,
+      SdkOptional<String> region,
+      SdkOptional<String> naasProvider,
+      SdkOptional<List<String>> vpcIds,
+      SdkOptional<PartnerAttachmentBgp> bgp,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> parentUuid,
+      SdkOptional<List<String>> children}) get copyWith => _copyWith;
 
-  PartnerAttachment _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? state = sdkOmittedValue, Object? connectionBandwidthInMbps = sdkOmittedValue, Object? region = sdkOmittedValue, Object? naasProvider = sdkOmittedValue, Object? vpcIds = sdkOmittedValue, Object? bgp = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? parentUuid = sdkOmittedValue, Object? children = sdkOmittedValue}) => PartnerAttachment(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<String>,
-    connectionBandwidthInMbps: identical(connectionBandwidthInMbps, sdkOmittedValue) ? this.connectionBandwidthInMbps : connectionBandwidthInMbps as SdkOptional<int>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    naasProvider: identical(naasProvider, sdkOmittedValue) ? this.naasProvider : naasProvider as SdkOptional<String>,
-    vpcIds: identical(vpcIds, sdkOmittedValue) ? this.vpcIds : vpcIds as SdkOptional<List<String>>,
-    bgp: identical(bgp, sdkOmittedValue) ? this.bgp : bgp as SdkOptional<PartnerAttachmentBgp>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    parentUuid: identical(parentUuid, sdkOmittedValue) ? this.parentUuid : parentUuid as SdkOptional<String>,
-    children: identical(children, sdkOmittedValue) ? this.children : children as SdkOptional<List<String>>,
-  );
+  PartnerAttachment _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? state = sdkOmittedValue,
+          Object? connectionBandwidthInMbps = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? naasProvider = sdkOmittedValue,
+          Object? vpcIds = sdkOmittedValue,
+          Object? bgp = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? parentUuid = sdkOmittedValue,
+          Object? children = sdkOmittedValue}) =>
+      PartnerAttachment(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        state: identical(state, sdkOmittedValue)
+            ? this.state
+            : state as SdkOptional<String>,
+        connectionBandwidthInMbps:
+            identical(connectionBandwidthInMbps, sdkOmittedValue)
+                ? this.connectionBandwidthInMbps
+                : connectionBandwidthInMbps as SdkOptional<int>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        naasProvider: identical(naasProvider, sdkOmittedValue)
+            ? this.naasProvider
+            : naasProvider as SdkOptional<String>,
+        vpcIds: identical(vpcIds, sdkOmittedValue)
+            ? this.vpcIds
+            : vpcIds as SdkOptional<List<String>>,
+        bgp: identical(bgp, sdkOmittedValue)
+            ? this.bgp
+            : bgp as SdkOptional<PartnerAttachmentBgp>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        parentUuid: identical(parentUuid, sdkOmittedValue)
+            ? this.parentUuid
+            : parentUuid as SdkOptional<String>,
+        children: identical(children, sdkOmittedValue)
+            ? this.children
+            : children as SdkOptional<List<String>>,
+      );
 
-  factory PartnerAttachment.fromJson(Map<String, dynamic> json) => PartnerAttachment(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    state: json['state'] != null ? SdkPresent((json['state'] as String?)!) : const SdkOmitted(),
-    connectionBandwidthInMbps: json['connection_bandwidth_in_mbps'] != null ? SdkPresent(((json['connection_bandwidth_in_mbps'] as num?)?.toInt())!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    naasProvider: json['naas_provider'] != null ? SdkPresent((json['naas_provider'] as String?)!) : const SdkOmitted(),
-    vpcIds: json['vpc_ids'] != null ? SdkPresent(((json['vpc_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    bgp: json['bgp'] != null ? SdkPresent((json['bgp'] != null ? PartnerAttachmentBgp.fromJson(json['bgp'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    parentUuid: json['parent_uuid'] != null ? SdkPresent((json['parent_uuid'] as String?)!) : const SdkOmitted(),
-    children: json['children'] != null ? SdkPresent(((json['children'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory PartnerAttachment.fromJson(Map<String, dynamic> json) =>
+      PartnerAttachment(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        state: json['state'] != null
+            ? SdkPresent((json['state'] as String?)!)
+            : const SdkOmitted(),
+        connectionBandwidthInMbps: json['connection_bandwidth_in_mbps'] != null
+            ? SdkPresent(
+                ((json['connection_bandwidth_in_mbps'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        naasProvider: json['naas_provider'] != null
+            ? SdkPresent((json['naas_provider'] as String?)!)
+            : const SdkOmitted(),
+        vpcIds: json['vpc_ids'] != null
+            ? SdkPresent(
+                ((json['vpc_ids'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        bgp: json['bgp'] != null
+            ? SdkPresent((json['bgp'] != null
+                ? PartnerAttachmentBgp.fromJson(
+                    json['bgp'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        parentUuid: json['parent_uuid'] != null
+            ? SdkPresent((json['parent_uuid'] as String?)!)
+            : const SdkOmitted(),
+        children: json['children'] != null
+            ? SdkPresent(((json['children'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (state) {
-      SdkPresent<String>(value: final value) => {'state': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (connectionBandwidthInMbps) {
-      SdkPresent<int>(value: final value) => {'connection_bandwidth_in_mbps': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (naasProvider) {
-      SdkPresent<String>(value: final value) => {'naas_provider': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (vpcIds) {
-      SdkPresent<List<String>>(value: final value) => {'vpc_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (bgp) {
-      SdkPresent<PartnerAttachmentBgp>(value: final value) => {'bgp': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parentUuid) {
-      SdkPresent<String>(value: final value) => {'parent_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (children) {
-      SdkPresent<List<String>>(value: final value) => {'children': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (state) {
+          SdkPresent<String>(value: final value) => {
+              'state': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (connectionBandwidthInMbps) {
+          SdkPresent<int>(value: final value) => {
+              'connection_bandwidth_in_mbps': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (naasProvider) {
+          SdkPresent<String>(value: final value) => {
+              'naas_provider': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (vpcIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'vpc_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (bgp) {
+          SdkPresent<PartnerAttachmentBgp>(value: final value) => {
+              'bgp': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parentUuid) {
+          SdkPresent<String>(value: final value) => {
+              'parent_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (children) {
+          SdkPresent<List<String>>(value: final value) => {
+              'children': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

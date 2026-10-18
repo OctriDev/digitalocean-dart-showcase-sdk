@@ -8,33 +8,51 @@ part of 'billing.dart';
 class SimpleCharge {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Name of the charge
   final SdkOptional<String> name;
+
   /// Total amount charged in USD
   final SdkOptional<String> amount;
 
-  const SimpleCharge({this.name = const SdkOmitted(), this.amount = const SdkOmitted()});
+  const SimpleCharge(
+      {this.name = const SdkOmitted(), this.amount = const SdkOmitted()});
 
-  SimpleCharge Function({SdkOptional<String> name, SdkOptional<String> amount}) get copyWith => _copyWith;
+  SimpleCharge Function({SdkOptional<String> name, SdkOptional<String> amount})
+      get copyWith => _copyWith;
 
-  SimpleCharge _copyWith({Object? name = sdkOmittedValue, Object? amount = sdkOmittedValue}) => SimpleCharge(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<String>,
-  );
+  SimpleCharge _copyWith(
+          {Object? name = sdkOmittedValue, Object? amount = sdkOmittedValue}) =>
+      SimpleCharge(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        amount: identical(amount, sdkOmittedValue)
+            ? this.amount
+            : amount as SdkOptional<String>,
+      );
 
   factory SimpleCharge.fromJson(Map<String, dynamic> json) => SimpleCharge(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    amount: json['amount'] != null ? SdkPresent((json['amount'] as String?)!) : const SdkOmitted(),
-  );
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        amount: json['amount'] != null
+            ? SdkPresent((json['amount'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (amount) {
-      SdkPresent<String>(value: final value) => {'amount': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (amount) {
+          SdkPresent<String>(value: final value) => {
+              'amount': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

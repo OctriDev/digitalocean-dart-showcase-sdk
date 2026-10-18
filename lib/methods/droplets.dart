@@ -35,20 +35,30 @@ Future<AllDroplets> dropletsList(ClientConfig config,
   return (await sdkRequest<AllDroplets>('GET', '/v2/droplets',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'tag_name': SdkQueryValue(SdkUtils.unwrapOptional(tagName), style: 'form', explode: true),
-            'name': SdkQueryValue(SdkUtils.unwrapOptional(name), style: 'form', explode: true),
-            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'tag_name': SdkQueryValue(SdkUtils.unwrapOptional(tagName),
+                style: 'form', explode: true),
+            'name': SdkQueryValue(SdkUtils.unwrapOptional(name),
+                style: 'form', explode: true),
+            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsList',
-          fromJsonRaw: (value) => AllDroplets.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllDroplets.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates one or more Droplets using the supplied configuration. Include `size` and `image`, and provide either `name` for one Droplet or `names` for multiple Droplets; `names` supports up to ten Droplets per request. The 202 response means the request was accepted for processing, not that creation is complete; use the returned `actions` links to check progress.
 ///
@@ -63,10 +73,14 @@ Future<DropletsCreateResponse> dropletsCreate(ClientConfig config,
           operationId: 'dropletsCreate',
           fromJsonRaw: (value) => DropletsCreateResponse.fromJson(value),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To delete **all** Droplets assigned to a specific tag, include the `tag_name` query parameter set to the name of the tag in your DELETE request. For example, `/v2/droplets?tag_name=$TAG_NAME`. This endpoint requires `tag:read` scope. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
 ///
@@ -81,10 +95,15 @@ Future<void> dropletsDestroyByTag(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'dropletsDestroyByTag',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To show information about an individual Droplet, send a GET request to `/v2/droplets/$DROPLET_ID`.
 ///
@@ -98,12 +117,18 @@ Future<ExistingDroplet> dropletsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsGet',
-          fromJsonRaw: (value) => ExistingDroplet.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingDroplet.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To delete a Droplet, send a DELETE request to `/v2/droplets/$DROPLET_ID`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
 ///
@@ -118,10 +143,15 @@ Future<void> dropletsDestroy(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'dropletsDestroy',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To retrieve any backups associated with a Droplet, send a GET request to `/v2/droplets/$DROPLET_ID/backups`. You will get back a JSON object that has a `backups` key. This will be set to an array of backup objects, each of which contain the standard Droplet backup attributes.
 ///
@@ -145,17 +175,25 @@ Future<AllDropletBackups> dropletsListBackups(ClientConfig config,
           '/v2/droplets/${Uri.encodeComponent(dropletId.toString())}/backups',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsListBackups',
-          fromJsonRaw: (value) => AllDropletBackups.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllDropletBackups.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To show information about an individual Droplet's backup policy, send a GET request to `/v2/droplets/$DROPLET_ID/backups/policy`.
 ///
@@ -169,12 +207,18 @@ Future<DropletBackupPolicyResponse> dropletsGetBackupPolicy(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsGetBackupPolicy',
-          fromJsonRaw: (value) => DropletBackupPolicyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DropletBackupPolicyResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To list information about the backup policies for all Droplets in the account, send a GET request to `/v2/droplets/backups/policies`.
 ///
@@ -195,32 +239,47 @@ Future<AllDropletBackupPolicies> dropletsListBackupPolicies(ClientConfig config,
           'GET', '/v2/droplets/backups/policies',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsListBackupPolicies',
-          fromJsonRaw: (value) => AllDropletBackupPolicies.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllDropletBackupPolicies.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
 
-
 /// To retrieve a list of all supported Droplet backup policies, send a GET request to `/v2/droplets/backups/supported_policies`.
-Future<DropletsSupportedBackupPolicies> dropletsListSupportedBackupPolicies(ClientConfig config,
+Future<DropletsSupportedBackupPolicies> dropletsListSupportedBackupPolicies(
+    ClientConfig config,
     {RequestOptions? requestOptions}) async {
   return (await sdkRequest<DropletsSupportedBackupPolicies>(
           'GET', '/v2/droplets/backups/supported_policies',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsListSupportedBackupPolicies',
-          fromJsonRaw: (value) => DropletsSupportedBackupPolicies.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DropletsSupportedBackupPolicies.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To retrieve the snapshots that have been created from a Droplet, send a GET request to `/v2/droplets/$DROPLET_ID/snapshots`. You will get back a JSON object that has a `snapshots` key. This will be set to an array of snapshot objects, each of which contain the standard Droplet snapshot attributes.
 ///
@@ -244,17 +303,25 @@ Future<AllDropletSnapshots> dropletsListSnapshots(ClientConfig config,
           '/v2/droplets/${Uri.encodeComponent(dropletId.toString())}/snapshots',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsListSnapshots',
-          fromJsonRaw: (value) => AllDropletSnapshots.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllDropletSnapshots.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve a list of all kernels available to a Droplet, send a GET request to `/v2/droplets/$DROPLET_ID/kernels` The response will be a JSON object that has a key called `kernels`. This will be set to an array of `kernel` objects, each of which contain the standard `kernel` attributes.
 ///
@@ -278,17 +345,25 @@ Future<AllKernels> dropletsListKernels(ClientConfig config,
           '/v2/droplets/${Uri.encodeComponent(dropletId.toString())}/kernels',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsListKernels',
-          fromJsonRaw: (value) => AllKernels.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllKernels.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve a list of all firewalls available to a Droplet, send a GET request to `/v2/droplets/$DROPLET_ID/firewalls` The response will be a JSON object that has a key called `firewalls`. This will be set to an array of `firewall` objects, each of which contain the standard `firewall` attributes.
 ///
@@ -312,17 +387,25 @@ Future<AllFirewalls> dropletsListFirewalls(ClientConfig config,
           '/v2/droplets/${Uri.encodeComponent(dropletId.toString())}/firewalls',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsListFirewalls',
-          fromJsonRaw: (value) => AllFirewalls.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllFirewalls.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve a list of any "neighbors" (i.e. Droplets that are co-located on the same physical hardware) for a specific Droplet, send a GET request to `/v2/droplets/$DROPLET_ID/neighbors`. The results will be returned as a JSON object with a key of `droplets`. This will be set to an array containing objects representing any other Droplets that share the same physical hardware. An empty array indicates that the Droplet is not co-located any other Droplets associated with your account.
 ///
@@ -336,18 +419,26 @@ Future<NeighborDroplets> dropletsListNeighbors(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsListNeighbors',
-          fromJsonRaw: (value) => NeighborDroplets.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              NeighborDroplets.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To list the associated billable resources that can be destroyed along with a Droplet, send a GET request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources` endpoint. This endpoint will only return resources that you are authorized to see. For example, to see associated Reserved IPs, include the `reserved_ip:read` scope. The response will be a JSON object containing `snapshots`, `volumes`, and `volume_snapshots` keys. Each will be set to an array of objects containing information about the associated resources.
 ///
 /// [dropletId] A unique identifier for a Droplet instance.
-Future<AssociatedResourcesList> dropletsListAssociatedResources(ClientConfig config,
-    {required int dropletId, RequestOptions? requestOptions}) async {
+Future<AssociatedResourcesList> dropletsListAssociatedResources(
+    ClientConfig config,
+    {required int dropletId,
+    RequestOptions? requestOptions}) async {
   validateRange('droplet_id', dropletId, min: 1);
 
   return (await sdkRequest<AssociatedResourcesList>('GET',
@@ -355,12 +446,18 @@ Future<AssociatedResourcesList> dropletsListAssociatedResources(ClientConfig con
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsListAssociatedResources',
-          fromJsonRaw: (value) => AssociatedResourcesList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AssociatedResourcesList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To destroy a Droplet along with a sub-set of its associated resources, send a DELETE request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/selective` endpoint. The JSON body of the request should include `reserved_ips`, `snapshots`, `volumes`, or `volume_snapshots` keys each set to an array of IDs for the associated resources to be destroyed. The IDs can be found by querying the Droplet's associated resources. Any associated resource not included in the request will remain and continue to accrue changes on your account. A successful response will include a 202 response code and no content. Use the status endpoint to check on the success or failure of the destruction of the individual resources.
 ///
@@ -375,15 +472,15 @@ Future<AssociatedResourcesList> dropletsListAssociatedResources(ClientConfig con
 ///   deletion.
 /// [volumeSnapshots] An array of unique identifiers for the volume snapshots to
 ///   be scheduled for deletion.
-Future<void>
-    dropletsDestroyWithAssociatedResourcesSelective(ClientConfig config,
-        {required int dropletId,
-        SdkOptional<List<String>> floatingIps = const SdkOmitted(),
-        SdkOptional<List<String>> reservedIps = const SdkOmitted(),
-        SdkOptional<List<String>> snapshots = const SdkOmitted(),
-        SdkOptional<List<String>> volumes = const SdkOmitted(),
-        SdkOptional<List<String>> volumeSnapshots = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<void> dropletsDestroyWithAssociatedResourcesSelective(
+    ClientConfig config,
+    {required int dropletId,
+    SdkOptional<List<String>> floatingIps = const SdkOmitted(),
+    SdkOptional<List<String>> reservedIps = const SdkOmitted(),
+    SdkOptional<List<String>> snapshots = const SdkOmitted(),
+    SdkOptional<List<String>> volumes = const SdkOmitted(),
+    SdkOptional<List<String>> volumeSnapshots = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   validateRange('droplet_id', dropletId, min: 1);
 
   return (await sdkRequest<void>('DELETE',
@@ -399,21 +496,26 @@ Future<void>
           decoder: SdkResponseDecoder.empty,
           operationId: 'dropletsDestroyWithAssociatedResourcesSelective',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To destroy a Droplet along with all of its associated resources, send a DELETE request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/dangerous` endpoint. The headers of this request must include an `X-Dangerous` key set to `true`. To preview which resources will be destroyed, first query the Droplet's associated resources. This operation _can not_ be reverse and should be used with caution. A successful response will include a 202 response code and no content. Use the status endpoint to check on the success or failure of the destruction of the individual resources.
 ///
 /// [dropletId] A unique identifier for a Droplet instance.
 /// [xDangerous] Acknowledge this action will destroy the Droplet and all
 ///   associated resources and _can not_ be reversed.
-Future<void>
-    dropletsDestroyWithAssociatedResourcesDangerous(ClientConfig config,
-        {required int dropletId,
-        required bool xDangerous,
-        RequestOptions? requestOptions}) async {
+Future<void> dropletsDestroyWithAssociatedResourcesDangerous(
+    ClientConfig config,
+    {required int dropletId,
+    required bool xDangerous,
+    RequestOptions? requestOptions}) async {
   validateRange('droplet_id', dropletId, min: 1);
 
   return (await sdkRequest<void>('DELETE',
@@ -423,16 +525,23 @@ Future<void>
           extraHeaders: SdkUtils.serializeHeaders({'X-Dangerous': xDangerous}),
           operationId: 'dropletsDestroyWithAssociatedResourcesDangerous',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To check on the status of a request to destroy a Droplet with its associated resources, send a GET request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/status` endpoint.
 ///
 /// [dropletId] A unique identifier for a Droplet instance.
-Future<AssociatedResourceStatus> dropletsGetDestroyAssociatedResourcesStatus(ClientConfig config,
-    {required int dropletId, RequestOptions? requestOptions}) async {
+Future<AssociatedResourceStatus> dropletsGetDestroyAssociatedResourcesStatus(
+    ClientConfig config,
+    {required int dropletId,
+    RequestOptions? requestOptions}) async {
   validateRange('droplet_id', dropletId, min: 1);
 
   return (await sdkRequest<AssociatedResourceStatus>('GET',
@@ -440,12 +549,18 @@ Future<AssociatedResourceStatus> dropletsGetDestroyAssociatedResourcesStatus(Cli
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsGetDestroyAssociatedResourcesStatus',
-          fromJsonRaw: (value) => AssociatedResourceStatus.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AssociatedResourceStatus.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// If the status of a request to destroy a Droplet with its associated resources reported any errors, it can be retried by sending a POST request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/retry` endpoint. Only one destroy can be active at a time per Droplet. If a retry is issued while another destroy is in progress for the Droplet a 409 status code will be returned. A successful response will include a 202 response code and no content.
 ///
@@ -460,10 +575,16 @@ Future<void> dropletsDestroyRetryWithAssociatedResources(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'dropletsDestroyRetryWithAssociatedResources',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To retrieve a list of all Droplets that are co-located on the same physical hardware, send a GET request to `/v2/reports/droplet_neighbors_ids`. The results will be returned as a JSON object with a key of `neighbor_ids`. This will be set to an array of arrays. Each array will contain a set of Droplet IDs for Droplets that share a physical server. An empty array indicates that all Droplets associated with your account are located on separate physical hardware.
 Future<NeighborIds> dropletsListNeighborsIds(ClientConfig config,
@@ -473,8 +594,15 @@ Future<NeighborIds> dropletsListNeighborsIds(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletsListNeighborsIds',
-          fromJsonRaw: (value) => NeighborIds.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              NeighborIds.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

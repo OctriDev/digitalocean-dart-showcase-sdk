@@ -8,206 +8,340 @@ part of 'add_ons.dart';
 class AddonsAppInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The slug identifier for the application associated with the resource.
   final String appSlug;
+
   /// The Terms of Service URL for the resource.
   final String tos;
+
   /// The End User License Agreement URL for the resource.
   final String eula;
+
   /// A list of plans available for the resource.
   final List<AddonsPlan> plans;
 
-  const AddonsAppInfo({required this.appSlug, required this.tos, required this.eula, required this.plans});
+  const AddonsAppInfo(
+      {required this.appSlug,
+      required this.tos,
+      required this.eula,
+      required this.plans});
 
-  AddonsAppInfo Function({String appSlug, String tos, String eula, List<AddonsPlan> plans}) get copyWith => _copyWith;
+  AddonsAppInfo Function(
+      {String appSlug,
+      String tos,
+      String eula,
+      List<AddonsPlan> plans}) get copyWith => _copyWith;
 
-  AddonsAppInfo _copyWith({Object? appSlug = sdkOmittedValue, Object? tos = sdkOmittedValue, Object? eula = sdkOmittedValue, Object? plans = sdkOmittedValue}) => AddonsAppInfo(
-    appSlug: identical(appSlug, sdkOmittedValue) ? this.appSlug : appSlug as String,
-    tos: identical(tos, sdkOmittedValue) ? this.tos : tos as String,
-    eula: identical(eula, sdkOmittedValue) ? this.eula : eula as String,
-    plans: identical(plans, sdkOmittedValue) ? this.plans : plans as List<AddonsPlan>,
-  );
+  AddonsAppInfo _copyWith(
+          {Object? appSlug = sdkOmittedValue,
+          Object? tos = sdkOmittedValue,
+          Object? eula = sdkOmittedValue,
+          Object? plans = sdkOmittedValue}) =>
+      AddonsAppInfo(
+        appSlug: identical(appSlug, sdkOmittedValue)
+            ? this.appSlug
+            : appSlug as String,
+        tos: identical(tos, sdkOmittedValue) ? this.tos : tos as String,
+        eula: identical(eula, sdkOmittedValue) ? this.eula : eula as String,
+        plans: identical(plans, sdkOmittedValue)
+            ? this.plans
+            : plans as List<AddonsPlan>,
+      );
 
   factory AddonsAppInfo.fromJson(Map<String, dynamic> json) => AddonsAppInfo(
-    appSlug: (json['app_slug'] as String?)!,
-    tos: (json['tos'] as String?)!,
-    eula: (json['eula'] as String?)!,
-    plans: ((json['plans'] as List?)?.map((e) => AddonsPlan.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+        appSlug: (json['app_slug'] as String?)!,
+        tos: (json['tos'] as String?)!,
+        eula: (json['eula'] as String?)!,
+        plans: ((json['plans'] as List?)
+            ?.map((e) => AddonsPlan.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'app_slug': appSlug,
-    'tos': tos,
-    'eula': eula,
-    'plans': plans.map((item) => item.toJson()).toList(),
-  };
+        'app_slug': appSlug,
+        'tos': tos,
+        'eula': eula,
+        'plans': plans.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Typed representation of the `AddonsAppMetadata` API schema.
 class AddonsAppMetadata {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the addon metadata item.
   final int id;
+
   /// The name of the metadata item.
   final String name;
+
   /// The display name of the metadata item.
   final String displayName;
+
   /// A brief description of the metadata item.
   final String description;
+
   /// The data type of the metadata value.
   final AddonsAppMetadataType type_;
+
   /// Optional array value serialized in the `options` wire field.
   final SdkOptional<List<String>> options;
 
-  const AddonsAppMetadata({required this.id, required this.name, required this.displayName, required this.description, required this.type_, this.options = const SdkOmitted()});
+  const AddonsAppMetadata(
+      {required this.id,
+      required this.name,
+      required this.displayName,
+      required this.description,
+      required this.type_,
+      this.options = const SdkOmitted()});
 
-  AddonsAppMetadata Function({int id, String name, String displayName, String description, AddonsAppMetadataType type_, SdkOptional<List<String>> options}) get copyWith => _copyWith;
+  AddonsAppMetadata Function(
+      {int id,
+      String name,
+      String displayName,
+      String description,
+      AddonsAppMetadataType type_,
+      SdkOptional<List<String>> options}) get copyWith => _copyWith;
 
-  AddonsAppMetadata _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? displayName = sdkOmittedValue, Object? description = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? options = sdkOmittedValue}) => AddonsAppMetadata(
-    id: identical(id, sdkOmittedValue) ? this.id : id as int,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    displayName: identical(displayName, sdkOmittedValue) ? this.displayName : displayName as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AddonsAppMetadataType,
-    options: identical(options, sdkOmittedValue) ? this.options : options as SdkOptional<List<String>>,
-  );
+  AddonsAppMetadata _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? displayName = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? options = sdkOmittedValue}) =>
+      AddonsAppMetadata(
+        id: identical(id, sdkOmittedValue) ? this.id : id as int,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        displayName: identical(displayName, sdkOmittedValue)
+            ? this.displayName
+            : displayName as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AddonsAppMetadataType,
+        options: identical(options, sdkOmittedValue)
+            ? this.options
+            : options as SdkOptional<List<String>>,
+      );
 
-  factory AddonsAppMetadata.fromJson(Map<String, dynamic> json) => AddonsAppMetadata(
-    id: ((json['id'] as num?)?.toInt())!,
-    name: (json['name'] as String?)!,
-    displayName: (json['display_name'] as String?)!,
-    description: (json['description'] as String?)!,
-    type_: (json['type'] != null ? AddonsAppMetadataType.fromJson(json['type'] as String) : null)!,
-    options: json['options'] != null ? SdkPresent(((json['options'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory AddonsAppMetadata.fromJson(Map<String, dynamic> json) =>
+      AddonsAppMetadata(
+        id: ((json['id'] as num?)?.toInt())!,
+        name: (json['name'] as String?)!,
+        displayName: (json['display_name'] as String?)!,
+        description: (json['description'] as String?)!,
+        type_: (json['type'] != null
+            ? AddonsAppMetadataType.fromJson(json['type'] as String)
+            : null)!,
+        options: json['options'] != null
+            ? SdkPresent(
+                ((json['options'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'display_name': displayName,
-    'description': description,
-    'type': type_.toJson(),
-    ...switch (options) {
-      SdkPresent<List<String>>(value: final value) => {'options': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        'name': name,
+        'display_name': displayName,
+        'description': description,
+        'type': type_.toJson(),
+        ...switch (options) {
+          SdkPresent<List<String>>(value: final value) => {
+              'options': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AddonsCreate` API schema.
 class AddonsCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `resource` wire field.
   final SdkOptional<AddonsResource> resource;
 
   const AddonsCreate({this.resource = const SdkOmitted()});
 
-  AddonsCreate Function({SdkOptional<AddonsResource> resource}) get copyWith => _copyWith;
+  AddonsCreate Function({SdkOptional<AddonsResource> resource}) get copyWith =>
+      _copyWith;
 
   AddonsCreate _copyWith({Object? resource = sdkOmittedValue}) => AddonsCreate(
-    resource: identical(resource, sdkOmittedValue) ? this.resource : resource as SdkOptional<AddonsResource>,
-  );
+        resource: identical(resource, sdkOmittedValue)
+            ? this.resource
+            : resource as SdkOptional<AddonsResource>,
+      );
 
   factory AddonsCreate.fromJson(Map<String, dynamic> json) => AddonsCreate(
-    resource: json['resource'] != null ? SdkPresent((json['resource'] != null ? AddonsResource.fromJson(json['resource'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        resource: json['resource'] != null
+            ? SdkPresent((json['resource'] != null
+                ? AddonsResource.fromJson(
+                    json['resource'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (resource) {
-      SdkPresent<AddonsResource>(value: final value) => {'resource': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (resource) {
+          SdkPresent<AddonsResource>(value: final value) => {
+              'resource': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AddonsDimensionVolumeWithPrice` API schema.
 class AddonsDimensionVolumeWithPrice {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the addon.
   final int id;
+
   /// The minimum volume for the volume pricing tier.
   final int lowVolume;
+
   /// The maximum volume for the volume pricing tier.
   final int maxVolume;
+
   /// The price per unit for the volume tier in US dollars.
   final String pricePerUnit;
 
-  const AddonsDimensionVolumeWithPrice({required this.id, required this.lowVolume, required this.maxVolume, required this.pricePerUnit});
+  const AddonsDimensionVolumeWithPrice(
+      {required this.id,
+      required this.lowVolume,
+      required this.maxVolume,
+      required this.pricePerUnit});
 
-  AddonsDimensionVolumeWithPrice Function({int id, int lowVolume, int maxVolume, String pricePerUnit}) get copyWith => _copyWith;
+  AddonsDimensionVolumeWithPrice Function(
+      {int id,
+      int lowVolume,
+      int maxVolume,
+      String pricePerUnit}) get copyWith => _copyWith;
 
-  AddonsDimensionVolumeWithPrice _copyWith({Object? id = sdkOmittedValue, Object? lowVolume = sdkOmittedValue, Object? maxVolume = sdkOmittedValue, Object? pricePerUnit = sdkOmittedValue}) => AddonsDimensionVolumeWithPrice(
-    id: identical(id, sdkOmittedValue) ? this.id : id as int,
-    lowVolume: identical(lowVolume, sdkOmittedValue) ? this.lowVolume : lowVolume as int,
-    maxVolume: identical(maxVolume, sdkOmittedValue) ? this.maxVolume : maxVolume as int,
-    pricePerUnit: identical(pricePerUnit, sdkOmittedValue) ? this.pricePerUnit : pricePerUnit as String,
-  );
+  AddonsDimensionVolumeWithPrice _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? lowVolume = sdkOmittedValue,
+          Object? maxVolume = sdkOmittedValue,
+          Object? pricePerUnit = sdkOmittedValue}) =>
+      AddonsDimensionVolumeWithPrice(
+        id: identical(id, sdkOmittedValue) ? this.id : id as int,
+        lowVolume: identical(lowVolume, sdkOmittedValue)
+            ? this.lowVolume
+            : lowVolume as int,
+        maxVolume: identical(maxVolume, sdkOmittedValue)
+            ? this.maxVolume
+            : maxVolume as int,
+        pricePerUnit: identical(pricePerUnit, sdkOmittedValue)
+            ? this.pricePerUnit
+            : pricePerUnit as String,
+      );
 
-  factory AddonsDimensionVolumeWithPrice.fromJson(Map<String, dynamic> json) => AddonsDimensionVolumeWithPrice(
-    id: ((json['id'] as num?)?.toInt())!,
-    lowVolume: ((json['low_volume'] as num?)?.toInt())!,
-    maxVolume: ((json['max_volume'] as num?)?.toInt())!,
-    pricePerUnit: (json['price_per_unit'] as String?)!,
-  );
+  factory AddonsDimensionVolumeWithPrice.fromJson(Map<String, dynamic> json) =>
+      AddonsDimensionVolumeWithPrice(
+        id: ((json['id'] as num?)?.toInt())!,
+        lowVolume: ((json['low_volume'] as num?)?.toInt())!,
+        maxVolume: ((json['max_volume'] as num?)?.toInt())!,
+        pricePerUnit: (json['price_per_unit'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'low_volume': lowVolume,
-    'max_volume': maxVolume,
-    'price_per_unit': pricePerUnit,
-  };
+        'id': id,
+        'low_volume': lowVolume,
+        'max_volume': maxVolume,
+        'price_per_unit': pricePerUnit,
+      };
 }
 
 /// Typed representation of the `AddonsDimensionWithPrice` API schema.
 class AddonsDimensionWithPrice {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the dimension.
   final int id;
+
   /// Unique string identifier for the dimension, tied to a price.
   final String sku;
+
   /// Slug identifier for the dimension.
   final String slug;
+
   /// Display name for the dimension.
   final String displayName;
+
   /// Name of the feature associated with the dimension.
   final String featureName;
+
   /// A list of volumes associated with the dimension, each with its own price.
   final List<AddonsDimensionVolumeWithPrice> volumes;
 
-  const AddonsDimensionWithPrice({required this.id, required this.sku, required this.slug, required this.displayName, required this.featureName, required this.volumes});
+  const AddonsDimensionWithPrice(
+      {required this.id,
+      required this.sku,
+      required this.slug,
+      required this.displayName,
+      required this.featureName,
+      required this.volumes});
 
-  AddonsDimensionWithPrice Function({int id, String sku, String slug, String displayName, String featureName, List<AddonsDimensionVolumeWithPrice> volumes}) get copyWith => _copyWith;
+  AddonsDimensionWithPrice Function(
+      {int id,
+      String sku,
+      String slug,
+      String displayName,
+      String featureName,
+      List<AddonsDimensionVolumeWithPrice> volumes}) get copyWith => _copyWith;
 
-  AddonsDimensionWithPrice _copyWith({Object? id = sdkOmittedValue, Object? sku = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? displayName = sdkOmittedValue, Object? featureName = sdkOmittedValue, Object? volumes = sdkOmittedValue}) => AddonsDimensionWithPrice(
-    id: identical(id, sdkOmittedValue) ? this.id : id as int,
-    sku: identical(sku, sdkOmittedValue) ? this.sku : sku as String,
-    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
-    displayName: identical(displayName, sdkOmittedValue) ? this.displayName : displayName as String,
-    featureName: identical(featureName, sdkOmittedValue) ? this.featureName : featureName as String,
-    volumes: identical(volumes, sdkOmittedValue) ? this.volumes : volumes as List<AddonsDimensionVolumeWithPrice>,
-  );
+  AddonsDimensionWithPrice _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? sku = sdkOmittedValue,
+          Object? slug = sdkOmittedValue,
+          Object? displayName = sdkOmittedValue,
+          Object? featureName = sdkOmittedValue,
+          Object? volumes = sdkOmittedValue}) =>
+      AddonsDimensionWithPrice(
+        id: identical(id, sdkOmittedValue) ? this.id : id as int,
+        sku: identical(sku, sdkOmittedValue) ? this.sku : sku as String,
+        slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
+        displayName: identical(displayName, sdkOmittedValue)
+            ? this.displayName
+            : displayName as String,
+        featureName: identical(featureName, sdkOmittedValue)
+            ? this.featureName
+            : featureName as String,
+        volumes: identical(volumes, sdkOmittedValue)
+            ? this.volumes
+            : volumes as List<AddonsDimensionVolumeWithPrice>,
+      );
 
-  factory AddonsDimensionWithPrice.fromJson(Map<String, dynamic> json) => AddonsDimensionWithPrice(
-    id: ((json['id'] as num?)?.toInt())!,
-    sku: (json['sku'] as String?)!,
-    slug: (json['slug'] as String?)!,
-    displayName: (json['display_name'] as String?)!,
-    featureName: (json['feature_name'] as String?)!,
-    volumes: ((json['volumes'] as List?)?.map((e) => AddonsDimensionVolumeWithPrice.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory AddonsDimensionWithPrice.fromJson(Map<String, dynamic> json) =>
+      AddonsDimensionWithPrice(
+        id: ((json['id'] as num?)?.toInt())!,
+        sku: (json['sku'] as String?)!,
+        slug: (json['slug'] as String?)!,
+        displayName: (json['display_name'] as String?)!,
+        featureName: (json['feature_name'] as String?)!,
+        volumes: ((json['volumes'] as List?)
+            ?.map((e) => AddonsDimensionVolumeWithPrice.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'sku': sku,
-    'slug': slug,
-    'display_name': displayName,
-    'feature_name': featureName,
-    'volumes': volumes.map((item) => item.toJson()).toList(),
-  };
+        'id': id,
+        'sku': sku,
+        'slug': slug,
+        'display_name': displayName,
+        'feature_name': featureName,
+        'volumes': volumes.map((item) => item.toJson()).toList(),
+      };
 }
 
 sealed class AddonsFeatureValue {
@@ -215,8 +349,12 @@ sealed class AddonsFeatureValue {
   static const String constructionSurface = 'named';
   const AddonsFeatureValue();
   factory AddonsFeatureValue.fromJson(Object? json) {
-    if (json is String) { return AddonsFeatureValueString(json); }
-    if (json is bool) { return AddonsFeatureValueBool(json); }
+    if (json is String) {
+      return AddonsFeatureValueString(json);
+    }
+    if (json is bool) {
+      return AddonsFeatureValueBool(json);
+    }
     throw FormatException("No variant matched for AddonsFeatureValue");
   }
   Object? toJson();
@@ -225,68 +363,116 @@ sealed class AddonsFeatureValue {
 final class AddonsFeatureValueString extends AddonsFeatureValue {
   final String value;
   const AddonsFeatureValueString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 final class AddonsFeatureValueBool extends AddonsFeatureValue {
   final bool value;
   const AddonsFeatureValueBool(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// Typed representation of the `AddonsFeature` API schema.
 class AddonsFeature {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the app feature.
   final int id;
+
   /// Name of the feature.
   final String name;
+
   /// Feature type, indicating the kind of data it holds.
   final AddonsFeatureType type_;
+
   /// Unit of measurement for the feature, if applicable. Units apply to allowance features.
   final SdkOptional<AddonsFeatureUnit> unit;
+
   /// Value of the feature, which can vary based on the type.
   final dynamic value;
+
   /// Timestamp when the feature was created.
   final String createdAt;
+
   /// Timestamp when the feature was last updated.
   final String updatedAt;
 
-  const AddonsFeature({required this.id, required this.name, required this.type_, this.unit = const SdkOmitted(), required this.value, required this.createdAt, required this.updatedAt});
+  const AddonsFeature(
+      {required this.id,
+      required this.name,
+      required this.type_,
+      this.unit = const SdkOmitted(),
+      required this.value,
+      required this.createdAt,
+      required this.updatedAt});
 
-  AddonsFeature Function({int id, String name, AddonsFeatureType type_, SdkOptional<AddonsFeatureUnit> unit, dynamic value, String createdAt, String updatedAt}) get copyWith => _copyWith;
+  AddonsFeature Function(
+      {int id,
+      String name,
+      AddonsFeatureType type_,
+      SdkOptional<AddonsFeatureUnit> unit,
+      dynamic value,
+      String createdAt,
+      String updatedAt}) get copyWith => _copyWith;
 
-  AddonsFeature _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? unit = sdkOmittedValue, Object? value = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => AddonsFeature(
-    id: identical(id, sdkOmittedValue) ? this.id : id as int,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AddonsFeatureType,
-    unit: identical(unit, sdkOmittedValue) ? this.unit : unit as SdkOptional<AddonsFeatureUnit>,
-    value: identical(value, sdkOmittedValue) ? this.value : value as dynamic,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
-  );
+  AddonsFeature _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? unit = sdkOmittedValue,
+          Object? value = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      AddonsFeature(
+        id: identical(id, sdkOmittedValue) ? this.id : id as int,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AddonsFeatureType,
+        unit: identical(unit, sdkOmittedValue)
+            ? this.unit
+            : unit as SdkOptional<AddonsFeatureUnit>,
+        value:
+            identical(value, sdkOmittedValue) ? this.value : value as dynamic,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as String,
+      );
 
   factory AddonsFeature.fromJson(Map<String, dynamic> json) => AddonsFeature(
-    id: ((json['id'] as num?)?.toInt())!,
-    name: (json['name'] as String?)!,
-    type_: (json['type'] != null ? AddonsFeatureType.fromJson(json['type'] as String) : null)!,
-    unit: json['unit'] != null ? SdkPresent((json['unit'] != null ? AddonsFeatureUnit.fromJson(json['unit'] as String) : null)!) : const SdkOmitted(),
-    value: (json['value'])!,
-    createdAt: (json['created_at'] as String?)!,
-    updatedAt: (json['updated_at'] as String?)!,
-  );
+        id: ((json['id'] as num?)?.toInt())!,
+        name: (json['name'] as String?)!,
+        type_: (json['type'] != null
+            ? AddonsFeatureType.fromJson(json['type'] as String)
+            : null)!,
+        unit: json['unit'] != null
+            ? SdkPresent((json['unit'] != null
+                ? AddonsFeatureUnit.fromJson(json['unit'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        value: (json['value'])!,
+        createdAt: (json['created_at'] as String?)!,
+        updatedAt: (json['updated_at'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'type': type_.toJson(),
-    ...switch (unit) {
-      SdkPresent<AddonsFeatureUnit>(value: final value) => {'unit': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'value': value,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
+        'id': id,
+        'name': name,
+        'type': type_.toJson(),
+        ...switch (unit) {
+          SdkPresent<AddonsFeatureUnit>(value: final value) => {
+              'unit': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'value': value,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
 }

@@ -8,25 +8,36 @@ part of 'apps_app_job.dart';
 class AppJobSpecTermination {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of seconds to wait between sending a TERM signal to a container and issuing a KILL which causes immediate shutdown. (Default 120)
   final SdkOptional<int> gracePeriodSeconds;
 
   const AppJobSpecTermination({this.gracePeriodSeconds = const SdkOmitted()});
 
-  AppJobSpecTermination Function({SdkOptional<int> gracePeriodSeconds}) get copyWith => _copyWith;
+  AppJobSpecTermination Function({SdkOptional<int> gracePeriodSeconds})
+      get copyWith => _copyWith;
 
-  AppJobSpecTermination _copyWith({Object? gracePeriodSeconds = sdkOmittedValue}) => AppJobSpecTermination(
-    gracePeriodSeconds: identical(gracePeriodSeconds, sdkOmittedValue) ? this.gracePeriodSeconds : gracePeriodSeconds as SdkOptional<int>,
-  );
+  AppJobSpecTermination _copyWith(
+          {Object? gracePeriodSeconds = sdkOmittedValue}) =>
+      AppJobSpecTermination(
+        gracePeriodSeconds: identical(gracePeriodSeconds, sdkOmittedValue)
+            ? this.gracePeriodSeconds
+            : gracePeriodSeconds as SdkOptional<int>,
+      );
 
-  factory AppJobSpecTermination.fromJson(Map<String, dynamic> json) => AppJobSpecTermination(
-    gracePeriodSeconds: json['grace_period_seconds'] != null ? SdkPresent(((json['grace_period_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory AppJobSpecTermination.fromJson(Map<String, dynamic> json) =>
+      AppJobSpecTermination(
+        gracePeriodSeconds: json['grace_period_seconds'] != null
+            ? SdkPresent(((json['grace_period_seconds'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (gracePeriodSeconds) {
-      SdkPresent<int>(value: final value) => {'grace_period_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (gracePeriodSeconds) {
+          SdkPresent<int>(value: final value) => {
+              'grace_period_seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

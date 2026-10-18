@@ -7,47 +7,63 @@ part of 'images.dart';
 class ImagesPostAccountTransferCreateVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The email address of the user account that the image will be transferred to.
   final String recipientEmail;
 
   const ImagesPostAccountTransferCreateVariant0({required this.recipientEmail});
 
-  ImagesPostAccountTransferCreateVariant0 Function({String recipientEmail}) get copyWith => _copyWith;
+  ImagesPostAccountTransferCreateVariant0 Function({String recipientEmail})
+      get copyWith => _copyWith;
 
-  ImagesPostAccountTransferCreateVariant0 _copyWith({Object? recipientEmail = sdkOmittedValue}) => ImagesPostAccountTransferCreateVariant0(
-    recipientEmail: identical(recipientEmail, sdkOmittedValue) ? this.recipientEmail : recipientEmail as String,
-  );
+  ImagesPostAccountTransferCreateVariant0 _copyWith(
+          {Object? recipientEmail = sdkOmittedValue}) =>
+      ImagesPostAccountTransferCreateVariant0(
+        recipientEmail: identical(recipientEmail, sdkOmittedValue)
+            ? this.recipientEmail
+            : recipientEmail as String,
+      );
 
-  factory ImagesPostAccountTransferCreateVariant0.fromJson(Map<String, dynamic> json) => ImagesPostAccountTransferCreateVariant0(
-    recipientEmail: (json['recipient_email'] as String?)!,
-  );
+  factory ImagesPostAccountTransferCreateVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      ImagesPostAccountTransferCreateVariant0(
+        recipientEmail: (json['recipient_email'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'recipient_email': recipientEmail,
-  };
+        'recipient_email': recipientEmail,
+      };
 }
 
 class ImagesPostAccountTransferCreateVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The UUID of the team that the image will be transferred to.
   final String recipientUuid;
 
   const ImagesPostAccountTransferCreateVariant1({required this.recipientUuid});
 
-  ImagesPostAccountTransferCreateVariant1 Function({String recipientUuid}) get copyWith => _copyWith;
+  ImagesPostAccountTransferCreateVariant1 Function({String recipientUuid})
+      get copyWith => _copyWith;
 
-  ImagesPostAccountTransferCreateVariant1 _copyWith({Object? recipientUuid = sdkOmittedValue}) => ImagesPostAccountTransferCreateVariant1(
-    recipientUuid: identical(recipientUuid, sdkOmittedValue) ? this.recipientUuid : recipientUuid as String,
-  );
+  ImagesPostAccountTransferCreateVariant1 _copyWith(
+          {Object? recipientUuid = sdkOmittedValue}) =>
+      ImagesPostAccountTransferCreateVariant1(
+        recipientUuid: identical(recipientUuid, sdkOmittedValue)
+            ? this.recipientUuid
+            : recipientUuid as String,
+      );
 
-  factory ImagesPostAccountTransferCreateVariant1.fromJson(Map<String, dynamic> json) => ImagesPostAccountTransferCreateVariant1(
-    recipientUuid: (json['recipient_uuid'] as String?)!,
-  );
+  factory ImagesPostAccountTransferCreateVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      ImagesPostAccountTransferCreateVariant1(
+        recipientUuid: (json['recipient_uuid'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'recipient_uuid': recipientUuid,
-  };
+        'recipient_uuid': recipientUuid,
+      };
 }
 
 sealed class ImagesPostAccountTransferCreate {
@@ -56,126 +72,208 @@ sealed class ImagesPostAccountTransferCreate {
   const ImagesPostAccountTransferCreate();
   factory ImagesPostAccountTransferCreate.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ImagesPostAccountTransferCreateVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant0(value); } } catch (_) {}
-      try { final value = ImagesPostAccountTransferCreateVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant1(value); } } catch (_) {}
+      try {
+        final value = ImagesPostAccountTransferCreateVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant0(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = ImagesPostAccountTransferCreateVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant1(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant0(ImagesPostAccountTransferCreateVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant1(ImagesPostAccountTransferCreateVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for ImagesPostAccountTransferCreate");
+    try {
+      return ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant0(
+          ImagesPostAccountTransferCreateVariant0.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant1(
+          ImagesPostAccountTransferCreateVariant1.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for ImagesPostAccountTransferCreate");
   }
   Object? toJson();
 }
 
-final class ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant0 extends ImagesPostAccountTransferCreate {
+final class ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant0
+    extends ImagesPostAccountTransferCreate {
   final ImagesPostAccountTransferCreateVariant0 value;
-  const ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant1 extends ImagesPostAccountTransferCreate {
+final class ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant1
+    extends ImagesPostAccountTransferCreate {
   final ImagesPostAccountTransferCreateVariant1 value;
-  const ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  const ImagesPostAccountTransferCreateImagesPostAccountTransferCreateVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `ImagesPostAccountTransferCreated` API schema.
 class ImagesPostAccountTransferCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique number that used to identify and reference an image account transfer.
   final SdkOptional<int> transferId;
 
-  const ImagesPostAccountTransferCreated({this.transferId = const SdkOmitted()});
+  const ImagesPostAccountTransferCreated(
+      {this.transferId = const SdkOmitted()});
 
-  ImagesPostAccountTransferCreated Function({SdkOptional<int> transferId}) get copyWith => _copyWith;
+  ImagesPostAccountTransferCreated Function({SdkOptional<int> transferId})
+      get copyWith => _copyWith;
 
-  ImagesPostAccountTransferCreated _copyWith({Object? transferId = sdkOmittedValue}) => ImagesPostAccountTransferCreated(
-    transferId: identical(transferId, sdkOmittedValue) ? this.transferId : transferId as SdkOptional<int>,
-  );
+  ImagesPostAccountTransferCreated _copyWith(
+          {Object? transferId = sdkOmittedValue}) =>
+      ImagesPostAccountTransferCreated(
+        transferId: identical(transferId, sdkOmittedValue)
+            ? this.transferId
+            : transferId as SdkOptional<int>,
+      );
 
-  factory ImagesPostAccountTransferCreated.fromJson(Map<String, dynamic> json) => ImagesPostAccountTransferCreated(
-    transferId: json['transfer_id'] != null ? SdkPresent(((json['transfer_id'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory ImagesPostAccountTransferCreated.fromJson(
+          Map<String, dynamic> json) =>
+      ImagesPostAccountTransferCreated(
+        transferId: json['transfer_id'] != null
+            ? SdkPresent(((json['transfer_id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (transferId) {
-      SdkPresent<int>(value: final value) => {'transfer_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (transferId) {
+          SdkPresent<int>(value: final value) => {
+              'transfer_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ImagesPostAccountTransferDecline` API schema.
 class ImagesPostAccountTransferDecline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique number that used to identify and reference an image account transfer.
   final int transferId;
 
   const ImagesPostAccountTransferDecline({required this.transferId});
 
-  ImagesPostAccountTransferDecline Function({int transferId}) get copyWith => _copyWith;
+  ImagesPostAccountTransferDecline Function({int transferId}) get copyWith =>
+      _copyWith;
 
-  ImagesPostAccountTransferDecline _copyWith({Object? transferId = sdkOmittedValue}) => ImagesPostAccountTransferDecline(
-    transferId: identical(transferId, sdkOmittedValue) ? this.transferId : transferId as int,
-  );
+  ImagesPostAccountTransferDecline _copyWith(
+          {Object? transferId = sdkOmittedValue}) =>
+      ImagesPostAccountTransferDecline(
+        transferId: identical(transferId, sdkOmittedValue)
+            ? this.transferId
+            : transferId as int,
+      );
 
-  factory ImagesPostAccountTransferDecline.fromJson(Map<String, dynamic> json) => ImagesPostAccountTransferDecline(
-    transferId: ((json['transfer_id'] as num?)?.toInt())!,
-  );
+  factory ImagesPostAccountTransferDecline.fromJson(
+          Map<String, dynamic> json) =>
+      ImagesPostAccountTransferDecline(
+        transferId: ((json['transfer_id'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'transfer_id': transferId,
-  };
+        'transfer_id': transferId,
+      };
 }
 
 /// Typed representation of the `ImageUpdate` API schema.
 class ImageUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The display name that has been given to an image. This is what is shown in the control panel and is generally a descriptive title for the image in question.
   final SdkOptional<String> name;
+
   /// The name of a custom image's distribution. Currently, the valid values are `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`, `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`. Any other value will be accepted but ignored, and `Unknown` will be used in its place.
   final SdkOptional<Distribution> distribution;
+
   /// An optional free-form text field to describe an image.
   final SdkOptional<String> description;
 
-  const ImageUpdate({this.name = const SdkOmitted(), this.distribution = const SdkOmitted(), this.description = const SdkOmitted()});
+  const ImageUpdate(
+      {this.name = const SdkOmitted(),
+      this.distribution = const SdkOmitted(),
+      this.description = const SdkOmitted()});
 
-  ImageUpdate Function({SdkOptional<String> name, SdkOptional<Distribution> distribution, SdkOptional<String> description}) get copyWith => _copyWith;
+  ImageUpdate Function(
+      {SdkOptional<String> name,
+      SdkOptional<Distribution> distribution,
+      SdkOptional<String> description}) get copyWith => _copyWith;
 
-  ImageUpdate _copyWith({Object? name = sdkOmittedValue, Object? distribution = sdkOmittedValue, Object? description = sdkOmittedValue}) => ImageUpdate(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    distribution: identical(distribution, sdkOmittedValue) ? this.distribution : distribution as SdkOptional<Distribution>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-  );
+  ImageUpdate _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? distribution = sdkOmittedValue,
+          Object? description = sdkOmittedValue}) =>
+      ImageUpdate(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        distribution: identical(distribution, sdkOmittedValue)
+            ? this.distribution
+            : distribution as SdkOptional<Distribution>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+      );
 
   factory ImageUpdate.fromJson(Map<String, dynamic> json) => ImageUpdate(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    distribution: json['distribution'] != null ? SdkPresent((json['distribution'] != null ? Distribution.fromJson(json['distribution'] as String) : null)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-  );
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        distribution: json['distribution'] != null
+            ? SdkPresent((json['distribution'] != null
+                ? Distribution.fromJson(json['distribution'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (distribution) {
-      SdkPresent<Distribution>(value: final value) => {'distribution': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (distribution) {
+          SdkPresent<Distribution>(value: final value) => {
+              'distribution': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `NewCustomImage` API schema.
 class NewCustomImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `image` wire field.
   final SdkOptional<Image> image;
 
@@ -184,19 +282,27 @@ class NewCustomImage {
   NewCustomImage Function({SdkOptional<Image> image}) get copyWith => _copyWith;
 
   NewCustomImage _copyWith({Object? image = sdkOmittedValue}) => NewCustomImage(
-    image: identical(image, sdkOmittedValue) ? this.image : image as SdkOptional<Image>,
-  );
+        image: identical(image, sdkOmittedValue)
+            ? this.image
+            : image as SdkOptional<Image>,
+      );
 
   factory NewCustomImage.fromJson(Map<String, dynamic> json) => NewCustomImage(
-    image: json['image'] != null ? SdkPresent((json['image'] != null ? Image.fromJson(json['image'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        image: json['image'] != null
+            ? SdkPresent((json['image'] != null
+                ? Image.fromJson(json['image'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (image) {
-      SdkPresent<Image>(value: final value) => {'image': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (image) {
+          SdkPresent<Image>(value: final value) => {
+              'image': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 // TransferId = int
@@ -205,6 +311,7 @@ class NewCustomImage {
 class UpdatedImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `image` wire field.
   final Image image;
 
@@ -213,14 +320,16 @@ class UpdatedImage {
   UpdatedImage Function({Image image}) get copyWith => _copyWith;
 
   UpdatedImage _copyWith({Object? image = sdkOmittedValue}) => UpdatedImage(
-    image: identical(image, sdkOmittedValue) ? this.image : image as Image,
-  );
+        image: identical(image, sdkOmittedValue) ? this.image : image as Image,
+      );
 
   factory UpdatedImage.fromJson(Map<String, dynamic> json) => UpdatedImage(
-    image: (json['image'] != null ? Image.fromJson(json['image'] as Map<String, dynamic>) : null)!,
-  );
+        image: (json['image'] != null
+            ? Image.fromJson(json['image'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'image': image.toJson(),
-  };
+        'image': image.toJson(),
+      };
 }

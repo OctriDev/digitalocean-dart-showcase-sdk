@@ -8,205 +8,364 @@ part of 'kubernetes.dart';
 class AvailableUpgrades {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `available_upgrade_versions` wire field.
   final SdkOptional<List<KubernetesVersion>?> availableUpgradeVersions;
 
   const AvailableUpgrades({this.availableUpgradeVersions = const SdkOmitted()});
 
-  AvailableUpgrades Function({SdkOptional<List<KubernetesVersion>?> availableUpgradeVersions}) get copyWith => _copyWith;
+  AvailableUpgrades Function(
+          {SdkOptional<List<KubernetesVersion>?> availableUpgradeVersions})
+      get copyWith => _copyWith;
 
-  AvailableUpgrades _copyWith({Object? availableUpgradeVersions = sdkOmittedValue}) => AvailableUpgrades(
-    availableUpgradeVersions: identical(availableUpgradeVersions, sdkOmittedValue) ? this.availableUpgradeVersions : availableUpgradeVersions as SdkOptional<List<KubernetesVersion>?>,
-  );
+  AvailableUpgrades _copyWith(
+          {Object? availableUpgradeVersions = sdkOmittedValue}) =>
+      AvailableUpgrades(
+        availableUpgradeVersions: identical(
+                availableUpgradeVersions, sdkOmittedValue)
+            ? this.availableUpgradeVersions
+            : availableUpgradeVersions as SdkOptional<List<KubernetesVersion>?>,
+      );
 
-  factory AvailableUpgrades.fromJson(Map<String, dynamic> json) => AvailableUpgrades(
-    availableUpgradeVersions: json.containsKey('available_upgrade_versions') ? SdkPresent((json['available_upgrade_versions'] as List?)?.map((e) => KubernetesVersion.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+  factory AvailableUpgrades.fromJson(Map<String, dynamic> json) =>
+      AvailableUpgrades(
+        availableUpgradeVersions: json.containsKey('available_upgrade_versions')
+            ? SdkPresent((json['available_upgrade_versions'] as List?)
+                ?.map((e) =>
+                    KubernetesVersion.fromJson(e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (availableUpgradeVersions) {
-      SdkPresent<List<KubernetesVersion>?>(value: final value) => {'available_upgrade_versions': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (availableUpgradeVersions) {
+          SdkPresent<List<KubernetesVersion>?>(value: final value) => {
+              'available_upgrade_versions':
+                  value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object specifying the control plane firewall for the Kubernetes cluster. Control plane firewall is in early availability (invite only).
 class ControlPlaneFirewall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether the control plane firewall is enabled.
   final SdkOptional<bool> enabled;
+
   /// An array of public addresses (IPv4 or CIDR) allowed to access the control plane.
   final SdkOptional<List<String>> allowedAddresses;
 
-  const ControlPlaneFirewall({this.enabled = const SdkOmitted(), this.allowedAddresses = const SdkOmitted()});
+  const ControlPlaneFirewall(
+      {this.enabled = const SdkOmitted(),
+      this.allowedAddresses = const SdkOmitted()});
 
-  ControlPlaneFirewall Function({SdkOptional<bool> enabled, SdkOptional<List<String>> allowedAddresses}) get copyWith => _copyWith;
+  ControlPlaneFirewall Function(
+      {SdkOptional<bool> enabled,
+      SdkOptional<List<String>> allowedAddresses}) get copyWith => _copyWith;
 
-  ControlPlaneFirewall _copyWith({Object? enabled = sdkOmittedValue, Object? allowedAddresses = sdkOmittedValue}) => ControlPlaneFirewall(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-    allowedAddresses: identical(allowedAddresses, sdkOmittedValue) ? this.allowedAddresses : allowedAddresses as SdkOptional<List<String>>,
-  );
+  ControlPlaneFirewall _copyWith(
+          {Object? enabled = sdkOmittedValue,
+          Object? allowedAddresses = sdkOmittedValue}) =>
+      ControlPlaneFirewall(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+        allowedAddresses: identical(allowedAddresses, sdkOmittedValue)
+            ? this.allowedAddresses
+            : allowedAddresses as SdkOptional<List<String>>,
+      );
 
-  factory ControlPlaneFirewall.fromJson(Map<String, dynamic> json) => ControlPlaneFirewall(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-    allowedAddresses: json['allowed_addresses'] != null ? SdkPresent(((json['allowed_addresses'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory ControlPlaneFirewall.fromJson(Map<String, dynamic> json) =>
+      ControlPlaneFirewall(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+        allowedAddresses: json['allowed_addresses'] != null
+            ? SdkPresent(((json['allowed_addresses'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowedAddresses) {
-      SdkPresent<List<String>>(value: final value) => {'allowed_addresses': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowedAddresses) {
+          SdkPresent<List<String>>(value: final value) => {
+              'allowed_addresses': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object specifying whether the Cluster Proportional Autoscaler (CPA) add-on for CoreDNS should be enabled for the Kubernetes cluster.
 class CorednsAutoscaler {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether the CoreDNS Cluster Proportional Autoscaler add-on is enabled.
   final SdkOptional<bool> enabled;
 
   const CorednsAutoscaler({this.enabled = const SdkOmitted()});
 
-  CorednsAutoscaler Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  CorednsAutoscaler Function({SdkOptional<bool> enabled}) get copyWith =>
+      _copyWith;
 
-  CorednsAutoscaler _copyWith({Object? enabled = sdkOmittedValue}) => CorednsAutoscaler(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  CorednsAutoscaler _copyWith({Object? enabled = sdkOmittedValue}) =>
+      CorednsAutoscaler(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
-  factory CorednsAutoscaler.fromJson(Map<String, dynamic> json) => CorednsAutoscaler(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+  factory CorednsAutoscaler.fromJson(Map<String, dynamic> json) =>
+      CorednsAutoscaler(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `Credentials` API schema.
 class Credentials {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The URL used to access the cluster API server.
   final SdkOptional<String> server;
+
   /// A base64 encoding of bytes representing the certificate authority data for accessing the cluster.
   final SdkOptional<List<int>> certificateAuthorityData;
+
   /// A base64 encoding of bytes representing the x509 client certificate data for access the cluster. This is only returned for clusters without support for token-based authentication. Newly created Kubernetes clusters do not return credentials using certificate-based authentication. For additional information, [see here](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/#authenticate).
   final SdkOptional<List<int>?> clientCertificateData;
+
   /// A base64 encoding of bytes representing the x509 client key data for access the cluster. This is only returned for clusters without support for token-based authentication. Newly created Kubernetes clusters do not return credentials using certificate-based authentication. For additional information, [see here](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/#authenticate).
   final SdkOptional<List<int>?> clientKeyData;
+
   /// An access token used to authenticate with the cluster. This is only returned for clusters with support for token-based authentication.
   final SdkOptional<String> token;
+
   /// A time value given in ISO8601 combined date and time format that represents when the access token expires.
   final SdkOptional<String> expiresAt;
 
-  const Credentials({this.server = const SdkOmitted(), this.certificateAuthorityData = const SdkOmitted(), this.clientCertificateData = const SdkOmitted(), this.clientKeyData = const SdkOmitted(), this.token = const SdkOmitted(), this.expiresAt = const SdkOmitted()});
+  const Credentials(
+      {this.server = const SdkOmitted(),
+      this.certificateAuthorityData = const SdkOmitted(),
+      this.clientCertificateData = const SdkOmitted(),
+      this.clientKeyData = const SdkOmitted(),
+      this.token = const SdkOmitted(),
+      this.expiresAt = const SdkOmitted()});
 
-  Credentials Function({SdkOptional<String> server, SdkOptional<List<int>> certificateAuthorityData, SdkOptional<List<int>?> clientCertificateData, SdkOptional<List<int>?> clientKeyData, SdkOptional<String> token, SdkOptional<String> expiresAt}) get copyWith => _copyWith;
+  Credentials Function(
+      {SdkOptional<String> server,
+      SdkOptional<List<int>> certificateAuthorityData,
+      SdkOptional<List<int>?> clientCertificateData,
+      SdkOptional<List<int>?> clientKeyData,
+      SdkOptional<String> token,
+      SdkOptional<String> expiresAt}) get copyWith => _copyWith;
 
-  Credentials _copyWith({Object? server = sdkOmittedValue, Object? certificateAuthorityData = sdkOmittedValue, Object? clientCertificateData = sdkOmittedValue, Object? clientKeyData = sdkOmittedValue, Object? token = sdkOmittedValue, Object? expiresAt = sdkOmittedValue}) => Credentials(
-    server: identical(server, sdkOmittedValue) ? this.server : server as SdkOptional<String>,
-    certificateAuthorityData: identical(certificateAuthorityData, sdkOmittedValue) ? this.certificateAuthorityData : certificateAuthorityData as SdkOptional<List<int>>,
-    clientCertificateData: identical(clientCertificateData, sdkOmittedValue) ? this.clientCertificateData : clientCertificateData as SdkOptional<List<int>?>,
-    clientKeyData: identical(clientKeyData, sdkOmittedValue) ? this.clientKeyData : clientKeyData as SdkOptional<List<int>?>,
-    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<String>,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String>,
-  );
+  Credentials _copyWith(
+          {Object? server = sdkOmittedValue,
+          Object? certificateAuthorityData = sdkOmittedValue,
+          Object? clientCertificateData = sdkOmittedValue,
+          Object? clientKeyData = sdkOmittedValue,
+          Object? token = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue}) =>
+      Credentials(
+        server: identical(server, sdkOmittedValue)
+            ? this.server
+            : server as SdkOptional<String>,
+        certificateAuthorityData:
+            identical(certificateAuthorityData, sdkOmittedValue)
+                ? this.certificateAuthorityData
+                : certificateAuthorityData as SdkOptional<List<int>>,
+        clientCertificateData: identical(clientCertificateData, sdkOmittedValue)
+            ? this.clientCertificateData
+            : clientCertificateData as SdkOptional<List<int>?>,
+        clientKeyData: identical(clientKeyData, sdkOmittedValue)
+            ? this.clientKeyData
+            : clientKeyData as SdkOptional<List<int>?>,
+        token: identical(token, sdkOmittedValue)
+            ? this.token
+            : token as SdkOptional<String>,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<String>,
+      );
 
   factory Credentials.fromJson(Map<String, dynamic> json) => Credentials(
-    server: json['server'] != null ? SdkPresent((json['server'] as String?)!) : const SdkOmitted(),
-    certificateAuthorityData: json['certificate_authority_data'] != null ? SdkPresent((json['certificate_authority_data'] != null ? base64Decode(json['certificate_authority_data'] as String) : null)!) : const SdkOmitted(),
-    clientCertificateData: json.containsKey('client_certificate_data') ? SdkPresent(json['client_certificate_data'] != null ? base64Decode(json['client_certificate_data'] as String) : null) : const SdkOmitted(),
-    clientKeyData: json.containsKey('client_key_data') ? SdkPresent(json['client_key_data'] != null ? base64Decode(json['client_key_data'] as String) : null) : const SdkOmitted(),
-    token: json['token'] != null ? SdkPresent((json['token'] as String?)!) : const SdkOmitted(),
-    expiresAt: json['expires_at'] != null ? SdkPresent((json['expires_at'] as String?)!) : const SdkOmitted(),
-  );
+        server: json['server'] != null
+            ? SdkPresent((json['server'] as String?)!)
+            : const SdkOmitted(),
+        certificateAuthorityData: json['certificate_authority_data'] != null
+            ? SdkPresent((json['certificate_authority_data'] != null
+                ? base64Decode(json['certificate_authority_data'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        clientCertificateData: json.containsKey('client_certificate_data')
+            ? SdkPresent(json['client_certificate_data'] != null
+                ? base64Decode(json['client_certificate_data'] as String)
+                : null)
+            : const SdkOmitted(),
+        clientKeyData: json.containsKey('client_key_data')
+            ? SdkPresent(json['client_key_data'] != null
+                ? base64Decode(json['client_key_data'] as String)
+                : null)
+            : const SdkOmitted(),
+        token: json['token'] != null
+            ? SdkPresent((json['token'] as String?)!)
+            : const SdkOmitted(),
+        expiresAt: json['expires_at'] != null
+            ? SdkPresent((json['expires_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (server) {
-      SdkPresent<String>(value: final value) => {'server': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (certificateAuthorityData) {
-      SdkPresent<List<int>>(value: final value) => {'certificate_authority_data': base64Encode(value),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (clientCertificateData) {
-      SdkPresent<List<int>?>(value: final value) => {'client_certificate_data': value == null ? null : base64Encode(value),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (clientKeyData) {
-      SdkPresent<List<int>?>(value: final value) => {'client_key_data': value == null ? null : base64Encode(value),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (token) {
-      SdkPresent<String>(value: final value) => {'token': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresAt) {
-      SdkPresent<String>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (server) {
+          SdkPresent<String>(value: final value) => {
+              'server': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (certificateAuthorityData) {
+          SdkPresent<List<int>>(value: final value) => {
+              'certificate_authority_data': base64Encode(value),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (clientCertificateData) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'client_certificate_data':
+                  value == null ? null : base64Encode(value),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (clientKeyData) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'client_key_data': value == null ? null : base64Encode(value),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (token) {
+          SdkPresent<String>(value: final value) => {
+              'token': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresAt) {
+          SdkPresent<String>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object containing the IDs of resources to be destroyed along with their associated with a Kubernetes cluster.
 class DestroyAssociatedKubernetesResources {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of IDs for associated load balancers to destroy along with the cluster.
   final SdkOptional<List<String>> loadBalancers;
+
   /// A list of IDs for associated volumes to destroy along with the cluster.
   final SdkOptional<List<String>> volumes;
+
   /// A list of IDs for associated volume snapshots to destroy along with the cluster.
   final SdkOptional<List<String>> volumeSnapshots;
 
-  const DestroyAssociatedKubernetesResources({this.loadBalancers = const SdkOmitted(), this.volumes = const SdkOmitted(), this.volumeSnapshots = const SdkOmitted()});
+  const DestroyAssociatedKubernetesResources(
+      {this.loadBalancers = const SdkOmitted(),
+      this.volumes = const SdkOmitted(),
+      this.volumeSnapshots = const SdkOmitted()});
 
-  DestroyAssociatedKubernetesResources Function({SdkOptional<List<String>> loadBalancers, SdkOptional<List<String>> volumes, SdkOptional<List<String>> volumeSnapshots}) get copyWith => _copyWith;
+  DestroyAssociatedKubernetesResources Function(
+      {SdkOptional<List<String>> loadBalancers,
+      SdkOptional<List<String>> volumes,
+      SdkOptional<List<String>> volumeSnapshots}) get copyWith => _copyWith;
 
-  DestroyAssociatedKubernetesResources _copyWith({Object? loadBalancers = sdkOmittedValue, Object? volumes = sdkOmittedValue, Object? volumeSnapshots = sdkOmittedValue}) => DestroyAssociatedKubernetesResources(
-    loadBalancers: identical(loadBalancers, sdkOmittedValue) ? this.loadBalancers : loadBalancers as SdkOptional<List<String>>,
-    volumes: identical(volumes, sdkOmittedValue) ? this.volumes : volumes as SdkOptional<List<String>>,
-    volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue) ? this.volumeSnapshots : volumeSnapshots as SdkOptional<List<String>>,
-  );
+  DestroyAssociatedKubernetesResources _copyWith(
+          {Object? loadBalancers = sdkOmittedValue,
+          Object? volumes = sdkOmittedValue,
+          Object? volumeSnapshots = sdkOmittedValue}) =>
+      DestroyAssociatedKubernetesResources(
+        loadBalancers: identical(loadBalancers, sdkOmittedValue)
+            ? this.loadBalancers
+            : loadBalancers as SdkOptional<List<String>>,
+        volumes: identical(volumes, sdkOmittedValue)
+            ? this.volumes
+            : volumes as SdkOptional<List<String>>,
+        volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue)
+            ? this.volumeSnapshots
+            : volumeSnapshots as SdkOptional<List<String>>,
+      );
 
-  factory DestroyAssociatedKubernetesResources.fromJson(Map<String, dynamic> json) => DestroyAssociatedKubernetesResources(
-    loadBalancers: json['load_balancers'] != null ? SdkPresent(((json['load_balancers'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    volumes: json['volumes'] != null ? SdkPresent(((json['volumes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    volumeSnapshots: json['volume_snapshots'] != null ? SdkPresent(((json['volume_snapshots'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory DestroyAssociatedKubernetesResources.fromJson(
+          Map<String, dynamic> json) =>
+      DestroyAssociatedKubernetesResources(
+        loadBalancers: json['load_balancers'] != null
+            ? SdkPresent(((json['load_balancers'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        volumes: json['volumes'] != null
+            ? SdkPresent(
+                ((json['volumes'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        volumeSnapshots: json['volume_snapshots'] != null
+            ? SdkPresent(((json['volume_snapshots'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (loadBalancers) {
-      SdkPresent<List<String>>(value: final value) => {'load_balancers': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (volumes) {
-      SdkPresent<List<String>>(value: final value) => {'volumes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (volumeSnapshots) {
-      SdkPresent<List<String>>(value: final value) => {'volume_snapshots': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (loadBalancers) {
+          SdkPresent<List<String>>(value: final value) => {
+              'load_balancers': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (volumes) {
+          SdkPresent<List<String>>(value: final value) => {
+              'volumes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (volumeSnapshots) {
+          SdkPresent<List<String>>(value: final value) => {
+              'volume_snapshots': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object specifying whether the NFS CSI plugin should be enabled for the Kubernetes cluster.
 class NfsCsiPlugin {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether the NFS CSI plugin is enabled.
   final SdkOptional<bool> enabled;
 
@@ -215,71 +374,97 @@ class NfsCsiPlugin {
   NfsCsiPlugin Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
 
   NfsCsiPlugin _copyWith({Object? enabled = sdkOmittedValue}) => NfsCsiPlugin(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
   factory NfsCsiPlugin.fromJson(Map<String, dynamic> json) => NfsCsiPlugin(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object specifying whether the Peer-to-peer OCI registry component should be enabled for the Kubernetes cluster.
 class P2pOciRegistryPlugin {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether the Peer-to-peer OCI registry component is enabled.
   final SdkOptional<bool> enabled;
 
   const P2pOciRegistryPlugin({this.enabled = const SdkOmitted()});
 
-  P2pOciRegistryPlugin Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  P2pOciRegistryPlugin Function({SdkOptional<bool> enabled}) get copyWith =>
+      _copyWith;
 
-  P2pOciRegistryPlugin _copyWith({Object? enabled = sdkOmittedValue}) => P2pOciRegistryPlugin(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  P2pOciRegistryPlugin _copyWith({Object? enabled = sdkOmittedValue}) =>
+      P2pOciRegistryPlugin(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
-  factory P2pOciRegistryPlugin.fromJson(Map<String, dynamic> json) => P2pOciRegistryPlugin(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+  factory P2pOciRegistryPlugin.fromJson(Map<String, dynamic> json) =>
+      P2pOciRegistryPlugin(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object specifying whether the RDMA shared device plugin should be enabled in the Kubernetes cluster.
 class RdmaSharedDevPlugin {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether the RDMA shared device plugin is enabled.
   final SdkOptional<bool> enabled;
 
   const RdmaSharedDevPlugin({this.enabled = const SdkOmitted()});
 
-  RdmaSharedDevPlugin Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  RdmaSharedDevPlugin Function({SdkOptional<bool> enabled}) get copyWith =>
+      _copyWith;
 
-  RdmaSharedDevPlugin _copyWith({Object? enabled = sdkOmittedValue}) => RdmaSharedDevPlugin(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  RdmaSharedDevPlugin _copyWith({Object? enabled = sdkOmittedValue}) =>
+      RdmaSharedDevPlugin(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
-  factory RdmaSharedDevPlugin.fromJson(Map<String, dynamic> json) => RdmaSharedDevPlugin(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+  factory RdmaSharedDevPlugin.fromJson(Map<String, dynamic> json) =>
+      RdmaSharedDevPlugin(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

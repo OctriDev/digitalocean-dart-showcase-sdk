@@ -8,89 +8,135 @@ part of 'apps_apps_create.dart';
 class AppsCreateAppRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The desired configuration of an application.
   final AppSpec spec;
+
   /// The ID of the project the app should be assigned to. If omitted, it will be assigned to your default project. &lt;br&gt;&lt;br&gt;Requires `project:assign_resource` and `project:update` scopes.
   final SdkOptional<String> projectId;
 
-  const AppsCreateAppRequest({required this.spec, this.projectId = const SdkOmitted()});
+  const AppsCreateAppRequest(
+      {required this.spec, this.projectId = const SdkOmitted()});
 
-  AppsCreateAppRequest Function({AppSpec spec, SdkOptional<String> projectId}) get copyWith => _copyWith;
+  AppsCreateAppRequest Function({AppSpec spec, SdkOptional<String> projectId})
+      get copyWith => _copyWith;
 
-  AppsCreateAppRequest _copyWith({Object? spec = sdkOmittedValue, Object? projectId = sdkOmittedValue}) => AppsCreateAppRequest(
-    spec: identical(spec, sdkOmittedValue) ? this.spec : spec as AppSpec,
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
-  );
+  AppsCreateAppRequest _copyWith(
+          {Object? spec = sdkOmittedValue,
+          Object? projectId = sdkOmittedValue}) =>
+      AppsCreateAppRequest(
+        spec: identical(spec, sdkOmittedValue) ? this.spec : spec as AppSpec,
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as SdkOptional<String>,
+      );
 
-  factory AppsCreateAppRequest.fromJson(Map<String, dynamic> json) => AppsCreateAppRequest(
-    spec: (json['spec'] != null ? AppSpec.fromJson(json['spec'] as Map<String, dynamic>) : null)!,
-    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory AppsCreateAppRequest.fromJson(Map<String, dynamic> json) =>
+      AppsCreateAppRequest(
+        spec: (json['spec'] != null
+            ? AppSpec.fromJson(json['spec'] as Map<String, dynamic>)
+            : null)!,
+        projectId: json['project_id'] != null
+            ? SdkPresent((json['project_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'spec': spec.toJson(),
-    ...switch (projectId) {
-      SdkPresent<String>(value: final value) => {'project_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'spec': spec.toJson(),
+        ...switch (projectId) {
+          SdkPresent<String>(value: final value) => {
+              'project_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AppsCreateAppRequestRequest` API schema.
 class AppsCreateAppRequestRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The desired configuration of an application.
   final AppSpecRequest spec;
+
   /// The ID of the project the app should be assigned to. If omitted, it will be assigned to your default project. &lt;br&gt;&lt;br&gt;Requires `project:assign_resource` and `project:update` scopes.
   final SdkOptional<String> projectId;
 
-  const AppsCreateAppRequestRequest({required this.spec, this.projectId = const SdkOmitted()});
+  const AppsCreateAppRequestRequest(
+      {required this.spec, this.projectId = const SdkOmitted()});
 
-  AppsCreateAppRequestRequest Function({AppSpecRequest spec, SdkOptional<String> projectId}) get copyWith => _copyWith;
+  AppsCreateAppRequestRequest Function(
+      {AppSpecRequest spec,
+      SdkOptional<String> projectId}) get copyWith => _copyWith;
 
-  AppsCreateAppRequestRequest _copyWith({Object? spec = sdkOmittedValue, Object? projectId = sdkOmittedValue}) => AppsCreateAppRequestRequest(
-    spec: identical(spec, sdkOmittedValue) ? this.spec : spec as AppSpecRequest,
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
-  );
+  AppsCreateAppRequestRequest _copyWith(
+          {Object? spec = sdkOmittedValue,
+          Object? projectId = sdkOmittedValue}) =>
+      AppsCreateAppRequestRequest(
+        spec: identical(spec, sdkOmittedValue)
+            ? this.spec
+            : spec as AppSpecRequest,
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as SdkOptional<String>,
+      );
 
-  factory AppsCreateAppRequestRequest.fromJson(Map<String, dynamic> json) => AppsCreateAppRequestRequest(
-    spec: (json['spec'] != null ? AppSpecRequest.fromJson(json['spec'] as Map<String, dynamic>) : null)!,
-    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory AppsCreateAppRequestRequest.fromJson(Map<String, dynamic> json) =>
+      AppsCreateAppRequestRequest(
+        spec: (json['spec'] != null
+            ? AppSpecRequest.fromJson(json['spec'] as Map<String, dynamic>)
+            : null)!,
+        projectId: json['project_id'] != null
+            ? SdkPresent((json['project_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'spec': spec.toJson(),
-    ...switch (projectId) {
-      SdkPresent<String>(value: final value) => {'project_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'spec': spec.toJson(),
+        ...switch (projectId) {
+          SdkPresent<String>(value: final value) => {
+              'project_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AppsCreateDeploymentRequest` API schema.
 class AppsCreateDeploymentRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `boolean` value serialized in the `force_build` wire field.
   final SdkOptional<bool> forceBuild;
 
   const AppsCreateDeploymentRequest({this.forceBuild = const SdkOmitted()});
 
-  AppsCreateDeploymentRequest Function({SdkOptional<bool> forceBuild}) get copyWith => _copyWith;
+  AppsCreateDeploymentRequest Function({SdkOptional<bool> forceBuild})
+      get copyWith => _copyWith;
 
-  AppsCreateDeploymentRequest _copyWith({Object? forceBuild = sdkOmittedValue}) => AppsCreateDeploymentRequest(
-    forceBuild: identical(forceBuild, sdkOmittedValue) ? this.forceBuild : forceBuild as SdkOptional<bool>,
-  );
+  AppsCreateDeploymentRequest _copyWith(
+          {Object? forceBuild = sdkOmittedValue}) =>
+      AppsCreateDeploymentRequest(
+        forceBuild: identical(forceBuild, sdkOmittedValue)
+            ? this.forceBuild
+            : forceBuild as SdkOptional<bool>,
+      );
 
-  factory AppsCreateDeploymentRequest.fromJson(Map<String, dynamic> json) => AppsCreateDeploymentRequest(
-    forceBuild: json['force_build'] != null ? SdkPresent((json['force_build'] as bool?)!) : const SdkOmitted(),
-  );
+  factory AppsCreateDeploymentRequest.fromJson(Map<String, dynamic> json) =>
+      AppsCreateDeploymentRequest(
+        forceBuild: json['force_build'] != null
+            ? SdkPresent((json['force_build'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (forceBuild) {
-      SdkPresent<bool>(value: final value) => {'force_build': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (forceBuild) {
+          SdkPresent<bool>(value: final value) => {
+              'force_build': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

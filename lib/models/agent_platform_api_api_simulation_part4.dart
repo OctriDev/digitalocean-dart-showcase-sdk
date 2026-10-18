@@ -8,204 +8,360 @@ part of 'agent_platform_api_api_simulation.dart';
 class ApiSimulationRunResultSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Per-actor token accounting for a run or episode.
   final SdkOptional<ApiSimulationTokenUsage> tokenUsage;
+
   /// Total wall-clock duration across the run, in seconds.
   final SdkOptional<String> totalDurationSec;
+
   /// Breakdown of episode outcomes by judge verdict. Reused wherever a success / failure / inconclusive tally is reported (run row, result summary, per-scenario rollup).
   final SdkOptional<ApiSimulationEpisodeCounts> verdictCounts;
 
-  const ApiSimulationRunResultSummary({this.tokenUsage = const SdkOmitted(), this.totalDurationSec = const SdkOmitted(), this.verdictCounts = const SdkOmitted()});
+  const ApiSimulationRunResultSummary(
+      {this.tokenUsage = const SdkOmitted(),
+      this.totalDurationSec = const SdkOmitted(),
+      this.verdictCounts = const SdkOmitted()});
 
-  ApiSimulationRunResultSummary Function({SdkOptional<ApiSimulationTokenUsage> tokenUsage, SdkOptional<String> totalDurationSec, SdkOptional<ApiSimulationEpisodeCounts> verdictCounts}) get copyWith => _copyWith;
+  ApiSimulationRunResultSummary Function(
+          {SdkOptional<ApiSimulationTokenUsage> tokenUsage,
+          SdkOptional<String> totalDurationSec,
+          SdkOptional<ApiSimulationEpisodeCounts> verdictCounts})
+      get copyWith => _copyWith;
 
-  ApiSimulationRunResultSummary _copyWith({Object? tokenUsage = sdkOmittedValue, Object? totalDurationSec = sdkOmittedValue, Object? verdictCounts = sdkOmittedValue}) => ApiSimulationRunResultSummary(
-    tokenUsage: identical(tokenUsage, sdkOmittedValue) ? this.tokenUsage : tokenUsage as SdkOptional<ApiSimulationTokenUsage>,
-    totalDurationSec: identical(totalDurationSec, sdkOmittedValue) ? this.totalDurationSec : totalDurationSec as SdkOptional<String>,
-    verdictCounts: identical(verdictCounts, sdkOmittedValue) ? this.verdictCounts : verdictCounts as SdkOptional<ApiSimulationEpisodeCounts>,
-  );
+  ApiSimulationRunResultSummary _copyWith(
+          {Object? tokenUsage = sdkOmittedValue,
+          Object? totalDurationSec = sdkOmittedValue,
+          Object? verdictCounts = sdkOmittedValue}) =>
+      ApiSimulationRunResultSummary(
+        tokenUsage: identical(tokenUsage, sdkOmittedValue)
+            ? this.tokenUsage
+            : tokenUsage as SdkOptional<ApiSimulationTokenUsage>,
+        totalDurationSec: identical(totalDurationSec, sdkOmittedValue)
+            ? this.totalDurationSec
+            : totalDurationSec as SdkOptional<String>,
+        verdictCounts: identical(verdictCounts, sdkOmittedValue)
+            ? this.verdictCounts
+            : verdictCounts as SdkOptional<ApiSimulationEpisodeCounts>,
+      );
 
-  factory ApiSimulationRunResultSummary.fromJson(Map<String, dynamic> json) => ApiSimulationRunResultSummary(
-    tokenUsage: json['token_usage'] != null ? SdkPresent((json['token_usage'] != null ? ApiSimulationTokenUsage.fromJson(json['token_usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    totalDurationSec: json['total_duration_sec'] != null ? SdkPresent((json['total_duration_sec'] as String?)!) : const SdkOmitted(),
-    verdictCounts: json['verdict_counts'] != null ? SdkPresent((json['verdict_counts'] != null ? ApiSimulationEpisodeCounts.fromJson(json['verdict_counts'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiSimulationRunResultSummary.fromJson(Map<String, dynamic> json) =>
+      ApiSimulationRunResultSummary(
+        tokenUsage: json['token_usage'] != null
+            ? SdkPresent((json['token_usage'] != null
+                ? ApiSimulationTokenUsage.fromJson(
+                    json['token_usage'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        totalDurationSec: json['total_duration_sec'] != null
+            ? SdkPresent((json['total_duration_sec'] as String?)!)
+            : const SdkOmitted(),
+        verdictCounts: json['verdict_counts'] != null
+            ? SdkPresent((json['verdict_counts'] != null
+                ? ApiSimulationEpisodeCounts.fromJson(
+                    json['verdict_counts'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (tokenUsage) {
-      SdkPresent<ApiSimulationTokenUsage>(value: final value) => {'token_usage': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalDurationSec) {
-      SdkPresent<String>(value: final value) => {'total_duration_sec': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (verdictCounts) {
-      SdkPresent<ApiSimulationEpisodeCounts>(value: final value) => {'verdict_counts': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (tokenUsage) {
+          SdkPresent<ApiSimulationTokenUsage>(value: final value) => {
+              'token_usage': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalDurationSec) {
+          SdkPresent<String>(value: final value) => {
+              'total_duration_sec': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (verdictCounts) {
+          SdkPresent<ApiSimulationEpisodeCounts>(value: final value) => {
+              'verdict_counts': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Sortable fields for listing simulation runs. - SIMULATION_RUN_SORT_FIELD_CREATED_AT: Sort by creation date. Default. - SIMULATION_RUN_SORT_FIELD_NAME: Sort by customer-supplied run name (case-insensitive). - SIMULATION_RUN_SORT_FIELD_STATUS: Sort by status using lifecycle order (pending → running → terminal). - SIMULATION_RUN_SORT_FIELD_UPDATED_AT: Sort by last update date.
 final class ApiSimulationRunSortField {
-
   final String value;
 
   const ApiSimulationRunSortField._(this.value);
 
-  factory ApiSimulationRunSortField.fromJson(String value) => ApiSimulationRunSortField._(value);
+  factory ApiSimulationRunSortField.fromJson(String value) =>
+      ApiSimulationRunSortField._(value);
 
-  static const simulationRunSortFieldUnspecified = ApiSimulationRunSortField._('SIMULATION_RUN_SORT_FIELD_UNSPECIFIED');
-  static const simulationRunSortFieldCreatedAt = ApiSimulationRunSortField._('SIMULATION_RUN_SORT_FIELD_CREATED_AT');
-  static const simulationRunSortFieldName = ApiSimulationRunSortField._('SIMULATION_RUN_SORT_FIELD_NAME');
-  static const simulationRunSortFieldStatus = ApiSimulationRunSortField._('SIMULATION_RUN_SORT_FIELD_STATUS');
-  static const simulationRunSortFieldUpdatedAt = ApiSimulationRunSortField._('SIMULATION_RUN_SORT_FIELD_UPDATED_AT');
+  static const simulationRunSortFieldUnspecified =
+      ApiSimulationRunSortField._('SIMULATION_RUN_SORT_FIELD_UNSPECIFIED');
+  static const simulationRunSortFieldCreatedAt =
+      ApiSimulationRunSortField._('SIMULATION_RUN_SORT_FIELD_CREATED_AT');
+  static const simulationRunSortFieldName =
+      ApiSimulationRunSortField._('SIMULATION_RUN_SORT_FIELD_NAME');
+  static const simulationRunSortFieldStatus =
+      ApiSimulationRunSortField._('SIMULATION_RUN_SORT_FIELD_STATUS');
+  static const simulationRunSortFieldUpdatedAt =
+      ApiSimulationRunSortField._('SIMULATION_RUN_SORT_FIELD_UPDATED_AT');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiSimulationRunSortField && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiSimulationRunSortField && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Lifecycle status of a simulation run. - SIMULATION_RUN_STATUS_PENDING: Accepted and queued, not yet executing. - SIMULATION_RUN_STATUS_RUNNING: Episodes are executing. - SIMULATION_RUN_STATUS_SUCCEEDED: All episodes finished successfully. - SIMULATION_RUN_STATUS_FAILED: The run failed, for example because of a timeout or workflow error. - SIMULATION_RUN_STATUS_CANCELLED: The run was cancelled. - SIMULATION_RUN_STATUS_EVALUATING: Episodes finished and an attached evaluation is running. Only reachable when the create request included evaluation_config. When the evaluation reaches a terminal status, its outcome is reflected in the simulation run status. - SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL: The simulation or its attached evaluation completed with a mixture of successful and failed results.
 final class ApiSimulationRunStatus {
-
   final String value;
 
   const ApiSimulationRunStatus._(this.value);
 
-  factory ApiSimulationRunStatus.fromJson(String value) => ApiSimulationRunStatus._(value);
+  factory ApiSimulationRunStatus.fromJson(String value) =>
+      ApiSimulationRunStatus._(value);
 
-  static const simulationRunStatusUnspecified = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_UNSPECIFIED');
-  static const simulationRunStatusPending = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_PENDING');
-  static const simulationRunStatusRunning = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_RUNNING');
-  static const simulationRunStatusSucceeded = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_SUCCEEDED');
-  static const simulationRunStatusFailed = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_FAILED');
-  static const simulationRunStatusCancelled = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_CANCELLED');
-  static const simulationRunStatusEvaluating = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_EVALUATING');
-  static const simulationRunStatusPartiallySuccessful = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL');
+  static const simulationRunStatusUnspecified =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_UNSPECIFIED');
+  static const simulationRunStatusPending =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_PENDING');
+  static const simulationRunStatusRunning =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_RUNNING');
+  static const simulationRunStatusSucceeded =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_SUCCEEDED');
+  static const simulationRunStatusFailed =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_FAILED');
+  static const simulationRunStatusCancelled =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_CANCELLED');
+  static const simulationRunStatusEvaluating =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_EVALUATING');
+  static const simulationRunStatusPartiallySuccessful =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiSimulationRunStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiSimulationRunStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Per-scenario rollup of episode outcomes within a run, aggregated from the run's episode rows.
 class ApiSimulationScenarioResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Episodes that have finished (successfully or not).
   final SdkOptional<int> episodesFinished;
+
   /// UUID of the scenario.
   final SdkOptional<String> scenarioUuid;
+
   /// Total episodes for this scenario (its exploration budget).
   final SdkOptional<int> totalEpisodes;
+
   /// Breakdown of episode outcomes by judge verdict. Reused wherever a success / failure / inconclusive tally is reported (run row, result summary, per-scenario rollup).
   final SdkOptional<ApiSimulationEpisodeCounts> verdictCounts;
 
-  const ApiSimulationScenarioResult({this.episodesFinished = const SdkOmitted(), this.scenarioUuid = const SdkOmitted(), this.totalEpisodes = const SdkOmitted(), this.verdictCounts = const SdkOmitted()});
+  const ApiSimulationScenarioResult(
+      {this.episodesFinished = const SdkOmitted(),
+      this.scenarioUuid = const SdkOmitted(),
+      this.totalEpisodes = const SdkOmitted(),
+      this.verdictCounts = const SdkOmitted()});
 
-  ApiSimulationScenarioResult Function({SdkOptional<int> episodesFinished, SdkOptional<String> scenarioUuid, SdkOptional<int> totalEpisodes, SdkOptional<ApiSimulationEpisodeCounts> verdictCounts}) get copyWith => _copyWith;
+  ApiSimulationScenarioResult Function(
+          {SdkOptional<int> episodesFinished,
+          SdkOptional<String> scenarioUuid,
+          SdkOptional<int> totalEpisodes,
+          SdkOptional<ApiSimulationEpisodeCounts> verdictCounts})
+      get copyWith => _copyWith;
 
-  ApiSimulationScenarioResult _copyWith({Object? episodesFinished = sdkOmittedValue, Object? scenarioUuid = sdkOmittedValue, Object? totalEpisodes = sdkOmittedValue, Object? verdictCounts = sdkOmittedValue}) => ApiSimulationScenarioResult(
-    episodesFinished: identical(episodesFinished, sdkOmittedValue) ? this.episodesFinished : episodesFinished as SdkOptional<int>,
-    scenarioUuid: identical(scenarioUuid, sdkOmittedValue) ? this.scenarioUuid : scenarioUuid as SdkOptional<String>,
-    totalEpisodes: identical(totalEpisodes, sdkOmittedValue) ? this.totalEpisodes : totalEpisodes as SdkOptional<int>,
-    verdictCounts: identical(verdictCounts, sdkOmittedValue) ? this.verdictCounts : verdictCounts as SdkOptional<ApiSimulationEpisodeCounts>,
-  );
+  ApiSimulationScenarioResult _copyWith(
+          {Object? episodesFinished = sdkOmittedValue,
+          Object? scenarioUuid = sdkOmittedValue,
+          Object? totalEpisodes = sdkOmittedValue,
+          Object? verdictCounts = sdkOmittedValue}) =>
+      ApiSimulationScenarioResult(
+        episodesFinished: identical(episodesFinished, sdkOmittedValue)
+            ? this.episodesFinished
+            : episodesFinished as SdkOptional<int>,
+        scenarioUuid: identical(scenarioUuid, sdkOmittedValue)
+            ? this.scenarioUuid
+            : scenarioUuid as SdkOptional<String>,
+        totalEpisodes: identical(totalEpisodes, sdkOmittedValue)
+            ? this.totalEpisodes
+            : totalEpisodes as SdkOptional<int>,
+        verdictCounts: identical(verdictCounts, sdkOmittedValue)
+            ? this.verdictCounts
+            : verdictCounts as SdkOptional<ApiSimulationEpisodeCounts>,
+      );
 
-  factory ApiSimulationScenarioResult.fromJson(Map<String, dynamic> json) => ApiSimulationScenarioResult(
-    episodesFinished: json['episodes_finished'] != null ? SdkPresent(((json['episodes_finished'] as num?)?.toInt())!) : const SdkOmitted(),
-    scenarioUuid: json['scenario_uuid'] != null ? SdkPresent((json['scenario_uuid'] as String?)!) : const SdkOmitted(),
-    totalEpisodes: json['total_episodes'] != null ? SdkPresent(((json['total_episodes'] as num?)?.toInt())!) : const SdkOmitted(),
-    verdictCounts: json['verdict_counts'] != null ? SdkPresent((json['verdict_counts'] != null ? ApiSimulationEpisodeCounts.fromJson(json['verdict_counts'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiSimulationScenarioResult.fromJson(Map<String, dynamic> json) =>
+      ApiSimulationScenarioResult(
+        episodesFinished: json['episodes_finished'] != null
+            ? SdkPresent(((json['episodes_finished'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        scenarioUuid: json['scenario_uuid'] != null
+            ? SdkPresent((json['scenario_uuid'] as String?)!)
+            : const SdkOmitted(),
+        totalEpisodes: json['total_episodes'] != null
+            ? SdkPresent(((json['total_episodes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        verdictCounts: json['verdict_counts'] != null
+            ? SdkPresent((json['verdict_counts'] != null
+                ? ApiSimulationEpisodeCounts.fromJson(
+                    json['verdict_counts'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (episodesFinished) {
-      SdkPresent<int>(value: final value) => {'episodes_finished': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scenarioUuid) {
-      SdkPresent<String>(value: final value) => {'scenario_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalEpisodes) {
-      SdkPresent<int>(value: final value) => {'total_episodes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (verdictCounts) {
-      SdkPresent<ApiSimulationEpisodeCounts>(value: final value) => {'verdict_counts': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (episodesFinished) {
+          SdkPresent<int>(value: final value) => {
+              'episodes_finished': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scenarioUuid) {
+          SdkPresent<String>(value: final value) => {
+              'scenario_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalEpisodes) {
+          SdkPresent<int>(value: final value) => {
+              'total_episodes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (verdictCounts) {
+          SdkPresent<ApiSimulationEpisodeCounts>(value: final value) => {
+              'verdict_counts': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Per-actor token accounting for a run or episode.
 class ApiSimulationTokenUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Tokens consumed by the candidate agent.
   final SdkOptional<String> candidateAgentTokens;
+
   /// Tokens consumed by the scenario generator.
   final SdkOptional<String> generatorTokens;
+
   /// Tokens consumed by the judge.
   final SdkOptional<String> judgeTokens;
+
   /// Tokens consumed by the user simulator.
   final SdkOptional<String> simulatorTokens;
+
   /// Total tokens across all actors.
   final SdkOptional<String> totalTokens;
 
-  const ApiSimulationTokenUsage({this.candidateAgentTokens = const SdkOmitted(), this.generatorTokens = const SdkOmitted(), this.judgeTokens = const SdkOmitted(), this.simulatorTokens = const SdkOmitted(), this.totalTokens = const SdkOmitted()});
+  const ApiSimulationTokenUsage(
+      {this.candidateAgentTokens = const SdkOmitted(),
+      this.generatorTokens = const SdkOmitted(),
+      this.judgeTokens = const SdkOmitted(),
+      this.simulatorTokens = const SdkOmitted(),
+      this.totalTokens = const SdkOmitted()});
 
-  ApiSimulationTokenUsage Function({SdkOptional<String> candidateAgentTokens, SdkOptional<String> generatorTokens, SdkOptional<String> judgeTokens, SdkOptional<String> simulatorTokens, SdkOptional<String> totalTokens}) get copyWith => _copyWith;
+  ApiSimulationTokenUsage Function(
+      {SdkOptional<String> candidateAgentTokens,
+      SdkOptional<String> generatorTokens,
+      SdkOptional<String> judgeTokens,
+      SdkOptional<String> simulatorTokens,
+      SdkOptional<String> totalTokens}) get copyWith => _copyWith;
 
-  ApiSimulationTokenUsage _copyWith({Object? candidateAgentTokens = sdkOmittedValue, Object? generatorTokens = sdkOmittedValue, Object? judgeTokens = sdkOmittedValue, Object? simulatorTokens = sdkOmittedValue, Object? totalTokens = sdkOmittedValue}) => ApiSimulationTokenUsage(
-    candidateAgentTokens: identical(candidateAgentTokens, sdkOmittedValue) ? this.candidateAgentTokens : candidateAgentTokens as SdkOptional<String>,
-    generatorTokens: identical(generatorTokens, sdkOmittedValue) ? this.generatorTokens : generatorTokens as SdkOptional<String>,
-    judgeTokens: identical(judgeTokens, sdkOmittedValue) ? this.judgeTokens : judgeTokens as SdkOptional<String>,
-    simulatorTokens: identical(simulatorTokens, sdkOmittedValue) ? this.simulatorTokens : simulatorTokens as SdkOptional<String>,
-    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as SdkOptional<String>,
-  );
+  ApiSimulationTokenUsage _copyWith(
+          {Object? candidateAgentTokens = sdkOmittedValue,
+          Object? generatorTokens = sdkOmittedValue,
+          Object? judgeTokens = sdkOmittedValue,
+          Object? simulatorTokens = sdkOmittedValue,
+          Object? totalTokens = sdkOmittedValue}) =>
+      ApiSimulationTokenUsage(
+        candidateAgentTokens: identical(candidateAgentTokens, sdkOmittedValue)
+            ? this.candidateAgentTokens
+            : candidateAgentTokens as SdkOptional<String>,
+        generatorTokens: identical(generatorTokens, sdkOmittedValue)
+            ? this.generatorTokens
+            : generatorTokens as SdkOptional<String>,
+        judgeTokens: identical(judgeTokens, sdkOmittedValue)
+            ? this.judgeTokens
+            : judgeTokens as SdkOptional<String>,
+        simulatorTokens: identical(simulatorTokens, sdkOmittedValue)
+            ? this.simulatorTokens
+            : simulatorTokens as SdkOptional<String>,
+        totalTokens: identical(totalTokens, sdkOmittedValue)
+            ? this.totalTokens
+            : totalTokens as SdkOptional<String>,
+      );
 
-  factory ApiSimulationTokenUsage.fromJson(Map<String, dynamic> json) => ApiSimulationTokenUsage(
-    candidateAgentTokens: json['candidate_agent_tokens'] != null ? SdkPresent((json['candidate_agent_tokens'] as String?)!) : const SdkOmitted(),
-    generatorTokens: json['generator_tokens'] != null ? SdkPresent((json['generator_tokens'] as String?)!) : const SdkOmitted(),
-    judgeTokens: json['judge_tokens'] != null ? SdkPresent((json['judge_tokens'] as String?)!) : const SdkOmitted(),
-    simulatorTokens: json['simulator_tokens'] != null ? SdkPresent((json['simulator_tokens'] as String?)!) : const SdkOmitted(),
-    totalTokens: json['total_tokens'] != null ? SdkPresent((json['total_tokens'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiSimulationTokenUsage.fromJson(Map<String, dynamic> json) =>
+      ApiSimulationTokenUsage(
+        candidateAgentTokens: json['candidate_agent_tokens'] != null
+            ? SdkPresent((json['candidate_agent_tokens'] as String?)!)
+            : const SdkOmitted(),
+        generatorTokens: json['generator_tokens'] != null
+            ? SdkPresent((json['generator_tokens'] as String?)!)
+            : const SdkOmitted(),
+        judgeTokens: json['judge_tokens'] != null
+            ? SdkPresent((json['judge_tokens'] as String?)!)
+            : const SdkOmitted(),
+        simulatorTokens: json['simulator_tokens'] != null
+            ? SdkPresent((json['simulator_tokens'] as String?)!)
+            : const SdkOmitted(),
+        totalTokens: json['total_tokens'] != null
+            ? SdkPresent((json['total_tokens'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (candidateAgentTokens) {
-      SdkPresent<String>(value: final value) => {'candidate_agent_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (generatorTokens) {
-      SdkPresent<String>(value: final value) => {'generator_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (judgeTokens) {
-      SdkPresent<String>(value: final value) => {'judge_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (simulatorTokens) {
-      SdkPresent<String>(value: final value) => {'simulator_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalTokens) {
-      SdkPresent<String>(value: final value) => {'total_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (candidateAgentTokens) {
+          SdkPresent<String>(value: final value) => {
+              'candidate_agent_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (generatorTokens) {
+          SdkPresent<String>(value: final value) => {
+              'generator_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (judgeTokens) {
+          SdkPresent<String>(value: final value) => {
+              'judge_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (simulatorTokens) {
+          SdkPresent<String>(value: final value) => {
+              'simulator_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalTokens) {
+          SdkPresent<String>(value: final value) => {
+              'total_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

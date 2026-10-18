@@ -8,275 +8,479 @@ part of 'agent_platform_api_api_link.dart';
 class ApiLinkAgentFunctionInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Agent id
   final SdkOptional<String> agentUuid;
+
   /// Function description
   final SdkOptional<String> description;
+
   /// The name of the function in the DigitalOcean functions platform
   final SdkOptional<String> faasName;
+
   /// The namespace of the function in the DigitalOcean functions platform
   final SdkOptional<String> faasNamespace;
+
   /// Function name
   final SdkOptional<String> functionName;
+
   /// Describe the input schema for the function so the agent may call it
   final SdkOptional<Map<String, dynamic>> inputSchema;
+
   /// Describe the output schema for the function so the agent handle its response
   final SdkOptional<Map<String, dynamic>> outputSchema;
 
-  const ApiLinkAgentFunctionInputPublic({this.agentUuid = const SdkOmitted(), this.description = const SdkOmitted(), this.faasName = const SdkOmitted(), this.faasNamespace = const SdkOmitted(), this.functionName = const SdkOmitted(), this.inputSchema = const SdkOmitted(), this.outputSchema = const SdkOmitted()});
+  const ApiLinkAgentFunctionInputPublic(
+      {this.agentUuid = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.faasName = const SdkOmitted(),
+      this.faasNamespace = const SdkOmitted(),
+      this.functionName = const SdkOmitted(),
+      this.inputSchema = const SdkOmitted(),
+      this.outputSchema = const SdkOmitted()});
 
-  ApiLinkAgentFunctionInputPublic Function({SdkOptional<String> agentUuid, SdkOptional<String> description, SdkOptional<String> faasName, SdkOptional<String> faasNamespace, SdkOptional<String> functionName, SdkOptional<Map<String, dynamic>> inputSchema, SdkOptional<Map<String, dynamic>> outputSchema}) get copyWith => _copyWith;
+  ApiLinkAgentFunctionInputPublic Function(
+          {SdkOptional<String> agentUuid,
+          SdkOptional<String> description,
+          SdkOptional<String> faasName,
+          SdkOptional<String> faasNamespace,
+          SdkOptional<String> functionName,
+          SdkOptional<Map<String, dynamic>> inputSchema,
+          SdkOptional<Map<String, dynamic>> outputSchema})
+      get copyWith => _copyWith;
 
-  ApiLinkAgentFunctionInputPublic _copyWith({Object? agentUuid = sdkOmittedValue, Object? description = sdkOmittedValue, Object? faasName = sdkOmittedValue, Object? faasNamespace = sdkOmittedValue, Object? functionName = sdkOmittedValue, Object? inputSchema = sdkOmittedValue, Object? outputSchema = sdkOmittedValue}) => ApiLinkAgentFunctionInputPublic(
-    agentUuid: identical(agentUuid, sdkOmittedValue) ? this.agentUuid : agentUuid as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    faasName: identical(faasName, sdkOmittedValue) ? this.faasName : faasName as SdkOptional<String>,
-    faasNamespace: identical(faasNamespace, sdkOmittedValue) ? this.faasNamespace : faasNamespace as SdkOptional<String>,
-    functionName: identical(functionName, sdkOmittedValue) ? this.functionName : functionName as SdkOptional<String>,
-    inputSchema: identical(inputSchema, sdkOmittedValue) ? this.inputSchema : inputSchema as SdkOptional<Map<String, dynamic>>,
-    outputSchema: identical(outputSchema, sdkOmittedValue) ? this.outputSchema : outputSchema as SdkOptional<Map<String, dynamic>>,
-  );
+  ApiLinkAgentFunctionInputPublic _copyWith(
+          {Object? agentUuid = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? faasName = sdkOmittedValue,
+          Object? faasNamespace = sdkOmittedValue,
+          Object? functionName = sdkOmittedValue,
+          Object? inputSchema = sdkOmittedValue,
+          Object? outputSchema = sdkOmittedValue}) =>
+      ApiLinkAgentFunctionInputPublic(
+        agentUuid: identical(agentUuid, sdkOmittedValue)
+            ? this.agentUuid
+            : agentUuid as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        faasName: identical(faasName, sdkOmittedValue)
+            ? this.faasName
+            : faasName as SdkOptional<String>,
+        faasNamespace: identical(faasNamespace, sdkOmittedValue)
+            ? this.faasNamespace
+            : faasNamespace as SdkOptional<String>,
+        functionName: identical(functionName, sdkOmittedValue)
+            ? this.functionName
+            : functionName as SdkOptional<String>,
+        inputSchema: identical(inputSchema, sdkOmittedValue)
+            ? this.inputSchema
+            : inputSchema as SdkOptional<Map<String, dynamic>>,
+        outputSchema: identical(outputSchema, sdkOmittedValue)
+            ? this.outputSchema
+            : outputSchema as SdkOptional<Map<String, dynamic>>,
+      );
 
-  factory ApiLinkAgentFunctionInputPublic.fromJson(Map<String, dynamic> json) => ApiLinkAgentFunctionInputPublic(
-    agentUuid: json['agent_uuid'] != null ? SdkPresent((json['agent_uuid'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    faasName: json['faas_name'] != null ? SdkPresent((json['faas_name'] as String?)!) : const SdkOmitted(),
-    faasNamespace: json['faas_namespace'] != null ? SdkPresent((json['faas_namespace'] as String?)!) : const SdkOmitted(),
-    functionName: json['function_name'] != null ? SdkPresent((json['function_name'] as String?)!) : const SdkOmitted(),
-    inputSchema: json['input_schema'] != null ? SdkPresent((json['input_schema'] == null ? null : json['input_schema'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    outputSchema: json['output_schema'] != null ? SdkPresent((json['output_schema'] == null ? null : json['output_schema'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+  factory ApiLinkAgentFunctionInputPublic.fromJson(Map<String, dynamic> json) =>
+      ApiLinkAgentFunctionInputPublic(
+        agentUuid: json['agent_uuid'] != null
+            ? SdkPresent((json['agent_uuid'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        faasName: json['faas_name'] != null
+            ? SdkPresent((json['faas_name'] as String?)!)
+            : const SdkOmitted(),
+        faasNamespace: json['faas_namespace'] != null
+            ? SdkPresent((json['faas_namespace'] as String?)!)
+            : const SdkOmitted(),
+        functionName: json['function_name'] != null
+            ? SdkPresent((json['function_name'] as String?)!)
+            : const SdkOmitted(),
+        inputSchema: json['input_schema'] != null
+            ? SdkPresent((json['input_schema'] == null
+                ? null
+                : json['input_schema'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        outputSchema: json['output_schema'] != null
+            ? SdkPresent((json['output_schema'] == null
+                ? null
+                : json['output_schema'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agentUuid) {
-      SdkPresent<String>(value: final value) => {'agent_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (faasName) {
-      SdkPresent<String>(value: final value) => {'faas_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (faasNamespace) {
-      SdkPresent<String>(value: final value) => {'faas_namespace': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (functionName) {
-      SdkPresent<String>(value: final value) => {'function_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inputSchema) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'input_schema': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outputSchema) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'output_schema': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agentUuid) {
+          SdkPresent<String>(value: final value) => {
+              'agent_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (faasName) {
+          SdkPresent<String>(value: final value) => {
+              'faas_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (faasNamespace) {
+          SdkPresent<String>(value: final value) => {
+              'faas_namespace': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (functionName) {
+          SdkPresent<String>(value: final value) => {
+              'function_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inputSchema) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'input_schema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outputSchema) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'output_schema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Information about a newly function linked agent
 class ApiLinkAgentFunctionOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An Agent
   final SdkOptional<ApiAgent> agent;
 
   const ApiLinkAgentFunctionOutput({this.agent = const SdkOmitted()});
 
-  ApiLinkAgentFunctionOutput Function({SdkOptional<ApiAgent> agent}) get copyWith => _copyWith;
+  ApiLinkAgentFunctionOutput Function({SdkOptional<ApiAgent> agent})
+      get copyWith => _copyWith;
 
-  ApiLinkAgentFunctionOutput _copyWith({Object? agent = sdkOmittedValue}) => ApiLinkAgentFunctionOutput(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<ApiAgent>,
-  );
+  ApiLinkAgentFunctionOutput _copyWith({Object? agent = sdkOmittedValue}) =>
+      ApiLinkAgentFunctionOutput(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<ApiAgent>,
+      );
 
-  factory ApiLinkAgentFunctionOutput.fromJson(Map<String, dynamic> json) => ApiLinkAgentFunctionOutput(
-    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiLinkAgentFunctionOutput.fromJson(Map<String, dynamic> json) =>
+      ApiLinkAgentFunctionOutput(
+        agent: json['agent'] != null
+            ? SdkPresent((json['agent'] != null
+                ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<ApiAgent>(value: final value) => {'agent': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<ApiAgent>(value: final value) => {
+              'agent': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Information about an updated agent
 class ApiLinkAgentGuardrailOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An Agent
   final SdkOptional<ApiAgent> agent;
 
   const ApiLinkAgentGuardrailOutput({this.agent = const SdkOmitted()});
 
-  ApiLinkAgentGuardrailOutput Function({SdkOptional<ApiAgent> agent}) get copyWith => _copyWith;
+  ApiLinkAgentGuardrailOutput Function({SdkOptional<ApiAgent> agent})
+      get copyWith => _copyWith;
 
-  ApiLinkAgentGuardrailOutput _copyWith({Object? agent = sdkOmittedValue}) => ApiLinkAgentGuardrailOutput(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<ApiAgent>,
-  );
+  ApiLinkAgentGuardrailOutput _copyWith({Object? agent = sdkOmittedValue}) =>
+      ApiLinkAgentGuardrailOutput(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<ApiAgent>,
+      );
 
-  factory ApiLinkAgentGuardrailOutput.fromJson(Map<String, dynamic> json) => ApiLinkAgentGuardrailOutput(
-    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiLinkAgentGuardrailOutput.fromJson(Map<String, dynamic> json) =>
+      ApiLinkAgentGuardrailOutput(
+        agent: json['agent'] != null
+            ? SdkPresent((json['agent'] != null
+                ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<ApiAgent>(value: final value) => {'agent': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<ApiAgent>(value: final value) => {
+              'agent': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Information about linking an agent to a guardrail
 class ApiLinkAgentGuardrailsInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The UUID of the agent.
   final SdkOptional<String> agentUuid;
+
   /// The list of guardrails to attach.
   final SdkOptional<List<ApiAgentGuardrailInput>> guardrails;
 
-  const ApiLinkAgentGuardrailsInputPublic({this.agentUuid = const SdkOmitted(), this.guardrails = const SdkOmitted()});
+  const ApiLinkAgentGuardrailsInputPublic(
+      {this.agentUuid = const SdkOmitted(),
+      this.guardrails = const SdkOmitted()});
 
-  ApiLinkAgentGuardrailsInputPublic Function({SdkOptional<String> agentUuid, SdkOptional<List<ApiAgentGuardrailInput>> guardrails}) get copyWith => _copyWith;
+  ApiLinkAgentGuardrailsInputPublic Function(
+          {SdkOptional<String> agentUuid,
+          SdkOptional<List<ApiAgentGuardrailInput>> guardrails})
+      get copyWith => _copyWith;
 
-  ApiLinkAgentGuardrailsInputPublic _copyWith({Object? agentUuid = sdkOmittedValue, Object? guardrails = sdkOmittedValue}) => ApiLinkAgentGuardrailsInputPublic(
-    agentUuid: identical(agentUuid, sdkOmittedValue) ? this.agentUuid : agentUuid as SdkOptional<String>,
-    guardrails: identical(guardrails, sdkOmittedValue) ? this.guardrails : guardrails as SdkOptional<List<ApiAgentGuardrailInput>>,
-  );
+  ApiLinkAgentGuardrailsInputPublic _copyWith(
+          {Object? agentUuid = sdkOmittedValue,
+          Object? guardrails = sdkOmittedValue}) =>
+      ApiLinkAgentGuardrailsInputPublic(
+        agentUuid: identical(agentUuid, sdkOmittedValue)
+            ? this.agentUuid
+            : agentUuid as SdkOptional<String>,
+        guardrails: identical(guardrails, sdkOmittedValue)
+            ? this.guardrails
+            : guardrails as SdkOptional<List<ApiAgentGuardrailInput>>,
+      );
 
-  factory ApiLinkAgentGuardrailsInputPublic.fromJson(Map<String, dynamic> json) => ApiLinkAgentGuardrailsInputPublic(
-    agentUuid: json['agent_uuid'] != null ? SdkPresent((json['agent_uuid'] as String?)!) : const SdkOmitted(),
-    guardrails: json['guardrails'] != null ? SdkPresent(((json['guardrails'] as List?)?.map((e) => ApiAgentGuardrailInput.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiLinkAgentGuardrailsInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiLinkAgentGuardrailsInputPublic(
+        agentUuid: json['agent_uuid'] != null
+            ? SdkPresent((json['agent_uuid'] as String?)!)
+            : const SdkOmitted(),
+        guardrails: json['guardrails'] != null
+            ? SdkPresent(((json['guardrails'] as List?)
+                ?.map((e) =>
+                    ApiAgentGuardrailInput.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agentUuid) {
-      SdkPresent<String>(value: final value) => {'agent_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (guardrails) {
-      SdkPresent<List<ApiAgentGuardrailInput>>(value: final value) => {'guardrails': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agentUuid) {
+          SdkPresent<String>(value: final value) => {
+              'agent_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (guardrails) {
+          SdkPresent<List<ApiAgentGuardrailInput>>(value: final value) => {
+              'guardrails': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Information for linking an agent
 class ApiLinkAgentInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Routed agent id
   final SdkOptional<String> childAgentUuid;
+
   /// Optional `string` value serialized in the `if_case` wire field.
   final SdkOptional<String> ifCase;
+
   /// A unique identifier for the parent agent.
   final SdkOptional<String> parentAgentUuid;
+
   /// Name of route
   final SdkOptional<String> routeName;
 
-  const ApiLinkAgentInputPublic({this.childAgentUuid = const SdkOmitted(), this.ifCase = const SdkOmitted(), this.parentAgentUuid = const SdkOmitted(), this.routeName = const SdkOmitted()});
+  const ApiLinkAgentInputPublic(
+      {this.childAgentUuid = const SdkOmitted(),
+      this.ifCase = const SdkOmitted(),
+      this.parentAgentUuid = const SdkOmitted(),
+      this.routeName = const SdkOmitted()});
 
-  ApiLinkAgentInputPublic Function({SdkOptional<String> childAgentUuid, SdkOptional<String> ifCase, SdkOptional<String> parentAgentUuid, SdkOptional<String> routeName}) get copyWith => _copyWith;
+  ApiLinkAgentInputPublic Function(
+      {SdkOptional<String> childAgentUuid,
+      SdkOptional<String> ifCase,
+      SdkOptional<String> parentAgentUuid,
+      SdkOptional<String> routeName}) get copyWith => _copyWith;
 
-  ApiLinkAgentInputPublic _copyWith({Object? childAgentUuid = sdkOmittedValue, Object? ifCase = sdkOmittedValue, Object? parentAgentUuid = sdkOmittedValue, Object? routeName = sdkOmittedValue}) => ApiLinkAgentInputPublic(
-    childAgentUuid: identical(childAgentUuid, sdkOmittedValue) ? this.childAgentUuid : childAgentUuid as SdkOptional<String>,
-    ifCase: identical(ifCase, sdkOmittedValue) ? this.ifCase : ifCase as SdkOptional<String>,
-    parentAgentUuid: identical(parentAgentUuid, sdkOmittedValue) ? this.parentAgentUuid : parentAgentUuid as SdkOptional<String>,
-    routeName: identical(routeName, sdkOmittedValue) ? this.routeName : routeName as SdkOptional<String>,
-  );
+  ApiLinkAgentInputPublic _copyWith(
+          {Object? childAgentUuid = sdkOmittedValue,
+          Object? ifCase = sdkOmittedValue,
+          Object? parentAgentUuid = sdkOmittedValue,
+          Object? routeName = sdkOmittedValue}) =>
+      ApiLinkAgentInputPublic(
+        childAgentUuid: identical(childAgentUuid, sdkOmittedValue)
+            ? this.childAgentUuid
+            : childAgentUuid as SdkOptional<String>,
+        ifCase: identical(ifCase, sdkOmittedValue)
+            ? this.ifCase
+            : ifCase as SdkOptional<String>,
+        parentAgentUuid: identical(parentAgentUuid, sdkOmittedValue)
+            ? this.parentAgentUuid
+            : parentAgentUuid as SdkOptional<String>,
+        routeName: identical(routeName, sdkOmittedValue)
+            ? this.routeName
+            : routeName as SdkOptional<String>,
+      );
 
-  factory ApiLinkAgentInputPublic.fromJson(Map<String, dynamic> json) => ApiLinkAgentInputPublic(
-    childAgentUuid: json['child_agent_uuid'] != null ? SdkPresent((json['child_agent_uuid'] as String?)!) : const SdkOmitted(),
-    ifCase: json['if_case'] != null ? SdkPresent((json['if_case'] as String?)!) : const SdkOmitted(),
-    parentAgentUuid: json['parent_agent_uuid'] != null ? SdkPresent((json['parent_agent_uuid'] as String?)!) : const SdkOmitted(),
-    routeName: json['route_name'] != null ? SdkPresent((json['route_name'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiLinkAgentInputPublic.fromJson(Map<String, dynamic> json) =>
+      ApiLinkAgentInputPublic(
+        childAgentUuid: json['child_agent_uuid'] != null
+            ? SdkPresent((json['child_agent_uuid'] as String?)!)
+            : const SdkOmitted(),
+        ifCase: json['if_case'] != null
+            ? SdkPresent((json['if_case'] as String?)!)
+            : const SdkOmitted(),
+        parentAgentUuid: json['parent_agent_uuid'] != null
+            ? SdkPresent((json['parent_agent_uuid'] as String?)!)
+            : const SdkOmitted(),
+        routeName: json['route_name'] != null
+            ? SdkPresent((json['route_name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (childAgentUuid) {
-      SdkPresent<String>(value: final value) => {'child_agent_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ifCase) {
-      SdkPresent<String>(value: final value) => {'if_case': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parentAgentUuid) {
-      SdkPresent<String>(value: final value) => {'parent_agent_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (routeName) {
-      SdkPresent<String>(value: final value) => {'route_name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (childAgentUuid) {
+          SdkPresent<String>(value: final value) => {
+              'child_agent_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ifCase) {
+          SdkPresent<String>(value: final value) => {
+              'if_case': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parentAgentUuid) {
+          SdkPresent<String>(value: final value) => {
+              'parent_agent_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (routeName) {
+          SdkPresent<String>(value: final value) => {
+              'route_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Information about a newly linked agent
 class ApiLinkAgentOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Routed agent id
   final SdkOptional<String> childAgentUuid;
+
   /// A unique identifier for the parent agent.
   final SdkOptional<String> parentAgentUuid;
 
-  const ApiLinkAgentOutput({this.childAgentUuid = const SdkOmitted(), this.parentAgentUuid = const SdkOmitted()});
+  const ApiLinkAgentOutput(
+      {this.childAgentUuid = const SdkOmitted(),
+      this.parentAgentUuid = const SdkOmitted()});
 
-  ApiLinkAgentOutput Function({SdkOptional<String> childAgentUuid, SdkOptional<String> parentAgentUuid}) get copyWith => _copyWith;
+  ApiLinkAgentOutput Function(
+      {SdkOptional<String> childAgentUuid,
+      SdkOptional<String> parentAgentUuid}) get copyWith => _copyWith;
 
-  ApiLinkAgentOutput _copyWith({Object? childAgentUuid = sdkOmittedValue, Object? parentAgentUuid = sdkOmittedValue}) => ApiLinkAgentOutput(
-    childAgentUuid: identical(childAgentUuid, sdkOmittedValue) ? this.childAgentUuid : childAgentUuid as SdkOptional<String>,
-    parentAgentUuid: identical(parentAgentUuid, sdkOmittedValue) ? this.parentAgentUuid : parentAgentUuid as SdkOptional<String>,
-  );
+  ApiLinkAgentOutput _copyWith(
+          {Object? childAgentUuid = sdkOmittedValue,
+          Object? parentAgentUuid = sdkOmittedValue}) =>
+      ApiLinkAgentOutput(
+        childAgentUuid: identical(childAgentUuid, sdkOmittedValue)
+            ? this.childAgentUuid
+            : childAgentUuid as SdkOptional<String>,
+        parentAgentUuid: identical(parentAgentUuid, sdkOmittedValue)
+            ? this.parentAgentUuid
+            : parentAgentUuid as SdkOptional<String>,
+      );
 
-  factory ApiLinkAgentOutput.fromJson(Map<String, dynamic> json) => ApiLinkAgentOutput(
-    childAgentUuid: json['child_agent_uuid'] != null ? SdkPresent((json['child_agent_uuid'] as String?)!) : const SdkOmitted(),
-    parentAgentUuid: json['parent_agent_uuid'] != null ? SdkPresent((json['parent_agent_uuid'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiLinkAgentOutput.fromJson(Map<String, dynamic> json) =>
+      ApiLinkAgentOutput(
+        childAgentUuid: json['child_agent_uuid'] != null
+            ? SdkPresent((json['child_agent_uuid'] as String?)!)
+            : const SdkOmitted(),
+        parentAgentUuid: json['parent_agent_uuid'] != null
+            ? SdkPresent((json['parent_agent_uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (childAgentUuid) {
-      SdkPresent<String>(value: final value) => {'child_agent_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parentAgentUuid) {
-      SdkPresent<String>(value: final value) => {'parent_agent_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (childAgentUuid) {
+          SdkPresent<String>(value: final value) => {
+              'child_agent_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parentAgentUuid) {
+          SdkPresent<String>(value: final value) => {
+              'parent_agent_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Information about a linked knowledge base
 class ApiLinkKnowledgeBaseOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An Agent
   final SdkOptional<ApiAgent> agent;
 
   const ApiLinkKnowledgeBaseOutput({this.agent = const SdkOmitted()});
 
-  ApiLinkKnowledgeBaseOutput Function({SdkOptional<ApiAgent> agent}) get copyWith => _copyWith;
+  ApiLinkKnowledgeBaseOutput Function({SdkOptional<ApiAgent> agent})
+      get copyWith => _copyWith;
 
-  ApiLinkKnowledgeBaseOutput _copyWith({Object? agent = sdkOmittedValue}) => ApiLinkKnowledgeBaseOutput(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<ApiAgent>,
-  );
+  ApiLinkKnowledgeBaseOutput _copyWith({Object? agent = sdkOmittedValue}) =>
+      ApiLinkKnowledgeBaseOutput(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<ApiAgent>,
+      );
 
-  factory ApiLinkKnowledgeBaseOutput.fromJson(Map<String, dynamic> json) => ApiLinkKnowledgeBaseOutput(
-    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiLinkKnowledgeBaseOutput.fromJson(Map<String, dynamic> json) =>
+      ApiLinkKnowledgeBaseOutput(
+        agent: json['agent'] != null
+            ? SdkPresent((json['agent'] != null
+                ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<ApiAgent>(value: final value) => {'agent': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<ApiAgent>(value: final value) => {
+              'agent': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,277 +8,509 @@ part of 'action_gateway_connection.dart';
 class ConnectionAuthorization {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Currently always `requires_authorization`.
   final SdkOptional<ConnectionAuthorizationStatus> status;
+
   /// Browser URL, on a DigitalOcean Cloud origin, where the user authorizes the connection.
   final SdkOptional<String> connectUrl;
+
   /// Verification code issued with `connect_url`.
   final SdkOptional<String> verificationCode;
+
   /// When the authorization expires. The link can stop working earlier; if the connection becomes expired, create it again for a new link.
   final SdkOptional<String?> expiresAt;
 
-  const ConnectionAuthorization({this.status = const SdkOmitted(), this.connectUrl = const SdkOmitted(), this.verificationCode = const SdkOmitted(), this.expiresAt = const SdkOmitted()});
+  const ConnectionAuthorization(
+      {this.status = const SdkOmitted(),
+      this.connectUrl = const SdkOmitted(),
+      this.verificationCode = const SdkOmitted(),
+      this.expiresAt = const SdkOmitted()});
 
-  ConnectionAuthorization Function({SdkOptional<ConnectionAuthorizationStatus> status, SdkOptional<String> connectUrl, SdkOptional<String> verificationCode, SdkOptional<String?> expiresAt}) get copyWith => _copyWith;
+  ConnectionAuthorization Function(
+      {SdkOptional<ConnectionAuthorizationStatus> status,
+      SdkOptional<String> connectUrl,
+      SdkOptional<String> verificationCode,
+      SdkOptional<String?> expiresAt}) get copyWith => _copyWith;
 
-  ConnectionAuthorization _copyWith({Object? status = sdkOmittedValue, Object? connectUrl = sdkOmittedValue, Object? verificationCode = sdkOmittedValue, Object? expiresAt = sdkOmittedValue}) => ConnectionAuthorization(
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ConnectionAuthorizationStatus>,
-    connectUrl: identical(connectUrl, sdkOmittedValue) ? this.connectUrl : connectUrl as SdkOptional<String>,
-    verificationCode: identical(verificationCode, sdkOmittedValue) ? this.verificationCode : verificationCode as SdkOptional<String>,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String?>,
-  );
+  ConnectionAuthorization _copyWith(
+          {Object? status = sdkOmittedValue,
+          Object? connectUrl = sdkOmittedValue,
+          Object? verificationCode = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue}) =>
+      ConnectionAuthorization(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<ConnectionAuthorizationStatus>,
+        connectUrl: identical(connectUrl, sdkOmittedValue)
+            ? this.connectUrl
+            : connectUrl as SdkOptional<String>,
+        verificationCode: identical(verificationCode, sdkOmittedValue)
+            ? this.verificationCode
+            : verificationCode as SdkOptional<String>,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<String?>,
+      );
 
-  factory ConnectionAuthorization.fromJson(Map<String, dynamic> json) => ConnectionAuthorization(
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? ConnectionAuthorizationStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    connectUrl: json['connect_url'] != null ? SdkPresent((json['connect_url'] as String?)!) : const SdkOmitted(),
-    verificationCode: json['verification_code'] != null ? SdkPresent((json['verification_code'] as String?)!) : const SdkOmitted(),
-    expiresAt: json.containsKey('expires_at') ? SdkPresent(json['expires_at'] as String?) : const SdkOmitted(),
-  );
+  factory ConnectionAuthorization.fromJson(Map<String, dynamic> json) =>
+      ConnectionAuthorization(
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? ConnectionAuthorizationStatus.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        connectUrl: json['connect_url'] != null
+            ? SdkPresent((json['connect_url'] as String?)!)
+            : const SdkOmitted(),
+        verificationCode: json['verification_code'] != null
+            ? SdkPresent((json['verification_code'] as String?)!)
+            : const SdkOmitted(),
+        expiresAt: json.containsKey('expires_at')
+            ? SdkPresent(json['expires_at'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (status) {
-      SdkPresent<ConnectionAuthorizationStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (connectUrl) {
-      SdkPresent<String>(value: final value) => {'connect_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (verificationCode) {
-      SdkPresent<String>(value: final value) => {'verification_code': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresAt) {
-      SdkPresent<String?>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (status) {
+          SdkPresent<ConnectionAuthorizationStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (connectUrl) {
+          SdkPresent<String>(value: final value) => {
+              'connect_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (verificationCode) {
+          SdkPresent<String>(value: final value) => {
+              'verification_code': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresAt) {
+          SdkPresent<String?>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Use one of your team's provider credentials.
 class ConnectionCreateCredentialTeamCredential {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required. ID of an active provider credential for the same provider that you can use.
   final SdkOptional<String> credentialId;
 
-  const ConnectionCreateCredentialTeamCredential({this.credentialId = const SdkOmitted()});
+  const ConnectionCreateCredentialTeamCredential(
+      {this.credentialId = const SdkOmitted()});
 
-  ConnectionCreateCredentialTeamCredential Function({SdkOptional<String> credentialId}) get copyWith => _copyWith;
+  ConnectionCreateCredentialTeamCredential Function(
+      {SdkOptional<String> credentialId}) get copyWith => _copyWith;
 
-  ConnectionCreateCredentialTeamCredential _copyWith({Object? credentialId = sdkOmittedValue}) => ConnectionCreateCredentialTeamCredential(
-    credentialId: identical(credentialId, sdkOmittedValue) ? this.credentialId : credentialId as SdkOptional<String>,
-  );
+  ConnectionCreateCredentialTeamCredential _copyWith(
+          {Object? credentialId = sdkOmittedValue}) =>
+      ConnectionCreateCredentialTeamCredential(
+        credentialId: identical(credentialId, sdkOmittedValue)
+            ? this.credentialId
+            : credentialId as SdkOptional<String>,
+      );
 
-  factory ConnectionCreateCredentialTeamCredential.fromJson(Map<String, dynamic> json) => ConnectionCreateCredentialTeamCredential(
-    credentialId: json['credential_id'] != null ? SdkPresent((json['credential_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory ConnectionCreateCredentialTeamCredential.fromJson(
+          Map<String, dynamic> json) =>
+      ConnectionCreateCredentialTeamCredential(
+        credentialId: json['credential_id'] != null
+            ? SdkPresent((json['credential_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (credentialId) {
-      SdkPresent<String>(value: final value) => {'credential_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (credentialId) {
+          SdkPresent<String>(value: final value) => {
+              'credential_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional credential to connect through. Omitted uses DigitalOcean's shared OAuth application.
 class ConnectionCreateCredential {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Use DigitalOcean's shared OAuth application.
   final SdkOptional<Map<String, dynamic>> digitaloceanOauth;
+
   /// Use one of your team's provider credentials.
   final SdkOptional<ConnectionCreateCredentialTeamCredential> teamCredential;
 
-  const ConnectionCreateCredential({this.digitaloceanOauth = const SdkOmitted(), this.teamCredential = const SdkOmitted()});
+  const ConnectionCreateCredential(
+      {this.digitaloceanOauth = const SdkOmitted(),
+      this.teamCredential = const SdkOmitted()});
 
-  ConnectionCreateCredential Function({SdkOptional<Map<String, dynamic>> digitaloceanOauth, SdkOptional<ConnectionCreateCredentialTeamCredential> teamCredential}) get copyWith => _copyWith;
+  ConnectionCreateCredential Function(
+          {SdkOptional<Map<String, dynamic>> digitaloceanOauth,
+          SdkOptional<ConnectionCreateCredentialTeamCredential> teamCredential})
+      get copyWith => _copyWith;
 
-  ConnectionCreateCredential _copyWith({Object? digitaloceanOauth = sdkOmittedValue, Object? teamCredential = sdkOmittedValue}) => ConnectionCreateCredential(
-    digitaloceanOauth: identical(digitaloceanOauth, sdkOmittedValue) ? this.digitaloceanOauth : digitaloceanOauth as SdkOptional<Map<String, dynamic>>,
-    teamCredential: identical(teamCredential, sdkOmittedValue) ? this.teamCredential : teamCredential as SdkOptional<ConnectionCreateCredentialTeamCredential>,
-  );
+  ConnectionCreateCredential _copyWith(
+          {Object? digitaloceanOauth = sdkOmittedValue,
+          Object? teamCredential = sdkOmittedValue}) =>
+      ConnectionCreateCredential(
+        digitaloceanOauth: identical(digitaloceanOauth, sdkOmittedValue)
+            ? this.digitaloceanOauth
+            : digitaloceanOauth as SdkOptional<Map<String, dynamic>>,
+        teamCredential: identical(teamCredential, sdkOmittedValue)
+            ? this.teamCredential
+            : teamCredential
+                as SdkOptional<ConnectionCreateCredentialTeamCredential>,
+      );
 
-  factory ConnectionCreateCredential.fromJson(Map<String, dynamic> json) => ConnectionCreateCredential(
-    digitaloceanOauth: json['digitalocean_oauth'] != null ? SdkPresent((json['digitalocean_oauth'] == null ? null : json['digitalocean_oauth'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    teamCredential: json['team_credential'] != null ? SdkPresent((json['team_credential'] != null ? ConnectionCreateCredentialTeamCredential.fromJson(json['team_credential'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ConnectionCreateCredential.fromJson(Map<String, dynamic> json) =>
+      ConnectionCreateCredential(
+        digitaloceanOauth: json['digitalocean_oauth'] != null
+            ? SdkPresent((json['digitalocean_oauth'] == null
+                ? null
+                : json['digitalocean_oauth'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        teamCredential: json['team_credential'] != null
+            ? SdkPresent((json['team_credential'] != null
+                ? ConnectionCreateCredentialTeamCredential.fromJson(
+                    json['team_credential'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (digitaloceanOauth) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'digitalocean_oauth': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (teamCredential) {
-      SdkPresent<ConnectionCreateCredentialTeamCredential>(value: final value) => {'team_credential': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (digitaloceanOauth) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'digitalocean_oauth': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (teamCredential) {
+          SdkPresent<ConnectionCreateCredentialTeamCredential>(
+            value: final value
+          ) =>
+            {
+              'team_credential': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `destinations[]` wire field.
 class ConnectionCreateNetworkVpcDestinationsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Host name or IP address. It must resolve only to private addresses.
   final SdkOptional<String> host;
+
   /// Port, 1 to 65535.
   final SdkOptional<int> port;
+
   /// Optional CIDR ranges; when set, every address the host resolves to must fall within one of them.
   final SdkOptional<List<String>> allowedIpCidrs;
 
-  const ConnectionCreateNetworkVpcDestinationsItem({this.host = const SdkOmitted(), this.port = const SdkOmitted(), this.allowedIpCidrs = const SdkOmitted()});
+  const ConnectionCreateNetworkVpcDestinationsItem(
+      {this.host = const SdkOmitted(),
+      this.port = const SdkOmitted(),
+      this.allowedIpCidrs = const SdkOmitted()});
 
-  ConnectionCreateNetworkVpcDestinationsItem Function({SdkOptional<String> host, SdkOptional<int> port, SdkOptional<List<String>> allowedIpCidrs}) get copyWith => _copyWith;
+  ConnectionCreateNetworkVpcDestinationsItem Function(
+      {SdkOptional<String> host,
+      SdkOptional<int> port,
+      SdkOptional<List<String>> allowedIpCidrs}) get copyWith => _copyWith;
 
-  ConnectionCreateNetworkVpcDestinationsItem _copyWith({Object? host = sdkOmittedValue, Object? port = sdkOmittedValue, Object? allowedIpCidrs = sdkOmittedValue}) => ConnectionCreateNetworkVpcDestinationsItem(
-    host: identical(host, sdkOmittedValue) ? this.host : host as SdkOptional<String>,
-    port: identical(port, sdkOmittedValue) ? this.port : port as SdkOptional<int>,
-    allowedIpCidrs: identical(allowedIpCidrs, sdkOmittedValue) ? this.allowedIpCidrs : allowedIpCidrs as SdkOptional<List<String>>,
-  );
+  ConnectionCreateNetworkVpcDestinationsItem _copyWith(
+          {Object? host = sdkOmittedValue,
+          Object? port = sdkOmittedValue,
+          Object? allowedIpCidrs = sdkOmittedValue}) =>
+      ConnectionCreateNetworkVpcDestinationsItem(
+        host: identical(host, sdkOmittedValue)
+            ? this.host
+            : host as SdkOptional<String>,
+        port: identical(port, sdkOmittedValue)
+            ? this.port
+            : port as SdkOptional<int>,
+        allowedIpCidrs: identical(allowedIpCidrs, sdkOmittedValue)
+            ? this.allowedIpCidrs
+            : allowedIpCidrs as SdkOptional<List<String>>,
+      );
 
-  factory ConnectionCreateNetworkVpcDestinationsItem.fromJson(Map<String, dynamic> json) => ConnectionCreateNetworkVpcDestinationsItem(
-    host: json['host'] != null ? SdkPresent((json['host'] as String?)!) : const SdkOmitted(),
-    port: json['port'] != null ? SdkPresent(((json['port'] as num?)?.toInt())!) : const SdkOmitted(),
-    allowedIpCidrs: json['allowed_ip_cidrs'] != null ? SdkPresent(((json['allowed_ip_cidrs'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory ConnectionCreateNetworkVpcDestinationsItem.fromJson(
+          Map<String, dynamic> json) =>
+      ConnectionCreateNetworkVpcDestinationsItem(
+        host: json['host'] != null
+            ? SdkPresent((json['host'] as String?)!)
+            : const SdkOmitted(),
+        port: json['port'] != null
+            ? SdkPresent(((json['port'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        allowedIpCidrs: json['allowed_ip_cidrs'] != null
+            ? SdkPresent(((json['allowed_ip_cidrs'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (host) {
-      SdkPresent<String>(value: final value) => {'host': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (port) {
-      SdkPresent<int>(value: final value) => {'port': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowedIpCidrs) {
-      SdkPresent<List<String>>(value: final value) => {'allowed_ip_cidrs': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (host) {
+          SdkPresent<String>(value: final value) => {
+              'host': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (port) {
+          SdkPresent<int>(value: final value) => {
+              'port': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowedIpCidrs) {
+          SdkPresent<List<String>>(value: final value) => {
+              'allowed_ip_cidrs': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Route through a VPC.
 class ConnectionCreateNetworkVpc {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// UUID of a VPC owned by your team.
   final SdkOptional<String> vpcUuid;
+
   /// Private hosts the connection's calls may reach through the VPC. At least one is required.
-  final SdkOptional<List<ConnectionCreateNetworkVpcDestinationsItem>> destinations;
+  final SdkOptional<List<ConnectionCreateNetworkVpcDestinationsItem>>
+      destinations;
 
-  const ConnectionCreateNetworkVpc({this.vpcUuid = const SdkOmitted(), this.destinations = const SdkOmitted()});
+  const ConnectionCreateNetworkVpc(
+      {this.vpcUuid = const SdkOmitted(),
+      this.destinations = const SdkOmitted()});
 
-  ConnectionCreateNetworkVpc Function({SdkOptional<String> vpcUuid, SdkOptional<List<ConnectionCreateNetworkVpcDestinationsItem>> destinations}) get copyWith => _copyWith;
+  ConnectionCreateNetworkVpc Function(
+      {SdkOptional<String> vpcUuid,
+      SdkOptional<List<ConnectionCreateNetworkVpcDestinationsItem>>
+          destinations}) get copyWith => _copyWith;
 
-  ConnectionCreateNetworkVpc _copyWith({Object? vpcUuid = sdkOmittedValue, Object? destinations = sdkOmittedValue}) => ConnectionCreateNetworkVpc(
-    vpcUuid: identical(vpcUuid, sdkOmittedValue) ? this.vpcUuid : vpcUuid as SdkOptional<String>,
-    destinations: identical(destinations, sdkOmittedValue) ? this.destinations : destinations as SdkOptional<List<ConnectionCreateNetworkVpcDestinationsItem>>,
-  );
+  ConnectionCreateNetworkVpc _copyWith(
+          {Object? vpcUuid = sdkOmittedValue,
+          Object? destinations = sdkOmittedValue}) =>
+      ConnectionCreateNetworkVpc(
+        vpcUuid: identical(vpcUuid, sdkOmittedValue)
+            ? this.vpcUuid
+            : vpcUuid as SdkOptional<String>,
+        destinations: identical(destinations, sdkOmittedValue)
+            ? this.destinations
+            : destinations as SdkOptional<
+                List<ConnectionCreateNetworkVpcDestinationsItem>>,
+      );
 
-  factory ConnectionCreateNetworkVpc.fromJson(Map<String, dynamic> json) => ConnectionCreateNetworkVpc(
-    vpcUuid: json['vpc_uuid'] != null ? SdkPresent((json['vpc_uuid'] as String?)!) : const SdkOmitted(),
-    destinations: json['destinations'] != null ? SdkPresent(((json['destinations'] as List?)?.map((e) => ConnectionCreateNetworkVpcDestinationsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ConnectionCreateNetworkVpc.fromJson(Map<String, dynamic> json) =>
+      ConnectionCreateNetworkVpc(
+        vpcUuid: json['vpc_uuid'] != null
+            ? SdkPresent((json['vpc_uuid'] as String?)!)
+            : const SdkOmitted(),
+        destinations: json['destinations'] != null
+            ? SdkPresent(((json['destinations'] as List?)
+                ?.map((e) =>
+                    ConnectionCreateNetworkVpcDestinationsItem.fromJson(
+                        e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (vpcUuid) {
-      SdkPresent<String>(value: final value) => {'vpc_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (destinations) {
-      SdkPresent<List<ConnectionCreateNetworkVpcDestinationsItem>>(value: final value) => {'destinations': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (vpcUuid) {
+          SdkPresent<String>(value: final value) => {
+              'vpc_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (destinations) {
+          SdkPresent<List<ConnectionCreateNetworkVpcDestinationsItem>>(
+            value: final value
+          ) =>
+            {
+              'destinations': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional private network for the connection's calls. Requires VPC networking to be enabled for your account (403 otherwise).
 class ConnectionCreateNetwork {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Route through a VPC.
   final SdkOptional<ConnectionCreateNetworkVpc> vpc;
 
   const ConnectionCreateNetwork({this.vpc = const SdkOmitted()});
 
-  ConnectionCreateNetwork Function({SdkOptional<ConnectionCreateNetworkVpc> vpc}) get copyWith => _copyWith;
+  ConnectionCreateNetwork Function(
+      {SdkOptional<ConnectionCreateNetworkVpc> vpc}) get copyWith => _copyWith;
 
-  ConnectionCreateNetwork _copyWith({Object? vpc = sdkOmittedValue}) => ConnectionCreateNetwork(
-    vpc: identical(vpc, sdkOmittedValue) ? this.vpc : vpc as SdkOptional<ConnectionCreateNetworkVpc>,
-  );
+  ConnectionCreateNetwork _copyWith({Object? vpc = sdkOmittedValue}) =>
+      ConnectionCreateNetwork(
+        vpc: identical(vpc, sdkOmittedValue)
+            ? this.vpc
+            : vpc as SdkOptional<ConnectionCreateNetworkVpc>,
+      );
 
-  factory ConnectionCreateNetwork.fromJson(Map<String, dynamic> json) => ConnectionCreateNetwork(
-    vpc: json['vpc'] != null ? SdkPresent((json['vpc'] != null ? ConnectionCreateNetworkVpc.fromJson(json['vpc'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ConnectionCreateNetwork.fromJson(Map<String, dynamic> json) =>
+      ConnectionCreateNetwork(
+        vpc: json['vpc'] != null
+            ? SdkPresent((json['vpc'] != null
+                ? ConnectionCreateNetworkVpc.fromJson(
+                    json['vpc'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (vpc) {
-      SdkPresent<ConnectionCreateNetworkVpc>(value: final value) => {'vpc': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (vpc) {
+          SdkPresent<ConnectionCreateNetworkVpc>(value: final value) => {
+              'vpc': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Describes a connection to create.
 class ConnectionCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required provider slug, from the provider list.
   final String provider;
+
   /// Required. Your identifier for the user the connection acts for: 1 to 64 characters from `[A-Za-z0-9._-]`. A session whose `actor_id` equals it uses this connection.
   final String userId;
+
   /// Optional OAuth scopes to request. Defaults to every scope the provider offers; scopes outside that set are rejected. Ignored for API-key credentials.
   final SdkOptional<List<String>> scopes;
+
   /// Values for the provider's `connection_parameters`, validated against their specifications.
   final SdkOptional<Map<String, dynamic>> connectionParameters;
+
   /// Optional credential to connect through. Omitted uses DigitalOcean's shared OAuth application.
   final SdkOptional<ConnectionCreateCredential> credential;
+
   /// Optional private network for the connection's calls. Requires VPC networking to be enabled for your account (403 otherwise).
   final SdkOptional<ConnectionCreateNetwork> network;
 
-  const ConnectionCreate({required this.provider, required this.userId, this.scopes = const SdkOmitted(), this.connectionParameters = const SdkOmitted(), this.credential = const SdkOmitted(), this.network = const SdkOmitted()});
+  const ConnectionCreate(
+      {required this.provider,
+      required this.userId,
+      this.scopes = const SdkOmitted(),
+      this.connectionParameters = const SdkOmitted(),
+      this.credential = const SdkOmitted(),
+      this.network = const SdkOmitted()});
 
-  ConnectionCreate Function({String provider, String userId, SdkOptional<List<String>> scopes, SdkOptional<Map<String, dynamic>> connectionParameters, SdkOptional<ConnectionCreateCredential> credential, SdkOptional<ConnectionCreateNetwork> network}) get copyWith => _copyWith;
+  ConnectionCreate Function(
+      {String provider,
+      String userId,
+      SdkOptional<List<String>> scopes,
+      SdkOptional<Map<String, dynamic>> connectionParameters,
+      SdkOptional<ConnectionCreateCredential> credential,
+      SdkOptional<ConnectionCreateNetwork> network}) get copyWith => _copyWith;
 
-  ConnectionCreate _copyWith({Object? provider = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? connectionParameters = sdkOmittedValue, Object? credential = sdkOmittedValue, Object? network = sdkOmittedValue}) => ConnectionCreate(
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as String,
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
-    connectionParameters: identical(connectionParameters, sdkOmittedValue) ? this.connectionParameters : connectionParameters as SdkOptional<Map<String, dynamic>>,
-    credential: identical(credential, sdkOmittedValue) ? this.credential : credential as SdkOptional<ConnectionCreateCredential>,
-    network: identical(network, sdkOmittedValue) ? this.network : network as SdkOptional<ConnectionCreateNetwork>,
-  );
+  ConnectionCreate _copyWith(
+          {Object? provider = sdkOmittedValue,
+          Object? userId = sdkOmittedValue,
+          Object? scopes = sdkOmittedValue,
+          Object? connectionParameters = sdkOmittedValue,
+          Object? credential = sdkOmittedValue,
+          Object? network = sdkOmittedValue}) =>
+      ConnectionCreate(
+        provider: identical(provider, sdkOmittedValue)
+            ? this.provider
+            : provider as String,
+        userId:
+            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+        scopes: identical(scopes, sdkOmittedValue)
+            ? this.scopes
+            : scopes as SdkOptional<List<String>>,
+        connectionParameters: identical(connectionParameters, sdkOmittedValue)
+            ? this.connectionParameters
+            : connectionParameters as SdkOptional<Map<String, dynamic>>,
+        credential: identical(credential, sdkOmittedValue)
+            ? this.credential
+            : credential as SdkOptional<ConnectionCreateCredential>,
+        network: identical(network, sdkOmittedValue)
+            ? this.network
+            : network as SdkOptional<ConnectionCreateNetwork>,
+      );
 
-  factory ConnectionCreate.fromJson(Map<String, dynamic> json) => ConnectionCreate(
-    provider: (json['provider'] as String?)!,
-    userId: (json['user_id'] as String?)!,
-    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    connectionParameters: json['connection_parameters'] != null ? SdkPresent((json['connection_parameters'] == null ? null : json['connection_parameters'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    credential: json['credential'] != null ? SdkPresent((json['credential'] != null ? ConnectionCreateCredential.fromJson(json['credential'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    network: json['network'] != null ? SdkPresent((json['network'] != null ? ConnectionCreateNetwork.fromJson(json['network'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ConnectionCreate.fromJson(Map<String, dynamic> json) =>
+      ConnectionCreate(
+        provider: (json['provider'] as String?)!,
+        userId: (json['user_id'] as String?)!,
+        scopes: json['scopes'] != null
+            ? SdkPresent(
+                ((json['scopes'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        connectionParameters: json['connection_parameters'] != null
+            ? SdkPresent((json['connection_parameters'] == null
+                ? null
+                : json['connection_parameters'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        credential: json['credential'] != null
+            ? SdkPresent((json['credential'] != null
+                ? ConnectionCreateCredential.fromJson(
+                    json['credential'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        network: json['network'] != null
+            ? SdkPresent((json['network'] != null
+                ? ConnectionCreateNetwork.fromJson(
+                    json['network'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'provider': provider,
-    'user_id': userId,
-    ...switch (scopes) {
-      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (connectionParameters) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'connection_parameters': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (credential) {
-      SdkPresent<ConnectionCreateCredential>(value: final value) => {'credential': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (network) {
-      SdkPresent<ConnectionCreateNetwork>(value: final value) => {'network': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'provider': provider,
+        'user_id': userId,
+        ...switch (scopes) {
+          SdkPresent<List<String>>(value: final value) => {
+              'scopes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (connectionParameters) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'connection_parameters': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (credential) {
+          SdkPresent<ConnectionCreateCredential>(value: final value) => {
+              'credential': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (network) {
+          SdkPresent<ConnectionCreateNetwork>(value: final value) => {
+              'network': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

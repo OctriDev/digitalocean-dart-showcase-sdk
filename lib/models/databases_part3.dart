@@ -8,218 +8,453 @@ part of 'databases.dart';
 class OptionsOptionsOpensearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> regions;
+
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> versions;
+
   /// An array of objects, each indicating the node sizes (otherwise referred to as slugs) that are available with various numbers of nodes in the database cluster. Each slugs denotes the node's identifier, CPU, and RAM (in that order).
   final SdkOptional<List<DatabaseLayoutOption>> layouts;
 
-  const OptionsOptionsOpensearch({this.regions = const SdkOmitted(), this.versions = const SdkOmitted(), this.layouts = const SdkOmitted()});
+  const OptionsOptionsOpensearch(
+      {this.regions = const SdkOmitted(),
+      this.versions = const SdkOmitted(),
+      this.layouts = const SdkOmitted()});
 
-  OptionsOptionsOpensearch Function({SdkOptional<List<String>> regions, SdkOptional<List<String>> versions, SdkOptional<List<DatabaseLayoutOption>> layouts}) get copyWith => _copyWith;
+  OptionsOptionsOpensearch Function(
+          {SdkOptional<List<String>> regions,
+          SdkOptional<List<String>> versions,
+          SdkOptional<List<DatabaseLayoutOption>> layouts})
+      get copyWith => _copyWith;
 
-  OptionsOptionsOpensearch _copyWith({Object? regions = sdkOmittedValue, Object? versions = sdkOmittedValue, Object? layouts = sdkOmittedValue}) => OptionsOptionsOpensearch(
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
-    versions: identical(versions, sdkOmittedValue) ? this.versions : versions as SdkOptional<List<String>>,
-    layouts: identical(layouts, sdkOmittedValue) ? this.layouts : layouts as SdkOptional<List<DatabaseLayoutOption>>,
-  );
+  OptionsOptionsOpensearch _copyWith(
+          {Object? regions = sdkOmittedValue,
+          Object? versions = sdkOmittedValue,
+          Object? layouts = sdkOmittedValue}) =>
+      OptionsOptionsOpensearch(
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as SdkOptional<List<String>>,
+        versions: identical(versions, sdkOmittedValue)
+            ? this.versions
+            : versions as SdkOptional<List<String>>,
+        layouts: identical(layouts, sdkOmittedValue)
+            ? this.layouts
+            : layouts as SdkOptional<List<DatabaseLayoutOption>>,
+      );
 
-  factory OptionsOptionsOpensearch.fromJson(Map<String, dynamic> json) => OptionsOptionsOpensearch(
-    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    versions: json['versions'] != null ? SdkPresent(((json['versions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    layouts: json['layouts'] != null ? SdkPresent(((json['layouts'] as List?)?.map((e) => DatabaseLayoutOption.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory OptionsOptionsOpensearch.fromJson(Map<String, dynamic> json) =>
+      OptionsOptionsOpensearch(
+        regions: json['regions'] != null
+            ? SdkPresent(
+                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        versions: json['versions'] != null
+            ? SdkPresent(((json['versions'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        layouts: json['layouts'] != null
+            ? SdkPresent(((json['layouts'] as List?)
+                ?.map((e) =>
+                    DatabaseLayoutOption.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (regions) {
-      SdkPresent<List<String>>(value: final value) => {'regions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (versions) {
-      SdkPresent<List<String>>(value: final value) => {'versions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (layouts) {
-      SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {'layouts': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (regions) {
+          SdkPresent<List<String>>(value: final value) => {
+              'regions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (versions) {
+          SdkPresent<List<String>>(value: final value) => {
+              'versions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (layouts) {
+          SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {
+              'layouts': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `advanced_pg` wire field.
 class OptionsOptionsAdvancedPg {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> regions;
+
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> versions;
+
   /// An array of objects, each indicating the node sizes (otherwise referred to as slugs) that are available with various numbers of nodes in the database cluster. Each slugs denotes the node's identifier, CPU, and RAM (in that order).
   final SdkOptional<List<DatabaseLayoutOption>> layouts;
 
-  const OptionsOptionsAdvancedPg({this.regions = const SdkOmitted(), this.versions = const SdkOmitted(), this.layouts = const SdkOmitted()});
+  const OptionsOptionsAdvancedPg(
+      {this.regions = const SdkOmitted(),
+      this.versions = const SdkOmitted(),
+      this.layouts = const SdkOmitted()});
 
-  OptionsOptionsAdvancedPg Function({SdkOptional<List<String>> regions, SdkOptional<List<String>> versions, SdkOptional<List<DatabaseLayoutOption>> layouts}) get copyWith => _copyWith;
+  OptionsOptionsAdvancedPg Function(
+          {SdkOptional<List<String>> regions,
+          SdkOptional<List<String>> versions,
+          SdkOptional<List<DatabaseLayoutOption>> layouts})
+      get copyWith => _copyWith;
 
-  OptionsOptionsAdvancedPg _copyWith({Object? regions = sdkOmittedValue, Object? versions = sdkOmittedValue, Object? layouts = sdkOmittedValue}) => OptionsOptionsAdvancedPg(
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
-    versions: identical(versions, sdkOmittedValue) ? this.versions : versions as SdkOptional<List<String>>,
-    layouts: identical(layouts, sdkOmittedValue) ? this.layouts : layouts as SdkOptional<List<DatabaseLayoutOption>>,
-  );
+  OptionsOptionsAdvancedPg _copyWith(
+          {Object? regions = sdkOmittedValue,
+          Object? versions = sdkOmittedValue,
+          Object? layouts = sdkOmittedValue}) =>
+      OptionsOptionsAdvancedPg(
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as SdkOptional<List<String>>,
+        versions: identical(versions, sdkOmittedValue)
+            ? this.versions
+            : versions as SdkOptional<List<String>>,
+        layouts: identical(layouts, sdkOmittedValue)
+            ? this.layouts
+            : layouts as SdkOptional<List<DatabaseLayoutOption>>,
+      );
 
-  factory OptionsOptionsAdvancedPg.fromJson(Map<String, dynamic> json) => OptionsOptionsAdvancedPg(
-    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    versions: json['versions'] != null ? SdkPresent(((json['versions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    layouts: json['layouts'] != null ? SdkPresent(((json['layouts'] as List?)?.map((e) => DatabaseLayoutOption.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory OptionsOptionsAdvancedPg.fromJson(Map<String, dynamic> json) =>
+      OptionsOptionsAdvancedPg(
+        regions: json['regions'] != null
+            ? SdkPresent(
+                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        versions: json['versions'] != null
+            ? SdkPresent(((json['versions'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        layouts: json['layouts'] != null
+            ? SdkPresent(((json['layouts'] as List?)
+                ?.map((e) =>
+                    DatabaseLayoutOption.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (regions) {
-      SdkPresent<List<String>>(value: final value) => {'regions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (versions) {
-      SdkPresent<List<String>>(value: final value) => {'versions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (layouts) {
-      SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {'layouts': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (regions) {
+          SdkPresent<List<String>>(value: final value) => {
+              'regions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (versions) {
+          SdkPresent<List<String>>(value: final value) => {
+              'versions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (layouts) {
+          SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {
+              'layouts': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `advanced_mysql` wire field.
 class OptionsOptionsAdvancedMysql {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> regions;
+
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> versions;
+
   /// An array of objects, each indicating the node sizes (otherwise referred to as slugs) that are available with various numbers of nodes in the database cluster. Each slugs denotes the node's identifier, CPU, and RAM (in that order).
   final SdkOptional<List<DatabaseLayoutOption>> layouts;
 
-  const OptionsOptionsAdvancedMysql({this.regions = const SdkOmitted(), this.versions = const SdkOmitted(), this.layouts = const SdkOmitted()});
+  const OptionsOptionsAdvancedMysql(
+      {this.regions = const SdkOmitted(),
+      this.versions = const SdkOmitted(),
+      this.layouts = const SdkOmitted()});
 
-  OptionsOptionsAdvancedMysql Function({SdkOptional<List<String>> regions, SdkOptional<List<String>> versions, SdkOptional<List<DatabaseLayoutOption>> layouts}) get copyWith => _copyWith;
+  OptionsOptionsAdvancedMysql Function(
+          {SdkOptional<List<String>> regions,
+          SdkOptional<List<String>> versions,
+          SdkOptional<List<DatabaseLayoutOption>> layouts})
+      get copyWith => _copyWith;
 
-  OptionsOptionsAdvancedMysql _copyWith({Object? regions = sdkOmittedValue, Object? versions = sdkOmittedValue, Object? layouts = sdkOmittedValue}) => OptionsOptionsAdvancedMysql(
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
-    versions: identical(versions, sdkOmittedValue) ? this.versions : versions as SdkOptional<List<String>>,
-    layouts: identical(layouts, sdkOmittedValue) ? this.layouts : layouts as SdkOptional<List<DatabaseLayoutOption>>,
-  );
+  OptionsOptionsAdvancedMysql _copyWith(
+          {Object? regions = sdkOmittedValue,
+          Object? versions = sdkOmittedValue,
+          Object? layouts = sdkOmittedValue}) =>
+      OptionsOptionsAdvancedMysql(
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as SdkOptional<List<String>>,
+        versions: identical(versions, sdkOmittedValue)
+            ? this.versions
+            : versions as SdkOptional<List<String>>,
+        layouts: identical(layouts, sdkOmittedValue)
+            ? this.layouts
+            : layouts as SdkOptional<List<DatabaseLayoutOption>>,
+      );
 
-  factory OptionsOptionsAdvancedMysql.fromJson(Map<String, dynamic> json) => OptionsOptionsAdvancedMysql(
-    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    versions: json['versions'] != null ? SdkPresent(((json['versions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    layouts: json['layouts'] != null ? SdkPresent(((json['layouts'] as List?)?.map((e) => DatabaseLayoutOption.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory OptionsOptionsAdvancedMysql.fromJson(Map<String, dynamic> json) =>
+      OptionsOptionsAdvancedMysql(
+        regions: json['regions'] != null
+            ? SdkPresent(
+                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        versions: json['versions'] != null
+            ? SdkPresent(((json['versions'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        layouts: json['layouts'] != null
+            ? SdkPresent(((json['layouts'] as List?)
+                ?.map((e) =>
+                    DatabaseLayoutOption.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (regions) {
-      SdkPresent<List<String>>(value: final value) => {'regions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (versions) {
-      SdkPresent<List<String>>(value: final value) => {'versions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (layouts) {
-      SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {'layouts': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (regions) {
+          SdkPresent<List<String>>(value: final value) => {
+              'regions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (versions) {
+          SdkPresent<List<String>>(value: final value) => {
+              'versions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (layouts) {
+          SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {
+              'layouts': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `options` wire field.
 class OptionsOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `kafka` wire field.
   final SdkOptional<OptionsOptionsKafka> kafka;
+
   /// Optional object value serialized in the `mongodb` wire field.
   final SdkOptional<OptionsOptionsMongodb> mongodb;
+
   /// Optional object value serialized in the `pg` wire field.
   final SdkOptional<OptionsOptionsPg> pg;
+
   /// Optional object value serialized in the `mysql` wire field.
   final SdkOptional<OptionsOptionsMysql> mysql;
+
   /// Optional object value serialized in the `redis` wire field.
   final SdkOptional<OptionsOptionsRedis> redis;
+
   /// Optional object value serialized in the `valkey` wire field.
   final SdkOptional<OptionsOptionsValkey> valkey;
+
   /// Optional object value serialized in the `opensearch` wire field.
   final SdkOptional<OptionsOptionsOpensearch> opensearch;
+
   /// Optional object value serialized in the `advanced_pg` wire field.
   final SdkOptional<OptionsOptionsAdvancedPg> advancedPg;
+
   /// Optional object value serialized in the `advanced_mysql` wire field.
   final SdkOptional<OptionsOptionsAdvancedMysql> advancedMysql;
 
-  const OptionsOptions({this.kafka = const SdkOmitted(), this.mongodb = const SdkOmitted(), this.pg = const SdkOmitted(), this.mysql = const SdkOmitted(), this.redis = const SdkOmitted(), this.valkey = const SdkOmitted(), this.opensearch = const SdkOmitted(), this.advancedPg = const SdkOmitted(), this.advancedMysql = const SdkOmitted()});
+  const OptionsOptions(
+      {this.kafka = const SdkOmitted(),
+      this.mongodb = const SdkOmitted(),
+      this.pg = const SdkOmitted(),
+      this.mysql = const SdkOmitted(),
+      this.redis = const SdkOmitted(),
+      this.valkey = const SdkOmitted(),
+      this.opensearch = const SdkOmitted(),
+      this.advancedPg = const SdkOmitted(),
+      this.advancedMysql = const SdkOmitted()});
 
-  OptionsOptions Function({SdkOptional<OptionsOptionsKafka> kafka, SdkOptional<OptionsOptionsMongodb> mongodb, SdkOptional<OptionsOptionsPg> pg, SdkOptional<OptionsOptionsMysql> mysql, SdkOptional<OptionsOptionsRedis> redis, SdkOptional<OptionsOptionsValkey> valkey, SdkOptional<OptionsOptionsOpensearch> opensearch, SdkOptional<OptionsOptionsAdvancedPg> advancedPg, SdkOptional<OptionsOptionsAdvancedMysql> advancedMysql}) get copyWith => _copyWith;
+  OptionsOptions Function(
+          {SdkOptional<OptionsOptionsKafka> kafka,
+          SdkOptional<OptionsOptionsMongodb> mongodb,
+          SdkOptional<OptionsOptionsPg> pg,
+          SdkOptional<OptionsOptionsMysql> mysql,
+          SdkOptional<OptionsOptionsRedis> redis,
+          SdkOptional<OptionsOptionsValkey> valkey,
+          SdkOptional<OptionsOptionsOpensearch> opensearch,
+          SdkOptional<OptionsOptionsAdvancedPg> advancedPg,
+          SdkOptional<OptionsOptionsAdvancedMysql> advancedMysql})
+      get copyWith => _copyWith;
 
-  OptionsOptions _copyWith({Object? kafka = sdkOmittedValue, Object? mongodb = sdkOmittedValue, Object? pg = sdkOmittedValue, Object? mysql = sdkOmittedValue, Object? redis = sdkOmittedValue, Object? valkey = sdkOmittedValue, Object? opensearch = sdkOmittedValue, Object? advancedPg = sdkOmittedValue, Object? advancedMysql = sdkOmittedValue}) => OptionsOptions(
-    kafka: identical(kafka, sdkOmittedValue) ? this.kafka : kafka as SdkOptional<OptionsOptionsKafka>,
-    mongodb: identical(mongodb, sdkOmittedValue) ? this.mongodb : mongodb as SdkOptional<OptionsOptionsMongodb>,
-    pg: identical(pg, sdkOmittedValue) ? this.pg : pg as SdkOptional<OptionsOptionsPg>,
-    mysql: identical(mysql, sdkOmittedValue) ? this.mysql : mysql as SdkOptional<OptionsOptionsMysql>,
-    redis: identical(redis, sdkOmittedValue) ? this.redis : redis as SdkOptional<OptionsOptionsRedis>,
-    valkey: identical(valkey, sdkOmittedValue) ? this.valkey : valkey as SdkOptional<OptionsOptionsValkey>,
-    opensearch: identical(opensearch, sdkOmittedValue) ? this.opensearch : opensearch as SdkOptional<OptionsOptionsOpensearch>,
-    advancedPg: identical(advancedPg, sdkOmittedValue) ? this.advancedPg : advancedPg as SdkOptional<OptionsOptionsAdvancedPg>,
-    advancedMysql: identical(advancedMysql, sdkOmittedValue) ? this.advancedMysql : advancedMysql as SdkOptional<OptionsOptionsAdvancedMysql>,
-  );
+  OptionsOptions _copyWith(
+          {Object? kafka = sdkOmittedValue,
+          Object? mongodb = sdkOmittedValue,
+          Object? pg = sdkOmittedValue,
+          Object? mysql = sdkOmittedValue,
+          Object? redis = sdkOmittedValue,
+          Object? valkey = sdkOmittedValue,
+          Object? opensearch = sdkOmittedValue,
+          Object? advancedPg = sdkOmittedValue,
+          Object? advancedMysql = sdkOmittedValue}) =>
+      OptionsOptions(
+        kafka: identical(kafka, sdkOmittedValue)
+            ? this.kafka
+            : kafka as SdkOptional<OptionsOptionsKafka>,
+        mongodb: identical(mongodb, sdkOmittedValue)
+            ? this.mongodb
+            : mongodb as SdkOptional<OptionsOptionsMongodb>,
+        pg: identical(pg, sdkOmittedValue)
+            ? this.pg
+            : pg as SdkOptional<OptionsOptionsPg>,
+        mysql: identical(mysql, sdkOmittedValue)
+            ? this.mysql
+            : mysql as SdkOptional<OptionsOptionsMysql>,
+        redis: identical(redis, sdkOmittedValue)
+            ? this.redis
+            : redis as SdkOptional<OptionsOptionsRedis>,
+        valkey: identical(valkey, sdkOmittedValue)
+            ? this.valkey
+            : valkey as SdkOptional<OptionsOptionsValkey>,
+        opensearch: identical(opensearch, sdkOmittedValue)
+            ? this.opensearch
+            : opensearch as SdkOptional<OptionsOptionsOpensearch>,
+        advancedPg: identical(advancedPg, sdkOmittedValue)
+            ? this.advancedPg
+            : advancedPg as SdkOptional<OptionsOptionsAdvancedPg>,
+        advancedMysql: identical(advancedMysql, sdkOmittedValue)
+            ? this.advancedMysql
+            : advancedMysql as SdkOptional<OptionsOptionsAdvancedMysql>,
+      );
 
   factory OptionsOptions.fromJson(Map<String, dynamic> json) => OptionsOptions(
-    kafka: json['kafka'] != null ? SdkPresent((json['kafka'] != null ? OptionsOptionsKafka.fromJson(json['kafka'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    mongodb: json['mongodb'] != null ? SdkPresent((json['mongodb'] != null ? OptionsOptionsMongodb.fromJson(json['mongodb'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    pg: json['pg'] != null ? SdkPresent((json['pg'] != null ? OptionsOptionsPg.fromJson(json['pg'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    mysql: json['mysql'] != null ? SdkPresent((json['mysql'] != null ? OptionsOptionsMysql.fromJson(json['mysql'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    redis: json['redis'] != null ? SdkPresent((json['redis'] != null ? OptionsOptionsRedis.fromJson(json['redis'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    valkey: json['valkey'] != null ? SdkPresent((json['valkey'] != null ? OptionsOptionsValkey.fromJson(json['valkey'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    opensearch: json['opensearch'] != null ? SdkPresent((json['opensearch'] != null ? OptionsOptionsOpensearch.fromJson(json['opensearch'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    advancedPg: json['advanced_pg'] != null ? SdkPresent((json['advanced_pg'] != null ? OptionsOptionsAdvancedPg.fromJson(json['advanced_pg'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    advancedMysql: json['advanced_mysql'] != null ? SdkPresent((json['advanced_mysql'] != null ? OptionsOptionsAdvancedMysql.fromJson(json['advanced_mysql'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        kafka: json['kafka'] != null
+            ? SdkPresent((json['kafka'] != null
+                ? OptionsOptionsKafka.fromJson(
+                    json['kafka'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        mongodb: json['mongodb'] != null
+            ? SdkPresent((json['mongodb'] != null
+                ? OptionsOptionsMongodb.fromJson(
+                    json['mongodb'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        pg: json['pg'] != null
+            ? SdkPresent((json['pg'] != null
+                ? OptionsOptionsPg.fromJson(json['pg'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        mysql: json['mysql'] != null
+            ? SdkPresent((json['mysql'] != null
+                ? OptionsOptionsMysql.fromJson(
+                    json['mysql'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        redis: json['redis'] != null
+            ? SdkPresent((json['redis'] != null
+                ? OptionsOptionsRedis.fromJson(
+                    json['redis'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        valkey: json['valkey'] != null
+            ? SdkPresent((json['valkey'] != null
+                ? OptionsOptionsValkey.fromJson(
+                    json['valkey'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        opensearch: json['opensearch'] != null
+            ? SdkPresent((json['opensearch'] != null
+                ? OptionsOptionsOpensearch.fromJson(
+                    json['opensearch'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        advancedPg: json['advanced_pg'] != null
+            ? SdkPresent((json['advanced_pg'] != null
+                ? OptionsOptionsAdvancedPg.fromJson(
+                    json['advanced_pg'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        advancedMysql: json['advanced_mysql'] != null
+            ? SdkPresent((json['advanced_mysql'] != null
+                ? OptionsOptionsAdvancedMysql.fromJson(
+                    json['advanced_mysql'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (kafka) {
-      SdkPresent<OptionsOptionsKafka>(value: final value) => {'kafka': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (mongodb) {
-      SdkPresent<OptionsOptionsMongodb>(value: final value) => {'mongodb': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pg) {
-      SdkPresent<OptionsOptionsPg>(value: final value) => {'pg': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (mysql) {
-      SdkPresent<OptionsOptionsMysql>(value: final value) => {'mysql': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (redis) {
-      SdkPresent<OptionsOptionsRedis>(value: final value) => {'redis': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (valkey) {
-      SdkPresent<OptionsOptionsValkey>(value: final value) => {'valkey': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (opensearch) {
-      SdkPresent<OptionsOptionsOpensearch>(value: final value) => {'opensearch': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (advancedPg) {
-      SdkPresent<OptionsOptionsAdvancedPg>(value: final value) => {'advanced_pg': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (advancedMysql) {
-      SdkPresent<OptionsOptionsAdvancedMysql>(value: final value) => {'advanced_mysql': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (kafka) {
+          SdkPresent<OptionsOptionsKafka>(value: final value) => {
+              'kafka': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (mongodb) {
+          SdkPresent<OptionsOptionsMongodb>(value: final value) => {
+              'mongodb': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pg) {
+          SdkPresent<OptionsOptionsPg>(value: final value) => {
+              'pg': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (mysql) {
+          SdkPresent<OptionsOptionsMysql>(value: final value) => {
+              'mysql': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (redis) {
+          SdkPresent<OptionsOptionsRedis>(value: final value) => {
+              'redis': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (valkey) {
+          SdkPresent<OptionsOptionsValkey>(value: final value) => {
+              'valkey': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (opensearch) {
+          SdkPresent<OptionsOptionsOpensearch>(value: final value) => {
+              'opensearch': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (advancedPg) {
+          SdkPresent<OptionsOptionsAdvancedPg>(value: final value) => {
+              'advanced_pg': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (advancedMysql) {
+          SdkPresent<OptionsOptionsAdvancedMysql>(value: final value) => {
+              'advanced_mysql': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

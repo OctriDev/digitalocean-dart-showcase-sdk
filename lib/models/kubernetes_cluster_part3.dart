@@ -8,103 +8,183 @@ part of 'kubernetes_cluster.dart';
 class ClusterAutoscalerConfiguration {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Used to customize when cluster autoscaler scales down non-empty nodes by setting the node utilization threshold.
   final SdkOptional<double> scaleDownUtilizationThreshold;
+
   /// Used to customize how long a node is unneeded before being scaled down.
   final SdkOptional<String> scaleDownUnneededTime;
+
   /// Customizes expanders used by cluster-autoscaler. The autoscaler will apply each expander from the provided list to narrow down the selection of node types created to scale up, until either a single node type is left, or the list of expanders is exhausted. If this flag is unset, autoscaler will use its default expander `random`. Passing an empty list (_not_ `null`) will unset any previous expander customizations. Available expanders: - `random`: Randomly selects a node group to scale. - `priority`: Selects the node group with the highest priority as per [user-provided configuration](https://docs.digitalocean.com/products/kubernetes/how-to/autoscale/#configuring-priority-expander) - `least_waste`: Selects the node group that will result in the least amount of idle resources.
-  final SdkOptional<List<ClusterAutoscalerConfigurationExpandersItem>> expanders;
+  final SdkOptional<List<ClusterAutoscalerConfigurationExpandersItem>>
+      expanders;
 
-  const ClusterAutoscalerConfiguration({this.scaleDownUtilizationThreshold = const SdkOmitted(), this.scaleDownUnneededTime = const SdkOmitted(), this.expanders = const SdkOmitted()});
+  const ClusterAutoscalerConfiguration(
+      {this.scaleDownUtilizationThreshold = const SdkOmitted(),
+      this.scaleDownUnneededTime = const SdkOmitted(),
+      this.expanders = const SdkOmitted()});
 
-  ClusterAutoscalerConfiguration Function({SdkOptional<double> scaleDownUtilizationThreshold, SdkOptional<String> scaleDownUnneededTime, SdkOptional<List<ClusterAutoscalerConfigurationExpandersItem>> expanders}) get copyWith => _copyWith;
+  ClusterAutoscalerConfiguration Function(
+      {SdkOptional<double> scaleDownUtilizationThreshold,
+      SdkOptional<String> scaleDownUnneededTime,
+      SdkOptional<List<ClusterAutoscalerConfigurationExpandersItem>>
+          expanders}) get copyWith => _copyWith;
 
-  ClusterAutoscalerConfiguration _copyWith({Object? scaleDownUtilizationThreshold = sdkOmittedValue, Object? scaleDownUnneededTime = sdkOmittedValue, Object? expanders = sdkOmittedValue}) => ClusterAutoscalerConfiguration(
-    scaleDownUtilizationThreshold: identical(scaleDownUtilizationThreshold, sdkOmittedValue) ? this.scaleDownUtilizationThreshold : scaleDownUtilizationThreshold as SdkOptional<double>,
-    scaleDownUnneededTime: identical(scaleDownUnneededTime, sdkOmittedValue) ? this.scaleDownUnneededTime : scaleDownUnneededTime as SdkOptional<String>,
-    expanders: identical(expanders, sdkOmittedValue) ? this.expanders : expanders as SdkOptional<List<ClusterAutoscalerConfigurationExpandersItem>>,
-  );
+  ClusterAutoscalerConfiguration _copyWith(
+          {Object? scaleDownUtilizationThreshold = sdkOmittedValue,
+          Object? scaleDownUnneededTime = sdkOmittedValue,
+          Object? expanders = sdkOmittedValue}) =>
+      ClusterAutoscalerConfiguration(
+        scaleDownUtilizationThreshold:
+            identical(scaleDownUtilizationThreshold, sdkOmittedValue)
+                ? this.scaleDownUtilizationThreshold
+                : scaleDownUtilizationThreshold as SdkOptional<double>,
+        scaleDownUnneededTime: identical(scaleDownUnneededTime, sdkOmittedValue)
+            ? this.scaleDownUnneededTime
+            : scaleDownUnneededTime as SdkOptional<String>,
+        expanders: identical(expanders, sdkOmittedValue)
+            ? this.expanders
+            : expanders as SdkOptional<
+                List<ClusterAutoscalerConfigurationExpandersItem>>,
+      );
 
-  factory ClusterAutoscalerConfiguration.fromJson(Map<String, dynamic> json) => ClusterAutoscalerConfiguration(
-    scaleDownUtilizationThreshold: json['scale_down_utilization_threshold'] != null ? SdkPresent(((json['scale_down_utilization_threshold'] as num?)?.toDouble())!) : const SdkOmitted(),
-    scaleDownUnneededTime: json['scale_down_unneeded_time'] != null ? SdkPresent((json['scale_down_unneeded_time'] as String?)!) : const SdkOmitted(),
-    expanders: json['expanders'] != null ? SdkPresent(((json['expanders'] as List?)?.map((e) => ClusterAutoscalerConfigurationExpandersItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+  factory ClusterAutoscalerConfiguration.fromJson(Map<String, dynamic> json) =>
+      ClusterAutoscalerConfiguration(
+        scaleDownUtilizationThreshold:
+            json['scale_down_utilization_threshold'] != null
+                ? SdkPresent(((json['scale_down_utilization_threshold'] as num?)
+                    ?.toDouble())!)
+                : const SdkOmitted(),
+        scaleDownUnneededTime: json['scale_down_unneeded_time'] != null
+            ? SdkPresent((json['scale_down_unneeded_time'] as String?)!)
+            : const SdkOmitted(),
+        expanders: json['expanders'] != null
+            ? SdkPresent(((json['expanders'] as List?)
+                ?.map((e) =>
+                    ClusterAutoscalerConfigurationExpandersItem.fromJson(
+                        e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (scaleDownUtilizationThreshold) {
-      SdkPresent<double>(value: final value) => {'scale_down_utilization_threshold': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scaleDownUnneededTime) {
-      SdkPresent<String>(value: final value) => {'scale_down_unneeded_time': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expanders) {
-      SdkPresent<List<ClusterAutoscalerConfigurationExpandersItem>>(value: final value) => {'expanders': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (scaleDownUtilizationThreshold) {
+          SdkPresent<double>(value: final value) => {
+              'scale_down_utilization_threshold': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scaleDownUnneededTime) {
+          SdkPresent<String>(value: final value) => {
+              'scale_down_unneeded_time': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expanders) {
+          SdkPresent<List<ClusterAutoscalerConfigurationExpandersItem>>(
+            value: final value
+          ) =>
+            {
+              'expanders': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ClusterCreate` API schema.
 class ClusterCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `kubernetes_cluster` wire field.
   final SdkOptional<Cluster> kubernetesCluster;
 
   const ClusterCreate({this.kubernetesCluster = const SdkOmitted()});
 
-  ClusterCreate Function({SdkOptional<Cluster> kubernetesCluster}) get copyWith => _copyWith;
+  ClusterCreate Function({SdkOptional<Cluster> kubernetesCluster})
+      get copyWith => _copyWith;
 
-  ClusterCreate _copyWith({Object? kubernetesCluster = sdkOmittedValue}) => ClusterCreate(
-    kubernetesCluster: identical(kubernetesCluster, sdkOmittedValue) ? this.kubernetesCluster : kubernetesCluster as SdkOptional<Cluster>,
-  );
+  ClusterCreate _copyWith({Object? kubernetesCluster = sdkOmittedValue}) =>
+      ClusterCreate(
+        kubernetesCluster: identical(kubernetesCluster, sdkOmittedValue)
+            ? this.kubernetesCluster
+            : kubernetesCluster as SdkOptional<Cluster>,
+      );
 
   factory ClusterCreate.fromJson(Map<String, dynamic> json) => ClusterCreate(
-    kubernetesCluster: json['kubernetes_cluster'] != null ? SdkPresent((json['kubernetes_cluster'] != null ? Cluster.fromJson(json['kubernetes_cluster'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        kubernetesCluster: json['kubernetes_cluster'] != null
+            ? SdkPresent((json['kubernetes_cluster'] != null
+                ? Cluster.fromJson(
+                    json['kubernetes_cluster'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (kubernetesCluster) {
-      SdkPresent<Cluster>(value: final value) => {'kubernetes_cluster': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (kubernetesCluster) {
+          SdkPresent<Cluster>(value: final value) => {
+              'kubernetes_cluster': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object containing a `state` attribute whose value is set to a string indicating the current status of the cluster.
 class ClusterReadStatus {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A string indicating the current status of the cluster.
   final SdkOptional<ClusterReadStatusState> state;
+
   /// An optional message providing additional information about the current cluster state.
   final SdkOptional<String> message;
 
-  const ClusterReadStatus({this.state = const SdkOmitted(), this.message = const SdkOmitted()});
+  const ClusterReadStatus(
+      {this.state = const SdkOmitted(), this.message = const SdkOmitted()});
 
-  ClusterReadStatus Function({SdkOptional<ClusterReadStatusState> state, SdkOptional<String> message}) get copyWith => _copyWith;
+  ClusterReadStatus Function(
+      {SdkOptional<ClusterReadStatusState> state,
+      SdkOptional<String> message}) get copyWith => _copyWith;
 
-  ClusterReadStatus _copyWith({Object? state = sdkOmittedValue, Object? message = sdkOmittedValue}) => ClusterReadStatus(
-    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<ClusterReadStatusState>,
-    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
-  );
+  ClusterReadStatus _copyWith(
+          {Object? state = sdkOmittedValue,
+          Object? message = sdkOmittedValue}) =>
+      ClusterReadStatus(
+        state: identical(state, sdkOmittedValue)
+            ? this.state
+            : state as SdkOptional<ClusterReadStatusState>,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as SdkOptional<String>,
+      );
 
-  factory ClusterReadStatus.fromJson(Map<String, dynamic> json) => ClusterReadStatus(
-    state: json['state'] != null ? SdkPresent((json['state'] != null ? ClusterReadStatusState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
-    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
-  );
+  factory ClusterReadStatus.fromJson(Map<String, dynamic> json) =>
+      ClusterReadStatus(
+        state: json['state'] != null
+            ? SdkPresent((json['state'] != null
+                ? ClusterReadStatusState.fromJson(json['state'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        message: json['message'] != null
+            ? SdkPresent((json['message'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (state) {
-      SdkPresent<ClusterReadStatusState>(value: final value) => {'state': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (message) {
-      SdkPresent<String>(value: final value) => {'message': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (state) {
+          SdkPresent<ClusterReadStatusState>(value: final value) => {
+              'state': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (message) {
+          SdkPresent<String>(value: final value) => {
+              'message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

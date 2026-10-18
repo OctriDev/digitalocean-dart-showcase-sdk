@@ -8,33 +8,44 @@ part of 'shared_link.dart';
 class LinkToFirstPage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// URI of the first page of the results.
   final SdkOptional<String> first;
 
   const LinkToFirstPage({this.first = const SdkOmitted()});
 
-  LinkToFirstPage Function({SdkOptional<String> first}) get copyWith => _copyWith;
+  LinkToFirstPage Function({SdkOptional<String> first}) get copyWith =>
+      _copyWith;
 
-  LinkToFirstPage _copyWith({Object? first = sdkOmittedValue}) => LinkToFirstPage(
-    first: identical(first, sdkOmittedValue) ? this.first : first as SdkOptional<String>,
-  );
+  LinkToFirstPage _copyWith({Object? first = sdkOmittedValue}) =>
+      LinkToFirstPage(
+        first: identical(first, sdkOmittedValue)
+            ? this.first
+            : first as SdkOptional<String>,
+      );
 
-  factory LinkToFirstPage.fromJson(Map<String, dynamic> json) => LinkToFirstPage(
-    first: json['first'] != null ? SdkPresent((json['first'] as String?)!) : const SdkOmitted(),
-  );
+  factory LinkToFirstPage.fromJson(Map<String, dynamic> json) =>
+      LinkToFirstPage(
+        first: json['first'] != null
+            ? SdkPresent((json['first'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (first) {
-      SdkPresent<String>(value: final value) => {'first': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (first) {
+          SdkPresent<String>(value: final value) => {
+              'first': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `LinkToLastPage` API schema.
 class LinkToLastPage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// URI of the last page of the results.
   final SdkOptional<String> last;
 
@@ -43,25 +54,32 @@ class LinkToLastPage {
   LinkToLastPage Function({SdkOptional<String> last}) get copyWith => _copyWith;
 
   LinkToLastPage _copyWith({Object? last = sdkOmittedValue}) => LinkToLastPage(
-    last: identical(last, sdkOmittedValue) ? this.last : last as SdkOptional<String>,
-  );
+        last: identical(last, sdkOmittedValue)
+            ? this.last
+            : last as SdkOptional<String>,
+      );
 
   factory LinkToLastPage.fromJson(Map<String, dynamic> json) => LinkToLastPage(
-    last: json['last'] != null ? SdkPresent((json['last'] as String?)!) : const SdkOmitted(),
-  );
+        last: json['last'] != null
+            ? SdkPresent((json['last'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (last) {
-      SdkPresent<String>(value: final value) => {'last': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (last) {
+          SdkPresent<String>(value: final value) => {
+              'last': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `LinkToNextPage` API schema.
 class LinkToNextPage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// URI of the next page of the results.
   final SdkOptional<String> next;
 
@@ -70,25 +88,32 @@ class LinkToNextPage {
   LinkToNextPage Function({SdkOptional<String> next}) get copyWith => _copyWith;
 
   LinkToNextPage _copyWith({Object? next = sdkOmittedValue}) => LinkToNextPage(
-    next: identical(next, sdkOmittedValue) ? this.next : next as SdkOptional<String>,
-  );
+        next: identical(next, sdkOmittedValue)
+            ? this.next
+            : next as SdkOptional<String>,
+      );
 
   factory LinkToNextPage.fromJson(Map<String, dynamic> json) => LinkToNextPage(
-    next: json['next'] != null ? SdkPresent((json['next'] as String?)!) : const SdkOmitted(),
-  );
+        next: json['next'] != null
+            ? SdkPresent((json['next'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (next) {
-      SdkPresent<String>(value: final value) => {'next': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (next) {
+          SdkPresent<String>(value: final value) => {
+              'next': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `LinkToPrevPage` API schema.
 class LinkToPrevPage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// URI of the previous page of the results.
   final SdkOptional<String> prev;
 
@@ -97,17 +122,23 @@ class LinkToPrevPage {
   LinkToPrevPage Function({SdkOptional<String> prev}) get copyWith => _copyWith;
 
   LinkToPrevPage _copyWith({Object? prev = sdkOmittedValue}) => LinkToPrevPage(
-    prev: identical(prev, sdkOmittedValue) ? this.prev : prev as SdkOptional<String>,
-  );
+        prev: identical(prev, sdkOmittedValue)
+            ? this.prev
+            : prev as SdkOptional<String>,
+      );
 
   factory LinkToPrevPage.fromJson(Map<String, dynamic> json) => LinkToPrevPage(
-    prev: json['prev'] != null ? SdkPresent((json['prev'] as String?)!) : const SdkOmitted(),
-  );
+        prev: json['prev'] != null
+            ? SdkPresent((json['prev'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (prev) {
-      SdkPresent<String>(value: final value) => {'prev': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (prev) {
+          SdkPresent<String>(value: final value) => {
+              'prev': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

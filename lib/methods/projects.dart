@@ -25,17 +25,24 @@ Future<ProjectsList> projectsList(ClientConfig config,
   return (await sdkRequest<ProjectsList>('GET', '/v2/projects',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'projectsList',
-          fromJsonRaw: (value) => ProjectsList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ProjectsList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To create a project, send a POST request to `/v2/projects`.
 ///
@@ -55,7 +62,8 @@ Future<ExistingProject> projectsCreate(ClientConfig config,
     {required String name,
     required String purpose,
     SdkOptional<String> description = const SdkOmitted(),
-    SdkOptional<ProjectsCreateRequestBodyEnvironment> environment = const SdkOmitted(),
+    SdkOptional<ProjectsCreateRequestBodyEnvironment> environment =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   validateLength('name', name, max: 175);
   validateLength('purpose', purpose, max: 255);
@@ -73,12 +81,17 @@ Future<ExistingProject> projectsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'projectsCreate',
-          fromJsonRaw: (value) => ExistingProject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingProject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To get your default project, send a GET request to `/v2/projects/default`.
 Future<DefaultProject> projectsGetDefault(ClientConfig config,
@@ -87,12 +100,18 @@ Future<DefaultProject> projectsGetDefault(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'projectsGetDefault',
-          fromJsonRaw: (value) => DefaultProject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DefaultProject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To update you default project, send a PUT request to `/v2/projects/default`. All of the following attributes must be sent.
 ///
@@ -132,12 +151,18 @@ Future<ExistingProject> projectsUpdateDefault(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'projectsUpdateDefault',
-          fromJsonRaw: (value) => ExistingProject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingProject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To update only specific attributes of your default project, send a PATCH request to `/v2/projects/default`. At least one of the following attributes needs to be sent.
 Future<ExistingProject> projectsPatchDefault(ClientConfig config,
@@ -147,12 +172,18 @@ Future<ExistingProject> projectsPatchDefault(ClientConfig config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'projectsPatchDefault',
-          fromJsonRaw: (value) => ExistingProject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingProject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To get a project, send a GET request to `/v2/projects/$PROJECT_ID`.
 ///
@@ -166,12 +197,18 @@ Future<ExistingProject> projectsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'projectsGet',
-          fromJsonRaw: (value) => ExistingProject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingProject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To update a project, send a PUT request to `/v2/projects/$PROJECT_ID`. All of the following attributes must be sent.
 ///
@@ -215,12 +252,18 @@ Future<ExistingProject> projectsUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'projectsUpdate',
-          fromJsonRaw: (value) => ExistingProject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingProject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To update only specific attributes of a project, send a PATCH request to `/v2/projects/$PROJECT_ID`. At least one of the following attributes needs to be sent.
 ///
@@ -237,12 +280,18 @@ Future<ExistingProject> projectsPatch(ClientConfig config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'projectsPatch',
-          fromJsonRaw: (value) => ExistingProject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingProject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To delete a project, send a DELETE request to `/v2/projects/$PROJECT_ID`. To be deleted, a project must not have any resources assigned to it. Any existing resources must first be reassigned or destroyed, or you will receive a 412 error. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
 ///
@@ -257,6 +306,13 @@ Future<void> projectsDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'projectsDelete',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '412': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '412': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

@@ -11,9 +11,8 @@ class WebhookSignatureConfig {
 
   const WebhookSignatureConfig();
 
-  factory WebhookSignatureConfig.fromJson(Map<String, dynamic> json) => WebhookSignatureConfig(
-  );
+  factory WebhookSignatureConfig.fromJson(Map<String, dynamic> json) =>
+      WebhookSignatureConfig();
 
-  Map<String, dynamic> toJson() => {
-  };
+  Map<String, dynamic> toJson() => {};
 }

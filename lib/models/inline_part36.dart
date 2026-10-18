@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models (part 36)
 /// The region in which the VPC NAT gateway is created.
 final class VpcNatGatewayGetRegion {
-
   final String value;
 
   const VpcNatGatewayGetRegion._(this.value);
 
-  factory VpcNatGatewayGetRegion.fromJson(String value) => VpcNatGatewayGetRegion._(value);
+  factory VpcNatGatewayGetRegion.fromJson(String value) =>
+      VpcNatGatewayGetRegion._(value);
 
   static const nyc1 = VpcNatGatewayGetRegion._('nyc1');
   static const nyc2 = VpcNatGatewayGetRegion._('nyc2');
@@ -31,22 +31,25 @@ final class VpcNatGatewayGetRegion {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VpcNatGatewayGetRegion && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is VpcNatGatewayGetRegion && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The current state of the VPC NAT gateway.
 final class VpcNatGatewayGetState {
-
   final String value;
 
   const VpcNatGatewayGetState._(this.value);
 
-  factory VpcNatGatewayGetState.fromJson(String value) => VpcNatGatewayGetState._(value);
+  factory VpcNatGatewayGetState.fromJson(String value) =>
+      VpcNatGatewayGetState._(value);
 
   static const new_ = VpcNatGatewayGetState._('NEW');
   static const provisioning = VpcNatGatewayGetState._('PROVISIONING');
@@ -57,43 +60,49 @@ final class VpcNatGatewayGetState {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VpcNatGatewayGetState && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is VpcNatGatewayGetState && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the VPC NAT gateway.
 final class VpcNatGatewayGetType {
-
   final String value;
 
   const VpcNatGatewayGetType._(this.value);
 
-  factory VpcNatGatewayGetType.fromJson(String value) => VpcNatGatewayGetType._(value);
+  factory VpcNatGatewayGetType.fromJson(String value) =>
+      VpcNatGatewayGetType._(value);
 
   static const public = VpcNatGatewayGetType._('PUBLIC');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VpcNatGatewayGetType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is VpcNatGatewayGetType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The current status of the VPC peering.
 final class VpcPeeringBaseStatus {
-
   final String value;
 
   const VpcPeeringBaseStatus._(this.value);
 
-  factory VpcPeeringBaseStatus.fromJson(String value) => VpcPeeringBaseStatus._(value);
+  factory VpcPeeringBaseStatus.fromJson(String value) =>
+      VpcPeeringBaseStatus._(value);
 
   static const provisioning = VpcPeeringBaseStatus._('PROVISIONING');
   static const active = VpcPeeringBaseStatus._('ACTIVE');
@@ -101,17 +110,19 @@ final class VpcPeeringBaseStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VpcPeeringBaseStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is VpcPeeringBaseStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the VPC subnet.
 final class VpcSubnetType {
-
   final String value;
 
   const VpcSubnetType._(this.value);
@@ -124,22 +135,25 @@ final class VpcSubnetType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VpcSubnetType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is VpcSubnetType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `status` wire field.
 final class WorkspaceTransferCancelledStatus {
-
   final String value;
 
   const WorkspaceTransferCancelledStatus._(this.value);
 
-  factory WorkspaceTransferCancelledStatus.fromJson(String value) => WorkspaceTransferCancelledStatus._(value);
+  factory WorkspaceTransferCancelledStatus.fromJson(String value) =>
+      WorkspaceTransferCancelledStatus._(value);
 
   static const pending = WorkspaceTransferCancelledStatus._('pending');
   static const inProgress = WorkspaceTransferCancelledStatus._('in_progress');
@@ -148,44 +162,50 @@ final class WorkspaceTransferCancelledStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WorkspaceTransferCancelledStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WorkspaceTransferCancelledStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `direction` wire field.
 final class WorkspaceTransferCreatedDirection {
-
   final String value;
 
   const WorkspaceTransferCreatedDirection._(this.value);
 
-  factory WorkspaceTransferCreatedDirection.fromJson(String value) => WorkspaceTransferCreatedDirection._(value);
+  factory WorkspaceTransferCreatedDirection.fromJson(String value) =>
+      WorkspaceTransferCreatedDirection._(value);
 
   static const upload = WorkspaceTransferCreatedDirection._('upload');
   static const download = WorkspaceTransferCreatedDirection._('download');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WorkspaceTransferCreatedDirection && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WorkspaceTransferCreatedDirection && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `status` wire field.
 final class WorkspaceTransferCreatedStatus {
-
   final String value;
 
   const WorkspaceTransferCreatedStatus._(this.value);
 
-  factory WorkspaceTransferCreatedStatus.fromJson(String value) => WorkspaceTransferCreatedStatus._(value);
+  factory WorkspaceTransferCreatedStatus.fromJson(String value) =>
+      WorkspaceTransferCreatedStatus._(value);
 
   static const pending = WorkspaceTransferCreatedStatus._('pending');
   static const inProgress = WorkspaceTransferCreatedStatus._('in_progress');
@@ -194,44 +214,50 @@ final class WorkspaceTransferCreatedStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WorkspaceTransferCreatedStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WorkspaceTransferCreatedStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `direction` wire field.
 final class WorkspaceTransferStatusDirection {
-
   final String value;
 
   const WorkspaceTransferStatusDirection._(this.value);
 
-  factory WorkspaceTransferStatusDirection.fromJson(String value) => WorkspaceTransferStatusDirection._(value);
+  factory WorkspaceTransferStatusDirection.fromJson(String value) =>
+      WorkspaceTransferStatusDirection._(value);
 
   static const upload = WorkspaceTransferStatusDirection._('upload');
   static const download = WorkspaceTransferStatusDirection._('download');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WorkspaceTransferStatusDirection && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WorkspaceTransferStatusDirection && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `status` wire field.
 final class WorkspaceTransferStatusStatus {
-
   final String value;
 
   const WorkspaceTransferStatusStatus._(this.value);
 
-  factory WorkspaceTransferStatusStatus.fromJson(String value) => WorkspaceTransferStatusStatus._(value);
+  factory WorkspaceTransferStatusStatus.fromJson(String value) =>
+      WorkspaceTransferStatusStatus._(value);
 
   static const pending = WorkspaceTransferStatusStatus._('pending');
   static const inProgress = WorkspaceTransferStatusStatus._('in_progress');
@@ -240,22 +266,25 @@ final class WorkspaceTransferStatusStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WorkspaceTransferStatusStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WorkspaceTransferStatusStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `status` wire field.
 final class WorkspaceUploadCommittedStatus {
-
   final String value;
 
   const WorkspaceUploadCommittedStatus._(this.value);
 
-  factory WorkspaceUploadCommittedStatus.fromJson(String value) => WorkspaceUploadCommittedStatus._(value);
+  factory WorkspaceUploadCommittedStatus.fromJson(String value) =>
+      WorkspaceUploadCommittedStatus._(value);
 
   static const pending = WorkspaceUploadCommittedStatus._('pending');
   static const inProgress = WorkspaceUploadCommittedStatus._('in_progress');
@@ -264,10 +293,13 @@ final class WorkspaceUploadCommittedStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is WorkspaceUploadCommittedStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is WorkspaceUploadCommittedStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

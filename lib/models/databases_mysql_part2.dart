@@ -8,57 +8,87 @@ part of 'databases_mysql.dart';
 class MysqlIncrementalBackup {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Enable periodic incremental backups. When enabled, full_backup_week_schedule must be set. Incremental backups only store changes since the last backup, making them faster and more storage-efficient than full backups. This is particularly useful for large databases where daily full backups would be too time-consuming or expensive.
   final SdkOptional<bool> enabled;
+
   /// Comma-separated list of days of the week when full backups should be created. Valid values: mon, tue, wed, thu, fri, sat, sun. Default is null. Example : "mon,fri,sun".
   final SdkOptional<String> fullBackupWeekSchedule;
 
-  const MysqlIncrementalBackup({this.enabled = const SdkOmitted(), this.fullBackupWeekSchedule = const SdkOmitted()});
+  const MysqlIncrementalBackup(
+      {this.enabled = const SdkOmitted(),
+      this.fullBackupWeekSchedule = const SdkOmitted()});
 
-  MysqlIncrementalBackup Function({SdkOptional<bool> enabled, SdkOptional<String> fullBackupWeekSchedule}) get copyWith => _copyWith;
+  MysqlIncrementalBackup Function(
+      {SdkOptional<bool> enabled,
+      SdkOptional<String> fullBackupWeekSchedule}) get copyWith => _copyWith;
 
-  MysqlIncrementalBackup _copyWith({Object? enabled = sdkOmittedValue, Object? fullBackupWeekSchedule = sdkOmittedValue}) => MysqlIncrementalBackup(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-    fullBackupWeekSchedule: identical(fullBackupWeekSchedule, sdkOmittedValue) ? this.fullBackupWeekSchedule : fullBackupWeekSchedule as SdkOptional<String>,
-  );
+  MysqlIncrementalBackup _copyWith(
+          {Object? enabled = sdkOmittedValue,
+          Object? fullBackupWeekSchedule = sdkOmittedValue}) =>
+      MysqlIncrementalBackup(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+        fullBackupWeekSchedule:
+            identical(fullBackupWeekSchedule, sdkOmittedValue)
+                ? this.fullBackupWeekSchedule
+                : fullBackupWeekSchedule as SdkOptional<String>,
+      );
 
-  factory MysqlIncrementalBackup.fromJson(Map<String, dynamic> json) => MysqlIncrementalBackup(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-    fullBackupWeekSchedule: json['full_backup_week_schedule'] != null ? SdkPresent((json['full_backup_week_schedule'] as String?)!) : const SdkOmitted(),
-  );
+  factory MysqlIncrementalBackup.fromJson(Map<String, dynamic> json) =>
+      MysqlIncrementalBackup(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+        fullBackupWeekSchedule: json['full_backup_week_schedule'] != null
+            ? SdkPresent((json['full_backup_week_schedule'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fullBackupWeekSchedule) {
-      SdkPresent<String>(value: final value) => {'full_backup_week_schedule': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fullBackupWeekSchedule) {
+          SdkPresent<String>(value: final value) => {
+              'full_backup_week_schedule': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `MysqlSettings` API schema.
 class MysqlSettings {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A string specifying the authentication method to be used for connections to the MySQL user account. The valid values are `mysql_native_password` or `caching_sha2_password`. If excluded when creating a new user, the default for the version of MySQL in use will be used. As of MySQL 8.0, the default is `caching_sha2_password`.
   final MysqlSettingsAuthPlugin authPlugin;
 
   const MysqlSettings({required this.authPlugin});
 
-  MysqlSettings Function({MysqlSettingsAuthPlugin authPlugin}) get copyWith => _copyWith;
+  MysqlSettings Function({MysqlSettingsAuthPlugin authPlugin}) get copyWith =>
+      _copyWith;
 
-  MysqlSettings _copyWith({Object? authPlugin = sdkOmittedValue}) => MysqlSettings(
-    authPlugin: identical(authPlugin, sdkOmittedValue) ? this.authPlugin : authPlugin as MysqlSettingsAuthPlugin,
-  );
+  MysqlSettings _copyWith({Object? authPlugin = sdkOmittedValue}) =>
+      MysqlSettings(
+        authPlugin: identical(authPlugin, sdkOmittedValue)
+            ? this.authPlugin
+            : authPlugin as MysqlSettingsAuthPlugin,
+      );
 
   factory MysqlSettings.fromJson(Map<String, dynamic> json) => MysqlSettings(
-    authPlugin: (json['auth_plugin'] != null ? MysqlSettingsAuthPlugin.fromJson(json['auth_plugin'] as String) : null)!,
-  );
+        authPlugin: (json['auth_plugin'] != null
+            ? MysqlSettingsAuthPlugin.fromJson(json['auth_plugin'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'auth_plugin': authPlugin.toJson(),
-  };
+        'auth_plugin': authPlugin.toJson(),
+      };
 }

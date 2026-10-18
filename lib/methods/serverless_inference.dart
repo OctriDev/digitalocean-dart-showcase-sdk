@@ -75,30 +75,33 @@ import '../types.dart';
 ///   both.
 /// [user] A unique identifier representing your end-user, which can help
 ///   DigitalOcean to monitor and detect abuse.
-Future<ChatCompletionResponse>
-    inferenceCreateChatCompletion(ClientConfig config,
-        {required List<ChatMessage> messages,
-        required String model,
-        SdkOptional<int?> maxTokens = const SdkOmitted(),
-        SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
-        SdkOptional<double?> frequencyPenalty = const SdkOmitted(),
-        SdkOptional<double?> presencePenalty = const SdkOmitted(),
-        SdkOptional<int?> topLogprobs = const SdkOmitted(),
-        SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
-        SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(),
-        SdkOptional<bool?> stream = const SdkOmitted(),
-        SdkOptional<dynamic> stop = const SdkOmitted(),
-        SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
-        SdkOptional<bool?> logprobs = const SdkOmitted(),
-        SdkOptional<int?> n = const SdkOmitted(),
-        SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(),
-        SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(),
-        SdkOptional<int?> seed = const SdkOmitted(),
-        SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
-        SdkOptional<double?> temperature = const SdkOmitted(),
-        SdkOptional<double?> topP = const SdkOmitted(),
-        SdkOptional<String> user = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ChatCompletionResponse> inferenceCreateChatCompletion(
+    ClientConfig config,
+    {required List<ChatMessage> messages,
+    required String model,
+    SdkOptional<int?> maxTokens = const SdkOmitted(),
+    SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
+    SdkOptional<double?> frequencyPenalty = const SdkOmitted(),
+    SdkOptional<double?> presencePenalty = const SdkOmitted(),
+    SdkOptional<int?> topLogprobs = const SdkOmitted(),
+    SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
+    SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
+        const SdkOmitted(),
+    SdkOptional<bool?> stream = const SdkOmitted(),
+    SdkOptional<dynamic> stop = const SdkOmitted(),
+    SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
+    SdkOptional<bool?> logprobs = const SdkOmitted(),
+    SdkOptional<int?> n = const SdkOmitted(),
+    SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions =
+        const SdkOmitted(),
+    SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort =
+        const SdkOmitted(),
+    SdkOptional<int?> seed = const SdkOmitted(),
+    SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
+    SdkOptional<double?> temperature = const SdkOmitted(),
+    SdkOptional<double?> topP = const SdkOmitted(),
+    SdkOptional<String> user = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   validateItems('messages', messages, min: 1);
   if (maxTokens is SdkPresent<int?>) {
     final maxTokensValue = maxTokens.value;
@@ -109,13 +112,15 @@ Future<ChatCompletionResponse>
   if (maxCompletionTokens is SdkPresent<int?>) {
     final maxCompletionTokensValue = maxCompletionTokens.value;
     if (maxCompletionTokensValue != null) {
-      validateRange('max_completion_tokens', maxCompletionTokensValue, min: 256);
+      validateRange('max_completion_tokens', maxCompletionTokensValue,
+          min: 256);
     }
   }
   if (frequencyPenalty is SdkPresent<double?>) {
     final frequencyPenaltyValue = frequencyPenalty.value;
     if (frequencyPenaltyValue != null) {
-      validateRange('frequency_penalty', frequencyPenaltyValue, min: -2, max: 2);
+      validateRange('frequency_penalty', frequencyPenaltyValue,
+          min: -2, max: 2);
     }
   }
   if (presencePenalty is SdkPresent<double?>) {
@@ -156,7 +161,8 @@ Future<ChatCompletionResponse>
             'messages': messages,
             'model': model,
             'max_tokens': SdkUtils.unwrapOptional(maxTokens),
-            'max_completion_tokens': SdkUtils.unwrapOptional(maxCompletionTokens),
+            'max_completion_tokens':
+                SdkUtils.unwrapOptional(maxCompletionTokens),
             'frequency_penalty': SdkUtils.unwrapOptional(frequencyPenalty),
             'presence_penalty': SdkUtils.unwrapOptional(presencePenalty),
             'top_logprobs': SdkUtils.unwrapOptional(topLogprobs),
@@ -177,12 +183,17 @@ Future<ChatCompletionResponse>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceCreateChatCompletion',
-          fromJsonRaw: (value) => ChatCompletionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ChatCompletionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a model response for the given chat conversation.
 ///
@@ -252,45 +263,77 @@ Future<ChatCompletionResponse>
 ///   both.
 /// [user] A unique identifier representing your end-user, which can help
 ///   DigitalOcean to monitor and detect abuse.
-Stream<ChatCompletionChunk> inferenceCreateChatCompletionStream(ClientConfig config, {required List<ChatMessage> messages, required String model, required bool? stream, SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> topLogprobs = const SdkOmitted(), SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(), SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<dynamic> stop = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<bool?> logprobs = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<ChatCompletionChunk> inferenceCreateChatCompletionStream(
+    ClientConfig config,
+    {required List<ChatMessage> messages,
+    required String model,
+    required bool? stream,
+    SdkOptional<int?> maxTokens = const SdkOmitted(),
+    SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
+    SdkOptional<double?> frequencyPenalty = const SdkOmitted(),
+    SdkOptional<double?> presencePenalty = const SdkOmitted(),
+    SdkOptional<int?> topLogprobs = const SdkOmitted(),
+    SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
+    SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
+        const SdkOmitted(),
+    SdkOptional<dynamic> stop = const SdkOmitted(),
+    SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
+    SdkOptional<bool?> logprobs = const SdkOmitted(),
+    SdkOptional<int?> n = const SdkOmitted(),
+    SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions =
+        const SdkOmitted(),
+    SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort =
+        const SdkOmitted(),
+    SdkOptional<int?> seed = const SdkOmitted(),
+    SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
+    SdkOptional<double?> temperature = const SdkOmitted(),
+    SdkOptional<double?> topP = const SdkOmitted(),
+    SdkOptional<String> user = const SdkOmitted(),
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/v1/chat/completions',
     config: config,
     body: {
-    'messages': messages,
-    'model': model,
-    'stream': stream,
-    'max_tokens': SdkUtils.unwrapOptional(maxTokens),
-    'max_completion_tokens': SdkUtils.unwrapOptional(maxCompletionTokens),
-    'frequency_penalty': SdkUtils.unwrapOptional(frequencyPenalty),
-    'presence_penalty': SdkUtils.unwrapOptional(presencePenalty),
-    'top_logprobs': SdkUtils.unwrapOptional(topLogprobs),
-    'tools': SdkUtils.unwrapOptional(tools),
-    'tool_choice': SdkUtils.unwrapOptional(toolChoice),
-    'stop': SdkUtils.unwrapOptional(stop),
-    'logit_bias': SdkUtils.unwrapOptional(logitBias),
-    'logprobs': SdkUtils.unwrapOptional(logprobs),
-    'n': SdkUtils.unwrapOptional(n),
-    'stream_options': SdkUtils.unwrapOptional(streamOptions),
-    'reasoning_effort': SdkUtils.unwrapOptional(reasoningEffort),
-    'seed': SdkUtils.unwrapOptional(seed),
-    'metadata': SdkUtils.unwrapOptional(metadata),
-    'temperature': SdkUtils.unwrapOptional(temperature),
-    'top_p': SdkUtils.unwrapOptional(topP),
-    'user': SdkUtils.unwrapOptional(user),
-  },
+      'messages': messages,
+      'model': model,
+      'stream': stream,
+      'max_tokens': SdkUtils.unwrapOptional(maxTokens),
+      'max_completion_tokens': SdkUtils.unwrapOptional(maxCompletionTokens),
+      'frequency_penalty': SdkUtils.unwrapOptional(frequencyPenalty),
+      'presence_penalty': SdkUtils.unwrapOptional(presencePenalty),
+      'top_logprobs': SdkUtils.unwrapOptional(topLogprobs),
+      'tools': SdkUtils.unwrapOptional(tools),
+      'tool_choice': SdkUtils.unwrapOptional(toolChoice),
+      'stop': SdkUtils.unwrapOptional(stop),
+      'logit_bias': SdkUtils.unwrapOptional(logitBias),
+      'logprobs': SdkUtils.unwrapOptional(logprobs),
+      'n': SdkUtils.unwrapOptional(n),
+      'stream_options': SdkUtils.unwrapOptional(streamOptions),
+      'reasoning_effort': SdkUtils.unwrapOptional(reasoningEffort),
+      'seed': SdkUtils.unwrapOptional(seed),
+      'metadata': SdkUtils.unwrapOptional(metadata),
+      'temperature': SdkUtils.unwrapOptional(temperature),
+      'top_p': SdkUtils.unwrapOptional(topP),
+      'user': SdkUtils.unwrapOptional(user),
+    },
     operationId: 'inferenceCreateChatCompletionStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '500': (value) => Error2.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
-    yield sdkDecode(() => ChatCompletionChunk.fromJson(event.data as Map<String, dynamic>));
+    yield sdkDecode(
+        () => ChatCompletionChunk.fromJson(event.data as Map<String, dynamic>));
   }
 }
+
 /// Send a structured list of input messages with text and/or image content, and the model will generate the next message in the conversation.
 ///
 /// [model] Model ID (for example `claude-opus-4-6` or a serverless model id).
@@ -326,7 +369,8 @@ Future<MessagesCreateResponse> inferenceCreateMessages(ClientConfig config,
     SdkOptional<List<MessagesToolDefinitionParam>> tools = const SdkOmitted(),
     SdkOptional<MessagesToolChoiceParam> toolChoice = const SdkOmitted(),
     SdkOptional<MessagesCreateRequestMetadata> metadata = const SdkOmitted(),
-    SdkOptional<MessagesCreateRequestReasoningEffort?> reasoningEffort = const SdkOmitted(),
+    SdkOptional<MessagesCreateRequestReasoningEffort?> reasoningEffort =
+        const SdkOmitted(),
     SdkOptional<MessagesCreateRequestSpeed?> speed = const SdkOmitted(),
     SdkOptional<MessagesThinkingConfigParam?> thinking = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -366,12 +410,19 @@ Future<MessagesCreateResponse> inferenceCreateMessages(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceCreateMessages',
-          fromJsonRaw: (value) => MessagesCreateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              MessagesCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => MessagesCreateErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => MessagesCreateErrorResponse.fromJson(
+                value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Send a structured list of input messages with text and/or image content, and the model will generate the next message in the conversation.
 ///
@@ -395,39 +446,64 @@ Future<MessagesCreateResponse> inferenceCreateMessages(ClientConfig config,
 ///   not supported.
 /// [thinking] Extended thinking configuration. Executors that do not support
 ///   thinking may ignore this field.
-Stream<MessagesStreamEvent> inferenceCreateMessagesStream(ClientConfig config, {required String model, required int maxTokens, required List<MessagesApiMessageParam> messages, required bool stream, SdkOptional<dynamic> system = const SdkOmitted(), SdkOptional<List<String>> stopSequences = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<int?> topK = const SdkOmitted(), SdkOptional<List<MessagesToolDefinitionParam>> tools = const SdkOmitted(), SdkOptional<MessagesToolChoiceParam> toolChoice = const SdkOmitted(), SdkOptional<MessagesCreateRequestMetadata> metadata = const SdkOmitted(), SdkOptional<MessagesCreateRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<MessagesCreateRequestSpeed?> speed = const SdkOmitted(), SdkOptional<MessagesThinkingConfigParam?> thinking = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<MessagesStreamEvent> inferenceCreateMessagesStream(ClientConfig config,
+    {required String model,
+    required int maxTokens,
+    required List<MessagesApiMessageParam> messages,
+    required bool stream,
+    SdkOptional<dynamic> system = const SdkOmitted(),
+    SdkOptional<List<String>> stopSequences = const SdkOmitted(),
+    SdkOptional<double?> temperature = const SdkOmitted(),
+    SdkOptional<double?> topP = const SdkOmitted(),
+    SdkOptional<int?> topK = const SdkOmitted(),
+    SdkOptional<List<MessagesToolDefinitionParam>> tools = const SdkOmitted(),
+    SdkOptional<MessagesToolChoiceParam> toolChoice = const SdkOmitted(),
+    SdkOptional<MessagesCreateRequestMetadata> metadata = const SdkOmitted(),
+    SdkOptional<MessagesCreateRequestReasoningEffort?> reasoningEffort =
+        const SdkOmitted(),
+    SdkOptional<MessagesCreateRequestSpeed?> speed = const SdkOmitted(),
+    SdkOptional<MessagesThinkingConfigParam?> thinking = const SdkOmitted(),
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/v1/messages',
     config: config,
     body: {
-    'model': model,
-    'max_tokens': maxTokens,
-    'messages': messages,
-    'stream': stream,
-    'system': SdkUtils.unwrapOptional(system),
-    'stop_sequences': SdkUtils.unwrapOptional(stopSequences),
-    'temperature': SdkUtils.unwrapOptional(temperature),
-    'top_p': SdkUtils.unwrapOptional(topP),
-    'top_k': SdkUtils.unwrapOptional(topK),
-    'tools': SdkUtils.unwrapOptional(tools),
-    'tool_choice': SdkUtils.unwrapOptional(toolChoice),
-    'metadata': SdkUtils.unwrapOptional(metadata),
-    'reasoning_effort': SdkUtils.unwrapOptional(reasoningEffort),
-    'speed': SdkUtils.unwrapOptional(speed),
-    'thinking': SdkUtils.unwrapOptional(thinking),
-  },
+      'model': model,
+      'max_tokens': maxTokens,
+      'messages': messages,
+      'stream': stream,
+      'system': SdkUtils.unwrapOptional(system),
+      'stop_sequences': SdkUtils.unwrapOptional(stopSequences),
+      'temperature': SdkUtils.unwrapOptional(temperature),
+      'top_p': SdkUtils.unwrapOptional(topP),
+      'top_k': SdkUtils.unwrapOptional(topK),
+      'tools': SdkUtils.unwrapOptional(tools),
+      'tool_choice': SdkUtils.unwrapOptional(toolChoice),
+      'metadata': SdkUtils.unwrapOptional(metadata),
+      'reasoning_effort': SdkUtils.unwrapOptional(reasoningEffort),
+      'speed': SdkUtils.unwrapOptional(speed),
+      'thinking': SdkUtils.unwrapOptional(thinking),
+    },
     operationId: 'inferenceCreateMessagesStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'400': (value) => MessagesCreateErrorResponse.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '400': (value) =>
+          MessagesCreateErrorResponse.fromJson(value as Map<String, dynamic>),
+      '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '500': (value) => Error2.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
-    yield sdkDecode(() => MessagesStreamEvent.fromJson(event.data as Map<String, dynamic>));
+    yield sdkDecode(
+        () => MessagesStreamEvent.fromJson(event.data as Map<String, dynamic>));
   }
 }
+
 /// Create vector embeddings for one or more text inputs. OpenAI-compatible request and response. Unknown fields in the request body are rejected. There is no streaming response for this endpoint.
 ///
 /// [model] Model id to use for embeddings. Must match a model your account can
@@ -441,7 +517,8 @@ Future<EmbeddingsResponse> inferenceCreateEmbedding(ClientConfig config,
     {required String model,
     required dynamic input,
     SdkOptional<String> user = const SdkOmitted(),
-    SdkOptional<EmbeddingsRequestEncodingFormat> encodingFormat = const SdkOmitted(),
+    SdkOptional<EmbeddingsRequestEncodingFormat> encodingFormat =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<EmbeddingsResponse>('POST', '/v1/embeddings',
           config: config,
@@ -453,12 +530,17 @@ Future<EmbeddingsResponse> inferenceCreateEmbedding(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceCreateEmbedding',
-          fromJsonRaw: (value) => EmbeddingsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EmbeddingsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a high-quality image from a text prompt using GPT-IMAGE-1, the latest image generation model with automatic prompt optimization and enhanced visual capabilities.
 ///
@@ -541,12 +623,17 @@ Future<ImagesResponse> inferenceCreateImage(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceCreateImage',
-          fromJsonRaw: (value) => ImagesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ImagesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a high-quality image from a text prompt using GPT-IMAGE-1, the latest image generation model with automatic prompt optimization and enhanced visual capabilities.
 ///
@@ -576,36 +663,56 @@ Future<ImagesResponse> inferenceCreateImage(ClientConfig config,
 ///   than 0 to receive progressive updates of the image as it is being generated.
 /// [user] A unique identifier representing your end-user, which can help
 ///   DigitalOcean to monitor and detect abuse.
-Stream<ImageGenPartialImageEvent> inferenceCreateImageStream(ClientConfig config, {required String prompt, required String model, required int n, required bool? stream, SdkOptional<String?> moderation = const SdkOmitted(), SdkOptional<String?> background = const SdkOmitted(), SdkOptional<String?> outputFormat = const SdkOmitted(), SdkOptional<int?> outputCompression = const SdkOmitted(), SdkOptional<String?> quality = const SdkOmitted(), SdkOptional<CreateImageRequestSize> size = const SdkOmitted(), SdkOptional<int?> partialImages = const SdkOmitted(), SdkOptional<String?> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<ImageGenPartialImageEvent> inferenceCreateImageStream(
+    ClientConfig config,
+    {required String prompt,
+    required String model,
+    required int n,
+    required bool? stream,
+    SdkOptional<String?> moderation = const SdkOmitted(),
+    SdkOptional<String?> background = const SdkOmitted(),
+    SdkOptional<String?> outputFormat = const SdkOmitted(),
+    SdkOptional<int?> outputCompression = const SdkOmitted(),
+    SdkOptional<String?> quality = const SdkOmitted(),
+    SdkOptional<CreateImageRequestSize> size = const SdkOmitted(),
+    SdkOptional<int?> partialImages = const SdkOmitted(),
+    SdkOptional<String?> user = const SdkOmitted(),
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/v1/images/generations',
     config: config,
     body: {
-    'prompt': prompt,
-    'model': model,
-    'n': n,
-    'stream': stream,
-    'moderation': SdkUtils.unwrapOptional(moderation),
-    'background': SdkUtils.unwrapOptional(background),
-    'output_format': SdkUtils.unwrapOptional(outputFormat),
-    'output_compression': SdkUtils.unwrapOptional(outputCompression),
-    'quality': SdkUtils.unwrapOptional(quality),
-    'size': SdkUtils.unwrapOptional(size),
-    'partial_images': SdkUtils.unwrapOptional(partialImages),
-    'user': SdkUtils.unwrapOptional(user),
-  },
+      'prompt': prompt,
+      'model': model,
+      'n': n,
+      'stream': stream,
+      'moderation': SdkUtils.unwrapOptional(moderation),
+      'background': SdkUtils.unwrapOptional(background),
+      'output_format': SdkUtils.unwrapOptional(outputFormat),
+      'output_compression': SdkUtils.unwrapOptional(outputCompression),
+      'quality': SdkUtils.unwrapOptional(quality),
+      'size': SdkUtils.unwrapOptional(size),
+      'partial_images': SdkUtils.unwrapOptional(partialImages),
+      'user': SdkUtils.unwrapOptional(user),
+    },
     operationId: 'inferenceCreateImageStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '500': (value) => Error2.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
-    yield sdkDecode(() => ImageGenPartialImageEvent.fromJson(event.data as Map<String, dynamic>));
+    yield sdkDecode(() =>
+        ImageGenPartialImageEvent.fromJson(event.data as Map<String, dynamic>));
   }
 }
+
 /// Lists the currently available models, and provides basic information about each one such as the owner and availability.
 Future<ListModelsResponse> inferenceListModels(ClientConfig config,
     {RequestOptions? requestOptions}) async {
@@ -613,12 +720,17 @@ Future<ListModelsResponse> inferenceListModels(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceListModels',
-          fromJsonRaw: (value) => ListModelsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListModelsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Evaluates a provided state against one or more typed questions using TypeSafe AI's Jev model. Unlike chat completion endpoints, System One returns typed answers, a truth-likelihood score, a choice from a fixed set, or a numeric score, each paired with a calibrated probability, instead of free-form text.
 ///
@@ -636,12 +748,22 @@ Future<SystemoneResponse> inferenceCreateSystemone(ClientConfig config,
           body: {'state': state, 'model': model, 'questions': questions},
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceCreateSystemone',
-          fromJsonRaw: (value) => SystemoneResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SystemoneResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '424': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '502': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '424': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '502': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Generate text responses from text prompts. This endpoint supports both streaming and non-streaming responses for supported text models.
 ///
@@ -675,9 +797,12 @@ Future<CreateResponseResponse> inferenceCreateResponse(ClientConfig config,
     SdkOptional<bool?> stream = const SdkOmitted(),
     SdkOptional<String?> instructions = const SdkOmitted(),
     SdkOptional<double?> topP = const SdkOmitted(),
-    SdkOptional<CreateResponseRequestStreamOptions?> streamOptions = const SdkOmitted(),
-    SdkOptional<List<CreateResponseRequestToolsItem>?> tools = const SdkOmitted(),
-    SdkOptional<CreateResponseRequestToolChoice> toolChoice = const SdkOmitted(),
+    SdkOptional<CreateResponseRequestStreamOptions?> streamOptions =
+        const SdkOmitted(),
+    SdkOptional<List<CreateResponseRequestToolsItem>?> tools =
+        const SdkOmitted(),
+    SdkOptional<CreateResponseRequestToolChoice> toolChoice =
+        const SdkOmitted(),
     SdkOptional<dynamic> stop = const SdkOmitted(),
     SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
     SdkOptional<String?> user = const SdkOmitted(),
@@ -720,12 +845,17 @@ Future<CreateResponseResponse> inferenceCreateResponse(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceCreateResponse',
-          fromJsonRaw: (value) => CreateResponseResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CreateResponseResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Generate text responses from text prompts. This endpoint supports both streaming and non-streaming responses for supported text models.
 ///
@@ -751,37 +881,61 @@ Future<CreateResponseResponse> inferenceCreateResponse(ClientConfig config,
 /// [stop] Up to 4 sequences where the API will stop generating further tokens.
 /// [metadata] Set of key-value pairs that can be attached to the request.
 /// [user] A unique identifier representing your end-user.
-Stream<CreateResponseStreamResponse> inferenceCreateResponseStream(ClientConfig config, {required String model, required dynamic input, required bool? stream, SdkOptional<int?> maxOutputTokens = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<String?> instructions = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<CreateResponseRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<List<CreateResponseRequestToolsItem>?> tools = const SdkOmitted(), SdkOptional<CreateResponseRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<dynamic> stop = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<String?> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<CreateResponseStreamResponse> inferenceCreateResponseStream(
+    ClientConfig config,
+    {required String model,
+    required dynamic input,
+    required bool? stream,
+    SdkOptional<int?> maxOutputTokens = const SdkOmitted(),
+    SdkOptional<double?> temperature = const SdkOmitted(),
+    SdkOptional<String?> instructions = const SdkOmitted(),
+    SdkOptional<double?> topP = const SdkOmitted(),
+    SdkOptional<CreateResponseRequestStreamOptions?> streamOptions =
+        const SdkOmitted(),
+    SdkOptional<List<CreateResponseRequestToolsItem>?> tools =
+        const SdkOmitted(),
+    SdkOptional<CreateResponseRequestToolChoice> toolChoice =
+        const SdkOmitted(),
+    SdkOptional<dynamic> stop = const SdkOmitted(),
+    SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
+    SdkOptional<String?> user = const SdkOmitted(),
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/v1/responses',
     config: config,
     body: {
-    'model': model,
-    'input': input,
-    'stream': stream,
-    'max_output_tokens': SdkUtils.unwrapOptional(maxOutputTokens),
-    'temperature': SdkUtils.unwrapOptional(temperature),
-    'instructions': SdkUtils.unwrapOptional(instructions),
-    'top_p': SdkUtils.unwrapOptional(topP),
-    'stream_options': SdkUtils.unwrapOptional(streamOptions),
-    'tools': SdkUtils.unwrapOptional(tools),
-    'tool_choice': SdkUtils.unwrapOptional(toolChoice),
-    'stop': SdkUtils.unwrapOptional(stop),
-    'metadata': SdkUtils.unwrapOptional(metadata),
-    'user': SdkUtils.unwrapOptional(user),
-  },
+      'model': model,
+      'input': input,
+      'stream': stream,
+      'max_output_tokens': SdkUtils.unwrapOptional(maxOutputTokens),
+      'temperature': SdkUtils.unwrapOptional(temperature),
+      'instructions': SdkUtils.unwrapOptional(instructions),
+      'top_p': SdkUtils.unwrapOptional(topP),
+      'stream_options': SdkUtils.unwrapOptional(streamOptions),
+      'tools': SdkUtils.unwrapOptional(tools),
+      'tool_choice': SdkUtils.unwrapOptional(toolChoice),
+      'stop': SdkUtils.unwrapOptional(stop),
+      'metadata': SdkUtils.unwrapOptional(metadata),
+      'user': SdkUtils.unwrapOptional(user),
+    },
     operationId: 'inferenceCreateResponseStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '500': (value) => Error2.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
-    yield sdkDecode(() => CreateResponseStreamResponse.fromJson(event.data as Map<String, dynamic>));
+    yield sdkDecode(() => CreateResponseStreamResponse.fromJson(
+        event.data as Map<String, dynamic>));
   }
 }
+
 /// Generate Image, Audio, or Text-to-Speech Using fal Models. This endpoint starts an asynchronous job and returns a request_id. The job status is QUEUED initially. Use the request_id to poll for the result.
 ///
 /// [modelId] The ID of the model to invoke asynchronously.
@@ -810,12 +964,17 @@ Future<AsyncInvokeResponse> inferenceCreateAsyncInvoke(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceCreateAsyncInvoke',
-          fromJsonRaw: (value) => AsyncInvokeResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AsyncInvokeResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Convert text input to speech audio. The response may be raw audio bytes (`audio/mpeg`, `audio/wav`, and similar) or a JSON envelope with base64-encoded audio in `data[].b64_json`.
 ///
@@ -846,12 +1005,17 @@ Future<SpeechResponse> inferenceCreateSpeech(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceCreateSpeech',
-          fromJsonRaw: (value) => SpeechResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SpeechResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Start an asynchronous video generation job from a text prompt. Poll `GET /v1/videos/{video_id}` until the job reaches a terminal status, then download the MP4 with `GET /v1/videos/{video_id}/content` or from `output.url` when present.
 ///
@@ -880,12 +1044,17 @@ Future<VideoGeneration> inferenceCreateVideo(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceCreateVideo',
-          fromJsonRaw: (value) => VideoGeneration.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VideoGeneration.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns the current state of a video generation job. Poll until `status` reaches a terminal value such as `completed` or `failed`.
 ///
@@ -897,12 +1066,18 @@ Future<VideoGeneration> inferenceGetVideo(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceGetVideo',
-          fromJsonRaw: (value) => VideoGeneration.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VideoGeneration.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Downloads the generated MP4 for a completed video generation job.
 ///
@@ -915,6 +1090,12 @@ Future<List<int>> inferenceGetVideoContent(ClientConfig config,
           decoder: SdkResponseDecoder.bytes,
           operationId: 'inferenceGetVideoContent',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

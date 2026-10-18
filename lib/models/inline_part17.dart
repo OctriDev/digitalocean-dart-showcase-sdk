@@ -6,7 +6,6 @@ part of 'inline.dart';
 // Inline operation models (part 17)
 /// The scope of the export. `agent` covers one Harness Runtime environment; `inference` covers the team's Serverless Inference Signals conversations.
 final class ExportJobType {
-
   final String value;
 
   const ExportJobType._(this.value);
@@ -18,22 +17,25 @@ final class ExportJobType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ExportJobType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ExportJobType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// A status string indicating the current state of the firewall. This can be "waiting", "succeeded", or "failed".
 final class FirewallVariant0Status {
-
   final String value;
 
   const FirewallVariant0Status._(this.value);
 
-  factory FirewallVariant0Status.fromJson(String value) => FirewallVariant0Status._(value);
+  factory FirewallVariant0Status.fromJson(String value) =>
+      FirewallVariant0Status._(value);
 
   static const waiting = FirewallVariant0Status._('waiting');
   static const succeeded = FirewallVariant0Status._('succeeded');
@@ -41,17 +43,19 @@ final class FirewallVariant0Status {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FirewallVariant0Status && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FirewallVariant0Status && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of resource that the firewall rule allows to access the database cluster.
 final class FirewallRuleType {
-
   final String value;
 
   const FirewallRuleType._(this.value);
@@ -66,44 +70,50 @@ final class FirewallRuleType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FirewallRuleType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FirewallRuleType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The action to be taken when traffic matches the rule. This may be one of `allow` or `deny`. For backward compatibility, this field is optional. When not set, it defaults to `allow`.
 final class FirewallRuleBaseAction {
-
   final String value;
 
   const FirewallRuleBaseAction._(this.value);
 
-  factory FirewallRuleBaseAction.fromJson(String value) => FirewallRuleBaseAction._(value);
+  factory FirewallRuleBaseAction.fromJson(String value) =>
+      FirewallRuleBaseAction._(value);
 
   static const allow = FirewallRuleBaseAction._('allow');
   static const deny = FirewallRuleBaseAction._('deny');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FirewallRuleBaseAction && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FirewallRuleBaseAction && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
 final class FirewallRuleBaseProtocol {
-
   final String value;
 
   const FirewallRuleBaseProtocol._(this.value);
 
-  factory FirewallRuleBaseProtocol.fromJson(String value) => FirewallRuleBaseProtocol._(value);
+  factory FirewallRuleBaseProtocol.fromJson(String value) =>
+      FirewallRuleBaseProtocol._(value);
 
   static const tcp = FirewallRuleBaseProtocol._('tcp');
   static const udp = FirewallRuleBaseProtocol._('udp');
@@ -111,22 +121,25 @@ final class FirewallRuleBaseProtocol {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FirewallRuleBaseProtocol && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FirewallRuleBaseProtocol && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of resource that the firewall rule allows to access the database cluster.
 final class FirewallRuleRequestType {
-
   final String value;
 
   const FirewallRuleRequestType._(this.value);
 
-  factory FirewallRuleRequestType.fromJson(String value) => FirewallRuleRequestType._(value);
+  factory FirewallRuleRequestType.fromJson(String value) =>
+      FirewallRuleRequestType._(value);
 
   static const droplet = FirewallRuleRequestType._('droplet');
   static const k8s = FirewallRuleRequestType._('k8s');
@@ -136,44 +149,50 @@ final class FirewallRuleRequestType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FirewallRuleRequestType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FirewallRuleRequestType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The action to be taken when traffic matches the rule. This may be one of `allow` or `deny`. For backward compatibility, this field is optional. When not set, it defaults to `allow`.
 final class FirewallRulesInboundRulesItemAction {
-
   final String value;
 
   const FirewallRulesInboundRulesItemAction._(this.value);
 
-  factory FirewallRulesInboundRulesItemAction.fromJson(String value) => FirewallRulesInboundRulesItemAction._(value);
+  factory FirewallRulesInboundRulesItemAction.fromJson(String value) =>
+      FirewallRulesInboundRulesItemAction._(value);
 
   static const allow = FirewallRulesInboundRulesItemAction._('allow');
   static const deny = FirewallRulesInboundRulesItemAction._('deny');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FirewallRulesInboundRulesItemAction && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FirewallRulesInboundRulesItemAction && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
 final class FirewallRulesInboundRulesItemProtocol {
-
   final String value;
 
   const FirewallRulesInboundRulesItemProtocol._(this.value);
 
-  factory FirewallRulesInboundRulesItemProtocol.fromJson(String value) => FirewallRulesInboundRulesItemProtocol._(value);
+  factory FirewallRulesInboundRulesItemProtocol.fromJson(String value) =>
+      FirewallRulesInboundRulesItemProtocol._(value);
 
   static const tcp = FirewallRulesInboundRulesItemProtocol._('tcp');
   static const udp = FirewallRulesInboundRulesItemProtocol._('udp');
@@ -181,44 +200,50 @@ final class FirewallRulesInboundRulesItemProtocol {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FirewallRulesInboundRulesItemProtocol && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FirewallRulesInboundRulesItemProtocol && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The action to be taken when traffic matches the rule. This may be one of `allow` or `deny`. For backward compatibility, this field is optional. When not set, it defaults to `allow`.
 final class FirewallRulesOutboundRulesItemAction {
-
   final String value;
 
   const FirewallRulesOutboundRulesItemAction._(this.value);
 
-  factory FirewallRulesOutboundRulesItemAction.fromJson(String value) => FirewallRulesOutboundRulesItemAction._(value);
+  factory FirewallRulesOutboundRulesItemAction.fromJson(String value) =>
+      FirewallRulesOutboundRulesItemAction._(value);
 
   static const allow = FirewallRulesOutboundRulesItemAction._('allow');
   static const deny = FirewallRulesOutboundRulesItemAction._('deny');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FirewallRulesOutboundRulesItemAction && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FirewallRulesOutboundRulesItemAction && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
 final class FirewallRulesOutboundRulesItemProtocol {
-
   final String value;
 
   const FirewallRulesOutboundRulesItemProtocol._(this.value);
 
-  factory FirewallRulesOutboundRulesItemProtocol.fromJson(String value) => FirewallRulesOutboundRulesItemProtocol._(value);
+  factory FirewallRulesOutboundRulesItemProtocol.fromJson(String value) =>
+      FirewallRulesOutboundRulesItemProtocol._(value);
 
   static const tcp = FirewallRulesOutboundRulesItemProtocol._('tcp');
   static const udp = FirewallRulesOutboundRulesItemProtocol._('udp');
@@ -226,22 +251,25 @@ final class FirewallRulesOutboundRulesItemProtocol {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FirewallRulesOutboundRulesItemProtocol && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FirewallRulesOutboundRulesItemProtocol && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The current status of the action. This can be "in-progress", "completed", or "errored".
 final class FloatingIpActionActionStatus {
-
   final String value;
 
   const FloatingIpActionActionStatus._(this.value);
 
-  factory FloatingIpActionActionStatus.fromJson(String value) => FloatingIpActionActionStatus._(value);
+  factory FloatingIpActionActionStatus.fromJson(String value) =>
+      FloatingIpActionActionStatus._(value);
 
   static const inProgress = FloatingIpActionActionStatus._('in-progress');
   static const completed = FloatingIpActionActionStatus._('completed');
@@ -249,12 +277,15 @@ final class FloatingIpActionActionStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is FloatingIpActionActionStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is FloatingIpActionActionStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of action to initiate for the floating IP.
@@ -264,16 +295,21 @@ enum FloatingIPsActionType {
 
   static FloatingIPsActionType fromJson(String value) {
     switch (value) {
-      case 'assign': return FloatingIPsActionType.assign;
-      case 'unassign': return FloatingIPsActionType.unassign;
-      default: throw ArgumentError('Unknown FloatingIPsActionType: $value');
+      case 'assign':
+        return FloatingIPsActionType.assign;
+      case 'unassign':
+        return FloatingIPsActionType.unassign;
+      default:
+        throw ArgumentError('Unknown FloatingIPsActionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case FloatingIPsActionType.assign: return 'assign';
-      case FloatingIPsActionType.unassign: return 'unassign';
+      case FloatingIPsActionType.assign:
+        return 'assign';
+      case FloatingIPsActionType.unassign:
+        return 'unassign';
     }
   }
 

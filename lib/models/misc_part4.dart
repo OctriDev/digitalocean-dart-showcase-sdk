@@ -8,214 +8,432 @@ part of 'misc.dart';
 class MicrovmCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the MicroVM. Must be unique in the region and contain 1 to 63 lowercase letters, digits, and hyphens.
   final String name;
+
   /// What the MicroVM runs. Set exactly one of `oci_ref` or `checkpoint_id`.
   final MicrovmSource source;
+
   /// The slug of the region to create the MicroVM in. Required with `source.oci_ref`.
   final SdkOptional<String> region;
+
   /// The MicroVM's size. `cpu` and `memory` must be one of the pairs `1`/`2048`, `2`/`4096`, `8`/`16384`, or `16`/`32768`. The size sets the disk, which is returned in responses.
   final SdkOptional<MicrovmSize> size;
+
   /// `public` sends outbound traffic through a shared NAT gateway. `vpc` places the MicroVM in the VPC network set by `vpc_uuid`.
   final SdkOptional<MicrovmCreateNetworking> networking;
+
   /// The ID of a VPC network in the same region that belongs to your team. Required when `networking` is `vpc`.
   final SdkOptional<String> vpcUuid;
+
   /// Automatic pause settings. A MicroVM always pauses after it is idle for `idle_timeout`. Sending `enabled` set to `false` is rejected.
   final SdkOptional<MicrovmAutoPause> autoPause;
+
   /// Whether an HTTP request, command, or console session resumes the MicroVM when it is paused. Set to `false` to require a manual resume.
   final SdkOptional<bool> autoResume;
+
   /// The guest port the workload serves HTTP on. Defaults to `8080`. Not returned in responses. When creating from a checkpoint without `ports`, must be one of the checkpoint's ports.
   final SdkOptional<int> httpPort;
+
   /// The protocol the HTTP port serves.
   final SdkOptional<MicrovmCreateHttpProtocol> httpProtocol;
+
   /// The guest ports to declare, up to five. Must include `http_port`. Defaults to only the HTTP port. During the public preview, only the HTTP port is reachable through the MicroVM's endpoint.
   final SdkOptional<List<int>> ports;
+
   /// Environment variables passed into the MicroVM at boot, as key and value pairs. Not returned in responses.
   final SdkOptional<Map<String, String>> environment;
+
   /// Tags to apply to the MicroVM.
   final SdkOptional<List<String>> tags;
 
-  const MicrovmCreate({required this.name, required this.source, this.region = const SdkOmitted(), this.size = const SdkOmitted(), this.networking = const SdkOmitted(), this.vpcUuid = const SdkOmitted(), this.autoPause = const SdkOmitted(), this.autoResume = const SdkOmitted(), this.httpPort = const SdkOmitted(), this.httpProtocol = const SdkOmitted(), this.ports = const SdkOmitted(), this.environment = const SdkOmitted(), this.tags = const SdkOmitted()});
+  const MicrovmCreate(
+      {required this.name,
+      required this.source,
+      this.region = const SdkOmitted(),
+      this.size = const SdkOmitted(),
+      this.networking = const SdkOmitted(),
+      this.vpcUuid = const SdkOmitted(),
+      this.autoPause = const SdkOmitted(),
+      this.autoResume = const SdkOmitted(),
+      this.httpPort = const SdkOmitted(),
+      this.httpProtocol = const SdkOmitted(),
+      this.ports = const SdkOmitted(),
+      this.environment = const SdkOmitted(),
+      this.tags = const SdkOmitted()});
 
-  MicrovmCreate Function({String name, MicrovmSource source, SdkOptional<String> region, SdkOptional<MicrovmSize> size, SdkOptional<MicrovmCreateNetworking> networking, SdkOptional<String> vpcUuid, SdkOptional<MicrovmAutoPause> autoPause, SdkOptional<bool> autoResume, SdkOptional<int> httpPort, SdkOptional<MicrovmCreateHttpProtocol> httpProtocol, SdkOptional<List<int>> ports, SdkOptional<Map<String, String>> environment, SdkOptional<List<String>> tags}) get copyWith => _copyWith;
+  MicrovmCreate Function(
+      {String name,
+      MicrovmSource source,
+      SdkOptional<String> region,
+      SdkOptional<MicrovmSize> size,
+      SdkOptional<MicrovmCreateNetworking> networking,
+      SdkOptional<String> vpcUuid,
+      SdkOptional<MicrovmAutoPause> autoPause,
+      SdkOptional<bool> autoResume,
+      SdkOptional<int> httpPort,
+      SdkOptional<MicrovmCreateHttpProtocol> httpProtocol,
+      SdkOptional<List<int>> ports,
+      SdkOptional<Map<String, String>> environment,
+      SdkOptional<List<String>> tags}) get copyWith => _copyWith;
 
-  MicrovmCreate _copyWith({Object? name = sdkOmittedValue, Object? source = sdkOmittedValue, Object? region = sdkOmittedValue, Object? size = sdkOmittedValue, Object? networking = sdkOmittedValue, Object? vpcUuid = sdkOmittedValue, Object? autoPause = sdkOmittedValue, Object? autoResume = sdkOmittedValue, Object? httpPort = sdkOmittedValue, Object? httpProtocol = sdkOmittedValue, Object? ports = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? tags = sdkOmittedValue}) => MicrovmCreate(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    source: identical(source, sdkOmittedValue) ? this.source : source as MicrovmSource,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<MicrovmSize>,
-    networking: identical(networking, sdkOmittedValue) ? this.networking : networking as SdkOptional<MicrovmCreateNetworking>,
-    vpcUuid: identical(vpcUuid, sdkOmittedValue) ? this.vpcUuid : vpcUuid as SdkOptional<String>,
-    autoPause: identical(autoPause, sdkOmittedValue) ? this.autoPause : autoPause as SdkOptional<MicrovmAutoPause>,
-    autoResume: identical(autoResume, sdkOmittedValue) ? this.autoResume : autoResume as SdkOptional<bool>,
-    httpPort: identical(httpPort, sdkOmittedValue) ? this.httpPort : httpPort as SdkOptional<int>,
-    httpProtocol: identical(httpProtocol, sdkOmittedValue) ? this.httpProtocol : httpProtocol as SdkOptional<MicrovmCreateHttpProtocol>,
-    ports: identical(ports, sdkOmittedValue) ? this.ports : ports as SdkOptional<List<int>>,
-    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as SdkOptional<Map<String, String>>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-  );
+  MicrovmCreate _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? source = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? networking = sdkOmittedValue,
+          Object? vpcUuid = sdkOmittedValue,
+          Object? autoPause = sdkOmittedValue,
+          Object? autoResume = sdkOmittedValue,
+          Object? httpPort = sdkOmittedValue,
+          Object? httpProtocol = sdkOmittedValue,
+          Object? ports = sdkOmittedValue,
+          Object? environment = sdkOmittedValue,
+          Object? tags = sdkOmittedValue}) =>
+      MicrovmCreate(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as MicrovmSource,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<MicrovmSize>,
+        networking: identical(networking, sdkOmittedValue)
+            ? this.networking
+            : networking as SdkOptional<MicrovmCreateNetworking>,
+        vpcUuid: identical(vpcUuid, sdkOmittedValue)
+            ? this.vpcUuid
+            : vpcUuid as SdkOptional<String>,
+        autoPause: identical(autoPause, sdkOmittedValue)
+            ? this.autoPause
+            : autoPause as SdkOptional<MicrovmAutoPause>,
+        autoResume: identical(autoResume, sdkOmittedValue)
+            ? this.autoResume
+            : autoResume as SdkOptional<bool>,
+        httpPort: identical(httpPort, sdkOmittedValue)
+            ? this.httpPort
+            : httpPort as SdkOptional<int>,
+        httpProtocol: identical(httpProtocol, sdkOmittedValue)
+            ? this.httpProtocol
+            : httpProtocol as SdkOptional<MicrovmCreateHttpProtocol>,
+        ports: identical(ports, sdkOmittedValue)
+            ? this.ports
+            : ports as SdkOptional<List<int>>,
+        environment: identical(environment, sdkOmittedValue)
+            ? this.environment
+            : environment as SdkOptional<Map<String, String>>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+      );
 
   factory MicrovmCreate.fromJson(Map<String, dynamic> json) => MicrovmCreate(
-    name: (json['name'] as String?)!,
-    source: (json['source'] != null ? MicrovmSource.fromJson(json['source'] as Map<String, dynamic>) : null)!,
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    size: json['size'] != null ? SdkPresent((json['size'] != null ? MicrovmSize.fromJson(json['size'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    networking: json['networking'] != null ? SdkPresent((json['networking'] != null ? MicrovmCreateNetworking.fromJson(json['networking'] as String) : null)!) : const SdkOmitted(),
-    vpcUuid: json['vpc_uuid'] != null ? SdkPresent((json['vpc_uuid'] as String?)!) : const SdkOmitted(),
-    autoPause: json['auto_pause'] != null ? SdkPresent((json['auto_pause'] != null ? MicrovmAutoPause.fromJson(json['auto_pause'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    autoResume: json['auto_resume'] != null ? SdkPresent((json['auto_resume'] as bool?)!) : const SdkOmitted(),
-    httpPort: json['http_port'] != null ? SdkPresent(((json['http_port'] as num?)?.toInt())!) : const SdkOmitted(),
-    httpProtocol: json['http_protocol'] != null ? SdkPresent((json['http_protocol'] != null ? MicrovmCreateHttpProtocol.fromJson(json['http_protocol'] as String) : null)!) : const SdkOmitted(),
-    ports: json['ports'] != null ? SdkPresent(((json['ports'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
-    environment: json['environment'] != null ? SdkPresent((json['environment'] == null ? null : Map<String, dynamic>.from(json['environment'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+        name: (json['name'] as String?)!,
+        source: (json['source'] != null
+            ? MicrovmSource.fromJson(json['source'] as Map<String, dynamic>)
+            : null)!,
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        size: json['size'] != null
+            ? SdkPresent((json['size'] != null
+                ? MicrovmSize.fromJson(json['size'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        networking: json['networking'] != null
+            ? SdkPresent((json['networking'] != null
+                ? MicrovmCreateNetworking.fromJson(json['networking'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        vpcUuid: json['vpc_uuid'] != null
+            ? SdkPresent((json['vpc_uuid'] as String?)!)
+            : const SdkOmitted(),
+        autoPause: json['auto_pause'] != null
+            ? SdkPresent((json['auto_pause'] != null
+                ? MicrovmAutoPause.fromJson(
+                    json['auto_pause'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        autoResume: json['auto_resume'] != null
+            ? SdkPresent((json['auto_resume'] as bool?)!)
+            : const SdkOmitted(),
+        httpPort: json['http_port'] != null
+            ? SdkPresent(((json['http_port'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        httpProtocol: json['http_protocol'] != null
+            ? SdkPresent((json['http_protocol'] != null
+                ? MicrovmCreateHttpProtocol.fromJson(
+                    json['http_protocol'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        ports: json['ports'] != null
+            ? SdkPresent(((json['ports'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())!)
+            : const SdkOmitted(),
+        environment: json['environment'] != null
+            ? SdkPresent((json['environment'] == null
+                ? null
+                : Map<String, dynamic>.from(json['environment'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'source': source.toJson(),
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<MicrovmSize>(value: final value) => {'size': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (networking) {
-      SdkPresent<MicrovmCreateNetworking>(value: final value) => {'networking': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (vpcUuid) {
-      SdkPresent<String>(value: final value) => {'vpc_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (autoPause) {
-      SdkPresent<MicrovmAutoPause>(value: final value) => {'auto_pause': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (autoResume) {
-      SdkPresent<bool>(value: final value) => {'auto_resume': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (httpPort) {
-      SdkPresent<int>(value: final value) => {'http_port': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (httpProtocol) {
-      SdkPresent<MicrovmCreateHttpProtocol>(value: final value) => {'http_protocol': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ports) {
-      SdkPresent<List<int>>(value: final value) => {'ports': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (environment) {
-      SdkPresent<Map<String, String>>(value: final value) => {'environment': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        'source': source.toJson(),
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<MicrovmSize>(value: final value) => {
+              'size': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (networking) {
+          SdkPresent<MicrovmCreateNetworking>(value: final value) => {
+              'networking': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (vpcUuid) {
+          SdkPresent<String>(value: final value) => {
+              'vpc_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (autoPause) {
+          SdkPresent<MicrovmAutoPause>(value: final value) => {
+              'auto_pause': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (autoResume) {
+          SdkPresent<bool>(value: final value) => {
+              'auto_resume': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (httpPort) {
+          SdkPresent<int>(value: final value) => {
+              'http_port': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (httpProtocol) {
+          SdkPresent<MicrovmCreateHttpProtocol>(value: final value) => {
+              'http_protocol': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ports) {
+          SdkPresent<List<int>>(value: final value) => {
+              'ports': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (environment) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'environment': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Create or update body for a notification channel. Provide a `name` and exactly one of `email`, `slack`, or `webhook`. Secret fields are write-only: send the full value to set or rotate; omit the field on update to keep the existing secret.
 class NotificationChannelRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A human-readable name for the notification channel.
   final String name;
+
   /// Email notification channel configuration. Recipients must be verified team member email addresses.
   final SdkOptional<EmailNotificationConfig> email;
+
   /// Slack notification channel configuration for create and update requests. `webhook_url` is write-only: send the full value to set or rotate. Omit `webhook_url` on update to keep the existing secret.
   final SdkOptional<SlackNotificationConfig> slack;
+
   /// Generic HTTPS webhook notification channel configuration for create and update requests. The URL must use HTTPS and must not include userinfo. Optionally configure either `basic_auth` or `bearer_token` (not both), custom headers, and a signing secret. `url` is not a secret and is returned in full on read. Credential fields (`basic_auth.password`, `bearer_token.token`, `signature.secret`) are write-only: send the full value to set or rotate. Omit a secret field on update to keep the existing value. Responses return nested `*_status` objects instead of secret values.
   final SdkOptional<WebhookNotificationConfig> webhook;
 
-  const NotificationChannelRequest({required this.name, this.email = const SdkOmitted(), this.slack = const SdkOmitted(), this.webhook = const SdkOmitted()});
+  const NotificationChannelRequest(
+      {required this.name,
+      this.email = const SdkOmitted(),
+      this.slack = const SdkOmitted(),
+      this.webhook = const SdkOmitted()});
 
-  NotificationChannelRequest Function({String name, SdkOptional<EmailNotificationConfig> email, SdkOptional<SlackNotificationConfig> slack, SdkOptional<WebhookNotificationConfig> webhook}) get copyWith => _copyWith;
+  NotificationChannelRequest Function(
+          {String name,
+          SdkOptional<EmailNotificationConfig> email,
+          SdkOptional<SlackNotificationConfig> slack,
+          SdkOptional<WebhookNotificationConfig> webhook})
+      get copyWith => _copyWith;
 
-  NotificationChannelRequest _copyWith({Object? name = sdkOmittedValue, Object? email = sdkOmittedValue, Object? slack = sdkOmittedValue, Object? webhook = sdkOmittedValue}) => NotificationChannelRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<EmailNotificationConfig>,
-    slack: identical(slack, sdkOmittedValue) ? this.slack : slack as SdkOptional<SlackNotificationConfig>,
-    webhook: identical(webhook, sdkOmittedValue) ? this.webhook : webhook as SdkOptional<WebhookNotificationConfig>,
-  );
+  NotificationChannelRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? email = sdkOmittedValue,
+          Object? slack = sdkOmittedValue,
+          Object? webhook = sdkOmittedValue}) =>
+      NotificationChannelRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as SdkOptional<EmailNotificationConfig>,
+        slack: identical(slack, sdkOmittedValue)
+            ? this.slack
+            : slack as SdkOptional<SlackNotificationConfig>,
+        webhook: identical(webhook, sdkOmittedValue)
+            ? this.webhook
+            : webhook as SdkOptional<WebhookNotificationConfig>,
+      );
 
-  factory NotificationChannelRequest.fromJson(Map<String, dynamic> json) => NotificationChannelRequest(
-    name: (json['name'] as String?)!,
-    email: json['email'] != null ? SdkPresent((json['email'] != null ? EmailNotificationConfig.fromJson(json['email'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    slack: json['slack'] != null ? SdkPresent((json['slack'] != null ? SlackNotificationConfig.fromJson(json['slack'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    webhook: json['webhook'] != null ? SdkPresent((json['webhook'] != null ? WebhookNotificationConfig.fromJson(json['webhook'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory NotificationChannelRequest.fromJson(Map<String, dynamic> json) =>
+      NotificationChannelRequest(
+        name: (json['name'] as String?)!,
+        email: json['email'] != null
+            ? SdkPresent((json['email'] != null
+                ? EmailNotificationConfig.fromJson(
+                    json['email'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        slack: json['slack'] != null
+            ? SdkPresent((json['slack'] != null
+                ? SlackNotificationConfig.fromJson(
+                    json['slack'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        webhook: json['webhook'] != null
+            ? SdkPresent((json['webhook'] != null
+                ? WebhookNotificationConfig.fromJson(
+                    json['webhook'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (email) {
-      SdkPresent<EmailNotificationConfig>(value: final value) => {'email': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (slack) {
-      SdkPresent<SlackNotificationConfig>(value: final value) => {'slack': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (webhook) {
-      SdkPresent<WebhookNotificationConfig>(value: final value) => {'webhook': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (email) {
+          SdkPresent<EmailNotificationConfig>(value: final value) => {
+              'email': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (slack) {
+          SdkPresent<SlackNotificationConfig>(value: final value) => {
+              'slack': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (webhook) {
+          SdkPresent<WebhookNotificationConfig>(value: final value) => {
+              'webhook': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `PartnerAttachmentServiceKey` API schema.
 class PartnerAttachmentServiceKey {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `value` wire field.
   final SdkOptional<String> value;
+
   /// A time value given in the ISO 8601 combined date and time format.
   final SdkOptional<String> createdAt;
+
   /// Optional `string` value serialized in the `state` wire field.
   final SdkOptional<String> state;
 
-  const PartnerAttachmentServiceKey({this.value = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.state = const SdkOmitted()});
+  const PartnerAttachmentServiceKey(
+      {this.value = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.state = const SdkOmitted()});
 
-  PartnerAttachmentServiceKey Function({SdkOptional<String> value, SdkOptional<String> createdAt, SdkOptional<String> state}) get copyWith => _copyWith;
+  PartnerAttachmentServiceKey Function(
+      {SdkOptional<String> value,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> state}) get copyWith => _copyWith;
 
-  PartnerAttachmentServiceKey _copyWith({Object? value = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? state = sdkOmittedValue}) => PartnerAttachmentServiceKey(
-    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<String>,
-  );
+  PartnerAttachmentServiceKey _copyWith(
+          {Object? value = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? state = sdkOmittedValue}) =>
+      PartnerAttachmentServiceKey(
+        value: identical(value, sdkOmittedValue)
+            ? this.value
+            : value as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        state: identical(state, sdkOmittedValue)
+            ? this.state
+            : state as SdkOptional<String>,
+      );
 
-  factory PartnerAttachmentServiceKey.fromJson(Map<String, dynamic> json) => PartnerAttachmentServiceKey(
-    value: json['value'] != null ? SdkPresent((json['value'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    state: json['state'] != null ? SdkPresent((json['state'] as String?)!) : const SdkOmitted(),
-  );
+  factory PartnerAttachmentServiceKey.fromJson(Map<String, dynamic> json) =>
+      PartnerAttachmentServiceKey(
+        value: json['value'] != null
+            ? SdkPresent((json['value'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        state: json['state'] != null
+            ? SdkPresent((json['state'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (value) {
-      SdkPresent<String>(value: final value) => {'value': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (state) {
-      SdkPresent<String>(value: final value) => {'state': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (value) {
+          SdkPresent<String>(value: final value) => {
+              'value': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (state) {
+          SdkPresent<String>(value: final value) => {
+              'state': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Slack notification channel configuration for create and update requests. `webhook_url` is write-only: send the full value to set or rotate. Omit `webhook_url` on update to keep the existing secret.
 class SlackNotificationConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The Slack channel name to notify.
   final String channel;
 
@@ -223,50 +441,87 @@ class SlackNotificationConfig {
 
   SlackNotificationConfig Function({String channel}) get copyWith => _copyWith;
 
-  SlackNotificationConfig _copyWith({Object? channel = sdkOmittedValue}) => SlackNotificationConfig(
-    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as String,
-  );
+  SlackNotificationConfig _copyWith({Object? channel = sdkOmittedValue}) =>
+      SlackNotificationConfig(
+        channel: identical(channel, sdkOmittedValue)
+            ? this.channel
+            : channel as String,
+      );
 
-  factory SlackNotificationConfig.fromJson(Map<String, dynamic> json) => SlackNotificationConfig(
-    channel: (json['channel'] as String?)!,
-  );
+  factory SlackNotificationConfig.fromJson(Map<String, dynamic> json) =>
+      SlackNotificationConfig(
+        channel: (json['channel'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'channel': channel,
-  };
+        'channel': channel,
+      };
 }
 
 /// Typed representation of the `SubscriptionTierExtended` API schema.
 class SubscriptionTierExtended {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A boolean indicating whether your account it eligible to use a certain subscription tier.
   final SdkOptional<bool> eligible;
+
   /// If your account is not eligible to use a certain subscription tier, this will include a list of reasons that prevent you from using the tier.
-  final SdkOptional<List<SubscriptionTierExtendedEligibilityReasonsItem>> eligibilityReasons;
+  final SdkOptional<List<SubscriptionTierExtendedEligibilityReasonsItem>>
+      eligibilityReasons;
 
-  const SubscriptionTierExtended({this.eligible = const SdkOmitted(), this.eligibilityReasons = const SdkOmitted()});
+  const SubscriptionTierExtended(
+      {this.eligible = const SdkOmitted(),
+      this.eligibilityReasons = const SdkOmitted()});
 
-  SubscriptionTierExtended Function({SdkOptional<bool> eligible, SdkOptional<List<SubscriptionTierExtendedEligibilityReasonsItem>> eligibilityReasons}) get copyWith => _copyWith;
+  SubscriptionTierExtended Function(
+      {SdkOptional<bool> eligible,
+      SdkOptional<List<SubscriptionTierExtendedEligibilityReasonsItem>>
+          eligibilityReasons}) get copyWith => _copyWith;
 
-  SubscriptionTierExtended _copyWith({Object? eligible = sdkOmittedValue, Object? eligibilityReasons = sdkOmittedValue}) => SubscriptionTierExtended(
-    eligible: identical(eligible, sdkOmittedValue) ? this.eligible : eligible as SdkOptional<bool>,
-    eligibilityReasons: identical(eligibilityReasons, sdkOmittedValue) ? this.eligibilityReasons : eligibilityReasons as SdkOptional<List<SubscriptionTierExtendedEligibilityReasonsItem>>,
-  );
+  SubscriptionTierExtended _copyWith(
+          {Object? eligible = sdkOmittedValue,
+          Object? eligibilityReasons = sdkOmittedValue}) =>
+      SubscriptionTierExtended(
+        eligible: identical(eligible, sdkOmittedValue)
+            ? this.eligible
+            : eligible as SdkOptional<bool>,
+        eligibilityReasons: identical(eligibilityReasons, sdkOmittedValue)
+            ? this.eligibilityReasons
+            : eligibilityReasons as SdkOptional<
+                List<SubscriptionTierExtendedEligibilityReasonsItem>>,
+      );
 
-  factory SubscriptionTierExtended.fromJson(Map<String, dynamic> json) => SubscriptionTierExtended(
-    eligible: json['eligible'] != null ? SdkPresent((json['eligible'] as bool?)!) : const SdkOmitted(),
-    eligibilityReasons: json['eligibility_reasons'] != null ? SdkPresent(((json['eligibility_reasons'] as List?)?.map((e) => SubscriptionTierExtendedEligibilityReasonsItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+  factory SubscriptionTierExtended.fromJson(Map<String, dynamic> json) =>
+      SubscriptionTierExtended(
+        eligible: json['eligible'] != null
+            ? SdkPresent((json['eligible'] as bool?)!)
+            : const SdkOmitted(),
+        eligibilityReasons: json['eligibility_reasons'] != null
+            ? SdkPresent(((json['eligibility_reasons'] as List?)
+                ?.map((e) =>
+                    SubscriptionTierExtendedEligibilityReasonsItem.fromJson(
+                        e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eligible) {
-      SdkPresent<bool>(value: final value) => {'eligible': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (eligibilityReasons) {
-      SdkPresent<List<SubscriptionTierExtendedEligibilityReasonsItem>>(value: final value) => {'eligibility_reasons': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (eligible) {
+          SdkPresent<bool>(value: final value) => {
+              'eligible': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (eligibilityReasons) {
+          SdkPresent<List<SubscriptionTierExtendedEligibilityReasonsItem>>(
+            value: final value
+          ) =>
+            {
+              'eligibility_reasons':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

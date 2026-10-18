@@ -8,8 +8,10 @@ part of 'spaces_keys.dart';
 class Grant {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the bucket.
   final String bucket;
+
   /// The permission to grant to the user. Possible values are `read`, `readwrite`, `fullaccess`, or an empty string.
   final String permission;
 
@@ -17,184 +19,308 @@ class Grant {
 
   Grant Function({String bucket, String permission}) get copyWith => _copyWith;
 
-  Grant _copyWith({Object? bucket = sdkOmittedValue, Object? permission = sdkOmittedValue}) => Grant(
-    bucket: identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
-    permission: identical(permission, sdkOmittedValue) ? this.permission : permission as String,
-  );
+  Grant _copyWith(
+          {Object? bucket = sdkOmittedValue,
+          Object? permission = sdkOmittedValue}) =>
+      Grant(
+        bucket:
+            identical(bucket, sdkOmittedValue) ? this.bucket : bucket as String,
+        permission: identical(permission, sdkOmittedValue)
+            ? this.permission
+            : permission as String,
+      );
 
   factory Grant.fromJson(Map<String, dynamic> json) => Grant(
-    bucket: (json['bucket'] as String?)!,
-    permission: (json['permission'] as String?)!,
-  );
+        bucket: (json['bucket'] as String?)!,
+        permission: (json['permission'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'bucket': bucket,
-    'permission': permission,
-  };
+        'bucket': bucket,
+        'permission': permission,
+      };
 }
 
 /// Typed representation of the `Key` API schema.
 class Key {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The access key's name.
   final SdkOptional<String> name;
+
   /// The list of permissions for the access key.
   final SdkOptional<List<Grant>> grants;
+
   /// The Access Key ID used to access a bucket.
   final SdkOptional<String> accessKey;
+
   /// The date and time the key was created.
   final SdkOptional<String> createdAt;
 
-  const Key({this.name = const SdkOmitted(), this.grants = const SdkOmitted(), this.accessKey = const SdkOmitted(), this.createdAt = const SdkOmitted()});
+  const Key(
+      {this.name = const SdkOmitted(),
+      this.grants = const SdkOmitted(),
+      this.accessKey = const SdkOmitted(),
+      this.createdAt = const SdkOmitted()});
 
-  Key Function({SdkOptional<String> name, SdkOptional<List<Grant>> grants, SdkOptional<String> accessKey, SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  Key Function(
+      {SdkOptional<String> name,
+      SdkOptional<List<Grant>> grants,
+      SdkOptional<String> accessKey,
+      SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  Key _copyWith({Object? name = sdkOmittedValue, Object? grants = sdkOmittedValue, Object? accessKey = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => Key(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    grants: identical(grants, sdkOmittedValue) ? this.grants : grants as SdkOptional<List<Grant>>,
-    accessKey: identical(accessKey, sdkOmittedValue) ? this.accessKey : accessKey as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-  );
+  Key _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? grants = sdkOmittedValue,
+          Object? accessKey = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      Key(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        grants: identical(grants, sdkOmittedValue)
+            ? this.grants
+            : grants as SdkOptional<List<Grant>>,
+        accessKey: identical(accessKey, sdkOmittedValue)
+            ? this.accessKey
+            : accessKey as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+      );
 
   factory Key.fromJson(Map<String, dynamic> json) => Key(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    grants: json['grants'] != null ? SdkPresent(((json['grants'] as List?)?.map((e) => Grant.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    accessKey: json['access_key'] != null ? SdkPresent((json['access_key'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-  );
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        grants: json['grants'] != null
+            ? SdkPresent(((json['grants'] as List?)
+                ?.map((e) => Grant.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        accessKey: json['access_key'] != null
+            ? SdkPresent((json['access_key'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (grants) {
-      SdkPresent<List<Grant>>(value: final value) => {'grants': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (accessKey) {
-      SdkPresent<String>(value: final value) => {'access_key': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (grants) {
+          SdkPresent<List<Grant>>(value: final value) => {
+              'grants': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (accessKey) {
+          SdkPresent<String>(value: final value) => {
+              'access_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `KeyCreate` API schema.
 class KeyCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `key` wire field.
   final SdkOptional<KeyCreateResponse> key;
 
   const KeyCreate({this.key = const SdkOmitted()});
 
-  KeyCreate Function({SdkOptional<KeyCreateResponse> key}) get copyWith => _copyWith;
+  KeyCreate Function({SdkOptional<KeyCreateResponse> key}) get copyWith =>
+      _copyWith;
 
   KeyCreate _copyWith({Object? key = sdkOmittedValue}) => KeyCreate(
-    key: identical(key, sdkOmittedValue) ? this.key : key as SdkOptional<KeyCreateResponse>,
-  );
+        key: identical(key, sdkOmittedValue)
+            ? this.key
+            : key as SdkOptional<KeyCreateResponse>,
+      );
 
   factory KeyCreate.fromJson(Map<String, dynamic> json) => KeyCreate(
-    key: json['key'] != null ? SdkPresent((json['key'] != null ? KeyCreateResponse.fromJson(json['key'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        key: json['key'] != null
+            ? SdkPresent((json['key'] != null
+                ? KeyCreateResponse.fromJson(
+                    json['key'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (key) {
-      SdkPresent<KeyCreateResponse>(value: final value) => {'key': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (key) {
+          SdkPresent<KeyCreateResponse>(value: final value) => {
+              'key': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `key` wire field.
 class KeyCreateResponseVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The secret key used to access the bucket. We return secret keys only once upon creation. Make sure to copy the key and securely store it.
   final SdkOptional<String> secretKey;
 
   const KeyCreateResponseVariant0({this.secretKey = const SdkOmitted()});
 
-  KeyCreateResponseVariant0 Function({SdkOptional<String> secretKey}) get copyWith => _copyWith;
+  KeyCreateResponseVariant0 Function({SdkOptional<String> secretKey})
+      get copyWith => _copyWith;
 
-  KeyCreateResponseVariant0 _copyWith({Object? secretKey = sdkOmittedValue}) => KeyCreateResponseVariant0(
-    secretKey: identical(secretKey, sdkOmittedValue) ? this.secretKey : secretKey as SdkOptional<String>,
-  );
+  KeyCreateResponseVariant0 _copyWith({Object? secretKey = sdkOmittedValue}) =>
+      KeyCreateResponseVariant0(
+        secretKey: identical(secretKey, sdkOmittedValue)
+            ? this.secretKey
+            : secretKey as SdkOptional<String>,
+      );
 
-  factory KeyCreateResponseVariant0.fromJson(Map<String, dynamic> json) => KeyCreateResponseVariant0(
-    secretKey: json['secret_key'] != null ? SdkPresent((json['secret_key'] as String?)!) : const SdkOmitted(),
-  );
+  factory KeyCreateResponseVariant0.fromJson(Map<String, dynamic> json) =>
+      KeyCreateResponseVariant0(
+        secretKey: json['secret_key'] != null
+            ? SdkPresent((json['secret_key'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (secretKey) {
-      SdkPresent<String>(value: final value) => {'secret_key': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (secretKey) {
+          SdkPresent<String>(value: final value) => {
+              'secret_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `KeyCreateResponse` API schema.
 class KeyCreateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The secret key used to access the bucket. We return secret keys only once upon creation. Make sure to copy the key and securely store it.
   final SdkOptional<String> secretKey;
+
   /// The access key's name.
   final SdkOptional<String> name;
+
   /// The list of permissions for the access key.
   final SdkOptional<List<Grant>> grants;
+
   /// The Access Key ID used to access a bucket.
   final SdkOptional<String> accessKey;
+
   /// The date and time the key was created.
   final SdkOptional<String> createdAt;
 
-  const KeyCreateResponse({this.secretKey = const SdkOmitted(), this.name = const SdkOmitted(), this.grants = const SdkOmitted(), this.accessKey = const SdkOmitted(), this.createdAt = const SdkOmitted()});
+  const KeyCreateResponse(
+      {this.secretKey = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.grants = const SdkOmitted(),
+      this.accessKey = const SdkOmitted(),
+      this.createdAt = const SdkOmitted()});
 
-  KeyCreateResponse Function({SdkOptional<String> secretKey, SdkOptional<String> name, SdkOptional<List<Grant>> grants, SdkOptional<String> accessKey, SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  KeyCreateResponse Function(
+      {SdkOptional<String> secretKey,
+      SdkOptional<String> name,
+      SdkOptional<List<Grant>> grants,
+      SdkOptional<String> accessKey,
+      SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  KeyCreateResponse _copyWith({Object? secretKey = sdkOmittedValue, Object? name = sdkOmittedValue, Object? grants = sdkOmittedValue, Object? accessKey = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => KeyCreateResponse(
-    secretKey: identical(secretKey, sdkOmittedValue) ? this.secretKey : secretKey as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    grants: identical(grants, sdkOmittedValue) ? this.grants : grants as SdkOptional<List<Grant>>,
-    accessKey: identical(accessKey, sdkOmittedValue) ? this.accessKey : accessKey as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-  );
+  KeyCreateResponse _copyWith(
+          {Object? secretKey = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? grants = sdkOmittedValue,
+          Object? accessKey = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      KeyCreateResponse(
+        secretKey: identical(secretKey, sdkOmittedValue)
+            ? this.secretKey
+            : secretKey as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        grants: identical(grants, sdkOmittedValue)
+            ? this.grants
+            : grants as SdkOptional<List<Grant>>,
+        accessKey: identical(accessKey, sdkOmittedValue)
+            ? this.accessKey
+            : accessKey as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+      );
 
-  factory KeyCreateResponse.fromJson(Map<String, dynamic> json) => KeyCreateResponse(
-    secretKey: json['secret_key'] != null ? SdkPresent((json['secret_key'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    grants: json['grants'] != null ? SdkPresent(((json['grants'] as List?)?.map((e) => Grant.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    accessKey: json['access_key'] != null ? SdkPresent((json['access_key'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory KeyCreateResponse.fromJson(Map<String, dynamic> json) =>
+      KeyCreateResponse(
+        secretKey: json['secret_key'] != null
+            ? SdkPresent((json['secret_key'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        grants: json['grants'] != null
+            ? SdkPresent(((json['grants'] as List?)
+                ?.map((e) => Grant.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        accessKey: json['access_key'] != null
+            ? SdkPresent((json['access_key'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (secretKey) {
-      SdkPresent<String>(value: final value) => {'secret_key': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (grants) {
-      SdkPresent<List<Grant>>(value: final value) => {'grants': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (accessKey) {
-      SdkPresent<String>(value: final value) => {'access_key': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (secretKey) {
+          SdkPresent<String>(value: final value) => {
+              'secret_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (grants) {
+          SdkPresent<List<Grant>>(value: final value) => {
+              'grants': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (accessKey) {
+          SdkPresent<String>(value: final value) => {
+              'access_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class KeyGetVariant0 {
@@ -204,22 +330,31 @@ class KeyGetVariant0 {
 
   const KeyGetVariant0({this.keys = const SdkOmitted()});
 
-  KeyGetVariant0 Function({SdkOptional<List<Key>> keys}) get copyWith => _copyWith;
+  KeyGetVariant0 Function({SdkOptional<List<Key>> keys}) get copyWith =>
+      _copyWith;
 
   KeyGetVariant0 _copyWith({Object? keys = sdkOmittedValue}) => KeyGetVariant0(
-    keys: identical(keys, sdkOmittedValue) ? this.keys : keys as SdkOptional<List<Key>>,
-  );
+        keys: identical(keys, sdkOmittedValue)
+            ? this.keys
+            : keys as SdkOptional<List<Key>>,
+      );
 
   factory KeyGetVariant0.fromJson(Map<String, dynamic> json) => KeyGetVariant0(
-    keys: json['keys'] != null ? SdkPresent(((json['keys'] as List?)?.map((e) => Key.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        keys: json['keys'] != null
+            ? SdkPresent(((json['keys'] as List?)
+                ?.map((e) => Key.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (keys) {
-      SdkPresent<List<Key>>(value: final value) => {'keys': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (keys) {
+          SdkPresent<List<Key>>(value: final value) => {
+              'keys': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `KeyGet` API schema.
@@ -233,19 +368,27 @@ class KeyGet {
   KeyGet Function({SdkOptional<List<Key>> keys}) get copyWith => _copyWith;
 
   KeyGet _copyWith({Object? keys = sdkOmittedValue}) => KeyGet(
-    keys: identical(keys, sdkOmittedValue) ? this.keys : keys as SdkOptional<List<Key>>,
-  );
+        keys: identical(keys, sdkOmittedValue)
+            ? this.keys
+            : keys as SdkOptional<List<Key>>,
+      );
 
   factory KeyGet.fromJson(Map<String, dynamic> json) => KeyGet(
-    keys: json['keys'] != null ? SdkPresent(((json['keys'] as List?)?.map((e) => Key.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        keys: json['keys'] != null
+            ? SdkPresent(((json['keys'] as List?)
+                ?.map((e) => Key.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (keys) {
-      SdkPresent<List<Key>>(value: final value) => {'keys': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (keys) {
+          SdkPresent<List<Key>>(value: final value) => {
+              'keys': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class KeyListVariant0 {
@@ -255,20 +398,31 @@ class KeyListVariant0 {
 
   const KeyListVariant0({this.keys = const SdkOmitted()});
 
-  KeyListVariant0 Function({SdkOptional<List<Key>> keys}) get copyWith => _copyWith;
+  KeyListVariant0 Function({SdkOptional<List<Key>> keys}) get copyWith =>
+      _copyWith;
 
-  KeyListVariant0 _copyWith({Object? keys = sdkOmittedValue}) => KeyListVariant0(
-    keys: identical(keys, sdkOmittedValue) ? this.keys : keys as SdkOptional<List<Key>>,
-  );
+  KeyListVariant0 _copyWith({Object? keys = sdkOmittedValue}) =>
+      KeyListVariant0(
+        keys: identical(keys, sdkOmittedValue)
+            ? this.keys
+            : keys as SdkOptional<List<Key>>,
+      );
 
-  factory KeyListVariant0.fromJson(Map<String, dynamic> json) => KeyListVariant0(
-    keys: json['keys'] != null ? SdkPresent(((json['keys'] as List?)?.map((e) => Key.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory KeyListVariant0.fromJson(Map<String, dynamic> json) =>
+      KeyListVariant0(
+        keys: json['keys'] != null
+            ? SdkPresent(((json['keys'] as List?)
+                ?.map((e) => Key.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (keys) {
-      SdkPresent<List<Key>>(value: final value) => {'keys': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (keys) {
+          SdkPresent<List<Key>>(value: final value) => {
+              'keys': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
