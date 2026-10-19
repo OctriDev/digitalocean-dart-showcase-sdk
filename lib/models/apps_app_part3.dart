@@ -8,214 +8,127 @@ part of 'apps_app.dart';
 class AppInstance {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Name of the component, from the app spec.
   final SdkOptional<String> componentName;
-
   /// Supported compute component by DigitalOcean App Platform.
   final SdkOptional<AppInstanceComponentType> componentType;
-
   /// Name of the instance, which is a unique identifier for the instance.
   final SdkOptional<String> instanceName;
-
   /// Readable identifier, an alias of the instance name, reference for mapping insights to instance names.
   final SdkOptional<String> instanceAlias;
 
-  const AppInstance(
-      {this.componentName = const SdkOmitted(),
-      this.componentType = const SdkOmitted(),
-      this.instanceName = const SdkOmitted(),
-      this.instanceAlias = const SdkOmitted()});
+  const AppInstance({this.componentName = const SdkOmitted(), this.componentType = const SdkOmitted(), this.instanceName = const SdkOmitted(), this.instanceAlias = const SdkOmitted()});
 
-  AppInstance Function(
-      {SdkOptional<String> componentName,
-      SdkOptional<AppInstanceComponentType> componentType,
-      SdkOptional<String> instanceName,
-      SdkOptional<String> instanceAlias}) get copyWith => _copyWith;
+  AppInstance Function({SdkOptional<String> componentName, SdkOptional<AppInstanceComponentType> componentType, SdkOptional<String> instanceName, SdkOptional<String> instanceAlias}) get copyWith => _copyWith;
 
-  AppInstance _copyWith(
-          {Object? componentName = sdkOmittedValue,
-          Object? componentType = sdkOmittedValue,
-          Object? instanceName = sdkOmittedValue,
-          Object? instanceAlias = sdkOmittedValue}) =>
-      AppInstance(
-        componentName: identical(componentName, sdkOmittedValue)
-            ? this.componentName
-            : componentName as SdkOptional<String>,
-        componentType: identical(componentType, sdkOmittedValue)
-            ? this.componentType
-            : componentType as SdkOptional<AppInstanceComponentType>,
-        instanceName: identical(instanceName, sdkOmittedValue)
-            ? this.instanceName
-            : instanceName as SdkOptional<String>,
-        instanceAlias: identical(instanceAlias, sdkOmittedValue)
-            ? this.instanceAlias
-            : instanceAlias as SdkOptional<String>,
-      );
+  AppInstance _copyWith({Object? componentName = sdkOmittedValue, Object? componentType = sdkOmittedValue, Object? instanceName = sdkOmittedValue, Object? instanceAlias = sdkOmittedValue}) => AppInstance(
+    componentName: identical(componentName, sdkOmittedValue) ? this.componentName : componentName as SdkOptional<String>,
+    componentType: identical(componentType, sdkOmittedValue) ? this.componentType : componentType as SdkOptional<AppInstanceComponentType>,
+    instanceName: identical(instanceName, sdkOmittedValue) ? this.instanceName : instanceName as SdkOptional<String>,
+    instanceAlias: identical(instanceAlias, sdkOmittedValue) ? this.instanceAlias : instanceAlias as SdkOptional<String>,
+  );
 
   factory AppInstance.fromJson(Map<String, dynamic> json) => AppInstance(
-        componentName: json['component_name'] != null
-            ? SdkPresent((json['component_name'] as String?)!)
-            : const SdkOmitted(),
-        componentType: json['component_type'] != null
-            ? SdkPresent((json['component_type'] != null
-                ? AppInstanceComponentType.fromJson(
-                    json['component_type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        instanceName: json['instance_name'] != null
-            ? SdkPresent((json['instance_name'] as String?)!)
-            : const SdkOmitted(),
-        instanceAlias: json['instance_alias'] != null
-            ? SdkPresent((json['instance_alias'] as String?)!)
-            : const SdkOmitted(),
-      );
+    componentName: json['component_name'] != null ? SdkPresent((json['component_name'] as String?)!) : const SdkOmitted(),
+    componentType: json['component_type'] != null ? SdkPresent((json['component_type'] != null ? AppInstanceComponentType.fromJson(json['component_type'] as String) : null)!) : const SdkOmitted(),
+    instanceName: json['instance_name'] != null ? SdkPresent((json['instance_name'] as String?)!) : const SdkOmitted(),
+    instanceAlias: json['instance_alias'] != null ? SdkPresent((json['instance_alias'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (componentName) {
-          SdkPresent<String>(value: final value) => {
-              'component_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (componentType) {
-          SdkPresent<AppInstanceComponentType>(value: final value) => {
-              'component_type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (instanceName) {
-          SdkPresent<String>(value: final value) => {
-              'instance_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (instanceAlias) {
-          SdkPresent<String>(value: final value) => {
-              'instance_alias': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (componentName) {
+      SdkPresent<String>(value: final value) => {'component_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (componentType) {
+      SdkPresent<AppInstanceComponentType>(value: final value) => {'component_type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (instanceName) {
+      SdkPresent<String>(value: final value) => {'instance_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (instanceAlias) {
+      SdkPresent<String>(value: final value) => {'instance_alias': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppInstances` API schema.
 class AppInstances {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `instances` wire field.
   final SdkOptional<List<AppInstance>> instances;
 
   const AppInstances({this.instances = const SdkOmitted()});
 
-  AppInstances Function({SdkOptional<List<AppInstance>> instances})
-      get copyWith => _copyWith;
+  AppInstances Function({SdkOptional<List<AppInstance>> instances}) get copyWith => _copyWith;
 
   AppInstances _copyWith({Object? instances = sdkOmittedValue}) => AppInstances(
-        instances: identical(instances, sdkOmittedValue)
-            ? this.instances
-            : instances as SdkOptional<List<AppInstance>>,
-      );
+    instances: identical(instances, sdkOmittedValue) ? this.instances : instances as SdkOptional<List<AppInstance>>,
+  );
 
   factory AppInstances.fromJson(Map<String, dynamic> json) => AppInstances(
-        instances: json['instances'] != null
-            ? SdkPresent(((json['instances'] as List?)
-                ?.map((e) => AppInstance.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    instances: json['instances'] != null ? SdkPresent(((json['instances'] as List?)?.map((e) => AppInstance.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (instances) {
-          SdkPresent<List<AppInstance>>(value: final value) => {
-              'instances': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (instances) {
+      SdkPresent<List<AppInstance>>(value: final value) => {'instances': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Specification to configure maintenance settings for the app, such as maintenance mode and archiving the app.
 class AppMaintenanceSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Indicates whether maintenance mode should be enabled for the app.
   final SdkOptional<bool> enabled;
-
   /// Indicates whether the app should be archived. Setting this to true implies that enabled is set to true.
   final SdkOptional<bool> archive;
-
   /// A custom offline page to display when maintenance mode is enabled or the app is archived.
   final SdkOptional<String> offlinePageUrl;
 
-  const AppMaintenanceSpec(
-      {this.enabled = const SdkOmitted(),
-      this.archive = const SdkOmitted(),
-      this.offlinePageUrl = const SdkOmitted()});
+  const AppMaintenanceSpec({this.enabled = const SdkOmitted(), this.archive = const SdkOmitted(), this.offlinePageUrl = const SdkOmitted()});
 
-  AppMaintenanceSpec Function(
-      {SdkOptional<bool> enabled,
-      SdkOptional<bool> archive,
-      SdkOptional<String> offlinePageUrl}) get copyWith => _copyWith;
+  AppMaintenanceSpec Function({SdkOptional<bool> enabled, SdkOptional<bool> archive, SdkOptional<String> offlinePageUrl}) get copyWith => _copyWith;
 
-  AppMaintenanceSpec _copyWith(
-          {Object? enabled = sdkOmittedValue,
-          Object? archive = sdkOmittedValue,
-          Object? offlinePageUrl = sdkOmittedValue}) =>
-      AppMaintenanceSpec(
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as SdkOptional<bool>,
-        archive: identical(archive, sdkOmittedValue)
-            ? this.archive
-            : archive as SdkOptional<bool>,
-        offlinePageUrl: identical(offlinePageUrl, sdkOmittedValue)
-            ? this.offlinePageUrl
-            : offlinePageUrl as SdkOptional<String>,
-      );
+  AppMaintenanceSpec _copyWith({Object? enabled = sdkOmittedValue, Object? archive = sdkOmittedValue, Object? offlinePageUrl = sdkOmittedValue}) => AppMaintenanceSpec(
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
+    archive: identical(archive, sdkOmittedValue) ? this.archive : archive as SdkOptional<bool>,
+    offlinePageUrl: identical(offlinePageUrl, sdkOmittedValue) ? this.offlinePageUrl : offlinePageUrl as SdkOptional<String>,
+  );
 
-  factory AppMaintenanceSpec.fromJson(Map<String, dynamic> json) =>
-      AppMaintenanceSpec(
-        enabled: json['enabled'] != null
-            ? SdkPresent((json['enabled'] as bool?)!)
-            : const SdkOmitted(),
-        archive: json['archive'] != null
-            ? SdkPresent((json['archive'] as bool?)!)
-            : const SdkOmitted(),
-        offlinePageUrl: json['offline_page_url'] != null
-            ? SdkPresent((json['offline_page_url'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AppMaintenanceSpec.fromJson(Map<String, dynamic> json) => AppMaintenanceSpec(
+    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
+    archive: json['archive'] != null ? SdkPresent((json['archive'] as bool?)!) : const SdkOmitted(),
+    offlinePageUrl: json['offline_page_url'] != null ? SdkPresent((json['offline_page_url'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (enabled) {
-          SdkPresent<bool>(value: final value) => {
-              'enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (archive) {
-          SdkPresent<bool>(value: final value) => {
-              'archive': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (offlinePageUrl) {
-          SdkPresent<String>(value: final value) => {
-              'offline_page_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (enabled) {
+      SdkPresent<bool>(value: final value) => {'enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (archive) {
+      SdkPresent<bool>(value: final value) => {'archive': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (offlinePageUrl) {
+      SdkPresent<String>(value: final value) => {'offline_page_url': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppResponse` API schema.
 class AppResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An application's configuration and status.
   final SdkOptional<App> app;
 
@@ -224,300 +137,162 @@ class AppResponse {
   AppResponse Function({SdkOptional<App> app}) get copyWith => _copyWith;
 
   AppResponse _copyWith({Object? app = sdkOmittedValue}) => AppResponse(
-        app: identical(app, sdkOmittedValue)
-            ? this.app
-            : app as SdkOptional<App>,
-      );
+    app: identical(app, sdkOmittedValue) ? this.app : app as SdkOptional<App>,
+  );
 
   factory AppResponse.fromJson(Map<String, dynamic> json) => AppResponse(
-        app: json['app'] != null
-            ? SdkPresent((json['app'] != null
-                ? App.fromJson(json['app'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    app: json['app'] != null ? SdkPresent((json['app'] != null ? App.fromJson(json['app'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (app) {
-          SdkPresent<App>(value: final value) => {
-              'app': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (app) {
+      SdkPresent<App>(value: final value) => {'app': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppRollbackValidationCondition` API schema.
 class AppRollbackValidationCondition {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A code identifier that represents the failing condition. Failing conditions: - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback. - `incompatible_result` - indicates that the deployment's result is not suitable for rollback. - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier. - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned. - `database_config_conflict` - indicates that the deployment's database config is different than the current config. - `region_conflict` - indicates that the deployment's region differs from the current app region. Warning conditions: - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild. - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
   final SdkOptional<AppRollbackValidationConditionCode> code;
-
   /// A human-readable message describing the failing condition.
   final SdkOptional<String> message;
-
   /// Optional array value serialized in the `components` wire field.
   final SdkOptional<List<String>> components;
 
-  const AppRollbackValidationCondition(
-      {this.code = const SdkOmitted(),
-      this.message = const SdkOmitted(),
-      this.components = const SdkOmitted()});
+  const AppRollbackValidationCondition({this.code = const SdkOmitted(), this.message = const SdkOmitted(), this.components = const SdkOmitted()});
 
-  AppRollbackValidationCondition Function(
-      {SdkOptional<AppRollbackValidationConditionCode> code,
-      SdkOptional<String> message,
-      SdkOptional<List<String>> components}) get copyWith => _copyWith;
+  AppRollbackValidationCondition Function({SdkOptional<AppRollbackValidationConditionCode> code, SdkOptional<String> message, SdkOptional<List<String>> components}) get copyWith => _copyWith;
 
-  AppRollbackValidationCondition _copyWith(
-          {Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? components = sdkOmittedValue}) =>
-      AppRollbackValidationCondition(
-        code: identical(code, sdkOmittedValue)
-            ? this.code
-            : code as SdkOptional<AppRollbackValidationConditionCode>,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as SdkOptional<String>,
-        components: identical(components, sdkOmittedValue)
-            ? this.components
-            : components as SdkOptional<List<String>>,
-      );
+  AppRollbackValidationCondition _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue, Object? components = sdkOmittedValue}) => AppRollbackValidationCondition(
+    code: identical(code, sdkOmittedValue) ? this.code : code as SdkOptional<AppRollbackValidationConditionCode>,
+    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
+    components: identical(components, sdkOmittedValue) ? this.components : components as SdkOptional<List<String>>,
+  );
 
-  factory AppRollbackValidationCondition.fromJson(Map<String, dynamic> json) =>
-      AppRollbackValidationCondition(
-        code: json['code'] != null
-            ? SdkPresent((json['code'] != null
-                ? AppRollbackValidationConditionCode.fromJson(
-                    json['code'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        message: json['message'] != null
-            ? SdkPresent((json['message'] as String?)!)
-            : const SdkOmitted(),
-        components: json['components'] != null
-            ? SdkPresent(((json['components'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AppRollbackValidationCondition.fromJson(Map<String, dynamic> json) => AppRollbackValidationCondition(
+    code: json['code'] != null ? SdkPresent((json['code'] != null ? AppRollbackValidationConditionCode.fromJson(json['code'] as String) : null)!) : const SdkOmitted(),
+    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
+    components: json['components'] != null ? SdkPresent(((json['components'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (code) {
-          SdkPresent<AppRollbackValidationConditionCode>(value: final value) =>
-            {
-              'code': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (message) {
-          SdkPresent<String>(value: final value) => {
-              'message': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (components) {
-          SdkPresent<List<String>>(value: final value) => {
-              'components': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (code) {
+      SdkPresent<AppRollbackValidationConditionCode>(value: final value) => {'code': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (message) {
+      SdkPresent<String>(value: final value) => {'message': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (components) {
+      SdkPresent<List<String>>(value: final value) => {'components': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppRouteSpec` API schema.
 class AppRouteSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// (Deprecated - Use Ingress Rules instead). An HTTP path prefix. Paths must start with / and must be unique across all components within an app.
   final SdkOptional<String> path;
-
   /// An optional flag to preserve the path that is forwarded to the backend service. By default, the HTTP request path will be trimmed from the left when forwarded to the component. For example, a component with `path=/api` will have requests to `/api/list` trimmed to `/list`. If this value is `true`, the path will remain `/api/list`.
   final SdkOptional<bool> preservePathPrefix;
 
-  const AppRouteSpec(
-      {this.path = const SdkOmitted(),
-      this.preservePathPrefix = const SdkOmitted()});
+  const AppRouteSpec({this.path = const SdkOmitted(), this.preservePathPrefix = const SdkOmitted()});
 
-  AppRouteSpec Function(
-      {SdkOptional<String> path,
-      SdkOptional<bool> preservePathPrefix}) get copyWith => _copyWith;
+  AppRouteSpec Function({SdkOptional<String> path, SdkOptional<bool> preservePathPrefix}) get copyWith => _copyWith;
 
-  AppRouteSpec _copyWith(
-          {Object? path = sdkOmittedValue,
-          Object? preservePathPrefix = sdkOmittedValue}) =>
-      AppRouteSpec(
-        path: identical(path, sdkOmittedValue)
-            ? this.path
-            : path as SdkOptional<String>,
-        preservePathPrefix: identical(preservePathPrefix, sdkOmittedValue)
-            ? this.preservePathPrefix
-            : preservePathPrefix as SdkOptional<bool>,
-      );
+  AppRouteSpec _copyWith({Object? path = sdkOmittedValue, Object? preservePathPrefix = sdkOmittedValue}) => AppRouteSpec(
+    path: identical(path, sdkOmittedValue) ? this.path : path as SdkOptional<String>,
+    preservePathPrefix: identical(preservePathPrefix, sdkOmittedValue) ? this.preservePathPrefix : preservePathPrefix as SdkOptional<bool>,
+  );
 
   factory AppRouteSpec.fromJson(Map<String, dynamic> json) => AppRouteSpec(
-        path: json['path'] != null
-            ? SdkPresent((json['path'] as String?)!)
-            : const SdkOmitted(),
-        preservePathPrefix: json['preserve_path_prefix'] != null
-            ? SdkPresent((json['preserve_path_prefix'] as bool?)!)
-            : const SdkOmitted(),
-      );
+    path: json['path'] != null ? SdkPresent((json['path'] as String?)!) : const SdkOmitted(),
+    preservePathPrefix: json['preserve_path_prefix'] != null ? SdkPresent((json['preserve_path_prefix'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (path) {
-          SdkPresent<String>(value: final value) => {
-              'path': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (preservePathPrefix) {
-          SdkPresent<bool>(value: final value) => {
-              'preserve_path_prefix': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (path) {
+      SdkPresent<String>(value: final value) => {'path': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (preservePathPrefix) {
+      SdkPresent<bool>(value: final value) => {'preserve_path_prefix': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional API value serialized in the `cors` wire field.
 class AppStaticSiteSpecVariant1Cors {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The set of allowed CORS origins.
   final SdkOptional<List<AppsStringMatch>> allowOrigins;
-
   /// The set of allowed HTTP methods. This configures the `Access-Control-Allow-Methods` header.
   final SdkOptional<List<String>> allowMethods;
-
   /// The set of allowed HTTP request headers. This configures the `Access-Control-Allow-Headers` header.
   final SdkOptional<List<String>> allowHeaders;
-
   /// The set of HTTP response headers that browsers are allowed to access. This configures the `Access-Control-Expose-Headers` header.
   final SdkOptional<List<String>> exposeHeaders;
-
   /// An optional duration specifying how long browsers can cache the results of a preflight request. This configures the `Access-Control-Max-Age` header.
   final SdkOptional<String> maxAge;
-
   /// Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is include. This configures the `Access-Control-Allow-Credentials` header.
   final SdkOptional<bool> allowCredentials;
 
-  const AppStaticSiteSpecVariant1Cors(
-      {this.allowOrigins = const SdkOmitted(),
-      this.allowMethods = const SdkOmitted(),
-      this.allowHeaders = const SdkOmitted(),
-      this.exposeHeaders = const SdkOmitted(),
-      this.maxAge = const SdkOmitted(),
-      this.allowCredentials = const SdkOmitted()});
+  const AppStaticSiteSpecVariant1Cors({this.allowOrigins = const SdkOmitted(), this.allowMethods = const SdkOmitted(), this.allowHeaders = const SdkOmitted(), this.exposeHeaders = const SdkOmitted(), this.maxAge = const SdkOmitted(), this.allowCredentials = const SdkOmitted()});
 
-  AppStaticSiteSpecVariant1Cors Function(
-      {SdkOptional<List<AppsStringMatch>> allowOrigins,
-      SdkOptional<List<String>> allowMethods,
-      SdkOptional<List<String>> allowHeaders,
-      SdkOptional<List<String>> exposeHeaders,
-      SdkOptional<String> maxAge,
-      SdkOptional<bool> allowCredentials}) get copyWith => _copyWith;
+  AppStaticSiteSpecVariant1Cors Function({SdkOptional<List<AppsStringMatch>> allowOrigins, SdkOptional<List<String>> allowMethods, SdkOptional<List<String>> allowHeaders, SdkOptional<List<String>> exposeHeaders, SdkOptional<String> maxAge, SdkOptional<bool> allowCredentials}) get copyWith => _copyWith;
 
-  AppStaticSiteSpecVariant1Cors _copyWith(
-          {Object? allowOrigins = sdkOmittedValue,
-          Object? allowMethods = sdkOmittedValue,
-          Object? allowHeaders = sdkOmittedValue,
-          Object? exposeHeaders = sdkOmittedValue,
-          Object? maxAge = sdkOmittedValue,
-          Object? allowCredentials = sdkOmittedValue}) =>
-      AppStaticSiteSpecVariant1Cors(
-        allowOrigins: identical(allowOrigins, sdkOmittedValue)
-            ? this.allowOrigins
-            : allowOrigins as SdkOptional<List<AppsStringMatch>>,
-        allowMethods: identical(allowMethods, sdkOmittedValue)
-            ? this.allowMethods
-            : allowMethods as SdkOptional<List<String>>,
-        allowHeaders: identical(allowHeaders, sdkOmittedValue)
-            ? this.allowHeaders
-            : allowHeaders as SdkOptional<List<String>>,
-        exposeHeaders: identical(exposeHeaders, sdkOmittedValue)
-            ? this.exposeHeaders
-            : exposeHeaders as SdkOptional<List<String>>,
-        maxAge: identical(maxAge, sdkOmittedValue)
-            ? this.maxAge
-            : maxAge as SdkOptional<String>,
-        allowCredentials: identical(allowCredentials, sdkOmittedValue)
-            ? this.allowCredentials
-            : allowCredentials as SdkOptional<bool>,
-      );
+  AppStaticSiteSpecVariant1Cors _copyWith({Object? allowOrigins = sdkOmittedValue, Object? allowMethods = sdkOmittedValue, Object? allowHeaders = sdkOmittedValue, Object? exposeHeaders = sdkOmittedValue, Object? maxAge = sdkOmittedValue, Object? allowCredentials = sdkOmittedValue}) => AppStaticSiteSpecVariant1Cors(
+    allowOrigins: identical(allowOrigins, sdkOmittedValue) ? this.allowOrigins : allowOrigins as SdkOptional<List<AppsStringMatch>>,
+    allowMethods: identical(allowMethods, sdkOmittedValue) ? this.allowMethods : allowMethods as SdkOptional<List<String>>,
+    allowHeaders: identical(allowHeaders, sdkOmittedValue) ? this.allowHeaders : allowHeaders as SdkOptional<List<String>>,
+    exposeHeaders: identical(exposeHeaders, sdkOmittedValue) ? this.exposeHeaders : exposeHeaders as SdkOptional<List<String>>,
+    maxAge: identical(maxAge, sdkOmittedValue) ? this.maxAge : maxAge as SdkOptional<String>,
+    allowCredentials: identical(allowCredentials, sdkOmittedValue) ? this.allowCredentials : allowCredentials as SdkOptional<bool>,
+  );
 
-  factory AppStaticSiteSpecVariant1Cors.fromJson(Map<String, dynamic> json) =>
-      AppStaticSiteSpecVariant1Cors(
-        allowOrigins: json['allow_origins'] != null
-            ? SdkPresent(((json['allow_origins'] as List?)
-                ?.map(
-                    (e) => AppsStringMatch.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        allowMethods: json['allow_methods'] != null
-            ? SdkPresent(((json['allow_methods'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        allowHeaders: json['allow_headers'] != null
-            ? SdkPresent(((json['allow_headers'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        exposeHeaders: json['expose_headers'] != null
-            ? SdkPresent(((json['expose_headers'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        maxAge: json['max_age'] != null
-            ? SdkPresent((json['max_age'] as String?)!)
-            : const SdkOmitted(),
-        allowCredentials: json['allow_credentials'] != null
-            ? SdkPresent((json['allow_credentials'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory AppStaticSiteSpecVariant1Cors.fromJson(Map<String, dynamic> json) => AppStaticSiteSpecVariant1Cors(
+    allowOrigins: json['allow_origins'] != null ? SdkPresent(((json['allow_origins'] as List?)?.map((e) => AppsStringMatch.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    allowMethods: json['allow_methods'] != null ? SdkPresent(((json['allow_methods'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    allowHeaders: json['allow_headers'] != null ? SdkPresent(((json['allow_headers'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    exposeHeaders: json['expose_headers'] != null ? SdkPresent(((json['expose_headers'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    maxAge: json['max_age'] != null ? SdkPresent((json['max_age'] as String?)!) : const SdkOmitted(),
+    allowCredentials: json['allow_credentials'] != null ? SdkPresent((json['allow_credentials'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (allowOrigins) {
-          SdkPresent<List<AppsStringMatch>>(value: final value) => {
-              'allow_origins': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowMethods) {
-          SdkPresent<List<String>>(value: final value) => {
-              'allow_methods': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowHeaders) {
-          SdkPresent<List<String>>(value: final value) => {
-              'allow_headers': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (exposeHeaders) {
-          SdkPresent<List<String>>(value: final value) => {
-              'expose_headers': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxAge) {
-          SdkPresent<String>(value: final value) => {
-              'max_age': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowCredentials) {
-          SdkPresent<bool>(value: final value) => {
-              'allow_credentials': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (allowOrigins) {
+      SdkPresent<List<AppsStringMatch>>(value: final value) => {'allow_origins': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowMethods) {
+      SdkPresent<List<String>>(value: final value) => {'allow_methods': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowHeaders) {
+      SdkPresent<List<String>>(value: final value) => {'allow_headers': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (exposeHeaders) {
+      SdkPresent<List<String>>(value: final value) => {'expose_headers': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxAge) {
+      SdkPresent<String>(value: final value) => {'max_age': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowCredentials) {
+      SdkPresent<bool>(value: final value) => {'allow_credentials': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

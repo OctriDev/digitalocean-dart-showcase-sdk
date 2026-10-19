@@ -8,502 +8,279 @@ part of 'harness_runtime_agent.dart';
 class AgentManifestSpecTools {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `mcpServers` wire field.
   final SdkOptional<List<AgentManifestSpecToolsMcpServersItem>> mcpServers;
-
   /// Optional `string` value serialized in the `bundle` wire field.
   final SdkOptional<String> bundle;
 
-  const AgentManifestSpecTools(
-      {this.mcpServers = const SdkOmitted(), this.bundle = const SdkOmitted()});
+  const AgentManifestSpecTools({this.mcpServers = const SdkOmitted(), this.bundle = const SdkOmitted()});
 
-  AgentManifestSpecTools Function(
-      {SdkOptional<List<AgentManifestSpecToolsMcpServersItem>> mcpServers,
-      SdkOptional<String> bundle}) get copyWith => _copyWith;
+  AgentManifestSpecTools Function({SdkOptional<List<AgentManifestSpecToolsMcpServersItem>> mcpServers, SdkOptional<String> bundle}) get copyWith => _copyWith;
 
-  AgentManifestSpecTools _copyWith(
-          {Object? mcpServers = sdkOmittedValue,
-          Object? bundle = sdkOmittedValue}) =>
-      AgentManifestSpecTools(
-        mcpServers: identical(mcpServers, sdkOmittedValue)
-            ? this.mcpServers
-            : mcpServers
-                as SdkOptional<List<AgentManifestSpecToolsMcpServersItem>>,
-        bundle: identical(bundle, sdkOmittedValue)
-            ? this.bundle
-            : bundle as SdkOptional<String>,
-      );
+  AgentManifestSpecTools _copyWith({Object? mcpServers = sdkOmittedValue, Object? bundle = sdkOmittedValue}) => AgentManifestSpecTools(
+    mcpServers: identical(mcpServers, sdkOmittedValue) ? this.mcpServers : mcpServers as SdkOptional<List<AgentManifestSpecToolsMcpServersItem>>,
+    bundle: identical(bundle, sdkOmittedValue) ? this.bundle : bundle as SdkOptional<String>,
+  );
 
-  factory AgentManifestSpecTools.fromJson(Map<String, dynamic> json) =>
-      AgentManifestSpecTools(
-        mcpServers: json['mcpServers'] != null
-            ? SdkPresent(((json['mcpServers'] as List?)
-                ?.map((e) => AgentManifestSpecToolsMcpServersItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        bundle: json['bundle'] != null
-            ? SdkPresent((json['bundle'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AgentManifestSpecTools.fromJson(Map<String, dynamic> json) => AgentManifestSpecTools(
+    mcpServers: json['mcpServers'] != null ? SdkPresent(((json['mcpServers'] as List?)?.map((e) => AgentManifestSpecToolsMcpServersItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    bundle: json['bundle'] != null ? SdkPresent((json['bundle'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (mcpServers) {
-          SdkPresent<List<AgentManifestSpecToolsMcpServersItem>>(
-            value: final value
-          ) =>
-            {
-              'mcpServers': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (bundle) {
-          SdkPresent<String>(value: final value) => {
-              'bundle': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (mcpServers) {
+      SdkPresent<List<AgentManifestSpecToolsMcpServersItem>>(value: final value) => {'mcpServers': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (bundle) {
+      SdkPresent<String>(value: final value) => {'bundle': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Accepted, not yet enforced (returns a warning).
 class AgentManifestSpecMemory {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `backend` wire field.
   final String backend;
-
   /// Optional enumerated value serialized in the `scope` wire field.
   final SdkOptional<AgentManifestSpecMemoryScope> scope;
 
-  const AgentManifestSpecMemory(
-      {required this.backend, this.scope = const SdkOmitted()});
+  const AgentManifestSpecMemory({required this.backend, this.scope = const SdkOmitted()});
 
-  AgentManifestSpecMemory Function(
-          {String backend, SdkOptional<AgentManifestSpecMemoryScope> scope})
-      get copyWith => _copyWith;
+  AgentManifestSpecMemory Function({String backend, SdkOptional<AgentManifestSpecMemoryScope> scope}) get copyWith => _copyWith;
 
-  AgentManifestSpecMemory _copyWith(
-          {Object? backend = sdkOmittedValue,
-          Object? scope = sdkOmittedValue}) =>
-      AgentManifestSpecMemory(
-        backend: identical(backend, sdkOmittedValue)
-            ? this.backend
-            : backend as String,
-        scope: identical(scope, sdkOmittedValue)
-            ? this.scope
-            : scope as SdkOptional<AgentManifestSpecMemoryScope>,
-      );
+  AgentManifestSpecMemory _copyWith({Object? backend = sdkOmittedValue, Object? scope = sdkOmittedValue}) => AgentManifestSpecMemory(
+    backend: identical(backend, sdkOmittedValue) ? this.backend : backend as String,
+    scope: identical(scope, sdkOmittedValue) ? this.scope : scope as SdkOptional<AgentManifestSpecMemoryScope>,
+  );
 
-  factory AgentManifestSpecMemory.fromJson(Map<String, dynamic> json) =>
-      AgentManifestSpecMemory(
-        backend: (json['backend'] as String?)!,
-        scope: json['scope'] != null
-            ? SdkPresent((json['scope'] != null
-                ? AgentManifestSpecMemoryScope.fromJson(json['scope'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AgentManifestSpecMemory.fromJson(Map<String, dynamic> json) => AgentManifestSpecMemory(
+    backend: (json['backend'] as String?)!,
+    scope: json['scope'] != null ? SdkPresent((json['scope'] != null ? AgentManifestSpecMemoryScope.fromJson(json['scope'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'backend': backend,
-        ...switch (scope) {
-          SdkPresent<AgentManifestSpecMemoryScope>(value: final value) => {
-              'scope': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'backend': backend,
+    ...switch (scope) {
+      SdkPresent<AgentManifestSpecMemoryScope>(value: final value) => {'scope': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Accepted, not yet enforced (returns a warning). Advisory per-run ceilings, clamped server-side to tenant policy.
 class AgentManifestSpecDefaultsBudget {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `number` value serialized in the `maxCostUSD` wire field.
   final SdkOptional<double> maxCostUsd;
-
   /// Optional `integer` value serialized in the `maxSteps` wire field.
   final SdkOptional<int> maxSteps;
-
   /// Optional `int64`-formatted value serialized in the `maxWallClockSeconds` wire field.
   final SdkOptional<int> maxWallClockSeconds;
-
   /// Optional enumerated value serialized in the `onBreach` wire field.
   final SdkOptional<AgentManifestSpecDefaultsBudgetOnBreach> onBreach;
 
-  const AgentManifestSpecDefaultsBudget(
-      {this.maxCostUsd = const SdkOmitted(),
-      this.maxSteps = const SdkOmitted(),
-      this.maxWallClockSeconds = const SdkOmitted(),
-      this.onBreach = const SdkOmitted()});
+  const AgentManifestSpecDefaultsBudget({this.maxCostUsd = const SdkOmitted(), this.maxSteps = const SdkOmitted(), this.maxWallClockSeconds = const SdkOmitted(), this.onBreach = const SdkOmitted()});
 
-  AgentManifestSpecDefaultsBudget Function(
-          {SdkOptional<double> maxCostUsd,
-          SdkOptional<int> maxSteps,
-          SdkOptional<int> maxWallClockSeconds,
-          SdkOptional<AgentManifestSpecDefaultsBudgetOnBreach> onBreach})
-      get copyWith => _copyWith;
+  AgentManifestSpecDefaultsBudget Function({SdkOptional<double> maxCostUsd, SdkOptional<int> maxSteps, SdkOptional<int> maxWallClockSeconds, SdkOptional<AgentManifestSpecDefaultsBudgetOnBreach> onBreach}) get copyWith => _copyWith;
 
-  AgentManifestSpecDefaultsBudget _copyWith(
-          {Object? maxCostUsd = sdkOmittedValue,
-          Object? maxSteps = sdkOmittedValue,
-          Object? maxWallClockSeconds = sdkOmittedValue,
-          Object? onBreach = sdkOmittedValue}) =>
-      AgentManifestSpecDefaultsBudget(
-        maxCostUsd: identical(maxCostUsd, sdkOmittedValue)
-            ? this.maxCostUsd
-            : maxCostUsd as SdkOptional<double>,
-        maxSteps: identical(maxSteps, sdkOmittedValue)
-            ? this.maxSteps
-            : maxSteps as SdkOptional<int>,
-        maxWallClockSeconds: identical(maxWallClockSeconds, sdkOmittedValue)
-            ? this.maxWallClockSeconds
-            : maxWallClockSeconds as SdkOptional<int>,
-        onBreach: identical(onBreach, sdkOmittedValue)
-            ? this.onBreach
-            : onBreach as SdkOptional<AgentManifestSpecDefaultsBudgetOnBreach>,
-      );
+  AgentManifestSpecDefaultsBudget _copyWith({Object? maxCostUsd = sdkOmittedValue, Object? maxSteps = sdkOmittedValue, Object? maxWallClockSeconds = sdkOmittedValue, Object? onBreach = sdkOmittedValue}) => AgentManifestSpecDefaultsBudget(
+    maxCostUsd: identical(maxCostUsd, sdkOmittedValue) ? this.maxCostUsd : maxCostUsd as SdkOptional<double>,
+    maxSteps: identical(maxSteps, sdkOmittedValue) ? this.maxSteps : maxSteps as SdkOptional<int>,
+    maxWallClockSeconds: identical(maxWallClockSeconds, sdkOmittedValue) ? this.maxWallClockSeconds : maxWallClockSeconds as SdkOptional<int>,
+    onBreach: identical(onBreach, sdkOmittedValue) ? this.onBreach : onBreach as SdkOptional<AgentManifestSpecDefaultsBudgetOnBreach>,
+  );
 
-  factory AgentManifestSpecDefaultsBudget.fromJson(Map<String, dynamic> json) =>
-      AgentManifestSpecDefaultsBudget(
-        maxCostUsd: json['maxCostUSD'] != null
-            ? SdkPresent(((json['maxCostUSD'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        maxSteps: json['maxSteps'] != null
-            ? SdkPresent(((json['maxSteps'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        maxWallClockSeconds: json['maxWallClockSeconds'] != null
-            ? SdkPresent(((json['maxWallClockSeconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        onBreach: json['onBreach'] != null
-            ? SdkPresent((json['onBreach'] != null
-                ? AgentManifestSpecDefaultsBudgetOnBreach.fromJson(
-                    json['onBreach'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AgentManifestSpecDefaultsBudget.fromJson(Map<String, dynamic> json) => AgentManifestSpecDefaultsBudget(
+    maxCostUsd: json['maxCostUSD'] != null ? SdkPresent(((json['maxCostUSD'] as num?)?.toDouble())!) : const SdkOmitted(),
+    maxSteps: json['maxSteps'] != null ? SdkPresent(((json['maxSteps'] as num?)?.toInt())!) : const SdkOmitted(),
+    maxWallClockSeconds: json['maxWallClockSeconds'] != null ? SdkPresent(((json['maxWallClockSeconds'] as num?)?.toInt())!) : const SdkOmitted(),
+    onBreach: json['onBreach'] != null ? SdkPresent((json['onBreach'] != null ? AgentManifestSpecDefaultsBudgetOnBreach.fromJson(json['onBreach'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (maxCostUsd) {
-          SdkPresent<double>(value: final value) => {
-              'maxCostUSD': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxSteps) {
-          SdkPresent<int>(value: final value) => {
-              'maxSteps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxWallClockSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'maxWallClockSeconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (onBreach) {
-          SdkPresent<AgentManifestSpecDefaultsBudgetOnBreach>(
-            value: final value
-          ) =>
-            {
-              'onBreach': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (maxCostUsd) {
+      SdkPresent<double>(value: final value) => {'maxCostUSD': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxSteps) {
+      SdkPresent<int>(value: final value) => {'maxSteps': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxWallClockSeconds) {
+      SdkPresent<int>(value: final value) => {'maxWallClockSeconds': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (onBreach) {
+      SdkPresent<AgentManifestSpecDefaultsBudgetOnBreach>(value: final value) => {'onBreach': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `defaults` wire field.
 class AgentManifestSpecDefaults {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Accepted, not yet enforced (returns a warning). Advisory per-run ceilings, clamped server-side to tenant policy.
   final SdkOptional<AgentManifestSpecDefaultsBudget> budget;
 
   const AgentManifestSpecDefaults({this.budget = const SdkOmitted()});
 
-  AgentManifestSpecDefaults Function(
-          {SdkOptional<AgentManifestSpecDefaultsBudget> budget})
-      get copyWith => _copyWith;
+  AgentManifestSpecDefaults Function({SdkOptional<AgentManifestSpecDefaultsBudget> budget}) get copyWith => _copyWith;
 
-  AgentManifestSpecDefaults _copyWith({Object? budget = sdkOmittedValue}) =>
-      AgentManifestSpecDefaults(
-        budget: identical(budget, sdkOmittedValue)
-            ? this.budget
-            : budget as SdkOptional<AgentManifestSpecDefaultsBudget>,
-      );
+  AgentManifestSpecDefaults _copyWith({Object? budget = sdkOmittedValue}) => AgentManifestSpecDefaults(
+    budget: identical(budget, sdkOmittedValue) ? this.budget : budget as SdkOptional<AgentManifestSpecDefaultsBudget>,
+  );
 
-  factory AgentManifestSpecDefaults.fromJson(Map<String, dynamic> json) =>
-      AgentManifestSpecDefaults(
-        budget: json['budget'] != null
-            ? SdkPresent((json['budget'] != null
-                ? AgentManifestSpecDefaultsBudget.fromJson(
-                    json['budget'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AgentManifestSpecDefaults.fromJson(Map<String, dynamic> json) => AgentManifestSpecDefaults(
+    budget: json['budget'] != null ? SdkPresent((json['budget'] != null ? AgentManifestSpecDefaultsBudget.fromJson(json['budget'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (budget) {
-          SdkPresent<AgentManifestSpecDefaultsBudget>(value: final value) => {
-              'budget': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (budget) {
+      SdkPresent<AgentManifestSpecDefaultsBudget>(value: final value) => {'budget': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `scaleToZero` wire field.
 class AgentManifestSpecServingScaleToZero {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `int64`-formatted value serialized in the `idleSeconds` wire field.
   final SdkOptional<int> idleSeconds;
 
-  const AgentManifestSpecServingScaleToZero(
-      {this.idleSeconds = const SdkOmitted()});
+  const AgentManifestSpecServingScaleToZero({this.idleSeconds = const SdkOmitted()});
 
-  AgentManifestSpecServingScaleToZero Function({SdkOptional<int> idleSeconds})
-      get copyWith => _copyWith;
+  AgentManifestSpecServingScaleToZero Function({SdkOptional<int> idleSeconds}) get copyWith => _copyWith;
 
-  AgentManifestSpecServingScaleToZero _copyWith(
-          {Object? idleSeconds = sdkOmittedValue}) =>
-      AgentManifestSpecServingScaleToZero(
-        idleSeconds: identical(idleSeconds, sdkOmittedValue)
-            ? this.idleSeconds
-            : idleSeconds as SdkOptional<int>,
-      );
+  AgentManifestSpecServingScaleToZero _copyWith({Object? idleSeconds = sdkOmittedValue}) => AgentManifestSpecServingScaleToZero(
+    idleSeconds: identical(idleSeconds, sdkOmittedValue) ? this.idleSeconds : idleSeconds as SdkOptional<int>,
+  );
 
-  factory AgentManifestSpecServingScaleToZero.fromJson(
-          Map<String, dynamic> json) =>
-      AgentManifestSpecServingScaleToZero(
-        idleSeconds: json['idleSeconds'] != null
-            ? SdkPresent(((json['idleSeconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory AgentManifestSpecServingScaleToZero.fromJson(Map<String, dynamic> json) => AgentManifestSpecServingScaleToZero(
+    idleSeconds: json['idleSeconds'] != null ? SdkPresent(((json['idleSeconds'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (idleSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'idleSeconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (idleSeconds) {
+      SdkPresent<int>(value: final value) => {'idleSeconds': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Present only when spec.mode is "served" (autoscaled fleet).
 class AgentManifestSpecServing {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `integer` value serialized in the `minReplicas` wire field.
   final SdkOptional<int> minReplicas;
-
   /// Optional `integer` value serialized in the `maxReplicas` wire field.
   final SdkOptional<int> maxReplicas;
-
   /// Optional `integer` value serialized in the `targetConcurrency` wire field.
   final SdkOptional<int> targetConcurrency;
-
   /// Optional object value serialized in the `scaleToZero` wire field.
   final SdkOptional<AgentManifestSpecServingScaleToZero> scaleToZero;
 
-  const AgentManifestSpecServing(
-      {this.minReplicas = const SdkOmitted(),
-      this.maxReplicas = const SdkOmitted(),
-      this.targetConcurrency = const SdkOmitted(),
-      this.scaleToZero = const SdkOmitted()});
+  const AgentManifestSpecServing({this.minReplicas = const SdkOmitted(), this.maxReplicas = const SdkOmitted(), this.targetConcurrency = const SdkOmitted(), this.scaleToZero = const SdkOmitted()});
 
-  AgentManifestSpecServing Function(
-          {SdkOptional<int> minReplicas,
-          SdkOptional<int> maxReplicas,
-          SdkOptional<int> targetConcurrency,
-          SdkOptional<AgentManifestSpecServingScaleToZero> scaleToZero})
-      get copyWith => _copyWith;
+  AgentManifestSpecServing Function({SdkOptional<int> minReplicas, SdkOptional<int> maxReplicas, SdkOptional<int> targetConcurrency, SdkOptional<AgentManifestSpecServingScaleToZero> scaleToZero}) get copyWith => _copyWith;
 
-  AgentManifestSpecServing _copyWith(
-          {Object? minReplicas = sdkOmittedValue,
-          Object? maxReplicas = sdkOmittedValue,
-          Object? targetConcurrency = sdkOmittedValue,
-          Object? scaleToZero = sdkOmittedValue}) =>
-      AgentManifestSpecServing(
-        minReplicas: identical(minReplicas, sdkOmittedValue)
-            ? this.minReplicas
-            : minReplicas as SdkOptional<int>,
-        maxReplicas: identical(maxReplicas, sdkOmittedValue)
-            ? this.maxReplicas
-            : maxReplicas as SdkOptional<int>,
-        targetConcurrency: identical(targetConcurrency, sdkOmittedValue)
-            ? this.targetConcurrency
-            : targetConcurrency as SdkOptional<int>,
-        scaleToZero: identical(scaleToZero, sdkOmittedValue)
-            ? this.scaleToZero
-            : scaleToZero as SdkOptional<AgentManifestSpecServingScaleToZero>,
-      );
+  AgentManifestSpecServing _copyWith({Object? minReplicas = sdkOmittedValue, Object? maxReplicas = sdkOmittedValue, Object? targetConcurrency = sdkOmittedValue, Object? scaleToZero = sdkOmittedValue}) => AgentManifestSpecServing(
+    minReplicas: identical(minReplicas, sdkOmittedValue) ? this.minReplicas : minReplicas as SdkOptional<int>,
+    maxReplicas: identical(maxReplicas, sdkOmittedValue) ? this.maxReplicas : maxReplicas as SdkOptional<int>,
+    targetConcurrency: identical(targetConcurrency, sdkOmittedValue) ? this.targetConcurrency : targetConcurrency as SdkOptional<int>,
+    scaleToZero: identical(scaleToZero, sdkOmittedValue) ? this.scaleToZero : scaleToZero as SdkOptional<AgentManifestSpecServingScaleToZero>,
+  );
 
-  factory AgentManifestSpecServing.fromJson(Map<String, dynamic> json) =>
-      AgentManifestSpecServing(
-        minReplicas: json['minReplicas'] != null
-            ? SdkPresent(((json['minReplicas'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        maxReplicas: json['maxReplicas'] != null
-            ? SdkPresent(((json['maxReplicas'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        targetConcurrency: json['targetConcurrency'] != null
-            ? SdkPresent(((json['targetConcurrency'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        scaleToZero: json['scaleToZero'] != null
-            ? SdkPresent((json['scaleToZero'] != null
-                ? AgentManifestSpecServingScaleToZero.fromJson(
-                    json['scaleToZero'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AgentManifestSpecServing.fromJson(Map<String, dynamic> json) => AgentManifestSpecServing(
+    minReplicas: json['minReplicas'] != null ? SdkPresent(((json['minReplicas'] as num?)?.toInt())!) : const SdkOmitted(),
+    maxReplicas: json['maxReplicas'] != null ? SdkPresent(((json['maxReplicas'] as num?)?.toInt())!) : const SdkOmitted(),
+    targetConcurrency: json['targetConcurrency'] != null ? SdkPresent(((json['targetConcurrency'] as num?)?.toInt())!) : const SdkOmitted(),
+    scaleToZero: json['scaleToZero'] != null ? SdkPresent((json['scaleToZero'] != null ? AgentManifestSpecServingScaleToZero.fromJson(json['scaleToZero'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (minReplicas) {
-          SdkPresent<int>(value: final value) => {
-              'minReplicas': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxReplicas) {
-          SdkPresent<int>(value: final value) => {
-              'maxReplicas': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (targetConcurrency) {
-          SdkPresent<int>(value: final value) => {
-              'targetConcurrency': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scaleToZero) {
-          SdkPresent<AgentManifestSpecServingScaleToZero>(value: final value) =>
-            {
-              'scaleToZero': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (minReplicas) {
+      SdkPresent<int>(value: final value) => {'minReplicas': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxReplicas) {
+      SdkPresent<int>(value: final value) => {'maxReplicas': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (targetConcurrency) {
+      SdkPresent<int>(value: final value) => {'targetConcurrency': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scaleToZero) {
+      SdkPresent<AgentManifestSpecServingScaleToZero>(value: final value) => {'scaleToZero': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `skills[]` wire field.
 class AgentManifestSpecSkillsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique across the list; 1-64 chars of lowercase letters, digits, and single hyphen separators - no consecutive hyphens, per the Agent Skills spec (safe as a directory name at materialization).
   final String name;
-
   /// Load-bearing: the agent reads it to decide WHEN to load the skill (progressive disclosure); write it as "Use when ...". Max 1024 chars.
   final String description;
-
   /// The markdown body (the content below the SKILL.md frontmatter). Max 32 KiB.
   final String instructions;
-
   /// Optional standard passthrough (e.g. Apache-2.0).
   final SdkOptional<String> license;
-
   /// Optional string-map passthrough (e.g. author), rendered into the frontmatter verbatim.
   final SdkOptional<Map<String, String>> metadata;
-
   /// Advisory scoping of which tools the skill expects to use (experimental in the skills standard). NOT a security boundary - spec.permissions remains the only enforcement surface.
   final SdkOptional<List<String>> allowedTools;
 
-  const AgentManifestSpecSkillsItem(
-      {required this.name,
-      required this.description,
-      required this.instructions,
-      this.license = const SdkOmitted(),
-      this.metadata = const SdkOmitted(),
-      this.allowedTools = const SdkOmitted()});
+  const AgentManifestSpecSkillsItem({required this.name, required this.description, required this.instructions, this.license = const SdkOmitted(), this.metadata = const SdkOmitted(), this.allowedTools = const SdkOmitted()});
 
-  AgentManifestSpecSkillsItem Function(
-      {String name,
-      String description,
-      String instructions,
-      SdkOptional<String> license,
-      SdkOptional<Map<String, String>> metadata,
-      SdkOptional<List<String>> allowedTools}) get copyWith => _copyWith;
+  AgentManifestSpecSkillsItem Function({String name, String description, String instructions, SdkOptional<String> license, SdkOptional<Map<String, String>> metadata, SdkOptional<List<String>> allowedTools}) get copyWith => _copyWith;
 
-  AgentManifestSpecSkillsItem _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? instructions = sdkOmittedValue,
-          Object? license = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue,
-          Object? allowedTools = sdkOmittedValue}) =>
-      AgentManifestSpecSkillsItem(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as String,
-        instructions: identical(instructions, sdkOmittedValue)
-            ? this.instructions
-            : instructions as String,
-        license: identical(license, sdkOmittedValue)
-            ? this.license
-            : license as SdkOptional<String>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, String>>,
-        allowedTools: identical(allowedTools, sdkOmittedValue)
-            ? this.allowedTools
-            : allowedTools as SdkOptional<List<String>>,
-      );
+  AgentManifestSpecSkillsItem _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? license = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? allowedTools = sdkOmittedValue}) => AgentManifestSpecSkillsItem(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as String,
+    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as String,
+    license: identical(license, sdkOmittedValue) ? this.license : license as SdkOptional<String>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, String>>,
+    allowedTools: identical(allowedTools, sdkOmittedValue) ? this.allowedTools : allowedTools as SdkOptional<List<String>>,
+  );
 
-  factory AgentManifestSpecSkillsItem.fromJson(Map<String, dynamic> json) =>
-      AgentManifestSpecSkillsItem(
-        name: (json['name'] as String?)!,
-        description: (json['description'] as String?)!,
-        instructions: (json['instructions'] as String?)!,
-        license: json['license'] != null
-            ? SdkPresent((json['license'] as String?)!)
-            : const SdkOmitted(),
-        metadata: json['metadata'] != null
-            ? SdkPresent((json['metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-        allowedTools: json['allowedTools'] != null
-            ? SdkPresent(((json['allowedTools'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AgentManifestSpecSkillsItem.fromJson(Map<String, dynamic> json) => AgentManifestSpecSkillsItem(
+    name: (json['name'] as String?)!,
+    description: (json['description'] as String?)!,
+    instructions: (json['instructions'] as String?)!,
+    license: json['license'] != null ? SdkPresent((json['license'] as String?)!) : const SdkOmitted(),
+    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+    allowedTools: json['allowedTools'] != null ? SdkPresent(((json['allowedTools'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'description': description,
-        'instructions': instructions,
-        ...switch (license) {
-          SdkPresent<String>(value: final value) => {
-              'license': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedTools) {
-          SdkPresent<List<String>>(value: final value) => {
-              'allowedTools': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    'description': description,
+    'instructions': instructions,
+    ...switch (license) {
+      SdkPresent<String>(value: final value) => {'license': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, String>>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedTools) {
+      SdkPresent<List<String>>(value: final value) => {'allowedTools': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -10,44 +10,24 @@ sealed class LoadBalancerUpdate {
   const LoadBalancerUpdate();
   factory LoadBalancerUpdate.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = LoadBalancerUpdateVariant0.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LoadBalancerUpdateLoadBalancerUpdateVariant0(value);
-        }
-      } catch (_) {}
-      try {
-        final value = LoadBalancerUpdateVariant1.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LoadBalancerUpdateLoadBalancerUpdateVariant1(value);
-        }
-      } catch (_) {}
+      try { final value = LoadBalancerUpdateVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LoadBalancerUpdateLoadBalancerUpdateVariant0(value); } } catch (_) {}
+      try { final value = LoadBalancerUpdateVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LoadBalancerUpdateLoadBalancerUpdateVariant1(value); } } catch (_) {}
     }
-    try {
-      return LoadBalancerUpdateLoadBalancerUpdateVariant0(
-          LoadBalancerUpdateVariant0.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LoadBalancerUpdateLoadBalancerUpdateVariant1(
-          LoadBalancerUpdateVariant1.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return LoadBalancerUpdateLoadBalancerUpdateVariant0(LoadBalancerUpdateVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LoadBalancerUpdateLoadBalancerUpdateVariant1(LoadBalancerUpdateVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for LoadBalancerUpdate");
   }
   Object? toJson();
 }
 
-final class LoadBalancerUpdateLoadBalancerUpdateVariant0
-    extends LoadBalancerUpdate {
+final class LoadBalancerUpdateLoadBalancerUpdateVariant0 extends LoadBalancerUpdate {
   final LoadBalancerUpdateVariant0 value;
   const LoadBalancerUpdateLoadBalancerUpdateVariant0(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class LoadBalancerUpdateLoadBalancerUpdateVariant1
-    extends LoadBalancerUpdate {
+final class LoadBalancerUpdateLoadBalancerUpdateVariant1 extends LoadBalancerUpdate {
   final LoadBalancerUpdateVariant1 value;
   const LoadBalancerUpdateLoadBalancerUpdateVariant1(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

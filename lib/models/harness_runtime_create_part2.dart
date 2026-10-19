@@ -8,37 +8,25 @@ part of 'harness_runtime_create.dart';
 class CreateWebhookConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Signature-verification scheme applied to a delivery. Omitted on create defaults to custom.
   final SdkOptional<WebhookProviderKey> provider;
 
   const CreateWebhookConfig({this.provider = const SdkOmitted()});
 
-  CreateWebhookConfig Function({SdkOptional<WebhookProviderKey> provider})
-      get copyWith => _copyWith;
+  CreateWebhookConfig Function({SdkOptional<WebhookProviderKey> provider}) get copyWith => _copyWith;
 
-  CreateWebhookConfig _copyWith({Object? provider = sdkOmittedValue}) =>
-      CreateWebhookConfig(
-        provider: identical(provider, sdkOmittedValue)
-            ? this.provider
-            : provider as SdkOptional<WebhookProviderKey>,
-      );
+  CreateWebhookConfig _copyWith({Object? provider = sdkOmittedValue}) => CreateWebhookConfig(
+    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as SdkOptional<WebhookProviderKey>,
+  );
 
-  factory CreateWebhookConfig.fromJson(Map<String, dynamic> json) =>
-      CreateWebhookConfig(
-        provider: json['provider'] != null
-            ? SdkPresent((json['provider'] != null
-                ? WebhookProviderKey.fromJson(json['provider'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory CreateWebhookConfig.fromJson(Map<String, dynamic> json) => CreateWebhookConfig(
+    provider: json['provider'] != null ? SdkPresent((json['provider'] != null ? WebhookProviderKey.fromJson(json['provider'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (provider) {
-          SdkPresent<WebhookProviderKey>(value: final value) => {
-              'provider': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (provider) {
+      SdkPresent<WebhookProviderKey>(value: final value) => {'provider': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,342 +8,166 @@ part of 'vpc_nat_gateways.dart';
 class VpcNatGatewayGetVpcsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier of the VPC to which the NAT gateway is attached.
   final SdkOptional<String> vpcUuid;
-
   /// The unique identifier of the VPC subnet to which the NAT gateway is attached.
   final SdkOptional<String> subnetUuid;
-
   /// The gateway IP address of the VPC NAT gateway.
   final SdkOptional<String> gatewayIp;
 
-  const VpcNatGatewayGetVpcsItem(
-      {this.vpcUuid = const SdkOmitted(),
-      this.subnetUuid = const SdkOmitted(),
-      this.gatewayIp = const SdkOmitted()});
+  const VpcNatGatewayGetVpcsItem({this.vpcUuid = const SdkOmitted(), this.subnetUuid = const SdkOmitted(), this.gatewayIp = const SdkOmitted()});
 
-  VpcNatGatewayGetVpcsItem Function(
-      {SdkOptional<String> vpcUuid,
-      SdkOptional<String> subnetUuid,
-      SdkOptional<String> gatewayIp}) get copyWith => _copyWith;
+  VpcNatGatewayGetVpcsItem Function({SdkOptional<String> vpcUuid, SdkOptional<String> subnetUuid, SdkOptional<String> gatewayIp}) get copyWith => _copyWith;
 
-  VpcNatGatewayGetVpcsItem _copyWith(
-          {Object? vpcUuid = sdkOmittedValue,
-          Object? subnetUuid = sdkOmittedValue,
-          Object? gatewayIp = sdkOmittedValue}) =>
-      VpcNatGatewayGetVpcsItem(
-        vpcUuid: identical(vpcUuid, sdkOmittedValue)
-            ? this.vpcUuid
-            : vpcUuid as SdkOptional<String>,
-        subnetUuid: identical(subnetUuid, sdkOmittedValue)
-            ? this.subnetUuid
-            : subnetUuid as SdkOptional<String>,
-        gatewayIp: identical(gatewayIp, sdkOmittedValue)
-            ? this.gatewayIp
-            : gatewayIp as SdkOptional<String>,
-      );
+  VpcNatGatewayGetVpcsItem _copyWith({Object? vpcUuid = sdkOmittedValue, Object? subnetUuid = sdkOmittedValue, Object? gatewayIp = sdkOmittedValue}) => VpcNatGatewayGetVpcsItem(
+    vpcUuid: identical(vpcUuid, sdkOmittedValue) ? this.vpcUuid : vpcUuid as SdkOptional<String>,
+    subnetUuid: identical(subnetUuid, sdkOmittedValue) ? this.subnetUuid : subnetUuid as SdkOptional<String>,
+    gatewayIp: identical(gatewayIp, sdkOmittedValue) ? this.gatewayIp : gatewayIp as SdkOptional<String>,
+  );
 
-  factory VpcNatGatewayGetVpcsItem.fromJson(Map<String, dynamic> json) =>
-      VpcNatGatewayGetVpcsItem(
-        vpcUuid: json['vpc_uuid'] != null
-            ? SdkPresent((json['vpc_uuid'] as String?)!)
-            : const SdkOmitted(),
-        subnetUuid: json['subnet_uuid'] != null
-            ? SdkPresent((json['subnet_uuid'] as String?)!)
-            : const SdkOmitted(),
-        gatewayIp: json['gateway_ip'] != null
-            ? SdkPresent((json['gateway_ip'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VpcNatGatewayGetVpcsItem.fromJson(Map<String, dynamic> json) => VpcNatGatewayGetVpcsItem(
+    vpcUuid: json['vpc_uuid'] != null ? SdkPresent((json['vpc_uuid'] as String?)!) : const SdkOmitted(),
+    subnetUuid: json['subnet_uuid'] != null ? SdkPresent((json['subnet_uuid'] as String?)!) : const SdkOmitted(),
+    gatewayIp: json['gateway_ip'] != null ? SdkPresent((json['gateway_ip'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (vpcUuid) {
-          SdkPresent<String>(value: final value) => {
-              'vpc_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (subnetUuid) {
-          SdkPresent<String>(value: final value) => {
-              'subnet_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (gatewayIp) {
-          SdkPresent<String>(value: final value) => {
-              'gateway_ip': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (vpcUuid) {
+      SdkPresent<String>(value: final value) => {'vpc_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (subnetUuid) {
+      SdkPresent<String>(value: final value) => {'subnet_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (gatewayIp) {
+      SdkPresent<String>(value: final value) => {'gateway_ip': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VpcNatGatewayGet` API schema.
 class VpcNatGatewayGet {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier for the VPC NAT gateway. This is automatically generated upon creation.
   final SdkOptional<String> id;
-
   /// The human-readable name of the VPC NAT gateway.
   final SdkOptional<String> name;
-
   /// The type of the VPC NAT gateway.
   final SdkOptional<VpcNatGatewayGetType> type_;
-
   /// The current state of the VPC NAT gateway.
   final SdkOptional<VpcNatGatewayGetState> state;
-
   /// The region in which the VPC NAT gateway is created.
   final SdkOptional<VpcNatGatewayGetRegion> region;
-
   /// The size of the VPC NAT gateway.
   final SdkOptional<int> size;
-
   /// An array of VPCs associated with the VPC NAT gateway.
   final SdkOptional<List<VpcNatGatewayGetVpcsItem>> vpcs;
-
   /// An object containing egress information for the VPC NAT gateway.
   final SdkOptional<VpcNatGatewayGetEgresses> egresses;
-
   /// The UDP timeout in seconds for the VPC NAT gateway.
   final SdkOptional<int> udpTimeoutSeconds;
-
   /// The ICMP timeout in seconds for the VPC NAT gateway.
   final SdkOptional<int> icmpTimeoutSeconds;
-
   /// The TCP timeout in seconds for the VPC NAT gateway.
   final SdkOptional<int> tcpTimeoutSeconds;
-
   /// A time value given in ISO8601 combined date and time format that represents when the VPC NAT gateway was created.
   final SdkOptional<String> createdAt;
-
   /// A time value given in ISO8601 combined date and time format that represents when the VPC NAT gateway was last updated.
   final SdkOptional<String> updatedAt;
 
-  const VpcNatGatewayGet(
-      {this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.type_ = const SdkOmitted(),
-      this.state = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.size = const SdkOmitted(),
-      this.vpcs = const SdkOmitted(),
-      this.egresses = const SdkOmitted(),
-      this.udpTimeoutSeconds = const SdkOmitted(),
-      this.icmpTimeoutSeconds = const SdkOmitted(),
-      this.tcpTimeoutSeconds = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted()});
+  const VpcNatGatewayGet({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.type_ = const SdkOmitted(), this.state = const SdkOmitted(), this.region = const SdkOmitted(), this.size = const SdkOmitted(), this.vpcs = const SdkOmitted(), this.egresses = const SdkOmitted(), this.udpTimeoutSeconds = const SdkOmitted(), this.icmpTimeoutSeconds = const SdkOmitted(), this.tcpTimeoutSeconds = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
 
-  VpcNatGatewayGet Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> name,
-      SdkOptional<VpcNatGatewayGetType> type_,
-      SdkOptional<VpcNatGatewayGetState> state,
-      SdkOptional<VpcNatGatewayGetRegion> region,
-      SdkOptional<int> size,
-      SdkOptional<List<VpcNatGatewayGetVpcsItem>> vpcs,
-      SdkOptional<VpcNatGatewayGetEgresses> egresses,
-      SdkOptional<int> udpTimeoutSeconds,
-      SdkOptional<int> icmpTimeoutSeconds,
-      SdkOptional<int> tcpTimeoutSeconds,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  VpcNatGatewayGet Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<VpcNatGatewayGetType> type_, SdkOptional<VpcNatGatewayGetState> state, SdkOptional<VpcNatGatewayGetRegion> region, SdkOptional<int> size, SdkOptional<List<VpcNatGatewayGetVpcsItem>> vpcs, SdkOptional<VpcNatGatewayGetEgresses> egresses, SdkOptional<int> udpTimeoutSeconds, SdkOptional<int> icmpTimeoutSeconds, SdkOptional<int> tcpTimeoutSeconds, SdkOptional<String> createdAt, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  VpcNatGatewayGet _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? state = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? vpcs = sdkOmittedValue,
-          Object? egresses = sdkOmittedValue,
-          Object? udpTimeoutSeconds = sdkOmittedValue,
-          Object? icmpTimeoutSeconds = sdkOmittedValue,
-          Object? tcpTimeoutSeconds = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      VpcNatGatewayGet(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<VpcNatGatewayGetType>,
-        state: identical(state, sdkOmittedValue)
-            ? this.state
-            : state as SdkOptional<VpcNatGatewayGetState>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<VpcNatGatewayGetRegion>,
-        size: identical(size, sdkOmittedValue)
-            ? this.size
-            : size as SdkOptional<int>,
-        vpcs: identical(vpcs, sdkOmittedValue)
-            ? this.vpcs
-            : vpcs as SdkOptional<List<VpcNatGatewayGetVpcsItem>>,
-        egresses: identical(egresses, sdkOmittedValue)
-            ? this.egresses
-            : egresses as SdkOptional<VpcNatGatewayGetEgresses>,
-        udpTimeoutSeconds: identical(udpTimeoutSeconds, sdkOmittedValue)
-            ? this.udpTimeoutSeconds
-            : udpTimeoutSeconds as SdkOptional<int>,
-        icmpTimeoutSeconds: identical(icmpTimeoutSeconds, sdkOmittedValue)
-            ? this.icmpTimeoutSeconds
-            : icmpTimeoutSeconds as SdkOptional<int>,
-        tcpTimeoutSeconds: identical(tcpTimeoutSeconds, sdkOmittedValue)
-            ? this.tcpTimeoutSeconds
-            : tcpTimeoutSeconds as SdkOptional<int>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-      );
+  VpcNatGatewayGet _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? state = sdkOmittedValue, Object? region = sdkOmittedValue, Object? size = sdkOmittedValue, Object? vpcs = sdkOmittedValue, Object? egresses = sdkOmittedValue, Object? udpTimeoutSeconds = sdkOmittedValue, Object? icmpTimeoutSeconds = sdkOmittedValue, Object? tcpTimeoutSeconds = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => VpcNatGatewayGet(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<VpcNatGatewayGetType>,
+    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<VpcNatGatewayGetState>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<VpcNatGatewayGetRegion>,
+    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<int>,
+    vpcs: identical(vpcs, sdkOmittedValue) ? this.vpcs : vpcs as SdkOptional<List<VpcNatGatewayGetVpcsItem>>,
+    egresses: identical(egresses, sdkOmittedValue) ? this.egresses : egresses as SdkOptional<VpcNatGatewayGetEgresses>,
+    udpTimeoutSeconds: identical(udpTimeoutSeconds, sdkOmittedValue) ? this.udpTimeoutSeconds : udpTimeoutSeconds as SdkOptional<int>,
+    icmpTimeoutSeconds: identical(icmpTimeoutSeconds, sdkOmittedValue) ? this.icmpTimeoutSeconds : icmpTimeoutSeconds as SdkOptional<int>,
+    tcpTimeoutSeconds: identical(tcpTimeoutSeconds, sdkOmittedValue) ? this.tcpTimeoutSeconds : tcpTimeoutSeconds as SdkOptional<int>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+  );
 
-  factory VpcNatGatewayGet.fromJson(Map<String, dynamic> json) =>
-      VpcNatGatewayGet(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? VpcNatGatewayGetType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        state: json['state'] != null
-            ? SdkPresent((json['state'] != null
-                ? VpcNatGatewayGetState.fromJson(json['state'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? VpcNatGatewayGetRegion.fromJson(json['region'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        size: json['size'] != null
-            ? SdkPresent(((json['size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        vpcs: json['vpcs'] != null
-            ? SdkPresent(((json['vpcs'] as List?)
-                ?.map((e) => VpcNatGatewayGetVpcsItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        egresses: json['egresses'] != null
-            ? SdkPresent((json['egresses'] != null
-                ? VpcNatGatewayGetEgresses.fromJson(
-                    json['egresses'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        udpTimeoutSeconds: json['udp_timeout_seconds'] != null
-            ? SdkPresent(((json['udp_timeout_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        icmpTimeoutSeconds: json['icmp_timeout_seconds'] != null
-            ? SdkPresent(((json['icmp_timeout_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        tcpTimeoutSeconds: json['tcp_timeout_seconds'] != null
-            ? SdkPresent(((json['tcp_timeout_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VpcNatGatewayGet.fromJson(Map<String, dynamic> json) => VpcNatGatewayGet(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? VpcNatGatewayGetType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    state: json['state'] != null ? SdkPresent((json['state'] != null ? VpcNatGatewayGetState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? VpcNatGatewayGetRegion.fromJson(json['region'] as String) : null)!) : const SdkOmitted(),
+    size: json['size'] != null ? SdkPresent(((json['size'] as num?)?.toInt())!) : const SdkOmitted(),
+    vpcs: json['vpcs'] != null ? SdkPresent(((json['vpcs'] as List?)?.map((e) => VpcNatGatewayGetVpcsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    egresses: json['egresses'] != null ? SdkPresent((json['egresses'] != null ? VpcNatGatewayGetEgresses.fromJson(json['egresses'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    udpTimeoutSeconds: json['udp_timeout_seconds'] != null ? SdkPresent(((json['udp_timeout_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+    icmpTimeoutSeconds: json['icmp_timeout_seconds'] != null ? SdkPresent(((json['icmp_timeout_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+    tcpTimeoutSeconds: json['tcp_timeout_seconds'] != null ? SdkPresent(((json['tcp_timeout_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<VpcNatGatewayGetType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (state) {
-          SdkPresent<VpcNatGatewayGetState>(value: final value) => {
-              'state': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<VpcNatGatewayGetRegion>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (size) {
-          SdkPresent<int>(value: final value) => {
-              'size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (vpcs) {
-          SdkPresent<List<VpcNatGatewayGetVpcsItem>>(value: final value) => {
-              'vpcs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (egresses) {
-          SdkPresent<VpcNatGatewayGetEgresses>(value: final value) => {
-              'egresses': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (udpTimeoutSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'udp_timeout_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (icmpTimeoutSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'icmp_timeout_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tcpTimeoutSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'tcp_timeout_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<VpcNatGatewayGetType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (state) {
+      SdkPresent<VpcNatGatewayGetState>(value: final value) => {'state': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<VpcNatGatewayGetRegion>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (size) {
+      SdkPresent<int>(value: final value) => {'size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (vpcs) {
+      SdkPresent<List<VpcNatGatewayGetVpcsItem>>(value: final value) => {'vpcs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (egresses) {
+      SdkPresent<VpcNatGatewayGetEgresses>(value: final value) => {'egresses': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (udpTimeoutSeconds) {
+      SdkPresent<int>(value: final value) => {'udp_timeout_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (icmpTimeoutSeconds) {
+      SdkPresent<int>(value: final value) => {'icmp_timeout_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tcpTimeoutSeconds) {
+      SdkPresent<int>(value: final value) => {'tcp_timeout_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class VpcNatGatewaysVariant0 {
@@ -353,36 +177,22 @@ class VpcNatGatewaysVariant0 {
 
   const VpcNatGatewaysVariant0({this.vpcNatGateways = const SdkOmitted()});
 
-  VpcNatGatewaysVariant0 Function(
-          {SdkOptional<List<VpcNatGatewayGet>> vpcNatGateways})
-      get copyWith => _copyWith;
+  VpcNatGatewaysVariant0 Function({SdkOptional<List<VpcNatGatewayGet>> vpcNatGateways}) get copyWith => _copyWith;
 
-  VpcNatGatewaysVariant0 _copyWith(
-          {Object? vpcNatGateways = sdkOmittedValue}) =>
-      VpcNatGatewaysVariant0(
-        vpcNatGateways: identical(vpcNatGateways, sdkOmittedValue)
-            ? this.vpcNatGateways
-            : vpcNatGateways as SdkOptional<List<VpcNatGatewayGet>>,
-      );
+  VpcNatGatewaysVariant0 _copyWith({Object? vpcNatGateways = sdkOmittedValue}) => VpcNatGatewaysVariant0(
+    vpcNatGateways: identical(vpcNatGateways, sdkOmittedValue) ? this.vpcNatGateways : vpcNatGateways as SdkOptional<List<VpcNatGatewayGet>>,
+  );
 
-  factory VpcNatGatewaysVariant0.fromJson(Map<String, dynamic> json) =>
-      VpcNatGatewaysVariant0(
-        vpcNatGateways: json['vpc_nat_gateways'] != null
-            ? SdkPresent(((json['vpc_nat_gateways'] as List?)
-                ?.map(
-                    (e) => VpcNatGatewayGet.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory VpcNatGatewaysVariant0.fromJson(Map<String, dynamic> json) => VpcNatGatewaysVariant0(
+    vpcNatGateways: json['vpc_nat_gateways'] != null ? SdkPresent(((json['vpc_nat_gateways'] as List?)?.map((e) => VpcNatGatewayGet.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (vpcNatGateways) {
-          SdkPresent<List<VpcNatGatewayGet>>(value: final value) => {
-              'vpc_nat_gateways': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (vpcNatGateways) {
+      SdkPresent<List<VpcNatGatewayGet>>(value: final value) => {'vpc_nat_gateways': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VpcNatGateways` API schema.
@@ -390,144 +200,79 @@ class VpcNatGateways {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<VpcNatGatewayGet>> vpcNatGateways;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const VpcNatGateways(
-      {this.vpcNatGateways = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const VpcNatGateways({this.vpcNatGateways = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  VpcNatGateways Function(
-      {SdkOptional<List<VpcNatGatewayGet>> vpcNatGateways,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  VpcNatGateways Function({SdkOptional<List<VpcNatGatewayGet>> vpcNatGateways, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  VpcNatGateways _copyWith(
-          {Object? vpcNatGateways = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      VpcNatGateways(
-        vpcNatGateways: identical(vpcNatGateways, sdkOmittedValue)
-            ? this.vpcNatGateways
-            : vpcNatGateways as SdkOptional<List<VpcNatGatewayGet>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  VpcNatGateways _copyWith({Object? vpcNatGateways = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => VpcNatGateways(
+    vpcNatGateways: identical(vpcNatGateways, sdkOmittedValue) ? this.vpcNatGateways : vpcNatGateways as SdkOptional<List<VpcNatGatewayGet>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory VpcNatGateways.fromJson(Map<String, dynamic> json) => VpcNatGateways(
-        vpcNatGateways: json['vpc_nat_gateways'] != null
-            ? SdkPresent(((json['vpc_nat_gateways'] as List?)
-                ?.map(
-                    (e) => VpcNatGatewayGet.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    vpcNatGateways: json['vpc_nat_gateways'] != null ? SdkPresent(((json['vpc_nat_gateways'] as List?)?.map((e) => VpcNatGatewayGet.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (vpcNatGateways) {
-          SdkPresent<List<VpcNatGatewayGet>>(value: final value) => {
-              'vpc_nat_gateways': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (vpcNatGateways) {
+      SdkPresent<List<VpcNatGatewayGet>>(value: final value) => {'vpc_nat_gateways': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 /// Required object value serialized in the `vpcs[]` wire field.
 class VpcNatGatewayUpdateVpcsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier of the VPC to which the NAT gateway is attached.
   final SdkOptional<String> vpcUuid;
-
   /// The unique identifier of the VPC subnet to which the NAT gateway is attached.
   final SdkOptional<String> subnetUuid;
-
   /// The classification of the NAT gateway as the default egress route for the VPC traffic.
   final SdkOptional<bool> defaultGateway;
 
-  const VpcNatGatewayUpdateVpcsItem(
-      {this.vpcUuid = const SdkOmitted(),
-      this.subnetUuid = const SdkOmitted(),
-      this.defaultGateway = const SdkOmitted()});
+  const VpcNatGatewayUpdateVpcsItem({this.vpcUuid = const SdkOmitted(), this.subnetUuid = const SdkOmitted(), this.defaultGateway = const SdkOmitted()});
 
-  VpcNatGatewayUpdateVpcsItem Function(
-      {SdkOptional<String> vpcUuid,
-      SdkOptional<String> subnetUuid,
-      SdkOptional<bool> defaultGateway}) get copyWith => _copyWith;
+  VpcNatGatewayUpdateVpcsItem Function({SdkOptional<String> vpcUuid, SdkOptional<String> subnetUuid, SdkOptional<bool> defaultGateway}) get copyWith => _copyWith;
 
-  VpcNatGatewayUpdateVpcsItem _copyWith(
-          {Object? vpcUuid = sdkOmittedValue,
-          Object? subnetUuid = sdkOmittedValue,
-          Object? defaultGateway = sdkOmittedValue}) =>
-      VpcNatGatewayUpdateVpcsItem(
-        vpcUuid: identical(vpcUuid, sdkOmittedValue)
-            ? this.vpcUuid
-            : vpcUuid as SdkOptional<String>,
-        subnetUuid: identical(subnetUuid, sdkOmittedValue)
-            ? this.subnetUuid
-            : subnetUuid as SdkOptional<String>,
-        defaultGateway: identical(defaultGateway, sdkOmittedValue)
-            ? this.defaultGateway
-            : defaultGateway as SdkOptional<bool>,
-      );
+  VpcNatGatewayUpdateVpcsItem _copyWith({Object? vpcUuid = sdkOmittedValue, Object? subnetUuid = sdkOmittedValue, Object? defaultGateway = sdkOmittedValue}) => VpcNatGatewayUpdateVpcsItem(
+    vpcUuid: identical(vpcUuid, sdkOmittedValue) ? this.vpcUuid : vpcUuid as SdkOptional<String>,
+    subnetUuid: identical(subnetUuid, sdkOmittedValue) ? this.subnetUuid : subnetUuid as SdkOptional<String>,
+    defaultGateway: identical(defaultGateway, sdkOmittedValue) ? this.defaultGateway : defaultGateway as SdkOptional<bool>,
+  );
 
-  factory VpcNatGatewayUpdateVpcsItem.fromJson(Map<String, dynamic> json) =>
-      VpcNatGatewayUpdateVpcsItem(
-        vpcUuid: json['vpc_uuid'] != null
-            ? SdkPresent((json['vpc_uuid'] as String?)!)
-            : const SdkOmitted(),
-        subnetUuid: json['subnet_uuid'] != null
-            ? SdkPresent((json['subnet_uuid'] as String?)!)
-            : const SdkOmitted(),
-        defaultGateway: json['default_gateway'] != null
-            ? SdkPresent((json['default_gateway'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory VpcNatGatewayUpdateVpcsItem.fromJson(Map<String, dynamic> json) => VpcNatGatewayUpdateVpcsItem(
+    vpcUuid: json['vpc_uuid'] != null ? SdkPresent((json['vpc_uuid'] as String?)!) : const SdkOmitted(),
+    subnetUuid: json['subnet_uuid'] != null ? SdkPresent((json['subnet_uuid'] as String?)!) : const SdkOmitted(),
+    defaultGateway: json['default_gateway'] != null ? SdkPresent((json['default_gateway'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (vpcUuid) {
-          SdkPresent<String>(value: final value) => {
-              'vpc_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (subnetUuid) {
-          SdkPresent<String>(value: final value) => {
-              'subnet_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultGateway) {
-          SdkPresent<bool>(value: final value) => {
-              'default_gateway': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (vpcUuid) {
+      SdkPresent<String>(value: final value) => {'vpc_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (subnetUuid) {
+      SdkPresent<String>(value: final value) => {'subnet_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultGateway) {
+      SdkPresent<bool>(value: final value) => {'default_gateway': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

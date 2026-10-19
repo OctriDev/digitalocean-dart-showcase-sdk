@@ -27,26 +27,18 @@ Future<AllAutoscalePools> autoscalepoolsList(ClientConfig config,
   return (await sdkRequest<AllAutoscalePools>('GET', '/v2/droplets/autoscale',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'name': SdkQueryValue(SdkUtils.unwrapOptional(name),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'name': SdkQueryValue(SdkUtils.unwrapOptional(name), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'autoscalepoolsList',
-          fromJsonRaw: (value) =>
-              AllAutoscalePools.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllAutoscalePools.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a new autoscale pool with a scaling configuration and a template for the Droplets it manages. Supply `name`, `config`, and `droplet_template`; the template must specify `region`, `image`, `size`, and `ssh_keys`. A 202 response returns the pool details, including its identifier and status.
 ///
@@ -74,17 +66,12 @@ Future<AutoscalePoolCreateResponse> autoscalepoolsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'autoscalepoolsCreate',
-          fromJsonRaw: (value) => AutoscalePoolCreateResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AutoscalePoolCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To show information about an individual autoscale pool, send a GET request to `/v2/droplets/autoscale/$AUTOSCALE_POOL_ID`.
 ///
@@ -96,18 +83,12 @@ Future<ExistingAutoscalePool> autoscalepoolsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'autoscalepoolsGet',
-          fromJsonRaw: (value) =>
-              ExistingAutoscalePool.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExistingAutoscalePool.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Replaces the configuration of an existing autoscale pool with the full representation supplied in the request. Include `name`, `config`, and `droplet_template`, and provide the required region, image, size, and SSH keys in the Droplet template. A 200 response returns the updated pool details.
 ///
@@ -127,8 +108,8 @@ Future<AutoscalePoolCreateResponse> autoscalepoolsUpdate(ClientConfig config,
     required AutoscalePoolCreateConfig config_,
     required AutoscalePoolDropletTemplate dropletTemplate,
     RequestOptions? requestOptions}) async {
-  return (await sdkRequest<AutoscalePoolCreateResponse>(
-          'PUT', '/v2/droplets/autoscale/${Uri.encodeComponent(autoscalePoolId.toString())}',
+  return (await sdkRequest<AutoscalePoolCreateResponse>('PUT',
+          '/v2/droplets/autoscale/${Uri.encodeComponent(autoscalePoolId.toString())}',
           config: config,
           body: {
             'name': name,
@@ -137,18 +118,12 @@ Future<AutoscalePoolCreateResponse> autoscalepoolsUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'autoscalepoolsUpdate',
-          fromJsonRaw: (value) => AutoscalePoolCreateResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AutoscalePoolCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To destroy an autoscale pool, send a DELETE request to the `/v2/droplets/autoscale/$AUTOSCALE_POOL_ID` endpoint. A successful response will include a 202 response code and no content.
 ///
@@ -161,15 +136,10 @@ Future<void> autoscalepoolsDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'autoscalepoolsDelete',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To destroy an autoscale pool and its associated resources (Droplets), send a DELETE request to the `/v2/droplets/autoscale/$AUTOSCALE_POOL_ID/dangerous` endpoint.
 ///
@@ -187,15 +157,10 @@ Future<void> autoscalepoolsDeleteDangerous(ClientConfig config,
           extraHeaders: SdkUtils.serializeHeaders({'X-Dangerous': xDangerous}),
           operationId: 'autoscalepoolsDeleteDangerous',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list the Droplets in an autoscale pool, send a GET request to `/v2/droplets/autoscale/$AUTOSCALE_POOL_ID/members`. The response body will be a JSON object with a key of `droplets`. This will be set to an array containing information about each of the Droplets in the autoscale pool.
 ///
@@ -218,25 +183,17 @@ Future<AllMembers> autoscalepoolsListMembers(ClientConfig config,
           '/v2/droplets/autoscale/${Uri.encodeComponent(autoscalePoolId.toString())}/members',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'autoscalepoolsListMembers',
-          fromJsonRaw: (value) =>
-              AllMembers.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllMembers.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all of the scaling history events of an autoscale pool, send a GET request to `/v2/droplets/autoscale/$AUTOSCALE_POOL_ID/history`. The response body will be a JSON object with a key of `history`. This will be set to an array containing objects each representing a history event.
 ///
@@ -259,22 +216,13 @@ Future<HistoryEvents> autoscalepoolsListHistory(ClientConfig config,
           '/v2/droplets/autoscale/${Uri.encodeComponent(autoscalePoolId.toString())}/history',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'autoscalepoolsListHistory',
-          fromJsonRaw: (value) =>
-              HistoryEvents.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => HistoryEvents.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

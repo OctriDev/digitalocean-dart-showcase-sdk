@@ -8,457 +8,270 @@ part of 'harness_runtime_list.dart';
 class ListAgentConfigsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `configs` wire field.
   final SdkOptional<List<AgentConfigSummary>> configs;
-
   /// Optional `string` value serialized in the `next_page_token` wire field.
   final SdkOptional<String> nextPageToken;
 
-  const ListAgentConfigsResponse(
-      {this.configs = const SdkOmitted(),
-      this.nextPageToken = const SdkOmitted()});
+  const ListAgentConfigsResponse({this.configs = const SdkOmitted(), this.nextPageToken = const SdkOmitted()});
 
-  ListAgentConfigsResponse Function(
-      {SdkOptional<List<AgentConfigSummary>> configs,
-      SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
+  ListAgentConfigsResponse Function({SdkOptional<List<AgentConfigSummary>> configs, SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
 
-  ListAgentConfigsResponse _copyWith(
-          {Object? configs = sdkOmittedValue,
-          Object? nextPageToken = sdkOmittedValue}) =>
-      ListAgentConfigsResponse(
-        configs: identical(configs, sdkOmittedValue)
-            ? this.configs
-            : configs as SdkOptional<List<AgentConfigSummary>>,
-        nextPageToken: identical(nextPageToken, sdkOmittedValue)
-            ? this.nextPageToken
-            : nextPageToken as SdkOptional<String>,
-      );
+  ListAgentConfigsResponse _copyWith({Object? configs = sdkOmittedValue, Object? nextPageToken = sdkOmittedValue}) => ListAgentConfigsResponse(
+    configs: identical(configs, sdkOmittedValue) ? this.configs : configs as SdkOptional<List<AgentConfigSummary>>,
+    nextPageToken: identical(nextPageToken, sdkOmittedValue) ? this.nextPageToken : nextPageToken as SdkOptional<String>,
+  );
 
-  factory ListAgentConfigsResponse.fromJson(Map<String, dynamic> json) =>
-      ListAgentConfigsResponse(
-        configs: json['configs'] != null
-            ? SdkPresent(((json['configs'] as List?)
-                ?.map((e) =>
-                    AgentConfigSummary.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        nextPageToken: json['next_page_token'] != null
-            ? SdkPresent((json['next_page_token'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ListAgentConfigsResponse.fromJson(Map<String, dynamic> json) => ListAgentConfigsResponse(
+    configs: json['configs'] != null ? SdkPresent(((json['configs'] as List?)?.map((e) => AgentConfigSummary.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    nextPageToken: json['next_page_token'] != null ? SdkPresent((json['next_page_token'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (configs) {
-          SdkPresent<List<AgentConfigSummary>>(value: final value) => {
-              'configs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextPageToken) {
-          SdkPresent<String>(value: final value) => {
-              'next_page_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (configs) {
+      SdkPresent<List<AgentConfigSummary>>(value: final value) => {'configs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextPageToken) {
+      SdkPresent<String>(value: final value) => {'next_page_token': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListCheckpointsResponse` API schema.
 class ListCheckpointsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Newest first.
   final SdkOptional<List<Checkpoint>> checkpoints;
-
   /// Opaque cursor for the next page. Empty when there are no further pages.
   final SdkOptional<String> nextPageToken;
 
-  const ListCheckpointsResponse(
-      {this.checkpoints = const SdkOmitted(),
-      this.nextPageToken = const SdkOmitted()});
+  const ListCheckpointsResponse({this.checkpoints = const SdkOmitted(), this.nextPageToken = const SdkOmitted()});
 
-  ListCheckpointsResponse Function(
-      {SdkOptional<List<Checkpoint>> checkpoints,
-      SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
+  ListCheckpointsResponse Function({SdkOptional<List<Checkpoint>> checkpoints, SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
 
-  ListCheckpointsResponse _copyWith(
-          {Object? checkpoints = sdkOmittedValue,
-          Object? nextPageToken = sdkOmittedValue}) =>
-      ListCheckpointsResponse(
-        checkpoints: identical(checkpoints, sdkOmittedValue)
-            ? this.checkpoints
-            : checkpoints as SdkOptional<List<Checkpoint>>,
-        nextPageToken: identical(nextPageToken, sdkOmittedValue)
-            ? this.nextPageToken
-            : nextPageToken as SdkOptional<String>,
-      );
+  ListCheckpointsResponse _copyWith({Object? checkpoints = sdkOmittedValue, Object? nextPageToken = sdkOmittedValue}) => ListCheckpointsResponse(
+    checkpoints: identical(checkpoints, sdkOmittedValue) ? this.checkpoints : checkpoints as SdkOptional<List<Checkpoint>>,
+    nextPageToken: identical(nextPageToken, sdkOmittedValue) ? this.nextPageToken : nextPageToken as SdkOptional<String>,
+  );
 
-  factory ListCheckpointsResponse.fromJson(Map<String, dynamic> json) =>
-      ListCheckpointsResponse(
-        checkpoints: json['checkpoints'] != null
-            ? SdkPresent(((json['checkpoints'] as List?)
-                ?.map((e) => Checkpoint.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        nextPageToken: json['next_page_token'] != null
-            ? SdkPresent((json['next_page_token'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ListCheckpointsResponse.fromJson(Map<String, dynamic> json) => ListCheckpointsResponse(
+    checkpoints: json['checkpoints'] != null ? SdkPresent(((json['checkpoints'] as List?)?.map((e) => Checkpoint.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    nextPageToken: json['next_page_token'] != null ? SdkPresent((json['next_page_token'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (checkpoints) {
-          SdkPresent<List<Checkpoint>>(value: final value) => {
-              'checkpoints': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextPageToken) {
-          SdkPresent<String>(value: final value) => {
-              'next_page_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (checkpoints) {
+      SdkPresent<List<Checkpoint>>(value: final value) => {'checkpoints': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextPageToken) {
+      SdkPresent<String>(value: final value) => {'next_page_token': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListReusableSessionsResponse` API schema.
 class ListReusableSessionsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `sessions` wire field.
   final SdkOptional<List<ReusableSession>> sessions;
-
   /// Opaque cursor for the next page. Empty when there are no further pages.
   final SdkOptional<String> nextPageToken;
 
-  const ListReusableSessionsResponse(
-      {this.sessions = const SdkOmitted(),
-      this.nextPageToken = const SdkOmitted()});
+  const ListReusableSessionsResponse({this.sessions = const SdkOmitted(), this.nextPageToken = const SdkOmitted()});
 
-  ListReusableSessionsResponse Function(
-      {SdkOptional<List<ReusableSession>> sessions,
-      SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
+  ListReusableSessionsResponse Function({SdkOptional<List<ReusableSession>> sessions, SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
 
-  ListReusableSessionsResponse _copyWith(
-          {Object? sessions = sdkOmittedValue,
-          Object? nextPageToken = sdkOmittedValue}) =>
-      ListReusableSessionsResponse(
-        sessions: identical(sessions, sdkOmittedValue)
-            ? this.sessions
-            : sessions as SdkOptional<List<ReusableSession>>,
-        nextPageToken: identical(nextPageToken, sdkOmittedValue)
-            ? this.nextPageToken
-            : nextPageToken as SdkOptional<String>,
-      );
+  ListReusableSessionsResponse _copyWith({Object? sessions = sdkOmittedValue, Object? nextPageToken = sdkOmittedValue}) => ListReusableSessionsResponse(
+    sessions: identical(sessions, sdkOmittedValue) ? this.sessions : sessions as SdkOptional<List<ReusableSession>>,
+    nextPageToken: identical(nextPageToken, sdkOmittedValue) ? this.nextPageToken : nextPageToken as SdkOptional<String>,
+  );
 
-  factory ListReusableSessionsResponse.fromJson(Map<String, dynamic> json) =>
-      ListReusableSessionsResponse(
-        sessions: json['sessions'] != null
-            ? SdkPresent(((json['sessions'] as List?)
-                ?.map(
-                    (e) => ReusableSession.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        nextPageToken: json['next_page_token'] != null
-            ? SdkPresent((json['next_page_token'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ListReusableSessionsResponse.fromJson(Map<String, dynamic> json) => ListReusableSessionsResponse(
+    sessions: json['sessions'] != null ? SdkPresent(((json['sessions'] as List?)?.map((e) => ReusableSession.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    nextPageToken: json['next_page_token'] != null ? SdkPresent((json['next_page_token'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (sessions) {
-          SdkPresent<List<ReusableSession>>(value: final value) => {
-              'sessions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextPageToken) {
-          SdkPresent<String>(value: final value) => {
-              'next_page_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (sessions) {
+      SdkPresent<List<ReusableSession>>(value: final value) => {'sessions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextPageToken) {
+      SdkPresent<String>(value: final value) => {'next_page_token': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListTemplateBuildsResponse` API schema.
 class ListTemplateBuildsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `builds` wire field.
   final SdkOptional<List<SandboxTemplateBuild>> builds;
-
   /// Optional `string` value serialized in the `next_page_token` wire field.
   final SdkOptional<String> nextPageToken;
 
-  const ListTemplateBuildsResponse(
-      {this.builds = const SdkOmitted(),
-      this.nextPageToken = const SdkOmitted()});
+  const ListTemplateBuildsResponse({this.builds = const SdkOmitted(), this.nextPageToken = const SdkOmitted()});
 
-  ListTemplateBuildsResponse Function(
-      {SdkOptional<List<SandboxTemplateBuild>> builds,
-      SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
+  ListTemplateBuildsResponse Function({SdkOptional<List<SandboxTemplateBuild>> builds, SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
 
-  ListTemplateBuildsResponse _copyWith(
-          {Object? builds = sdkOmittedValue,
-          Object? nextPageToken = sdkOmittedValue}) =>
-      ListTemplateBuildsResponse(
-        builds: identical(builds, sdkOmittedValue)
-            ? this.builds
-            : builds as SdkOptional<List<SandboxTemplateBuild>>,
-        nextPageToken: identical(nextPageToken, sdkOmittedValue)
-            ? this.nextPageToken
-            : nextPageToken as SdkOptional<String>,
-      );
+  ListTemplateBuildsResponse _copyWith({Object? builds = sdkOmittedValue, Object? nextPageToken = sdkOmittedValue}) => ListTemplateBuildsResponse(
+    builds: identical(builds, sdkOmittedValue) ? this.builds : builds as SdkOptional<List<SandboxTemplateBuild>>,
+    nextPageToken: identical(nextPageToken, sdkOmittedValue) ? this.nextPageToken : nextPageToken as SdkOptional<String>,
+  );
 
-  factory ListTemplateBuildsResponse.fromJson(Map<String, dynamic> json) =>
-      ListTemplateBuildsResponse(
-        builds: json['builds'] != null
-            ? SdkPresent(((json['builds'] as List?)
-                ?.map((e) =>
-                    SandboxTemplateBuild.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        nextPageToken: json['next_page_token'] != null
-            ? SdkPresent((json['next_page_token'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ListTemplateBuildsResponse.fromJson(Map<String, dynamic> json) => ListTemplateBuildsResponse(
+    builds: json['builds'] != null ? SdkPresent(((json['builds'] as List?)?.map((e) => SandboxTemplateBuild.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    nextPageToken: json['next_page_token'] != null ? SdkPresent((json['next_page_token'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (builds) {
-          SdkPresent<List<SandboxTemplateBuild>>(value: final value) => {
-              'builds': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextPageToken) {
-          SdkPresent<String>(value: final value) => {
-              'next_page_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (builds) {
+      SdkPresent<List<SandboxTemplateBuild>>(value: final value) => {'builds': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextPageToken) {
+      SdkPresent<String>(value: final value) => {'next_page_token': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListTemplatesResponse` API schema.
 class ListTemplatesResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `templates` wire field.
   final SdkOptional<List<SandboxTemplate>> templates;
-
   /// Optional `string` value serialized in the `next_page_token` wire field.
   final SdkOptional<String> nextPageToken;
 
-  const ListTemplatesResponse(
-      {this.templates = const SdkOmitted(),
-      this.nextPageToken = const SdkOmitted()});
+  const ListTemplatesResponse({this.templates = const SdkOmitted(), this.nextPageToken = const SdkOmitted()});
 
-  ListTemplatesResponse Function(
-      {SdkOptional<List<SandboxTemplate>> templates,
-      SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
+  ListTemplatesResponse Function({SdkOptional<List<SandboxTemplate>> templates, SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
 
-  ListTemplatesResponse _copyWith(
-          {Object? templates = sdkOmittedValue,
-          Object? nextPageToken = sdkOmittedValue}) =>
-      ListTemplatesResponse(
-        templates: identical(templates, sdkOmittedValue)
-            ? this.templates
-            : templates as SdkOptional<List<SandboxTemplate>>,
-        nextPageToken: identical(nextPageToken, sdkOmittedValue)
-            ? this.nextPageToken
-            : nextPageToken as SdkOptional<String>,
-      );
+  ListTemplatesResponse _copyWith({Object? templates = sdkOmittedValue, Object? nextPageToken = sdkOmittedValue}) => ListTemplatesResponse(
+    templates: identical(templates, sdkOmittedValue) ? this.templates : templates as SdkOptional<List<SandboxTemplate>>,
+    nextPageToken: identical(nextPageToken, sdkOmittedValue) ? this.nextPageToken : nextPageToken as SdkOptional<String>,
+  );
 
-  factory ListTemplatesResponse.fromJson(Map<String, dynamic> json) =>
-      ListTemplatesResponse(
-        templates: json['templates'] != null
-            ? SdkPresent(((json['templates'] as List?)
-                ?.map(
-                    (e) => SandboxTemplate.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        nextPageToken: json['next_page_token'] != null
-            ? SdkPresent((json['next_page_token'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ListTemplatesResponse.fromJson(Map<String, dynamic> json) => ListTemplatesResponse(
+    templates: json['templates'] != null ? SdkPresent(((json['templates'] as List?)?.map((e) => SandboxTemplate.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    nextPageToken: json['next_page_token'] != null ? SdkPresent((json['next_page_token'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (templates) {
-          SdkPresent<List<SandboxTemplate>>(value: final value) => {
-              'templates': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextPageToken) {
-          SdkPresent<String>(value: final value) => {
-              'next_page_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (templates) {
+      SdkPresent<List<SandboxTemplate>>(value: final value) => {'templates': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextPageToken) {
+      SdkPresent<String>(value: final value) => {'next_page_token': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListTriggerExecutionsResponse` API schema.
 class ListTriggerExecutionsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `executions` wire field.
   final SdkOptional<List<TriggerExecution>> executions;
-
   /// Opaque cursor for the next page. Empty when there are no further pages.
   final SdkOptional<String> nextPageToken;
 
-  const ListTriggerExecutionsResponse(
-      {this.executions = const SdkOmitted(),
-      this.nextPageToken = const SdkOmitted()});
+  const ListTriggerExecutionsResponse({this.executions = const SdkOmitted(), this.nextPageToken = const SdkOmitted()});
 
-  ListTriggerExecutionsResponse Function(
-      {SdkOptional<List<TriggerExecution>> executions,
-      SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
+  ListTriggerExecutionsResponse Function({SdkOptional<List<TriggerExecution>> executions, SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
 
-  ListTriggerExecutionsResponse _copyWith(
-          {Object? executions = sdkOmittedValue,
-          Object? nextPageToken = sdkOmittedValue}) =>
-      ListTriggerExecutionsResponse(
-        executions: identical(executions, sdkOmittedValue)
-            ? this.executions
-            : executions as SdkOptional<List<TriggerExecution>>,
-        nextPageToken: identical(nextPageToken, sdkOmittedValue)
-            ? this.nextPageToken
-            : nextPageToken as SdkOptional<String>,
-      );
+  ListTriggerExecutionsResponse _copyWith({Object? executions = sdkOmittedValue, Object? nextPageToken = sdkOmittedValue}) => ListTriggerExecutionsResponse(
+    executions: identical(executions, sdkOmittedValue) ? this.executions : executions as SdkOptional<List<TriggerExecution>>,
+    nextPageToken: identical(nextPageToken, sdkOmittedValue) ? this.nextPageToken : nextPageToken as SdkOptional<String>,
+  );
 
-  factory ListTriggerExecutionsResponse.fromJson(Map<String, dynamic> json) =>
-      ListTriggerExecutionsResponse(
-        executions: json['executions'] != null
-            ? SdkPresent(((json['executions'] as List?)
-                ?.map(
-                    (e) => TriggerExecution.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        nextPageToken: json['next_page_token'] != null
-            ? SdkPresent((json['next_page_token'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ListTriggerExecutionsResponse.fromJson(Map<String, dynamic> json) => ListTriggerExecutionsResponse(
+    executions: json['executions'] != null ? SdkPresent(((json['executions'] as List?)?.map((e) => TriggerExecution.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    nextPageToken: json['next_page_token'] != null ? SdkPresent((json['next_page_token'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (executions) {
-          SdkPresent<List<TriggerExecution>>(value: final value) => {
-              'executions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextPageToken) {
-          SdkPresent<String>(value: final value) => {
-              'next_page_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (executions) {
+      SdkPresent<List<TriggerExecution>>(value: final value) => {'executions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextPageToken) {
+      SdkPresent<String>(value: final value) => {'next_page_token': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListTriggersResponse` API schema.
 class ListTriggersResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `triggers` wire field.
   final SdkOptional<List<Trigger>> triggers;
-
   /// Opaque cursor for the next page. Empty when there are no further pages.
   final SdkOptional<String> nextPageToken;
 
-  const ListTriggersResponse(
-      {this.triggers = const SdkOmitted(),
-      this.nextPageToken = const SdkOmitted()});
+  const ListTriggersResponse({this.triggers = const SdkOmitted(), this.nextPageToken = const SdkOmitted()});
 
-  ListTriggersResponse Function(
-      {SdkOptional<List<Trigger>> triggers,
-      SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
+  ListTriggersResponse Function({SdkOptional<List<Trigger>> triggers, SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
 
-  ListTriggersResponse _copyWith(
-          {Object? triggers = sdkOmittedValue,
-          Object? nextPageToken = sdkOmittedValue}) =>
-      ListTriggersResponse(
-        triggers: identical(triggers, sdkOmittedValue)
-            ? this.triggers
-            : triggers as SdkOptional<List<Trigger>>,
-        nextPageToken: identical(nextPageToken, sdkOmittedValue)
-            ? this.nextPageToken
-            : nextPageToken as SdkOptional<String>,
-      );
+  ListTriggersResponse _copyWith({Object? triggers = sdkOmittedValue, Object? nextPageToken = sdkOmittedValue}) => ListTriggersResponse(
+    triggers: identical(triggers, sdkOmittedValue) ? this.triggers : triggers as SdkOptional<List<Trigger>>,
+    nextPageToken: identical(nextPageToken, sdkOmittedValue) ? this.nextPageToken : nextPageToken as SdkOptional<String>,
+  );
 
-  factory ListTriggersResponse.fromJson(Map<String, dynamic> json) =>
-      ListTriggersResponse(
-        triggers: json['triggers'] != null
-            ? SdkPresent(((json['triggers'] as List?)
-                ?.map((e) => Trigger.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        nextPageToken: json['next_page_token'] != null
-            ? SdkPresent((json['next_page_token'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ListTriggersResponse.fromJson(Map<String, dynamic> json) => ListTriggersResponse(
+    triggers: json['triggers'] != null ? SdkPresent(((json['triggers'] as List?)?.map((e) => Trigger.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    nextPageToken: json['next_page_token'] != null ? SdkPresent((json['next_page_token'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (triggers) {
-          SdkPresent<List<Trigger>>(value: final value) => {
-              'triggers': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextPageToken) {
-          SdkPresent<String>(value: final value) => {
-              'next_page_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (triggers) {
+      SdkPresent<List<Trigger>>(value: final value) => {'triggers': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextPageToken) {
+      SdkPresent<String>(value: final value) => {'next_page_token': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListWebhookProvidersResponse` API schema.
 class ListWebhookProvidersResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `providers` wire field.
   final SdkOptional<List<WebhookProvider>> providers;
 
   const ListWebhookProvidersResponse({this.providers = const SdkOmitted()});
 
-  ListWebhookProvidersResponse Function(
-      {SdkOptional<List<WebhookProvider>> providers}) get copyWith => _copyWith;
+  ListWebhookProvidersResponse Function({SdkOptional<List<WebhookProvider>> providers}) get copyWith => _copyWith;
 
-  ListWebhookProvidersResponse _copyWith(
-          {Object? providers = sdkOmittedValue}) =>
-      ListWebhookProvidersResponse(
-        providers: identical(providers, sdkOmittedValue)
-            ? this.providers
-            : providers as SdkOptional<List<WebhookProvider>>,
-      );
+  ListWebhookProvidersResponse _copyWith({Object? providers = sdkOmittedValue}) => ListWebhookProvidersResponse(
+    providers: identical(providers, sdkOmittedValue) ? this.providers : providers as SdkOptional<List<WebhookProvider>>,
+  );
 
-  factory ListWebhookProvidersResponse.fromJson(Map<String, dynamic> json) =>
-      ListWebhookProvidersResponse(
-        providers: json['providers'] != null
-            ? SdkPresent(((json['providers'] as List?)
-                ?.map(
-                    (e) => WebhookProvider.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ListWebhookProvidersResponse.fromJson(Map<String, dynamic> json) => ListWebhookProvidersResponse(
+    providers: json['providers'] != null ? SdkPresent(((json['providers'] as List?)?.map((e) => WebhookProvider.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (providers) {
-          SdkPresent<List<WebhookProvider>>(value: final value) => {
-              'providers': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (providers) {
+      SdkPresent<List<WebhookProvider>>(value: final value) => {'providers': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

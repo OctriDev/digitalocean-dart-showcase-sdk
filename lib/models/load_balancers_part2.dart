@@ -8,279 +8,162 @@ part of 'load_balancers.dart';
 class HealthCheck {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The protocol used for health checks sent to the backend Droplets. The possible values are `http`, `https`, or `tcp`.
   final SdkOptional<HealthCheckProtocol> protocol;
-
   /// An integer representing the port on the backend Droplets on which the health check will attempt a connection.
   final SdkOptional<int> port;
-
   /// The path on the backend Droplets to which the load balancer instance will send a request.
   final SdkOptional<String> path;
-
   /// The number of seconds between between two consecutive health checks.
   final SdkOptional<int> checkIntervalSeconds;
-
   /// The number of seconds the load balancer instance will wait for a response until marking a health check as failed.
   final SdkOptional<int> responseTimeoutSeconds;
-
   /// The number of times a health check must fail for a backend Droplet to be marked "unhealthy" and be removed from the pool.
   final SdkOptional<int> unhealthyThreshold;
-
   /// The number of times a health check must pass for a backend Droplet to be marked "healthy" and be re-added to the pool.
   final SdkOptional<int> healthyThreshold;
 
-  const HealthCheck(
-      {this.protocol = const SdkOmitted(),
-      this.port = const SdkOmitted(),
-      this.path = const SdkOmitted(),
-      this.checkIntervalSeconds = const SdkOmitted(),
-      this.responseTimeoutSeconds = const SdkOmitted(),
-      this.unhealthyThreshold = const SdkOmitted(),
-      this.healthyThreshold = const SdkOmitted()});
+  const HealthCheck({this.protocol = const SdkOmitted(), this.port = const SdkOmitted(), this.path = const SdkOmitted(), this.checkIntervalSeconds = const SdkOmitted(), this.responseTimeoutSeconds = const SdkOmitted(), this.unhealthyThreshold = const SdkOmitted(), this.healthyThreshold = const SdkOmitted()});
 
-  HealthCheck Function(
-      {SdkOptional<HealthCheckProtocol> protocol,
-      SdkOptional<int> port,
-      SdkOptional<String> path,
-      SdkOptional<int> checkIntervalSeconds,
-      SdkOptional<int> responseTimeoutSeconds,
-      SdkOptional<int> unhealthyThreshold,
-      SdkOptional<int> healthyThreshold}) get copyWith => _copyWith;
+  HealthCheck Function({SdkOptional<HealthCheckProtocol> protocol, SdkOptional<int> port, SdkOptional<String> path, SdkOptional<int> checkIntervalSeconds, SdkOptional<int> responseTimeoutSeconds, SdkOptional<int> unhealthyThreshold, SdkOptional<int> healthyThreshold}) get copyWith => _copyWith;
 
-  HealthCheck _copyWith(
-          {Object? protocol = sdkOmittedValue,
-          Object? port = sdkOmittedValue,
-          Object? path = sdkOmittedValue,
-          Object? checkIntervalSeconds = sdkOmittedValue,
-          Object? responseTimeoutSeconds = sdkOmittedValue,
-          Object? unhealthyThreshold = sdkOmittedValue,
-          Object? healthyThreshold = sdkOmittedValue}) =>
-      HealthCheck(
-        protocol: identical(protocol, sdkOmittedValue)
-            ? this.protocol
-            : protocol as SdkOptional<HealthCheckProtocol>,
-        port: identical(port, sdkOmittedValue)
-            ? this.port
-            : port as SdkOptional<int>,
-        path: identical(path, sdkOmittedValue)
-            ? this.path
-            : path as SdkOptional<String>,
-        checkIntervalSeconds: identical(checkIntervalSeconds, sdkOmittedValue)
-            ? this.checkIntervalSeconds
-            : checkIntervalSeconds as SdkOptional<int>,
-        responseTimeoutSeconds:
-            identical(responseTimeoutSeconds, sdkOmittedValue)
-                ? this.responseTimeoutSeconds
-                : responseTimeoutSeconds as SdkOptional<int>,
-        unhealthyThreshold: identical(unhealthyThreshold, sdkOmittedValue)
-            ? this.unhealthyThreshold
-            : unhealthyThreshold as SdkOptional<int>,
-        healthyThreshold: identical(healthyThreshold, sdkOmittedValue)
-            ? this.healthyThreshold
-            : healthyThreshold as SdkOptional<int>,
-      );
+  HealthCheck _copyWith({Object? protocol = sdkOmittedValue, Object? port = sdkOmittedValue, Object? path = sdkOmittedValue, Object? checkIntervalSeconds = sdkOmittedValue, Object? responseTimeoutSeconds = sdkOmittedValue, Object? unhealthyThreshold = sdkOmittedValue, Object? healthyThreshold = sdkOmittedValue}) => HealthCheck(
+    protocol: identical(protocol, sdkOmittedValue) ? this.protocol : protocol as SdkOptional<HealthCheckProtocol>,
+    port: identical(port, sdkOmittedValue) ? this.port : port as SdkOptional<int>,
+    path: identical(path, sdkOmittedValue) ? this.path : path as SdkOptional<String>,
+    checkIntervalSeconds: identical(checkIntervalSeconds, sdkOmittedValue) ? this.checkIntervalSeconds : checkIntervalSeconds as SdkOptional<int>,
+    responseTimeoutSeconds: identical(responseTimeoutSeconds, sdkOmittedValue) ? this.responseTimeoutSeconds : responseTimeoutSeconds as SdkOptional<int>,
+    unhealthyThreshold: identical(unhealthyThreshold, sdkOmittedValue) ? this.unhealthyThreshold : unhealthyThreshold as SdkOptional<int>,
+    healthyThreshold: identical(healthyThreshold, sdkOmittedValue) ? this.healthyThreshold : healthyThreshold as SdkOptional<int>,
+  );
 
   factory HealthCheck.fromJson(Map<String, dynamic> json) => HealthCheck(
-        protocol: json['protocol'] != null
-            ? SdkPresent((json['protocol'] != null
-                ? HealthCheckProtocol.fromJson(json['protocol'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        port: json['port'] != null
-            ? SdkPresent(((json['port'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        path: json['path'] != null
-            ? SdkPresent((json['path'] as String?)!)
-            : const SdkOmitted(),
-        checkIntervalSeconds: json['check_interval_seconds'] != null
-            ? SdkPresent(((json['check_interval_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        responseTimeoutSeconds: json['response_timeout_seconds'] != null
-            ? SdkPresent(((json['response_timeout_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        unhealthyThreshold: json['unhealthy_threshold'] != null
-            ? SdkPresent(((json['unhealthy_threshold'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        healthyThreshold: json['healthy_threshold'] != null
-            ? SdkPresent(((json['healthy_threshold'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+    protocol: json['protocol'] != null ? SdkPresent((json['protocol'] != null ? HealthCheckProtocol.fromJson(json['protocol'] as String) : null)!) : const SdkOmitted(),
+    port: json['port'] != null ? SdkPresent(((json['port'] as num?)?.toInt())!) : const SdkOmitted(),
+    path: json['path'] != null ? SdkPresent((json['path'] as String?)!) : const SdkOmitted(),
+    checkIntervalSeconds: json['check_interval_seconds'] != null ? SdkPresent(((json['check_interval_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+    responseTimeoutSeconds: json['response_timeout_seconds'] != null ? SdkPresent(((json['response_timeout_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+    unhealthyThreshold: json['unhealthy_threshold'] != null ? SdkPresent(((json['unhealthy_threshold'] as num?)?.toInt())!) : const SdkOmitted(),
+    healthyThreshold: json['healthy_threshold'] != null ? SdkPresent(((json['healthy_threshold'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (protocol) {
-          SdkPresent<HealthCheckProtocol>(value: final value) => {
-              'protocol': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (port) {
-          SdkPresent<int>(value: final value) => {
-              'port': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (path) {
-          SdkPresent<String>(value: final value) => {
-              'path': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (checkIntervalSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'check_interval_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (responseTimeoutSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'response_timeout_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (unhealthyThreshold) {
-          SdkPresent<int>(value: final value) => {
-              'unhealthy_threshold': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (healthyThreshold) {
-          SdkPresent<int>(value: final value) => {
-              'healthy_threshold': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (protocol) {
+      SdkPresent<HealthCheckProtocol>(value: final value) => {'protocol': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (port) {
+      SdkPresent<int>(value: final value) => {'port': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (path) {
+      SdkPresent<String>(value: final value) => {'path': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (checkIntervalSeconds) {
+      SdkPresent<int>(value: final value) => {'check_interval_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (responseTimeoutSeconds) {
+      SdkPresent<int>(value: final value) => {'response_timeout_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (unhealthyThreshold) {
+      SdkPresent<int>(value: final value) => {'unhealthy_threshold': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (healthyThreshold) {
+      SdkPresent<int>(value: final value) => {'healthy_threshold': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// An object specifying allow and deny rules to control traffic to the load balancer.
 class LbFirewall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// the rules for denying traffic to the load balancer (in the form 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
   final SdkOptional<List<String>> deny;
-
   /// the rules for allowing traffic to the load balancer (in the form 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
   final SdkOptional<List<String>> allow;
 
-  const LbFirewall(
-      {this.deny = const SdkOmitted(), this.allow = const SdkOmitted()});
+  const LbFirewall({this.deny = const SdkOmitted(), this.allow = const SdkOmitted()});
 
-  LbFirewall Function(
-      {SdkOptional<List<String>> deny,
-      SdkOptional<List<String>> allow}) get copyWith => _copyWith;
+  LbFirewall Function({SdkOptional<List<String>> deny, SdkOptional<List<String>> allow}) get copyWith => _copyWith;
 
-  LbFirewall _copyWith(
-          {Object? deny = sdkOmittedValue, Object? allow = sdkOmittedValue}) =>
-      LbFirewall(
-        deny: identical(deny, sdkOmittedValue)
-            ? this.deny
-            : deny as SdkOptional<List<String>>,
-        allow: identical(allow, sdkOmittedValue)
-            ? this.allow
-            : allow as SdkOptional<List<String>>,
-      );
+  LbFirewall _copyWith({Object? deny = sdkOmittedValue, Object? allow = sdkOmittedValue}) => LbFirewall(
+    deny: identical(deny, sdkOmittedValue) ? this.deny : deny as SdkOptional<List<String>>,
+    allow: identical(allow, sdkOmittedValue) ? this.allow : allow as SdkOptional<List<String>>,
+  );
 
   factory LbFirewall.fromJson(Map<String, dynamic> json) => LbFirewall(
-        deny: json['deny'] != null
-            ? SdkPresent(
-                ((json['deny'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        allow: json['allow'] != null
-            ? SdkPresent(
-                ((json['allow'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+    deny: json['deny'] != null ? SdkPresent(((json['deny'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    allow: json['allow'] != null ? SdkPresent(((json['allow'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (deny) {
-          SdkPresent<List<String>>(value: final value) => {
-              'deny': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allow) {
-          SdkPresent<List<String>>(value: final value) => {
-              'allow': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (deny) {
+      SdkPresent<List<String>>(value: final value) => {'deny': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allow) {
+      SdkPresent<List<String>>(value: final value) => {'allow': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `load_balancer` wire field.
 class LoadBalancerVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An attribute containing the public-facing IP address of the load balancer.
   final SdkOptional<String> ip;
 
   const LoadBalancerVariant1({this.ip = const SdkOmitted()});
 
-  LoadBalancerVariant1 Function({SdkOptional<String> ip}) get copyWith =>
-      _copyWith;
+  LoadBalancerVariant1 Function({SdkOptional<String> ip}) get copyWith => _copyWith;
 
-  LoadBalancerVariant1 _copyWith({Object? ip = sdkOmittedValue}) =>
-      LoadBalancerVariant1(
-        ip: identical(ip, sdkOmittedValue)
-            ? this.ip
-            : ip as SdkOptional<String>,
-      );
+  LoadBalancerVariant1 _copyWith({Object? ip = sdkOmittedValue}) => LoadBalancerVariant1(
+    ip: identical(ip, sdkOmittedValue) ? this.ip : ip as SdkOptional<String>,
+  );
 
-  factory LoadBalancerVariant1.fromJson(Map<String, dynamic> json) =>
-      LoadBalancerVariant1(
-        ip: json['ip'] != null
-            ? SdkPresent((json['ip'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory LoadBalancerVariant1.fromJson(Map<String, dynamic> json) => LoadBalancerVariant1(
+    ip: json['ip'] != null ? SdkPresent((json['ip'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (ip) {
-          SdkPresent<String>(value: final value) => {
-              'ip': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (ip) {
+      SdkPresent<String>(value: final value) => {'ip': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `load_balancer` wire field.
 class LoadBalancerVariant2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The region where the load balancer instance is located. When setting a region, the value should be the slug identifier for the region. When you query a load balancer, an entire region object will be returned.
   final SdkOptional<Region> region;
 
   const LoadBalancerVariant2({this.region = const SdkOmitted()});
 
-  LoadBalancerVariant2 Function({SdkOptional<Region> region}) get copyWith =>
-      _copyWith;
+  LoadBalancerVariant2 Function({SdkOptional<Region> region}) get copyWith => _copyWith;
 
-  LoadBalancerVariant2 _copyWith({Object? region = sdkOmittedValue}) =>
-      LoadBalancerVariant2(
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<Region>,
-      );
+  LoadBalancerVariant2 _copyWith({Object? region = sdkOmittedValue}) => LoadBalancerVariant2(
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<Region>,
+  );
 
-  factory LoadBalancerVariant2.fromJson(Map<String, dynamic> json) =>
-      LoadBalancerVariant2(
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? Region.fromJson(json['region'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory LoadBalancerVariant2.fromJson(Map<String, dynamic> json) => LoadBalancerVariant2(
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? Region.fromJson(json['region'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (region) {
-          SdkPresent<Region>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (region) {
+      SdkPresent<Region>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,186 +8,99 @@ part of 'insights_traces.dart';
 class TracesFieldRef {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The field name. Without `scope`, these names (case-insensitive) resolve to built-in span columns: `traceId` (`trace.id`, `trace_id`), `spanId` (`span.id`, `span_id`), `parentSpanId` (`parent.span.id`, `parent_span_id`), `startTime` (`start_time`, `timestamp`), `endTime` (`end_time`), `durationNs` (`duration`, in nanoseconds), `name` (`span.name`), `kind` (`span.kind`), `statusCode` (`status.code`, `status_code`), `statusMessage` (`status.message`, `status_message`), and `serviceName` (`service.name`, `service_name`). Any other name is looked up as a span attribute, falling back to a resource attribute. With `scope` set, `name` is always treated as an attribute key. Attribute keys may contain only letters, digits, and `.`, `_`, `-`, `/`, `:`, `@`. In traces `orderBy`, `name` must be a trace-level sort field instead; see the `orderBy` field description.
   final String name;
-
   /// Restricts the lookup to one attribute map (case-insensitive). `resource` (or `resource.attributes`) reads resource attributes; `attribute` (or `attributes`, `span.attributes`) reads span attributes. Omit to use the built-in column mapping described for `name`. Ignored in traces `orderBy`.
   final SdkOptional<TracesFieldRefScope> scope;
 
   const TracesFieldRef({required this.name, this.scope = const SdkOmitted()});
 
-  TracesFieldRef Function({String name, SdkOptional<TracesFieldRefScope> scope})
-      get copyWith => _copyWith;
+  TracesFieldRef Function({String name, SdkOptional<TracesFieldRefScope> scope}) get copyWith => _copyWith;
 
-  TracesFieldRef _copyWith(
-          {Object? name = sdkOmittedValue, Object? scope = sdkOmittedValue}) =>
-      TracesFieldRef(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        scope: identical(scope, sdkOmittedValue)
-            ? this.scope
-            : scope as SdkOptional<TracesFieldRefScope>,
-      );
+  TracesFieldRef _copyWith({Object? name = sdkOmittedValue, Object? scope = sdkOmittedValue}) => TracesFieldRef(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    scope: identical(scope, sdkOmittedValue) ? this.scope : scope as SdkOptional<TracesFieldRefScope>,
+  );
 
   factory TracesFieldRef.fromJson(Map<String, dynamic> json) => TracesFieldRef(
-        name: (json['name'] as String?)!,
-        scope: json['scope'] != null
-            ? SdkPresent((json['scope'] != null
-                ? TracesFieldRefScope.fromJson(json['scope'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    name: (json['name'] as String?)!,
+    scope: json['scope'] != null ? SdkPresent((json['scope'] != null ? TracesFieldRefScope.fromJson(json['scope'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (scope) {
-          SdkPresent<TracesFieldRefScope>(value: final value) => {
-              'scope': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (scope) {
+      SdkPresent<TracesFieldRefScope>(value: final value) => {'scope': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A node in a traces filter tree. Every node is the same flat object; `type` selects which other properties apply: - `condition` (default when `type` is omitted): compares `field` to `value` using `operator`. - `and` / `or`: combines the nodes in `expressions` (1 to 32 children). - `not`: negates the single node in `expressions` (exactly one child). - `text_search`: case-insensitive substring match of `query` against the span name, service name, and span status message. A trace matches when at least one of its spans in the time range matches the filter. Trees may be nested at most 16 levels deep and contain at most 256 nodes in total. Unknown properties are rejected.
 class TracesFilterExpression {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The node type. Matching is case-insensitive.
   final SdkOptional<TracesFilterExpressionType> type_;
-
   /// Child nodes for `and`, `or`, and `not`. `and` and `or` accept 1 to 32 children; `not` requires exactly one.
   final SdkOptional<List<TracesFilterExpression>> expressions;
-
   /// A reference to a span field, used in filters and `orderBy`.
   final SdkOptional<TracesFieldRef> field;
-
   /// The comparison operator for a `condition` node. Matching is case-insensitive, and the symbol forms `=`, `!=`, `&gt;`, `&gt;=`, `&lt;`, and `&lt;=` are accepted as aliases for `eq`, `neq`, `gt`, `gte`, `lt`, and `lte`. `exists` matches spans where the field is present and non-empty and ignores `value`. `in` requires an array `value` with 1 to 100 entries. `neq` on string fields also matches spans where the field is absent.
   final SdkOptional<TracesFilterExpressionOperator> operator_;
-
   /// The comparison value for a filter `condition`. Pass either a bare JSON literal (string, number, boolean, or array for `in`) or a typed object `{"type": "...", "value": ...}`. String values are coerced to the field's type: numeric fields such as `durationNs` parse the string as a number, and time fields such as `startTime` accept the same absolute formats as `timeRange` (RFC3339 or Unix seconds/milliseconds/microseconds/nanoseconds).
   final SdkOptional<TracesFilterValue> value;
-
   /// The search string for a `text_search` node. Leading and trailing whitespace is trimmed; the trimmed string must be non-empty.
   final SdkOptional<String> query;
 
-  const TracesFilterExpression(
-      {this.type_ = const SdkOmitted(),
-      this.expressions = const SdkOmitted(),
-      this.field = const SdkOmitted(),
-      this.operator_ = const SdkOmitted(),
-      this.value = const SdkOmitted(),
-      this.query = const SdkOmitted()});
+  const TracesFilterExpression({this.type_ = const SdkOmitted(), this.expressions = const SdkOmitted(), this.field = const SdkOmitted(), this.operator_ = const SdkOmitted(), this.value = const SdkOmitted(), this.query = const SdkOmitted()});
 
-  TracesFilterExpression Function(
-      {SdkOptional<TracesFilterExpressionType> type_,
-      SdkOptional<List<TracesFilterExpression>> expressions,
-      SdkOptional<TracesFieldRef> field,
-      SdkOptional<TracesFilterExpressionOperator> operator_,
-      SdkOptional<TracesFilterValue> value,
-      SdkOptional<String> query}) get copyWith => _copyWith;
+  TracesFilterExpression Function({SdkOptional<TracesFilterExpressionType> type_, SdkOptional<List<TracesFilterExpression>> expressions, SdkOptional<TracesFieldRef> field, SdkOptional<TracesFilterExpressionOperator> operator_, SdkOptional<TracesFilterValue> value, SdkOptional<String> query}) get copyWith => _copyWith;
 
-  TracesFilterExpression _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? expressions = sdkOmittedValue,
-          Object? field = sdkOmittedValue,
-          Object? operator_ = sdkOmittedValue,
-          Object? value = sdkOmittedValue,
-          Object? query = sdkOmittedValue}) =>
-      TracesFilterExpression(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<TracesFilterExpressionType>,
-        expressions: identical(expressions, sdkOmittedValue)
-            ? this.expressions
-            : expressions as SdkOptional<List<TracesFilterExpression>>,
-        field: identical(field, sdkOmittedValue)
-            ? this.field
-            : field as SdkOptional<TracesFieldRef>,
-        operator_: identical(operator_, sdkOmittedValue)
-            ? this.operator_
-            : operator_ as SdkOptional<TracesFilterExpressionOperator>,
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as SdkOptional<TracesFilterValue>,
-        query: identical(query, sdkOmittedValue)
-            ? this.query
-            : query as SdkOptional<String>,
-      );
+  TracesFilterExpression _copyWith({Object? type_ = sdkOmittedValue, Object? expressions = sdkOmittedValue, Object? field = sdkOmittedValue, Object? operator_ = sdkOmittedValue, Object? value = sdkOmittedValue, Object? query = sdkOmittedValue}) => TracesFilterExpression(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<TracesFilterExpressionType>,
+    expressions: identical(expressions, sdkOmittedValue) ? this.expressions : expressions as SdkOptional<List<TracesFilterExpression>>,
+    field: identical(field, sdkOmittedValue) ? this.field : field as SdkOptional<TracesFieldRef>,
+    operator_: identical(operator_, sdkOmittedValue) ? this.operator_ : operator_ as SdkOptional<TracesFilterExpressionOperator>,
+    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<TracesFilterValue>,
+    query: identical(query, sdkOmittedValue) ? this.query : query as SdkOptional<String>,
+  );
 
-  factory TracesFilterExpression.fromJson(Map<String, dynamic> json) =>
-      TracesFilterExpression(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? TracesFilterExpressionType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        expressions: json['expressions'] != null
-            ? SdkPresent(((json['expressions'] as List?)
-                ?.map((e) =>
-                    TracesFilterExpression.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        field: json['field'] != null
-            ? SdkPresent((json['field'] != null
-                ? TracesFieldRef.fromJson(json['field'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        operator_: json['operator'] != null
-            ? SdkPresent((json['operator'] != null
-                ? TracesFilterExpressionOperator.fromJson(
-                    json['operator'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        value: json['value'] != null
-            ? SdkPresent((json['value'] != null
-                ? TracesFilterValue.fromJson(json['value'])
-                : null)!)
-            : const SdkOmitted(),
-        query: json['query'] != null
-            ? SdkPresent((json['query'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory TracesFilterExpression.fromJson(Map<String, dynamic> json) => TracesFilterExpression(
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? TracesFilterExpressionType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    expressions: json['expressions'] != null ? SdkPresent(((json['expressions'] as List?)?.map((e) => TracesFilterExpression.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    field: json['field'] != null ? SdkPresent((json['field'] != null ? TracesFieldRef.fromJson(json['field'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    operator_: json['operator'] != null ? SdkPresent((json['operator'] != null ? TracesFilterExpressionOperator.fromJson(json['operator'] as String) : null)!) : const SdkOmitted(),
+    value: json['value'] != null ? SdkPresent((json['value'] != null ? TracesFilterValue.fromJson(json['value']) : null)!) : const SdkOmitted(),
+    query: json['query'] != null ? SdkPresent((json['query'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<TracesFilterExpressionType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expressions) {
-          SdkPresent<List<TracesFilterExpression>>(value: final value) => {
-              'expressions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (field) {
-          SdkPresent<TracesFieldRef>(value: final value) => {
-              'field': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (operator_) {
-          SdkPresent<TracesFilterExpressionOperator>(value: final value) => {
-              'operator': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (value) {
-          SdkPresent<TracesFilterValue>(value: final value) => {
-              'value': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (query) {
-          SdkPresent<String>(value: final value) => {
-              'query': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<TracesFilterExpressionType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expressions) {
+      SdkPresent<List<TracesFilterExpression>>(value: final value) => {'expressions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (field) {
+      SdkPresent<TracesFieldRef>(value: final value) => {'field': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (operator_) {
+      SdkPresent<TracesFilterExpressionOperator>(value: final value) => {'operator': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (value) {
+      SdkPresent<TracesFilterValue>(value: final value) => {'value': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (query) {
+      SdkPresent<String>(value: final value) => {'query': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class TracesFilterValueVariant3Item {
@@ -195,43 +108,30 @@ sealed class TracesFilterValueVariant3Item {
   static const String constructionSurface = 'named';
   const TracesFilterValueVariant3Item();
   factory TracesFilterValueVariant3Item.fromJson(Object? json) {
-    if (json is String) {
-      return TracesFilterValueVariant3ItemString(json);
-    }
-    if (json is num) {
-      return TracesFilterValueVariant3ItemDouble(json.toDouble());
-    }
-    if (json is bool) {
-      return TracesFilterValueVariant3ItemBool(json);
-    }
-    throw FormatException(
-        "No variant matched for TracesFilterValueVariant3Item");
+    if (json is String) { return TracesFilterValueVariant3ItemString(json); }
+    if (json is num) { return TracesFilterValueVariant3ItemDouble(json.toDouble()); }
+    if (json is bool) { return TracesFilterValueVariant3ItemBool(json); }
+    throw FormatException("No variant matched for TracesFilterValueVariant3Item");
   }
   Object? toJson();
 }
 
-final class TracesFilterValueVariant3ItemString
-    extends TracesFilterValueVariant3Item {
+final class TracesFilterValueVariant3ItemString extends TracesFilterValueVariant3Item {
   final String value;
   const TracesFilterValueVariant3ItemString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class TracesFilterValueVariant3ItemDouble
-    extends TracesFilterValueVariant3Item {
+final class TracesFilterValueVariant3ItemDouble extends TracesFilterValueVariant3Item {
   final double value;
   const TracesFilterValueVariant3ItemDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class TracesFilterValueVariant3ItemBool
-    extends TracesFilterValueVariant3Item {
+final class TracesFilterValueVariant3ItemBool extends TracesFilterValueVariant3Item {
   final bool value;
   const TracesFilterValueVariant3ItemBool(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 sealed class TracesFilterValueVariant4Value {
@@ -239,126 +139,88 @@ sealed class TracesFilterValueVariant4Value {
   static const String constructionSurface = 'named';
   const TracesFilterValueVariant4Value();
   factory TracesFilterValueVariant4Value.fromJson(Object? json) {
-    if (json is String) {
-      return TracesFilterValueVariant4ValueString(json);
-    }
-    if (json is num) {
-      return TracesFilterValueVariant4ValueDouble(json.toDouble());
-    }
-    if (json is bool) {
-      return TracesFilterValueVariant4ValueBool(json);
-    }
-    throw FormatException(
-        "No variant matched for TracesFilterValueVariant4Value");
+    if (json is String) { return TracesFilterValueVariant4ValueString(json); }
+    if (json is num) { return TracesFilterValueVariant4ValueDouble(json.toDouble()); }
+    if (json is bool) { return TracesFilterValueVariant4ValueBool(json); }
+    throw FormatException("No variant matched for TracesFilterValueVariant4Value");
   }
   Object? toJson();
 }
 
-final class TracesFilterValueVariant4ValueString
-    extends TracesFilterValueVariant4Value {
+final class TracesFilterValueVariant4ValueString extends TracesFilterValueVariant4Value {
   final String value;
   const TracesFilterValueVariant4ValueString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class TracesFilterValueVariant4ValueDouble
-    extends TracesFilterValueVariant4Value {
+final class TracesFilterValueVariant4ValueDouble extends TracesFilterValueVariant4Value {
   final double value;
   const TracesFilterValueVariant4ValueDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class TracesFilterValueVariant4ValueBool
-    extends TracesFilterValueVariant4Value {
+final class TracesFilterValueVariant4ValueBool extends TracesFilterValueVariant4Value {
   final bool value;
   const TracesFilterValueVariant4ValueBool(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// A typed scalar value. `type` is case-insensitive; `int`, `integer`, and `float` are accepted as aliases for `number`, and `boolean` for `bool`.
 class TracesFilterValueVariant4 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final TracesFilterValueVariant4Type type_;
-
   /// Required API value serialized in the `value` wire field.
   final dynamic value;
 
   const TracesFilterValueVariant4({required this.type_, required this.value});
 
-  TracesFilterValueVariant4 Function(
-      {TracesFilterValueVariant4Type type_,
-      dynamic value}) get copyWith => _copyWith;
+  TracesFilterValueVariant4 Function({TracesFilterValueVariant4Type type_, dynamic value}) get copyWith => _copyWith;
 
-  TracesFilterValueVariant4 _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? value = sdkOmittedValue}) =>
-      TracesFilterValueVariant4(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as TracesFilterValueVariant4Type,
-        value:
-            identical(value, sdkOmittedValue) ? this.value : value as dynamic,
-      );
+  TracesFilterValueVariant4 _copyWith({Object? type_ = sdkOmittedValue, Object? value = sdkOmittedValue}) => TracesFilterValueVariant4(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TracesFilterValueVariant4Type,
+    value: identical(value, sdkOmittedValue) ? this.value : value as dynamic,
+  );
 
-  factory TracesFilterValueVariant4.fromJson(Map<String, dynamic> json) =>
-      TracesFilterValueVariant4(
-        type_: (json['type'] != null
-            ? TracesFilterValueVariant4Type.fromJson(json['type'] as String)
-            : null)!,
-        value: (json['value'])!,
-      );
+  factory TracesFilterValueVariant4.fromJson(Map<String, dynamic> json) => TracesFilterValueVariant4(
+    type_: (json['type'] != null ? TracesFilterValueVariant4Type.fromJson(json['type'] as String) : null)!,
+    value: (json['value'])!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'value': value,
-      };
+    'type': type_.toJson(),
+    'value': value,
+  };
 }
 
 /// A typed string list, used with the `in` operator.
 class TracesFilterValueVariant5 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final TracesFilterValueVariant5Type type_;
-
   /// Required array value serialized in the `value` wire field.
   final List<String> value;
 
   const TracesFilterValueVariant5({required this.type_, required this.value});
 
-  TracesFilterValueVariant5 Function(
-      {TracesFilterValueVariant5Type type_,
-      List<String> value}) get copyWith => _copyWith;
+  TracesFilterValueVariant5 Function({TracesFilterValueVariant5Type type_, List<String> value}) get copyWith => _copyWith;
 
-  TracesFilterValueVariant5 _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? value = sdkOmittedValue}) =>
-      TracesFilterValueVariant5(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as TracesFilterValueVariant5Type,
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as List<String>,
-      );
+  TracesFilterValueVariant5 _copyWith({Object? type_ = sdkOmittedValue, Object? value = sdkOmittedValue}) => TracesFilterValueVariant5(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as TracesFilterValueVariant5Type,
+    value: identical(value, sdkOmittedValue) ? this.value : value as List<String>,
+  );
 
-  factory TracesFilterValueVariant5.fromJson(Map<String, dynamic> json) =>
-      TracesFilterValueVariant5(
-        type_: (json['type'] != null
-            ? TracesFilterValueVariant5Type.fromJson(json['type'] as String)
-            : null)!,
-        value: ((json['value'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory TracesFilterValueVariant5.fromJson(Map<String, dynamic> json) => TracesFilterValueVariant5(
+    type_: (json['type'] != null ? TracesFilterValueVariant5Type.fromJson(json['type'] as String) : null)!,
+    value: ((json['value'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'value': value,
-      };
+    'type': type_.toJson(),
+    'value': value,
+  };
 }
 
 sealed class TracesFilterValue {
@@ -366,40 +228,16 @@ sealed class TracesFilterValue {
   static const String constructionSurface = 'named';
   const TracesFilterValue();
   factory TracesFilterValue.fromJson(Object? json) {
-    if (json is String) {
-      return TracesFilterValueString(json);
-    }
-    if (json is num) {
-      return TracesFilterValueDouble(json.toDouble());
-    }
-    if (json is bool) {
-      return TracesFilterValueBool(json);
-    }
-    if (json is List) {
-      return TracesFilterValueList(json.map((e) => e).toList().cast<dynamic>());
-    }
+    if (json is String) { return TracesFilterValueString(json); }
+    if (json is num) { return TracesFilterValueDouble(json.toDouble()); }
+    if (json is bool) { return TracesFilterValueBool(json); }
+    if (json is List) { return TracesFilterValueList(json.map((e) => e).toList().cast<dynamic>()); }
     if (json is Map<String, dynamic>) {
-      try {
-        final value = TracesFilterValueVariant4.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return TracesFilterValueTracesFilterValueVariant4(value);
-        }
-      } catch (_) {}
-      try {
-        final value = TracesFilterValueVariant5.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return TracesFilterValueTracesFilterValueVariant5(value);
-        }
-      } catch (_) {}
+      try { final value = TracesFilterValueVariant4.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return TracesFilterValueTracesFilterValueVariant4(value); } } catch (_) {}
+      try { final value = TracesFilterValueVariant5.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return TracesFilterValueTracesFilterValueVariant5(value); } } catch (_) {}
     }
-    try {
-      return TracesFilterValueTracesFilterValueVariant4(
-          TracesFilterValueVariant4.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return TracesFilterValueTracesFilterValueVariant5(
-          TracesFilterValueVariant5.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return TracesFilterValueTracesFilterValueVariant4(TracesFilterValueVariant4.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return TracesFilterValueTracesFilterValueVariant5(TracesFilterValueVariant5.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for TracesFilterValue");
   }
   Object? toJson();
@@ -408,43 +246,35 @@ sealed class TracesFilterValue {
 final class TracesFilterValueString extends TracesFilterValue {
   final String value;
   const TracesFilterValueString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class TracesFilterValueDouble extends TracesFilterValue {
   final double value;
   const TracesFilterValueDouble(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class TracesFilterValueBool extends TracesFilterValue {
   final bool value;
   const TracesFilterValueBool(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class TracesFilterValueList extends TracesFilterValue {
   final List<dynamic> value;
   const TracesFilterValueList(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class TracesFilterValueTracesFilterValueVariant4
-    extends TracesFilterValue {
+final class TracesFilterValueTracesFilterValueVariant4 extends TracesFilterValue {
   final TracesFilterValueVariant4 value;
   const TracesFilterValueTracesFilterValueVariant4(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class TracesFilterValueTracesFilterValueVariant5
-    extends TracesFilterValue {
+final class TracesFilterValueTracesFilterValueVariant5 extends TracesFilterValue {
   final TracesFilterValueVariant5 value;
   const TracesFilterValueTracesFilterValueVariant5(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

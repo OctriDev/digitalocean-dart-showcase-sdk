@@ -8,509 +8,263 @@ part of 'action_gateway_toolbelt.dart';
 class Toolbelt {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Toolbelt name, unique among your team's active toolbelts.
   final SdkOptional<String> name;
-
   /// Version number of this toolbelt version, as a string, for example `3`.
   final SdkOptional<String> version;
-
   /// Human-readable label.
   final SdkOptional<String> displayName;
-
   /// Team-authored description.
   final SdkOptional<String> description;
-
   /// Members, sorted, each as `&lt;tool_slug&gt;@&lt;version&gt;`: the tool and the version this toolbelt version pins.
   final SdkOptional<List<String>> tools;
-
   /// active, or deprecated once the toolbelt is deleted.
   final SdkOptional<ToolbeltStatus> status;
-
   /// `&lt;name&gt;@&lt;version&gt;`, identifying this exact version. Sessions reference it as `toolbelt:&lt;name&gt;@&lt;version&gt;`.
   final SdkOptional<String> reference;
-
   /// The toolbelt name, which refers to whichever version is latest.
   final SdkOptional<String> referenceLatest;
-
   /// Number of entries in tools.
   final SdkOptional<int> toolCount;
-
   /// When this version was created, in RFC 3339 format.
   final SdkOptional<String> createdAt;
-
   /// When this version was last modified, in RFC 3339 format.
   final SdkOptional<String> updatedAt;
 
-  const Toolbelt(
-      {this.name = const SdkOmitted(),
-      this.version = const SdkOmitted(),
-      this.displayName = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.tools = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.reference = const SdkOmitted(),
-      this.referenceLatest = const SdkOmitted(),
-      this.toolCount = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted()});
+  const Toolbelt({this.name = const SdkOmitted(), this.version = const SdkOmitted(), this.displayName = const SdkOmitted(), this.description = const SdkOmitted(), this.tools = const SdkOmitted(), this.status = const SdkOmitted(), this.reference = const SdkOmitted(), this.referenceLatest = const SdkOmitted(), this.toolCount = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
 
-  Toolbelt Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> version,
-      SdkOptional<String> displayName,
-      SdkOptional<String> description,
-      SdkOptional<List<String>> tools,
-      SdkOptional<ToolbeltStatus> status,
-      SdkOptional<String> reference,
-      SdkOptional<String> referenceLatest,
-      SdkOptional<int> toolCount,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  Toolbelt Function({SdkOptional<String> name, SdkOptional<String> version, SdkOptional<String> displayName, SdkOptional<String> description, SdkOptional<List<String>> tools, SdkOptional<ToolbeltStatus> status, SdkOptional<String> reference, SdkOptional<String> referenceLatest, SdkOptional<int> toolCount, SdkOptional<String> createdAt, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  Toolbelt _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? version = sdkOmittedValue,
-          Object? displayName = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? reference = sdkOmittedValue,
-          Object? referenceLatest = sdkOmittedValue,
-          Object? toolCount = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      Toolbelt(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String>,
-        displayName: identical(displayName, sdkOmittedValue)
-            ? this.displayName
-            : displayName as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<String>>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ToolbeltStatus>,
-        reference: identical(reference, sdkOmittedValue)
-            ? this.reference
-            : reference as SdkOptional<String>,
-        referenceLatest: identical(referenceLatest, sdkOmittedValue)
-            ? this.referenceLatest
-            : referenceLatest as SdkOptional<String>,
-        toolCount: identical(toolCount, sdkOmittedValue)
-            ? this.toolCount
-            : toolCount as SdkOptional<int>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-      );
+  Toolbelt _copyWith({Object? name = sdkOmittedValue, Object? version = sdkOmittedValue, Object? displayName = sdkOmittedValue, Object? description = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? status = sdkOmittedValue, Object? reference = sdkOmittedValue, Object? referenceLatest = sdkOmittedValue, Object? toolCount = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => Toolbelt(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
+    displayName: identical(displayName, sdkOmittedValue) ? this.displayName : displayName as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<String>>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ToolbeltStatus>,
+    reference: identical(reference, sdkOmittedValue) ? this.reference : reference as SdkOptional<String>,
+    referenceLatest: identical(referenceLatest, sdkOmittedValue) ? this.referenceLatest : referenceLatest as SdkOptional<String>,
+    toolCount: identical(toolCount, sdkOmittedValue) ? this.toolCount : toolCount as SdkOptional<int>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+  );
 
   factory Toolbelt.fromJson(Map<String, dynamic> json) => Toolbelt(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        version: json['version'] != null
-            ? SdkPresent((json['version'] as String?)!)
-            : const SdkOmitted(),
-        displayName: json['display_name'] != null
-            ? SdkPresent((json['display_name'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        tools: json['tools'] != null
-            ? SdkPresent(
-                ((json['tools'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ToolbeltStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        reference: json['reference'] != null
-            ? SdkPresent((json['reference'] as String?)!)
-            : const SdkOmitted(),
-        referenceLatest: json['reference_latest'] != null
-            ? SdkPresent((json['reference_latest'] as String?)!)
-            : const SdkOmitted(),
-        toolCount: json['tool_count'] != null
-            ? SdkPresent(((json['tool_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
+    displayName: json['display_name'] != null ? SdkPresent((json['display_name'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ToolbeltStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    reference: json['reference'] != null ? SdkPresent((json['reference'] as String?)!) : const SdkOmitted(),
+    referenceLatest: json['reference_latest'] != null ? SdkPresent((json['reference_latest'] as String?)!) : const SdkOmitted(),
+    toolCount: json['tool_count'] != null ? SdkPresent(((json['tool_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (version) {
-          SdkPresent<String>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (displayName) {
-          SdkPresent<String>(value: final value) => {
-              'display_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tools) {
-          SdkPresent<List<String>>(value: final value) => {
-              'tools': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<ToolbeltStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reference) {
-          SdkPresent<String>(value: final value) => {
-              'reference': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (referenceLatest) {
-          SdkPresent<String>(value: final value) => {
-              'reference_latest': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolCount) {
-          SdkPresent<int>(value: final value) => {
-              'tool_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (version) {
+      SdkPresent<String>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (displayName) {
+      SdkPresent<String>(value: final value) => {'display_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tools) {
+      SdkPresent<List<String>>(value: final value) => {'tools': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<ToolbeltStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reference) {
+      SdkPresent<String>(value: final value) => {'reference': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (referenceLatest) {
+      SdkPresent<String>(value: final value) => {'reference_latest': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolCount) {
+      SdkPresent<int>(value: final value) => {'tool_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Describes a new toolbelt.
 class ToolbeltCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Toolbelt name, unique among your team's active toolbelts. Must match `^`[a-z]``[a-z0-9_-]`{0,63}$`; `search` is reserved.
   final String name;
-
   /// Optional initial version number, a positive integer such as `1`. Defaults to 1.
   final SdkOptional<String> version;
-
   /// Optional human-readable label, separate from name. At most 128 bytes.
   final SdkOptional<String> displayName;
-
   /// Optional description. At most 255 bytes.
   final SdkOptional<String> description;
-
   /// Optional initial members, as catalog tool slugs (`&lt;provider&gt;_&lt;name&gt;`). Each may be pinned as `&lt;tool_slug&gt;@&lt;version&gt;`; a pin must equal the tool's current released version, and an unpinned tool is pinned to that version. Every tool must be an active catalog tool. Duplicates are merged; at most 500 tools. Empty creates a toolbelt with no tools.
   final SdkOptional<List<String>> tools;
 
-  const ToolbeltCreate(
-      {required this.name,
-      this.version = const SdkOmitted(),
-      this.displayName = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.tools = const SdkOmitted()});
+  const ToolbeltCreate({required this.name, this.version = const SdkOmitted(), this.displayName = const SdkOmitted(), this.description = const SdkOmitted(), this.tools = const SdkOmitted()});
 
-  ToolbeltCreate Function(
-      {String name,
-      SdkOptional<String> version,
-      SdkOptional<String> displayName,
-      SdkOptional<String> description,
-      SdkOptional<List<String>> tools}) get copyWith => _copyWith;
+  ToolbeltCreate Function({String name, SdkOptional<String> version, SdkOptional<String> displayName, SdkOptional<String> description, SdkOptional<List<String>> tools}) get copyWith => _copyWith;
 
-  ToolbeltCreate _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? version = sdkOmittedValue,
-          Object? displayName = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? tools = sdkOmittedValue}) =>
-      ToolbeltCreate(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String>,
-        displayName: identical(displayName, sdkOmittedValue)
-            ? this.displayName
-            : displayName as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<String>>,
-      );
+  ToolbeltCreate _copyWith({Object? name = sdkOmittedValue, Object? version = sdkOmittedValue, Object? displayName = sdkOmittedValue, Object? description = sdkOmittedValue, Object? tools = sdkOmittedValue}) => ToolbeltCreate(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
+    displayName: identical(displayName, sdkOmittedValue) ? this.displayName : displayName as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<String>>,
+  );
 
   factory ToolbeltCreate.fromJson(Map<String, dynamic> json) => ToolbeltCreate(
-        name: (json['name'] as String?)!,
-        version: json['version'] != null
-            ? SdkPresent((json['version'] as String?)!)
-            : const SdkOmitted(),
-        displayName: json['display_name'] != null
-            ? SdkPresent((json['display_name'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        tools: json['tools'] != null
-            ? SdkPresent(
-                ((json['tools'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+    name: (json['name'] as String?)!,
+    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
+    displayName: json['display_name'] != null ? SdkPresent((json['display_name'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (version) {
-          SdkPresent<String>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (displayName) {
-          SdkPresent<String>(value: final value) => {
-              'display_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tools) {
-          SdkPresent<List<String>>(value: final value) => {
-              'tools': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (version) {
+      SdkPresent<String>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (displayName) {
+      SdkPresent<String>(value: final value) => {'display_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tools) {
+      SdkPresent<List<String>>(value: final value) => {'tools': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// One provider represented in a toolbelt's membership. Its provider fields (ID, name, description, `created_at`) match the toolkit entries of `GET /v2/action-gateway/tools/toolkits`, so a client can render the same provider card without a second request.
 class ToolbeltProviderSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The provider ID. Members recorded without a provider are grouped under `_legacy`, which is also accepted in the provider path.
   final SdkOptional<String> provider;
-
   /// How many toolbelt members belong to this provider.
   final SdkOptional<int> toolCount;
-
   /// Equals provider; present so the entry has the same shape as a toolkit.
   final SdkOptional<String> id;
-
   /// The provider's display name. Empty for `_legacy`.
   final SdkOptional<String> name;
-
   /// Provider description. Empty for `_legacy`.
   final SdkOptional<String> description;
-
   /// The distinct tool categories among this toolbelt's members for the provider (sorted). Empty for `_legacy` or when no member has a category.
   final SdkOptional<List<String>> categories;
-
   /// When the provider was added to the catalog. Unset for `_legacy`.
   final SdkOptional<String?> createdAt;
 
-  const ToolbeltProviderSummary(
-      {this.provider = const SdkOmitted(),
-      this.toolCount = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.categories = const SdkOmitted(),
-      this.createdAt = const SdkOmitted()});
+  const ToolbeltProviderSummary({this.provider = const SdkOmitted(), this.toolCount = const SdkOmitted(), this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.categories = const SdkOmitted(), this.createdAt = const SdkOmitted()});
 
-  ToolbeltProviderSummary Function(
-      {SdkOptional<String> provider,
-      SdkOptional<int> toolCount,
-      SdkOptional<String> id,
-      SdkOptional<String> name,
-      SdkOptional<String> description,
-      SdkOptional<List<String>> categories,
-      SdkOptional<String?> createdAt}) get copyWith => _copyWith;
+  ToolbeltProviderSummary Function({SdkOptional<String> provider, SdkOptional<int> toolCount, SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<List<String>> categories, SdkOptional<String?> createdAt}) get copyWith => _copyWith;
 
-  ToolbeltProviderSummary _copyWith(
-          {Object? provider = sdkOmittedValue,
-          Object? toolCount = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? categories = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      ToolbeltProviderSummary(
-        provider: identical(provider, sdkOmittedValue)
-            ? this.provider
-            : provider as SdkOptional<String>,
-        toolCount: identical(toolCount, sdkOmittedValue)
-            ? this.toolCount
-            : toolCount as SdkOptional<int>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        categories: identical(categories, sdkOmittedValue)
-            ? this.categories
-            : categories as SdkOptional<List<String>>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String?>,
-      );
+  ToolbeltProviderSummary _copyWith({Object? provider = sdkOmittedValue, Object? toolCount = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? categories = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => ToolbeltProviderSummary(
+    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as SdkOptional<String>,
+    toolCount: identical(toolCount, sdkOmittedValue) ? this.toolCount : toolCount as SdkOptional<int>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    categories: identical(categories, sdkOmittedValue) ? this.categories : categories as SdkOptional<List<String>>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String?>,
+  );
 
-  factory ToolbeltProviderSummary.fromJson(Map<String, dynamic> json) =>
-      ToolbeltProviderSummary(
-        provider: json['provider'] != null
-            ? SdkPresent((json['provider'] as String?)!)
-            : const SdkOmitted(),
-        toolCount: json['tool_count'] != null
-            ? SdkPresent(((json['tool_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        categories: json['categories'] != null
-            ? SdkPresent(((json['categories'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        createdAt: json.containsKey('created_at')
-            ? SdkPresent(json['created_at'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ToolbeltProviderSummary.fromJson(Map<String, dynamic> json) => ToolbeltProviderSummary(
+    provider: json['provider'] != null ? SdkPresent((json['provider'] as String?)!) : const SdkOmitted(),
+    toolCount: json['tool_count'] != null ? SdkPresent(((json['tool_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    categories: json['categories'] != null ? SdkPresent(((json['categories'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    createdAt: json.containsKey('created_at') ? SdkPresent(json['created_at'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (provider) {
-          SdkPresent<String>(value: final value) => {
-              'provider': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolCount) {
-          SdkPresent<int>(value: final value) => {
-              'tool_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (categories) {
-          SdkPresent<List<String>>(value: final value) => {
-              'categories': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String?>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (provider) {
+      SdkPresent<String>(value: final value) => {'provider': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolCount) {
+      SdkPresent<int>(value: final value) => {'tool_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (categories) {
+      SdkPresent<List<String>>(value: final value) => {'categories': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String?>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Returns the created toolbelt.
 class ToolbeltResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The first version of the new toolbelt.
   final SdkOptional<Toolbelt> toolbelt;
 
   const ToolbeltResponse({this.toolbelt = const SdkOmitted()});
 
-  ToolbeltResponse Function({SdkOptional<Toolbelt> toolbelt}) get copyWith =>
-      _copyWith;
+  ToolbeltResponse Function({SdkOptional<Toolbelt> toolbelt}) get copyWith => _copyWith;
 
-  ToolbeltResponse _copyWith({Object? toolbelt = sdkOmittedValue}) =>
-      ToolbeltResponse(
-        toolbelt: identical(toolbelt, sdkOmittedValue)
-            ? this.toolbelt
-            : toolbelt as SdkOptional<Toolbelt>,
-      );
+  ToolbeltResponse _copyWith({Object? toolbelt = sdkOmittedValue}) => ToolbeltResponse(
+    toolbelt: identical(toolbelt, sdkOmittedValue) ? this.toolbelt : toolbelt as SdkOptional<Toolbelt>,
+  );
 
-  factory ToolbeltResponse.fromJson(Map<String, dynamic> json) =>
-      ToolbeltResponse(
-        toolbelt: json['toolbelt'] != null
-            ? SdkPresent((json['toolbelt'] != null
-                ? Toolbelt.fromJson(json['toolbelt'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ToolbeltResponse.fromJson(Map<String, dynamic> json) => ToolbeltResponse(
+    toolbelt: json['toolbelt'] != null ? SdkPresent((json['toolbelt'] != null ? Toolbelt.fromJson(json['toolbelt'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (toolbelt) {
-          SdkPresent<Toolbelt>(value: final value) => {
-              'toolbelt': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (toolbelt) {
+      SdkPresent<Toolbelt>(value: final value) => {'toolbelt': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

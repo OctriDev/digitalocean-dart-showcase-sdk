@@ -8,74 +8,43 @@ part of 'serverless_inference_create.dart';
 class CreateVideoRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The video generation model to use.
   final String model;
-
   /// A text description of the desired video.
   final String prompt;
-
   /// The output resolution, for example `1280x720`.
   final SdkOptional<String> size;
-
   /// Frames per second for the generated video.
   final SdkOptional<int> fps;
 
-  const CreateVideoRequest(
-      {required this.model,
-      required this.prompt,
-      this.size = const SdkOmitted(),
-      this.fps = const SdkOmitted()});
+  const CreateVideoRequest({required this.model, required this.prompt, this.size = const SdkOmitted(), this.fps = const SdkOmitted()});
 
-  CreateVideoRequest Function(
-      {String model,
-      String prompt,
-      SdkOptional<String> size,
-      SdkOptional<int> fps}) get copyWith => _copyWith;
+  CreateVideoRequest Function({String model, String prompt, SdkOptional<String> size, SdkOptional<int> fps}) get copyWith => _copyWith;
 
-  CreateVideoRequest _copyWith(
-          {Object? model = sdkOmittedValue,
-          Object? prompt = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? fps = sdkOmittedValue}) =>
-      CreateVideoRequest(
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        prompt:
-            identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
-        size: identical(size, sdkOmittedValue)
-            ? this.size
-            : size as SdkOptional<String>,
-        fps: identical(fps, sdkOmittedValue)
-            ? this.fps
-            : fps as SdkOptional<int>,
-      );
+  CreateVideoRequest _copyWith({Object? model = sdkOmittedValue, Object? prompt = sdkOmittedValue, Object? size = sdkOmittedValue, Object? fps = sdkOmittedValue}) => CreateVideoRequest(
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
+    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String>,
+    fps: identical(fps, sdkOmittedValue) ? this.fps : fps as SdkOptional<int>,
+  );
 
-  factory CreateVideoRequest.fromJson(Map<String, dynamic> json) =>
-      CreateVideoRequest(
-        model: (json['model'] as String?)!,
-        prompt: (json['prompt'] as String?)!,
-        size: json['size'] != null
-            ? SdkPresent((json['size'] as String?)!)
-            : const SdkOmitted(),
-        fps: json['fps'] != null
-            ? SdkPresent(((json['fps'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory CreateVideoRequest.fromJson(Map<String, dynamic> json) => CreateVideoRequest(
+    model: (json['model'] as String?)!,
+    prompt: (json['prompt'] as String?)!,
+    size: json['size'] != null ? SdkPresent((json['size'] as String?)!) : const SdkOmitted(),
+    fps: json['fps'] != null ? SdkPresent(((json['fps'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'model': model,
-        'prompt': prompt,
-        ...switch (size) {
-          SdkPresent<String>(value: final value) => {
-              'size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fps) {
-          SdkPresent<int>(value: final value) => {
-              'fps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'model': model,
+    'prompt': prompt,
+    ...switch (size) {
+      SdkPresent<String>(value: final value) => {'size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fps) {
+      SdkPresent<int>(value: final value) => {'fps': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -27,27 +27,18 @@ Future<AllVpcPeerings> vpcPeeringsList(ClientConfig config,
   return (await sdkRequest<AllVpcPeerings>('GET', '/v2/vpc_peerings',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'region': SdkQueryValue(SdkUtils.unwrapOptional(region),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'region': SdkQueryValue(SdkUtils.unwrapOptional(region), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcPeeringsList',
-          fromJsonRaw: (value) =>
-              AllVpcPeerings.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllVpcPeerings.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a new VPC Peering, send a POST request to `/v2/vpc_peerings` specifying a name and a list of two VPC IDs to peer. The response code, 202 Accepted, does not indicate the success or failure of the operation, just that the request has been accepted for processing.
 Future<ProvisioningVpcPeering> vpcPeeringsCreate(ClientConfig config,
@@ -57,17 +48,12 @@ Future<ProvisioningVpcPeering> vpcPeeringsCreate(ClientConfig config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcPeeringsCreate',
-          fromJsonRaw: (value) =>
-              ProvisioningVpcPeering.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProvisioningVpcPeering.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To show information about an existing VPC Peering, send a GET request to `/v2/vpc_peerings/$VPC_PEERING_ID`.
 ///
@@ -81,18 +67,12 @@ Future<ActiveVpcPeering> vpcPeeringsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcPeeringsGet',
-          fromJsonRaw: (value) =>
-              ActiveVpcPeering.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ActiveVpcPeering.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update the name of a VPC peering, send a PATCH request to `/v2/vpc_peerings/$VPC_PEERING_ID` with the new `name` in the request body.
 ///
@@ -112,18 +92,12 @@ Future<ActiveVpcPeering> vpcPeeringsPatch(ClientConfig config,
           body: {'name': name},
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcPeeringsPatch',
-          fromJsonRaw: (value) =>
-              ActiveVpcPeering.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ActiveVpcPeering.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a VPC peering, send a DELETE request to `/v2/vpc_peerings/$VPC_PEERING_ID`.
 ///
@@ -137,15 +111,8 @@ Future<DeletingVpcPeering> vpcPeeringsDelete(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcPeeringsDelete',
-          fromJsonRaw: (value) =>
-              DeletingVpcPeering.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletingVpcPeering.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

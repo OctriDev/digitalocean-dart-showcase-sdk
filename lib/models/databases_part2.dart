@@ -8,490 +8,256 @@ part of 'databases.dart';
 class OptionsOptionsKafka {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> regions;
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> versions;
-
   /// An array of objects, each indicating the node sizes (otherwise referred to as slugs) that are available with various numbers of nodes in the database cluster. Each slugs denotes the node's identifier, CPU, and RAM (in that order).
   final SdkOptional<List<DatabaseLayoutOption>> layouts;
 
-  const OptionsOptionsKafka(
-      {this.regions = const SdkOmitted(),
-      this.versions = const SdkOmitted(),
-      this.layouts = const SdkOmitted()});
+  const OptionsOptionsKafka({this.regions = const SdkOmitted(), this.versions = const SdkOmitted(), this.layouts = const SdkOmitted()});
 
-  OptionsOptionsKafka Function(
-          {SdkOptional<List<String>> regions,
-          SdkOptional<List<String>> versions,
-          SdkOptional<List<DatabaseLayoutOption>> layouts})
-      get copyWith => _copyWith;
+  OptionsOptionsKafka Function({SdkOptional<List<String>> regions, SdkOptional<List<String>> versions, SdkOptional<List<DatabaseLayoutOption>> layouts}) get copyWith => _copyWith;
 
-  OptionsOptionsKafka _copyWith(
-          {Object? regions = sdkOmittedValue,
-          Object? versions = sdkOmittedValue,
-          Object? layouts = sdkOmittedValue}) =>
-      OptionsOptionsKafka(
-        regions: identical(regions, sdkOmittedValue)
-            ? this.regions
-            : regions as SdkOptional<List<String>>,
-        versions: identical(versions, sdkOmittedValue)
-            ? this.versions
-            : versions as SdkOptional<List<String>>,
-        layouts: identical(layouts, sdkOmittedValue)
-            ? this.layouts
-            : layouts as SdkOptional<List<DatabaseLayoutOption>>,
-      );
+  OptionsOptionsKafka _copyWith({Object? regions = sdkOmittedValue, Object? versions = sdkOmittedValue, Object? layouts = sdkOmittedValue}) => OptionsOptionsKafka(
+    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
+    versions: identical(versions, sdkOmittedValue) ? this.versions : versions as SdkOptional<List<String>>,
+    layouts: identical(layouts, sdkOmittedValue) ? this.layouts : layouts as SdkOptional<List<DatabaseLayoutOption>>,
+  );
 
-  factory OptionsOptionsKafka.fromJson(Map<String, dynamic> json) =>
-      OptionsOptionsKafka(
-        regions: json['regions'] != null
-            ? SdkPresent(
-                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        versions: json['versions'] != null
-            ? SdkPresent(((json['versions'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        layouts: json['layouts'] != null
-            ? SdkPresent(((json['layouts'] as List?)
-                ?.map((e) =>
-                    DatabaseLayoutOption.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory OptionsOptionsKafka.fromJson(Map<String, dynamic> json) => OptionsOptionsKafka(
+    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    versions: json['versions'] != null ? SdkPresent(((json['versions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    layouts: json['layouts'] != null ? SdkPresent(((json['layouts'] as List?)?.map((e) => DatabaseLayoutOption.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (regions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'regions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (versions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'versions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (layouts) {
-          SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {
-              'layouts': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (regions) {
+      SdkPresent<List<String>>(value: final value) => {'regions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (versions) {
+      SdkPresent<List<String>>(value: final value) => {'versions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (layouts) {
+      SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {'layouts': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `mongodb` wire field.
 class OptionsOptionsMongodb {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> regions;
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> versions;
-
   /// An array of objects, each indicating the node sizes (otherwise referred to as slugs) that are available with various numbers of nodes in the database cluster. Each slugs denotes the node's identifier, CPU, and RAM (in that order).
   final SdkOptional<List<DatabaseLayoutOption>> layouts;
 
-  const OptionsOptionsMongodb(
-      {this.regions = const SdkOmitted(),
-      this.versions = const SdkOmitted(),
-      this.layouts = const SdkOmitted()});
+  const OptionsOptionsMongodb({this.regions = const SdkOmitted(), this.versions = const SdkOmitted(), this.layouts = const SdkOmitted()});
 
-  OptionsOptionsMongodb Function(
-          {SdkOptional<List<String>> regions,
-          SdkOptional<List<String>> versions,
-          SdkOptional<List<DatabaseLayoutOption>> layouts})
-      get copyWith => _copyWith;
+  OptionsOptionsMongodb Function({SdkOptional<List<String>> regions, SdkOptional<List<String>> versions, SdkOptional<List<DatabaseLayoutOption>> layouts}) get copyWith => _copyWith;
 
-  OptionsOptionsMongodb _copyWith(
-          {Object? regions = sdkOmittedValue,
-          Object? versions = sdkOmittedValue,
-          Object? layouts = sdkOmittedValue}) =>
-      OptionsOptionsMongodb(
-        regions: identical(regions, sdkOmittedValue)
-            ? this.regions
-            : regions as SdkOptional<List<String>>,
-        versions: identical(versions, sdkOmittedValue)
-            ? this.versions
-            : versions as SdkOptional<List<String>>,
-        layouts: identical(layouts, sdkOmittedValue)
-            ? this.layouts
-            : layouts as SdkOptional<List<DatabaseLayoutOption>>,
-      );
+  OptionsOptionsMongodb _copyWith({Object? regions = sdkOmittedValue, Object? versions = sdkOmittedValue, Object? layouts = sdkOmittedValue}) => OptionsOptionsMongodb(
+    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
+    versions: identical(versions, sdkOmittedValue) ? this.versions : versions as SdkOptional<List<String>>,
+    layouts: identical(layouts, sdkOmittedValue) ? this.layouts : layouts as SdkOptional<List<DatabaseLayoutOption>>,
+  );
 
-  factory OptionsOptionsMongodb.fromJson(Map<String, dynamic> json) =>
-      OptionsOptionsMongodb(
-        regions: json['regions'] != null
-            ? SdkPresent(
-                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        versions: json['versions'] != null
-            ? SdkPresent(((json['versions'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        layouts: json['layouts'] != null
-            ? SdkPresent(((json['layouts'] as List?)
-                ?.map((e) =>
-                    DatabaseLayoutOption.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory OptionsOptionsMongodb.fromJson(Map<String, dynamic> json) => OptionsOptionsMongodb(
+    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    versions: json['versions'] != null ? SdkPresent(((json['versions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    layouts: json['layouts'] != null ? SdkPresent(((json['layouts'] as List?)?.map((e) => DatabaseLayoutOption.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (regions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'regions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (versions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'versions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (layouts) {
-          SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {
-              'layouts': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (regions) {
+      SdkPresent<List<String>>(value: final value) => {'regions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (versions) {
+      SdkPresent<List<String>>(value: final value) => {'versions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (layouts) {
+      SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {'layouts': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `pg` wire field.
 class OptionsOptionsPg {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> regions;
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> versions;
-
   /// An array of objects, each indicating the node sizes (otherwise referred to as slugs) that are available with various numbers of nodes in the database cluster. Each slugs denotes the node's identifier, CPU, and RAM (in that order).
   final SdkOptional<List<DatabaseLayoutOption>> layouts;
 
-  const OptionsOptionsPg(
-      {this.regions = const SdkOmitted(),
-      this.versions = const SdkOmitted(),
-      this.layouts = const SdkOmitted()});
+  const OptionsOptionsPg({this.regions = const SdkOmitted(), this.versions = const SdkOmitted(), this.layouts = const SdkOmitted()});
 
-  OptionsOptionsPg Function(
-          {SdkOptional<List<String>> regions,
-          SdkOptional<List<String>> versions,
-          SdkOptional<List<DatabaseLayoutOption>> layouts})
-      get copyWith => _copyWith;
+  OptionsOptionsPg Function({SdkOptional<List<String>> regions, SdkOptional<List<String>> versions, SdkOptional<List<DatabaseLayoutOption>> layouts}) get copyWith => _copyWith;
 
-  OptionsOptionsPg _copyWith(
-          {Object? regions = sdkOmittedValue,
-          Object? versions = sdkOmittedValue,
-          Object? layouts = sdkOmittedValue}) =>
-      OptionsOptionsPg(
-        regions: identical(regions, sdkOmittedValue)
-            ? this.regions
-            : regions as SdkOptional<List<String>>,
-        versions: identical(versions, sdkOmittedValue)
-            ? this.versions
-            : versions as SdkOptional<List<String>>,
-        layouts: identical(layouts, sdkOmittedValue)
-            ? this.layouts
-            : layouts as SdkOptional<List<DatabaseLayoutOption>>,
-      );
+  OptionsOptionsPg _copyWith({Object? regions = sdkOmittedValue, Object? versions = sdkOmittedValue, Object? layouts = sdkOmittedValue}) => OptionsOptionsPg(
+    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
+    versions: identical(versions, sdkOmittedValue) ? this.versions : versions as SdkOptional<List<String>>,
+    layouts: identical(layouts, sdkOmittedValue) ? this.layouts : layouts as SdkOptional<List<DatabaseLayoutOption>>,
+  );
 
-  factory OptionsOptionsPg.fromJson(Map<String, dynamic> json) =>
-      OptionsOptionsPg(
-        regions: json['regions'] != null
-            ? SdkPresent(
-                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        versions: json['versions'] != null
-            ? SdkPresent(((json['versions'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        layouts: json['layouts'] != null
-            ? SdkPresent(((json['layouts'] as List?)
-                ?.map((e) =>
-                    DatabaseLayoutOption.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory OptionsOptionsPg.fromJson(Map<String, dynamic> json) => OptionsOptionsPg(
+    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    versions: json['versions'] != null ? SdkPresent(((json['versions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    layouts: json['layouts'] != null ? SdkPresent(((json['layouts'] as List?)?.map((e) => DatabaseLayoutOption.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (regions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'regions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (versions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'versions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (layouts) {
-          SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {
-              'layouts': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (regions) {
+      SdkPresent<List<String>>(value: final value) => {'regions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (versions) {
+      SdkPresent<List<String>>(value: final value) => {'versions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (layouts) {
+      SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {'layouts': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `mysql` wire field.
 class OptionsOptionsMysql {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> regions;
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> versions;
-
   /// An array of objects, each indicating the node sizes (otherwise referred to as slugs) that are available with various numbers of nodes in the database cluster. Each slugs denotes the node's identifier, CPU, and RAM (in that order).
   final SdkOptional<List<DatabaseLayoutOption>> layouts;
 
-  const OptionsOptionsMysql(
-      {this.regions = const SdkOmitted(),
-      this.versions = const SdkOmitted(),
-      this.layouts = const SdkOmitted()});
+  const OptionsOptionsMysql({this.regions = const SdkOmitted(), this.versions = const SdkOmitted(), this.layouts = const SdkOmitted()});
 
-  OptionsOptionsMysql Function(
-          {SdkOptional<List<String>> regions,
-          SdkOptional<List<String>> versions,
-          SdkOptional<List<DatabaseLayoutOption>> layouts})
-      get copyWith => _copyWith;
+  OptionsOptionsMysql Function({SdkOptional<List<String>> regions, SdkOptional<List<String>> versions, SdkOptional<List<DatabaseLayoutOption>> layouts}) get copyWith => _copyWith;
 
-  OptionsOptionsMysql _copyWith(
-          {Object? regions = sdkOmittedValue,
-          Object? versions = sdkOmittedValue,
-          Object? layouts = sdkOmittedValue}) =>
-      OptionsOptionsMysql(
-        regions: identical(regions, sdkOmittedValue)
-            ? this.regions
-            : regions as SdkOptional<List<String>>,
-        versions: identical(versions, sdkOmittedValue)
-            ? this.versions
-            : versions as SdkOptional<List<String>>,
-        layouts: identical(layouts, sdkOmittedValue)
-            ? this.layouts
-            : layouts as SdkOptional<List<DatabaseLayoutOption>>,
-      );
+  OptionsOptionsMysql _copyWith({Object? regions = sdkOmittedValue, Object? versions = sdkOmittedValue, Object? layouts = sdkOmittedValue}) => OptionsOptionsMysql(
+    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
+    versions: identical(versions, sdkOmittedValue) ? this.versions : versions as SdkOptional<List<String>>,
+    layouts: identical(layouts, sdkOmittedValue) ? this.layouts : layouts as SdkOptional<List<DatabaseLayoutOption>>,
+  );
 
-  factory OptionsOptionsMysql.fromJson(Map<String, dynamic> json) =>
-      OptionsOptionsMysql(
-        regions: json['regions'] != null
-            ? SdkPresent(
-                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        versions: json['versions'] != null
-            ? SdkPresent(((json['versions'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        layouts: json['layouts'] != null
-            ? SdkPresent(((json['layouts'] as List?)
-                ?.map((e) =>
-                    DatabaseLayoutOption.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory OptionsOptionsMysql.fromJson(Map<String, dynamic> json) => OptionsOptionsMysql(
+    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    versions: json['versions'] != null ? SdkPresent(((json['versions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    layouts: json['layouts'] != null ? SdkPresent(((json['layouts'] as List?)?.map((e) => DatabaseLayoutOption.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (regions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'regions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (versions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'versions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (layouts) {
-          SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {
-              'layouts': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (regions) {
+      SdkPresent<List<String>>(value: final value) => {'regions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (versions) {
+      SdkPresent<List<String>>(value: final value) => {'versions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (layouts) {
+      SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {'layouts': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `redis` wire field.
 class OptionsOptionsRedis {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> regions;
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> versions;
-
   /// An array of objects, each indicating the node sizes (otherwise referred to as slugs) that are available with various numbers of nodes in the database cluster. Each slugs denotes the node's identifier, CPU, and RAM (in that order).
   final SdkOptional<List<DatabaseLayoutOption>> layouts;
 
-  const OptionsOptionsRedis(
-      {this.regions = const SdkOmitted(),
-      this.versions = const SdkOmitted(),
-      this.layouts = const SdkOmitted()});
+  const OptionsOptionsRedis({this.regions = const SdkOmitted(), this.versions = const SdkOmitted(), this.layouts = const SdkOmitted()});
 
-  OptionsOptionsRedis Function(
-          {SdkOptional<List<String>> regions,
-          SdkOptional<List<String>> versions,
-          SdkOptional<List<DatabaseLayoutOption>> layouts})
-      get copyWith => _copyWith;
+  OptionsOptionsRedis Function({SdkOptional<List<String>> regions, SdkOptional<List<String>> versions, SdkOptional<List<DatabaseLayoutOption>> layouts}) get copyWith => _copyWith;
 
-  OptionsOptionsRedis _copyWith(
-          {Object? regions = sdkOmittedValue,
-          Object? versions = sdkOmittedValue,
-          Object? layouts = sdkOmittedValue}) =>
-      OptionsOptionsRedis(
-        regions: identical(regions, sdkOmittedValue)
-            ? this.regions
-            : regions as SdkOptional<List<String>>,
-        versions: identical(versions, sdkOmittedValue)
-            ? this.versions
-            : versions as SdkOptional<List<String>>,
-        layouts: identical(layouts, sdkOmittedValue)
-            ? this.layouts
-            : layouts as SdkOptional<List<DatabaseLayoutOption>>,
-      );
+  OptionsOptionsRedis _copyWith({Object? regions = sdkOmittedValue, Object? versions = sdkOmittedValue, Object? layouts = sdkOmittedValue}) => OptionsOptionsRedis(
+    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
+    versions: identical(versions, sdkOmittedValue) ? this.versions : versions as SdkOptional<List<String>>,
+    layouts: identical(layouts, sdkOmittedValue) ? this.layouts : layouts as SdkOptional<List<DatabaseLayoutOption>>,
+  );
 
-  factory OptionsOptionsRedis.fromJson(Map<String, dynamic> json) =>
-      OptionsOptionsRedis(
-        regions: json['regions'] != null
-            ? SdkPresent(
-                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        versions: json['versions'] != null
-            ? SdkPresent(((json['versions'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        layouts: json['layouts'] != null
-            ? SdkPresent(((json['layouts'] as List?)
-                ?.map((e) =>
-                    DatabaseLayoutOption.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory OptionsOptionsRedis.fromJson(Map<String, dynamic> json) => OptionsOptionsRedis(
+    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    versions: json['versions'] != null ? SdkPresent(((json['versions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    layouts: json['layouts'] != null ? SdkPresent(((json['layouts'] as List?)?.map((e) => DatabaseLayoutOption.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (regions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'regions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (versions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'versions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (layouts) {
-          SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {
-              'layouts': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (regions) {
+      SdkPresent<List<String>>(value: final value) => {'regions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (versions) {
+      SdkPresent<List<String>>(value: final value) => {'versions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (layouts) {
+      SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {'layouts': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `valkey` wire field.
 class OptionsOptionsValkey {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> regions;
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> versions;
-
   /// An array of objects, each indicating the node sizes (otherwise referred to as slugs) that are available with various numbers of nodes in the database cluster. Each slugs denotes the node's identifier, CPU, and RAM (in that order).
   final SdkOptional<List<DatabaseLayoutOption>> layouts;
 
-  const OptionsOptionsValkey(
-      {this.regions = const SdkOmitted(),
-      this.versions = const SdkOmitted(),
-      this.layouts = const SdkOmitted()});
+  const OptionsOptionsValkey({this.regions = const SdkOmitted(), this.versions = const SdkOmitted(), this.layouts = const SdkOmitted()});
 
-  OptionsOptionsValkey Function(
-          {SdkOptional<List<String>> regions,
-          SdkOptional<List<String>> versions,
-          SdkOptional<List<DatabaseLayoutOption>> layouts})
-      get copyWith => _copyWith;
+  OptionsOptionsValkey Function({SdkOptional<List<String>> regions, SdkOptional<List<String>> versions, SdkOptional<List<DatabaseLayoutOption>> layouts}) get copyWith => _copyWith;
 
-  OptionsOptionsValkey _copyWith(
-          {Object? regions = sdkOmittedValue,
-          Object? versions = sdkOmittedValue,
-          Object? layouts = sdkOmittedValue}) =>
-      OptionsOptionsValkey(
-        regions: identical(regions, sdkOmittedValue)
-            ? this.regions
-            : regions as SdkOptional<List<String>>,
-        versions: identical(versions, sdkOmittedValue)
-            ? this.versions
-            : versions as SdkOptional<List<String>>,
-        layouts: identical(layouts, sdkOmittedValue)
-            ? this.layouts
-            : layouts as SdkOptional<List<DatabaseLayoutOption>>,
-      );
+  OptionsOptionsValkey _copyWith({Object? regions = sdkOmittedValue, Object? versions = sdkOmittedValue, Object? layouts = sdkOmittedValue}) => OptionsOptionsValkey(
+    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
+    versions: identical(versions, sdkOmittedValue) ? this.versions : versions as SdkOptional<List<String>>,
+    layouts: identical(layouts, sdkOmittedValue) ? this.layouts : layouts as SdkOptional<List<DatabaseLayoutOption>>,
+  );
 
-  factory OptionsOptionsValkey.fromJson(Map<String, dynamic> json) =>
-      OptionsOptionsValkey(
-        regions: json['regions'] != null
-            ? SdkPresent(
-                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        versions: json['versions'] != null
-            ? SdkPresent(((json['versions'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        layouts: json['layouts'] != null
-            ? SdkPresent(((json['layouts'] as List?)
-                ?.map((e) =>
-                    DatabaseLayoutOption.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory OptionsOptionsValkey.fromJson(Map<String, dynamic> json) => OptionsOptionsValkey(
+    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    versions: json['versions'] != null ? SdkPresent(((json['versions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    layouts: json['layouts'] != null ? SdkPresent(((json['layouts'] as List?)?.map((e) => DatabaseLayoutOption.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (regions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'regions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (versions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'versions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (layouts) {
-          SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {
-              'layouts': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (regions) {
+      SdkPresent<List<String>>(value: final value) => {'regions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (versions) {
+      SdkPresent<List<String>>(value: final value) => {'versions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (layouts) {
+      SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {'layouts': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

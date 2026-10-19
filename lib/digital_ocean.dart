@@ -5,10 +5,8 @@ import 'sdk_config.dart';
 import 'sdk_utils.dart';
 import 'types.dart';
 import 'methods/action_gateway.dart' as action_gateway_methods;
-import 'methods/action_gateway_data_plane.dart'
-    as action_gateway_data_plane_methods;
-import 'methods/sdk_1_click_applications.dart'
-    as sdk_1_click_applications_methods;
+import 'methods/action_gateway_data_plane.dart' as action_gateway_data_plane_methods;
+import 'methods/sdk_1_click_applications.dart' as sdk_1_click_applications_methods;
 import 'methods/account.dart' as account_methods;
 import 'methods/ssh_keys.dart' as ssh_keys_methods;
 import 'methods/actions.dart' as actions_methods;
@@ -24,8 +22,7 @@ import 'methods/domains.dart' as domains_methods;
 import 'methods/domain_records.dart' as domain_records_methods;
 import 'methods/droplets.dart' as droplets_methods;
 import 'methods/droplet_actions.dart' as droplet_actions_methods;
-import 'methods/droplet_autoscale_pools.dart'
-    as droplet_autoscale_pools_methods;
+import 'methods/droplet_autoscale_pools.dart' as droplet_autoscale_pools_methods;
 import 'methods/firewalls.dart' as firewalls_methods;
 import 'methods/floating_ips.dart' as floating_ips_methods;
 import 'methods/floating_ip_actions.dart' as floating_ip_actions_methods;
@@ -36,14 +33,12 @@ import 'methods/insights.dart' as insights_methods;
 import 'methods/signals.dart' as signals_methods;
 import 'methods/kubernetes.dart' as kubernetes_methods;
 import 'methods/load_balancers.dart' as load_balancers_methods;
-import 'methods/micro_vms_public_preview.dart'
-    as micro_vms_public_preview_methods;
+import 'methods/micro_vms_public_preview.dart' as micro_vms_public_preview_methods;
 import 'methods/monitoring.dart' as monitoring_methods;
 import 'methods/nfs.dart' as nfs_methods;
 import 'methods/nfs_actions.dart' as nfs_actions_methods;
 import 'methods/organizations.dart' as organizations_methods;
-import 'methods/partner_network_connect.dart'
-    as partner_network_connect_methods;
+import 'methods/partner_network_connect.dart' as partner_network_connect_methods;
 import 'methods/projects.dart' as projects_methods;
 import 'methods/project_resources.dart' as project_resources_methods;
 import 'methods/regions.dart' as regions_methods;
@@ -63,10 +58,8 @@ import 'methods/vector_databases.dart' as vector_databases_methods;
 import 'methods/block_storage.dart' as block_storage_methods;
 import 'methods/block_storage_actions.dart' as block_storage_actions_methods;
 import 'methods/vpcs.dart' as vpcs_methods;
-import 'methods/vpc_routes_public_preview.dart'
-    as vpc_routes_public_preview_methods;
-import 'methods/vpc_subnets_public_preview.dart'
-    as vpc_subnets_public_preview_methods;
+import 'methods/vpc_routes_public_preview.dart' as vpc_routes_public_preview_methods;
+import 'methods/vpc_subnets_public_preview.dart' as vpc_subnets_public_preview_methods;
 import 'methods/vpc_peerings.dart' as vpc_peerings_methods;
 import 'methods/vpc_nat_gateways.dart' as vpc_nat_gateways_methods;
 import 'methods/uptime.dart' as uptime_methods;
@@ -78,12 +71,10 @@ import 'methods/batch_inference.dart' as batch_inference_methods;
 class ActionGatewayNamespace {
   final ClientConfig _config;
   ActionGatewayNamespace(ClientConfig config) : _config = config;
-
   /// Returns the per-minute limits set for the actor and the limits in effect, each the lower of your team's limit and the actor's override. Returns 404 when the actor has no sessions, connections, or limit overrides.
   Future<GetActorLimitsResponse> actorLimitsGet(
       {required String actorId, RequestOptions? requestOptions}) async {
-    return action_gateway_methods.actorLimitsGet(_config,
-        actorId: actorId, requestOptions: requestOptions);
+    return action_gateway_methods.actorLimitsGet(_config, actorId: actorId, requestOptions: requestOptions);
   }
 
   /// Removes the actor's overrides for the listed categories, which then follow your team's limits again. Clearing a category without an override succeeds.
@@ -91,10 +82,7 @@ class ActionGatewayNamespace {
       {required String actorId,
       required List<LimitCategory> categories,
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.actorLimitsDelete(_config,
-        actorId: actorId,
-        categories: categories,
-        requestOptions: requestOptions);
+    return action_gateway_methods.actorLimitsDelete(_config, actorId: actorId, categories: categories, requestOptions: requestOptions);
   }
 
   /// Sets per-minute limits for the listed categories and leaves the others unchanged. A limit may not exceed your team's current limit for the category (400 otherwise), and 0 blocks every call in the category. The actor does not need to exist yet.
@@ -102,8 +90,7 @@ class ActionGatewayNamespace {
       {required String actorId,
       required List<LimitOverride> overrides,
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.actorLimitsUpdate(_config,
-        actorId: actorId, overrides: overrides, requestOptions: requestOptions);
+    return action_gateway_methods.actorLimitsUpdate(_config, actorId: actorId, overrides: overrides, requestOptions: requestOptions);
   }
 
   /// Connects one of your users, identified by `user_id`, to a provider so tools can act on their account. An OAuth connection starts pending, and authorization carries the URL to send the user to; read the connection until it is active or expired. A connection through a team API-key credential is active immediately. There is one connection per provider and `user_id` for each DigitalOcean user who creates connections. Repeating the request returns the existing connection when its scopes cover the request, reusing a pending connection's link, and restarts an expired or revoked connection under the same ID. Requesting scopes beyond an existing connection's, or a different credential, returns 400 until that connection is deleted.
@@ -111,19 +98,11 @@ class ActionGatewayNamespace {
       {required String provider,
       required String userId,
       SdkOptional<List<String>> scopes = const SdkOmitted(),
-      SdkOptional<Map<String, dynamic>> connectionParameters =
-          const SdkOmitted(),
+      SdkOptional<Map<String, dynamic>> connectionParameters = const SdkOmitted(),
       SdkOptional<ConnectionCreateCredential> credential = const SdkOmitted(),
       SdkOptional<ConnectionCreateNetwork> network = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.connectionsCreate(_config,
-        provider: provider,
-        userId: userId,
-        scopes: scopes,
-        connectionParameters: connectionParameters,
-        credential: credential,
-        network: network,
-        requestOptions: requestOptions);
+    return action_gateway_methods.connectionsCreate(_config, provider: provider, userId: userId, scopes: scopes, connectionParameters: connectionParameters, credential: credential, network: network, requestOptions: requestOptions);
   }
 
   /// Returns the connections you can see, excluding revoked ones. Offset-paged with page and `per_page`; filter by provider, `user_id`, and status.
@@ -136,39 +115,27 @@ class ActionGatewayNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.connectionsList(_config,
-        provider: provider,
-        userId: userId,
-        status: status,
-        sort: sort,
-        sortDirection: sortDirection,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return action_gateway_methods.connectionsList(_config, provider: provider, userId: userId, status: status, sort: sort, sortDirection: sortDirection, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// Returns the connection and, while it is pending, the authorization the user still has to complete. Reading a pending connection picks up a completed authorization, and marks the connection expired once its link has lapsed. Returns 404 for an unknown connection or one you cannot see.
   Future<GetConnectionResponse> connectionsGet(
       {required String id, RequestOptions? requestOptions}) async {
-    return action_gateway_methods.connectionsGet(_config,
-        id: id, requestOptions: requestOptions);
+    return action_gateway_methods.connectionsGet(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Marks the connection revoked and returns it; for an OAuth connection, its stored tokens are deleted first. Creating a connection for the same provider and `user_id` later reuses the same ID. Only the user who created the connection can delete it; for anyone else it is 404.
   Future<DeleteConnectionResponse> connectionsDelete(
       {required String id, RequestOptions? requestOptions}) async {
-    return action_gateway_methods.connectionsDelete(_config,
-        id: id, requestOptions: requestOptions);
+    return action_gateway_methods.connectionsDelete(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Registers a remote MCP server for your team, using the streamable HTTP transport. The server starts with `syncStatus` pending and no tools: discover its tools with `POST .../mcp-servers/{server_ref}/resync`, then choose which to enable with `PUT .../mcp-servers/{server_ref}/tools`. The endpoint must be HTTPS and resolve only to public IP addresses. The number of servers per team is limited (10 by default); registering beyond it returns 429. Returns 409 when `serverRef` is already in use.
   Future<McpServerResponse> mcpServersCreate(
       {required String serverRef,
       required String endpoint,
-      SdkOptional<McpServerCreateRequestTransport> transport =
-          const SdkOmitted(),
-      SdkOptional<McpServerCreateRequestCredentialRefSource>
-          credentialRefSource = const SdkOmitted(),
+      SdkOptional<McpServerCreateRequestTransport> transport = const SdkOmitted(),
+      SdkOptional<McpServerCreateRequestCredentialRefSource> credentialRefSource = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
       SdkOptional<String> credentialRef = const SdkOmitted(),
       SdkOptional<String> apiKey = const SdkOmitted(),
@@ -179,35 +146,19 @@ class ActionGatewayNamespace {
       SdkOptional<List<String>> oauthScopes = const SdkOmitted(),
       SdkOptional<String> oauthAuthorizationTtlSeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.mcpServersCreate(_config,
-        serverRef: serverRef,
-        endpoint: endpoint,
-        transport: transport,
-        credentialRefSource: credentialRefSource,
-        description: description,
-        credentialRef: credentialRef,
-        apiKey: apiKey,
-        oauthClientId: oauthClientId,
-        oauthClientSecret: oauthClientSecret,
-        oauthAuthorizeUrl: oauthAuthorizeUrl,
-        oauthTokenUrl: oauthTokenUrl,
-        oauthScopes: oauthScopes,
-        oauthAuthorizationTtlSeconds: oauthAuthorizationTtlSeconds,
-        requestOptions: requestOptions);
+    return action_gateway_methods.mcpServersCreate(_config, serverRef: serverRef, endpoint: endpoint, transport: transport, credentialRefSource: credentialRefSource, description: description, credentialRef: credentialRef, apiKey: apiKey, oauthClientId: oauthClientId, oauthClientSecret: oauthClientSecret, oauthAuthorizeUrl: oauthAuthorizeUrl, oauthTokenUrl: oauthTokenUrl, oauthScopes: oauthScopes, oauthAuthorizationTtlSeconds: oauthAuthorizationTtlSeconds, requestOptions: requestOptions);
   }
 
   /// Returns every MCP server your team has registered, sorted by `serverRef`.
   Future<ListMcpServersResponse> mcpServersList(
       {RequestOptions? requestOptions}) async {
-    return action_gateway_methods.mcpServersList(_config,
-        requestOptions: requestOptions);
+    return action_gateway_methods.mcpServersList(_config, requestOptions: requestOptions);
   }
 
   /// Returns one of your team's MCP servers, or 404 when your team has none with this `serverRef`.
   Future<McpServerResponse> mcpServersGet(
       {required String serverRef, RequestOptions? requestOptions}) async {
-    return action_gateway_methods.mcpServersGet(_config,
-        serverRef: serverRef, requestOptions: requestOptions);
+    return action_gateway_methods.mcpServersGet(_config, serverRef: serverRef, requestOptions: requestOptions);
   }
 
   /// Updates the description of a registered MCP server, which appears on its catalog card immediately. Supply `description` to replace the stored text, or an empty value to clear it; the description can contain at most 1024 characters. You cannot change the server endpoint or credentials with this operation; delete the server and register it again to change them.
@@ -217,17 +168,13 @@ class ActionGatewayNamespace {
       {required String serverRef,
       SdkOptional<String> description = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.mcpServersPatch(_config,
-        serverRef: serverRef,
-        description: description,
-        requestOptions: requestOptions);
+    return action_gateway_methods.mcpServersPatch(_config, serverRef: serverRef, description: description, requestOptions: requestOptions);
   }
 
   /// Disables all of the server's tools, removes them from your team's catalog, and deletes the server. An `api_key` supplied at registration is deleted; a `credentialRef` you supplied is left untouched. For a server registered with `credentialRefSource` connection, every user connection made through its OAuth client is revoked. Returns the deleted server, or 404 when it does not exist.
   Future<McpServerResponse> mcpServersDelete(
       {required String serverRef, RequestOptions? requestOptions}) async {
-    return action_gateway_methods.mcpServersDelete(_config,
-        serverRef: serverRef, requestOptions: requestOptions);
+    return action_gateway_methods.mcpServersDelete(_config, serverRef: serverRef, requestOptions: requestOptions);
   }
 
   /// Connects to the server, lists its tools, and records them. Discovered tools are not callable until you enable them. When discovery finishes in time, returns 200 with the server and its tools; a discovery failure is reported in `syncStatus` and `syncError` rather than as an error. Otherwise returns 202 with pending set while discovery continues: poll `GET .../mcp-servers/{server_ref}` until `lastSyncedAt` or `syncError` changes (`syncStatus` is not reset while discovery runs). For a server registered with `credentialRefSource` connection, `user_id` is required; if that user has not authorized the server yet, the response carries authorization with the URL to send them to. Resyncs are rate limited per team, and a team can run only a few discoveries at once; either limit returns 429.
@@ -235,15 +182,13 @@ class ActionGatewayNamespace {
       {required String serverRef,
       SdkOptional<String> userId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.mcpServersRunResync(_config,
-        serverRef: serverRef, userId: userId, requestOptions: requestOptions);
+    return action_gateway_methods.mcpServersRunResync(_config, serverRef: serverRef, userId: userId, requestOptions: requestOptions);
   }
 
   /// Returns every tool discovered on the server, sorted by name, with whether each is enabled. Tools that have since disappeared from the server stay listed.
   Future<ListMcpServerToolsResponse> mcpServersListTools(
       {required String serverRef, RequestOptions? requestOptions}) async {
-    return action_gateway_methods.mcpServersListTools(_config,
-        serverRef: serverRef, requestOptions: requestOptions);
+    return action_gateway_methods.mcpServersListTools(_config, serverRef: serverRef, requestOptions: requestOptions);
   }
 
   /// `enabledToolSlugs` is the complete set to enable; every other tool of the server is disabled. An enabled tool is added to your team's catalog at its latest discovered version, and a disabled one is removed from it. Repeating the same set changes nothing. Before changing anything, each tool being enabled, re-enabled, or moved to a newer discovered version is verified against the live server: it must still be listed there, with the same input schema as when it was discovered. If any check fails or the server cannot be reached, the request fails with 400 and nothing changes; resync and try again. An unknown tool slug is also rejected with 400. A request that needs verification counts against the resync rate limit (429). Returns the server's full tool list.
@@ -252,11 +197,7 @@ class ActionGatewayNamespace {
       required List<String> enabledToolSlugs,
       SdkOptional<String> userId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.mcpServersUpdateTools(_config,
-        serverRef: serverRef,
-        enabledToolSlugs: enabledToolSlugs,
-        userId: userId,
-        requestOptions: requestOptions);
+    return action_gateway_methods.mcpServersUpdateTools(_config, serverRef: serverRef, enabledToolSlugs: enabledToolSlugs, userId: userId, requestOptions: requestOptions);
   }
 
   /// An output view is a named projection of one tool version's output: tool calls that use it return only the listed fields, and its `output_schema` describes the result. The view is bound to the tool version your catalog currently releases. Returns 409 when your team already has a view with this name on the tool version, and 429 when your team already has the maximum of 20 views on it.
@@ -267,13 +208,7 @@ class ActionGatewayNamespace {
       SdkOptional<String> toolId = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.outputViewsCreate(_config,
-        name: name,
-        fields: fields,
-        tool: tool,
-        toolId: toolId,
-        description: description,
-        requestOptions: requestOptions);
+    return action_gateway_methods.outputViewsCreate(_config, name: name, fields: fields, tool: tool, toolId: toolId, description: description, requestOptions: requestOptions);
   }
 
   /// Returns the output views your team can use: views DigitalOcean publishes to every team, plus your team's own. Cursor-paged with `page_size` and `page_token`; no total is reported.
@@ -283,27 +218,12 @@ class ActionGatewayNamespace {
       SdkOptional<int> pageSize = const SdkOmitted(),
       SdkOptional<String> pageToken = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.outputViewsList(_config,
-        tool: tool,
-        toolId: toolId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+    return action_gateway_methods.outputViewsList(_config, tool: tool, toolId: toolId, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Returns the output views your team can use: views DigitalOcean publishes to every team, plus your team's own. Cursor-paged with `page_size` and `page_token`; no total is reported.
-  Stream<OutputView> outputViewsListPaginated(
-      {String? tool,
-      String? toolId,
-      int? pageSize,
-      String? pageToken,
-      RequestOptions? requestOptions}) async* {
-    yield* action_gateway_methods.outputViewsListPaginated(_config,
-        tool: tool,
-        toolId: toolId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+  Stream<OutputView> outputViewsListPaginated({String? tool, String? toolId, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+    yield* action_gateway_methods.outputViewsListPaginated(_config, tool: tool, toolId: toolId, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Validates a projection exactly as create does and returns the view it would produce, including `output_schema`, without storing anything. name and description are optional here; name uniqueness and the per-tool-version limit are not checked.
@@ -314,27 +234,19 @@ class ActionGatewayNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.outputViewsValidate(_config,
-        fields: fields,
-        tool: tool,
-        toolId: toolId,
-        name: name,
-        description: description,
-        requestOptions: requestOptions);
+    return action_gateway_methods.outputViewsValidate(_config, fields: fields, tool: tool, toolId: toolId, name: name, description: description, requestOptions: requestOptions);
   }
 
   /// Returns one of your team's views, or a published view on a tool version your catalog exposes. Returns 404 when the view does not exist, was deleted, or belongs to another team.
   Future<OutputViewResponse> outputViewsGet(
       {required String viewId, RequestOptions? requestOptions}) async {
-    return action_gateway_methods.outputViewsGet(_config,
-        viewId: viewId, requestOptions: requestOptions);
+    return action_gateway_methods.outputViewsGet(_config, viewId: viewId, requestOptions: requestOptions);
   }
 
   /// Deletes one of your team's views and returns it with audit.deleted_at set; it can no longer be used. Published views cannot be deleted. Returns 404 when the view does not exist, is already deleted, or is not your team's.
   Future<OutputViewResponse> outputViewsDelete(
       {required String viewId, RequestOptions? requestOptions}) async {
-    return action_gateway_methods.outputViewsDelete(_config,
-        viewId: viewId, requestOptions: requestOptions);
+    return action_gateway_methods.outputViewsDelete(_config, viewId: viewId, requestOptions: requestOptions);
   }
 
   /// Creates a session owned by your team, with a new session URN, and returns the MCP URL an agent connects to. tools selects the tools and toolbelts the session exposes, and policy decides which calls run, need approval, or are refused.
@@ -347,15 +259,7 @@ class ActionGatewayNamespace {
       SdkOptional<SessionNetwork> network = const SdkOmitted(),
       SdkOptional<SessionInsights> insights = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.sessionsCreate(_config,
-        name: name,
-        actorId: actorId,
-        policy: policy,
-        tools: tools,
-        config_: config_,
-        network: network,
-        insights: insights,
-        requestOptions: requestOptions);
+    return action_gateway_methods.sessionsCreate(_config, name: name, actorId: actorId, policy: policy, tools: tools, config_: config_, network: network, insights: insights, requestOptions: requestOptions);
   }
 
   /// Returns the sessions you can see, newest first. Offset-paged with page and `per_page`; `end_user_id` filters to one actor.
@@ -364,11 +268,7 @@ class ActionGatewayNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.sessionsList(_config,
-        endUserId: endUserId,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return action_gateway_methods.sessionsList(_config, endUserId: endUserId, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// Returns the sessions you can see whose name, `actor_id`, `session_urn`, or `agentName` contains query, case-insensitively, ranked across the whole result set. Cursor-paged with `page_size` and `page_token`; no total is reported.
@@ -378,34 +278,18 @@ class ActionGatewayNamespace {
       SdkOptional<int> pageSize = const SdkOmitted(),
       SdkOptional<String> pageToken = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.sessionsListSearch(_config,
-        query: query,
-        endUserId: endUserId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+    return action_gateway_methods.sessionsListSearch(_config, query: query, endUserId: endUserId, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Returns the sessions you can see whose name, `actor_id`, `session_urn`, or `agentName` contains query, case-insensitively, ranked across the whole result set. Cursor-paged with `page_size` and `page_token`; no total is reported.
-  Stream<Session> sessionsListSearchPaginated(
-      {String? query,
-      String? endUserId,
-      int? pageSize,
-      String? pageToken,
-      RequestOptions? requestOptions}) async* {
-    yield* action_gateway_methods.sessionsListSearchPaginated(_config,
-        query: query,
-        endUserId: endUserId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+  Stream<Session> sessionsListSearchPaginated({String? query, String? endUserId, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+    yield* action_gateway_methods.sessionsListSearchPaginated(_config, query: query, endUserId: endUserId, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Deletes the session and its policy. Succeeds without deleting anything when the session does not exist or you cannot delete it, so repeating a delete also succeeds. A malformed `session_urn` is rejected with 400.
   Future<Map<String, dynamic>> sessionsDelete(
       {required String sessionUrn, RequestOptions? requestOptions}) async {
-    return action_gateway_methods.sessionsDelete(_config,
-        sessionUrn: sessionUrn, requestOptions: requestOptions);
+    return action_gateway_methods.sessionsDelete(_config, sessionUrn: sessionUrn, requestOptions: requestOptions);
   }
 
   /// A toolbelt is a named set of tools, each pinned to a version, that your team can attach to sessions as `toolbelt:&lt;name&gt;@&lt;version&gt;`. The first version is 1 unless version is set. Returns 409 if an active toolbelt with the same name exists. The name of a deleted toolbelt can be reused; its versions start again from the initial version.
@@ -416,13 +300,7 @@ class ActionGatewayNamespace {
       SdkOptional<String> description = const SdkOmitted(),
       SdkOptional<List<String>> tools = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolbeltsCreate(_config,
-        name: name,
-        version: version,
-        displayName: displayName,
-        description: description,
-        tools: tools,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolbeltsCreate(_config, name: name, version: version, displayName: displayName, description: description, tools: tools, requestOptions: requestOptions);
   }
 
   /// Returns your team's toolbelts, one entry per name describing its latest version, sorted by name. Offset-paged with page and `per_page`; pagination reports the total.
@@ -431,11 +309,7 @@ class ActionGatewayNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolbeltsList(_config,
-        status: status,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolbeltsList(_config, status: status, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// Returns your team's toolbelts whose name, display name, or description contains query, case-insensitively, sorted by name. Cursor-paged with `page_size` and `page_token`; no total is reported.
@@ -445,27 +319,12 @@ class ActionGatewayNamespace {
       SdkOptional<int> pageSize = const SdkOmitted(),
       SdkOptional<String> pageToken = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolbeltsListSearch(_config,
-        query: query,
-        status: status,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolbeltsListSearch(_config, query: query, status: status, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Returns your team's toolbelts whose name, display name, or description contains query, case-insensitively, sorted by name. Cursor-paged with `page_size` and `page_token`; no total is reported.
-  Stream<ToolbeltSummary> toolbeltsListSearchPaginated(
-      {String? query,
-      SchemaSchemadba9253b? status,
-      int? pageSize,
-      String? pageToken,
-      RequestOptions? requestOptions}) async* {
-    yield* action_gateway_methods.toolbeltsListSearchPaginated(_config,
-        query: query,
-        status: status,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+  Stream<ToolbeltSummary> toolbeltsListSearchPaginated({String? query, SchemaSchemadba9253b? status, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+    yield* action_gateway_methods.toolbeltsListSearchPaginated(_config, query: query, status: status, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Returns the latest version of the named toolbelt, or the version requested, with catalog metadata for one page of its members in `tool_details`. A deleted toolbelt returns 404 unless a version is requested.
@@ -476,37 +335,18 @@ class ActionGatewayNamespace {
       SdkOptional<String> pageToken = const SdkOmitted(),
       SdkOptional<String> search = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolbeltsGet(_config,
-        name: name,
-        version: version,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        search: search,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolbeltsGet(_config, name: name, version: version, pageSize: pageSize, pageToken: pageToken, search: search, requestOptions: requestOptions);
   }
 
   /// Returns the latest version of the named toolbelt, or the version requested, with catalog metadata for one page of its members in `tool_details`. A deleted toolbelt returns 404 unless a version is requested.
-  Stream<ToolbeltToolDetail> toolbeltsGetPaginated(
-      {required String name,
-      String? version,
-      int? pageSize,
-      String? pageToken,
-      String? search,
-      RequestOptions? requestOptions}) async* {
-    yield* action_gateway_methods.toolbeltsGetPaginated(_config,
-        name: name,
-        version: version,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        search: search,
-        requestOptions: requestOptions);
+  Stream<ToolbeltToolDetail> toolbeltsGetPaginated({required String name, String? version, int? pageSize, String? pageToken, String? search, RequestOptions? requestOptions}) async* {
+    yield* action_gateway_methods.toolbeltsGetPaginated(_config, name: name, version: version, pageSize: pageSize, pageToken: pageToken, search: search, requestOptions: requestOptions);
   }
 
   /// Marks the toolbelt deleted and returns its latest version with status deprecated. Its versions stay readable by explicit version until the name is reused. The name is free to reuse immediately; a new toolbelt with it starts a fresh version history. Returns 404 when the toolbelt does not exist or is already deleted.
   Future<ToolbeltUpdateResponse> toolbeltsDelete(
       {required String name, RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolbeltsDelete(_config,
-        name: name, requestOptions: requestOptions);
+    return action_gateway_methods.toolbeltsDelete(_config, name: name, requestOptions: requestOptions);
   }
 
   /// Returns the distinct providers of the toolbelt's members, each with its member count, sorted by provider ID. List one provider's members with `GET .../toolbelts/{name}/providers/{provider}/tools`.
@@ -517,13 +357,7 @@ class ActionGatewayNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<String> search = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolbeltsListProviders(_config,
-        name: name,
-        version: version,
-        page: page,
-        perPage: perPage,
-        search: search,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolbeltsListProviders(_config, name: name, version: version, page: page, perPage: perPage, search: search, requestOptions: requestOptions);
   }
 
   /// Returns a page of catalog metadata for the toolbelt's members from the named provider, sorted by tool slug. An unknown provider returns an empty page.
@@ -535,14 +369,7 @@ class ActionGatewayNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<String> search = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolbeltsListProviderTools(_config,
-        name: name,
-        provider: provider,
-        version: version,
-        page: page,
-        perPage: perPage,
-        search: search,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolbeltsListProviderTools(_config, name: name, provider: provider, version: version, page: page, perPage: perPage, search: search, requestOptions: requestOptions);
   }
 
   /// Adds the listed tools and returns the toolbelt. When membership changes, this creates a new version that keeps the display name and description. Tools already in the toolbelt are left as they are, so a request that adds nothing new returns the current version unchanged. Returns 400 when a tool is not an active catalog tool, when a pin differs from the tool's current released version or from the version the toolbelt already holds, or when the toolbelt would exceed 500 tools. Returns 404 for an unknown or deleted toolbelt.
@@ -550,8 +377,7 @@ class ActionGatewayNamespace {
       {required String name,
       required List<String> tools,
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolbeltsAddTools(_config,
-        name: name, tools: tools, requestOptions: requestOptions);
+    return action_gateway_methods.toolbeltsAddTools(_config, name: name, tools: tools, requestOptions: requestOptions);
   }
 
   /// Removes the listed tools and returns the toolbelt. When membership changes, this creates a new version that keeps the display name and description. Tools that are not members are ignored, and removing every tool is allowed; deleting the toolbelt itself is a separate DELETE. Returns 400 when a pin differs from the version the toolbelt holds, and 404 for an unknown or deleted toolbelt.
@@ -559,8 +385,7 @@ class ActionGatewayNamespace {
       {required String name,
       required List<String> tools,
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolbeltsDeleteTools(_config,
-        name: name, tools: tools, requestOptions: requestOptions);
+    return action_gateway_methods.toolbeltsDeleteTools(_config, name: name, tools: tools, requestOptions: requestOptions);
   }
 
   /// Returns one page of the tools your team can use: released catalog tools plus the enabled tools of your team's MCP servers. definitions[i] describes tools[i]. Offset-paged with page and `per_page`; an unknown `toolkitId` returns an empty page.
@@ -569,11 +394,7 @@ class ActionGatewayNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolsList(_config,
-        toolkitId: toolkitId,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolsList(_config, toolkitId: toolkitId, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// Returns availability and latency for each catalog tool over the requested window, sorted by provider and then tool slug. A tool with no calls in the window is listed with `data_status` `HEALTH_DATA_STATUS_NO_DATA`. Metrics are aggregated across all customers; request volumes are not reported. Tools of your team's MCP servers are not included. Offset-paged with page and `per_page`.
@@ -583,12 +404,7 @@ class ActionGatewayNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolsListHealth(_config,
-        provider: provider,
-        window: window,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolsListHealth(_config, provider: provider, window: window, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// Returns availability and latency for each catalog provider over the requested window, sorted by provider ID. Metrics are aggregated across all customers; request volumes are not reported. Tools of your team's MCP servers are not included. Offset-paged with page and `per_page`.
@@ -598,12 +414,7 @@ class ActionGatewayNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolsListHealthProviders(_config,
-        provider: provider,
-        window: window,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolsListHealthProviders(_config, provider: provider, window: window, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// Returns availability and latency for one catalog tool over the requested window, optionally with a history series. Metrics are aggregated across all customers; request volumes are not reported. Returns 404 when `tool_slug` is not a catalog tool.
@@ -612,18 +423,13 @@ class ActionGatewayNamespace {
       SdkOptional<SchemaSchemae6ebae80> window = const SdkOmitted(),
       SdkOptional<bool> includeHistory = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolsGetHealth(_config,
-        toolSlug: toolSlug,
-        window: window,
-        includeHistory: includeHistory,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolsGetHealth(_config, toolSlug: toolSlug, window: window, includeHistory: includeHistory, requestOptions: requestOptions);
   }
 
   /// Returns the active catalog providers with at least one released tool, sorted by display name, with the credential kinds each accepts and the parameters a connection or team credential needs. Your team's MCP servers are listed separately under `/v2/action-gateway/mcp-servers`.
   Future<ListProvidersResponse> toolsListProviders(
       {RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolsListProviders(_config,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolsListProviders(_config, requestOptions: requestOptions);
   }
 
   /// Returns the providers of `GET /v2/action-gateway/tools/providers` whose name, display name, or description contains query, case-insensitively, sorted by name. Cursor-paged with `page_size` and `page_token`; no total is reported.
@@ -632,24 +438,12 @@ class ActionGatewayNamespace {
       SdkOptional<int> pageSize = const SdkOmitted(),
       SdkOptional<String> pageToken = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolsListSearchProviders(_config,
-        query: query,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolsListSearchProviders(_config, query: query, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Returns the providers of `GET /v2/action-gateway/tools/providers` whose name, display name, or description contains query, case-insensitively, sorted by name. Cursor-paged with `page_size` and `page_token`; no total is reported.
-  Stream<ProviderSummary> toolsListSearchProvidersPaginated(
-      {String? query,
-      int? pageSize,
-      String? pageToken,
-      RequestOptions? requestOptions}) async* {
-    yield* action_gateway_methods.toolsListSearchProvidersPaginated(_config,
-        query: query,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+  Stream<ProviderSummary> toolsListSearchProvidersPaginated({String? query, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+    yield* action_gateway_methods.toolsListSearchProvidersPaginated(_config, query: query, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Returns the tools your team can use that match query, optionally restricted to some providers or to the members of one of your toolbelts. Results are ranked across the whole result set: exact tool name matches first, then name or title prefixes, then name or title substrings, then other matches. Cursor-paged with `page_size` and `page_token`; no total is reported.
@@ -660,37 +454,18 @@ class ActionGatewayNamespace {
       SdkOptional<int> pageSize = const SdkOmitted(),
       SdkOptional<String> pageToken = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolsListSearch(_config,
-        query: query,
-        provider: provider,
-        toolbelt: toolbelt,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolsListSearch(_config, query: query, provider: provider, toolbelt: toolbelt, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Returns the tools your team can use that match query, optionally restricted to some providers or to the members of one of your toolbelts. Results are ranked across the whole result set: exact tool name matches first, then name or title prefixes, then name or title substrings, then other matches. Cursor-paged with `page_size` and `page_token`; no total is reported.
-  Stream<ToolSearchResult> toolsListSearchPaginated(
-      {String? query,
-      List<String>? provider,
-      String? toolbelt,
-      int? pageSize,
-      String? pageToken,
-      RequestOptions? requestOptions}) async* {
-    yield* action_gateway_methods.toolsListSearchPaginated(_config,
-        query: query,
-        provider: provider,
-        toolbelt: toolbelt,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+  Stream<ToolSearchResult> toolsListSearchPaginated({String? query, List<String>? provider, String? toolbelt, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+    yield* action_gateway_methods.toolsListSearchPaginated(_config, query: query, provider: provider, toolbelt: toolbelt, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Returns the providers (toolkits) whose tools your team can use: catalog providers with at least one released tool, plus your team's registered MCP servers.
   Future<ListToolkitsResponse> toolsListToolkits(
       {RequestOptions? requestOptions}) async {
-    return action_gateway_methods.toolsListToolkits(_config,
-        requestOptions: requestOptions);
+    return action_gateway_methods.toolsListToolkits(_config, requestOptions: requestOptions);
   }
 
   /// Returns the user IDs known for your team: session `actor_id` values, the `user_id` of connections that are not revoked, and actors with limit overrides. Only sessions and connections you can see count. Offset-paged with page and `per_page`.
@@ -701,27 +476,20 @@ class ActionGatewayNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_methods.usersList(_config,
-        userId: userId,
-        sort: sort,
-        sortDirection: sortDirection,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return action_gateway_methods.usersList(_config, userId: userId, sort: sort, sortDirection: sortDirection, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// Returns the sessions and non-revoked connections of one user ID. Returns 404 when the user has none you can see and no limit overrides.
   Future<GetUserResponse> usersGet(
       {required String userId, RequestOptions? requestOptions}) async {
-    return action_gateway_methods.usersGet(_config,
-        userId: userId, requestOptions: requestOptions);
+    return action_gateway_methods.usersGet(_config, userId: userId, requestOptions: requestOptions);
   }
+
 }
 
 class ActionGatewayDataPlaneNamespace {
   final ClientConfig _config;
   ActionGatewayDataPlaneNamespace(ClientConfig config) : _config = config;
-
   /// Lists the catalog tools that a session can call, ordered by name. The list applies the session's `tools` selection and omits tools that its policy always denies. Each page includes an `ETag` header. Send it in `If-None-Match` to receive `304 Not Modified` while the page is unchanged.
   Future<ListSessionToolsResponse> gatewayToolsList(
       {required String xSessionId,
@@ -729,27 +497,12 @@ class ActionGatewayDataPlaneNamespace {
       SdkOptional<String> pageToken = const SdkOmitted(),
       SdkOptional<String> ifNoneMatch = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_data_plane_methods.gatewayToolsList(_config,
-        xSessionId: xSessionId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        ifNoneMatch: ifNoneMatch,
-        requestOptions: requestOptions);
+    return action_gateway_data_plane_methods.gatewayToolsList(_config, xSessionId: xSessionId, pageSize: pageSize, pageToken: pageToken, ifNoneMatch: ifNoneMatch, requestOptions: requestOptions);
   }
 
   /// Lists the catalog tools that a session can call, ordered by name. The list applies the session's `tools` selection and omits tools that its policy always denies. Each page includes an `ETag` header. Send it in `If-None-Match` to receive `304 Not Modified` while the page is unchanged.
-  Stream<SessionTool> gatewayToolsListPaginated(
-      {required String xSessionId,
-      int? pageSize,
-      String? pageToken,
-      String? ifNoneMatch,
-      RequestOptions? requestOptions}) async* {
-    yield* action_gateway_data_plane_methods.gatewayToolsListPaginated(_config,
-        xSessionId: xSessionId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        ifNoneMatch: ifNoneMatch,
-        requestOptions: requestOptions);
+  Stream<SessionTool> gatewayToolsListPaginated({required String xSessionId, int? pageSize, String? pageToken, String? ifNoneMatch, RequestOptions? requestOptions}) async* {
+    yield* action_gateway_data_plane_methods.gatewayToolsListPaginated(_config, xSessionId: xSessionId, pageSize: pageSize, pageToken: pageToken, ifNoneMatch: ifNoneMatch, requestOptions: requestOptions);
   }
 
   /// Finds the catalog tools that fit one or more use cases. This is the REST form of the `action_search` MCP tool. Each query is searched independently and returns its own result group, so you can see which tools serve which goal. Results include each tool's `inputSchema`, so you can call a tool with `POST /tools/invoke` without another lookup. Results include only tools that the session can call. If the session policy requires approval for `action_search`, the response is a failed result with `_meta.status` set to `requires_approval`.
@@ -760,13 +513,7 @@ class ActionGatewayDataPlaneNamespace {
       SdkOptional<List<String>> tags = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_data_plane_methods.gatewayToolsListSearch(_config,
-        xSessionId: xSessionId,
-        queries: queries,
-        providers: providers,
-        tags: tags,
-        limit: limit,
-        requestOptions: requestOptions);
+    return action_gateway_data_plane_methods.gatewayToolsListSearch(_config, xSessionId: xSessionId, queries: queries, providers: providers, tags: tags, limit: limit, requestOptions: requestOptions);
   }
 
   /// Runs 1 to 10 tool calls in parallel and returns one result per call, in request order. This is the REST form of the `action_invoke` MCP tool. Each call is checked against the session's tool selection and policy, uses the session actor's connections, and applies any output view bound to the tool in the session. A well-formed request returns `200` even when some calls fail. Check each item's `result.status`, and use `success_count` and `error_count` to branch without scanning every item. A call whose policy requires approval fails with `_meta.status` set to `requires_approval`. Have the session's owner approve it, then repeat the call with the same arguments. A call that needs the end user to connect a provider fails with `_meta.status` set to `requires_authorization` or `requires_connection_configuration`.
@@ -775,11 +522,7 @@ class ActionGatewayDataPlaneNamespace {
       required List<ToolCall> tools,
       SdkOptional<String> rationale = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return action_gateway_data_plane_methods.gatewayToolsRun(_config,
-        xSessionId: xSessionId,
-        tools: tools,
-        rationale: rationale,
-        requestOptions: requestOptions);
+    return action_gateway_data_plane_methods.gatewayToolsRun(_config, xSessionId: xSessionId, tools: tools, rationale: rationale, requestOptions: requestOptions);
   }
 
   /// Runs Python code in an ephemeral sandbox and returns its `stdout`, `stderr`, and `exit_code`. This is the REST form of the `action_code` MCP tool. Use it for computation, parsing, and data processing, or to chain several catalog tools in one request. The sandbox provides `invoke_digitalocean_tool(name, arguments)`, which calls a catalog tool and returns a tool result. Those calls follow the session's tool selection and policy. Each request runs in a fresh sandbox, so state is not kept between requests. Execution, including tool calls, is time limited. Code that runs too long fails with a `timeout` error. A nonzero exit code is still a `succeeded` result; check `output.exit_code`. If the session policy requires approval for `action_code`, the response is a failed result with `_meta.status` set to `requires_approval`.
@@ -787,8 +530,7 @@ class ActionGatewayDataPlaneNamespace {
       {required String xSessionId,
       required String code,
       RequestOptions? requestOptions}) async {
-    return action_gateway_data_plane_methods.gatewayCodeRun(_config,
-        xSessionId: xSessionId, code: code, requestOptions: requestOptions);
+    return action_gateway_data_plane_methods.gatewayCodeRun(_config, xSessionId: xSessionId, code: code, requestOptions: requestOptions);
   }
 
   /// Approves or denies a tool call that is waiting for approval. A tool result returns `_meta.status` set to `requires_approval` when the session policy sets `ask` for the call, and its `_meta.decide` gives this request's path. Send the decision with the session owner's token. Approval is a separate control request, not a tool, so an agent cannot approve its own calls. After approving, repeat the original call with the same arguments before `expires_at`. An approval applies only to that session, tool version, and set of arguments, and is used once. To ask again after a denial or expiry, repeat the tool call.
@@ -797,12 +539,7 @@ class ActionGatewayDataPlaneNamespace {
       required String approvalId,
       required ApprovalDecisionDecision decision,
       RequestOptions? requestOptions}) async {
-    return action_gateway_data_plane_methods.gatewaySessionApprovalsUpdate(
-        _config,
-        sessionId: sessionId,
-        approvalId: approvalId,
-        decision: decision,
-        requestOptions: requestOptions);
+    return action_gateway_data_plane_methods.gatewaySessionApprovalsUpdate(_config, sessionId: sessionId, approvalId: approvalId, decision: decision, requestOptions: requestOptions);
   }
 
   /// Approves or denies a tool call that is waiting for approval, identifying the session with the `X-Session-Id` header. It behaves the same as `POST /approvals/session/{session_id}/{approval_id}`, which is the path returned in a result's `_meta.decide`.
@@ -811,24 +548,19 @@ class ActionGatewayDataPlaneNamespace {
       required String xSessionId,
       required ApprovalDecisionDecision decision,
       RequestOptions? requestOptions}) async {
-    return action_gateway_data_plane_methods.gatewayApprovalsUpdate(_config,
-        approvalId: approvalId,
-        xSessionId: xSessionId,
-        decision: decision,
-        requestOptions: requestOptions);
+    return action_gateway_data_plane_methods.gatewayApprovalsUpdate(_config, approvalId: approvalId, xSessionId: xSessionId, decision: decision, requestOptions: requestOptions);
   }
+
 }
 
 class N1ClickApplicationsNamespace {
   final ClientConfig _config;
   N1ClickApplicationsNamespace(ClientConfig config) : _config = config;
-
   /// To list all available 1-Click applications, send a GET request to `/v2/1-clicks`. The `type` may be provided as query paramater in order to restrict results to a certain type of 1-Click, for example: `/v2/1-clicks?type=droplet`. Current supported types are `kubernetes` and `droplet`. The response will be a JSON object with a key called `1_clicks`. This will be set to an array of 1-Click application data, each of which will contain the the slug and type for the 1-Click.
   Future<OneClicksAll> oneClicksList(
       {SdkOptional<SchemaSchemaad406879> type_ = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return sdk_1_click_applications_methods.oneClicksList(_config,
-        type_: type_, requestOptions: requestOptions);
+    return sdk_1_click_applications_methods.oneClicksList(_config, type_: type_, requestOptions: requestOptions);
   }
 
   /// To install a Kubernetes 1-Click application on a cluster, send a POST request to `/v2/1-clicks/kubernetes`. The `addon_slugs` and `cluster_uuid` must be provided as body parameter in order to specify which 1-Click application(s) to install. To list all available 1-Click Kubernetes applications, send a request to `/v2/1-clicks?type=kubernetes`.
@@ -836,34 +568,30 @@ class N1ClickApplicationsNamespace {
       {required List<String> addonSlugs,
       required String clusterUuid,
       RequestOptions? requestOptions}) async {
-    return sdk_1_click_applications_methods.oneClicksInstallKubernetes(_config,
-        addonSlugs: addonSlugs,
-        clusterUuid: clusterUuid,
-        requestOptions: requestOptions);
+    return sdk_1_click_applications_methods.oneClicksInstallKubernetes(_config, addonSlugs: addonSlugs, clusterUuid: clusterUuid, requestOptions: requestOptions);
   }
+
 }
 
 class AccountNamespace {
   final ClientConfig _config;
   AccountNamespace(ClientConfig config) : _config = config;
-
   /// To show information about the current user account, send a GET request to `/v2/account`.
   Future<AccountResponse> get_({RequestOptions? requestOptions}) async {
     return account_methods.accountGet(_config, requestOptions: requestOptions);
   }
+
 }
 
 class SshKeysNamespace {
   final ClientConfig _config;
   SshKeysNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the keys in your account, send a GET request to `/v2/account/keys`. The response will be a JSON object with a key set to `ssh_keys`. The value of this will be an array of ssh_key objects, each of which contains the standard ssh_key attributes.
   Future<SshKeysAll> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ssh_keys_methods.sshKeysList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return ssh_keys_methods.sshKeysList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To add a new SSH public key to your DigitalOcean account, send a POST request to `/v2/account/keys`. Set the `name` attribute to the name you wish to use and the `public_key` attribute to the full public key you are adding.
@@ -871,16 +599,14 @@ class SshKeysNamespace {
       {required String publicKey,
       required String name,
       RequestOptions? requestOptions}) async {
-    return ssh_keys_methods.sshKeysCreate(_config,
-        publicKey: publicKey, name: name, requestOptions: requestOptions);
+    return ssh_keys_methods.sshKeysCreate(_config, publicKey: publicKey, name: name, requestOptions: requestOptions);
   }
 
   /// To get information about a key, send a GET request to `/v2/account/keys/$KEY_ID` or `/v2/account/keys/$KEY_FINGERPRINT`. The response will be a JSON object with the key `ssh_key` and value an ssh_key object which contains the standard ssh_key attributes.
   Future<SshKeysExisting> get_(
       {required dynamic sshKeyIdentifier,
       RequestOptions? requestOptions}) async {
-    return ssh_keys_methods.sshKeysGet(_config,
-        sshKeyIdentifier: sshKeyIdentifier, requestOptions: requestOptions);
+    return ssh_keys_methods.sshKeysGet(_config, sshKeyIdentifier: sshKeyIdentifier, requestOptions: requestOptions);
   }
 
   /// To update the name of an SSH key, send a PUT request to either `/v2/account/keys/$SSH_KEY_ID` or `/v2/account/keys/$SSH_KEY_FINGERPRINT`. Set the `name` attribute to the new name you want to use.
@@ -888,57 +614,49 @@ class SshKeysNamespace {
       {required dynamic sshKeyIdentifier,
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return ssh_keys_methods.sshKeysUpdate(_config,
-        sshKeyIdentifier: sshKeyIdentifier,
-        name: name,
-        requestOptions: requestOptions);
+    return ssh_keys_methods.sshKeysUpdate(_config, sshKeyIdentifier: sshKeyIdentifier, name: name, requestOptions: requestOptions);
   }
 
   /// To destroy a public SSH key that you have in your account, send a DELETE request to `/v2/account/keys/$KEY_ID` or `/v2/account/keys/$KEY_FINGERPRINT`. A 204 status will be returned, indicating that the action was successful and that the response body is empty.
   Future<void> delete(
       {required dynamic sshKeyIdentifier,
       RequestOptions? requestOptions}) async {
-    return ssh_keys_methods.sshKeysDelete(_config,
-        sshKeyIdentifier: sshKeyIdentifier, requestOptions: requestOptions);
+    return ssh_keys_methods.sshKeysDelete(_config, sshKeyIdentifier: sshKeyIdentifier, requestOptions: requestOptions);
   }
+
 }
 
 class ActionsNamespace {
   final ClientConfig _config;
   ActionsNamespace(ClientConfig config) : _config = config;
-
   /// This will be the entire list of actions taken on your account, so it will be quite large. As with any large collection returned by the API, the results will be paginated with only 20 on each page by default.
   Future<Actions> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return actions_methods.actionsList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return actions_methods.actionsList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To retrieve a specific action object, send a GET request to `/v2/actions/$ACTION_ID`.
   Future<ActionResponse> get_(
       {required int actionId, RequestOptions? requestOptions}) async {
-    return actions_methods.actionsGet(_config,
-        actionId: actionId, requestOptions: requestOptions);
+    return actions_methods.actionsGet(_config, actionId: actionId, requestOptions: requestOptions);
   }
+
 }
 
 class AddOnsNamespace {
   final ClientConfig _config;
   AddOnsNamespace(ClientConfig config) : _config = config;
-
   /// To fetch details of all available Add-On Applications, send a GET request to `/v2/add-ons/apps`.
   Future<AddonsGetApp> getApp({RequestOptions? requestOptions}) async {
-    return add_ons_methods.addonsGetApp(_config,
-        requestOptions: requestOptions);
+    return add_ons_methods.addonsGetApp(_config, requestOptions: requestOptions);
   }
 
   /// To find out what metadata is required for a specific add-on, send a GET request to `/v2/add-ons/apps/{app_slug}/metadata`. Metadata varies by application.
   Future<AddonsGetAppMetadata> getAppMetadata(
       {required String appSlug, RequestOptions? requestOptions}) async {
-    return add_ons_methods.addonsGetAppMetadata(_config,
-        appSlug: appSlug, requestOptions: requestOptions);
+    return add_ons_methods.addonsGetAppMetadata(_config, appSlug: appSlug, requestOptions: requestOptions);
   }
 
   /// To fetch all Add-On Resources under your team, send a GET request to `/v2/add-ons/saas`.
@@ -955,28 +673,19 @@ class AddOnsNamespace {
       SdkOptional<int> linkedDropletId = const SdkOmitted(),
       SdkOptional<String> fleetUuid = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return add_ons_methods.addonsCreate(_config,
-        appSlug: appSlug,
-        planSlug: planSlug,
-        name: name,
-        metadata: metadata,
-        linkedDropletId: linkedDropletId,
-        fleetUuid: fleetUuid,
-        requestOptions: requestOptions);
+    return add_ons_methods.addonsCreate(_config, appSlug: appSlug, planSlug: planSlug, name: name, metadata: metadata, linkedDropletId: linkedDropletId, fleetUuid: fleetUuid, requestOptions: requestOptions);
   }
 
   /// To fetch details of a specific Add-On Resource, send a GET request to `/v2/add-ons/saas/{resource_uuid}`. Replace `{resource_uuid}` with the UUID of the resource you want to retrieve.
   Future<AddonsGet> get_(
       {required String resourceUuid, RequestOptions? requestOptions}) async {
-    return add_ons_methods.addonsGet(_config,
-        resourceUuid: resourceUuid, requestOptions: requestOptions);
+    return add_ons_methods.addonsGet(_config, resourceUuid: resourceUuid, requestOptions: requestOptions);
   }
 
   /// To delete an add-on resource, send a DELETE request to `/v2/add-ons/saas/{resource_uuid}` with the UUID of the resource to delete. You cannot retrieve the resource after it has been deleted. The response indicates a request was sent to the 3rd party add-on provider to delete the resource. You will no longer be billed for this resource.
   Future<void> delete(
       {required String resourceUuid, RequestOptions? requestOptions}) async {
-    return add_ons_methods.addonsDelete(_config,
-        resourceUuid: resourceUuid, requestOptions: requestOptions);
+    return add_ons_methods.addonsDelete(_config, resourceUuid: resourceUuid, requestOptions: requestOptions);
   }
 
   /// To change the name of an Add-On Resource, send a PATCH request to `/v2/add-ons/saas/{resource_uuid}`. Replace `{resource_uuid}` with the UUID of the resource for which you want to change the name.
@@ -984,8 +693,7 @@ class AddOnsNamespace {
       {required String resourceUuid,
       required String name,
       RequestOptions? requestOptions}) async {
-    return add_ons_methods.addonsPatch(_config,
-        resourceUuid: resourceUuid, name: name, requestOptions: requestOptions);
+    return add_ons_methods.addonsPatch(_config, resourceUuid: resourceUuid, name: name, requestOptions: requestOptions);
   }
 
   /// To change the plan associated with an Add-On Resource, send a PATCH request to `/v2/add-ons/saas/{resource_uuid}/plan`. Replace `{resource_uuid}` with the UUID of the resource for which you want to change the plan.
@@ -993,41 +701,26 @@ class AddOnsNamespace {
       {required String resourceUuid,
       required String planSlug,
       RequestOptions? requestOptions}) async {
-    return add_ons_methods.addonsPatchPlan(_config,
-        resourceUuid: resourceUuid,
-        planSlug: planSlug,
-        requestOptions: requestOptions);
+    return add_ons_methods.addonsPatchPlan(_config, resourceUuid: resourceUuid, planSlug: planSlug, requestOptions: requestOptions);
   }
+
 }
 
 class HarnessRuntimeNamespace {
   final ClientConfig _config;
   HarnessRuntimeNamespace(ClientConfig config) : _config = config;
-
   /// Returns lightweight team-scoped config metadata without loading or returning environment-spec JSON. Soft-deleted configs are excluded.
   Future<ListAgentConfigsResponse> harnessListConfigs(
       {SdkOptional<int> pageSize = const SdkOmitted(),
       SdkOptional<String> pageToken = const SdkOmitted(),
       SdkOptional<String> search = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessListConfigs(_config,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        search: search,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessListConfigs(_config, pageSize: pageSize, pageToken: pageToken, search: search, requestOptions: requestOptions);
   }
 
   /// Returns lightweight team-scoped config metadata without loading or returning environment-spec JSON. Soft-deleted configs are excluded.
-  Stream<AgentConfigSummary> harnessListConfigsPaginated(
-      {int? pageSize,
-      String? pageToken,
-      String? search,
-      RequestOptions? requestOptions}) async* {
-    yield* harness_runtime_methods.harnessListConfigsPaginated(_config,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        search: search,
-        requestOptions: requestOptions);
+  Stream<AgentConfigSummary> harnessListConfigsPaginated({int? pageSize, String? pageToken, String? search, RequestOptions? requestOptions}) async* {
+    yield* harness_runtime_methods.harnessListConfigsPaginated(_config, pageSize: pageSize, pageToken: pageToken, search: search, requestOptions: requestOptions);
   }
 
   /// Creates an immutable Environment Config for the team from a name and environment-spec YAML. Supply `name` and `manifest_yaml`; optionally set per-signal Insights telemetry preferences with `insights`. Declare tenant secrets in the environment spec, not as sibling request fields; secret values are never returned, and you must create a clone to change config content.
@@ -1038,25 +731,19 @@ class HarnessRuntimeNamespace {
       required String manifestYaml,
       SdkOptional<InsightsOptIn> insights = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCreateConfig(_config,
-        name: name,
-        manifestYaml: manifestYaml,
-        insights: insights,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCreateConfig(_config, name: name, manifestYaml: manifestYaml, insights: insights, requestOptions: requestOptions);
   }
 
   /// Returns one team-scoped Environment Config including the sanitized environment spec and redacted credential slot metadata. Secret values are never returned.
   Future<AgentConfigResponse> harnessGetConfig(
       {required String configId, RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessGetConfig(_config,
-        configId: configId, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessGetConfig(_config, configId: configId, requestOptions: requestOptions);
   }
 
   /// Releases the active team-scoped name; the config row is retained (soft delete), so sessions created from it keep a resolvable config_id.
   Future<void> harnessDeleteConfig(
       {required String configId, RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessDeleteConfig(_config,
-        configId: configId, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessDeleteConfig(_config, configId: configId, requestOptions: requestOptions);
   }
 
   /// Copies the source config's sanitized manifest to a new UUID. Source and clone are independent (no lineage). Credential bindings are never copied: if the manifest declares secret slots, supply secrets/oauth_assignments again (write-only). content_hash matches the source when the manifest is unchanged.
@@ -1066,12 +753,7 @@ class HarnessRuntimeNamespace {
       SdkOptional<Map<String, String>> secrets = const SdkOmitted(),
       SdkOptional<Map<String, String>> oauthAssignments = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCreateConfigClone(_config,
-        configId: configId,
-        name: name,
-        secrets: secrets,
-        oauthAssignments: oauthAssignments,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCreateConfigClone(_config, configId: configId, name: name, secrets: secrets, oauthAssignments: oauthAssignments, requestOptions: requestOptions);
   }
 
   /// Enumerates the caller's team sessions whose session was created from this durable Environment Config. Keyset-paginated on an opaque cursor, newest first, same shape and status semantics as GET /v2/agents/sessions.
@@ -1081,27 +763,12 @@ class HarnessRuntimeNamespace {
       SdkOptional<String> pageToken = const SdkOmitted(),
       SdkOptional<HarnessListConfigSessionsStatus> status = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessListConfigSessions(_config,
-        configId: configId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        status: status,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessListConfigSessions(_config, configId: configId, pageSize: pageSize, pageToken: pageToken, status: status, requestOptions: requestOptions);
   }
 
   /// Enumerates the caller's team sessions whose session was created from this durable Environment Config. Keyset-paginated on an opaque cursor, newest first, same shape and status semantics as GET /v2/agents/sessions.
-  Stream<DefinitionsSession> harnessListConfigSessionsPaginated(
-      {required String configId,
-      int? pageSize,
-      String? pageToken,
-      HarnessListConfigSessionsStatus? status,
-      RequestOptions? requestOptions}) async* {
-    yield* harness_runtime_methods.harnessListConfigSessionsPaginated(_config,
-        configId: configId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        status: status,
-        requestOptions: requestOptions);
+  Stream<DefinitionsSession> harnessListConfigSessionsPaginated({required String configId, int? pageSize, String? pageToken, HarnessListConfigSessionsStatus? status, RequestOptions? requestOptions}) async* {
+    yield* harness_runtime_methods.harnessListConfigSessionsPaginated(_config, configId: configId, pageSize: pageSize, pageToken: pageToken, status: status, requestOptions: requestOptions);
   }
 
   /// Keyset-paginated on an opaque cursor. Results are scoped to the authenticated team. Destroyed and failed sessions are omitted by default (matching the Cloud Console); pass `status=SESSION_STATUS_ALL` to list every session regardless of status, or an explicit status such as `status=SESSION_STATUS_FAILED` or `status=SESSION_STATUS_DESTROYED` to list only those.
@@ -1112,30 +779,12 @@ class HarnessRuntimeNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> search = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessListSessions(_config,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        status: status,
-        name: name,
-        search: search,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessListSessions(_config, pageSize: pageSize, pageToken: pageToken, status: status, name: name, search: search, requestOptions: requestOptions);
   }
 
   /// Keyset-paginated on an opaque cursor. Results are scoped to the authenticated team. Destroyed and failed sessions are omitted by default (matching the Cloud Console); pass `status=SESSION_STATUS_ALL` to list every session regardless of status, or an explicit status such as `status=SESSION_STATUS_FAILED` or `status=SESSION_STATUS_DESTROYED` to list only those.
-  Stream<DefinitionsSession> harnessListSessionsPaginated(
-      {int? pageSize,
-      String? pageToken,
-      SessionStatus? status,
-      String? name,
-      String? search,
-      RequestOptions? requestOptions}) async* {
-    yield* harness_runtime_methods.harnessListSessionsPaginated(_config,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        status: status,
-        name: name,
-        search: search,
-        requestOptions: requestOptions);
+  Stream<DefinitionsSession> harnessListSessionsPaginated({int? pageSize, String? pageToken, SessionStatus? status, String? name, String? search, RequestOptions? requestOptions}) async* {
+    yield* harness_runtime_methods.harnessListSessionsPaginated(_config, pageSize: pageSize, pageToken: pageToken, status: status, name: name, search: search, requestOptions: requestOptions);
   }
 
   /// Creates a Harness Runtime session from a JSON configuration reference or an environment spec supplied as YAML. For JSON, provide `name` and `config_id`; for YAML, send the environment spec with a supported YAML `Content-Type`. Sandbox boot continues asynchronously after the session row is allocated.
@@ -1149,14 +798,7 @@ class HarnessRuntimeNamespace {
       SdkOptional<String> xDeviceUuid = const SdkOmitted(),
       SdkOptional<bool> resumeOnTopoff_2 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCreateSession(_config,
-        name: name,
-        configId: configId,
-        openaiSessionId: openaiSessionId,
-        resumeOnTopoff: resumeOnTopoff,
-        xDeviceUuid: xDeviceUuid,
-        resumeOnTopoff_2: resumeOnTopoff_2,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCreateSession(_config, name: name, configId: configId, openaiSessionId: openaiSessionId, resumeOnTopoff: resumeOnTopoff, xDeviceUuid: xDeviceUuid, resumeOnTopoff_2: resumeOnTopoff_2, requestOptions: requestOptions);
   }
 
   /// Validates an environment spec's tool-permission policy against the capabilities of the agent selected by its template, without creating a session. Send the YAML environment spec and review the per-rule verdicts; `ok` is false when a strict rule is unsupported or unverified. Use this preflight to check whether CreateSession would accept the policy for the resolved agent and version.
@@ -1168,19 +810,13 @@ class HarnessRuntimeNamespace {
       SdkOptional<AgentManifestMetadata> metadata = const SdkOmitted(),
       SdkOptional<AgentManifestSpec> spec = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessValidateSessionPolicy(_config,
-        apiVersion: apiVersion,
-        kind: kind,
-        metadata: metadata,
-        spec: spec,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessValidateSessionPolicy(_config, apiVersion: apiVersion, kind: kind, metadata: metadata, spec: spec, requestOptions: requestOptions);
   }
 
   /// Read-only catalog the UI (and other clients) render as the size picker, instead of hardcoding the list. The set is the single source of truth shared with create-time validation and the default-size fallback, so every `slug` returned here is accepted by CreateSession as spec.sandbox.sizeSlug. Sizes are returned smallest-to-largest. Static and safe to cache; independent of team/session; no pagination.
   Future<SandboxSizesResponse> harnessListSessionSandboxSizes(
       {RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessListSessionSandboxSizes(_config,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessListSessionSandboxSizes(_config, requestOptions: requestOptions);
   }
 
   /// Persistent workspace contents are retained per tenant policy. Returns 204 No Content on success.
@@ -1188,17 +824,13 @@ class HarnessRuntimeNamespace {
       {required String sessionId,
       SdkOptional<String> xDeviceUuid = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessDeleteSession(_config,
-        sessionId: sessionId,
-        xDeviceUuid: xDeviceUuid,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessDeleteSession(_config, sessionId: sessionId, xDeviceUuid: xDeviceUuid, requestOptions: requestOptions);
   }
 
   /// GetSession returns the current snapshot of a session.
   Future<GetSessionResponse> harnessGetSession(
       {required String sessionId, RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessGetSession(_config,
-        sessionId: sessionId, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessGetSession(_config, sessionId: sessionId, requestOptions: requestOptions);
   }
 
   /// Partial update of session-scoped settings (not the agent manifest / config). The body must include at least one recognized patchable property; an empty object {} is 400. Only properties listed on PatchSessionRequest are accepted — any other top-level JSON key is rejected with 400. Omitted properties are left unchanged. Today the only patchable field is resume_on_topoff; more session settings may be added over time. Terminal sessions (DESTROYED, FAILED) cannot be patched.
@@ -1206,10 +838,7 @@ class HarnessRuntimeNamespace {
       {required String sessionId,
       SdkOptional<bool> resumeOnTopoff = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessUpdateSession(_config,
-        sessionId: sessionId,
-        resumeOnTopoff: resumeOnTopoff,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessUpdateSession(_config, sessionId: sessionId, resumeOnTopoff: resumeOnTopoff, requestOptions: requestOptions);
   }
 
   /// Keyset-paginated on an opaque cursor, like ListSessions.
@@ -1218,25 +847,12 @@ class HarnessRuntimeNamespace {
       SdkOptional<int> pageSize = const SdkOmitted(),
       SdkOptional<String> pageToken = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessListSessionCheckpoints(_config,
-        sessionId: sessionId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessListSessionCheckpoints(_config, sessionId: sessionId, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Keyset-paginated on an opaque cursor, like ListSessions.
-  Stream<Checkpoint> harnessListSessionCheckpointsPaginated(
-      {required String sessionId,
-      int? pageSize,
-      String? pageToken,
-      RequestOptions? requestOptions}) async* {
-    yield* harness_runtime_methods.harnessListSessionCheckpointsPaginated(
-        _config,
-        sessionId: sessionId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+  Stream<Checkpoint> harnessListSessionCheckpointsPaginated({required String sessionId, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+    yield* harness_runtime_methods.harnessListSessionCheckpointsPaginated(_config, sessionId: sessionId, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Synchronous: blocks until the capture reaches READY and returns the terminal Checkpoint — clients never see PENDING on this endpoint and need no poll loop. The checkpoint binds the machine-state capture to the event-log cursor at the cut, so it can later seed forks (POST .../fork) and rollback. Checkpoints are taken between turns; a session with an active turn in flight returns 409.
@@ -1244,8 +860,7 @@ class HarnessRuntimeNamespace {
       {required String sessionId,
       SdkOptional<String> label = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCreateSessionCheckpoint(_config,
-        sessionId: sessionId, label: label, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCreateSessionCheckpoint(_config, sessionId: sessionId, label: label, requestOptions: requestOptions);
   }
 
   /// GetCheckpoint returns the current snapshot of a checkpoint.
@@ -1253,10 +868,7 @@ class HarnessRuntimeNamespace {
       {required String sessionId,
       required String checkpointId,
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessGetSessionCheckpoint(_config,
-        sessionId: sessionId,
-        checkpointId: checkpointId,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessGetSessionCheckpoint(_config, sessionId: sessionId, checkpointId: checkpointId, requestOptions: requestOptions);
   }
 
   /// Idempotent: deleting an already-gone checkpoint still returns 200. Removes the DB row and the substrate checkpoint.
@@ -1264,10 +876,7 @@ class HarnessRuntimeNamespace {
       {required String sessionId,
       required String checkpointId,
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessDeleteSessionCheckpoint(_config,
-        sessionId: sessionId,
-        checkpointId: checkpointId,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessDeleteSessionCheckpoint(_config, sessionId: sessionId, checkpointId: checkpointId, requestOptions: requestOptions);
   }
 
   /// In-place restore: boots a fresh sandbox from the checkpoint and atomically swaps the session's sandbox pointer to it, so the session keeps its same session_id; the old sandbox is then torn down.
@@ -1275,10 +884,7 @@ class HarnessRuntimeNamespace {
       {required String sessionId,
       required String checkpointId,
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessRevertSessionCheckpoint(_config,
-        sessionId: sessionId,
-        checkpointId: checkpointId,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessRevertSessionCheckpoint(_config, sessionId: sessionId, checkpointId: checkpointId, requestOptions: requestOptions);
   }
 
   /// Each child boots a fresh sandbox from the checkpoint's machine-state capture and is drivable exactly like any other session (input, HITL), with parent_session_id and fork_id set for lineage. When from_checkpoint_id is omitted, an implicit checkpoint of the session "now" is captured first and the children fork from that. All-or-nothing: on failure nothing is left running.
@@ -1287,11 +893,7 @@ class HarnessRuntimeNamespace {
       SdkOptional<String> fromCheckpointId = const SdkOmitted(),
       SdkOptional<int> count = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCreateSessionFork(_config,
-        sessionId: sessionId,
-        fromCheckpointId: fromCheckpointId,
-        count: count,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCreateSessionFork(_config, sessionId: sessionId, fromCheckpointId: fromCheckpointId, count: count, requestOptions: requestOptions);
   }
 
   /// harness-api forwards the decision into the owning microVM via the inbound runtime.v1.OHR.ResolveHITL RPC (dialed through the guest-fronting proxy), which unblocks the gated agent action. The resolution is also echoed to all attached clients as a HITLResolved event on StreamSession. Returns 204 No Content on success.
@@ -1303,14 +905,7 @@ class HarnessRuntimeNamespace {
       SdkOptional<String> reason = const SdkOmitted(),
       SdkOptional<ResolutionSource> source = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessPostSessionHitl(_config,
-        sessionId: sessionId,
-        requestId: requestId,
-        outcome: outcome,
-        xDeviceUuid: xDeviceUuid,
-        reason: reason,
-        source: source,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessPostSessionHitl(_config, sessionId: sessionId, requestId: requestId, outcome: outcome, xDeviceUuid: xDeviceUuid, reason: reason, source: source, requestOptions: requestOptions);
   }
 
   /// The agent observes it on its next turn and emits subsequent events via StreamSession. The input is forwarded to the owning microVM's OHR inbound surface, which attributes it to a run and returns the run id.
@@ -1318,8 +913,7 @@ class HarnessRuntimeNamespace {
       {required String sessionId,
       required String text,
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCreateSessionInput(_config,
-        sessionId: sessionId, text: text, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCreateSessionInput(_config, sessionId: sessionId, text: text, requestOptions: requestOptions);
   }
 
   /// Supported on microvm-substrate sessions only; dewdrop/docker sessions return 501 Not Implemented. Paused sessions count against quota. Clients learn state via GetSession/ListSessions; no live session.updated event is emitted.
@@ -1327,10 +921,7 @@ class HarnessRuntimeNamespace {
       {required String sessionId,
       SdkOptional<String> xDeviceUuid = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessPostSessionPause(_config,
-        sessionId: sessionId,
-        xDeviceUuid: xDeviceUuid,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessPostSessionPause(_config, sessionId: sessionId, xDeviceUuid: xDeviceUuid, requestOptions: requestOptions);
   }
 
   /// Only valid for microvm-substrate sessions; dewdrop/docker sessions return 501 Not Implemented. Implicit resume also occurs when SendInput or ResolveHITL is called on a paused session. Returns synchronously once the sandbox is ready.
@@ -1338,10 +929,7 @@ class HarnessRuntimeNamespace {
       {required String sessionId,
       SdkOptional<String> xDeviceUuid = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessPostSessionResume(_config,
-        sessionId: sessionId,
-        xDeviceUuid: xDeviceUuid,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessPostSessionResume(_config, sessionId: sessionId, xDeviceUuid: xDeviceUuid, requestOptions: requestOptions);
   }
 
   /// Runs `argv` directly in the guest (no shell). Stdout/stderr are buffered and capped at 1 MiB each; truncation is indicated via response headers when present. A non-zero exit code is still HTTP 200.
@@ -1352,13 +940,7 @@ class HarnessRuntimeNamespace {
       SdkOptional<List<int>> stdin = const SdkOmitted(),
       SdkOptional<int> timeoutSeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessPostSessionSandboxExec(_config,
-        sessionId: sessionId,
-        argv: argv,
-        workdir: workdir,
-        stdin: stdin,
-        timeoutSeconds: timeoutSeconds,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessPostSessionSandboxExec(_config, sessionId: sessionId, argv: argv, workdir: workdir, stdin: stdin, timeoutSeconds: timeoutSeconds, requestOptions: requestOptions);
   }
 
   /// Streams the workspace payload back as `application/octet-stream` using chunked transfer encoding, followed by a fixed integrity footer. Response body layout: `&lt;payload&gt;` + `&lt;footer&gt;`, where the footer is exactly 73 bytes: `DOWSSHA1` (8 bytes) + 64-char lowercase SHA-256 hex + `\n`. The client MUST strip the trailing 73 bytes before saving, verify SHA-256(payload) equals the footer digest, and treat a tail that does not match this shape (magic + 64 hex + newline) as a failed (truncated/corrupt) transfer. Other metadata: - `X-Workspace-Is-Archive: true` when the payload is a tar archive. - `X-Workspace-Size-Bytes` is a progress hint (not Content-Length) and excludes the footer. - The `X-Content-Sha256` trailer also carries the digest but is best-effort: edge proxies may strip HTTP trailers, so the body footer is authoritative. Concurrent transfers (upload + download) are capped server-side; over the cap the request blocks and may return 503.
@@ -1367,34 +949,20 @@ class HarnessRuntimeNamespace {
       required String path,
       SdkOptional<bool> asArchive = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessGetSessionWorkspaceDownload(_config,
-        sessionId: sessionId,
-        path: path,
-        asArchive: asArchive,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessGetSessionWorkspaceDownload(_config, sessionId: sessionId, path: path, asArchive: asArchive, requestOptions: requestOptions);
   }
 
   /// Creates an asynchronous, object-storage-backed transfer for payloads larger than the streaming path supports (&gt; ~50 MiB). Bulk bytes never traverse harness-api: the client PUTs/GETs presigned DO Spaces URLs directly. Set `direction` to `upload` or `download`. - `upload`: responds 201 with `transfer_id` + `part_size`; the client then requests per-part presigned PUT URLs, uploads them to Spaces, and calls `commit`. - `download`: responds 202 with `transfer_id`; the client polls GET until `completed` and then fetches `download_url` from Spaces. Upload and cancel currently return 501 until the sandbox backend RPCs ship; download is live.
   Future<WorkspaceTransferCreated> harnessCreateSessionWorkspaceTransfer(
       {required String sessionId,
-      required HarnessCreateSessionWorkspaceTransferRequestBodyDirection
-          direction,
+      required HarnessCreateSessionWorkspaceTransferRequestBodyDirection direction,
       required String path,
       SdkOptional<bool> isArchive = const SdkOmitted(),
       SdkOptional<bool> asArchive = const SdkOmitted(),
       SdkOptional<String> sizeBytes = const SdkOmitted(),
       SdkOptional<String> sha256 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCreateSessionWorkspaceTransfer(
-        _config,
-        sessionId: sessionId,
-        direction: direction,
-        path: path,
-        isArchive: isArchive,
-        asArchive: asArchive,
-        sizeBytes: sizeBytes,
-        sha256: sha256,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCreateSessionWorkspaceTransfer(_config, sessionId: sessionId, direction: direction, path: path, isArchive: isArchive, asArchive: asArchive, sizeBytes: sizeBytes, sha256: sha256, requestOptions: requestOptions);
   }
 
   /// Returns the current transfer state. For a completed download the response also carries a freshly minted presigned GET `download_url` (its TTL starts at poll time) and the payload `sha256` for client-side verification.
@@ -1402,10 +970,7 @@ class HarnessRuntimeNamespace {
       {required String sessionId,
       required String transferId,
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessGetSessionWorkspaceTransfer(_config,
-        sessionId: sessionId,
-        transferId: transferId,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessGetSessionWorkspaceTransfer(_config, sessionId: sessionId, transferId: transferId, requestOptions: requestOptions);
   }
 
   /// Aborts an in-flight transfer. Idempotent: cancelling an already-terminal transfer returns `aborted: false` with the current status. The request body is optional.
@@ -1414,12 +979,7 @@ class HarnessRuntimeNamespace {
       required String transferId,
       SdkOptional<String> reason = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCancelSessionWorkspaceTransfer(
-        _config,
-        sessionId: sessionId,
-        transferId: transferId,
-        reason: reason,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCancelSessionWorkspaceTransfer(_config, sessionId: sessionId, transferId: transferId, reason: reason, requestOptions: requestOptions);
   }
 
   /// Upload only. Call once, after all parts have been uploaded. Completes the multipart upload and starts the asynchronous import into the workspace. Responds 202; poll the transfer until `completed` or `failed`.
@@ -1428,12 +988,7 @@ class HarnessRuntimeNamespace {
       required String transferId,
       SdkOptional<String> sha256 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCommitSessionWorkspaceTransfer(
-        _config,
-        sessionId: sessionId,
-        transferId: transferId,
-        sha256: sha256,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCommitSessionWorkspaceTransfer(_config, sessionId: sessionId, transferId: transferId, sha256: sha256, requestOptions: requestOptions);
   }
 
   /// Upload only. Pass one or more 1-based `part_numbers`; the response returns a presigned `upload_url` per part (all sharing one `expires_at`), so a client can drive parallel part uploads without a round trip per part. PUT each part's bytes directly to its URL (bypassing harness-api). If URLs expire before the PUT, request them again.
@@ -1442,12 +997,7 @@ class HarnessRuntimeNamespace {
       required String transferId,
       required List<int> partNumbers,
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCreateSessionWorkspacePartUploadUrls(
-        _config,
-        sessionId: sessionId,
-        transferId: transferId,
-        partNumbers: partNumbers,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCreateSessionWorkspacePartUploadUrls(_config, sessionId: sessionId, transferId: transferId, partNumbers: partNumbers, requestOptions: requestOptions);
   }
 
   /// Upload a file or tar archive to a path in a session's sandbox workspace. Send the raw bytes in the request body and use `is_archive` to have the guest extract a tar stream under the destination path. Include `X-Content-Sha256` to verify the payload after it is written; uploads are capped at 500 MiB.
@@ -1460,34 +1010,12 @@ class HarnessRuntimeNamespace {
       SdkOptional<bool> isArchive = const SdkOmitted(),
       SdkOptional<String> xContentSha256 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCreateSessionWorkspaceUpload(_config,
-        sessionId: sessionId,
-        path: path,
-        body: body,
-        isArchive: isArchive,
-        xContentSha256: xContentSha256,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCreateSessionWorkspaceUpload(_config, sessionId: sessionId, path: path, body: body, isArchive: isArchive, xContentSha256: xContentSha256, requestOptions: requestOptions);
   }
 
   /// Opens a `text/event-stream` of the session's canonical events, served by the MARS data plane (OHP). Each frame is `event: &lt;type&gt;` plus a `data:` line holding a JSON event envelope; comment lines (`: keepalive`) arrive about every 15s and must be ignored. Decode every `data:` with one envelope parser and dispatch on the envelope's `type`. Every stream opens with a `stream.state` control frame (its `data` is a `stream_state`). Delivery is at-least-once: clients MUST de-duplicate and order by `event_id` (a ULID), never by `seq`. The same path serves two modes: - live attach (default): recent context, then an open stream that stays live until the client disconnects. Pass `Last-Event-ID` (or `cursor`) to resume strictly after the last event the client already rendered, suppressing the last-N context floor. - finite replay (`replay_only=true`): writes a bounded slice of the stored transcript and closes. This is what `doctl agents logs` uses; paginate it with `replay_from`. OHP serves recent history only (bounded by Kafka retention and an event window); it is not an archive. OHP's own errors (404/429/500/503) use the DO-standard JSON `{id, message, request_id}` envelope (cthulhu#179797 / MARSOHS-2065); the 401 comes from the edge.
-  Stream<StreamEvent> harnessGetSessionEvents(
-      {required String sessionId,
-      SdkOptional<bool> replayOnly = const SdkOmitted(),
-      SdkOptional<String> replayFrom = const SdkOmitted(),
-      SdkOptional<String> cursor = const SdkOmitted(),
-      SdkOptional<String> deviceId = const SdkOmitted(),
-      SdkOptional<String> lastEventId = const SdkOmitted(),
-      SdkOptional<String> xDeviceUuid = const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* harness_runtime_methods.harnessGetSessionEvents(_config,
-        sessionId: sessionId,
-        replayOnly: replayOnly,
-        replayFrom: replayFrom,
-        cursor: cursor,
-        deviceId: deviceId,
-        lastEventId: lastEventId,
-        xDeviceUuid: xDeviceUuid,
-        requestOptions: requestOptions);
+  Stream<StreamEvent> harnessGetSessionEvents({required String sessionId, SdkOptional<bool> replayOnly = const SdkOmitted(), SdkOptional<String> replayFrom = const SdkOmitted(), SdkOptional<String> cursor = const SdkOmitted(), SdkOptional<String> deviceId = const SdkOmitted(), SdkOptional<String> lastEventId = const SdkOmitted(), SdkOptional<String> xDeviceUuid = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* harness_runtime_methods.harnessGetSessionEvents(_config, sessionId: sessionId, replayOnly: replayOnly, replayFrom: replayFrom, cursor: cursor, deviceId: deviceId, lastEventId: lastEventId, xDeviceUuid: xDeviceUuid, requestOptions: requestOptions);
   }
 
   /// Upgrades the request to a WebSocket and bridges it to one TCP connection on the session sandbox's guest `port`. Binary frames carry the opaque byte stream in both directions; the server closes with a descriptive WebSocket close code when the tunnel ends. This is the raw TCP tunnel; browser clients reaching the in-guest OpenHands Agent Server use the ingress URL (`GET /v2/agents/sessions/{session_id}/ingress`), which has replaced this bridge for them. WebSocket is not expressible in OpenAPI; this documents the GET that initiates the upgrade handshake (HTTP 101 Switching Protocols). The handler dials the guest before upgrading, so a PAUSED session is woken and served rather than rejected. `port` must be between 1024 and 65535. A request without the WebSocket upgrade headers is answered 400 by the handshake layer.
@@ -1495,15 +1023,13 @@ class HarnessRuntimeNamespace {
       {required String sessionId,
       required int port,
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessGetSessionPortForward(_config,
-        sessionId: sessionId, port: port, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessGetSessionPortForward(_config, sessionId: sessionId, port: port, requestOptions: requestOptions);
   }
 
   /// Publishes the URL on first call and returns it. Idempotent while the session runs: the same URL is returned until the session is paused, locked or rolled back, after which the next call returns a new hostname (pause and lock revoke the URL; rollback moves the session to a new sandbox, so re-fetch after resume, unlock or rollback). The URL fronts guest port 8000 (the OpenHands Agent Server, HTTP + WebSocket) and replaces the port-forward bridge for browser clients. Requests to the URL carry the caller's DO token as a Bearer header. Poll until `state` is INGRESS_URL_STATE_READY; there is no failed state. Only OpenHands sessions support ingress, and it is gated per team.
   Future<GetIngressUrlResponse> harnessGetSessionIngress(
       {required String sessionId, RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessGetSessionIngress(_config,
-        sessionId: sessionId, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessGetSessionIngress(_config, sessionId: sessionId, requestOptions: requestOptions);
   }
 
   /// team_id is stamped from the authenticated principal; never accepted from the client.
@@ -1511,21 +1037,12 @@ class HarnessRuntimeNamespace {
       {SdkOptional<int> pageSize = const SdkOmitted(),
       SdkOptional<String> pageToken = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessListTemplates(_config,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessListTemplates(_config, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// team_id is stamped from the authenticated principal; never accepted from the client.
-  Stream<SandboxTemplate> harnessListTemplatesPaginated(
-      {int? pageSize,
-      String? pageToken,
-      RequestOptions? requestOptions}) async* {
-    yield* harness_runtime_methods.harnessListTemplatesPaginated(_config,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+  Stream<SandboxTemplate> harnessListTemplatesPaginated({int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+    yield* harness_runtime_methods.harnessListTemplatesPaginated(_config, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Creates a team-owned template by rebasing a customer OCI reference onto a base template, then kicks off a build. Supply `name`, `base_template`, and `source_oci_ref`; `base_template` must identify one of the supported base templates. The team ID is taken from the authenticated user.
@@ -1536,18 +1053,13 @@ class HarnessRuntimeNamespace {
       required String baseTemplate,
       required String sourceOciRef,
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCreateTemplate(_config,
-        name: name,
-        baseTemplate: baseTemplate,
-        sourceOciRef: sourceOciRef,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCreateTemplate(_config, name: name, baseTemplate: baseTemplate, sourceOciRef: sourceOciRef, requestOptions: requestOptions);
   }
 
   /// GetTemplate returns a team custom template by public id.
   Future<GetTemplateResponse> harnessGetTemplate(
       {required String templateId, RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessGetTemplate(_config,
-        templateId: templateId, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessGetTemplate(_config, templateId: templateId, requestOptions: requestOptions);
   }
 
   /// Replaces the source configuration of a team template and kicks off a new build. Supply `source_oci_ref`, `base_template`, or both to update the template; the body fields are optional.
@@ -1558,11 +1070,7 @@ class HarnessRuntimeNamespace {
       SdkOptional<String> sourceOciRef = const SdkOmitted(),
       SdkOptional<String> baseTemplate = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessUpdateTemplate(_config,
-        templateId: templateId,
-        sourceOciRef: sourceOciRef,
-        baseTemplate: baseTemplate,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessUpdateTemplate(_config, templateId: templateId, sourceOciRef: sourceOciRef, baseTemplate: baseTemplate, requestOptions: requestOptions);
   }
 
   /// Deletes a team-owned custom template. Use the template ID to identify the template to remove; global templates cannot be deleted through this operation.
@@ -1570,8 +1078,7 @@ class HarnessRuntimeNamespace {
   /// Global templates cannot be deleted via this API.
   Future<DeleteTemplateResponse> harnessDeleteTemplate(
       {required String templateId, RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessDeleteTemplate(_config,
-        templateId: templateId, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessDeleteTemplate(_config, templateId: templateId, requestOptions: requestOptions);
   }
 
   /// ListTemplateBuilds returns build history for a template.
@@ -1580,24 +1087,12 @@ class HarnessRuntimeNamespace {
       SdkOptional<int> pageSize = const SdkOmitted(),
       SdkOptional<String> pageToken = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessListTemplateBuilds(_config,
-        templateId: templateId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessListTemplateBuilds(_config, templateId: templateId, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// ListTemplateBuilds returns build history for a template.
-  Stream<SandboxTemplateBuild> harnessListTemplateBuildsPaginated(
-      {required String templateId,
-      int? pageSize,
-      String? pageToken,
-      RequestOptions? requestOptions}) async* {
-    yield* harness_runtime_methods.harnessListTemplateBuildsPaginated(_config,
-        templateId: templateId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+  Stream<SandboxTemplateBuild> harnessListTemplateBuildsPaginated({required String templateId, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+    yield* harness_runtime_methods.harnessListTemplateBuildsPaginated(_config, templateId: templateId, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Retrieves a single build for a template. Use the template and build UUIDs to identify the build and inspect its status, timestamps, and any reported error.
@@ -1607,10 +1102,7 @@ class HarnessRuntimeNamespace {
       {required String templateId,
       required String buildId,
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessGetTemplateBuild(_config,
-        templateId: templateId,
-        buildId: buildId,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessGetTemplateBuild(_config, templateId: templateId, buildId: buildId, requestOptions: requestOptions);
   }
 
   /// Keyset-paginated on an opaque cursor. Excludes soft-deleted triggers. Scoped to the authenticated team.
@@ -1620,27 +1112,12 @@ class HarnessRuntimeNamespace {
       SdkOptional<TriggerKind> kind = const SdkOmitted(),
       SdkOptional<TriggerStatus> status = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessListTriggers(_config,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        kind: kind,
-        status: status,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessListTriggers(_config, pageSize: pageSize, pageToken: pageToken, kind: kind, status: status, requestOptions: requestOptions);
   }
 
   /// Keyset-paginated on an opaque cursor. Excludes soft-deleted triggers. Scoped to the authenticated team.
-  Stream<Trigger> harnessListTriggersPaginated(
-      {int? pageSize,
-      String? pageToken,
-      TriggerKind? kind,
-      TriggerStatus? status,
-      RequestOptions? requestOptions}) async* {
-    yield* harness_runtime_methods.harnessListTriggersPaginated(_config,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        kind: kind,
-        status: status,
-        requestOptions: requestOptions);
+  Stream<Trigger> harnessListTriggersPaginated({int? pageSize, String? pageToken, TriggerKind? kind, TriggerStatus? status, RequestOptions? requestOptions}) async* {
+    yield* harness_runtime_methods.harnessListTriggersPaginated(_config, pageSize: pageSize, pageToken: pageToken, kind: kind, status: status, requestOptions: requestOptions);
   }
 
   /// Validation is synchronous, so a mistake is a 400/409 at creation, not a silent miss at the first fire. Exactly one of `webhook` / `cron` must be present and match `kind`. kind=cron forbids a `webhook` block and requires a parseable `cron.cron_expr` and a valid IANA `cron.timezone`. session_mode=fresh requires `session_template` (a well-formed agents.yaml Agent manifest) and forbids `bound_session_id`; session_mode=reuse requires `bound_session_id` (an existing team-owned session) and forbids `session_template`. `output.mode` selects the destination block (email/slack), which is stored encrypted. `name` must be unique per team among non-deleted triggers. For webhook triggers the response includes `webhook_secret` exactly ONCE - it is never returned again. Cron triggers return no secret and carry a computed `trigger.cron.next_run_at`. The team and user identity are taken from the authenticated principal, never the body.
@@ -1655,24 +1132,13 @@ class HarnessRuntimeNamespace {
       SdkOptional<CreateWebhookConfig> webhook = const SdkOmitted(),
       SdkOptional<CreateCronConfig> cron = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCreateTrigger(_config,
-        kind: kind,
-        name: name,
-        sessionMode: sessionMode,
-        promptTemplate: promptTemplate,
-        output: output,
-        sessionTemplate: sessionTemplate,
-        boundSessionId: boundSessionId,
-        webhook: webhook,
-        cron: cron,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCreateTrigger(_config, kind: kind, name: name, sessionMode: sessionMode, promptTemplate: promptTemplate, output: output, sessionTemplate: sessionTemplate, boundSessionId: boundSessionId, webhook: webhook, cron: cron, requestOptions: requestOptions);
   }
 
   /// Returns the trigger that produced (fresh) or binds (reuse) the given session. Resolves to the row even after the trigger is soft-deleted.
   Future<GetTriggerResponse> harnessGetTriggerBySession(
       {required String sessionId, RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessGetTriggerBySession(_config,
-        sessionId: sessionId, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessGetTriggerBySession(_config, sessionId: sessionId, requestOptions: requestOptions);
   }
 
   /// Returns the team's sessions in status PAUSED, for binding a session_mode=reuse trigger. The item shape is the hosted-agents Session, so `agent_kind` and `status` use the AGENT_KIND_* / SESSION_STATUS_* spelling; `status` is always SESSION_STATUS_PAUSED here.
@@ -1680,28 +1146,18 @@ class HarnessRuntimeNamespace {
       {SdkOptional<int> pageSize = const SdkOmitted(),
       SdkOptional<String> pageToken = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessListReusableSessions(_config,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessListReusableSessions(_config, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// Returns the team's sessions in status PAUSED, for binding a session_mode=reuse trigger. The item shape is the hosted-agents Session, so `agent_kind` and `status` use the AGENT_KIND_* / SESSION_STATUS_* spelling; `status` is always SESSION_STATUS_PAUSED here.
-  Stream<ReusableSession> harnessListReusableSessionsPaginated(
-      {int? pageSize,
-      String? pageToken,
-      RequestOptions? requestOptions}) async* {
-    yield* harness_runtime_methods.harnessListReusableSessionsPaginated(_config,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+  Stream<ReusableSession> harnessListReusableSessionsPaginated({int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+    yield* harness_runtime_methods.harnessListReusableSessionsPaginated(_config, pageSize: pageSize, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// GetTrigger returns a single trigger by id. Write-only fields (webhook secret, output destination, session_template env values) are never included.
   Future<GetTriggerResponse> harnessGetTrigger(
       {required String triggerId, RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessGetTrigger(_config,
-        triggerId: triggerId, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessGetTrigger(_config, triggerId: triggerId, requestOptions: requestOptions);
   }
 
   /// Updates a trigger's mutable settings, including its name, status, prompt template, output configuration, session configuration, and schedule. Supply only the fields you want to change; `kind` and `webhook.provider` cannot be changed, and updating `session_template` replaces the stored template. Re-enabling a trigger does not produce a catch-up run, and schedule changes recompute `next_run_at`.
@@ -1717,23 +1173,13 @@ class HarnessRuntimeNamespace {
       SdkOptional<String> boundSessionId = const SdkOmitted(),
       SdkOptional<CreateCronConfig> cron = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessUpdateTrigger(_config,
-        triggerId: triggerId,
-        name: name,
-        status: status,
-        promptTemplate: promptTemplate,
-        output: output,
-        sessionTemplate: sessionTemplate,
-        boundSessionId: boundSessionId,
-        cron: cron,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessUpdateTrigger(_config, triggerId: triggerId, name: name, status: status, promptTemplate: promptTemplate, output: output, sessionTemplate: sessionTemplate, boundSessionId: boundSessionId, cron: cron, requestOptions: requestOptions);
   }
 
   /// Marks the trigger deleted, fails any pending executions, and purges the webhook secret / cron schedule. A fresh trigger owns no session; a reuse trigger only UNBINDS - it never destroys the customer's session. Execution history and by-session lookups continue to resolve to the deleted row. Returns 204 No Content on success.
   Future<void> harnessDeleteTrigger(
       {required String triggerId, RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessDeleteTrigger(_config,
-        triggerId: triggerId, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessDeleteTrigger(_config, triggerId: triggerId, requestOptions: requestOptions);
   }
 
   /// Keyset-paginated. The large `payload` field is omitted from list items; fetch a single execution to read it.
@@ -1743,28 +1189,12 @@ class HarnessRuntimeNamespace {
       SdkOptional<String> pageToken = const SdkOmitted(),
       SdkOptional<TriggerExecutionStatus> status = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessListTriggerExecutions(_config,
-        triggerId: triggerId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        status: status,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessListTriggerExecutions(_config, triggerId: triggerId, pageSize: pageSize, pageToken: pageToken, status: status, requestOptions: requestOptions);
   }
 
   /// Keyset-paginated. The large `payload` field is omitted from list items; fetch a single execution to read it.
-  Stream<TriggerExecution> harnessListTriggerExecutionsPaginated(
-      {required String triggerId,
-      int? pageSize,
-      String? pageToken,
-      TriggerExecutionStatus? status,
-      RequestOptions? requestOptions}) async* {
-    yield* harness_runtime_methods.harnessListTriggerExecutionsPaginated(
-        _config,
-        triggerId: triggerId,
-        pageSize: pageSize,
-        pageToken: pageToken,
-        status: status,
-        requestOptions: requestOptions);
+  Stream<TriggerExecution> harnessListTriggerExecutionsPaginated({required String triggerId, int? pageSize, String? pageToken, TriggerExecutionStatus? status, RequestOptions? requestOptions}) async* {
+    yield* harness_runtime_methods.harnessListTriggerExecutionsPaginated(_config, triggerId: triggerId, pageSize: pageSize, pageToken: pageToken, status: status, requestOptions: requestOptions);
   }
 
   /// Returns the full execution row, including the `payload`, `output_text`, and `output_truncated` fields omitted from list items.
@@ -1772,10 +1202,7 @@ class HarnessRuntimeNamespace {
       {required String triggerId,
       required String executionId,
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessGetTriggerExecution(_config,
-        triggerId: triggerId,
-        executionId: executionId,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessGetTriggerExecution(_config, triggerId: triggerId, executionId: executionId, requestOptions: requestOptions);
   }
 
   /// Fails the execution and frees the trigger's in-flight slot. A fresh-mode session is destroyed outright. A reuse-mode session is only paused, not stopped - harness has no run-interrupt call, so the agent's turn may still be in flight server-side; this frees the queue, not necessarily the agent's work. A non-running execution is a no-op that still returns 200.
@@ -1784,11 +1211,7 @@ class HarnessRuntimeNamespace {
       required String executionId,
       SdkOptional<bool> force = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessCancelTriggerExecution(_config,
-        triggerId: triggerId,
-        executionId: executionId,
-        force: force,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessCancelTriggerExecution(_config, triggerId: triggerId, executionId: executionId, force: force, requestOptions: requestOptions);
   }
 
   /// Webhook triggers only (409 for cron). Issues a new secret (shown once) and moves the old value to the previous slot, where it keeps verifying deliveries until previous_secret_expires_at. Default grace is 5 minutes when grace_period_seconds is omitted, so deliveries already in flight (signed with the old value) still succeed while the customer updates their external system. After that instant the old value is refused with 401. Pass grace_period_seconds=0 to retire the old secret on this call (breach response), or a positive value (up to the server max, default 1 hour) for a custom window; above the max is 400.
@@ -1796,10 +1219,7 @@ class HarnessRuntimeNamespace {
       {required String triggerId,
       SdkOptional<int> gracePeriodSeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessPostTriggerRotateSecret(_config,
-        triggerId: triggerId,
-        gracePeriodSeconds: gracePeriodSeconds,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessPostTriggerRotateSecret(_config, triggerId: triggerId, gracePeriodSeconds: gracePeriodSeconds, requestOptions: requestOptions);
   }
 
   /// Receives a signed webhook delivery from an external system for a trigger. The caller is the external system, and each delivery is authenticated with the trigger's provider-specific signature or token. Successful deliveries are accepted for asynchronous processing; paused triggers and deduplicated retries also receive an accepted response.
@@ -1809,33 +1229,27 @@ class HarnessRuntimeNamespace {
       {required String triggerId,
       required List<int> body,
       RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessPostTriggerWebhook(_config,
-        triggerId: triggerId, body: body, requestOptions: requestOptions);
+    return harness_runtime_methods.harnessPostTriggerWebhook(_config, triggerId: triggerId, body: body, requestOptions: requestOptions);
   }
 
   /// A static, code-defined registry (not a database table), webhook-only. Cron triggers have no provider and never call this. Used to populate the provider dropdown with display name, docs link, paste hint, and the signature scheme.
   Future<ListWebhookProvidersResponse> harnessListWebhookProviders(
       {RequestOptions? requestOptions}) async {
-    return harness_runtime_methods.harnessListWebhookProviders(_config,
-        requestOptions: requestOptions);
+    return harness_runtime_methods.harnessListWebhookProviders(_config, requestOptions: requestOptions);
   }
+
 }
 
 class AppsNamespace {
   final ClientConfig _config;
   AppsNamespace(ClientConfig config) : _config = config;
-
   /// List all apps on your account. Information about the current active deployment as well as any in progress ones will also be included for each app.
   Future<AppsResponse> list(
       {SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<bool> withProjects = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsList(_config,
-        page: page,
-        perPage: perPage,
-        withProjects: withProjects,
-        requestOptions: requestOptions);
+    return apps_methods.appsList(_config, page: page, perPage: perPage, withProjects: withProjects, requestOptions: requestOptions);
   }
 
   /// Create a new app by submitting an app specification. For documentation on app specifications (`AppSpec` objects), please refer to [the product documentation](https://docs.digitalocean.com/products/app-platform/reference/app-spec/).
@@ -1844,18 +1258,13 @@ class AppsNamespace {
       SdkOptional<SchemaSchema> accept = const SdkOmitted(),
       SdkOptional<String> projectId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsCreate(_config,
-        spec: spec,
-        accept: accept,
-        projectId: projectId,
-        requestOptions: requestOptions);
+    return apps_methods.appsCreate(_config, spec: spec, accept: accept, projectId: projectId, requestOptions: requestOptions);
   }
 
   /// Delete an existing app. Once deleted, all active deployments will be permanently shut down and the app deleted. If needed, be sure to back up your app specification so that you may re-create it at a later time.
   Future<AppsDeleteAppResponse> delete(
       {required String id, RequestOptions? requestOptions}) async {
-    return apps_methods.appsDelete(_config,
-        id: id, requestOptions: requestOptions);
+    return apps_methods.appsDelete(_config, id: id, requestOptions: requestOptions);
   }
 
   /// Retrieve details about an existing app by either its ID or name. To retrieve an app by its name, do not include an ID in the request path. Information about the current active deployment as well as any in progress ones will also be included in the response.
@@ -1863,8 +1272,7 @@ class AppsNamespace {
       {required String id,
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGet(_config,
-        id: id, name: name, requestOptions: requestOptions);
+    return apps_methods.appsGet(_config, id: id, name: name, requestOptions: requestOptions);
   }
 
   /// Update an existing app by submitting a new app specification. For documentation on app specifications (`AppSpec` objects), please refer to [the product documentation](https://docs.digitalocean.com/products/app-platform/reference/app-spec/).
@@ -1873,11 +1281,7 @@ class AppsNamespace {
       required AppSpecRequest spec,
       SdkOptional<bool> updateAllSourceVersions = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsUpdate(_config,
-        id: id,
-        spec: spec,
-        updateAllSourceVersions: updateAllSourceVersions,
-        requestOptions: requestOptions);
+    return apps_methods.appsUpdate(_config, id: id, spec: spec, updateAllSourceVersions: updateAllSourceVersions, requestOptions: requestOptions);
   }
 
   /// Triggers a rolling restart of an app, either across all components or only the components you specify. Pass `components` to limit the restart; omit it to restart all components. A successful response includes the resulting deployment object.
@@ -1887,8 +1291,7 @@ class AppsNamespace {
       {required String appId,
       SdkOptional<List<String>> components = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsRestart(_config,
-        appId: appId, components: components, requestOptions: requestOptions);
+    return apps_methods.appsRestart(_config, appId: appId, components: components, requestOptions: requestOptions);
   }
 
   /// Retrieve the logs of the active deployment if one exists. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment. Note log_type=BUILD logs will return logs associated with the current active deployment (being served). To view build logs associated with in-progress build, the query must explicitly reference the deployment id.
@@ -1899,13 +1302,7 @@ class AppsNamespace {
       SdkOptional<bool> follow = const SdkOmitted(),
       SdkOptional<String> podConnectionTimeout = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetLogsActiveDeployment(_config,
-        appId: appId,
-        componentName: componentName,
-        type_: type_,
-        follow: follow,
-        podConnectionTimeout: podConnectionTimeout,
-        requestOptions: requestOptions);
+    return apps_methods.appsGetLogsActiveDeployment(_config, appId: appId, componentName: componentName, type_: type_, follow: follow, podConnectionTimeout: podConnectionTimeout, requestOptions: requestOptions);
   }
 
   /// Returns a websocket URL that allows sending/receiving console input and output to a component of the active deployment if one exists.
@@ -1914,18 +1311,13 @@ class AppsNamespace {
       required String componentName,
       SdkOptional<String> instanceName = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetExecActiveDeployment(_config,
-        appId: appId,
-        componentName: componentName,
-        instanceName: instanceName,
-        requestOptions: requestOptions);
+    return apps_methods.appsGetExecActiveDeployment(_config, appId: appId, componentName: componentName, instanceName: instanceName, requestOptions: requestOptions);
   }
 
   /// Retrieve the list of running instances for a given application, including instance names and component types. Please note that these instances are ephemeral and may change over time. It is recommended not to make persistent changes or develop scripts that rely on their persistence.
   Future<AppInstances> getInstances(
       {required String appId, RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetInstances(_config,
-        appId: appId, requestOptions: requestOptions);
+    return apps_methods.appsGetInstances(_config, appId: appId, requestOptions: requestOptions);
   }
 
   /// Lists deployments for a specific app. Filter by deployment type and use `page` and `per_page` to paginate the results.
@@ -1935,15 +1327,9 @@ class AppsNamespace {
       {required String appId,
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
-      SdkOptional<List<AppsListDeploymentsDeploymentTypesItem>>
-          deploymentTypes = const SdkOmitted(),
+      SdkOptional<List<AppsListDeploymentsDeploymentTypesItem>> deploymentTypes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsListDeployments(_config,
-        appId: appId,
-        page: page,
-        perPage: perPage,
-        deploymentTypes: deploymentTypes,
-        requestOptions: requestOptions);
+    return apps_methods.appsListDeployments(_config, appId: appId, page: page, perPage: perPage, deploymentTypes: deploymentTypes, requestOptions: requestOptions);
   }
 
   /// Creates a deployment for a specific app by pulling the latest changes from its repository and scheduling a new deployment. Set `force_build` to build the app from source even when an existing cached build can be reused. The response includes the deployment record and its current phase.
@@ -1953,8 +1339,7 @@ class AppsNamespace {
       {required String appId,
       SdkOptional<bool> forceBuild = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsCreateDeployment(_config,
-        appId: appId, forceBuild: forceBuild, requestOptions: requestOptions);
+    return apps_methods.appsCreateDeployment(_config, appId: appId, forceBuild: forceBuild, requestOptions: requestOptions);
   }
 
   /// Retrieves details for a specific deployment of an app. Use both identifiers to select the deployment, and inspect its phase and progress to check its current state.
@@ -1964,10 +1349,7 @@ class AppsNamespace {
       {required String appId,
       required String deploymentId,
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetDeployment(_config,
-        appId: appId,
-        deploymentId: deploymentId,
-        requestOptions: requestOptions);
+    return apps_methods.appsGetDeployment(_config, appId: appId, deploymentId: deploymentId, requestOptions: requestOptions);
   }
 
   /// Cancels an in-progress deployment for a specific app. Use the app and deployment identifiers to select the deployment to stop. The response contains the deployment after it has been cancelled.
@@ -1977,10 +1359,7 @@ class AppsNamespace {
       {required String appId,
       required String deploymentId,
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsCancelDeployment(_config,
-        appId: appId,
-        deploymentId: deploymentId,
-        requestOptions: requestOptions);
+    return apps_methods.appsCancelDeployment(_config, appId: appId, deploymentId: deploymentId, requestOptions: requestOptions);
   }
 
   /// Retrieve the logs of a past, in-progress, or active deployment. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment.
@@ -1992,14 +1371,7 @@ class AppsNamespace {
       SdkOptional<bool> follow = const SdkOmitted(),
       SdkOptional<String> podConnectionTimeout = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetLogs(_config,
-        appId: appId,
-        deploymentId: deploymentId,
-        componentName: componentName,
-        type_: type_,
-        follow: follow,
-        podConnectionTimeout: podConnectionTimeout,
-        requestOptions: requestOptions);
+    return apps_methods.appsGetLogs(_config, appId: appId, deploymentId: deploymentId, componentName: componentName, type_: type_, follow: follow, podConnectionTimeout: podConnectionTimeout, requestOptions: requestOptions);
   }
 
   /// Retrieve the logs of a past, in-progress, or active deployment. If a component name is specified, the logs will be limited to only that component. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment.
@@ -2010,13 +1382,7 @@ class AppsNamespace {
       SdkOptional<bool> follow = const SdkOmitted(),
       SdkOptional<String> podConnectionTimeout = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetLogsAggregate(_config,
-        appId: appId,
-        deploymentId: deploymentId,
-        type_: type_,
-        follow: follow,
-        podConnectionTimeout: podConnectionTimeout,
-        requestOptions: requestOptions);
+    return apps_methods.appsGetLogsAggregate(_config, appId: appId, deploymentId: deploymentId, type_: type_, follow: follow, podConnectionTimeout: podConnectionTimeout, requestOptions: requestOptions);
   }
 
   /// Returns a websocket URL that allows sending/receiving console input and output to a component of the specified deployment if one exists. Optionally, the instance_name parameter can be provided to retrieve the exec URL for a specific instance. Note that instances are ephemeral; therefore, we recommended to avoid making persistent changes or such scripting around them.
@@ -2026,12 +1392,7 @@ class AppsNamespace {
       required String componentName,
       SdkOptional<String> instanceName = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetExec(_config,
-        appId: appId,
-        deploymentId: deploymentId,
-        componentName: componentName,
-        instanceName: instanceName,
-        requestOptions: requestOptions);
+    return apps_methods.appsGetExec(_config, appId: appId, deploymentId: deploymentId, componentName: componentName, instanceName: instanceName, requestOptions: requestOptions);
   }
 
   /// Retrieve the logs of the active deployment if one exists. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment. Note log_type=BUILD logs will return logs associated with the current active deployment (being served). To view build logs associated with in-progress build, the query must explicitly reference the deployment id.
@@ -2041,12 +1402,7 @@ class AppsNamespace {
       SdkOptional<bool> follow = const SdkOmitted(),
       SdkOptional<String> podConnectionTimeout = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetLogsActiveDeploymentAggregate(_config,
-        appId: appId,
-        type_: type_,
-        follow: follow,
-        podConnectionTimeout: podConnectionTimeout,
-        requestOptions: requestOptions);
+    return apps_methods.appsGetLogsActiveDeploymentAggregate(_config, appId: appId, type_: type_, follow: follow, podConnectionTimeout: podConnectionTimeout, requestOptions: requestOptions);
   }
 
   /// Lists job invocations for a specific app. Filter the results by job names or deployment, and use `page` and `per_page` to paginate the results.
@@ -2059,13 +1415,7 @@ class AppsNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsListJobInvocations(_config,
-        appId: appId,
-        jobNames: jobNames,
-        deploymentId: deploymentId,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return apps_methods.appsListJobInvocations(_config, appId: appId, jobNames: jobNames, deploymentId: deploymentId, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// Retrieves a specific job invocation for an app. Use `job_invocation_id` to select the invocation and optionally provide `job_name` to specify the job associated with it.
@@ -2076,11 +1426,7 @@ class AppsNamespace {
       required String jobInvocationId,
       SdkOptional<String> jobName = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetJobInvocation(_config,
-        appId: appId,
-        jobInvocationId: jobInvocationId,
-        jobName: jobName,
-        requestOptions: requestOptions);
+    return apps_methods.appsGetJobInvocation(_config, appId: appId, jobInvocationId: jobInvocationId, jobName: jobName, requestOptions: requestOptions);
   }
 
   /// Cancels a job invocation for a specified app. Use `app_id` and `job_invocation_id` to identify the invocation, and provide `job_name` to identify the associated job when needed. The response includes the invocation's phase and lifecycle timestamps.
@@ -2091,11 +1437,7 @@ class AppsNamespace {
       required String jobInvocationId,
       SdkOptional<String> jobName = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsCancelJobInvocation(_config,
-        appId: appId,
-        jobInvocationId: jobInvocationId,
-        jobName: jobName,
-        requestOptions: requestOptions);
+    return apps_methods.appsCancelJobInvocation(_config, appId: appId, jobInvocationId: jobInvocationId, jobName: jobName, requestOptions: requestOptions);
   }
 
   /// Retrieve the logs of a past, in-progress, or active deployment. If a component name is specified, the logs will be limited to only that component. If deployment is omitted the active deployment will be selected (if available). The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment.
@@ -2109,16 +1451,7 @@ class AppsNamespace {
       SdkOptional<String> podConnectionTimeout = const SdkOmitted(),
       SdkOptional<String> tailLines = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetJobInvocationLogs(_config,
-        appId: appId,
-        jobName: jobName,
-        jobInvocationId: jobInvocationId,
-        type_: type_,
-        deploymentId: deploymentId,
-        follow: follow,
-        podConnectionTimeout: podConnectionTimeout,
-        tailLines: tailLines,
-        requestOptions: requestOptions);
+    return apps_methods.appsGetJobInvocationLogs(_config, appId: appId, jobName: jobName, jobInvocationId: jobInvocationId, type_: type_, deploymentId: deploymentId, follow: follow, podConnectionTimeout: podConnectionTimeout, tailLines: tailLines, requestOptions: requestOptions);
   }
 
   /// List all events for an app, including deployments and autoscaling events.
@@ -2126,15 +1459,9 @@ class AppsNamespace {
       {required String appId,
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
-      SdkOptional<List<AppsListEventsEventTypesItem>> eventTypes =
-          const SdkOmitted(),
+      SdkOptional<List<AppsListEventsEventTypesItem>> eventTypes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsListEvents(_config,
-        appId: appId,
-        page: page,
-        perPage: perPage,
-        eventTypes: eventTypes,
-        requestOptions: requestOptions);
+    return apps_methods.appsListEvents(_config, appId: appId, page: page, perPage: perPage, eventTypes: eventTypes, requestOptions: requestOptions);
   }
 
   /// Retrieves a single event for a specified app. Use `app_id` and `event_id` to identify the event whose details you need.
@@ -2144,8 +1471,7 @@ class AppsNamespace {
       {required String appId,
       required String eventId,
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetEvent(_config,
-        appId: appId, eventId: eventId, requestOptions: requestOptions);
+    return apps_methods.appsGetEvent(_config, appId: appId, eventId: eventId, requestOptions: requestOptions);
   }
 
   /// Cancels an in-progress autoscaling event for a specified app. Use `app_id` and `event_id` to identify the event to cancel. The response includes the event details after the cancellation request.
@@ -2155,8 +1481,7 @@ class AppsNamespace {
       {required String appId,
       required String eventId,
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsCancelEvent(_config,
-        appId: appId, eventId: eventId, requestOptions: requestOptions);
+    return apps_methods.appsCancelEvent(_config, appId: appId, eventId: eventId, requestOptions: requestOptions);
   }
 
   /// Retrieve the logs of an autoscaling event for an app.
@@ -2167,27 +1492,19 @@ class AppsNamespace {
       SdkOptional<bool> follow = const SdkOmitted(),
       SdkOptional<String> podConnectionTimeout = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetEventLogs(_config,
-        appId: appId,
-        eventId: eventId,
-        type_: type_,
-        follow: follow,
-        podConnectionTimeout: podConnectionTimeout,
-        requestOptions: requestOptions);
+    return apps_methods.appsGetEventLogs(_config, appId: appId, eventId: eventId, type_: type_, follow: follow, podConnectionTimeout: podConnectionTimeout, requestOptions: requestOptions);
   }
 
   /// List all instance sizes for `service`, `worker`, and `job` components.
   Future<AppsListInstanceSizesResponse> listInstanceSizes(
       {RequestOptions? requestOptions}) async {
-    return apps_methods.appsListInstanceSizes(_config,
-        requestOptions: requestOptions);
+    return apps_methods.appsListInstanceSizes(_config, requestOptions: requestOptions);
   }
 
   /// Retrieve information about a specific instance size for `service`, `worker`, and `job` components.
   Future<AppsGetInstanceSizeResponse> getInstanceSize(
       {required String slug, RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetInstanceSize(_config,
-        slug: slug, requestOptions: requestOptions);
+    return apps_methods.appsGetInstanceSize(_config, slug: slug, requestOptions: requestOptions);
   }
 
   /// Lists the regions supported by App Platform. Use the returned region slugs and availability details to choose a region when configuring an app.
@@ -2195,8 +1512,7 @@ class AppsNamespace {
   /// List all regions supported by App Platform.
   Future<AppsListRegionsResponse> listRegions(
       {RequestOptions? requestOptions}) async {
-    return apps_methods.appsListRegions(_config,
-        requestOptions: requestOptions);
+    return apps_methods.appsListRegions(_config, requestOptions: requestOptions);
   }
 
   /// To propose and validate a spec for a new or existing app, send a POST request to the `/v2/apps/propose` endpoint. The request returns some information about the proposed app, including app cost and upgrade cost. If an existing app ID is specified, the app spec is treated as a proposed update to the existing app.
@@ -2204,15 +1520,13 @@ class AppsNamespace {
       {required AppSpecRequest spec,
       SdkOptional<String> appId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsValidateAppSpec(_config,
-        spec: spec, appId: appId, requestOptions: requestOptions);
+    return apps_methods.appsValidateAppSpec(_config, spec: spec, appId: appId, requestOptions: requestOptions);
   }
 
   /// List alerts associated to the app and any components. This includes configuration information about the alerts including emails, slack webhooks, and triggering events or conditions.
   Future<AppsListAlertsResponse> listAlerts(
       {required String appId, RequestOptions? requestOptions}) async {
-    return apps_methods.appsListAlerts(_config,
-        appId: appId, requestOptions: requestOptions);
+    return apps_methods.appsListAlerts(_config, appId: appId, requestOptions: requestOptions);
   }
 
   /// Updates the email and Slack webhook destinations for an app alert. Supply destination details in `emails`, `slack_webhooks`, or both; each email address must be associated with a user who has access to the app. The response includes the updated alert object.
@@ -2222,15 +1536,9 @@ class AppsNamespace {
       {required String appId,
       required String alertId,
       SdkOptional<List<String>> emails = const SdkOmitted(),
-      SdkOptional<List<AppAlertSlackWebhook>> slackWebhooks =
-          const SdkOmitted(),
+      SdkOptional<List<AppAlertSlackWebhook>> slackWebhooks = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsAssignAlertDestinations(_config,
-        appId: appId,
-        alertId: alertId,
-        emails: emails,
-        slackWebhooks: slackWebhooks,
-        requestOptions: requestOptions);
+    return apps_methods.appsAssignAlertDestinations(_config, appId: appId, alertId: alertId, emails: emails, slackWebhooks: slackWebhooks, requestOptions: requestOptions);
   }
 
   /// Rollback an app to a previous deployment. A new deployment will be created to perform the rollback. The app will be pinned to the rollback deployment preventing any new deployments from being created, either manually or through Auto Deploy on Push webhooks. To resume deployments, the rollback must be either committed or reverted. It is recommended to use the Validate App Rollback endpoint to double check if the rollback is valid and if there are any warnings.
@@ -2239,11 +1547,7 @@ class AppsNamespace {
       SdkOptional<String> deploymentId = const SdkOmitted(),
       SdkOptional<bool> skipPin = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsCreateRollback(_config,
-        appId: appId,
-        deploymentId: deploymentId,
-        skipPin: skipPin,
-        requestOptions: requestOptions);
+    return apps_methods.appsCreateRollback(_config, appId: appId, deploymentId: deploymentId, skipPin: skipPin, requestOptions: requestOptions);
   }
 
   /// Check whether an app can be rolled back to a specific deployment. This endpoint can also be used to check if there are any warnings or validation conditions that will cause the rollback to proceed under unideal circumstances. For example, if a component must be rebuilt as part of the rollback causing it to take longer than usual.
@@ -2252,25 +1556,19 @@ class AppsNamespace {
       SdkOptional<String> deploymentId = const SdkOmitted(),
       SdkOptional<bool> skipPin = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsValidateRollback(_config,
-        appId: appId,
-        deploymentId: deploymentId,
-        skipPin: skipPin,
-        requestOptions: requestOptions);
+    return apps_methods.appsValidateRollback(_config, appId: appId, deploymentId: deploymentId, skipPin: skipPin, requestOptions: requestOptions);
   }
 
   /// Commit an app rollback. This action permanently applies the rollback and unpins the app to resume new deployments.
   Future<void> commitRollback(
       {required String appId, RequestOptions? requestOptions}) async {
-    return apps_methods.appsCommitRollback(_config,
-        appId: appId, requestOptions: requestOptions);
+    return apps_methods.appsCommitRollback(_config, appId: appId, requestOptions: requestOptions);
   }
 
   /// Revert an app rollback. This action reverts the active rollback by creating a new deployment from the latest app spec prior to the rollback and unpins the app to resume new deployments.
   Future<AppsDeploymentResponse> revertRollback(
       {required String appId, RequestOptions? requestOptions}) async {
-    return apps_methods.appsRevertRollback(_config,
-        appId: appId, requestOptions: requestOptions);
+    return apps_methods.appsRevertRollback(_config, appId: appId, requestOptions: requestOptions);
   }
 
   /// Retrieve daily bandwidth usage metrics for a single app.
@@ -2278,8 +1576,7 @@ class AppsNamespace {
       {required String appId,
       SdkOptional<String> date = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetMetricsBandwidthDaily(_config,
-        appId: appId, date: date, requestOptions: requestOptions);
+    return apps_methods.appsGetMetricsBandwidthDaily(_config, appId: appId, date: date, requestOptions: requestOptions);
   }
 
   /// Retrieve daily bandwidth usage metrics for multiple apps.
@@ -2287,29 +1584,26 @@ class AppsNamespace {
       {required List<String> appIds,
       SdkOptional<String> date = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return apps_methods.appsListMetricsBandwidthDaily(_config,
-        appIds: appIds, date: date, requestOptions: requestOptions);
+    return apps_methods.appsListMetricsBandwidthDaily(_config, appIds: appIds, date: date, requestOptions: requestOptions);
   }
 
   /// Retrieve information like health status, cpu and memory utilization of app components.
   Future<AppHealthResponse> getHealth(
       {required String appId, RequestOptions? requestOptions}) async {
-    return apps_methods.appsGetHealth(_config,
-        appId: appId, requestOptions: requestOptions);
+    return apps_methods.appsGetHealth(_config, appId: appId, requestOptions: requestOptions);
   }
+
 }
 
 class CdnEndpointsNamespace {
   final ClientConfig _config;
   CdnEndpointsNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the CDN endpoints available on your account, send a GET request to `/v2/cdn/endpoints`.
   Future<AllCdnEndpoints> cdnListEndpoints(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return cdn_endpoints_methods.cdnListEndpoints(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return cdn_endpoints_methods.cdnListEndpoints(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create a new CDN endpoint, send a POST request to `/v2/cdn/endpoints`. The origin attribute must be set to the fully qualified domain name (FQDN) of a DigitalOcean Space. Optionally, the TTL may be configured by setting the `ttl` attribute. A custom subdomain may be configured by specifying the `custom_domain` and `certificate_id` attributes.
@@ -2319,19 +1613,13 @@ class CdnEndpointsNamespace {
       SdkOptional<String> certificateId = const SdkOmitted(),
       SdkOptional<String> customDomain = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return cdn_endpoints_methods.cdnCreateEndpoint(_config,
-        origin: origin,
-        ttl: ttl,
-        certificateId: certificateId,
-        customDomain: customDomain,
-        requestOptions: requestOptions);
+    return cdn_endpoints_methods.cdnCreateEndpoint(_config, origin: origin, ttl: ttl, certificateId: certificateId, customDomain: customDomain, requestOptions: requestOptions);
   }
 
   /// To show information about an existing CDN endpoint, send a GET request to `/v2/cdn/endpoints/$ENDPOINT_ID`.
   Future<ExistingEndpoint> cdnGetEndpoint(
       {required String cdnId, RequestOptions? requestOptions}) async {
-    return cdn_endpoints_methods.cdnGetEndpoint(_config,
-        cdnId: cdnId, requestOptions: requestOptions);
+    return cdn_endpoints_methods.cdnGetEndpoint(_config, cdnId: cdnId, requestOptions: requestOptions);
   }
 
   /// To update the TTL, certificate ID, or the FQDN of the custom subdomain for an existing CDN endpoint, send a PUT request to `/v2/cdn/endpoints/$ENDPOINT_ID`.
@@ -2341,19 +1629,13 @@ class CdnEndpointsNamespace {
       SdkOptional<String> certificateId = const SdkOmitted(),
       SdkOptional<String> customDomain = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return cdn_endpoints_methods.cdnUpdateEndpoints(_config,
-        cdnId: cdnId,
-        ttl: ttl,
-        certificateId: certificateId,
-        customDomain: customDomain,
-        requestOptions: requestOptions);
+    return cdn_endpoints_methods.cdnUpdateEndpoints(_config, cdnId: cdnId, ttl: ttl, certificateId: certificateId, customDomain: customDomain, requestOptions: requestOptions);
   }
 
   /// To delete a specific CDN endpoint, send a DELETE request to `/v2/cdn/endpoints/$ENDPOINT_ID`. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
   Future<void> cdnDeleteEndpoint(
       {required String cdnId, RequestOptions? requestOptions}) async {
-    return cdn_endpoints_methods.cdnDeleteEndpoint(_config,
-        cdnId: cdnId, requestOptions: requestOptions);
+    return cdn_endpoints_methods.cdnDeleteEndpoint(_config, cdnId: cdnId, requestOptions: requestOptions);
   }
 
   /// To purge cached content from a CDN endpoint, send a DELETE request to `/v2/cdn/endpoints/$ENDPOINT_ID/cache`. The body of the request should include a `files` attribute containing a list of cached file paths to be purged. A path may be for a single file or may contain a wildcard (`*`) to recursively purge all files under a directory. When only a wildcard is provided, all cached files will be purged. There is a rate limit of 50 files per 20 seconds that can be purged. CDN endpoints have a rate limit of 5 requests per 10 seconds. Purging files using a wildcard path counts as a single request against the API's rate limit. Two identical purge requests cannot be sent at the same time.
@@ -2361,26 +1643,21 @@ class CdnEndpointsNamespace {
       {required String cdnId,
       required List<String> files,
       RequestOptions? requestOptions}) async {
-    return cdn_endpoints_methods.cdnPurgeCache(_config,
-        cdnId: cdnId, files: files, requestOptions: requestOptions);
+    return cdn_endpoints_methods.cdnPurgeCache(_config, cdnId: cdnId, files: files, requestOptions: requestOptions);
   }
+
 }
 
 class CertificatesNamespace {
   final ClientConfig _config;
   CertificatesNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the certificates available on your account, send a GET request to `/v2/certificates`.
   Future<AllCertificates> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return certificates_methods.certificatesList(_config,
-        perPage: perPage,
-        page: page,
-        name: name,
-        requestOptions: requestOptions);
+    return certificates_methods.certificatesList(_config, perPage: perPage, page: page, name: name, requestOptions: requestOptions);
   }
 
   /// Creates a certificate from a user-generated certificate and private key or requests one from Let's Encrypt. Set `type` to `custom` and provide `private_key` and `leaf_certificate`, or set it to `lets_encrypt` and provide `dns_names`; both request types require `name`. A Let's Encrypt certificate starts in the `pending` state and transitions to `verified` when it is ready to use.
@@ -2388,29 +1665,26 @@ class CertificatesNamespace {
   /// To upload new SSL certificate which you have previously generated, send a POST request to `/v2/certificates`. When uploading a user-generated certificate, the `private_key`, `leaf_certificate`, and optionally the `certificate_chain` attributes should be provided. The type must be set to `custom`. When using Let's Encrypt to create a certificate, the `dns_names` attribute must be provided, and the type must be set to `lets_encrypt`.
   Future<NewCertificate> create(
       {required dynamic body, RequestOptions? requestOptions}) async {
-    return certificates_methods.certificatesCreate(_config,
-        body: body, requestOptions: requestOptions);
+    return certificates_methods.certificatesCreate(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To show information about an existing certificate, send a GET request to `/v2/certificates/$CERTIFICATE_ID`.
   Future<ExistingCertificate> get_(
       {required String certificateId, RequestOptions? requestOptions}) async {
-    return certificates_methods.certificatesGet(_config,
-        certificateId: certificateId, requestOptions: requestOptions);
+    return certificates_methods.certificatesGet(_config, certificateId: certificateId, requestOptions: requestOptions);
   }
 
   /// To delete a specific certificate, send a DELETE request to `/v2/certificates/$CERTIFICATE_ID`.
   Future<void> delete(
       {required String certificateId, RequestOptions? requestOptions}) async {
-    return certificates_methods.certificatesDelete(_config,
-        certificateId: certificateId, requestOptions: requestOptions);
+    return certificates_methods.certificatesDelete(_config, certificateId: certificateId, requestOptions: requestOptions);
   }
+
 }
 
 class BillingNamespace {
   final ClientConfig _config;
   BillingNamespace(ClientConfig config) : _config = config;
-
   /// To retrieve the balances on a customer's account, send a GET request to `/v2/customers/my/balance`.
   Future<Balance> balanceGet({RequestOptions? requestOptions}) async {
     return billing_methods.balanceGet(_config, requestOptions: requestOptions);
@@ -2419,22 +1693,19 @@ class BillingNamespace {
   /// To retrieve the prepayment configuration and current prepayment status for a customer's account, send a GET request to `/v2/customers/my/prepayment_config`.
   Future<PrepaymentConfigResponse> prepaymentConfigGet(
       {RequestOptions? requestOptions}) async {
-    return billing_methods.prepaymentConfigGet(_config,
-        requestOptions: requestOptions);
+    return billing_methods.prepaymentConfigGet(_config, requestOptions: requestOptions);
   }
 
   /// To retrieve the prepayment gate status and balances for a customer's account, send a GET request to `/v2/customers/my/prepayment_status`.
   Future<PrepaymentStatusResponse> prepaymentStatusGet(
       {RequestOptions? requestOptions}) async {
-    return billing_methods.prepaymentStatusGet(_config,
-        requestOptions: requestOptions);
+    return billing_methods.prepaymentStatusGet(_config, requestOptions: requestOptions);
   }
 
   /// To retrieve a list of all billing history entries, send a GET request to `/v2/customers/my/billing_history`.
   Future<BillingHistoryResponse> historyList(
       {RequestOptions? requestOptions}) async {
-    return billing_methods.billingHistoryList(_config,
-        requestOptions: requestOptions);
+    return billing_methods.billingHistoryList(_config, requestOptions: requestOptions);
   }
 
   /// To retrieve a list of all invoices, send a GET request to `/v2/customers/my/invoices`.
@@ -2442,8 +1713,7 @@ class BillingNamespace {
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return billing_methods.invoicesList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return billing_methods.invoicesList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To retrieve the invoice items for an invoice, send a GET request to `/v2/customers/my/invoices/$INVOICE_UUID`.
@@ -2452,32 +1722,25 @@ class BillingNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return billing_methods.invoicesGetByUuid(_config,
-        invoiceUuid: invoiceUuid,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return billing_methods.invoicesGetByUuid(_config, invoiceUuid: invoiceUuid, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To retrieve a CSV for an invoice, send a GET request to `/v2/customers/my/invoices/$INVOICE_UUID/csv`.
   Future<String> invoicesGetCsvByUuid(
       {required String invoiceUuid, RequestOptions? requestOptions}) async {
-    return billing_methods.invoicesGetCsvByUuid(_config,
-        invoiceUuid: invoiceUuid, requestOptions: requestOptions);
+    return billing_methods.invoicesGetCsvByUuid(_config, invoiceUuid: invoiceUuid, requestOptions: requestOptions);
   }
 
   /// To retrieve a PDF for an invoice, send a GET request to `/v2/customers/my/invoices/$INVOICE_UUID/pdf`.
   Future<List<int>> invoicesGetPdfByUuid(
       {required String invoiceUuid, RequestOptions? requestOptions}) async {
-    return billing_methods.invoicesGetPdfByUuid(_config,
-        invoiceUuid: invoiceUuid, requestOptions: requestOptions);
+    return billing_methods.invoicesGetPdfByUuid(_config, invoiceUuid: invoiceUuid, requestOptions: requestOptions);
   }
 
   /// To retrieve a summary for an invoice, send a GET request to `/v2/customers/my/invoices/$INVOICE_UUID/summary`.
   Future<InvoiceSummary> invoicesGetSummaryByUuid(
       {required String invoiceUuid, RequestOptions? requestOptions}) async {
-    return billing_methods.invoicesGetSummaryByUuid(_config,
-        invoiceUuid: invoiceUuid, requestOptions: requestOptions);
+    return billing_methods.invoicesGetSummaryByUuid(_config, invoiceUuid: invoiceUuid, requestOptions: requestOptions);
   }
 
   /// This endpoint returns day-over-day changes in billing resource usage based on nightly invoice items, including total amount, region, SKU, and description for a specified date range. It is important to note that the daily resource usage may not reflect month-end billing totals when totaled for a given month as nightly invoice item estimates do not necessarily encompass all invoicing factors for the entire month.
@@ -2488,49 +1751,29 @@ class BillingNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return billing_methods.billingInsightsList(_config,
-        accountUrn: accountUrn,
-        startDate: startDate,
-        endDate: endDate,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return billing_methods.billingInsightsList(_config, accountUrn: accountUrn, startDate: startDate, endDate: endDate, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// This endpoint returns day-over-day changes in billing resource usage based on nightly invoice items, including total amount, region, SKU, and description for a specified date range. It is important to note that the daily resource usage may not reflect month-end billing totals when totaled for a given month as nightly invoice item estimates do not necessarily encompass all invoicing factors for the entire month.
-  Stream<BillingDataPoint> insightsListPaginated(
-      {required String accountUrn,
-      required String startDate,
-      required String endDate,
-      int? perPage,
-      int? page,
-      RequestOptions? requestOptions}) async* {
-    yield* billing_methods.billingInsightsListPaginated(_config,
-        accountUrn: accountUrn,
-        startDate: startDate,
-        endDate: endDate,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+  Stream<BillingDataPoint> insightsListPaginated({required String accountUrn, required String startDate, required String endDate, int? perPage, int? page, RequestOptions? requestOptions}) async* {
+    yield* billing_methods.billingInsightsListPaginated(_config, accountUrn: accountUrn, startDate: startDate, endDate: endDate, perPage: perPage, page: page, requestOptions: requestOptions);
   }
+
 }
 
 class DatabasesNamespace {
   final ClientConfig _config;
   DatabasesNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the options available for the offered database engines, send a GET request to `/v2/databases/options`. The result will be a JSON object with an `options` key.
   Future<Options> listOptions({RequestOptions? requestOptions}) async {
-    return databases_methods.databasesListOptions(_config,
-        requestOptions: requestOptions);
+    return databases_methods.databasesListOptions(_config, requestOptions: requestOptions);
   }
 
   /// To list all of the database clusters available on your account, send a GET request to `/v2/databases`. To limit the results to database clusters with a specific tag, include the `tag_name` query parameter set to the name of the tag. For example, `/v2/databases?tag_name=$TAG_NAME`. The result will be a JSON object with a `databases` key. This will be set to an array of database objects, each of which will contain the standard database attributes. The embedded `connection` and `private_connection` objects will contain the information needed to access the database cluster. For multi-node clusters, the `standby_connection` and `standby_private_connection` objects will contain the information needed to connect to the cluster's standby node(s). The embedded `maintenance_window` object will contain information about any scheduled maintenance for the database cluster.
   Future<DatabaseClusters> listClusters(
       {SdkOptional<String> tagName = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesListClusters(_config,
-        tagName: tagName, requestOptions: requestOptions);
+    return databases_methods.databasesListClusters(_config, tagName: tagName, requestOptions: requestOptions);
   }
 
   /// Creates a database cluster with the selected engine, size, region, and node count. Supply `name`, `engine`, `num_nodes`, `size`, and `region`; use `backup_restore` to create a cluster from an existing backup. The new cluster starts with a `creating` status and changes to `online` when ready to receive traffic.
@@ -2539,35 +1782,28 @@ class DatabasesNamespace {
   Future<DatabaseClusterResponse> createCluster(
       {required DatabasesCreateClusterRequestBody body,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesCreateCluster(_config,
-        body: body, requestOptions: requestOptions);
+    return databases_methods.databasesCreateCluster(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To show information about an existing database cluster, send a GET request to `/v2/databases/$DATABASE_ID`. The response will be a JSON object with a database key. This will be set to an object containing the standard database cluster attributes. The embedded `connection` and `private_connection` objects will contain the information needed to access the database cluster. For multi-node clusters, the `standby_connection` and `standby_private_connection` objects contain the information needed to connect to the cluster's standby node(s). The embedded maintenance_window object will contain information about any scheduled maintenance for the database cluster.
   Future<DatabaseClusterResponse> getCluster(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetCluster(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetCluster(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// To destroy a specific database, send a DELETE request to `/v2/databases/$DATABASE_ID`. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
   Future<void> destroyCluster(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesDestroyCluster(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesDestroyCluster(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// Shows configuration parameters for an existing database cluster by sending a GET request to `/v2/databases/$DATABASE_ID/config`. The response is a JSON object with a `config` key, which is set to an object containing any database configuration parameters.
   Future<DatabaseConfigResponse> getConfig(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetConfig(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetConfig(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// Updates configuration settings for an existing database cluster. Supply `config` with the settings you want to change; the available settings depend on the cluster's database engine. Use the cluster's UUID to target the configuration.
@@ -2577,28 +1813,21 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       SdkOptional<DatabaseConfigConfig> config_ = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesPatchConfig(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        config_: config_,
-        requestOptions: requestOptions);
+    return databases_methods.databasesPatchConfig(_config, databaseClusterUuid: databaseClusterUuid, config_: config_, requestOptions: requestOptions);
   }
 
   /// To retrieve the public certificate used to secure the connection to the database cluster send a GET request to `/v2/databases/$DATABASE_ID/ca`. The response will be a JSON object with a `ca` key. This will be set to an object containing the base64 encoding of the public key certificate.
   Future<CaResponse> getCa(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetCa(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetCa(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// To retrieve the status of the most recent online migration, send a GET request to `/v2/databases/$DATABASE_ID/online-migration`.
   Future<OnlineMigration> getMigrationStatus(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetMigrationStatus(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetMigrationStatus(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// Submits an online migration that connects a database cluster to an existing source cluster and replicates its contents. Supply the source connection details in `source`; online migration is available for MySQL, PostgreSQL, Caching, and Valkey clusters. If the source database continues to receive writes, migration can continue for up to two weeks unless you stop it manually.
@@ -2610,12 +1839,7 @@ class DatabasesNamespace {
       SdkOptional<bool> disableSsl = const SdkOmitted(),
       SdkOptional<List<String>> ignoreDbs = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateOnlineMigration(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        source: source,
-        disableSsl: disableSsl,
-        ignoreDbs: ignoreDbs,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateOnlineMigration(_config, databaseClusterUuid: databaseClusterUuid, source: source, disableSsl: disableSsl, ignoreDbs: ignoreDbs, requestOptions: requestOptions);
   }
 
   /// To stop an online migration, send a DELETE request to `/v2/databases/$DATABASE_ID/online-migration/$MIGRATION_ID`. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
@@ -2623,10 +1847,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String migrationId,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesDeleteOnlineMigration(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        migrationId: migrationId,
-        requestOptions: requestOptions);
+    return databases_methods.databasesDeleteOnlineMigration(_config, databaseClusterUuid: databaseClusterUuid, migrationId: migrationId, requestOptions: requestOptions);
   }
 
   /// To migrate a database cluster to a new region, send a `PUT` request to `/v2/databases/$DATABASE_ID/migrate`. The body of the request must specify a `region` attribute. A successful request will receive a 202 Accepted status code with no body in response. Querying the database cluster will show that its `status` attribute will now be set to `migrating`. This will transition back to `online` when the migration has completed.
@@ -2634,10 +1855,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String region,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateRegion(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        region: region,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateRegion(_config, databaseClusterUuid: databaseClusterUuid, region: region, requestOptions: requestOptions);
   }
 
   /// To resize a database cluster, send a PUT request to `/v2/databases/$DATABASE_ID/resize`. The body of the request must specify both the size and num_nodes attributes. A successful request will receive a 202 Accepted status code with no body in response. Querying the database cluster will show that its status attribute will now be set to resizing. This will transition back to online when the resize operation has completed.
@@ -2647,21 +1865,14 @@ class DatabasesNamespace {
       required int numNodes,
       SdkOptional<int> storageSizeMib = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateClusterSize(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        size: size,
-        numNodes: numNodes,
-        storageSizeMib: storageSizeMib,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateClusterSize(_config, databaseClusterUuid: databaseClusterUuid, size: size, numNodes: numNodes, storageSizeMib: storageSizeMib, requestOptions: requestOptions);
   }
 
   /// To list all of a database cluster's firewall rules (known as "trusted sources" in the control panel), send a GET request to `/v2/databases/$DATABASE_ID/firewall`. The result will be a JSON object with a `rules` key.
   Future<FirewallRulesResponse> listFirewallRules(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesListFirewallRules(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesListFirewallRules(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// Replaces the trusted-source firewall rules for a database cluster. Send the `rules` array to specify which Droplets, Kubernetes clusters, IP addresses, tags, or apps can connect. The firewall accepts at most 100 rules and does not support IPv6 addresses; consider using a VPC network to limit database access instead.
@@ -2671,19 +1882,14 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       SdkOptional<List<FirewallRuleRequest>> rules = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateFirewallRules(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        rules: rules,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateFirewallRules(_config, databaseClusterUuid: databaseClusterUuid, rules: rules, requestOptions: requestOptions);
   }
 
   /// To retrieve the DigitalOcean-specific settings for a database cluster, send a GET request to `/v2/databases/$DATABASE_ID/do_settings`. The response will include the current `service_cnames` configuration.
   Future<DoSettingsResponse> getDoSettings(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetDoSettings(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetDoSettings(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// To update the DigitalOcean-specific settings for a database cluster, send a PUT request to `/v2/databases/$DATABASE_ID/do_settings`. Currently, the only supported setting is `service_cnames`, which allows you to specify custom DNS names (CNAMEs) to be included in the TLS certificate Subject Alternative Names (SANs) for the database cluster nodes. This enables TLS verification when connecting via a custom hostname. After updating, the database nodes will be replaced to apply the new certificate. This process is performed as a rolling replacement and does not cause downtime. To clear all custom CNAMEs, send an empty array or omit the field.
@@ -2691,10 +1897,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required DoSettings doSettings,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateDoSettings(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        doSettings: doSettings,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateDoSettings(_config, databaseClusterUuid: databaseClusterUuid, doSettings: doSettings, requestOptions: requestOptions);
   }
 
   /// To configure the window when automatic maintenance should be performed for a database cluster, send a PUT request to `/v2/databases/$DATABASE_ID/maintenance`. A successful request will receive a 204 No Content status code with no body in response.
@@ -2703,38 +1906,28 @@ class DatabasesNamespace {
       required String day,
       required String hour,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateMaintenanceWindow(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        day: day,
-        hour: hour,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateMaintenanceWindow(_config, databaseClusterUuid: databaseClusterUuid, day: day, hour: hour, requestOptions: requestOptions);
   }
 
   /// To start the installation of updates for a database cluster, send a PUT request to `/v2/databases/$DATABASE_ID/install_update`. A successful request will receive a 204 No Content status code with no body in response.
   Future<void> installUpdate(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesInstallUpdate(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesInstallUpdate(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// To list all of the available backups of a PostgreSQL or MySQL database cluster, send a GET request to `/v2/databases/$DATABASE_ID/backups`. **Note**: Backups are not supported for Caching or Valkey clusters. The result will be a JSON object with a `backups key`. This will be set to an array of backup objects, each of which will contain the size of the backup and the timestamp at which it was created.
   Future<DatabaseBackups> listBackups(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesListBackups(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesListBackups(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// To list all of the read-only replicas associated with a database cluster, send a GET request to `/v2/databases/$DATABASE_ID/replicas`. **Note**: Read-only replicas are not supported for Caching or Valkey clusters. The result will be a JSON object with a `replicas` key. This will be set to an array of database replica objects, each of which will contain the standard database replica attributes.
   Future<DatabaseReplicas> listReplicas(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesListReplicas(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesListReplicas(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// Creates a read-only replica for a PostgreSQL or MySQL database cluster. Supply `name` and `size`; `size` must be at least as large as the source cluster's node size, and `region` defaults to the cluster's region when omitted. The replica starts with a `status` of `forking` and transitions to `active` when it is ready to receive traffic.
@@ -2752,27 +1945,14 @@ class DatabasesNamespace {
       SdkOptional<int> storageSizeMib = const SdkOmitted(),
       SdkOptional<DoSettings> doSettings = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesCreateReplica(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        name: name,
-        size: size,
-        region: region,
-        tags: tags,
-        privateNetworkUuid: privateNetworkUuid,
-        connection: connection,
-        privateConnection: privateConnection,
-        storageSizeMib: storageSizeMib,
-        doSettings: doSettings,
-        requestOptions: requestOptions);
+    return databases_methods.databasesCreateReplica(_config, databaseClusterUuid: databaseClusterUuid, name: name, size: size, region: region, tags: tags, privateNetworkUuid: privateNetworkUuid, connection: connection, privateConnection: privateConnection, storageSizeMib: storageSizeMib, doSettings: doSettings, requestOptions: requestOptions);
   }
 
   /// To list all of the cluster events, send a GET request to `/v2/databases/$DATABASE_ID/events`. The result will be a JSON object with a `events` key.
   Future<EventsLogsResponse> listEventsLogs(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesListEventsLogs(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesListEventsLogs(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// To show information about an existing database replica, send a GET request to `/v2/databases/$DATABASE_ID/replicas/$REPLICA_NAME`. **Note**: Read-only replicas are not supported for Caching or Valkey clusters. The response will be a JSON object with a `replica key`. This will be set to an object containing the standard database replica attributes.
@@ -2780,10 +1960,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String replicaName,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetReplica(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        replicaName: replicaName,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetReplica(_config, databaseClusterUuid: databaseClusterUuid, replicaName: replicaName, requestOptions: requestOptions);
   }
 
   /// To destroy a specific read-only replica, send a DELETE request to `/v2/databases/$DATABASE_ID/replicas/$REPLICA_NAME`. **Note**: Read-only replicas are not supported for Caching or Valkey clusters. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
@@ -2791,10 +1968,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String replicaName,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesDestroyReplica(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        replicaName: replicaName,
-        requestOptions: requestOptions);
+    return databases_methods.databasesDestroyReplica(_config, databaseClusterUuid: databaseClusterUuid, replicaName: replicaName, requestOptions: requestOptions);
   }
 
   /// To promote a specific read-only replica, send a PUT request to `/v2/databases/$DATABASE_ID/replicas/$REPLICA_NAME/promote`. **Note**: Read-only replicas are not supported for Caching or Valkey clusters. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
@@ -2802,19 +1976,14 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String replicaName,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesPromoteReplica(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        replicaName: replicaName,
-        requestOptions: requestOptions);
+    return databases_methods.databasesPromoteReplica(_config, databaseClusterUuid: databaseClusterUuid, replicaName: replicaName, requestOptions: requestOptions);
   }
 
   /// To list all of the users for your database cluster, send a GET request to `/v2/databases/$DATABASE_ID/users`. Note: User management is not supported for Caching or Valkey clusters. The result will be a JSON object with a `users` key. This will be set to an array of database user objects, each of which will contain the standard database user attributes. User passwords will not show without the `database:view_credentials` scope. For MySQL clusters, additional options will be contained in the mysql_settings object. For PostgreSQL clusters, additional options will be contained in the `settings` object (for example, `pg_allow_replication`). For Kafka clusters, additional options will be contained in the `settings` object. For MongoDB clusters, additional information will be contained in the mongo_user_settings object
   Future<Users> listUsers(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesListUsers(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesListUsers(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// Creates a database user for a database cluster. Supply the required `name` and, where applicable, engine-specific options in `mysql_settings` or `settings`; PostgreSQL `pg_allow_replication` defaults to `false` when omitted. The response includes the new user and its randomly generated password, and user management is not supported for Caching or Valkey clusters.
@@ -2824,10 +1993,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required DatabasesAddUserRequestBody body,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesAddUser(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        body: body,
-        requestOptions: requestOptions);
+    return databases_methods.databasesAddUser(_config, databaseClusterUuid: databaseClusterUuid, body: body, requestOptions: requestOptions);
   }
 
   /// To show information about an existing database user, send a GET request to `/v2/databases/$DATABASE_ID/users/$USERNAME`. Note: User management is not supported for Caching or Valkey clusters. The response will be a JSON object with a `user` key. This will be set to an object containing the standard database user attributes. The user's password will not show up unless the `database:view_credentials` scope is present. For MySQL clusters, additional options will be contained in the `mysql_settings` object. For PostgreSQL clusters, additional options will be contained in the `settings` object (for example, `pg_allow_replication`). For Kafka clusters, additional options will be contained in the `settings` object. For MongoDB clusters, additional information will be contained in the mongo_user_settings object
@@ -2835,10 +2001,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String username,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetUser(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        username: username,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetUser(_config, databaseClusterUuid: databaseClusterUuid, username: username, requestOptions: requestOptions);
   }
 
   /// To remove a specific database user, send a DELETE request to `/v2/databases/$DATABASE_ID/users/$USERNAME`. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed. Note: User management is not supported for Caching or Valkey clusters.
@@ -2846,10 +2009,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String username,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesDeleteUser(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        username: username,
-        requestOptions: requestOptions);
+    return databases_methods.databasesDeleteUser(_config, databaseClusterUuid: databaseClusterUuid, username: username, requestOptions: requestOptions);
   }
 
   /// To update an existing database user, send a PUT request to `/v2/databases/$DATABASE_ID/users/$USERNAME` with the desired settings. **Note**: only `settings` can be updated via this type of request. If you wish to change the name of a user, you must recreate a new user. For PostgreSQL clusters, you can update `settings.pg_allow_replication` to enable or disable replication privileges for the user. When omitted, the value defaults to `false`. For Kafka and OpenSearch clusters, additional options can be configured in the `settings` object (for example, topic or index ACLs). Updating users is supported for PostgreSQL, Kafka, and OpenSearch clusters. For other engines, the request returns a 422. MongoDB roles and database access are set with `settings.mongo_user_settings` when creating a user and cannot be changed afterward; recreate the user to apply different roles or databases. The response will be a JSON object with a key called `user`. The value of this will be an object that contains the name of the updated database user, along with the `settings` object that has been updated.
@@ -2858,11 +2018,7 @@ class DatabasesNamespace {
       required String username,
       required DatabasesUpdateUserRequestBodyVariant0 body,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateUser(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        username: username,
-        body: body,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateUser(_config, databaseClusterUuid: databaseClusterUuid, username: username, body: body, requestOptions: requestOptions);
   }
 
   /// Resets the password or authentication method for a user in a database cluster. For MySQL users, supply `mysql_settings.auth_plugin` to choose the authentication method. The response includes the updated user object and its standard database user attributes.
@@ -2873,20 +2029,14 @@ class DatabasesNamespace {
       required String username,
       SdkOptional<MysqlSettings> mysqlSettings = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesResetAuth(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        username: username,
-        mysqlSettings: mysqlSettings,
-        requestOptions: requestOptions);
+    return databases_methods.databasesResetAuth(_config, databaseClusterUuid: databaseClusterUuid, username: username, mysqlSettings: mysqlSettings, requestOptions: requestOptions);
   }
 
   /// To list all of the databases in a clusters, send a GET request to `/v2/databases/$DATABASE_ID/dbs`. The result will be a JSON object with a `dbs` key. This will be set to an array of database objects, each of which will contain the standard database attributes. Note: Database management is not supported for Caching or Valkey clusters.
   Future<Databases> list(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesList(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesList(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// To add a new database to an existing cluster, send a POST request to `/v2/databases/$DATABASE_ID/dbs`. Note: Database management is not supported for Caching or Valkey clusters. The response will be a JSON object with a key called `db`. The value of this will be an object that contains the standard attributes associated with a database.
@@ -2894,10 +2044,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String name,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesAdd(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        name: name,
-        requestOptions: requestOptions);
+    return databases_methods.databasesAdd(_config, databaseClusterUuid: databaseClusterUuid, name: name, requestOptions: requestOptions);
   }
 
   /// To show information about an existing database cluster, send a GET request to `/v2/databases/$DATABASE_ID/dbs/$DB_NAME`. Note: Database management is not supported for Caching or Valkey clusters. The response will be a JSON object with a `db` key. This will be set to an object containing the standard database attributes.
@@ -2905,10 +2052,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String databaseName,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGet(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        databaseName: databaseName,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGet(_config, databaseClusterUuid: databaseClusterUuid, databaseName: databaseName, requestOptions: requestOptions);
   }
 
   /// To delete a specific database, send a DELETE request to `/v2/databases/$DATABASE_ID/dbs/$DB_NAME`. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed. Note: Database management is not supported for Caching or Valkey clusters.
@@ -2916,19 +2060,14 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String databaseName,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesDelete(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        databaseName: databaseName,
-        requestOptions: requestOptions);
+    return databases_methods.databasesDelete(_config, databaseClusterUuid: databaseClusterUuid, databaseName: databaseName, requestOptions: requestOptions);
   }
 
   /// To list all of the connection pools available to a PostgreSQL database cluster, send a GET request to `/v2/databases/$DATABASE_ID/pools`. The result will be a JSON object with a `pools` key. This will be set to an array of connection pool objects.
   Future<ConnectionPools> listConnectionPools(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesListConnectionPools(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesListConnectionPools(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// Creates a PgBouncer connection pool for a PostgreSQL database cluster. Supply `name`, `mode`, `size`, and `db`; choose a transaction mode supported by PgBouncer and set the pool size according to the primary node's capacity. The response includes the created pool and its connection details.
@@ -2944,21 +2083,9 @@ class DatabasesNamespace {
       SdkOptional<DatabaseConnectionRequest> connection = const SdkOmitted(),
       SdkOptional<DatabaseConnection> privateConnection = const SdkOmitted(),
       SdkOptional<DatabaseConnection> standbyConnection = const SdkOmitted(),
-      SdkOptional<DatabaseConnection> standbyPrivateConnection =
-          const SdkOmitted(),
+      SdkOptional<DatabaseConnection> standbyPrivateConnection = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesAddConnectionPool(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        name: name,
-        mode: mode,
-        size: size,
-        db: db,
-        user: user,
-        connection: connection,
-        privateConnection: privateConnection,
-        standbyConnection: standbyConnection,
-        standbyPrivateConnection: standbyPrivateConnection,
-        requestOptions: requestOptions);
+    return databases_methods.databasesAddConnectionPool(_config, databaseClusterUuid: databaseClusterUuid, name: name, mode: mode, size: size, db: db, user: user, connection: connection, privateConnection: privateConnection, standbyConnection: standbyConnection, standbyPrivateConnection: standbyPrivateConnection, requestOptions: requestOptions);
   }
 
   /// To show information about an existing connection pool for a PostgreSQL database cluster, send a GET request to `/v2/databases/$DATABASE_ID/pools/$POOL_NAME`. The response will be a JSON object with a `pool` key.
@@ -2966,10 +2093,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String poolName,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetConnectionPool(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        poolName: poolName,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetConnectionPool(_config, databaseClusterUuid: databaseClusterUuid, poolName: poolName, requestOptions: requestOptions);
   }
 
   /// To update a connection pool for a PostgreSQL database cluster, send a PUT request to `/v2/databases/$DATABASE_ID/pools/$POOL_NAME`.
@@ -2981,14 +2105,7 @@ class DatabasesNamespace {
       required String db,
       SdkOptional<String> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateConnectionPool(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        poolName: poolName,
-        mode: mode,
-        size: size,
-        db: db,
-        user: user,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateConnectionPool(_config, databaseClusterUuid: databaseClusterUuid, poolName: poolName, mode: mode, size: size, db: db, user: user, requestOptions: requestOptions);
   }
 
   /// To delete a specific connection pool for a PostgreSQL database cluster, send a DELETE request to `/v2/databases/$DATABASE_ID/pools/$POOL_NAME`. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
@@ -2996,19 +2113,14 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String poolName,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesDeleteConnectionPool(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        poolName: poolName,
-        requestOptions: requestOptions);
+    return databases_methods.databasesDeleteConnectionPool(_config, databaseClusterUuid: databaseClusterUuid, poolName: poolName, requestOptions: requestOptions);
   }
 
   /// To retrieve the configured eviction policy for an existing Caching or Valkey cluster, send a GET request to `/v2/databases/$DATABASE_ID/eviction_policy`. The response will be a JSON object with an `eviction_policy` key. This will be set to a string representing the eviction policy.
   Future<EvictionPolicyResponse> getEvictionPolicy(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetEvictionPolicy(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetEvictionPolicy(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// To configure an eviction policy for an existing Caching or Valkey cluster, send a PUT request to `/v2/databases/$DATABASE_ID/eviction_policy` specifying the desired policy.
@@ -3016,19 +2128,14 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required EvictionPolicyModel evictionPolicy,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateEvictionPolicy(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        evictionPolicy: evictionPolicy,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateEvictionPolicy(_config, databaseClusterUuid: databaseClusterUuid, evictionPolicy: evictionPolicy, requestOptions: requestOptions);
   }
 
   /// To retrieve the configured SQL modes for an existing MySQL cluster, send a GET request to `/v2/databases/$DATABASE_ID/sql_mode`. The response will be a JSON object with a `sql_mode` key. This will be set to a string representing the configured SQL modes.
   Future<SqlMode> getSqlMode(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetSqlMode(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetSqlMode(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// To configure the SQL modes for an existing MySQL cluster, send a PUT request to `/v2/databases/$DATABASE_ID/sql_mode` specifying the desired modes. See the official MySQL 8 documentation for a [full list of supported SQL modes](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-full). A successful request will receive a 204 No Content status code with no body in response.
@@ -3036,10 +2143,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String sqlMode,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateSqlMode(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        sqlMode: sqlMode,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateSqlMode(_config, databaseClusterUuid: databaseClusterUuid, sqlMode: sqlMode, requestOptions: requestOptions);
   }
 
   /// To upgrade the major version of a database, send a PUT request to `/v2/databases/$DATABASE_ID/upgrade`, specifying the target version. A successful request will receive a 204 No Content status code with no body in response.
@@ -3047,19 +2151,14 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       SdkOptional<String> version = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateMajorVersion(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        version: version,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateMajorVersion(_config, databaseClusterUuid: databaseClusterUuid, version: version, requestOptions: requestOptions);
   }
 
   /// To retrieve the autoscale configuration for an existing database cluster, send a GET request to `/v2/databases/$DATABASE_ID/autoscale`. The response will be a JSON object with autoscaling configuration details.
   Future<Autoscale> getAutoscale(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetAutoscale(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetAutoscale(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// Replaces the autoscaling configuration for an existing database cluster. Send the `storage` configuration to control storage autoscaling, including whether it is enabled. The successful response has no body.
@@ -3069,19 +2168,14 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       SdkOptional<DatabaseStorageAutoscaleParams> storage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateAutoscale(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        storage: storage,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateAutoscale(_config, databaseClusterUuid: databaseClusterUuid, storage: storage, requestOptions: requestOptions);
   }
 
   /// To list all of a Kafka cluster's topics, send a GET request to `/v2/databases/$DATABASE_ID/topics`. The result will be a JSON object with a `topics` key.
   Future<KafkaTopics> listKafkaTopics(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesListKafkaTopics(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesListKafkaTopics(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// Creates a Kafka topic attached to a database cluster. Provide `name` in the request body, and optionally configure its replication factor, partition count, and topic settings. A 201 response contains the created topic in a `topic` field.
@@ -3094,13 +2188,7 @@ class DatabasesNamespace {
       SdkOptional<int> partitionCount = const SdkOmitted(),
       SdkOptional<KafkaTopicConfig> config_ = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesCreateKafkaTopic(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        name: name,
-        replicationFactor: replicationFactor,
-        partitionCount: partitionCount,
-        config_: config_,
-        requestOptions: requestOptions);
+    return databases_methods.databasesCreateKafkaTopic(_config, databaseClusterUuid: databaseClusterUuid, name: name, replicationFactor: replicationFactor, partitionCount: partitionCount, config_: config_, requestOptions: requestOptions);
   }
 
   /// To retrieve a given topic by name from the set of a Kafka cluster's topics, send a GET request to `/v2/databases/$DATABASE_ID/topics/$TOPIC_NAME`. The result will be a JSON object with a `topic` key.
@@ -3108,10 +2196,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String topicName,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetKafkaTopic(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        topicName: topicName,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetKafkaTopic(_config, databaseClusterUuid: databaseClusterUuid, topicName: topicName, requestOptions: requestOptions);
   }
 
   /// Updates a Kafka topic's replication factor, partition count, or configuration within a database cluster. Supply the cluster UUID and topic name in the path, and include only the topic settings you want to change. The partition count can only be increased.
@@ -3122,11 +2207,7 @@ class DatabasesNamespace {
       required String topicName,
       SdkOptional<KafkaTopicUpdate> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateKafkaTopic(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        topicName: topicName,
-        body: body,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateKafkaTopic(_config, databaseClusterUuid: databaseClusterUuid, topicName: topicName, body: body, requestOptions: requestOptions);
   }
 
   /// To delete a single topic within a Kafka cluster, send a DELETE request to `/v2/databases/$DATABASE_ID/topics/$TOPIC_NAME`. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
@@ -3134,19 +2215,14 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String topicName,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesDeleteKafkaTopic(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        topicName: topicName,
-        requestOptions: requestOptions);
+    return databases_methods.databasesDeleteKafkaTopic(_config, databaseClusterUuid: databaseClusterUuid, topicName: topicName, requestOptions: requestOptions);
   }
 
   /// To list logsinks for a database cluster, send a GET request to `/v2/databases/$DATABASE_ID/logsink`.
   Future<Logsinks> listLogsink(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesListLogsink(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesListLogsink(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// Creates a logsink for a database cluster to configure log delivery to an external destination. Provide `sink_name`, `sink_type`, and `config` to specify the logsink and its destination settings. A 201 response returns the created logsink.
@@ -3158,12 +2234,7 @@ class DatabasesNamespace {
       required DatabasesCreateLogsinkRequestBodySinkType sinkType,
       required dynamic config_,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesCreateLogsink(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        sinkName: sinkName,
-        sinkType: sinkType,
-        config_: config_,
-        requestOptions: requestOptions);
+    return databases_methods.databasesCreateLogsink(_config, databaseClusterUuid: databaseClusterUuid, sinkName: sinkName, sinkType: sinkType, config_: config_, requestOptions: requestOptions);
   }
 
   /// To get a logsink for a database cluster, send a GET request to `/v2/databases/$DATABASE_ID/logsink/$LOGSINK_ID`.
@@ -3171,10 +2242,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String logsinkId,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetLogsink(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        logsinkId: logsinkId,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetLogsink(_config, databaseClusterUuid: databaseClusterUuid, logsinkId: logsinkId, requestOptions: requestOptions);
   }
 
   /// Replaces the configuration for a logsink attached to a database cluster. Provide the cluster UUID and logsink ID in the path, and submit a `config` object matching the selected sink type. A 200 response confirms the update and has an empty body.
@@ -3185,11 +2253,7 @@ class DatabasesNamespace {
       required String logsinkId,
       required LogsinkUpdateConfig config_,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateLogsink(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        logsinkId: logsinkId,
-        config_: config_,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateLogsink(_config, databaseClusterUuid: databaseClusterUuid, logsinkId: logsinkId, config_: config_, requestOptions: requestOptions);
   }
 
   /// To delete a logsink for a database cluster, send a DELETE request to `/v2/databases/$DATABASE_ID/logsink/$LOGSINK_ID`.
@@ -3197,19 +2261,14 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String logsinkId,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesDeleteLogsink(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        logsinkId: logsinkId,
-        requestOptions: requestOptions);
+    return databases_methods.databasesDeleteLogsink(_config, databaseClusterUuid: databaseClusterUuid, logsinkId: logsinkId, requestOptions: requestOptions);
   }
 
   /// To list all schemas for a Kafka cluster, send a GET request to `/v2/databases/$DATABASE_ID/schema-registry`.
   Future<KafkaSchemas> listKafkaSchemas(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesListKafkaSchemas(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesListKafkaSchemas(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// To create a Kafka schema for a database cluster, send a POST request to `/v2/databases/$DATABASE_ID/schema-registry`.
@@ -3219,12 +2278,7 @@ class DatabasesNamespace {
       required DatabasesCreateKafkaSchemaRequestBodySchemaType schemaType,
       required String schema,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesCreateKafkaSchema(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        subjectName: subjectName,
-        schemaType: schemaType,
-        schema: schema,
-        requestOptions: requestOptions);
+    return databases_methods.databasesCreateKafkaSchema(_config, databaseClusterUuid: databaseClusterUuid, subjectName: subjectName, schemaType: schemaType, schema: schema, requestOptions: requestOptions);
   }
 
   /// To get a specific schema by subject name for a Kafka cluster, send a GET request to `/v2/databases/$DATABASE_ID/schema-registry/$SUBJECT_NAME`.
@@ -3232,10 +2286,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String subjectName,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetKafkaSchema(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        subjectName: subjectName,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetKafkaSchema(_config, databaseClusterUuid: databaseClusterUuid, subjectName: subjectName, requestOptions: requestOptions);
   }
 
   /// To delete a specific schema by subject name for a Kafka cluster, send a DELETE request to `/v2/databases/$DATABASE_ID/schema-registry/$SUBJECT_NAME`.
@@ -3243,10 +2294,7 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String subjectName,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesDeleteKafkaSchema(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        subjectName: subjectName,
-        requestOptions: requestOptions);
+    return databases_methods.databasesDeleteKafkaSchema(_config, databaseClusterUuid: databaseClusterUuid, subjectName: subjectName, requestOptions: requestOptions);
   }
 
   /// To get a specific schema by subject name for a Kafka cluster, send a GET request to `/v2/databases/$DATABASE_ID/schema-registry/$SUBJECT_NAME/versions/$VERSION`.
@@ -3255,64 +2303,47 @@ class DatabasesNamespace {
       required String subjectName,
       required String version,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetKafkaSchemaVersion(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        subjectName: subjectName,
-        version: version,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetKafkaSchemaVersion(_config, databaseClusterUuid: databaseClusterUuid, subjectName: subjectName, version: version, requestOptions: requestOptions);
   }
 
   /// To retrieve the Schema Registry configuration for a Kafka cluster, send a GET request to `/v2/databases/$DATABASE_ID/schema-registry/config`. The response is a JSON object with a `compatibility_level` key, which is set to an object containing any database configuration parameters.
   Future<DatabaseSchemaRegistryConfig> getKafkaSchemaConfig(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetKafkaSchemaConfig(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetKafkaSchemaConfig(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// To update the Schema Registry configuration for a Kafka cluster, send a PUT request to `/v2/databases/$DATABASE_ID/schema-registry/config`. The response is a JSON object with a `compatibility_level` key, which is set to an object containing any database configuration parameters.
   Future<DatabaseSchemaRegistryConfig> updateKafkaSchemaConfig(
       {required String databaseClusterUuid,
-      required DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel
-          compatibilityLevel,
+      required DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel compatibilityLevel,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateKafkaSchemaConfig(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        compatibilityLevel: compatibilityLevel,
-        requestOptions: requestOptions);
+    return databases_methods.databasesUpdateKafkaSchemaConfig(_config, databaseClusterUuid: databaseClusterUuid, compatibilityLevel: compatibilityLevel, requestOptions: requestOptions);
   }
 
   /// To retrieve the Schema Registry configuration for a Subject of a Kafka cluster, send a GET request to `/v2/databases/$DATABASE_ID/schema-registry/config/$SUBJECT_NAME`. The response is a JSON object with a `compatibility_level` key, which is set to an object containing any database configuration parameters.
-  Future<DatabaseSchemaRegistrySubjectConfig> getKafkaSchemaSubjectConfig(
-      {required String databaseClusterUuid,
-      required String subjectName,
-      RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetKafkaSchemaSubjectConfig(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        subjectName: subjectName,
-        requestOptions: requestOptions);
+  Future<DatabaseSchemaRegistrySubjectConfig>
+      getKafkaSchemaSubjectConfig(
+          {required String databaseClusterUuid,
+          required String subjectName,
+          RequestOptions? requestOptions}) async {
+    return databases_methods.databasesGetKafkaSchemaSubjectConfig(_config, databaseClusterUuid: databaseClusterUuid, subjectName: subjectName, requestOptions: requestOptions);
   }
 
   /// To update the Schema Registry configuration for a Subject of a Kafka cluster, send a PUT request to `/v2/databases/$DATABASE_ID/schema-registry/config/$SUBJECT_NAME`. The response is a JSON object with a `compatibility_level` key, which is set to an object containing any database configuration parameters.
-  Future<DatabaseSchemaRegistrySubjectConfig> updateKafkaSchemaSubjectConfig(
-      {required String databaseClusterUuid,
-      required String subjectName,
-      required DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel
-          compatibilityLevel,
-      RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateKafkaSchemaSubjectConfig(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        subjectName: subjectName,
-        compatibilityLevel: compatibilityLevel,
-        requestOptions: requestOptions);
+  Future<DatabaseSchemaRegistrySubjectConfig>
+      updateKafkaSchemaSubjectConfig(
+          {required String databaseClusterUuid,
+          required String subjectName,
+          required DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel compatibilityLevel,
+          RequestOptions? requestOptions}) async {
+    return databases_methods.databasesUpdateKafkaSchemaSubjectConfig(_config, databaseClusterUuid: databaseClusterUuid, subjectName: subjectName, compatibilityLevel: compatibilityLevel, requestOptions: requestOptions);
   }
 
   /// To show the credentials for all database clusters' metrics endpoints, send a GET request to `/v2/databases/metrics/credentials`. The result will be a JSON object with a `credentials` key.
   Future<DatabaseMetricsAuth> getClusterMetricsCredentials(
       {RequestOptions? requestOptions}) async {
-    return databases_methods.databasesGetClusterMetricsCredentials(_config,
-        requestOptions: requestOptions);
+    return databases_methods.databasesGetClusterMetricsCredentials(_config, requestOptions: requestOptions);
   }
 
   /// Replaces the metrics endpoint credentials for all database clusters. Include `credentials` to set the basic-auth username and password using `basic_auth_username` and `basic_auth_password`; the request body is optional. A successful request returns 204 with no response body.
@@ -3321,17 +2352,14 @@ class DatabasesNamespace {
   Future<void> updateClusterMetricsCredentials(
       {SdkOptional<DatabaseMetricsCredentials> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesUpdateClusterMetricsCredentials(_config,
-        body: body, requestOptions: requestOptions);
+    return databases_methods.databasesUpdateClusterMetricsCredentials(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To list all of a OpenSearch cluster's indexes, send a GET request to `/v2/databases/$DATABASE_ID/indexes`. The result will be a JSON object with a `indexes` key.
   Future<OpensearchIndexes> listOpeasearchIndexes(
       {required String databaseClusterUuid,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesListOpeasearchIndexes(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        requestOptions: requestOptions);
+    return databases_methods.databasesListOpeasearchIndexes(_config, databaseClusterUuid: databaseClusterUuid, requestOptions: requestOptions);
   }
 
   /// To delete a single index within OpenSearch cluster, send a DELETE request to `/v2/databases/$DATABASE_ID/indexes/$INDEX_NAME`. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
@@ -3339,47 +2367,35 @@ class DatabasesNamespace {
       {required String databaseClusterUuid,
       required String indexName,
       RequestOptions? requestOptions}) async {
-    return databases_methods.databasesDeleteOpensearchIndex(_config,
-        databaseClusterUuid: databaseClusterUuid,
-        indexName: indexName,
-        requestOptions: requestOptions);
+    return databases_methods.databasesDeleteOpensearchIndex(_config, databaseClusterUuid: databaseClusterUuid, indexName: indexName, requestOptions: requestOptions);
   }
+
 }
 
 class DedicatedInferenceNamespace {
   final ClientConfig _config;
   DedicatedInferenceNamespace(ClientConfig config) : _config = config;
-
   /// Retrieve an existing Dedicated Inference by ID. Send a GET request to `/v2/dedicated-inferences/{dedicated_inference_id}`. The status in the response is one of active, new, provisioning, updating, deleting, or error.
   Future<DedicatedInferenceResponse> get_(
       {required String dedicatedInferenceId,
       RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesGet(_config,
-        dedicatedInferenceId: dedicatedInferenceId,
-        requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesGet(_config, dedicatedInferenceId: dedicatedInferenceId, requestOptions: requestOptions);
   }
 
   /// Update an existing Dedicated Inference. Send a PATCH request to `/v2/dedicated-inferences/{dedicated_inference_id}` with updated `spec` and/or `access_tokens`. Status will move to updating and return to active when done.
   Future<DedicatedInferenceUpdateAccepted> patch(
       {required String dedicatedInferenceId,
       SdkOptional<DedicatedInferenceSpecRequest> spec = const SdkOmitted(),
-      SdkOptional<DedicatedInferenceUpdateRequestRequestAccessTokens>
-          accessTokens = const SdkOmitted(),
+      SdkOptional<DedicatedInferenceUpdateRequestRequestAccessTokens> accessTokens = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesPatch(_config,
-        dedicatedInferenceId: dedicatedInferenceId,
-        spec: spec,
-        accessTokens: accessTokens,
-        requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesPatch(_config, dedicatedInferenceId: dedicatedInferenceId, spec: spec, accessTokens: accessTokens, requestOptions: requestOptions);
   }
 
   /// Delete an existing Dedicated Inference. Send a DELETE request to `/v2/dedicated-inferences/{dedicated_inference_id}`. The response 202 Accepted indicates the request was accepted for processing.
   Future<void> delete(
       {required String dedicatedInferenceId,
       RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesDelete(_config,
-        dedicatedInferenceId: dedicatedInferenceId,
-        requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesDelete(_config, dedicatedInferenceId: dedicatedInferenceId, requestOptions: requestOptions);
   }
 
   /// List all Dedicated Inference instances for your team. Send a GET request to `/v2/dedicated-inferences`. You may filter by region and use page and per_page for pagination.
@@ -3388,11 +2404,7 @@ class DedicatedInferenceNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<SchemaSchema73dde8cc> region = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesList(_config,
-        perPage: perPage,
-        page: page,
-        region: region,
-        requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesList(_config, perPage: perPage, page: page, region: region, requestOptions: requestOptions);
   }
 
   /// Create a new Dedicated Inference for your team. Send a POST request to `/v2/dedicated-inferences` with a `spec` object (version, name, region, vpc, enable_public_endpoint, model_deployments) and optional `access_tokens` (e.g. hugging_face_token for gated models). The response code 202 Accepted indicates the request was accepted for processing; it does not indicate success or failure. The token value is returned only on create; store it securely.
@@ -3400,8 +2412,7 @@ class DedicatedInferenceNamespace {
       {required DedicatedInferenceSpecRequest spec,
       SdkOptional<Map<String, String>> accessTokens = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesCreate(_config,
-        spec: spec, accessTokens: accessTokens, requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesCreate(_config, spec: spec, accessTokens: accessTokens, requestOptions: requestOptions);
   }
 
   /// List all accelerators (GPUs) in use by a Dedicated Inference instance. Send a GET request to `/v2/dedicated-inferences/{dedicated_inference_id}/accelerators`. Optionally filter by slug and use page/per_page for pagination.
@@ -3411,13 +2422,7 @@ class DedicatedInferenceNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<String> slug = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesListAccelerators(
-        _config,
-        dedicatedInferenceId: dedicatedInferenceId,
-        perPage: perPage,
-        page: page,
-        slug: slug,
-        requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesListAccelerators(_config, dedicatedInferenceId: dedicatedInferenceId, perPage: perPage, page: page, slug: slug, requestOptions: requestOptions);
   }
 
   /// Retrieve a single accelerator by ID for a Dedicated Inference instance. Send a GET request to `/v2/dedicated-inferences/{dedicated_inference_id}/accelerators/{accelerator_id}`.
@@ -3425,20 +2430,14 @@ class DedicatedInferenceNamespace {
       {required String dedicatedInferenceId,
       required String acceleratorId,
       RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesGetAccelerator(
-        _config,
-        dedicatedInferenceId: dedicatedInferenceId,
-        acceleratorId: acceleratorId,
-        requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesGetAccelerator(_config, dedicatedInferenceId: dedicatedInferenceId, acceleratorId: acceleratorId, requestOptions: requestOptions);
   }
 
   /// Get the CA certificate for a Dedicated Inference instance (base64-encoded). Required for private endpoint connectivity. Send a GET request to `/v2/dedicated-inferences/{dedicated_inference_id}/ca`.
   Future<CaCertificate> getCa(
       {required String dedicatedInferenceId,
       RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesGetCa(_config,
-        dedicatedInferenceId: dedicatedInferenceId,
-        requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesGetCa(_config, dedicatedInferenceId: dedicatedInferenceId, requestOptions: requestOptions);
   }
 
   /// List all access tokens for a Dedicated Inference instance. Token values are not returned; only id, name, created_at, and is_managed. Send a GET request to `/v2/dedicated-inferences/{dedicated_inference_id}/tokens`.
@@ -3447,11 +2446,7 @@ class DedicatedInferenceNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesListTokens(_config,
-        dedicatedInferenceId: dedicatedInferenceId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesListTokens(_config, dedicatedInferenceId: dedicatedInferenceId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// Create a new access token for a Dedicated Inference instance. Send a POST request to `/v2/dedicated-inferences/{dedicated_inference_id}/tokens` with a `name`. The token value is returned only once in the response; store it securely.
@@ -3459,10 +2454,7 @@ class DedicatedInferenceNamespace {
       {required String dedicatedInferenceId,
       required String name,
       RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesCreateTokens(_config,
-        dedicatedInferenceId: dedicatedInferenceId,
-        name: name,
-        requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesCreateTokens(_config, dedicatedInferenceId: dedicatedInferenceId, name: name, requestOptions: requestOptions);
   }
 
   /// Revoke (delete) an access token for a Dedicated Inference instance. Send a DELETE request to `/v2/dedicated-inferences/{dedicated_inference_id}/tokens/{token_id}`.
@@ -3470,39 +2462,32 @@ class DedicatedInferenceNamespace {
       {required String dedicatedInferenceId,
       required String tokenId,
       RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesDeleteTokens(_config,
-        dedicatedInferenceId: dedicatedInferenceId,
-        tokenId: tokenId,
-        requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesDeleteTokens(_config, dedicatedInferenceId: dedicatedInferenceId, tokenId: tokenId, requestOptions: requestOptions);
   }
 
   /// Get available Dedicated Inference sizes and pricing for supported GPUs. Send a GET request to `/v2/dedicated-inferences/sizes`.
   Future<DedicatedInferenceSizesResponse> listSizes(
       {RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesListSizes(_config,
-        requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesListSizes(_config, requestOptions: requestOptions);
   }
 
   /// Get supported GPU and model configurations for Dedicated Inference. Use this to discover supported GPU slugs and model slugs (e.g. Hugging Face). Send a GET request to `/v2/dedicated-inferences/gpu-model-config`.
   Future<DedicatedInferenceGpuModelConfigsResponse> getGpuModelConfig(
       {RequestOptions? requestOptions}) async {
-    return dedicated_inference_methods.dedicatedInferencesGetGpuModelConfig(
-        _config,
-        requestOptions: requestOptions);
+    return dedicated_inference_methods.dedicatedInferencesGetGpuModelConfig(_config, requestOptions: requestOptions);
   }
+
 }
 
 class DomainsNamespace {
   final ClientConfig _config;
   DomainsNamespace(ClientConfig config) : _config = config;
-
   /// To retrieve a list of all of the domains in your account, send a GET request to `/v2/domains`.
   Future<AllDomainsResponse> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return domains_methods.domainsList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return domains_methods.domainsList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create a new domain, send a POST request to `/v2/domains`. Set the "name" attribute to the domain name you are adding. Optionally, you may set the "ip_address" attribute, and an A record will be automatically created pointing to the apex domain.
@@ -3510,29 +2495,26 @@ class DomainsNamespace {
       {SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> ipAddress = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return domains_methods.domainsCreate(_config,
-        name: name, ipAddress: ipAddress, requestOptions: requestOptions);
+    return domains_methods.domainsCreate(_config, name: name, ipAddress: ipAddress, requestOptions: requestOptions);
   }
 
   /// To get details about a specific domain, send a GET request to `/v2/domains/$DOMAIN_NAME`.
   Future<ExistingDomain> get_(
       {required String domainName, RequestOptions? requestOptions}) async {
-    return domains_methods.domainsGet(_config,
-        domainName: domainName, requestOptions: requestOptions);
+    return domains_methods.domainsGet(_config, domainName: domainName, requestOptions: requestOptions);
   }
 
   /// To delete a domain, send a DELETE request to `/v2/domains/$DOMAIN_NAME`.
   Future<void> delete(
       {required String domainName, RequestOptions? requestOptions}) async {
-    return domains_methods.domainsDelete(_config,
-        domainName: domainName, requestOptions: requestOptions);
+    return domains_methods.domainsDelete(_config, domainName: domainName, requestOptions: requestOptions);
   }
+
 }
 
 class DomainRecordsNamespace {
   final ClientConfig _config;
   DomainRecordsNamespace(ClientConfig config) : _config = config;
-
   /// To get a listing of all records configured for a domain, send a GET request to `/v2/domains/$DOMAIN_NAME/records`. The list of records returned can be filtered by using the `name` and `type` query parameters. For example, to only include A records for a domain, send a GET request to `/v2/domains/$DOMAIN_NAME/records?type=A`. `name` must be a fully qualified record name. For example, to only include records matching `sub.example.com`, send a GET request to `/v2/domains/$DOMAIN_NAME/records?name=sub.example.com`. Both name and type may be used together.
   Future<AllDomainRecordsResponse> domainsListRecords(
       {required String domainName,
@@ -3541,13 +2523,7 @@ class DomainRecordsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return domain_records_methods.domainsListRecords(_config,
-        domainName: domainName,
-        name: name,
-        type_: type_,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return domain_records_methods.domainsListRecords(_config, domainName: domainName, name: name, type_: type_, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// Creates a DNS record for the specified domain. Supply `type` and the attributes required for that record type, such as `name` and `data` where applicable. The response includes the created record with its generated `id`.
@@ -3557,8 +2533,7 @@ class DomainRecordsNamespace {
       {required String domainName,
       SdkOptional<dynamic> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return domain_records_methods.domainsCreateRecord(_config,
-        domainName: domainName, body: body, requestOptions: requestOptions);
+    return domain_records_methods.domainsCreateRecord(_config, domainName: domainName, body: body, requestOptions: requestOptions);
   }
 
   /// To retrieve a specific domain record, send a GET request to `/v2/domains/$DOMAIN_NAME/records/$RECORD_ID`.
@@ -3566,10 +2541,7 @@ class DomainRecordsNamespace {
       {required String domainName,
       required int domainRecordId,
       RequestOptions? requestOptions}) async {
-    return domain_records_methods.domainsGetRecord(_config,
-        domainName: domainName,
-        domainRecordId: domainRecordId,
-        requestOptions: requestOptions);
+    return domain_records_methods.domainsGetRecord(_config, domainName: domainName, domainRecordId: domainRecordId, requestOptions: requestOptions);
   }
 
   /// To update an existing record, send a PATCH request to `/v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID`. Any attribute valid for the record type can be set to a new value for the record. See the attribute table for details regarding record types and their respective attributes.
@@ -3586,19 +2558,7 @@ class DomainRecordsNamespace {
       SdkOptional<int?> flags = const SdkOmitted(),
       SdkOptional<String?> tag = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return domain_records_methods.domainsPatchRecord(_config,
-        domainName: domainName,
-        domainRecordId: domainRecordId,
-        type_: type_,
-        name: name,
-        data: data,
-        priority: priority,
-        port: port,
-        ttl: ttl,
-        weight: weight,
-        flags: flags,
-        tag: tag,
-        requestOptions: requestOptions);
+    return domain_records_methods.domainsPatchRecord(_config, domainName: domainName, domainRecordId: domainRecordId, type_: type_, name: name, data: data, priority: priority, port: port, ttl: ttl, weight: weight, flags: flags, tag: tag, requestOptions: requestOptions);
   }
 
   /// To update an existing record, send a PUT request to `/v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID`. Any attribute valid for the record type can be set to a new value for the record. See the attribute table for details regarding record types and their respective attributes.
@@ -3615,19 +2575,7 @@ class DomainRecordsNamespace {
       SdkOptional<int?> flags = const SdkOmitted(),
       SdkOptional<String?> tag = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return domain_records_methods.domainsUpdateRecord(_config,
-        domainName: domainName,
-        domainRecordId: domainRecordId,
-        type_: type_,
-        name: name,
-        data: data,
-        priority: priority,
-        port: port,
-        ttl: ttl,
-        weight: weight,
-        flags: flags,
-        tag: tag,
-        requestOptions: requestOptions);
+    return domain_records_methods.domainsUpdateRecord(_config, domainName: domainName, domainRecordId: domainRecordId, type_: type_, name: name, data: data, priority: priority, port: port, ttl: ttl, weight: weight, flags: flags, tag: tag, requestOptions: requestOptions);
   }
 
   /// To delete a record for a domain, send a DELETE request to `/v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID`. The record will be deleted and the response status will be a 204. This indicates a successful request with no body returned.
@@ -3635,17 +2583,14 @@ class DomainRecordsNamespace {
       {required String domainName,
       required int domainRecordId,
       RequestOptions? requestOptions}) async {
-    return domain_records_methods.domainsDeleteRecord(_config,
-        domainName: domainName,
-        domainRecordId: domainRecordId,
-        requestOptions: requestOptions);
+    return domain_records_methods.domainsDeleteRecord(_config, domainName: domainName, domainRecordId: domainRecordId, requestOptions: requestOptions);
   }
+
 }
 
 class DropletsNamespace {
   final ClientConfig _config;
   DropletsNamespace(ClientConfig config) : _config = config;
-
   /// To list all Droplets in your account, send a GET request to `/v2/droplets`. The response body will be a JSON object with a key of `droplets`. This will be set to an array containing objects each representing a Droplet. These will contain the standard Droplet attributes. ### Filtering Results by Tag It's possible to request filtered results by including certain query parameters. To only list Droplets assigned to a specific tag, include the `tag_name` query parameter set to the name of the tag in your GET request. For example, `/v2/droplets?tag_name=$TAG_NAME`. ### GPU Droplets By default, only non-GPU Droplets are returned. To list only GPU Droplets, set the `type` query parameter to `gpus`. For example, `/v2/droplets?type=gpus`.
   Future<AllDroplets> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
@@ -3654,13 +2599,7 @@ class DropletsNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<SchemaSchemaa84ef242> type_ = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsList(_config,
-        perPage: perPage,
-        page: page,
-        tagName: tagName,
-        name: name,
-        type_: type_,
-        requestOptions: requestOptions);
+    return droplets_methods.dropletsList(_config, perPage: perPage, page: page, tagName: tagName, name: name, type_: type_, requestOptions: requestOptions);
   }
 
   /// Creates one or more Droplets using the supplied configuration. Include `size` and `image`, and provide either `name` for one Droplet or `names` for multiple Droplets; `names` supports up to ten Droplets per request. The 202 response means the request was accepted for processing, not that creation is complete; use the returned `actions` links to check progress.
@@ -3669,29 +2608,25 @@ class DropletsNamespace {
   Future<DropletsCreateResponse> create(
       {SdkOptional<dynamic> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsCreate(_config,
-        body: body, requestOptions: requestOptions);
+    return droplets_methods.dropletsCreate(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To delete **all** Droplets assigned to a specific tag, include the `tag_name` query parameter set to the name of the tag in your DELETE request. For example, `/v2/droplets?tag_name=$TAG_NAME`. This endpoint requires `tag:read` scope. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
   Future<void> destroyByTag(
       {required String tagName, RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsDestroyByTag(_config,
-        tagName: tagName, requestOptions: requestOptions);
+    return droplets_methods.dropletsDestroyByTag(_config, tagName: tagName, requestOptions: requestOptions);
   }
 
   /// To show information about an individual Droplet, send a GET request to `/v2/droplets/$DROPLET_ID`.
   Future<ExistingDroplet> get_(
       {required int dropletId, RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsGet(_config,
-        dropletId: dropletId, requestOptions: requestOptions);
+    return droplets_methods.dropletsGet(_config, dropletId: dropletId, requestOptions: requestOptions);
   }
 
   /// To delete a Droplet, send a DELETE request to `/v2/droplets/$DROPLET_ID`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
   Future<void> destroy(
       {required int dropletId, RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsDestroy(_config,
-        dropletId: dropletId, requestOptions: requestOptions);
+    return droplets_methods.dropletsDestroy(_config, dropletId: dropletId, requestOptions: requestOptions);
   }
 
   /// To retrieve any backups associated with a Droplet, send a GET request to `/v2/droplets/$DROPLET_ID/backups`. You will get back a JSON object that has a `backups` key. This will be set to an array of backup objects, each of which contain the standard Droplet backup attributes.
@@ -3700,18 +2635,13 @@ class DropletsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsListBackups(_config,
-        dropletId: dropletId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return droplets_methods.dropletsListBackups(_config, dropletId: dropletId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To show information about an individual Droplet's backup policy, send a GET request to `/v2/droplets/$DROPLET_ID/backups/policy`.
   Future<DropletBackupPolicyResponse> getBackupPolicy(
       {required int dropletId, RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsGetBackupPolicy(_config,
-        dropletId: dropletId, requestOptions: requestOptions);
+    return droplets_methods.dropletsGetBackupPolicy(_config, dropletId: dropletId, requestOptions: requestOptions);
   }
 
   /// To list information about the backup policies for all Droplets in the account, send a GET request to `/v2/droplets/backups/policies`.
@@ -3719,15 +2649,13 @@ class DropletsNamespace {
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsListBackupPolicies(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return droplets_methods.dropletsListBackupPolicies(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To retrieve a list of all supported Droplet backup policies, send a GET request to `/v2/droplets/backups/supported_policies`.
   Future<DropletsSupportedBackupPolicies> listSupportedBackupPolicies(
       {RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsListSupportedBackupPolicies(_config,
-        requestOptions: requestOptions);
+    return droplets_methods.dropletsListSupportedBackupPolicies(_config, requestOptions: requestOptions);
   }
 
   /// To retrieve the snapshots that have been created from a Droplet, send a GET request to `/v2/droplets/$DROPLET_ID/snapshots`. You will get back a JSON object that has a `snapshots` key. This will be set to an array of snapshot objects, each of which contain the standard Droplet snapshot attributes.
@@ -3736,11 +2664,7 @@ class DropletsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsListSnapshots(_config,
-        dropletId: dropletId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return droplets_methods.dropletsListSnapshots(_config, dropletId: dropletId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To retrieve a list of all kernels available to a Droplet, send a GET request to `/v2/droplets/$DROPLET_ID/kernels` The response will be a JSON object that has a key called `kernels`. This will be set to an array of `kernel` objects, each of which contain the standard `kernel` attributes.
@@ -3749,11 +2673,7 @@ class DropletsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsListKernels(_config,
-        dropletId: dropletId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return droplets_methods.dropletsListKernels(_config, dropletId: dropletId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To retrieve a list of all firewalls available to a Droplet, send a GET request to `/v2/droplets/$DROPLET_ID/firewalls` The response will be a JSON object that has a key called `firewalls`. This will be set to an array of `firewall` objects, each of which contain the standard `firewall` attributes.
@@ -3762,25 +2682,19 @@ class DropletsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsListFirewalls(_config,
-        dropletId: dropletId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return droplets_methods.dropletsListFirewalls(_config, dropletId: dropletId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To retrieve a list of any "neighbors" (i.e. Droplets that are co-located on the same physical hardware) for a specific Droplet, send a GET request to `/v2/droplets/$DROPLET_ID/neighbors`. The results will be returned as a JSON object with a key of `droplets`. This will be set to an array containing objects representing any other Droplets that share the same physical hardware. An empty array indicates that the Droplet is not co-located any other Droplets associated with your account.
   Future<NeighborDroplets> listNeighbors(
       {required int dropletId, RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsListNeighbors(_config,
-        dropletId: dropletId, requestOptions: requestOptions);
+    return droplets_methods.dropletsListNeighbors(_config, dropletId: dropletId, requestOptions: requestOptions);
   }
 
   /// To list the associated billable resources that can be destroyed along with a Droplet, send a GET request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources` endpoint. This endpoint will only return resources that you are authorized to see. For example, to see associated Reserved IPs, include the `reserved_ip:read` scope. The response will be a JSON object containing `snapshots`, `volumes`, and `volume_snapshots` keys. Each will be set to an array of objects containing information about the associated resources.
   Future<AssociatedResourcesList> listAssociatedResources(
       {required int dropletId, RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsListAssociatedResources(_config,
-        dropletId: dropletId, requestOptions: requestOptions);
+    return droplets_methods.dropletsListAssociatedResources(_config, dropletId: dropletId, requestOptions: requestOptions);
   }
 
   /// To destroy a Droplet along with a sub-set of its associated resources, send a DELETE request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/selective` endpoint. The JSON body of the request should include `reserved_ips`, `snapshots`, `volumes`, or `volume_snapshots` keys each set to an array of IDs for the associated resources to be destroyed. The IDs can be found by querying the Droplet's associated resources. Any associated resource not included in the request will remain and continue to accrue changes on your account. A successful response will include a 202 response code and no content. Use the status endpoint to check on the success or failure of the destruction of the individual resources.
@@ -3792,15 +2706,7 @@ class DropletsNamespace {
       SdkOptional<List<String>> volumes = const SdkOmitted(),
       SdkOptional<List<String>> volumeSnapshots = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsDestroyWithAssociatedResourcesSelective(
-        _config,
-        dropletId: dropletId,
-        floatingIps: floatingIps,
-        reservedIps: reservedIps,
-        snapshots: snapshots,
-        volumes: volumes,
-        volumeSnapshots: volumeSnapshots,
-        requestOptions: requestOptions);
+    return droplets_methods.dropletsDestroyWithAssociatedResourcesSelective(_config, dropletId: dropletId, floatingIps: floatingIps, reservedIps: reservedIps, snapshots: snapshots, volumes: volumes, volumeSnapshots: volumeSnapshots, requestOptions: requestOptions);
   }
 
   /// To destroy a Droplet along with all of its associated resources, send a DELETE request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/dangerous` endpoint. The headers of this request must include an `X-Dangerous` key set to `true`. To preview which resources will be destroyed, first query the Droplet's associated resources. This operation _can not_ be reverse and should be used with caution. A successful response will include a 202 response code and no content. Use the status endpoint to check on the success or failure of the destruction of the individual resources.
@@ -3808,49 +2714,39 @@ class DropletsNamespace {
       {required int dropletId,
       required bool xDangerous,
       RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsDestroyWithAssociatedResourcesDangerous(
-        _config,
-        dropletId: dropletId,
-        xDangerous: xDangerous,
-        requestOptions: requestOptions);
+    return droplets_methods.dropletsDestroyWithAssociatedResourcesDangerous(_config, dropletId: dropletId, xDangerous: xDangerous, requestOptions: requestOptions);
   }
 
   /// To check on the status of a request to destroy a Droplet with its associated resources, send a GET request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/status` endpoint.
   Future<AssociatedResourceStatus> getDestroyAssociatedResourcesStatus(
       {required int dropletId, RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsGetDestroyAssociatedResourcesStatus(_config,
-        dropletId: dropletId, requestOptions: requestOptions);
+    return droplets_methods.dropletsGetDestroyAssociatedResourcesStatus(_config, dropletId: dropletId, requestOptions: requestOptions);
   }
 
   /// If the status of a request to destroy a Droplet with its associated resources reported any errors, it can be retried by sending a POST request to the `/v2/droplets/$DROPLET_ID/destroy_with_associated_resources/retry` endpoint. Only one destroy can be active at a time per Droplet. If a retry is issued while another destroy is in progress for the Droplet a 409 status code will be returned. A successful response will include a 202 response code and no content.
   Future<void> destroyRetryWithAssociatedResources(
       {required int dropletId, RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsDestroyRetryWithAssociatedResources(_config,
-        dropletId: dropletId, requestOptions: requestOptions);
+    return droplets_methods.dropletsDestroyRetryWithAssociatedResources(_config, dropletId: dropletId, requestOptions: requestOptions);
   }
 
   /// To retrieve a list of all Droplets that are co-located on the same physical hardware, send a GET request to `/v2/reports/droplet_neighbors_ids`. The results will be returned as a JSON object with a key of `neighbor_ids`. This will be set to an array of arrays. Each array will contain a set of Droplet IDs for Droplets that share a physical server. An empty array indicates that all Droplets associated with your account are located on separate physical hardware.
-  Future<NeighborIds> listNeighborsIds({RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsListNeighborsIds(_config,
-        requestOptions: requestOptions);
+  Future<NeighborIds> listNeighborsIds(
+      {RequestOptions? requestOptions}) async {
+    return droplets_methods.dropletsListNeighborsIds(_config, requestOptions: requestOptions);
   }
+
 }
 
 class DropletActionsNamespace {
   final ClientConfig _config;
   DropletActionsNamespace(ClientConfig config) : _config = config;
-
   /// To retrieve a list of all actions that have been executed for a Droplet, send a GET request to `/v2/droplets/$DROPLET_ID/actions`. The results will be returned as a JSON object with an `actions` key. This will be set to an array filled with `action` objects containing the standard `action` attributes.
   Future<AllDropletActions> list(
       {required int dropletId,
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplet_actions_methods.dropletActionsList(_config,
-        dropletId: dropletId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return droplet_actions_methods.dropletActionsList(_config, dropletId: dropletId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// Triggers an action on a specific Droplet, such as rebooting it, changing its size, or creating a snapshot. Supply the action `type` and any additional fields required for that action; restoring a Droplet requires a backup image of that Droplet. A 201 response includes an action object you can use to track the operation.
@@ -3860,8 +2756,7 @@ class DropletActionsNamespace {
       {required int dropletId,
       SdkOptional<dynamic> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplet_actions_methods.dropletActionsPost(_config,
-        dropletId: dropletId, body: body, requestOptions: requestOptions);
+    return droplet_actions_methods.dropletActionsPost(_config, dropletId: dropletId, body: body, requestOptions: requestOptions);
   }
 
   /// Triggers a supported action on Droplets that match a tag. Set the action `type` in the request body; bulk actions support power, shutdown, IPv6, backup, and snapshot operations, with IPv6 enablement requiring the Droplet to be powered off. A 201 response includes an action object for each affected Droplet.
@@ -3871,8 +2766,7 @@ class DropletActionsNamespace {
       {SdkOptional<String> tagName = const SdkOmitted(),
       SdkOptional<dynamic> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplet_actions_methods.dropletActionsPostByTag(_config,
-        tagName: tagName, body: body, requestOptions: requestOptions);
+    return droplet_actions_methods.dropletActionsPostByTag(_config, tagName: tagName, body: body, requestOptions: requestOptions);
   }
 
   /// To retrieve a Droplet action, send a GET request to `/v2/droplets/$DROPLET_ID/actions/$ACTION_ID`. The response will be a JSON object with a key called `action`. The value will be a Droplet action object.
@@ -3880,28 +2774,21 @@ class DropletActionsNamespace {
       {required int dropletId,
       required int actionId,
       RequestOptions? requestOptions}) async {
-    return droplet_actions_methods.dropletActionsGet(_config,
-        dropletId: dropletId,
-        actionId: actionId,
-        requestOptions: requestOptions);
+    return droplet_actions_methods.dropletActionsGet(_config, dropletId: dropletId, actionId: actionId, requestOptions: requestOptions);
   }
+
 }
 
 class DropletAutoscalePoolsNamespace {
   final ClientConfig _config;
   DropletAutoscalePoolsNamespace(ClientConfig config) : _config = config;
-
   /// To list all autoscale pools in your team, send a GET request to `/v2/droplets/autoscale`. The response body will be a JSON object with a key of `autoscale_pools` containing an array of autoscale pool objects. These each contain the standard autoscale pool attributes.
   Future<AllAutoscalePools> autoscalepoolsList(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplet_autoscale_pools_methods.autoscalepoolsList(_config,
-        perPage: perPage,
-        page: page,
-        name: name,
-        requestOptions: requestOptions);
+    return droplet_autoscale_pools_methods.autoscalepoolsList(_config, perPage: perPage, page: page, name: name, requestOptions: requestOptions);
   }
 
   /// Creates a new autoscale pool with a scaling configuration and a template for the Droplets it manages. Supply `name`, `config`, and `droplet_template`; the template must specify `region`, `image`, `size`, and `ssh_keys`. A 202 response returns the pool details, including its identifier and status.
@@ -3912,18 +2799,13 @@ class DropletAutoscalePoolsNamespace {
       required AutoscalePoolCreateConfig config_,
       required AutoscalePoolDropletTemplate dropletTemplate,
       RequestOptions? requestOptions}) async {
-    return droplet_autoscale_pools_methods.autoscalepoolsCreate(_config,
-        name: name,
-        config_: config_,
-        dropletTemplate: dropletTemplate,
-        requestOptions: requestOptions);
+    return droplet_autoscale_pools_methods.autoscalepoolsCreate(_config, name: name, config_: config_, dropletTemplate: dropletTemplate, requestOptions: requestOptions);
   }
 
   /// To show information about an individual autoscale pool, send a GET request to `/v2/droplets/autoscale/$AUTOSCALE_POOL_ID`.
   Future<ExistingAutoscalePool> autoscalepoolsGet(
       {required String autoscalePoolId, RequestOptions? requestOptions}) async {
-    return droplet_autoscale_pools_methods.autoscalepoolsGet(_config,
-        autoscalePoolId: autoscalePoolId, requestOptions: requestOptions);
+    return droplet_autoscale_pools_methods.autoscalepoolsGet(_config, autoscalePoolId: autoscalePoolId, requestOptions: requestOptions);
   }
 
   /// Replaces the configuration of an existing autoscale pool with the full representation supplied in the request. Include `name`, `config`, and `droplet_template`, and provide the required region, image, size, and SSH keys in the Droplet template. A 200 response returns the updated pool details.
@@ -3935,19 +2817,13 @@ class DropletAutoscalePoolsNamespace {
       required AutoscalePoolCreateConfig config_,
       required AutoscalePoolDropletTemplate dropletTemplate,
       RequestOptions? requestOptions}) async {
-    return droplet_autoscale_pools_methods.autoscalepoolsUpdate(_config,
-        autoscalePoolId: autoscalePoolId,
-        name: name,
-        config_: config_,
-        dropletTemplate: dropletTemplate,
-        requestOptions: requestOptions);
+    return droplet_autoscale_pools_methods.autoscalepoolsUpdate(_config, autoscalePoolId: autoscalePoolId, name: name, config_: config_, dropletTemplate: dropletTemplate, requestOptions: requestOptions);
   }
 
   /// To destroy an autoscale pool, send a DELETE request to the `/v2/droplets/autoscale/$AUTOSCALE_POOL_ID` endpoint. A successful response will include a 202 response code and no content.
   Future<void> autoscalepoolsDelete(
       {required String autoscalePoolId, RequestOptions? requestOptions}) async {
-    return droplet_autoscale_pools_methods.autoscalepoolsDelete(_config,
-        autoscalePoolId: autoscalePoolId, requestOptions: requestOptions);
+    return droplet_autoscale_pools_methods.autoscalepoolsDelete(_config, autoscalePoolId: autoscalePoolId, requestOptions: requestOptions);
   }
 
   /// To destroy an autoscale pool and its associated resources (Droplets), send a DELETE request to the `/v2/droplets/autoscale/$AUTOSCALE_POOL_ID/dangerous` endpoint.
@@ -3955,11 +2831,7 @@ class DropletAutoscalePoolsNamespace {
       {required String autoscalePoolId,
       required bool xDangerous,
       RequestOptions? requestOptions}) async {
-    return droplet_autoscale_pools_methods.autoscalepoolsDeleteDangerous(
-        _config,
-        autoscalePoolId: autoscalePoolId,
-        xDangerous: xDangerous,
-        requestOptions: requestOptions);
+    return droplet_autoscale_pools_methods.autoscalepoolsDeleteDangerous(_config, autoscalePoolId: autoscalePoolId, xDangerous: xDangerous, requestOptions: requestOptions);
   }
 
   /// To list the Droplets in an autoscale pool, send a GET request to `/v2/droplets/autoscale/$AUTOSCALE_POOL_ID/members`. The response body will be a JSON object with a key of `droplets`. This will be set to an array containing information about each of the Droplets in the autoscale pool.
@@ -3968,11 +2840,7 @@ class DropletAutoscalePoolsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplet_autoscale_pools_methods.autoscalepoolsListMembers(_config,
-        autoscalePoolId: autoscalePoolId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return droplet_autoscale_pools_methods.autoscalepoolsListMembers(_config, autoscalePoolId: autoscalePoolId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To list all of the scaling history events of an autoscale pool, send a GET request to `/v2/droplets/autoscale/$AUTOSCALE_POOL_ID/history`. The response body will be a JSON object with a key of `history`. This will be set to an array containing objects each representing a history event.
@@ -3981,25 +2849,20 @@ class DropletAutoscalePoolsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplet_autoscale_pools_methods.autoscalepoolsListHistory(_config,
-        autoscalePoolId: autoscalePoolId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return droplet_autoscale_pools_methods.autoscalepoolsListHistory(_config, autoscalePoolId: autoscalePoolId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
+
 }
 
 class FirewallsNamespace {
   final ClientConfig _config;
   FirewallsNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the firewalls available on your account, send a GET request to `/v2/firewalls`.
   Future<ListFirewallsResponse> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return firewalls_methods.firewallsList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return firewalls_methods.firewallsList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// Creates a firewall with access rules for controlling traffic to and from attached resources. Provide `name` and at least one of `inbound_rules` or `outbound_rules` in the request body. A 202 response returns the firewall object and its standard attributes.
@@ -4008,15 +2871,13 @@ class FirewallsNamespace {
   Future<CreateFirewallResponse> create(
       {SdkOptional<FirewallsCreateRequestBody> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return firewalls_methods.firewallsCreate(_config,
-        body: body, requestOptions: requestOptions);
+    return firewalls_methods.firewallsCreate(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To show information about an existing firewall, send a GET request to `/v2/firewalls/$FIREWALL_ID`.
   Future<GetFirewallResponse> get_(
       {required String firewallId, RequestOptions? requestOptions}) async {
-    return firewalls_methods.firewallsGet(_config,
-        firewallId: firewallId, requestOptions: requestOptions);
+    return firewalls_methods.firewallsGet(_config, firewallId: firewallId, requestOptions: requestOptions);
   }
 
   /// Replaces the configuration of an existing firewall with the representation you provide. Include `name` and at least one of `inbound_rules` or `outbound_rules`; attributes you omit are reset to their default values. You also need read access to every resource attached to the firewall, such as the `droplet:read` scope.
@@ -4026,15 +2887,13 @@ class FirewallsNamespace {
       {required String firewallId,
       SdkOptional<FirewallsUpdateRequestBody> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return firewalls_methods.firewallsUpdate(_config,
-        firewallId: firewallId, body: body, requestOptions: requestOptions);
+    return firewalls_methods.firewallsUpdate(_config, firewallId: firewallId, body: body, requestOptions: requestOptions);
   }
 
   /// To delete a firewall send a DELETE request to `/v2/firewalls/$FIREWALL_ID`. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
   Future<void> delete(
       {required String firewallId, RequestOptions? requestOptions}) async {
-    return firewalls_methods.firewallsDelete(_config,
-        firewallId: firewallId, requestOptions: requestOptions);
+    return firewalls_methods.firewallsDelete(_config, firewallId: firewallId, requestOptions: requestOptions);
   }
 
   /// To assign a Droplet to a firewall, send a POST request to `/v2/firewalls/$FIREWALL_ID/droplets`. In the body of the request, there should be a `droplet_ids` attribute containing a list of Droplet IDs. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
@@ -4042,10 +2901,7 @@ class FirewallsNamespace {
       {required String firewallId,
       required List<int> dropletIds,
       RequestOptions? requestOptions}) async {
-    return firewalls_methods.firewallsAssignDroplets(_config,
-        firewallId: firewallId,
-        dropletIds: dropletIds,
-        requestOptions: requestOptions);
+    return firewalls_methods.firewallsAssignDroplets(_config, firewallId: firewallId, dropletIds: dropletIds, requestOptions: requestOptions);
   }
 
   /// To remove a Droplet from a firewall, send a DELETE request to `/v2/firewalls/$FIREWALL_ID/droplets`. In the body of the request, there should be a `droplet_ids` attribute containing a list of Droplet IDs. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
@@ -4053,10 +2909,7 @@ class FirewallsNamespace {
       {required String firewallId,
       required List<int> dropletIds,
       RequestOptions? requestOptions}) async {
-    return firewalls_methods.firewallsDeleteDroplets(_config,
-        firewallId: firewallId,
-        dropletIds: dropletIds,
-        requestOptions: requestOptions);
+    return firewalls_methods.firewallsDeleteDroplets(_config, firewallId: firewallId, dropletIds: dropletIds, requestOptions: requestOptions);
   }
 
   /// Adds tags representing groups of Droplets to a firewall. Supply `tags` as an array of existing tag names, and ensure the caller has the required tag scopes.
@@ -4066,8 +2919,7 @@ class FirewallsNamespace {
       {required String firewallId,
       required List<String> tags,
       RequestOptions? requestOptions}) async {
-    return firewalls_methods.firewallsAddTags(_config,
-        firewallId: firewallId, tags: tags, requestOptions: requestOptions);
+    return firewalls_methods.firewallsAddTags(_config, firewallId: firewallId, tags: tags, requestOptions: requestOptions);
   }
 
   /// Removes tags representing groups of Droplets from a firewall. Supply `tags` as an array of existing tag names to remove from the firewall.
@@ -4077,8 +2929,7 @@ class FirewallsNamespace {
       {required String firewallId,
       required List<String> tags,
       RequestOptions? requestOptions}) async {
-    return firewalls_methods.firewallsDeleteTags(_config,
-        firewallId: firewallId, tags: tags, requestOptions: requestOptions);
+    return firewalls_methods.firewallsDeleteTags(_config, firewallId: firewallId, tags: tags, requestOptions: requestOptions);
   }
 
   /// Adds inbound or outbound access rules to a firewall. Provide at least one of `inbound_rules` or `outbound_rules`; you can include both arrays in the same request.
@@ -4088,8 +2939,7 @@ class FirewallsNamespace {
       {required String firewallId,
       SdkOptional<FirewallsAddRulesRequestBody> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return firewalls_methods.firewallsAddRules(_config,
-        firewallId: firewallId, body: body, requestOptions: requestOptions);
+    return firewalls_methods.firewallsAddRules(_config, firewallId: firewallId, body: body, requestOptions: requestOptions);
   }
 
   /// Removes inbound or outbound access rules from a firewall. Provide at least one of `inbound_rules` or `outbound_rules`; you can include both arrays in the same request.
@@ -4099,22 +2949,20 @@ class FirewallsNamespace {
       {required String firewallId,
       SdkOptional<FirewallsDeleteRulesRequestBody> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return firewalls_methods.firewallsDeleteRules(_config,
-        firewallId: firewallId, body: body, requestOptions: requestOptions);
+    return firewalls_methods.firewallsDeleteRules(_config, firewallId: firewallId, body: body, requestOptions: requestOptions);
   }
+
 }
 
 class FloatingIpsNamespace {
   final ClientConfig _config;
   FloatingIpsNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the floating IPs available on your account, send a GET request to `/v2/floating_ips`.
   Future<FloatingIpList> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return floating_ips_methods.floatingIpsList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return floating_ips_methods.floatingIpsList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// Creates a floating IP assigned to a Droplet or reserved to a region. Supply `droplet_id` to assign it to a Droplet, or supply `region` to reserve it; `project_id` can associate a region-reserved floating IP with a project. A 202 response returns the floating IP object and, when assigning it to a Droplet, links to the Droplet and assignment action.
@@ -4122,34 +2970,30 @@ class FloatingIpsNamespace {
   /// On creation, a floating IP must be either assigned to a Droplet or reserved to a region. * To create a new floating IP assigned to a Droplet, send a POST request to `/v2/floating_ips` with the `droplet_id` attribute. * To create a new floating IP reserved to a region, send a POST request to `/v2/floating_ips` with the `region` attribute.
   Future<FloatingIpCreated> create(
       {required FloatingIpCreate body, RequestOptions? requestOptions}) async {
-    return floating_ips_methods.floatingIpsCreate(_config,
-        body: body, requestOptions: requestOptions);
+    return floating_ips_methods.floatingIpsCreate(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To show information about a floating IP, send a GET request to `/v2/floating_ips/$FLOATING_IP_ADDR`.
   Future<FloatingIpResponse> get_(
       {required String floatingIp, RequestOptions? requestOptions}) async {
-    return floating_ips_methods.floatingIpsGet(_config,
-        floatingIp: floatingIp, requestOptions: requestOptions);
+    return floating_ips_methods.floatingIpsGet(_config, floatingIp: floatingIp, requestOptions: requestOptions);
   }
 
   /// To delete a floating IP and remove it from your account, send a DELETE request to `/v2/floating_ips/$FLOATING_IP_ADDR`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
   Future<void> delete(
       {required String floatingIp, RequestOptions? requestOptions}) async {
-    return floating_ips_methods.floatingIpsDelete(_config,
-        floatingIp: floatingIp, requestOptions: requestOptions);
+    return floating_ips_methods.floatingIpsDelete(_config, floatingIp: floatingIp, requestOptions: requestOptions);
   }
+
 }
 
 class FloatingIpActionsNamespace {
   final ClientConfig _config;
   FloatingIpActionsNamespace(ClientConfig config) : _config = config;
-
   /// To retrieve all actions that have been executed on a floating IP, send a GET request to `/v2/floating_ips/$FLOATING_IP/actions`.
   Future<FloatingIpActions> list(
       {required String floatingIp, RequestOptions? requestOptions}) async {
-    return floating_ip_actions_methods.floatingIpsActionList(_config,
-        floatingIp: floatingIp, requestOptions: requestOptions);
+    return floating_ip_actions_methods.floatingIpsActionList(_config, floatingIp: floatingIp, requestOptions: requestOptions);
   }
 
   /// Triggers an assignment or unassignment action on a floating IP. Set `type` to `assign` or `unassign`; include `droplet_id` when assigning the floating IP to a Droplet. The response contains the action object for tracking the operation.
@@ -4159,8 +3003,7 @@ class FloatingIpActionsNamespace {
       {required String floatingIp,
       SdkOptional<dynamic> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return floating_ip_actions_methods.floatingIpsActionPost(_config,
-        floatingIp: floatingIp, body: body, requestOptions: requestOptions);
+    return floating_ip_actions_methods.floatingIpsActionPost(_config, floatingIp: floatingIp, body: body, requestOptions: requestOptions);
   }
 
   /// To retrieve the status of a floating IP action, send a GET request to `/v2/floating_ips/$FLOATING_IP/actions/$ACTION_ID`.
@@ -4168,22 +3011,18 @@ class FloatingIpActionsNamespace {
       {required String floatingIp,
       required int actionId,
       RequestOptions? requestOptions}) async {
-    return floating_ip_actions_methods.floatingIpsActionGet(_config,
-        floatingIp: floatingIp,
-        actionId: actionId,
-        requestOptions: requestOptions);
+    return floating_ip_actions_methods.floatingIpsActionGet(_config, floatingIp: floatingIp, actionId: actionId, requestOptions: requestOptions);
   }
+
 }
 
 class FunctionsNamespace {
   final ClientConfig _config;
   FunctionsNamespace(ClientConfig config) : _config = config;
-
   /// Returns a list of namespaces associated with the current user. To get all namespaces, send a GET request to `/v2/functions/namespaces`.
   Future<ListNamespaces> listNamespaces(
       {RequestOptions? requestOptions}) async {
-    return functions_methods.functionsListNamespaces(_config,
-        requestOptions: requestOptions);
+    return functions_methods.functionsListNamespaces(_config, requestOptions: requestOptions);
   }
 
   /// Creates a new serverless functions namespace in the desired region and associates it with the provided label. A namespace is a collection of functions and their associated packages, triggers, and project specifications. To create a namespace, send a POST request to `/v2/functions/namespaces` with the `region` and `label` properties.
@@ -4191,29 +3030,25 @@ class FunctionsNamespace {
       {required String region,
       required String label,
       RequestOptions? requestOptions}) async {
-    return functions_methods.functionsCreateNamespace(_config,
-        region: region, label: label, requestOptions: requestOptions);
+    return functions_methods.functionsCreateNamespace(_config, region: region, label: label, requestOptions: requestOptions);
   }
 
   /// Gets the namespace details for the given namespace UUID. To get namespace details, send a GET request to `/v2/functions/namespaces/$NAMESPACE_ID` with no parameters.
   Future<NamespaceCreated> getNamespace(
       {required String namespaceId, RequestOptions? requestOptions}) async {
-    return functions_methods.functionsGetNamespace(_config,
-        namespaceId: namespaceId, requestOptions: requestOptions);
+    return functions_methods.functionsGetNamespace(_config, namespaceId: namespaceId, requestOptions: requestOptions);
   }
 
   /// Deletes the given namespace. When a namespace is deleted all assets, in the namespace are deleted, this includes packages, functions and triggers. Deleting a namespace is a destructive operation and assets in the namespace are not recoverable after deletion. Some metadata is retained, such as activations, or soft deleted for reporting purposes. To delete namespace, send a DELETE request to `/v2/functions/namespaces/$NAMESPACE_ID`. A successful deletion returns a 204 response.
   Future<void> deleteNamespace(
       {required String namespaceId, RequestOptions? requestOptions}) async {
-    return functions_methods.functionsDeleteNamespace(_config,
-        namespaceId: namespaceId, requestOptions: requestOptions);
+    return functions_methods.functionsDeleteNamespace(_config, namespaceId: namespaceId, requestOptions: requestOptions);
   }
 
   /// Returns a list of triggers associated with the current user and namespace. To get all triggers, send a GET request to `/v2/functions/namespaces/$NAMESPACE_ID/triggers`.
   Future<ListTriggers> listTriggers(
       {required String namespaceId, RequestOptions? requestOptions}) async {
-    return functions_methods.functionsListTriggers(_config,
-        namespaceId: namespaceId, requestOptions: requestOptions);
+    return functions_methods.functionsListTriggers(_config, namespaceId: namespaceId, requestOptions: requestOptions);
   }
 
   /// Creates a new trigger for a given function in a namespace. To create a trigger, send a POST request to `/v2/functions/namespaces/$NAMESPACE_ID/triggers` with the `name`, `function`, `type`, `is_enabled` and `scheduled_details` properties.
@@ -4225,14 +3060,7 @@ class FunctionsNamespace {
       required bool isEnabled,
       required ScheduledDetails scheduledDetails,
       RequestOptions? requestOptions}) async {
-    return functions_methods.functionsCreateTrigger(_config,
-        namespaceId: namespaceId,
-        name: name,
-        function_: function_,
-        type_: type_,
-        isEnabled: isEnabled,
-        scheduledDetails: scheduledDetails,
-        requestOptions: requestOptions);
+    return functions_methods.functionsCreateTrigger(_config, namespaceId: namespaceId, name: name, function_: function_, type_: type_, isEnabled: isEnabled, scheduledDetails: scheduledDetails, requestOptions: requestOptions);
   }
 
   /// Gets the trigger details. To get the trigger details, send a GET request to `/v2/functions/namespaces/$NAMESPACE_ID/triggers/$TRIGGER_NAME`.
@@ -4240,10 +3068,7 @@ class FunctionsNamespace {
       {required String namespaceId,
       required String triggerName,
       RequestOptions? requestOptions}) async {
-    return functions_methods.functionsGetTrigger(_config,
-        namespaceId: namespaceId,
-        triggerName: triggerName,
-        requestOptions: requestOptions);
+    return functions_methods.functionsGetTrigger(_config, namespaceId: namespaceId, triggerName: triggerName, requestOptions: requestOptions);
   }
 
   /// Updates the details of the given trigger. To update a trigger, send a PUT request to `/v2/functions/namespaces/$NAMESPACE_ID/triggers/$TRIGGER_NAME` with new values for the `is_enabled ` or `scheduled_details` properties.
@@ -4253,12 +3078,7 @@ class FunctionsNamespace {
       SdkOptional<bool> isEnabled = const SdkOmitted(),
       SdkOptional<ScheduledDetails> scheduledDetails = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return functions_methods.functionsUpdateTrigger(_config,
-        namespaceId: namespaceId,
-        triggerName: triggerName,
-        isEnabled: isEnabled,
-        scheduledDetails: scheduledDetails,
-        requestOptions: requestOptions);
+    return functions_methods.functionsUpdateTrigger(_config, namespaceId: namespaceId, triggerName: triggerName, isEnabled: isEnabled, scheduledDetails: scheduledDetails, requestOptions: requestOptions);
   }
 
   /// Deletes the given trigger. To delete trigger, send a DELETE request to `/v2/functions/namespaces/$NAMESPACE_ID/triggers/$TRIGGER_NAME`. A successful deletion returns a 204 response.
@@ -4266,17 +3086,13 @@ class FunctionsNamespace {
       {required String namespaceId,
       required String triggerName,
       RequestOptions? requestOptions}) async {
-    return functions_methods.functionsDeleteTrigger(_config,
-        namespaceId: namespaceId,
-        triggerName: triggerName,
-        requestOptions: requestOptions);
+    return functions_methods.functionsDeleteTrigger(_config, namespaceId: namespaceId, triggerName: triggerName, requestOptions: requestOptions);
   }
 
   /// Lists all access keys for a serverless functions namespace. To list access keys, send a GET request to `/v2/functions/namespaces/{namespace_id}/keys`.
   Future<AccessKeyList> accessKeyList(
       {required String namespaceId, RequestOptions? requestOptions}) async {
-    return functions_methods.functionsAccessKeyList(_config,
-        namespaceId: namespaceId, requestOptions: requestOptions);
+    return functions_methods.functionsAccessKeyList(_config, namespaceId: namespaceId, requestOptions: requestOptions);
   }
 
   /// Creates a new access key for a serverless functions namespace. The access key can be used to authenticate requests to the namespace's functions. The secret key is only returned once upon creation. To create an access key, send a POST request to `/v2/functions/namespaces/{namespace_id}/keys`.
@@ -4285,11 +3101,7 @@ class FunctionsNamespace {
       required String name,
       SdkOptional<String> expiresIn = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return functions_methods.functionsAccessKeyCreate(_config,
-        namespaceId: namespaceId,
-        name: name,
-        expiresIn: expiresIn,
-        requestOptions: requestOptions);
+    return functions_methods.functionsAccessKeyCreate(_config, namespaceId: namespaceId, name: name, expiresIn: expiresIn, requestOptions: requestOptions);
   }
 
   /// Updates the name of an access key for a serverless functions namespace. To update an access key, send a PUT request to `/v2/functions/namespaces/{namespace_id}/keys/{key_id}`.
@@ -4298,11 +3110,7 @@ class FunctionsNamespace {
       required String keyId,
       required String name,
       RequestOptions? requestOptions}) async {
-    return functions_methods.functionsAccessKeyUpdate(_config,
-        namespaceId: namespaceId,
-        keyId: keyId,
-        name: name,
-        requestOptions: requestOptions);
+    return functions_methods.functionsAccessKeyUpdate(_config, namespaceId: namespaceId, keyId: keyId, name: name, requestOptions: requestOptions);
   }
 
   /// Deletes an access key for a serverless functions namespace. To delete an access key, send a DELETE request to `/v2/functions/namespaces/{namespace_id}/keys/{key_id}`.
@@ -4310,15 +3118,14 @@ class FunctionsNamespace {
       {required String namespaceId,
       required String keyId,
       RequestOptions? requestOptions}) async {
-    return functions_methods.functionsAccessKeyDelete(_config,
-        namespaceId: namespaceId, keyId: keyId, requestOptions: requestOptions);
+    return functions_methods.functionsAccessKeyDelete(_config, namespaceId: namespaceId, keyId: keyId, requestOptions: requestOptions);
   }
+
 }
 
 class ImagesNamespace {
   final ClientConfig _config;
   ImagesNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the images available on your account, send a GET request to /v2/images. ## Filtering Results ----- It's possible to request filtered results by including certain query parameters. **Image Type** Either 1-Click Application or OS Distribution images can be filtered by using the `type` query parameter. &gt; Important: The `type` query parameter does not directly relate to the `type` attribute. To retrieve only ***distribution*** images, include the `type` query parameter set to distribution, `/v2/images?type=distribution`. To retrieve only ***application*** images, include the `type` query parameter set to application, `/v2/images?type=application`. **User Images** To retrieve only the private images of a user, include the `private` query parameter set to true, `/v2/images?private=true`. **Tags** To list all images assigned to a specific tag, include the `tag_name` query parameter set to the name of the tag in your GET request. For example, `/v2/images?tag_name=$TAG_NAME`.
   Future<AllImages> list(
       {SdkOptional<SchemaSchema3f399be3> type_ = const SdkOmitted(),
@@ -4327,27 +3134,19 @@ class ImagesNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return images_methods.imagesList(_config,
-        type_: type_,
-        private: private,
-        tagName: tagName,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return images_methods.imagesList(_config, type_: type_, private: private, tagName: tagName, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create a new custom image, send a POST request to /v2/images. The body must contain a url attribute pointing to a Linux virtual machine image to be imported into DigitalOcean. The image must be in the raw, qcow2, vhdx, vdi, or vmdk format. It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed.
   Future<NewCustomImage> createCustom(
       {required ImageNewCustom body, RequestOptions? requestOptions}) async {
-    return images_methods.imagesCreateCustom(_config,
-        body: body, requestOptions: requestOptions);
+    return images_methods.imagesCreateCustom(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To retrieve information about an image, send a `GET` request to `/v2/images/$IDENTIFIER`.
   Future<ExistingImage> get_(
       {required dynamic imageId, RequestOptions? requestOptions}) async {
-    return images_methods.imagesGet(_config,
-        imageId: imageId, requestOptions: requestOptions);
+    return images_methods.imagesGet(_config, imageId: imageId, requestOptions: requestOptions);
   }
 
   /// To update an image, send a `PUT` request to `/v2/images/$IMAGE_ID`. Set the `name` attribute to the new value you would like to use. For custom images, the `description` and `distribution` attributes may also be updated.
@@ -4357,19 +3156,13 @@ class ImagesNamespace {
       SdkOptional<Distribution> distribution = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return images_methods.imagesUpdate(_config,
-        imageId: imageId,
-        name: name,
-        distribution: distribution,
-        description: description,
-        requestOptions: requestOptions);
+    return images_methods.imagesUpdate(_config, imageId: imageId, name: name, distribution: distribution, description: description, requestOptions: requestOptions);
   }
 
   /// To delete a snapshot or custom image, send a `DELETE` request to `/v2/images/$IMAGE_ID`.
   Future<void> delete(
       {required int imageId, RequestOptions? requestOptions}) async {
-    return images_methods.imagesDelete(_config,
-        imageId: imageId, requestOptions: requestOptions);
+    return images_methods.imagesDelete(_config, imageId: imageId, requestOptions: requestOptions);
   }
 
   /// Creates an account transfer for a snapshot image to a DigitalOcean account or team. Supply either `recipient_email` or `recipient_uuid` to identify the recipient; the transfer must have exactly one recipient. A `transfer_id` of 0 indicates that the transfer was accepted, while any other value indicates that it is pending recipient acceptance.
@@ -4379,8 +3172,7 @@ class ImagesNamespace {
       {required int imageId,
       required ImagesPostAccountTransferCreate body,
       RequestOptions? requestOptions}) async {
-    return images_methods.imagesPostAccountTransferCreate(_config,
-        imageId: imageId, body: body, requestOptions: requestOptions);
+    return images_methods.imagesPostAccountTransferCreate(_config, imageId: imageId, body: body, requestOptions: requestOptions);
   }
 
   /// To accept an account transfer for an image, send a POST request to `/v2/images/$IMAGE_ID/account_transfer/accept`.
@@ -4388,8 +3180,7 @@ class ImagesNamespace {
       {required int imageId,
       required ImagesPostAccountTransferAccept body,
       RequestOptions? requestOptions}) async {
-    return images_methods.imagesPostAccountTransferAccept(_config,
-        imageId: imageId, body: body, requestOptions: requestOptions);
+    return images_methods.imagesPostAccountTransferAccept(_config, imageId: imageId, body: body, requestOptions: requestOptions);
   }
 
   /// To cancel an account transfer for an image, send a POST request to `/v2/images/$IMAGE_ID/account_transfer/cancel`. Only the sender of an image account transfer can cancel the transfer. If the transfer is canceled, the image will remain in the sender's account and will not be transferred to the recipient.
@@ -4397,10 +3188,7 @@ class ImagesNamespace {
       {required int imageId,
       required int transferId,
       RequestOptions? requestOptions}) async {
-    return images_methods.imagesPostAccountTransferCancel(_config,
-        imageId: imageId,
-        transferId: transferId,
-        requestOptions: requestOptions);
+    return images_methods.imagesPostAccountTransferCancel(_config, imageId: imageId, transferId: transferId, requestOptions: requestOptions);
   }
 
   /// To decline an account transfer for an image, send a POST request to `/v2/images/$IMAGE_ID/account_transfer/decline`. Only the recipient of an image account transfer can decline the transfer. If the transfer is declined, the image will remain in the sender's account and will not be transferred to the recipient.
@@ -4408,22 +3196,18 @@ class ImagesNamespace {
       {required int imageId,
       required int transferId,
       RequestOptions? requestOptions}) async {
-    return images_methods.imagesPostAccountTransferDecline(_config,
-        imageId: imageId,
-        transferId: transferId,
-        requestOptions: requestOptions);
+    return images_methods.imagesPostAccountTransferDecline(_config, imageId: imageId, transferId: transferId, requestOptions: requestOptions);
   }
+
 }
 
 class ImageActionsNamespace {
   final ClientConfig _config;
   ImageActionsNamespace(ClientConfig config) : _config = config;
-
   /// To retrieve all actions that have been executed on an image, send a GET request to `/v2/images/$IMAGE_ID/actions`.
   Future<GetImageActionsResponse> list(
       {required int imageId, RequestOptions? requestOptions}) async {
-    return image_actions_methods.imageActionsList(_config,
-        imageId: imageId, requestOptions: requestOptions);
+    return image_actions_methods.imageActionsList(_config, imageId: imageId, requestOptions: requestOptions);
   }
 
   /// Triggers an action on an image to convert it to a snapshot or transfer it to another region. Set `type` to `convert` or `transfer`, and provide `region` when transferring. The 201 response includes an action object you can use to track the action's status.
@@ -4433,8 +3217,7 @@ class ImageActionsNamespace {
       {required int imageId,
       SdkOptional<dynamic> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return image_actions_methods.imageActionsPost(_config,
-        imageId: imageId, body: body, requestOptions: requestOptions);
+    return image_actions_methods.imageActionsPost(_config, imageId: imageId, body: body, requestOptions: requestOptions);
   }
 
   /// To retrieve the status of an image action, send a GET request to `/v2/images/$IMAGE_ID/actions/$IMAGE_ACTION_ID`.
@@ -4442,15 +3225,14 @@ class ImageActionsNamespace {
       {required int imageId,
       required int actionId,
       RequestOptions? requestOptions}) async {
-    return image_actions_methods.imageActionsGet(_config,
-        imageId: imageId, actionId: actionId, requestOptions: requestOptions);
+    return image_actions_methods.imageActionsGet(_config, imageId: imageId, actionId: actionId, requestOptions: requestOptions);
   }
+
 }
 
 class InsightsNamespace {
   final ClientConfig _config;
   InsightsNamespace(ClientConfig config) : _config = config;
-
   /// To list alert instances for your account, send a GET request to `/v2/insights/alert-instances`. Alert instances are read-only records of alert rule firings against your resources. Results can optionally be filtered by `status`, `rule_id`, or `resource_urn`. Results are ordered by `triggered_at` descending (newest first). Because the list is append-only and continuously growing, offset-based pagination is best-effort: newly triggered instances may shift older rows onto subsequent pages between fetches. For stable pagination, filter by `rule_id` or a fixed time window on the client side.
   Future<ListAlertInstancesResponse> listAlertInstances(
       {SdkOptional<int> perPage = const SdkOmitted(),
@@ -4459,20 +3241,13 @@ class InsightsNamespace {
       SdkOptional<String> ruleId = const SdkOmitted(),
       SdkOptional<String> resourceUrn = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsListAlertInstances(_config,
-        perPage: perPage,
-        page: page,
-        status: status,
-        ruleId: ruleId,
-        resourceUrn: resourceUrn,
-        requestOptions: requestOptions);
+    return insights_methods.insightsListAlertInstances(_config, perPage: perPage, page: page, status: status, ruleId: ruleId, resourceUrn: resourceUrn, requestOptions: requestOptions);
   }
 
   /// To retrieve a single alert instance, send a GET request to `/v2/insights/alert-instances/{id}`.
   Future<AlertInstanceResponse> getAlertInstance(
       {required String id, RequestOptions? requestOptions}) async {
-    return insights_methods.insightsGetAlertInstance(_config,
-        id: id, requestOptions: requestOptions);
+    return insights_methods.insightsGetAlertInstance(_config, id: id, requestOptions: requestOptions);
   }
 
   /// To list alert rules for your account, send a GET request to `/v2/insights/alert-rules`. Results are paginated with `page` and `per_page` (default `20`, maximum `200`). Optionally filter by `resource_urn`.
@@ -4481,11 +3256,7 @@ class InsightsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<String> resourceUrn = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsListAlertRules(_config,
-        page: page,
-        perPage: perPage,
-        resourceUrn: resourceUrn,
-        requestOptions: requestOptions);
+    return insights_methods.insightsListAlertRules(_config, page: page, perPage: perPage, resourceUrn: resourceUrn, requestOptions: requestOptions);
   }
 
   /// Creates an alert rule for a metric query and its configured thresholds. Provide a `spec` with `name`, `query`, `thresholds`, and at least one `notification_channels` binding; `status` defaults to `ALERT_RULE_STATUS_ACTIVE` and `re_alert_duration` defaults to `RE_ALERT_DURATION_4H` when omitted. Use a dotted OpenTelemetry metric name for `query.metric`, such as `do.droplets.cpu_utilization`.
@@ -4494,15 +3265,13 @@ class InsightsNamespace {
   Future<AlertRuleResponse> createAlertRule(
       {required AlertRuleCreateRequest body,
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsCreateAlertRule(_config,
-        body: body, requestOptions: requestOptions);
+    return insights_methods.insightsCreateAlertRule(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To retrieve an alert rule, send a GET request to `/v2/insights/alert-rules/{id}`.
   Future<AlertRuleResponse> getAlertRule(
       {required String id, RequestOptions? requestOptions}) async {
-    return insights_methods.insightsGetAlertRule(_config,
-        id: id, requestOptions: requestOptions);
+    return insights_methods.insightsGetAlertRule(_config, id: id, requestOptions: requestOptions);
   }
 
   /// This PUT endpoint uses merge semantics. To update an alert rule, send a request to `/v2/insights/alert-rules/{id}` with a full `spec`. Omit `notification_channels` to keep existing bindings. Omit `status` or `re_alert_duration` to keep those existing values.
@@ -4511,24 +3280,22 @@ class InsightsNamespace {
       required AlertRuleSpec spec,
       SdkOptional<AlertRuleRequestStatus> status = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsUpdateAlertRule(_config,
-        id: id, spec: spec, status: status, requestOptions: requestOptions);
+    return insights_methods.insightsUpdateAlertRule(_config, id: id, spec: spec, status: status, requestOptions: requestOptions);
   }
 
   /// To delete an alert rule, send a DELETE request to `/v2/insights/alert-rules/{id}`.
   Future<void> deleteAlertRule(
       {required String id, RequestOptions? requestOptions}) async {
-    return insights_methods.insightsDeleteAlertRule(_config,
-        id: id, requestOptions: requestOptions);
+    return insights_methods.insightsDeleteAlertRule(_config, id: id, requestOptions: requestOptions);
   }
 
   /// To list all notification channels for your account, send a GET request to `/v2/insights/notification-channels`. Results are paginated with `page` and `per_page` (default `20`, maximum `200`).
-  Future<InsightsListNotificationChannelsResponse> listNotificationChannels(
-      {SdkOptional<int> page = const SdkOmitted(),
-      SdkOptional<int> perPage = const SdkOmitted(),
-      RequestOptions? requestOptions}) async {
-    return insights_methods.insightsListNotificationChannels(_config,
-        page: page, perPage: perPage, requestOptions: requestOptions);
+  Future<InsightsListNotificationChannelsResponse>
+      listNotificationChannels(
+          {SdkOptional<int> page = const SdkOmitted(),
+          SdkOptional<int> perPage = const SdkOmitted(),
+          RequestOptions? requestOptions}) async {
+    return insights_methods.insightsListNotificationChannels(_config, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To create a notification channel, send a POST request to `/v2/insights/notification-channels` with a `name` and exactly one of `email`, `slack`, or `webhook`. Email recipients must be verified team member addresses. Webhook URLs must use HTTPS. Secret fields (`slack.webhook_url`, webhook credentials) are write-only. Subsequent reads never return secret values; they include optional `*_status` objects when a secret is configured.
@@ -4536,22 +3303,15 @@ class InsightsNamespace {
       {required String name,
       SdkOptional<EmailNotificationConfig> email = const SdkOmitted(),
       SdkOptional<SlackNotificationConfigRequest> slack = const SdkOmitted(),
-      SdkOptional<WebhookNotificationConfigRequest> webhook =
-          const SdkOmitted(),
+      SdkOptional<WebhookNotificationConfigRequest> webhook = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsCreateNotificationChannel(_config,
-        name: name,
-        email: email,
-        slack: slack,
-        webhook: webhook,
-        requestOptions: requestOptions);
+    return insights_methods.insightsCreateNotificationChannel(_config, name: name, email: email, slack: slack, webhook: webhook, requestOptions: requestOptions);
   }
 
   /// To retrieve a notification channel, send a GET request to `/v2/insights/notification-channels/{id}`. Secret credentials are never returned. When a secret is configured, the response includes an optional `*_status` object (for example `webhook_url_status`) with `configured: true`.
   Future<NotificationChannelResponse> getNotificationChannel(
       {required String id, RequestOptions? requestOptions}) async {
-    return insights_methods.insightsGetNotificationChannel(_config,
-        id: id, requestOptions: requestOptions);
+    return insights_methods.insightsGetNotificationChannel(_config, id: id, requestOptions: requestOptions);
   }
 
   /// To update a notification channel, send a PUT request to `/v2/insights/notification-channels/{id}` with a `name` and exactly one of `email`, `slack`, or `webhook`. Sending a secret field rotates it; omitting the secret field keeps the existing value. Responses never return secret values; they include optional `*_status` objects when a secret is configured.
@@ -4560,23 +3320,15 @@ class InsightsNamespace {
       required String name,
       SdkOptional<EmailNotificationConfig> email = const SdkOmitted(),
       SdkOptional<SlackNotificationConfigRequest> slack = const SdkOmitted(),
-      SdkOptional<WebhookNotificationConfigRequest> webhook =
-          const SdkOmitted(),
+      SdkOptional<WebhookNotificationConfigRequest> webhook = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsUpdateNotificationChannel(_config,
-        id: id,
-        name: name,
-        email: email,
-        slack: slack,
-        webhook: webhook,
-        requestOptions: requestOptions);
+    return insights_methods.insightsUpdateNotificationChannel(_config, id: id, name: name, email: email, slack: slack, webhook: webhook, requestOptions: requestOptions);
   }
 
   /// To delete a notification channel, send a DELETE request to `/v2/insights/notification-channels/{id}`. Deleting a channel that is still referenced by one or more alert rules returns `409 Conflict`.
   Future<void> deleteNotificationChannel(
       {required String id, RequestOptions? requestOptions}) async {
-    return insights_methods.insightsDeleteNotificationChannel(_config,
-        id: id, requestOptions: requestOptions);
+    return insights_methods.insightsDeleteNotificationChannel(_config, id: id, requestOptions: requestOptions);
   }
 
   /// To evaluate a PromQL expression at a single point in time, send a GET request to `/v2/insights/query/{region}/prom/api/v1/query`.
@@ -4586,12 +3338,7 @@ class InsightsNamespace {
       SdkOptional<String> time = const SdkOmitted(),
       SdkOptional<String> timeout = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsGetPromQuery(_config,
-        region: region,
-        query: query,
-        time: time,
-        timeout: timeout,
-        requestOptions: requestOptions);
+    return insights_methods.insightsGetPromQuery(_config, region: region, query: query, time: time, timeout: timeout, requestOptions: requestOptions);
   }
 
   /// To evaluate a PromQL expression at a single point in time, send a POST request to `/v2/insights/query/{region}/prom/api/v1/query` with `application/x-www-form-urlencoded` parameters.
@@ -4601,12 +3348,7 @@ class InsightsNamespace {
       SdkOptional<String> time = const SdkOmitted(),
       SdkOptional<String> timeout = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsPostPromQuery(_config,
-        region: region,
-        query: query,
-        time: time,
-        timeout: timeout,
-        requestOptions: requestOptions);
+    return insights_methods.insightsPostPromQuery(_config, region: region, query: query, time: time, timeout: timeout, requestOptions: requestOptions);
   }
 
   /// To evaluate a PromQL expression over a time range, send a GET request to `/v2/insights/query/{region}/prom/api/v1/query_range`.
@@ -4618,14 +3360,7 @@ class InsightsNamespace {
       required String step,
       SdkOptional<String> timeout = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsGetPromQueryRange(_config,
-        region: region,
-        query: query,
-        start: start,
-        end: end,
-        step: step,
-        timeout: timeout,
-        requestOptions: requestOptions);
+    return insights_methods.insightsGetPromQueryRange(_config, region: region, query: query, start: start, end: end, step: step, timeout: timeout, requestOptions: requestOptions);
   }
 
   /// To evaluate a PromQL expression over a time range, send a POST request to `/v2/insights/query/{region}/prom/api/v1/query_range` with `application/x-www-form-urlencoded` parameters.
@@ -4637,14 +3372,7 @@ class InsightsNamespace {
       required String step,
       SdkOptional<String> timeout = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsPostPromQueryRange(_config,
-        region: region,
-        query: query,
-        start: start,
-        end: end,
-        step: step,
-        timeout: timeout,
-        requestOptions: requestOptions);
+    return insights_methods.insightsPostPromQueryRange(_config, region: region, query: query, start: start, end: end, step: step, timeout: timeout, requestOptions: requestOptions);
   }
 
   /// To list label names, send a GET request to `/v2/insights/query/{region}/prom/api/v1/labels`.
@@ -4654,12 +3382,7 @@ class InsightsNamespace {
       SdkOptional<String> end = const SdkOmitted(),
       SdkOptional<List<String>> match = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsGetPromLabels(_config,
-        region: region,
-        start: start,
-        end: end,
-        match: match,
-        requestOptions: requestOptions);
+    return insights_methods.insightsGetPromLabels(_config, region: region, start: start, end: end, match: match, requestOptions: requestOptions);
   }
 
   /// To list label names, send a POST request to `/v2/insights/query/{region}/prom/api/v1/labels` with `application/x-www-form-urlencoded` parameters.
@@ -4669,12 +3392,7 @@ class InsightsNamespace {
       SdkOptional<String> end = const SdkOmitted(),
       SdkOptional<List<String>> match = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsPostPromLabels(_config,
-        region: region,
-        start: start,
-        end: end,
-        match: match,
-        requestOptions: requestOptions);
+    return insights_methods.insightsPostPromLabels(_config, region: region, start: start, end: end, match: match, requestOptions: requestOptions);
   }
 
   /// To list values for a label name, send a GET request to `/v2/insights/query/{region}/prom/api/v1/label/{name}/values`.
@@ -4685,13 +3403,7 @@ class InsightsNamespace {
       SdkOptional<String> end = const SdkOmitted(),
       SdkOptional<List<String>> match = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsGetPromLabelValues(_config,
-        region: region,
-        name: name,
-        start: start,
-        end: end,
-        match: match,
-        requestOptions: requestOptions);
+    return insights_methods.insightsGetPromLabelValues(_config, region: region, name: name, start: start, end: end, match: match, requestOptions: requestOptions);
   }
 
   /// To find series matching one or more selectors, send a GET request to `/v2/insights/query/{region}/prom/api/v1/series`.
@@ -4701,12 +3413,7 @@ class InsightsNamespace {
       SdkOptional<String> start = const SdkOmitted(),
       SdkOptional<String> end = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsGetPromSeries(_config,
-        region: region,
-        match: match,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return insights_methods.insightsGetPromSeries(_config, region: region, match: match, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To find series matching one or more selectors, send a POST request to `/v2/insights/query/{region}/prom/api/v1/series` with `application/x-www-form-urlencoded` parameters.
@@ -4716,12 +3423,7 @@ class InsightsNamespace {
       SdkOptional<String> start = const SdkOmitted(),
       SdkOptional<String> end = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsPostPromSeries(_config,
-        region: region,
-        match: match,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return insights_methods.insightsPostPromSeries(_config, region: region, match: match, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To search log records in a region, send a POST request to `/v2/insights/query/{region}/logs/search` with a JSON body describing the time range, optional filter, ordering, and pagination. The time range must not exceed 7 days. `pagination.limit` defaults to 100 and is clamped to 1000. Cursor pagination requires ordering by `timestamp` alone; other sort orders return `has_more: false` and cannot be paged.
@@ -4732,13 +3434,7 @@ class InsightsNamespace {
       SdkOptional<List<LogsOrderBy>> orderBy = const SdkOmitted(),
       SdkOptional<LogsPaginationRequest> pagination = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsPostLogsSearch(_config,
-        region: region,
-        timeRange: timeRange,
-        filter: filter,
-        orderBy: orderBy,
-        pagination: pagination,
-        requestOptions: requestOptions);
+    return insights_methods.insightsPostLogsSearch(_config, region: region, timeRange: timeRange, filter: filter, orderBy: orderBy, pagination: pagination, requestOptions: requestOptions);
   }
 
   /// To search traces in a region, send a POST request to `/v2/insights/query/{region}/traces/search` with a JSON body describing the time range, optional filter, ordering, and pagination. Each result is one trace, aggregated from all of its spans in the time range. A trace is included when at least one of its spans matches `filter`. The time range must not exceed 7 days (`168h`). `pagination.limit` defaults to 100 (also used when `limit` is `0`) and must be between 0 and 1000. Results are ordered by `started` descending unless `orderBy` is set. JSON field names are camelCase (`timeRange`, `orderBy`, `hasMore`, `traceId`). Unknown request properties, invalid filters, and out-of-range values are rejected with `400`. Each request searches a single region; there is no multi-region search. Supported regions are `ams2`, `ams3`, `atl1`, `blr1`, `fra1`, `lon1`, `mem1`, `nyc1`, `nyc2`, `nyc3`, `ric1`, `sfo1`, `sfo2`, `sfo3`, `sgp1`, `syd1`, and `tor1`. Requests time out after 60 seconds. Errors produced by the traces service (`400`) have a `text/plain` body containing a short message. Authentication and authorization errors (`401`, `403`), rate limiting (`429`), and routing errors (for example, `404` for an unknown region) come from the API gateway and use the standard JSON error object with `id` and `message`. `403` is also returned for accounts that are in a trial or not in good standing. If the regional traces backend cannot be reached, the response is `502` with a `text/plain` body.
@@ -4749,13 +3445,7 @@ class InsightsNamespace {
       SdkOptional<List<TracesOrderBy>> orderBy = const SdkOmitted(),
       SdkOptional<TracesPaginationRequest> pagination = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsPostTracesSearch(_config,
-        region: region,
-        timeRange: timeRange,
-        filter: filter,
-        orderBy: orderBy,
-        pagination: pagination,
-        requestOptions: requestOptions);
+    return insights_methods.insightsPostTracesSearch(_config, region: region, timeRange: timeRange, filter: filter, orderBy: orderBy, pagination: pagination, requestOptions: requestOptions);
   }
 
   /// To retrieve a single trace and all of its spans, send a GET request to `/v2/insights/query/{region}/traces/{trace_id}`. Only spans that started within the lookup window are returned. The window defaults to the last 7 days and can be narrowed with the `from` and `to` query parameters; it must not exceed 7 days, and `from` must not be after `to`. Spans are returned ordered by start time. At most 10,000 spans are returned; `truncated` is `true` when the trace has more. A trace ID with no spans in the window returns `404`, as do malformed or uppercase trace IDs. A trace is only resolvable in the region that ingested it; querying another region also returns `404`. Supported regions are `ams2`, `ams3`, `atl1`, `blr1`, `fra1`, `lon1`, `mem1`, `nyc1`, `nyc2`, `nyc3`, `ric1`, `sfo1`, `sfo2`, `sfo3`, `sgp1`, `syd1`, and `tor1`. Requests time out after 60 seconds. Errors produced by the traces service (`400`, and `404` when no trace is found) have a `text/plain` body containing a short message. Authentication and authorization errors (`401`, `403`), rate limiting (`429`), and routing errors (for example, `404` for an unknown region) come from the API gateway and use the standard JSON error object with `id` and `message`. `403` is also returned for accounts that are in a trial or not in good standing. If the regional traces backend cannot be reached, the response is `502` with a `text/plain` body. JSON field names are camelCase (`traceId`, `spanId`, `startTime`, `endTime`, `durationNs`, `serviceName`, `statusCode`, `parentSpanId`).
@@ -4765,12 +3455,7 @@ class InsightsNamespace {
       SdkOptional<String> from = const SdkOmitted(),
       SdkOptional<String> to = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsGetTrace(_config,
-        region: region,
-        traceId: traceId,
-        from: from,
-        to: to,
-        requestOptions: requestOptions);
+    return insights_methods.insightsGetTrace(_config, region: region, traceId: traceId, from: from, to: to, requestOptions: requestOptions);
   }
 
   /// To search spans in a region, send a POST request to `/v2/insights/query/{region}/spans/search` with a JSON body describing the time range, optional filter, ordering, and pagination. The time range must not exceed 7 days. `pagination.limit` defaults to 100 and must be between 1 and 1000. Results are ordered by `startTime` descending by default. Cursor-based pagination is not yet supported; `pagination.hasMore` indicates whether additional spans matched beyond the returned page.
@@ -4781,26 +3466,19 @@ class InsightsNamespace {
       SdkOptional<List<SpansOrderBy>> orderBy = const SdkOmitted(),
       SdkOptional<SpansPaginationRequest> pagination = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return insights_methods.insightsPostSpansSearch(_config,
-        region: region,
-        timeRange: timeRange,
-        filter: filter,
-        orderBy: orderBy,
-        pagination: pagination,
-        requestOptions: requestOptions);
+    return insights_methods.insightsPostSpansSearch(_config, region: region, timeRange: timeRange, filter: filter, orderBy: orderBy, pagination: pagination, requestOptions: requestOptions);
   }
+
 }
 
 class SignalsNamespace {
   final ClientConfig _config;
   SignalsNamespace(ClientConfig config) : _config = config;
-
   /// To list all signals consent records for your team, send a GET request to `/v1/consent`. Each record indicates whether signals collection is enabled for a source: per-environment records (`source: agent`) for Harness Runtime, and the team-level record (`source: inference`) for Serverless Inference chat completions. Pass `?source=agent` or `?source=inference` to return only that source's records. When filtered, the response also echoes the `source`.
   Future<ListConsents> listConsents(
       {SdkOptional<SchemaSchemac045be37> source = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return signals_methods.signalsListConsents(_config,
-        source: source, requestOptions: requestOptions);
+    return signals_methods.signalsListConsents(_config, source: source, requestOptions: requestOptions);
   }
 
   /// To enable or disable signals collection for a source that is consented at the team level, send a PUT request to `/v1/consent?source=inference` with an `enabled` boolean in the request body. Currently the only team-level source is `inference`, which covers Serverless Inference chat completions made by your team. To revoke consent, send the same request with `enabled` set to `false`. The `source` query parameter is required. Per-environment consent for Harness Runtime environments is managed with `PUT /v1/consent/{agent_id}` instead.
@@ -4808,15 +3486,13 @@ class SignalsNamespace {
       {required SchemaSchemaa49c3d7d source,
       required bool enabled,
       RequestOptions? requestOptions}) async {
-    return signals_methods.signalsUpdateTeamConsent(_config,
-        source: source, enabled: enabled, requestOptions: requestOptions);
+    return signals_methods.signalsUpdateTeamConsent(_config, source: source, enabled: enabled, requestOptions: requestOptions);
   }
 
   /// To retrieve the consent record for a specific environment, send a GET request to `/v1/consent/{agent_id}`. The response includes an `enabled` field indicating whether signals collection is on for this environment. This endpoint only serves per-environment (`source: agent`) records. Team-level inference consent is read from `GET /v1/consent?source=inference`.
   Future<AgentConsent> getConsent(
       {required String agentId, RequestOptions? requestOptions}) async {
-    return signals_methods.signalsGetConsent(_config,
-        agentId: agentId, requestOptions: requestOptions);
+    return signals_methods.signalsGetConsent(_config, agentId: agentId, requestOptions: requestOptions);
   }
 
   /// To enable or disable signals collection for a specific environment, send a PUT request to `/v1/consent/{agent_id}` with an `enabled` boolean in the request body. This endpoint only manages per-environment (`source: agent`) consent. To manage team-level consent for Serverless Inference, use `PUT /v1/consent?source=inference` instead.
@@ -4824,8 +3500,7 @@ class SignalsNamespace {
       {required String agentId,
       required bool enabled,
       RequestOptions? requestOptions}) async {
-    return signals_methods.signalsUpdateConsent(_config,
-        agentId: agentId, enabled: enabled, requestOptions: requestOptions);
+    return signals_methods.signalsUpdateConsent(_config, agentId: agentId, enabled: enabled, requestOptions: requestOptions);
   }
 
   /// To list signals sessions for a specific environment, send a GET request to `/v1/signals/agents/{agent_id}/sessions`. Results are paginated using cursor-based pagination with `limit` and `after` parameters.
@@ -4837,14 +3512,7 @@ class SignalsNamespace {
       SdkOptional<String> endTime = const SdkOmitted(),
       SdkOptional<String> signalType = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return signals_methods.signalsListAgentSessions(_config,
-        agentId: agentId,
-        limit: limit,
-        after: after,
-        startTime: startTime,
-        endTime: endTime,
-        signalType: signalType,
-        requestOptions: requestOptions);
+    return signals_methods.signalsListAgentSessions(_config, agentId: agentId, limit: limit, after: after, startTime: startTime, endTime: endTime, signalType: signalType, requestOptions: requestOptions);
   }
 
   /// To list the dialogue turns within a specific session, send a GET request to `/v1/signals/sessions/{session_id}/dialogues`. Each dialogue represents a single turn of conversation between a user and the environment, along with any signals detected. Results are paginated using cursor-based pagination.
@@ -4856,14 +3524,7 @@ class SignalsNamespace {
       SdkOptional<String> endTime = const SdkOmitted(),
       SdkOptional<String> signalType = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return signals_methods.signalsListSessionDialogues(_config,
-        sessionId: sessionId,
-        limit: limit,
-        after: after,
-        startTime: startTime,
-        endTime: endTime,
-        signalType: signalType,
-        requestOptions: requestOptions);
+    return signals_methods.signalsListSessionDialogues(_config, sessionId: sessionId, limit: limit, after: after, startTime: startTime, endTime: endTime, signalType: signalType, requestOptions: requestOptions);
   }
 
   /// To list signals export jobs for your team, send a GET request to `/v1/signals/exports`. Results are paginated using cursor-based pagination with `limit` and `after` parameters.
@@ -4871,8 +3532,7 @@ class SignalsNamespace {
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return signals_methods.signalsListExports(_config,
-        limit: limit, after: after, requestOptions: requestOptions);
+    return signals_methods.signalsListExports(_config, limit: limit, after: after, requestOptions: requestOptions);
   }
 
   /// To create a new signals data export, send a POST request to `/v1/signals/exports`. To export one Harness Runtime environment, include its `agent_id` (`type` defaults to `agent`). To export the team's Serverless Inference Signals conversations, set `type` to `inference` and omit `agent_id`. You may optionally filter the export by `signal_type`, `session_ids`, `start_time`, and `end_time`. Use the export options endpoint to discover available signal types. The export job runs asynchronously. Poll the get export endpoint to check its status. When complete, use the download endpoint to retrieve a pre-signed URL.
@@ -4884,35 +3544,25 @@ class SignalsNamespace {
       SdkOptional<String> startTime = const SdkOmitted(),
       SdkOptional<String> endTime = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return signals_methods.signalsCreateExport(_config,
-        type_: type_,
-        agentId: agentId,
-        signalType: signalType,
-        sessionIds: sessionIds,
-        startTime: startTime,
-        endTime: endTime,
-        requestOptions: requestOptions);
+    return signals_methods.signalsCreateExport(_config, type_: type_, agentId: agentId, signalType: signalType, sessionIds: sessionIds, startTime: startTime, endTime: endTime, requestOptions: requestOptions);
   }
 
   /// To retrieve the available filter options for creating an export, send a GET request to `/v1/signals/exports/options`. The response lists valid signal types that can be used in the `signal_type` filter when creating an export.
   Future<ExportOptions> getExportOptions(
       {RequestOptions? requestOptions}) async {
-    return signals_methods.signalsGetExportOptions(_config,
-        requestOptions: requestOptions);
+    return signals_methods.signalsGetExportOptions(_config, requestOptions: requestOptions);
   }
 
   /// To retrieve the status and details of a signals export job, send a GET request to `/v1/signals/exports/{export_id}`.
   Future<ExportJob> getExport(
       {required String exportId, RequestOptions? requestOptions}) async {
-    return signals_methods.signalsGetExport(_config,
-        exportId: exportId, requestOptions: requestOptions);
+    return signals_methods.signalsGetExport(_config, exportId: exportId, requestOptions: requestOptions);
   }
 
   /// To retrieve a pre-signed download URL for a completed export, send a GET request to `/v1/signals/exports/{export_id}/download`. The export must have a `complete` status. The URL is temporary and will expire.
   Future<ExportDownload> getExportDownload(
       {required String exportId, RequestOptions? requestOptions}) async {
-    return signals_methods.signalsGetExportDownload(_config,
-        exportId: exportId, requestOptions: requestOptions);
+    return signals_methods.signalsGetExportDownload(_config, exportId: exportId, requestOptions: requestOptions);
   }
 
   /// To list signals data deletion jobs for your team, newest first, send a GET request to `/v1/signals/deletions`. Results are paginated using cursor-based pagination with `limit` and `after` parameters.
@@ -4920,8 +3570,7 @@ class SignalsNamespace {
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<String> after = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return signals_methods.signalsListDeletions(_config,
-        limit: limit, after: after, requestOptions: requestOptions);
+    return signals_methods.signalsListDeletions(_config, limit: limit, after: after, requestOptions: requestOptions);
   }
 
   /// To permanently delete Signals conversation data, send a POST request to `/v1/signals/deletions`. Deletion cannot be undone. Two deletion types are supported: - `agent` — deletes Signals conversations for one Harness Runtime environment and turns off collection for that environment. Requires `agent_id`, which is the environment's Environment Config ID (the environment's `agent_id`). On create, matching conversations are hidden from Signals reads immediately. Wait until the job is `complete` before enabling Signals for the environment again. - `inference` — deletes Serverless Inference Signals conversations for your whole team (team-wide; not limited to one endpoint or model) that were collected at or before the deletion request, and turns off team inference collection (`source=inference`). Do not send `agent_id`. On create, matching conversations are hidden from Signals reads immediately. The job runs asynchronously; poll the get endpoint until `status` is `complete` or `failed`. DigitalOcean may retry transient processing errors while a job is still active. If a job ends as `failed`, matching conversations stay hidden and collection stays off; send the same create request again to retry. Earlier export files are not deleted and remain available until they expire. Note: Deletion removes Signals conversation data for the requested scope. Aggregated Insights or metrics charts may still show historical summary datapoints after deletion. Those summaries are not the same as recoverable conversation content. The endpoint is idempotent: if a queued or running job already exists for the same target, it is returned with `200 OK`. A new job returns `202 Accepted`. Each team can have a limited number of active jobs; requests beyond that limit return `429 Too Many Requests`.
@@ -4930,32 +3579,26 @@ class SignalsNamespace {
       required int teamId,
       SdkOptional<String> agentId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return signals_methods.signalsCreateDeletion(_config,
-        type_: type_,
-        teamId: teamId,
-        agentId: agentId,
-        requestOptions: requestOptions);
+    return signals_methods.signalsCreateDeletion(_config, type_: type_, teamId: teamId, agentId: agentId, requestOptions: requestOptions);
   }
 
   /// To retrieve the status of a signals data deletion job, send a GET request to `/v1/signals/deletions/{deletion_id}`.
   Future<DeletionJob> getDeletion(
       {required String deletionId, RequestOptions? requestOptions}) async {
-    return signals_methods.signalsGetDeletion(_config,
-        deletionId: deletionId, requestOptions: requestOptions);
+    return signals_methods.signalsGetDeletion(_config, deletionId: deletionId, requestOptions: requestOptions);
   }
+
 }
 
 class KubernetesNamespace {
   final ClientConfig _config;
   KubernetesNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the Kubernetes clusters on your account, send a GET request to `/v2/kubernetes/clusters`.
   Future<AllClusters> listClusters(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesListClusters(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesListClusters(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create a new Kubernetes cluster, send a POST request to `/v2/kubernetes/clusters`. The request must contain at least one node pool with at least one worker. The request may contain a maintenance window policy describing a time period when disruptive maintenance tasks may be carried out. Omitting the policy implies that a window will be chosen automatically. See [here](https://docs.digitalocean.com/products/kubernetes/how-to/upgrade-cluster/) for details.
@@ -4969,70 +3612,33 @@ class KubernetesNamespace {
       SdkOptional<String> vpcUuid = const SdkOmitted(),
       SdkOptional<String> workerSubnetUuid = const SdkOmitted(),
       SdkOptional<List<String>> tags = const SdkOmitted(),
-      SdkOptional<MaintenancePolicyRequest?> maintenancePolicy =
-          const SdkOmitted(),
+      SdkOptional<MaintenancePolicyRequest?> maintenancePolicy = const SdkOmitted(),
       SdkOptional<bool> autoUpgrade = const SdkOmitted(),
       SdkOptional<bool> isolatedWorkers = const SdkOmitted(),
       SdkOptional<bool> gpuOperatorReady = const SdkOmitted(),
       SdkOptional<bool> surgeUpgrade = const SdkOmitted(),
       SdkOptional<bool> ha = const SdkOmitted(),
-      SdkOptional<ControlPlaneFirewall?> controlPlaneFirewall =
-          const SdkOmitted(),
-      SdkOptional<ClusterAutoscalerConfiguration?>
-          clusterAutoscalerConfiguration = const SdkOmitted(),
+      SdkOptional<ControlPlaneFirewall?> controlPlaneFirewall = const SdkOmitted(),
+      SdkOptional<ClusterAutoscalerConfiguration?> clusterAutoscalerConfiguration = const SdkOmitted(),
       SdkOptional<Sso?> sso = const SdkOmitted(),
       SdkOptional<RoutingAgent?> routingAgent = const SdkOmitted(),
-      SdkOptional<P2pOciRegistryPlugin?> p2pOciRegistryPlugin =
-          const SdkOmitted(),
+      SdkOptional<P2pOciRegistryPlugin?> p2pOciRegistryPlugin = const SdkOmitted(),
       SdkOptional<NfsCsiPlugin?> nfsCsiPlugin = const SdkOmitted(),
       SdkOptional<AmdGpuDevicePlugin?> amdGpuDevicePlugin = const SdkOmitted(),
-      SdkOptional<AmdGpuDeviceMetricsExporterPlugin?>
-          amdGpuDeviceMetricsExporterPlugin = const SdkOmitted(),
-      SdkOptional<NvidiaGpuDevicePlugin?> nvidiaGpuDevicePlugin =
-          const SdkOmitted(),
+      SdkOptional<AmdGpuDeviceMetricsExporterPlugin?> amdGpuDeviceMetricsExporterPlugin = const SdkOmitted(),
+      SdkOptional<NvidiaGpuDevicePlugin?> nvidiaGpuDevicePlugin = const SdkOmitted(),
       SdkOptional<NvidiaGpuDraDriver?> nvidiaGpuDraDriver = const SdkOmitted(),
       SdkOptional<AmdGpuDraDriver?> amdGpuDraDriver = const SdkOmitted(),
-      SdkOptional<RdmaSharedDevPlugin?> rdmaSharedDevPlugin =
-          const SdkOmitted(),
+      SdkOptional<RdmaSharedDevPlugin?> rdmaSharedDevPlugin = const SdkOmitted(),
       SdkOptional<CorednsAutoscaler?> corednsAutoscaler = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesCreateCluster(_config,
-        name: name,
-        region: region,
-        version: version,
-        nodePools: nodePools,
-        clusterSubnet: clusterSubnet,
-        serviceSubnet: serviceSubnet,
-        vpcUuid: vpcUuid,
-        workerSubnetUuid: workerSubnetUuid,
-        tags: tags,
-        maintenancePolicy: maintenancePolicy,
-        autoUpgrade: autoUpgrade,
-        isolatedWorkers: isolatedWorkers,
-        gpuOperatorReady: gpuOperatorReady,
-        surgeUpgrade: surgeUpgrade,
-        ha: ha,
-        controlPlaneFirewall: controlPlaneFirewall,
-        clusterAutoscalerConfiguration: clusterAutoscalerConfiguration,
-        sso: sso,
-        routingAgent: routingAgent,
-        p2pOciRegistryPlugin: p2pOciRegistryPlugin,
-        nfsCsiPlugin: nfsCsiPlugin,
-        amdGpuDevicePlugin: amdGpuDevicePlugin,
-        amdGpuDeviceMetricsExporterPlugin: amdGpuDeviceMetricsExporterPlugin,
-        nvidiaGpuDevicePlugin: nvidiaGpuDevicePlugin,
-        nvidiaGpuDraDriver: nvidiaGpuDraDriver,
-        amdGpuDraDriver: amdGpuDraDriver,
-        rdmaSharedDevPlugin: rdmaSharedDevPlugin,
-        corednsAutoscaler: corednsAutoscaler,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesCreateCluster(_config, name: name, region: region, version: version, nodePools: nodePools, clusterSubnet: clusterSubnet, serviceSubnet: serviceSubnet, vpcUuid: vpcUuid, workerSubnetUuid: workerSubnetUuid, tags: tags, maintenancePolicy: maintenancePolicy, autoUpgrade: autoUpgrade, isolatedWorkers: isolatedWorkers, gpuOperatorReady: gpuOperatorReady, surgeUpgrade: surgeUpgrade, ha: ha, controlPlaneFirewall: controlPlaneFirewall, clusterAutoscalerConfiguration: clusterAutoscalerConfiguration, sso: sso, routingAgent: routingAgent, p2pOciRegistryPlugin: p2pOciRegistryPlugin, nfsCsiPlugin: nfsCsiPlugin, amdGpuDevicePlugin: amdGpuDevicePlugin, amdGpuDeviceMetricsExporterPlugin: amdGpuDeviceMetricsExporterPlugin, nvidiaGpuDevicePlugin: nvidiaGpuDevicePlugin, nvidiaGpuDraDriver: nvidiaGpuDraDriver, amdGpuDraDriver: amdGpuDraDriver, rdmaSharedDevPlugin: rdmaSharedDevPlugin, corednsAutoscaler: corednsAutoscaler, requestOptions: requestOptions);
   }
 
   /// To show information about an existing Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID`.
   Future<ExistingCluster> getCluster(
       {required String clusterId, RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesGetCluster(_config,
-        clusterId: clusterId, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesGetCluster(_config, clusterId: clusterId, requestOptions: requestOptions);
   }
 
   /// To update a Kubernetes cluster, send a PUT request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID` and specify one or more of the attributes below.
@@ -5040,69 +3646,38 @@ class KubernetesNamespace {
       {required String clusterId,
       required String name,
       SdkOptional<List<String>> tags = const SdkOmitted(),
-      SdkOptional<MaintenancePolicyRequest?> maintenancePolicy =
-          const SdkOmitted(),
+      SdkOptional<MaintenancePolicyRequest?> maintenancePolicy = const SdkOmitted(),
       SdkOptional<bool> autoUpgrade = const SdkOmitted(),
       SdkOptional<bool> surgeUpgrade = const SdkOmitted(),
       SdkOptional<bool> ha = const SdkOmitted(),
       SdkOptional<bool> gpuOperatorReady = const SdkOmitted(),
-      SdkOptional<ControlPlaneFirewall?> controlPlaneFirewall =
-          const SdkOmitted(),
-      SdkOptional<ClusterAutoscalerConfiguration?>
-          clusterAutoscalerConfiguration = const SdkOmitted(),
+      SdkOptional<ControlPlaneFirewall?> controlPlaneFirewall = const SdkOmitted(),
+      SdkOptional<ClusterAutoscalerConfiguration?> clusterAutoscalerConfiguration = const SdkOmitted(),
       SdkOptional<Sso?> sso = const SdkOmitted(),
       SdkOptional<RoutingAgent?> routingAgent = const SdkOmitted(),
-      SdkOptional<P2pOciRegistryPlugin?> p2pOciRegistryPlugin =
-          const SdkOmitted(),
+      SdkOptional<P2pOciRegistryPlugin?> p2pOciRegistryPlugin = const SdkOmitted(),
       SdkOptional<NfsCsiPlugin?> nfsCsiPlugin = const SdkOmitted(),
       SdkOptional<AmdGpuDevicePlugin?> amdGpuDevicePlugin = const SdkOmitted(),
-      SdkOptional<AmdGpuDeviceMetricsExporterPlugin?>
-          amdGpuDeviceMetricsExporterPlugin = const SdkOmitted(),
-      SdkOptional<NvidiaGpuDevicePlugin?> nvidiaGpuDevicePlugin =
-          const SdkOmitted(),
+      SdkOptional<AmdGpuDeviceMetricsExporterPlugin?> amdGpuDeviceMetricsExporterPlugin = const SdkOmitted(),
+      SdkOptional<NvidiaGpuDevicePlugin?> nvidiaGpuDevicePlugin = const SdkOmitted(),
       SdkOptional<NvidiaGpuDraDriver?> nvidiaGpuDraDriver = const SdkOmitted(),
       SdkOptional<AmdGpuDraDriver?> amdGpuDraDriver = const SdkOmitted(),
-      SdkOptional<RdmaSharedDevPlugin?> rdmaSharedDevPlugin =
-          const SdkOmitted(),
+      SdkOptional<RdmaSharedDevPlugin?> rdmaSharedDevPlugin = const SdkOmitted(),
       SdkOptional<CorednsAutoscaler?> corednsAutoscaler = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesUpdateCluster(_config,
-        clusterId: clusterId,
-        name: name,
-        tags: tags,
-        maintenancePolicy: maintenancePolicy,
-        autoUpgrade: autoUpgrade,
-        surgeUpgrade: surgeUpgrade,
-        ha: ha,
-        gpuOperatorReady: gpuOperatorReady,
-        controlPlaneFirewall: controlPlaneFirewall,
-        clusterAutoscalerConfiguration: clusterAutoscalerConfiguration,
-        sso: sso,
-        routingAgent: routingAgent,
-        p2pOciRegistryPlugin: p2pOciRegistryPlugin,
-        nfsCsiPlugin: nfsCsiPlugin,
-        amdGpuDevicePlugin: amdGpuDevicePlugin,
-        amdGpuDeviceMetricsExporterPlugin: amdGpuDeviceMetricsExporterPlugin,
-        nvidiaGpuDevicePlugin: nvidiaGpuDevicePlugin,
-        nvidiaGpuDraDriver: nvidiaGpuDraDriver,
-        amdGpuDraDriver: amdGpuDraDriver,
-        rdmaSharedDevPlugin: rdmaSharedDevPlugin,
-        corednsAutoscaler: corednsAutoscaler,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesUpdateCluster(_config, clusterId: clusterId, name: name, tags: tags, maintenancePolicy: maintenancePolicy, autoUpgrade: autoUpgrade, surgeUpgrade: surgeUpgrade, ha: ha, gpuOperatorReady: gpuOperatorReady, controlPlaneFirewall: controlPlaneFirewall, clusterAutoscalerConfiguration: clusterAutoscalerConfiguration, sso: sso, routingAgent: routingAgent, p2pOciRegistryPlugin: p2pOciRegistryPlugin, nfsCsiPlugin: nfsCsiPlugin, amdGpuDevicePlugin: amdGpuDevicePlugin, amdGpuDeviceMetricsExporterPlugin: amdGpuDeviceMetricsExporterPlugin, nvidiaGpuDevicePlugin: nvidiaGpuDevicePlugin, nvidiaGpuDraDriver: nvidiaGpuDraDriver, amdGpuDraDriver: amdGpuDraDriver, rdmaSharedDevPlugin: rdmaSharedDevPlugin, corednsAutoscaler: corednsAutoscaler, requestOptions: requestOptions);
   }
 
   /// To delete a Kubernetes cluster and all services deployed to it, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID`. A 204 status code with no body will be returned in response to a successful request.
   Future<void> deleteCluster(
       {required String clusterId, RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesDeleteCluster(_config,
-        clusterId: clusterId, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesDeleteCluster(_config, clusterId: clusterId, requestOptions: requestOptions);
   }
 
   /// To list the associated billable resources that can be destroyed along with a cluster, send a GET request to the `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources` endpoint.
   Future<AssociatedKubernetesResources> listAssociatedResources(
       {required String clusterId, RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesListAssociatedResources(_config,
-        clusterId: clusterId, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesListAssociatedResources(_config, clusterId: clusterId, requestOptions: requestOptions);
   }
 
   /// To delete a Kubernetes cluster along with a subset of its associated resources, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/selective`. The JSON body of the request should include `load_balancers`, `volumes`, or `volume_snapshots` keys each set to an array of IDs for the associated resources to be destroyed. The IDs can be found by querying the cluster's associated resources endpoint. Any associated resource not included in the request will remain and continue to accrue changes on your account.
@@ -5112,22 +3687,13 @@ class KubernetesNamespace {
       SdkOptional<List<String>> volumes = const SdkOmitted(),
       SdkOptional<List<String>> volumeSnapshots = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesDestroyAssociatedResourcesSelective(
-        _config,
-        clusterId: clusterId,
-        loadBalancers: loadBalancers,
-        volumes: volumes,
-        volumeSnapshots: volumeSnapshots,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesDestroyAssociatedResourcesSelective(_config, clusterId: clusterId, loadBalancers: loadBalancers, volumes: volumes, volumeSnapshots: volumeSnapshots, requestOptions: requestOptions);
   }
 
   /// To delete a Kubernetes cluster with all of its associated resources, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/dangerous`. A 204 status code with no body will be returned in response to a successful request.
   Future<void> destroyAssociatedResourcesDangerous(
       {required String clusterId, RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesDestroyAssociatedResourcesDangerous(
-        _config,
-        clusterId: clusterId,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesDestroyAssociatedResourcesDangerous(_config, clusterId: clusterId, requestOptions: requestOptions);
   }
 
   /// This endpoint returns a kubeconfig file in YAML format. It can be used to connect to and administer the cluster using the Kubernetes command line tool, `kubectl`, or other programs supporting kubeconfig files (e.g., client libraries). The resulting kubeconfig file uses token-based authentication for clusters supporting it, and certificate-based authentication otherwise. For a list of supported versions and more information, see "[How to Connect to a DigitalOcean Kubernetes Cluster](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/)". To retrieve a kubeconfig file for use with a Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig`. Clusters supporting token-based authentication may define an expiration by passing a duration in seconds as a query parameter to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig?expiry_seconds=$DURATION_IN_SECONDS`. If not set or 0, then the token will have a 7 day expiry. The query parameter has no impact for other kubeconfig types. Using an `sso` kubeconfig type requires `doctl` to be installed to handle the client side of the OAuth2 flow. Kubernetes Roles granted to a user are derived from that user's DigitalOcean role. Predefined roles (Owner, Member, Modifier etc.) have an automatic mapping to Kubernetes roles. Custom roles are not automatically mapped to any Kubernetes roles, and require [additional configuration](https://docs.digitalocean.com/products/kubernetes/how-to/set-up-custom-rolebindings/) by a cluster administrator.
@@ -5136,11 +3702,7 @@ class KubernetesNamespace {
       SdkOptional<int> expirySeconds = const SdkOmitted(),
       SdkOptional<SchemaSchema7d904fbb> type_ = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesGetKubeconfig(_config,
-        clusterId: clusterId,
-        expirySeconds: expirySeconds,
-        type_: type_,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesGetKubeconfig(_config, clusterId: clusterId, expirySeconds: expirySeconds, type_: type_, requestOptions: requestOptions);
   }
 
   /// This endpoint returns a JSON object . It can be used to programmatically construct Kubernetes clients which cannot parse kubeconfig files. The resulting JSON object contains token-based authentication for clusters supporting it, and certificate-based authentication otherwise. For a list of supported versions and more information, see "[How to Connect to a DigitalOcean Kubernetes Cluster](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/)". To retrieve credentials for accessing a Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/credentials`. Clusters supporting token-based authentication may define an expiration by passing a duration in seconds as a query parameter to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/credentials?expiry_seconds=$DURATION_IN_SECONDS`. If not set or 0, then the token will have a 7 day expiry. The query parameter has no impact in certificate-based authentication.
@@ -5148,17 +3710,13 @@ class KubernetesNamespace {
       {required String clusterId,
       SdkOptional<int> expirySeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesGetCredentials(_config,
-        clusterId: clusterId,
-        expirySeconds: expirySeconds,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesGetCredentials(_config, clusterId: clusterId, expirySeconds: expirySeconds, requestOptions: requestOptions);
   }
 
   /// To determine whether a cluster can be upgraded, and the versions to which it can be upgraded, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrades`.
   Future<AvailableUpgrades> getAvailableUpgrades(
       {required String clusterId, RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesGetAvailableUpgrades(_config,
-        clusterId: clusterId, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesGetAvailableUpgrades(_config, clusterId: clusterId, requestOptions: requestOptions);
   }
 
   /// To immediately upgrade a Kubernetes cluster to a newer patch release of Kubernetes, send a POST request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrade`. The body of the request must specify a version attribute. Available upgrade versions for a cluster can be fetched from `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrades`.
@@ -5166,15 +3724,13 @@ class KubernetesNamespace {
       {required String clusterId,
       SdkOptional<String> version = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesUpgradeCluster(_config,
-        clusterId: clusterId, version: version, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesUpgradeCluster(_config, clusterId: clusterId, version: version, requestOptions: requestOptions);
   }
 
   /// To list all of the node pools in a Kubernetes clusters, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools`.
   Future<AllNodePools> listNodePools(
       {required String clusterId, RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesListNodePools(_config,
-        clusterId: clusterId, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesListNodePools(_config, clusterId: clusterId, requestOptions: requestOptions);
   }
 
   /// To add an additional node pool to a Kubernetes clusters, send a POST request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools` with the following attributes.
@@ -5182,8 +3738,7 @@ class KubernetesNamespace {
       {required String clusterId,
       required KubernetesNodePoolRequest body,
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesAddNodePool(_config,
-        clusterId: clusterId, body: body, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesAddNodePool(_config, clusterId: clusterId, body: body, requestOptions: requestOptions);
   }
 
   /// To show information about a specific node pool in a Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID`.
@@ -5191,10 +3746,7 @@ class KubernetesNamespace {
       {required String clusterId,
       required String nodePoolId,
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesGetNodePool(_config,
-        clusterId: clusterId,
-        nodePoolId: nodePoolId,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesGetNodePool(_config, clusterId: clusterId, nodePoolId: nodePoolId, requestOptions: requestOptions);
   }
 
   /// To update the name of a node pool, edit the tags applied to it, or adjust its number of nodes, send a PUT request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID` with the following attributes.
@@ -5210,18 +3762,7 @@ class KubernetesNamespace {
       SdkOptional<int> minNodes = const SdkOmitted(),
       SdkOptional<int> maxNodes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesUpdateNodePool(_config,
-        clusterId: clusterId,
-        nodePoolId: nodePoolId,
-        name: name,
-        count: count,
-        tags: tags,
-        labels: labels,
-        taints: taints,
-        autoScale: autoScale,
-        minNodes: minNodes,
-        maxNodes: maxNodes,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesUpdateNodePool(_config, clusterId: clusterId, nodePoolId: nodePoolId, name: name, count: count, tags: tags, labels: labels, taints: taints, autoScale: autoScale, minNodes: minNodes, maxNodes: maxNodes, requestOptions: requestOptions);
   }
 
   /// To delete a node pool, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID`. A 204 status code with no body will be returned in response to a successful request. Nodes in the pool will subsequently be drained and deleted.
@@ -5229,10 +3770,7 @@ class KubernetesNamespace {
       {required String clusterId,
       required String nodePoolId,
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesDeleteNodePool(_config,
-        clusterId: clusterId,
-        nodePoolId: nodePoolId,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesDeleteNodePool(_config, clusterId: clusterId, nodePoolId: nodePoolId, requestOptions: requestOptions);
   }
 
   /// To delete a single node in a pool, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID/nodes/$NODE_ID`. Appending the `skip_drain=1` query parameter to the request causes node draining to be skipped. Omitting the query parameter or setting its value to `0` carries out draining prior to deletion. Appending the `replace=1` query parameter to the request causes the node to be replaced by a new one after deletion. Omitting the query parameter or setting its value to `0` deletes without replacement.
@@ -5243,13 +3781,7 @@ class KubernetesNamespace {
       SdkOptional<int> skipDrain = const SdkOmitted(),
       SdkOptional<int> replace = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesDeleteNode(_config,
-        clusterId: clusterId,
-        nodePoolId: nodePoolId,
-        nodeId: nodeId,
-        skipDrain: skipDrain,
-        replace: replace,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesDeleteNode(_config, clusterId: clusterId, nodePoolId: nodePoolId, nodeId: nodeId, skipDrain: skipDrain, replace: replace, requestOptions: requestOptions);
   }
 
   /// Submits a request to recycle nodes in a Kubernetes node pool. This operation is closing down and will be removed on an unspecified date; use DELETE /v2/kubernetes/clusters/{cluster_id}/node_pools/{node_pool_id}/nodes/{node_id} to remove an individual node instead.
@@ -5262,25 +3794,19 @@ class KubernetesNamespace {
       required String nodePoolId,
       SdkOptional<List<String>> nodes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesRecycleNodePool(_config,
-        clusterId: clusterId,
-        nodePoolId: nodePoolId,
-        nodes: nodes,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesRecycleNodePool(_config, clusterId: clusterId, nodePoolId: nodePoolId, nodes: nodes, requestOptions: requestOptions);
   }
 
   /// To show information the user associated with a Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/user`.
   Future<User2> getClusterUser(
       {required String clusterId, RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesGetClusterUser(_config,
-        clusterId: clusterId, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesGetClusterUser(_config, clusterId: clusterId, requestOptions: requestOptions);
   }
 
   /// To list the versions of Kubernetes available for use, the regions that support Kubernetes, and the available node sizes, send a GET request to `/v2/kubernetes/options`.
   Future<KubernetesOptions> listOptions(
       {RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesListOptions(_config,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesListOptions(_config, requestOptions: requestOptions);
   }
 
   /// Clusterlint helps operators conform to Kubernetes best practices around resources, security and reliability to avoid common problems while operating or upgrading the clusters. To request a clusterlint run on your cluster, send a POST request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/clusterlint`. This will run all checks present in the `doks` group by default, if a request body is not specified. Optionally specify the below attributes. For information about the available checks, please refer to [the clusterlint check documentation](https://github.com/digitalocean/clusterlint/blob/master/checks.md).
@@ -5291,13 +3817,7 @@ class KubernetesNamespace {
       SdkOptional<List<String>> excludeGroups = const SdkOmitted(),
       SdkOptional<List<String>> excludeChecks = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesRunClusterLint(_config,
-        clusterId: clusterId,
-        includeGroups: includeGroups,
-        includeChecks: includeChecks,
-        excludeGroups: excludeGroups,
-        excludeChecks: excludeChecks,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesRunClusterLint(_config, clusterId: clusterId, includeGroups: includeGroups, includeChecks: includeChecks, excludeGroups: excludeGroups, excludeChecks: excludeChecks, requestOptions: requestOptions);
   }
 
   /// To request clusterlint diagnostics for your cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/clusterlint`. If the `run_id` query parameter is provided, then the diagnostics for the specific run is fetched. By default, the latest results are shown. To find out how to address clusterlint feedback, please refer to [the clusterlint check documentation](https://github.com/digitalocean/clusterlint/blob/master/checks.md).
@@ -5305,24 +3825,21 @@ class KubernetesNamespace {
       {required String clusterId,
       SdkOptional<String> runId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesGetClusterLintResults(_config,
-        clusterId: clusterId, runId: runId, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesGetClusterLintResults(_config, clusterId: clusterId, runId: runId, requestOptions: requestOptions);
   }
 
   /// To integrate the container registry with Kubernetes clusters, send a POST request to `/v2/kubernetes/registry`.
   Future<void> addRegistry(
       {SdkOptional<List<String>> clusterUuids = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesAddRegistry(_config,
-        clusterUuids: clusterUuids, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesAddRegistry(_config, clusterUuids: clusterUuids, requestOptions: requestOptions);
   }
 
   /// To remove the container registry from Kubernetes clusters, send a DELETE request to `/v2/kubernetes/registry`.
   Future<void> removeRegistry(
       {SdkOptional<List<String>> clusterUuids = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesRemoveRegistry(_config,
-        clusterUuids: clusterUuids, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesRemoveRegistry(_config, clusterUuids: clusterUuids, requestOptions: requestOptions);
   }
 
   /// To integrate the container registries with Kubernetes clusters, send a POST request to `/v2/kubernetes/registries`.
@@ -5330,10 +3847,7 @@ class KubernetesNamespace {
       {SdkOptional<List<String>> clusterUuids = const SdkOmitted(),
       SdkOptional<List<String>> registries = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesAddRegistries(_config,
-        clusterUuids: clusterUuids,
-        registries: registries,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesAddRegistries(_config, clusterUuids: clusterUuids, registries: registries, requestOptions: requestOptions);
   }
 
   /// To remove the container registries from Kubernetes clusters, send a DELETE request to `/v2/kubernetes/registries`.
@@ -5341,10 +3855,7 @@ class KubernetesNamespace {
       {SdkOptional<List<String>> clusterUuids = const SdkOmitted(),
       SdkOptional<List<String>> registries = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesRemoveRegistries(_config,
-        clusterUuids: clusterUuids,
-        registries: registries,
-        requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesRemoveRegistries(_config, clusterUuids: clusterUuids, registries: registries, requestOptions: requestOptions);
   }
 
   /// To retrieve status messages for a Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/status_messages`. Status messages inform users of any issues that come up during the cluster lifecycle.
@@ -5352,23 +3863,21 @@ class KubernetesNamespace {
       {required String clusterId,
       SdkOptional<String> since = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return kubernetes_methods.kubernetesGetStatusMessages(_config,
-        clusterId: clusterId, since: since, requestOptions: requestOptions);
+    return kubernetes_methods.kubernetesGetStatusMessages(_config, clusterId: clusterId, since: since, requestOptions: requestOptions);
   }
+
 }
 
 class LoadBalancersNamespace {
   final ClientConfig _config;
   LoadBalancersNamespace(ClientConfig config) : _config = config;
-
   /// Creates a load balancer in the specified region and assigns Droplets to it. Provide either `droplet_ids` to select Droplets individually or `tag` to select Droplets by tag; these methods are mutually exclusive. A 202 response confirms acceptance and returns the load balancer object.
   ///
   /// To create a new load balancer instance, send a POST request to `/v2/load_balancers`. You can specify the Droplets that will sit behind the load balancer using one of two methods: * Set `droplet_ids` to a list of specific Droplet IDs. * Set `tag` to the name of a tag. All Droplets with this tag applied will be assigned to the load balancer. Additional Droplets will be automatically assigned as they are tagged. These methods are mutually exclusive.
   Future<LoadBalancerCreateResponse> create(
       {required LoadBalancerCreateRequest body,
       RequestOptions? requestOptions}) async {
-    return load_balancers_methods.loadBalancersCreate(_config,
-        body: body, requestOptions: requestOptions);
+    return load_balancers_methods.loadBalancersCreate(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To list all of the load balancer instances on your account, send a GET request to `/v2/load_balancers`.
@@ -5376,15 +3885,13 @@ class LoadBalancersNamespace {
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return load_balancers_methods.loadBalancersList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return load_balancers_methods.loadBalancersList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To show information about a load balancer instance, send a GET request to `/v2/load_balancers/$LOAD_BALANCER_ID`.
   Future<ExistingLoadBalancer> get_(
       {required String lbId, RequestOptions? requestOptions}) async {
-    return load_balancers_methods.loadBalancersGet(_config,
-        lbId: lbId, requestOptions: requestOptions);
+    return load_balancers_methods.loadBalancersGet(_config, lbId: lbId, requestOptions: requestOptions);
   }
 
   /// Replaces the settings for a load balancer. Send a full representation, including existing attributes you want to retain; any omitted attribute is reset to its default value. Choose either `droplet_ids` or `tag` to assign Droplets, and include `region` and `forwarding_rules`.
@@ -5394,22 +3901,19 @@ class LoadBalancersNamespace {
       {required String lbId,
       required LoadBalancerUpdateRequest body,
       RequestOptions? requestOptions}) async {
-    return load_balancers_methods.loadBalancersUpdate(_config,
-        lbId: lbId, body: body, requestOptions: requestOptions);
+    return load_balancers_methods.loadBalancersUpdate(_config, lbId: lbId, body: body, requestOptions: requestOptions);
   }
 
   /// To delete a load balancer instance, disassociating any Droplets assigned to it and removing it from your account, send a DELETE request to `/v2/load_balancers/$LOAD_BALANCER_ID`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
   Future<void> delete(
       {required String lbId, RequestOptions? requestOptions}) async {
-    return load_balancers_methods.loadBalancersDelete(_config,
-        lbId: lbId, requestOptions: requestOptions);
+    return load_balancers_methods.loadBalancersDelete(_config, lbId: lbId, requestOptions: requestOptions);
   }
 
   /// To delete a Global load balancer CDN cache, send a DELETE request to `/v2/load_balancers/$LOAD_BALANCER_ID/cache`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
   Future<void> deleteCache(
       {required String lbId, RequestOptions? requestOptions}) async {
-    return load_balancers_methods.loadBalancersDeleteCache(_config,
-        lbId: lbId, requestOptions: requestOptions);
+    return load_balancers_methods.loadBalancersDeleteCache(_config, lbId: lbId, requestOptions: requestOptions);
   }
 
   /// To assign a Droplet to a load balancer instance, send a POST request to `/v2/load_balancers/$LOAD_BALANCER_ID/droplets`. In the body of the request, there should be a `droplet_ids` attribute containing a list of Droplet IDs. Individual Droplets can not be added to a load balancer configured with a Droplet tag. Attempting to do so will result in a "422 Unprocessable Entity" response from the API. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
@@ -5417,8 +3921,7 @@ class LoadBalancersNamespace {
       {required String lbId,
       required LoadBalancersAddDropletsRequestBody body,
       RequestOptions? requestOptions}) async {
-    return load_balancers_methods.loadBalancersAddDroplets(_config,
-        lbId: lbId, body: body, requestOptions: requestOptions);
+    return load_balancers_methods.loadBalancersAddDroplets(_config, lbId: lbId, body: body, requestOptions: requestOptions);
   }
 
   /// To remove a Droplet from a load balancer instance, send a DELETE request to `/v2/load_balancers/$LOAD_BALANCER_ID/droplets`. In the body of the request, there should be a `droplet_ids` attribute containing a list of Droplet IDs. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
@@ -5426,8 +3929,7 @@ class LoadBalancersNamespace {
       {required String lbId,
       required LoadBalancersRemoveDropletsRequestBody body,
       RequestOptions? requestOptions}) async {
-    return load_balancers_methods.loadBalancersRemoveDroplets(_config,
-        lbId: lbId, body: body, requestOptions: requestOptions);
+    return load_balancers_methods.loadBalancersRemoveDroplets(_config, lbId: lbId, body: body, requestOptions: requestOptions);
   }
 
   /// Adds one or more forwarding rules to a load balancer. Provide at least one rule in `forwarding_rules`, with the required entry and target protocols and ports. A 204 response confirms the rules were added and returns no body.
@@ -5437,10 +3939,7 @@ class LoadBalancersNamespace {
       {required String lbId,
       required List<ForwardingRule> forwardingRules,
       RequestOptions? requestOptions}) async {
-    return load_balancers_methods.loadBalancersAddForwardingRules(_config,
-        lbId: lbId,
-        forwardingRules: forwardingRules,
-        requestOptions: requestOptions);
+    return load_balancers_methods.loadBalancersAddForwardingRules(_config, lbId: lbId, forwardingRules: forwardingRules, requestOptions: requestOptions);
   }
 
   /// Removes one or more forwarding rules from a load balancer. Provide at least one rule in `forwarding_rules`, including each rule's entry and target protocols and ports. A 204 response confirms the rules were removed and returns no body.
@@ -5450,17 +3949,14 @@ class LoadBalancersNamespace {
       {required String lbId,
       required List<ForwardingRule> forwardingRules,
       RequestOptions? requestOptions}) async {
-    return load_balancers_methods.loadBalancersRemoveForwardingRules(_config,
-        lbId: lbId,
-        forwardingRules: forwardingRules,
-        requestOptions: requestOptions);
+    return load_balancers_methods.loadBalancersRemoveForwardingRules(_config, lbId: lbId, forwardingRules: forwardingRules, requestOptions: requestOptions);
   }
+
 }
 
 class MicroVmsPublicPreviewNamespace {
   final ClientConfig _config;
   MicroVmsPublicPreviewNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the MicroVMs on your team, send a GET request to `/v2/microvms`. The `region`, `name`, and `tag_name` filters combine with AND.
   Future<AllMicrovms> microvmsList(
       {SdkOptional<int> page = const SdkOmitted(),
@@ -5469,13 +3965,7 @@ class MicroVmsPublicPreviewNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> tagName = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmsList(_config,
-        page: page,
-        perPage: perPage,
-        region: region,
-        name: name,
-        tagName: tagName,
-        requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmsList(_config, page: page, perPage: perPage, region: region, name: name, tagName: tagName, requestOptions: requestOptions);
   }
 
   /// To create a MicroVM, send a POST request to `/v2/microvms`. `name` and `source` are required. Set `source.oci_ref` to create the MicroVM from a `linux/amd64` container image, or `source.checkpoint_id` to create it from a checkpoint. With `oci_ref`, `region` and `size` are also required. A MicroVM created from an image is returned with `state` set to `creating`. Poll `GET /v2/microvms/{microvm_id}` until `state` is `running`. A MicroVM created from a checkpoint is usually returned already `running`. All settings are fixed at creation. There is no update endpoint.
@@ -5484,40 +3974,23 @@ class MicroVmsPublicPreviewNamespace {
       required MicrovmSource source,
       SdkOptional<String> region = const SdkOmitted(),
       SdkOptional<MicrovmSizeRequest> size = const SdkOmitted(),
-      SdkOptional<MicrovmCreateRequestNetworking> networking =
-          const SdkOmitted(),
+      SdkOptional<MicrovmCreateRequestNetworking> networking = const SdkOmitted(),
       SdkOptional<String> vpcUuid = const SdkOmitted(),
       SdkOptional<MicrovmAutoPause> autoPause = const SdkOmitted(),
       SdkOptional<bool> autoResume = const SdkOmitted(),
       SdkOptional<int> httpPort = const SdkOmitted(),
-      SdkOptional<MicrovmCreateRequestHttpProtocol> httpProtocol =
-          const SdkOmitted(),
+      SdkOptional<MicrovmCreateRequestHttpProtocol> httpProtocol = const SdkOmitted(),
       SdkOptional<List<int>> ports = const SdkOmitted(),
       SdkOptional<Map<String, String>> environment = const SdkOmitted(),
       SdkOptional<List<String>> tags = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmsCreate(_config,
-        name: name,
-        source: source,
-        region: region,
-        size: size,
-        networking: networking,
-        vpcUuid: vpcUuid,
-        autoPause: autoPause,
-        autoResume: autoResume,
-        httpPort: httpPort,
-        httpProtocol: httpProtocol,
-        ports: ports,
-        environment: environment,
-        tags: tags,
-        requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmsCreate(_config, name: name, source: source, region: region, size: size, networking: networking, vpcUuid: vpcUuid, autoPause: autoPause, autoResume: autoResume, httpPort: httpPort, httpProtocol: httpProtocol, ports: ports, environment: environment, tags: tags, requestOptions: requestOptions);
   }
 
   /// To list the default region, sizes, prices, account limits, and features available to your team, send a GET request to `/v2/microvms/options`.
   Future<MicrovmOptions> microvmsGetOptions(
       {RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmsGetOptions(_config,
-        requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmsGetOptions(_config, requestOptions: requestOptions);
   }
 
   /// To list your team's checkpoints, newest first, send a GET request to `/v2/microvms/checkpoints`. To list one MicroVM's checkpoints, add the `microvm_id` query parameter.
@@ -5526,53 +3999,43 @@ class MicroVmsPublicPreviewNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<String> microvmId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmCheckpointsList(_config,
-        page: page,
-        perPage: perPage,
-        microvmId: microvmId,
-        requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmCheckpointsList(_config, page: page, perPage: perPage, microvmId: microvmId, requestOptions: requestOptions);
   }
 
   /// To show information about a checkpoint, send a GET request to `/v2/microvms/checkpoints/{checkpoint_id}`.
   Future<CheckpointResponse> microvmCheckpointsGet(
       {required String checkpointId, RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmCheckpointsGet(_config,
-        checkpointId: checkpointId, requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmCheckpointsGet(_config, checkpointId: checkpointId, requestOptions: requestOptions);
   }
 
   /// To delete a checkpoint, send a DELETE request to `/v2/microvms/checkpoints/{checkpoint_id}`. You can no longer create MicroVMs from a deleted checkpoint. The request returns HTTP 400 while the checkpoint is still being captured. A successful request returns a `204 No Content` status code.
   Future<void> microvmCheckpointsDelete(
       {required String checkpointId, RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmCheckpointsDelete(_config,
-        checkpointId: checkpointId, requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmCheckpointsDelete(_config, checkpointId: checkpointId, requestOptions: requestOptions);
   }
 
   /// To show information about a MicroVM, send a GET request to `/v2/microvms/{microvm_id}`. The endpoint is in the `urls` entry with `default` set to `true`. Its `hostname` is empty and its `status` is `PENDING` until provisioning finishes.
   Future<MicrovmResponse> microvmsGet(
       {required String microvmId, RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmsGet(_config,
-        microvmId: microvmId, requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmsGet(_config, microvmId: microvmId, requestOptions: requestOptions);
   }
 
   /// To delete a MicroVM and the data on its disk, send a DELETE request to `/v2/microvms/{microvm_id}`. The MicroVM's checkpoints are not deleted. A successful request returns a `204 No Content` status code.
   Future<void> microvmsDelete(
       {required String microvmId, RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmsDelete(_config,
-        microvmId: microvmId, requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmsDelete(_config, microvmId: microvmId, requestOptions: requestOptions);
   }
 
   /// To pause a MicroVM, send a POST request to `/v2/microvms/{microvm_id}/pause`. Pausing suspends the MicroVM's processes and preserves its memory, files, and processes. A paused MicroVM incurs storage charges only. The request returns when the change completes. Pausing a MicroVM that is already paused succeeds. The request returns HTTP 400 when the MicroVM is `creating`, `terminated`, or `failed`.
   Future<MicrovmResponse> microvmsPostPause(
       {required String microvmId, RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmsPostPause(_config,
-        microvmId: microvmId, requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmsPostPause(_config, microvmId: microvmId, requestOptions: requestOptions);
   }
 
   /// To resume a paused MicroVM, send a POST request to `/v2/microvms/{microvm_id}/resume`. The request returns when the change completes. Resuming a MicroVM that is already running succeeds. The request returns HTTP 400 when the MicroVM is `creating`, `terminated`, or `failed`.
   Future<MicrovmResponse> microvmsPostResume(
       {required String microvmId, RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmsPostResume(_config,
-        microvmId: microvmId, requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmsPostResume(_config, microvmId: microvmId, requestOptions: requestOptions);
   }
 
   /// To run a command in a MicroVM's workload container, send a POST request to `/v2/microvms/{microvm_id}/exec`. `argv` runs directly, not through a shell, with standard input closed. If the MicroVM is paused and auto-resume is on, the request resumes it and waits until it is running. A command has 60 seconds to finish. Your team can run 32 commands at once and 60 commands per minute. Rejected requests count toward the per-minute limit.
@@ -5581,11 +4044,7 @@ class MicroVmsPublicPreviewNamespace {
       required List<String> argv,
       SdkOptional<String> cwd = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmsRunCommand(_config,
-        microvmId: microvmId,
-        argv: argv,
-        cwd: cwd,
-        requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmsRunCommand(_config, microvmId: microvmId, argv: argv, cwd: cwd, requestOptions: requestOptions);
   }
 
   /// To open an interactive `/bin/sh` console in a MicroVM's workload container, open a WebSocket connection to `wss://api.digitalocean.com/v2/microvms/{microvm_id}/console`. Send the API token in the `Authorization` header of the handshake. Browsers cannot set this header, so you cannot open the console from browser JavaScript. The image must include `/bin/sh`. A MicroVM can have four consoles open at a time. If the MicroVM is paused and auto-resume is on, opening a console resumes it.
@@ -5594,11 +4053,7 @@ class MicroVmsPublicPreviewNamespace {
       SdkOptional<int> rows = const SdkOmitted(),
       SdkOptional<int> cols = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmsGetConsole(_config,
-        microvmId: microvmId,
-        rows: rows,
-        cols: cols,
-        requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmsGetConsole(_config, microvmId: microvmId, rows: rows, cols: cols, requestOptions: requestOptions);
   }
 
   /// To create a checkpoint of a running or paused MicroVM, send a POST request to `/v2/microvms/{microvm_id}/checkpoints`. The capture runs in the background and does not change the MicroVM's state. Poll `GET /v2/microvms/checkpoints/{checkpoint_id}` until `status` is `CHECKPOINT_AVAILABLE`.
@@ -5606,22 +4061,20 @@ class MicroVmsPublicPreviewNamespace {
       {required String microvmId,
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return micro_vms_public_preview_methods.microvmCheckpointsCreate(_config,
-        microvmId: microvmId, name: name, requestOptions: requestOptions);
+    return micro_vms_public_preview_methods.microvmCheckpointsCreate(_config, microvmId: microvmId, name: name, requestOptions: requestOptions);
   }
+
 }
 
 class MonitoringNamespace {
   final ClientConfig _config;
   MonitoringNamespace(ClientConfig config) : _config = config;
-
   /// Returns all alert policies that are configured for the given account. To List all alert policies, send a GET request to `/v2/monitoring/alerts`.
   Future<MonitoringListAlertPolicyResponse> listAlertPolicy(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringListAlertPolicy(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return monitoring_methods.monitoringListAlertPolicy(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// Creates an alert policy that monitors a selected metric for droplets, load balancers, databases, or autoscale pools. Set `type`, `entities`, and `tags` to define what the policy monitors; when both `entities` and `tags` are empty, it applies to all entities of the selected type in the account. A 200 response returns the alert policy, including its generated UUID.
@@ -5638,24 +4091,13 @@ class MonitoringNamespace {
       required double value_,
       required AlertPolicyRequestWindow window,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringCreateAlertPolicy(_config,
-        alerts: alerts,
-        compare: compare,
-        description: description,
-        enabled: enabled,
-        entities: entities,
-        tags: tags,
-        type_: type_,
-        value_: value_,
-        window: window,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringCreateAlertPolicy(_config, alerts: alerts, compare: compare, description: description, enabled: enabled, entities: entities, tags: tags, type_: type_, value_: value_, window: window, requestOptions: requestOptions);
   }
 
   /// To retrieve a given alert policy, send a GET request to `/v2/monitoring/alerts/{alert_uuid}`
   Future<AlertPolicyResponse> getAlertPolicy(
       {required String alertUuid, RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetAlertPolicy(_config,
-        alertUuid: alertUuid, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetAlertPolicy(_config, alertUuid: alertUuid, requestOptions: requestOptions);
   }
 
   /// Replaces the configuration of an existing alert policy identified by its UUID. Provide the complete policy configuration, including its metric type, threshold, evaluation window, monitored entities, tags, notifications, and enabled state. A 200 response returns the updated alert policy.
@@ -5673,25 +4115,13 @@ class MonitoringNamespace {
       required double value_,
       required AlertPolicyRequestWindow window,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringUpdateAlertPolicy(_config,
-        alertUuid: alertUuid,
-        alerts: alerts,
-        compare: compare,
-        description: description,
-        enabled: enabled,
-        entities: entities,
-        tags: tags,
-        type_: type_,
-        value_: value_,
-        window: window,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringUpdateAlertPolicy(_config, alertUuid: alertUuid, alerts: alerts, compare: compare, description: description, enabled: enabled, entities: entities, tags: tags, type_: type_, value_: value_, window: window, requestOptions: requestOptions);
   }
 
   /// To delete an alert policy, send a DELETE request to `/v2/monitoring/alerts/{alert_uuid}`
   Future<void> deleteAlertPolicy(
       {required String alertUuid, RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringDeleteAlertPolicy(_config,
-        alertUuid: alertUuid, requestOptions: requestOptions);
+    return monitoring_methods.monitoringDeleteAlertPolicy(_config, alertUuid: alertUuid, requestOptions: requestOptions);
   }
 
   /// To retrieve bandwidth metrics for a given Droplet, send a GET request to `/v2/monitoring/metrics/droplet/bandwidth`. Use the `interface` query parameter to specify if the results should be for the `private` or `public` interface. Use the `direction` query parameter to specify if the results should be for `inbound` or `outbound` traffic. The metrics in the response body are in megabits per second (Mbps).
@@ -5702,13 +4132,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletBandwidthMetrics(_config,
-        hostId: hostId,
-        interface_: interface_,
-        direction: direction,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletBandwidthMetrics(_config, hostId: hostId, interface_: interface_, direction: direction, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve CPU metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/cpu`.
@@ -5717,8 +4141,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletCpuMetrics(_config,
-        hostId: hostId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletCpuMetrics(_config, hostId: hostId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve filesystem free metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/filesystem_free`.
@@ -5727,8 +4150,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletFilesystemFreeMetrics(_config,
-        hostId: hostId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletFilesystemFreeMetrics(_config, hostId: hostId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve filesystem size metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/filesystem_size`.
@@ -5737,8 +4159,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletFilesystemSizeMetrics(_config,
-        hostId: hostId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletFilesystemSizeMetrics(_config, hostId: hostId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve 1 minute load average metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/load_1`.
@@ -5747,8 +4168,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletLoad1Metrics(_config,
-        hostId: hostId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletLoad1Metrics(_config, hostId: hostId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve 5 minute load average metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/load_5`.
@@ -5757,8 +4177,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletLoad5Metrics(_config,
-        hostId: hostId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletLoad5Metrics(_config, hostId: hostId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve 15 minute load average metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/load_15`.
@@ -5767,8 +4186,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletLoad15Metrics(_config,
-        hostId: hostId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletLoad15Metrics(_config, hostId: hostId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve cached memory metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/memory_cached`.
@@ -5777,8 +4195,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletMemoryCachedMetrics(_config,
-        hostId: hostId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletMemoryCachedMetrics(_config, hostId: hostId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve free memory metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/memory_free`.
@@ -5787,8 +4204,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletMemoryFreeMetrics(_config,
-        hostId: hostId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletMemoryFreeMetrics(_config, hostId: hostId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve total memory metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/memory_total`.
@@ -5797,8 +4213,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletMemoryTotalMetrics(_config,
-        hostId: hostId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletMemoryTotalMetrics(_config, hostId: hostId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve available memory metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/memory_available`.
@@ -5807,12 +4222,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletMemoryAvailableMetrics(
-        _config,
-        hostId: hostId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletMemoryAvailableMetrics(_config, hostId: hostId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve memory percentage metrics for a given app, send a GET request to `/v2/monitoring/metrics/apps/memory_percentage`.
@@ -5822,12 +4232,7 @@ class MonitoringNamespace {
       required String end,
       SdkOptional<String> appComponent = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetAppMemoryPercentageMetrics(_config,
-        appId: appId,
-        start: start,
-        end: end,
-        appComponent: appComponent,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetAppMemoryPercentageMetrics(_config, appId: appId, start: start, end: end, appComponent: appComponent, requestOptions: requestOptions);
   }
 
   /// To retrieve cpu percentage metrics for a given app, send a GET request to `/v2/monitoring/metrics/apps/cpu_percentage`.
@@ -5837,12 +4242,7 @@ class MonitoringNamespace {
       required String end,
       SdkOptional<String> appComponent = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetAppCpuPercentageMetrics(_config,
-        appId: appId,
-        start: start,
-        end: end,
-        appComponent: appComponent,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetAppCpuPercentageMetrics(_config, appId: appId, start: start, end: end, appComponent: appComponent, requestOptions: requestOptions);
   }
 
   /// To retrieve restart count metrics for a given app, send a GET request to `/v2/monitoring/metrics/apps/restart_count`.
@@ -5852,12 +4252,7 @@ class MonitoringNamespace {
       required String end,
       SdkOptional<String> appComponent = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetAppRestartCountMetricsYml(_config,
-        appId: appId,
-        start: start,
-        end: end,
-        appComponent: appComponent,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetAppRestartCountMetricsYml(_config, appId: appId, start: start, end: end, appComponent: appComponent, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend total current active connections for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_connections_current`.
@@ -5866,8 +4261,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendConnectionsCurrent(_config,
-        lbId: lbId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendConnectionsCurrent(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend max connections limit for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_connections_limit`.
@@ -5876,8 +4270,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendConnectionsLimit(_config,
-        lbId: lbId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendConnectionsLimit(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend average percentage CPU utilization for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_cpu_utilization`.
@@ -5886,8 +4279,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendCpuUtilization(_config,
-        lbId: lbId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendCpuUtilization(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve firewall dropped bytes for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_firewall_dropped_bytes`. This is currently only supported for network load balancers.
@@ -5896,12 +4288,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendFirewallDroppedBytes(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendFirewallDroppedBytes(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve firewall dropped packets per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_firewall_dropped_packets`. This is currently only supported for network load balancers.
@@ -5910,12 +4297,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendFirewallDroppedPackets(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendFirewallDroppedPackets(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend HTTP rate of response code for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_http_responses`.
@@ -5924,8 +4306,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendHttpResponses(_config,
-        lbId: lbId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendHttpResponses(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend HTTP requests per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_http_requests_per_second`.
@@ -5934,12 +4315,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendHttpRequestsPerSecond(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendHttpRequestsPerSecond(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend HTTP throughput in bytes per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_network_throughput_http`.
@@ -5948,12 +4324,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendNetworkThroughputHttp(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendNetworkThroughputHttp(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend UDP throughput in bytes per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_network_throughput_udp`.
@@ -5962,12 +4333,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendNetworkThroughputUdp(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendNetworkThroughputUdp(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend TCP throughput in bytes per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_network_throughput_tcp`.
@@ -5976,12 +4342,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendNetworkThroughputTcp(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendNetworkThroughputTcp(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend TCP throughput in bytes per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_nlb_tcp_network_throughput`.
@@ -5990,12 +4351,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendNlbTcpNetworkThroughput(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendNlbTcpNetworkThroughput(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend UDP throughput in bytes per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_nlb_udp_network_throughput`.
@@ -6004,12 +4360,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendNlbUdpNetworkThroughput(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendNlbUdpNetworkThroughput(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend current TLS connections rate for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_tls_connections_current`.
@@ -6018,12 +4369,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendTlsConnectionsCurrent(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendTlsConnectionsCurrent(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend max TLS connections limit for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_tls_connections_limit`.
@@ -6032,12 +4378,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbFrontendTlsConnectionsLimit(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendTlsConnectionsLimit(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve frontend closed TLS connections for exceeded rate limit for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_tls_connections_exceeding_rate_limit`.
@@ -6046,9 +4387,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods
-        .monitoringGetLbFrontendTlsConnectionsExceedingRateLimit(_config,
-            lbId: lbId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbFrontendTlsConnectionsExceedingRateLimit(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve Droplets average HTTP session duration in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_session_duration_avg`.
@@ -6057,12 +4396,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbDropletsHttpSessionDurationAvg(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbDropletsHttpSessionDurationAvg(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve Droplets 50th percentile HTTP session duration in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_session_duration_50p`.
@@ -6071,12 +4405,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbDropletsHttpSessionDuration50p(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbDropletsHttpSessionDuration50p(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve Droplets 95th percentile HTTP session duration in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_session_duration_95p`.
@@ -6085,12 +4414,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbDropletsHttpSessionDuration95p(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbDropletsHttpSessionDuration95p(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve Droplets average HTTP response time in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_response_time_avg`.
@@ -6099,12 +4423,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbDropletsHttpResponseTimeAvg(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbDropletsHttpResponseTimeAvg(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve Droplets 50th percentile HTTP response time in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_response_time_50p`.
@@ -6113,12 +4432,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbDropletsHttpResponseTime50p(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbDropletsHttpResponseTime50p(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve Droplets 95th percentile HTTP response time in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_response_time_95p`.
@@ -6127,12 +4441,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbDropletsHttpResponseTime95p(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbDropletsHttpResponseTime95p(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve Droplets 99th percentile HTTP response time in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_response_time_99p`.
@@ -6141,12 +4450,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbDropletsHttpResponseTime99p(
-        _config,
-        lbId: lbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbDropletsHttpResponseTime99p(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve Droplets queue size for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_queue_size`.
@@ -6155,8 +4459,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbDropletsQueueSize(_config,
-        lbId: lbId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbDropletsQueueSize(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve Droplets HTTP rate of response code for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_responses`.
@@ -6165,8 +4468,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbDropletsHttpResponses(_config,
-        lbId: lbId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbDropletsHttpResponses(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve Droplets active connections for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_connections`.
@@ -6175,8 +4477,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbDropletsConnections(_config,
-        lbId: lbId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbDropletsConnections(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve Droplets health check status for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_health_checks`.
@@ -6185,8 +4486,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbDropletsHealthChecks(_config,
-        lbId: lbId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbDropletsHealthChecks(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve Droplets downtime status for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_downtime`.
@@ -6195,8 +4495,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetLbDropletsDowntime(_config,
-        lbId: lbId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetLbDropletsDowntime(_config, lbId: lbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve the current size for a given Droplet Autoscale Pool, send a GET request to `/v2/monitoring/metrics/droplet_autoscale/current_instances`.
@@ -6205,12 +4504,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletAutoscaleCurrentInstances(
-        _config,
-        autoscalePoolId: autoscalePoolId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletAutoscaleCurrentInstances(_config, autoscalePoolId: autoscalePoolId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve the target size for a given Droplet Autoscale Pool, send a GET request to `/v2/monitoring/metrics/droplet_autoscale/target_instances`.
@@ -6219,12 +4513,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletAutoscaleTargetInstances(
-        _config,
-        autoscalePoolId: autoscalePoolId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletAutoscaleTargetInstances(_config, autoscalePoolId: autoscalePoolId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve the current average CPU utilization for a given Droplet Autoscale Pool, send a GET request to `/v2/monitoring/metrics/droplet_autoscale/current_cpu_utilization`.
@@ -6233,12 +4522,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods
-        .monitoringGetDropletAutoscaleCurrentCpuUtilizationYml(_config,
-            autoscalePoolId: autoscalePoolId,
-            start: start,
-            end: end,
-            requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletAutoscaleCurrentCpuUtilizationYml(_config, autoscalePoolId: autoscalePoolId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve the target average CPU utilization for a given Droplet Autoscale Pool, send a GET request to `/v2/monitoring/metrics/droplet_autoscale/target_cpu_utilization`.
@@ -6247,12 +4531,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDropletAutoscaleTargetCpuUtilization(
-        _config,
-        autoscalePoolId: autoscalePoolId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletAutoscaleTargetCpuUtilization(_config, autoscalePoolId: autoscalePoolId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve the current average memory utilization for a given Droplet Autoscale Pool, send a GET request to `/v2/monitoring/metrics/droplet_autoscale/current_memory_utilization`.
@@ -6261,12 +4540,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods
-        .monitoringGetDropletAutoscaleCurrentMemoryUtilization(_config,
-            autoscalePoolId: autoscalePoolId,
-            start: start,
-            end: end,
-            requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletAutoscaleCurrentMemoryUtilization(_config, autoscalePoolId: autoscalePoolId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// To retrieve the target average memory utilization for a given Droplet Autoscale Pool, send a GET request to `/v2/monitoring/metrics/droplet_autoscale/target_memory_utilization`.
@@ -6275,12 +4549,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods
-        .monitoringGetDropletAutoscaleTargetMemoryUtilization(_config,
-            autoscalePoolId: autoscalePoolId,
-            start: start,
-            end: end,
-            requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDropletAutoscaleTargetMemoryUtilization(_config, autoscalePoolId: autoscalePoolId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// Retrieve CPU usage (percent) for a MySQL cluster. Response is a time series of cluster-level CPU usage. Use **aggregate** to get avg, max, or min over the range.
@@ -6290,12 +4559,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDatabaseMysqlCpuUsage(_config,
-        dbId: dbId,
-        aggregate: aggregate,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDatabaseMysqlCpuUsage(_config, dbId: dbId, aggregate: aggregate, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// Retrieve load metrics for a MySQL cluster. Use **metric** for the window: **load1** (1-minute), **load5** (5-minute), or **load15** (15-minute). Use **aggregate** to get either the average (avg) or maximum (max) over that window over the time range.
@@ -6306,13 +4570,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDatabaseMysqlLoad(_config,
-        dbId: dbId,
-        metric: metric,
-        aggregate: aggregate,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDatabaseMysqlLoad(_config, dbId: dbId, metric: metric, aggregate: aggregate, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// Retrieve memory usage (percent) for a MySQL cluster. Use **aggregate** (avg, max, or min) over the time range.
@@ -6322,12 +4580,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDatabaseMysqlMemoryUsage(_config,
-        dbId: dbId,
-        aggregate: aggregate,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDatabaseMysqlMemoryUsage(_config, dbId: dbId, aggregate: aggregate, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// Retrieve disk usage (percent) for a MySQL cluster. Use **aggregate** (avg, max, or min) over the time range.
@@ -6337,12 +4590,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDatabaseMysqlDiskUsage(_config,
-        dbId: dbId,
-        aggregate: aggregate,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDatabaseMysqlDiskUsage(_config, dbId: dbId, aggregate: aggregate, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// Retrieve current threads connected for a MySQL service (gauge).
@@ -6351,12 +4599,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDatabaseMysqlThreadsConnected(
-        _config,
-        dbId: dbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDatabaseMysqlThreadsConnected(_config, dbId: dbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// Retrieve threads created rate for a MySQL service (per second).
@@ -6365,12 +4608,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDatabaseMysqlThreadsCreatedRate(
-        _config,
-        dbId: dbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDatabaseMysqlThreadsCreatedRate(_config, dbId: dbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// Retrieve active (running) threads for a MySQL service.
@@ -6379,8 +4617,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDatabaseMysqlThreadsActive(_config,
-        dbId: dbId, start: start, end: end, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDatabaseMysqlThreadsActive(_config, dbId: dbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// Retrieve index vs sequential reads ratio (percent) for a MySQL service — i.e. percentage of reads using an index.
@@ -6389,12 +4626,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDatabaseMysqlIndexVsSequentialReads(
-        _config,
-        dbId: dbId,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDatabaseMysqlIndexVsSequentialReads(_config, dbId: dbId, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// Retrieve operations rate (per second) for a MySQL service. Use **metric** to choose select, insert, update, or delete.
@@ -6404,12 +4636,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDatabaseMysqlOpRates(_config,
-        dbId: dbId,
-        metric: metric,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDatabaseMysqlOpRates(_config, dbId: dbId, metric: metric, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// Retrieve table I/O throughput (rows per second) for a schema. Requires **schema** and **metric** (insert, fetch, update, delete).
@@ -6420,14 +4647,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDatabaseMysqlSchemaThroughput(
-        _config,
-        dbId: dbId,
-        schema: schema,
-        metric: metric,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDatabaseMysqlSchemaThroughput(_config, dbId: dbId, schema: schema, metric: metric, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// Retrieve table I/O latency (seconds) for a schema. Requires **schema** and **metric** (insert, fetch, update, delete).
@@ -6438,13 +4658,7 @@ class MonitoringNamespace {
       required String start,
       required String end,
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDatabaseMysqlSchemaLatency(_config,
-        dbId: dbId,
-        schema: schema,
-        metric: metric,
-        start: start,
-        end: end,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDatabaseMysqlSchemaLatency(_config, dbId: dbId, schema: schema, metric: metric, start: start, end: end, requestOptions: requestOptions);
   }
 
   /// Creates a logging destination for sending logs to a managed or externally managed OpenSearch cluster. Supply `type` and `config`, including the cluster `endpoint`; include credentials unless you provide a managed cluster's `cluster_uuid`. A 200 response returns the created destination.
@@ -6455,25 +4669,19 @@ class MonitoringNamespace {
       required OpensearchConfigRequest config_,
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringCreateDestination(_config,
-        type_: type_,
-        config_: config_,
-        name: name,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringCreateDestination(_config, type_: type_, config_: config_, name: name, requestOptions: requestOptions);
   }
 
   /// To list all logging destinations, send a GET request to `/v2/monitoring/sinks/destinations`.
   Future<MonitoringListDestinations> listDestinations(
       {RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringListDestinations(_config,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringListDestinations(_config, requestOptions: requestOptions);
   }
 
   /// To get the details of a destination, send a GET request to `/v2/monitoring/sinks/destinations/${destination_uuid}`.
   Future<DestinationResponse> getDestination(
       {required String destinationUuid, RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetDestination(_config,
-        destinationUuid: destinationUuid, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetDestination(_config, destinationUuid: destinationUuid, requestOptions: requestOptions);
   }
 
   /// Updates the configuration of an existing logging destination. Identify it with `destination_uuid` and supply the required `type` and `config` fields, including the cluster `endpoint`; credentials are optional if you provide a managed cluster's `cluster_uuid`. A 204 response confirms the update and has no response body.
@@ -6485,19 +4693,13 @@ class MonitoringNamespace {
       required OpensearchConfigRequest config_,
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringUpdateDestination(_config,
-        destinationUuid: destinationUuid,
-        type_: type_,
-        config_: config_,
-        name: name,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringUpdateDestination(_config, destinationUuid: destinationUuid, type_: type_, config_: config_, name: name, requestOptions: requestOptions);
   }
 
   /// To delete a destination and all associated sinks, send a DELETE request to `/v2/monitoring/sinks/destinations/${destination_uuid}`.
   Future<void> deleteDestination(
       {required String destinationUuid, RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringDeleteDestination(_config,
-        destinationUuid: destinationUuid, requestOptions: requestOptions);
+    return monitoring_methods.monitoringDeleteDestination(_config, destinationUuid: destinationUuid, requestOptions: requestOptions);
   }
 
   /// To create a new sink, send a POST request to `/v2/monitoring/sinks`. Forwards logs from the resources identified in `resources` to the specified pre-existing destination.
@@ -6505,39 +4707,33 @@ class MonitoringNamespace {
       {SdkOptional<String> destinationUuid = const SdkOmitted(),
       SdkOptional<List<SinkResource>> resources = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringCreateSink(_config,
-        destinationUuid: destinationUuid,
-        resources: resources,
-        requestOptions: requestOptions);
+    return monitoring_methods.monitoringCreateSink(_config, destinationUuid: destinationUuid, resources: resources, requestOptions: requestOptions);
   }
 
   /// To list all sinks, send a GET request to `/v2/monitoring/sinks`.
   Future<ListSinks> listSinks(
       {SdkOptional<String> resourceId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringListSinks(_config,
-        resourceId: resourceId, requestOptions: requestOptions);
+    return monitoring_methods.monitoringListSinks(_config, resourceId: resourceId, requestOptions: requestOptions);
   }
 
   /// To get the details of a sink (resources and destination), send a GET request to `/v2/monitoring/sinks/${sink_uuid}`.
   Future<Sinks> getSink(
       {required String sinkUuid, RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringGetSink(_config,
-        sinkUuid: sinkUuid, requestOptions: requestOptions);
+    return monitoring_methods.monitoringGetSink(_config, sinkUuid: sinkUuid, requestOptions: requestOptions);
   }
 
   /// To delete a sink, send a DELETE request to `/v2/monitoring/sinks/${sink_uuid}`.
   Future<void> deleteSink(
       {required String sinkUuid, RequestOptions? requestOptions}) async {
-    return monitoring_methods.monitoringDeleteSink(_config,
-        sinkUuid: sinkUuid, requestOptions: requestOptions);
+    return monitoring_methods.monitoringDeleteSink(_config, sinkUuid: sinkUuid, requestOptions: requestOptions);
   }
+
 }
 
 class NfsNamespace {
   final ClientConfig _config;
   NfsNamespace(ClientConfig config) : _config = config;
-
   /// To create a new NFS share, send a POST request to `/v2/nfs`.
   Future<NfsCreateResponse> create(
       {required String name,
@@ -6546,21 +4742,14 @@ class NfsNamespace {
       required List<String> vpcIds,
       SdkOptional<String> performanceTier = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return nfs_methods.nfsCreate(_config,
-        name: name,
-        sizeGib: sizeGib,
-        region: region,
-        vpcIds: vpcIds,
-        performanceTier: performanceTier,
-        requestOptions: requestOptions);
+    return nfs_methods.nfsCreate(_config, name: name, sizeGib: sizeGib, region: region, vpcIds: vpcIds, performanceTier: performanceTier, requestOptions: requestOptions);
   }
 
   /// To list NFS shares, send a GET request to `/v2/nfs?region=${region}`. A successful request will return all NFS shares belonging to the authenticated user.
   Future<NfsListResponse> list(
       {SdkOptional<String> region = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return nfs_methods.nfsList(_config,
-        region: region, requestOptions: requestOptions);
+    return nfs_methods.nfsList(_config, region: region, requestOptions: requestOptions);
   }
 
   /// To get an NFS share, send a GET request to `/v2/nfs/{nfs_id}?region=${region}`. A successful request will return the NFS share.
@@ -6568,8 +4757,7 @@ class NfsNamespace {
       {required String nfsId,
       SdkOptional<String> region = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return nfs_methods.nfsGet(_config,
-        nfsId: nfsId, region: region, requestOptions: requestOptions);
+    return nfs_methods.nfsGet(_config, nfsId: nfsId, region: region, requestOptions: requestOptions);
   }
 
   /// To delete an NFS share, send a DELETE request to `/v2/nfs/{nfs_id}?region=${region}`. A successful request will return a `204 No Content` status code.
@@ -6577,8 +4765,7 @@ class NfsNamespace {
       {required String nfsId,
       SdkOptional<String> region = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return nfs_methods.nfsDelete(_config,
-        nfsId: nfsId, region: region, requestOptions: requestOptions);
+    return nfs_methods.nfsDelete(_config, nfsId: nfsId, region: region, requestOptions: requestOptions);
   }
 
   /// To list all NFS snapshots, send a GET request to `/v2/nfs/snapshots?region=${region}&share_id={share_id}`. A successful request will return all NFS snapshots belonging to the authenticated user in the specified region. Optionally, you can filter snapshots by a specific NFS share by including the `share_id` query parameter.
@@ -6586,8 +4773,7 @@ class NfsNamespace {
       {SdkOptional<String> region = const SdkOmitted(),
       SdkOptional<String> shareId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return nfs_methods.nfsListSnapshot(_config,
-        region: region, shareId: shareId, requestOptions: requestOptions);
+    return nfs_methods.nfsListSnapshot(_config, region: region, shareId: shareId, requestOptions: requestOptions);
   }
 
   /// To get an NFS snapshot, send a GET request to `/v2/nfs/snapshots/{nfs_snapshot_id}?region=${region}`. A successful request will return the NFS snapshot.
@@ -6595,10 +4781,7 @@ class NfsNamespace {
       {required String nfsSnapshotId,
       SdkOptional<String> region = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return nfs_methods.nfsGetSnapshot(_config,
-        nfsSnapshotId: nfsSnapshotId,
-        region: region,
-        requestOptions: requestOptions);
+    return nfs_methods.nfsGetSnapshot(_config, nfsSnapshotId: nfsSnapshotId, region: region, requestOptions: requestOptions);
   }
 
   /// To delete an NFS snapshot, send a DELETE request to `/v2/nfs/snapshots/{nfs_snapshot_id}?region=${region}`. A successful request will return a `204 No Content` status code.
@@ -6606,10 +4789,7 @@ class NfsNamespace {
       {required String nfsSnapshotId,
       SdkOptional<String> region = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return nfs_methods.nfsDeleteSnapshot(_config,
-        nfsSnapshotId: nfsSnapshotId,
-        region: region,
-        requestOptions: requestOptions);
+    return nfs_methods.nfsDeleteSnapshot(_config, nfsSnapshotId: nfsSnapshotId, region: region, requestOptions: requestOptions);
   }
 
   /// To create a new access point on an NFS share, send a POST request to `/v2/nfs/shares/{share_id}/access_points`. A successful request will return the newly created access point and an action object. The parent share must be in `ACTIVE` or `INACTIVE` status. Validation failures and precondition errors (such as an ineligible share state) return `400 Bad Request`. Duplicate name or path conflicts return `409 Conflict`.
@@ -6620,13 +4800,7 @@ class NfsNamespace {
       required AccessPolicy accessPolicy,
       required String vpcId,
       RequestOptions? requestOptions}) async {
-    return nfs_methods.nfsCreateAccessPoint(_config,
-        shareId: shareId,
-        name: name,
-        path: path,
-        accessPolicy: accessPolicy,
-        vpcId: vpcId,
-        requestOptions: requestOptions);
+    return nfs_methods.nfsCreateAccessPoint(_config, shareId: shareId, name: name, path: path, accessPolicy: accessPolicy, vpcId: vpcId, requestOptions: requestOptions);
   }
 
   /// To list access points for an NFS share, send a GET request to `/v2/nfs/shares/{share_id}/access_points`. You may use query parameters to filter by status. A successful request will return a list of NFS access points ordered with the default access point first, then by `created_at` ascending.
@@ -6634,29 +4808,26 @@ class NfsNamespace {
       {required String shareId,
       SdkOptional<NfsListAccessPointsStatus> status = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return nfs_methods.nfsListAccessPoints(_config,
-        shareId: shareId, status: status, requestOptions: requestOptions);
+    return nfs_methods.nfsListAccessPoints(_config, shareId: shareId, status: status, requestOptions: requestOptions);
   }
 
   /// To get an NFS access point, send a GET request to `/v2/nfs/access_points/{access_point_id}`. A successful request will return the NFS access point.
   Future<AccessPointGetResponse> getAccessPoint(
       {required String accessPointId, RequestOptions? requestOptions}) async {
-    return nfs_methods.nfsGetAccessPoint(_config,
-        accessPointId: accessPointId, requestOptions: requestOptions);
+    return nfs_methods.nfsGetAccessPoint(_config, accessPointId: accessPointId, requestOptions: requestOptions);
   }
 
   /// To delete an NFS access point, send a DELETE request to `/v2/nfs/access_points/{access_point_id}`. A successful request will soft-delete the access point and return the deleted access point with status `ACCESS_POINT_DELETED` and an action object indicating the delete operation. The default access point (`is_default: true`) cannot be deleted. Access points already in `ACCESS_POINT_DELETED` or `ACCESS_POINT_FAILED` status return `400 Bad Request`.
   Future<AccessPointActionResponse> deleteAccessPoint(
       {required String accessPointId, RequestOptions? requestOptions}) async {
-    return nfs_methods.nfsDeleteAccessPoint(_config,
-        accessPointId: accessPointId, requestOptions: requestOptions);
+    return nfs_methods.nfsDeleteAccessPoint(_config, accessPointId: accessPointId, requestOptions: requestOptions);
   }
+
 }
 
 class NfsActionsNamespace {
   final ClientConfig _config;
   NfsActionsNamespace(ClientConfig config) : _config = config;
-
   /// Triggers an action on an NFS share, such as resizing it, taking a snapshot, or changing its VPC attachment. Set `type` to a supported action and supply the corresponding values in `params`, such as `size_gib` for resize or `vpc_id` for attach and detach. A 201 response returns the submitted action object for tracking its status.
   ///
   /// To execute an action (such as resize) on a specified NFS share, send a POST request to `/v2/nfs/{nfs_id}/actions`. In the JSON body to the request, set the `type` attribute to on of the supported action types: | Action | Details | | -------------------------------- | ----------- | | &lt;nobr&gt;`resize`&lt;/nobr&gt; | Resizes an NFS share. Set the size_gib attribute to a desired value in GiB | | &lt;nobr&gt;`snapshot`&lt;/nobr&gt; | Takes a snapshot of an NFS share | | &lt;nobr&gt;`attach`&lt;/nobr&gt; | Attaches an NFS share to a VPC. Set the vpc_id attribute to the desired VPC ID | | &lt;nobr&gt;`detach`&lt;/nobr&gt; | Detaches an NFS share from a VPC. Set the vpc_id attribute to the desired VPC ID | | &lt;nobr&gt;`reassign`&lt;/nobr&gt; | Reassigns an NFS share from one VPC to another. Set the old_vpc_id and new_vpc_id attributes to the desired VPC IDs | | &lt;nobr&gt;`switch_performance_tier`&lt;/nobr&gt; | Switches the performance tier of an NFS share. Set the performance_tier attribute to the desired tier (e.g., standard, high) |
@@ -6664,42 +4835,39 @@ class NfsActionsNamespace {
       {required String nfsId,
       required dynamic body,
       RequestOptions? requestOptions}) async {
-    return nfs_actions_methods.nfsCreateAction(_config,
-        nfsId: nfsId, body: body, requestOptions: requestOptions);
+    return nfs_actions_methods.nfsCreateAction(_config, nfsId: nfsId, body: body, requestOptions: requestOptions);
   }
+
 }
 
 class OrganizationsNamespace {
   final ClientConfig _config;
   OrganizationsNamespace(ClientConfig config) : _config = config;
-
   /// To create a new team within an organization, send a POST request to `/v2/organizations/team`. This endpoint must be called in an organization context. Optionally include `invitations` to invite users to the new team. The `owner` role cannot be assigned via invitation.
   Future<CreateTeamResponse> createTeam(
       {required String name,
       SdkOptional<List<TeamInvitation>> invitations = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organizations_methods.organizationsCreateTeam(_config,
-        name: name, invitations: invitations, requestOptions: requestOptions);
+    return organizations_methods.organizationsCreateTeam(_config, name: name, invitations: invitations, requestOptions: requestOptions);
   }
 
   /// To list all teams in an organization, send a GET request to `/v2/organizations/teams`. This endpoint must be called in an organization context.
-  Future<ListTeams> listTeams({RequestOptions? requestOptions}) async {
-    return organizations_methods.organizationsListTeams(_config,
-        requestOptions: requestOptions);
+  Future<ListTeams> listTeams(
+      {RequestOptions? requestOptions}) async {
+    return organizations_methods.organizationsListTeams(_config, requestOptions: requestOptions);
   }
+
 }
 
 class PartnerNetworkConnectNamespace {
   final ClientConfig _config;
   PartnerNetworkConnectNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the Partner Attachments on your account, send a `GET` request to `/v2/partner_network_connect/attachments`.
   Future<AllPartnerAttachments> partnerAttachmentsList(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return partner_network_connect_methods.partnerAttachmentsList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return partner_network_connect_methods.partnerAttachmentsList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// Creates a partner attachment that connects VPCs through a partner network provider. Supply `name`, `connection_bandwidth_in_mbps`, `region`, `naas_provider`, and `vpc_ids`; the name must use alphanumeric characters, dashes, or periods, and the bandwidth and region must be supported values. A 202 response returns attachment details, including attached VPC network IDs and BGP configuration information.
@@ -6707,33 +4875,21 @@ class PartnerNetworkConnectNamespace {
   /// To create a new partner attachment, send a `POST` request to `/v2/partner_network_connect/attachments` with a JSON object containing the required configuration details.
   Future<SinglePartnerAttachment> partnerAttachmentsCreate(
       {required String name,
-      required PartnerAttachmentWritableConnectionBandwidthInMbps
-          connectionBandwidthInMbps,
+      required PartnerAttachmentWritableConnectionBandwidthInMbps connectionBandwidthInMbps,
       required PartnerAttachmentWritableRegion region,
       required String naasProvider,
       required List<String> vpcIds,
       SdkOptional<String> parentUuid = const SdkOmitted(),
       SdkOptional<PartnerAttachmentWritableBgp> bgp = const SdkOmitted(),
-      SdkOptional<PartnerAttachmentWritableRedundancyZone> redundancyZone =
-          const SdkOmitted(),
+      SdkOptional<PartnerAttachmentWritableRedundancyZone> redundancyZone = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return partner_network_connect_methods.partnerAttachmentsCreate(_config,
-        name: name,
-        connectionBandwidthInMbps: connectionBandwidthInMbps,
-        region: region,
-        naasProvider: naasProvider,
-        vpcIds: vpcIds,
-        parentUuid: parentUuid,
-        bgp: bgp,
-        redundancyZone: redundancyZone,
-        requestOptions: requestOptions);
+    return partner_network_connect_methods.partnerAttachmentsCreate(_config, name: name, connectionBandwidthInMbps: connectionBandwidthInMbps, region: region, naasProvider: naasProvider, vpcIds: vpcIds, parentUuid: parentUuid, bgp: bgp, redundancyZone: redundancyZone, requestOptions: requestOptions);
   }
 
   /// To get the details of a partner attachment, send a `GET` request to `/v2/partner_network_connect/attachments/{pa_id}`.
   Future<SinglePartnerAttachment> partnerAttachmentsGet(
       {required String paId, RequestOptions? requestOptions}) async {
-    return partner_network_connect_methods.partnerAttachmentsGet(_config,
-        paId: paId, requestOptions: requestOptions);
+    return partner_network_connect_methods.partnerAttachmentsGet(_config, paId: paId, requestOptions: requestOptions);
   }
 
   /// Updates an existing partner attachment's name, attached VPC IDs, or BGP configuration. Supply the fields you want to change; attachment names may contain only letters, numbers, dashes, and periods, and `vpc_ids` must contain at least one ID. A 202 response returns attachment details, including attached VPC network IDs and BGP configuration information.
@@ -6743,24 +4899,19 @@ class PartnerNetworkConnectNamespace {
       {required String paId,
       SdkOptional<PartnerAttachmentUpdatable> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return partner_network_connect_methods.partnerAttachmentsPatch(_config,
-        paId: paId, body: body, requestOptions: requestOptions);
+    return partner_network_connect_methods.partnerAttachmentsPatch(_config, paId: paId, body: body, requestOptions: requestOptions);
   }
 
   /// To delete an existing partner attachment, send a `DELETE` request to `/v2/partner_network_connect/attachments/{pa_id}`.
   Future<SinglePartnerAttachmentDeleting> partnerAttachmentsDelete(
       {required String paId, RequestOptions? requestOptions}) async {
-    return partner_network_connect_methods.partnerAttachmentsDelete(_config,
-        paId: paId, requestOptions: requestOptions);
+    return partner_network_connect_methods.partnerAttachmentsDelete(_config, paId: paId, requestOptions: requestOptions);
   }
 
   /// To get the current BGP auth key for a partner attachment, send a `GET` request to `/v2/partner_network_connect/attachments/{pa_id}/bgp_auth_key`.
   Future<SinglePartnerAttachmentBgpAuthKey> partnerAttachmentsGetBgpAuthKey(
       {required String paId, RequestOptions? requestOptions}) async {
-    return partner_network_connect_methods.partnerAttachmentsGetBgpAuthKey(
-        _config,
-        paId: paId,
-        requestOptions: requestOptions);
+    return partner_network_connect_methods.partnerAttachmentsGetBgpAuthKey(_config, paId: paId, requestOptions: requestOptions);
   }
 
   /// To list all remote routes associated with a partner attachment, send a `GET` request to `/v2/partner_network_connect/attachments/{pa_id}/remote_routes`.
@@ -6769,44 +4920,32 @@ class PartnerNetworkConnectNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return partner_network_connect_methods.partnerAttachmentsListRemoteRoutes(
-        _config,
-        paId: paId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return partner_network_connect_methods.partnerAttachmentsListRemoteRoutes(_config, paId: paId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To get the current service key for a partner attachment, send a `GET` request to `/v2/partner_network_connect/attachments/{pa_id}/service_key`.
   Future<SinglePartnerAttachmentServiceKey> partnerAttachmentsGetServiceKey(
       {required String paId, RequestOptions? requestOptions}) async {
-    return partner_network_connect_methods.partnerAttachmentsGetServiceKey(
-        _config,
-        paId: paId,
-        requestOptions: requestOptions);
+    return partner_network_connect_methods.partnerAttachmentsGetServiceKey(_config, paId: paId, requestOptions: requestOptions);
   }
 
   /// This operation generates a new service key for the specified partner attachment. The operation is asynchronous, and the response is an empty JSON object returned with a 202 status code. To poll for the new service key, send a `GET` request to `/v2/partner_network_connect/attachments/{pa_id}/service_key`.
   Future<Map<String, dynamic>> partnerAttachmentsCreateServiceKey(
       {required String paId, RequestOptions? requestOptions}) async {
-    return partner_network_connect_methods.partnerAttachmentsCreateServiceKey(
-        _config,
-        paId: paId,
-        requestOptions: requestOptions);
+    return partner_network_connect_methods.partnerAttachmentsCreateServiceKey(_config, paId: paId, requestOptions: requestOptions);
   }
+
 }
 
 class ProjectsNamespace {
   final ClientConfig _config;
   ProjectsNamespace(ClientConfig config) : _config = config;
-
   /// To list all your projects, send a GET request to `/v2/projects`.
   Future<ProjectsList> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.projectsList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return projects_methods.projectsList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create a project, send a POST request to `/v2/projects`.
@@ -6814,21 +4953,15 @@ class ProjectsNamespace {
       {required String name,
       required String purpose,
       SdkOptional<String> description = const SdkOmitted(),
-      SdkOptional<ProjectsCreateRequestBodyEnvironment> environment =
-          const SdkOmitted(),
+      SdkOptional<ProjectsCreateRequestBodyEnvironment> environment = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return projects_methods.projectsCreate(_config,
-        name: name,
-        purpose: purpose,
-        description: description,
-        environment: environment,
-        requestOptions: requestOptions);
+    return projects_methods.projectsCreate(_config, name: name, purpose: purpose, description: description, environment: environment, requestOptions: requestOptions);
   }
 
   /// To get your default project, send a GET request to `/v2/projects/default`.
-  Future<DefaultProject> getDefault({RequestOptions? requestOptions}) async {
-    return projects_methods.projectsGetDefault(_config,
-        requestOptions: requestOptions);
+  Future<DefaultProject> getDefault(
+      {RequestOptions? requestOptions}) async {
+    return projects_methods.projectsGetDefault(_config, requestOptions: requestOptions);
   }
 
   /// To update you default project, send a PUT request to `/v2/projects/default`. All of the following attributes must be sent.
@@ -6839,27 +4972,19 @@ class ProjectsNamespace {
       required ProjectsUpdateDefaultRequestBodyEnvironment environment,
       required bool isDefault,
       RequestOptions? requestOptions}) async {
-    return projects_methods.projectsUpdateDefault(_config,
-        name: name,
-        description: description,
-        purpose: purpose,
-        environment: environment,
-        isDefault: isDefault,
-        requestOptions: requestOptions);
+    return projects_methods.projectsUpdateDefault(_config, name: name, description: description, purpose: purpose, environment: environment, isDefault: isDefault, requestOptions: requestOptions);
   }
 
   /// To update only specific attributes of your default project, send a PATCH request to `/v2/projects/default`. At least one of the following attributes needs to be sent.
   Future<ExistingProject> patchDefault(
       {required ProjectRequest body, RequestOptions? requestOptions}) async {
-    return projects_methods.projectsPatchDefault(_config,
-        body: body, requestOptions: requestOptions);
+    return projects_methods.projectsPatchDefault(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To get a project, send a GET request to `/v2/projects/$PROJECT_ID`.
   Future<ExistingProject> get_(
       {required String projectId, RequestOptions? requestOptions}) async {
-    return projects_methods.projectsGet(_config,
-        projectId: projectId, requestOptions: requestOptions);
+    return projects_methods.projectsGet(_config, projectId: projectId, requestOptions: requestOptions);
   }
 
   /// To update a project, send a PUT request to `/v2/projects/$PROJECT_ID`. All of the following attributes must be sent.
@@ -6871,14 +4996,7 @@ class ProjectsNamespace {
       required ProjectsUpdateRequestBodyEnvironment environment,
       required bool isDefault,
       RequestOptions? requestOptions}) async {
-    return projects_methods.projectsUpdate(_config,
-        projectId: projectId,
-        name: name,
-        description: description,
-        purpose: purpose,
-        environment: environment,
-        isDefault: isDefault,
-        requestOptions: requestOptions);
+    return projects_methods.projectsUpdate(_config, projectId: projectId, name: name, description: description, purpose: purpose, environment: environment, isDefault: isDefault, requestOptions: requestOptions);
   }
 
   /// To update only specific attributes of a project, send a PATCH request to `/v2/projects/$PROJECT_ID`. At least one of the following attributes needs to be sent.
@@ -6886,33 +5004,27 @@ class ProjectsNamespace {
       {required String projectId,
       required ProjectRequest body,
       RequestOptions? requestOptions}) async {
-    return projects_methods.projectsPatch(_config,
-        projectId: projectId, body: body, requestOptions: requestOptions);
+    return projects_methods.projectsPatch(_config, projectId: projectId, body: body, requestOptions: requestOptions);
   }
 
   /// To delete a project, send a DELETE request to `/v2/projects/$PROJECT_ID`. To be deleted, a project must not have any resources assigned to it. Any existing resources must first be reassigned or destroyed, or you will receive a 412 error. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
   Future<void> delete(
       {required String projectId, RequestOptions? requestOptions}) async {
-    return projects_methods.projectsDelete(_config,
-        projectId: projectId, requestOptions: requestOptions);
+    return projects_methods.projectsDelete(_config, projectId: projectId, requestOptions: requestOptions);
   }
+
 }
 
 class ProjectResourcesNamespace {
   final ClientConfig _config;
   ProjectResourcesNamespace(ClientConfig config) : _config = config;
-
   /// To list all your resources in a project, send a GET request to `/v2/projects/$PROJECT_ID/resources`. This endpoint will only return resources that you are authorized to see. For example, to see Droplets in a project, include the `droplet:read` scope.
   Future<ResourcesList> projectsListResources(
       {required String projectId,
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return project_resources_methods.projectsListResources(_config,
-        projectId: projectId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return project_resources_methods.projectsListResources(_config, projectId: projectId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To assign resources to a project, send a POST request to `/v2/projects/$PROJECT_ID/resources`. You must have both `project:assign_resource` and `&lt;resource&gt;:read` scopes to assign new resources. For example, to assign a Droplet to a project, include both the `project:assign_resource` and `droplet:read` scopes. The `project:update` scope also grants `project:assign_resource`.
@@ -6920,123 +5032,102 @@ class ProjectResourcesNamespace {
       {required String projectId,
       SdkOptional<List<String>> resources = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return project_resources_methods.projectsAssignResources(_config,
-        projectId: projectId,
-        resources: resources,
-        requestOptions: requestOptions);
+    return project_resources_methods.projectsAssignResources(_config, projectId: projectId, resources: resources, requestOptions: requestOptions);
   }
 
   /// To list all your resources in your default project, send a GET request to `/v2/projects/default/resources`. Only resources that you are authorized to see will be returned. For example, to see Droplets in a project, include the `droplet:read` scope.
   Future<ResourcesList> projectsListResourcesDefault(
       {RequestOptions? requestOptions}) async {
-    return project_resources_methods.projectsListResourcesDefault(_config,
-        requestOptions: requestOptions);
+    return project_resources_methods.projectsListResourcesDefault(_config, requestOptions: requestOptions);
   }
 
   /// To assign resources to your default project, send a POST request to `/v2/projects/default/resources`. You must have both `project:assign_resource` and `&lt;resource&gt;:read` scopes to assign new resources. For example, to assign a Droplet to the default project, include both the `project:assign_resource` and `droplet:read` scopes. The `project:update` scope also grants `project:assign_resource`.
   Future<AssignedResourcesList> projectsAssignResourcesDefault(
       {SdkOptional<List<String>> resources = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return project_resources_methods.projectsAssignResourcesDefault(_config,
-        resources: resources, requestOptions: requestOptions);
+    return project_resources_methods.projectsAssignResourcesDefault(_config, resources: resources, requestOptions: requestOptions);
   }
+
 }
 
 class RegionsNamespace {
   final ClientConfig _config;
   RegionsNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the regions that are available, send a GET request to `/v2/regions`. The response will be a JSON object with a key called `regions`. The value of this will be an array of `region` objects, each of which will contain the standard region attributes.
   Future<AllRegions> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return regions_methods.regionsList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return regions_methods.regionsList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
+
 }
 
 class ContainerRegistriesNamespace {
   final ClientConfig _config;
   ContainerRegistriesNamespace(ClientConfig config) : _config = config;
-
   /// To get information about any container registry in your account, send a GET request to `/v2/registries/`.
   Future<AllRegistriesInfo> registriesList(
       {RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesList(_config,
-        requestOptions: requestOptions);
+    return container_registries_methods.registriesList(_config, requestOptions: requestOptions);
   }
 
   /// To create your container registry, send a POST request to `/v2/registries`. The `name` becomes part of the URL for images stored in the registry. For example, if your registry is called `example`, an image in it will have the URL `registry.digitalocean.com/example/image:tag`.
   Future<MultiregistryInfo> registriesCreate(
       {required String name,
-      SdkOptional<MultiregistryCreateSubscriptionTierSlug>
-          subscriptionTierSlug = const SdkOmitted(),
+      SdkOptional<MultiregistryCreateSubscriptionTierSlug> subscriptionTierSlug = const SdkOmitted(),
       SdkOptional<MultiregistryCreateRegion> region = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesCreate(_config,
-        name: name,
-        subscriptionTierSlug: subscriptionTierSlug,
-        region: region,
-        requestOptions: requestOptions);
+    return container_registries_methods.registriesCreate(_config, name: name, subscriptionTierSlug: subscriptionTierSlug, region: region, requestOptions: requestOptions);
   }
 
   /// To get information about any container registry in your account, send a GET request to `/v2/registries/{registry_name}`.
   Future<MultiregistryInfo> registriesGet(
       {required String registryName, RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesGet(_config,
-        registryName: registryName, requestOptions: requestOptions);
+    return container_registries_methods.registriesGet(_config, registryName: registryName, requestOptions: requestOptions);
   }
 
   /// To delete your container registry, destroying all container image data stored in it, send a DELETE request to `/v2/registries/{registry_name}`.
   Future<void> registriesDelete(
       {required String registryName, RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesDelete(_config,
-        registryName: registryName, requestOptions: requestOptions);
+    return container_registries_methods.registriesDelete(_config, registryName: registryName, requestOptions: requestOptions);
   }
 
   /// In order to access your container registry with the Docker client or from a Kubernetes cluster, you will need to configure authentication. The necessary JSON configuration can be retrieved by sending a GET request to `/v2/registries/{registry_name}/docker-credentials`. The response will be in the format of a Docker `config.json` file. To use the config in your Kubernetes cluster, create a Secret with: kubectl create secret generic docr \ --from-file=.dockerconfigjson=config.json \ --type=kubernetes.io/dockerconfigjson By default, the returned credentials have read-only access to your registry and cannot be used to push images. This is appropriate for most Kubernetes clusters. To retrieve read/write credentials, suitable for use with the Docker client or in a CI system, read_write may be provided as query parameter. For example: `/v2/registries/{registry_name}/docker-credentials?read_write=true` By default, the returned credentials will not expire. To retrieve credentials with an expiry set, expiry_seconds may be provided as a query parameter. For example: `/v2/registries/{registry_name}/docker-credentials?expiry_seconds=3600` will return credentials that expire after one hour.
   Future<DockerCredentials> registriesGetDockerCredentials(
       {required String registryName, RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesGetDockerCredentials(_config,
-        registryName: registryName, requestOptions: requestOptions);
+    return container_registries_methods.registriesGetDockerCredentials(_config, registryName: registryName, requestOptions: requestOptions);
   }
 
   /// A subscription is automatically created when you configure your container registry. To get information about your subscription, send a GET request to `/v2/registries/subscription`. It is similar to GET `/v2/registry/subscription`.
   Future<SubscriptionResponse> registriesGetSubscription(
       {RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesGetSubscription(_config,
-        requestOptions: requestOptions);
+    return container_registries_methods.registriesGetSubscription(_config, requestOptions: requestOptions);
   }
 
   /// After creating your registry, you can switch to a different subscription tier to better suit your needs. To do this, send a POST request to `/v2/registries/subscription`. It is similar to POST `/v2/registry/subscription`.
   Future<SubscriptionResponse> registriesUpdateSubscription(
-      {SdkOptional<RegistriesUpdateSubscriptionRequestBodyTierSlug> tierSlug =
-          const SdkOmitted(),
+      {SdkOptional<RegistriesUpdateSubscriptionRequestBodyTierSlug> tierSlug = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesUpdateSubscription(_config,
-        tierSlug: tierSlug, requestOptions: requestOptions);
+    return container_registries_methods.registriesUpdateSubscription(_config, tierSlug: tierSlug, requestOptions: requestOptions);
   }
 
   /// This endpoint serves to provide additional information as to which option values are available when creating a container registry. There are multiple subscription tiers available for container registry. Each tier allows a different number of image repositories to be created in your registry, and has a different amount of storage and transfer included. There are multiple regions available for container registry and controls where your data is stored. To list the available options, send a GET request to `/v2/registries/options`. This is similar to GET `/v2/registry/options`.
   Future<RegistryOptionsResponse> registriesGetOptions(
       {RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesGetOptions(_config,
-        requestOptions: requestOptions);
+    return container_registries_methods.registriesGetOptions(_config, requestOptions: requestOptions);
   }
 
   /// To get information about the currently-active garbage collection for a registry, send a GET request to `/v2/registry/$REGISTRY_NAME/garbage-collection`.
   Future<GarbageCollectionResponse> registriesGetGarbageCollection(
       {required String registryName, RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesGetGarbageCollection(_config,
-        registryName: registryName, requestOptions: requestOptions);
+    return container_registries_methods.registriesGetGarbageCollection(_config, registryName: registryName, requestOptions: requestOptions);
   }
 
   /// Garbage collection enables users to clear out unreferenced blobs (layer & manifest data) after deleting one or more manifests from a repository. If there are no unreferenced blobs resulting from the deletion of one or more manifests, garbage collection is effectively a noop. [See here for more information](https://docs.digitalocean.com/products/container-registry/how-to/clean-up-container-registry/) about how and why you should clean up your container registry periodically. To request a garbage collection run on your registry, send a POST request to `/v2/registries/$REGISTRY_NAME/garbage-collection`. This will initiate the following sequence of events on your registry. * Set the registry to read-only mode, meaning no further write-scoped JWTs will be issued to registry clients. Existing write-scoped JWTs will continue to work until they expire which can take up to 15 minutes. * Wait until all existing write-scoped JWTs have expired. * Scan all registry manifests to determine which blobs are unreferenced. * Delete all unreferenced blobs from the registry. * Record the number of blobs deleted and bytes freed, mark the garbage collection status as `success`. * Remove the read-only mode restriction from the registry, meaning write-scoped JWTs will once again be issued to registry clients.
   Future<GarbageCollectionResponse> registriesRunGarbageCollection(
       {required String registryName, RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesRunGarbageCollection(_config,
-        registryName: registryName, requestOptions: requestOptions);
+    return container_registries_methods.registriesRunGarbageCollection(_config, registryName: registryName, requestOptions: requestOptions);
   }
 
   /// To get information about past garbage collections for a registry, send a GET request to `/v2/registry/$REGISTRY_NAME/garbage-collections`.
@@ -7045,12 +5136,7 @@ class ContainerRegistriesNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesListGarbageCollections(
-        _config,
-        registryName: registryName,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return container_registries_methods.registriesListGarbageCollections(_config, registryName: registryName, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To cancel the currently-active garbage collection for a registry, send a PUT request to `/v2/registries/$REGISTRY_NAME/garbage-collection/$GC_UUID` and specify one or more of the attributes below. It is similar to PUT `/v2/registries/$REGISTRY_NAME/garbage-collection/$GC_UUID`.
@@ -7059,12 +5145,7 @@ class ContainerRegistriesNamespace {
       required String garbageCollectionUuid,
       SdkOptional<bool> cancel = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesUpdateGarbageCollection(
-        _config,
-        registryName: registryName,
-        garbageCollectionUuid: garbageCollectionUuid,
-        cancel: cancel,
-        requestOptions: requestOptions);
+    return container_registries_methods.registriesUpdateGarbageCollection(_config, registryName: registryName, garbageCollectionUuid: garbageCollectionUuid, cancel: cancel, requestOptions: requestOptions);
   }
 
   /// To list all repositories in your container registry, send a GET request to `/v2/registries/$REGISTRY_NAME/repositoriesV2`. It is similar to GET `/v2/registry/$REGISTRY_NAME/repositoriesV2`.
@@ -7074,12 +5155,7 @@ class ContainerRegistriesNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<String> pageToken = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesListRepositoriesV2(_config,
-        registryName: registryName,
-        perPage: perPage,
-        page: page,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+    return container_registries_methods.registriesListRepositoriesV2(_config, registryName: registryName, perPage: perPage, page: page, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// To delete a container repository including all of its tags, send a DELETE request to `/v2/registries/$REGISTRY_NAME/repositories/$REPOSITORY_NAME`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
@@ -7087,10 +5163,7 @@ class ContainerRegistriesNamespace {
       {required String registryName,
       required String repositoryName,
       RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesDeleteRepository(_config,
-        registryName: registryName,
-        repositoryName: repositoryName,
-        requestOptions: requestOptions);
+    return container_registries_methods.registriesDeleteRepository(_config, registryName: registryName, repositoryName: repositoryName, requestOptions: requestOptions);
   }
 
   /// To list all tags in one of your container registry's repository, send a GET request to `/v2/registries/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags`. Note that if your repository name contains `/` characters, it must be URL-encoded in the request URL. For example, to list tags for `registry.digitalocean.com/example/my/repo`, the path would be `/v2/registry/example/repositories/my%2Frepo/tags`. It is similar to GET `/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags`.
@@ -7100,12 +5173,7 @@ class ContainerRegistriesNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesListRepositoryTags(_config,
-        registryName: registryName,
-        repositoryName: repositoryName,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return container_registries_methods.registriesListRepositoryTags(_config, registryName: registryName, repositoryName: repositoryName, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To delete a container repository tag in on of our container registries, send a DELETE request to `/v2/registries/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags/$TAG`. Note that if your repository name contains `/` characters, it must be URL-encoded in the request URL. For example, to delete `registry.digitalocean.com/example/my/repo:mytag`, the path would be `/v2/registry/example/repositories/my%2Frepo/tags/mytag`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully. It is similar to DELETE `/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags/$TAG`.
@@ -7114,11 +5182,7 @@ class ContainerRegistriesNamespace {
       required String repositoryName,
       required String repositoryTag,
       RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesDeleteRepositoryTag(_config,
-        registryName: registryName,
-        repositoryName: repositoryName,
-        repositoryTag: repositoryTag,
-        requestOptions: requestOptions);
+    return container_registries_methods.registriesDeleteRepositoryTag(_config, registryName: registryName, repositoryName: repositoryName, repositoryTag: repositoryTag, requestOptions: requestOptions);
   }
 
   /// To list all manifests in your container registry repository, send a GET request to `/v2/registries/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests`. Note that if your repository name contains `/` characters, it must be URL-encoded in the request URL. For example, to list manifests for `registry.digitalocean.com/example/my/repo`, the path would be `/v2/registry/example/repositories/my%2Frepo/digests`. It is similar to `/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests`.
@@ -7128,13 +5192,7 @@ class ContainerRegistriesNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesListRepositoryManifests(
-        _config,
-        registryName: registryName,
-        repositoryName: repositoryName,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return container_registries_methods.registriesListRepositoryManifests(_config, registryName: registryName, repositoryName: repositoryName, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To delete a container repository manifest by digest in one of your registries, send a DELETE request to `/v2/registries/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests/$MANIFEST_DIGEST`. Note that if your repository name contains `/` characters, it must be URL-encoded in the request URL. For example, to delete `registry.digitalocean.com/example/my/repo@sha256:abcd`, the path would be `/v2/registry/example/repositories/my%2Frepo/digests/sha256:abcd`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully. It is similar to DELETE `/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests/$MANIFEST_DIGEST`.
@@ -7143,32 +5201,25 @@ class ContainerRegistriesNamespace {
       required String repositoryName,
       required String manifestDigest,
       RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesDeleteRepositoryManifest(
-        _config,
-        registryName: registryName,
-        repositoryName: repositoryName,
-        manifestDigest: manifestDigest,
-        requestOptions: requestOptions);
+    return container_registries_methods.registriesDeleteRepositoryManifest(_config, registryName: registryName, repositoryName: repositoryName, manifestDigest: manifestDigest, requestOptions: requestOptions);
   }
 
   /// To validate that a container registry name is available for use, send a POST request to `/v2/registries/validate-name`. If the name is both formatted correctly and available, the response code will be 204 and contain no body. If the name is already in use, the response will be a 409 Conflict. It is similar to `/v2/registry/validate-name`.
   Future<void> registriesValidateName(
       {required String name, RequestOptions? requestOptions}) async {
-    return container_registries_methods.registriesValidateName(_config,
-        name: name, requestOptions: requestOptions);
+    return container_registries_methods.registriesValidateName(_config, name: name, requestOptions: requestOptions);
   }
+
 }
 
 class ContainerRegistryNamespace {
   final ClientConfig _config;
   ContainerRegistryNamespace(ClientConfig config) : _config = config;
-
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** To get information about your container registry, send a GET request to `/v2/registry`. This operation is not compatible with multiple registries in a DO account. You should use `/v2/registries/{registry_name}` instead.
   ///
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<RegistryInfo> registryGet({RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryGet(_config,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryGet(_config, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** To create your container registry, send a POST request to `/v2/registry`. The `name` becomes part of the URL for images stored in the registry. For example, if your registry is called `example`, an image in it will have the URL `registry.digitalocean.com/example/image:tag`.
@@ -7179,19 +5230,14 @@ class ContainerRegistryNamespace {
       required RegistryCreateSubscriptionTierSlug subscriptionTierSlug,
       SdkOptional<RegistryCreateRegion> region = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryCreate(_config,
-        name: name,
-        subscriptionTierSlug: subscriptionTierSlug,
-        region: region,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryCreate(_config, name: name, subscriptionTierSlug: subscriptionTierSlug, region: region, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** To delete your container registry, destroying all container image data stored in it, send a DELETE request to `/v2/registry`. This operation is not compatible with multiple registries in a DO account. You should use `/v2/registries/{registry_name}` instead.
   ///
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<void> registryDelete({RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryDelete(_config,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryDelete(_config, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** A subscription is automatically created when you configure your container registry. To get information about your subscription, send a GET request to `/v2/registry/subscription`.
@@ -7199,19 +5245,16 @@ class ContainerRegistryNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<SubscriptionResponse> registryGetSubscription(
       {RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryGetSubscription(_config,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryGetSubscription(_config, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** After creating your registry, you can switch to a different subscription tier to better suit your needs. To do this, send a POST request to `/v2/registry/subscription`.
   ///
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<SubscriptionResponse> registryUpdateSubscription(
-      {SdkOptional<RegistryUpdateSubscriptionRequestBodyTierSlug> tierSlug =
-          const SdkOmitted(),
+      {SdkOptional<RegistryUpdateSubscriptionRequestBodyTierSlug> tierSlug = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryUpdateSubscription(_config,
-        tierSlug: tierSlug, requestOptions: requestOptions);
+    return container_registry_methods.registryUpdateSubscription(_config, tierSlug: tierSlug, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** In order to access your container registry with the Docker client or from a Kubernetes cluster, you will need to configure authentication. The necessary JSON configuration can be retrieved by sending a GET request to `/v2/registry/docker-credentials`. The response will be in the format of a Docker `config.json` file. To use the config in your Kubernetes cluster, create a Secret with: kubectl create secret generic docr \ --from-file=.dockerconfigjson=config.json \ --type=kubernetes.io/dockerconfigjson By default, the returned credentials have read-only access to your registry and cannot be used to push images. This is appropriate for most Kubernetes clusters. To retrieve read/write credentials, suitable for use with the Docker client or in a CI system, read_write may be provided as query parameter. For example: `/v2/registry/docker-credentials?read_write=true` By default, the returned credentials will not expire. To retrieve credentials with an expiry set, expiry_seconds may be provided as a query parameter. For example: `/v2/registry/docker-credentials?expiry_seconds=3600` will return credentials that expire after one hour.
@@ -7221,10 +5264,7 @@ class ContainerRegistryNamespace {
       {SdkOptional<int> expirySeconds = const SdkOmitted(),
       SdkOptional<bool> readWrite = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryGetDockerCredentials(_config,
-        expirySeconds: expirySeconds,
-        readWrite: readWrite,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryGetDockerCredentials(_config, expirySeconds: expirySeconds, readWrite: readWrite, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** To validate that a container registry name is available for use, send a POST request to `/v2/registry/validate-name`. If the name is both formatted correctly and available, the response code will be 204 and contain no body. If the name is already in use, the response will be a 409 Conflict.
@@ -7232,8 +5272,7 @@ class ContainerRegistryNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<void> registryValidateName(
       {required String name, RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryValidateName(_config,
-        name: name, requestOptions: requestOptions);
+    return container_registry_methods.registryValidateName(_config, name: name, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** This endpoint has been deprecated in favor of the _List All Container Registry Repositories [V2]_ endpoint. To list all repositories in your container registry, send a GET request to `/v2/registry/$REGISTRY_NAME/repositories`.
@@ -7244,11 +5283,7 @@ class ContainerRegistryNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryListRepositories(_config,
-        registryName: registryName,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryListRepositories(_config, registryName: registryName, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** To list all repositories in your container registry, send a GET request to `/v2/registry/$REGISTRY_NAME/repositoriesV2`.
@@ -7260,12 +5295,7 @@ class ContainerRegistryNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<String> pageToken = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryListRepositoriesV2(_config,
-        registryName: registryName,
-        perPage: perPage,
-        page: page,
-        pageToken: pageToken,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryListRepositoriesV2(_config, registryName: registryName, perPage: perPage, page: page, pageToken: pageToken, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** To list all tags in your container registry repository, send a GET request to `/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags`. Note that if your repository name contains `/` characters, it must be URL-encoded in the request URL. For example, to list tags for `registry.digitalocean.com/example/my/repo`, the path would be `/v2/registry/example/repositories/my%2Frepo/tags`.
@@ -7277,12 +5307,7 @@ class ContainerRegistryNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryListRepositoryTags(_config,
-        registryName: registryName,
-        repositoryName: repositoryName,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryListRepositoryTags(_config, registryName: registryName, repositoryName: repositoryName, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** To delete a container repository tag, send a DELETE request to `/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags/$TAG`. Note that if your repository name contains `/` characters, it must be URL-encoded in the request URL. For example, to delete `registry.digitalocean.com/example/my/repo:mytag`, the path would be `/v2/registry/example/repositories/my%2Frepo/tags/mytag`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
@@ -7293,11 +5318,7 @@ class ContainerRegistryNamespace {
       required String repositoryName,
       required String repositoryTag,
       RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryDeleteRepositoryTag(_config,
-        registryName: registryName,
-        repositoryName: repositoryName,
-        repositoryTag: repositoryTag,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryDeleteRepositoryTag(_config, registryName: registryName, repositoryName: repositoryName, repositoryTag: repositoryTag, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** To list all manifests in your container registry repository, send a GET request to `/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests`. Note that if your repository name contains `/` characters, it must be URL-encoded in the request URL. For example, to list manifests for `registry.digitalocean.com/example/my/repo`, the path would be `/v2/registry/example/repositories/my%2Frepo/digests`.
@@ -7309,12 +5330,7 @@ class ContainerRegistryNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryListRepositoryManifests(_config,
-        registryName: registryName,
-        repositoryName: repositoryName,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryListRepositoryManifests(_config, registryName: registryName, repositoryName: repositoryName, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** To delete a container repository manifest by digest, send a DELETE request to `/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests/$MANIFEST_DIGEST`. Note that if your repository name contains `/` characters, it must be URL-encoded in the request URL. For example, to delete `registry.digitalocean.com/example/my/repo@sha256:abcd`, the path would be `/v2/registry/example/repositories/my%2Frepo/digests/sha256:abcd`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
@@ -7325,11 +5341,7 @@ class ContainerRegistryNamespace {
       required String repositoryName,
       required String manifestDigest,
       RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryDeleteRepositoryManifest(_config,
-        registryName: registryName,
-        repositoryName: repositoryName,
-        manifestDigest: manifestDigest,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryDeleteRepositoryManifest(_config, registryName: registryName, repositoryName: repositoryName, manifestDigest: manifestDigest, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** Garbage collection enables users to clear out unreferenced blobs (layer & manifest data) after deleting one or more manifests from a repository. If there are no unreferenced blobs resulting from the deletion of one or more manifests, garbage collection is effectively a noop. [See here for more information](https://docs.digitalocean.com/products/container-registry/how-to/clean-up-container-registry/) about how and why you should clean up your container registry periodically. To request a garbage collection run on your registry, send a POST request to `/v2/registry/$REGISTRY_NAME/garbage-collection`. This will initiate the following sequence of events on your registry. * Set the registry to read-only mode, meaning no further write-scoped JWTs will be issued to registry clients. Existing write-scoped JWTs will continue to work until they expire which can take up to 15 minutes. * Wait until all existing write-scoped JWTs have expired. * Scan all registry manifests to determine which blobs are unreferenced. * Delete all unreferenced blobs from the registry. * Record the number of blobs deleted and bytes freed, mark the garbage collection status as `success`. * Remove the read-only mode restriction from the registry, meaning write-scoped JWTs will once again be issued to registry clients.
@@ -7339,10 +5351,7 @@ class ContainerRegistryNamespace {
       {required String registryName,
       SdkOptional<RegistryRunGcType> type_ = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryRunGarbageCollection(_config,
-        registryName: registryName,
-        type_: type_,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryRunGarbageCollection(_config, registryName: registryName, type_: type_, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** To get information about the currently-active garbage collection for a registry, send a GET request to `/v2/registry/$REGISTRY_NAME/garbage-collection`.
@@ -7350,8 +5359,7 @@ class ContainerRegistryNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<GarbageCollectionResponse> registryGetGarbageCollection(
       {required String registryName, RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryGetGarbageCollection(_config,
-        registryName: registryName, requestOptions: requestOptions);
+    return container_registry_methods.registryGetGarbageCollection(_config, registryName: registryName, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** To get information about past garbage collections for a registry, send a GET request to `/v2/registry/$REGISTRY_NAME/garbage-collections`.
@@ -7362,11 +5370,7 @@ class ContainerRegistryNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryListGarbageCollections(_config,
-        registryName: registryName,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryListGarbageCollections(_config, registryName: registryName, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** To cancel the currently-active garbage collection for a registry, send a PUT request to `/v2/registry/$REGISTRY_NAME/garbage-collection/$GC_UUID` and specify one or more of the attributes below.
@@ -7377,11 +5381,7 @@ class ContainerRegistryNamespace {
       required String garbageCollectionUuid,
       SdkOptional<bool> cancel = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryUpdateGarbageCollection(_config,
-        registryName: registryName,
-        garbageCollectionUuid: garbageCollectionUuid,
-        cancel: cancel,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryUpdateGarbageCollection(_config, registryName: registryName, garbageCollectionUuid: garbageCollectionUuid, cancel: cancel, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated and may be removed in a future version. There is no alternative.****Note: This endpoint is deprecated. Please use the `/v2/registries` endpoint instead.** This endpoint serves to provide additional information as to which option values are available when creating a container registry. There are multiple subscription tiers available for container registry. Each tier allows a different number of image repositories to be created in your registry, and has a different amount of storage and transfer included. There are multiple regions available for container registry and controls where your data is stored. To list the available options, send a GET request to `/v2/registry/options`.
@@ -7389,22 +5389,20 @@ class ContainerRegistryNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<RegistryOptionsResponse> registryGetOptions(
       {RequestOptions? requestOptions}) async {
-    return container_registry_methods.registryGetOptions(_config,
-        requestOptions: requestOptions);
+    return container_registry_methods.registryGetOptions(_config, requestOptions: requestOptions);
   }
+
 }
 
 class ReservedIpsNamespace {
   final ClientConfig _config;
   ReservedIpsNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the reserved IPs available on your account, send a GET request to `/v2/reserved_ips`.
   Future<ReservedIpList> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return reserved_ips_methods.reservedIpsList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return reserved_ips_methods.reservedIpsList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// Creates a reserved IP and either assigns it to a Droplet or reserves it to a region. Provide `droplet_id` for a Droplet assignment, or `region` to reserve the address to a region; `project_id` can optionally associate it with a project. When you assign the address during creation, the response includes links to the Droplet and the assignment action.
@@ -7412,34 +5410,30 @@ class ReservedIpsNamespace {
   /// On creation, a reserved IP must be either assigned to a Droplet or reserved to a region. * To create a new reserved IP assigned to a Droplet, send a POST request to `/v2/reserved_ips` with the `droplet_id` attribute. * To create a new reserved IP reserved to a region, send a POST request to `/v2/reserved_ips` with the `region` attribute.
   Future<ReservedIpCreated> create(
       {required ReservedIpCreate body, RequestOptions? requestOptions}) async {
-    return reserved_ips_methods.reservedIpsCreate(_config,
-        body: body, requestOptions: requestOptions);
+    return reserved_ips_methods.reservedIpsCreate(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To show information about a reserved IP, send a GET request to `/v2/reserved_ips/$RESERVED_IP_ADDR`.
   Future<ReservedIpResponse> get_(
       {required String reservedIp, RequestOptions? requestOptions}) async {
-    return reserved_ips_methods.reservedIpsGet(_config,
-        reservedIp: reservedIp, requestOptions: requestOptions);
+    return reserved_ips_methods.reservedIpsGet(_config, reservedIp: reservedIp, requestOptions: requestOptions);
   }
 
   /// To delete a reserved IP and remove it from your account, send a DELETE request to `/v2/reserved_ips/$RESERVED_IP_ADDR`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
   Future<void> delete(
       {required String reservedIp, RequestOptions? requestOptions}) async {
-    return reserved_ips_methods.reservedIpsDelete(_config,
-        reservedIp: reservedIp, requestOptions: requestOptions);
+    return reserved_ips_methods.reservedIpsDelete(_config, reservedIp: reservedIp, requestOptions: requestOptions);
   }
+
 }
 
 class ReservedIpActionsNamespace {
   final ClientConfig _config;
   ReservedIpActionsNamespace(ClientConfig config) : _config = config;
-
   /// To retrieve all actions that have been executed on a reserved IP, send a GET request to `/v2/reserved_ips/$RESERVED_IP/actions`.
   Future<ReservedIpActions> list(
       {required String reservedIp, RequestOptions? requestOptions}) async {
-    return reserved_ip_actions_methods.reservedIpsActionsList(_config,
-        reservedIp: reservedIp, requestOptions: requestOptions);
+    return reserved_ip_actions_methods.reservedIpsActionsList(_config, reservedIp: reservedIp, requestOptions: requestOptions);
   }
 
   /// Submits an action to assign or unassign a reserved IP. Set `type` to `assign` or `unassign`, and include `droplet_id` when assigning the address to a Droplet. The response contains the action object for the requested operation.
@@ -7449,8 +5443,7 @@ class ReservedIpActionsNamespace {
       {required String reservedIp,
       SdkOptional<dynamic> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return reserved_ip_actions_methods.reservedIpsActionsPost(_config,
-        reservedIp: reservedIp, body: body, requestOptions: requestOptions);
+    return reserved_ip_actions_methods.reservedIpsActionsPost(_config, reservedIp: reservedIp, body: body, requestOptions: requestOptions);
   }
 
   /// To retrieve the status of a reserved IP action, send a GET request to `/v2/reserved_ips/$RESERVED_IP/actions/$ACTION_ID`.
@@ -7458,52 +5451,45 @@ class ReservedIpActionsNamespace {
       {required String reservedIp,
       required int actionId,
       RequestOptions? requestOptions}) async {
-    return reserved_ip_actions_methods.reservedIpsActionsGet(_config,
-        reservedIp: reservedIp,
-        actionId: actionId,
-        requestOptions: requestOptions);
+    return reserved_ip_actions_methods.reservedIpsActionsGet(_config, reservedIp: reservedIp, actionId: actionId, requestOptions: requestOptions);
   }
+
 }
 
 class ReservedIPv6Namespace {
   final ClientConfig _config;
   ReservedIPv6Namespace(ClientConfig config) : _config = config;
-
   /// To list all of the reserved IPv6s available on your account, send a GET request to `/v2/reserved_ipv6`.
   Future<ReservedIPv6ListResponse> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return reserved_ipv6_methods.reservedIPv6List(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return reserved_ipv6_methods.reservedIPv6List(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// On creation, a reserved IPv6 must be reserved to a region. * To create a new reserved IPv6 reserved to a region, send a POST request to `/v2/reserved_ipv6` with the `region_slug` attribute.
   Future<ReservedIpv6CreateResponse> create(
       {required String regionSlug, RequestOptions? requestOptions}) async {
-    return reserved_ipv6_methods.reservedIPv6Create(_config,
-        regionSlug: regionSlug, requestOptions: requestOptions);
+    return reserved_ipv6_methods.reservedIPv6Create(_config, regionSlug: regionSlug, requestOptions: requestOptions);
   }
 
   /// To show information about a reserved IPv6, send a GET request to `/v2/reserved_ipv6/$RESERVED_IPV6`.
   Future<ReservedIpv6Response> get_(
       {required String reservedIpv6, RequestOptions? requestOptions}) async {
-    return reserved_ipv6_methods.reservedIPv6Get(_config,
-        reservedIpv6: reservedIpv6, requestOptions: requestOptions);
+    return reserved_ipv6_methods.reservedIPv6Get(_config, reservedIpv6: reservedIpv6, requestOptions: requestOptions);
   }
 
   /// To delete a reserved IP and remove it from your account, send a DELETE request to `/v2/reserved_ipv6/$RESERVED_IPV6`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
   Future<void> delete(
       {required String reservedIpv6, RequestOptions? requestOptions}) async {
-    return reserved_ipv6_methods.reservedIPv6Delete(_config,
-        reservedIpv6: reservedIpv6, requestOptions: requestOptions);
+    return reserved_ipv6_methods.reservedIPv6Delete(_config, reservedIpv6: reservedIpv6, requestOptions: requestOptions);
   }
+
 }
 
 class ReservedIPv6ActionsNamespace {
   final ClientConfig _config;
   ReservedIPv6ActionsNamespace(ClientConfig config) : _config = config;
-
   /// Triggers an action on a reserved IPv6 address to assign it to a Droplet or unassign it. Set `type` to `assign` or `unassign`, and include `droplet_id` when assigning the address. A 201 response returns the created action object.
   ///
   /// To initiate an action on a reserved IPv6 send a POST request to `/v2/reserved_ipv6/$RESERVED_IPV6/actions`. In the JSON body to the request, set the `type` attribute to on of the supported action types: | Action | Details |------------|-------- | `assign` | Assigns a reserved IPv6 to a Droplet | `unassign` | Unassign a reserved IPv6 from a Droplet
@@ -7511,26 +5497,21 @@ class ReservedIPv6ActionsNamespace {
       {required String reservedIpv6,
       SdkOptional<dynamic> body = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return reserved_ipv6_actions_methods.reservedIPv6ActionsPost(_config,
-        reservedIpv6: reservedIpv6, body: body, requestOptions: requestOptions);
+    return reserved_ipv6_actions_methods.reservedIPv6ActionsPost(_config, reservedIpv6: reservedIpv6, body: body, requestOptions: requestOptions);
   }
+
 }
 
 class ByoipPrefixesNamespace {
   final ClientConfig _config;
   ByoipPrefixesNamespace(ClientConfig config) : _config = config;
-
   /// To create a BYOIP prefix, send a POST request to `/v2/byoip_prefixes`. A successful request will initiate the process of bringing your BYOIP Prefix into your account. The response will include the details of the created prefix, including its UUID and status.
   Future<ByoipPrefixCreateResponse> create(
       {required String prefix,
       required String region,
       required String signature,
       RequestOptions? requestOptions}) async {
-    return byoip_prefixes_methods.byoipPrefixesCreate(_config,
-        prefix: prefix,
-        region: region,
-        signature: signature,
-        requestOptions: requestOptions);
+    return byoip_prefixes_methods.byoipPrefixesCreate(_config, prefix: prefix, region: region, signature: signature, requestOptions: requestOptions);
   }
 
   /// To list all BYOIP prefixes, send a GET request to `/v2/byoip_prefixes`. A successful response will return a list of all BYOIP prefixes associated with the account.
@@ -7538,22 +5519,19 @@ class ByoipPrefixesNamespace {
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return byoip_prefixes_methods.byoipPrefixesList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return byoip_prefixes_methods.byoipPrefixesList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To get a BYOIP prefix, send a GET request to `/v2/byoip_prefixes/$byoip_prefix_uuid`. A successful response will return the details of the specified BYOIP prefix.
   Future<ByoipPrefixGet> get_(
       {required String byoipPrefixUuid, RequestOptions? requestOptions}) async {
-    return byoip_prefixes_methods.byoipPrefixesGet(_config,
-        byoipPrefixUuid: byoipPrefixUuid, requestOptions: requestOptions);
+    return byoip_prefixes_methods.byoipPrefixesGet(_config, byoipPrefixUuid: byoipPrefixUuid, requestOptions: requestOptions);
   }
 
   /// To delete a BYOIP prefix and remove it from your account, send a DELETE request to `/v2/byoip_prefixes/$byoip_prefix_uuid`. A successful request will receive a 202 status code with no body in response. This indicates that the request was accepted and the prefix is being deleted.
   Future<void> delete(
       {required String byoipPrefixUuid, RequestOptions? requestOptions}) async {
-    return byoip_prefixes_methods.byoipPrefixesDelete(_config,
-        byoipPrefixUuid: byoipPrefixUuid, requestOptions: requestOptions);
+    return byoip_prefixes_methods.byoipPrefixesDelete(_config, byoipPrefixUuid: byoipPrefixUuid, requestOptions: requestOptions);
   }
 
   /// To update a BYOIP prefix, send a PATCH request to `/v2/byoip_prefixes/$byoip_prefix_uuid`. Currently, you can update the advertisement status of the prefix. The response will include the updated details of the prefix.
@@ -7561,10 +5539,7 @@ class ByoipPrefixesNamespace {
       {required String byoipPrefixUuid,
       SdkOptional<bool> advertise = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return byoip_prefixes_methods.byoipPrefixesPatch(_config,
-        byoipPrefixUuid: byoipPrefixUuid,
-        advertise: advertise,
-        requestOptions: requestOptions);
+    return byoip_prefixes_methods.byoipPrefixesPatch(_config, byoipPrefixUuid: byoipPrefixUuid, advertise: advertise, requestOptions: requestOptions);
   }
 
   /// To list resources associated with BYOIP prefixes, send a GET request to `/v2/byoip_prefixes/{byoip_prefix_uuid}/ips`. A successful response will return a list of resources associated with the specified BYOIP prefix.
@@ -7573,31 +5548,26 @@ class ByoipPrefixesNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return byoip_prefixes_methods.byoipPrefixesListResources(_config,
-        byoipPrefixUuid: byoipPrefixUuid,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return byoip_prefixes_methods.byoipPrefixesListResources(_config, byoipPrefixUuid: byoipPrefixUuid, perPage: perPage, page: page, requestOptions: requestOptions);
   }
+
 }
 
 class SecurityNamespace {
   final ClientConfig _config;
   SecurityNamespace(ClientConfig config) : _config = config;
-
   /// To list all CSPM scans, send a GET request to `/v2/security/scans`.
   Future<Scans> listScans(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return security_methods.securityListScans(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return security_methods.securityListScans(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create a CSPM scan, send a POST request to `/v2/security/scans`.
-  Future<ScanResponse> createScan({RequestOptions? requestOptions}) async {
-    return security_methods.securityCreateScan(_config,
-        requestOptions: requestOptions);
+  Future<ScanResponse> createScan(
+      {RequestOptions? requestOptions}) async {
+    return security_methods.securityCreateScan(_config, requestOptions: requestOptions);
   }
 
   /// To get a CSPM scan by ID, send a GET request to `/v2/security/scans/{scan_id}`.
@@ -7608,13 +5578,7 @@ class SecurityNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<String> type_ = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return security_methods.securityGetScan(_config,
-        scanId: scanId,
-        severity: severity,
-        perPage: perPage,
-        page: page,
-        type_: type_,
-        requestOptions: requestOptions);
+    return security_methods.securityGetScan(_config, scanId: scanId, severity: severity, perPage: perPage, page: page, type_: type_, requestOptions: requestOptions);
   }
 
   /// To get the latest CSPM scan, send a GET request to `/v2/security/scans/latest`.
@@ -7624,20 +5588,14 @@ class SecurityNamespace {
       SdkOptional<SchemaSchemac9dfe048> severity = const SdkOmitted(),
       SdkOptional<String> type_ = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return security_methods.securityGetLatestScan(_config,
-        perPage: perPage,
-        page: page,
-        severity: severity,
-        type_: type_,
-        requestOptions: requestOptions);
+    return security_methods.securityGetLatestScan(_config, perPage: perPage, page: page, severity: severity, type_: type_, requestOptions: requestOptions);
   }
 
   /// To mark a scan finding as a false positive, send a POST request to `/v2/security/scans/rules` to create a new scan rule.
   Future<void> createScanRule(
       {SdkOptional<String> resource = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return security_methods.securityCreateScanRule(_config,
-        resource: resource, requestOptions: requestOptions);
+    return security_methods.securityCreateScanRule(_config, resource: resource, requestOptions: requestOptions);
   }
 
   /// To get affected resources for a scan finding, send a GET request to `/v2/security/scans/{scan_id}/findings/{finding_uuid}/affected_resources`.
@@ -7647,12 +5605,7 @@ class SecurityNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return security_methods.securityListScanFindingAffectedResources(_config,
-        scanId: scanId,
-        findingUuid: findingUuid,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return security_methods.securityListScanFindingAffectedResources(_config, scanId: scanId, findingUuid: findingUuid, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To list CSPM scan settings, send a GET request to `/v2/security/settings`.
@@ -7660,19 +5613,14 @@ class SecurityNamespace {
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return security_methods.securityListSettings(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return security_methods.securityListSettings(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To update CSPM plan coverage, send a PUT request to `/v2/security/settings/plan`.
   Future<TierCoverage> updateSettingsPlan(
-      {SdkOptional<
-              Map<String,
-                  SecurityUpdateSettingsPlanRequestBodyTierCoverageValue>>
-          tierCoverage = const SdkOmitted(),
+      {SdkOptional<Map<String, SecurityUpdateSettingsPlanRequestBodyTierCoverageValue>> tierCoverage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return security_methods.securityUpdateSettingsPlan(_config,
-        tierCoverage: tierCoverage, requestOptions: requestOptions);
+    return security_methods.securityUpdateSettingsPlan(_config, tierCoverage: tierCoverage, requestOptions: requestOptions);
   }
 
   /// To suppress scan findings, send a POST request to `/v2/security/settings/suppressions`.
@@ -7680,70 +5628,59 @@ class SecurityNamespace {
       {SdkOptional<String> ruleUuid = const SdkOmitted(),
       SdkOptional<List<String>> resources = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return security_methods.securityCreateSuppression(_config,
-        ruleUuid: ruleUuid,
-        resources: resources,
-        requestOptions: requestOptions);
+    return security_methods.securityCreateSuppression(_config, ruleUuid: ruleUuid, resources: resources, requestOptions: requestOptions);
   }
 
   /// To remove a suppression, send a DELETE request to `/v2/security/settings/suppressions/{suppression_uuid}`.
   Future<void> deleteSuppression(
       {required String suppressionUuid, RequestOptions? requestOptions}) async {
-    return security_methods.securityDeleteSuppression(_config,
-        suppressionUuid: suppressionUuid, requestOptions: requestOptions);
+    return security_methods.securityDeleteSuppression(_config, suppressionUuid: suppressionUuid, requestOptions: requestOptions);
   }
+
 }
 
 class SizesNamespace {
   final ClientConfig _config;
   SizesNamespace(ClientConfig config) : _config = config;
-
   /// To list all of available Droplet sizes, send a GET request to `/v2/sizes`. The response will be a JSON object with a key called `sizes`. The value of this will be an array of `size` objects each of which contain the standard size attributes.
   Future<AllSizes> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return sizes_methods.sizesList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return sizes_methods.sizesList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
+
 }
 
 class SnapshotsNamespace {
   final ClientConfig _config;
   SnapshotsNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the snapshots available on your account, send a GET request to `/v2/snapshots`. The response will be a JSON object with a key called `snapshots`. This will be set to an array of `snapshot` objects, each of which will contain the standard snapshot attributes. ### Filtering Results by Resource Type It's possible to request filtered results by including certain query parameters. #### List Droplet Snapshots To retrieve only snapshots based on Droplets, include the `resource_type` query parameter set to `droplet`. For example, `/v2/snapshots?resource_type=droplet`. #### List Volume Snapshots To retrieve only snapshots based on volumes, include the `resource_type` query parameter set to `volume`. For example, `/v2/snapshots?resource_type=volume`.
   Future<SnapshotsResponse> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<SchemaSchemabb7091b0> resourceType = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return snapshots_methods.snapshotsList(_config,
-        perPage: perPage,
-        page: page,
-        resourceType: resourceType,
-        requestOptions: requestOptions);
+    return snapshots_methods.snapshotsList(_config, perPage: perPage, page: page, resourceType: resourceType, requestOptions: requestOptions);
   }
 
   /// To retrieve information about a snapshot, send a GET request to `/v2/snapshots/$SNAPSHOT_ID`. The response will be a JSON object with a key called `snapshot`. The value of this will be an snapshot object containing the standard snapshot attributes.
   Future<SnapshotsExisting> get_(
       {required dynamic snapshotId, RequestOptions? requestOptions}) async {
-    return snapshots_methods.snapshotsGet(_config,
-        snapshotId: snapshotId, requestOptions: requestOptions);
+    return snapshots_methods.snapshotsGet(_config, snapshotId: snapshotId, requestOptions: requestOptions);
   }
 
   /// Both Droplet and volume snapshots are managed through the `/v2/snapshots/` endpoint. To delete a snapshot, send a DELETE request to `/v2/snapshots/$SNAPSHOT_ID`. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
   Future<void> delete(
       {required dynamic snapshotId, RequestOptions? requestOptions}) async {
-    return snapshots_methods.snapshotsDelete(_config,
-        snapshotId: snapshotId, requestOptions: requestOptions);
+    return snapshots_methods.snapshotsDelete(_config, snapshotId: snapshotId, requestOptions: requestOptions);
   }
+
 }
 
 class SpacesKeysNamespace {
   final ClientConfig _config;
   SpacesKeysNamespace(ClientConfig config) : _config = config;
-
   /// To list Spaces Access Key, send a GET request to `/v2/spaces/keys`. Sort parameter must be used with Sort Direction.
   Future<KeyList> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
@@ -7754,15 +5691,7 @@ class SpacesKeysNamespace {
       SdkOptional<String> bucket = const SdkOmitted(),
       SdkOptional<String> permission = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return spaces_keys_methods.spacesKeyList(_config,
-        perPage: perPage,
-        page: page,
-        sort: sort,
-        sortDirection: sortDirection,
-        name: name,
-        bucket: bucket,
-        permission: permission,
-        requestOptions: requestOptions);
+    return spaces_keys_methods.spacesKeyList(_config, perPage: perPage, page: page, sort: sort, sortDirection: sortDirection, name: name, bucket: bucket, permission: permission, requestOptions: requestOptions);
   }
 
   /// To create a new Spaces Access Key, send a POST request to `/v2/spaces/keys`. At the moment, you cannot mix a fullaccess permission with scoped permissions. A fullaccess permission will be prioritized if fullaccess and scoped permissions are both added.
@@ -7770,22 +5699,19 @@ class SpacesKeysNamespace {
       {SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<List<Grant>> grants = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return spaces_keys_methods.spacesKeyCreate(_config,
-        name: name, grants: grants, requestOptions: requestOptions);
+    return spaces_keys_methods.spacesKeyCreate(_config, name: name, grants: grants, requestOptions: requestOptions);
   }
 
   /// To get a Spaces Access Key, send a GET request to `/v2/spaces/keys/$ACCESS_KEY`. A successful request will return the Access Key.
   Future<KeyGet> get_(
       {required String accessKey, RequestOptions? requestOptions}) async {
-    return spaces_keys_methods.spacesKeyGet(_config,
-        accessKey: accessKey, requestOptions: requestOptions);
+    return spaces_keys_methods.spacesKeyGet(_config, accessKey: accessKey, requestOptions: requestOptions);
   }
 
   /// To delete a Spaces Access Key, send a DELETE request to `/v2/spaces/keys/$ACCESS_KEY`. A successful request will return a `204 No Content` status code.
   Future<void> delete(
       {required String accessKey, RequestOptions? requestOptions}) async {
-    return spaces_keys_methods.spacesKeyDelete(_config,
-        accessKey: accessKey, requestOptions: requestOptions);
+    return spaces_keys_methods.spacesKeyDelete(_config, accessKey: accessKey, requestOptions: requestOptions);
   }
 
   /// To update Spaces Access Key, send a PUT or PATCH request to `/v2/spaces/keys/$ACCESS_KEY`. At the moment, you cannot convert a fullaccess key to a scoped key or vice versa. You can only update the name of the key.
@@ -7794,11 +5720,7 @@ class SpacesKeysNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<List<Grant>> grants = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return spaces_keys_methods.spacesKeyUpdate(_config,
-        accessKey: accessKey,
-        name: name,
-        grants: grants,
-        requestOptions: requestOptions);
+    return spaces_keys_methods.spacesKeyUpdate(_config, accessKey: accessKey, name: name, grants: grants, requestOptions: requestOptions);
   }
 
   /// To update Spaces Access Key, send a PUT or PATCH request to `/v2/spaces/keys/$ACCESS_KEY`. At the moment, you cannot convert a fullaccess key to a scoped key or vice versa. You can only update the name of the key.
@@ -7807,47 +5729,39 @@ class SpacesKeysNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<List<Grant>> grants = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return spaces_keys_methods.spacesKeyPatch(_config,
-        accessKey: accessKey,
-        name: name,
-        grants: grants,
-        requestOptions: requestOptions);
+    return spaces_keys_methods.spacesKeyPatch(_config, accessKey: accessKey, name: name, grants: grants, requestOptions: requestOptions);
   }
+
 }
 
 class TagsNamespace {
   final ClientConfig _config;
   TagsNamespace(ClientConfig config) : _config = config;
-
   /// To list all of your tags, you can send a GET request to `/v2/tags`. This endpoint will only return tagged resources that you are authorized to see (e.g. Droplets will only be returned if you have `droplet:read`).
   Future<TagsAll> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tags_methods.tagsList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return tags_methods.tagsList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create a tag you can send a POST request to `/v2/tags` with a `name` attribute.
   Future<TagsNew> create(
       {SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return tags_methods.tagsCreate(_config,
-        name: name, requestOptions: requestOptions);
+    return tags_methods.tagsCreate(_config, name: name, requestOptions: requestOptions);
   }
 
   /// To retrieve an individual tag, you can send a `GET` request to `/v2/tags/$TAG_NAME`. This endpoint will only return tagged resources that you are authorized to see. For example, to see tagged Droplets, include the `droplet:read` scope.
   Future<TagsExisting> get_(
       {required String tagId, RequestOptions? requestOptions}) async {
-    return tags_methods.tagsGet(_config,
-        tagId: tagId, requestOptions: requestOptions);
+    return tags_methods.tagsGet(_config, tagId: tagId, requestOptions: requestOptions);
   }
 
   /// A tag can be deleted by sending a `DELETE` request to `/v2/tags/$TAG_NAME`. Deleting a tag also untags all the resources that have previously been tagged by the Tag
   Future<void> delete(
       {required String tagId, RequestOptions? requestOptions}) async {
-    return tags_methods.tagsDelete(_config,
-        tagId: tagId, requestOptions: requestOptions);
+    return tags_methods.tagsDelete(_config, tagId: tagId, requestOptions: requestOptions);
   }
 
   /// Resources can be tagged by sending a POST request to `/v2/tags/$TAG_NAME/resources` with an array of json objects containing `resource_id` and `resource_type` attributes. Currently only tagging of Droplets, Databases, Images, Volumes, and Volume Snapshots is supported. `resource_type` is expected to be the string `droplet`, `database`, `image`, `volume` or `volume_snapshot`. `resource_id` is expected to be the ID of the resource as a string. In order to tag a resource, you must have both `tag:create` and `&lt;resource type&gt;:update` scopes. For example, to tag a Droplet, you must have `tag:create` and `droplet:update`.
@@ -7855,8 +5769,7 @@ class TagsNamespace {
       {required String tagId,
       required List<TagsResourceResourcesItem> resources,
       RequestOptions? requestOptions}) async {
-    return tags_methods.tagsAssignResources(_config,
-        tagId: tagId, resources: resources, requestOptions: requestOptions);
+    return tags_methods.tagsAssignResources(_config, tagId: tagId, resources: resources, requestOptions: requestOptions);
   }
 
   /// Resources can be untagged by sending a DELETE request to `/v2/tags/$TAG_NAME/resources` with an array of json objects containing `resource_id` and `resource_type` attributes. Currently only untagging of Droplets, Databases, Images, Volumes, and Volume Snapshots is supported. `resource_type` is expected to be the string `droplet`, `database`, `image`, `volume` or `volume_snapshot`. `resource_id` is expected to be the ID of the resource as a string. In order to untag a resource, you must have both `tag:delete` and `&lt;resource type&gt;:update` scopes. For example, to untag a Droplet, you must have `tag:delete` and `droplet:update`.
@@ -7864,15 +5777,14 @@ class TagsNamespace {
       {required String tagId,
       required List<TagsResourceResourcesItem> resources,
       RequestOptions? requestOptions}) async {
-    return tags_methods.tagsUnassignResources(_config,
-        tagId: tagId, resources: resources, requestOptions: requestOptions);
+    return tags_methods.tagsUnassignResources(_config, tagId: tagId, resources: resources, requestOptions: requestOptions);
   }
+
 }
 
 class VectorDatabasesNamespace {
   final ClientConfig _config;
   VectorDatabasesNamespace(ClientConfig config) : _config = config;
-
   /// Lists vector databases provisioned on your account. Use `page` and `per_page` to paginate the results. The response includes the `vector_dbs` array and the overall count in `total`.
   ///
   /// To list all of the vector databases on your account, send a GET request to `/v2/vector-databases`. Use the `page` and `per_page` query parameters to paginate the results. The response body contains a `vector_dbs` array of vector database objects and a `total` field with the overall count.
@@ -7880,8 +5792,7 @@ class VectorDatabasesNamespace {
       {SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_databases_methods.vectorDatabasesList(_config,
-        page: page, perPage: perPage, requestOptions: requestOptions);
+    return vector_databases_methods.vectorDatabasesList(_config, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To create a vector database, send a POST request to `/v2/vector-databases`. The response body contains a JSON object with a `vector_db` key holding the newly created database. Its initial `status` is `creating` and changes to `active` once the database is ready to receive traffic.
@@ -7892,20 +5803,13 @@ class VectorDatabasesNamespace {
       SdkOptional<String> size = const SdkOmitted(),
       SdkOptional<List<String>> tags = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_databases_methods.vectorDatabasesCreate(_config,
-        name: name,
-        projectId: projectId,
-        region: region,
-        size: size,
-        tags: tags,
-        requestOptions: requestOptions);
+    return vector_databases_methods.vectorDatabasesCreate(_config, name: name, projectId: projectId, region: region, size: size, tags: tags, requestOptions: requestOptions);
   }
 
   /// To show information about an existing vector database, send a GET request to `/v2/vector-databases/{id}`. The response body contains a JSON object with a `vector_db` key holding the standard vector database attributes, including an embedded `endpoints` object with the connection information needed to access the database.
   Future<VectordbGetVectorDBResponse> get_(
       {required String id, RequestOptions? requestOptions}) async {
-    return vector_databases_methods.vectorDatabasesGet(_config,
-        id: id, requestOptions: requestOptions);
+    return vector_databases_methods.vectorDatabasesGet(_config, id: id, requestOptions: requestOptions);
   }
 
   /// To update an existing vector database, send a PUT request to `/v2/vector-databases/{id}`. The response body contains a JSON object with a `vector_db` key holding the updated vector database.
@@ -7915,26 +5819,19 @@ class VectorDatabasesNamespace {
       SdkOptional<String> id_2 = const SdkOmitted(),
       SdkOptional<String> projectId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_databases_methods.vectorDatabasesUpdate(_config,
-        id: id,
-        config_: config_,
-        id_2: id_2,
-        projectId: projectId,
-        requestOptions: requestOptions);
+    return vector_databases_methods.vectorDatabasesUpdate(_config, id: id, config_: config_, id_2: id_2, projectId: projectId, requestOptions: requestOptions);
   }
 
   /// To delete a vector database, send a DELETE request to `/v2/vector-databases/{id}`. Deleting a vector database is irreversible and destroys the underlying instance along with its data.
   Future<void> delete(
       {required String id, RequestOptions? requestOptions}) async {
-    return vector_databases_methods.vectorDatabasesDelete(_config,
-        id: id, requestOptions: requestOptions);
+    return vector_databases_methods.vectorDatabasesDelete(_config, id: id, requestOptions: requestOptions);
   }
 
   /// To list the available backups for a vector database, send a GET request to `/v2/vector-databases/{id}/backups`. Only backups with a status of `SUCCESS` are returned.
   Future<VectordbListBackupsResponse> listBackups(
       {required String id, RequestOptions? requestOptions}) async {
-    return vector_databases_methods.vectorDatabasesListBackups(_config,
-        id: id, requestOptions: requestOptions);
+    return vector_databases_methods.vectorDatabasesListBackups(_config, id: id, requestOptions: requestOptions);
   }
 
   /// To check the status of a restore operation, send a GET request to `/v2/vector-databases/{id}/backups/{backup_id}/restore`. The response body contains the current status of the restore.
@@ -7942,8 +5839,7 @@ class VectorDatabasesNamespace {
       {required String id,
       required String backupId,
       RequestOptions? requestOptions}) async {
-    return vector_databases_methods.vectorDatabasesGetRestoreStatus(_config,
-        id: id, backupId: backupId, requestOptions: requestOptions);
+    return vector_databases_methods.vectorDatabasesGetRestoreStatus(_config, id: id, backupId: backupId, requestOptions: requestOptions);
   }
 
   /// To restore a vector database from a backup, send a POST request to `/v2/vector-databases/{id}/backups/{backup_id}/restore`. The restore runs asynchronously; use the restore-status endpoint to monitor its progress.
@@ -7953,19 +5849,13 @@ class VectorDatabasesNamespace {
       SdkOptional<String> backupId_2 = const SdkOmitted(),
       SdkOptional<String> id_2 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_databases_methods.vectorDatabasesPostRestoreBackup(_config,
-        id: id,
-        backupId: backupId,
-        backupId_2: backupId_2,
-        id_2: id_2,
-        requestOptions: requestOptions);
+    return vector_databases_methods.vectorDatabasesPostRestoreBackup(_config, id: id, backupId: backupId, backupId_2: backupId_2, id_2: id_2, requestOptions: requestOptions);
   }
 
   /// To retrieve the admin credentials for a vector database, send a GET request to `/v2/vector-databases/{id}/credentials`. The response body contains the `user_id` and `api_token` for the admin user provisioned on the cluster.
   Future<VectordbGetVectorDBAdminCredentialsResponse> getCredentials(
       {required String id, RequestOptions? requestOptions}) async {
-    return vector_databases_methods.vectorDatabasesGetCredentials(_config,
-        id: id, requestOptions: requestOptions);
+    return vector_databases_methods.vectorDatabasesGetCredentials(_config, id: id, requestOptions: requestOptions);
   }
 
   /// To resize a vector database, send a POST request to `/v2/vector-databases/{id}/resize`. This changes the database's resource tier. The response body contains a JSON object with the updated vector database.
@@ -7974,8 +5864,7 @@ class VectorDatabasesNamespace {
       SdkOptional<String> id_2 = const SdkOmitted(),
       SdkOptional<String> size = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_databases_methods.vectorDatabasesPostResize(_config,
-        id: id, id_2: id_2, size: size, requestOptions: requestOptions);
+    return vector_databases_methods.vectorDatabasesPostResize(_config, id: id, id_2: id_2, size: size, requestOptions: requestOptions);
   }
 
   /// To update the tags on a vector database, send a PUT request to `/v2/vector-databases/{id}/tags`. The supplied set of tags replaces the database's existing tags.
@@ -7984,15 +5873,14 @@ class VectorDatabasesNamespace {
       SdkOptional<String> id_2 = const SdkOmitted(),
       SdkOptional<List<String>> tags = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vector_databases_methods.vectorDatabasesUpdateTags(_config,
-        id: id, id_2: id_2, tags: tags, requestOptions: requestOptions);
+    return vector_databases_methods.vectorDatabasesUpdateTags(_config, id: id, id_2: id_2, tags: tags, requestOptions: requestOptions);
   }
+
 }
 
 class BlockStorageNamespace {
   final ClientConfig _config;
   BlockStorageNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the block storage volumes available on your account, send a GET request to `/v2/volumes`. ## Filtering Results ### By Region The `region` may be provided as query parameter in order to restrict results to volumes available in a specific region. For example: `/v2/volumes?region=nyc1` ### By Name It is also possible to list volumes on your account that match a specified name. To do so, send a GET request with the volume's name as a query parameter to `/v2/volumes?name=$VOLUME_NAME`. **Note:** You can only create one volume per region with the same name. ### By Name and Region It is also possible to retrieve information about a block storage volume by name. To do so, send a GET request with the volume's name and the region slug for the region it is located in as query parameters to `/v2/volumes?name=$VOLUME_NAME&region=nyc1`.
   Future<Volumes> volumesList(
       {SdkOptional<String> name = const SdkOmitted(),
@@ -8000,12 +5888,7 @@ class BlockStorageNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return block_storage_methods.volumesList(_config,
-        name: name,
-        region: region,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return block_storage_methods.volumesList(_config, name: name, region: region, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// Creates a block storage volume, optionally from a snapshot. Set `filesystem_type` to format the volume automatically, and provide `snapshot_id` when creating from a snapshot. Pre-formatted volumes auto-mount only on supported Droplets created on or after April 26, 2018; attaching them to unsupported Droplets is not recommended.
@@ -8013,8 +5896,7 @@ class BlockStorageNamespace {
   /// To create a new volume, send a POST request to `/v2/volumes`. Optionally, a `filesystem_type` attribute may be provided in order to automatically format the volume's filesystem. Pre-formatted volumes are automatically mounted when attached to Ubuntu, Debian, Fedora, Fedora Atomic, and CentOS Droplets created on or after April 26, 2018. Attaching pre-formatted volumes to Droplets without support for auto-mounting is not recommended.
   Future<Volume> volumesCreate(
       {required dynamic body, RequestOptions? requestOptions}) async {
-    return block_storage_methods.volumesCreate(_config,
-        body: body, requestOptions: requestOptions);
+    return block_storage_methods.volumesCreate(_config, body: body, requestOptions: requestOptions);
   }
 
   /// Block storage volumes may also be deleted by name by sending a DELETE request with the volume's **name** and the **region slug** for the region it is located in as query parameters to `/v2/volumes?name=$VOLUME_NAME&region=nyc1`. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
@@ -8022,36 +5904,31 @@ class BlockStorageNamespace {
       {SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<RegionSlug> region = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return block_storage_methods.volumesDeleteByName(_config,
-        name: name, region: region, requestOptions: requestOptions);
+    return block_storage_methods.volumesDeleteByName(_config, name: name, region: region, requestOptions: requestOptions);
   }
 
   /// To retrieve the details of a snapshot that has been created from a volume, send a GET request to `/v2/volumes/snapshots/$VOLUME_SNAPSHOT_ID`.
   Future<VolumeSnapshot> volumeSnapshotsGetById(
       {required String snapshotId, RequestOptions? requestOptions}) async {
-    return block_storage_methods.volumeSnapshotsGetById(_config,
-        snapshotId: snapshotId, requestOptions: requestOptions);
+    return block_storage_methods.volumeSnapshotsGetById(_config, snapshotId: snapshotId, requestOptions: requestOptions);
   }
 
   /// To delete a volume snapshot, send a DELETE request to `/v2/volumes/snapshots/$VOLUME_SNAPSHOT_ID`. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
   Future<void> volumeSnapshotsDeleteById(
       {required String snapshotId, RequestOptions? requestOptions}) async {
-    return block_storage_methods.volumeSnapshotsDeleteById(_config,
-        snapshotId: snapshotId, requestOptions: requestOptions);
+    return block_storage_methods.volumeSnapshotsDeleteById(_config, snapshotId: snapshotId, requestOptions: requestOptions);
   }
 
   /// To show information about a block storage volume, send a GET request to `/v2/volumes/$VOLUME_ID`.
   Future<Volume> volumesGet(
       {required String volumeId, RequestOptions? requestOptions}) async {
-    return block_storage_methods.volumesGet(_config,
-        volumeId: volumeId, requestOptions: requestOptions);
+    return block_storage_methods.volumesGet(_config, volumeId: volumeId, requestOptions: requestOptions);
   }
 
   /// To delete a block storage volume, destroying all data and removing it from your account, send a DELETE request to `/v2/volumes/$VOLUME_ID`. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
   Future<void> volumesDelete(
       {required String volumeId, RequestOptions? requestOptions}) async {
-    return block_storage_methods.volumesDelete(_config,
-        volumeId: volumeId, requestOptions: requestOptions);
+    return block_storage_methods.volumesDelete(_config, volumeId: volumeId, requestOptions: requestOptions);
   }
 
   /// To retrieve the snapshots that have been created from a volume, send a GET request to `/v2/volumes/$VOLUME_ID/snapshots`.
@@ -8060,11 +5937,7 @@ class BlockStorageNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return block_storage_methods.volumeSnapshotsList(_config,
-        volumeId: volumeId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return block_storage_methods.volumeSnapshotsList(_config, volumeId: volumeId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create a snapshot from a volume, sent a POST request to `/v2/volumes/$VOLUME_ID/snapshots`.
@@ -8073,18 +5946,14 @@ class BlockStorageNamespace {
       required String name,
       SdkOptional<List<String>?> tags = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return block_storage_methods.volumeSnapshotsCreate(_config,
-        volumeId: volumeId,
-        name: name,
-        tags: tags,
-        requestOptions: requestOptions);
+    return block_storage_methods.volumeSnapshotsCreate(_config, volumeId: volumeId, name: name, tags: tags, requestOptions: requestOptions);
   }
+
 }
 
 class BlockStorageActionsNamespace {
   final ClientConfig _config;
   BlockStorageActionsNamespace(ClientConfig config) : _config = config;
-
   /// Triggers an attach or detach action on a block storage volume identified by name. Set `type` to `attach` or `detach` and provide the volume, Droplet, and region details for the action. Use `page` and `per_page` to paginate the results.
   ///
   /// To initiate an action on a block storage volume by Name, send a POST request to `~/v2/volumes/actions`. The body should contain the appropriate attributes for the respective action. ## Attach a Block Storage Volume to a Droplet | Attribute | Details | | ----------- | ------------------------------------------------------------------- | | type | This must be `attach` | | volume_name | The name of the block storage volume | | droplet_id | Set to the Droplet's ID | | region | Set to the slug representing the region where the volume is located | Each volume may only be attached to a single Droplet. However, up to fifteen volumes may be attached to a Droplet at a time. Pre-formatted volumes will be automatically mounted to Ubuntu, Debian, Fedora, Fedora Atomic, and CentOS Droplets created on or after April 26, 2018 when attached. On older Droplets, [additional configuration](https://docs.digitalocean.com/products/volumes/how-to/mount/) is required. ## Remove a Block Storage Volume from a Droplet | Attribute | Details | | ----------- | ------------------------------------------------------------------- | | type | This must be `detach` | | volume_name | The name of the block storage volume | | droplet_id | Set to the Droplet's ID | | region | Set to the slug representing the region where the volume is located |
@@ -8093,11 +5962,7 @@ class BlockStorageActionsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return block_storage_actions_methods.volumeActionsPost(_config,
-        body: body,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return block_storage_actions_methods.volumeActionsPost(_config, body: body, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To retrieve all actions that have been executed on a volume, send a GET request to `/v2/volumes/$VOLUME_ID/actions`.
@@ -8106,11 +5971,7 @@ class BlockStorageActionsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return block_storage_actions_methods.volumeActionsList(_config,
-        volumeId: volumeId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return block_storage_actions_methods.volumeActionsList(_config, volumeId: volumeId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// Triggers an attach, detach, or resize action on a block storage volume identified by ID. Set `type` to the action to perform and provide the corresponding Droplet or size details, along with the volume's region. Use `page` and `per_page` to paginate the results.
@@ -8122,12 +5983,7 @@ class BlockStorageActionsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return block_storage_actions_methods.volumeActionsPostById(_config,
-        volumeId: volumeId,
-        body: body,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return block_storage_actions_methods.volumeActionsPostById(_config, volumeId: volumeId, body: body, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To retrieve the status of a volume action, send a GET request to `/v2/volumes/$VOLUME_ID/actions/$ACTION_ID`.
@@ -8137,40 +5993,32 @@ class BlockStorageActionsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return block_storage_actions_methods.volumeActionsGet(_config,
-        volumeId: volumeId,
-        actionId: actionId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return block_storage_actions_methods.volumeActionsGet(_config, volumeId: volumeId, actionId: actionId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
+
 }
 
 class VpcsNamespace {
   final ClientConfig _config;
   VpcsNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the VPCs on your account, send a GET request to `/v2/vpcs`.
   Future<AllVpcs> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vpcs_methods.vpcsList(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return vpcs_methods.vpcsList(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create a VPC, send a POST request to `/v2/vpcs` specifying the attributes in the table below in the JSON body. **Note:** If you do not currently have a VPC network in a specific datacenter region, the first one that you create will be set as the default for that region. The default VPC for a region cannot be changed or deleted.
   Future<ExistingVpc> create(
       {required VpcUpdatable body, RequestOptions? requestOptions}) async {
-    return vpcs_methods.vpcsCreate(_config,
-        body: body, requestOptions: requestOptions);
+    return vpcs_methods.vpcsCreate(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To show information about an existing VPC, send a GET request to `/v2/vpcs/$VPC_ID`.
   Future<ExistingVpc> get_(
       {required String vpcId, RequestOptions? requestOptions}) async {
-    return vpcs_methods.vpcsGet(_config,
-        vpcId: vpcId, requestOptions: requestOptions);
+    return vpcs_methods.vpcsGet(_config, vpcId: vpcId, requestOptions: requestOptions);
   }
 
   /// To update information about a VPC, send a PUT request to `/v2/vpcs/$VPC_ID`.
@@ -8178,8 +6026,7 @@ class VpcsNamespace {
       {required String vpcId,
       required VpcUpdatable body,
       RequestOptions? requestOptions}) async {
-    return vpcs_methods.vpcsUpdate(_config,
-        vpcId: vpcId, body: body, requestOptions: requestOptions);
+    return vpcs_methods.vpcsUpdate(_config, vpcId: vpcId, body: body, requestOptions: requestOptions);
   }
 
   /// To update a subset of information about a VPC, send a PATCH request to `/v2/vpcs/$VPC_ID`.
@@ -8187,15 +6034,13 @@ class VpcsNamespace {
       {required String vpcId,
       required VpcUpdatable body,
       RequestOptions? requestOptions}) async {
-    return vpcs_methods.vpcsPatch(_config,
-        vpcId: vpcId, body: body, requestOptions: requestOptions);
+    return vpcs_methods.vpcsPatch(_config, vpcId: vpcId, body: body, requestOptions: requestOptions);
   }
 
   /// To delete a VPC, send a DELETE request to `/v2/vpcs/$VPC_ID`. A 204 status code with no body will be returned in response to a successful request. The default VPC for a region can not be deleted. Additionally, a VPC can only be deleted if it does not contain any member resources. Attempting to delete a region's default VPC or a VPC that still has members will result in a 403 Forbidden error response.
   Future<void> delete(
       {required String vpcId, RequestOptions? requestOptions}) async {
-    return vpcs_methods.vpcsDelete(_config,
-        vpcId: vpcId, requestOptions: requestOptions);
+    return vpcs_methods.vpcsDelete(_config, vpcId: vpcId, requestOptions: requestOptions);
   }
 
   /// To list all of the resources that are members of a VPC, send a GET request to `/v2/vpcs/$VPC_ID/members`. To only list resources of a specific type that are members of the VPC, included a `resource_type` query parameter. For example, to only list Droplets in the VPC, send a GET request to `/v2/vpcs/$VPC_ID/members?resource_type=droplet`. Only resources that you are authorized to see will be returned (e.g. to see Droplets, you must have `droplet:read`).
@@ -8205,12 +6050,7 @@ class VpcsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vpcs_methods.vpcsListMembers(_config,
-        vpcId: vpcId,
-        resourceType: resourceType,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return vpcs_methods.vpcsListMembers(_config, vpcId: vpcId, resourceType: resourceType, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To list all of a VPC's peerings, send a GET request to `/v2/vpcs/$VPC_ID/peerings`.
@@ -8219,11 +6059,7 @@ class VpcsNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vpcs_methods.vpcsListPeerings(_config,
-        vpcId: vpcId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return vpcs_methods.vpcsListPeerings(_config, vpcId: vpcId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create a new VPC peering for a given VPC, send a POST request to `/v2/vpcs/$VPC_ID/peerings`.
@@ -8232,11 +6068,7 @@ class VpcsNamespace {
       required String name,
       required String vpcId_2,
       RequestOptions? requestOptions}) async {
-    return vpcs_methods.vpcsCreatePeerings(_config,
-        vpcId: vpcId,
-        name: name,
-        vpcId_2: vpcId_2,
-        requestOptions: requestOptions);
+    return vpcs_methods.vpcsCreatePeerings(_config, vpcId: vpcId, name: name, vpcId_2: vpcId_2, requestOptions: requestOptions);
   }
 
   /// To update the name of a VPC peering in a particular VPC, send a PATCH request to `/v2/vpcs/$VPC_ID/peerings/$VPC_PEERING_ID` with the new `name` in the request body.
@@ -8245,29 +6077,21 @@ class VpcsNamespace {
       required String vpcPeeringId,
       required String name,
       RequestOptions? requestOptions}) async {
-    return vpcs_methods.vpcsPatchPeerings(_config,
-        vpcId: vpcId,
-        vpcPeeringId: vpcPeeringId,
-        name: name,
-        requestOptions: requestOptions);
+    return vpcs_methods.vpcsPatchPeerings(_config, vpcId: vpcId, vpcPeeringId: vpcPeeringId, name: name, requestOptions: requestOptions);
   }
+
 }
 
 class VpcRoutesPublicPreviewNamespace {
   final ClientConfig _config;
   VpcRoutesPublicPreviewNamespace(ClientConfig config) : _config = config;
-
   /// To list the read-only VPC-scoped routes for a VPC, send a GET request to `/v2/vpcs/$VPC_UUID/routes`. VPC-scoped routes cannot be created, updated, or deleted through the public API.
   Future<AllVpcRoutes> vpcRoutesList(
       {required String vpcUuid,
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vpc_routes_public_preview_methods.vpcRoutesList(_config,
-        vpcUuid: vpcUuid,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return vpc_routes_public_preview_methods.vpcRoutesList(_config, vpcUuid: vpcUuid, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To list routes for a VPC subnet, send a GET request to `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes`. The response includes VPC-scoped routes propagated into the subnet and subnet-scoped routes.
@@ -8277,12 +6101,7 @@ class VpcRoutesPublicPreviewNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vpc_routes_public_preview_methods.vpcSubnetRoutesList(_config,
-        vpcUuid: vpcUuid,
-        subnetUuid: subnetUuid,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return vpc_routes_public_preview_methods.vpcSubnetRoutesList(_config, vpcUuid: vpcUuid, subnetUuid: subnetUuid, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To add a static route to a VPC subnet, send a POST request to `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes`. This route is additional to the routes the VPC already propagates to the subnet. The server assigns the route's `id` and `type`. Droplet targets must use a numeric ID. A Droplet UUID or another invalid `target_urns` value returns a 422 response.
@@ -8292,12 +6111,7 @@ class VpcRoutesPublicPreviewNamespace {
       required String destinationCidr,
       required List<String> targetUrns,
       RequestOptions? requestOptions}) async {
-    return vpc_routes_public_preview_methods.vpcSubnetRoutesCreate(_config,
-        vpcUuid: vpcUuid,
-        subnetUuid: subnetUuid,
-        destinationCidr: destinationCidr,
-        targetUrns: targetUrns,
-        requestOptions: requestOptions);
+    return vpc_routes_public_preview_methods.vpcSubnetRoutesCreate(_config, vpcUuid: vpcUuid, subnetUuid: subnetUuid, destinationCidr: destinationCidr, targetUrns: targetUrns, requestOptions: requestOptions);
   }
 
   /// To update the next hop for a user-defined VPC subnet route, send a PATCH request to `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes/$ROUTE_UUID`. The `destination_cidr` cannot be changed. Droplet targets must use a numeric ID. A Droplet UUID or another invalid `target_urns` value returns a 422 response.
@@ -8307,12 +6121,7 @@ class VpcRoutesPublicPreviewNamespace {
       required String routeUuid,
       required List<String> targetUrns,
       RequestOptions? requestOptions}) async {
-    return vpc_routes_public_preview_methods.vpcSubnetRoutesUpdate(_config,
-        vpcUuid: vpcUuid,
-        subnetUuid: subnetUuid,
-        routeUuid: routeUuid,
-        targetUrns: targetUrns,
-        requestOptions: requestOptions);
+    return vpc_routes_public_preview_methods.vpcSubnetRoutesUpdate(_config, vpcUuid: vpcUuid, subnetUuid: subnetUuid, routeUuid: routeUuid, targetUrns: targetUrns, requestOptions: requestOptions);
   }
 
   /// To delete a user-defined VPC subnet route, send a DELETE request to `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes/$ROUTE_UUID`. Managed routes cannot be deleted. A successful request returns a 204 status code with no response body.
@@ -8321,29 +6130,21 @@ class VpcRoutesPublicPreviewNamespace {
       required String subnetUuid,
       required String routeUuid,
       RequestOptions? requestOptions}) async {
-    return vpc_routes_public_preview_methods.vpcSubnetRoutesDelete(_config,
-        vpcUuid: vpcUuid,
-        subnetUuid: subnetUuid,
-        routeUuid: routeUuid,
-        requestOptions: requestOptions);
+    return vpc_routes_public_preview_methods.vpcSubnetRoutesDelete(_config, vpcUuid: vpcUuid, subnetUuid: subnetUuid, routeUuid: routeUuid, requestOptions: requestOptions);
   }
+
 }
 
 class VpcSubnetsPublicPreviewNamespace {
   final ClientConfig _config;
   VpcSubnetsPublicPreviewNamespace(ClientConfig config) : _config = config;
-
   /// To list all subnets within a VPC, send a GET request to `/v2/vpcs/$VPC_UUID/subnets`.
   Future<AllVpcSubnets> vpcSubnetsList(
       {required String vpcUuid,
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vpc_subnets_public_preview_methods.vpcSubnetsList(_config,
-        vpcUuid: vpcUuid,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return vpc_subnets_public_preview_methods.vpcSubnetsList(_config, vpcUuid: vpcUuid, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create a subnet within a VPC, send a POST request to `/v2/vpcs/$VPC_UUID/subnets` with a name and, optionally, an IP range.
@@ -8352,11 +6153,7 @@ class VpcSubnetsPublicPreviewNamespace {
       required String name,
       SdkOptional<String> ipRange = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vpc_subnets_public_preview_methods.vpcSubnetsCreate(_config,
-        vpcUuid: vpcUuid,
-        name: name,
-        ipRange: ipRange,
-        requestOptions: requestOptions);
+    return vpc_subnets_public_preview_methods.vpcSubnetsCreate(_config, vpcUuid: vpcUuid, name: name, ipRange: ipRange, requestOptions: requestOptions);
   }
 
   /// To retrieve a specific subnet within a VPC, send a GET request to `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID`.
@@ -8364,10 +6161,7 @@ class VpcSubnetsPublicPreviewNamespace {
       {required String vpcUuid,
       required String subnetUuid,
       RequestOptions? requestOptions}) async {
-    return vpc_subnets_public_preview_methods.vpcSubnetsGet(_config,
-        vpcUuid: vpcUuid,
-        subnetUuid: subnetUuid,
-        requestOptions: requestOptions);
+    return vpc_subnets_public_preview_methods.vpcSubnetsGet(_config, vpcUuid: vpcUuid, subnetUuid: subnetUuid, requestOptions: requestOptions);
   }
 
   /// To update the name of a specific subnet within a VPC, send a PATCH request to `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID`.
@@ -8376,11 +6170,7 @@ class VpcSubnetsPublicPreviewNamespace {
       required String subnetUuid,
       required String name,
       RequestOptions? requestOptions}) async {
-    return vpc_subnets_public_preview_methods.vpcSubnetsUpdate(_config,
-        vpcUuid: vpcUuid,
-        subnetUuid: subnetUuid,
-        name: name,
-        requestOptions: requestOptions);
+    return vpc_subnets_public_preview_methods.vpcSubnetsUpdate(_config, vpcUuid: vpcUuid, subnetUuid: subnetUuid, name: name, requestOptions: requestOptions);
   }
 
   /// To delete a specific subnet from a VPC, send a DELETE request to `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID`. A successful request returns a 204 status code with no response body.
@@ -8388,10 +6178,7 @@ class VpcSubnetsPublicPreviewNamespace {
       {required String vpcUuid,
       required String subnetUuid,
       RequestOptions? requestOptions}) async {
-    return vpc_subnets_public_preview_methods.vpcSubnetsDelete(_config,
-        vpcUuid: vpcUuid,
-        subnetUuid: subnetUuid,
-        requestOptions: requestOptions);
+    return vpc_subnets_public_preview_methods.vpcSubnetsDelete(_config, vpcUuid: vpcUuid, subnetUuid: subnetUuid, requestOptions: requestOptions);
   }
 
   /// To list all resources that are members of a VPC subnet, send a GET request to `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/members`. To list only members of a specific type, include the `resource_type` query parameter. Only resources that you are authorized to view are returned. For example, viewing Droplets requires the `droplet:read` scope.
@@ -8402,46 +6189,34 @@ class VpcSubnetsPublicPreviewNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vpc_subnets_public_preview_methods.vpcSubnetsListMembers(_config,
-        vpcUuid: vpcUuid,
-        subnetUuid: subnetUuid,
-        resourceType: resourceType,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return vpc_subnets_public_preview_methods.vpcSubnetsListMembers(_config, vpcUuid: vpcUuid, subnetUuid: subnetUuid, resourceType: resourceType, perPage: perPage, page: page, requestOptions: requestOptions);
   }
+
 }
 
 class VpcPeeringsNamespace {
   final ClientConfig _config;
   VpcPeeringsNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the VPC peerings on your account, send a GET request to `/v2/vpc_peerings`.
   Future<AllVpcPeerings> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<RegionSlug> region = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vpc_peerings_methods.vpcPeeringsList(_config,
-        perPage: perPage,
-        page: page,
-        region: region,
-        requestOptions: requestOptions);
+    return vpc_peerings_methods.vpcPeeringsList(_config, perPage: perPage, page: page, region: region, requestOptions: requestOptions);
   }
 
   /// To create a new VPC Peering, send a POST request to `/v2/vpc_peerings` specifying a name and a list of two VPC IDs to peer. The response code, 202 Accepted, does not indicate the success or failure of the operation, just that the request has been accepted for processing.
   Future<ProvisioningVpcPeering> create(
       {required VpcPeeringUpdatable body,
       RequestOptions? requestOptions}) async {
-    return vpc_peerings_methods.vpcPeeringsCreate(_config,
-        body: body, requestOptions: requestOptions);
+    return vpc_peerings_methods.vpcPeeringsCreate(_config, body: body, requestOptions: requestOptions);
   }
 
   /// To show information about an existing VPC Peering, send a GET request to `/v2/vpc_peerings/$VPC_PEERING_ID`.
   Future<ActiveVpcPeering> get_(
       {required String vpcPeeringId, RequestOptions? requestOptions}) async {
-    return vpc_peerings_methods.vpcPeeringsGet(_config,
-        vpcPeeringId: vpcPeeringId, requestOptions: requestOptions);
+    return vpc_peerings_methods.vpcPeeringsGet(_config, vpcPeeringId: vpcPeeringId, requestOptions: requestOptions);
   }
 
   /// To update the name of a VPC peering, send a PATCH request to `/v2/vpc_peerings/$VPC_PEERING_ID` with the new `name` in the request body.
@@ -8449,22 +6224,20 @@ class VpcPeeringsNamespace {
       {required String vpcPeeringId,
       required String name,
       RequestOptions? requestOptions}) async {
-    return vpc_peerings_methods.vpcPeeringsPatch(_config,
-        vpcPeeringId: vpcPeeringId, name: name, requestOptions: requestOptions);
+    return vpc_peerings_methods.vpcPeeringsPatch(_config, vpcPeeringId: vpcPeeringId, name: name, requestOptions: requestOptions);
   }
 
   /// To delete a VPC peering, send a DELETE request to `/v2/vpc_peerings/$VPC_PEERING_ID`.
   Future<DeletingVpcPeering> delete(
       {required String vpcPeeringId, RequestOptions? requestOptions}) async {
-    return vpc_peerings_methods.vpcPeeringsDelete(_config,
-        vpcPeeringId: vpcPeeringId, requestOptions: requestOptions);
+    return vpc_peerings_methods.vpcPeeringsDelete(_config, vpcPeeringId: vpcPeeringId, requestOptions: requestOptions);
   }
+
 }
 
 class VpcNatGatewaysNamespace {
   final ClientConfig _config;
   VpcNatGatewaysNamespace(ClientConfig config) : _config = config;
-
   /// To list all VPC NAT gateways in your team, send a GET request to `/v2/vpc_nat_gateways`. The response body will be a JSON object with a key of `vpc_nat_gateways` containing an array of VPC NAT gateway objects. These each contain the standard VPC NAT gateway attributes.
   Future<VpcNatGateways> list(
       {SdkOptional<int> perPage = const SdkOmitted(),
@@ -8474,14 +6247,7 @@ class VpcNatGatewaysNamespace {
       SdkOptional<SchemaSchemaa5e30895> type_ = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vpc_nat_gateways_methods.vpcnatgatewaysList(_config,
-        perPage: perPage,
-        page: page,
-        state: state,
-        region: region,
-        type_: type_,
-        name: name,
-        requestOptions: requestOptions);
+    return vpc_nat_gateways_methods.vpcnatgatewaysList(_config, perPage: perPage, page: page, state: state, region: region, type_: type_, name: name, requestOptions: requestOptions);
   }
 
   /// To create a new VPC NAT gateway, send a POST request to `/v2/vpc_nat_gateways` setting the required attributes. The response body will contain a JSON object with a key called `vpc_nat_gateway` containing the standard attributes for the new VPC NAT gateway.
@@ -8496,24 +6262,13 @@ class VpcNatGatewaysNamespace {
       SdkOptional<int> tcpTimeoutSeconds = const SdkOmitted(),
       SdkOptional<VpcNatGatewayCreateEgresses> egresses = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vpc_nat_gateways_methods.vpcnatgatewaysCreate(_config,
-        name: name,
-        type_: type_,
-        region: region,
-        size: size,
-        vpcs: vpcs,
-        udpTimeoutSeconds: udpTimeoutSeconds,
-        icmpTimeoutSeconds: icmpTimeoutSeconds,
-        tcpTimeoutSeconds: tcpTimeoutSeconds,
-        egresses: egresses,
-        requestOptions: requestOptions);
+    return vpc_nat_gateways_methods.vpcnatgatewaysCreate(_config, name: name, type_: type_, region: region, size: size, vpcs: vpcs, udpTimeoutSeconds: udpTimeoutSeconds, icmpTimeoutSeconds: icmpTimeoutSeconds, tcpTimeoutSeconds: tcpTimeoutSeconds, egresses: egresses, requestOptions: requestOptions);
   }
 
   /// To show information about an individual VPC NAT gateway, send a GET request to `/v2/vpc_nat_gateways/$VPC_NAT_GATEWAY_ID`.
   Future<VpcNatGateway> get_(
       {required String id, RequestOptions? requestOptions}) async {
-    return vpc_nat_gateways_methods.vpcnatgatewaysGet(_config,
-        id: id, requestOptions: requestOptions);
+    return vpc_nat_gateways_methods.vpcnatgatewaysGet(_config, id: id, requestOptions: requestOptions);
   }
 
   /// To update the configuration of an existing VPC NAT Gateway, send a PUT request to `/v2/vpc_nat_gateways/$VPC_NAT_GATEWAY_ID`. The request must contain a full representation of the VPC NAT Gateway including existing attributes.
@@ -8526,36 +6281,26 @@ class VpcNatGatewaysNamespace {
       SdkOptional<int> icmpTimeoutSeconds = const SdkOmitted(),
       SdkOptional<int> tcpTimeoutSeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return vpc_nat_gateways_methods.vpcnatgatewaysUpdate(_config,
-        id: id,
-        name: name,
-        size: size,
-        vpcs: vpcs,
-        udpTimeoutSeconds: udpTimeoutSeconds,
-        icmpTimeoutSeconds: icmpTimeoutSeconds,
-        tcpTimeoutSeconds: tcpTimeoutSeconds,
-        requestOptions: requestOptions);
+    return vpc_nat_gateways_methods.vpcnatgatewaysUpdate(_config, id: id, name: name, size: size, vpcs: vpcs, udpTimeoutSeconds: udpTimeoutSeconds, icmpTimeoutSeconds: icmpTimeoutSeconds, tcpTimeoutSeconds: tcpTimeoutSeconds, requestOptions: requestOptions);
   }
 
   /// To destroy a VPC NAT Gateway, send a DELETE request to the `/v2/vpc_nat_gateways/$VPC_NAT_GATEWAY_ID` endpoint. A successful response will include a 202 response code and no content.
   Future<void> delete(
       {required String id, RequestOptions? requestOptions}) async {
-    return vpc_nat_gateways_methods.vpcnatgatewaysDelete(_config,
-        id: id, requestOptions: requestOptions);
+    return vpc_nat_gateways_methods.vpcnatgatewaysDelete(_config, id: id, requestOptions: requestOptions);
   }
+
 }
 
 class UptimeNamespace {
   final ClientConfig _config;
   UptimeNamespace(ClientConfig config) : _config = config;
-
   /// To list all of the Uptime checks on your account, send a GET request to `/v2/uptime/checks`.
   Future<AllChecks> listChecks(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return uptime_methods.uptimeListChecks(_config,
-        perPage: perPage, page: page, requestOptions: requestOptions);
+    return uptime_methods.uptimeListChecks(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create an Uptime check, send a POST request to `/v2/uptime/checks` specifying the attributes in the table below in the JSON body.
@@ -8566,20 +6311,13 @@ class UptimeNamespace {
       required List<UptimeCreateCheckRequestBodyRegionsItem> regions,
       required bool enabled,
       RequestOptions? requestOptions}) async {
-    return uptime_methods.uptimeCreateCheck(_config,
-        name: name,
-        type_: type_,
-        target: target,
-        regions: regions,
-        enabled: enabled,
-        requestOptions: requestOptions);
+    return uptime_methods.uptimeCreateCheck(_config, name: name, type_: type_, target: target, regions: regions, enabled: enabled, requestOptions: requestOptions);
   }
 
   /// To show information about an existing check, send a GET request to `/v2/uptime/checks/$CHECK_ID`.
   Future<ExistingCheck> getCheck(
       {required String checkId, RequestOptions? requestOptions}) async {
-    return uptime_methods.uptimeGetCheck(_config,
-        checkId: checkId, requestOptions: requestOptions);
+    return uptime_methods.uptimeGetCheck(_config, checkId: checkId, requestOptions: requestOptions);
   }
 
   /// To update the settings of an Uptime check, send a PUT request to `/v2/uptime/checks/$CHECK_ID`.
@@ -8587,22 +6325,19 @@ class UptimeNamespace {
       {required String checkId,
       required CheckUpdatable body,
       RequestOptions? requestOptions}) async {
-    return uptime_methods.uptimeUpdateCheck(_config,
-        checkId: checkId, body: body, requestOptions: requestOptions);
+    return uptime_methods.uptimeUpdateCheck(_config, checkId: checkId, body: body, requestOptions: requestOptions);
   }
 
   /// To delete an Uptime check, send a DELETE request to `/v2/uptime/checks/$CHECK_ID`. A 204 status code with no body will be returned in response to a successful request. Deleting a check will also delete alerts associated with the check.
   Future<void> deleteCheck(
       {required String checkId, RequestOptions? requestOptions}) async {
-    return uptime_methods.uptimeDeleteCheck(_config,
-        checkId: checkId, requestOptions: requestOptions);
+    return uptime_methods.uptimeDeleteCheck(_config, checkId: checkId, requestOptions: requestOptions);
   }
 
   /// To show information about an existing check's state, send a GET request to `/v2/uptime/checks/$CHECK_ID/state`.
   Future<ExistingCheckState> getCheckState(
       {required String checkId, RequestOptions? requestOptions}) async {
-    return uptime_methods.uptimeGetCheckState(_config,
-        checkId: checkId, requestOptions: requestOptions);
+    return uptime_methods.uptimeGetCheckState(_config, checkId: checkId, requestOptions: requestOptions);
   }
 
   /// To list all of the alerts for an Uptime check, send a GET request to `/v2/uptime/checks/$CHECK_ID/alerts`.
@@ -8611,11 +6346,7 @@ class UptimeNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return uptime_methods.uptimeListAlerts(_config,
-        checkId: checkId,
-        perPage: perPage,
-        page: page,
-        requestOptions: requestOptions);
+    return uptime_methods.uptimeListAlerts(_config, checkId: checkId, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To create an Uptime alert, send a POST request to `/v2/uptime/checks/$CHECK_ID/alerts` specifying the attributes in the table below in the JSON body.
@@ -8626,18 +6357,9 @@ class UptimeNamespace {
       required Notification notifications,
       required UptimeCreateAlertRequestBodyPeriod period,
       SdkOptional<int> threshold = const SdkOmitted(),
-      SdkOptional<UptimeCreateAlertRequestBodyComparison> comparison =
-          const SdkOmitted(),
+      SdkOptional<UptimeCreateAlertRequestBodyComparison> comparison = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return uptime_methods.uptimeCreateAlert(_config,
-        checkId: checkId,
-        name: name,
-        type_: type_,
-        notifications: notifications,
-        period: period,
-        threshold: threshold,
-        comparison: comparison,
-        requestOptions: requestOptions);
+    return uptime_methods.uptimeCreateAlert(_config, checkId: checkId, name: name, type_: type_, notifications: notifications, period: period, threshold: threshold, comparison: comparison, requestOptions: requestOptions);
   }
 
   /// To show information about an existing alert, send a GET request to `/v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID`.
@@ -8645,8 +6367,7 @@ class UptimeNamespace {
       {required String checkId,
       required String alertId,
       RequestOptions? requestOptions}) async {
-    return uptime_methods.uptimeGetAlert(_config,
-        checkId: checkId, alertId: alertId, requestOptions: requestOptions);
+    return uptime_methods.uptimeGetAlert(_config, checkId: checkId, alertId: alertId, requestOptions: requestOptions);
   }
 
   /// To update the settings of an Uptime alert, send a PUT request to `/v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID`.
@@ -8658,19 +6379,9 @@ class UptimeNamespace {
       required Notification notifications,
       required UptimeUpdateAlertRequestBodyPeriod period,
       SdkOptional<int> threshold = const SdkOmitted(),
-      SdkOptional<UptimeUpdateAlertRequestBodyComparison> comparison =
-          const SdkOmitted(),
+      SdkOptional<UptimeUpdateAlertRequestBodyComparison> comparison = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return uptime_methods.uptimeUpdateAlert(_config,
-        checkId: checkId,
-        alertId: alertId,
-        name: name,
-        type_: type_,
-        notifications: notifications,
-        period: period,
-        threshold: threshold,
-        comparison: comparison,
-        requestOptions: requestOptions);
+    return uptime_methods.uptimeUpdateAlert(_config, checkId: checkId, alertId: alertId, name: name, type_: type_, notifications: notifications, period: period, threshold: threshold, comparison: comparison, requestOptions: requestOptions);
   }
 
   /// To delete an Uptime alert, send a DELETE request to `/v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID`. A 204 status code with no body will be returned in response to a successful request.
@@ -8678,26 +6389,21 @@ class UptimeNamespace {
       {required String checkId,
       required String alertId,
       RequestOptions? requestOptions}) async {
-    return uptime_methods.uptimeDeleteAlert(_config,
-        checkId: checkId, alertId: alertId, requestOptions: requestOptions);
+    return uptime_methods.uptimeDeleteAlert(_config, checkId: checkId, alertId: alertId, requestOptions: requestOptions);
   }
+
 }
 
 class AgentPlatformApiNamespace {
   final ClientConfig _config;
   AgentPlatformApiNamespace(ClientConfig config) : _config = config;
-
   /// To list all agents, send a GET request to `/v2/gen-ai/agents`.
   Future<ApiListAgentsOutputPublic> genaiListAgents(
       {SdkOptional<bool> onlyDeployed = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListAgents(_config,
-        onlyDeployed: onlyDeployed,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListAgents(_config, onlyDeployed: onlyDeployed, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// Creates a new agent in the specified project and region. Configure the agent with fields such as `name`, `instruction`, and `model_uuid`, and optionally attach knowledge bases or MCP servers. A 200 response returns the newly created agent object.
@@ -8724,27 +6430,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<bool> webSearchEnabled = const SdkOmitted(),
       SdkOptional<String> workspaceUuid = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateAgent(_config,
-        anthropicKeyUuid: anthropicKeyUuid,
-        description: description,
-        instruction: instruction,
-        knowledgeBaseUuid: knowledgeBaseUuid,
-        mcpServers: mcpServers,
-        modelProviderKeyUuid: modelProviderKeyUuid,
-        modelRouterUuid: modelRouterUuid,
-        modelUuid: modelUuid,
-        name: name,
-        openAiKeyUuid: openAiKeyUuid,
-        projectId: projectId,
-        reasoningEffort: reasoningEffort,
-        region: region,
-        routerPresetSlug: routerPresetSlug,
-        tags: tags,
-        thinkingTokenBudget: thinkingTokenBudget,
-        webFetchEnabled: webFetchEnabled,
-        webSearchEnabled: webSearchEnabled,
-        workspaceUuid: workspaceUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateAgent(_config, anthropicKeyUuid: anthropicKeyUuid, description: description, instruction: instruction, knowledgeBaseUuid: knowledgeBaseUuid, mcpServers: mcpServers, modelProviderKeyUuid: modelProviderKeyUuid, modelRouterUuid: modelRouterUuid, modelUuid: modelUuid, name: name, openAiKeyUuid: openAiKeyUuid, projectId: projectId, reasoningEffort: reasoningEffort, region: region, routerPresetSlug: routerPresetSlug, tags: tags, thinkingTokenBudget: thinkingTokenBudget, webFetchEnabled: webFetchEnabled, webSearchEnabled: webSearchEnabled, workspaceUuid: workspaceUuid, requestOptions: requestOptions);
   }
 
   /// To list all agent API keys, send a GET request to `/v2/gen-ai/agents/{agent_uuid}/api_keys`.
@@ -8753,11 +6439,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListAgentApiKeys(_config,
-        agentUuid: agentUuid,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListAgentApiKeys(_config, agentUuid: agentUuid, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To create an agent API key, send a POST request to `/v2/gen-ai/agents/{agent_uuid}/api_keys`.
@@ -8766,11 +6448,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> agentUuid_2 = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateAgentApiKey(_config,
-        agentUuid: agentUuid,
-        agentUuid_2: agentUuid_2,
-        name: name,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateAgentApiKey(_config, agentUuid: agentUuid, agentUuid_2: agentUuid_2, name: name, requestOptions: requestOptions);
   }
 
   /// Replaces the configurable details of an API key for an agent. Use the agent and API key identifiers to select the key, and supply `name` in the optional request body to set its name. A 200 response returns the API key information.
@@ -8783,13 +6461,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> apiKeyUuid_2 = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateAgentApiKey(_config,
-        agentUuid: agentUuid,
-        apiKeyUuid: apiKeyUuid,
-        agentUuid_2: agentUuid_2,
-        apiKeyUuid_2: apiKeyUuid_2,
-        name: name,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateAgentApiKey(_config, agentUuid: agentUuid, apiKeyUuid: apiKeyUuid, agentUuid_2: agentUuid_2, apiKeyUuid_2: apiKeyUuid_2, name: name, requestOptions: requestOptions);
   }
 
   /// To delete an API key for an agent, send a DELETE request to `/v2/gen-ai/agents/{agent_uuid}/api_keys/{api_key_uuid}`.
@@ -8797,10 +6469,7 @@ class AgentPlatformApiNamespace {
       {required String agentUuid,
       required String apiKeyUuid,
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteAgentApiKey(_config,
-        agentUuid: agentUuid,
-        apiKeyUuid: apiKeyUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteAgentApiKey(_config, agentUuid: agentUuid, apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
   }
 
   /// To regenerate an agent API key, send a PUT request to `/v2/gen-ai/agents/{agent_uuid}/api_keys/{api_key_uuid}/regenerate`.
@@ -8808,10 +6477,7 @@ class AgentPlatformApiNamespace {
       {required String agentUuid,
       required String apiKeyUuid,
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiRegenerateAgentApiKey(_config,
-        agentUuid: agentUuid,
-        apiKeyUuid: apiKeyUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiRegenerateAgentApiKey(_config, agentUuid: agentUuid, apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
   }
 
   /// To create a function route for an agent, send a POST request to `/v2/gen-ai/agents/{agent_uuid}/functions`.
@@ -8825,16 +6491,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<Map<String, dynamic>> inputSchema = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>> outputSchema = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiAttachAgentFunction(_config,
-        agentUuid: agentUuid,
-        agentUuid_2: agentUuid_2,
-        description: description,
-        faasName: faasName,
-        faasNamespace: faasNamespace,
-        functionName: functionName,
-        inputSchema: inputSchema,
-        outputSchema: outputSchema,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiAttachAgentFunction(_config, agentUuid: agentUuid, agentUuid_2: agentUuid_2, description: description, faasName: faasName, faasNamespace: faasNamespace, functionName: functionName, inputSchema: inputSchema, outputSchema: outputSchema, requestOptions: requestOptions);
   }
 
   /// To update the function route, send a PUT request to `/v2/gen-ai/agents/{agent_uuid}/functions/{function_uuid}`.
@@ -8850,18 +6507,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<Map<String, dynamic>> inputSchema = const SdkOmitted(),
       SdkOptional<Map<String, dynamic>> outputSchema = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateAgentFunction(_config,
-        agentUuid: agentUuid,
-        functionUuid: functionUuid,
-        agentUuid_2: agentUuid_2,
-        description: description,
-        faasName: faasName,
-        faasNamespace: faasNamespace,
-        functionName: functionName,
-        functionUuid_2: functionUuid_2,
-        inputSchema: inputSchema,
-        outputSchema: outputSchema,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateAgentFunction(_config, agentUuid: agentUuid, functionUuid: functionUuid, agentUuid_2: agentUuid_2, description: description, faasName: faasName, faasNamespace: faasNamespace, functionName: functionName, functionUuid_2: functionUuid_2, inputSchema: inputSchema, outputSchema: outputSchema, requestOptions: requestOptions);
   }
 
   /// To delete a function route from an agent, send a DELETE request to `/v2/gen-ai/agents/{agent_uuid}/functions/{function_uuid}`.
@@ -8869,10 +6515,7 @@ class AgentPlatformApiNamespace {
       {required String agentUuid,
       required String functionUuid,
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDetachAgentFunction(_config,
-        agentUuid: agentUuid,
-        functionUuid: functionUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDetachAgentFunction(_config, agentUuid: agentUuid, functionUuid: functionUuid, requestOptions: requestOptions);
   }
 
   /// To attach guardrails to an agent, send a POST request to `/v2/gen-ai/agents/{agent_uuid}/guardrails`.
@@ -8881,11 +6524,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> agentUuid_2 = const SdkOmitted(),
       SdkOptional<List<ApiAgentGuardrailInput>> guardrails = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiAttachAgentGuardrails(_config,
-        agentUuid: agentUuid,
-        agentUuid_2: agentUuid_2,
-        guardrails: guardrails,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiAttachAgentGuardrails(_config, agentUuid: agentUuid, agentUuid_2: agentUuid_2, guardrails: guardrails, requestOptions: requestOptions);
   }
 
   /// To detach a guardrail from an agent, send a DELETE request to `/v2/gen-ai/agents/{agent_uuid}/guardrails/{guardrail_uuid}`.
@@ -8893,17 +6532,13 @@ class AgentPlatformApiNamespace {
       {required String agentUuid,
       required String guardrailUuid,
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDetachAgentGuardrail(_config,
-        agentUuid: agentUuid,
-        guardrailUuid: guardrailUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDetachAgentGuardrail(_config, agentUuid: agentUuid, guardrailUuid: guardrailUuid, requestOptions: requestOptions);
   }
 
   /// To attach knowledge bases to an agent, send a POST request to `/v2/gen-ai/agents/{agent_uuid}/knowledge_bases`
   Future<ApiLinkKnowledgeBaseOutput> genaiAttachKnowledgeBases(
       {required String agentUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiAttachKnowledgeBases(_config,
-        agentUuid: agentUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiAttachKnowledgeBases(_config, agentUuid: agentUuid, requestOptions: requestOptions);
   }
 
   /// To attach a knowledge base to an agent, send a POST request to `/v2/gen-ai/agents/{agent_uuid}/knowledge_bases/{knowledge_base_uuid}`
@@ -8911,10 +6546,7 @@ class AgentPlatformApiNamespace {
       {required String agentUuid,
       required String knowledgeBaseUuid,
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiAttachKnowledgeBase(_config,
-        agentUuid: agentUuid,
-        knowledgeBaseUuid: knowledgeBaseUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiAttachKnowledgeBase(_config, agentUuid: agentUuid, knowledgeBaseUuid: knowledgeBaseUuid, requestOptions: requestOptions);
   }
 
   /// To detach a knowledge base from an agent, send a DELETE request to `/v2/gen-ai/agents/{agent_uuid}/knowledge_bases/{knowledge_base_uuid}`.
@@ -8922,10 +6554,7 @@ class AgentPlatformApiNamespace {
       {required String agentUuid,
       required String knowledgeBaseUuid,
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDetachKnowledgeBase(_config,
-        agentUuid: agentUuid,
-        knowledgeBaseUuid: knowledgeBaseUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDetachKnowledgeBase(_config, agentUuid: agentUuid, knowledgeBaseUuid: knowledgeBaseUuid, requestOptions: requestOptions);
   }
 
   /// Links a child agent as a route on a parent agent. Use the `parent_agent_uuid` and `child_agent_uuid` path parameters to identify the agents, and optionally provide `if_case` and `route_name` to configure the route. The response identifies the linked parent and child agents.
@@ -8939,14 +6568,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> parentAgentUuid_2 = const SdkOmitted(),
       SdkOptional<String> routeName = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiAttachAgent(_config,
-        parentAgentUuid: parentAgentUuid,
-        childAgentUuid: childAgentUuid,
-        childAgentUuid_2: childAgentUuid_2,
-        ifCase: ifCase,
-        parentAgentUuid_2: parentAgentUuid_2,
-        routeName: routeName,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiAttachAgent(_config, parentAgentUuid: parentAgentUuid, childAgentUuid: childAgentUuid, childAgentUuid_2: childAgentUuid_2, ifCase: ifCase, parentAgentUuid_2: parentAgentUuid_2, routeName: routeName, requestOptions: requestOptions);
   }
 
   /// To update an agent route for an agent, send a PUT request to `/v2/gen-ai/agents/{parent_agent_uuid}/child_agents/{child_agent_uuid}`.
@@ -8959,15 +6581,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> routeName = const SdkOmitted(),
       SdkOptional<String> uuid = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateAttachedAgent(_config,
-        parentAgentUuid: parentAgentUuid,
-        childAgentUuid: childAgentUuid,
-        childAgentUuid_2: childAgentUuid_2,
-        ifCase: ifCase,
-        parentAgentUuid_2: parentAgentUuid_2,
-        routeName: routeName,
-        uuid: uuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateAttachedAgent(_config, parentAgentUuid: parentAgentUuid, childAgentUuid: childAgentUuid, childAgentUuid_2: childAgentUuid_2, ifCase: ifCase, parentAgentUuid_2: parentAgentUuid_2, routeName: routeName, uuid: uuid, requestOptions: requestOptions);
   }
 
   /// To delete an agent route from a parent agent, send a DELETE request to `/v2/gen-ai/agents/{parent_agent_uuid}/child_agents/{child_agent_uuid}`.
@@ -8975,17 +6589,13 @@ class AgentPlatformApiNamespace {
       {required String parentAgentUuid,
       required String childAgentUuid,
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDetachAgent(_config,
-        parentAgentUuid: parentAgentUuid,
-        childAgentUuid: childAgentUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDetachAgent(_config, parentAgentUuid: parentAgentUuid, childAgentUuid: childAgentUuid, requestOptions: requestOptions);
   }
 
   /// To retrieve details of an agent, GET request to `/v2/gen-ai/agents/{uuid}`. The response body is a JSON object containing the agent.
   Future<ApiGetAgentOutput> genaiGetAgent(
       {required String uuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetAgent(_config,
-        uuid: uuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetAgent(_config, uuid: uuid, requestOptions: requestOptions);
   }
 
   /// Replaces the configuration of an existing agent. Supply the fields you want to change, such as `name`, `instruction`, or `model_uuid`; all listed body fields are optional. The response includes the updated agent object.
@@ -9021,50 +6631,19 @@ class AgentPlatformApiNamespace {
       SdkOptional<bool> webFetchEnabled = const SdkOmitted(),
       SdkOptional<bool> webSearchEnabled = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateAgent(_config,
-        uuid: uuid,
-        agentLogInsightsEnabled: agentLogInsightsEnabled,
-        allowedDomains: allowedDomains,
-        anthropicKeyUuid: anthropicKeyUuid,
-        clearMcpServers: clearMcpServers,
-        conversationLogsEnabled: conversationLogsEnabled,
-        description: description,
-        instruction: instruction,
-        k: k,
-        maxTokens: maxTokens,
-        mcpServers: mcpServers,
-        modelProviderKeyUuid: modelProviderKeyUuid,
-        modelRouterUuid: modelRouterUuid,
-        modelUuid: modelUuid,
-        name: name,
-        openAiKeyUuid: openAiKeyUuid,
-        projectId: projectId,
-        provideCitations: provideCitations,
-        reasoningEffort: reasoningEffort,
-        retrievalMethod: retrievalMethod,
-        routerPresetSlug: routerPresetSlug,
-        tags: tags,
-        temperature: temperature,
-        thinkingTokenBudget: thinkingTokenBudget,
-        topP: topP,
-        uuid_2: uuid_2,
-        webFetchEnabled: webFetchEnabled,
-        webSearchEnabled: webSearchEnabled,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateAgent(_config, uuid: uuid, agentLogInsightsEnabled: agentLogInsightsEnabled, allowedDomains: allowedDomains, anthropicKeyUuid: anthropicKeyUuid, clearMcpServers: clearMcpServers, conversationLogsEnabled: conversationLogsEnabled, description: description, instruction: instruction, k: k, maxTokens: maxTokens, mcpServers: mcpServers, modelProviderKeyUuid: modelProviderKeyUuid, modelRouterUuid: modelRouterUuid, modelUuid: modelUuid, name: name, openAiKeyUuid: openAiKeyUuid, projectId: projectId, provideCitations: provideCitations, reasoningEffort: reasoningEffort, retrievalMethod: retrievalMethod, routerPresetSlug: routerPresetSlug, tags: tags, temperature: temperature, thinkingTokenBudget: thinkingTokenBudget, topP: topP, uuid_2: uuid_2, webFetchEnabled: webFetchEnabled, webSearchEnabled: webSearchEnabled, requestOptions: requestOptions);
   }
 
   /// To delete an agent, send a DELETE request to `/v2/gen-ai/agents/{uuid}`.
   Future<ApiDeleteAgentOutput> genaiDeleteAgent(
       {required String uuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteAgent(_config,
-        uuid: uuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteAgent(_config, uuid: uuid, requestOptions: requestOptions);
   }
 
   /// To view agent routes for an agent, send a GET requtest to `/v2/gen-ai/agents/{uuid}/child_agents`.
   Future<ApiGetChildrenOutput> genaiGetAgentChildren(
       {required String uuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetAgentChildren(_config,
-        uuid: uuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetAgentChildren(_config, uuid: uuid, requestOptions: requestOptions);
   }
 
   /// Check whether an agent is public or private. To update the agent status, send a PUT request to `/v2/gen-ai/agents/{uuid}/deployment_visibility`.
@@ -9074,12 +6653,7 @@ class AgentPlatformApiNamespace {
           SdkOptional<String> uuid_2 = const SdkOmitted(),
           SdkOptional<ApiDeploymentVisibility> visibility = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateAgentDeploymentVisibility(
-        _config,
-        uuid: uuid,
-        uuid_2: uuid_2,
-        visibility: visibility,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateAgentDeploymentVisibility(_config, uuid: uuid, uuid_2: uuid_2, visibility: visibility, requestOptions: requestOptions);
   }
 
   /// To get agent usage, send a GET request to `/v2/gen-ai/agents/{uuid}/usage`. Returns usage metrics for the specified agent within the provided time range.
@@ -9088,8 +6662,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> start = const SdkOmitted(),
       SdkOptional<String> stop = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetAgentUsage(_config,
-        uuid: uuid, start: start, stop: stop, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetAgentUsage(_config, uuid: uuid, start: start, stop: stop, requestOptions: requestOptions);
   }
 
   /// To list all agent versions, send a GET request to `/v2/gen-ai/agents/{uuid}/versions`.
@@ -9098,11 +6671,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListAgentVersions(_config,
-        uuid: uuid,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListAgentVersions(_config, uuid: uuid, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To update to a specific agent version, send a PUT request to `/v2/gen-ai/agents/{uuid}/versions`.
@@ -9111,11 +6680,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> uuid_2 = const SdkOmitted(),
       SdkOptional<String> versionHash = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiRollbackToAgentVersion(_config,
-        uuid: uuid,
-        uuid_2: uuid_2,
-        versionHash: versionHash,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiRollbackToAgentVersion(_config, uuid: uuid, uuid_2: uuid_2, versionHash: versionHash, requestOptions: requestOptions);
   }
 
   /// To list all Anthropic API keys, send a GET request to `/v2/gen-ai/anthropic/keys`.
@@ -9123,8 +6688,7 @@ class AgentPlatformApiNamespace {
       {SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListAnthropicApiKeys(_config,
-        page: page, perPage: perPage, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListAnthropicApiKeys(_config, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To create an Anthropic API key, send a POST request to `/v2/gen-ai/anthropic/keys`.
@@ -9132,15 +6696,13 @@ class AgentPlatformApiNamespace {
       {SdkOptional<String> apiKey = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateAnthropicApiKey(_config,
-        apiKey: apiKey, name: name, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateAnthropicApiKey(_config, apiKey: apiKey, name: name, requestOptions: requestOptions);
   }
 
   /// To retrieve details of an Anthropic API key, send a GET request to `/v2/gen-ai/anthropic/keys/{api_key_uuid}`.
   Future<ApiGetAnthropicAPIKeyOutput> genaiGetAnthropicApiKey(
       {required String apiKeyUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetAnthropicApiKey(_config,
-        apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetAnthropicApiKey(_config, apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
   }
 
   /// To update an Anthropic API key, send a PUT request to `/v2/gen-ai/anthropic/keys/{api_key_uuid}`.
@@ -9150,19 +6712,13 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> apiKeyUuid_2 = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateAnthropicApiKey(_config,
-        apiKeyUuid: apiKeyUuid,
-        apiKey: apiKey,
-        apiKeyUuid_2: apiKeyUuid_2,
-        name: name,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateAnthropicApiKey(_config, apiKeyUuid: apiKeyUuid, apiKey: apiKey, apiKeyUuid_2: apiKeyUuid_2, name: name, requestOptions: requestOptions);
   }
 
   /// To delete an Anthropic API key, send a DELETE request to `/v2/gen-ai/anthropic/keys/{api_key_uuid}`.
   Future<ApiDeleteAnthropicAPIKeyOutput> genaiDeleteAnthropicApiKey(
       {required String apiKeyUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteAnthropicApiKey(_config,
-        apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteAnthropicApiKey(_config, apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
   }
 
   /// Lists agents linked to a specific Anthropic key. Use `page` and `per_page` to paginate the results.
@@ -9173,11 +6729,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListAgentsByAnthropicKey(_config,
-        uuid: uuid,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListAgentsByAnthropicKey(_config, uuid: uuid, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To list custom models, send a GET request to `/v2/gen-ai/custom_models`.
@@ -9186,11 +6738,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<GenaiListCustomModelsStatus> status = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListCustomModels(_config,
-        page: page,
-        perPage: perPage,
-        status: status,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListCustomModels(_config, page: page, perPage: perPage, status: status, requestOptions: requestOptions);
   }
 
   /// To import a custom model, send a POST request to `/v2/gen-ai/custom_models/import`.
@@ -9204,30 +6752,19 @@ class AgentPlatformApiNamespace {
       SdkOptional<CustomModelSourceType> sourceType = const SdkOmitted(),
       SdkOptional<CustomModelTags> tags = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiImportCustomModel(_config,
-        acceptHfTokenStorage: acceptHfTokenStorage,
-        acceptTermsAndConditions: acceptTermsAndConditions,
-        description: description,
-        name: name,
-        preferredGpuRegion: preferredGpuRegion,
-        sourceRef: sourceRef,
-        sourceType: sourceType,
-        tags: tags,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiImportCustomModel(_config, acceptHfTokenStorage: acceptHfTokenStorage, acceptTermsAndConditions: acceptTermsAndConditions, description: description, name: name, preferredGpuRegion: preferredGpuRegion, sourceRef: sourceRef, sourceType: sourceType, tags: tags, requestOptions: requestOptions);
   }
 
   /// To retrieve details of a custom model, send a GET request to `/v2/gen-ai/custom_models/{uuid}`.
   Future<ApiGetCustomModelOutputPublic> genaiGetCustomModel(
       {required String uuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetCustomModel(_config,
-        uuid: uuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetCustomModel(_config, uuid: uuid, requestOptions: requestOptions);
   }
 
   /// To delete a custom model, send a DELETE request to `/v2/genai/custom_models/{uuid}`.
   Future<ApiDeleteCustomModelOutputPublic> genaiDeleteCustomModel(
       {required String uuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteCustomModel(_config,
-        uuid: uuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteCustomModel(_config, uuid: uuid, requestOptions: requestOptions);
   }
 
   /// Updates metadata for a custom model identified by its UUID. Supply any metadata fields you want to change; non-empty `input_modalities` and `output_modalities` lists replace the existing lists and are supported only for Spaces-imported models. A 200 response returns the updated custom model.
@@ -9245,51 +6782,28 @@ class AgentPlatformApiNamespace {
           SdkOptional<CustomModelTags> tags = const SdkOmitted(),
           SdkOptional<String> uuid_2 = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateCustomModelMetadata(_config,
-        uuid: uuid,
-        description: description,
-        inputModalities: inputModalities,
-        license: license,
-        name: name,
-        outputModalities: outputModalities,
-        parameters: parameters,
-        tags: tags,
-        uuid_2: uuid_2,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateCustomModelMetadata(_config, uuid: uuid, description: description, inputModalities: inputModalities, license: license, name: name, outputModalities: outputModalities, parameters: parameters, tags: tags, uuid_2: uuid_2, requestOptions: requestOptions);
   }
 
   /// To list evaluation datasets, send a GET request to `/v2/gen-ai/evaluation_datasets`.
   Future<ApiListEvaluationDatasetsOutput> genaiListEvaluationDatasets(
-      {SdkOptional<GenaiListEvaluationDatasetsDatasetType> datasetType =
-          const SdkOmitted(),
-      SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm =
-          const SdkOmitted(),
+      {SdkOptional<GenaiListEvaluationDatasetsDatasetType> datasetType = const SdkOmitted(),
+      SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm = const SdkOmitted(),
       SdkOptional<bool> hasGroundTruth = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListEvaluationDatasets(_config,
-        datasetType: datasetType,
-        datasetParadigm: datasetParadigm,
-        hasGroundTruth: hasGroundTruth,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListEvaluationDatasets(_config, datasetType: datasetType, datasetParadigm: datasetParadigm, hasGroundTruth: hasGroundTruth, requestOptions: requestOptions);
   }
 
   /// Creates an evaluation dataset for agent evaluation. Set `dataset_paradigm` to describe the dataset row format and `dataset_type` to identify its type; both fields have defaults when omitted. Include `file_upload_dataset` to associate an uploaded file with the dataset.
   ///
   /// To create an evaluation dataset, send a POST request to `/v2/gen-ai/evaluation_datasets`.
   Future<ApiCreateEvaluationDatasetOutput> genaiCreateEvaluationDataset(
-      {SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm =
-          const SdkOmitted(),
+      {SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm = const SdkOmitted(),
       SdkOptional<ApiEvaluationDatasetType> datasetType = const SdkOmitted(),
-      SdkOptional<ApiFileUploadDataSource> fileUploadDataset =
-          const SdkOmitted(),
+      SdkOptional<ApiFileUploadDataSource> fileUploadDataset = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateEvaluationDataset(_config,
-        datasetParadigm: datasetParadigm,
-        datasetType: datasetType,
-        fileUploadDataset: fileUploadDataset,
-        name: name,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateEvaluationDataset(_config, datasetParadigm: datasetParadigm, datasetType: datasetType, fileUploadDataset: fileUploadDataset, name: name, requestOptions: requestOptions);
   }
 
   /// To create presigned URLs for evaluation dataset file upload, send a POST request to `/v2/gen-ai/evaluation_datasets/file_upload_presigned_urls`.
@@ -9297,33 +6811,25 @@ class AgentPlatformApiNamespace {
       genaiCreateEvaluationDatasetFileUploadPresignedUrls(
           {SdkOptional<List<ApiPresignedUrlFile>> files = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods
-        .genaiCreateEvaluationDatasetFileUploadPresignedUrls(_config,
-            files: files, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateEvaluationDatasetFileUploadPresignedUrls(_config, files: files, requestOptions: requestOptions);
   }
 
   /// To delete an evaluation dataset, send a DELETE request to `/v2/genai/evaluation_datasets/{dataset_uuid}`. This works for both model and agent evaluation datasets.
   Future<Map<String, dynamic>> genaiDeleteEvaluationDataset(
       {required String datasetUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteEvaluationDataset(_config,
-        datasetUuid: datasetUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteEvaluationDataset(_config, datasetUuid: datasetUuid, requestOptions: requestOptions);
   }
 
   /// To get a presigned download URL for an evaluation dataset, send a GET request to `/v2/genai/evaluation_datasets/{dataset_uuid}/download_url`.
-  Future<ApiGetEvaluationDatasetDownloadURLOutput>
-      genaiGetEvaluationDatasetDownloadUrl(
-          {required String datasetUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetEvaluationDatasetDownloadUrl(
-        _config,
-        datasetUuid: datasetUuid,
-        requestOptions: requestOptions);
+  Future<ApiGetEvaluationDatasetDownloadURLOutput> genaiGetEvaluationDatasetDownloadUrl(
+      {required String datasetUuid, RequestOptions? requestOptions}) async {
+    return agent_platform_api_methods.genaiGetEvaluationDatasetDownloadUrl(_config, datasetUuid: datasetUuid, requestOptions: requestOptions);
   }
 
   /// To list all evaluation metrics, send a GET request to `/v2/gen-ai/evaluation_metrics`.
   Future<ApiListEvaluationMetricsOutput> genaiListEvaluationMetrics(
       {RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListEvaluationMetrics(_config,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListEvaluationMetrics(_config, requestOptions: requestOptions);
   }
 
   /// Creates a custom LLM-as-judge metric for model evaluation. Use `metric_name`, `description`, and `config` to define the metric and the judge instructions; prompt and model response are included in the judge context. Set `requires_ground_truth` in `config` when each evaluation row must provide ground truth.
@@ -9331,16 +6837,11 @@ class AgentPlatformApiNamespace {
   /// To create a custom LLM-as-judge metric for model evaluation, send a POST request to `/v2/gen-ai/custom_evaluation_metrics`.
   Future<ApiCreateCustomEvaluationMetricOutput>
       genaiCreateCustomEvaluationMetric(
-          {SdkOptional<ApiCustomEvaluationMetricConfig> config_ =
-              const SdkOmitted(),
+          {SdkOptional<ApiCustomEvaluationMetricConfig> config_ = const SdkOmitted(),
           SdkOptional<String> description = const SdkOmitted(),
           SdkOptional<String> metricName = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateCustomEvaluationMetric(_config,
-        config_: config_,
-        description: description,
-        metricName: metricName,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateCustomEvaluationMetric(_config, config_: config_, description: description, metricName: metricName, requestOptions: requestOptions);
   }
 
   /// Replaces a custom evaluation metric with an updated metric configuration. Use `metric_uuid` to identify the metric and provide the metric fields you want to update. The update issues a new metric UUID.
@@ -9349,26 +6850,18 @@ class AgentPlatformApiNamespace {
   Future<ApiUpdateCustomEvaluationMetricOutput>
       genaiUpdateCustomEvaluationMetric(
           {required String metricUuid,
-          SdkOptional<ApiCustomEvaluationMetricConfig> config_ =
-              const SdkOmitted(),
+          SdkOptional<ApiCustomEvaluationMetricConfig> config_ = const SdkOmitted(),
           SdkOptional<String> description = const SdkOmitted(),
           SdkOptional<String> metricName = const SdkOmitted(),
           SdkOptional<String> metricUuid_2 = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateCustomEvaluationMetric(_config,
-        metricUuid: metricUuid,
-        config_: config_,
-        description: description,
-        metricName: metricName,
-        metricUuid_2: metricUuid_2,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateCustomEvaluationMetric(_config, metricUuid: metricUuid, config_: config_, description: description, metricName: metricName, metricUuid_2: metricUuid_2, requestOptions: requestOptions);
   }
 
   /// To soft-delete a custom model evaluation metric, send a DELETE request to `/v2/gen-ai/custom_evaluation_metrics/{metric_uuid}`.
   Future<Map<String, dynamic>> genaiDeleteCustomEvaluationMetric(
       {required String metricUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteCustomEvaluationMetric(_config,
-        metricUuid: metricUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteCustomEvaluationMetric(_config, metricUuid: metricUuid, requestOptions: requestOptions);
   }
 
   /// To run an evaluation test case, send a POST request to `/v2/gen-ai/evaluation_runs`.
@@ -9378,20 +6871,14 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> runName = const SdkOmitted(),
       SdkOptional<String> testCaseUuid = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiRunEvaluationTestCase(_config,
-        agentDeploymentNames: agentDeploymentNames,
-        agentUuids: agentUuids,
-        runName: runName,
-        testCaseUuid: testCaseUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiRunEvaluationTestCase(_config, agentDeploymentNames: agentDeploymentNames, agentUuids: agentUuids, runName: runName, testCaseUuid: testCaseUuid, requestOptions: requestOptions);
   }
 
   /// To retrive information about an existing evaluation run, send a GET request to `/v2/gen-ai/evaluation_runs/{evaluation_run_uuid}`.
   Future<ApiGetEvaluationRunOutput> genaiGetEvaluationRun(
       {required String evaluationRunUuid,
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetEvaluationRun(_config,
-        evaluationRunUuid: evaluationRunUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetEvaluationRun(_config, evaluationRunUuid: evaluationRunUuid, requestOptions: requestOptions);
   }
 
   /// To retrieve results of an evaluation run, send a GET request to `/v2/gen-ai/evaluation_runs/{evaluation_run_uuid}/results`.
@@ -9400,11 +6887,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetEvaluationRunResults(_config,
-        evaluationRunUuid: evaluationRunUuid,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetEvaluationRunResults(_config, evaluationRunUuid: evaluationRunUuid, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To retrieve results of an evaluation run, send a GET request to `/v2/gen-ai/evaluation_runs/{evaluation_run_uuid}/results/{prompt_id}`.
@@ -9413,18 +6896,13 @@ class AgentPlatformApiNamespace {
           {required String evaluationRunUuid,
           required int promptId,
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetEvaluationRunPromptResults(
-        _config,
-        evaluationRunUuid: evaluationRunUuid,
-        promptId: promptId,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetEvaluationRunPromptResults(_config, evaluationRunUuid: evaluationRunUuid, promptId: promptId, requestOptions: requestOptions);
   }
 
   /// To list all evaluation test cases, send a GET request to `/v2/gen-ai/evaluation_test_cases`.
   Future<ApiListEvaluationTestCasesOutput> genaiListEvaluationTestCases(
       {RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListEvaluationTestCases(_config,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListEvaluationTestCases(_config, requestOptions: requestOptions);
   }
 
   /// Creates an evaluation test case for a dataset in a workspace. Supply the test case name and any applicable `dataset_uuid`, `workspace_uuid`, metrics, or star metric configuration. A 200 response returns the new test case UUID.
@@ -9439,15 +6917,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<ApiStarMetric> starMetric = const SdkOmitted(),
       SdkOptional<String> workspaceUuid = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateEvaluationTestCase(_config,
-        agentWorkspaceName: agentWorkspaceName,
-        datasetUuid: datasetUuid,
-        description: description,
-        metrics: metrics,
-        name: name,
-        starMetric: starMetric,
-        workspaceUuid: workspaceUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateEvaluationTestCase(_config, agentWorkspaceName: agentWorkspaceName, datasetUuid: datasetUuid, description: description, metrics: metrics, name: name, starMetric: starMetric, workspaceUuid: workspaceUuid, requestOptions: requestOptions);
   }
 
   /// To list all evaluation runs by test case, send a GET request to `/v2/gen-ai/evaluation_test_cases/{evaluation_test_case_uuid}/evaluation_runs`.
@@ -9456,10 +6926,7 @@ class AgentPlatformApiNamespace {
           {required String evaluationTestCaseUuid,
           SdkOptional<int> evaluationTestCaseVersion = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListEvaluationRunsByTestCase(_config,
-        evaluationTestCaseUuid: evaluationTestCaseUuid,
-        evaluationTestCaseVersion: evaluationTestCaseVersion,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListEvaluationRunsByTestCase(_config, evaluationTestCaseUuid: evaluationTestCaseUuid, evaluationTestCaseVersion: evaluationTestCaseVersion, requestOptions: requestOptions);
   }
 
   /// To retrive information about an existing evaluation test case, send a GET request to `/v2/gen-ai/evaluation_test_case/{test_case_uuid}`.
@@ -9467,10 +6934,7 @@ class AgentPlatformApiNamespace {
       {required String testCaseUuid,
       SdkOptional<int> evaluationTestCaseVersion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetEvaluationTestCase(_config,
-        testCaseUuid: testCaseUuid,
-        evaluationTestCaseVersion: evaluationTestCaseVersion,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetEvaluationTestCase(_config, testCaseUuid: testCaseUuid, evaluationTestCaseVersion: evaluationTestCaseVersion, requestOptions: requestOptions);
   }
 
   /// Replaces the configuration of an evaluation test case. Use the `test_case_uuid` path parameter to select the test case, and provide any configuration fields to update, such as its name, dataset, metrics, or star metric. A 200 response returns the test case UUID and its new version.
@@ -9485,15 +6949,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<ApiStarMetric> starMetric = const SdkOmitted(),
       SdkOptional<String> testCaseUuid_2 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateEvaluationTestCase(_config,
-        testCaseUuid: testCaseUuid,
-        datasetUuid: datasetUuid,
-        description: description,
-        metrics: metrics,
-        name: name,
-        starMetric: starMetric,
-        testCaseUuid_2: testCaseUuid_2,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateEvaluationTestCase(_config, testCaseUuid: testCaseUuid, datasetUuid: datasetUuid, description: description, metrics: metrics, name: name, starMetric: starMetric, testCaseUuid_2: testCaseUuid_2, requestOptions: requestOptions);
   }
 
   /// To list all indexing jobs for a knowledge base, send a GET request to `/v2/gen-ai/indexing_jobs`.
@@ -9501,8 +6957,7 @@ class AgentPlatformApiNamespace {
       {SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListIndexingJobs(_config,
-        page: page, perPage: perPage, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListIndexingJobs(_config, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To start an indexing job for a knowledge base, send a POST request to `/v2/gen-ai/indexing_jobs`.
@@ -9510,35 +6965,25 @@ class AgentPlatformApiNamespace {
       {SdkOptional<List<String>> dataSourceUuids = const SdkOmitted(),
       SdkOptional<String> knowledgeBaseUuid = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateIndexingJob(_config,
-        dataSourceUuids: dataSourceUuids,
-        knowledgeBaseUuid: knowledgeBaseUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateIndexingJob(_config, dataSourceUuids: dataSourceUuids, knowledgeBaseUuid: knowledgeBaseUuid, requestOptions: requestOptions);
   }
 
   /// To list all datasources for an indexing job, send a GET request to `/v2/gen-ai/indexing_jobs/{indexing_job_uuid}/data_sources`.
   Future<ApiListIndexingJobDataSourcesOutput> genaiListIndexingJobDataSources(
       {required String indexingJobUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListIndexingJobDataSources(_config,
-        indexingJobUuid: indexingJobUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListIndexingJobDataSources(_config, indexingJobUuid: indexingJobUuid, requestOptions: requestOptions);
   }
 
   /// To get a signed URL for indexing job details, send a GET request to `/v2/gen-ai/indexing_jobs/{uuid}/details_signed_url`.
-  Future<ApiGetIndexingJobDetailsSignedURLOutput>
-      genaiGetIndexingJobDetailsSignedUrl(
-          {required String indexingJobUuid,
-          RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetIndexingJobDetailsSignedUrl(
-        _config,
-        indexingJobUuid: indexingJobUuid,
-        requestOptions: requestOptions);
+  Future<ApiGetIndexingJobDetailsSignedURLOutput> genaiGetIndexingJobDetailsSignedUrl(
+      {required String indexingJobUuid, RequestOptions? requestOptions}) async {
+    return agent_platform_api_methods.genaiGetIndexingJobDetailsSignedUrl(_config, indexingJobUuid: indexingJobUuid, requestOptions: requestOptions);
   }
 
   /// To get status of an indexing Job for a knowledge base, send a GET request to `/v2/gen-ai/indexing_jobs/{uuid}`.
   Future<ApiGetKnowledgeBaseIndexingJobOutput> genaiGetIndexingJob(
       {required String uuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetIndexingJob(_config,
-        uuid: uuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetIndexingJob(_config, uuid: uuid, requestOptions: requestOptions);
   }
 
   /// To cancel an indexing job for a knowledge base, send a PUT request to `/v2/gen-ai/indexing_jobs/{uuid}/cancel`.
@@ -9546,8 +6991,7 @@ class AgentPlatformApiNamespace {
       {required String uuid,
       SdkOptional<String> uuid_2 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCancelIndexingJob(_config,
-        uuid: uuid, uuid_2: uuid_2, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCancelIndexingJob(_config, uuid: uuid, uuid_2: uuid_2, requestOptions: requestOptions);
   }
 
   /// To list all knowledge bases, send a GET request to `/v2/gen-ai/knowledge_bases`.
@@ -9555,8 +6999,7 @@ class AgentPlatformApiNamespace {
       {SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListKnowledgeBases(_config,
-        page: page, perPage: perPage, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListKnowledgeBases(_config, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// Creates a knowledge base in a specified region and project, optionally using an existing database. Configure its name, embedding model, size, tags, VPC, and retrieval reranking with the corresponding fields. You can attach data sources during creation or add them later.
@@ -9569,24 +7012,12 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> projectId = const SdkOmitted(),
       SdkOptional<String> region = const SdkOmitted(),
-      SdkOptional<ApiRerankingConfiguration> rerankingConfig =
-          const SdkOmitted(),
+      SdkOptional<ApiRerankingConfiguration> rerankingConfig = const SdkOmitted(),
       SdkOptional<ApiOpenSearchPlanSize> size = const SdkOmitted(),
       SdkOptional<List<String>> tags = const SdkOmitted(),
       SdkOptional<String> vpcUuid = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateKnowledgeBase(_config,
-        databaseId: databaseId,
-        datasources: datasources,
-        embeddingModelUuid: embeddingModelUuid,
-        name: name,
-        projectId: projectId,
-        region: region,
-        rerankingConfig: rerankingConfig,
-        size: size,
-        tags: tags,
-        vpcUuid: vpcUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateKnowledgeBase(_config, databaseId: databaseId, datasources: datasources, embeddingModelUuid: embeddingModelUuid, name: name, projectId: projectId, region: region, rerankingConfig: rerankingConfig, size: size, tags: tags, vpcUuid: vpcUuid, requestOptions: requestOptions);
   }
 
   /// To create presigned URLs for knowledge base data source file upload, send a POST request to `/v2/gen-ai/knowledge_bases/data_sources/file_upload_presigned_urls`.
@@ -9594,9 +7025,7 @@ class AgentPlatformApiNamespace {
       genaiCreateDataSourceFileUploadPresignedUrls(
           {SdkOptional<List<ApiPresignedUrlFile>> files = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods
-        .genaiCreateDataSourceFileUploadPresignedUrls(_config,
-            files: files, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateDataSourceFileUploadPresignedUrls(_config, files: files, requestOptions: requestOptions);
   }
 
   /// To list all data sources for a knowledge base, send a GET request to `/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/data_sources`.
@@ -9606,11 +7035,7 @@ class AgentPlatformApiNamespace {
           SdkOptional<int> page = const SdkOmitted(),
           SdkOptional<int> perPage = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListKnowledgeBaseDataSources(_config,
-        knowledgeBaseUuid: knowledgeBaseUuid,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListKnowledgeBaseDataSources(_config, knowledgeBaseUuid: knowledgeBaseUuid, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// Adds a data source configuration to a knowledge base. Supply the source-specific settings for an AWS S3 bucket, Spaces bucket, or web crawler, and optionally configure chunking. Use this operation to add sources after creating a knowledge base or to attach a source during a later update.
@@ -9620,25 +7045,13 @@ class AgentPlatformApiNamespace {
       genaiCreateKnowledgeBaseDataSource(
           {required String knowledgeBaseUuid,
           SdkOptional<ApiAWSDataSource> awsDataSource = const SdkOmitted(),
-          SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm =
-              const SdkOmitted(),
+          SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm = const SdkOmitted(),
           SdkOptional<ApiChunkingOptions> chunkingOptions = const SdkOmitted(),
           SdkOptional<String> knowledgeBaseUuid_2 = const SdkOmitted(),
-          SdkOptional<ApiSpacesDataSource> spacesDataSource =
-              const SdkOmitted(),
-          SdkOptional<ApiWebCrawlerDataSource> webCrawlerDataSource =
-              const SdkOmitted(),
+          SdkOptional<ApiSpacesDataSource> spacesDataSource = const SdkOmitted(),
+          SdkOptional<ApiWebCrawlerDataSource> webCrawlerDataSource = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateKnowledgeBaseDataSource(
-        _config,
-        knowledgeBaseUuid: knowledgeBaseUuid,
-        awsDataSource: awsDataSource,
-        chunkingAlgorithm: chunkingAlgorithm,
-        chunkingOptions: chunkingOptions,
-        knowledgeBaseUuid_2: knowledgeBaseUuid_2,
-        spacesDataSource: spacesDataSource,
-        webCrawlerDataSource: webCrawlerDataSource,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateKnowledgeBaseDataSource(_config, knowledgeBaseUuid: knowledgeBaseUuid, awsDataSource: awsDataSource, chunkingAlgorithm: chunkingAlgorithm, chunkingOptions: chunkingOptions, knowledgeBaseUuid_2: knowledgeBaseUuid_2, spacesDataSource: spacesDataSource, webCrawlerDataSource: webCrawlerDataSource, requestOptions: requestOptions);
   }
 
   /// Replaces the chunking configuration for a data source in a knowledge base. Supply `chunking_algorithm` and `chunking_options` to configure how the source is divided for indexing. Use the path identifiers to select the knowledge base and data source to update.
@@ -9648,21 +7061,12 @@ class AgentPlatformApiNamespace {
       genaiUpdateKnowledgeBaseDataSource(
           {required String knowledgeBaseUuid,
           required String dataSourceUuid,
-          SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm =
-              const SdkOmitted(),
+          SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm = const SdkOmitted(),
           SdkOptional<ApiChunkingOptions> chunkingOptions = const SdkOmitted(),
           SdkOptional<String> dataSourceUuid_2 = const SdkOmitted(),
           SdkOptional<String> knowledgeBaseUuid_2 = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateKnowledgeBaseDataSource(
-        _config,
-        knowledgeBaseUuid: knowledgeBaseUuid,
-        dataSourceUuid: dataSourceUuid,
-        chunkingAlgorithm: chunkingAlgorithm,
-        chunkingOptions: chunkingOptions,
-        dataSourceUuid_2: dataSourceUuid_2,
-        knowledgeBaseUuid_2: knowledgeBaseUuid_2,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateKnowledgeBaseDataSource(_config, knowledgeBaseUuid: knowledgeBaseUuid, dataSourceUuid: dataSourceUuid, chunkingAlgorithm: chunkingAlgorithm, chunkingOptions: chunkingOptions, dataSourceUuid_2: dataSourceUuid_2, knowledgeBaseUuid_2: knowledgeBaseUuid_2, requestOptions: requestOptions);
   }
 
   /// To delete a data source from a knowledge base, send a DELETE request to `/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/data_sources/{data_source_uuid}`.
@@ -9671,11 +7075,7 @@ class AgentPlatformApiNamespace {
           {required String knowledgeBaseUuid,
           required String dataSourceUuid,
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteKnowledgeBaseDataSource(
-        _config,
-        knowledgeBaseUuid: knowledgeBaseUuid,
-        dataSourceUuid: dataSourceUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteKnowledgeBaseDataSource(_config, knowledgeBaseUuid: knowledgeBaseUuid, dataSourceUuid: dataSourceUuid, requestOptions: requestOptions);
   }
 
   /// To list latest 15 indexing jobs for a knowledge base, send a GET request to `/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/indexing_jobs`.
@@ -9683,17 +7083,13 @@ class AgentPlatformApiNamespace {
       genaiListIndexingJobsByKnowledgeBase(
           {required String knowledgeBaseUuid,
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListIndexingJobsByKnowledgeBase(
-        _config,
-        knowledgeBaseUuid: knowledgeBaseUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListIndexingJobsByKnowledgeBase(_config, knowledgeBaseUuid: knowledgeBaseUuid, requestOptions: requestOptions);
   }
 
   /// To retrive information about an existing knowledge base, send a GET request to `/v2/gen-ai/knowledge_bases/{uuid}`.
   Future<ApiGetKnowledgeBaseOutput> genaiGetKnowledgeBase(
       {required String uuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetKnowledgeBase(_config,
-        uuid: uuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetKnowledgeBase(_config, uuid: uuid, requestOptions: requestOptions);
   }
 
   /// To update a knowledge base, send a PUT request to `/v2/gen-ai/knowledge_bases/{uuid}`.
@@ -9702,27 +7098,17 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> databaseId = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> projectId = const SdkOmitted(),
-      SdkOptional<ApiRerankingConfiguration> rerankingConfig =
-          const SdkOmitted(),
+      SdkOptional<ApiRerankingConfiguration> rerankingConfig = const SdkOmitted(),
       SdkOptional<List<String>> tags = const SdkOmitted(),
       SdkOptional<String> uuid_2 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateKnowledgeBase(_config,
-        uuid: uuid,
-        databaseId: databaseId,
-        name: name,
-        projectId: projectId,
-        rerankingConfig: rerankingConfig,
-        tags: tags,
-        uuid_2: uuid_2,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateKnowledgeBase(_config, uuid: uuid, databaseId: databaseId, name: name, projectId: projectId, rerankingConfig: rerankingConfig, tags: tags, uuid_2: uuid_2, requestOptions: requestOptions);
   }
 
   /// To delete a knowledge base, send a DELETE request to `/v2/gen-ai/knowledge_bases/{uuid}`.
   Future<ApiDeleteKnowledgeBaseOutput> genaiDeleteKnowledgeBase(
       {required String uuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteKnowledgeBase(_config,
-        uuid: uuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteKnowledgeBase(_config, uuid: uuid, requestOptions: requestOptions);
   }
 
   /// To create presigned URLs for model evaluation dataset file upload, send a POST request to `/v2/genai/model_evaluation/datasets/file_upload_presigned_urls`.
@@ -9730,78 +7116,55 @@ class AgentPlatformApiNamespace {
       genaiCreateModelEvalDatasetUploadPresignedUrls(
           {SdkOptional<List<ApiPresignedUrlFile>> files = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods
-        .genaiCreateModelEvalDatasetUploadPresignedUrls(_config,
-            files: files, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateModelEvalDatasetUploadPresignedUrls(_config, files: files, requestOptions: requestOptions);
   }
 
   /// To list all available metrics for model evaluation, send a GET request to `/v2/genai/model_evaluation_metrics`.
   Future<ApiListModelEvaluationMetricsOutput> genaiListModelEvaluationMetrics(
       {RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListModelEvaluationMetrics(_config,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListModelEvaluationMetrics(_config, requestOptions: requestOptions);
   }
 
   /// To list all saved model evaluation presets, send a GET request to `/v2/genai/model_evaluation_presets`.
   Future<ApiListModelEvaluationPresetsOutput> genaiListModelEvaluationPresets(
       {RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListModelEvaluationPresets(_config,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListModelEvaluationPresets(_config, requestOptions: requestOptions);
   }
 
   /// To retrieve a saved model evaluation preset, send a GET request to `/v2/genai/model_evaluation_presets/{eval_preset_uuid}`.
   Future<ApiGetModelEvaluationPresetOutput> genaiGetModelEvaluationPreset(
       {required String evalPresetUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetModelEvaluationPreset(_config,
-        evalPresetUuid: evalPresetUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetModelEvaluationPreset(_config, evalPresetUuid: evalPresetUuid, requestOptions: requestOptions);
   }
 
   /// To delete a saved model evaluation preset, send a DELETE request to `/v2/gen-ai/model_evaluation_presets/{eval_preset_uuid}`.
   Future<Map<String, dynamic>> genaiDeleteModelEvaluationPreset(
       {required String evalPresetUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteModelEvaluationPreset(_config,
-        evalPresetUuid: evalPresetUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteModelEvaluationPreset(_config, evalPresetUuid: evalPresetUuid, requestOptions: requestOptions);
   }
 
   /// To list model evaluation runs, send a GET request to `/v2/genai/model_evaluation_runs`.
   Future<ApiListModelEvaluationRunsOutput> genaiListModelEvaluationRuns(
       {SdkOptional<String> evalPresetUuid = const SdkOmitted(),
-      SdkOptional<GenaiListModelEvaluationRunsStatus> status =
-          const SdkOmitted(),
+      SdkOptional<GenaiListModelEvaluationRunsStatus> status = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
-      SdkOptional<List<GenaiListModelEvaluationRunsStatusesItem>> statuses =
-          const SdkOmitted(),
-      SdkOptional<List<GenaiListModelEvaluationRunsCandidateTypesItem>>
-          candidateTypes = const SdkOmitted(),
+      SdkOptional<List<GenaiListModelEvaluationRunsStatusesItem>> statuses = const SdkOmitted(),
+      SdkOptional<List<GenaiListModelEvaluationRunsCandidateTypesItem>> candidateTypes = const SdkOmitted(),
       SdkOptional<String> search = const SdkOmitted(),
-      SdkOptional<GenaiListModelEvaluationRunsSortBy> sortBy =
-          const SdkOmitted(),
-      SdkOptional<GenaiListModelEvaluationRunsSortDirection> sortDirection =
-          const SdkOmitted(),
+      SdkOptional<GenaiListModelEvaluationRunsSortBy> sortBy = const SdkOmitted(),
+      SdkOptional<GenaiListModelEvaluationRunsSortDirection> sortDirection = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListModelEvaluationRuns(_config,
-        evalPresetUuid: evalPresetUuid,
-        status: status,
-        page: page,
-        perPage: perPage,
-        statuses: statuses,
-        candidateTypes: candidateTypes,
-        search: search,
-        sortBy: sortBy,
-        sortDirection: sortDirection,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListModelEvaluationRuns(_config, evalPresetUuid: evalPresetUuid, status: status, page: page, perPage: perPage, statuses: statuses, candidateTypes: candidateTypes, search: search, sortBy: sortBy, sortDirection: sortDirection, requestOptions: requestOptions);
   }
 
   /// Creates a model evaluation run to score a candidate model against a dataset using selected metrics and a judge model. Configure the candidate, dataset, metrics, and judge with the corresponding fields; `candidate_model_source` defaults to the serverless model source, and `epochs` defaults to 1 and is capped at 3. A successful response returns the created run's `eval_run_uuid`.
   ///
   /// To create a model evaluation run, send a POST request to `/v2/genai/model_evaluation_runs`.
   Future<ApiCreateModelEvaluationRunOutput> genaiCreateModelEvaluationRun(
-      {SdkOptional<ApiCandidateInferenceConfig> candidateInferenceConfig =
-          const SdkOmitted(),
+      {SdkOptional<ApiCandidateInferenceConfig> candidateInferenceConfig = const SdkOmitted(),
       SdkOptional<String> candidateModelName = const SdkOmitted(),
-      SdkOptional<ApiCandidateModelSource> candidateModelSource =
-          const SdkOmitted(),
+      SdkOptional<ApiCandidateModelSource> candidateModelSource = const SdkOmitted(),
       SdkOptional<String> candidateModelUuid = const SdkOmitted(),
       SdkOptional<String> datasetUuid = const SdkOmitted(),
       SdkOptional<int> epochs = const SdkOmitted(),
@@ -9810,29 +7173,12 @@ class AgentPlatformApiNamespace {
       SdkOptional<List<String>> metricUuids = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> presetName = const SdkOmitted(),
-      SdkOptional<List<ApiPresetSaveSection>> presetSaveSections =
-          const SdkOmitted(),
+      SdkOptional<List<ApiPresetSaveSection>> presetSaveSections = const SdkOmitted(),
       SdkOptional<bool> saveAsPreset = const SdkOmitted(),
       SdkOptional<String> source = const SdkOmitted(),
       SdkOptional<ApiStarMetric> starMetric = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateModelEvaluationRun(_config,
-        candidateInferenceConfig: candidateInferenceConfig,
-        candidateModelName: candidateModelName,
-        candidateModelSource: candidateModelSource,
-        candidateModelUuid: candidateModelUuid,
-        datasetUuid: datasetUuid,
-        epochs: epochs,
-        evalPresetUuid: evalPresetUuid,
-        judgeModelUuid: judgeModelUuid,
-        metricUuids: metricUuids,
-        name: name,
-        presetName: presetName,
-        presetSaveSections: presetSaveSections,
-        saveAsPreset: saveAsPreset,
-        source: source,
-        starMetric: starMetric,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateModelEvaluationRun(_config, candidateInferenceConfig: candidateInferenceConfig, candidateModelName: candidateModelName, candidateModelSource: candidateModelSource, candidateModelUuid: candidateModelUuid, datasetUuid: datasetUuid, epochs: epochs, evalPresetUuid: evalPresetUuid, judgeModelUuid: judgeModelUuid, metricUuids: metricUuids, name: name, presetName: presetName, presetSaveSections: presetSaveSections, saveAsPreset: saveAsPreset, source: source, starMetric: starMetric, requestOptions: requestOptions);
   }
 
   /// To retrieve a model evaluation run, send a GET request to `/v2/genai/model_evaluation_runs/{eval_run_uuid}`.
@@ -9841,18 +7187,13 @@ class AgentPlatformApiNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetModelEvaluationRun(_config,
-        evalRunUuid: evalRunUuid,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetModelEvaluationRun(_config, evalRunUuid: evalRunUuid, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To delete a model evaluation run, send a DELETE request to `/v2/gen-ai/model_evaluation_runs/{eval_run_uuid}`. The run must be in a terminal status (`successful`, `partially_successful`, `failed`, or `cancelled`). For runs still in progress, either wait for the run to finish or cancel it, then retry the delete once the run reaches a terminal status.
   Future<ApiDeleteModelEvaluationRunOutputPublic> genaiDeleteModelEvaluationRun(
       {required String evalRunUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteModelEvaluationRun(_config,
-        evalRunUuid: evalRunUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteModelEvaluationRun(_config, evalRunUuid: evalRunUuid, requestOptions: requestOptions);
   }
 
   /// To update a model evaluation run's display name, send a PATCH request to `/v2/gen-ai/model_evaluation_runs/{eval_run_uuid}`.
@@ -9861,11 +7202,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> evalRunUuid_2 = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateModelEvaluationRun(_config,
-        evalRunUuid: evalRunUuid,
-        evalRunUuid_2: evalRunUuid_2,
-        name: name,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateModelEvaluationRun(_config, evalRunUuid: evalRunUuid, evalRunUuid_2: evalRunUuid_2, name: name, requestOptions: requestOptions);
   }
 
   /// To cancel an in-progress model evaluation run, send a PUT request to `/v2/gen-ai/model_evaluation_runs/{eval_run_uuid}/cancel`.
@@ -9873,35 +7210,23 @@ class AgentPlatformApiNamespace {
       {required String evalRunUuid,
       SdkOptional<String> evalRunUuid_2 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCancelModelEvaluationRun(_config,
-        evalRunUuid: evalRunUuid,
-        evalRunUuid_2: evalRunUuid_2,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCancelModelEvaluationRun(_config, evalRunUuid: evalRunUuid, evalRunUuid_2: evalRunUuid_2, requestOptions: requestOptions);
   }
 
   /// To get a presigned download URL for model evaluation run results (gzip-compressed JSON), send a GET request to `/v2/genai/model_evaluation_runs/{eval_run_uuid}/results/download_url`.
-  Future<ApiGetModelEvaluationRunResultsDownloadURLOutput>
-      genaiGetModelEvaluationRunResultsDownloadUrl(
-          {required String evalRunUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods
-        .genaiGetModelEvaluationRunResultsDownloadUrl(_config,
-            evalRunUuid: evalRunUuid, requestOptions: requestOptions);
+  Future<ApiGetModelEvaluationRunResultsDownloadURLOutput> genaiGetModelEvaluationRunResultsDownloadUrl(
+      {required String evalRunUuid, RequestOptions? requestOptions}) async {
+    return agent_platform_api_methods.genaiGetModelEvaluationRunResultsDownloadUrl(_config, evalRunUuid: evalRunUuid, requestOptions: requestOptions);
   }
 
   /// To list all models, send a GET request to `/v2/gen-ai/models`.
   Future<ApiListModelsOutputPublic> genaiListModels(
-      {SdkOptional<List<GenaiListModelsUsecasesItem>> usecases =
-          const SdkOmitted(),
+      {SdkOptional<List<GenaiListModelsUsecasesItem>> usecases = const SdkOmitted(),
       SdkOptional<bool> publicOnly = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListModels(_config,
-        usecases: usecases,
-        publicOnly: publicOnly,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListModels(_config, usecases: usecases, publicOnly: publicOnly, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To list all model API keys, send a GET request to `/v2/gen-ai/models/api_keys`.
@@ -9909,8 +7234,7 @@ class AgentPlatformApiNamespace {
       {SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListModelApiKeys(_config,
-        page: page, perPage: perPage, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListModelApiKeys(_config, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// **Note: This endpoint is deprecated and has been retired. All requests return a `410 gone` response.** Creating model API keys through this endpoint is no longer supported. To create a model access key, visit the manage page in the control panel. Previously, you could create a model API key by sending a POST request to `/v2/gen-ai/models/api_keys`.
@@ -9919,8 +7243,7 @@ class AgentPlatformApiNamespace {
   Future<Error2> genaiCreateModelApiKey(
       {SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateModelApiKey(_config,
-        name: name, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateModelApiKey(_config, name: name, requestOptions: requestOptions);
   }
 
   /// Replaces the model API key resource identified by its UUID. Use `api_key_uuid` to select the key and provide `name` to set its display name; the request body is optional.
@@ -9931,25 +7254,19 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> apiKeyUuid_2 = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateModelApiKey(_config,
-        apiKeyUuid: apiKeyUuid,
-        apiKeyUuid_2: apiKeyUuid_2,
-        name: name,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateModelApiKey(_config, apiKeyUuid: apiKeyUuid, apiKeyUuid_2: apiKeyUuid_2, name: name, requestOptions: requestOptions);
   }
 
   /// To delete an API key for a model, send a DELETE request to `/v2/gen-ai/models/api_keys/{api_key_uuid}`.
   Future<ApiDeleteModelAPIKeyOutput> genaiDeleteModelApiKey(
       {required String apiKeyUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteModelApiKey(_config,
-        apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteModelApiKey(_config, apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
   }
 
   /// To regenerate a model API key, send a PUT request to `/v2/gen-ai/models/api_keys/{api_key_uuid}/regenerate`.
   Future<ApiRegenerateModelAPIKeyOutput> genaiRegenerateModelApiKey(
       {required String apiKeyUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiRegenerateModelApiKey(_config,
-        apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiRegenerateModelApiKey(_config, apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
   }
 
   /// Lists models available in the model catalog with pagination, filtering, and sorting options. Use `search` and the model filters to narrow the results, and use `page` and `per_page` to paginate the results.
@@ -9965,23 +7282,10 @@ class AgentPlatformApiNamespace {
       SdkOptional<List<String>> badges = const SdkOmitted(),
       SdkOptional<GenaiListModelCatalogSortBy> sortBy = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
-      SdkOptional<GenaiListModelCatalogSortDirection> sortDirection =
-          const SdkOmitted(),
+      SdkOptional<GenaiListModelCatalogSortDirection> sortDirection = const SdkOmitted(),
       SdkOptional<GenaiListModelCatalogUseCase> useCase = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListModelCatalog(_config,
-        page: page,
-        limit: limit,
-        search: search,
-        modelType: modelType,
-        provider: provider,
-        availability: availability,
-        badges: badges,
-        sortBy: sortBy,
-        perPage: perPage,
-        sortDirection: sortDirection,
-        useCase: useCase,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListModelCatalog(_config, page: page, limit: limit, search: search, modelType: modelType, provider: provider, availability: availability, badges: badges, sortBy: sortBy, perPage: perPage, sortDirection: sortDirection, useCase: useCase, requestOptions: requestOptions);
   }
 
   /// Retrieves detailed information about a specific model in the catalog, including its capabilities, pricing, and code examples. Use the `id` path parameter to look up a catalog entry, or use `model_id` to look it up by the identifier used for API calls.
@@ -9991,8 +7295,7 @@ class AgentPlatformApiNamespace {
       {required String id,
       SdkOptional<String> modelId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetModelCatalogCard(_config,
-        id: id, modelId: modelId, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetModelCatalogCard(_config, id: id, modelId: modelId, requestOptions: requestOptions);
   }
 
   /// To list model routers, send a GET request to `/v2/gen-ai/models/routers`.
@@ -10000,8 +7303,7 @@ class AgentPlatformApiNamespace {
       {SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListModelRouters(_config,
-        page: page, perPage: perPage, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListModelRouters(_config, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To create a model router, send a POST request to `/v2/gen-ai/models/routers`.
@@ -10012,13 +7314,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<List<ApiModelRouterTaskPolicy>> policies = const SdkOmitted(),
       SdkOptional<List<String>> regions = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateModelRouter(_config,
-        description: description,
-        fallbackModels: fallbackModels,
-        name: name,
-        policies: policies,
-        regions: regions,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateModelRouter(_config, description: description, fallbackModels: fallbackModels, name: name, policies: policies, regions: regions, requestOptions: requestOptions);
   }
 
   /// To list model router presets, send a GET request to `/v2/gen-ai/models/routers/presets`.
@@ -10026,8 +7322,7 @@ class AgentPlatformApiNamespace {
       {SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListModelRouterPresets(_config,
-        page: page, perPage: perPage, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListModelRouterPresets(_config, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To list model router task presets, send a GET request to `/v2/gen-ai/models/routers/tasks/presets`.
@@ -10035,15 +7330,13 @@ class AgentPlatformApiNamespace {
       {SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListModelRouterTaskPresets(_config,
-        page: page, perPage: perPage, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListModelRouterTaskPresets(_config, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To retrieve details of a model router, send a GET request to `/v2/gen-ai/models/routers/{uuid}`.
   Future<ApiGetModelRouterOutput> genaiGetModelRouter(
       {required String uuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetModelRouter(_config,
-        uuid: uuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetModelRouter(_config, uuid: uuid, requestOptions: requestOptions);
   }
 
   /// Replaces the configuration of a model router identified by its UUID. Supply any settings you want to update, such as `name`, `description`, or `policies`. The deprecated `regions` field does not affect deployment; omit it or set it to `["all"]`.
@@ -10052,29 +7345,19 @@ class AgentPlatformApiNamespace {
   Future<ApiUpdateModelRouterOutput> genaiUpdateModelRouter(
       {required String uuid,
       SdkOptional<String> description = const SdkOmitted(),
-      SdkOptional<List<Map<String, dynamic>>> fallbackModels =
-          const SdkOmitted(),
+      SdkOptional<List<Map<String, dynamic>>> fallbackModels = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<List<ApiModelRouterTaskPolicy>> policies = const SdkOmitted(),
       SdkOptional<List<String>> regions = const SdkOmitted(),
       SdkOptional<String> uuid_2 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateModelRouter(_config,
-        uuid: uuid,
-        description: description,
-        fallbackModels: fallbackModels,
-        name: name,
-        policies: policies,
-        regions: regions,
-        uuid_2: uuid_2,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateModelRouter(_config, uuid: uuid, description: description, fallbackModels: fallbackModels, name: name, policies: policies, regions: regions, uuid_2: uuid_2, requestOptions: requestOptions);
   }
 
   /// To delete a model router, send a DELETE request to `/v2/gen-ai/models/routers/{uuid}`.
   Future<ApiDeleteModelRouterOutput> genaiDeleteModelRouter(
       {required String uuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteModelRouter(_config,
-        uuid: uuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteModelRouter(_config, uuid: uuid, requestOptions: requestOptions);
   }
 
   /// To obtain the refresh token, needed for creation of data sources, send a GET request to `/v2/gen-ai/oauth2/dropbox/tokens`. Pass the code you obtrained from the oauth flow in the field 'code'
@@ -10082,8 +7365,7 @@ class AgentPlatformApiNamespace {
       {SdkOptional<String> code = const SdkOmitted(),
       SdkOptional<String> redirectUrl = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateOauth2DropboxTokens(_config,
-        code: code, redirectUrl: redirectUrl, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateOauth2DropboxTokens(_config, code: code, redirectUrl: redirectUrl, requestOptions: requestOptions);
   }
 
   /// To generate an Oauth2-URL for use with your localhost, send a GET request to `/v2/gen-ai/oauth2/url`. Pass 'http://localhost:3000 as redirect_url
@@ -10091,8 +7373,7 @@ class AgentPlatformApiNamespace {
       {SdkOptional<String> type_ = const SdkOmitted(),
       SdkOptional<String> redirectUrl = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetOauth2Url(_config,
-        type_: type_, redirectUrl: redirectUrl, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetOauth2Url(_config, type_: type_, redirectUrl: redirectUrl, requestOptions: requestOptions);
   }
 
   /// To list all OpenAI API keys, send a GET request to `/v2/gen-ai/openai/keys`.
@@ -10100,8 +7381,7 @@ class AgentPlatformApiNamespace {
       {SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListOpenaiApiKeys(_config,
-        page: page, perPage: perPage, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListOpenaiApiKeys(_config, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To create an OpenAI API key, send a POST request to `/v2/gen-ai/openai/keys`.
@@ -10109,15 +7389,13 @@ class AgentPlatformApiNamespace {
       {SdkOptional<String> apiKey = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateOpenaiApiKey(_config,
-        apiKey: apiKey, name: name, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateOpenaiApiKey(_config, apiKey: apiKey, name: name, requestOptions: requestOptions);
   }
 
   /// To retrieve details of an OpenAI API key, send a GET request to `/v2/gen-ai/openai/keys/{api_key_uuid}`.
   Future<ApiGetOpenAIAPIKeyOutput> genaiGetOpenaiApiKey(
       {required String apiKeyUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetOpenaiApiKey(_config,
-        apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetOpenaiApiKey(_config, apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
   }
 
   /// To update an OpenAI API key, send a PUT request to `/v2/gen-ai/openai/keys/{api_key_uuid}`.
@@ -10127,19 +7405,13 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> apiKeyUuid_2 = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateOpenaiApiKey(_config,
-        apiKeyUuid: apiKeyUuid,
-        apiKey: apiKey,
-        apiKeyUuid_2: apiKeyUuid_2,
-        name: name,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateOpenaiApiKey(_config, apiKeyUuid: apiKeyUuid, apiKey: apiKey, apiKeyUuid_2: apiKeyUuid_2, name: name, requestOptions: requestOptions);
   }
 
   /// To delete an OpenAI API key, send a DELETE request to `/v2/gen-ai/openai/keys/{api_key_uuid}`.
   Future<ApiDeleteOpenAIAPIKeyOutput> genaiDeleteOpenaiApiKey(
       {required String apiKeyUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteOpenaiApiKey(_config,
-        apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteOpenaiApiKey(_config, apiKeyUuid: apiKeyUuid, requestOptions: requestOptions);
   }
 
   /// Lists agents linked to a specific OpenAI key. Use `page` and `per_page` to paginate the results. The response includes pagination metadata and links to other pages.
@@ -10150,11 +7422,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListAgentsByOpenaiKey(_config,
-        uuid: uuid,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListAgentsByOpenaiKey(_config, uuid: uuid, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To list all datacenter regions, send a GET request to `/v2/gen-ai/regions`.
@@ -10162,10 +7430,7 @@ class AgentPlatformApiNamespace {
       {SdkOptional<bool> servesInference = const SdkOmitted(),
       SdkOptional<bool> servesBatch = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListDatacenterRegions(_config,
-        servesInference: servesInference,
-        servesBatch: servesBatch,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListDatacenterRegions(_config, servesInference: servesInference, servesBatch: servesBatch, requestOptions: requestOptions);
   }
 
   /// To list the platform-curated Common Scenario & Goal Library, send a GET request to `/v2/gen-ai/scenario_library`.
@@ -10175,17 +7440,9 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> category = const SdkOmitted(),
       SdkOptional<String> search = const SdkOmitted(),
       SdkOptional<GenaiListScenarioLibrarySortBy> sortBy = const SdkOmitted(),
-      SdkOptional<GenaiListScenarioLibrarySortDirection> sortDirection =
-          const SdkOmitted(),
+      SdkOptional<GenaiListScenarioLibrarySortDirection> sortDirection = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListScenarioLibrary(_config,
-        page: page,
-        perPage: perPage,
-        category: category,
-        search: search,
-        sortBy: sortBy,
-        sortDirection: sortDirection,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListScenarioLibrary(_config, page: page, perPage: perPage, category: category, search: search, sortBy: sortBy, sortDirection: sortDirection, requestOptions: requestOptions);
   }
 
   /// To create a scenario set from a Common Scenario & Goal Library entry, send a POST request to `/v2/gen-ai/scenario_library/{library_scenario_uuid}/create_scenario_set`. The library scenarios are copied into a new scenario set owned by the calling team. The new set is ready to use when creating a simulation run.
@@ -10195,11 +7452,7 @@ class AgentPlatformApiNamespace {
           SdkOptional<String> libraryScenarioUuid_2 = const SdkOmitted(),
           SdkOptional<String> name = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateScenarioSetFromLibrary(_config,
-        libraryScenarioUuid: libraryScenarioUuid,
-        libraryScenarioUuid_2: libraryScenarioUuid_2,
-        name: name,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateScenarioSetFromLibrary(_config, libraryScenarioUuid: libraryScenarioUuid, libraryScenarioUuid_2: libraryScenarioUuid_2, name: name, requestOptions: requestOptions);
   }
 
   /// To list the scenarios inside a Common Scenario & Goal Library entry without creating a team-owned scenario set, send a GET request to `/v2/gen-ai/scenario_library/{library_scenario_uuid}/scenarios`.
@@ -10208,57 +7461,32 @@ class AgentPlatformApiNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<String> search = const SdkOmitted(),
-      SdkOptional<GenaiListScenarioLibraryScenariosSortBy> sortBy =
-          const SdkOmitted(),
-      SdkOptional<GenaiListScenarioLibraryScenariosSortDirection>
-          sortDirection = const SdkOmitted(),
+      SdkOptional<GenaiListScenarioLibraryScenariosSortBy> sortBy = const SdkOmitted(),
+      SdkOptional<GenaiListScenarioLibraryScenariosSortDirection> sortDirection = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListScenarioLibraryScenarios(_config,
-        libraryScenarioUuid: libraryScenarioUuid,
-        page: page,
-        perPage: perPage,
-        search: search,
-        sortBy: sortBy,
-        sortDirection: sortDirection,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListScenarioLibraryScenarios(_config, libraryScenarioUuid: libraryScenarioUuid, page: page, perPage: perPage, search: search, sortBy: sortBy, sortDirection: sortDirection, requestOptions: requestOptions);
   }
 
   /// To list scenario sets, send a GET request to `/v2/gen-ai/scenario_sets`.
   Future<ApiListScenarioSetsOutput> genaiListScenarioSets(
       {SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
-      SdkOptional<List<GenaiListScenarioSetsStatusesItem>> statuses =
-          const SdkOmitted(),
-      SdkOptional<List<GenaiListScenarioSetsSourceKindsItem>> sourceKinds =
-          const SdkOmitted(),
+      SdkOptional<List<GenaiListScenarioSetsStatusesItem>> statuses = const SdkOmitted(),
+      SdkOptional<List<GenaiListScenarioSetsSourceKindsItem>> sourceKinds = const SdkOmitted(),
       SdkOptional<String> search = const SdkOmitted(),
       SdkOptional<GenaiListScenarioSetsSortBy> sortBy = const SdkOmitted(),
-      SdkOptional<GenaiListScenarioSetsSortDirection> sortDirection =
-          const SdkOmitted(),
+      SdkOptional<GenaiListScenarioSetsSortDirection> sortDirection = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListScenarioSets(_config,
-        page: page,
-        perPage: perPage,
-        statuses: statuses,
-        sourceKinds: sourceKinds,
-        search: search,
-        sortBy: sortBy,
-        sortDirection: sortDirection,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListScenarioSets(_config, page: page, perPage: perPage, statuses: statuses, sourceKinds: sourceKinds, search: search, sortBy: sortBy, sortDirection: sortDirection, requestOptions: requestOptions);
   }
 
   /// To create a scenario set, send a POST request to `/v2/gen-ai/scenario_sets`. Provide exactly one of `scenarios` or `file_upload_scenario_set`. The set is created in the ready state.
   Future<ApiCreateScenarioSetOutput> genaiCreateScenarioSet(
-      {SdkOptional<ApiFileUploadDataSource> fileUploadScenarioSet =
-          const SdkOmitted(),
+      {SdkOptional<ApiFileUploadDataSource> fileUploadScenarioSet = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<List<ApiScenario>> scenarios = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateScenarioSet(_config,
-        fileUploadScenarioSet: fileUploadScenarioSet,
-        name: name,
-        scenarios: scenarios,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateScenarioSet(_config, fileUploadScenarioSet: fileUploadScenarioSet, name: name, scenarios: scenarios, requestOptions: requestOptions);
   }
 
   /// To create presigned URLs for uploading a scenario set file, send a POST request to `/v2/gen-ai/scenario_sets/file_upload_presigned_urls`. After uploading, pass the stored object in Create Scenario Set as `file_upload_scenario_set`.
@@ -10266,10 +7494,7 @@ class AgentPlatformApiNamespace {
       genaiCreateScenarioSetUploadPresignedUrls(
           {SdkOptional<List<ApiPresignedUrlFile>> files = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateScenarioSetUploadPresignedUrls(
-        _config,
-        files: files,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateScenarioSetUploadPresignedUrls(_config, files: files, requestOptions: requestOptions);
   }
 
   /// To dispatch goal-driven scenario generation, send a POST request to `/v2/gen-ai/scenario_sets/generate`. The scenario set is returned in the generating state. Poll the retrieve scenario set endpoint until the set reaches a ready, failed, or cancelled status.
@@ -10279,19 +7504,13 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<int> numScenarios = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateGeneratedScenarioSet(_config,
-        generatorModelUuid: generatorModelUuid,
-        goalDescription: goalDescription,
-        name: name,
-        numScenarios: numScenarios,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateGeneratedScenarioSet(_config, generatorModelUuid: generatorModelUuid, goalDescription: goalDescription, name: name, numScenarios: numScenarios, requestOptions: requestOptions);
   }
 
   /// To retrieve a scenario set, send a GET request to `/v2/gen-ai/scenario_sets/{scenario_set_uuid}`.
   Future<ApiGetScenarioSetOutput> genaiGetScenarioSet(
       {required String scenarioSetUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetScenarioSet(_config,
-        scenarioSetUuid: scenarioSetUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetScenarioSet(_config, scenarioSetUuid: scenarioSetUuid, requestOptions: requestOptions);
   }
 
   /// To update a scenario set in place, send a PUT request to `/v2/gen-ai/scenario_sets/{scenario_set_uuid}`. Provide a new `name` and/or replacement `scenarios`. At least one is required. Replacing contents keeps the same scenario set UUID, remints scenario UUIDs, and is rejected unless the set is ready and no simulation run references it. There is no file-upload path on update.
@@ -10301,26 +7520,19 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> scenarioSetUuid_2 = const SdkOmitted(),
       SdkOptional<List<ApiScenario>> scenarios = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateScenarioSet(_config,
-        scenarioSetUuid: scenarioSetUuid,
-        name: name,
-        scenarioSetUuid_2: scenarioSetUuid_2,
-        scenarios: scenarios,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateScenarioSet(_config, scenarioSetUuid: scenarioSetUuid, name: name, scenarioSetUuid_2: scenarioSetUuid_2, scenarios: scenarios, requestOptions: requestOptions);
   }
 
   /// To delete a scenario set, send a DELETE request to `/v2/gen-ai/scenario_sets/{scenario_set_uuid}`. A scenario set that is referenced by a simulation run cannot be deleted.
   Future<ApiDeleteScenarioSetOutput> genaiDeleteScenarioSet(
       {required String scenarioSetUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteScenarioSet(_config,
-        scenarioSetUuid: scenarioSetUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteScenarioSet(_config, scenarioSetUuid: scenarioSetUuid, requestOptions: requestOptions);
   }
 
   /// To retrieve a presigned download URL for a scenario set file, send a GET request to `/v2/gen-ai/scenario_sets/{scenario_set_uuid}/download_url`.
   Future<ApiGetScenarioSetDownloadURLOutput> genaiGetScenarioSetDownloadUrl(
       {required String scenarioSetUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetScenarioSetDownloadUrl(_config,
-        scenarioSetUuid: scenarioSetUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetScenarioSetDownloadUrl(_config, scenarioSetUuid: scenarioSetUuid, requestOptions: requestOptions);
   }
 
   /// To duplicate a scenario set, send a POST request to `/v2/gen-ai/scenario_sets/{scenario_set_uuid}/duplicate`. The source set must be ready. The new set is named `{original name} duplicate` and contains a copy of the source scenarios.
@@ -10328,10 +7540,7 @@ class AgentPlatformApiNamespace {
       {required String scenarioSetUuid,
       SdkOptional<String> scenarioSetUuid_2 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateDuplicateScenarioSet(_config,
-        scenarioSetUuid: scenarioSetUuid,
-        scenarioSetUuid_2: scenarioSetUuid_2,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateDuplicateScenarioSet(_config, scenarioSetUuid: scenarioSetUuid, scenarioSetUuid_2: scenarioSetUuid_2, requestOptions: requestOptions);
   }
 
   /// To list the scenarios in a scenario set, send a GET request to `/v2/gen-ai/scenario_sets/{scenario_set_uuid}/scenarios`.
@@ -10341,17 +7550,9 @@ class AgentPlatformApiNamespace {
       SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<String> search = const SdkOmitted(),
       SdkOptional<GenaiListScenariosSortBy> sortBy = const SdkOmitted(),
-      SdkOptional<GenaiListScenariosSortDirection> sortDirection =
-          const SdkOmitted(),
+      SdkOptional<GenaiListScenariosSortDirection> sortDirection = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListScenarios(_config,
-        scenarioSetUuid: scenarioSetUuid,
-        page: page,
-        perPage: perPage,
-        search: search,
-        sortBy: sortBy,
-        sortDirection: sortDirection,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListScenarios(_config, scenarioSetUuid: scenarioSetUuid, page: page, perPage: perPage, search: search, sortBy: sortBy, sortDirection: sortDirection, requestOptions: requestOptions);
   }
 
   /// To create scheduled indexing for a knowledge base, send a POST request to `/v2/gen-ai/scheduled-indexing`.
@@ -10360,26 +7561,20 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> knowledgeBaseUuid = const SdkOmitted(),
       SdkOptional<String> time = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateScheduledIndexing(_config,
-        days: days,
-        knowledgeBaseUuid: knowledgeBaseUuid,
-        time: time,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateScheduledIndexing(_config, days: days, knowledgeBaseUuid: knowledgeBaseUuid, time: time, requestOptions: requestOptions);
   }
 
   /// Get Scheduled Indexing for knowledge base using knoweldge base uuid, send a GET request to `/v2/gen-ai/scheduled-indexing/knowledge-base/{knowledge_base_uuid}`.
   Future<ApiGetScheduledIndexingOutput> genaiGetScheduledIndexing(
       {required String knowledgeBaseUuid,
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetScheduledIndexing(_config,
-        knowledgeBaseUuid: knowledgeBaseUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetScheduledIndexing(_config, knowledgeBaseUuid: knowledgeBaseUuid, requestOptions: requestOptions);
   }
 
   /// Delete Scheduled Indexing for knowledge base, send a DELETE request to `/v2/gen-ai/scheduled-indexing/{uuid}`.
   Future<ApiDeleteScheduledIndexingOutput> genaiDeleteScheduledIndexing(
       {required String uuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteScheduledIndexing(_config,
-        uuid: uuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteScheduledIndexing(_config, uuid: uuid, requestOptions: requestOptions);
   }
 
   /// To list simulation runs, send a GET request to `/v2/gen-ai/simulation_runs`.
@@ -10387,56 +7582,33 @@ class AgentPlatformApiNamespace {
       {SdkOptional<String> scenarioSetUuid = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
-      SdkOptional<List<GenaiListSimulationRunsStatusesItem>> statuses =
-          const SdkOmitted(),
+      SdkOptional<List<GenaiListSimulationRunsStatusesItem>> statuses = const SdkOmitted(),
       SdkOptional<String> search = const SdkOmitted(),
       SdkOptional<GenaiListSimulationRunsSortBy> sortBy = const SdkOmitted(),
-      SdkOptional<GenaiListSimulationRunsSortDirection> sortDirection =
-          const SdkOmitted(),
+      SdkOptional<GenaiListSimulationRunsSortDirection> sortDirection = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListSimulationRuns(_config,
-        scenarioSetUuid: scenarioSetUuid,
-        page: page,
-        perPage: perPage,
-        statuses: statuses,
-        search: search,
-        sortBy: sortBy,
-        sortDirection: sortDirection,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListSimulationRuns(_config, scenarioSetUuid: scenarioSetUuid, page: page, perPage: perPage, statuses: statuses, search: search, sortBy: sortBy, sortDirection: sortDirection, requestOptions: requestOptions);
   }
 
   /// To create a simulation run, send a POST request to `/v2/gen-ai/simulation_runs`. The scenario set must be ready. Judge and user simulator models are optional and use platform defaults when omitted. The run is returned in the pending state.
   Future<ApiCreateSimulationRunOutput> genaiCreateSimulationRun(
       {SdkOptional<ApiCandidateAgentConfig> agentConfig = const SdkOmitted(),
-      SdkOptional<ApiSimulationEvaluationConfig> evaluationConfig =
-          const SdkOmitted(),
+      SdkOptional<ApiSimulationEvaluationConfig> evaluationConfig = const SdkOmitted(),
       SdkOptional<int> explorationBudget = const SdkOmitted(),
       SdkOptional<String> judgeModelUuid = const SdkOmitted(),
       SdkOptional<int> maxTurns = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> scenarioSetUuid = const SdkOmitted(),
-      SdkOptional<Map<String, dynamic>> userSimulatorConfig =
-          const SdkOmitted(),
+      SdkOptional<Map<String, dynamic>> userSimulatorConfig = const SdkOmitted(),
       SdkOptional<String> userSimulatorModelUuid = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateSimulationRun(_config,
-        agentConfig: agentConfig,
-        evaluationConfig: evaluationConfig,
-        explorationBudget: explorationBudget,
-        judgeModelUuid: judgeModelUuid,
-        maxTurns: maxTurns,
-        name: name,
-        scenarioSetUuid: scenarioSetUuid,
-        userSimulatorConfig: userSimulatorConfig,
-        userSimulatorModelUuid: userSimulatorModelUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateSimulationRun(_config, agentConfig: agentConfig, evaluationConfig: evaluationConfig, explorationBudget: explorationBudget, judgeModelUuid: judgeModelUuid, maxTurns: maxTurns, name: name, scenarioSetUuid: scenarioSetUuid, userSimulatorConfig: userSimulatorConfig, userSimulatorModelUuid: userSimulatorModelUuid, requestOptions: requestOptions);
   }
 
   /// To retrieve a simulation run, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}`.
   Future<ApiGetSimulationRunOutput> genaiGetSimulationRun(
       {required String runUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetSimulationRun(_config,
-        runUuid: runUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetSimulationRun(_config, runUuid: runUuid, requestOptions: requestOptions);
   }
 
   /// To update a simulation run's display name, send a PUT request to `/v2/gen-ai/simulation_runs/{run_uuid}`. Only the name is mutable; run configuration and results are immutable.
@@ -10445,18 +7617,13 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> runUuid_2 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateSimulationRun(_config,
-        runUuid: runUuid,
-        name: name,
-        runUuid_2: runUuid_2,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateSimulationRun(_config, runUuid: runUuid, name: name, runUuid_2: runUuid_2, requestOptions: requestOptions);
   }
 
   /// To delete a simulation run, send a DELETE request to `/v2/gen-ai/simulation_runs/{run_uuid}`. The run must be in a terminal status (`SIMULATION_RUN_STATUS_SUCCEEDED`, `SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL`, `SIMULATION_RUN_STATUS_FAILED`, or `SIMULATION_RUN_STATUS_CANCELLED`). For runs still in progress, cancel the run first, then retry the delete.
   Future<ApiDeleteSimulationRunOutput> genaiDeleteSimulationRun(
       {required String runUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteSimulationRun(_config,
-        runUuid: runUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteSimulationRun(_config, runUuid: runUuid, requestOptions: requestOptions);
   }
 
   /// To cancel an in-progress simulation run, send a PATCH request to `/v2/gen-ai/simulation_runs/{run_uuid}/cancel`.
@@ -10464,8 +7631,7 @@ class AgentPlatformApiNamespace {
       {required String runUuid,
       SdkOptional<String> runUuid_2 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiPatchCancelSimulationRun(_config,
-        runUuid: runUuid, runUuid_2: runUuid_2, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiPatchCancelSimulationRun(_config, runUuid: runUuid, runUuid_2: runUuid_2, requestOptions: requestOptions);
   }
 
   /// To list the episodes within a simulation run, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/episodes`.
@@ -10474,27 +7640,13 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> scenarioUuid = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
-      SdkOptional<List<GenaiListSimulationEpisodesStatusesItem>> statuses =
-          const SdkOmitted(),
-      SdkOptional<List<GenaiListSimulationEpisodesVerdictsItem>> verdicts =
-          const SdkOmitted(),
+      SdkOptional<List<GenaiListSimulationEpisodesStatusesItem>> statuses = const SdkOmitted(),
+      SdkOptional<List<GenaiListSimulationEpisodesVerdictsItem>> verdicts = const SdkOmitted(),
       SdkOptional<String> search = const SdkOmitted(),
-      SdkOptional<GenaiListSimulationEpisodesSortBy> sortBy =
-          const SdkOmitted(),
-      SdkOptional<GenaiListSimulationEpisodesSortDirection> sortDirection =
-          const SdkOmitted(),
+      SdkOptional<GenaiListSimulationEpisodesSortBy> sortBy = const SdkOmitted(),
+      SdkOptional<GenaiListSimulationEpisodesSortDirection> sortDirection = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListSimulationEpisodes(_config,
-        runUuid: runUuid,
-        scenarioUuid: scenarioUuid,
-        page: page,
-        perPage: perPage,
-        statuses: statuses,
-        verdicts: verdicts,
-        search: search,
-        sortBy: sortBy,
-        sortDirection: sortDirection,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListSimulationEpisodes(_config, runUuid: runUuid, scenarioUuid: scenarioUuid, page: page, perPage: perPage, statuses: statuses, verdicts: verdicts, search: search, sortBy: sortBy, sortDirection: sortDirection, requestOptions: requestOptions);
   }
 
   /// To retrieve a single episode, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/episodes/{episode_uuid}`.
@@ -10502,10 +7654,7 @@ class AgentPlatformApiNamespace {
       {required String runUuid,
       required String episodeUuid,
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetSimulationEpisode(_config,
-        runUuid: runUuid,
-        episodeUuid: episodeUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetSimulationEpisode(_config, runUuid: runUuid, episodeUuid: episodeUuid, requestOptions: requestOptions);
   }
 
   /// To retrieve an episode's live trajectory, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/episodes/{episode_uuid}/trajectory`. Poll while the episode is running to watch turn-by-turn progress.
@@ -10514,11 +7663,7 @@ class AgentPlatformApiNamespace {
           {required String runUuid,
           required String episodeUuid,
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetSimulationEpisodeTrajectory(
-        _config,
-        runUuid: runUuid,
-        episodeUuid: episodeUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetSimulationEpisodeTrajectory(_config, runUuid: runUuid, episodeUuid: episodeUuid, requestOptions: requestOptions);
   }
 
   /// To retrieve a presigned download URL for an episode's trajectory, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/episodes/{episode_uuid}/trajectory_url`.
@@ -10527,18 +7672,13 @@ class AgentPlatformApiNamespace {
           {required String runUuid,
           required String episodeUuid,
           RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetSimulationEpisodeTrajectoryUrl(
-        _config,
-        runUuid: runUuid,
-        episodeUuid: episodeUuid,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetSimulationEpisodeTrajectoryUrl(_config, runUuid: runUuid, episodeUuid: episodeUuid, requestOptions: requestOptions);
   }
 
   /// To list all workspaces, send a GET request to `/v2/gen-ai/workspaces`.
   Future<ApiListWorkspacesOutput> genaiListWorkspaces(
       {RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListWorkspaces(_config,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListWorkspaces(_config, requestOptions: requestOptions);
   }
 
   /// To create a new workspace, send a POST request to `/v2/gen-ai/workspaces`. The response body contains a JSON object with the newly created workspace object.
@@ -10547,18 +7687,13 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> description = const SdkOmitted(),
       SdkOptional<String> name = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiCreateWorkspace(_config,
-        agentUuids: agentUuids,
-        description: description,
-        name: name,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiCreateWorkspace(_config, agentUuids: agentUuids, description: description, name: name, requestOptions: requestOptions);
   }
 
   /// To retrieve details of a workspace, GET request to `/v2/gen-ai/workspaces/{workspace_uuid}`. The response body is a JSON object containing the workspace.
   Future<ApiGetWorkspaceOutput> genaiGetWorkspace(
       {required String workspaceUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiGetWorkspace(_config,
-        workspaceUuid: workspaceUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiGetWorkspace(_config, workspaceUuid: workspaceUuid, requestOptions: requestOptions);
   }
 
   /// To update a workspace, send a PUT request to `/v2/gen-ai/workspaces/{workspace_uuid}`. The response body is a JSON object containing the workspace.
@@ -10568,19 +7703,13 @@ class AgentPlatformApiNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<String> workspaceUuid_2 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateWorkspace(_config,
-        workspaceUuid: workspaceUuid,
-        description: description,
-        name: name,
-        workspaceUuid_2: workspaceUuid_2,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateWorkspace(_config, workspaceUuid: workspaceUuid, description: description, name: name, workspaceUuid_2: workspaceUuid_2, requestOptions: requestOptions);
   }
 
   /// To delete a workspace, send a DELETE request to `/v2/gen-ai/workspace/{workspace_uuid}`.
   Future<ApiDeleteWorkspaceOutput> genaiDeleteWorkspace(
       {required String workspaceUuid, RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiDeleteWorkspace(_config,
-        workspaceUuid: workspaceUuid, requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiDeleteWorkspace(_config, workspaceUuid: workspaceUuid, requestOptions: requestOptions);
   }
 
   /// To list all agents by a Workspace, send a GET request to `/v2/gen-ai/workspaces/{workspace_uuid}/agents`.
@@ -10590,12 +7719,7 @@ class AgentPlatformApiNamespace {
       SdkOptional<int> page = const SdkOmitted(),
       SdkOptional<int> perPage = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListAgentsByWorkspace(_config,
-        workspaceUuid: workspaceUuid,
-        onlyDeployed: onlyDeployed,
-        page: page,
-        perPage: perPage,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiListAgentsByWorkspace(_config, workspaceUuid: workspaceUuid, onlyDeployed: onlyDeployed, page: page, perPage: perPage, requestOptions: requestOptions);
   }
 
   /// To move all listed agents a given workspace, send a PUT request to `/v2/gen-ai/workspaces/{workspace_uuid}/agents`.
@@ -10604,29 +7728,20 @@ class AgentPlatformApiNamespace {
       SdkOptional<List<String>> agentUuids = const SdkOmitted(),
       SdkOptional<String> workspaceUuid_2 = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiUpdateAgentsWorkspace(_config,
-        workspaceUuid: workspaceUuid,
-        agentUuids: agentUuids,
-        workspaceUuid_2: workspaceUuid_2,
-        requestOptions: requestOptions);
+    return agent_platform_api_methods.genaiUpdateAgentsWorkspace(_config, workspaceUuid: workspaceUuid, agentUuids: agentUuids, workspaceUuid_2: workspaceUuid_2, requestOptions: requestOptions);
   }
 
   /// To list all evaluation test cases by a workspace, send a GET request to `/v2/gen-ai/workspaces/{workspace_uuid}/evaluation_test_cases`.
-  Future<ApiListEvaluationTestCasesByWorkspaceOutput>
-      genaiListEvaluationTestCasesByWorkspace(
-          {required String workspaceUuid,
-          RequestOptions? requestOptions}) async {
-    return agent_platform_api_methods.genaiListEvaluationTestCasesByWorkspace(
-        _config,
-        workspaceUuid: workspaceUuid,
-        requestOptions: requestOptions);
+  Future<ApiListEvaluationTestCasesByWorkspaceOutput> genaiListEvaluationTestCasesByWorkspace(
+      {required String workspaceUuid, RequestOptions? requestOptions}) async {
+    return agent_platform_api_methods.genaiListEvaluationTestCasesByWorkspace(_config, workspaceUuid: workspaceUuid, requestOptions: requestOptions);
   }
+
 }
 
 class ServerlessInferenceNamespace {
   final ClientConfig _config;
   ServerlessInferenceNamespace(ClientConfig config) : _config = config;
-
   /// Creates a model response for the given chat conversation.
   Future<ChatCompletionResponse> inferenceCreateChatCompletion(
       {required List<ChatMessage> messages,
@@ -10637,99 +7752,26 @@ class ServerlessInferenceNamespace {
       SdkOptional<double?> presencePenalty = const SdkOmitted(),
       SdkOptional<int?> topLogprobs = const SdkOmitted(),
       SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
-      SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
-          const SdkOmitted(),
+      SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(),
       SdkOptional<bool?> stream = const SdkOmitted(),
       SdkOptional<List<String>> stop = const SdkOmitted(),
       SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
       SdkOptional<bool?> logprobs = const SdkOmitted(),
       SdkOptional<int?> n = const SdkOmitted(),
-      SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions =
-          const SdkOmitted(),
-      SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort =
-          const SdkOmitted(),
+      SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(),
+      SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(),
       SdkOptional<int?> seed = const SdkOmitted(),
       SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
       SdkOptional<double?> temperature = const SdkOmitted(),
       SdkOptional<double?> topP = const SdkOmitted(),
       SdkOptional<String> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return serverless_inference_methods.inferenceCreateChatCompletion(_config,
-        messages: messages,
-        model: model,
-        maxTokens: maxTokens,
-        maxCompletionTokens: maxCompletionTokens,
-        frequencyPenalty: frequencyPenalty,
-        presencePenalty: presencePenalty,
-        topLogprobs: topLogprobs,
-        tools: tools,
-        toolChoice: toolChoice,
-        stream: stream,
-        stop: stop,
-        logitBias: logitBias,
-        logprobs: logprobs,
-        n: n,
-        streamOptions: streamOptions,
-        reasoningEffort: reasoningEffort,
-        seed: seed,
-        metadata: metadata,
-        temperature: temperature,
-        topP: topP,
-        user: user,
-        requestOptions: requestOptions);
+    return serverless_inference_methods.inferenceCreateChatCompletion(_config, messages: messages, model: model, maxTokens: maxTokens, maxCompletionTokens: maxCompletionTokens, frequencyPenalty: frequencyPenalty, presencePenalty: presencePenalty, topLogprobs: topLogprobs, tools: tools, toolChoice: toolChoice, stream: stream, stop: stop, logitBias: logitBias, logprobs: logprobs, n: n, streamOptions: streamOptions, reasoningEffort: reasoningEffort, seed: seed, metadata: metadata, temperature: temperature, topP: topP, user: user, requestOptions: requestOptions);
   }
 
   /// Creates a model response for the given chat conversation.
-  Stream<ChatCompletionChunk> inferenceCreateChatCompletionStream(
-      {required List<ChatMessage> messages,
-      required String model,
-      required bool? stream,
-      SdkOptional<int?> maxTokens = const SdkOmitted(),
-      SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
-      SdkOptional<double?> frequencyPenalty = const SdkOmitted(),
-      SdkOptional<double?> presencePenalty = const SdkOmitted(),
-      SdkOptional<int?> topLogprobs = const SdkOmitted(),
-      SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
-      SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
-          const SdkOmitted(),
-      SdkOptional<List<String>> stop = const SdkOmitted(),
-      SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
-      SdkOptional<bool?> logprobs = const SdkOmitted(),
-      SdkOptional<int?> n = const SdkOmitted(),
-      SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions =
-          const SdkOmitted(),
-      SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort =
-          const SdkOmitted(),
-      SdkOptional<int?> seed = const SdkOmitted(),
-      SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
-      SdkOptional<double?> temperature = const SdkOmitted(),
-      SdkOptional<double?> topP = const SdkOmitted(),
-      SdkOptional<String> user = const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* serverless_inference_methods.inferenceCreateChatCompletionStream(
-        _config,
-        messages: messages,
-        model: model,
-        stream: stream,
-        maxTokens: maxTokens,
-        maxCompletionTokens: maxCompletionTokens,
-        frequencyPenalty: frequencyPenalty,
-        presencePenalty: presencePenalty,
-        topLogprobs: topLogprobs,
-        tools: tools,
-        toolChoice: toolChoice,
-        stop: stop,
-        logitBias: logitBias,
-        logprobs: logprobs,
-        n: n,
-        streamOptions: streamOptions,
-        reasoningEffort: reasoningEffort,
-        seed: seed,
-        metadata: metadata,
-        temperature: temperature,
-        topP: topP,
-        user: user,
-        requestOptions: requestOptions);
+  Stream<ChatCompletionChunk> inferenceCreateChatCompletionStream({required List<ChatMessage> messages, required String model, required bool? stream, SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> topLogprobs = const SdkOmitted(), SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(), SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<List<String>> stop = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<bool?> logprobs = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* serverless_inference_methods.inferenceCreateChatCompletionStream(_config, messages: messages, model: model, stream: stream, maxTokens: maxTokens, maxCompletionTokens: maxCompletionTokens, frequencyPenalty: frequencyPenalty, presencePenalty: presencePenalty, topLogprobs: topLogprobs, tools: tools, toolChoice: toolChoice, stop: stop, logitBias: logitBias, logprobs: logprobs, n: n, streamOptions: streamOptions, reasoningEffort: reasoningEffort, seed: seed, metadata: metadata, temperature: temperature, topP: topP, user: user, requestOptions: requestOptions);
   }
 
   /// Send a structured list of input messages with text and/or image content, and the model will generate the next message in the conversation.
@@ -10746,66 +7788,16 @@ class ServerlessInferenceNamespace {
       SdkOptional<List<MessagesToolDefinitionParam>> tools = const SdkOmitted(),
       SdkOptional<MessagesToolChoiceParam> toolChoice = const SdkOmitted(),
       SdkOptional<MessagesCreateRequestMetadata> metadata = const SdkOmitted(),
-      SdkOptional<MessagesCreateRequestReasoningEffort?> reasoningEffort =
-          const SdkOmitted(),
+      SdkOptional<MessagesCreateRequestReasoningEffort?> reasoningEffort = const SdkOmitted(),
       SdkOptional<MessagesCreateRequestSpeed?> speed = const SdkOmitted(),
       SdkOptional<MessagesThinkingConfigParam?> thinking = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return serverless_inference_methods.inferenceCreateMessages(_config,
-        model: model,
-        maxTokens: maxTokens,
-        messages: messages,
-        system: system,
-        stopSequences: stopSequences,
-        stream: stream,
-        temperature: temperature,
-        topP: topP,
-        topK: topK,
-        tools: tools,
-        toolChoice: toolChoice,
-        metadata: metadata,
-        reasoningEffort: reasoningEffort,
-        speed: speed,
-        thinking: thinking,
-        requestOptions: requestOptions);
+    return serverless_inference_methods.inferenceCreateMessages(_config, model: model, maxTokens: maxTokens, messages: messages, system: system, stopSequences: stopSequences, stream: stream, temperature: temperature, topP: topP, topK: topK, tools: tools, toolChoice: toolChoice, metadata: metadata, reasoningEffort: reasoningEffort, speed: speed, thinking: thinking, requestOptions: requestOptions);
   }
 
   /// Send a structured list of input messages with text and/or image content, and the model will generate the next message in the conversation.
-  Stream<MessagesStreamEvent> inferenceCreateMessagesStream(
-      {required String model,
-      required int maxTokens,
-      required List<MessagesApiMessageParam> messages,
-      required bool stream,
-      SdkOptional<dynamic> system = const SdkOmitted(),
-      SdkOptional<List<String>> stopSequences = const SdkOmitted(),
-      SdkOptional<double?> temperature = const SdkOmitted(),
-      SdkOptional<double?> topP = const SdkOmitted(),
-      SdkOptional<int?> topK = const SdkOmitted(),
-      SdkOptional<List<MessagesToolDefinitionParam>> tools = const SdkOmitted(),
-      SdkOptional<MessagesToolChoiceParam> toolChoice = const SdkOmitted(),
-      SdkOptional<MessagesCreateRequestMetadata> metadata = const SdkOmitted(),
-      SdkOptional<MessagesCreateRequestReasoningEffort?> reasoningEffort =
-          const SdkOmitted(),
-      SdkOptional<MessagesCreateRequestSpeed?> speed = const SdkOmitted(),
-      SdkOptional<MessagesThinkingConfigParam?> thinking = const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* serverless_inference_methods.inferenceCreateMessagesStream(_config,
-        model: model,
-        maxTokens: maxTokens,
-        messages: messages,
-        stream: stream,
-        system: system,
-        stopSequences: stopSequences,
-        temperature: temperature,
-        topP: topP,
-        topK: topK,
-        tools: tools,
-        toolChoice: toolChoice,
-        metadata: metadata,
-        reasoningEffort: reasoningEffort,
-        speed: speed,
-        thinking: thinking,
-        requestOptions: requestOptions);
+  Stream<MessagesStreamEvent> inferenceCreateMessagesStream({required String model, required int maxTokens, required List<MessagesApiMessageParam> messages, required bool stream, SdkOptional<dynamic> system = const SdkOmitted(), SdkOptional<List<String>> stopSequences = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<int?> topK = const SdkOmitted(), SdkOptional<List<MessagesToolDefinitionParam>> tools = const SdkOmitted(), SdkOptional<MessagesToolChoiceParam> toolChoice = const SdkOmitted(), SdkOptional<MessagesCreateRequestMetadata> metadata = const SdkOmitted(), SdkOptional<MessagesCreateRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<MessagesCreateRequestSpeed?> speed = const SdkOmitted(), SdkOptional<MessagesThinkingConfigParam?> thinking = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* serverless_inference_methods.inferenceCreateMessagesStream(_config, model: model, maxTokens: maxTokens, messages: messages, stream: stream, system: system, stopSequences: stopSequences, temperature: temperature, topP: topP, topK: topK, tools: tools, toolChoice: toolChoice, metadata: metadata, reasoningEffort: reasoningEffort, speed: speed, thinking: thinking, requestOptions: requestOptions);
   }
 
   /// Create vector embeddings for one or more text inputs. OpenAI-compatible request and response. Unknown fields in the request body are rejected. There is no streaming response for this endpoint.
@@ -10813,15 +7805,9 @@ class ServerlessInferenceNamespace {
       {required String model,
       required List<String> input,
       SdkOptional<String> user = const SdkOmitted(),
-      SdkOptional<EmbeddingsRequestEncodingFormat> encodingFormat =
-          const SdkOmitted(),
+      SdkOptional<EmbeddingsRequestEncodingFormat> encodingFormat = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return serverless_inference_methods.inferenceCreateEmbedding(_config,
-        model: model,
-        input: input,
-        user: user,
-        encodingFormat: encodingFormat,
-        requestOptions: requestOptions);
+    return serverless_inference_methods.inferenceCreateEmbedding(_config, model: model, input: input, user: user, encodingFormat: encodingFormat, requestOptions: requestOptions);
   }
 
   /// Creates a high-quality image from a text prompt using GPT-IMAGE-1, the latest image generation model with automatic prompt optimization and enhanced visual capabilities.
@@ -10839,58 +7825,18 @@ class ServerlessInferenceNamespace {
       SdkOptional<int?> partialImages = const SdkOmitted(),
       SdkOptional<String?> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return serverless_inference_methods.inferenceCreateImage(_config,
-        prompt: prompt,
-        model: model,
-        n: n,
-        moderation: moderation,
-        background: background,
-        outputFormat: outputFormat,
-        outputCompression: outputCompression,
-        quality: quality,
-        size: size,
-        stream: stream,
-        partialImages: partialImages,
-        user: user,
-        requestOptions: requestOptions);
+    return serverless_inference_methods.inferenceCreateImage(_config, prompt: prompt, model: model, n: n, moderation: moderation, background: background, outputFormat: outputFormat, outputCompression: outputCompression, quality: quality, size: size, stream: stream, partialImages: partialImages, user: user, requestOptions: requestOptions);
   }
 
   /// Creates a high-quality image from a text prompt using GPT-IMAGE-1, the latest image generation model with automatic prompt optimization and enhanced visual capabilities.
-  Stream<ImageGenPartialImageEvent> inferenceCreateImageStream(
-      {required String prompt,
-      required String model,
-      required int n,
-      required bool? stream,
-      SdkOptional<String?> moderation = const SdkOmitted(),
-      SdkOptional<String?> background = const SdkOmitted(),
-      SdkOptional<String?> outputFormat = const SdkOmitted(),
-      SdkOptional<int?> outputCompression = const SdkOmitted(),
-      SdkOptional<String?> quality = const SdkOmitted(),
-      SdkOptional<CreateImageRequestSize> size = const SdkOmitted(),
-      SdkOptional<int?> partialImages = const SdkOmitted(),
-      SdkOptional<String?> user = const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* serverless_inference_methods.inferenceCreateImageStream(_config,
-        prompt: prompt,
-        model: model,
-        n: n,
-        stream: stream,
-        moderation: moderation,
-        background: background,
-        outputFormat: outputFormat,
-        outputCompression: outputCompression,
-        quality: quality,
-        size: size,
-        partialImages: partialImages,
-        user: user,
-        requestOptions: requestOptions);
+  Stream<ImageGenPartialImageEvent> inferenceCreateImageStream({required String prompt, required String model, required int n, required bool? stream, SdkOptional<String?> moderation = const SdkOmitted(), SdkOptional<String?> background = const SdkOmitted(), SdkOptional<String?> outputFormat = const SdkOmitted(), SdkOptional<int?> outputCompression = const SdkOmitted(), SdkOptional<String?> quality = const SdkOmitted(), SdkOptional<CreateImageRequestSize> size = const SdkOmitted(), SdkOptional<int?> partialImages = const SdkOmitted(), SdkOptional<String?> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* serverless_inference_methods.inferenceCreateImageStream(_config, prompt: prompt, model: model, n: n, stream: stream, moderation: moderation, background: background, outputFormat: outputFormat, outputCompression: outputCompression, quality: quality, size: size, partialImages: partialImages, user: user, requestOptions: requestOptions);
   }
 
   /// Lists the currently available models, and provides basic information about each one such as the owner and availability.
   Future<ListModelsResponse> inferenceListModels(
       {RequestOptions? requestOptions}) async {
-    return serverless_inference_methods.inferenceListModels(_config,
-        requestOptions: requestOptions);
+    return serverless_inference_methods.inferenceListModels(_config, requestOptions: requestOptions);
   }
 
   /// Evaluates a provided state against one or more typed questions using TypeSafe AI's Jev model. Unlike chat completion endpoints, System One returns typed answers, a truth-likelihood score, a choice from a fixed set, or a numeric score, each paired with a calibrated probability, instead of free-form text.
@@ -10899,11 +7845,7 @@ class ServerlessInferenceNamespace {
       required String model,
       required Map<String, SystemoneQuestion> questions,
       RequestOptions? requestOptions}) async {
-    return serverless_inference_methods.inferenceCreateSystemone(_config,
-        state: state,
-        model: model,
-        questions: questions,
-        requestOptions: requestOptions);
+    return serverless_inference_methods.inferenceCreateSystemone(_config, state: state, model: model, questions: questions, requestOptions: requestOptions);
   }
 
   /// Generate text responses from text prompts. This endpoint supports both streaming and non-streaming responses for supported text models.
@@ -10915,67 +7857,19 @@ class ServerlessInferenceNamespace {
       SdkOptional<bool?> stream = const SdkOmitted(),
       SdkOptional<String?> instructions = const SdkOmitted(),
       SdkOptional<double?> topP = const SdkOmitted(),
-      SdkOptional<CreateResponseRequestStreamOptions?> streamOptions =
-          const SdkOmitted(),
-      SdkOptional<List<CreateResponseRequestToolsItem>?> tools =
-          const SdkOmitted(),
-      SdkOptional<CreateResponseRequestToolChoice> toolChoice =
-          const SdkOmitted(),
+      SdkOptional<CreateResponseRequestStreamOptions?> streamOptions = const SdkOmitted(),
+      SdkOptional<List<CreateResponseRequestToolsItem>?> tools = const SdkOmitted(),
+      SdkOptional<CreateResponseRequestToolChoice> toolChoice = const SdkOmitted(),
       SdkOptional<List<String>?> stop = const SdkOmitted(),
       SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
       SdkOptional<String?> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return serverless_inference_methods.inferenceCreateResponse(_config,
-        model: model,
-        input: input,
-        maxOutputTokens: maxOutputTokens,
-        temperature: temperature,
-        stream: stream,
-        instructions: instructions,
-        topP: topP,
-        streamOptions: streamOptions,
-        tools: tools,
-        toolChoice: toolChoice,
-        stop: stop,
-        metadata: metadata,
-        user: user,
-        requestOptions: requestOptions);
+    return serverless_inference_methods.inferenceCreateResponse(_config, model: model, input: input, maxOutputTokens: maxOutputTokens, temperature: temperature, stream: stream, instructions: instructions, topP: topP, streamOptions: streamOptions, tools: tools, toolChoice: toolChoice, stop: stop, metadata: metadata, user: user, requestOptions: requestOptions);
   }
 
   /// Generate text responses from text prompts. This endpoint supports both streaming and non-streaming responses for supported text models.
-  Stream<CreateResponseStreamResponse> inferenceCreateResponseStream(
-      {required String model,
-      required dynamic input,
-      required bool? stream,
-      SdkOptional<int?> maxOutputTokens = const SdkOmitted(),
-      SdkOptional<double?> temperature = const SdkOmitted(),
-      SdkOptional<String?> instructions = const SdkOmitted(),
-      SdkOptional<double?> topP = const SdkOmitted(),
-      SdkOptional<CreateResponseRequestStreamOptions?> streamOptions =
-          const SdkOmitted(),
-      SdkOptional<List<CreateResponseRequestToolsItem>?> tools =
-          const SdkOmitted(),
-      SdkOptional<CreateResponseRequestToolChoice> toolChoice =
-          const SdkOmitted(),
-      SdkOptional<List<String>?> stop = const SdkOmitted(),
-      SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
-      SdkOptional<String?> user = const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* serverless_inference_methods.inferenceCreateResponseStream(_config,
-        model: model,
-        input: input,
-        stream: stream,
-        maxOutputTokens: maxOutputTokens,
-        temperature: temperature,
-        instructions: instructions,
-        topP: topP,
-        streamOptions: streamOptions,
-        tools: tools,
-        toolChoice: toolChoice,
-        stop: stop,
-        metadata: metadata,
-        user: user,
-        requestOptions: requestOptions);
+  Stream<CreateResponseStreamResponse> inferenceCreateResponseStream({required String model, required dynamic input, required bool? stream, SdkOptional<int?> maxOutputTokens = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<String?> instructions = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<CreateResponseRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<List<CreateResponseRequestToolsItem>?> tools = const SdkOmitted(), SdkOptional<CreateResponseRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<List<String>?> stop = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<String?> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* serverless_inference_methods.inferenceCreateResponseStream(_config, model: model, input: input, stream: stream, maxOutputTokens: maxOutputTokens, temperature: temperature, instructions: instructions, topP: topP, streamOptions: streamOptions, tools: tools, toolChoice: toolChoice, stop: stop, metadata: metadata, user: user, requestOptions: requestOptions);
   }
 
   /// Generate Image, Audio, or Text-to-Speech Using fal Models. This endpoint starts an asynchronous job and returns a request_id. The job status is QUEUED initially. Use the request_id to poll for the result.
@@ -10984,11 +7878,7 @@ class ServerlessInferenceNamespace {
       required AsyncInvokeRequestInput input,
       SdkOptional<List<AsyncInvokeRequestTagsItem>?> tags = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return serverless_inference_methods.inferenceCreateAsyncInvoke(_config,
-        modelId: modelId,
-        input: input,
-        tags: tags,
-        requestOptions: requestOptions);
+    return serverless_inference_methods.inferenceCreateAsyncInvoke(_config, modelId: modelId, input: input, tags: tags, requestOptions: requestOptions);
   }
 
   /// Convert text input to speech audio. The response may be raw audio bytes (`audio/mpeg`, `audio/wav`, and similar) or a JSON envelope with base64-encoded audio in `data[].b64_json`.
@@ -10999,13 +7889,7 @@ class ServerlessInferenceNamespace {
       SdkOptional<String> responseFormat = const SdkOmitted(),
       SdkOptional<String> instructions = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return serverless_inference_methods.inferenceCreateSpeech(_config,
-        model: model,
-        input: input,
-        voice: voice,
-        responseFormat: responseFormat,
-        instructions: instructions,
-        requestOptions: requestOptions);
+    return serverless_inference_methods.inferenceCreateSpeech(_config, model: model, input: input, voice: voice, responseFormat: responseFormat, instructions: instructions, requestOptions: requestOptions);
   }
 
   /// Start an asynchronous video generation job from a text prompt. Poll `GET /v1/videos/{video_id}` until the job reaches a terminal status, then download the MP4 with `GET /v1/videos/{video_id}/content` or from `output.url` when present.
@@ -11015,33 +7899,26 @@ class ServerlessInferenceNamespace {
       SdkOptional<String> size = const SdkOmitted(),
       SdkOptional<int> fps = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return serverless_inference_methods.inferenceCreateVideo(_config,
-        model: model,
-        prompt: prompt,
-        size: size,
-        fps: fps,
-        requestOptions: requestOptions);
+    return serverless_inference_methods.inferenceCreateVideo(_config, model: model, prompt: prompt, size: size, fps: fps, requestOptions: requestOptions);
   }
 
   /// Returns the current state of a video generation job. Poll until `status` reaches a terminal value such as `completed` or `failed`.
   Future<VideoGeneration> inferenceGetVideo(
       {required String videoId, RequestOptions? requestOptions}) async {
-    return serverless_inference_methods.inferenceGetVideo(_config,
-        videoId: videoId, requestOptions: requestOptions);
+    return serverless_inference_methods.inferenceGetVideo(_config, videoId: videoId, requestOptions: requestOptions);
   }
 
   /// Downloads the generated MP4 for a completed video generation job.
   Future<List<int>> inferenceGetVideoContent(
       {required String videoId, RequestOptions? requestOptions}) async {
-    return serverless_inference_methods.inferenceGetVideoContent(_config,
-        videoId: videoId, requestOptions: requestOptions);
+    return serverless_inference_methods.inferenceGetVideoContent(_config, videoId: videoId, requestOptions: requestOptions);
   }
+
 }
 
 class AgentInferenceNamespace {
   final ClientConfig _config;
   AgentInferenceNamespace(ClientConfig config) : _config = config;
-
   /// Creates a model response for the given chat conversation via a customer-provisioned agent endpoint.
   Future<ChatCompletionResponse> createChatCompletion(
       {required bool agent,
@@ -11053,114 +7930,37 @@ class AgentInferenceNamespace {
       SdkOptional<double?> presencePenalty = const SdkOmitted(),
       SdkOptional<int?> topLogprobs = const SdkOmitted(),
       SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
-      SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
-          const SdkOmitted(),
+      SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(),
       SdkOptional<bool?> stream = const SdkOmitted(),
       SdkOptional<List<String>> stop = const SdkOmitted(),
       SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
       SdkOptional<bool?> logprobs = const SdkOmitted(),
       SdkOptional<int?> n = const SdkOmitted(),
-      SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions =
-          const SdkOmitted(),
-      SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort =
-          const SdkOmitted(),
+      SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(),
+      SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(),
       SdkOptional<int?> seed = const SdkOmitted(),
       SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
       SdkOptional<double?> temperature = const SdkOmitted(),
       SdkOptional<double?> topP = const SdkOmitted(),
       SdkOptional<String> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_inference_methods.agentInferenceCreateChatCompletion(_config,
-        agent: agent,
-        messages: messages,
-        model: model,
-        maxTokens: maxTokens,
-        maxCompletionTokens: maxCompletionTokens,
-        frequencyPenalty: frequencyPenalty,
-        presencePenalty: presencePenalty,
-        topLogprobs: topLogprobs,
-        tools: tools,
-        toolChoice: toolChoice,
-        stream: stream,
-        stop: stop,
-        logitBias: logitBias,
-        logprobs: logprobs,
-        n: n,
-        streamOptions: streamOptions,
-        reasoningEffort: reasoningEffort,
-        seed: seed,
-        metadata: metadata,
-        temperature: temperature,
-        topP: topP,
-        user: user,
-        requestOptions: requestOptions);
+    return agent_inference_methods.agentInferenceCreateChatCompletion(_config, agent: agent, messages: messages, model: model, maxTokens: maxTokens, maxCompletionTokens: maxCompletionTokens, frequencyPenalty: frequencyPenalty, presencePenalty: presencePenalty, topLogprobs: topLogprobs, tools: tools, toolChoice: toolChoice, stream: stream, stop: stop, logitBias: logitBias, logprobs: logprobs, n: n, streamOptions: streamOptions, reasoningEffort: reasoningEffort, seed: seed, metadata: metadata, temperature: temperature, topP: topP, user: user, requestOptions: requestOptions);
   }
 
   /// Creates a model response for the given chat conversation via a customer-provisioned agent endpoint.
-  Stream<ChatCompletionChunk> createChatCompletionStream(
-      {required bool agent,
-      required List<ChatMessage> messages,
-      required String model,
-      required bool? stream,
-      SdkOptional<int?> maxTokens = const SdkOmitted(),
-      SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
-      SdkOptional<double?> frequencyPenalty = const SdkOmitted(),
-      SdkOptional<double?> presencePenalty = const SdkOmitted(),
-      SdkOptional<int?> topLogprobs = const SdkOmitted(),
-      SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
-      SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
-          const SdkOmitted(),
-      SdkOptional<List<String>> stop = const SdkOmitted(),
-      SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
-      SdkOptional<bool?> logprobs = const SdkOmitted(),
-      SdkOptional<int?> n = const SdkOmitted(),
-      SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions =
-          const SdkOmitted(),
-      SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort =
-          const SdkOmitted(),
-      SdkOptional<int?> seed = const SdkOmitted(),
-      SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
-      SdkOptional<double?> temperature = const SdkOmitted(),
-      SdkOptional<double?> topP = const SdkOmitted(),
-      SdkOptional<String> user = const SdkOmitted(),
-      RequestOptions? requestOptions}) async* {
-    yield* agent_inference_methods.agentInferenceCreateChatCompletionStream(
-        _config,
-        agent: agent,
-        messages: messages,
-        model: model,
-        stream: stream,
-        maxTokens: maxTokens,
-        maxCompletionTokens: maxCompletionTokens,
-        frequencyPenalty: frequencyPenalty,
-        presencePenalty: presencePenalty,
-        topLogprobs: topLogprobs,
-        tools: tools,
-        toolChoice: toolChoice,
-        stop: stop,
-        logitBias: logitBias,
-        logprobs: logprobs,
-        n: n,
-        streamOptions: streamOptions,
-        reasoningEffort: reasoningEffort,
-        seed: seed,
-        metadata: metadata,
-        temperature: temperature,
-        topP: topP,
-        user: user,
-        requestOptions: requestOptions);
+  Stream<ChatCompletionChunk> createChatCompletionStream({required bool agent, required List<ChatMessage> messages, required String model, required bool? stream, SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> topLogprobs = const SdkOmitted(), SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(), SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<List<String>> stop = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<bool?> logprobs = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+    yield* agent_inference_methods.agentInferenceCreateChatCompletionStream(_config, agent: agent, messages: messages, model: model, stream: stream, maxTokens: maxTokens, maxCompletionTokens: maxCompletionTokens, frequencyPenalty: frequencyPenalty, presencePenalty: presencePenalty, topLogprobs: topLogprobs, tools: tools, toolChoice: toolChoice, stop: stop, logitBias: logitBias, logprobs: logprobs, n: n, streamOptions: streamOptions, reasoningEffort: reasoningEffort, seed: seed, metadata: metadata, temperature: temperature, topP: topP, user: user, requestOptions: requestOptions);
   }
+
 }
 
 class BatchInferenceNamespace {
   final ClientConfig _config;
   BatchInferenceNamespace(ClientConfig config) : _config = config;
-
   /// Creates a file record and returns a `file_id` plus a short-lived presigned `PUT` URL (typically valid for ~15 minutes). Upload the raw JSONL bytes to `upload_url` (see `PUT /{upload_path}`) before calling `POST /v1/batches`.
   Future<BatchFileCreateResponse> inferenceCreateBatchFile(
       {required String fileName, RequestOptions? requestOptions}) async {
-    return batch_inference_methods.inferenceCreateBatchFile(_config,
-        fileName: fileName, requestOptions: requestOptions);
+    return batch_inference_methods.inferenceCreateBatchFile(_config, fileName: fileName, requestOptions: requestOptions);
   }
 
   /// Uploads raw JSONL bytes to the presigned URL returned by `POST /v1/batches/files`. Use the returned `upload_url` verbatim and send the bytes as `application/octet-stream` or omit `Content-Type` to avoid signature mismatches. The upload must complete before `POST /v1/batches` checks the object with a `HEAD` request.
@@ -11168,8 +7968,7 @@ class BatchInferenceNamespace {
   /// Uploads the raw JSONL bytes to the presigned `upload_url` returned by `POST /v1/batches/files`. **The URL is dynamic — do not construct it.** Use the `upload_url` value from the previous step verbatim. Its host, path, and query parameters are part of the short-lived (~15 minute) signature and change per request; the server and path shown here are illustrative. If the URL expires before the upload completes, create a new file intent and retry. `POST /v1/batches` performs a `HEAD` check on the uploaded object and will reject the batch if this upload has not completed. Send the raw JSONL bytes verbatim. Presigned PUT URLs are signature-sensitive to request headers — prefer `application/octet-stream` or omit `Content-Type` entirely. A custom value (for example `application/jsonl`) can cause signature mismatches unless the URL was signed for that exact header.
   Future<void> inferenceUploadBatchFile(
       {required List<int> body, RequestOptions? requestOptions}) async {
-    return batch_inference_methods.inferenceUploadBatchFile(_config,
-        body: body, requestOptions: requestOptions);
+    return batch_inference_methods.inferenceUploadBatchFile(_config, body: body, requestOptions: requestOptions);
   }
 
   /// Submits a batch job against a previously uploaded JSONL input file. The upload must have completed before this call; otherwise the request is rejected. Supply a unique `request_id` to make the submission idempotent — retries with the same value return the existing job. When `provider` is `openai`, the `url` on each JSONL line must match `endpoint`.
@@ -11181,14 +7980,7 @@ class BatchInferenceNamespace {
       SdkOptional<BatchCreateRequestEndpoint> endpoint = const SdkOmitted(),
       SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return batch_inference_methods.inferenceCreateBatch(_config,
-        fileId: fileId,
-        provider: provider,
-        completionWindow: completionWindow,
-        requestId: requestId,
-        endpoint: endpoint,
-        metadata: metadata,
-        requestOptions: requestOptions);
+    return batch_inference_methods.inferenceCreateBatch(_config, fileId: fileId, provider: provider, completionWindow: completionWindow, requestId: requestId, endpoint: endpoint, metadata: metadata, requestOptions: requestOptions);
   }
 
   /// Returns a cursor-paginated list of batch jobs, ordered newest first. Use `limit` to control page size and `after` to page forward using the `last_id` from the previous response.
@@ -11197,46 +7989,32 @@ class BatchInferenceNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<InferenceListBatchesStatus> status = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return batch_inference_methods.inferenceListBatches(_config,
-        after: after,
-        limit: limit,
-        status: status,
-        requestOptions: requestOptions);
+    return batch_inference_methods.inferenceListBatches(_config, after: after, limit: limit, status: status, requestOptions: requestOptions);
   }
 
   /// Returns a cursor-paginated list of batch jobs, ordered newest first. Use `limit` to control page size and `after` to page forward using the `last_id` from the previous response.
-  Stream<Batch> inferenceListBatchesPaginated(
-      {String? after,
-      int? limit,
-      InferenceListBatchesStatus? status,
-      RequestOptions? requestOptions}) async* {
-    yield* batch_inference_methods.inferenceListBatchesPaginated(_config,
-        after: after,
-        limit: limit,
-        status: status,
-        requestOptions: requestOptions);
+  Stream<Batch> inferenceListBatchesPaginated({String? after, int? limit, InferenceListBatchesStatus? status, RequestOptions? requestOptions}) async* {
+    yield* batch_inference_methods.inferenceListBatchesPaginated(_config, after: after, limit: limit, status: status, requestOptions: requestOptions);
   }
 
   /// Returns the current state of a batch job. Poll until `status` reaches a terminal value (`completed`, `failed`, `expired`, or `cancelled`).
   Future<Batch> inferenceGetBatch(
       {required String batchId, RequestOptions? requestOptions}) async {
-    return batch_inference_methods.inferenceGetBatch(_config,
-        batchId: batchId, requestOptions: requestOptions);
+    return batch_inference_methods.inferenceGetBatch(_config, batchId: batchId, requestOptions: requestOptions);
   }
 
   /// Returns short-lived presigned download URLs for the output (and optional error sidecar) of a completed batch job. If results are not yet ready, the response sets `result_available: false` or returns `412 Precondition Failed`; in both cases, keep polling batch status and retry. Download the artifacts soon after fetching — the URLs are short-lived. Result files themselves are retained for up to 30 days after the job completes, after which they are deleted.
   Future<BatchResultsResponse> inferenceGetBatchResults(
       {required String batchId, RequestOptions? requestOptions}) async {
-    return batch_inference_methods.inferenceGetBatchResults(_config,
-        batchId: batchId, requestOptions: requestOptions);
+    return batch_inference_methods.inferenceGetBatchResults(_config, batchId: batchId, requestOptions: requestOptions);
   }
 
   /// Requests cancellation of a batch job. The job transitions to `cancelling` and, once in-flight requests drain, to `cancelled`. Jobs already in a terminal state (`completed`, `failed`, `expired`, `cancelled`) cannot be cancelled and return `409 Conflict`. Cancellation is also rejected with `409 Conflict` while the job has not yet been submitted to the upstream provider — there is nothing to cancel until the provider batch id is assigned. Partial results produced before cancellation remain available via `GET /v1/batches/{batch_id}/results`.
   Future<Batch> inferenceCancelBatch(
       {required String batchId, RequestOptions? requestOptions}) async {
-    return batch_inference_methods.inferenceCancelBatch(_config,
-        batchId: batchId, requestOptions: requestOptions);
+    return batch_inference_methods.inferenceCancelBatch(_config, batchId: batchId, requestOptions: requestOptions);
   }
+
 }
 
 class DigitalOcean {
@@ -11396,4 +8174,5 @@ class DigitalOcean {
     logging.enabled = enabled ?? true;
     return logging;
   }
+
 }

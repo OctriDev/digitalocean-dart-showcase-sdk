@@ -9,38 +9,24 @@ class BillingHistoryResponseVariant0 {
   static const String constructionSurface = 'named';
   final SdkOptional<List<BillingHistory>> billingHistory;
 
-  const BillingHistoryResponseVariant0(
-      {this.billingHistory = const SdkOmitted()});
+  const BillingHistoryResponseVariant0({this.billingHistory = const SdkOmitted()});
 
-  BillingHistoryResponseVariant0 Function(
-          {SdkOptional<List<BillingHistory>> billingHistory})
-      get copyWith => _copyWith;
+  BillingHistoryResponseVariant0 Function({SdkOptional<List<BillingHistory>> billingHistory}) get copyWith => _copyWith;
 
-  BillingHistoryResponseVariant0 _copyWith(
-          {Object? billingHistory = sdkOmittedValue}) =>
-      BillingHistoryResponseVariant0(
-        billingHistory: identical(billingHistory, sdkOmittedValue)
-            ? this.billingHistory
-            : billingHistory as SdkOptional<List<BillingHistory>>,
-      );
+  BillingHistoryResponseVariant0 _copyWith({Object? billingHistory = sdkOmittedValue}) => BillingHistoryResponseVariant0(
+    billingHistory: identical(billingHistory, sdkOmittedValue) ? this.billingHistory : billingHistory as SdkOptional<List<BillingHistory>>,
+  );
 
-  factory BillingHistoryResponseVariant0.fromJson(Map<String, dynamic> json) =>
-      BillingHistoryResponseVariant0(
-        billingHistory: json['billing_history'] != null
-            ? SdkPresent(((json['billing_history'] as List?)
-                ?.map((e) => BillingHistory.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory BillingHistoryResponseVariant0.fromJson(Map<String, dynamic> json) => BillingHistoryResponseVariant0(
+    billingHistory: json['billing_history'] != null ? SdkPresent(((json['billing_history'] as List?)?.map((e) => BillingHistory.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (billingHistory) {
-          SdkPresent<List<BillingHistory>>(value: final value) => {
-              'billing_history': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (billingHistory) {
+      SdkPresent<List<BillingHistory>>(value: final value) => {'billing_history': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `BillingHistoryResponse` API schema.
@@ -48,138 +34,77 @@ class BillingHistoryResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<BillingHistory>> billingHistory;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Information about the response itself.
   final MetaProperties meta;
 
-  const BillingHistoryResponse(
-      {this.billingHistory = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const BillingHistoryResponse({this.billingHistory = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  BillingHistoryResponse Function(
-      {SdkOptional<List<BillingHistory>> billingHistory,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  BillingHistoryResponse Function({SdkOptional<List<BillingHistory>> billingHistory, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  BillingHistoryResponse _copyWith(
-          {Object? billingHistory = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      BillingHistoryResponse(
-        billingHistory: identical(billingHistory, sdkOmittedValue)
-            ? this.billingHistory
-            : billingHistory as SdkOptional<List<BillingHistory>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  BillingHistoryResponse _copyWith({Object? billingHistory = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => BillingHistoryResponse(
+    billingHistory: identical(billingHistory, sdkOmittedValue) ? this.billingHistory : billingHistory as SdkOptional<List<BillingHistory>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory BillingHistoryResponse.fromJson(Map<String, dynamic> json) =>
-      BillingHistoryResponse(
-        billingHistory: json['billing_history'] != null
-            ? SdkPresent(((json['billing_history'] as List?)
-                ?.map((e) => BillingHistory.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory BillingHistoryResponse.fromJson(Map<String, dynamic> json) => BillingHistoryResponse(
+    billingHistory: json['billing_history'] != null ? SdkPresent(((json['billing_history'] as List?)?.map((e) => BillingHistory.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (billingHistory) {
-          SdkPresent<List<BillingHistory>>(value: final value) => {
-              'billing_history': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (billingHistory) {
+      SdkPresent<List<BillingHistory>>(value: final value) => {'billing_history': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 /// Typed representation of the `BillingInsights` API schema.
 class BillingInsights {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Array of billing data points, which are day-over-day changes in billing resource usage based on nightly invoice item estimates, for the requested period
   final List<BillingDataPoint> dataPoints;
-
   /// Total number of items available across all pages
   final int totalItems;
-
   /// Total number of pages available
   final int totalPages;
-
   /// Current page number
   final int currentPage;
 
-  const BillingInsights(
-      {required this.dataPoints,
-      required this.totalItems,
-      required this.totalPages,
-      required this.currentPage});
+  const BillingInsights({required this.dataPoints, required this.totalItems, required this.totalPages, required this.currentPage});
 
-  BillingInsights Function(
-      {List<BillingDataPoint> dataPoints,
-      int totalItems,
-      int totalPages,
-      int currentPage}) get copyWith => _copyWith;
+  BillingInsights Function({List<BillingDataPoint> dataPoints, int totalItems, int totalPages, int currentPage}) get copyWith => _copyWith;
 
-  BillingInsights _copyWith(
-          {Object? dataPoints = sdkOmittedValue,
-          Object? totalItems = sdkOmittedValue,
-          Object? totalPages = sdkOmittedValue,
-          Object? currentPage = sdkOmittedValue}) =>
-      BillingInsights(
-        dataPoints: identical(dataPoints, sdkOmittedValue)
-            ? this.dataPoints
-            : dataPoints as List<BillingDataPoint>,
-        totalItems: identical(totalItems, sdkOmittedValue)
-            ? this.totalItems
-            : totalItems as int,
-        totalPages: identical(totalPages, sdkOmittedValue)
-            ? this.totalPages
-            : totalPages as int,
-        currentPage: identical(currentPage, sdkOmittedValue)
-            ? this.currentPage
-            : currentPage as int,
-      );
+  BillingInsights _copyWith({Object? dataPoints = sdkOmittedValue, Object? totalItems = sdkOmittedValue, Object? totalPages = sdkOmittedValue, Object? currentPage = sdkOmittedValue}) => BillingInsights(
+    dataPoints: identical(dataPoints, sdkOmittedValue) ? this.dataPoints : dataPoints as List<BillingDataPoint>,
+    totalItems: identical(totalItems, sdkOmittedValue) ? this.totalItems : totalItems as int,
+    totalPages: identical(totalPages, sdkOmittedValue) ? this.totalPages : totalPages as int,
+    currentPage: identical(currentPage, sdkOmittedValue) ? this.currentPage : currentPage as int,
+  );
 
-  factory BillingInsights.fromJson(Map<String, dynamic> json) =>
-      BillingInsights(
-        dataPoints: ((json['data_points'] as List?)
-            ?.map((e) => BillingDataPoint.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalItems: ((json['total_items'] as num?)?.toInt())!,
-        totalPages: ((json['total_pages'] as num?)?.toInt())!,
-        currentPage: ((json['current_page'] as num?)?.toInt())!,
-      );
+  factory BillingInsights.fromJson(Map<String, dynamic> json) => BillingInsights(
+    dataPoints: ((json['data_points'] as List?)?.map((e) => BillingDataPoint.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalItems: ((json['total_items'] as num?)?.toInt())!,
+    totalPages: ((json['total_pages'] as num?)?.toInt())!,
+    currentPage: ((json['current_page'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data_points': dataPoints.map((item) => item.toJson()).toList(),
-        'total_items': totalItems,
-        'total_pages': totalPages,
-        'current_page': currentPage,
-      };
+    'data_points': dataPoints.map((item) => item.toJson()).toList(),
+    'total_items': totalItems,
+    'total_pages': totalPages,
+    'current_page': currentPage,
+  };
 }
 
 class InvoiceVariant0 {
@@ -189,33 +114,22 @@ class InvoiceVariant0 {
 
   const InvoiceVariant0({this.invoiceItems = const SdkOmitted()});
 
-  InvoiceVariant0 Function({SdkOptional<List<InvoiceItem>> invoiceItems})
-      get copyWith => _copyWith;
+  InvoiceVariant0 Function({SdkOptional<List<InvoiceItem>> invoiceItems}) get copyWith => _copyWith;
 
-  InvoiceVariant0 _copyWith({Object? invoiceItems = sdkOmittedValue}) =>
-      InvoiceVariant0(
-        invoiceItems: identical(invoiceItems, sdkOmittedValue)
-            ? this.invoiceItems
-            : invoiceItems as SdkOptional<List<InvoiceItem>>,
-      );
+  InvoiceVariant0 _copyWith({Object? invoiceItems = sdkOmittedValue}) => InvoiceVariant0(
+    invoiceItems: identical(invoiceItems, sdkOmittedValue) ? this.invoiceItems : invoiceItems as SdkOptional<List<InvoiceItem>>,
+  );
 
-  factory InvoiceVariant0.fromJson(Map<String, dynamic> json) =>
-      InvoiceVariant0(
-        invoiceItems: json['invoice_items'] != null
-            ? SdkPresent(((json['invoice_items'] as List?)
-                ?.map((e) => InvoiceItem.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory InvoiceVariant0.fromJson(Map<String, dynamic> json) => InvoiceVariant0(
+    invoiceItems: json['invoice_items'] != null ? SdkPresent(((json['invoice_items'] as List?)?.map((e) => InvoiceItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (invoiceItems) {
-          SdkPresent<List<InvoiceItem>>(value: final value) => {
-              'invoice_items': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (invoiceItems) {
+      SdkPresent<List<InvoiceItem>>(value: final value) => {'invoice_items': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `Invoice` API schema.
@@ -223,286 +137,143 @@ class Invoice {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<InvoiceItem>> invoiceItems;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const Invoice(
-      {this.invoiceItems = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const Invoice({this.invoiceItems = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  Invoice Function(
-      {SdkOptional<List<InvoiceItem>> invoiceItems,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  Invoice Function({SdkOptional<List<InvoiceItem>> invoiceItems, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  Invoice _copyWith(
-          {Object? invoiceItems = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      Invoice(
-        invoiceItems: identical(invoiceItems, sdkOmittedValue)
-            ? this.invoiceItems
-            : invoiceItems as SdkOptional<List<InvoiceItem>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  Invoice _copyWith({Object? invoiceItems = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => Invoice(
+    invoiceItems: identical(invoiceItems, sdkOmittedValue) ? this.invoiceItems : invoiceItems as SdkOptional<List<InvoiceItem>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory Invoice.fromJson(Map<String, dynamic> json) => Invoice(
-        invoiceItems: json['invoice_items'] != null
-            ? SdkPresent(((json['invoice_items'] as List?)
-                ?.map((e) => InvoiceItem.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    invoiceItems: json['invoice_items'] != null ? SdkPresent(((json['invoice_items'] as List?)?.map((e) => InvoiceItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (invoiceItems) {
-          SdkPresent<List<InvoiceItem>>(value: final value) => {
-              'invoice_items': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (invoiceItems) {
+      SdkPresent<List<InvoiceItem>>(value: final value) => {'invoice_items': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 /// Typed representation of the `InvoiceItem` API schema.
 class InvoiceItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Name of the product being billed in the invoice item.
   final SdkOptional<String> product;
-
   /// UUID of the resource billing in the invoice item if available.
   final SdkOptional<String> resourceUuid;
-
   /// ID of the resource billing in the invoice item if available.
   final SdkOptional<String> resourceId;
-
   /// Description of the invoice item when it is a grouped set of usage, such as DOKS or databases.
   final SdkOptional<String> groupDescription;
-
   /// Description of the invoice item.
   final SdkOptional<String> description;
-
   /// Billed amount of this invoice item. Billed in USD.
   final SdkOptional<String> amount;
-
   /// Duration of time this invoice item was used and subsequently billed.
   final SdkOptional<String> duration;
-
   /// Unit of time for duration.
   final SdkOptional<String> durationUnit;
-
   /// Time the invoice item began to be billed for usage.
   final SdkOptional<String> startTime;
-
   /// Time the invoice item stopped being billed for usage.
   final SdkOptional<String> endTime;
-
   /// Name of the DigitalOcean Project this resource belongs to.
   final SdkOptional<String> projectName;
 
-  const InvoiceItem(
-      {this.product = const SdkOmitted(),
-      this.resourceUuid = const SdkOmitted(),
-      this.resourceId = const SdkOmitted(),
-      this.groupDescription = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.amount = const SdkOmitted(),
-      this.duration = const SdkOmitted(),
-      this.durationUnit = const SdkOmitted(),
-      this.startTime = const SdkOmitted(),
-      this.endTime = const SdkOmitted(),
-      this.projectName = const SdkOmitted()});
+  const InvoiceItem({this.product = const SdkOmitted(), this.resourceUuid = const SdkOmitted(), this.resourceId = const SdkOmitted(), this.groupDescription = const SdkOmitted(), this.description = const SdkOmitted(), this.amount = const SdkOmitted(), this.duration = const SdkOmitted(), this.durationUnit = const SdkOmitted(), this.startTime = const SdkOmitted(), this.endTime = const SdkOmitted(), this.projectName = const SdkOmitted()});
 
-  InvoiceItem Function(
-      {SdkOptional<String> product,
-      SdkOptional<String> resourceUuid,
-      SdkOptional<String> resourceId,
-      SdkOptional<String> groupDescription,
-      SdkOptional<String> description,
-      SdkOptional<String> amount,
-      SdkOptional<String> duration,
-      SdkOptional<String> durationUnit,
-      SdkOptional<String> startTime,
-      SdkOptional<String> endTime,
-      SdkOptional<String> projectName}) get copyWith => _copyWith;
+  InvoiceItem Function({SdkOptional<String> product, SdkOptional<String> resourceUuid, SdkOptional<String> resourceId, SdkOptional<String> groupDescription, SdkOptional<String> description, SdkOptional<String> amount, SdkOptional<String> duration, SdkOptional<String> durationUnit, SdkOptional<String> startTime, SdkOptional<String> endTime, SdkOptional<String> projectName}) get copyWith => _copyWith;
 
-  InvoiceItem _copyWith(
-          {Object? product = sdkOmittedValue,
-          Object? resourceUuid = sdkOmittedValue,
-          Object? resourceId = sdkOmittedValue,
-          Object? groupDescription = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? amount = sdkOmittedValue,
-          Object? duration = sdkOmittedValue,
-          Object? durationUnit = sdkOmittedValue,
-          Object? startTime = sdkOmittedValue,
-          Object? endTime = sdkOmittedValue,
-          Object? projectName = sdkOmittedValue}) =>
-      InvoiceItem(
-        product: identical(product, sdkOmittedValue)
-            ? this.product
-            : product as SdkOptional<String>,
-        resourceUuid: identical(resourceUuid, sdkOmittedValue)
-            ? this.resourceUuid
-            : resourceUuid as SdkOptional<String>,
-        resourceId: identical(resourceId, sdkOmittedValue)
-            ? this.resourceId
-            : resourceId as SdkOptional<String>,
-        groupDescription: identical(groupDescription, sdkOmittedValue)
-            ? this.groupDescription
-            : groupDescription as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        amount: identical(amount, sdkOmittedValue)
-            ? this.amount
-            : amount as SdkOptional<String>,
-        duration: identical(duration, sdkOmittedValue)
-            ? this.duration
-            : duration as SdkOptional<String>,
-        durationUnit: identical(durationUnit, sdkOmittedValue)
-            ? this.durationUnit
-            : durationUnit as SdkOptional<String>,
-        startTime: identical(startTime, sdkOmittedValue)
-            ? this.startTime
-            : startTime as SdkOptional<String>,
-        endTime: identical(endTime, sdkOmittedValue)
-            ? this.endTime
-            : endTime as SdkOptional<String>,
-        projectName: identical(projectName, sdkOmittedValue)
-            ? this.projectName
-            : projectName as SdkOptional<String>,
-      );
+  InvoiceItem _copyWith({Object? product = sdkOmittedValue, Object? resourceUuid = sdkOmittedValue, Object? resourceId = sdkOmittedValue, Object? groupDescription = sdkOmittedValue, Object? description = sdkOmittedValue, Object? amount = sdkOmittedValue, Object? duration = sdkOmittedValue, Object? durationUnit = sdkOmittedValue, Object? startTime = sdkOmittedValue, Object? endTime = sdkOmittedValue, Object? projectName = sdkOmittedValue}) => InvoiceItem(
+    product: identical(product, sdkOmittedValue) ? this.product : product as SdkOptional<String>,
+    resourceUuid: identical(resourceUuid, sdkOmittedValue) ? this.resourceUuid : resourceUuid as SdkOptional<String>,
+    resourceId: identical(resourceId, sdkOmittedValue) ? this.resourceId : resourceId as SdkOptional<String>,
+    groupDescription: identical(groupDescription, sdkOmittedValue) ? this.groupDescription : groupDescription as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<String>,
+    duration: identical(duration, sdkOmittedValue) ? this.duration : duration as SdkOptional<String>,
+    durationUnit: identical(durationUnit, sdkOmittedValue) ? this.durationUnit : durationUnit as SdkOptional<String>,
+    startTime: identical(startTime, sdkOmittedValue) ? this.startTime : startTime as SdkOptional<String>,
+    endTime: identical(endTime, sdkOmittedValue) ? this.endTime : endTime as SdkOptional<String>,
+    projectName: identical(projectName, sdkOmittedValue) ? this.projectName : projectName as SdkOptional<String>,
+  );
 
   factory InvoiceItem.fromJson(Map<String, dynamic> json) => InvoiceItem(
-        product: json['product'] != null
-            ? SdkPresent((json['product'] as String?)!)
-            : const SdkOmitted(),
-        resourceUuid: json['resource_uuid'] != null
-            ? SdkPresent((json['resource_uuid'] as String?)!)
-            : const SdkOmitted(),
-        resourceId: json['resource_id'] != null
-            ? SdkPresent((json['resource_id'] as String?)!)
-            : const SdkOmitted(),
-        groupDescription: json['group_description'] != null
-            ? SdkPresent((json['group_description'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        amount: json['amount'] != null
-            ? SdkPresent((json['amount'] as String?)!)
-            : const SdkOmitted(),
-        duration: json['duration'] != null
-            ? SdkPresent((json['duration'] as String?)!)
-            : const SdkOmitted(),
-        durationUnit: json['duration_unit'] != null
-            ? SdkPresent((json['duration_unit'] as String?)!)
-            : const SdkOmitted(),
-        startTime: json['start_time'] != null
-            ? SdkPresent((json['start_time'] as String?)!)
-            : const SdkOmitted(),
-        endTime: json['end_time'] != null
-            ? SdkPresent((json['end_time'] as String?)!)
-            : const SdkOmitted(),
-        projectName: json['project_name'] != null
-            ? SdkPresent((json['project_name'] as String?)!)
-            : const SdkOmitted(),
-      );
+    product: json['product'] != null ? SdkPresent((json['product'] as String?)!) : const SdkOmitted(),
+    resourceUuid: json['resource_uuid'] != null ? SdkPresent((json['resource_uuid'] as String?)!) : const SdkOmitted(),
+    resourceId: json['resource_id'] != null ? SdkPresent((json['resource_id'] as String?)!) : const SdkOmitted(),
+    groupDescription: json['group_description'] != null ? SdkPresent((json['group_description'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    amount: json['amount'] != null ? SdkPresent((json['amount'] as String?)!) : const SdkOmitted(),
+    duration: json['duration'] != null ? SdkPresent((json['duration'] as String?)!) : const SdkOmitted(),
+    durationUnit: json['duration_unit'] != null ? SdkPresent((json['duration_unit'] as String?)!) : const SdkOmitted(),
+    startTime: json['start_time'] != null ? SdkPresent((json['start_time'] as String?)!) : const SdkOmitted(),
+    endTime: json['end_time'] != null ? SdkPresent((json['end_time'] as String?)!) : const SdkOmitted(),
+    projectName: json['project_name'] != null ? SdkPresent((json['project_name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (product) {
-          SdkPresent<String>(value: final value) => {
-              'product': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceUuid) {
-          SdkPresent<String>(value: final value) => {
-              'resource_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceId) {
-          SdkPresent<String>(value: final value) => {
-              'resource_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (groupDescription) {
-          SdkPresent<String>(value: final value) => {
-              'group_description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (amount) {
-          SdkPresent<String>(value: final value) => {
-              'amount': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (duration) {
-          SdkPresent<String>(value: final value) => {
-              'duration': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (durationUnit) {
-          SdkPresent<String>(value: final value) => {
-              'duration_unit': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startTime) {
-          SdkPresent<String>(value: final value) => {
-              'start_time': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (endTime) {
-          SdkPresent<String>(value: final value) => {
-              'end_time': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projectName) {
-          SdkPresent<String>(value: final value) => {
-              'project_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (product) {
+      SdkPresent<String>(value: final value) => {'product': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceUuid) {
+      SdkPresent<String>(value: final value) => {'resource_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceId) {
+      SdkPresent<String>(value: final value) => {'resource_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (groupDescription) {
+      SdkPresent<String>(value: final value) => {'group_description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (amount) {
+      SdkPresent<String>(value: final value) => {'amount': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (duration) {
+      SdkPresent<String>(value: final value) => {'duration': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (durationUnit) {
+      SdkPresent<String>(value: final value) => {'duration_unit': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startTime) {
+      SdkPresent<String>(value: final value) => {'start_time': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (endTime) {
+      SdkPresent<String>(value: final value) => {'end_time': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projectName) {
+      SdkPresent<String>(value: final value) => {'project_name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

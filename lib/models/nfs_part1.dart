@@ -8,401 +8,240 @@ part of 'nfs.dart';
 class AccessPointActionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Represents an NFS access point resource.
   final AccessPointResponse accessPoint;
-
   /// The action that was submitted.
   final NfsAction2 action;
 
-  const AccessPointActionResponse(
-      {required this.accessPoint, required this.action});
+  const AccessPointActionResponse({required this.accessPoint, required this.action});
 
-  AccessPointActionResponse Function(
-      {AccessPointResponse accessPoint,
-      NfsAction2 action}) get copyWith => _copyWith;
+  AccessPointActionResponse Function({AccessPointResponse accessPoint, NfsAction2 action}) get copyWith => _copyWith;
 
-  AccessPointActionResponse _copyWith(
-          {Object? accessPoint = sdkOmittedValue,
-          Object? action = sdkOmittedValue}) =>
-      AccessPointActionResponse(
-        accessPoint: identical(accessPoint, sdkOmittedValue)
-            ? this.accessPoint
-            : accessPoint as AccessPointResponse,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as NfsAction2,
-      );
+  AccessPointActionResponse _copyWith({Object? accessPoint = sdkOmittedValue, Object? action = sdkOmittedValue}) => AccessPointActionResponse(
+    accessPoint: identical(accessPoint, sdkOmittedValue) ? this.accessPoint : accessPoint as AccessPointResponse,
+    action: identical(action, sdkOmittedValue) ? this.action : action as NfsAction2,
+  );
 
-  factory AccessPointActionResponse.fromJson(Map<String, dynamic> json) =>
-      AccessPointActionResponse(
-        accessPoint: (json['access_point'] != null
-            ? AccessPointResponse.fromJson(
-                json['access_point'] as Map<String, dynamic>)
-            : null)!,
-        action: (json['action'] != null
-            ? NfsAction2.fromJson(json['action'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AccessPointActionResponse.fromJson(Map<String, dynamic> json) => AccessPointActionResponse(
+    accessPoint: (json['access_point'] != null ? AccessPointResponse.fromJson(json['access_point'] as Map<String, dynamic>) : null)!,
+    action: (json['action'] != null ? NfsAction2.fromJson(json['action'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'access_point': accessPoint.toJson(),
-        'action': action.toJson(),
-      };
+    'access_point': accessPoint.toJson(),
+    'action': action.toJson(),
+  };
 }
 
 /// Response containing a single access point.
 class AccessPointGetResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Represents an NFS access point resource.
   final AccessPointResponse accessPoint;
 
   const AccessPointGetResponse({required this.accessPoint});
 
-  AccessPointGetResponse Function({AccessPointResponse accessPoint})
-      get copyWith => _copyWith;
+  AccessPointGetResponse Function({AccessPointResponse accessPoint}) get copyWith => _copyWith;
 
-  AccessPointGetResponse _copyWith({Object? accessPoint = sdkOmittedValue}) =>
-      AccessPointGetResponse(
-        accessPoint: identical(accessPoint, sdkOmittedValue)
-            ? this.accessPoint
-            : accessPoint as AccessPointResponse,
-      );
+  AccessPointGetResponse _copyWith({Object? accessPoint = sdkOmittedValue}) => AccessPointGetResponse(
+    accessPoint: identical(accessPoint, sdkOmittedValue) ? this.accessPoint : accessPoint as AccessPointResponse,
+  );
 
-  factory AccessPointGetResponse.fromJson(Map<String, dynamic> json) =>
-      AccessPointGetResponse(
-        accessPoint: (json['access_point'] != null
-            ? AccessPointResponse.fromJson(
-                json['access_point'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AccessPointGetResponse.fromJson(Map<String, dynamic> json) => AccessPointGetResponse(
+    accessPoint: (json['access_point'] != null ? AccessPointResponse.fromJson(json['access_point'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'access_point': accessPoint.toJson(),
-      };
+    'access_point': accessPoint.toJson(),
+  };
 }
 
 /// Response containing a list of access points.
 class AccessPointListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Array of access point objects.
   final List<AccessPointResponse> accessPoints;
 
   const AccessPointListResponse({required this.accessPoints});
 
-  AccessPointListResponse Function({List<AccessPointResponse> accessPoints})
-      get copyWith => _copyWith;
+  AccessPointListResponse Function({List<AccessPointResponse> accessPoints}) get copyWith => _copyWith;
 
-  AccessPointListResponse _copyWith({Object? accessPoints = sdkOmittedValue}) =>
-      AccessPointListResponse(
-        accessPoints: identical(accessPoints, sdkOmittedValue)
-            ? this.accessPoints
-            : accessPoints as List<AccessPointResponse>,
-      );
+  AccessPointListResponse _copyWith({Object? accessPoints = sdkOmittedValue}) => AccessPointListResponse(
+    accessPoints: identical(accessPoints, sdkOmittedValue) ? this.accessPoints : accessPoints as List<AccessPointResponse>,
+  );
 
-  factory AccessPointListResponse.fromJson(Map<String, dynamic> json) =>
-      AccessPointListResponse(
-        accessPoints: ((json['access_points'] as List?)
-            ?.map(
-                (e) => AccessPointResponse.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory AccessPointListResponse.fromJson(Map<String, dynamic> json) => AccessPointListResponse(
+    accessPoints: ((json['access_points'] as List?)?.map((e) => AccessPointResponse.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'access_points': accessPoints.map((item) => item.toJson()).toList(),
-      };
+    'access_points': accessPoints.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Payload for creating a new access point on a share.
 class AccessPointRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name for the access point. Must be unique per share. Must be 2–63 characters and match `^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]$`. The name `default` is reserved (case-insensitive) for the implicit default access point created with each share.
   final String name;
-
   /// The export sub-path. Must start with `/`, must not be exactly `/` (reserved for the default access point), must be at most 1024 characters, may contain only alphanumerics, `-`, `_`, `.`, and `/`, and must not contain `..` path segments.
   final String path;
-
   /// Provider-agnostic NFS access policy for an access point. Network CIDRs are managed by attach, detach, and managed-access workflows and are not part of this policy.
   final AccessPolicy accessPolicy;
-
   /// Required. The VPC this access point will be pinned to. A storage gateway is provisioned (or reused) in this VPC, and the access point becomes mountable from this VPC regardless of whether the parent share is currently attached to it.
   final String vpcId;
 
-  const AccessPointRequest(
-      {required this.name,
-      required this.path,
-      required this.accessPolicy,
-      required this.vpcId});
+  const AccessPointRequest({required this.name, required this.path, required this.accessPolicy, required this.vpcId});
 
-  AccessPointRequest Function(
-      {String name,
-      String path,
-      AccessPolicy accessPolicy,
-      String vpcId}) get copyWith => _copyWith;
+  AccessPointRequest Function({String name, String path, AccessPolicy accessPolicy, String vpcId}) get copyWith => _copyWith;
 
-  AccessPointRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? path = sdkOmittedValue,
-          Object? accessPolicy = sdkOmittedValue,
-          Object? vpcId = sdkOmittedValue}) =>
-      AccessPointRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        path: identical(path, sdkOmittedValue) ? this.path : path as String,
-        accessPolicy: identical(accessPolicy, sdkOmittedValue)
-            ? this.accessPolicy
-            : accessPolicy as AccessPolicy,
-        vpcId: identical(vpcId, sdkOmittedValue) ? this.vpcId : vpcId as String,
-      );
+  AccessPointRequest _copyWith({Object? name = sdkOmittedValue, Object? path = sdkOmittedValue, Object? accessPolicy = sdkOmittedValue, Object? vpcId = sdkOmittedValue}) => AccessPointRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    path: identical(path, sdkOmittedValue) ? this.path : path as String,
+    accessPolicy: identical(accessPolicy, sdkOmittedValue) ? this.accessPolicy : accessPolicy as AccessPolicy,
+    vpcId: identical(vpcId, sdkOmittedValue) ? this.vpcId : vpcId as String,
+  );
 
-  factory AccessPointRequest.fromJson(Map<String, dynamic> json) =>
-      AccessPointRequest(
-        name: (json['name'] as String?)!,
-        path: (json['path'] as String?)!,
-        accessPolicy: (json['access_policy'] != null
-            ? AccessPolicy.fromJson(
-                json['access_policy'] as Map<String, dynamic>)
-            : null)!,
-        vpcId: (json['vpc_id'] as String?)!,
-      );
+  factory AccessPointRequest.fromJson(Map<String, dynamic> json) => AccessPointRequest(
+    name: (json['name'] as String?)!,
+    path: (json['path'] as String?)!,
+    accessPolicy: (json['access_policy'] != null ? AccessPolicy.fromJson(json['access_policy'] as Map<String, dynamic>) : null)!,
+    vpcId: (json['vpc_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'path': path,
-        'access_policy': accessPolicy.toJson(),
-        'vpc_id': vpcId,
-      };
+    'name': name,
+    'path': path,
+    'access_policy': accessPolicy.toJson(),
+    'vpc_id': vpcId,
+  };
 }
 
 /// Represents an NFS access point resource.
 class AccessPointResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier of the access point.
   final String id;
-
   /// The human-readable name of the access point. Must be unique per share.
   final String name;
-
   /// The unique identifier of the share this access point belongs to.
   final String shareId;
-
   /// The export sub-path for this access point (always starts with `/`).
   final String path;
-
   /// The current lifecycle status of an access point. There is no ACCESS_POINT_DELETING state: DELETE soft-deletes the access point synchronously (mirroring share deletion); the response of a delete request returns the access point already in ACCESS_POINT_DELETED.
   final AccessPointResponseStatus status;
-
   /// Provider-agnostic NFS access policy for an access point. Network CIDRs are managed by attach, detach, and managed-access workflows and are not part of this policy.
   final AccessPolicy accessPolicy;
-
   /// The timestamp when the access point was created.
   final String createdAt;
-
   /// The timestamp when the access point was last updated. May be empty while the access point is still being created.
   final String updatedAt;
-
   /// Whether this is the share's default access point.
   final bool isDefault;
-
   /// The VPC this access point is pinned to. Omitted on the default access point. Every non-default access point owns its own storage gateway in this VPC and is independent of the parent share's VPC lifecycle.
   final SdkOptional<String> vpcId;
 
-  const AccessPointResponse(
-      {required this.id,
-      required this.name,
-      required this.shareId,
-      required this.path,
-      required this.status,
-      required this.accessPolicy,
-      required this.createdAt,
-      required this.updatedAt,
-      required this.isDefault,
-      this.vpcId = const SdkOmitted()});
+  const AccessPointResponse({required this.id, required this.name, required this.shareId, required this.path, required this.status, required this.accessPolicy, required this.createdAt, required this.updatedAt, required this.isDefault, this.vpcId = const SdkOmitted()});
 
-  AccessPointResponse Function(
-      {String id,
-      String name,
-      String shareId,
-      String path,
-      AccessPointResponseStatus status,
-      AccessPolicy accessPolicy,
-      String createdAt,
-      String updatedAt,
-      bool isDefault,
-      SdkOptional<String> vpcId}) get copyWith => _copyWith;
+  AccessPointResponse Function({String id, String name, String shareId, String path, AccessPointResponseStatus status, AccessPolicy accessPolicy, String createdAt, String updatedAt, bool isDefault, SdkOptional<String> vpcId}) get copyWith => _copyWith;
 
-  AccessPointResponse _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? shareId = sdkOmittedValue,
-          Object? path = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? accessPolicy = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? isDefault = sdkOmittedValue,
-          Object? vpcId = sdkOmittedValue}) =>
-      AccessPointResponse(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        shareId: identical(shareId, sdkOmittedValue)
-            ? this.shareId
-            : shareId as String,
-        path: identical(path, sdkOmittedValue) ? this.path : path as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as AccessPointResponseStatus,
-        accessPolicy: identical(accessPolicy, sdkOmittedValue)
-            ? this.accessPolicy
-            : accessPolicy as AccessPolicy,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as String,
-        isDefault: identical(isDefault, sdkOmittedValue)
-            ? this.isDefault
-            : isDefault as bool,
-        vpcId: identical(vpcId, sdkOmittedValue)
-            ? this.vpcId
-            : vpcId as SdkOptional<String>,
-      );
+  AccessPointResponse _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? shareId = sdkOmittedValue, Object? path = sdkOmittedValue, Object? status = sdkOmittedValue, Object? accessPolicy = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? isDefault = sdkOmittedValue, Object? vpcId = sdkOmittedValue}) => AccessPointResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    shareId: identical(shareId, sdkOmittedValue) ? this.shareId : shareId as String,
+    path: identical(path, sdkOmittedValue) ? this.path : path as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as AccessPointResponseStatus,
+    accessPolicy: identical(accessPolicy, sdkOmittedValue) ? this.accessPolicy : accessPolicy as AccessPolicy,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
+    isDefault: identical(isDefault, sdkOmittedValue) ? this.isDefault : isDefault as bool,
+    vpcId: identical(vpcId, sdkOmittedValue) ? this.vpcId : vpcId as SdkOptional<String>,
+  );
 
-  factory AccessPointResponse.fromJson(Map<String, dynamic> json) =>
-      AccessPointResponse(
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        shareId: (json['share_id'] as String?)!,
-        path: (json['path'] as String?)!,
-        status: (json['status'] != null
-            ? AccessPointResponseStatus.fromJson(json['status'] as String)
-            : null)!,
-        accessPolicy: (json['access_policy'] != null
-            ? AccessPolicy.fromJson(
-                json['access_policy'] as Map<String, dynamic>)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        updatedAt: (json['updated_at'] as String?)!,
-        isDefault: (json['is_default'] as bool?)!,
-        vpcId: json['vpc_id'] != null
-            ? SdkPresent((json['vpc_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AccessPointResponse.fromJson(Map<String, dynamic> json) => AccessPointResponse(
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    shareId: (json['share_id'] as String?)!,
+    path: (json['path'] as String?)!,
+    status: (json['status'] != null ? AccessPointResponseStatus.fromJson(json['status'] as String) : null)!,
+    accessPolicy: (json['access_policy'] != null ? AccessPolicy.fromJson(json['access_policy'] as Map<String, dynamic>) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    updatedAt: (json['updated_at'] as String?)!,
+    isDefault: (json['is_default'] as bool?)!,
+    vpcId: json['vpc_id'] != null ? SdkPresent((json['vpc_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'share_id': shareId,
-        'path': path,
-        'status': status.toJson(),
-        'access_policy': accessPolicy.toJson(),
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-        'is_default': isDefault,
-        ...switch (vpcId) {
-          SdkPresent<String>(value: final value) => {
-              'vpc_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    'name': name,
+    'share_id': shareId,
+    'path': path,
+    'status': status.toJson(),
+    'access_policy': accessPolicy.toJson(),
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+    'is_default': isDefault,
+    ...switch (vpcId) {
+      SdkPresent<String>(value: final value) => {'vpc_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Provider-agnostic NFS access policy for an access point. Network CIDRs are managed by attach, detach, and managed-access workflows and are not part of this policy.
 class AccessPolicy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// UID used for squashed users. Currently only 65534 is supported.
   final int anonuid;
-
   /// GID used for squashed users. Currently only 65534 is supported.
   final int anongid;
-
   /// Allowed NFS protocols for this export.
   final List<AccessPolicyProtocolsItem> protocols;
-
   /// The squash mode applied to the access point export.
   final AccessPolicySquashConfig squashConfig;
-
   /// Whether identity enforcement is enabled for this export.
   final bool identityEnforcementEnabled;
 
-  const AccessPolicy(
-      {required this.anonuid,
-      required this.anongid,
-      required this.protocols,
-      required this.squashConfig,
-      required this.identityEnforcementEnabled});
+  const AccessPolicy({required this.anonuid, required this.anongid, required this.protocols, required this.squashConfig, required this.identityEnforcementEnabled});
 
-  AccessPolicy Function(
-      {int anonuid,
-      int anongid,
-      List<AccessPolicyProtocolsItem> protocols,
-      AccessPolicySquashConfig squashConfig,
-      bool identityEnforcementEnabled}) get copyWith => _copyWith;
+  AccessPolicy Function({int anonuid, int anongid, List<AccessPolicyProtocolsItem> protocols, AccessPolicySquashConfig squashConfig, bool identityEnforcementEnabled}) get copyWith => _copyWith;
 
-  AccessPolicy _copyWith(
-          {Object? anonuid = sdkOmittedValue,
-          Object? anongid = sdkOmittedValue,
-          Object? protocols = sdkOmittedValue,
-          Object? squashConfig = sdkOmittedValue,
-          Object? identityEnforcementEnabled = sdkOmittedValue}) =>
-      AccessPolicy(
-        anonuid:
-            identical(anonuid, sdkOmittedValue) ? this.anonuid : anonuid as int,
-        anongid:
-            identical(anongid, sdkOmittedValue) ? this.anongid : anongid as int,
-        protocols: identical(protocols, sdkOmittedValue)
-            ? this.protocols
-            : protocols as List<AccessPolicyProtocolsItem>,
-        squashConfig: identical(squashConfig, sdkOmittedValue)
-            ? this.squashConfig
-            : squashConfig as AccessPolicySquashConfig,
-        identityEnforcementEnabled:
-            identical(identityEnforcementEnabled, sdkOmittedValue)
-                ? this.identityEnforcementEnabled
-                : identityEnforcementEnabled as bool,
-      );
+  AccessPolicy _copyWith({Object? anonuid = sdkOmittedValue, Object? anongid = sdkOmittedValue, Object? protocols = sdkOmittedValue, Object? squashConfig = sdkOmittedValue, Object? identityEnforcementEnabled = sdkOmittedValue}) => AccessPolicy(
+    anonuid: identical(anonuid, sdkOmittedValue) ? this.anonuid : anonuid as int,
+    anongid: identical(anongid, sdkOmittedValue) ? this.anongid : anongid as int,
+    protocols: identical(protocols, sdkOmittedValue) ? this.protocols : protocols as List<AccessPolicyProtocolsItem>,
+    squashConfig: identical(squashConfig, sdkOmittedValue) ? this.squashConfig : squashConfig as AccessPolicySquashConfig,
+    identityEnforcementEnabled: identical(identityEnforcementEnabled, sdkOmittedValue) ? this.identityEnforcementEnabled : identityEnforcementEnabled as bool,
+  );
 
   factory AccessPolicy.fromJson(Map<String, dynamic> json) => AccessPolicy(
-        anonuid: ((json['anonuid'] as num?)?.toInt())!,
-        anongid: ((json['anongid'] as num?)?.toInt())!,
-        protocols: ((json['protocols'] as List?)
-            ?.map((e) => AccessPolicyProtocolsItem.fromJson(e as String))
-            .toList())!,
-        squashConfig: (json['squash_config'] != null
-            ? AccessPolicySquashConfig.fromJson(json['squash_config'] as String)
-            : null)!,
-        identityEnforcementEnabled:
-            (json['identity_enforcement_enabled'] as bool?)!,
-      );
+    anonuid: ((json['anonuid'] as num?)?.toInt())!,
+    anongid: ((json['anongid'] as num?)?.toInt())!,
+    protocols: ((json['protocols'] as List?)?.map((e) => AccessPolicyProtocolsItem.fromJson(e as String)).toList())!,
+    squashConfig: (json['squash_config'] != null ? AccessPolicySquashConfig.fromJson(json['squash_config'] as String) : null)!,
+    identityEnforcementEnabled: (json['identity_enforcement_enabled'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'anonuid': anonuid,
-        'anongid': anongid,
-        'protocols': protocols.map((item) => item.toJson()).toList(),
-        'squash_config': squashConfig.toJson(),
-        'identity_enforcement_enabled': identityEnforcementEnabled,
-      };
+    'anonuid': anonuid,
+    'anongid': anongid,
+    'protocols': protocols.map((item) => item.toJson()).toList(),
+    'squash_config': squashConfig.toJson(),
+    'identity_enforcement_enabled': identityEnforcementEnabled,
+  };
 }
 
 /// A standard NFS API error response object.
 class NfsApiError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A service-defined error code.
   final String code;
-
   /// A human-readable description of the error.
   final String message;
 
@@ -410,62 +249,45 @@ class NfsApiError {
 
   NfsApiError Function({String code, String message}) get copyWith => _copyWith;
 
-  NfsApiError _copyWith(
-          {Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      NfsApiError(
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-      );
+  NfsApiError _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => NfsApiError(
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+  );
 
   factory NfsApiError.fromJson(Map<String, dynamic> json) => NfsApiError(
-        code: (json['code'] as String?)!,
-        message: (json['message'] as String?)!,
-      );
+    code: (json['code'] as String?)!,
+    message: (json['message'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'code': code,
-        'message': message,
-      };
+    'code': code,
+    'message': message,
+  };
 }
 
 /// Typed representation of the `NfsCreateResponse` API schema.
 class NfsCreateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `share` wire field.
   final SdkOptional<NfsResponse> share;
 
   const NfsCreateResponse({this.share = const SdkOmitted()});
 
-  NfsCreateResponse Function({SdkOptional<NfsResponse> share}) get copyWith =>
-      _copyWith;
+  NfsCreateResponse Function({SdkOptional<NfsResponse> share}) get copyWith => _copyWith;
 
-  NfsCreateResponse _copyWith({Object? share = sdkOmittedValue}) =>
-      NfsCreateResponse(
-        share: identical(share, sdkOmittedValue)
-            ? this.share
-            : share as SdkOptional<NfsResponse>,
-      );
+  NfsCreateResponse _copyWith({Object? share = sdkOmittedValue}) => NfsCreateResponse(
+    share: identical(share, sdkOmittedValue) ? this.share : share as SdkOptional<NfsResponse>,
+  );
 
-  factory NfsCreateResponse.fromJson(Map<String, dynamic> json) =>
-      NfsCreateResponse(
-        share: json['share'] != null
-            ? SdkPresent((json['share'] != null
-                ? NfsResponse.fromJson(json['share'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory NfsCreateResponse.fromJson(Map<String, dynamic> json) => NfsCreateResponse(
+    share: json['share'] != null ? SdkPresent((json['share'] != null ? NfsResponse.fromJson(json['share'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (share) {
-          SdkPresent<NfsResponse>(value: final value) => {
-              'share': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (share) {
+      SdkPresent<NfsResponse>(value: final value) => {'share': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

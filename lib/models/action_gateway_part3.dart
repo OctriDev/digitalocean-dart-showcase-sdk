@@ -8,79 +8,41 @@ part of 'action_gateway.dart';
 class User {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The user ID: a session `actor_id` or a connection `user_id`.
   final SdkOptional<String> userId;
-
   /// Sessions bound to the user, oldest first.
   final SdkOptional<List<UserSessionsItem>> sessions;
-
   /// The user's connections that are not revoked, sorted by provider.
   final SdkOptional<List<UserConnectionsItem>> connections;
 
-  const User(
-      {this.userId = const SdkOmitted(),
-      this.sessions = const SdkOmitted(),
-      this.connections = const SdkOmitted()});
+  const User({this.userId = const SdkOmitted(), this.sessions = const SdkOmitted(), this.connections = const SdkOmitted()});
 
-  User Function(
-          {SdkOptional<String> userId,
-          SdkOptional<List<UserSessionsItem>> sessions,
-          SdkOptional<List<UserConnectionsItem>> connections})
-      get copyWith => _copyWith;
+  User Function({SdkOptional<String> userId, SdkOptional<List<UserSessionsItem>> sessions, SdkOptional<List<UserConnectionsItem>> connections}) get copyWith => _copyWith;
 
-  User _copyWith(
-          {Object? userId = sdkOmittedValue,
-          Object? sessions = sdkOmittedValue,
-          Object? connections = sdkOmittedValue}) =>
-      User(
-        userId: identical(userId, sdkOmittedValue)
-            ? this.userId
-            : userId as SdkOptional<String>,
-        sessions: identical(sessions, sdkOmittedValue)
-            ? this.sessions
-            : sessions as SdkOptional<List<UserSessionsItem>>,
-        connections: identical(connections, sdkOmittedValue)
-            ? this.connections
-            : connections as SdkOptional<List<UserConnectionsItem>>,
-      );
+  User _copyWith({Object? userId = sdkOmittedValue, Object? sessions = sdkOmittedValue, Object? connections = sdkOmittedValue}) => User(
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
+    sessions: identical(sessions, sdkOmittedValue) ? this.sessions : sessions as SdkOptional<List<UserSessionsItem>>,
+    connections: identical(connections, sdkOmittedValue) ? this.connections : connections as SdkOptional<List<UserConnectionsItem>>,
+  );
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-        userId: json['user_id'] != null
-            ? SdkPresent((json['user_id'] as String?)!)
-            : const SdkOmitted(),
-        sessions: json['sessions'] != null
-            ? SdkPresent(((json['sessions'] as List?)
-                ?.map(
-                    (e) => UserSessionsItem.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        connections: json['connections'] != null
-            ? SdkPresent(((json['connections'] as List?)
-                ?.map((e) =>
-                    UserConnectionsItem.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
+    sessions: json['sessions'] != null ? SdkPresent(((json['sessions'] as List?)?.map((e) => UserSessionsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    connections: json['connections'] != null ? SdkPresent(((json['connections'] as List?)?.map((e) => UserConnectionsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (userId) {
-          SdkPresent<String>(value: final value) => {
-              'user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sessions) {
-          SdkPresent<List<UserSessionsItem>>(value: final value) => {
-              'sessions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (connections) {
-          SdkPresent<List<UserConnectionsItem>>(value: final value) => {
-              'connections': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (userId) {
+      SdkPresent<String>(value: final value) => {'user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sessions) {
+      SdkPresent<List<UserSessionsItem>>(value: final value) => {'sessions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (connections) {
+      SdkPresent<List<UserConnectionsItem>>(value: final value) => {'connections': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

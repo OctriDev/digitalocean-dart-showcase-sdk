@@ -25,24 +25,17 @@ Future<AllCdnEndpoints> cdnListEndpoints(ClientConfig config,
   return (await sdkRequest<AllCdnEndpoints>('GET', '/v2/cdn/endpoints',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'cdnListEndpoints',
-          fromJsonRaw: (value) =>
-              AllCdnEndpoints.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllCdnEndpoints.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a new CDN endpoint, send a POST request to `/v2/cdn/endpoints`. The origin attribute must be set to the fully qualified domain name (FQDN) of a DigitalOcean Space. Optionally, the TTL may be configured by setting the `ttl` attribute. A custom subdomain may be configured by specifying the `custom_domain` and `certificate_id` attributes.
 ///
@@ -75,17 +68,12 @@ Future<ExistingEndpoint> cdnCreateEndpoint(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'cdnCreateEndpoint',
-          fromJsonRaw: (value) =>
-              ExistingEndpoint.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExistingEndpoint.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To show information about an existing CDN endpoint, send a GET request to `/v2/cdn/endpoints/$ENDPOINT_ID`.
 ///
@@ -99,18 +87,12 @@ Future<ExistingEndpoint> cdnGetEndpoint(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'cdnGetEndpoint',
-          fromJsonRaw: (value) =>
-              ExistingEndpoint.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExistingEndpoint.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update the TTL, certificate ID, or the FQDN of the custom subdomain for an existing CDN endpoint, send a PUT request to `/v2/cdn/endpoints/$ENDPOINT_ID`.
 ///
@@ -143,18 +125,12 @@ Future<ExistingEndpoint> cdnUpdateEndpoints(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'cdnUpdateEndpoints',
-          fromJsonRaw: (value) =>
-              ExistingEndpoint.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExistingEndpoint.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a specific CDN endpoint, send a DELETE request to `/v2/cdn/endpoints/$ENDPOINT_ID`. A status of 204 will be given. This indicates that the request was processed successfully, but that no response body is needed.
 ///
@@ -169,15 +145,10 @@ Future<void> cdnDeleteEndpoint(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'cdnDeleteEndpoint',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To purge cached content from a CDN endpoint, send a DELETE request to `/v2/cdn/endpoints/$ENDPOINT_ID/cache`. The body of the request should include a `files` attribute containing a list of cached file paths to be purged. A path may be for a single file or may contain a wildcard (`*`) to recursively purge all files under a directory. When only a wildcard is provided, all cached files will be purged. There is a rate limit of 50 files per 20 seconds that can be purged. CDN endpoints have a rate limit of 5 requests per 10 seconds. Purging files using a wildcard path counts as a single request against the API's rate limit. Two identical purge requests cannot be sent at the same time.
 ///
@@ -197,12 +168,6 @@ Future<void> cdnPurgeCache(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'cdnPurgeCache',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

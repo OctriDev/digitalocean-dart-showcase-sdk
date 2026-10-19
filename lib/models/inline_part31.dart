@@ -11,21 +11,16 @@ enum ReservedIpv6ActionTypeType {
 
   static ReservedIpv6ActionTypeType fromJson(String value) {
     switch (value) {
-      case 'assign':
-        return ReservedIpv6ActionTypeType.assign;
-      case 'unassign':
-        return ReservedIpv6ActionTypeType.unassign;
-      default:
-        throw ArgumentError('Unknown ReservedIpv6ActionTypeType: $value');
+      case 'assign': return ReservedIpv6ActionTypeType.assign;
+      case 'unassign': return ReservedIpv6ActionTypeType.unassign;
+      default: throw ArgumentError('Unknown ReservedIpv6ActionTypeType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ReservedIpv6ActionTypeType.assign:
-        return 'assign';
-      case ReservedIpv6ActionTypeType.unassign:
-        return 'unassign';
+      case ReservedIpv6ActionTypeType.assign: return 'assign';
+      case ReservedIpv6ActionTypeType.unassign: return 'unassign';
     }
   }
 
@@ -35,12 +30,12 @@ enum ReservedIpv6ActionTypeType {
 
 /// Optional enumerated value serialized in the `action` wire field.
 final class ResolvedRuleAction {
+
   final String value;
 
   const ResolvedRuleAction._(this.value);
 
-  factory ResolvedRuleAction.fromJson(String value) =>
-      ResolvedRuleAction._(value);
+  factory ResolvedRuleAction.fromJson(String value) => ResolvedRuleAction._(value);
 
   static const allow = ResolvedRuleAction._('allow');
   static const ask = ResolvedRuleAction._('ask');
@@ -48,44 +43,39 @@ final class ResolvedRuleAction {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResolvedRuleAction && other.value == value;
+  @override bool operator ==(Object other) => other is ResolvedRuleAction && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `enforcement` wire field.
 final class ResolvedRuleEnforcement {
+
   final String value;
 
   const ResolvedRuleEnforcement._(this.value);
 
-  factory ResolvedRuleEnforcement.fromJson(String value) =>
-      ResolvedRuleEnforcement._(value);
+  factory ResolvedRuleEnforcement.fromJson(String value) => ResolvedRuleEnforcement._(value);
 
   static const strict = ResolvedRuleEnforcement._('strict');
   static const bestEffort = ResolvedRuleEnforcement._('best-effort');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResolvedRuleEnforcement && other.value == value;
+  @override bool operator ==(Object other) => other is ResolvedRuleEnforcement && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of assigning and fetching the resources.
 final class ResourceStatus {
+
   final String value;
 
   const ResourceStatus._(this.value);
@@ -100,19 +90,17 @@ final class ResourceStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ResourceStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ResourceStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The route type inferred from how the route is sourced.
 final class RouteType {
+
   final String value;
 
   const RouteType._(this.value);
@@ -124,24 +112,22 @@ final class RouteType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is RouteType && other.value == value;
+  @override bool operator ==(Object other) => other is RouteType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Message format used by the server, this can be either rfc3164 (the old BSD style message format), `rfc5424` (current syslog message format) or custom
 final class RsyslogLogsinkFormat {
+
   final String value;
 
   const RsyslogLogsinkFormat._(this.value);
 
-  factory RsyslogLogsinkFormat.fromJson(String value) =>
-      RsyslogLogsinkFormat._(value);
+  factory RsyslogLogsinkFormat.fromJson(String value) => RsyslogLogsinkFormat._(value);
 
   static const rfc5424 = RsyslogLogsinkFormat._('rfc5424');
   static const rfc3164 = RsyslogLogsinkFormat._('rfc3164');
@@ -149,25 +135,22 @@ final class RsyslogLogsinkFormat {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RsyslogLogsinkFormat && other.value == value;
+  @override bool operator ==(Object other) => other is RsyslogLogsinkFormat && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The disposition the agent will actually enforce: the requested action when exact/unverified, the more-restrictive target when degraded, omitted when unsupported (cannot render).
 final class RuleVerdictRendered {
+
   final String value;
 
   const RuleVerdictRendered._(this.value);
 
-  factory RuleVerdictRendered.fromJson(String value) =>
-      RuleVerdictRendered._(value);
+  factory RuleVerdictRendered.fromJson(String value) => RuleVerdictRendered._(value);
 
   static const allow = RuleVerdictRendered._('allow');
   static const ask = RuleVerdictRendered._('ask');
@@ -175,25 +158,22 @@ final class RuleVerdictRendered {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RuleVerdictRendered && other.value == value;
+  @override bool operator ==(Object other) => other is RuleVerdictRendered && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// exact — enforced precisely as written; degraded — renderable only in a more-restrictive form (deny→ask), warned; unsupported — cannot be enforced (strict ⇒ session reject); unverified — no descriptor available, rendered conservatively but unproven.
 final class RuleVerdictVerdict {
+
   final String value;
 
   const RuleVerdictVerdict._(this.value);
 
-  factory RuleVerdictVerdict.fromJson(String value) =>
-      RuleVerdictVerdict._(value);
+  factory RuleVerdictVerdict.fromJson(String value) => RuleVerdictVerdict._(value);
 
   static const exact = RuleVerdictVerdict._('exact');
   static const degraded = RuleVerdictVerdict._('degraded');
@@ -202,61 +182,49 @@ final class RuleVerdictVerdict {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RuleVerdictVerdict && other.value == value;
+  @override bool operator ==(Object other) => other is RuleVerdictVerdict && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class SandboxTemplateStatus {
+
   final String value;
 
   const SandboxTemplateStatus._(this.value);
 
-  factory SandboxTemplateStatus.fromJson(String value) =>
-      SandboxTemplateStatus._(value);
+  factory SandboxTemplateStatus.fromJson(String value) => SandboxTemplateStatus._(value);
 
-  static const templateStatusUnspecified =
-      SandboxTemplateStatus._('TEMPLATE_STATUS_UNSPECIFIED');
-  static const templateStatusPending =
-      SandboxTemplateStatus._('TEMPLATE_STATUS_PENDING');
-  static const templateStatusBuilding =
-      SandboxTemplateStatus._('TEMPLATE_STATUS_BUILDING');
-  static const templateStatusReady =
-      SandboxTemplateStatus._('TEMPLATE_STATUS_READY');
-  static const templateStatusFailed =
-      SandboxTemplateStatus._('TEMPLATE_STATUS_FAILED');
+  static const templateStatusUnspecified = SandboxTemplateStatus._('TEMPLATE_STATUS_UNSPECIFIED');
+  static const templateStatusPending = SandboxTemplateStatus._('TEMPLATE_STATUS_PENDING');
+  static const templateStatusBuilding = SandboxTemplateStatus._('TEMPLATE_STATUS_BUILDING');
+  static const templateStatusReady = SandboxTemplateStatus._('TEMPLATE_STATUS_READY');
+  static const templateStatusFailed = SandboxTemplateStatus._('TEMPLATE_STATUS_FAILED');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SandboxTemplateStatus && other.value == value;
+  @override bool operator ==(Object other) => other is SandboxTemplateStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class SandboxTemplateBuildStatus {
+
   final String value;
 
   const SandboxTemplateBuildStatus._(this.value);
 
-  factory SandboxTemplateBuildStatus.fromJson(String value) =>
-      SandboxTemplateBuildStatus._(value);
+  factory SandboxTemplateBuildStatus.fromJson(String value) => SandboxTemplateBuildStatus._(value);
 
-  static const statusUnspecified =
-      SandboxTemplateBuildStatus._('STATUS_UNSPECIFIED');
+  static const statusUnspecified = SandboxTemplateBuildStatus._('STATUS_UNSPECIFIED');
   static const pending = SandboxTemplateBuildStatus._('PENDING');
   static const building = SandboxTemplateBuildStatus._('BUILDING');
   static const succeeded = SandboxTemplateBuildStatus._('SUCCEEDED');
@@ -264,25 +232,22 @@ final class SandboxTemplateBuildStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SandboxTemplateBuildStatus && other.value == value;
+  @override bool operator ==(Object other) => other is SandboxTemplateBuildStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The severity of the finding.
 final class ScanFindingsItemSeverity {
+
   final String value;
 
   const ScanFindingsItemSeverity._(this.value);
 
-  factory ScanFindingsItemSeverity.fromJson(String value) =>
-      ScanFindingsItemSeverity._(value);
+  factory ScanFindingsItemSeverity.fromJson(String value) => ScanFindingsItemSeverity._(value);
 
   static const critical = ScanFindingsItemSeverity._('CRITICAL');
   static const high = ScanFindingsItemSeverity._('HIGH');
@@ -291,19 +256,17 @@ final class ScanFindingsItemSeverity {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ScanFindingsItemSeverity && other.value == value;
+  @override bool operator ==(Object other) => other is ScanFindingsItemSeverity && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the scan.
 final class ScanStatus {
+
   final String value;
 
   const ScanStatus._(this.value);
@@ -318,12 +281,10 @@ final class ScanStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is ScanStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ScanStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

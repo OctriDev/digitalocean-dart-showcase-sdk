@@ -8,131 +8,65 @@ part of 'apps_app.dart';
 class AppStaticSiteSpecVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the index document to use when serving this static site. Default: index.html
   final SdkOptional<String> indexDocument;
-
   /// The name of the error document to use when serving this static site. Default: 404.html. If no such file exists within the built assets, App Platform will supply one.
   final SdkOptional<String> errorDocument;
-
   /// The name of the document to use as the fallback for any requests to documents that are not found when serving this static site. Only 1 of `catchall_document` or `error_document` can be set.
   final SdkOptional<String> catchallDocument;
-
   /// An optional path to where the built assets will be located, relative to the build context. If not set, App Platform will automatically scan for these directory names: `_static`, `dist`, `public`, `build`.
   final SdkOptional<String> outputDir;
-
   /// Optional API value serialized in the `cors` wire field.
   final SdkOptional<AppsCorsPolicy> cors;
-
   /// (Deprecated - Use Ingress Rules instead). A list of HTTP routes that should be routed to this component.
   final SdkOptional<List<AppRouteSpec>> routes;
 
-  const AppStaticSiteSpecVariant1(
-      {this.indexDocument = const SdkOmitted(),
-      this.errorDocument = const SdkOmitted(),
-      this.catchallDocument = const SdkOmitted(),
-      this.outputDir = const SdkOmitted(),
-      this.cors = const SdkOmitted(),
-      this.routes = const SdkOmitted()});
+  const AppStaticSiteSpecVariant1({this.indexDocument = const SdkOmitted(), this.errorDocument = const SdkOmitted(), this.catchallDocument = const SdkOmitted(), this.outputDir = const SdkOmitted(), this.cors = const SdkOmitted(), this.routes = const SdkOmitted()});
 
-  AppStaticSiteSpecVariant1 Function(
-      {SdkOptional<String> indexDocument,
-      SdkOptional<String> errorDocument,
-      SdkOptional<String> catchallDocument,
-      SdkOptional<String> outputDir,
-      SdkOptional<AppsCorsPolicy> cors,
-      SdkOptional<List<AppRouteSpec>> routes}) get copyWith => _copyWith;
+  AppStaticSiteSpecVariant1 Function({SdkOptional<String> indexDocument, SdkOptional<String> errorDocument, SdkOptional<String> catchallDocument, SdkOptional<String> outputDir, SdkOptional<AppsCorsPolicy> cors, SdkOptional<List<AppRouteSpec>> routes}) get copyWith => _copyWith;
 
-  AppStaticSiteSpecVariant1 _copyWith(
-          {Object? indexDocument = sdkOmittedValue,
-          Object? errorDocument = sdkOmittedValue,
-          Object? catchallDocument = sdkOmittedValue,
-          Object? outputDir = sdkOmittedValue,
-          Object? cors = sdkOmittedValue,
-          Object? routes = sdkOmittedValue}) =>
-      AppStaticSiteSpecVariant1(
-        indexDocument: identical(indexDocument, sdkOmittedValue)
-            ? this.indexDocument
-            : indexDocument as SdkOptional<String>,
-        errorDocument: identical(errorDocument, sdkOmittedValue)
-            ? this.errorDocument
-            : errorDocument as SdkOptional<String>,
-        catchallDocument: identical(catchallDocument, sdkOmittedValue)
-            ? this.catchallDocument
-            : catchallDocument as SdkOptional<String>,
-        outputDir: identical(outputDir, sdkOmittedValue)
-            ? this.outputDir
-            : outputDir as SdkOptional<String>,
-        cors: identical(cors, sdkOmittedValue)
-            ? this.cors
-            : cors as SdkOptional<AppsCorsPolicy>,
-        routes: identical(routes, sdkOmittedValue)
-            ? this.routes
-            : routes as SdkOptional<List<AppRouteSpec>>,
-      );
+  AppStaticSiteSpecVariant1 _copyWith({Object? indexDocument = sdkOmittedValue, Object? errorDocument = sdkOmittedValue, Object? catchallDocument = sdkOmittedValue, Object? outputDir = sdkOmittedValue, Object? cors = sdkOmittedValue, Object? routes = sdkOmittedValue}) => AppStaticSiteSpecVariant1(
+    indexDocument: identical(indexDocument, sdkOmittedValue) ? this.indexDocument : indexDocument as SdkOptional<String>,
+    errorDocument: identical(errorDocument, sdkOmittedValue) ? this.errorDocument : errorDocument as SdkOptional<String>,
+    catchallDocument: identical(catchallDocument, sdkOmittedValue) ? this.catchallDocument : catchallDocument as SdkOptional<String>,
+    outputDir: identical(outputDir, sdkOmittedValue) ? this.outputDir : outputDir as SdkOptional<String>,
+    cors: identical(cors, sdkOmittedValue) ? this.cors : cors as SdkOptional<AppsCorsPolicy>,
+    routes: identical(routes, sdkOmittedValue) ? this.routes : routes as SdkOptional<List<AppRouteSpec>>,
+  );
 
-  factory AppStaticSiteSpecVariant1.fromJson(Map<String, dynamic> json) =>
-      AppStaticSiteSpecVariant1(
-        indexDocument: json['index_document'] != null
-            ? SdkPresent((json['index_document'] as String?)!)
-            : const SdkOmitted(),
-        errorDocument: json['error_document'] != null
-            ? SdkPresent((json['error_document'] as String?)!)
-            : const SdkOmitted(),
-        catchallDocument: json['catchall_document'] != null
-            ? SdkPresent((json['catchall_document'] as String?)!)
-            : const SdkOmitted(),
-        outputDir: json['output_dir'] != null
-            ? SdkPresent((json['output_dir'] as String?)!)
-            : const SdkOmitted(),
-        cors: json['cors'] != null
-            ? SdkPresent((json['cors'] != null
-                ? AppsCorsPolicy.fromJson(json['cors'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        routes: json['routes'] != null
-            ? SdkPresent(((json['routes'] as List?)
-                ?.map((e) => AppRouteSpec.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AppStaticSiteSpecVariant1.fromJson(Map<String, dynamic> json) => AppStaticSiteSpecVariant1(
+    indexDocument: json['index_document'] != null ? SdkPresent((json['index_document'] as String?)!) : const SdkOmitted(),
+    errorDocument: json['error_document'] != null ? SdkPresent((json['error_document'] as String?)!) : const SdkOmitted(),
+    catchallDocument: json['catchall_document'] != null ? SdkPresent((json['catchall_document'] as String?)!) : const SdkOmitted(),
+    outputDir: json['output_dir'] != null ? SdkPresent((json['output_dir'] as String?)!) : const SdkOmitted(),
+    cors: json['cors'] != null ? SdkPresent((json['cors'] != null ? AppsCorsPolicy.fromJson(json['cors'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    routes: json['routes'] != null ? SdkPresent(((json['routes'] as List?)?.map((e) => AppRouteSpec.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (indexDocument) {
-          SdkPresent<String>(value: final value) => {
-              'index_document': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (errorDocument) {
-          SdkPresent<String>(value: final value) => {
-              'error_document': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (catchallDocument) {
-          SdkPresent<String>(value: final value) => {
-              'catchall_document': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputDir) {
-          SdkPresent<String>(value: final value) => {
-              'output_dir': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cors) {
-          SdkPresent<AppsCorsPolicy>(value: final value) => {
-              'cors': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (routes) {
-          SdkPresent<List<AppRouteSpec>>(value: final value) => {
-              'routes': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (indexDocument) {
+      SdkPresent<String>(value: final value) => {'index_document': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (errorDocument) {
+      SdkPresent<String>(value: final value) => {'error_document': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (catchallDocument) {
+      SdkPresent<String>(value: final value) => {'catchall_document': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputDir) {
+      SdkPresent<String>(value: final value) => {'output_dir': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cors) {
+      SdkPresent<AppsCorsPolicy>(value: final value) => {'cors': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (routes) {
+      SdkPresent<List<AppRouteSpec>>(value: final value) => {'routes': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

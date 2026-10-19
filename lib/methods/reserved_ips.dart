@@ -25,24 +25,17 @@ Future<ReservedIpList> reservedIpsList(ClientConfig config,
   return (await sdkRequest<ReservedIpList>('GET', '/v2/reserved_ips',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'reservedIpsList',
-          fromJsonRaw: (value) =>
-              ReservedIpList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ReservedIpList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a reserved IP and either assigns it to a Droplet or reserves it to a region. Provide `droplet_id` for a Droplet assignment, or `region` to reserve the address to a region; `project_id` can optionally associate it with a project. When you assign the address during creation, the response includes links to the Droplet and the assignment action.
 ///
@@ -54,17 +47,12 @@ Future<ReservedIpCreated> reservedIpsCreate(ClientConfig config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'reservedIpsCreate',
-          fromJsonRaw: (value) =>
-              ReservedIpCreated.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ReservedIpCreated.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To show information about a reserved IP, send a GET request to `/v2/reserved_ips/$RESERVED_IP_ADDR`.
 ///
@@ -76,18 +64,12 @@ Future<ReservedIpResponse> reservedIpsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'reservedIpsGet',
-          fromJsonRaw: (value) =>
-              ReservedIpResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ReservedIpResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a reserved IP and remove it from your account, send a DELETE request to `/v2/reserved_ips/$RESERVED_IP_ADDR`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
 ///
@@ -100,12 +82,6 @@ Future<void> reservedIpsDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'reservedIpsDelete',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

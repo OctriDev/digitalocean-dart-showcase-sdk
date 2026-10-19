@@ -34,29 +34,19 @@ Future<AllDomainRecordsResponse> domainsListRecords(ClientConfig config,
           '/v2/domains/${Uri.encodeComponent(domainName.toString())}/records',
           config: config,
           query: {
-            'name': SdkQueryValue(SdkUtils.unwrapOptional(name),
-                style: 'form', explode: true),
-            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'name': SdkQueryValue(SdkUtils.unwrapOptional(name), style: 'form', explode: true),
+            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsListRecords',
-          fromJsonRaw: (value) =>
-              AllDomainRecordsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllDomainRecordsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a DNS record for the specified domain. Supply `type` and the attributes required for that record type, such as `name` and `data` where applicable. The response includes the created record with its generated `id`.
 ///
@@ -73,18 +63,12 @@ Future<CreatedDomainRecord> domainsCreateRecord(ClientConfig config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsCreateRecord',
-          fromJsonRaw: (value) =>
-              CreatedDomainRecord.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreatedDomainRecord.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve a specific domain record, send a GET request to `/v2/domains/$DOMAIN_NAME/records/$RECORD_ID`.
 ///
@@ -99,18 +83,12 @@ Future<DomainRecordResponse> domainsGetRecord(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsGetRecord',
-          fromJsonRaw: (value) =>
-              DomainRecordResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DomainRecordResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update an existing record, send a PATCH request to `/v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID`. Any attribute valid for the record type can be set to a new value for the record. See the attribute table for details regarding record types and their respective attributes.
 ///
@@ -160,18 +138,12 @@ Future<DomainRecordResponse> domainsPatchRecord(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsPatchRecord',
-          fromJsonRaw: (value) =>
-              DomainRecordResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DomainRecordResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update an existing record, send a PUT request to `/v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID`. Any attribute valid for the record type can be set to a new value for the record. See the attribute table for details regarding record types and their respective attributes.
 ///
@@ -221,18 +193,12 @@ Future<DomainRecordResponse> domainsUpdateRecord(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'domainsUpdateRecord',
-          fromJsonRaw: (value) =>
-              DomainRecordResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DomainRecordResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a record for a domain, send a DELETE request to `/v2/domains/$DOMAIN_NAME/records/$DOMAIN_RECORD_ID`. The record will be deleted and the response status will be a 204. This indicates a successful request with no body returned.
 ///
@@ -248,12 +214,6 @@ Future<void> domainsDeleteRecord(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'domainsDeleteRecord',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

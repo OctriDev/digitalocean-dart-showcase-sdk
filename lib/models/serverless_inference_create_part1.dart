@@ -8,213 +8,106 @@ part of 'serverless_inference_create.dart';
 class CreateImageRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A text description of the desired image(s). Supports up to 32,000 characters and provides automatic prompt optimization for best results.
   final String prompt;
-
   /// The model to use for image generation.
   final String model;
-
   /// The moderation setting for the image generation. Supported values: low, auto.
   final SdkOptional<String?> moderation;
-
   /// The background setting for the image generation. Supported values: transparent, opaque, auto.
   final SdkOptional<String?> background;
-
   /// The output format for the image generation. Supported values: png, webp, jpeg.
   final SdkOptional<String?> outputFormat;
-
   /// The output compression level for the image generation (0-100).
   final SdkOptional<int?> outputCompression;
-
   /// The number of images to generate. Must be between 1 and 10.
   final int n;
-
   /// The quality of the image that will be generated. Supported values: auto, high, medium, low.
   final SdkOptional<String?> quality;
-
   /// The size of the generated images. GPT-IMAGE-1 supports: auto (automatically select best size), 1536x1024 (landscape), 1024x1536 (portrait).
   final SdkOptional<CreateImageRequestSize> size;
-
   /// If set to true, partial image data will be streamed as the image is being generated. The response will be sent as server-sent events with partial image chunks. When stream is true, partial_images must be greater than 0.
   final SdkOptional<bool?> stream;
-
   /// The number of partial image chunks to return during streaming generation. Defaults to 0. When stream=true, this must be greater than 0 to receive progressive updates of the image as it is being generated.
   final SdkOptional<int?> partialImages;
-
   /// A unique identifier representing your end-user, which can help DigitalOcean to monitor and detect abuse.
   final SdkOptional<String?> user;
 
-  const CreateImageRequest(
-      {required this.prompt,
-      required this.model,
-      this.moderation = const SdkOmitted(),
-      this.background = const SdkOmitted(),
-      this.outputFormat = const SdkOmitted(),
-      this.outputCompression = const SdkOmitted(),
-      required this.n,
-      this.quality = const SdkOmitted(),
-      this.size = const SdkOmitted(),
-      this.stream = const SdkOmitted(),
-      this.partialImages = const SdkOmitted(),
-      this.user = const SdkOmitted()});
+  const CreateImageRequest({required this.prompt, required this.model, this.moderation = const SdkOmitted(), this.background = const SdkOmitted(), this.outputFormat = const SdkOmitted(), this.outputCompression = const SdkOmitted(), required this.n, this.quality = const SdkOmitted(), this.size = const SdkOmitted(), this.stream = const SdkOmitted(), this.partialImages = const SdkOmitted(), this.user = const SdkOmitted()});
 
-  CreateImageRequest Function(
-      {String prompt,
-      String model,
-      SdkOptional<String?> moderation,
-      SdkOptional<String?> background,
-      SdkOptional<String?> outputFormat,
-      SdkOptional<int?> outputCompression,
-      int n,
-      SdkOptional<String?> quality,
-      SdkOptional<CreateImageRequestSize> size,
-      SdkOptional<bool?> stream,
-      SdkOptional<int?> partialImages,
-      SdkOptional<String?> user}) get copyWith => _copyWith;
+  CreateImageRequest Function({String prompt, String model, SdkOptional<String?> moderation, SdkOptional<String?> background, SdkOptional<String?> outputFormat, SdkOptional<int?> outputCompression, int n, SdkOptional<String?> quality, SdkOptional<CreateImageRequestSize> size, SdkOptional<bool?> stream, SdkOptional<int?> partialImages, SdkOptional<String?> user}) get copyWith => _copyWith;
 
-  CreateImageRequest _copyWith(
-          {Object? prompt = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? moderation = sdkOmittedValue,
-          Object? background = sdkOmittedValue,
-          Object? outputFormat = sdkOmittedValue,
-          Object? outputCompression = sdkOmittedValue,
-          Object? n = sdkOmittedValue,
-          Object? quality = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? stream = sdkOmittedValue,
-          Object? partialImages = sdkOmittedValue,
-          Object? user = sdkOmittedValue}) =>
-      CreateImageRequest(
-        prompt:
-            identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        moderation: identical(moderation, sdkOmittedValue)
-            ? this.moderation
-            : moderation as SdkOptional<String?>,
-        background: identical(background, sdkOmittedValue)
-            ? this.background
-            : background as SdkOptional<String?>,
-        outputFormat: identical(outputFormat, sdkOmittedValue)
-            ? this.outputFormat
-            : outputFormat as SdkOptional<String?>,
-        outputCompression: identical(outputCompression, sdkOmittedValue)
-            ? this.outputCompression
-            : outputCompression as SdkOptional<int?>,
-        n: identical(n, sdkOmittedValue) ? this.n : n as int,
-        quality: identical(quality, sdkOmittedValue)
-            ? this.quality
-            : quality as SdkOptional<String?>,
-        size: identical(size, sdkOmittedValue)
-            ? this.size
-            : size as SdkOptional<CreateImageRequestSize>,
-        stream: identical(stream, sdkOmittedValue)
-            ? this.stream
-            : stream as SdkOptional<bool?>,
-        partialImages: identical(partialImages, sdkOmittedValue)
-            ? this.partialImages
-            : partialImages as SdkOptional<int?>,
-        user: identical(user, sdkOmittedValue)
-            ? this.user
-            : user as SdkOptional<String?>,
-      );
+  CreateImageRequest _copyWith({Object? prompt = sdkOmittedValue, Object? model = sdkOmittedValue, Object? moderation = sdkOmittedValue, Object? background = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? outputCompression = sdkOmittedValue, Object? n = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? size = sdkOmittedValue, Object? stream = sdkOmittedValue, Object? partialImages = sdkOmittedValue, Object? user = sdkOmittedValue}) => CreateImageRequest(
+    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as String,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    moderation: identical(moderation, sdkOmittedValue) ? this.moderation : moderation as SdkOptional<String?>,
+    background: identical(background, sdkOmittedValue) ? this.background : background as SdkOptional<String?>,
+    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as SdkOptional<String?>,
+    outputCompression: identical(outputCompression, sdkOmittedValue) ? this.outputCompression : outputCompression as SdkOptional<int?>,
+    n: identical(n, sdkOmittedValue) ? this.n : n as int,
+    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as SdkOptional<String?>,
+    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<CreateImageRequestSize>,
+    stream: identical(stream, sdkOmittedValue) ? this.stream : stream as SdkOptional<bool?>,
+    partialImages: identical(partialImages, sdkOmittedValue) ? this.partialImages : partialImages as SdkOptional<int?>,
+    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String?>,
+  );
 
-  factory CreateImageRequest.fromJson(Map<String, dynamic> json) =>
-      CreateImageRequest(
-        prompt: (json['prompt'] as String?)!,
-        model: (json['model'] as String?)!,
-        moderation: json.containsKey('moderation')
-            ? SdkPresent(json['moderation'] as String?)
-            : const SdkOmitted(),
-        background: json.containsKey('background')
-            ? SdkPresent(json['background'] as String?)
-            : const SdkOmitted(),
-        outputFormat: json.containsKey('output_format')
-            ? SdkPresent(json['output_format'] as String?)
-            : const SdkOmitted(),
-        outputCompression: json.containsKey('output_compression')
-            ? SdkPresent((json['output_compression'] as num?)?.toInt())
-            : const SdkOmitted(),
-        n: ((json['n'] as num?)?.toInt())!,
-        quality: json.containsKey('quality')
-            ? SdkPresent(json['quality'] as String?)
-            : const SdkOmitted(),
-        size: json['size'] != null
-            ? SdkPresent((json['size'] != null
-                ? CreateImageRequestSize.fromJson(json['size'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        stream: json.containsKey('stream')
-            ? SdkPresent(json['stream'] as bool?)
-            : const SdkOmitted(),
-        partialImages: json.containsKey('partial_images')
-            ? SdkPresent((json['partial_images'] as num?)?.toInt())
-            : const SdkOmitted(),
-        user: json.containsKey('user')
-            ? SdkPresent(json['user'] as String?)
-            : const SdkOmitted(),
-      );
+  factory CreateImageRequest.fromJson(Map<String, dynamic> json) => CreateImageRequest(
+    prompt: (json['prompt'] as String?)!,
+    model: (json['model'] as String?)!,
+    moderation: json.containsKey('moderation') ? SdkPresent(json['moderation'] as String?) : const SdkOmitted(),
+    background: json.containsKey('background') ? SdkPresent(json['background'] as String?) : const SdkOmitted(),
+    outputFormat: json.containsKey('output_format') ? SdkPresent(json['output_format'] as String?) : const SdkOmitted(),
+    outputCompression: json.containsKey('output_compression') ? SdkPresent((json['output_compression'] as num?)?.toInt()) : const SdkOmitted(),
+    n: ((json['n'] as num?)?.toInt())!,
+    quality: json.containsKey('quality') ? SdkPresent(json['quality'] as String?) : const SdkOmitted(),
+    size: json['size'] != null ? SdkPresent((json['size'] != null ? CreateImageRequestSize.fromJson(json['size'] as String) : null)!) : const SdkOmitted(),
+    stream: json.containsKey('stream') ? SdkPresent(json['stream'] as bool?) : const SdkOmitted(),
+    partialImages: json.containsKey('partial_images') ? SdkPresent((json['partial_images'] as num?)?.toInt()) : const SdkOmitted(),
+    user: json.containsKey('user') ? SdkPresent(json['user'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'prompt': prompt,
-        'model': model,
-        ...switch (moderation) {
-          SdkPresent<String?>(value: final value) => {
-              'moderation': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (background) {
-          SdkPresent<String?>(value: final value) => {
-              'background': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputFormat) {
-          SdkPresent<String?>(value: final value) => {
-              'output_format': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputCompression) {
-          SdkPresent<int?>(value: final value) => {
-              'output_compression': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'n': n,
-        ...switch (quality) {
-          SdkPresent<String?>(value: final value) => {
-              'quality': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (size) {
-          SdkPresent<CreateImageRequestSize>(value: final value) => {
-              'size': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (stream) {
-          SdkPresent<bool?>(value: final value) => {
-              'stream': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (partialImages) {
-          SdkPresent<int?>(value: final value) => {
-              'partial_images': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (user) {
-          SdkPresent<String?>(value: final value) => {
-              'user': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'prompt': prompt,
+    'model': model,
+    ...switch (moderation) {
+      SdkPresent<String?>(value: final value) => {'moderation': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (background) {
+      SdkPresent<String?>(value: final value) => {'background': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputFormat) {
+      SdkPresent<String?>(value: final value) => {'output_format': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputCompression) {
+      SdkPresent<int?>(value: final value) => {'output_compression': value,},
+      _ => const <String, dynamic>{},
+    },
+    'n': n,
+    ...switch (quality) {
+      SdkPresent<String?>(value: final value) => {'quality': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (size) {
+      SdkPresent<CreateImageRequestSize>(value: final value) => {'size': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (stream) {
+      SdkPresent<bool?>(value: final value) => {'stream': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (partialImages) {
+      SdkPresent<int?>(value: final value) => {'partial_images': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (user) {
+      SdkPresent<String?>(value: final value) => {'user': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class CreateResponseRequestInput {
@@ -222,218 +115,128 @@ sealed class CreateResponseRequestInput {
   static const String constructionSurface = 'named';
   const CreateResponseRequestInput();
   factory CreateResponseRequestInput.fromJson(Object? json) {
-    if (json is String) {
-      return CreateResponseRequestInputString(json);
-    }
-    if (json is List) {
-      return CreateResponseRequestInputListMapStringdynamic(
-          json.map((e) => e).toList().cast<Map<String, dynamic>>());
-    }
+    if (json is String) { return CreateResponseRequestInputString(json); }
+    if (json is List) { return CreateResponseRequestInputListMapStringdynamic(json.map((e) => e).toList().cast<Map<String, dynamic>>()); }
     throw FormatException("No variant matched for CreateResponseRequestInput");
   }
   Object? toJson();
 }
 
-final class CreateResponseRequestInputString
-    extends CreateResponseRequestInput {
+final class CreateResponseRequestInputString extends CreateResponseRequestInput {
   final String value;
   const CreateResponseRequestInputString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class CreateResponseRequestInputListMapStringdynamic
-    extends CreateResponseRequestInput {
+final class CreateResponseRequestInputListMapStringdynamic extends CreateResponseRequestInput {
   final List<Map<String, dynamic>> value;
   const CreateResponseRequestInputListMapStringdynamic(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Options for streaming response. Only set this when you set stream to true.
 class CreateResponseRequestStreamOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// If set, an additional chunk will be streamed before the data: [DONE] message with token usage statistics for the entire request.
   final SdkOptional<bool> includeUsage;
 
-  const CreateResponseRequestStreamOptions(
-      {this.includeUsage = const SdkOmitted()});
+  const CreateResponseRequestStreamOptions({this.includeUsage = const SdkOmitted()});
 
-  CreateResponseRequestStreamOptions Function({SdkOptional<bool> includeUsage})
-      get copyWith => _copyWith;
+  CreateResponseRequestStreamOptions Function({SdkOptional<bool> includeUsage}) get copyWith => _copyWith;
 
-  CreateResponseRequestStreamOptions _copyWith(
-          {Object? includeUsage = sdkOmittedValue}) =>
-      CreateResponseRequestStreamOptions(
-        includeUsage: identical(includeUsage, sdkOmittedValue)
-            ? this.includeUsage
-            : includeUsage as SdkOptional<bool>,
-      );
+  CreateResponseRequestStreamOptions _copyWith({Object? includeUsage = sdkOmittedValue}) => CreateResponseRequestStreamOptions(
+    includeUsage: identical(includeUsage, sdkOmittedValue) ? this.includeUsage : includeUsage as SdkOptional<bool>,
+  );
 
-  factory CreateResponseRequestStreamOptions.fromJson(
-          Map<String, dynamic> json) =>
-      CreateResponseRequestStreamOptions(
-        includeUsage: json['include_usage'] != null
-            ? SdkPresent((json['include_usage'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateResponseRequestStreamOptions.fromJson(Map<String, dynamic> json) => CreateResponseRequestStreamOptions(
+    includeUsage: json['include_usage'] != null ? SdkPresent((json['include_usage'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (includeUsage) {
-          SdkPresent<bool>(value: final value) => {
-              'include_usage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (includeUsage) {
+      SdkPresent<bool>(value: final value) => {'include_usage': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `input[]` wire field.
 class CreateResponseRequestInputVariant1Item {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The role of the message author.
   final SdkOptional<CreateResponseRequestInputVariant1ItemRole> role;
-
   /// The content of the message.
   final String content;
 
-  const CreateResponseRequestInputVariant1Item(
-      {this.role = const SdkOmitted(), required this.content});
+  const CreateResponseRequestInputVariant1Item({this.role = const SdkOmitted(), required this.content});
 
-  CreateResponseRequestInputVariant1Item Function(
-      {SdkOptional<CreateResponseRequestInputVariant1ItemRole> role,
-      String content}) get copyWith => _copyWith;
+  CreateResponseRequestInputVariant1Item Function({SdkOptional<CreateResponseRequestInputVariant1ItemRole> role, String content}) get copyWith => _copyWith;
 
-  CreateResponseRequestInputVariant1Item _copyWith(
-          {Object? role = sdkOmittedValue,
-          Object? content = sdkOmittedValue}) =>
-      CreateResponseRequestInputVariant1Item(
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as SdkOptional<CreateResponseRequestInputVariant1ItemRole>,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as String,
-      );
+  CreateResponseRequestInputVariant1Item _copyWith({Object? role = sdkOmittedValue, Object? content = sdkOmittedValue}) => CreateResponseRequestInputVariant1Item(
+    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<CreateResponseRequestInputVariant1ItemRole>,
+    content: identical(content, sdkOmittedValue) ? this.content : content as String,
+  );
 
-  factory CreateResponseRequestInputVariant1Item.fromJson(
-          Map<String, dynamic> json) =>
-      CreateResponseRequestInputVariant1Item(
-        role: json['role'] != null
-            ? SdkPresent((json['role'] != null
-                ? CreateResponseRequestInputVariant1ItemRole.fromJson(
-                    json['role'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        content: (json['content'] as String?)!,
-      );
+  factory CreateResponseRequestInputVariant1Item.fromJson(Map<String, dynamic> json) => CreateResponseRequestInputVariant1Item(
+    role: json['role'] != null ? SdkPresent((json['role'] != null ? CreateResponseRequestInputVariant1ItemRole.fromJson(json['role'] as String) : null)!) : const SdkOmitted(),
+    content: (json['content'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (role) {
-          SdkPresent<CreateResponseRequestInputVariant1ItemRole>(
-            value: final value
-          ) =>
-            {
-              'role': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'content': content,
-      };
+    ...switch (role) {
+      SdkPresent<CreateResponseRequestInputVariant1ItemRole>(value: final value) => {'role': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'content': content,
+  };
 }
 
 /// Required object value serialized in the `tools[]` wire field.
 class CreateResponseRequestToolsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the tool.
   final CreateResponseRequestToolsItemType type_;
-
   /// The name of the function to be called.
   final SdkOptional<String> name;
-
   /// A description of what the function does.
   final SdkOptional<String> description;
-
   /// The parameters the function accepts, described as a JSON Schema object.
   final SdkOptional<Map<String, Object?>> parameters;
 
-  const CreateResponseRequestToolsItem(
-      {required this.type_,
-      this.name = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.parameters = const SdkOmitted()});
+  const CreateResponseRequestToolsItem({required this.type_, this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.parameters = const SdkOmitted()});
 
-  CreateResponseRequestToolsItem Function(
-      {CreateResponseRequestToolsItemType type_,
-      SdkOptional<String> name,
-      SdkOptional<String> description,
-      SdkOptional<Map<String, Object?>> parameters}) get copyWith => _copyWith;
+  CreateResponseRequestToolsItem Function({CreateResponseRequestToolsItemType type_, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<Map<String, Object?>> parameters}) get copyWith => _copyWith;
 
-  CreateResponseRequestToolsItem _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? parameters = sdkOmittedValue}) =>
-      CreateResponseRequestToolsItem(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CreateResponseRequestToolsItemType,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        parameters: identical(parameters, sdkOmittedValue)
-            ? this.parameters
-            : parameters as SdkOptional<Map<String, Object?>>,
-      );
+  CreateResponseRequestToolsItem _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? parameters = sdkOmittedValue}) => CreateResponseRequestToolsItem(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateResponseRequestToolsItemType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as SdkOptional<Map<String, Object?>>,
+  );
 
-  factory CreateResponseRequestToolsItem.fromJson(Map<String, dynamic> json) =>
-      CreateResponseRequestToolsItem(
-        type_: (json['type'] != null
-            ? CreateResponseRequestToolsItemType.fromJson(
-                json['type'] as String)
-            : null)!,
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        parameters: json['parameters'] != null
-            ? SdkPresent((json['parameters'] == null
-                ? null
-                : Map<String, dynamic>.from(json['parameters'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-      );
+  factory CreateResponseRequestToolsItem.fromJson(Map<String, dynamic> json) => CreateResponseRequestToolsItem(
+    type_: (json['type'] != null ? CreateResponseRequestToolsItemType.fromJson(json['type'] as String) : null)!,
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    parameters: json['parameters'] != null ? SdkPresent((json['parameters'] == null ? null : Map<String, dynamic>.from(json['parameters'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (parameters) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'parameters': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (parameters) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'parameters': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

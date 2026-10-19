@@ -8,152 +8,84 @@ part of 'harness_runtime_session.dart';
 class SessionIngressUrl {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `ingress_url_id` wire field.
   final SdkOptional<String> ingressUrlId;
-
   /// Optional `string` value serialized in the `session_id` wire field.
   final SdkOptional<String> sessionId;
-
   /// Guest port the URL fronts; 8000 (OpenHands Agent Server) today.
   final SdkOptional<int> port;
-
   /// Immutable HTTPS origin, e.g. https://&lt;id&gt;.nyc3.sandbox.ondigitalocean.com.
   final SdkOptional<String> url;
-
   /// PENDING: route not yet published, URL not servable. READY: servable. There is no failed state; the substrate retries until READY.
   final SdkOptional<IngressUrlState> state;
-
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
 
-  const SessionIngressUrl(
-      {this.ingressUrlId = const SdkOmitted(),
-      this.sessionId = const SdkOmitted(),
-      this.port = const SdkOmitted(),
-      this.url = const SdkOmitted(),
-      this.state = const SdkOmitted(),
-      this.createdAt = const SdkOmitted()});
+  const SessionIngressUrl({this.ingressUrlId = const SdkOmitted(), this.sessionId = const SdkOmitted(), this.port = const SdkOmitted(), this.url = const SdkOmitted(), this.state = const SdkOmitted(), this.createdAt = const SdkOmitted()});
 
-  SessionIngressUrl Function(
-      {SdkOptional<String> ingressUrlId,
-      SdkOptional<String> sessionId,
-      SdkOptional<int> port,
-      SdkOptional<String> url,
-      SdkOptional<IngressUrlState> state,
-      SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  SessionIngressUrl Function({SdkOptional<String> ingressUrlId, SdkOptional<String> sessionId, SdkOptional<int> port, SdkOptional<String> url, SdkOptional<IngressUrlState> state, SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  SessionIngressUrl _copyWith(
-          {Object? ingressUrlId = sdkOmittedValue,
-          Object? sessionId = sdkOmittedValue,
-          Object? port = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? state = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      SessionIngressUrl(
-        ingressUrlId: identical(ingressUrlId, sdkOmittedValue)
-            ? this.ingressUrlId
-            : ingressUrlId as SdkOptional<String>,
-        sessionId: identical(sessionId, sdkOmittedValue)
-            ? this.sessionId
-            : sessionId as SdkOptional<String>,
-        port: identical(port, sdkOmittedValue)
-            ? this.port
-            : port as SdkOptional<int>,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-        state: identical(state, sdkOmittedValue)
-            ? this.state
-            : state as SdkOptional<IngressUrlState>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-      );
+  SessionIngressUrl _copyWith({Object? ingressUrlId = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? port = sdkOmittedValue, Object? url = sdkOmittedValue, Object? state = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => SessionIngressUrl(
+    ingressUrlId: identical(ingressUrlId, sdkOmittedValue) ? this.ingressUrlId : ingressUrlId as SdkOptional<String>,
+    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as SdkOptional<String>,
+    port: identical(port, sdkOmittedValue) ? this.port : port as SdkOptional<int>,
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<IngressUrlState>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+  );
 
-  factory SessionIngressUrl.fromJson(Map<String, dynamic> json) =>
-      SessionIngressUrl(
-        ingressUrlId: json['ingress_url_id'] != null
-            ? SdkPresent((json['ingress_url_id'] as String?)!)
-            : const SdkOmitted(),
-        sessionId: json['session_id'] != null
-            ? SdkPresent((json['session_id'] as String?)!)
-            : const SdkOmitted(),
-        port: json['port'] != null
-            ? SdkPresent(((json['port'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-        state: json['state'] != null
-            ? SdkPresent((json['state'] != null
-                ? IngressUrlState.fromJson(json['state'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SessionIngressUrl.fromJson(Map<String, dynamic> json) => SessionIngressUrl(
+    ingressUrlId: json['ingress_url_id'] != null ? SdkPresent((json['ingress_url_id'] as String?)!) : const SdkOmitted(),
+    sessionId: json['session_id'] != null ? SdkPresent((json['session_id'] as String?)!) : const SdkOmitted(),
+    port: json['port'] != null ? SdkPresent(((json['port'] as num?)?.toInt())!) : const SdkOmitted(),
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+    state: json['state'] != null ? SdkPresent((json['state'] != null ? IngressUrlState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (ingressUrlId) {
-          SdkPresent<String>(value: final value) => {
-              'ingress_url_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sessionId) {
-          SdkPresent<String>(value: final value) => {
-              'session_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (port) {
-          SdkPresent<int>(value: final value) => {
-              'port': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (state) {
-          SdkPresent<IngressUrlState>(value: final value) => {
-              'state': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (ingressUrlId) {
+      SdkPresent<String>(value: final value) => {'ingress_url_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sessionId) {
+      SdkPresent<String>(value: final value) => {'session_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (port) {
+      SdkPresent<int>(value: final value) => {'port': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (state) {
+      SdkPresent<IngressUrlState>(value: final value) => {'state': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// SessionStatus is the lifecycle state of the sandbox + agent pair. SESSION_STATUS_ALL is a ListSessions status-filter value only -- no session is ever actually in this status. SESSION_STATUS_LOCKED is reserved for internal use and never appears in an end-user-facing response.
 final class SessionStatus {
+
   final String value;
 
   const SessionStatus._(this.value);
 
   factory SessionStatus.fromJson(String value) => SessionStatus._(value);
 
-  static const sessionStatusUnspecified =
-      SessionStatus._('SESSION_STATUS_UNSPECIFIED');
-  static const sessionStatusProvisioning =
-      SessionStatus._('SESSION_STATUS_PROVISIONING');
+  static const sessionStatusUnspecified = SessionStatus._('SESSION_STATUS_UNSPECIFIED');
+  static const sessionStatusProvisioning = SessionStatus._('SESSION_STATUS_PROVISIONING');
   static const sessionStatusReady = SessionStatus._('SESSION_STATUS_READY');
-  static const sessionStatusDetached =
-      SessionStatus._('SESSION_STATUS_DETACHED');
-  static const sessionStatusDestroying =
-      SessionStatus._('SESSION_STATUS_DESTROYING');
-  static const sessionStatusDestroyed =
-      SessionStatus._('SESSION_STATUS_DESTROYED');
+  static const sessionStatusDetached = SessionStatus._('SESSION_STATUS_DETACHED');
+  static const sessionStatusDestroying = SessionStatus._('SESSION_STATUS_DESTROYING');
+  static const sessionStatusDestroyed = SessionStatus._('SESSION_STATUS_DESTROYED');
   static const sessionStatusFailed = SessionStatus._('SESSION_STATUS_FAILED');
   static const sessionStatusPaused = SessionStatus._('SESSION_STATUS_PAUSED');
   static const sessionStatusAll = SessionStatus._('SESSION_STATUS_ALL');
@@ -161,13 +93,10 @@ final class SessionStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SessionStatus && other.value == value;
+  @override bool operator ==(Object other) => other is SessionStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

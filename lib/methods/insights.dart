@@ -17,14 +17,14 @@ import '../types.dart';
 ///   rule with this ID are returned.
 /// [resourceUrn] Optional filter. When set, only resources associated with this
 ///   resource URN are returned.
-Future<ListAlertInstancesResponse> insightsListAlertInstances(
-    ClientConfig config,
-    {SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<SchemaSchema993f3fba> status = const SdkOmitted(),
-    SdkOptional<String> ruleId = const SdkOmitted(),
-    SdkOptional<String> resourceUrn = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ListAlertInstancesResponse>
+    insightsListAlertInstances(ClientConfig config,
+        {SdkOptional<int> perPage = const SdkOmitted(),
+        SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<SchemaSchema993f3fba> status = const SdkOmitted(),
+        SdkOptional<String> ruleId = const SdkOmitted(),
+        SdkOptional<String> resourceUrn = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (perPage is SdkPresent<int>) {
     validateRange('per_page', perPage.value, min: 1, max: 200);
   }
@@ -39,31 +39,20 @@ Future<ListAlertInstancesResponse> insightsListAlertInstances(
           'GET', '/v2/insights/alert-instances',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
-                style: 'form', explode: true),
-            'rule_id': SdkQueryValue(SdkUtils.unwrapOptional(ruleId),
-                style: 'form', explode: true),
-            'resource_urn': SdkQueryValue(SdkUtils.unwrapOptional(resourceUrn),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
+            'rule_id': SdkQueryValue(SdkUtils.unwrapOptional(ruleId), style: 'form', explode: true),
+            'resource_urn': SdkQueryValue(SdkUtils.unwrapOptional(resourceUrn), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsListAlertInstances',
-          fromJsonRaw: (value) => ListAlertInstancesResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListAlertInstancesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve a single alert instance, send a GET request to `/v2/insights/alert-instances/{id}`.
 ///
@@ -77,18 +66,12 @@ Future<AlertInstanceResponse> insightsGetAlertInstance(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsGetAlertInstance',
-          fromJsonRaw: (value) =>
-              AlertInstanceResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AlertInstanceResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list alert rules for your account, send a GET request to `/v2/insights/alert-rules`. Results are paginated with `page` and `per_page` (default `20`, maximum `200`). Optionally filter by `resource_urn`.
 ///
@@ -96,12 +79,12 @@ Future<AlertInstanceResponse> insightsGetAlertInstance(ClientConfig config,
 /// [perPage] Number of items returned per page
 /// [resourceUrn] Optional filter. When set, only resources associated with this
 ///   resource URN are returned.
-Future<InsightsListAlertRulesResponse> insightsListAlertRules(
-    ClientConfig config,
-    {SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<String> resourceUrn = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<InsightsListAlertRulesResponse>
+    insightsListAlertRules(ClientConfig config,
+        {SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        SdkOptional<String> resourceUrn = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (page is SdkPresent<int>) {
     validateRange('page', page.value, min: 1);
   }
@@ -113,26 +96,18 @@ Future<InsightsListAlertRulesResponse> insightsListAlertRules(
           'GET', '/v2/insights/alert-rules',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'resource_urn': SdkQueryValue(SdkUtils.unwrapOptional(resourceUrn),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'resource_urn': SdkQueryValue(SdkUtils.unwrapOptional(resourceUrn), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsListAlertRules',
-          fromJsonRaw: (value) => InsightsListAlertRulesResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InsightsListAlertRulesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates an alert rule for a metric query and its configured thresholds. Provide a `spec` with `name`, `query`, `thresholds`, and at least one `notification_channels` binding; `status` defaults to `ALERT_RULE_STATUS_ACTIVE` and `re_alert_duration` defaults to `RE_ALERT_DURATION_4H` when omitted. Use a dotted OpenTelemetry metric name for `query.metric`, such as `do.droplets.cpu_utilization`.
 ///
@@ -146,19 +121,12 @@ Future<AlertRuleResponse> insightsCreateAlertRule(ClientConfig config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsCreateAlertRule',
-          fromJsonRaw: (value) =>
-              AlertRuleResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AlertRuleResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve an alert rule, send a GET request to `/v2/insights/alert-rules/{id}`.
 ///
@@ -172,18 +140,12 @@ Future<AlertRuleResponse> insightsGetAlertRule(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsGetAlertRule',
-          fromJsonRaw: (value) =>
-              AlertRuleResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AlertRuleResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// This PUT endpoint uses merge semantics. To update an alert rule, send a request to `/v2/insights/alert-rules/{id}` with a full `spec`. Omit `notification_channels` to keep existing bindings. Omit `status` or `re_alert_duration` to keep those existing values.
 ///
@@ -207,20 +169,12 @@ Future<AlertRuleResponse> insightsUpdateAlertRule(ClientConfig config,
           body: {'spec': spec, 'status': SdkUtils.unwrapOptional(status)},
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsUpdateAlertRule',
-          fromJsonRaw: (value) =>
-              AlertRuleResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AlertRuleResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an alert rule, send a DELETE request to `/v2/insights/alert-rules/{id}`.
 ///
@@ -235,15 +189,10 @@ Future<void> insightsDeleteAlertRule(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'insightsDeleteAlertRule',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all notification channels for your account, send a GET request to `/v2/insights/notification-channels`. Results are paginated with `page` and `per_page` (default `20`, maximum `200`).
 ///
@@ -265,25 +214,17 @@ Future<InsightsListNotificationChannelsResponse>
           'GET', '/v2/insights/notification-channels',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsListNotificationChannels',
-          fromJsonRaw: (value) =>
-              InsightsListNotificationChannelsResponse.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InsightsListNotificationChannelsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a notification channel, send a POST request to `/v2/insights/notification-channels` with a `name` and exactly one of `email`, `slack`, or `webhook`. Email recipients must be verified team member addresses. Webhook URLs must use HTTPS. Secret fields (`slack.webhook_url`, webhook credentials) are write-only. Subsequent reads never return secret values; they include optional `*_status` objects when a secret is configured.
 ///
@@ -301,13 +242,13 @@ Future<InsightsListNotificationChannelsResponse>
 ///   `bearer_token.token`, `signature.secret`) are write-only: send the full
 ///   value to set or rotate. Omit a secret field on update to keep the existing
 ///   value. Responses return nested `*_status` objects instead of secret values.
-Future<NotificationChannelResponse> insightsCreateNotificationChannel(
-    ClientConfig config,
-    {required String name,
-    SdkOptional<EmailNotificationConfig> email = const SdkOmitted(),
-    SdkOptional<SlackNotificationConfigRequest> slack = const SdkOmitted(),
-    SdkOptional<WebhookNotificationConfigRequest> webhook = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<NotificationChannelResponse>
+    insightsCreateNotificationChannel(ClientConfig config,
+        {required String name,
+        SdkOptional<EmailNotificationConfig> email = const SdkOmitted(),
+        SdkOptional<SlackNotificationConfigRequest> slack = const SdkOmitted(),
+        SdkOptional<WebhookNotificationConfigRequest> webhook = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<NotificationChannelResponse>(
           'POST', '/v2/insights/notification-channels',
           config: config,
@@ -319,26 +260,18 @@ Future<NotificationChannelResponse> insightsCreateNotificationChannel(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsCreateNotificationChannel',
-          fromJsonRaw: (value) => NotificationChannelResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => NotificationChannelResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve a notification channel, send a GET request to `/v2/insights/notification-channels/{id}`. Secret credentials are never returned. When a secret is configured, the response includes an optional `*_status` object (for example `webhook_url_status`) with `configured: true`.
 ///
 /// [id] A unique identifier for a notification channel.
-Future<NotificationChannelResponse> insightsGetNotificationChannel(
-    ClientConfig config,
-    {required String id,
-    RequestOptions? requestOptions}) async {
+Future<NotificationChannelResponse> insightsGetNotificationChannel(ClientConfig config,
+    {required String id, RequestOptions? requestOptions}) async {
   sdkValidateUuid('id', id);
 
   return (await sdkRequest<NotificationChannelResponse>('GET',
@@ -346,18 +279,12 @@ Future<NotificationChannelResponse> insightsGetNotificationChannel(
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsGetNotificationChannel',
-          fromJsonRaw: (value) => NotificationChannelResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => NotificationChannelResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update a notification channel, send a PUT request to `/v2/insights/notification-channels/{id}` with a `name` and exactly one of `email`, `slack`, or `webhook`. Sending a secret field rotates it; omitting the secret field keeps the existing value. Responses never return secret values; they include optional `*_status` objects when a secret is configured.
 ///
@@ -376,14 +303,14 @@ Future<NotificationChannelResponse> insightsGetNotificationChannel(
 ///   `bearer_token.token`, `signature.secret`) are write-only: send the full
 ///   value to set or rotate. Omit a secret field on update to keep the existing
 ///   value. Responses return nested `*_status` objects instead of secret values.
-Future<NotificationChannelResponse> insightsUpdateNotificationChannel(
-    ClientConfig config,
-    {required String id,
-    required String name,
-    SdkOptional<EmailNotificationConfig> email = const SdkOmitted(),
-    SdkOptional<SlackNotificationConfigRequest> slack = const SdkOmitted(),
-    SdkOptional<WebhookNotificationConfigRequest> webhook = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<NotificationChannelResponse>
+    insightsUpdateNotificationChannel(ClientConfig config,
+        {required String id,
+        required String name,
+        SdkOptional<EmailNotificationConfig> email = const SdkOmitted(),
+        SdkOptional<SlackNotificationConfigRequest> slack = const SdkOmitted(),
+        SdkOptional<WebhookNotificationConfigRequest> webhook = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   sdkValidateUuid('id', id);
 
   return (await sdkRequest<NotificationChannelResponse>('PUT',
@@ -397,19 +324,12 @@ Future<NotificationChannelResponse> insightsUpdateNotificationChannel(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsUpdateNotificationChannel',
-          fromJsonRaw: (value) => NotificationChannelResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => NotificationChannelResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a notification channel, send a DELETE request to `/v2/insights/notification-channels/{id}`. Deleting a channel that is still referenced by one or more alert rules returns `409 Conflict`.
 ///
@@ -424,16 +344,10 @@ Future<void> insightsDeleteNotificationChannel(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'insightsDeleteNotificationChannel',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To evaluate a PromQL expression at a single point in time, send a GET request to `/v2/insights/query/{region}/prom/api/v1/query`.
 ///
@@ -455,29 +369,17 @@ Future<PromQueryResponse> insightsGetPromQuery(ClientConfig config,
           config: config,
           query: {
             'query': SdkQueryValue(query, style: 'form', explode: true),
-            'time': SdkQueryValue(SdkUtils.unwrapOptional(time),
-                style: 'form', explode: true),
-            'timeout': SdkQueryValue(SdkUtils.unwrapOptional(timeout),
-                style: 'form', explode: true)
+            'time': SdkQueryValue(SdkUtils.unwrapOptional(time), style: 'form', explode: true),
+            'timeout': SdkQueryValue(SdkUtils.unwrapOptional(timeout), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsGetPromQuery',
-          fromJsonRaw: (value) =>
-              PromQueryResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PromQueryResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '503': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => PromError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => PromError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => PromError.fromJson(value as Map<String, dynamic>), '503': (value) => PromError.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To evaluate a PromQL expression at a single point in time, send a POST request to `/v2/insights/query/{region}/prom/api/v1/query` with `application/x-www-form-urlencoded` parameters.
 ///
@@ -502,22 +404,12 @@ Future<PromQueryResponse> insightsPostPromQuery(ClientConfig config,
           contentType: 'application/x-www-form-urlencoded',
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsPostPromQuery',
-          fromJsonRaw: (value) =>
-              PromQueryResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PromQueryResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '503': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => PromError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => PromError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => PromError.fromJson(value as Map<String, dynamic>), '503': (value) => PromError.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To evaluate a PromQL expression over a time range, send a GET request to `/v2/insights/query/{region}/prom/api/v1/query_range`.
 ///
@@ -548,27 +440,16 @@ Future<PromQueryRangeResponse> insightsGetPromQueryRange(ClientConfig config,
             'start': SdkQueryValue(start, style: 'form', explode: true),
             'end': SdkQueryValue(end, style: 'form', explode: true),
             'step': SdkQueryValue(step, style: 'form', explode: true),
-            'timeout': SdkQueryValue(SdkUtils.unwrapOptional(timeout),
-                style: 'form', explode: true)
+            'timeout': SdkQueryValue(SdkUtils.unwrapOptional(timeout), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsGetPromQueryRange',
-          fromJsonRaw: (value) =>
-              PromQueryRangeResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PromQueryRangeResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '503': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => PromError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => PromError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => PromError.fromJson(value as Map<String, dynamic>), '503': (value) => PromError.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To evaluate a PromQL expression over a time range, send a POST request to `/v2/insights/query/{region}/prom/api/v1/query_range` with `application/x-www-form-urlencoded` parameters.
 ///
@@ -599,22 +480,12 @@ Future<PromQueryRangeResponse> insightsPostPromQueryRange(ClientConfig config,
           contentType: 'application/x-www-form-urlencoded',
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsPostPromQueryRange',
-          fromJsonRaw: (value) =>
-              PromQueryRangeResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PromQueryRangeResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '503': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => PromError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => PromError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => PromError.fromJson(value as Map<String, dynamic>), '503': (value) => PromError.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list label names, send a GET request to `/v2/insights/query/{region}/prom/api/v1/labels`.
 ///
@@ -635,31 +506,18 @@ Future<PromStringListResponse> insightsGetPromLabels(ClientConfig config,
           '/v2/insights/query/${Uri.encodeComponent(region.toString())}/prom/api/v1/labels',
           config: config,
           query: {
-            'start': SdkQueryValue(SdkUtils.unwrapOptional(start),
-                style: 'form', explode: true),
-            'end': SdkQueryValue(SdkUtils.unwrapOptional(end),
-                style: 'form', explode: true),
-            'match[]': SdkQueryValue(SdkUtils.unwrapOptional(match),
-                style: 'form', explode: true)
+            'start': SdkQueryValue(SdkUtils.unwrapOptional(start), style: 'form', explode: true),
+            'end': SdkQueryValue(SdkUtils.unwrapOptional(end), style: 'form', explode: true),
+            'match[]': SdkQueryValue(SdkUtils.unwrapOptional(match), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsGetPromLabels',
-          fromJsonRaw: (value) =>
-              PromStringListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PromStringListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '503': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => PromError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => PromError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => PromError.fromJson(value as Map<String, dynamic>), '503': (value) => PromError.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list label names, send a POST request to `/v2/insights/query/{region}/prom/api/v1/labels` with `application/x-www-form-urlencoded` parameters.
 ///
@@ -684,22 +542,12 @@ Future<PromStringListResponse> insightsPostPromLabels(ClientConfig config,
           contentType: 'application/x-www-form-urlencoded',
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsPostPromLabels',
-          fromJsonRaw: (value) =>
-              PromStringListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PromStringListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '503': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => PromError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => PromError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => PromError.fromJson(value as Map<String, dynamic>), '503': (value) => PromError.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list values for a label name, send a GET request to `/v2/insights/query/{region}/prom/api/v1/label/{name}/values`.
 ///
@@ -722,31 +570,18 @@ Future<PromStringListResponse> insightsGetPromLabelValues(ClientConfig config,
           '/v2/insights/query/${Uri.encodeComponent(region.toString())}/prom/api/v1/label/${Uri.encodeComponent(name.toString())}/values',
           config: config,
           query: {
-            'start': SdkQueryValue(SdkUtils.unwrapOptional(start),
-                style: 'form', explode: true),
-            'end': SdkQueryValue(SdkUtils.unwrapOptional(end),
-                style: 'form', explode: true),
-            'match[]': SdkQueryValue(SdkUtils.unwrapOptional(match),
-                style: 'form', explode: true)
+            'start': SdkQueryValue(SdkUtils.unwrapOptional(start), style: 'form', explode: true),
+            'end': SdkQueryValue(SdkUtils.unwrapOptional(end), style: 'form', explode: true),
+            'match[]': SdkQueryValue(SdkUtils.unwrapOptional(match), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsGetPromLabelValues',
-          fromJsonRaw: (value) =>
-              PromStringListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PromStringListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '503': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => PromError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => PromError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => PromError.fromJson(value as Map<String, dynamic>), '503': (value) => PromError.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To find series matching one or more selectors, send a GET request to `/v2/insights/query/{region}/prom/api/v1/series`.
 ///
@@ -768,29 +603,17 @@ Future<PromSeriesResponse> insightsGetPromSeries(ClientConfig config,
           config: config,
           query: {
             'match[]': SdkQueryValue(match, style: 'form', explode: true),
-            'start': SdkQueryValue(SdkUtils.unwrapOptional(start),
-                style: 'form', explode: true),
-            'end': SdkQueryValue(SdkUtils.unwrapOptional(end),
-                style: 'form', explode: true)
+            'start': SdkQueryValue(SdkUtils.unwrapOptional(start), style: 'form', explode: true),
+            'end': SdkQueryValue(SdkUtils.unwrapOptional(end), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsGetPromSeries',
-          fromJsonRaw: (value) =>
-              PromSeriesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PromSeriesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '503': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => PromError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => PromError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => PromError.fromJson(value as Map<String, dynamic>), '503': (value) => PromError.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To find series matching one or more selectors, send a POST request to `/v2/insights/query/{region}/prom/api/v1/series` with `application/x-www-form-urlencoded` parameters.
 ///
@@ -815,22 +638,12 @@ Future<PromSeriesResponse> insightsPostPromSeries(ClientConfig config,
           contentType: 'application/x-www-form-urlencoded',
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsPostPromSeries',
-          fromJsonRaw: (value) =>
-              PromSeriesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PromSeriesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            '503': (value) => PromError.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => PromError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => PromError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => PromError.fromJson(value as Map<String, dynamic>), '503': (value) => PromError.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To search log records in a region, send a POST request to `/v2/insights/query/{region}/logs/search` with a JSON body describing the time range, optional filter, ordering, and pagination. The time range must not exceed 7 days. `pagination.limit` defaults to 100 and is clamped to 1000. Cursor pagination requires ordering by `timestamp` alone; other sort orders return `has_more: false` and cannot be paged.
 ///
@@ -859,20 +672,12 @@ Future<LogsSearchResponse> insightsPostLogsSearch(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsPostLogsSearch',
-          fromJsonRaw: (value) =>
-              LogsSearchResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => LogsSearchResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To search traces in a region, send a POST request to `/v2/insights/query/{region}/traces/search` with a JSON body describing the time range, optional filter, ordering, and pagination. Each result is one trace, aggregated from all of its spans in the time range. A trace is included when at least one of its spans matches `filter`. The time range must not exceed 7 days (`168h`). `pagination.limit` defaults to 100 (also used when `limit` is `0`) and must be between 0 and 1000. Results are ordered by `started` descending unless `orderBy` is set. JSON field names are camelCase (`timeRange`, `orderBy`, `hasMore`, `traceId`). Unknown request properties, invalid filters, and out-of-range values are rejected with `400`. Each request searches a single region; there is no multi-region search. Supported regions are `ams2`, `ams3`, `atl1`, `blr1`, `fra1`, `lon1`, `mem1`, `nyc1`, `nyc2`, `nyc3`, `ric1`, `sfo1`, `sfo2`, `sfo3`, `sgp1`, `syd1`, and `tor1`. Requests time out after 60 seconds. Errors produced by the traces service (`400`) have a `text/plain` body containing a short message. Authentication and authorization errors (`401`, `403`), rate limiting (`429`), and routing errors (for example, `404` for an unknown region) come from the API gateway and use the standard JSON error object with `id` and `message`. `403` is also returned for accounts that are in a trial or not in good standing. If the regional traces backend cannot be reached, the response is `502` with a `text/plain` body.
 ///
@@ -911,19 +716,12 @@ Future<TracesSearchResponse> insightsPostTracesSearch(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsPostTracesSearch',
-          fromJsonRaw: (value) =>
-              TracesSearchResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TracesSearchResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve a single trace and all of its spans, send a GET request to `/v2/insights/query/{region}/traces/{trace_id}`. Only spans that started within the lookup window are returned. The window defaults to the last 7 days and can be narrowed with the `from` and `to` query parameters; it must not exceed 7 days, and `from` must not be after `to`. Spans are returned ordered by start time. At most 10,000 spans are returned; `truncated` is `true` when the trace has more. A trace ID with no spans in the window returns `404`, as do malformed or uppercase trace IDs. A trace is only resolvable in the region that ingested it; querying another region also returns `404`. Supported regions are `ams2`, `ams3`, `atl1`, `blr1`, `fra1`, `lon1`, `mem1`, `nyc1`, `nyc2`, `nyc3`, `ric1`, `sfo1`, `sfo2`, `sfo3`, `sgp1`, `syd1`, and `tor1`. Requests time out after 60 seconds. Errors produced by the traces service (`400`, and `404` when no trace is found) have a `text/plain` body containing a short message. Authentication and authorization errors (`401`, `403`), rate limiting (`429`), and routing errors (for example, `404` for an unknown region) come from the API gateway and use the standard JSON error object with `id` and `message`. `403` is also returned for accounts that are in a trial or not in good standing. If the regional traces backend cannot be reached, the response is `502` with a `text/plain` body. JSON field names are camelCase (`traceId`, `spanId`, `startTime`, `endTime`, `durationNs`, `serviceName`, `statusCode`, `parentSpanId`).
 ///
@@ -948,26 +746,17 @@ Future<TracesTraceResponse> insightsGetTrace(ClientConfig config,
           '/v2/insights/query/${Uri.encodeComponent(region.toString())}/traces/${Uri.encodeComponent(traceId.toString())}',
           config: config,
           query: {
-            'from': SdkQueryValue(SdkUtils.unwrapOptional(from),
-                style: 'form', explode: true),
-            'to': SdkQueryValue(SdkUtils.unwrapOptional(to),
-                style: 'form', explode: true)
+            'from': SdkQueryValue(SdkUtils.unwrapOptional(from), style: 'form', explode: true),
+            'to': SdkQueryValue(SdkUtils.unwrapOptional(to), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsGetTrace',
-          fromJsonRaw: (value) =>
-              TracesTraceResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TracesTraceResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To search spans in a region, send a POST request to `/v2/insights/query/{region}/spans/search` with a JSON body describing the time range, optional filter, ordering, and pagination. The time range must not exceed 7 days. `pagination.limit` defaults to 100 and must be between 1 and 1000. Results are ordered by `startTime` descending by default. Cursor-based pagination is not yet supported; `pagination.hasMore` indicates whether additional spans matched beyond the returned page.
 ///
@@ -999,17 +788,8 @@ Future<SpansSearchResponse> insightsPostSpansSearch(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'insightsPostSpansSearch',
-          fromJsonRaw: (value) =>
-              SpansSearchResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SpansSearchResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

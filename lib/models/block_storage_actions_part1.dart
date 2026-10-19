@@ -8,240 +8,126 @@ part of 'block_storage_actions.dart';
 class VolumeActionVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// This is the type of action that the object represents. For example, this could be "attach_volume" to represent the state of a volume attach action.
   final SdkOptional<String> type_;
-
   /// Optional `integer` value serialized in the `resource_id` wire field.
   final SdkOptional<int?> resourceId;
 
-  const VolumeActionVariant0(
-      {this.type_ = const SdkOmitted(), this.resourceId = const SdkOmitted()});
+  const VolumeActionVariant0({this.type_ = const SdkOmitted(), this.resourceId = const SdkOmitted()});
 
-  VolumeActionVariant0 Function(
-      {SdkOptional<String> type_,
-      SdkOptional<int?> resourceId}) get copyWith => _copyWith;
+  VolumeActionVariant0 Function({SdkOptional<String> type_, SdkOptional<int?> resourceId}) get copyWith => _copyWith;
 
-  VolumeActionVariant0 _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? resourceId = sdkOmittedValue}) =>
-      VolumeActionVariant0(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        resourceId: identical(resourceId, sdkOmittedValue)
-            ? this.resourceId
-            : resourceId as SdkOptional<int?>,
-      );
+  VolumeActionVariant0 _copyWith({Object? type_ = sdkOmittedValue, Object? resourceId = sdkOmittedValue}) => VolumeActionVariant0(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    resourceId: identical(resourceId, sdkOmittedValue) ? this.resourceId : resourceId as SdkOptional<int?>,
+  );
 
-  factory VolumeActionVariant0.fromJson(Map<String, dynamic> json) =>
-      VolumeActionVariant0(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        resourceId: json.containsKey('resource_id')
-            ? SdkPresent((json['resource_id'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory VolumeActionVariant0.fromJson(Map<String, dynamic> json) => VolumeActionVariant0(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    resourceId: json.containsKey('resource_id') ? SdkPresent((json['resource_id'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceId) {
-          SdkPresent<int?>(value: final value) => {
-              'resource_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceId) {
+      SdkPresent<int?>(value: final value) => {'resource_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VolumeAction` API schema.
 class VolumeAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
   final SdkOptional<String> type_;
-
   /// A unique identifier for the resource that the action is associated with.
   final SdkOptional<int?> resourceId;
-
   /// A unique numeric ID that can be used to identify and reference an action.
   final SdkOptional<int> id;
-
   /// The current status of the action. This can be "in-progress", "completed", or "errored".
   final SdkOptional<ActionStatus> status;
-
   /// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
   final SdkOptional<String> startedAt;
-
   /// A time value given in ISO8601 combined date and time format that represents when the action was completed.
   final SdkOptional<String?> completedAt;
-
   /// The type of resource that the action is associated with.
   final SdkOptional<String> resourceType;
-
   /// Optional object value serialized in the `region` wire field.
   final SdkOptional<Region> region;
-
   /// A human-readable string that is used as a unique identifier for each region.
   final SdkOptional<String?> regionSlug;
 
-  const VolumeAction(
-      {this.type_ = const SdkOmitted(),
-      this.resourceId = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.startedAt = const SdkOmitted(),
-      this.completedAt = const SdkOmitted(),
-      this.resourceType = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.regionSlug = const SdkOmitted()});
+  const VolumeAction({this.type_ = const SdkOmitted(), this.resourceId = const SdkOmitted(), this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.completedAt = const SdkOmitted(), this.resourceType = const SdkOmitted(), this.region = const SdkOmitted(), this.regionSlug = const SdkOmitted()});
 
-  VolumeAction Function(
-      {SdkOptional<String> type_,
-      SdkOptional<int?> resourceId,
-      SdkOptional<int> id,
-      SdkOptional<ActionStatus> status,
-      SdkOptional<String> startedAt,
-      SdkOptional<String?> completedAt,
-      SdkOptional<String> resourceType,
-      SdkOptional<Region> region,
-      SdkOptional<String?> regionSlug}) get copyWith => _copyWith;
+  VolumeAction Function({SdkOptional<String> type_, SdkOptional<int?> resourceId, SdkOptional<int> id, SdkOptional<ActionStatus> status, SdkOptional<String> startedAt, SdkOptional<String?> completedAt, SdkOptional<String> resourceType, SdkOptional<Region> region, SdkOptional<String?> regionSlug}) get copyWith => _copyWith;
 
-  VolumeAction _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? resourceId = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? startedAt = sdkOmittedValue,
-          Object? completedAt = sdkOmittedValue,
-          Object? resourceType = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? regionSlug = sdkOmittedValue}) =>
-      VolumeAction(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        resourceId: identical(resourceId, sdkOmittedValue)
-            ? this.resourceId
-            : resourceId as SdkOptional<int?>,
-        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ActionStatus>,
-        startedAt: identical(startedAt, sdkOmittedValue)
-            ? this.startedAt
-            : startedAt as SdkOptional<String>,
-        completedAt: identical(completedAt, sdkOmittedValue)
-            ? this.completedAt
-            : completedAt as SdkOptional<String?>,
-        resourceType: identical(resourceType, sdkOmittedValue)
-            ? this.resourceType
-            : resourceType as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<Region>,
-        regionSlug: identical(regionSlug, sdkOmittedValue)
-            ? this.regionSlug
-            : regionSlug as SdkOptional<String?>,
-      );
+  VolumeAction _copyWith({Object? type_ = sdkOmittedValue, Object? resourceId = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? resourceType = sdkOmittedValue, Object? region = sdkOmittedValue, Object? regionSlug = sdkOmittedValue}) => VolumeAction(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    resourceId: identical(resourceId, sdkOmittedValue) ? this.resourceId : resourceId as SdkOptional<int?>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ActionStatus>,
+    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String>,
+    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<String?>,
+    resourceType: identical(resourceType, sdkOmittedValue) ? this.resourceType : resourceType as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<Region>,
+    regionSlug: identical(regionSlug, sdkOmittedValue) ? this.regionSlug : regionSlug as SdkOptional<String?>,
+  );
 
   factory VolumeAction.fromJson(Map<String, dynamic> json) => VolumeAction(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        resourceId: json.containsKey('resource_id')
-            ? SdkPresent((json['resource_id'] as num?)?.toInt())
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent(((json['id'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ActionStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        startedAt: json['started_at'] != null
-            ? SdkPresent((json['started_at'] as String?)!)
-            : const SdkOmitted(),
-        completedAt: json.containsKey('completed_at')
-            ? SdkPresent(json['completed_at'] as String?)
-            : const SdkOmitted(),
-        resourceType: json['resource_type'] != null
-            ? SdkPresent((json['resource_type'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? Region.fromJson(json['region'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        regionSlug: json.containsKey('region_slug')
-            ? SdkPresent(json['region_slug'] as String?)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    resourceId: json.containsKey('resource_id') ? SdkPresent((json['resource_id'] as num?)?.toInt()) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent(((json['id'] as num?)?.toInt())!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ActionStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    startedAt: json['started_at'] != null ? SdkPresent((json['started_at'] as String?)!) : const SdkOmitted(),
+    completedAt: json.containsKey('completed_at') ? SdkPresent(json['completed_at'] as String?) : const SdkOmitted(),
+    resourceType: json['resource_type'] != null ? SdkPresent((json['resource_type'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? Region.fromJson(json['region'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    regionSlug: json.containsKey('region_slug') ? SdkPresent(json['region_slug'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceId) {
-          SdkPresent<int?>(value: final value) => {
-              'resource_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<int>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<ActionStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startedAt) {
-          SdkPresent<String>(value: final value) => {
-              'started_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (completedAt) {
-          SdkPresent<String?>(value: final value) => {
-              'completed_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceType) {
-          SdkPresent<String>(value: final value) => {
-              'resource_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<Region>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (regionSlug) {
-          SdkPresent<String?>(value: final value) => {
-              'region_slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceId) {
+      SdkPresent<int?>(value: final value) => {'resource_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<int>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<ActionStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startedAt) {
+      SdkPresent<String>(value: final value) => {'started_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (completedAt) {
+      SdkPresent<String?>(value: final value) => {'completed_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceType) {
+      SdkPresent<String>(value: final value) => {'resource_type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<Region>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (regionSlug) {
+      SdkPresent<String?>(value: final value) => {'region_slug': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 // VolumeActionDropletId = int
@@ -249,215 +135,130 @@ class VolumeAction {
 class VolumeActionPostAttachVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier for the Droplet the volume will be attached or detached from.
   final int dropletId;
-
   /// A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. &lt;br&gt;&lt;br&gt;Requires `tag:create` scope.
   final SdkOptional<List<String>?> tags;
 
-  const VolumeActionPostAttachVariant1(
-      {required this.dropletId, this.tags = const SdkOmitted()});
+  const VolumeActionPostAttachVariant1({required this.dropletId, this.tags = const SdkOmitted()});
 
-  VolumeActionPostAttachVariant1 Function(
-      {int dropletId,
-      SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
+  VolumeActionPostAttachVariant1 Function({int dropletId, SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
 
-  VolumeActionPostAttachVariant1 _copyWith(
-          {Object? dropletId = sdkOmittedValue,
-          Object? tags = sdkOmittedValue}) =>
-      VolumeActionPostAttachVariant1(
-        dropletId: identical(dropletId, sdkOmittedValue)
-            ? this.dropletId
-            : dropletId as int,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>?>,
-      );
+  VolumeActionPostAttachVariant1 _copyWith({Object? dropletId = sdkOmittedValue, Object? tags = sdkOmittedValue}) => VolumeActionPostAttachVariant1(
+    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as int,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>?>,
+  );
 
-  factory VolumeActionPostAttachVariant1.fromJson(Map<String, dynamic> json) =>
-      VolumeActionPostAttachVariant1(
-        dropletId: ((json['droplet_id'] as num?)?.toInt())!,
-        tags: json.containsKey('tags')
-            ? SdkPresent(
-                (json['tags'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-      );
+  factory VolumeActionPostAttachVariant1.fromJson(Map<String, dynamic> json) => VolumeActionPostAttachVariant1(
+    dropletId: ((json['droplet_id'] as num?)?.toInt())!,
+    tags: json.containsKey('tags') ? SdkPresent((json['tags'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'droplet_id': dropletId,
-        ...switch (tags) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'droplet_id': dropletId,
+    ...switch (tags) {
+      SdkPresent<List<String>?>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VolumeActionPostAttach` API schema.
 class VolumeActionPostAttach {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The volume action to initiate.
   final VolumeActionPostBaseType type_;
-
   /// The slug identifier for the region where the resource will initially be available.
   final SdkOptional<RegionSlug> region;
-
   /// The unique identifier for the Droplet the volume will be attached or detached from.
   final int dropletId;
-
   /// A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. &lt;br&gt;&lt;br&gt;Requires `tag:create` scope.
   final SdkOptional<List<String>?> tags;
 
-  const VolumeActionPostAttach(
-      {required this.type_,
-      this.region = const SdkOmitted(),
-      required this.dropletId,
-      this.tags = const SdkOmitted()});
+  const VolumeActionPostAttach({required this.type_, this.region = const SdkOmitted(), required this.dropletId, this.tags = const SdkOmitted()});
 
-  VolumeActionPostAttach Function(
-      {VolumeActionPostBaseType type_,
-      SdkOptional<RegionSlug> region,
-      int dropletId,
-      SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
+  VolumeActionPostAttach Function({VolumeActionPostBaseType type_, SdkOptional<RegionSlug> region, int dropletId, SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
 
-  VolumeActionPostAttach _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? dropletId = sdkOmittedValue,
-          Object? tags = sdkOmittedValue}) =>
-      VolumeActionPostAttach(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as VolumeActionPostBaseType,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<RegionSlug>,
-        dropletId: identical(dropletId, sdkOmittedValue)
-            ? this.dropletId
-            : dropletId as int,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>?>,
-      );
+  VolumeActionPostAttach _copyWith({Object? type_ = sdkOmittedValue, Object? region = sdkOmittedValue, Object? dropletId = sdkOmittedValue, Object? tags = sdkOmittedValue}) => VolumeActionPostAttach(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as VolumeActionPostBaseType,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<RegionSlug>,
+    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as int,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>?>,
+  );
 
-  factory VolumeActionPostAttach.fromJson(Map<String, dynamic> json) =>
-      VolumeActionPostAttach(
-        type_: (json['type'] != null
-            ? VolumeActionPostBaseType.fromJson(json['type'] as String)
-            : null)!,
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? RegionSlug.fromJson(json['region'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        dropletId: ((json['droplet_id'] as num?)?.toInt())!,
-        tags: json.containsKey('tags')
-            ? SdkPresent(
-                (json['tags'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-      );
+  factory VolumeActionPostAttach.fromJson(Map<String, dynamic> json) => VolumeActionPostAttach(
+    type_: (json['type'] != null ? VolumeActionPostBaseType.fromJson(json['type'] as String) : null)!,
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? RegionSlug.fromJson(json['region'] as String) : null)!) : const SdkOmitted(),
+    dropletId: ((json['droplet_id'] as num?)?.toInt())!,
+    tags: json.containsKey('tags') ? SdkPresent((json['tags'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (region) {
-          SdkPresent<RegionSlug>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'droplet_id': dropletId,
-        ...switch (tags) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (region) {
+      SdkPresent<RegionSlug>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'droplet_id': dropletId,
+    ...switch (tags) {
+      SdkPresent<List<String>?>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VolumeActionPostBase` API schema.
 class VolumeActionPostBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The volume action to initiate.
   final VolumeActionPostBaseType type_;
-
   /// The slug identifier for the region where the resource will initially be available.
   final SdkOptional<RegionSlug> region;
 
-  const VolumeActionPostBase(
-      {required this.type_, this.region = const SdkOmitted()});
+  const VolumeActionPostBase({required this.type_, this.region = const SdkOmitted()});
 
-  VolumeActionPostBase Function(
-      {VolumeActionPostBaseType type_,
-      SdkOptional<RegionSlug> region}) get copyWith => _copyWith;
+  VolumeActionPostBase Function({VolumeActionPostBaseType type_, SdkOptional<RegionSlug> region}) get copyWith => _copyWith;
 
-  VolumeActionPostBase _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? region = sdkOmittedValue}) =>
-      VolumeActionPostBase(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as VolumeActionPostBaseType,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<RegionSlug>,
-      );
+  VolumeActionPostBase _copyWith({Object? type_ = sdkOmittedValue, Object? region = sdkOmittedValue}) => VolumeActionPostBase(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as VolumeActionPostBaseType,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<RegionSlug>,
+  );
 
-  factory VolumeActionPostBase.fromJson(Map<String, dynamic> json) =>
-      VolumeActionPostBase(
-        type_: (json['type'] != null
-            ? VolumeActionPostBaseType.fromJson(json['type'] as String)
-            : null)!,
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? RegionSlug.fromJson(json['region'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory VolumeActionPostBase.fromJson(Map<String, dynamic> json) => VolumeActionPostBase(
+    type_: (json['type'] != null ? VolumeActionPostBaseType.fromJson(json['type'] as String) : null)!,
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? RegionSlug.fromJson(json['region'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (region) {
-          SdkPresent<RegionSlug>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (region) {
+      SdkPresent<RegionSlug>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class VolumeActionPostDetachVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier for the Droplet the volume will be attached or detached from.
   final int dropletId;
 
   const VolumeActionPostDetachVariant1({required this.dropletId});
 
-  VolumeActionPostDetachVariant1 Function({int dropletId}) get copyWith =>
-      _copyWith;
+  VolumeActionPostDetachVariant1 Function({int dropletId}) get copyWith => _copyWith;
 
-  VolumeActionPostDetachVariant1 _copyWith(
-          {Object? dropletId = sdkOmittedValue}) =>
-      VolumeActionPostDetachVariant1(
-        dropletId: identical(dropletId, sdkOmittedValue)
-            ? this.dropletId
-            : dropletId as int,
-      );
+  VolumeActionPostDetachVariant1 _copyWith({Object? dropletId = sdkOmittedValue}) => VolumeActionPostDetachVariant1(
+    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as int,
+  );
 
-  factory VolumeActionPostDetachVariant1.fromJson(Map<String, dynamic> json) =>
-      VolumeActionPostDetachVariant1(
-        dropletId: ((json['droplet_id'] as num?)?.toInt())!,
-      );
+  factory VolumeActionPostDetachVariant1.fromJson(Map<String, dynamic> json) => VolumeActionPostDetachVariant1(
+    dropletId: ((json['droplet_id'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'droplet_id': dropletId,
-      };
+    'droplet_id': dropletId,
+  };
 }

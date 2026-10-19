@@ -25,24 +25,17 @@ Future<ListFirewallsResponse> firewallsList(ClientConfig config,
   return (await sdkRequest<ListFirewallsResponse>('GET', '/v2/firewalls',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'firewallsList',
-          fromJsonRaw: (value) =>
-              ListFirewallsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListFirewallsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a firewall with access rules for controlling traffic to and from attached resources. Provide `name` and at least one of `inbound_rules` or `outbound_rules` in the request body. A 202 response returns the firewall object and its standard attributes.
 ///
@@ -55,18 +48,12 @@ Future<CreateFirewallResponse> firewallsCreate(ClientConfig config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
           operationId: 'firewallsCreate',
-          fromJsonRaw: (value) =>
-              CreateFirewallResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateFirewallResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To show information about an existing firewall, send a GET request to `/v2/firewalls/$FIREWALL_ID`.
 ///
@@ -81,18 +68,12 @@ Future<GetFirewallResponse> firewallsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'firewallsGet',
-          fromJsonRaw: (value) =>
-              GetFirewallResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetFirewallResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Replaces the configuration of an existing firewall with the representation you provide. Include `name` and at least one of `inbound_rules` or `outbound_rules`; attributes you omit are reset to their default values. You also need read access to every resource attached to the firewall, such as the `droplet:read` scope.
 ///
@@ -112,19 +93,12 @@ Future<PutFirewallResponse> firewallsUpdate(ClientConfig config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
           operationId: 'firewallsUpdate',
-          fromJsonRaw: (value) =>
-              PutFirewallResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PutFirewallResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a firewall send a DELETE request to `/v2/firewalls/$FIREWALL_ID`. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
 ///
@@ -140,15 +114,10 @@ Future<void> firewallsDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'firewallsDelete',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To assign a Droplet to a firewall, send a POST request to `/v2/firewalls/$FIREWALL_ID/droplets`. In the body of the request, there should be a `droplet_ids` attribute containing a list of Droplet IDs. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
 ///
@@ -169,16 +138,10 @@ Future<void> firewallsAssignDroplets(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'firewallsAssignDroplets',
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To remove a Droplet from a firewall, send a DELETE request to `/v2/firewalls/$FIREWALL_ID/droplets`. In the body of the request, there should be a `droplet_ids` attribute containing a list of Droplet IDs. No response body will be sent back, but the response code will indicate success. Specifically, the response code will be a 204, which means that the action was successful with no returned body data.
 ///
@@ -199,16 +162,10 @@ Future<void> firewallsDeleteDroplets(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'firewallsDeleteDroplets',
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Adds tags representing groups of Droplets to a firewall. Supply `tags` as an array of existing tag names, and ensure the caller has the required tag scopes.
 ///
@@ -229,16 +186,10 @@ Future<void> firewallsAddTags(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'firewallsAddTags',
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Removes tags representing groups of Droplets from a firewall. Supply `tags` as an array of existing tag names to remove from the firewall.
 ///
@@ -259,16 +210,10 @@ Future<void> firewallsDeleteTags(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'firewallsDeleteTags',
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Adds inbound or outbound access rules to a firewall. Provide at least one of `inbound_rules` or `outbound_rules`; you can include both arrays in the same request.
 ///
@@ -289,16 +234,10 @@ Future<void> firewallsAddRules(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'firewallsAddRules',
           options: requestOptions,
-          errors: {
-        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Removes inbound or outbound access rules from a firewall. Provide at least one of `inbound_rules` or `outbound_rules`; you can include both arrays in the same request.
 ///
@@ -319,13 +258,6 @@ Future<void> firewallsDeleteRules(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'firewallsDeleteRules',
           options: requestOptions,
-          errors: {
-        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

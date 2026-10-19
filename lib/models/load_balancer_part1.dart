@@ -7,39 +7,25 @@ part of 'load_balancer.dart';
 class LoadBalancerCreateVariant0Variant2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The slug identifier for the region where the resource will initially be available.
   final SdkOptional<RegionSlug> region;
 
   const LoadBalancerCreateVariant0Variant2({this.region = const SdkOmitted()});
 
-  LoadBalancerCreateVariant0Variant2 Function({SdkOptional<RegionSlug> region})
-      get copyWith => _copyWith;
+  LoadBalancerCreateVariant0Variant2 Function({SdkOptional<RegionSlug> region}) get copyWith => _copyWith;
 
-  LoadBalancerCreateVariant0Variant2 _copyWith(
-          {Object? region = sdkOmittedValue}) =>
-      LoadBalancerCreateVariant0Variant2(
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<RegionSlug>,
-      );
+  LoadBalancerCreateVariant0Variant2 _copyWith({Object? region = sdkOmittedValue}) => LoadBalancerCreateVariant0Variant2(
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<RegionSlug>,
+  );
 
-  factory LoadBalancerCreateVariant0Variant2.fromJson(
-          Map<String, dynamic> json) =>
-      LoadBalancerCreateVariant0Variant2(
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? RegionSlug.fromJson(json['region'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory LoadBalancerCreateVariant0Variant2.fromJson(Map<String, dynamic> json) => LoadBalancerCreateVariant0Variant2(
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? RegionSlug.fromJson(json['region'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (region) {
-          SdkPresent<RegionSlug>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (region) {
+      SdkPresent<RegionSlug>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

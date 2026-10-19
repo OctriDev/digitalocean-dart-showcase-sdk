@@ -34,18 +34,12 @@ Future<NfsCreateResponse> nfsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'nfsCreate',
-          fromJsonRaw: (value) =>
-              NfsCreateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => NfsCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list NFS shares, send a GET request to `/v2/nfs?region=${region}`. A successful request will return all NFS shares belonging to the authenticated user.
 ///
@@ -57,23 +51,16 @@ Future<NfsListResponse> nfsList(ClientConfig config,
   return (await sdkRequest<NfsListResponse>('GET', '/v2/nfs',
           config: config,
           query: {
-            'region': SdkQueryValue(SdkUtils.unwrapOptional(region),
-                style: 'form', explode: true)
+            'region': SdkQueryValue(SdkUtils.unwrapOptional(region), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'nfsList',
-          fromJsonRaw: (value) =>
-              NfsListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => NfsListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get an NFS share, send a GET request to `/v2/nfs/{nfs_id}?region=${region}`. A successful request will return the NFS share.
 ///
@@ -88,23 +75,16 @@ Future<NfsGetResponse> nfsGet(ClientConfig config,
           'GET', '/v2/nfs/${Uri.encodeComponent(nfsId.toString())}',
           config: config,
           query: {
-            'region': SdkQueryValue(SdkUtils.unwrapOptional(region),
-                style: 'form', explode: true)
+            'region': SdkQueryValue(SdkUtils.unwrapOptional(region), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'nfsGet',
-          fromJsonRaw: (value) =>
-              NfsGetResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => NfsGetResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an NFS share, send a DELETE request to `/v2/nfs/{nfs_id}?region=${region}`. A successful request will return a `204 No Content` status code.
 ///
@@ -119,21 +99,15 @@ Future<void> nfsDelete(ClientConfig config,
           'DELETE', '/v2/nfs/${Uri.encodeComponent(nfsId.toString())}',
           config: config,
           query: {
-            'region': SdkQueryValue(SdkUtils.unwrapOptional(region),
-                style: 'form', explode: true)
+            'region': SdkQueryValue(SdkUtils.unwrapOptional(region), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.empty,
           operationId: 'nfsDelete',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all NFS snapshots, send a GET request to `/v2/nfs/snapshots?region=${region}&share_id={share_id}`. A successful request will return all NFS snapshots belonging to the authenticated user in the specified region. Optionally, you can filter snapshots by a specific NFS share by including the `share_id` query parameter.
 ///
@@ -148,25 +122,17 @@ Future<NfsSnapshotListResponse> nfsListSnapshot(ClientConfig config,
   return (await sdkRequest<NfsSnapshotListResponse>('GET', '/v2/nfs/snapshots',
           config: config,
           query: {
-            'region': SdkQueryValue(SdkUtils.unwrapOptional(region),
-                style: 'form', explode: true),
-            'share_id': SdkQueryValue(SdkUtils.unwrapOptional(shareId),
-                style: 'form', explode: true)
+            'region': SdkQueryValue(SdkUtils.unwrapOptional(region), style: 'form', explode: true),
+            'share_id': SdkQueryValue(SdkUtils.unwrapOptional(shareId), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'nfsListSnapshot',
-          fromJsonRaw: (value) =>
-              NfsSnapshotListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => NfsSnapshotListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get an NFS snapshot, send a GET request to `/v2/nfs/snapshots/{nfs_snapshot_id}?region=${region}`. A successful request will return the NFS snapshot.
 ///
@@ -181,23 +147,16 @@ Future<NfsSnapshotGetResponse> nfsGetSnapshot(ClientConfig config,
           '/v2/nfs/snapshots/${Uri.encodeComponent(nfsSnapshotId.toString())}',
           config: config,
           query: {
-            'region': SdkQueryValue(SdkUtils.unwrapOptional(region),
-                style: 'form', explode: true)
+            'region': SdkQueryValue(SdkUtils.unwrapOptional(region), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'nfsGetSnapshot',
-          fromJsonRaw: (value) =>
-              NfsSnapshotGetResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => NfsSnapshotGetResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an NFS snapshot, send a DELETE request to `/v2/nfs/snapshots/{nfs_snapshot_id}?region=${region}`. A successful request will return a `204 No Content` status code.
 ///
@@ -212,21 +171,15 @@ Future<void> nfsDeleteSnapshot(ClientConfig config,
           '/v2/nfs/snapshots/${Uri.encodeComponent(nfsSnapshotId.toString())}',
           config: config,
           query: {
-            'region': SdkQueryValue(SdkUtils.unwrapOptional(region),
-                style: 'form', explode: true)
+            'region': SdkQueryValue(SdkUtils.unwrapOptional(region), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.empty,
           operationId: 'nfsDeleteSnapshot',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a new access point on an NFS share, send a POST request to `/v2/nfs/shares/{share_id}/access_points`. A successful request will return the newly created access point and an action object. The parent share must be in `ACTIVE` or `INACTIVE` status. Validation failures and precondition errors (such as an ineligible share state) return `400 Bad Request`. Duplicate name or path conflicts return `409 Conflict`.
 ///
@@ -266,22 +219,12 @@ Future<AccessPointActionResponse> nfsCreateAccessPoint(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'nfsCreateAccessPoint',
-          fromJsonRaw: (value) =>
-              AccessPointActionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AccessPointActionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                NfsApiError.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                NfsApiError.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => NfsApiError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => NfsApiError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list access points for an NFS share, send a GET request to `/v2/nfs/shares/{share_id}/access_points`. You may use query parameters to filter by status. A successful request will return a list of NFS access points ordered with the default access point first, then by `created_at` ascending.
 ///
@@ -297,25 +240,16 @@ Future<AccessPointListResponse> nfsListAccessPoints(ClientConfig config,
           '/v2/nfs/shares/${Uri.encodeComponent(shareId.toString())}/access_points',
           config: config,
           query: {
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
-                style: 'form', explode: true)
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'nfsListAccessPoints',
-          fromJsonRaw: (value) =>
-              AccessPointListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AccessPointListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                NfsApiError.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => NfsApiError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get an NFS access point, send a GET request to `/v2/nfs/access_points/{access_point_id}`. A successful request will return the NFS access point.
 ///
@@ -329,18 +263,12 @@ Future<AccessPointGetResponse> nfsGetAccessPoint(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'nfsGetAccessPoint',
-          fromJsonRaw: (value) =>
-              AccessPointGetResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AccessPointGetResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an NFS access point, send a DELETE request to `/v2/nfs/access_points/{access_point_id}`. A successful request will soft-delete the access point and return the deleted access point with status `ACCESS_POINT_DELETED` and an action object indicating the delete operation. The default access point (`is_default: true`) cannot be deleted. Access points already in `ACCESS_POINT_DELETED` or `ACCESS_POINT_FAILED` status return `400 Bad Request`.
 ///
@@ -354,16 +282,8 @@ Future<AccessPointActionResponse> nfsDeleteAccessPoint(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'nfsDeleteAccessPoint',
-          fromJsonRaw: (value) =>
-              AccessPointActionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AccessPointActionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => NfsApiError.fromJson(value as Map<String, dynamic>),
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => NfsApiError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

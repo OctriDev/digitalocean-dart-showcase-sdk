@@ -8,320 +8,156 @@ part of 'agent_platform_api_api_prompt.dart';
 class ApiPrompt {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The evaluated trace spans.
   final SdkOptional<List<ApiEvaluationTraceSpan>> evaluationTraceSpans;
-
   /// The ground truth for the prompt.
   final SdkOptional<String> groundTruth;
-
   /// Optional `string` value serialized in the `input` wire field.
   final SdkOptional<String> input;
-
   /// The number of input tokens used in the prompt.
   final SdkOptional<String> inputTokens;
-
   /// Optional `string` value serialized in the `output` wire field.
   final SdkOptional<String> output;
-
   /// The number of output tokens used in the prompt.
   final SdkOptional<String> outputTokens;
-
   /// The list of prompt chunks.
   final SdkOptional<List<ApiPromptChunk>> promptChunks;
-
   /// Prompt ID
   final SdkOptional<int> promptId;
-
   /// The metric results for the prompt.
   final SdkOptional<List<ApiEvaluationMetricResult>> promptLevelMetricResults;
-
   /// The trace id for the prompt.
   final SdkOptional<String> traceId;
 
-  const ApiPrompt(
-      {this.evaluationTraceSpans = const SdkOmitted(),
-      this.groundTruth = const SdkOmitted(),
-      this.input = const SdkOmitted(),
-      this.inputTokens = const SdkOmitted(),
-      this.output = const SdkOmitted(),
-      this.outputTokens = const SdkOmitted(),
-      this.promptChunks = const SdkOmitted(),
-      this.promptId = const SdkOmitted(),
-      this.promptLevelMetricResults = const SdkOmitted(),
-      this.traceId = const SdkOmitted()});
+  const ApiPrompt({this.evaluationTraceSpans = const SdkOmitted(), this.groundTruth = const SdkOmitted(), this.input = const SdkOmitted(), this.inputTokens = const SdkOmitted(), this.output = const SdkOmitted(), this.outputTokens = const SdkOmitted(), this.promptChunks = const SdkOmitted(), this.promptId = const SdkOmitted(), this.promptLevelMetricResults = const SdkOmitted(), this.traceId = const SdkOmitted()});
 
-  ApiPrompt Function(
-      {SdkOptional<List<ApiEvaluationTraceSpan>> evaluationTraceSpans,
-      SdkOptional<String> groundTruth,
-      SdkOptional<String> input,
-      SdkOptional<String> inputTokens,
-      SdkOptional<String> output,
-      SdkOptional<String> outputTokens,
-      SdkOptional<List<ApiPromptChunk>> promptChunks,
-      SdkOptional<int> promptId,
-      SdkOptional<List<ApiEvaluationMetricResult>> promptLevelMetricResults,
-      SdkOptional<String> traceId}) get copyWith => _copyWith;
+  ApiPrompt Function({SdkOptional<List<ApiEvaluationTraceSpan>> evaluationTraceSpans, SdkOptional<String> groundTruth, SdkOptional<String> input, SdkOptional<String> inputTokens, SdkOptional<String> output, SdkOptional<String> outputTokens, SdkOptional<List<ApiPromptChunk>> promptChunks, SdkOptional<int> promptId, SdkOptional<List<ApiEvaluationMetricResult>> promptLevelMetricResults, SdkOptional<String> traceId}) get copyWith => _copyWith;
 
-  ApiPrompt _copyWith(
-          {Object? evaluationTraceSpans = sdkOmittedValue,
-          Object? groundTruth = sdkOmittedValue,
-          Object? input = sdkOmittedValue,
-          Object? inputTokens = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? outputTokens = sdkOmittedValue,
-          Object? promptChunks = sdkOmittedValue,
-          Object? promptId = sdkOmittedValue,
-          Object? promptLevelMetricResults = sdkOmittedValue,
-          Object? traceId = sdkOmittedValue}) =>
-      ApiPrompt(
-        evaluationTraceSpans: identical(evaluationTraceSpans, sdkOmittedValue)
-            ? this.evaluationTraceSpans
-            : evaluationTraceSpans as SdkOptional<List<ApiEvaluationTraceSpan>>,
-        groundTruth: identical(groundTruth, sdkOmittedValue)
-            ? this.groundTruth
-            : groundTruth as SdkOptional<String>,
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as SdkOptional<String>,
-        inputTokens: identical(inputTokens, sdkOmittedValue)
-            ? this.inputTokens
-            : inputTokens as SdkOptional<String>,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as SdkOptional<String>,
-        outputTokens: identical(outputTokens, sdkOmittedValue)
-            ? this.outputTokens
-            : outputTokens as SdkOptional<String>,
-        promptChunks: identical(promptChunks, sdkOmittedValue)
-            ? this.promptChunks
-            : promptChunks as SdkOptional<List<ApiPromptChunk>>,
-        promptId: identical(promptId, sdkOmittedValue)
-            ? this.promptId
-            : promptId as SdkOptional<int>,
-        promptLevelMetricResults:
-            identical(promptLevelMetricResults, sdkOmittedValue)
-                ? this.promptLevelMetricResults
-                : promptLevelMetricResults
-                    as SdkOptional<List<ApiEvaluationMetricResult>>,
-        traceId: identical(traceId, sdkOmittedValue)
-            ? this.traceId
-            : traceId as SdkOptional<String>,
-      );
+  ApiPrompt _copyWith({Object? evaluationTraceSpans = sdkOmittedValue, Object? groundTruth = sdkOmittedValue, Object? input = sdkOmittedValue, Object? inputTokens = sdkOmittedValue, Object? output = sdkOmittedValue, Object? outputTokens = sdkOmittedValue, Object? promptChunks = sdkOmittedValue, Object? promptId = sdkOmittedValue, Object? promptLevelMetricResults = sdkOmittedValue, Object? traceId = sdkOmittedValue}) => ApiPrompt(
+    evaluationTraceSpans: identical(evaluationTraceSpans, sdkOmittedValue) ? this.evaluationTraceSpans : evaluationTraceSpans as SdkOptional<List<ApiEvaluationTraceSpan>>,
+    groundTruth: identical(groundTruth, sdkOmittedValue) ? this.groundTruth : groundTruth as SdkOptional<String>,
+    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<String>,
+    inputTokens: identical(inputTokens, sdkOmittedValue) ? this.inputTokens : inputTokens as SdkOptional<String>,
+    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<String>,
+    outputTokens: identical(outputTokens, sdkOmittedValue) ? this.outputTokens : outputTokens as SdkOptional<String>,
+    promptChunks: identical(promptChunks, sdkOmittedValue) ? this.promptChunks : promptChunks as SdkOptional<List<ApiPromptChunk>>,
+    promptId: identical(promptId, sdkOmittedValue) ? this.promptId : promptId as SdkOptional<int>,
+    promptLevelMetricResults: identical(promptLevelMetricResults, sdkOmittedValue) ? this.promptLevelMetricResults : promptLevelMetricResults as SdkOptional<List<ApiEvaluationMetricResult>>,
+    traceId: identical(traceId, sdkOmittedValue) ? this.traceId : traceId as SdkOptional<String>,
+  );
 
   factory ApiPrompt.fromJson(Map<String, dynamic> json) => ApiPrompt(
-        evaluationTraceSpans: json['evaluation_trace_spans'] != null
-            ? SdkPresent(((json['evaluation_trace_spans'] as List?)
-                ?.map((e) =>
-                    ApiEvaluationTraceSpan.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        groundTruth: json['ground_truth'] != null
-            ? SdkPresent((json['ground_truth'] as String?)!)
-            : const SdkOmitted(),
-        input: json['input'] != null
-            ? SdkPresent((json['input'] as String?)!)
-            : const SdkOmitted(),
-        inputTokens: json['input_tokens'] != null
-            ? SdkPresent((json['input_tokens'] as String?)!)
-            : const SdkOmitted(),
-        output: json['output'] != null
-            ? SdkPresent((json['output'] as String?)!)
-            : const SdkOmitted(),
-        outputTokens: json['output_tokens'] != null
-            ? SdkPresent((json['output_tokens'] as String?)!)
-            : const SdkOmitted(),
-        promptChunks: json['prompt_chunks'] != null
-            ? SdkPresent(((json['prompt_chunks'] as List?)
-                ?.map((e) => ApiPromptChunk.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        promptId: json['prompt_id'] != null
-            ? SdkPresent(((json['prompt_id'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        promptLevelMetricResults: json['prompt_level_metric_results'] != null
-            ? SdkPresent(((json['prompt_level_metric_results'] as List?)
-                ?.map((e) => ApiEvaluationMetricResult.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        traceId: json['trace_id'] != null
-            ? SdkPresent((json['trace_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    evaluationTraceSpans: json['evaluation_trace_spans'] != null ? SdkPresent(((json['evaluation_trace_spans'] as List?)?.map((e) => ApiEvaluationTraceSpan.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    groundTruth: json['ground_truth'] != null ? SdkPresent((json['ground_truth'] as String?)!) : const SdkOmitted(),
+    input: json['input'] != null ? SdkPresent((json['input'] as String?)!) : const SdkOmitted(),
+    inputTokens: json['input_tokens'] != null ? SdkPresent((json['input_tokens'] as String?)!) : const SdkOmitted(),
+    output: json['output'] != null ? SdkPresent((json['output'] as String?)!) : const SdkOmitted(),
+    outputTokens: json['output_tokens'] != null ? SdkPresent((json['output_tokens'] as String?)!) : const SdkOmitted(),
+    promptChunks: json['prompt_chunks'] != null ? SdkPresent(((json['prompt_chunks'] as List?)?.map((e) => ApiPromptChunk.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    promptId: json['prompt_id'] != null ? SdkPresent(((json['prompt_id'] as num?)?.toInt())!) : const SdkOmitted(),
+    promptLevelMetricResults: json['prompt_level_metric_results'] != null ? SdkPresent(((json['prompt_level_metric_results'] as List?)?.map((e) => ApiEvaluationMetricResult.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    traceId: json['trace_id'] != null ? SdkPresent((json['trace_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (evaluationTraceSpans) {
-          SdkPresent<List<ApiEvaluationTraceSpan>>(value: final value) => {
-              'evaluation_trace_spans':
-                  value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (groundTruth) {
-          SdkPresent<String>(value: final value) => {
-              'ground_truth': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (input) {
-          SdkPresent<String>(value: final value) => {
-              'input': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputTokens) {
-          SdkPresent<String>(value: final value) => {
-              'input_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (output) {
-          SdkPresent<String>(value: final value) => {
-              'output': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputTokens) {
-          SdkPresent<String>(value: final value) => {
-              'output_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptChunks) {
-          SdkPresent<List<ApiPromptChunk>>(value: final value) => {
-              'prompt_chunks': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptId) {
-          SdkPresent<int>(value: final value) => {
-              'prompt_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptLevelMetricResults) {
-          SdkPresent<List<ApiEvaluationMetricResult>>(value: final value) => {
-              'prompt_level_metric_results':
-                  value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (traceId) {
-          SdkPresent<String>(value: final value) => {
-              'trace_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (evaluationTraceSpans) {
+      SdkPresent<List<ApiEvaluationTraceSpan>>(value: final value) => {'evaluation_trace_spans': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (groundTruth) {
+      SdkPresent<String>(value: final value) => {'ground_truth': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (input) {
+      SdkPresent<String>(value: final value) => {'input': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputTokens) {
+      SdkPresent<String>(value: final value) => {'input_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (output) {
+      SdkPresent<String>(value: final value) => {'output': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputTokens) {
+      SdkPresent<String>(value: final value) => {'output_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptChunks) {
+      SdkPresent<List<ApiPromptChunk>>(value: final value) => {'prompt_chunks': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptId) {
+      SdkPresent<int>(value: final value) => {'prompt_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptLevelMetricResults) {
+      SdkPresent<List<ApiEvaluationMetricResult>>(value: final value) => {'prompt_level_metric_results': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (traceId) {
+      SdkPresent<String>(value: final value) => {'trace_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiPromptChunk` API schema.
 class ApiPromptChunk {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The usage percentage of the chunk.
   final SdkOptional<double> chunkUsagePct;
-
   /// Indicates if the chunk was used in the prompt.
   final SdkOptional<bool> chunkUsed;
-
   /// The index uuid (Knowledge Base) of the chunk.
   final SdkOptional<String> indexUuid;
-
   /// The source name for the chunk, e.g., the file name or document title.
   final SdkOptional<String> sourceName;
-
   /// Text content of the chunk.
   final SdkOptional<String> text;
 
-  const ApiPromptChunk(
-      {this.chunkUsagePct = const SdkOmitted(),
-      this.chunkUsed = const SdkOmitted(),
-      this.indexUuid = const SdkOmitted(),
-      this.sourceName = const SdkOmitted(),
-      this.text = const SdkOmitted()});
+  const ApiPromptChunk({this.chunkUsagePct = const SdkOmitted(), this.chunkUsed = const SdkOmitted(), this.indexUuid = const SdkOmitted(), this.sourceName = const SdkOmitted(), this.text = const SdkOmitted()});
 
-  ApiPromptChunk Function(
-      {SdkOptional<double> chunkUsagePct,
-      SdkOptional<bool> chunkUsed,
-      SdkOptional<String> indexUuid,
-      SdkOptional<String> sourceName,
-      SdkOptional<String> text}) get copyWith => _copyWith;
+  ApiPromptChunk Function({SdkOptional<double> chunkUsagePct, SdkOptional<bool> chunkUsed, SdkOptional<String> indexUuid, SdkOptional<String> sourceName, SdkOptional<String> text}) get copyWith => _copyWith;
 
-  ApiPromptChunk _copyWith(
-          {Object? chunkUsagePct = sdkOmittedValue,
-          Object? chunkUsed = sdkOmittedValue,
-          Object? indexUuid = sdkOmittedValue,
-          Object? sourceName = sdkOmittedValue,
-          Object? text = sdkOmittedValue}) =>
-      ApiPromptChunk(
-        chunkUsagePct: identical(chunkUsagePct, sdkOmittedValue)
-            ? this.chunkUsagePct
-            : chunkUsagePct as SdkOptional<double>,
-        chunkUsed: identical(chunkUsed, sdkOmittedValue)
-            ? this.chunkUsed
-            : chunkUsed as SdkOptional<bool>,
-        indexUuid: identical(indexUuid, sdkOmittedValue)
-            ? this.indexUuid
-            : indexUuid as SdkOptional<String>,
-        sourceName: identical(sourceName, sdkOmittedValue)
-            ? this.sourceName
-            : sourceName as SdkOptional<String>,
-        text: identical(text, sdkOmittedValue)
-            ? this.text
-            : text as SdkOptional<String>,
-      );
+  ApiPromptChunk _copyWith({Object? chunkUsagePct = sdkOmittedValue, Object? chunkUsed = sdkOmittedValue, Object? indexUuid = sdkOmittedValue, Object? sourceName = sdkOmittedValue, Object? text = sdkOmittedValue}) => ApiPromptChunk(
+    chunkUsagePct: identical(chunkUsagePct, sdkOmittedValue) ? this.chunkUsagePct : chunkUsagePct as SdkOptional<double>,
+    chunkUsed: identical(chunkUsed, sdkOmittedValue) ? this.chunkUsed : chunkUsed as SdkOptional<bool>,
+    indexUuid: identical(indexUuid, sdkOmittedValue) ? this.indexUuid : indexUuid as SdkOptional<String>,
+    sourceName: identical(sourceName, sdkOmittedValue) ? this.sourceName : sourceName as SdkOptional<String>,
+    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
+  );
 
   factory ApiPromptChunk.fromJson(Map<String, dynamic> json) => ApiPromptChunk(
-        chunkUsagePct: json['chunk_usage_pct'] != null
-            ? SdkPresent(((json['chunk_usage_pct'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        chunkUsed: json['chunk_used'] != null
-            ? SdkPresent((json['chunk_used'] as bool?)!)
-            : const SdkOmitted(),
-        indexUuid: json['index_uuid'] != null
-            ? SdkPresent((json['index_uuid'] as String?)!)
-            : const SdkOmitted(),
-        sourceName: json['source_name'] != null
-            ? SdkPresent((json['source_name'] as String?)!)
-            : const SdkOmitted(),
-        text: json['text'] != null
-            ? SdkPresent((json['text'] as String?)!)
-            : const SdkOmitted(),
-      );
+    chunkUsagePct: json['chunk_usage_pct'] != null ? SdkPresent(((json['chunk_usage_pct'] as num?)?.toDouble())!) : const SdkOmitted(),
+    chunkUsed: json['chunk_used'] != null ? SdkPresent((json['chunk_used'] as bool?)!) : const SdkOmitted(),
+    indexUuid: json['index_uuid'] != null ? SdkPresent((json['index_uuid'] as String?)!) : const SdkOmitted(),
+    sourceName: json['source_name'] != null ? SdkPresent((json['source_name'] as String?)!) : const SdkOmitted(),
+    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (chunkUsagePct) {
-          SdkPresent<double>(value: final value) => {
-              'chunk_usage_pct': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (chunkUsed) {
-          SdkPresent<bool>(value: final value) => {
-              'chunk_used': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (indexUuid) {
-          SdkPresent<String>(value: final value) => {
-              'index_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sourceName) {
-          SdkPresent<String>(value: final value) => {
-              'source_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (text) {
-          SdkPresent<String>(value: final value) => {
-              'text': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (chunkUsagePct) {
+      SdkPresent<double>(value: final value) => {'chunk_usage_pct': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (chunkUsed) {
+      SdkPresent<bool>(value: final value) => {'chunk_used': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (indexUuid) {
+      SdkPresent<String>(value: final value) => {'index_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sourceName) {
+      SdkPresent<String>(value: final value) => {'source_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (text) {
+      SdkPresent<String>(value: final value) => {'text': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

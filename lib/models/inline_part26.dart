@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models (part 26)
 /// Specifies whether flushing a page from the InnoDB buffer pool also flushes other dirty pages in the same extent. - 0 &mdash; disables this functionality, dirty pages in the same extent are not flushed. - 1 &mdash; flushes contiguous dirty pages in the same extent. - 2 &mdash; flushes dirty pages in the same extent.
 final class MysqlAdvancedConfigInnodbFlushNeighbors {
+
   final int value;
 
   const MysqlAdvancedConfigInnodbFlushNeighbors._(this.value);
 
-  factory MysqlAdvancedConfigInnodbFlushNeighbors.fromJson(int value) =>
-      MysqlAdvancedConfigInnodbFlushNeighbors._(value);
+  factory MysqlAdvancedConfigInnodbFlushNeighbors.fromJson(int value) => MysqlAdvancedConfigInnodbFlushNeighbors._(value);
 
   static const v0 = MysqlAdvancedConfigInnodbFlushNeighbors._(0);
   static const v1 = MysqlAdvancedConfigInnodbFlushNeighbors._(1);
@@ -19,54 +19,44 @@ final class MysqlAdvancedConfigInnodbFlushNeighbors {
 
   int toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MysqlAdvancedConfigInnodbFlushNeighbors && other.value == value;
+  @override bool operator ==(Object other) => other is MysqlAdvancedConfigInnodbFlushNeighbors && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The storage engine for in-memory internal temporary tables.
 final class MysqlAdvancedConfigInternalTmpMemStorageEngine {
+
   final String value;
 
   const MysqlAdvancedConfigInternalTmpMemStorageEngine._(this.value);
 
-  factory MysqlAdvancedConfigInternalTmpMemStorageEngine.fromJson(
-          String value) =>
-      MysqlAdvancedConfigInternalTmpMemStorageEngine._(value);
+  factory MysqlAdvancedConfigInternalTmpMemStorageEngine.fromJson(String value) => MysqlAdvancedConfigInternalTmpMemStorageEngine._(value);
 
-  static const temptable =
-      MysqlAdvancedConfigInternalTmpMemStorageEngine._('TempTable');
-  static const memory =
-      MysqlAdvancedConfigInternalTmpMemStorageEngine._('MEMORY');
+  static const temptable = MysqlAdvancedConfigInternalTmpMemStorageEngine._('TempTable');
+  static const memory = MysqlAdvancedConfigInternalTmpMemStorageEngine._('MEMORY');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MysqlAdvancedConfigInternalTmpMemStorageEngine &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is MysqlAdvancedConfigInternalTmpMemStorageEngine && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Defines the destination for logs. Can be `INSIGHTS`, `TABLE`, or both (`INSIGHTS,TABLE`), or `NONE` to disable logs. To specify both destinations, use `INSIGHTS,TABLE` (order matters). Default is NONE.
 final class MysqlAdvancedConfigLogOutput {
+
   final String value;
 
   const MysqlAdvancedConfigLogOutput._(this.value);
 
-  factory MysqlAdvancedConfigLogOutput.fromJson(String value) =>
-      MysqlAdvancedConfigLogOutput._(value);
+  factory MysqlAdvancedConfigLogOutput.fromJson(String value) => MysqlAdvancedConfigLogOutput._(value);
 
   static const insights = MysqlAdvancedConfigLogOutput._('INSIGHTS');
   static const table = MysqlAdvancedConfigLogOutput._('TABLE');
@@ -75,46 +65,39 @@ final class MysqlAdvancedConfigLogOutput {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MysqlAdvancedConfigLogOutput && other.value == value;
+  @override bool operator ==(Object other) => other is MysqlAdvancedConfigLogOutput && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A string specifying the authentication method to be used for connections to the MySQL user account. The valid values are `mysql_native_password` or `caching_sha2_password`. If excluded when creating a new user, the default for the version of MySQL in use will be used. As of MySQL 8.0, the default is `caching_sha2_password`.
 final class MysqlSettingsAuthPlugin {
+
   final String value;
 
   const MysqlSettingsAuthPlugin._(this.value);
 
-  factory MysqlSettingsAuthPlugin.fromJson(String value) =>
-      MysqlSettingsAuthPlugin._(value);
+  factory MysqlSettingsAuthPlugin.fromJson(String value) => MysqlSettingsAuthPlugin._(value);
 
-  static const mysqlNativePassword =
-      MysqlSettingsAuthPlugin._('mysql_native_password');
-  static const cachingSha2Password =
-      MysqlSettingsAuthPlugin._('caching_sha2_password');
+  static const mysqlNativePassword = MysqlSettingsAuthPlugin._('mysql_native_password');
+  static const cachingSha2Password = MysqlSettingsAuthPlugin._('caching_sha2_password');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MysqlSettingsAuthPlugin && other.value == value;
+  @override bool operator ==(Object other) => other is MysqlSettingsAuthPlugin && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the IPv4 network interface.
 final class NetworkV4Type {
+
   final String value;
 
   const NetworkV4Type._(this.value);
@@ -126,19 +109,17 @@ final class NetworkV4Type {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is NetworkV4Type && other.value == value;
+  @override bool operator ==(Object other) => other is NetworkV4Type && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the IPv6 network interface. **Note**: IPv6 private networking is not currently supported.
 final class NetworkV6Type {
+
   final String value;
 
   const NetworkV6Type._(this.value);
@@ -149,15 +130,12 @@ final class NetworkV6Type {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is NetworkV6Type && other.value == value;
+  @override bool operator ==(Object other) => other is NetworkV6Type && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of action to initiate for the NFS share (such as resize or snapshot).
@@ -171,37 +149,24 @@ enum NfsActionType {
 
   static NfsActionType fromJson(String value) {
     switch (value) {
-      case 'resize':
-        return NfsActionType.resize;
-      case 'snapshot':
-        return NfsActionType.snapshot;
-      case 'attach':
-        return NfsActionType.attach;
-      case 'detach':
-        return NfsActionType.detach;
-      case 'reassign':
-        return NfsActionType.reassign;
-      case 'switch_performance_tier':
-        return NfsActionType.switchPerformanceTier;
-      default:
-        throw ArgumentError('Unknown NfsActionType: $value');
+      case 'resize': return NfsActionType.resize;
+      case 'snapshot': return NfsActionType.snapshot;
+      case 'attach': return NfsActionType.attach;
+      case 'detach': return NfsActionType.detach;
+      case 'reassign': return NfsActionType.reassign;
+      case 'switch_performance_tier': return NfsActionType.switchPerformanceTier;
+      default: throw ArgumentError('Unknown NfsActionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case NfsActionType.resize:
-        return 'resize';
-      case NfsActionType.snapshot:
-        return 'snapshot';
-      case NfsActionType.attach:
-        return 'attach';
-      case NfsActionType.detach:
-        return 'detach';
-      case NfsActionType.reassign:
-        return 'reassign';
-      case NfsActionType.switchPerformanceTier:
-        return 'switch_performance_tier';
+      case NfsActionType.resize: return 'resize';
+      case NfsActionType.snapshot: return 'snapshot';
+      case NfsActionType.attach: return 'attach';
+      case NfsActionType.detach: return 'detach';
+      case NfsActionType.reassign: return 'reassign';
+      case NfsActionType.switchPerformanceTier: return 'switch_performance_tier';
     }
   }
 
@@ -211,31 +176,29 @@ enum NfsActionType {
 
 /// The type of resource on which the action is being performed. Access point mutations return `SHARE` with `resource_id` set to the access point UUID.
 final class NfsAction2ResourceType {
+
   final String value;
 
   const NfsAction2ResourceType._(this.value);
 
-  factory NfsAction2ResourceType.fromJson(String value) =>
-      NfsAction2ResourceType._(value);
+  factory NfsAction2ResourceType.fromJson(String value) => NfsAction2ResourceType._(value);
 
   static const share = NfsAction2ResourceType._('SHARE');
   static const snapshot = NfsAction2ResourceType._('SNAPSHOT');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is NfsAction2ResourceType && other.value == value;
+  @override bool operator ==(Object other) => other is NfsAction2ResourceType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The current status of the action.
 final class NfsAction2Status {
+
   final String value;
 
   const NfsAction2Status._(this.value);
@@ -248,25 +211,22 @@ final class NfsAction2Status {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is NfsAction2Status && other.value == value;
+  @override bool operator ==(Object other) => other is NfsAction2Status && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The current status of the share. `INACTIVE` means the share exists but is not attached to any VPC.
 final class NfsResponseStatus {
+
   final String value;
 
   const NfsResponseStatus._(this.value);
 
-  factory NfsResponseStatus.fromJson(String value) =>
-      NfsResponseStatus._(value);
+  factory NfsResponseStatus.fromJson(String value) => NfsResponseStatus._(value);
 
   static const creating = NfsResponseStatus._('CREATING');
   static const active = NfsResponseStatus._('ACTIVE');
@@ -276,25 +236,22 @@ final class NfsResponseStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is NfsResponseStatus && other.value == value;
+  @override bool operator ==(Object other) => other is NfsResponseStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The current status of the snapshot.
 final class NfsSnapshotResponseStatus {
+
   final String value;
 
   const NfsSnapshotResponseStatus._(this.value);
 
-  factory NfsSnapshotResponseStatus.fromJson(String value) =>
-      NfsSnapshotResponseStatus._(value);
+  factory NfsSnapshotResponseStatus.fromJson(String value) => NfsSnapshotResponseStatus._(value);
 
   static const unknown = NfsSnapshotResponseStatus._('UNKNOWN');
   static const creating = NfsSnapshotResponseStatus._('CREATING');
@@ -304,19 +261,17 @@ final class NfsSnapshotResponseStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is NfsSnapshotResponseStatus && other.value == value;
+  @override bool operator ==(Object other) => other is NfsSnapshotResponseStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A string indicating the current status of the node.
 final class NodeStatusState {
+
   final String value;
 
   const NodeStatusState._(this.value);
@@ -330,13 +285,10 @@ final class NodeStatusState {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is NodeStatusState && other.value == value;
+  @override bool operator ==(Object other) => other is NodeStatusState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

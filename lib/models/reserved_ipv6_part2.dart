@@ -8,117 +8,65 @@ part of 'reserved_ipv6.dart';
 class ReservedIPv6ListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `reserved_ipv6s` wire field.
   final SdkOptional<List<ReservedIpv6ListReservedIpv6sItem>> reservedIpv6s;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const ReservedIPv6ListResponse(
-      {this.reservedIpv6s = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const ReservedIPv6ListResponse({this.reservedIpv6s = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  ReservedIPv6ListResponse Function(
-      {SdkOptional<List<ReservedIpv6ListReservedIpv6sItem>> reservedIpv6s,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  ReservedIPv6ListResponse Function({SdkOptional<List<ReservedIpv6ListReservedIpv6sItem>> reservedIpv6s, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  ReservedIPv6ListResponse _copyWith(
-          {Object? reservedIpv6s = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      ReservedIPv6ListResponse(
-        reservedIpv6s: identical(reservedIpv6s, sdkOmittedValue)
-            ? this.reservedIpv6s
-            : reservedIpv6s
-                as SdkOptional<List<ReservedIpv6ListReservedIpv6sItem>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  ReservedIPv6ListResponse _copyWith({Object? reservedIpv6s = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ReservedIPv6ListResponse(
+    reservedIpv6s: identical(reservedIpv6s, sdkOmittedValue) ? this.reservedIpv6s : reservedIpv6s as SdkOptional<List<ReservedIpv6ListReservedIpv6sItem>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory ReservedIPv6ListResponse.fromJson(Map<String, dynamic> json) =>
-      ReservedIPv6ListResponse(
-        reservedIpv6s: json['reserved_ipv6s'] != null
-            ? SdkPresent(((json['reserved_ipv6s'] as List?)
-                ?.map((e) => ReservedIpv6ListReservedIpv6sItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ReservedIPv6ListResponse.fromJson(Map<String, dynamic> json) => ReservedIPv6ListResponse(
+    reservedIpv6s: json['reserved_ipv6s'] != null ? SdkPresent(((json['reserved_ipv6s'] as List?)?.map((e) => ReservedIpv6ListReservedIpv6sItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (reservedIpv6s) {
-          SdkPresent<List<ReservedIpv6ListReservedIpv6sItem>>(
-            value: final value
-          ) =>
-            {
-              'reserved_ipv6s': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (reservedIpv6s) {
+      SdkPresent<List<ReservedIpv6ListReservedIpv6sItem>>(value: final value) => {'reserved_ipv6s': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 /// Typed representation of the `ReservedIpv6Response` API schema.
 class ReservedIpv6Response {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `reserved_ipv6` wire field.
   final SdkOptional<ReservedIpv6> reservedIpv6;
 
   const ReservedIpv6Response({this.reservedIpv6 = const SdkOmitted()});
 
-  ReservedIpv6Response Function({SdkOptional<ReservedIpv6> reservedIpv6})
-      get copyWith => _copyWith;
+  ReservedIpv6Response Function({SdkOptional<ReservedIpv6> reservedIpv6}) get copyWith => _copyWith;
 
-  ReservedIpv6Response _copyWith({Object? reservedIpv6 = sdkOmittedValue}) =>
-      ReservedIpv6Response(
-        reservedIpv6: identical(reservedIpv6, sdkOmittedValue)
-            ? this.reservedIpv6
-            : reservedIpv6 as SdkOptional<ReservedIpv6>,
-      );
+  ReservedIpv6Response _copyWith({Object? reservedIpv6 = sdkOmittedValue}) => ReservedIpv6Response(
+    reservedIpv6: identical(reservedIpv6, sdkOmittedValue) ? this.reservedIpv6 : reservedIpv6 as SdkOptional<ReservedIpv6>,
+  );
 
-  factory ReservedIpv6Response.fromJson(Map<String, dynamic> json) =>
-      ReservedIpv6Response(
-        reservedIpv6: json['reserved_ipv6'] != null
-            ? SdkPresent((json['reserved_ipv6'] != null
-                ? ReservedIpv6.fromJson(
-                    json['reserved_ipv6'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ReservedIpv6Response.fromJson(Map<String, dynamic> json) => ReservedIpv6Response(
+    reservedIpv6: json['reserved_ipv6'] != null ? SdkPresent((json['reserved_ipv6'] != null ? ReservedIpv6.fromJson(json['reserved_ipv6'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (reservedIpv6) {
-          SdkPresent<ReservedIpv6>(value: final value) => {
-              'reserved_ipv6': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (reservedIpv6) {
+      SdkPresent<ReservedIpv6>(value: final value) => {'reserved_ipv6': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

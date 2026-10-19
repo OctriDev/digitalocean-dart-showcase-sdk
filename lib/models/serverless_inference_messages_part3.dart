@@ -4,63 +4,46 @@
 part of 'serverless_inference_messages.dart';
 
 // serverless_inference_messages domain models (part 3)
-final class MessagesRequestContentBlockParamMessagesToolResultBlockParam
-    extends MessagesRequestContentBlockParam {
+final class MessagesRequestContentBlockParamMessagesToolResultBlockParam extends MessagesRequestContentBlockParam {
   final MessagesToolResultBlockParam value;
-  const MessagesRequestContentBlockParamMessagesToolResultBlockParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const MessagesRequestContentBlockParamMessagesToolResultBlockParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [MessagesRequestContentBlockParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownMessagesRequestContentBlockParam
-    extends MessagesRequestContentBlockParam {
+final class UnknownMessagesRequestContentBlockParam extends MessagesRequestContentBlockParam {
   final Map<String, dynamic> raw;
   const UnknownMessagesRequestContentBlockParam(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// A text content block in a request message.
 class MessagesRequestTextBlockParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Block type identifier.
   final MessagesRequestTextBlockParamType type_;
-
   /// Plain text for this block.
   final String text;
 
-  const MessagesRequestTextBlockParam(
-      {required this.type_, required this.text});
+  const MessagesRequestTextBlockParam({required this.type_, required this.text});
 
-  MessagesRequestTextBlockParam Function(
-      {MessagesRequestTextBlockParamType type_,
-      String text}) get copyWith => _copyWith;
+  MessagesRequestTextBlockParam Function({MessagesRequestTextBlockParamType type_, String text}) get copyWith => _copyWith;
 
-  MessagesRequestTextBlockParam _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      MessagesRequestTextBlockParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MessagesRequestTextBlockParamType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  MessagesRequestTextBlockParam _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => MessagesRequestTextBlockParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesRequestTextBlockParamType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory MessagesRequestTextBlockParam.fromJson(Map<String, dynamic> json) =>
-      MessagesRequestTextBlockParam(
-        type_: (json['type'] != null
-            ? MessagesRequestTextBlockParamType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+  factory MessagesRequestTextBlockParam.fromJson(Map<String, dynamic> json) => MessagesRequestTextBlockParam(
+    type_: (json['type'] != null ? MessagesRequestTextBlockParamType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }
 
 sealed class MessagesResponseContentBlock {
@@ -69,391 +52,223 @@ sealed class MessagesResponseContentBlock {
   const MessagesResponseContentBlock();
   factory MessagesResponseContentBlock.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = MessagesResponseTextBlock.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessagesResponseContentBlockMessagesResponseTextBlock(value);
-        }
-      } catch (_) {}
-      try {
-        final value = MessagesResponseToolUseBlock.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessagesResponseContentBlockMessagesResponseToolUseBlock(
-              value);
-        }
-      } catch (_) {}
+      try { final value = MessagesResponseTextBlock.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessagesResponseContentBlockMessagesResponseTextBlock(value); } } catch (_) {}
+      try { final value = MessagesResponseToolUseBlock.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessagesResponseContentBlockMessagesResponseToolUseBlock(value); } } catch (_) {}
     }
-    try {
-      return MessagesResponseContentBlockMessagesResponseTextBlock(
-          MessagesResponseTextBlock.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MessagesResponseContentBlockMessagesResponseToolUseBlock(
-          MessagesResponseToolUseBlock.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"text", "tool_use"}.contains(json["type"])) {
-      return UnknownMessagesResponseContentBlock(json);
-    }
-    throw FormatException(
-        "No variant matched for MessagesResponseContentBlock");
+    try { return MessagesResponseContentBlockMessagesResponseTextBlock(MessagesResponseTextBlock.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MessagesResponseContentBlockMessagesResponseToolUseBlock(MessagesResponseToolUseBlock.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "tool_use"}.contains(json["type"])) { return UnknownMessagesResponseContentBlock(json); }
+    throw FormatException("No variant matched for MessagesResponseContentBlock");
   }
   Object? toJson();
 }
 
-final class MessagesResponseContentBlockMessagesResponseTextBlock
-    extends MessagesResponseContentBlock {
+final class MessagesResponseContentBlockMessagesResponseTextBlock extends MessagesResponseContentBlock {
   final MessagesResponseTextBlock value;
   const MessagesResponseContentBlockMessagesResponseTextBlock(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class MessagesResponseContentBlockMessagesResponseToolUseBlock
-    extends MessagesResponseContentBlock {
+final class MessagesResponseContentBlockMessagesResponseToolUseBlock extends MessagesResponseContentBlock {
   final MessagesResponseToolUseBlock value;
   const MessagesResponseContentBlockMessagesResponseToolUseBlock(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [MessagesResponseContentBlock] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownMessagesResponseContentBlock
-    extends MessagesResponseContentBlock {
+final class UnknownMessagesResponseContentBlock extends MessagesResponseContentBlock {
   final Map<String, dynamic> raw;
   const UnknownMessagesResponseContentBlock(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }
 
 /// A text block in an assistant message in the response.
 class MessagesResponseTextBlock {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final MessagesResponseTextBlockType type_;
-
   /// Generated text for this block.
   final String text;
 
   const MessagesResponseTextBlock({required this.type_, required this.text});
 
-  MessagesResponseTextBlock Function(
-      {MessagesResponseTextBlockType type_,
-      String text}) get copyWith => _copyWith;
+  MessagesResponseTextBlock Function({MessagesResponseTextBlockType type_, String text}) get copyWith => _copyWith;
 
-  MessagesResponseTextBlock _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      MessagesResponseTextBlock(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MessagesResponseTextBlockType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  MessagesResponseTextBlock _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => MessagesResponseTextBlock(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesResponseTextBlockType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory MessagesResponseTextBlock.fromJson(Map<String, dynamic> json) =>
-      MessagesResponseTextBlock(
-        type_: (json['type'] != null
-            ? MessagesResponseTextBlockType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+  factory MessagesResponseTextBlock.fromJson(Map<String, dynamic> json) => MessagesResponseTextBlock(
+    type_: (json['type'] != null ? MessagesResponseTextBlockType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }
 
 /// Tool call emitted by the assistant in the response.
 class MessagesResponseToolUseBlock {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final MessagesResponseToolUseBlockType type_;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `string` value serialized in the `name` wire field.
   final String name;
-
   /// Arguments for the tool invocation.
   final Map<String, Object?> input;
 
-  const MessagesResponseToolUseBlock(
-      {required this.type_,
-      required this.id,
-      required this.name,
-      required this.input});
+  const MessagesResponseToolUseBlock({required this.type_, required this.id, required this.name, required this.input});
 
-  MessagesResponseToolUseBlock Function(
-      {MessagesResponseToolUseBlockType type_,
-      String id,
-      String name,
-      Map<String, Object?> input}) get copyWith => _copyWith;
+  MessagesResponseToolUseBlock Function({MessagesResponseToolUseBlockType type_, String id, String name, Map<String, Object?> input}) get copyWith => _copyWith;
 
-  MessagesResponseToolUseBlock _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? input = sdkOmittedValue}) =>
-      MessagesResponseToolUseBlock(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MessagesResponseToolUseBlockType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as Map<String, Object?>,
-      );
+  MessagesResponseToolUseBlock _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? input = sdkOmittedValue}) => MessagesResponseToolUseBlock(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesResponseToolUseBlockType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    input: identical(input, sdkOmittedValue) ? this.input : input as Map<String, Object?>,
+  );
 
-  factory MessagesResponseToolUseBlock.fromJson(Map<String, dynamic> json) =>
-      MessagesResponseToolUseBlock(
-        type_: (json['type'] != null
-            ? MessagesResponseToolUseBlockType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        input: (json['input'] == null
-            ? null
-            : Map<String, dynamic>.from(json['input'] as Map)
-                .map((key, value) => MapEntry(key, value)))!,
-      );
+  factory MessagesResponseToolUseBlock.fromJson(Map<String, dynamic> json) => MessagesResponseToolUseBlock(
+    type_: (json['type'] != null ? MessagesResponseToolUseBlockType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    input: (json['input'] == null ? null : Map<String, dynamic>.from(json['input'] as Map).map((key, value) => MapEntry(key, value)))!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'name': name,
-        'input': input,
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'name': name,
+    'input': input,
+  };
 }
 
 /// Streamed usage (for example on `message_delta`).
 class MessagesStreamEventUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `integer` value serialized in the `output_tokens` wire field.
   final SdkOptional<int> outputTokens;
-
   /// Optional enumerated value serialized in the `speed` wire field.
   final SdkOptional<MessagesStreamEventUsageSpeed?> speed;
 
-  const MessagesStreamEventUsage(
-      {this.outputTokens = const SdkOmitted(),
-      this.speed = const SdkOmitted()});
+  const MessagesStreamEventUsage({this.outputTokens = const SdkOmitted(), this.speed = const SdkOmitted()});
 
-  MessagesStreamEventUsage Function(
-          {SdkOptional<int> outputTokens,
-          SdkOptional<MessagesStreamEventUsageSpeed?> speed})
-      get copyWith => _copyWith;
+  MessagesStreamEventUsage Function({SdkOptional<int> outputTokens, SdkOptional<MessagesStreamEventUsageSpeed?> speed}) get copyWith => _copyWith;
 
-  MessagesStreamEventUsage _copyWith(
-          {Object? outputTokens = sdkOmittedValue,
-          Object? speed = sdkOmittedValue}) =>
-      MessagesStreamEventUsage(
-        outputTokens: identical(outputTokens, sdkOmittedValue)
-            ? this.outputTokens
-            : outputTokens as SdkOptional<int>,
-        speed: identical(speed, sdkOmittedValue)
-            ? this.speed
-            : speed as SdkOptional<MessagesStreamEventUsageSpeed?>,
-      );
+  MessagesStreamEventUsage _copyWith({Object? outputTokens = sdkOmittedValue, Object? speed = sdkOmittedValue}) => MessagesStreamEventUsage(
+    outputTokens: identical(outputTokens, sdkOmittedValue) ? this.outputTokens : outputTokens as SdkOptional<int>,
+    speed: identical(speed, sdkOmittedValue) ? this.speed : speed as SdkOptional<MessagesStreamEventUsageSpeed?>,
+  );
 
-  factory MessagesStreamEventUsage.fromJson(Map<String, dynamic> json) =>
-      MessagesStreamEventUsage(
-        outputTokens: json['output_tokens'] != null
-            ? SdkPresent(((json['output_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        speed: json.containsKey('speed')
-            ? SdkPresent(json['speed'] != null
-                ? MessagesStreamEventUsageSpeed.fromJson(
-                    json['speed'] as String)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory MessagesStreamEventUsage.fromJson(Map<String, dynamic> json) => MessagesStreamEventUsage(
+    outputTokens: json['output_tokens'] != null ? SdkPresent(((json['output_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    speed: json.containsKey('speed') ? SdkPresent(json['speed'] != null ? MessagesStreamEventUsageSpeed.fromJson(json['speed'] as String) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (outputTokens) {
-          SdkPresent<int>(value: final value) => {
-              'output_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (speed) {
-          SdkPresent<MessagesStreamEventUsageSpeed?>(value: final value) => {
-              'speed': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (outputTokens) {
+      SdkPresent<int>(value: final value) => {'output_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (speed) {
+      SdkPresent<MessagesStreamEventUsageSpeed?>(value: final value) => {'speed': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// One server-sent event (SSE) JSON payload when `stream` is true. Each event line contains a JSON object after the `data:` prefix.
 class MessagesStreamEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// SSE event type.
   final MessagesStreamEventType type_;
-
   /// Present on `message_start`; initial message metadata.
   final SdkOptional<Map<String, Object?>> message;
-
   /// Index of the content block this event refers to.
   final SdkOptional<int> index;
-
   /// Present on `content_block_start`.
   final SdkOptional<Map<String, Object?>> contentBlock;
-
   /// Present on `content_block_delta` and `message_delta`.
   final SdkOptional<Map<String, Object?>> delta;
-
   /// Streamed usage (for example on `message_delta`).
   final SdkOptional<MessagesStreamEventUsage> usage;
 
-  const MessagesStreamEvent(
-      {required this.type_,
-      this.message = const SdkOmitted(),
-      this.index = const SdkOmitted(),
-      this.contentBlock = const SdkOmitted(),
-      this.delta = const SdkOmitted(),
-      this.usage = const SdkOmitted()});
+  const MessagesStreamEvent({required this.type_, this.message = const SdkOmitted(), this.index = const SdkOmitted(), this.contentBlock = const SdkOmitted(), this.delta = const SdkOmitted(), this.usage = const SdkOmitted()});
 
-  MessagesStreamEvent Function(
-      {MessagesStreamEventType type_,
-      SdkOptional<Map<String, Object?>> message,
-      SdkOptional<int> index,
-      SdkOptional<Map<String, Object?>> contentBlock,
-      SdkOptional<Map<String, Object?>> delta,
-      SdkOptional<MessagesStreamEventUsage> usage}) get copyWith => _copyWith;
+  MessagesStreamEvent Function({MessagesStreamEventType type_, SdkOptional<Map<String, Object?>> message, SdkOptional<int> index, SdkOptional<Map<String, Object?>> contentBlock, SdkOptional<Map<String, Object?>> delta, SdkOptional<MessagesStreamEventUsage> usage}) get copyWith => _copyWith;
 
-  MessagesStreamEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? index = sdkOmittedValue,
-          Object? contentBlock = sdkOmittedValue,
-          Object? delta = sdkOmittedValue,
-          Object? usage = sdkOmittedValue}) =>
-      MessagesStreamEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MessagesStreamEventType,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as SdkOptional<Map<String, Object?>>,
-        index: identical(index, sdkOmittedValue)
-            ? this.index
-            : index as SdkOptional<int>,
-        contentBlock: identical(contentBlock, sdkOmittedValue)
-            ? this.contentBlock
-            : contentBlock as SdkOptional<Map<String, Object?>>,
-        delta: identical(delta, sdkOmittedValue)
-            ? this.delta
-            : delta as SdkOptional<Map<String, Object?>>,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as SdkOptional<MessagesStreamEventUsage>,
-      );
+  MessagesStreamEvent _copyWith({Object? type_ = sdkOmittedValue, Object? message = sdkOmittedValue, Object? index = sdkOmittedValue, Object? contentBlock = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? usage = sdkOmittedValue}) => MessagesStreamEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesStreamEventType,
+    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<Map<String, Object?>>,
+    index: identical(index, sdkOmittedValue) ? this.index : index as SdkOptional<int>,
+    contentBlock: identical(contentBlock, sdkOmittedValue) ? this.contentBlock : contentBlock as SdkOptional<Map<String, Object?>>,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as SdkOptional<Map<String, Object?>>,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SdkOptional<MessagesStreamEventUsage>,
+  );
 
-  factory MessagesStreamEvent.fromJson(Map<String, dynamic> json) =>
-      MessagesStreamEvent(
-        type_: (json['type'] != null
-            ? MessagesStreamEventType.fromJson(json['type'] as String)
-            : null)!,
-        message: json['message'] != null
-            ? SdkPresent((json['message'] == null
-                ? null
-                : Map<String, dynamic>.from(json['message'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-        index: json['index'] != null
-            ? SdkPresent(((json['index'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        contentBlock: json['content_block'] != null
-            ? SdkPresent((json['content_block'] == null
-                ? null
-                : Map<String, dynamic>.from(json['content_block'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-        delta: json['delta'] != null
-            ? SdkPresent((json['delta'] == null
-                ? null
-                : Map<String, dynamic>.from(json['delta'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-        usage: json['usage'] != null
-            ? SdkPresent((json['usage'] != null
-                ? MessagesStreamEventUsage.fromJson(
-                    json['usage'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory MessagesStreamEvent.fromJson(Map<String, dynamic> json) => MessagesStreamEvent(
+    type_: (json['type'] != null ? MessagesStreamEventType.fromJson(json['type'] as String) : null)!,
+    message: json['message'] != null ? SdkPresent((json['message'] == null ? null : Map<String, dynamic>.from(json['message'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+    index: json['index'] != null ? SdkPresent(((json['index'] as num?)?.toInt())!) : const SdkOmitted(),
+    contentBlock: json['content_block'] != null ? SdkPresent((json['content_block'] == null ? null : Map<String, dynamic>.from(json['content_block'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+    delta: json['delta'] != null ? SdkPresent((json['delta'] == null ? null : Map<String, dynamic>.from(json['delta'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+    usage: json['usage'] != null ? SdkPresent((json['usage'] != null ? MessagesStreamEventUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (message) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'message': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (index) {
-          SdkPresent<int>(value: final value) => {
-              'index': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contentBlock) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'content_block': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (delta) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'delta': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (usage) {
-          SdkPresent<MessagesStreamEventUsage>(value: final value) => {
-              'usage': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (message) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'message': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (index) {
+      SdkPresent<int>(value: final value) => {'index': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contentBlock) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'content_block': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (delta) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'delta': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (usage) {
+      SdkPresent<MessagesStreamEventUsage>(value: final value) => {'usage': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Extended thinking configuration. Executors that do not support thinking may ignore this field.
 class MessagesThinkingConfigParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Thinking mode discriminator (for example enabled or disabled).
   final String type_;
 
   const MessagesThinkingConfigParam({required this.type_});
 
-  MessagesThinkingConfigParam Function({String type_}) get copyWith =>
-      _copyWith;
+  MessagesThinkingConfigParam Function({String type_}) get copyWith => _copyWith;
 
-  MessagesThinkingConfigParam _copyWith({Object? type_ = sdkOmittedValue}) =>
-      MessagesThinkingConfigParam(
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-      );
+  MessagesThinkingConfigParam _copyWith({Object? type_ = sdkOmittedValue}) => MessagesThinkingConfigParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+  );
 
-  factory MessagesThinkingConfigParam.fromJson(Map<String, dynamic> json) =>
-      MessagesThinkingConfigParam(
-        type_: (json['type'] as String?)!,
-      );
+  factory MessagesThinkingConfigParam.fromJson(Map<String, dynamic> json) => MessagesThinkingConfigParam(
+    type_: (json['type'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_,
-      };
+    'type': type_,
+  };
 }

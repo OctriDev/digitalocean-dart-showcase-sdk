@@ -8,440 +8,246 @@ part of 'byoip_prefixes.dart';
 class ByoipPrefixValidationsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Name of the validation
   final SdkOptional<String> name;
-
   /// Status of the validation
   final SdkOptional<String> status;
-
   /// Additional notes or details about the validation
   final SdkOptional<String> note;
 
-  const ByoipPrefixValidationsItem(
-      {this.name = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.note = const SdkOmitted()});
+  const ByoipPrefixValidationsItem({this.name = const SdkOmitted(), this.status = const SdkOmitted(), this.note = const SdkOmitted()});
 
-  ByoipPrefixValidationsItem Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> status,
-      SdkOptional<String> note}) get copyWith => _copyWith;
+  ByoipPrefixValidationsItem Function({SdkOptional<String> name, SdkOptional<String> status, SdkOptional<String> note}) get copyWith => _copyWith;
 
-  ByoipPrefixValidationsItem _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? note = sdkOmittedValue}) =>
-      ByoipPrefixValidationsItem(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-        note: identical(note, sdkOmittedValue)
-            ? this.note
-            : note as SdkOptional<String>,
-      );
+  ByoipPrefixValidationsItem _copyWith({Object? name = sdkOmittedValue, Object? status = sdkOmittedValue, Object? note = sdkOmittedValue}) => ByoipPrefixValidationsItem(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+    note: identical(note, sdkOmittedValue) ? this.note : note as SdkOptional<String>,
+  );
 
-  factory ByoipPrefixValidationsItem.fromJson(Map<String, dynamic> json) =>
-      ByoipPrefixValidationsItem(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-        note: json['note'] != null
-            ? SdkPresent((json['note'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ByoipPrefixValidationsItem.fromJson(Map<String, dynamic> json) => ByoipPrefixValidationsItem(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+    note: json['note'] != null ? SdkPresent((json['note'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (note) {
-          SdkPresent<String>(value: final value) => {
-              'note': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (note) {
+      SdkPresent<String>(value: final value) => {'note': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ByoipPrefix` API schema.
 class ByoipPrefix {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique identifier for the BYOIP prefix
   final SdkOptional<String> uuid;
-
   /// Name of the BYOIP prefix
   final SdkOptional<String> name;
-
   /// The IP prefix in CIDR notation
   final SdkOptional<String> prefix;
-
   /// Status of the BYOIP prefix
   final SdkOptional<String> status;
-
   /// Region where the BYOIP prefix is located
   final SdkOptional<String> region;
-
   /// List of validation statuses for the BYOIP prefix
   final SdkOptional<List<ByoipPrefixValidationsItem>> validations;
-
   /// Reason for failure, if applicable
   final SdkOptional<String> failureReason;
-
   /// Whether the BYOIP prefix is locked
   final SdkOptional<bool> locked;
-
   /// Whether the BYOIP prefix is being advertised
   final SdkOptional<bool> advertised;
-
   /// The ID of the project associated with the BYOIP prefix
   final SdkOptional<String> projectId;
 
-  const ByoipPrefix(
-      {this.uuid = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.prefix = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.validations = const SdkOmitted(),
-      this.failureReason = const SdkOmitted(),
-      this.locked = const SdkOmitted(),
-      this.advertised = const SdkOmitted(),
-      this.projectId = const SdkOmitted()});
+  const ByoipPrefix({this.uuid = const SdkOmitted(), this.name = const SdkOmitted(), this.prefix = const SdkOmitted(), this.status = const SdkOmitted(), this.region = const SdkOmitted(), this.validations = const SdkOmitted(), this.failureReason = const SdkOmitted(), this.locked = const SdkOmitted(), this.advertised = const SdkOmitted(), this.projectId = const SdkOmitted()});
 
-  ByoipPrefix Function(
-      {SdkOptional<String> uuid,
-      SdkOptional<String> name,
-      SdkOptional<String> prefix,
-      SdkOptional<String> status,
-      SdkOptional<String> region,
-      SdkOptional<List<ByoipPrefixValidationsItem>> validations,
-      SdkOptional<String> failureReason,
-      SdkOptional<bool> locked,
-      SdkOptional<bool> advertised,
-      SdkOptional<String> projectId}) get copyWith => _copyWith;
+  ByoipPrefix Function({SdkOptional<String> uuid, SdkOptional<String> name, SdkOptional<String> prefix, SdkOptional<String> status, SdkOptional<String> region, SdkOptional<List<ByoipPrefixValidationsItem>> validations, SdkOptional<String> failureReason, SdkOptional<bool> locked, SdkOptional<bool> advertised, SdkOptional<String> projectId}) get copyWith => _copyWith;
 
-  ByoipPrefix _copyWith(
-          {Object? uuid = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? prefix = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? validations = sdkOmittedValue,
-          Object? failureReason = sdkOmittedValue,
-          Object? locked = sdkOmittedValue,
-          Object? advertised = sdkOmittedValue,
-          Object? projectId = sdkOmittedValue}) =>
-      ByoipPrefix(
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        prefix: identical(prefix, sdkOmittedValue)
-            ? this.prefix
-            : prefix as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-        validations: identical(validations, sdkOmittedValue)
-            ? this.validations
-            : validations as SdkOptional<List<ByoipPrefixValidationsItem>>,
-        failureReason: identical(failureReason, sdkOmittedValue)
-            ? this.failureReason
-            : failureReason as SdkOptional<String>,
-        locked: identical(locked, sdkOmittedValue)
-            ? this.locked
-            : locked as SdkOptional<bool>,
-        advertised: identical(advertised, sdkOmittedValue)
-            ? this.advertised
-            : advertised as SdkOptional<bool>,
-        projectId: identical(projectId, sdkOmittedValue)
-            ? this.projectId
-            : projectId as SdkOptional<String>,
-      );
+  ByoipPrefix _copyWith({Object? uuid = sdkOmittedValue, Object? name = sdkOmittedValue, Object? prefix = sdkOmittedValue, Object? status = sdkOmittedValue, Object? region = sdkOmittedValue, Object? validations = sdkOmittedValue, Object? failureReason = sdkOmittedValue, Object? locked = sdkOmittedValue, Object? advertised = sdkOmittedValue, Object? projectId = sdkOmittedValue}) => ByoipPrefix(
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    prefix: identical(prefix, sdkOmittedValue) ? this.prefix : prefix as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+    validations: identical(validations, sdkOmittedValue) ? this.validations : validations as SdkOptional<List<ByoipPrefixValidationsItem>>,
+    failureReason: identical(failureReason, sdkOmittedValue) ? this.failureReason : failureReason as SdkOptional<String>,
+    locked: identical(locked, sdkOmittedValue) ? this.locked : locked as SdkOptional<bool>,
+    advertised: identical(advertised, sdkOmittedValue) ? this.advertised : advertised as SdkOptional<bool>,
+    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
+  );
 
   factory ByoipPrefix.fromJson(Map<String, dynamic> json) => ByoipPrefix(
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        prefix: json['prefix'] != null
-            ? SdkPresent((json['prefix'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-        validations: json['validations'] != null
-            ? SdkPresent(((json['validations'] as List?)
-                ?.map((e) => ByoipPrefixValidationsItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        failureReason: json['failure_reason'] != null
-            ? SdkPresent((json['failure_reason'] as String?)!)
-            : const SdkOmitted(),
-        locked: json['locked'] != null
-            ? SdkPresent((json['locked'] as bool?)!)
-            : const SdkOmitted(),
-        advertised: json['advertised'] != null
-            ? SdkPresent((json['advertised'] as bool?)!)
-            : const SdkOmitted(),
-        projectId: json['project_id'] != null
-            ? SdkPresent((json['project_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    prefix: json['prefix'] != null ? SdkPresent((json['prefix'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+    validations: json['validations'] != null ? SdkPresent(((json['validations'] as List?)?.map((e) => ByoipPrefixValidationsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    failureReason: json['failure_reason'] != null ? SdkPresent((json['failure_reason'] as String?)!) : const SdkOmitted(),
+    locked: json['locked'] != null ? SdkPresent((json['locked'] as bool?)!) : const SdkOmitted(),
+    advertised: json['advertised'] != null ? SdkPresent((json['advertised'] as bool?)!) : const SdkOmitted(),
+    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (prefix) {
-          SdkPresent<String>(value: final value) => {
-              'prefix': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (validations) {
-          SdkPresent<List<ByoipPrefixValidationsItem>>(value: final value) => {
-              'validations': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (failureReason) {
-          SdkPresent<String>(value: final value) => {
-              'failure_reason': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (locked) {
-          SdkPresent<bool>(value: final value) => {
-              'locked': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (advertised) {
-          SdkPresent<bool>(value: final value) => {
-              'advertised': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projectId) {
-          SdkPresent<String>(value: final value) => {
-              'project_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (prefix) {
+      SdkPresent<String>(value: final value) => {'prefix': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (validations) {
+      SdkPresent<List<ByoipPrefixValidationsItem>>(value: final value) => {'validations': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (failureReason) {
+      SdkPresent<String>(value: final value) => {'failure_reason': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (locked) {
+      SdkPresent<bool>(value: final value) => {'locked': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (advertised) {
+      SdkPresent<bool>(value: final value) => {'advertised': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projectId) {
+      SdkPresent<String>(value: final value) => {'project_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ByoipPrefixCreate` API schema.
 class ByoipPrefixCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The IP prefix in CIDR notation to bring
   final String prefix;
-
   /// The region where the prefix will be created
   final String region;
-
   /// The signature hash for the prefix creation request
   final String signature;
 
-  const ByoipPrefixCreate(
-      {required this.prefix, required this.region, required this.signature});
+  const ByoipPrefixCreate({required this.prefix, required this.region, required this.signature});
 
-  ByoipPrefixCreate Function({String prefix, String region, String signature})
-      get copyWith => _copyWith;
+  ByoipPrefixCreate Function({String prefix, String region, String signature}) get copyWith => _copyWith;
 
-  ByoipPrefixCreate _copyWith(
-          {Object? prefix = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? signature = sdkOmittedValue}) =>
-      ByoipPrefixCreate(
-        prefix:
-            identical(prefix, sdkOmittedValue) ? this.prefix : prefix as String,
-        region:
-            identical(region, sdkOmittedValue) ? this.region : region as String,
-        signature: identical(signature, sdkOmittedValue)
-            ? this.signature
-            : signature as String,
-      );
+  ByoipPrefixCreate _copyWith({Object? prefix = sdkOmittedValue, Object? region = sdkOmittedValue, Object? signature = sdkOmittedValue}) => ByoipPrefixCreate(
+    prefix: identical(prefix, sdkOmittedValue) ? this.prefix : prefix as String,
+    region: identical(region, sdkOmittedValue) ? this.region : region as String,
+    signature: identical(signature, sdkOmittedValue) ? this.signature : signature as String,
+  );
 
-  factory ByoipPrefixCreate.fromJson(Map<String, dynamic> json) =>
-      ByoipPrefixCreate(
-        prefix: (json['prefix'] as String?)!,
-        region: (json['region'] as String?)!,
-        signature: (json['signature'] as String?)!,
-      );
+  factory ByoipPrefixCreate.fromJson(Map<String, dynamic> json) => ByoipPrefixCreate(
+    prefix: (json['prefix'] as String?)!,
+    region: (json['region'] as String?)!,
+    signature: (json['signature'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'prefix': prefix,
-        'region': region,
-        'signature': signature,
-      };
+    'prefix': prefix,
+    'region': region,
+    'signature': signature,
+  };
 }
 
 /// Typed representation of the `ByoipPrefixCreateResponse` API schema.
 class ByoipPrefixCreateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier for the BYOIP prefix
   final SdkOptional<String> uuid;
-
   /// The region where the prefix is created
   final SdkOptional<String> region;
-
   /// The status of the BYOIP prefix
   final SdkOptional<String> status;
 
-  const ByoipPrefixCreateResponse(
-      {this.uuid = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.status = const SdkOmitted()});
+  const ByoipPrefixCreateResponse({this.uuid = const SdkOmitted(), this.region = const SdkOmitted(), this.status = const SdkOmitted()});
 
-  ByoipPrefixCreateResponse Function(
-      {SdkOptional<String> uuid,
-      SdkOptional<String> region,
-      SdkOptional<String> status}) get copyWith => _copyWith;
+  ByoipPrefixCreateResponse Function({SdkOptional<String> uuid, SdkOptional<String> region, SdkOptional<String> status}) get copyWith => _copyWith;
 
-  ByoipPrefixCreateResponse _copyWith(
-          {Object? uuid = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      ByoipPrefixCreateResponse(
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-      );
+  ByoipPrefixCreateResponse _copyWith({Object? uuid = sdkOmittedValue, Object? region = sdkOmittedValue, Object? status = sdkOmittedValue}) => ByoipPrefixCreateResponse(
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+  );
 
-  factory ByoipPrefixCreateResponse.fromJson(Map<String, dynamic> json) =>
-      ByoipPrefixCreateResponse(
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ByoipPrefixCreateResponse.fromJson(Map<String, dynamic> json) => ByoipPrefixCreateResponse(
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ByoipPrefixGet` API schema.
 class ByoipPrefixGet {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `byoip_prefix` wire field.
   final SdkOptional<ByoipPrefix> byoipPrefix;
 
   const ByoipPrefixGet({this.byoipPrefix = const SdkOmitted()});
 
-  ByoipPrefixGet Function({SdkOptional<ByoipPrefix> byoipPrefix})
-      get copyWith => _copyWith;
+  ByoipPrefixGet Function({SdkOptional<ByoipPrefix> byoipPrefix}) get copyWith => _copyWith;
 
-  ByoipPrefixGet _copyWith({Object? byoipPrefix = sdkOmittedValue}) =>
-      ByoipPrefixGet(
-        byoipPrefix: identical(byoipPrefix, sdkOmittedValue)
-            ? this.byoipPrefix
-            : byoipPrefix as SdkOptional<ByoipPrefix>,
-      );
+  ByoipPrefixGet _copyWith({Object? byoipPrefix = sdkOmittedValue}) => ByoipPrefixGet(
+    byoipPrefix: identical(byoipPrefix, sdkOmittedValue) ? this.byoipPrefix : byoipPrefix as SdkOptional<ByoipPrefix>,
+  );
 
   factory ByoipPrefixGet.fromJson(Map<String, dynamic> json) => ByoipPrefixGet(
-        byoipPrefix: json['byoip_prefix'] != null
-            ? SdkPresent((json['byoip_prefix'] != null
-                ? ByoipPrefix.fromJson(
-                    json['byoip_prefix'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    byoipPrefix: json['byoip_prefix'] != null ? SdkPresent((json['byoip_prefix'] != null ? ByoipPrefix.fromJson(json['byoip_prefix'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (byoipPrefix) {
-          SdkPresent<ByoipPrefix>(value: final value) => {
-              'byoip_prefix': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (byoipPrefix) {
+      SdkPresent<ByoipPrefix>(value: final value) => {'byoip_prefix': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class ByoipPrefixListVariant0 {
@@ -451,32 +257,20 @@ class ByoipPrefixListVariant0 {
 
   const ByoipPrefixListVariant0({this.byoipPrefixes = const SdkOmitted()});
 
-  ByoipPrefixListVariant0 Function(
-      {SdkOptional<List<ByoipPrefix>> byoipPrefixes}) get copyWith => _copyWith;
+  ByoipPrefixListVariant0 Function({SdkOptional<List<ByoipPrefix>> byoipPrefixes}) get copyWith => _copyWith;
 
-  ByoipPrefixListVariant0 _copyWith(
-          {Object? byoipPrefixes = sdkOmittedValue}) =>
-      ByoipPrefixListVariant0(
-        byoipPrefixes: identical(byoipPrefixes, sdkOmittedValue)
-            ? this.byoipPrefixes
-            : byoipPrefixes as SdkOptional<List<ByoipPrefix>>,
-      );
+  ByoipPrefixListVariant0 _copyWith({Object? byoipPrefixes = sdkOmittedValue}) => ByoipPrefixListVariant0(
+    byoipPrefixes: identical(byoipPrefixes, sdkOmittedValue) ? this.byoipPrefixes : byoipPrefixes as SdkOptional<List<ByoipPrefix>>,
+  );
 
-  factory ByoipPrefixListVariant0.fromJson(Map<String, dynamic> json) =>
-      ByoipPrefixListVariant0(
-        byoipPrefixes: json['byoip_prefixes'] != null
-            ? SdkPresent(((json['byoip_prefixes'] as List?)
-                ?.map((e) => ByoipPrefix.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ByoipPrefixListVariant0.fromJson(Map<String, dynamic> json) => ByoipPrefixListVariant0(
+    byoipPrefixes: json['byoip_prefixes'] != null ? SdkPresent(((json['byoip_prefixes'] as List?)?.map((e) => ByoipPrefix.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (byoipPrefixes) {
-          SdkPresent<List<ByoipPrefix>>(value: final value) => {
-              'byoip_prefixes': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (byoipPrefixes) {
+      SdkPresent<List<ByoipPrefix>>(value: final value) => {'byoip_prefixes': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

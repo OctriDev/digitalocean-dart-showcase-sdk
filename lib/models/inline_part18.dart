@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models (part 18)
 /// The protocol used for traffic to the load balancer. The possible values are: `http`, `https`, `http2`, `http3`, `tcp`, or `udp`. If you set the `entry_protocol` to `udp`, the `target_protocol` must be set to `udp`. When using UDP, the load balancer requires that you set up a health check with a port that uses TCP, HTTP, or HTTPS to work properly.
 final class ForwardingRuleEntryProtocol {
+
   final String value;
 
   const ForwardingRuleEntryProtocol._(this.value);
 
-  factory ForwardingRuleEntryProtocol.fromJson(String value) =>
-      ForwardingRuleEntryProtocol._(value);
+  factory ForwardingRuleEntryProtocol.fromJson(String value) => ForwardingRuleEntryProtocol._(value);
 
   static const http = ForwardingRuleEntryProtocol._('http');
   static const https = ForwardingRuleEntryProtocol._('https');
@@ -22,25 +22,22 @@ final class ForwardingRuleEntryProtocol {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ForwardingRuleEntryProtocol && other.value == value;
+  @override bool operator ==(Object other) => other is ForwardingRuleEntryProtocol && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The protocol used for traffic from the load balancer to the backend Droplets. The possible values are: `http`, `https`, `http2`, `tcp`, or `udp`. If you set the `target_protocol` to `udp`, the `entry_protocol` must be set to `udp`. When using UDP, the load balancer requires that you set up a health check with a port that uses TCP, HTTP, or HTTPS to work properly.
 final class ForwardingRuleTargetProtocol {
+
   final String value;
 
   const ForwardingRuleTargetProtocol._(this.value);
 
-  factory ForwardingRuleTargetProtocol.fromJson(String value) =>
-      ForwardingRuleTargetProtocol._(value);
+  factory ForwardingRuleTargetProtocol.fromJson(String value) => ForwardingRuleTargetProtocol._(value);
 
   static const http = ForwardingRuleTargetProtocol._('http');
   static const https = ForwardingRuleTargetProtocol._('https');
@@ -50,33 +47,27 @@ final class ForwardingRuleTargetProtocol {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ForwardingRuleTargetProtocol && other.value == value;
+  @override bool operator ==(Object other) => other is ForwardingRuleTargetProtocol && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The current status of this garbage collection.
 final class GarbageCollectionStatus {
+
   final String value;
 
   const GarbageCollectionStatus._(this.value);
 
-  factory GarbageCollectionStatus.fromJson(String value) =>
-      GarbageCollectionStatus._(value);
+  factory GarbageCollectionStatus.fromJson(String value) => GarbageCollectionStatus._(value);
 
   static const requested = GarbageCollectionStatus._('requested');
-  static const waitingForWriteJwtsToExpire =
-      GarbageCollectionStatus._('waiting for write JWTs to expire');
-  static const scanningManifests =
-      GarbageCollectionStatus._('scanning manifests');
-  static const deletingUnreferencedBlobs =
-      GarbageCollectionStatus._('deleting unreferenced blobs');
+  static const waitingForWriteJwtsToExpire = GarbageCollectionStatus._('waiting for write JWTs to expire');
+  static const scanningManifests = GarbageCollectionStatus._('scanning manifests');
+  static const deletingUnreferencedBlobs = GarbageCollectionStatus._('deleting unreferenced blobs');
   static const cancelling = GarbageCollectionStatus._('cancelling');
   static const failed = GarbageCollectionStatus._('failed');
   static const succeeded = GarbageCollectionStatus._('succeeded');
@@ -84,25 +75,22 @@ final class GarbageCollectionStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GarbageCollectionStatus && other.value == value;
+  @override bool operator ==(Object other) => other is GarbageCollectionStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The protocol used for forwarding traffic from the load balancer to the target backends. The possible values are `http`, `https` and `http2`.
 final class GlbSettingsTargetProtocol {
+
   final String value;
 
   const GlbSettingsTargetProtocol._(this.value);
 
-  factory GlbSettingsTargetProtocol.fromJson(String value) =>
-      GlbSettingsTargetProtocol._(value);
+  factory GlbSettingsTargetProtocol.fromJson(String value) => GlbSettingsTargetProtocol._(value);
 
   static const http = GlbSettingsTargetProtocol._('http');
   static const https = GlbSettingsTargetProtocol._('https');
@@ -110,25 +98,22 @@ final class GlbSettingsTargetProtocol {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GlbSettingsTargetProtocol && other.value == value;
+  @override bool operator ==(Object other) => other is GlbSettingsTargetProtocol && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The protocol used for health checks sent to the backend Droplets. The possible values are `http`, `https`, or `tcp`.
 final class HealthCheckProtocol {
+
   final String value;
 
   const HealthCheckProtocol._(this.value);
 
-  factory HealthCheckProtocol.fromJson(String value) =>
-      HealthCheckProtocol._(value);
+  factory HealthCheckProtocol.fromJson(String value) => HealthCheckProtocol._(value);
 
   static const http = HealthCheckProtocol._('http');
   static const https = HealthCheckProtocol._('https');
@@ -136,46 +121,39 @@ final class HealthCheckProtocol {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HealthCheckProtocol && other.value == value;
+  @override bool operator ==(Object other) => other is HealthCheckProtocol && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// `HEALTH_DATA_STATUS_AVAILABLE` when the window has calls to measure; `HEALTH_DATA_STATUS_NO_DATA` when it has none, in which case the metrics are null. Do not treat no data as healthy.
 final class HealthMetricsDataStatus {
+
   final String value;
 
   const HealthMetricsDataStatus._(this.value);
 
-  factory HealthMetricsDataStatus.fromJson(String value) =>
-      HealthMetricsDataStatus._(value);
+  factory HealthMetricsDataStatus.fromJson(String value) => HealthMetricsDataStatus._(value);
 
-  static const healthDataStatusAvailable =
-      HealthMetricsDataStatus._('HEALTH_DATA_STATUS_AVAILABLE');
-  static const healthDataStatusNoData =
-      HealthMetricsDataStatus._('HEALTH_DATA_STATUS_NO_DATA');
+  static const healthDataStatusAvailable = HealthMetricsDataStatus._('HEALTH_DATA_STATUS_AVAILABLE');
+  static const healthDataStatusNoData = HealthMetricsDataStatus._('HEALTH_DATA_STATUS_NO_DATA');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HealthMetricsDataStatus && other.value == value;
+  @override bool operator ==(Object other) => other is HealthMetricsDataStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The reason for the scaling event.
 final class HistoryReason {
+
   final String value;
 
   const HistoryReason._(this.value);
@@ -188,19 +166,17 @@ final class HistoryReason {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HistoryReason && other.value == value;
+  @override bool operator ==(Object other) => other is HistoryReason && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The status of the scaling event.
 final class HistoryStatus {
+
   final String value;
 
   const HistoryStatus._(this.value);
@@ -213,19 +189,17 @@ final class HistoryStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HistoryStatus && other.value == value;
+  @override bool operator ==(Object other) => other is HistoryStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A status string indicating the state of a custom image. This may be `NEW`, `available`, `pending`, `deleted`, or `retired`.
 final class ImageStatus {
+
   final String value;
 
   const ImageStatus._(this.value);
@@ -240,19 +214,17 @@ final class ImageStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ImageStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Describes the kind of image. It may be one of `base`, `snapshot`, `backup`, `custom`, or `admin`. Respectively, this specifies whether an image is a DigitalOcean base OS image, user-generated Droplet snapshot, automatically created Droplet backup, user-provided virtual machine image, or an image used for DigitalOcean managed resources (e.g. DOKS worker nodes).
 final class ImageType {
+
   final String value;
 
   const ImageType._(this.value);
@@ -267,14 +239,12 @@ final class ImageType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is ImageType && other.value == value;
+  @override bool operator ==(Object other) => other is ImageType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The action to be taken on the image. Can be either `convert` or `transfer`.
@@ -284,21 +254,16 @@ enum ImageActionBaseType {
 
   static ImageActionBaseType fromJson(String value) {
     switch (value) {
-      case 'convert':
-        return ImageActionBaseType.convert;
-      case 'transfer':
-        return ImageActionBaseType.transfer;
-      default:
-        throw ArgumentError('Unknown ImageActionBaseType: $value');
+      case 'convert': return ImageActionBaseType.convert;
+      case 'transfer': return ImageActionBaseType.transfer;
+      default: throw ArgumentError('Unknown ImageActionBaseType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ImageActionBaseType.convert:
-        return 'convert';
-      case ImageActionBaseType.transfer:
-        return 'transfer';
+      case ImageActionBaseType.convert: return 'convert';
+      case ImageActionBaseType.transfer: return 'transfer';
     }
   }
 
@@ -308,27 +273,23 @@ enum ImageActionBaseType {
 
 /// The background setting for the requested image.
 final class ImageGenPartialImageEventBackground {
+
   final String value;
 
   const ImageGenPartialImageEventBackground._(this.value);
 
-  factory ImageGenPartialImageEventBackground.fromJson(String value) =>
-      ImageGenPartialImageEventBackground._(value);
+  factory ImageGenPartialImageEventBackground.fromJson(String value) => ImageGenPartialImageEventBackground._(value);
 
-  static const transparent =
-      ImageGenPartialImageEventBackground._('transparent');
+  static const transparent = ImageGenPartialImageEventBackground._('transparent');
   static const opaque = ImageGenPartialImageEventBackground._('opaque');
   static const auto = ImageGenPartialImageEventBackground._('auto');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ImageGenPartialImageEventBackground && other.value == value;
+  @override bool operator ==(Object other) => other is ImageGenPartialImageEventBackground && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

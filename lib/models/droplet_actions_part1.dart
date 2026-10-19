@@ -11,33 +11,22 @@ class AllDropletActionsVariant0 {
 
   const AllDropletActionsVariant0({this.actions = const SdkOmitted()});
 
-  AllDropletActionsVariant0 Function({SdkOptional<List<Action>> actions})
-      get copyWith => _copyWith;
+  AllDropletActionsVariant0 Function({SdkOptional<List<Action>> actions}) get copyWith => _copyWith;
 
-  AllDropletActionsVariant0 _copyWith({Object? actions = sdkOmittedValue}) =>
-      AllDropletActionsVariant0(
-        actions: identical(actions, sdkOmittedValue)
-            ? this.actions
-            : actions as SdkOptional<List<Action>>,
-      );
+  AllDropletActionsVariant0 _copyWith({Object? actions = sdkOmittedValue}) => AllDropletActionsVariant0(
+    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<Action>>,
+  );
 
-  factory AllDropletActionsVariant0.fromJson(Map<String, dynamic> json) =>
-      AllDropletActionsVariant0(
-        actions: json['actions'] != null
-            ? SdkPresent(((json['actions'] as List?)
-                ?.map((e) => Action.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AllDropletActionsVariant0.fromJson(Map<String, dynamic> json) => AllDropletActionsVariant0(
+    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => Action.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (actions) {
-          SdkPresent<List<Action>>(value: final value) => {
-              'actions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (actions) {
+      SdkPresent<List<Action>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AllDropletActions` API schema.
@@ -45,78 +34,44 @@ class AllDropletActions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Action>> actions;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllDropletActions(
-      {this.actions = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllDropletActions({this.actions = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AllDropletActions Function(
-      {SdkOptional<List<Action>> actions,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllDropletActions Function({SdkOptional<List<Action>> actions, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllDropletActions _copyWith(
-          {Object? actions = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllDropletActions(
-        actions: identical(actions, sdkOmittedValue)
-            ? this.actions
-            : actions as SdkOptional<List<Action>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllDropletActions _copyWith({Object? actions = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllDropletActions(
+    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<Action>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory AllDropletActions.fromJson(Map<String, dynamic> json) =>
-      AllDropletActions(
-        actions: json['actions'] != null
-            ? SdkPresent(((json['actions'] as List?)
-                ?.map((e) => Action.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AllDropletActions.fromJson(Map<String, dynamic> json) => AllDropletActions(
+    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => Action.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (actions) {
-          SdkPresent<List<Action>>(value: final value) => {
-              'actions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (actions) {
+      SdkPresent<List<Action>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 /// Specifies the action that will be taken on the Droplet.
 class DropletAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
 
@@ -125,298 +80,187 @@ class DropletAction {
   DropletAction Function({DropletActionType type_}) get copyWith => _copyWith;
 
   DropletAction _copyWith({Object? type_ = sdkOmittedValue}) => DropletAction(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as DropletActionType,
-      );
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
+  );
 
   factory DropletAction.fromJson(Map<String, dynamic> json) => DropletAction(
-        type_: (json['type'] != null
-            ? DropletActionType.fromJson(json['type'] as String)
-            : null)!,
-      );
+    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 class DropletActionChangeBackupPolicyVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An object specifying the backup policy for the Droplet.
   final SdkOptional<DropletBackupPolicy> backupPolicy;
 
-  const DropletActionChangeBackupPolicyVariant1(
-      {this.backupPolicy = const SdkOmitted()});
+  const DropletActionChangeBackupPolicyVariant1({this.backupPolicy = const SdkOmitted()});
 
-  DropletActionChangeBackupPolicyVariant1 Function(
-          {SdkOptional<DropletBackupPolicy> backupPolicy})
-      get copyWith => _copyWith;
+  DropletActionChangeBackupPolicyVariant1 Function({SdkOptional<DropletBackupPolicy> backupPolicy}) get copyWith => _copyWith;
 
-  DropletActionChangeBackupPolicyVariant1 _copyWith(
-          {Object? backupPolicy = sdkOmittedValue}) =>
-      DropletActionChangeBackupPolicyVariant1(
-        backupPolicy: identical(backupPolicy, sdkOmittedValue)
-            ? this.backupPolicy
-            : backupPolicy as SdkOptional<DropletBackupPolicy>,
-      );
+  DropletActionChangeBackupPolicyVariant1 _copyWith({Object? backupPolicy = sdkOmittedValue}) => DropletActionChangeBackupPolicyVariant1(
+    backupPolicy: identical(backupPolicy, sdkOmittedValue) ? this.backupPolicy : backupPolicy as SdkOptional<DropletBackupPolicy>,
+  );
 
-  factory DropletActionChangeBackupPolicyVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      DropletActionChangeBackupPolicyVariant1(
-        backupPolicy: json['backup_policy'] != null
-            ? SdkPresent((json['backup_policy'] != null
-                ? DropletBackupPolicy.fromJson(
-                    json['backup_policy'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DropletActionChangeBackupPolicyVariant1.fromJson(Map<String, dynamic> json) => DropletActionChangeBackupPolicyVariant1(
+    backupPolicy: json['backup_policy'] != null ? SdkPresent((json['backup_policy'] != null ? DropletBackupPolicy.fromJson(json['backup_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (backupPolicy) {
-          SdkPresent<DropletBackupPolicy>(value: final value) => {
-              'backup_policy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (backupPolicy) {
+      SdkPresent<DropletBackupPolicy>(value: final value) => {'backup_policy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DropletActionChangeBackupPolicy` API schema.
 class DropletActionChangeBackupPolicy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
-
   /// An object specifying the backup policy for the Droplet.
   final DropletBackupPolicy backupPolicy;
 
-  const DropletActionChangeBackupPolicy(
-      {required this.type_, required this.backupPolicy});
+  const DropletActionChangeBackupPolicy({required this.type_, required this.backupPolicy});
 
-  DropletActionChangeBackupPolicy Function(
-      {DropletActionType type_,
-      DropletBackupPolicy backupPolicy}) get copyWith => _copyWith;
+  DropletActionChangeBackupPolicy Function({DropletActionType type_, DropletBackupPolicy backupPolicy}) get copyWith => _copyWith;
 
-  DropletActionChangeBackupPolicy _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? backupPolicy = sdkOmittedValue}) =>
-      DropletActionChangeBackupPolicy(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as DropletActionType,
-        backupPolicy: identical(backupPolicy, sdkOmittedValue)
-            ? this.backupPolicy
-            : backupPolicy as DropletBackupPolicy,
-      );
+  DropletActionChangeBackupPolicy _copyWith({Object? type_ = sdkOmittedValue, Object? backupPolicy = sdkOmittedValue}) => DropletActionChangeBackupPolicy(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
+    backupPolicy: identical(backupPolicy, sdkOmittedValue) ? this.backupPolicy : backupPolicy as DropletBackupPolicy,
+  );
 
-  factory DropletActionChangeBackupPolicy.fromJson(Map<String, dynamic> json) =>
-      DropletActionChangeBackupPolicy(
-        type_: (json['type'] != null
-            ? DropletActionType.fromJson(json['type'] as String)
-            : null)!,
-        backupPolicy: (json['backup_policy'] != null
-            ? DropletBackupPolicy.fromJson(
-                json['backup_policy'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory DropletActionChangeBackupPolicy.fromJson(Map<String, dynamic> json) => DropletActionChangeBackupPolicy(
+    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
+    backupPolicy: (json['backup_policy'] != null ? DropletBackupPolicy.fromJson(json['backup_policy'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'backup_policy': backupPolicy.toJson(),
-      };
+    'type': type_.toJson(),
+    'backup_policy': backupPolicy.toJson(),
+  };
 }
 
 class DropletActionChangeKernelVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique number used to identify and reference a specific kernel.
   final SdkOptional<int> kernel;
 
   const DropletActionChangeKernelVariant1({this.kernel = const SdkOmitted()});
 
-  DropletActionChangeKernelVariant1 Function({SdkOptional<int> kernel})
-      get copyWith => _copyWith;
+  DropletActionChangeKernelVariant1 Function({SdkOptional<int> kernel}) get copyWith => _copyWith;
 
-  DropletActionChangeKernelVariant1 _copyWith(
-          {Object? kernel = sdkOmittedValue}) =>
-      DropletActionChangeKernelVariant1(
-        kernel: identical(kernel, sdkOmittedValue)
-            ? this.kernel
-            : kernel as SdkOptional<int>,
-      );
+  DropletActionChangeKernelVariant1 _copyWith({Object? kernel = sdkOmittedValue}) => DropletActionChangeKernelVariant1(
+    kernel: identical(kernel, sdkOmittedValue) ? this.kernel : kernel as SdkOptional<int>,
+  );
 
-  factory DropletActionChangeKernelVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      DropletActionChangeKernelVariant1(
-        kernel: json['kernel'] != null
-            ? SdkPresent(((json['kernel'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory DropletActionChangeKernelVariant1.fromJson(Map<String, dynamic> json) => DropletActionChangeKernelVariant1(
+    kernel: json['kernel'] != null ? SdkPresent(((json['kernel'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (kernel) {
-          SdkPresent<int>(value: final value) => {
-              'kernel': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (kernel) {
+      SdkPresent<int>(value: final value) => {'kernel': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DropletActionChangeKernel` API schema.
 class DropletActionChangeKernel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
-
   /// A unique number used to identify and reference a specific kernel.
   final SdkOptional<int> kernel;
 
-  const DropletActionChangeKernel(
-      {required this.type_, this.kernel = const SdkOmitted()});
+  const DropletActionChangeKernel({required this.type_, this.kernel = const SdkOmitted()});
 
-  DropletActionChangeKernel Function(
-      {DropletActionType type_,
-      SdkOptional<int> kernel}) get copyWith => _copyWith;
+  DropletActionChangeKernel Function({DropletActionType type_, SdkOptional<int> kernel}) get copyWith => _copyWith;
 
-  DropletActionChangeKernel _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? kernel = sdkOmittedValue}) =>
-      DropletActionChangeKernel(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as DropletActionType,
-        kernel: identical(kernel, sdkOmittedValue)
-            ? this.kernel
-            : kernel as SdkOptional<int>,
-      );
+  DropletActionChangeKernel _copyWith({Object? type_ = sdkOmittedValue, Object? kernel = sdkOmittedValue}) => DropletActionChangeKernel(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
+    kernel: identical(kernel, sdkOmittedValue) ? this.kernel : kernel as SdkOptional<int>,
+  );
 
-  factory DropletActionChangeKernel.fromJson(Map<String, dynamic> json) =>
-      DropletActionChangeKernel(
-        type_: (json['type'] != null
-            ? DropletActionType.fromJson(json['type'] as String)
-            : null)!,
-        kernel: json['kernel'] != null
-            ? SdkPresent(((json['kernel'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory DropletActionChangeKernel.fromJson(Map<String, dynamic> json) => DropletActionChangeKernel(
+    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
+    kernel: json['kernel'] != null ? SdkPresent(((json['kernel'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (kernel) {
-          SdkPresent<int>(value: final value) => {
-              'kernel': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (kernel) {
+      SdkPresent<int>(value: final value) => {'kernel': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class DropletActionEnableBackupsRequestVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An object specifying the backup policy for the Droplet. If omitted, the backup plan will default to daily.
   final SdkOptional<DropletBackupPolicyRequest> backupPolicy;
 
-  const DropletActionEnableBackupsRequestVariant1(
-      {this.backupPolicy = const SdkOmitted()});
+  const DropletActionEnableBackupsRequestVariant1({this.backupPolicy = const SdkOmitted()});
 
-  DropletActionEnableBackupsRequestVariant1 Function(
-          {SdkOptional<DropletBackupPolicyRequest> backupPolicy})
-      get copyWith => _copyWith;
+  DropletActionEnableBackupsRequestVariant1 Function({SdkOptional<DropletBackupPolicyRequest> backupPolicy}) get copyWith => _copyWith;
 
-  DropletActionEnableBackupsRequestVariant1 _copyWith(
-          {Object? backupPolicy = sdkOmittedValue}) =>
-      DropletActionEnableBackupsRequestVariant1(
-        backupPolicy: identical(backupPolicy, sdkOmittedValue)
-            ? this.backupPolicy
-            : backupPolicy as SdkOptional<DropletBackupPolicyRequest>,
-      );
+  DropletActionEnableBackupsRequestVariant1 _copyWith({Object? backupPolicy = sdkOmittedValue}) => DropletActionEnableBackupsRequestVariant1(
+    backupPolicy: identical(backupPolicy, sdkOmittedValue) ? this.backupPolicy : backupPolicy as SdkOptional<DropletBackupPolicyRequest>,
+  );
 
-  factory DropletActionEnableBackupsRequestVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      DropletActionEnableBackupsRequestVariant1(
-        backupPolicy: json['backup_policy'] != null
-            ? SdkPresent((json['backup_policy'] != null
-                ? DropletBackupPolicyRequest.fromJson(
-                    json['backup_policy'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DropletActionEnableBackupsRequestVariant1.fromJson(Map<String, dynamic> json) => DropletActionEnableBackupsRequestVariant1(
+    backupPolicy: json['backup_policy'] != null ? SdkPresent((json['backup_policy'] != null ? DropletBackupPolicyRequest.fromJson(json['backup_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (backupPolicy) {
-          SdkPresent<DropletBackupPolicyRequest>(value: final value) => {
-              'backup_policy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (backupPolicy) {
+      SdkPresent<DropletBackupPolicyRequest>(value: final value) => {'backup_policy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DropletActionEnableBackupsRequest` API schema.
 class DropletActionEnableBackupsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
-
   /// An object specifying the backup policy for the Droplet. If omitted, the backup plan will default to daily.
   final SdkOptional<DropletBackupPolicyRequest> backupPolicy;
 
-  const DropletActionEnableBackupsRequest(
-      {required this.type_, this.backupPolicy = const SdkOmitted()});
+  const DropletActionEnableBackupsRequest({required this.type_, this.backupPolicy = const SdkOmitted()});
 
-  DropletActionEnableBackupsRequest Function(
-          {DropletActionType type_,
-          SdkOptional<DropletBackupPolicyRequest> backupPolicy})
-      get copyWith => _copyWith;
+  DropletActionEnableBackupsRequest Function({DropletActionType type_, SdkOptional<DropletBackupPolicyRequest> backupPolicy}) get copyWith => _copyWith;
 
-  DropletActionEnableBackupsRequest _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? backupPolicy = sdkOmittedValue}) =>
-      DropletActionEnableBackupsRequest(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as DropletActionType,
-        backupPolicy: identical(backupPolicy, sdkOmittedValue)
-            ? this.backupPolicy
-            : backupPolicy as SdkOptional<DropletBackupPolicyRequest>,
-      );
+  DropletActionEnableBackupsRequest _copyWith({Object? type_ = sdkOmittedValue, Object? backupPolicy = sdkOmittedValue}) => DropletActionEnableBackupsRequest(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
+    backupPolicy: identical(backupPolicy, sdkOmittedValue) ? this.backupPolicy : backupPolicy as SdkOptional<DropletBackupPolicyRequest>,
+  );
 
-  factory DropletActionEnableBackupsRequest.fromJson(
-          Map<String, dynamic> json) =>
-      DropletActionEnableBackupsRequest(
-        type_: (json['type'] != null
-            ? DropletActionType.fromJson(json['type'] as String)
-            : null)!,
-        backupPolicy: json['backup_policy'] != null
-            ? SdkPresent((json['backup_policy'] != null
-                ? DropletBackupPolicyRequest.fromJson(
-                    json['backup_policy'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DropletActionEnableBackupsRequest.fromJson(Map<String, dynamic> json) => DropletActionEnableBackupsRequest(
+    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
+    backupPolicy: json['backup_policy'] != null ? SdkPresent((json['backup_policy'] != null ? DropletBackupPolicyRequest.fromJson(json['backup_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (backupPolicy) {
-          SdkPresent<DropletBackupPolicyRequest>(value: final value) => {
-              'backup_policy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (backupPolicy) {
+      SdkPresent<DropletBackupPolicyRequest>(value: final value) => {'backup_policy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class DropletActionRebuildVariant1Image {
@@ -424,30 +268,21 @@ sealed class DropletActionRebuildVariant1Image {
   static const String constructionSurface = 'named';
   const DropletActionRebuildVariant1Image();
   factory DropletActionRebuildVariant1Image.fromJson(Object? json) {
-    if (json is String) {
-      return DropletActionRebuildVariant1ImageString(json);
-    }
-    if (json is num) {
-      return DropletActionRebuildVariant1ImageInt(json.toInt());
-    }
-    throw FormatException(
-        "No variant matched for DropletActionRebuildVariant1Image");
+    if (json is String) { return DropletActionRebuildVariant1ImageString(json); }
+    if (json is num) { return DropletActionRebuildVariant1ImageInt(json.toInt()); }
+    throw FormatException("No variant matched for DropletActionRebuildVariant1Image");
   }
   Object? toJson();
 }
 
-final class DropletActionRebuildVariant1ImageString
-    extends DropletActionRebuildVariant1Image {
+final class DropletActionRebuildVariant1ImageString extends DropletActionRebuildVariant1Image {
   final String value;
   const DropletActionRebuildVariant1ImageString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class DropletActionRebuildVariant1ImageInt
-    extends DropletActionRebuildVariant1Image {
+final class DropletActionRebuildVariant1ImageInt extends DropletActionRebuildVariant1Image {
   final int value;
   const DropletActionRebuildVariant1ImageInt(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }

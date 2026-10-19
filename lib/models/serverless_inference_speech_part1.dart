@@ -8,7 +8,6 @@ part of 'serverless_inference_speech.dart';
 class SpeechAudioItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Base64-encoded audio bytes.
   final String b64Json;
 
@@ -16,68 +15,47 @@ class SpeechAudioItem {
 
   SpeechAudioItem Function({String b64Json}) get copyWith => _copyWith;
 
-  SpeechAudioItem _copyWith({Object? b64Json = sdkOmittedValue}) =>
-      SpeechAudioItem(
-        b64Json: identical(b64Json, sdkOmittedValue)
-            ? this.b64Json
-            : b64Json as String,
-      );
+  SpeechAudioItem _copyWith({Object? b64Json = sdkOmittedValue}) => SpeechAudioItem(
+    b64Json: identical(b64Json, sdkOmittedValue) ? this.b64Json : b64Json as String,
+  );
 
-  factory SpeechAudioItem.fromJson(Map<String, dynamic> json) =>
-      SpeechAudioItem(
-        b64Json: (json['b64_json'] as String?)!,
-      );
+  factory SpeechAudioItem.fromJson(Map<String, dynamic> json) => SpeechAudioItem(
+    b64Json: (json['b64_json'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'b64_json': b64Json,
-      };
+    'b64_json': b64Json,
+  };
 }
 
 /// JSON envelope for text-to-speech when the endpoint returns `application/json`. The live endpoint may instead return raw audio bytes with an `audio/*` Content-Type.
 class SpeechResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unix timestamp (in seconds) of when the audio was created.
   final SdkOptional<int> created;
-
   /// Generated audio items.
   final List<SpeechAudioItem> data;
 
   const SpeechResponse({this.created = const SdkOmitted(), required this.data});
 
-  SpeechResponse Function(
-      {SdkOptional<int> created,
-      List<SpeechAudioItem> data}) get copyWith => _copyWith;
+  SpeechResponse Function({SdkOptional<int> created, List<SpeechAudioItem> data}) get copyWith => _copyWith;
 
-  SpeechResponse _copyWith(
-          {Object? created = sdkOmittedValue,
-          Object? data = sdkOmittedValue}) =>
-      SpeechResponse(
-        created: identical(created, sdkOmittedValue)
-            ? this.created
-            : created as SdkOptional<int>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<SpeechAudioItem>,
-      );
+  SpeechResponse _copyWith({Object? created = sdkOmittedValue, Object? data = sdkOmittedValue}) => SpeechResponse(
+    created: identical(created, sdkOmittedValue) ? this.created : created as SdkOptional<int>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<SpeechAudioItem>,
+  );
 
   factory SpeechResponse.fromJson(Map<String, dynamic> json) => SpeechResponse(
-        created: json['created'] != null
-            ? SdkPresent(((json['created'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        data: ((json['data'] as List?)
-            ?.map((e) => SpeechAudioItem.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+    created: json['created'] != null ? SdkPresent(((json['created'] as num?)?.toInt())!) : const SdkOmitted(),
+    data: ((json['data'] as List?)?.map((e) => SpeechAudioItem.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (created) {
-          SdkPresent<int>(value: final value) => {
-              'created': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'data': data.map((item) => item.toJson()).toList(),
-      };
+    ...switch (created) {
+      SdkPresent<int>(value: final value) => {'created': value,},
+      _ => const <String, dynamic>{},
+    },
+    'data': data.map((item) => item.toJson()).toList(),
+  };
 }

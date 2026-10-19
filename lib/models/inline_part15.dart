@@ -6,6 +6,7 @@ part of 'inline.dart';
 // Inline operation models (part 15)
 /// The scope of the deletion. `agent` deletes Signals conversations for one Harness Runtime environment. `inference` deletes Serverless Inference Signals conversations for the whole team.
 final class DeletionJobType {
+
   final String value;
 
   const DeletionJobType._(this.value);
@@ -17,19 +18,17 @@ final class DeletionJobType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DeletionJobType && other.value == value;
+  @override bool operator ==(Object other) => other is DeletionJobType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The destination type. `opensearch_dbaas` for a DigitalOcean managed OpenSearch cluster or `opensearch_ext` for an externally managed one.
 final class DestinationType {
+
   final String value;
 
   const DestinationType._(this.value);
@@ -41,71 +40,61 @@ final class DestinationType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DestinationType && other.value == value;
+  @override bool operator ==(Object other) => other is DestinationType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The destination type. `opensearch_dbaas` for a DigitalOcean managed OpenSearch cluster or `opensearch_ext` for an externally managed one.
 final class DestinationOmitCredentialsType {
+
   final String value;
 
   const DestinationOmitCredentialsType._(this.value);
 
-  factory DestinationOmitCredentialsType.fromJson(String value) =>
-      DestinationOmitCredentialsType._(value);
+  factory DestinationOmitCredentialsType.fromJson(String value) => DestinationOmitCredentialsType._(value);
 
-  static const opensearchDbaas =
-      DestinationOmitCredentialsType._('opensearch_dbaas');
-  static const opensearchExt =
-      DestinationOmitCredentialsType._('opensearch_ext');
+  static const opensearchDbaas = DestinationOmitCredentialsType._('opensearch_dbaas');
+  static const opensearchExt = DestinationOmitCredentialsType._('opensearch_ext');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DestinationOmitCredentialsType && other.value == value;
+  @override bool operator ==(Object other) => other is DestinationOmitCredentialsType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The destination type. `opensearch_dbaas` for a DigitalOcean managed OpenSearch cluster or `opensearch_ext` for an externally managed one.
 final class DestinationRequestType {
+
   final String value;
 
   const DestinationRequestType._(this.value);
 
-  factory DestinationRequestType.fromJson(String value) =>
-      DestinationRequestType._(value);
+  factory DestinationRequestType.fromJson(String value) => DestinationRequestType._(value);
 
   static const opensearchDbaas = DestinationRequestType._('opensearch_dbaas');
   static const opensearchExt = DestinationRequestType._('opensearch_ext');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DestinationRequestType && other.value == value;
+  @override bool operator ==(Object other) => other is DestinationRequestType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of disk. All Droplets contain a `local` or `boot` disk. Additionally, GPU Droplets can also have a `scratch` disk for non-persistent data.
 final class DiskInfoType {
+
   final String value;
 
   const DiskInfoType._(this.value);
@@ -118,19 +107,17 @@ final class DiskInfoType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DiskInfoType && other.value == value;
+  @override bool operator ==(Object other) => other is DiskInfoType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A status string indicating the state of the Droplet instance. This may be "new", "active", "off", or "archive".
 final class DropletStatus {
+
   final String value;
 
   const DropletStatus._(this.value);
@@ -144,15 +131,12 @@ final class DropletStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DropletStatus && other.value == value;
+  @override bool operator ==(Object other) => other is DropletStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of action to initiate for the Droplet.
@@ -175,73 +159,42 @@ enum DropletActionType {
 
   static DropletActionType fromJson(String value) {
     switch (value) {
-      case 'enable_backups':
-        return DropletActionType.enableBackups;
-      case 'disable_backups':
-        return DropletActionType.disableBackups;
-      case 'reboot':
-        return DropletActionType.reboot;
-      case 'power_cycle':
-        return DropletActionType.powerCycle;
-      case 'shutdown':
-        return DropletActionType.shutdown;
-      case 'power_off':
-        return DropletActionType.powerOff;
-      case 'power_on':
-        return DropletActionType.powerOn;
-      case 'restore':
-        return DropletActionType.restore;
-      case 'password_reset':
-        return DropletActionType.passwordReset;
-      case 'resize':
-        return DropletActionType.resize;
-      case 'rebuild':
-        return DropletActionType.rebuild;
-      case 'rename':
-        return DropletActionType.rename;
-      case 'change_kernel':
-        return DropletActionType.changeKernel;
-      case 'enable_ipv6':
-        return DropletActionType.enableIpv6;
-      case 'snapshot':
-        return DropletActionType.snapshot;
-      default:
-        throw ArgumentError('Unknown DropletActionType: $value');
+      case 'enable_backups': return DropletActionType.enableBackups;
+      case 'disable_backups': return DropletActionType.disableBackups;
+      case 'reboot': return DropletActionType.reboot;
+      case 'power_cycle': return DropletActionType.powerCycle;
+      case 'shutdown': return DropletActionType.shutdown;
+      case 'power_off': return DropletActionType.powerOff;
+      case 'power_on': return DropletActionType.powerOn;
+      case 'restore': return DropletActionType.restore;
+      case 'password_reset': return DropletActionType.passwordReset;
+      case 'resize': return DropletActionType.resize;
+      case 'rebuild': return DropletActionType.rebuild;
+      case 'rename': return DropletActionType.rename;
+      case 'change_kernel': return DropletActionType.changeKernel;
+      case 'enable_ipv6': return DropletActionType.enableIpv6;
+      case 'snapshot': return DropletActionType.snapshot;
+      default: throw ArgumentError('Unknown DropletActionType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case DropletActionType.enableBackups:
-        return 'enable_backups';
-      case DropletActionType.disableBackups:
-        return 'disable_backups';
-      case DropletActionType.reboot:
-        return 'reboot';
-      case DropletActionType.powerCycle:
-        return 'power_cycle';
-      case DropletActionType.shutdown:
-        return 'shutdown';
-      case DropletActionType.powerOff:
-        return 'power_off';
-      case DropletActionType.powerOn:
-        return 'power_on';
-      case DropletActionType.restore:
-        return 'restore';
-      case DropletActionType.passwordReset:
-        return 'password_reset';
-      case DropletActionType.resize:
-        return 'resize';
-      case DropletActionType.rebuild:
-        return 'rebuild';
-      case DropletActionType.rename:
-        return 'rename';
-      case DropletActionType.changeKernel:
-        return 'change_kernel';
-      case DropletActionType.enableIpv6:
-        return 'enable_ipv6';
-      case DropletActionType.snapshot:
-        return 'snapshot';
+      case DropletActionType.enableBackups: return 'enable_backups';
+      case DropletActionType.disableBackups: return 'disable_backups';
+      case DropletActionType.reboot: return 'reboot';
+      case DropletActionType.powerCycle: return 'power_cycle';
+      case DropletActionType.shutdown: return 'shutdown';
+      case DropletActionType.powerOff: return 'power_off';
+      case DropletActionType.powerOn: return 'power_on';
+      case DropletActionType.restore: return 'restore';
+      case DropletActionType.passwordReset: return 'password_reset';
+      case DropletActionType.resize: return 'resize';
+      case DropletActionType.rebuild: return 'rebuild';
+      case DropletActionType.rename: return 'rename';
+      case DropletActionType.changeKernel: return 'change_kernel';
+      case DropletActionType.enableIpv6: return 'enable_ipv6';
+      case DropletActionType.snapshot: return 'snapshot';
     }
   }
 
@@ -251,12 +204,12 @@ enum DropletActionType {
 
 /// The hour of the day that the backup window will start.
 final class DropletBackupPolicyHour {
+
   final int value;
 
   const DropletBackupPolicyHour._(this.value);
 
-  factory DropletBackupPolicyHour.fromJson(int value) =>
-      DropletBackupPolicyHour._(value);
+  factory DropletBackupPolicyHour.fromJson(int value) => DropletBackupPolicyHour._(value);
 
   static const v0 = DropletBackupPolicyHour._(0);
   static const v4 = DropletBackupPolicyHour._(4);
@@ -267,50 +220,44 @@ final class DropletBackupPolicyHour {
 
   int toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DropletBackupPolicyHour && other.value == value;
+  @override bool operator ==(Object other) => other is DropletBackupPolicyHour && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The backup plan used for the Droplet. The plan can be either `daily` or `weekly`.
 final class DropletBackupPolicyPlan {
+
   final String value;
 
   const DropletBackupPolicyPlan._(this.value);
 
-  factory DropletBackupPolicyPlan.fromJson(String value) =>
-      DropletBackupPolicyPlan._(value);
+  factory DropletBackupPolicyPlan.fromJson(String value) => DropletBackupPolicyPlan._(value);
 
   static const daily = DropletBackupPolicyPlan._('daily');
   static const weekly = DropletBackupPolicyPlan._('weekly');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DropletBackupPolicyPlan && other.value == value;
+  @override bool operator ==(Object other) => other is DropletBackupPolicyPlan && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The day of the week on which the backup will occur.
 final class DropletBackupPolicyWeekday {
+
   final String value;
 
   const DropletBackupPolicyWeekday._(this.value);
 
-  factory DropletBackupPolicyWeekday.fromJson(String value) =>
-      DropletBackupPolicyWeekday._(value);
+  factory DropletBackupPolicyWeekday.fromJson(String value) => DropletBackupPolicyWeekday._(value);
 
   static const sun = DropletBackupPolicyWeekday._('SUN');
   static const mon = DropletBackupPolicyWeekday._('MON');
@@ -322,13 +269,10 @@ final class DropletBackupPolicyWeekday {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DropletBackupPolicyWeekday && other.value == value;
+  @override bool operator ==(Object other) => other is DropletBackupPolicyWeekday && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

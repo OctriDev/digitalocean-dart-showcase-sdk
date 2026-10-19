@@ -8,254 +8,146 @@ part of 'apps_apps.dart';
 class AppsRestartRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `components` wire field.
   final SdkOptional<List<String>> components;
 
   const AppsRestartRequest({this.components = const SdkOmitted()});
 
-  AppsRestartRequest Function({SdkOptional<List<String>> components})
-      get copyWith => _copyWith;
+  AppsRestartRequest Function({SdkOptional<List<String>> components}) get copyWith => _copyWith;
 
-  AppsRestartRequest _copyWith({Object? components = sdkOmittedValue}) =>
-      AppsRestartRequest(
-        components: identical(components, sdkOmittedValue)
-            ? this.components
-            : components as SdkOptional<List<String>>,
-      );
+  AppsRestartRequest _copyWith({Object? components = sdkOmittedValue}) => AppsRestartRequest(
+    components: identical(components, sdkOmittedValue) ? this.components : components as SdkOptional<List<String>>,
+  );
 
-  factory AppsRestartRequest.fromJson(Map<String, dynamic> json) =>
-      AppsRestartRequest(
-        components: json['components'] != null
-            ? SdkPresent(((json['components'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AppsRestartRequest.fromJson(Map<String, dynamic> json) => AppsRestartRequest(
+    components: json['components'] != null ? SdkPresent(((json['components'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (components) {
-          SdkPresent<List<String>>(value: final value) => {
-              'components': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (components) {
+      SdkPresent<List<String>>(value: final value) => {'components': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppsRollbackAppRequest` API schema.
 class AppsRollbackAppRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the deployment to rollback to.
   final SdkOptional<String> deploymentId;
-
   /// Whether to skip pinning the rollback deployment. If false, the rollback deployment will be pinned and any new deployments including Auto Deploy on Push hooks will be disabled until the rollback is either manually committed or reverted via the CommitAppRollback or RevertAppRollback endpoints respectively. If true, the rollback will be immediately committed and the app will remain unpinned.
   final SdkOptional<bool> skipPin;
 
-  const AppsRollbackAppRequest(
-      {this.deploymentId = const SdkOmitted(),
-      this.skipPin = const SdkOmitted()});
+  const AppsRollbackAppRequest({this.deploymentId = const SdkOmitted(), this.skipPin = const SdkOmitted()});
 
-  AppsRollbackAppRequest Function(
-      {SdkOptional<String> deploymentId,
-      SdkOptional<bool> skipPin}) get copyWith => _copyWith;
+  AppsRollbackAppRequest Function({SdkOptional<String> deploymentId, SdkOptional<bool> skipPin}) get copyWith => _copyWith;
 
-  AppsRollbackAppRequest _copyWith(
-          {Object? deploymentId = sdkOmittedValue,
-          Object? skipPin = sdkOmittedValue}) =>
-      AppsRollbackAppRequest(
-        deploymentId: identical(deploymentId, sdkOmittedValue)
-            ? this.deploymentId
-            : deploymentId as SdkOptional<String>,
-        skipPin: identical(skipPin, sdkOmittedValue)
-            ? this.skipPin
-            : skipPin as SdkOptional<bool>,
-      );
+  AppsRollbackAppRequest _copyWith({Object? deploymentId = sdkOmittedValue, Object? skipPin = sdkOmittedValue}) => AppsRollbackAppRequest(
+    deploymentId: identical(deploymentId, sdkOmittedValue) ? this.deploymentId : deploymentId as SdkOptional<String>,
+    skipPin: identical(skipPin, sdkOmittedValue) ? this.skipPin : skipPin as SdkOptional<bool>,
+  );
 
-  factory AppsRollbackAppRequest.fromJson(Map<String, dynamic> json) =>
-      AppsRollbackAppRequest(
-        deploymentId: json['deployment_id'] != null
-            ? SdkPresent((json['deployment_id'] as String?)!)
-            : const SdkOmitted(),
-        skipPin: json['skip_pin'] != null
-            ? SdkPresent((json['skip_pin'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory AppsRollbackAppRequest.fromJson(Map<String, dynamic> json) => AppsRollbackAppRequest(
+    deploymentId: json['deployment_id'] != null ? SdkPresent((json['deployment_id'] as String?)!) : const SdkOmitted(),
+    skipPin: json['skip_pin'] != null ? SdkPresent((json['skip_pin'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (deploymentId) {
-          SdkPresent<String>(value: final value) => {
-              'deployment_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (skipPin) {
-          SdkPresent<bool>(value: final value) => {
-              'skip_pin': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (deploymentId) {
+      SdkPresent<String>(value: final value) => {'deployment_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (skipPin) {
+      SdkPresent<bool>(value: final value) => {'skip_pin': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppsStringMatch` API schema.
 class AppsStringMatch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Exact string match. Only 1 of `exact`, `prefix`, or `regex` must be set. An empty string is a valid value and will be serialized explicitly rather than being omitted from the payload.
   final SdkOptional<String?> exact;
-
   /// Prefix-based match. Only 1 of `exact`, `prefix`, or `regex` must be set.
   final SdkOptional<String?> prefix;
-
   /// RE2 style regex-based match. Only 1 of `exact`, `prefix`, or `regex` must be set. For more information about RE2 syntax, see: https://github.com/google/re2/wiki/Syntax
   final SdkOptional<String> regex;
 
-  const AppsStringMatch(
-      {this.exact = const SdkOmitted(),
-      this.prefix = const SdkOmitted(),
-      this.regex = const SdkOmitted()});
+  const AppsStringMatch({this.exact = const SdkOmitted(), this.prefix = const SdkOmitted(), this.regex = const SdkOmitted()});
 
-  AppsStringMatch Function(
-      {SdkOptional<String?> exact,
-      SdkOptional<String?> prefix,
-      SdkOptional<String> regex}) get copyWith => _copyWith;
+  AppsStringMatch Function({SdkOptional<String?> exact, SdkOptional<String?> prefix, SdkOptional<String> regex}) get copyWith => _copyWith;
 
-  AppsStringMatch _copyWith(
-          {Object? exact = sdkOmittedValue,
-          Object? prefix = sdkOmittedValue,
-          Object? regex = sdkOmittedValue}) =>
-      AppsStringMatch(
-        exact: identical(exact, sdkOmittedValue)
-            ? this.exact
-            : exact as SdkOptional<String?>,
-        prefix: identical(prefix, sdkOmittedValue)
-            ? this.prefix
-            : prefix as SdkOptional<String?>,
-        regex: identical(regex, sdkOmittedValue)
-            ? this.regex
-            : regex as SdkOptional<String>,
-      );
+  AppsStringMatch _copyWith({Object? exact = sdkOmittedValue, Object? prefix = sdkOmittedValue, Object? regex = sdkOmittedValue}) => AppsStringMatch(
+    exact: identical(exact, sdkOmittedValue) ? this.exact : exact as SdkOptional<String?>,
+    prefix: identical(prefix, sdkOmittedValue) ? this.prefix : prefix as SdkOptional<String?>,
+    regex: identical(regex, sdkOmittedValue) ? this.regex : regex as SdkOptional<String>,
+  );
 
-  factory AppsStringMatch.fromJson(Map<String, dynamic> json) =>
-      AppsStringMatch(
-        exact: json.containsKey('exact')
-            ? SdkPresent(json['exact'] as String?)
-            : const SdkOmitted(),
-        prefix: json.containsKey('prefix')
-            ? SdkPresent(json['prefix'] as String?)
-            : const SdkOmitted(),
-        regex: json['regex'] != null
-            ? SdkPresent((json['regex'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AppsStringMatch.fromJson(Map<String, dynamic> json) => AppsStringMatch(
+    exact: json.containsKey('exact') ? SdkPresent(json['exact'] as String?) : const SdkOmitted(),
+    prefix: json.containsKey('prefix') ? SdkPresent(json['prefix'] as String?) : const SdkOmitted(),
+    regex: json['regex'] != null ? SdkPresent((json['regex'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (exact) {
-          SdkPresent<String?>(value: final value) => {
-              'exact': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (prefix) {
-          SdkPresent<String?>(value: final value) => {
-              'prefix': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (regex) {
-          SdkPresent<String>(value: final value) => {
-              'regex': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (exact) {
+      SdkPresent<String?>(value: final value) => {'exact': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (prefix) {
+      SdkPresent<String?>(value: final value) => {'prefix': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (regex) {
+      SdkPresent<String>(value: final value) => {'regex': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppsValidateRollback` API schema.
 class AppsValidateRollback {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Indicates whether the app can be rolled back to the specified deployment.
   final SdkOptional<bool> valid;
-
   /// Contains the failing condition that is causing the rollback to be invalid.
   final SdkOptional<AppRollbackValidationCondition> error;
-
   /// Contains a list of warnings that may cause the rollback to run under unideal circumstances.
   final SdkOptional<List<AppRollbackValidationCondition>> warnings;
 
-  const AppsValidateRollback(
-      {this.valid = const SdkOmitted(),
-      this.error = const SdkOmitted(),
-      this.warnings = const SdkOmitted()});
+  const AppsValidateRollback({this.valid = const SdkOmitted(), this.error = const SdkOmitted(), this.warnings = const SdkOmitted()});
 
-  AppsValidateRollback Function(
-          {SdkOptional<bool> valid,
-          SdkOptional<AppRollbackValidationCondition> error,
-          SdkOptional<List<AppRollbackValidationCondition>> warnings})
-      get copyWith => _copyWith;
+  AppsValidateRollback Function({SdkOptional<bool> valid, SdkOptional<AppRollbackValidationCondition> error, SdkOptional<List<AppRollbackValidationCondition>> warnings}) get copyWith => _copyWith;
 
-  AppsValidateRollback _copyWith(
-          {Object? valid = sdkOmittedValue,
-          Object? error = sdkOmittedValue,
-          Object? warnings = sdkOmittedValue}) =>
-      AppsValidateRollback(
-        valid: identical(valid, sdkOmittedValue)
-            ? this.valid
-            : valid as SdkOptional<bool>,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as SdkOptional<AppRollbackValidationCondition>,
-        warnings: identical(warnings, sdkOmittedValue)
-            ? this.warnings
-            : warnings as SdkOptional<List<AppRollbackValidationCondition>>,
-      );
+  AppsValidateRollback _copyWith({Object? valid = sdkOmittedValue, Object? error = sdkOmittedValue, Object? warnings = sdkOmittedValue}) => AppsValidateRollback(
+    valid: identical(valid, sdkOmittedValue) ? this.valid : valid as SdkOptional<bool>,
+    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<AppRollbackValidationCondition>,
+    warnings: identical(warnings, sdkOmittedValue) ? this.warnings : warnings as SdkOptional<List<AppRollbackValidationCondition>>,
+  );
 
-  factory AppsValidateRollback.fromJson(Map<String, dynamic> json) =>
-      AppsValidateRollback(
-        valid: json['valid'] != null
-            ? SdkPresent((json['valid'] as bool?)!)
-            : const SdkOmitted(),
-        error: json['error'] != null
-            ? SdkPresent((json['error'] != null
-                ? AppRollbackValidationCondition.fromJson(
-                    json['error'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        warnings: json['warnings'] != null
-            ? SdkPresent(((json['warnings'] as List?)
-                ?.map((e) => AppRollbackValidationCondition.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AppsValidateRollback.fromJson(Map<String, dynamic> json) => AppsValidateRollback(
+    valid: json['valid'] != null ? SdkPresent((json['valid'] as bool?)!) : const SdkOmitted(),
+    error: json['error'] != null ? SdkPresent((json['error'] != null ? AppRollbackValidationCondition.fromJson(json['error'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    warnings: json['warnings'] != null ? SdkPresent(((json['warnings'] as List?)?.map((e) => AppRollbackValidationCondition.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (valid) {
-          SdkPresent<bool>(value: final value) => {
-              'valid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (error) {
-          SdkPresent<AppRollbackValidationCondition>(value: final value) => {
-              'error': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (warnings) {
-          SdkPresent<List<AppRollbackValidationCondition>>(
-            value: final value
-          ) =>
-            {
-              'warnings': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (valid) {
+      SdkPresent<bool>(value: final value) => {'valid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (error) {
+      SdkPresent<AppRollbackValidationCondition>(value: final value) => {'error': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (warnings) {
+      SdkPresent<List<AppRollbackValidationCondition>>(value: final value) => {'warnings': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

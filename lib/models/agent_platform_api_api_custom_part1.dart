@@ -8,109 +8,57 @@ part of 'agent_platform_api_api_custom.dart';
 class ApiCustomEvaluationMetricConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
-
   /// When set, the custom metric is soft-deleted and must not appear in pickers.
   final SdkOptional<String> deletedAt;
-
   /// When true, each row must provide ground truth and it is included in the judge context. When false, ground truth is not required and is not sent to the judge.
   final SdkOptional<bool> requiresGroundTruth;
-
   /// Instructions for the judge model (multi-line).
   final SdkOptional<String> scoringPrompt;
-
   /// Optional `date-time`-formatted value serialized in the `updated_at` wire field.
   final SdkOptional<String> updatedAt;
 
-  const ApiCustomEvaluationMetricConfig(
-      {this.createdAt = const SdkOmitted(),
-      this.deletedAt = const SdkOmitted(),
-      this.requiresGroundTruth = const SdkOmitted(),
-      this.scoringPrompt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted()});
+  const ApiCustomEvaluationMetricConfig({this.createdAt = const SdkOmitted(), this.deletedAt = const SdkOmitted(), this.requiresGroundTruth = const SdkOmitted(), this.scoringPrompt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
 
-  ApiCustomEvaluationMetricConfig Function(
-      {SdkOptional<String> createdAt,
-      SdkOptional<String> deletedAt,
-      SdkOptional<bool> requiresGroundTruth,
-      SdkOptional<String> scoringPrompt,
-      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  ApiCustomEvaluationMetricConfig Function({SdkOptional<String> createdAt, SdkOptional<String> deletedAt, SdkOptional<bool> requiresGroundTruth, SdkOptional<String> scoringPrompt, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  ApiCustomEvaluationMetricConfig _copyWith(
-          {Object? createdAt = sdkOmittedValue,
-          Object? deletedAt = sdkOmittedValue,
-          Object? requiresGroundTruth = sdkOmittedValue,
-          Object? scoringPrompt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      ApiCustomEvaluationMetricConfig(
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        deletedAt: identical(deletedAt, sdkOmittedValue)
-            ? this.deletedAt
-            : deletedAt as SdkOptional<String>,
-        requiresGroundTruth: identical(requiresGroundTruth, sdkOmittedValue)
-            ? this.requiresGroundTruth
-            : requiresGroundTruth as SdkOptional<bool>,
-        scoringPrompt: identical(scoringPrompt, sdkOmittedValue)
-            ? this.scoringPrompt
-            : scoringPrompt as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-      );
+  ApiCustomEvaluationMetricConfig _copyWith({Object? createdAt = sdkOmittedValue, Object? deletedAt = sdkOmittedValue, Object? requiresGroundTruth = sdkOmittedValue, Object? scoringPrompt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => ApiCustomEvaluationMetricConfig(
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    deletedAt: identical(deletedAt, sdkOmittedValue) ? this.deletedAt : deletedAt as SdkOptional<String>,
+    requiresGroundTruth: identical(requiresGroundTruth, sdkOmittedValue) ? this.requiresGroundTruth : requiresGroundTruth as SdkOptional<bool>,
+    scoringPrompt: identical(scoringPrompt, sdkOmittedValue) ? this.scoringPrompt : scoringPrompt as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+  );
 
-  factory ApiCustomEvaluationMetricConfig.fromJson(Map<String, dynamic> json) =>
-      ApiCustomEvaluationMetricConfig(
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        deletedAt: json['deleted_at'] != null
-            ? SdkPresent((json['deleted_at'] as String?)!)
-            : const SdkOmitted(),
-        requiresGroundTruth: json['requires_ground_truth'] != null
-            ? SdkPresent((json['requires_ground_truth'] as bool?)!)
-            : const SdkOmitted(),
-        scoringPrompt: json['scoring_prompt'] != null
-            ? SdkPresent((json['scoring_prompt'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCustomEvaluationMetricConfig.fromJson(Map<String, dynamic> json) => ApiCustomEvaluationMetricConfig(
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    deletedAt: json['deleted_at'] != null ? SdkPresent((json['deleted_at'] as String?)!) : const SdkOmitted(),
+    requiresGroundTruth: json['requires_ground_truth'] != null ? SdkPresent((json['requires_ground_truth'] as bool?)!) : const SdkOmitted(),
+    scoringPrompt: json['scoring_prompt'] != null ? SdkPresent((json['scoring_prompt'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deletedAt) {
-          SdkPresent<String>(value: final value) => {
-              'deleted_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (requiresGroundTruth) {
-          SdkPresent<bool>(value: final value) => {
-              'requires_ground_truth': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scoringPrompt) {
-          SdkPresent<String>(value: final value) => {
-              'scoring_prompt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deletedAt) {
+      SdkPresent<String>(value: final value) => {'deleted_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (requiresGroundTruth) {
+      SdkPresent<bool>(value: final value) => {'requires_ground_truth': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scoringPrompt) {
+      SdkPresent<String>(value: final value) => {'scoring_prompt': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,544 +8,234 @@ part of 'database.dart';
 class DatabaseCluster {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique ID that can be used to identify and reference a database cluster.
   final SdkOptional<String> id;
-
   /// A unique, human-readable name referring to a database cluster.
   final String name;
-
   /// A slug representing the database engine used for the cluster. The possible values are: "pg" for PostgreSQL, "mysql" for MySQL, "redis" for Caching, "mongodb" for MongoDB, "kafka" for Kafka, "opensearch" for OpenSearch, "valkey" for Valkey, "advanced_pg" for PostgreSQL Advanced Edition, and "advanced_mysql" for MySQL Advanced Edition. Advanced Edition engines are currently in public preview.
   final DatabaseClusterEngine engine;
-
   /// A string representing the version of the database engine in use for the cluster.
   final SdkOptional<String> version;
-
   /// A string representing the semantic version of the database engine in use for the cluster.
   final SdkOptional<String> semanticVersion;
-
   /// The number of nodes in the database cluster.
   final int numNodes;
-
   /// The slug identifier representing the size of the nodes in the database cluster.
   final String size;
-
   /// The slug identifier for the region where the database cluster is located.
   final String region;
-
   /// A string representing the current status of the database cluster.
   final SdkOptional<DatabaseClusterStatus> status;
-
   /// A time value given in ISO8601 combined date and time format that represents when the database cluster was created.
   final SdkOptional<String> createdAt;
-
   /// A string specifying the UUID of the VPC to which the database cluster will be assigned. If excluded, the cluster when creating a new database cluster, it will be assigned to your account's default VPC for the region. &lt;br&gt;&lt;br&gt;Requires `vpc:read` scope.
   final SdkOptional<String> privateNetworkUuid;
-
   /// An array of tags (as strings) to apply to the database cluster. &lt;br&gt;&lt;br&gt;Requires `tag:create` scope.
   final SdkOptional<List<String>?> tags;
-
   /// An array of strings containing the names of databases created in the database cluster.
   final SdkOptional<List<String>?> dbNames;
-
   /// The connection details for OpenSearch dashboard.
   final SdkOptional<OpensearchConnection> uiConnection;
-
   /// The connection details for Schema Registry.
   final SdkOptional<SchemaRegistryConnection> schemaRegistryConnection;
-
   /// Optional API value serialized in the `connection` wire field.
   final SdkOptional<DatabaseConnection> connection;
-
   /// Optional API value serialized in the `private_connection` wire field.
   final SdkOptional<DatabaseConnection> privateConnection;
-
   /// Optional API value serialized in the `standby_connection` wire field.
   final SdkOptional<DatabaseConnection> standbyConnection;
-
   /// Optional API value serialized in the `standby_private_connection` wire field.
   final SdkOptional<DatabaseConnection> standbyPrivateConnection;
-
   /// Optional array value serialized in the `users` wire field.
   final SdkOptional<List<DatabaseUser>?> users;
-
   /// Optional API value serialized in the `maintenance_window` wire field.
   final SdkOptional<DatabaseMaintenanceWindow> maintenanceWindow;
-
   /// The ID of the project that the database cluster is assigned to. If excluded when creating a new database cluster, it will be assigned to your default project.&lt;br&gt;&lt;br&gt;Requires `project:assign_resource` scope.
   final SdkOptional<String> projectId;
-
   /// Optional array value serialized in the `rules` wire field.
   final SdkOptional<List<FirewallRule>> rules;
-
   /// A timestamp referring to the date when the particular version will no longer be supported. If null, the version does not have an end of life timeline.
   final SdkOptional<String> versionEndOfLife;
-
   /// A timestamp referring to the date when the particular version will no longer be available for creating new clusters. If null, the version does not have an end of availability timeline.
   final SdkOptional<String> versionEndOfAvailability;
-
   /// Additional storage added to the cluster, in MiB. If null, no additional storage is added to the cluster, beyond what is provided as a base amount from the 'size' and any previously added additional storage.
   final SdkOptional<int> storageSizeMib;
-
   /// Public hostname and port of the cluster's metrics endpoint(s). Includes one record for the cluster's primary node and a second entry for the cluster's standby node(s).
   final SdkOptional<List<DatabaseServiceEndpoint>> metricsEndpoints;
-
   /// Autoscaling configuration for the database cluster. Currently only supports storage autoscaling. If null, autoscaling is not configured for the cluster.
   final SdkOptional<DatabaseAutoscaleParams> autoscale;
-
   /// DigitalOcean-specific settings for the database cluster, including custom service CNAMEs.
   final SdkOptional<DoSettings> doSettings;
 
-  const DatabaseCluster(
-      {this.id = const SdkOmitted(),
-      required this.name,
-      required this.engine,
-      this.version = const SdkOmitted(),
-      this.semanticVersion = const SdkOmitted(),
-      required this.numNodes,
-      required this.size,
-      required this.region,
-      this.status = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.privateNetworkUuid = const SdkOmitted(),
-      this.tags = const SdkOmitted(),
-      this.dbNames = const SdkOmitted(),
-      this.uiConnection = const SdkOmitted(),
-      this.schemaRegistryConnection = const SdkOmitted(),
-      this.connection = const SdkOmitted(),
-      this.privateConnection = const SdkOmitted(),
-      this.standbyConnection = const SdkOmitted(),
-      this.standbyPrivateConnection = const SdkOmitted(),
-      this.users = const SdkOmitted(),
-      this.maintenanceWindow = const SdkOmitted(),
-      this.projectId = const SdkOmitted(),
-      this.rules = const SdkOmitted(),
-      this.versionEndOfLife = const SdkOmitted(),
-      this.versionEndOfAvailability = const SdkOmitted(),
-      this.storageSizeMib = const SdkOmitted(),
-      this.metricsEndpoints = const SdkOmitted(),
-      this.autoscale = const SdkOmitted(),
-      this.doSettings = const SdkOmitted()});
+  const DatabaseCluster({this.id = const SdkOmitted(), required this.name, required this.engine, this.version = const SdkOmitted(), this.semanticVersion = const SdkOmitted(), required this.numNodes, required this.size, required this.region, this.status = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.privateNetworkUuid = const SdkOmitted(), this.tags = const SdkOmitted(), this.dbNames = const SdkOmitted(), this.uiConnection = const SdkOmitted(), this.schemaRegistryConnection = const SdkOmitted(), this.connection = const SdkOmitted(), this.privateConnection = const SdkOmitted(), this.standbyConnection = const SdkOmitted(), this.standbyPrivateConnection = const SdkOmitted(), this.users = const SdkOmitted(), this.maintenanceWindow = const SdkOmitted(), this.projectId = const SdkOmitted(), this.rules = const SdkOmitted(), this.versionEndOfLife = const SdkOmitted(), this.versionEndOfAvailability = const SdkOmitted(), this.storageSizeMib = const SdkOmitted(), this.metricsEndpoints = const SdkOmitted(), this.autoscale = const SdkOmitted(), this.doSettings = const SdkOmitted()});
 
-  DatabaseCluster Function(
-      {SdkOptional<String> id,
-      String name,
-      DatabaseClusterEngine engine,
-      SdkOptional<String> version,
-      SdkOptional<String> semanticVersion,
-      int numNodes,
-      String size,
-      String region,
-      SdkOptional<DatabaseClusterStatus> status,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> privateNetworkUuid,
-      SdkOptional<List<String>?> tags,
-      SdkOptional<List<String>?> dbNames,
-      SdkOptional<OpensearchConnection> uiConnection,
-      SdkOptional<SchemaRegistryConnection> schemaRegistryConnection,
-      SdkOptional<DatabaseConnection> connection,
-      SdkOptional<DatabaseConnection> privateConnection,
-      SdkOptional<DatabaseConnection> standbyConnection,
-      SdkOptional<DatabaseConnection> standbyPrivateConnection,
-      SdkOptional<List<DatabaseUser>?> users,
-      SdkOptional<DatabaseMaintenanceWindow> maintenanceWindow,
-      SdkOptional<String> projectId,
-      SdkOptional<List<FirewallRule>> rules,
-      SdkOptional<String> versionEndOfLife,
-      SdkOptional<String> versionEndOfAvailability,
-      SdkOptional<int> storageSizeMib,
-      SdkOptional<List<DatabaseServiceEndpoint>> metricsEndpoints,
-      SdkOptional<DatabaseAutoscaleParams> autoscale,
-      SdkOptional<DoSettings> doSettings}) get copyWith => _copyWith;
+  DatabaseCluster Function({SdkOptional<String> id, String name, DatabaseClusterEngine engine, SdkOptional<String> version, SdkOptional<String> semanticVersion, int numNodes, String size, String region, SdkOptional<DatabaseClusterStatus> status, SdkOptional<String> createdAt, SdkOptional<String> privateNetworkUuid, SdkOptional<List<String>?> tags, SdkOptional<List<String>?> dbNames, SdkOptional<OpensearchConnection> uiConnection, SdkOptional<SchemaRegistryConnection> schemaRegistryConnection, SdkOptional<DatabaseConnection> connection, SdkOptional<DatabaseConnection> privateConnection, SdkOptional<DatabaseConnection> standbyConnection, SdkOptional<DatabaseConnection> standbyPrivateConnection, SdkOptional<List<DatabaseUser>?> users, SdkOptional<DatabaseMaintenanceWindow> maintenanceWindow, SdkOptional<String> projectId, SdkOptional<List<FirewallRule>> rules, SdkOptional<String> versionEndOfLife, SdkOptional<String> versionEndOfAvailability, SdkOptional<int> storageSizeMib, SdkOptional<List<DatabaseServiceEndpoint>> metricsEndpoints, SdkOptional<DatabaseAutoscaleParams> autoscale, SdkOptional<DoSettings> doSettings}) get copyWith => _copyWith;
 
-  DatabaseCluster _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? engine = sdkOmittedValue,
-          Object? version = sdkOmittedValue,
-          Object? semanticVersion = sdkOmittedValue,
-          Object? numNodes = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? privateNetworkUuid = sdkOmittedValue,
-          Object? tags = sdkOmittedValue,
-          Object? dbNames = sdkOmittedValue,
-          Object? uiConnection = sdkOmittedValue,
-          Object? schemaRegistryConnection = sdkOmittedValue,
-          Object? connection = sdkOmittedValue,
-          Object? privateConnection = sdkOmittedValue,
-          Object? standbyConnection = sdkOmittedValue,
-          Object? standbyPrivateConnection = sdkOmittedValue,
-          Object? users = sdkOmittedValue,
-          Object? maintenanceWindow = sdkOmittedValue,
-          Object? projectId = sdkOmittedValue,
-          Object? rules = sdkOmittedValue,
-          Object? versionEndOfLife = sdkOmittedValue,
-          Object? versionEndOfAvailability = sdkOmittedValue,
-          Object? storageSizeMib = sdkOmittedValue,
-          Object? metricsEndpoints = sdkOmittedValue,
-          Object? autoscale = sdkOmittedValue,
-          Object? doSettings = sdkOmittedValue}) =>
-      DatabaseCluster(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        engine: identical(engine, sdkOmittedValue)
-            ? this.engine
-            : engine as DatabaseClusterEngine,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String>,
-        semanticVersion: identical(semanticVersion, sdkOmittedValue)
-            ? this.semanticVersion
-            : semanticVersion as SdkOptional<String>,
-        numNodes: identical(numNodes, sdkOmittedValue)
-            ? this.numNodes
-            : numNodes as int,
-        size: identical(size, sdkOmittedValue) ? this.size : size as String,
-        region:
-            identical(region, sdkOmittedValue) ? this.region : region as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<DatabaseClusterStatus>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        privateNetworkUuid: identical(privateNetworkUuid, sdkOmittedValue)
-            ? this.privateNetworkUuid
-            : privateNetworkUuid as SdkOptional<String>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>?>,
-        dbNames: identical(dbNames, sdkOmittedValue)
-            ? this.dbNames
-            : dbNames as SdkOptional<List<String>?>,
-        uiConnection: identical(uiConnection, sdkOmittedValue)
-            ? this.uiConnection
-            : uiConnection as SdkOptional<OpensearchConnection>,
-        schemaRegistryConnection: identical(
-                schemaRegistryConnection, sdkOmittedValue)
-            ? this.schemaRegistryConnection
-            : schemaRegistryConnection as SdkOptional<SchemaRegistryConnection>,
-        connection: identical(connection, sdkOmittedValue)
-            ? this.connection
-            : connection as SdkOptional<DatabaseConnection>,
-        privateConnection: identical(privateConnection, sdkOmittedValue)
-            ? this.privateConnection
-            : privateConnection as SdkOptional<DatabaseConnection>,
-        standbyConnection: identical(standbyConnection, sdkOmittedValue)
-            ? this.standbyConnection
-            : standbyConnection as SdkOptional<DatabaseConnection>,
-        standbyPrivateConnection:
-            identical(standbyPrivateConnection, sdkOmittedValue)
-                ? this.standbyPrivateConnection
-                : standbyPrivateConnection as SdkOptional<DatabaseConnection>,
-        users: identical(users, sdkOmittedValue)
-            ? this.users
-            : users as SdkOptional<List<DatabaseUser>?>,
-        maintenanceWindow: identical(maintenanceWindow, sdkOmittedValue)
-            ? this.maintenanceWindow
-            : maintenanceWindow as SdkOptional<DatabaseMaintenanceWindow>,
-        projectId: identical(projectId, sdkOmittedValue)
-            ? this.projectId
-            : projectId as SdkOptional<String>,
-        rules: identical(rules, sdkOmittedValue)
-            ? this.rules
-            : rules as SdkOptional<List<FirewallRule>>,
-        versionEndOfLife: identical(versionEndOfLife, sdkOmittedValue)
-            ? this.versionEndOfLife
-            : versionEndOfLife as SdkOptional<String>,
-        versionEndOfAvailability:
-            identical(versionEndOfAvailability, sdkOmittedValue)
-                ? this.versionEndOfAvailability
-                : versionEndOfAvailability as SdkOptional<String>,
-        storageSizeMib: identical(storageSizeMib, sdkOmittedValue)
-            ? this.storageSizeMib
-            : storageSizeMib as SdkOptional<int>,
-        metricsEndpoints: identical(metricsEndpoints, sdkOmittedValue)
-            ? this.metricsEndpoints
-            : metricsEndpoints as SdkOptional<List<DatabaseServiceEndpoint>>,
-        autoscale: identical(autoscale, sdkOmittedValue)
-            ? this.autoscale
-            : autoscale as SdkOptional<DatabaseAutoscaleParams>,
-        doSettings: identical(doSettings, sdkOmittedValue)
-            ? this.doSettings
-            : doSettings as SdkOptional<DoSettings>,
-      );
+  DatabaseCluster _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? engine = sdkOmittedValue, Object? version = sdkOmittedValue, Object? semanticVersion = sdkOmittedValue, Object? numNodes = sdkOmittedValue, Object? size = sdkOmittedValue, Object? region = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? privateNetworkUuid = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? dbNames = sdkOmittedValue, Object? uiConnection = sdkOmittedValue, Object? schemaRegistryConnection = sdkOmittedValue, Object? connection = sdkOmittedValue, Object? privateConnection = sdkOmittedValue, Object? standbyConnection = sdkOmittedValue, Object? standbyPrivateConnection = sdkOmittedValue, Object? users = sdkOmittedValue, Object? maintenanceWindow = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? rules = sdkOmittedValue, Object? versionEndOfLife = sdkOmittedValue, Object? versionEndOfAvailability = sdkOmittedValue, Object? storageSizeMib = sdkOmittedValue, Object? metricsEndpoints = sdkOmittedValue, Object? autoscale = sdkOmittedValue, Object? doSettings = sdkOmittedValue}) => DatabaseCluster(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    engine: identical(engine, sdkOmittedValue) ? this.engine : engine as DatabaseClusterEngine,
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
+    semanticVersion: identical(semanticVersion, sdkOmittedValue) ? this.semanticVersion : semanticVersion as SdkOptional<String>,
+    numNodes: identical(numNodes, sdkOmittedValue) ? this.numNodes : numNodes as int,
+    size: identical(size, sdkOmittedValue) ? this.size : size as String,
+    region: identical(region, sdkOmittedValue) ? this.region : region as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<DatabaseClusterStatus>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    privateNetworkUuid: identical(privateNetworkUuid, sdkOmittedValue) ? this.privateNetworkUuid : privateNetworkUuid as SdkOptional<String>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>?>,
+    dbNames: identical(dbNames, sdkOmittedValue) ? this.dbNames : dbNames as SdkOptional<List<String>?>,
+    uiConnection: identical(uiConnection, sdkOmittedValue) ? this.uiConnection : uiConnection as SdkOptional<OpensearchConnection>,
+    schemaRegistryConnection: identical(schemaRegistryConnection, sdkOmittedValue) ? this.schemaRegistryConnection : schemaRegistryConnection as SdkOptional<SchemaRegistryConnection>,
+    connection: identical(connection, sdkOmittedValue) ? this.connection : connection as SdkOptional<DatabaseConnection>,
+    privateConnection: identical(privateConnection, sdkOmittedValue) ? this.privateConnection : privateConnection as SdkOptional<DatabaseConnection>,
+    standbyConnection: identical(standbyConnection, sdkOmittedValue) ? this.standbyConnection : standbyConnection as SdkOptional<DatabaseConnection>,
+    standbyPrivateConnection: identical(standbyPrivateConnection, sdkOmittedValue) ? this.standbyPrivateConnection : standbyPrivateConnection as SdkOptional<DatabaseConnection>,
+    users: identical(users, sdkOmittedValue) ? this.users : users as SdkOptional<List<DatabaseUser>?>,
+    maintenanceWindow: identical(maintenanceWindow, sdkOmittedValue) ? this.maintenanceWindow : maintenanceWindow as SdkOptional<DatabaseMaintenanceWindow>,
+    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
+    rules: identical(rules, sdkOmittedValue) ? this.rules : rules as SdkOptional<List<FirewallRule>>,
+    versionEndOfLife: identical(versionEndOfLife, sdkOmittedValue) ? this.versionEndOfLife : versionEndOfLife as SdkOptional<String>,
+    versionEndOfAvailability: identical(versionEndOfAvailability, sdkOmittedValue) ? this.versionEndOfAvailability : versionEndOfAvailability as SdkOptional<String>,
+    storageSizeMib: identical(storageSizeMib, sdkOmittedValue) ? this.storageSizeMib : storageSizeMib as SdkOptional<int>,
+    metricsEndpoints: identical(metricsEndpoints, sdkOmittedValue) ? this.metricsEndpoints : metricsEndpoints as SdkOptional<List<DatabaseServiceEndpoint>>,
+    autoscale: identical(autoscale, sdkOmittedValue) ? this.autoscale : autoscale as SdkOptional<DatabaseAutoscaleParams>,
+    doSettings: identical(doSettings, sdkOmittedValue) ? this.doSettings : doSettings as SdkOptional<DoSettings>,
+  );
 
-  factory DatabaseCluster.fromJson(Map<String, dynamic> json) =>
-      DatabaseCluster(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: (json['name'] as String?)!,
-        engine: (json['engine'] != null
-            ? DatabaseClusterEngine.fromJson(json['engine'] as String)
-            : null)!,
-        version: json['version'] != null
-            ? SdkPresent((json['version'] as String?)!)
-            : const SdkOmitted(),
-        semanticVersion: json['semantic_version'] != null
-            ? SdkPresent((json['semantic_version'] as String?)!)
-            : const SdkOmitted(),
-        numNodes: ((json['num_nodes'] as num?)?.toInt())!,
-        size: (json['size'] as String?)!,
-        region: (json['region'] as String?)!,
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? DatabaseClusterStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        privateNetworkUuid: json['private_network_uuid'] != null
-            ? SdkPresent((json['private_network_uuid'] as String?)!)
-            : const SdkOmitted(),
-        tags: json.containsKey('tags')
-            ? SdkPresent(
-                (json['tags'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-        dbNames: json.containsKey('db_names')
-            ? SdkPresent(
-                (json['db_names'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-        uiConnection: json['ui_connection'] != null
-            ? SdkPresent((json['ui_connection'] != null
-                ? OpensearchConnection.fromJson(
-                    json['ui_connection'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        schemaRegistryConnection: json['schema_registry_connection'] != null
-            ? SdkPresent((json['schema_registry_connection'] != null
-                ? SchemaRegistryConnection.fromJson(
-                    json['schema_registry_connection'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        connection: json['connection'] != null
-            ? SdkPresent((json['connection'] != null
-                ? DatabaseConnection.fromJson(
-                    json['connection'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        privateConnection: json['private_connection'] != null
-            ? SdkPresent((json['private_connection'] != null
-                ? DatabaseConnection.fromJson(
-                    json['private_connection'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        standbyConnection: json['standby_connection'] != null
-            ? SdkPresent((json['standby_connection'] != null
-                ? DatabaseConnection.fromJson(
-                    json['standby_connection'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        standbyPrivateConnection: json['standby_private_connection'] != null
-            ? SdkPresent((json['standby_private_connection'] != null
-                ? DatabaseConnection.fromJson(
-                    json['standby_private_connection'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        users: json.containsKey('users')
-            ? SdkPresent((json['users'] as List?)
-                ?.map((e) => DatabaseUser.fromJson(e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        maintenanceWindow: json['maintenance_window'] != null
-            ? SdkPresent((json['maintenance_window'] != null
-                ? DatabaseMaintenanceWindow.fromJson(
-                    json['maintenance_window'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        projectId: json['project_id'] != null
-            ? SdkPresent((json['project_id'] as String?)!)
-            : const SdkOmitted(),
-        rules: json['rules'] != null
-            ? SdkPresent(((json['rules'] as List?)
-                ?.map((e) => FirewallRule.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        versionEndOfLife: json['version_end_of_life'] != null
-            ? SdkPresent((json['version_end_of_life'] as String?)!)
-            : const SdkOmitted(),
-        versionEndOfAvailability: json['version_end_of_availability'] != null
-            ? SdkPresent((json['version_end_of_availability'] as String?)!)
-            : const SdkOmitted(),
-        storageSizeMib: json['storage_size_mib'] != null
-            ? SdkPresent(((json['storage_size_mib'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        metricsEndpoints: json['metrics_endpoints'] != null
-            ? SdkPresent(((json['metrics_endpoints'] as List?)
-                ?.map((e) =>
-                    DatabaseServiceEndpoint.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        autoscale: json['autoscale'] != null
-            ? SdkPresent((json['autoscale'] != null
-                ? DatabaseAutoscaleParams.fromJson(
-                    json['autoscale'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        doSettings: json['do_settings'] != null
-            ? SdkPresent((json['do_settings'] != null
-                ? DoSettings.fromJson(
-                    json['do_settings'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseCluster.fromJson(Map<String, dynamic> json) => DatabaseCluster(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: (json['name'] as String?)!,
+    engine: (json['engine'] != null ? DatabaseClusterEngine.fromJson(json['engine'] as String) : null)!,
+    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
+    semanticVersion: json['semantic_version'] != null ? SdkPresent((json['semantic_version'] as String?)!) : const SdkOmitted(),
+    numNodes: ((json['num_nodes'] as num?)?.toInt())!,
+    size: (json['size'] as String?)!,
+    region: (json['region'] as String?)!,
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? DatabaseClusterStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    privateNetworkUuid: json['private_network_uuid'] != null ? SdkPresent((json['private_network_uuid'] as String?)!) : const SdkOmitted(),
+    tags: json.containsKey('tags') ? SdkPresent((json['tags'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    dbNames: json.containsKey('db_names') ? SdkPresent((json['db_names'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    uiConnection: json['ui_connection'] != null ? SdkPresent((json['ui_connection'] != null ? OpensearchConnection.fromJson(json['ui_connection'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    schemaRegistryConnection: json['schema_registry_connection'] != null ? SdkPresent((json['schema_registry_connection'] != null ? SchemaRegistryConnection.fromJson(json['schema_registry_connection'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    connection: json['connection'] != null ? SdkPresent((json['connection'] != null ? DatabaseConnection.fromJson(json['connection'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    privateConnection: json['private_connection'] != null ? SdkPresent((json['private_connection'] != null ? DatabaseConnection.fromJson(json['private_connection'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    standbyConnection: json['standby_connection'] != null ? SdkPresent((json['standby_connection'] != null ? DatabaseConnection.fromJson(json['standby_connection'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    standbyPrivateConnection: json['standby_private_connection'] != null ? SdkPresent((json['standby_private_connection'] != null ? DatabaseConnection.fromJson(json['standby_private_connection'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    users: json.containsKey('users') ? SdkPresent((json['users'] as List?)?.map((e) => DatabaseUser.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    maintenanceWindow: json['maintenance_window'] != null ? SdkPresent((json['maintenance_window'] != null ? DatabaseMaintenanceWindow.fromJson(json['maintenance_window'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
+    rules: json['rules'] != null ? SdkPresent(((json['rules'] as List?)?.map((e) => FirewallRule.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    versionEndOfLife: json['version_end_of_life'] != null ? SdkPresent((json['version_end_of_life'] as String?)!) : const SdkOmitted(),
+    versionEndOfAvailability: json['version_end_of_availability'] != null ? SdkPresent((json['version_end_of_availability'] as String?)!) : const SdkOmitted(),
+    storageSizeMib: json['storage_size_mib'] != null ? SdkPresent(((json['storage_size_mib'] as num?)?.toInt())!) : const SdkOmitted(),
+    metricsEndpoints: json['metrics_endpoints'] != null ? SdkPresent(((json['metrics_endpoints'] as List?)?.map((e) => DatabaseServiceEndpoint.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    autoscale: json['autoscale'] != null ? SdkPresent((json['autoscale'] != null ? DatabaseAutoscaleParams.fromJson(json['autoscale'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    doSettings: json['do_settings'] != null ? SdkPresent((json['do_settings'] != null ? DoSettings.fromJson(json['do_settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'name': name,
-        'engine': engine.toJson(),
-        ...switch (version) {
-          SdkPresent<String>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (semanticVersion) {
-          SdkPresent<String>(value: final value) => {
-              'semantic_version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'num_nodes': numNodes,
-        'size': size,
-        'region': region,
-        ...switch (status) {
-          SdkPresent<DatabaseClusterStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (privateNetworkUuid) {
-          SdkPresent<String>(value: final value) => {
-              'private_network_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (dbNames) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'db_names': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (uiConnection) {
-          SdkPresent<OpensearchConnection>(value: final value) => {
-              'ui_connection': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (schemaRegistryConnection) {
-          SdkPresent<SchemaRegistryConnection>(value: final value) => {
-              'schema_registry_connection': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (connection) {
-          SdkPresent<DatabaseConnection>(value: final value) => {
-              'connection': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (privateConnection) {
-          SdkPresent<DatabaseConnection>(value: final value) => {
-              'private_connection': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (standbyConnection) {
-          SdkPresent<DatabaseConnection>(value: final value) => {
-              'standby_connection': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (standbyPrivateConnection) {
-          SdkPresent<DatabaseConnection>(value: final value) => {
-              'standby_private_connection': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (users) {
-          SdkPresent<List<DatabaseUser>?>(value: final value) => {
-              'users': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maintenanceWindow) {
-          SdkPresent<DatabaseMaintenanceWindow>(value: final value) => {
-              'maintenance_window': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projectId) {
-          SdkPresent<String>(value: final value) => {
-              'project_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rules) {
-          SdkPresent<List<FirewallRule>>(value: final value) => {
-              'rules': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (versionEndOfLife) {
-          SdkPresent<String>(value: final value) => {
-              'version_end_of_life': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (versionEndOfAvailability) {
-          SdkPresent<String>(value: final value) => {
-              'version_end_of_availability': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (storageSizeMib) {
-          SdkPresent<int>(value: final value) => {
-              'storage_size_mib': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metricsEndpoints) {
-          SdkPresent<List<DatabaseServiceEndpoint>>(value: final value) => {
-              'metrics_endpoints': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (autoscale) {
-          SdkPresent<DatabaseAutoscaleParams>(value: final value) => {
-              'autoscale': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (doSettings) {
-          SdkPresent<DoSettings>(value: final value) => {
-              'do_settings': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'name': name,
+    'engine': engine.toJson(),
+    ...switch (version) {
+      SdkPresent<String>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (semanticVersion) {
+      SdkPresent<String>(value: final value) => {'semantic_version': value,},
+      _ => const <String, dynamic>{},
+    },
+    'num_nodes': numNodes,
+    'size': size,
+    'region': region,
+    ...switch (status) {
+      SdkPresent<DatabaseClusterStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (privateNetworkUuid) {
+      SdkPresent<String>(value: final value) => {'private_network_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<String>?>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (dbNames) {
+      SdkPresent<List<String>?>(value: final value) => {'db_names': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (uiConnection) {
+      SdkPresent<OpensearchConnection>(value: final value) => {'ui_connection': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (schemaRegistryConnection) {
+      SdkPresent<SchemaRegistryConnection>(value: final value) => {'schema_registry_connection': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (connection) {
+      SdkPresent<DatabaseConnection>(value: final value) => {'connection': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (privateConnection) {
+      SdkPresent<DatabaseConnection>(value: final value) => {'private_connection': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (standbyConnection) {
+      SdkPresent<DatabaseConnection>(value: final value) => {'standby_connection': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (standbyPrivateConnection) {
+      SdkPresent<DatabaseConnection>(value: final value) => {'standby_private_connection': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (users) {
+      SdkPresent<List<DatabaseUser>?>(value: final value) => {'users': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maintenanceWindow) {
+      SdkPresent<DatabaseMaintenanceWindow>(value: final value) => {'maintenance_window': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projectId) {
+      SdkPresent<String>(value: final value) => {'project_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rules) {
+      SdkPresent<List<FirewallRule>>(value: final value) => {'rules': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (versionEndOfLife) {
+      SdkPresent<String>(value: final value) => {'version_end_of_life': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (versionEndOfAvailability) {
+      SdkPresent<String>(value: final value) => {'version_end_of_availability': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (storageSizeMib) {
+      SdkPresent<int>(value: final value) => {'storage_size_mib': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metricsEndpoints) {
+      SdkPresent<List<DatabaseServiceEndpoint>>(value: final value) => {'metrics_endpoints': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (autoscale) {
+      SdkPresent<DatabaseAutoscaleParams>(value: final value) => {'autoscale': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (doSettings) {
+      SdkPresent<DoSettings>(value: final value) => {'do_settings': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

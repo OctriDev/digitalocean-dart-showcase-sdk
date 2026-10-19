@@ -5,12 +5,12 @@ part of 'inline.dart';
 
 // Inline operation models (part 37)
 final class InferenceListBatchesStatus {
+
   final String value;
 
   const InferenceListBatchesStatus._(this.value);
 
-  factory InferenceListBatchesStatus.fromJson(String value) =>
-      InferenceListBatchesStatus._(value);
+  factory InferenceListBatchesStatus.fromJson(String value) => InferenceListBatchesStatus._(value);
 
   static const validating = InferenceListBatchesStatus._('validating');
   static const inProgress = InferenceListBatchesStatus._('in_progress');
@@ -23,129 +23,97 @@ final class InferenceListBatchesStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is InferenceListBatchesStatus && other.value == value;
+  @override bool operator ==(Object other) => other is InferenceListBatchesStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class HarnessListConfigSessionsStatus {
+
   final String value;
 
   const HarnessListConfigSessionsStatus._(this.value);
 
-  factory HarnessListConfigSessionsStatus.fromJson(String value) =>
-      HarnessListConfigSessionsStatus._(value);
+  factory HarnessListConfigSessionsStatus.fromJson(String value) => HarnessListConfigSessionsStatus._(value);
 
-  static const sessionStatusUnspecified =
-      HarnessListConfigSessionsStatus._('SESSION_STATUS_UNSPECIFIED');
-  static const sessionStatusProvisioning =
-      HarnessListConfigSessionsStatus._('SESSION_STATUS_PROVISIONING');
-  static const sessionStatusReady =
-      HarnessListConfigSessionsStatus._('SESSION_STATUS_READY');
-  static const sessionStatusDetached =
-      HarnessListConfigSessionsStatus._('SESSION_STATUS_DETACHED');
-  static const sessionStatusDestroying =
-      HarnessListConfigSessionsStatus._('SESSION_STATUS_DESTROYING');
-  static const sessionStatusDestroyed =
-      HarnessListConfigSessionsStatus._('SESSION_STATUS_DESTROYED');
-  static const sessionStatusFailed =
-      HarnessListConfigSessionsStatus._('SESSION_STATUS_FAILED');
-  static const sessionStatusPaused =
-      HarnessListConfigSessionsStatus._('SESSION_STATUS_PAUSED');
-  static const sessionStatusAll =
-      HarnessListConfigSessionsStatus._('SESSION_STATUS_ALL');
+  static const sessionStatusUnspecified = HarnessListConfigSessionsStatus._('SESSION_STATUS_UNSPECIFIED');
+  static const sessionStatusProvisioning = HarnessListConfigSessionsStatus._('SESSION_STATUS_PROVISIONING');
+  static const sessionStatusReady = HarnessListConfigSessionsStatus._('SESSION_STATUS_READY');
+  static const sessionStatusDetached = HarnessListConfigSessionsStatus._('SESSION_STATUS_DETACHED');
+  static const sessionStatusDestroying = HarnessListConfigSessionsStatus._('SESSION_STATUS_DESTROYING');
+  static const sessionStatusDestroyed = HarnessListConfigSessionsStatus._('SESSION_STATUS_DESTROYED');
+  static const sessionStatusFailed = HarnessListConfigSessionsStatus._('SESSION_STATUS_FAILED');
+  static const sessionStatusPaused = HarnessListConfigSessionsStatus._('SESSION_STATUS_PAUSED');
+  static const sessionStatusAll = HarnessListConfigSessionsStatus._('SESSION_STATUS_ALL');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HarnessListConfigSessionsStatus && other.value == value;
+  @override bool operator ==(Object other) => other is HarnessListConfigSessionsStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Transfer direction.
 final class HarnessCreateSessionWorkspaceTransferRequestBodyDirection {
+
   final String value;
 
   const HarnessCreateSessionWorkspaceTransferRequestBodyDirection._(this.value);
 
-  factory HarnessCreateSessionWorkspaceTransferRequestBodyDirection.fromJson(
-          String value) =>
-      HarnessCreateSessionWorkspaceTransferRequestBodyDirection._(value);
+  factory HarnessCreateSessionWorkspaceTransferRequestBodyDirection.fromJson(String value) => HarnessCreateSessionWorkspaceTransferRequestBodyDirection._(value);
 
-  static const upload =
-      HarnessCreateSessionWorkspaceTransferRequestBodyDirection._('upload');
-  static const download =
-      HarnessCreateSessionWorkspaceTransferRequestBodyDirection._('download');
+  static const upload = HarnessCreateSessionWorkspaceTransferRequestBodyDirection._('upload');
+  static const download = HarnessCreateSessionWorkspaceTransferRequestBodyDirection._('download');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is HarnessCreateSessionWorkspaceTransferRequestBodyDirection &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is HarnessCreateSessionWorkspaceTransferRequestBodyDirection && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class AppsListDeploymentsDeploymentTypesItem {
+
   final String value;
 
   const AppsListDeploymentsDeploymentTypesItem._(this.value);
 
-  factory AppsListDeploymentsDeploymentTypesItem.fromJson(String value) =>
-      AppsListDeploymentsDeploymentTypesItem._(value);
+  factory AppsListDeploymentsDeploymentTypesItem.fromJson(String value) => AppsListDeploymentsDeploymentTypesItem._(value);
 
   static const manual = AppsListDeploymentsDeploymentTypesItem._('MANUAL');
-  static const deployOnPush =
-      AppsListDeploymentsDeploymentTypesItem._('DEPLOY_ON_PUSH');
-  static const maintenance =
-      AppsListDeploymentsDeploymentTypesItem._('MAINTENANCE');
-  static const manualRollback =
-      AppsListDeploymentsDeploymentTypesItem._('MANUAL_ROLLBACK');
-  static const autoRollback =
-      AppsListDeploymentsDeploymentTypesItem._('AUTO_ROLLBACK');
-  static const updateDatabaseTrustedSources =
-      AppsListDeploymentsDeploymentTypesItem._(
-          'UPDATE_DATABASE_TRUSTED_SOURCES');
-  static const autoscaled =
-      AppsListDeploymentsDeploymentTypesItem._('AUTOSCALED');
+  static const deployOnPush = AppsListDeploymentsDeploymentTypesItem._('DEPLOY_ON_PUSH');
+  static const maintenance = AppsListDeploymentsDeploymentTypesItem._('MAINTENANCE');
+  static const manualRollback = AppsListDeploymentsDeploymentTypesItem._('MANUAL_ROLLBACK');
+  static const autoRollback = AppsListDeploymentsDeploymentTypesItem._('AUTO_ROLLBACK');
+  static const updateDatabaseTrustedSources = AppsListDeploymentsDeploymentTypesItem._('UPDATE_DATABASE_TRUSTED_SOURCES');
+  static const autoscaled = AppsListDeploymentsDeploymentTypesItem._('AUTOSCALED');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppsListDeploymentsDeploymentTypesItem && other.value == value;
+  @override bool operator ==(Object other) => other is AppsListDeploymentsDeploymentTypesItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class AppsListEventsEventTypesItem {
+
   final String value;
 
   const AppsListEventsEventTypesItem._(this.value);
 
-  factory AppsListEventsEventTypesItem.fromJson(String value) =>
-      AppsListEventsEventTypesItem._(value);
+  factory AppsListEventsEventTypesItem.fromJson(String value) => AppsListEventsEventTypesItem._(value);
 
   static const unknown = AppsListEventsEventTypesItem._('UNKNOWN');
   static const deployment = AppsListEventsEventTypesItem._('DEPLOYMENT');
@@ -153,218 +121,155 @@ final class AppsListEventsEventTypesItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppsListEventsEventTypesItem && other.value == value;
+  @override bool operator ==(Object other) => other is AppsListEventsEventTypesItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class AppsGetJobInvocationLogsType {
+
   final String value;
 
   const AppsGetJobInvocationLogsType._(this.value);
 
-  factory AppsGetJobInvocationLogsType.fromJson(String value) =>
-      AppsGetJobInvocationLogsType._(value);
+  factory AppsGetJobInvocationLogsType.fromJson(String value) => AppsGetJobInvocationLogsType._(value);
 
   static const jobInvocation = AppsGetJobInvocationLogsType._('JOB_INVOCATION');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppsGetJobInvocationLogsType && other.value == value;
+  @override bool operator ==(Object other) => other is AppsGetJobInvocationLogsType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Type of logsink integration. - Use `datadog` for Datadog integration **only with MongoDB clusters**. - For non-MongoDB clusters, use `rsyslog` for general syslog forwarding. - Other supported types include `elasticsearch` and `opensearch`. More details about the configuration can be found in the `config` property.
 final class DatabasesCreateLogsinkRequestBodySinkType {
+
   final String value;
 
   const DatabasesCreateLogsinkRequestBodySinkType._(this.value);
 
-  factory DatabasesCreateLogsinkRequestBodySinkType.fromJson(String value) =>
-      DatabasesCreateLogsinkRequestBodySinkType._(value);
+  factory DatabasesCreateLogsinkRequestBodySinkType.fromJson(String value) => DatabasesCreateLogsinkRequestBodySinkType._(value);
 
   static const rsyslog = DatabasesCreateLogsinkRequestBodySinkType._('rsyslog');
-  static const elasticsearch =
-      DatabasesCreateLogsinkRequestBodySinkType._('elasticsearch');
-  static const opensearch =
-      DatabasesCreateLogsinkRequestBodySinkType._('opensearch');
+  static const elasticsearch = DatabasesCreateLogsinkRequestBodySinkType._('elasticsearch');
+  static const opensearch = DatabasesCreateLogsinkRequestBodySinkType._('opensearch');
   static const datadog = DatabasesCreateLogsinkRequestBodySinkType._('datadog');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DatabasesCreateLogsinkRequestBodySinkType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is DatabasesCreateLogsinkRequestBodySinkType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the schema.
 final class DatabasesCreateKafkaSchemaRequestBodySchemaType {
+
   final String value;
 
   const DatabasesCreateKafkaSchemaRequestBodySchemaType._(this.value);
 
-  factory DatabasesCreateKafkaSchemaRequestBodySchemaType.fromJson(
-          String value) =>
-      DatabasesCreateKafkaSchemaRequestBodySchemaType._(value);
+  factory DatabasesCreateKafkaSchemaRequestBodySchemaType.fromJson(String value) => DatabasesCreateKafkaSchemaRequestBodySchemaType._(value);
 
   static const avro = DatabasesCreateKafkaSchemaRequestBodySchemaType._('AVRO');
   static const json = DatabasesCreateKafkaSchemaRequestBodySchemaType._('JSON');
-  static const protobuf =
-      DatabasesCreateKafkaSchemaRequestBodySchemaType._('PROTOBUF');
+  static const protobuf = DatabasesCreateKafkaSchemaRequestBodySchemaType._('PROTOBUF');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DatabasesCreateKafkaSchemaRequestBodySchemaType &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is DatabasesCreateKafkaSchemaRequestBodySchemaType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The compatibility level of the schema registry.
 final class DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel {
+
   final String value;
 
-  const DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._(
-      this.value);
+  const DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._(this.value);
 
-  factory DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel.fromJson(
-          String value) =>
-      DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._(value);
+  factory DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel.fromJson(String value) => DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._(value);
 
-  static const none =
-      DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._('NONE');
-  static const backward =
-      DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._(
-          'BACKWARD');
-  static const backwardTransitive =
-      DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._(
-          'BACKWARD_TRANSITIVE');
-  static const forward =
-      DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._(
-          'FORWARD');
-  static const forwardTransitive =
-      DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._(
-          'FORWARD_TRANSITIVE');
-  static const full =
-      DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._('FULL');
-  static const fullTransitive =
-      DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._(
-          'FULL_TRANSITIVE');
+  static const none = DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._('NONE');
+  static const backward = DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._('BACKWARD');
+  static const backwardTransitive = DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._('BACKWARD_TRANSITIVE');
+  static const forward = DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._('FORWARD');
+  static const forwardTransitive = DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._('FORWARD_TRANSITIVE');
+  static const full = DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._('FULL');
+  static const fullTransitive = DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel._('FULL_TRANSITIVE');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The compatibility level of the schema registry.
 final class DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel {
+
   final String value;
 
-  const DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._(
-      this.value);
+  const DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._(this.value);
 
-  factory DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel.fromJson(
-          String value) =>
-      DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._(
-          value);
+  factory DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel.fromJson(String value) => DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._(value);
 
-  static const none =
-      DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._(
-          'NONE');
-  static const backward =
-      DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._(
-          'BACKWARD');
-  static const backwardTransitive =
-      DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._(
-          'BACKWARD_TRANSITIVE');
-  static const forward =
-      DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._(
-          'FORWARD');
-  static const forwardTransitive =
-      DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._(
-          'FORWARD_TRANSITIVE');
-  static const full =
-      DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._(
-          'FULL');
-  static const fullTransitive =
-      DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._(
-          'FULL_TRANSITIVE');
+  static const none = DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._('NONE');
+  static const backward = DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._('BACKWARD');
+  static const backwardTransitive = DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._('BACKWARD_TRANSITIVE');
+  static const forward = DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._('FORWARD');
+  static const forwardTransitive = DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._('FORWARD_TRANSITIVE');
+  static const full = DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._('FULL');
+  static const fullTransitive = DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel._('FULL_TRANSITIVE');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other
-          is DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListCustomModelsStatus {
+
   final String value;
 
   const GenaiListCustomModelsStatus._(this.value);
 
-  factory GenaiListCustomModelsStatus.fromJson(String value) =>
-      GenaiListCustomModelsStatus._(value);
+  factory GenaiListCustomModelsStatus.fromJson(String value) => GenaiListCustomModelsStatus._(value);
 
-  static const statusUnspecified =
-      GenaiListCustomModelsStatus._('STATUS_UNSPECIFIED');
-  static const statusImporting =
-      GenaiListCustomModelsStatus._('STATUS_IMPORTING');
+  static const statusUnspecified = GenaiListCustomModelsStatus._('STATUS_UNSPECIFIED');
+  static const statusImporting = GenaiListCustomModelsStatus._('STATUS_IMPORTING');
   static const statusReady = GenaiListCustomModelsStatus._('STATUS_READY');
   static const statusFailed = GenaiListCustomModelsStatus._('STATUS_FAILED');
   static const statusDeleted = GenaiListCustomModelsStatus._('STATUS_DELETED');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListCustomModelsStatus && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListCustomModelsStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

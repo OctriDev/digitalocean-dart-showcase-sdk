@@ -8,451 +8,234 @@ part of 'vector_databases.dart';
 class VectordbUpdateVectorDBTagsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// VectorDB represents a provisioned vector database instance.
   final SdkOptional<VectordbVectorDB> vectorDb;
 
-  const VectordbUpdateVectorDBTagsResponse(
-      {this.vectorDb = const SdkOmitted()});
+  const VectordbUpdateVectorDBTagsResponse({this.vectorDb = const SdkOmitted()});
 
-  VectordbUpdateVectorDBTagsResponse Function(
-      {SdkOptional<VectordbVectorDB> vectorDb}) get copyWith => _copyWith;
+  VectordbUpdateVectorDBTagsResponse Function({SdkOptional<VectordbVectorDB> vectorDb}) get copyWith => _copyWith;
 
-  VectordbUpdateVectorDBTagsResponse _copyWith(
-          {Object? vectorDb = sdkOmittedValue}) =>
-      VectordbUpdateVectorDBTagsResponse(
-        vectorDb: identical(vectorDb, sdkOmittedValue)
-            ? this.vectorDb
-            : vectorDb as SdkOptional<VectordbVectorDB>,
-      );
+  VectordbUpdateVectorDBTagsResponse _copyWith({Object? vectorDb = sdkOmittedValue}) => VectordbUpdateVectorDBTagsResponse(
+    vectorDb: identical(vectorDb, sdkOmittedValue) ? this.vectorDb : vectorDb as SdkOptional<VectordbVectorDB>,
+  );
 
-  factory VectordbUpdateVectorDBTagsResponse.fromJson(
-          Map<String, dynamic> json) =>
-      VectordbUpdateVectorDBTagsResponse(
-        vectorDb: json['vector_db'] != null
-            ? SdkPresent((json['vector_db'] != null
-                ? VectordbVectorDB.fromJson(
-                    json['vector_db'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory VectordbUpdateVectorDBTagsResponse.fromJson(Map<String, dynamic> json) => VectordbUpdateVectorDBTagsResponse(
+    vectorDb: json['vector_db'] != null ? SdkPresent((json['vector_db'] != null ? VectordbVectorDB.fromJson(json['vector_db'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (vectorDb) {
-          SdkPresent<VectordbVectorDB>(value: final value) => {
-              'vector_db': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (vectorDb) {
+      SdkPresent<VectordbVectorDB>(value: final value) => {'vector_db': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// VectorDB represents a provisioned vector database instance.
 class VectordbVectorDB {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// VectorDBConfig holds optional, advanced cluster settings.
   final SdkOptional<VectordbVectorDBConfig> config;
-
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
-
   /// VectorDBEndpoints contains the connection endpoints for a vector database instance.
   final SdkOptional<VectordbVectorDBEndpoints> endpoints;
-
   /// ID of the vector database this instance was forked from. Empty when the instance was created directly via CreateVectorDB. Read-only and set by the platform at fork time; never modifiable through UpdateVectorDB.
   final SdkOptional<String> forkedFromId;
-
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String> id;
-
   /// Backup_id of the most recent restore initiated against this instance. Empty if no restore has ever been triggered. Lets callers recover the identifier of an in-flight or last-completed restore without having to retain the RestoreBackupResponse themselves. Use it with GetRestoreStatus to fetch the live status.
   final SdkOptional<String> lastRestoreId;
-
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
-
   /// Optional `string` value serialized in the `owner_uuid` wire field.
   final SdkOptional<String> ownerUuid;
-
   /// Project this database belongs to.
   final SdkOptional<String> projectId;
-
   /// Optional `string` value serialized in the `region` wire field.
   final SdkOptional<String> region;
-
   /// Resource tier: small, medium, or large.
   final SdkOptional<String> size;
-
   /// Lifecycle state: pending, creating, active, errored, or deleting.
   final SdkOptional<String> status;
-
   /// Optional array value serialized in the `tags` wire field.
   final SdkOptional<List<String>> tags;
-
   /// Optional `date-time`-formatted value serialized in the `updated_at` wire field.
   final SdkOptional<String> updatedAt;
 
-  const VectordbVectorDB(
-      {this.config = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.endpoints = const SdkOmitted(),
-      this.forkedFromId = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.lastRestoreId = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.ownerUuid = const SdkOmitted(),
-      this.projectId = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.size = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.tags = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted()});
+  const VectordbVectorDB({this.config = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.endpoints = const SdkOmitted(), this.forkedFromId = const SdkOmitted(), this.id = const SdkOmitted(), this.lastRestoreId = const SdkOmitted(), this.name = const SdkOmitted(), this.ownerUuid = const SdkOmitted(), this.projectId = const SdkOmitted(), this.region = const SdkOmitted(), this.size = const SdkOmitted(), this.status = const SdkOmitted(), this.tags = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
 
-  VectordbVectorDB Function(
-      {SdkOptional<VectordbVectorDBConfig> config,
-      SdkOptional<String> createdAt,
-      SdkOptional<VectordbVectorDBEndpoints> endpoints,
-      SdkOptional<String> forkedFromId,
-      SdkOptional<String> id,
-      SdkOptional<String> lastRestoreId,
-      SdkOptional<String> name,
-      SdkOptional<String> ownerUuid,
-      SdkOptional<String> projectId,
-      SdkOptional<String> region,
-      SdkOptional<String> size,
-      SdkOptional<String> status,
-      SdkOptional<List<String>> tags,
-      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  VectordbVectorDB Function({SdkOptional<VectordbVectorDBConfig> config, SdkOptional<String> createdAt, SdkOptional<VectordbVectorDBEndpoints> endpoints, SdkOptional<String> forkedFromId, SdkOptional<String> id, SdkOptional<String> lastRestoreId, SdkOptional<String> name, SdkOptional<String> ownerUuid, SdkOptional<String> projectId, SdkOptional<String> region, SdkOptional<String> size, SdkOptional<String> status, SdkOptional<List<String>> tags, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  VectordbVectorDB _copyWith(
-          {Object? config = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? endpoints = sdkOmittedValue,
-          Object? forkedFromId = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? lastRestoreId = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? ownerUuid = sdkOmittedValue,
-          Object? projectId = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? tags = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      VectordbVectorDB(
-        config: identical(config, sdkOmittedValue)
-            ? this.config
-            : config as SdkOptional<VectordbVectorDBConfig>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        endpoints: identical(endpoints, sdkOmittedValue)
-            ? this.endpoints
-            : endpoints as SdkOptional<VectordbVectorDBEndpoints>,
-        forkedFromId: identical(forkedFromId, sdkOmittedValue)
-            ? this.forkedFromId
-            : forkedFromId as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        lastRestoreId: identical(lastRestoreId, sdkOmittedValue)
-            ? this.lastRestoreId
-            : lastRestoreId as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        ownerUuid: identical(ownerUuid, sdkOmittedValue)
-            ? this.ownerUuid
-            : ownerUuid as SdkOptional<String>,
-        projectId: identical(projectId, sdkOmittedValue)
-            ? this.projectId
-            : projectId as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-        size: identical(size, sdkOmittedValue)
-            ? this.size
-            : size as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-      );
+  VectordbVectorDB _copyWith({Object? config = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? endpoints = sdkOmittedValue, Object? forkedFromId = sdkOmittedValue, Object? id = sdkOmittedValue, Object? lastRestoreId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? ownerUuid = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? region = sdkOmittedValue, Object? size = sdkOmittedValue, Object? status = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => VectordbVectorDB(
+    config: identical(config, sdkOmittedValue) ? this.config : config as SdkOptional<VectordbVectorDBConfig>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    endpoints: identical(endpoints, sdkOmittedValue) ? this.endpoints : endpoints as SdkOptional<VectordbVectorDBEndpoints>,
+    forkedFromId: identical(forkedFromId, sdkOmittedValue) ? this.forkedFromId : forkedFromId as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    lastRestoreId: identical(lastRestoreId, sdkOmittedValue) ? this.lastRestoreId : lastRestoreId as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    ownerUuid: identical(ownerUuid, sdkOmittedValue) ? this.ownerUuid : ownerUuid as SdkOptional<String>,
+    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+  );
 
-  factory VectordbVectorDB.fromJson(Map<String, dynamic> json) =>
-      VectordbVectorDB(
-        config: json['config'] != null
-            ? SdkPresent((json['config'] != null
-                ? VectordbVectorDBConfig.fromJson(
-                    json['config'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        endpoints: json['endpoints'] != null
-            ? SdkPresent((json['endpoints'] != null
-                ? VectordbVectorDBEndpoints.fromJson(
-                    json['endpoints'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        forkedFromId: json['forked_from_id'] != null
-            ? SdkPresent((json['forked_from_id'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        lastRestoreId: json['last_restore_id'] != null
-            ? SdkPresent((json['last_restore_id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        ownerUuid: json['owner_uuid'] != null
-            ? SdkPresent((json['owner_uuid'] as String?)!)
-            : const SdkOmitted(),
-        projectId: json['project_id'] != null
-            ? SdkPresent((json['project_id'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-        size: json['size'] != null
-            ? SdkPresent((json['size'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-        tags: json['tags'] != null
-            ? SdkPresent(
-                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VectordbVectorDB.fromJson(Map<String, dynamic> json) => VectordbVectorDB(
+    config: json['config'] != null ? SdkPresent((json['config'] != null ? VectordbVectorDBConfig.fromJson(json['config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    endpoints: json['endpoints'] != null ? SdkPresent((json['endpoints'] != null ? VectordbVectorDBEndpoints.fromJson(json['endpoints'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    forkedFromId: json['forked_from_id'] != null ? SdkPresent((json['forked_from_id'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    lastRestoreId: json['last_restore_id'] != null ? SdkPresent((json['last_restore_id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    ownerUuid: json['owner_uuid'] != null ? SdkPresent((json['owner_uuid'] as String?)!) : const SdkOmitted(),
+    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+    size: json['size'] != null ? SdkPresent((json['size'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (config) {
-          SdkPresent<VectordbVectorDBConfig>(value: final value) => {
-              'config': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (endpoints) {
-          SdkPresent<VectordbVectorDBEndpoints>(value: final value) => {
-              'endpoints': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (forkedFromId) {
-          SdkPresent<String>(value: final value) => {
-              'forked_from_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastRestoreId) {
-          SdkPresent<String>(value: final value) => {
-              'last_restore_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ownerUuid) {
-          SdkPresent<String>(value: final value) => {
-              'owner_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projectId) {
-          SdkPresent<String>(value: final value) => {
-              'project_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (size) {
-          SdkPresent<String>(value: final value) => {
-              'size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<String>>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (config) {
+      SdkPresent<VectordbVectorDBConfig>(value: final value) => {'config': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (endpoints) {
+      SdkPresent<VectordbVectorDBEndpoints>(value: final value) => {'endpoints': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (forkedFromId) {
+      SdkPresent<String>(value: final value) => {'forked_from_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastRestoreId) {
+      SdkPresent<String>(value: final value) => {'last_restore_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ownerUuid) {
+      SdkPresent<String>(value: final value) => {'owner_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projectId) {
+      SdkPresent<String>(value: final value) => {'project_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (size) {
+      SdkPresent<String>(value: final value) => {'size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<String>>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// VectorDBConfig holds optional, advanced cluster settings.
 class VectordbVectorDBConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Default vector compression for new collections: rq, pq, bq, or sq. Empty means platform default (rq).
   final SdkOptional<String> defaultQuantization;
-
   /// Optional `boolean` value serialized in the `enable_auto_schema` wire field.
   final SdkOptional<bool> enableAutoSchema;
-
   /// The Vector Database version running on the cluster.
   final SdkOptional<String> weaviateVersion;
 
-  const VectordbVectorDBConfig(
-      {this.defaultQuantization = const SdkOmitted(),
-      this.enableAutoSchema = const SdkOmitted(),
-      this.weaviateVersion = const SdkOmitted()});
+  const VectordbVectorDBConfig({this.defaultQuantization = const SdkOmitted(), this.enableAutoSchema = const SdkOmitted(), this.weaviateVersion = const SdkOmitted()});
 
-  VectordbVectorDBConfig Function(
-      {SdkOptional<String> defaultQuantization,
-      SdkOptional<bool> enableAutoSchema,
-      SdkOptional<String> weaviateVersion}) get copyWith => _copyWith;
+  VectordbVectorDBConfig Function({SdkOptional<String> defaultQuantization, SdkOptional<bool> enableAutoSchema, SdkOptional<String> weaviateVersion}) get copyWith => _copyWith;
 
-  VectordbVectorDBConfig _copyWith(
-          {Object? defaultQuantization = sdkOmittedValue,
-          Object? enableAutoSchema = sdkOmittedValue,
-          Object? weaviateVersion = sdkOmittedValue}) =>
-      VectordbVectorDBConfig(
-        defaultQuantization: identical(defaultQuantization, sdkOmittedValue)
-            ? this.defaultQuantization
-            : defaultQuantization as SdkOptional<String>,
-        enableAutoSchema: identical(enableAutoSchema, sdkOmittedValue)
-            ? this.enableAutoSchema
-            : enableAutoSchema as SdkOptional<bool>,
-        weaviateVersion: identical(weaviateVersion, sdkOmittedValue)
-            ? this.weaviateVersion
-            : weaviateVersion as SdkOptional<String>,
-      );
+  VectordbVectorDBConfig _copyWith({Object? defaultQuantization = sdkOmittedValue, Object? enableAutoSchema = sdkOmittedValue, Object? weaviateVersion = sdkOmittedValue}) => VectordbVectorDBConfig(
+    defaultQuantization: identical(defaultQuantization, sdkOmittedValue) ? this.defaultQuantization : defaultQuantization as SdkOptional<String>,
+    enableAutoSchema: identical(enableAutoSchema, sdkOmittedValue) ? this.enableAutoSchema : enableAutoSchema as SdkOptional<bool>,
+    weaviateVersion: identical(weaviateVersion, sdkOmittedValue) ? this.weaviateVersion : weaviateVersion as SdkOptional<String>,
+  );
 
-  factory VectordbVectorDBConfig.fromJson(Map<String, dynamic> json) =>
-      VectordbVectorDBConfig(
-        defaultQuantization: json['default_quantization'] != null
-            ? SdkPresent((json['default_quantization'] as String?)!)
-            : const SdkOmitted(),
-        enableAutoSchema: json['enable_auto_schema'] != null
-            ? SdkPresent((json['enable_auto_schema'] as bool?)!)
-            : const SdkOmitted(),
-        weaviateVersion: json['weaviate_version'] != null
-            ? SdkPresent((json['weaviate_version'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VectordbVectorDBConfig.fromJson(Map<String, dynamic> json) => VectordbVectorDBConfig(
+    defaultQuantization: json['default_quantization'] != null ? SdkPresent((json['default_quantization'] as String?)!) : const SdkOmitted(),
+    enableAutoSchema: json['enable_auto_schema'] != null ? SdkPresent((json['enable_auto_schema'] as bool?)!) : const SdkOmitted(),
+    weaviateVersion: json['weaviate_version'] != null ? SdkPresent((json['weaviate_version'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (defaultQuantization) {
-          SdkPresent<String>(value: final value) => {
-              'default_quantization': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (enableAutoSchema) {
-          SdkPresent<bool>(value: final value) => {
-              'enable_auto_schema': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (weaviateVersion) {
-          SdkPresent<String>(value: final value) => {
-              'weaviate_version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (defaultQuantization) {
+      SdkPresent<String>(value: final value) => {'default_quantization': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (enableAutoSchema) {
+      SdkPresent<bool>(value: final value) => {'enable_auto_schema': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (weaviateVersion) {
+      SdkPresent<String>(value: final value) => {'weaviate_version': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// VectorDBEndpoints contains the connection endpoints for a vector database instance.
 class VectordbVectorDBEndpoints {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Endpoint for gRPC connections (e.g. "my-db-tor1-a1b2c3d4-grpc.weaviate.ondigitalocean.com:443").
   final SdkOptional<String> grpc;
-
   /// Endpoint for HTTPS connections (e.g. "https://my-db-tor1-a1b2c3d4.weaviate.ondigitalocean.com").
   final SdkOptional<String> http;
 
-  const VectordbVectorDBEndpoints(
-      {this.grpc = const SdkOmitted(), this.http = const SdkOmitted()});
+  const VectordbVectorDBEndpoints({this.grpc = const SdkOmitted(), this.http = const SdkOmitted()});
 
-  VectordbVectorDBEndpoints Function(
-      {SdkOptional<String> grpc,
-      SdkOptional<String> http}) get copyWith => _copyWith;
+  VectordbVectorDBEndpoints Function({SdkOptional<String> grpc, SdkOptional<String> http}) get copyWith => _copyWith;
 
-  VectordbVectorDBEndpoints _copyWith(
-          {Object? grpc = sdkOmittedValue, Object? http = sdkOmittedValue}) =>
-      VectordbVectorDBEndpoints(
-        grpc: identical(grpc, sdkOmittedValue)
-            ? this.grpc
-            : grpc as SdkOptional<String>,
-        http: identical(http, sdkOmittedValue)
-            ? this.http
-            : http as SdkOptional<String>,
-      );
+  VectordbVectorDBEndpoints _copyWith({Object? grpc = sdkOmittedValue, Object? http = sdkOmittedValue}) => VectordbVectorDBEndpoints(
+    grpc: identical(grpc, sdkOmittedValue) ? this.grpc : grpc as SdkOptional<String>,
+    http: identical(http, sdkOmittedValue) ? this.http : http as SdkOptional<String>,
+  );
 
-  factory VectordbVectorDBEndpoints.fromJson(Map<String, dynamic> json) =>
-      VectordbVectorDBEndpoints(
-        grpc: json['grpc'] != null
-            ? SdkPresent((json['grpc'] as String?)!)
-            : const SdkOmitted(),
-        http: json['http'] != null
-            ? SdkPresent((json['http'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VectordbVectorDBEndpoints.fromJson(Map<String, dynamic> json) => VectordbVectorDBEndpoints(
+    grpc: json['grpc'] != null ? SdkPresent((json['grpc'] as String?)!) : const SdkOmitted(),
+    http: json['http'] != null ? SdkPresent((json['http'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (grpc) {
-          SdkPresent<String>(value: final value) => {
-              'grpc': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (http) {
-          SdkPresent<String>(value: final value) => {
-              'http': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (grpc) {
+      SdkPresent<String>(value: final value) => {'grpc': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (http) {
+      SdkPresent<String>(value: final value) => {'http': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

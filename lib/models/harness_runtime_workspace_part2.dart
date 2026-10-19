@@ -8,132 +8,76 @@ part of 'harness_runtime_workspace.dart';
 class WorkspaceUploadCommitted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `transfer_id` wire field.
   final SdkOptional<String> transferId;
-
   /// Optional enumerated value serialized in the `status` wire field.
   final SdkOptional<WorkspaceUploadCommittedStatus> status;
-
   /// Size of the completed staging object, when known.
   final SdkOptional<int> sizeBytes;
 
-  const WorkspaceUploadCommitted(
-      {this.transferId = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.sizeBytes = const SdkOmitted()});
+  const WorkspaceUploadCommitted({this.transferId = const SdkOmitted(), this.status = const SdkOmitted(), this.sizeBytes = const SdkOmitted()});
 
-  WorkspaceUploadCommitted Function(
-      {SdkOptional<String> transferId,
-      SdkOptional<WorkspaceUploadCommittedStatus> status,
-      SdkOptional<int> sizeBytes}) get copyWith => _copyWith;
+  WorkspaceUploadCommitted Function({SdkOptional<String> transferId, SdkOptional<WorkspaceUploadCommittedStatus> status, SdkOptional<int> sizeBytes}) get copyWith => _copyWith;
 
-  WorkspaceUploadCommitted _copyWith(
-          {Object? transferId = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? sizeBytes = sdkOmittedValue}) =>
-      WorkspaceUploadCommitted(
-        transferId: identical(transferId, sdkOmittedValue)
-            ? this.transferId
-            : transferId as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<WorkspaceUploadCommittedStatus>,
-        sizeBytes: identical(sizeBytes, sdkOmittedValue)
-            ? this.sizeBytes
-            : sizeBytes as SdkOptional<int>,
-      );
+  WorkspaceUploadCommitted _copyWith({Object? transferId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? sizeBytes = sdkOmittedValue}) => WorkspaceUploadCommitted(
+    transferId: identical(transferId, sdkOmittedValue) ? this.transferId : transferId as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<WorkspaceUploadCommittedStatus>,
+    sizeBytes: identical(sizeBytes, sdkOmittedValue) ? this.sizeBytes : sizeBytes as SdkOptional<int>,
+  );
 
-  factory WorkspaceUploadCommitted.fromJson(Map<String, dynamic> json) =>
-      WorkspaceUploadCommitted(
-        transferId: json['transfer_id'] != null
-            ? SdkPresent((json['transfer_id'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? WorkspaceUploadCommittedStatus.fromJson(
-                    json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        sizeBytes: json['size_bytes'] != null
-            ? SdkPresent(((json['size_bytes'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory WorkspaceUploadCommitted.fromJson(Map<String, dynamic> json) => WorkspaceUploadCommitted(
+    transferId: json['transfer_id'] != null ? SdkPresent((json['transfer_id'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? WorkspaceUploadCommittedStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    sizeBytes: json['size_bytes'] != null ? SdkPresent(((json['size_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (transferId) {
-          SdkPresent<String>(value: final value) => {
-              'transfer_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<WorkspaceUploadCommittedStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sizeBytes) {
-          SdkPresent<int>(value: final value) => {
-              'size_bytes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (transferId) {
+      SdkPresent<String>(value: final value) => {'transfer_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<WorkspaceUploadCommittedStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sizeBytes) {
+      SdkPresent<int>(value: final value) => {'size_bytes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `WorkspaceUploadResponse` API schema.
 class WorkspaceUploadResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Absolute guest path the payload was written to.
   final SdkOptional<String> path;
-
   /// Number of bytes committed to the workspace.
   final SdkOptional<int> bytesWritten;
 
-  const WorkspaceUploadResponse(
-      {this.path = const SdkOmitted(), this.bytesWritten = const SdkOmitted()});
+  const WorkspaceUploadResponse({this.path = const SdkOmitted(), this.bytesWritten = const SdkOmitted()});
 
-  WorkspaceUploadResponse Function(
-      {SdkOptional<String> path,
-      SdkOptional<int> bytesWritten}) get copyWith => _copyWith;
+  WorkspaceUploadResponse Function({SdkOptional<String> path, SdkOptional<int> bytesWritten}) get copyWith => _copyWith;
 
-  WorkspaceUploadResponse _copyWith(
-          {Object? path = sdkOmittedValue,
-          Object? bytesWritten = sdkOmittedValue}) =>
-      WorkspaceUploadResponse(
-        path: identical(path, sdkOmittedValue)
-            ? this.path
-            : path as SdkOptional<String>,
-        bytesWritten: identical(bytesWritten, sdkOmittedValue)
-            ? this.bytesWritten
-            : bytesWritten as SdkOptional<int>,
-      );
+  WorkspaceUploadResponse _copyWith({Object? path = sdkOmittedValue, Object? bytesWritten = sdkOmittedValue}) => WorkspaceUploadResponse(
+    path: identical(path, sdkOmittedValue) ? this.path : path as SdkOptional<String>,
+    bytesWritten: identical(bytesWritten, sdkOmittedValue) ? this.bytesWritten : bytesWritten as SdkOptional<int>,
+  );
 
-  factory WorkspaceUploadResponse.fromJson(Map<String, dynamic> json) =>
-      WorkspaceUploadResponse(
-        path: json['path'] != null
-            ? SdkPresent((json['path'] as String?)!)
-            : const SdkOmitted(),
-        bytesWritten: json['bytes_written'] != null
-            ? SdkPresent(((json['bytes_written'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory WorkspaceUploadResponse.fromJson(Map<String, dynamic> json) => WorkspaceUploadResponse(
+    path: json['path'] != null ? SdkPresent((json['path'] as String?)!) : const SdkOmitted(),
+    bytesWritten: json['bytes_written'] != null ? SdkPresent(((json['bytes_written'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (path) {
-          SdkPresent<String>(value: final value) => {
-              'path': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (bytesWritten) {
-          SdkPresent<int>(value: final value) => {
-              'bytes_written': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (path) {
+      SdkPresent<String>(value: final value) => {'path': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (bytesWritten) {
+      SdkPresent<int>(value: final value) => {'bytes_written': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -20,29 +20,18 @@ Future<ApiListAgentsOutputPublic> genaiListAgents(ClientConfig config,
           'GET', '/v2/gen-ai/agents',
           config: config,
           query: {
-            'only_deployed': SdkQueryValue(
-                SdkUtils.unwrapOptional(onlyDeployed),
-                style: 'form',
-                explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'only_deployed': SdkQueryValue(SdkUtils.unwrapOptional(onlyDeployed), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListAgents',
-          fromJsonRaw: (value) =>
-              ApiListAgentsOutputPublic.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListAgentsOutputPublic.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a new agent in the specified project and region. Configure the agent with fields such as `name`, `instruction`, and `model_uuid`, and optionally attach knowledge bases or MCP servers. A 200 response returns the newly created agent object.
 ///
@@ -107,8 +96,7 @@ Future<ApiCreateAgentOutput> genaiCreateAgent(ClientConfig config,
             'instruction': SdkUtils.unwrapOptional(instruction),
             'knowledge_base_uuid': SdkUtils.unwrapOptional(knowledgeBaseUuid),
             'mcp_servers': SdkUtils.unwrapOptional(mcpServers),
-            'model_provider_key_uuid':
-                SdkUtils.unwrapOptional(modelProviderKeyUuid),
+            'model_provider_key_uuid': SdkUtils.unwrapOptional(modelProviderKeyUuid),
             'model_router_uuid': SdkUtils.unwrapOptional(modelRouterUuid),
             'model_uuid': SdkUtils.unwrapOptional(modelUuid),
             'name': SdkUtils.unwrapOptional(name),
@@ -118,26 +106,19 @@ Future<ApiCreateAgentOutput> genaiCreateAgent(ClientConfig config,
             'region': SdkUtils.unwrapOptional(region),
             'router_preset_slug': SdkUtils.unwrapOptional(routerPresetSlug),
             'tags': SdkUtils.unwrapOptional(tags),
-            'thinking_token_budget':
-                SdkUtils.unwrapOptional(thinkingTokenBudget),
+            'thinking_token_budget': SdkUtils.unwrapOptional(thinkingTokenBudget),
             'web_fetch_enabled': SdkUtils.unwrapOptional(webFetchEnabled),
             'web_search_enabled': SdkUtils.unwrapOptional(webSearchEnabled),
             'workspace_uuid': SdkUtils.unwrapOptional(workspaceUuid)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateAgent',
-          fromJsonRaw: (value) =>
-              ApiCreateAgentOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateAgentOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all agent API keys, send a GET request to `/v2/gen-ai/agents/{agent_uuid}/api_keys`.
 ///
@@ -153,25 +134,17 @@ Future<ApiListAgentAPIKeysOutput> genaiListAgentApiKeys(ClientConfig config,
           '/v2/gen-ai/agents/${Uri.encodeComponent(agentUuid.toString())}/api_keys',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListAgentApiKeys',
-          fromJsonRaw: (value) =>
-              ApiListAgentAPIKeysOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListAgentAPIKeysOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create an agent API key, send a POST request to `/v2/gen-ai/agents/{agent_uuid}/api_keys`.
 ///
@@ -192,18 +165,12 @@ Future<ApiCreateAgentAPIKeyOutput> genaiCreateAgentApiKey(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateAgentApiKey',
-          fromJsonRaw: (value) => ApiCreateAgentAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateAgentAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Replaces the configurable details of an API key for an agent. Use the agent and API key identifiers to select the key, and supply `name` in the optional request body to set its name. A 200 response returns the API key information.
 ///
@@ -231,18 +198,12 @@ Future<ApiUpdateAgentAPIKeyOutput> genaiUpdateAgentApiKey(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateAgentApiKey',
-          fromJsonRaw: (value) => ApiUpdateAgentAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateAgentAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an API key for an agent, send a DELETE request to `/v2/gen-ai/agents/{agent_uuid}/api_keys/{api_key_uuid}`.
 ///
@@ -257,45 +218,33 @@ Future<ApiDeleteAgentAPIKeyOutput> genaiDeleteAgentApiKey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteAgentApiKey',
-          fromJsonRaw: (value) => ApiDeleteAgentAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteAgentAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To regenerate an agent API key, send a PUT request to `/v2/gen-ai/agents/{agent_uuid}/api_keys/{api_key_uuid}/regenerate`.
 ///
 /// [agentUuid] Agent id
 /// [apiKeyUuid] API key ID
-Future<ApiRegenerateAgentAPIKeyOutput> genaiRegenerateAgentApiKey(
-    ClientConfig config,
-    {required String agentUuid,
-    required String apiKeyUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiRegenerateAgentAPIKeyOutput>
+    genaiRegenerateAgentApiKey(ClientConfig config,
+        {required String agentUuid,
+        required String apiKeyUuid,
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiRegenerateAgentAPIKeyOutput>('PUT',
           '/v2/gen-ai/agents/${Uri.encodeComponent(agentUuid.toString())}/api_keys/${Uri.encodeComponent(apiKeyUuid.toString())}/regenerate',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiRegenerateAgentApiKey',
-          fromJsonRaw: (value) => ApiRegenerateAgentAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiRegenerateAgentAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a function route for an agent, send a POST request to `/v2/gen-ai/agents/{agent_uuid}/functions`.
 ///
@@ -334,18 +283,12 @@ Future<ApiLinkAgentFunctionOutput> genaiAttachAgentFunction(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiAttachAgentFunction',
-          fromJsonRaw: (value) => ApiLinkAgentFunctionOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiLinkAgentFunctionOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update the function route, send a PUT request to `/v2/gen-ai/agents/{agent_uuid}/functions/{function_uuid}`.
 ///
@@ -362,19 +305,19 @@ Future<ApiLinkAgentFunctionOutput> genaiAttachAgentFunction(ClientConfig config,
 ///   call it
 /// [outputSchema] Describe the output schema for the function so the agent
 ///   handle its response
-Future<ApiUpdateAgentFunctionOutput> genaiUpdateAgentFunction(
-    ClientConfig config,
-    {required String agentUuid,
-    required String functionUuid,
-    SdkOptional<String> agentUuid_2 = const SdkOmitted(),
-    SdkOptional<String> description = const SdkOmitted(),
-    SdkOptional<String> faasName = const SdkOmitted(),
-    SdkOptional<String> faasNamespace = const SdkOmitted(),
-    SdkOptional<String> functionName = const SdkOmitted(),
-    SdkOptional<String> functionUuid_2 = const SdkOmitted(),
-    SdkOptional<Map<String, dynamic>> inputSchema = const SdkOmitted(),
-    SdkOptional<Map<String, dynamic>> outputSchema = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiUpdateAgentFunctionOutput>
+    genaiUpdateAgentFunction(ClientConfig config,
+        {required String agentUuid,
+        required String functionUuid,
+        SdkOptional<String> agentUuid_2 = const SdkOmitted(),
+        SdkOptional<String> description = const SdkOmitted(),
+        SdkOptional<String> faasName = const SdkOmitted(),
+        SdkOptional<String> faasNamespace = const SdkOmitted(),
+        SdkOptional<String> functionName = const SdkOmitted(),
+        SdkOptional<String> functionUuid_2 = const SdkOmitted(),
+        SdkOptional<Map<String, dynamic>> inputSchema = const SdkOmitted(),
+        SdkOptional<Map<String, dynamic>> outputSchema = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiUpdateAgentFunctionOutput>('PUT',
           '/v2/gen-ai/agents/${Uri.encodeComponent(agentUuid.toString())}/functions/${Uri.encodeComponent(functionUuid.toString())}',
           config: config,
@@ -390,58 +333,46 @@ Future<ApiUpdateAgentFunctionOutput> genaiUpdateAgentFunction(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateAgentFunction',
-          fromJsonRaw: (value) => ApiUpdateAgentFunctionOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateAgentFunctionOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a function route from an agent, send a DELETE request to `/v2/gen-ai/agents/{agent_uuid}/functions/{function_uuid}`.
 ///
 /// [agentUuid] The id of the agent the function route belongs to.
 /// [functionUuid] The function route to be destroyed. This does not destroy the
 ///   function itself.
-Future<ApiUnlinkAgentFunctionOutput> genaiDetachAgentFunction(
-    ClientConfig config,
-    {required String agentUuid,
-    required String functionUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiUnlinkAgentFunctionOutput>
+    genaiDetachAgentFunction(ClientConfig config,
+        {required String agentUuid,
+        required String functionUuid,
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiUnlinkAgentFunctionOutput>('DELETE',
           '/v2/gen-ai/agents/${Uri.encodeComponent(agentUuid.toString())}/functions/${Uri.encodeComponent(functionUuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDetachAgentFunction',
-          fromJsonRaw: (value) => ApiUnlinkAgentFunctionOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUnlinkAgentFunctionOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To attach guardrails to an agent, send a POST request to `/v2/gen-ai/agents/{agent_uuid}/guardrails`.
 ///
 /// [agentUuid] The UUID of the agent.
 /// [agentUuid_2] The UUID of the agent.
 /// [guardrails] The list of guardrails to attach.
-Future<ApiLinkAgentGuardrailOutput> genaiAttachAgentGuardrails(
-    ClientConfig config,
-    {required String agentUuid,
-    SdkOptional<String> agentUuid_2 = const SdkOmitted(),
-    SdkOptional<List<ApiAgentGuardrailInput>> guardrails = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiLinkAgentGuardrailOutput>
+    genaiAttachAgentGuardrails(ClientConfig config,
+        {required String agentUuid,
+        SdkOptional<String> agentUuid_2 = const SdkOmitted(),
+        SdkOptional<List<ApiAgentGuardrailInput>> guardrails = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiLinkAgentGuardrailOutput>('POST',
           '/v2/gen-ai/agents/${Uri.encodeComponent(agentUuid.toString())}/guardrails',
           config: config,
@@ -451,70 +382,50 @@ Future<ApiLinkAgentGuardrailOutput> genaiAttachAgentGuardrails(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiAttachAgentGuardrails',
-          fromJsonRaw: (value) => ApiLinkAgentGuardrailOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiLinkAgentGuardrailOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To detach a guardrail from an agent, send a DELETE request to `/v2/gen-ai/agents/{agent_uuid}/guardrails/{guardrail_uuid}`.
 ///
 /// [agentUuid] The UUID of the agent.
 /// [guardrailUuid] The UUID of the guardrail to detach.
-Future<ApiUnlinkAgentGuardrailOutput> genaiDetachAgentGuardrail(
-    ClientConfig config,
-    {required String agentUuid,
-    required String guardrailUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiUnlinkAgentGuardrailOutput>
+    genaiDetachAgentGuardrail(ClientConfig config,
+        {required String agentUuid,
+        required String guardrailUuid,
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiUnlinkAgentGuardrailOutput>('DELETE',
           '/v2/gen-ai/agents/${Uri.encodeComponent(agentUuid.toString())}/guardrails/${Uri.encodeComponent(guardrailUuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDetachAgentGuardrail',
-          fromJsonRaw: (value) => ApiUnlinkAgentGuardrailOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUnlinkAgentGuardrailOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To attach knowledge bases to an agent, send a POST request to `/v2/gen-ai/agents/{agent_uuid}/knowledge_bases`
 ///
 /// [agentUuid] A unique identifier for an agent.
-Future<ApiLinkKnowledgeBaseOutput> genaiAttachKnowledgeBases(
-    ClientConfig config,
-    {required String agentUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiLinkKnowledgeBaseOutput> genaiAttachKnowledgeBases(ClientConfig config,
+    {required String agentUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiLinkKnowledgeBaseOutput>('POST',
           '/v2/gen-ai/agents/${Uri.encodeComponent(agentUuid.toString())}/knowledge_bases',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiAttachKnowledgeBases',
-          fromJsonRaw: (value) => ApiLinkKnowledgeBaseOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiLinkKnowledgeBaseOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To attach a knowledge base to an agent, send a POST request to `/v2/gen-ai/agents/{agent_uuid}/knowledge_bases/{knowledge_base_uuid}`
 ///
@@ -529,45 +440,33 @@ Future<ApiLinkKnowledgeBaseOutput> genaiAttachKnowledgeBase(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiAttachKnowledgeBase',
-          fromJsonRaw: (value) => ApiLinkKnowledgeBaseOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiLinkKnowledgeBaseOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To detach a knowledge base from an agent, send a DELETE request to `/v2/gen-ai/agents/{agent_uuid}/knowledge_bases/{knowledge_base_uuid}`.
 ///
 /// [agentUuid] Agent id
 /// [knowledgeBaseUuid] Knowledge base id
-Future<ApiUnlinkKnowledgeBaseOutput> genaiDetachKnowledgeBase(
-    ClientConfig config,
-    {required String agentUuid,
-    required String knowledgeBaseUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiUnlinkKnowledgeBaseOutput>
+    genaiDetachKnowledgeBase(ClientConfig config,
+        {required String agentUuid,
+        required String knowledgeBaseUuid,
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiUnlinkKnowledgeBaseOutput>('DELETE',
           '/v2/gen-ai/agents/${Uri.encodeComponent(agentUuid.toString())}/knowledge_bases/${Uri.encodeComponent(knowledgeBaseUuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDetachKnowledgeBase',
-          fromJsonRaw: (value) => ApiUnlinkKnowledgeBaseOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUnlinkKnowledgeBaseOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Links a child agent as a route on a parent agent. Use the `parent_agent_uuid` and `child_agent_uuid` path parameters to identify the agents, and optionally provide `if_case` and `route_name` to configure the route. The response identifies the linked parent and child agents.
 ///
@@ -598,18 +497,12 @@ Future<ApiLinkAgentOutput> genaiAttachAgent(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiAttachAgent',
-          fromJsonRaw: (value) =>
-              ApiLinkAgentOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiLinkAgentOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update an agent route for an agent, send a PUT request to `/v2/gen-ai/agents/{parent_agent_uuid}/child_agents/{child_agent_uuid}`.
 ///
@@ -641,18 +534,12 @@ Future<ApiUpdateLinkedAgentOutput> genaiUpdateAttachedAgent(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateAttachedAgent',
-          fromJsonRaw: (value) => ApiUpdateLinkedAgentOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateLinkedAgentOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an agent route from a parent agent, send a DELETE request to `/v2/gen-ai/agents/{parent_agent_uuid}/child_agents/{child_agent_uuid}`.
 ///
@@ -667,18 +554,12 @@ Future<ApiUnlinkAgentOutput> genaiDetachAgent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDetachAgent',
-          fromJsonRaw: (value) =>
-              ApiUnlinkAgentOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUnlinkAgentOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve details of an agent, GET request to `/v2/gen-ai/agents/{uuid}`. The response body is a JSON object containing the agent.
 ///
@@ -690,18 +571,12 @@ Future<ApiGetAgentOutput> genaiGetAgent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetAgent',
-          fromJsonRaw: (value) =>
-              ApiGetAgentOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetAgentOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Replaces the configuration of an existing agent. Supply the fields you want to change, such as `name`, `instruction`, or `model_uuid`; all listed body fields are optional. The response includes the updated agent object.
 ///
@@ -795,20 +670,17 @@ Future<ApiUpdateAgentOutput> genaiUpdateAgent(ClientConfig config,
           'PUT', '/v2/gen-ai/agents/${Uri.encodeComponent(uuid.toString())}',
           config: config,
           body: {
-            'agent_log_insights_enabled':
-                SdkUtils.unwrapOptional(agentLogInsightsEnabled),
+            'agent_log_insights_enabled': SdkUtils.unwrapOptional(agentLogInsightsEnabled),
             'allowed_domains': SdkUtils.unwrapOptional(allowedDomains),
             'anthropic_key_uuid': SdkUtils.unwrapOptional(anthropicKeyUuid),
             'clear_mcp_servers': SdkUtils.unwrapOptional(clearMcpServers),
-            'conversation_logs_enabled':
-                SdkUtils.unwrapOptional(conversationLogsEnabled),
+            'conversation_logs_enabled': SdkUtils.unwrapOptional(conversationLogsEnabled),
             'description': SdkUtils.unwrapOptional(description),
             'instruction': SdkUtils.unwrapOptional(instruction),
             'k': SdkUtils.unwrapOptional(k),
             'max_tokens': SdkUtils.unwrapOptional(maxTokens),
             'mcp_servers': SdkUtils.unwrapOptional(mcpServers),
-            'model_provider_key_uuid':
-                SdkUtils.unwrapOptional(modelProviderKeyUuid),
+            'model_provider_key_uuid': SdkUtils.unwrapOptional(modelProviderKeyUuid),
             'model_router_uuid': SdkUtils.unwrapOptional(modelRouterUuid),
             'model_uuid': SdkUtils.unwrapOptional(modelUuid),
             'name': SdkUtils.unwrapOptional(name),
@@ -820,8 +692,7 @@ Future<ApiUpdateAgentOutput> genaiUpdateAgent(ClientConfig config,
             'router_preset_slug': SdkUtils.unwrapOptional(routerPresetSlug),
             'tags': SdkUtils.unwrapOptional(tags),
             'temperature': SdkUtils.unwrapOptional(temperature),
-            'thinking_token_budget':
-                SdkUtils.unwrapOptional(thinkingTokenBudget),
+            'thinking_token_budget': SdkUtils.unwrapOptional(thinkingTokenBudget),
             'top_p': SdkUtils.unwrapOptional(topP),
             'uuid': SdkUtils.unwrapOptional(uuid_2),
             'web_fetch_enabled': SdkUtils.unwrapOptional(webFetchEnabled),
@@ -829,18 +700,12 @@ Future<ApiUpdateAgentOutput> genaiUpdateAgent(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateAgent',
-          fromJsonRaw: (value) =>
-              ApiUpdateAgentOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateAgentOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an agent, send a DELETE request to `/v2/gen-ai/agents/{uuid}`.
 ///
@@ -852,18 +717,12 @@ Future<ApiDeleteAgentOutput> genaiDeleteAgent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteAgent',
-          fromJsonRaw: (value) =>
-              ApiDeleteAgentOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteAgentOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To view agent routes for an agent, send a GET requtest to `/v2/gen-ai/agents/{uuid}/child_agents`.
 ///
@@ -875,18 +734,12 @@ Future<ApiGetChildrenOutput> genaiGetAgentChildren(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetAgentChildren',
-          fromJsonRaw: (value) =>
-              ApiGetChildrenOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetChildrenOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Check whether an agent is public or private. To update the agent status, send a PUT request to `/v2/gen-ai/agents/{uuid}/deployment_visibility`.
 ///
@@ -913,19 +766,12 @@ Future<ApiUpdateAgentDeploymentVisbilityOutput>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateAgentDeploymentVisibility',
-          fromJsonRaw: (value) =>
-              ApiUpdateAgentDeploymentVisbilityOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateAgentDeploymentVisbilityOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get agent usage, send a GET request to `/v2/gen-ai/agents/{uuid}/usage`. Returns usage metrics for the specified agent within the provided time range.
 ///
@@ -942,25 +788,17 @@ Future<ApiGetAgentUsageOutput> genaiGetAgentUsage(ClientConfig config,
           '/v2/gen-ai/agents/${Uri.encodeComponent(uuid.toString())}/usage',
           config: config,
           query: {
-            'start': SdkQueryValue(SdkUtils.unwrapOptional(start),
-                style: 'form', explode: true),
-            'stop': SdkQueryValue(SdkUtils.unwrapOptional(stop),
-                style: 'form', explode: true)
+            'start': SdkQueryValue(SdkUtils.unwrapOptional(start), style: 'form', explode: true),
+            'stop': SdkQueryValue(SdkUtils.unwrapOptional(stop), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetAgentUsage',
-          fromJsonRaw: (value) =>
-              ApiGetAgentUsageOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetAgentUsageOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all agent versions, send a GET request to `/v2/gen-ai/agents/{uuid}/versions`.
 ///
@@ -976,37 +814,29 @@ Future<ApiListAgentVersionsOutput> genaiListAgentVersions(ClientConfig config,
           '/v2/gen-ai/agents/${Uri.encodeComponent(uuid.toString())}/versions',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListAgentVersions',
-          fromJsonRaw: (value) => ApiListAgentVersionsOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListAgentVersionsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update to a specific agent version, send a PUT request to `/v2/gen-ai/agents/{uuid}/versions`.
 ///
 /// [uuid] Agent unique identifier
 /// [uuid_2] Agent unique identifier
 /// [versionHash] Unique identifier
-Future<ApiRollbackToAgentVersionOutput> genaiRollbackToAgentVersion(
-    ClientConfig config,
-    {required String uuid,
-    SdkOptional<String> uuid_2 = const SdkOmitted(),
-    SdkOptional<String> versionHash = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiRollbackToAgentVersionOutput>
+    genaiRollbackToAgentVersion(ClientConfig config,
+        {required String uuid,
+        SdkOptional<String> uuid_2 = const SdkOmitted(),
+        SdkOptional<String> versionHash = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiRollbackToAgentVersionOutput>('PUT',
           '/v2/gen-ai/agents/${Uri.encodeComponent(uuid.toString())}/versions',
           config: config,
@@ -1016,61 +846,47 @@ Future<ApiRollbackToAgentVersionOutput> genaiRollbackToAgentVersion(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiRollbackToAgentVersion',
-          fromJsonRaw: (value) => ApiRollbackToAgentVersionOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiRollbackToAgentVersionOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all Anthropic API keys, send a GET request to `/v2/gen-ai/anthropic/keys`.
 ///
 /// [page] Page number.
 /// [perPage] Items per page.
-Future<ApiListAnthropicAPIKeysOutput> genaiListAnthropicApiKeys(
-    ClientConfig config,
-    {SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListAnthropicAPIKeysOutput>
+    genaiListAnthropicApiKeys(ClientConfig config,
+        {SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListAnthropicAPIKeysOutput>(
           'GET', '/v2/gen-ai/anthropic/keys',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListAnthropicApiKeys',
-          fromJsonRaw: (value) => ApiListAnthropicAPIKeysOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListAnthropicAPIKeysOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create an Anthropic API key, send a POST request to `/v2/gen-ai/anthropic/keys`.
 ///
 /// [apiKey] Anthropic API key
 /// [name] Name of the key
-Future<ApiCreateAnthropicAPIKeyOutput> genaiCreateAnthropicApiKey(
-    ClientConfig config,
-    {SdkOptional<String> apiKey = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiCreateAnthropicAPIKeyOutput>
+    genaiCreateAnthropicApiKey(ClientConfig config,
+        {SdkOptional<String> apiKey = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCreateAnthropicAPIKeyOutput>(
           'POST', '/v2/gen-ai/anthropic/keys',
           config: config,
@@ -1080,18 +896,12 @@ Future<ApiCreateAnthropicAPIKeyOutput> genaiCreateAnthropicApiKey(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateAnthropicApiKey',
-          fromJsonRaw: (value) => ApiCreateAnthropicAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateAnthropicAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve details of an Anthropic API key, send a GET request to `/v2/gen-ai/anthropic/keys/{api_key_uuid}`.
 ///
@@ -1103,18 +913,12 @@ Future<ApiGetAnthropicAPIKeyOutput> genaiGetAnthropicApiKey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetAnthropicApiKey',
-          fromJsonRaw: (value) => ApiGetAnthropicAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetAnthropicAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update an Anthropic API key, send a PUT request to `/v2/gen-ai/anthropic/keys/{api_key_uuid}`.
 ///
@@ -1122,13 +926,13 @@ Future<ApiGetAnthropicAPIKeyOutput> genaiGetAnthropicApiKey(ClientConfig config,
 /// [apiKey] Anthropic API key
 /// [apiKeyUuid_2] API key ID
 /// [name] Name of the key
-Future<ApiUpdateAnthropicAPIKeyOutput> genaiUpdateAnthropicApiKey(
-    ClientConfig config,
-    {required String apiKeyUuid,
-    SdkOptional<String> apiKey = const SdkOmitted(),
-    SdkOptional<String> apiKeyUuid_2 = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiUpdateAnthropicAPIKeyOutput>
+    genaiUpdateAnthropicApiKey(ClientConfig config,
+        {required String apiKeyUuid,
+        SdkOptional<String> apiKey = const SdkOmitted(),
+        SdkOptional<String> apiKeyUuid_2 = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiUpdateAnthropicAPIKeyOutput>('PUT',
           '/v2/gen-ai/anthropic/keys/${Uri.encodeComponent(apiKeyUuid.toString())}',
           config: config,
@@ -1139,43 +943,29 @@ Future<ApiUpdateAnthropicAPIKeyOutput> genaiUpdateAnthropicApiKey(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateAnthropicApiKey',
-          fromJsonRaw: (value) => ApiUpdateAnthropicAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateAnthropicAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an Anthropic API key, send a DELETE request to `/v2/gen-ai/anthropic/keys/{api_key_uuid}`.
 ///
 /// [apiKeyUuid] API key ID
-Future<ApiDeleteAnthropicAPIKeyOutput> genaiDeleteAnthropicApiKey(
-    ClientConfig config,
-    {required String apiKeyUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiDeleteAnthropicAPIKeyOutput> genaiDeleteAnthropicApiKey(ClientConfig config,
+    {required String apiKeyUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiDeleteAnthropicAPIKeyOutput>('DELETE',
           '/v2/gen-ai/anthropic/keys/${Uri.encodeComponent(apiKeyUuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteAnthropicApiKey',
-          fromJsonRaw: (value) => ApiDeleteAnthropicAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteAnthropicAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists agents linked to a specific Anthropic key. Use `page` and `per_page` to paginate the results.
 ///
@@ -1184,72 +974,55 @@ Future<ApiDeleteAnthropicAPIKeyOutput> genaiDeleteAnthropicApiKey(
 /// [uuid] Unique ID of Anthropic key
 /// [page] Page number.
 /// [perPage] Items per page.
-Future<ApiListAgentsByAnthropicKeyOutput> genaiListAgentsByAnthropicKey(
-    ClientConfig config,
-    {required String uuid,
-    SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListAgentsByAnthropicKeyOutput>
+    genaiListAgentsByAnthropicKey(ClientConfig config,
+        {required String uuid,
+        SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListAgentsByAnthropicKeyOutput>('GET',
           '/v2/gen-ai/anthropic/keys/${Uri.encodeComponent(uuid.toString())}/agents',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListAgentsByAnthropicKey',
-          fromJsonRaw: (value) => ApiListAgentsByAnthropicKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListAgentsByAnthropicKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list custom models, send a GET request to `/v2/gen-ai/custom_models`.
 ///
 /// [page] Page number for pagination.
 /// [perPage] Number of items per page.
 /// [status] Filter by model status.
-Future<ApiListCustomModelsOutputPublic> genaiListCustomModels(
-    ClientConfig config,
-    {SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<GenaiListCustomModelsStatus> status = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListCustomModelsOutputPublic>
+    genaiListCustomModels(ClientConfig config,
+        {SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        SdkOptional<GenaiListCustomModelsStatus> status = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListCustomModelsOutputPublic>(
           'GET', '/v2/gen-ai/custom_models',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListCustomModels',
-          fromJsonRaw: (value) => ApiListCustomModelsOutputPublic.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListCustomModelsOutputPublic.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To import a custom model, send a POST request to `/v2/gen-ai/custom_models/import`.
 ///
@@ -1263,25 +1036,23 @@ Future<ApiListCustomModelsOutputPublic> genaiListCustomModels(
 /// [sourceRef] Reference to the original source of the model
 /// [sourceType] Source from which the model was imported
 /// [tags] User-defined tags for organizing models
-Future<ApiImportCustomModelOutputPublic> genaiImportCustomModel(
-    ClientConfig config,
-    {SdkOptional<bool> acceptHfTokenStorage = const SdkOmitted(),
-    SdkOptional<bool> acceptTermsAndConditions = const SdkOmitted(),
-    SdkOptional<String> description = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<String> preferredGpuRegion = const SdkOmitted(),
-    SdkOptional<CustomModelSourceRef> sourceRef = const SdkOmitted(),
-    SdkOptional<CustomModelSourceType> sourceType = const SdkOmitted(),
-    SdkOptional<CustomModelTags> tags = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiImportCustomModelOutputPublic>
+    genaiImportCustomModel(ClientConfig config,
+        {SdkOptional<bool> acceptHfTokenStorage = const SdkOmitted(),
+        SdkOptional<bool> acceptTermsAndConditions = const SdkOmitted(),
+        SdkOptional<String> description = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        SdkOptional<String> preferredGpuRegion = const SdkOmitted(),
+        SdkOptional<CustomModelSourceRef> sourceRef = const SdkOmitted(),
+        SdkOptional<CustomModelSourceType> sourceType = const SdkOmitted(),
+        SdkOptional<CustomModelTags> tags = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiImportCustomModelOutputPublic>(
           'POST', '/v2/gen-ai/custom_models/import',
           config: config,
           body: {
-            'accept_hf_token_storage':
-                SdkUtils.unwrapOptional(acceptHfTokenStorage),
-            'accept_terms_and_conditions':
-                SdkUtils.unwrapOptional(acceptTermsAndConditions),
+            'accept_hf_token_storage': SdkUtils.unwrapOptional(acceptHfTokenStorage),
+            'accept_terms_and_conditions': SdkUtils.unwrapOptional(acceptTermsAndConditions),
             'description': SdkUtils.unwrapOptional(description),
             'name': SdkUtils.unwrapOptional(name),
             'preferred_gpu_region': SdkUtils.unwrapOptional(preferredGpuRegion),
@@ -1291,18 +1062,12 @@ Future<ApiImportCustomModelOutputPublic> genaiImportCustomModel(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiImportCustomModel',
-          fromJsonRaw: (value) => ApiImportCustomModelOutputPublic.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiImportCustomModelOutputPublic.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve details of a custom model, send a GET request to `/v2/gen-ai/custom_models/{uuid}`.
 ///
@@ -1314,43 +1079,29 @@ Future<ApiGetCustomModelOutputPublic> genaiGetCustomModel(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetCustomModel',
-          fromJsonRaw: (value) => ApiGetCustomModelOutputPublic.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetCustomModelOutputPublic.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a custom model, send a DELETE request to `/v2/genai/custom_models/{uuid}`.
 ///
 /// [uuid] UUID of the custom model to delete
-Future<ApiDeleteCustomModelOutputPublic> genaiDeleteCustomModel(
-    ClientConfig config,
-    {required String uuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiDeleteCustomModelOutputPublic> genaiDeleteCustomModel(ClientConfig config,
+    {required String uuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiDeleteCustomModelOutputPublic>('DELETE',
           '/v2/gen-ai/custom_models/${Uri.encodeComponent(uuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteCustomModel',
-          fromJsonRaw: (value) => ApiDeleteCustomModelOutputPublic.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteCustomModelOutputPublic.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates metadata for a custom model identified by its UUID. Supply any metadata fields you want to change; non-empty `input_modalities` and `output_modalities` lists replace the existing lists and are supported only for Spaces-imported models. A 200 response returns the updated custom model.
 ///
@@ -1369,18 +1120,18 @@ Future<ApiDeleteCustomModelOutputPublic> genaiDeleteCustomModel(
 ///   `parameters` wire field.
 /// [tags] User-defined tags for organizing models
 /// [uuid_2] UUID of the custom model to update
-Future<ApiUpdateCustomModelMetadataOutputPublic> genaiUpdateCustomModelMetadata(
-    ClientConfig config,
-    {required String uuid,
-    SdkOptional<String> description = const SdkOmitted(),
-    SdkOptional<List<String>> inputModalities = const SdkOmitted(),
-    SdkOptional<String> license = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<List<String>> outputModalities = const SdkOmitted(),
-    SdkOptional<String> parameters = const SdkOmitted(),
-    SdkOptional<CustomModelTags> tags = const SdkOmitted(),
-    SdkOptional<String> uuid_2 = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiUpdateCustomModelMetadataOutputPublic>
+    genaiUpdateCustomModelMetadata(ClientConfig config,
+        {required String uuid,
+        SdkOptional<String> description = const SdkOmitted(),
+        SdkOptional<List<String>> inputModalities = const SdkOmitted(),
+        SdkOptional<String> license = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        SdkOptional<List<String>> outputModalities = const SdkOmitted(),
+        SdkOptional<String> parameters = const SdkOmitted(),
+        SdkOptional<CustomModelTags> tags = const SdkOmitted(),
+        SdkOptional<String> uuid_2 = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiUpdateCustomModelMetadataOutputPublic>('PATCH',
           '/v2/gen-ai/custom_models/${Uri.encodeComponent(uuid.toString())}/metadata',
           config: config,
@@ -1396,62 +1147,40 @@ Future<ApiUpdateCustomModelMetadataOutputPublic> genaiUpdateCustomModelMetadata(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateCustomModelMetadata',
-          fromJsonRaw: (value) =>
-              ApiUpdateCustomModelMetadataOutputPublic.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateCustomModelMetadataOutputPublic.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list evaluation datasets, send a GET request to `/v2/gen-ai/evaluation_datasets`.
 ///
 /// [datasetType] Filter by evaluation dataset type.
 /// [datasetParadigm] Filter by evaluation dataset paradigm (row/content shape).
 /// [hasGroundTruth] Filter by whether the dataset includes ground-truth values.
-Future<ApiListEvaluationDatasetsOutput> genaiListEvaluationDatasets(
-    ClientConfig config,
-    {SdkOptional<GenaiListEvaluationDatasetsDatasetType> datasetType =
-        const SdkOmitted(),
-    SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm =
-        const SdkOmitted(),
-    SdkOptional<bool> hasGroundTruth = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListEvaluationDatasetsOutput>
+    genaiListEvaluationDatasets(ClientConfig config,
+        {SdkOptional<GenaiListEvaluationDatasetsDatasetType> datasetType = const SdkOmitted(),
+        SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm = const SdkOmitted(),
+        SdkOptional<bool> hasGroundTruth = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListEvaluationDatasetsOutput>(
           'GET', '/v2/gen-ai/evaluation_datasets',
           config: config,
           query: {
-            'dataset_type': SdkQueryValue(SdkUtils.unwrapOptional(datasetType),
-                style: 'form', explode: true),
-            'dataset_paradigm': SdkQueryValue(
-                SdkUtils.unwrapOptional(datasetParadigm),
-                style: 'form',
-                explode: true),
-            'has_ground_truth': SdkQueryValue(
-                SdkUtils.unwrapOptional(hasGroundTruth),
-                style: 'form',
-                explode: true)
+            'dataset_type': SdkQueryValue(SdkUtils.unwrapOptional(datasetType), style: 'form', explode: true),
+            'dataset_paradigm': SdkQueryValue(SdkUtils.unwrapOptional(datasetParadigm), style: 'form', explode: true),
+            'has_ground_truth': SdkQueryValue(SdkUtils.unwrapOptional(hasGroundTruth), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListEvaluationDatasets',
-          fromJsonRaw: (value) => ApiListEvaluationDatasetsOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListEvaluationDatasetsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates an evaluation dataset for agent evaluation. Set `dataset_paradigm` to describe the dataset row format and `dataset_type` to identify its type; both fields have defaults when omitted. Include `file_upload_dataset` to associate an uploaded file with the dataset.
 ///
@@ -1464,14 +1193,13 @@ Future<ApiListEvaluationDatasetsOutput> genaiListEvaluationDatasets(
 ///   wire field.
 /// [fileUploadDataset] File to upload as data source for knowledge base.
 /// [name] The name of the agent evaluation dataset.
-Future<ApiCreateEvaluationDatasetOutput> genaiCreateEvaluationDataset(
-    ClientConfig config,
-    {SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm =
-        const SdkOmitted(),
-    SdkOptional<ApiEvaluationDatasetType> datasetType = const SdkOmitted(),
-    SdkOptional<ApiFileUploadDataSource> fileUploadDataset = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiCreateEvaluationDatasetOutput>
+    genaiCreateEvaluationDataset(ClientConfig config,
+        {SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm = const SdkOmitted(),
+        SdkOptional<ApiEvaluationDatasetType> datasetType = const SdkOmitted(),
+        SdkOptional<ApiFileUploadDataSource> fileUploadDataset = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCreateEvaluationDatasetOutput>(
           'POST', '/v2/gen-ai/evaluation_datasets',
           config: config,
@@ -1483,18 +1211,12 @@ Future<ApiCreateEvaluationDatasetOutput> genaiCreateEvaluationDataset(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateEvaluationDataset',
-          fromJsonRaw: (value) => ApiCreateEvaluationDatasetOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateEvaluationDatasetOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create presigned URLs for evaluation dataset file upload, send a POST request to `/v2/gen-ai/evaluation_datasets/file_upload_presigned_urls`.
 ///
@@ -1509,19 +1231,12 @@ Future<ApiCreateDataSourceFileUploadPresignedUrlsOutput>
           body: {'files': SdkUtils.unwrapOptional(files)},
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateEvaluationDatasetFileUploadPresignedUrls',
-          fromJsonRaw: (value) =>
-              ApiCreateDataSourceFileUploadPresignedUrlsOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateDataSourceFileUploadPresignedUrlsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an evaluation dataset, send a DELETE request to `/v2/genai/evaluation_datasets/{dataset_uuid}`. This works for both model and agent evaluation datasets.
 ///
@@ -1535,62 +1250,42 @@ Future<Map<String, dynamic>> genaiDeleteEvaluationDataset(ClientConfig config,
           operationId: 'genaiDeleteEvaluationDataset',
           fromJsonRaw: (value) => value as Map<String, dynamic>,
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get a presigned download URL for an evaluation dataset, send a GET request to `/v2/genai/evaluation_datasets/{dataset_uuid}/download_url`.
 ///
 /// [datasetUuid] UUID of the evaluation dataset.
-Future<ApiGetEvaluationDatasetDownloadURLOutput>
-    genaiGetEvaluationDatasetDownloadUrl(ClientConfig config,
-        {required String datasetUuid, RequestOptions? requestOptions}) async {
+Future<ApiGetEvaluationDatasetDownloadURLOutput> genaiGetEvaluationDatasetDownloadUrl(ClientConfig config,
+    {required String datasetUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiGetEvaluationDatasetDownloadURLOutput>('GET',
           '/v2/gen-ai/evaluation_datasets/${Uri.encodeComponent(datasetUuid.toString())}/download_url',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetEvaluationDatasetDownloadUrl',
-          fromJsonRaw: (value) =>
-              ApiGetEvaluationDatasetDownloadURLOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetEvaluationDatasetDownloadURLOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
 
+
 /// To list all evaluation metrics, send a GET request to `/v2/gen-ai/evaluation_metrics`.
-Future<ApiListEvaluationMetricsOutput> genaiListEvaluationMetrics(
-    ClientConfig config,
+Future<ApiListEvaluationMetricsOutput> genaiListEvaluationMetrics(ClientConfig config,
     {RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListEvaluationMetricsOutput>(
           'GET', '/v2/gen-ai/evaluation_metrics',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListEvaluationMetrics',
-          fromJsonRaw: (value) => ApiListEvaluationMetricsOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListEvaluationMetricsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a custom LLM-as-judge metric for model evaluation. Use `metric_name`, `description`, and `config` to define the metric and the judge instructions; prompt and model response are included in the judge context. Set `requires_ground_truth` in `config` when each evaluation row must provide ground truth.
 ///
@@ -1603,12 +1298,12 @@ Future<ApiListEvaluationMetricsOutput> genaiListEvaluationMetrics(
 ///   field.
 /// [metricName] Optional `string` value serialized in the `metric_name` wire
 ///   field.
-Future<ApiCreateCustomEvaluationMetricOutput> genaiCreateCustomEvaluationMetric(
-    ClientConfig config,
-    {SdkOptional<ApiCustomEvaluationMetricConfig> config_ = const SdkOmitted(),
-    SdkOptional<String> description = const SdkOmitted(),
-    SdkOptional<String> metricName = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiCreateCustomEvaluationMetricOutput>
+    genaiCreateCustomEvaluationMetric(ClientConfig config,
+        {SdkOptional<ApiCustomEvaluationMetricConfig> config_ = const SdkOmitted(),
+        SdkOptional<String> description = const SdkOmitted(),
+        SdkOptional<String> metricName = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCreateCustomEvaluationMetricOutput>(
           'POST', '/v2/gen-ai/custom_evaluation_metrics',
           config: config,
@@ -1619,19 +1314,12 @@ Future<ApiCreateCustomEvaluationMetricOutput> genaiCreateCustomEvaluationMetric(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateCustomEvaluationMetric',
-          fromJsonRaw: (value) =>
-              ApiCreateCustomEvaluationMetricOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateCustomEvaluationMetricOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Replaces a custom evaluation metric with an updated metric configuration. Use `metric_uuid` to identify the metric and provide the metric fields you want to update. The update issues a new metric UUID.
 ///
@@ -1647,14 +1335,14 @@ Future<ApiCreateCustomEvaluationMetricOutput> genaiCreateCustomEvaluationMetric(
 ///   field.
 /// [metricUuid_2] Optional `string` value serialized in the `metric_uuid` wire
 ///   field.
-Future<ApiUpdateCustomEvaluationMetricOutput> genaiUpdateCustomEvaluationMetric(
-    ClientConfig config,
-    {required String metricUuid,
-    SdkOptional<ApiCustomEvaluationMetricConfig> config_ = const SdkOmitted(),
-    SdkOptional<String> description = const SdkOmitted(),
-    SdkOptional<String> metricName = const SdkOmitted(),
-    SdkOptional<String> metricUuid_2 = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiUpdateCustomEvaluationMetricOutput>
+    genaiUpdateCustomEvaluationMetric(ClientConfig config,
+        {required String metricUuid,
+        SdkOptional<ApiCustomEvaluationMetricConfig> config_ = const SdkOmitted(),
+        SdkOptional<String> description = const SdkOmitted(),
+        SdkOptional<String> metricName = const SdkOmitted(),
+        SdkOptional<String> metricUuid_2 = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiUpdateCustomEvaluationMetricOutput>('PUT',
           '/v2/gen-ai/custom_evaluation_metrics/${Uri.encodeComponent(metricUuid.toString())}',
           config: config,
@@ -1666,27 +1354,18 @@ Future<ApiUpdateCustomEvaluationMetricOutput> genaiUpdateCustomEvaluationMetric(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateCustomEvaluationMetric',
-          fromJsonRaw: (value) =>
-              ApiUpdateCustomEvaluationMetricOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateCustomEvaluationMetricOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To soft-delete a custom model evaluation metric, send a DELETE request to `/v2/gen-ai/custom_evaluation_metrics/{metric_uuid}`.
 ///
 /// [metricUuid] UUID of the custom metric to delete.
-Future<Map<String, dynamic>> genaiDeleteCustomEvaluationMetric(
-    ClientConfig config,
-    {required String metricUuid,
-    RequestOptions? requestOptions}) async {
+Future<Map<String, dynamic>> genaiDeleteCustomEvaluationMetric(ClientConfig config,
+    {required String metricUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<Map<String, dynamic>>('DELETE',
           '/v2/gen-ai/custom_evaluation_metrics/${Uri.encodeComponent(metricUuid.toString())}',
           config: config,
@@ -1694,15 +1373,10 @@ Future<Map<String, dynamic>> genaiDeleteCustomEvaluationMetric(
           operationId: 'genaiDeleteCustomEvaluationMetric',
           fromJsonRaw: (value) => value as Map<String, dynamic>,
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To run an evaluation test case, send a POST request to `/v2/gen-ai/evaluation_runs`.
 ///
@@ -1710,37 +1384,30 @@ Future<Map<String, dynamic>> genaiDeleteCustomEvaluationMetric(
 /// [agentUuids] Agent UUIDs to run the test case against (legacy agents).
 /// [runName] The name of the run.
 /// [testCaseUuid] Test-case UUID to run
-Future<ApiRunEvaluationTestCaseOutput> genaiRunEvaluationTestCase(
-    ClientConfig config,
-    {SdkOptional<List<String>> agentDeploymentNames = const SdkOmitted(),
-    SdkOptional<List<String>> agentUuids = const SdkOmitted(),
-    SdkOptional<String> runName = const SdkOmitted(),
-    SdkOptional<String> testCaseUuid = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiRunEvaluationTestCaseOutput>
+    genaiRunEvaluationTestCase(ClientConfig config,
+        {SdkOptional<List<String>> agentDeploymentNames = const SdkOmitted(),
+        SdkOptional<List<String>> agentUuids = const SdkOmitted(),
+        SdkOptional<String> runName = const SdkOmitted(),
+        SdkOptional<String> testCaseUuid = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiRunEvaluationTestCaseOutput>(
           'POST', '/v2/gen-ai/evaluation_runs',
           config: config,
           body: {
-            'agent_deployment_names':
-                SdkUtils.unwrapOptional(agentDeploymentNames),
+            'agent_deployment_names': SdkUtils.unwrapOptional(agentDeploymentNames),
             'agent_uuids': SdkUtils.unwrapOptional(agentUuids),
             'run_name': SdkUtils.unwrapOptional(runName),
             'test_case_uuid': SdkUtils.unwrapOptional(testCaseUuid)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiRunEvaluationTestCase',
-          fromJsonRaw: (value) => ApiRunEvaluationTestCaseOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiRunEvaluationTestCaseOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrive information about an existing evaluation run, send a GET request to `/v2/gen-ai/evaluation_runs/{evaluation_run_uuid}`.
 ///
@@ -1752,53 +1419,39 @@ Future<ApiGetEvaluationRunOutput> genaiGetEvaluationRun(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetEvaluationRun',
-          fromJsonRaw: (value) =>
-              ApiGetEvaluationRunOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetEvaluationRunOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve results of an evaluation run, send a GET request to `/v2/gen-ai/evaluation_runs/{evaluation_run_uuid}/results`.
 ///
 /// [evaluationRunUuid] Evaluation run UUID.
 /// [page] Page number.
 /// [perPage] Items per page.
-Future<ApiGetEvaluationRunResultsOutput> genaiGetEvaluationRunResults(
-    ClientConfig config,
-    {required String evaluationRunUuid,
-    SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiGetEvaluationRunResultsOutput>
+    genaiGetEvaluationRunResults(ClientConfig config,
+        {required String evaluationRunUuid,
+        SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiGetEvaluationRunResultsOutput>('GET',
           '/v2/gen-ai/evaluation_runs/${Uri.encodeComponent(evaluationRunUuid.toString())}/results',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetEvaluationRunResults',
-          fromJsonRaw: (value) => ApiGetEvaluationRunResultsOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetEvaluationRunResultsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve results of an evaluation run, send a GET request to `/v2/gen-ai/evaluation_runs/{evaluation_run_uuid}/results/{prompt_id}`.
 ///
@@ -1814,41 +1467,27 @@ Future<ApiGetEvaluationRunPromptResultsOutput>
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetEvaluationRunPromptResults',
-          fromJsonRaw: (value) =>
-              ApiGetEvaluationRunPromptResultsOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetEvaluationRunPromptResultsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
 
+
 /// To list all evaluation test cases, send a GET request to `/v2/gen-ai/evaluation_test_cases`.
-Future<ApiListEvaluationTestCasesOutput> genaiListEvaluationTestCases(
-    ClientConfig config,
+Future<ApiListEvaluationTestCasesOutput> genaiListEvaluationTestCases(ClientConfig config,
     {RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListEvaluationTestCasesOutput>(
           'GET', '/v2/gen-ai/evaluation_test_cases',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListEvaluationTestCases',
-          fromJsonRaw: (value) => ApiListEvaluationTestCasesOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListEvaluationTestCasesOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates an evaluation test case for a dataset in a workspace. Supply the test case name and any applicable `dataset_uuid`, `workspace_uuid`, metrics, or star metric configuration. A 200 response returns the new test case UUID.
 ///
@@ -1863,16 +1502,16 @@ Future<ApiListEvaluationTestCasesOutput> genaiListEvaluationTestCases(
 /// [starMetric] Optional object value serialized in the `star_metric` wire
 ///   field.
 /// [workspaceUuid] The workspace uuid.
-Future<ApiCreateEvaluationTestCaseOutput> genaiCreateEvaluationTestCase(
-    ClientConfig config,
-    {SdkOptional<String> agentWorkspaceName = const SdkOmitted(),
-    SdkOptional<String> datasetUuid = const SdkOmitted(),
-    SdkOptional<String> description = const SdkOmitted(),
-    SdkOptional<List<String>> metrics = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<ApiStarMetric> starMetric = const SdkOmitted(),
-    SdkOptional<String> workspaceUuid = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiCreateEvaluationTestCaseOutput>
+    genaiCreateEvaluationTestCase(ClientConfig config,
+        {SdkOptional<String> agentWorkspaceName = const SdkOmitted(),
+        SdkOptional<String> datasetUuid = const SdkOmitted(),
+        SdkOptional<String> description = const SdkOmitted(),
+        SdkOptional<List<String>> metrics = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        SdkOptional<ApiStarMetric> starMetric = const SdkOmitted(),
+        SdkOptional<String> workspaceUuid = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCreateEvaluationTestCaseOutput>(
           'POST', '/v2/gen-ai/evaluation_test_cases',
           config: config,
@@ -1887,85 +1526,60 @@ Future<ApiCreateEvaluationTestCaseOutput> genaiCreateEvaluationTestCase(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateEvaluationTestCase',
-          fromJsonRaw: (value) => ApiCreateEvaluationTestCaseOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateEvaluationTestCaseOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all evaluation runs by test case, send a GET request to `/v2/gen-ai/evaluation_test_cases/{evaluation_test_case_uuid}/evaluation_runs`.
 ///
 /// [evaluationTestCaseUuid] Evaluation run UUID.
 /// [evaluationTestCaseVersion] Version of the test case.
-Future<ApiListEvaluationRunsByTestCaseOutput> genaiListEvaluationRunsByTestCase(
-    ClientConfig config,
-    {required String evaluationTestCaseUuid,
-    SdkOptional<int> evaluationTestCaseVersion = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListEvaluationRunsByTestCaseOutput>
+    genaiListEvaluationRunsByTestCase(ClientConfig config,
+        {required String evaluationTestCaseUuid,
+        SdkOptional<int> evaluationTestCaseVersion = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListEvaluationRunsByTestCaseOutput>('GET',
           '/v2/gen-ai/evaluation_test_cases/${Uri.encodeComponent(evaluationTestCaseUuid.toString())}/evaluation_runs',
           config: config,
           query: {
-            'evaluation_test_case_version': SdkQueryValue(
-                SdkUtils.unwrapOptional(evaluationTestCaseVersion),
-                style: 'form',
-                explode: true)
+            'evaluation_test_case_version': SdkQueryValue(SdkUtils.unwrapOptional(evaluationTestCaseVersion), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListEvaluationRunsByTestCase',
-          fromJsonRaw: (value) =>
-              ApiListEvaluationRunsByTestCaseOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListEvaluationRunsByTestCaseOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrive information about an existing evaluation test case, send a GET request to `/v2/gen-ai/evaluation_test_case/{test_case_uuid}`.
 ///
 /// [testCaseUuid] The test case uuid to retrieve.
 /// [evaluationTestCaseVersion] Version of the test case.
-Future<ApiGetEvaluationTestCaseOutput> genaiGetEvaluationTestCase(
-    ClientConfig config,
-    {required String testCaseUuid,
-    SdkOptional<int> evaluationTestCaseVersion = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiGetEvaluationTestCaseOutput>
+    genaiGetEvaluationTestCase(ClientConfig config,
+        {required String testCaseUuid,
+        SdkOptional<int> evaluationTestCaseVersion = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiGetEvaluationTestCaseOutput>('GET',
           '/v2/gen-ai/evaluation_test_cases/${Uri.encodeComponent(testCaseUuid.toString())}',
           config: config,
           query: {
-            'evaluation_test_case_version': SdkQueryValue(
-                SdkUtils.unwrapOptional(evaluationTestCaseVersion),
-                style: 'form',
-                explode: true)
+            'evaluation_test_case_version': SdkQueryValue(SdkUtils.unwrapOptional(evaluationTestCaseVersion), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetEvaluationTestCase',
-          fromJsonRaw: (value) => ApiGetEvaluationTestCaseOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetEvaluationTestCaseOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Replaces the configuration of an evaluation test case. Use the `test_case_uuid` path parameter to select the test case, and provide any configuration fields to update, such as its name, dataset, metrics, or star metric. A 200 response returns the test case UUID and its new version.
 ///
@@ -1979,16 +1593,16 @@ Future<ApiGetEvaluationTestCaseOutput> genaiGetEvaluationTestCase(
 /// [starMetric] Optional object value serialized in the `star_metric` wire
 ///   field.
 /// [testCaseUuid_2] Test-case UUID to update
-Future<ApiUpdateEvaluationTestCaseOutput> genaiUpdateEvaluationTestCase(
-    ClientConfig config,
-    {required String testCaseUuid,
-    SdkOptional<String> datasetUuid = const SdkOmitted(),
-    SdkOptional<String> description = const SdkOmitted(),
-    SdkOptional<ApiEvaluationTestCaseMetricList> metrics = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<ApiStarMetric> starMetric = const SdkOmitted(),
-    SdkOptional<String> testCaseUuid_2 = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiUpdateEvaluationTestCaseOutput>
+    genaiUpdateEvaluationTestCase(ClientConfig config,
+        {required String testCaseUuid,
+        SdkOptional<String> datasetUuid = const SdkOmitted(),
+        SdkOptional<String> description = const SdkOmitted(),
+        SdkOptional<ApiEvaluationTestCaseMetricList> metrics = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        SdkOptional<ApiStarMetric> starMetric = const SdkOmitted(),
+        SdkOptional<String> testCaseUuid_2 = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiUpdateEvaluationTestCaseOutput>('PUT',
           '/v2/gen-ai/evaluation_test_cases/${Uri.encodeComponent(testCaseUuid.toString())}',
           config: config,
@@ -2002,63 +1616,48 @@ Future<ApiUpdateEvaluationTestCaseOutput> genaiUpdateEvaluationTestCase(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateEvaluationTestCase',
-          fromJsonRaw: (value) => ApiUpdateEvaluationTestCaseOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateEvaluationTestCaseOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all indexing jobs for a knowledge base, send a GET request to `/v2/gen-ai/indexing_jobs`.
 ///
 /// [page] Page number.
 /// [perPage] Items per page.
-Future<ApiListKnowledgeBaseIndexingJobsOutput> genaiListIndexingJobs(
-    ClientConfig config,
-    {SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListKnowledgeBaseIndexingJobsOutput>
+    genaiListIndexingJobs(ClientConfig config,
+        {SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListKnowledgeBaseIndexingJobsOutput>(
           'GET', '/v2/gen-ai/indexing_jobs',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListIndexingJobs',
-          fromJsonRaw: (value) =>
-              ApiListKnowledgeBaseIndexingJobsOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListKnowledgeBaseIndexingJobsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To start an indexing job for a knowledge base, send a POST request to `/v2/gen-ai/indexing_jobs`.
 ///
 /// [dataSourceUuids] List of data source ids to index, if none are provided,
 ///   all data sources will be indexed
 /// [knowledgeBaseUuid] Knowledge base id
-Future<ApiStartKnowledgeBaseIndexingJobOutput> genaiCreateIndexingJob(
-    ClientConfig config,
-    {SdkOptional<List<String>> dataSourceUuids = const SdkOmitted(),
-    SdkOptional<String> knowledgeBaseUuid = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiStartKnowledgeBaseIndexingJobOutput>
+    genaiCreateIndexingJob(ClientConfig config,
+        {SdkOptional<List<String>> dataSourceUuids = const SdkOmitted(),
+        SdkOptional<String> knowledgeBaseUuid = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiStartKnowledgeBaseIndexingJobOutput>(
           'POST', '/v2/gen-ai/indexing_jobs',
           config: config,
@@ -2068,124 +1667,85 @@ Future<ApiStartKnowledgeBaseIndexingJobOutput> genaiCreateIndexingJob(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateIndexingJob',
-          fromJsonRaw: (value) =>
-              ApiStartKnowledgeBaseIndexingJobOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiStartKnowledgeBaseIndexingJobOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all datasources for an indexing job, send a GET request to `/v2/gen-ai/indexing_jobs/{indexing_job_uuid}/data_sources`.
 ///
 /// [indexingJobUuid] Uuid of the indexing job
-Future<ApiListIndexingJobDataSourcesOutput> genaiListIndexingJobDataSources(
-    ClientConfig config,
-    {required String indexingJobUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiListIndexingJobDataSourcesOutput> genaiListIndexingJobDataSources(ClientConfig config,
+    {required String indexingJobUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListIndexingJobDataSourcesOutput>('GET',
           '/v2/gen-ai/indexing_jobs/${Uri.encodeComponent(indexingJobUuid.toString())}/data_sources',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListIndexingJobDataSources',
-          fromJsonRaw: (value) => ApiListIndexingJobDataSourcesOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListIndexingJobDataSourcesOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get a signed URL for indexing job details, send a GET request to `/v2/gen-ai/indexing_jobs/{uuid}/details_signed_url`.
 ///
 /// [indexingJobUuid] The uuid of the indexing job
-Future<ApiGetIndexingJobDetailsSignedURLOutput>
-    genaiGetIndexingJobDetailsSignedUrl(ClientConfig config,
-        {required String indexingJobUuid,
-        RequestOptions? requestOptions}) async {
+Future<ApiGetIndexingJobDetailsSignedURLOutput> genaiGetIndexingJobDetailsSignedUrl(ClientConfig config,
+    {required String indexingJobUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiGetIndexingJobDetailsSignedURLOutput>('GET',
           '/v2/gen-ai/indexing_jobs/${Uri.encodeComponent(indexingJobUuid.toString())}/details_signed_url',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetIndexingJobDetailsSignedUrl',
-          fromJsonRaw: (value) =>
-              ApiGetIndexingJobDetailsSignedURLOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetIndexingJobDetailsSignedURLOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get status of an indexing Job for a knowledge base, send a GET request to `/v2/gen-ai/indexing_jobs/{uuid}`.
 ///
 /// [uuid] Indexing job id
-Future<ApiGetKnowledgeBaseIndexingJobOutput> genaiGetIndexingJob(
-    ClientConfig config,
-    {required String uuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiGetKnowledgeBaseIndexingJobOutput> genaiGetIndexingJob(ClientConfig config,
+    {required String uuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiGetKnowledgeBaseIndexingJobOutput>('GET',
           '/v2/gen-ai/indexing_jobs/${Uri.encodeComponent(uuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetIndexingJob',
-          fromJsonRaw: (value) => ApiGetKnowledgeBaseIndexingJobOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetKnowledgeBaseIndexingJobOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To cancel an indexing job for a knowledge base, send a PUT request to `/v2/gen-ai/indexing_jobs/{uuid}/cancel`.
 ///
 /// [uuid] A unique identifier for an indexing job.
 /// [uuid_2] A unique identifier for an indexing job.
-Future<ApiCancelKnowledgeBaseIndexingJobOutput> genaiCancelIndexingJob(
-    ClientConfig config,
-    {required String uuid,
-    SdkOptional<String> uuid_2 = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiCancelKnowledgeBaseIndexingJobOutput>
+    genaiCancelIndexingJob(ClientConfig config,
+        {required String uuid,
+        SdkOptional<String> uuid_2 = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCancelKnowledgeBaseIndexingJobOutput>('PUT',
           '/v2/gen-ai/indexing_jobs/${Uri.encodeComponent(uuid.toString())}/cancel',
           config: config,
           body: {'uuid': SdkUtils.unwrapOptional(uuid_2)},
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCancelIndexingJob',
-          fromJsonRaw: (value) =>
-              ApiCancelKnowledgeBaseIndexingJobOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCancelKnowledgeBaseIndexingJobOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all knowledge bases, send a GET request to `/v2/gen-ai/knowledge_bases`.
 ///
@@ -2199,25 +1759,17 @@ Future<ApiListKnowledgeBasesOutput> genaiListKnowledgeBases(ClientConfig config,
           'GET', '/v2/gen-ai/knowledge_bases',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListKnowledgeBases',
-          fromJsonRaw: (value) => ApiListKnowledgeBasesOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListKnowledgeBasesOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a knowledge base in a specified region and project, optionally using an existing database. Configure its name, embedding model, size, tags, VPC, and retrieval reranking with the corresponding fields. You can attach data sources during creation or add them later.
 ///
@@ -2244,19 +1796,19 @@ Future<ApiListKnowledgeBasesOutput> genaiListKnowledgeBases(ClientConfig config,
 /// [size] Optional enumerated value serialized in the `size` wire field.
 /// [tags] Tags to organize your knowledge base.
 /// [vpcUuid] The VPC to deploy the knowledge base database in
-Future<ApiCreateKnowledgeBaseOutput> genaiCreateKnowledgeBase(
-    ClientConfig config,
-    {SdkOptional<String> databaseId = const SdkOmitted(),
-    SdkOptional<List<ApiKBDataSource>> datasources = const SdkOmitted(),
-    SdkOptional<String> embeddingModelUuid = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<String> projectId = const SdkOmitted(),
-    SdkOptional<String> region = const SdkOmitted(),
-    SdkOptional<ApiRerankingConfiguration> rerankingConfig = const SdkOmitted(),
-    SdkOptional<ApiOpenSearchPlanSize> size = const SdkOmitted(),
-    SdkOptional<List<String>> tags = const SdkOmitted(),
-    SdkOptional<String> vpcUuid = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiCreateKnowledgeBaseOutput>
+    genaiCreateKnowledgeBase(ClientConfig config,
+        {SdkOptional<String> databaseId = const SdkOmitted(),
+        SdkOptional<List<ApiKBDataSource>> datasources = const SdkOmitted(),
+        SdkOptional<String> embeddingModelUuid = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        SdkOptional<String> projectId = const SdkOmitted(),
+        SdkOptional<String> region = const SdkOmitted(),
+        SdkOptional<ApiRerankingConfiguration> rerankingConfig = const SdkOmitted(),
+        SdkOptional<ApiOpenSearchPlanSize> size = const SdkOmitted(),
+        SdkOptional<List<String>> tags = const SdkOmitted(),
+        SdkOptional<String> vpcUuid = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCreateKnowledgeBaseOutput>(
           'POST', '/v2/gen-ai/knowledge_bases',
           config: config,
@@ -2274,18 +1826,12 @@ Future<ApiCreateKnowledgeBaseOutput> genaiCreateKnowledgeBase(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateKnowledgeBase',
-          fromJsonRaw: (value) => ApiCreateKnowledgeBaseOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateKnowledgeBaseOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create presigned URLs for knowledge base data source file upload, send a POST request to `/v2/gen-ai/knowledge_bases/data_sources/file_upload_presigned_urls`.
 ///
@@ -2294,62 +1840,45 @@ Future<ApiCreateDataSourceFileUploadPresignedUrlsOutput>
     genaiCreateDataSourceFileUploadPresignedUrls(ClientConfig config,
         {SdkOptional<List<ApiPresignedUrlFile>> files = const SdkOmitted(),
         RequestOptions? requestOptions}) async {
-  return (await sdkRequest<ApiCreateDataSourceFileUploadPresignedUrlsOutput>(
-          'POST',
+  return (await sdkRequest<ApiCreateDataSourceFileUploadPresignedUrlsOutput>('POST',
           '/v2/gen-ai/knowledge_bases/data_sources/file_upload_presigned_urls',
           config: config,
           body: {'files': SdkUtils.unwrapOptional(files)},
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateDataSourceFileUploadPresignedUrls',
-          fromJsonRaw: (value) =>
-              ApiCreateDataSourceFileUploadPresignedUrlsOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateDataSourceFileUploadPresignedUrlsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all data sources for a knowledge base, send a GET request to `/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/data_sources`.
 ///
 /// [knowledgeBaseUuid] Knowledge base id
 /// [page] Page number.
 /// [perPage] Items per page.
-Future<ApiListKnowledgeBaseDataSourcesOutput> genaiListKnowledgeBaseDataSources(
-    ClientConfig config,
-    {required String knowledgeBaseUuid,
-    SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListKnowledgeBaseDataSourcesOutput>
+    genaiListKnowledgeBaseDataSources(ClientConfig config,
+        {required String knowledgeBaseUuid,
+        SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListKnowledgeBaseDataSourcesOutput>('GET',
           '/v2/gen-ai/knowledge_bases/${Uri.encodeComponent(knowledgeBaseUuid.toString())}/data_sources',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListKnowledgeBaseDataSources',
-          fromJsonRaw: (value) =>
-              ApiListKnowledgeBaseDataSourcesOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListKnowledgeBaseDataSourcesOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Adds a data source configuration to a knowledge base. Supply the source-specific settings for an AWS S3 bucket, Spaces bucket, or web crawler, and optionally configure chunking. Use this operation to add sources after creating a knowledge base or to attach a source during a later update.
 ///
@@ -2368,13 +1897,11 @@ Future<ApiCreateKnowledgeBaseDataSourceOutput>
     genaiCreateKnowledgeBaseDataSource(ClientConfig config,
         {required String knowledgeBaseUuid,
         SdkOptional<ApiAWSDataSource> awsDataSource = const SdkOmitted(),
-        SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm =
-            const SdkOmitted(),
+        SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm = const SdkOmitted(),
         SdkOptional<ApiChunkingOptions> chunkingOptions = const SdkOmitted(),
         SdkOptional<String> knowledgeBaseUuid_2 = const SdkOmitted(),
         SdkOptional<ApiSpacesDataSource> spacesDataSource = const SdkOmitted(),
-        SdkOptional<ApiWebCrawlerDataSource> webCrawlerDataSource =
-            const SdkOmitted(),
+        SdkOptional<ApiWebCrawlerDataSource> webCrawlerDataSource = const SdkOmitted(),
         RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCreateKnowledgeBaseDataSourceOutput>('POST',
           '/v2/gen-ai/knowledge_bases/${Uri.encodeComponent(knowledgeBaseUuid.toString())}/data_sources',
@@ -2385,24 +1912,16 @@ Future<ApiCreateKnowledgeBaseDataSourceOutput>
             'chunking_options': SdkUtils.unwrapOptional(chunkingOptions),
             'knowledge_base_uuid': SdkUtils.unwrapOptional(knowledgeBaseUuid_2),
             'spaces_data_source': SdkUtils.unwrapOptional(spacesDataSource),
-            'web_crawler_data_source':
-                SdkUtils.unwrapOptional(webCrawlerDataSource)
+            'web_crawler_data_source': SdkUtils.unwrapOptional(webCrawlerDataSource)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateKnowledgeBaseDataSource',
-          fromJsonRaw: (value) =>
-              ApiCreateKnowledgeBaseDataSourceOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateKnowledgeBaseDataSourceOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Replaces the chunking configuration for a data source in a knowledge base. Supply `chunking_algorithm` and `chunking_options` to configure how the source is divided for indexing. Use the path identifiers to select the knowledge base and data source to update.
 ///
@@ -2420,8 +1939,7 @@ Future<ApiUpdateKnowledgeBaseDataSourceOutput>
     genaiUpdateKnowledgeBaseDataSource(ClientConfig config,
         {required String knowledgeBaseUuid,
         required String dataSourceUuid,
-        SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm =
-            const SdkOmitted(),
+        SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm = const SdkOmitted(),
         SdkOptional<ApiChunkingOptions> chunkingOptions = const SdkOmitted(),
         SdkOptional<String> dataSourceUuid_2 = const SdkOmitted(),
         SdkOptional<String> knowledgeBaseUuid_2 = const SdkOmitted(),
@@ -2437,19 +1955,12 @@ Future<ApiUpdateKnowledgeBaseDataSourceOutput>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateKnowledgeBaseDataSource',
-          fromJsonRaw: (value) =>
-              ApiUpdateKnowledgeBaseDataSourceOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateKnowledgeBaseDataSourceOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a data source from a knowledge base, send a DELETE request to `/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/data_sources/{data_source_uuid}`.
 ///
@@ -2465,45 +1976,29 @@ Future<ApiDeleteKnowledgeBaseDataSourceOutput>
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteKnowledgeBaseDataSource',
-          fromJsonRaw: (value) =>
-              ApiDeleteKnowledgeBaseDataSourceOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteKnowledgeBaseDataSourceOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list latest 15 indexing jobs for a knowledge base, send a GET request to `/v2/gen-ai/knowledge_bases/{knowledge_base_uuid}/indexing_jobs`.
 ///
 /// [knowledgeBaseUuid] Knowledge base uuid in string
-Future<ApiListKnowledgeBaseIndexingJobsOutput>
-    genaiListIndexingJobsByKnowledgeBase(ClientConfig config,
-        {required String knowledgeBaseUuid,
-        RequestOptions? requestOptions}) async {
+Future<ApiListKnowledgeBaseIndexingJobsOutput> genaiListIndexingJobsByKnowledgeBase(ClientConfig config,
+    {required String knowledgeBaseUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListKnowledgeBaseIndexingJobsOutput>('GET',
           '/v2/gen-ai/knowledge_bases/${Uri.encodeComponent(knowledgeBaseUuid.toString())}/indexing_jobs',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListIndexingJobsByKnowledgeBase',
-          fromJsonRaw: (value) =>
-              ApiListKnowledgeBaseIndexingJobsOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListKnowledgeBaseIndexingJobsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrive information about an existing knowledge base, send a GET request to `/v2/gen-ai/knowledge_bases/{uuid}`.
 ///
@@ -2515,18 +2010,12 @@ Future<ApiGetKnowledgeBaseOutput> genaiGetKnowledgeBase(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetKnowledgeBase',
-          fromJsonRaw: (value) =>
-              ApiGetKnowledgeBaseOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetKnowledgeBaseOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update a knowledge base, send a PUT request to `/v2/gen-ai/knowledge_bases/{uuid}`.
 ///
@@ -2540,16 +2029,16 @@ Future<ApiGetKnowledgeBaseOutput> genaiGetKnowledgeBase(ClientConfig config,
 ///   retrieval.
 /// [tags] Tags to organize your knowledge base.
 /// [uuid_2] Knowledge base id
-Future<ApiUpdateKnowledgeBaseOutput> genaiUpdateKnowledgeBase(
-    ClientConfig config,
-    {required String uuid,
-    SdkOptional<String> databaseId = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<String> projectId = const SdkOmitted(),
-    SdkOptional<ApiRerankingConfiguration> rerankingConfig = const SdkOmitted(),
-    SdkOptional<List<String>> tags = const SdkOmitted(),
-    SdkOptional<String> uuid_2 = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiUpdateKnowledgeBaseOutput>
+    genaiUpdateKnowledgeBase(ClientConfig config,
+        {required String uuid,
+        SdkOptional<String> databaseId = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        SdkOptional<String> projectId = const SdkOmitted(),
+        SdkOptional<ApiRerankingConfiguration> rerankingConfig = const SdkOmitted(),
+        SdkOptional<List<String>> tags = const SdkOmitted(),
+        SdkOptional<String> uuid_2 = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiUpdateKnowledgeBaseOutput>('PUT',
           '/v2/gen-ai/knowledge_bases/${Uri.encodeComponent(uuid.toString())}',
           config: config,
@@ -2563,43 +2052,29 @@ Future<ApiUpdateKnowledgeBaseOutput> genaiUpdateKnowledgeBase(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateKnowledgeBase',
-          fromJsonRaw: (value) => ApiUpdateKnowledgeBaseOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateKnowledgeBaseOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a knowledge base, send a DELETE request to `/v2/gen-ai/knowledge_bases/{uuid}`.
 ///
 /// [uuid] Knowledge base id
-Future<ApiDeleteKnowledgeBaseOutput> genaiDeleteKnowledgeBase(
-    ClientConfig config,
-    {required String uuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiDeleteKnowledgeBaseOutput> genaiDeleteKnowledgeBase(ClientConfig config,
+    {required String uuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiDeleteKnowledgeBaseOutput>('DELETE',
           '/v2/gen-ai/knowledge_bases/${Uri.encodeComponent(uuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteKnowledgeBase',
-          fromJsonRaw: (value) => ApiDeleteKnowledgeBaseOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteKnowledgeBaseOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create presigned URLs for model evaluation dataset file upload, send a POST request to `/v2/genai/model_evaluation/datasets/file_upload_presigned_urls`.
 ///
@@ -2608,103 +2083,71 @@ Future<ApiCreateDataSourceFileUploadPresignedUrlsOutput>
     genaiCreateModelEvalDatasetUploadPresignedUrls(ClientConfig config,
         {SdkOptional<List<ApiPresignedUrlFile>> files = const SdkOmitted(),
         RequestOptions? requestOptions}) async {
-  return (await sdkRequest<ApiCreateDataSourceFileUploadPresignedUrlsOutput>(
-          'POST',
+  return (await sdkRequest<ApiCreateDataSourceFileUploadPresignedUrlsOutput>('POST',
           '/v2/gen-ai/model_evaluation/datasets/file_upload_presigned_urls',
           config: config,
           body: {'files': SdkUtils.unwrapOptional(files)},
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateModelEvalDatasetUploadPresignedUrls',
-          fromJsonRaw: (value) =>
-              ApiCreateDataSourceFileUploadPresignedUrlsOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateDataSourceFileUploadPresignedUrlsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
 
+
 /// To list all available metrics for model evaluation, send a GET request to `/v2/genai/model_evaluation_metrics`.
-Future<ApiListModelEvaluationMetricsOutput> genaiListModelEvaluationMetrics(
-    ClientConfig config,
+Future<ApiListModelEvaluationMetricsOutput> genaiListModelEvaluationMetrics(ClientConfig config,
     {RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListModelEvaluationMetricsOutput>(
           'GET', '/v2/gen-ai/model_evaluation_metrics',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListModelEvaluationMetrics',
-          fromJsonRaw: (value) => ApiListModelEvaluationMetricsOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListModelEvaluationMetricsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
 
+
 /// To list all saved model evaluation presets, send a GET request to `/v2/genai/model_evaluation_presets`.
-Future<ApiListModelEvaluationPresetsOutput> genaiListModelEvaluationPresets(
-    ClientConfig config,
+Future<ApiListModelEvaluationPresetsOutput> genaiListModelEvaluationPresets(ClientConfig config,
     {RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListModelEvaluationPresetsOutput>(
           'GET', '/v2/gen-ai/model_evaluation_presets',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListModelEvaluationPresets',
-          fromJsonRaw: (value) => ApiListModelEvaluationPresetsOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListModelEvaluationPresetsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve a saved model evaluation preset, send a GET request to `/v2/genai/model_evaluation_presets/{eval_preset_uuid}`.
 ///
 /// [evalPresetUuid] UUID of the evaluation preset.
-Future<ApiGetModelEvaluationPresetOutput> genaiGetModelEvaluationPreset(
-    ClientConfig config,
-    {required String evalPresetUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiGetModelEvaluationPresetOutput> genaiGetModelEvaluationPreset(ClientConfig config,
+    {required String evalPresetUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiGetModelEvaluationPresetOutput>('GET',
           '/v2/gen-ai/model_evaluation_presets/${Uri.encodeComponent(evalPresetUuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetModelEvaluationPreset',
-          fromJsonRaw: (value) => ApiGetModelEvaluationPresetOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetModelEvaluationPresetOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a saved model evaluation preset, send a DELETE request to `/v2/gen-ai/model_evaluation_presets/{eval_preset_uuid}`.
 ///
 /// [evalPresetUuid] UUID of the evaluation preset to delete.
-Future<Map<String, dynamic>> genaiDeleteModelEvaluationPreset(
-    ClientConfig config,
-    {required String evalPresetUuid,
-    RequestOptions? requestOptions}) async {
+Future<Map<String, dynamic>> genaiDeleteModelEvaluationPreset(ClientConfig config,
+    {required String evalPresetUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<Map<String, dynamic>>('DELETE',
           '/v2/gen-ai/model_evaluation_presets/${Uri.encodeComponent(evalPresetUuid.toString())}',
           config: config,
@@ -2712,15 +2155,10 @@ Future<Map<String, dynamic>> genaiDeleteModelEvaluationPreset(
           operationId: 'genaiDeleteModelEvaluationPreset',
           fromJsonRaw: (value) => value as Map<String, dynamic>,
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list model evaluation runs, send a GET request to `/v2/genai/model_evaluation_runs`.
 ///
@@ -2735,64 +2173,40 @@ Future<Map<String, dynamic>> genaiDeleteModelEvaluationPreset(
 ///   dataset name (case-insensitive substring match). Empty means no search.
 /// [sortBy] Field to sort by. Defaults to creation date when unspecified.
 /// [sortDirection] Sort direction. Defaults to descending when unspecified.
-Future<ApiListModelEvaluationRunsOutput> genaiListModelEvaluationRuns(
-    ClientConfig config,
-    {SdkOptional<String> evalPresetUuid = const SdkOmitted(),
-    SdkOptional<GenaiListModelEvaluationRunsStatus> status = const SdkOmitted(),
-    SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<List<GenaiListModelEvaluationRunsStatusesItem>> statuses =
-        const SdkOmitted(),
-    SdkOptional<List<GenaiListModelEvaluationRunsCandidateTypesItem>>
-        candidateTypes = const SdkOmitted(),
-    SdkOptional<String> search = const SdkOmitted(),
-    SdkOptional<GenaiListModelEvaluationRunsSortBy> sortBy = const SdkOmitted(),
-    SdkOptional<GenaiListModelEvaluationRunsSortDirection> sortDirection =
-        const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListModelEvaluationRunsOutput>
+    genaiListModelEvaluationRuns(ClientConfig config,
+        {SdkOptional<String> evalPresetUuid = const SdkOmitted(),
+        SdkOptional<GenaiListModelEvaluationRunsStatus> status = const SdkOmitted(),
+        SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        SdkOptional<List<GenaiListModelEvaluationRunsStatusesItem>> statuses = const SdkOmitted(),
+        SdkOptional<List<GenaiListModelEvaluationRunsCandidateTypesItem>> candidateTypes = const SdkOmitted(),
+        SdkOptional<String> search = const SdkOmitted(),
+        SdkOptional<GenaiListModelEvaluationRunsSortBy> sortBy = const SdkOmitted(),
+        SdkOptional<GenaiListModelEvaluationRunsSortDirection> sortDirection = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListModelEvaluationRunsOutput>(
           'GET', '/v2/gen-ai/model_evaluation_runs',
           config: config,
           query: {
-            'eval_preset_uuid': SdkQueryValue(
-                SdkUtils.unwrapOptional(evalPresetUuid),
-                style: 'form',
-                explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'statuses': SdkQueryValue(SdkUtils.unwrapOptional(statuses),
-                style: 'form', explode: true),
-            'candidate_types': SdkQueryValue(
-                SdkUtils.unwrapOptional(candidateTypes),
-                style: 'form',
-                explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
-                style: 'form', explode: true),
-            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy),
-                style: 'form', explode: true),
-            'sort_direction': SdkQueryValue(
-                SdkUtils.unwrapOptional(sortDirection),
-                style: 'form',
-                explode: true)
+            'eval_preset_uuid': SdkQueryValue(SdkUtils.unwrapOptional(evalPresetUuid), style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'statuses': SdkQueryValue(SdkUtils.unwrapOptional(statuses), style: 'form', explode: true),
+            'candidate_types': SdkQueryValue(SdkUtils.unwrapOptional(candidateTypes), style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true),
+            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy), style: 'form', explode: true),
+            'sort_direction': SdkQueryValue(SdkUtils.unwrapOptional(sortDirection), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListModelEvaluationRuns',
-          fromJsonRaw: (value) => ApiListModelEvaluationRunsOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListModelEvaluationRunsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a model evaluation run to score a candidate model against a dataset using selected metrics and a judge model. Configure the candidate, dataset, metrics, and judge with the corresponding fields; `candidate_model_source` defaults to the serverless model source, and `epochs` defaults to 1 and is capped at 3. A successful response returns the created run's `eval_run_uuid`.
 ///
@@ -2835,36 +2249,31 @@ Future<ApiListModelEvaluationRunsOutput> genaiListModelEvaluationRuns(
 /// [source] Source of the run creation (api, sdk, cli).
 /// [starMetric] Optional object value serialized in the `star_metric` wire
 ///   field.
-Future<ApiCreateModelEvaluationRunOutput> genaiCreateModelEvaluationRun(
-    ClientConfig config,
-    {SdkOptional<ApiCandidateInferenceConfig> candidateInferenceConfig =
-        const SdkOmitted(),
-    SdkOptional<String> candidateModelName = const SdkOmitted(),
-    SdkOptional<ApiCandidateModelSource> candidateModelSource =
-        const SdkOmitted(),
-    SdkOptional<String> candidateModelUuid = const SdkOmitted(),
-    SdkOptional<String> datasetUuid = const SdkOmitted(),
-    SdkOptional<int> epochs = const SdkOmitted(),
-    SdkOptional<String> evalPresetUuid = const SdkOmitted(),
-    SdkOptional<String> judgeModelUuid = const SdkOmitted(),
-    SdkOptional<List<String>> metricUuids = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<String> presetName = const SdkOmitted(),
-    SdkOptional<List<ApiPresetSaveSection>> presetSaveSections =
-        const SdkOmitted(),
-    SdkOptional<bool> saveAsPreset = const SdkOmitted(),
-    SdkOptional<String> source = const SdkOmitted(),
-    SdkOptional<ApiStarMetric> starMetric = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiCreateModelEvaluationRunOutput>
+    genaiCreateModelEvaluationRun(ClientConfig config,
+        {SdkOptional<ApiCandidateInferenceConfig> candidateInferenceConfig = const SdkOmitted(),
+        SdkOptional<String> candidateModelName = const SdkOmitted(),
+        SdkOptional<ApiCandidateModelSource> candidateModelSource = const SdkOmitted(),
+        SdkOptional<String> candidateModelUuid = const SdkOmitted(),
+        SdkOptional<String> datasetUuid = const SdkOmitted(),
+        SdkOptional<int> epochs = const SdkOmitted(),
+        SdkOptional<String> evalPresetUuid = const SdkOmitted(),
+        SdkOptional<String> judgeModelUuid = const SdkOmitted(),
+        SdkOptional<List<String>> metricUuids = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        SdkOptional<String> presetName = const SdkOmitted(),
+        SdkOptional<List<ApiPresetSaveSection>> presetSaveSections = const SdkOmitted(),
+        SdkOptional<bool> saveAsPreset = const SdkOmitted(),
+        SdkOptional<String> source = const SdkOmitted(),
+        SdkOptional<ApiStarMetric> starMetric = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCreateModelEvaluationRunOutput>(
           'POST', '/v2/gen-ai/model_evaluation_runs',
           config: config,
           body: {
-            'candidate_inference_config':
-                SdkUtils.unwrapOptional(candidateInferenceConfig),
+            'candidate_inference_config': SdkUtils.unwrapOptional(candidateInferenceConfig),
             'candidate_model_name': SdkUtils.unwrapOptional(candidateModelName),
-            'candidate_model_source':
-                SdkUtils.unwrapOptional(candidateModelSource),
+            'candidate_model_source': SdkUtils.unwrapOptional(candidateModelSource),
             'candidate_model_uuid': SdkUtils.unwrapOptional(candidateModelUuid),
             'dataset_uuid': SdkUtils.unwrapOptional(datasetUuid),
             'epochs': SdkUtils.unwrapOptional(epochs),
@@ -2880,53 +2289,39 @@ Future<ApiCreateModelEvaluationRunOutput> genaiCreateModelEvaluationRun(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateModelEvaluationRun',
-          fromJsonRaw: (value) => ApiCreateModelEvaluationRunOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateModelEvaluationRunOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve a model evaluation run, send a GET request to `/v2/genai/model_evaluation_runs/{eval_run_uuid}`.
 ///
 /// [evalRunUuid] UUID of the evaluation run.
 /// [page] Page number for per-prompt results (defaults to 1).
 /// [perPage] Number of per-prompt results per page (defaults to 50).
-Future<ApiGetModelEvaluationRunOutput> genaiGetModelEvaluationRun(
-    ClientConfig config,
-    {required String evalRunUuid,
-    SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiGetModelEvaluationRunOutput>
+    genaiGetModelEvaluationRun(ClientConfig config,
+        {required String evalRunUuid,
+        SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiGetModelEvaluationRunOutput>('GET',
           '/v2/gen-ai/model_evaluation_runs/${Uri.encodeComponent(evalRunUuid.toString())}',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetModelEvaluationRun',
-          fromJsonRaw: (value) => ApiGetModelEvaluationRunOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetModelEvaluationRunOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a model evaluation run, send a DELETE request to `/v2/gen-ai/model_evaluation_runs/{eval_run_uuid}`. The run must be in a terminal status (`successful`, `partially_successful`, `failed`, or `cancelled`). For runs still in progress, either wait for the run to finish or cancel it, then retry the delete once the run reaches a terminal status.
 ///
@@ -2934,28 +2329,19 @@ Future<ApiGetModelEvaluationRunOutput> genaiGetModelEvaluationRun(
 ///   a terminal status (`successful`, `partially_successful`, `failed`, or
 ///   `cancelled`). For runs still in progress, either wait for the run to finish
 ///   or cancel it, then retry the delete.
-Future<ApiDeleteModelEvaluationRunOutputPublic> genaiDeleteModelEvaluationRun(
-    ClientConfig config,
-    {required String evalRunUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiDeleteModelEvaluationRunOutputPublic> genaiDeleteModelEvaluationRun(ClientConfig config,
+    {required String evalRunUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiDeleteModelEvaluationRunOutputPublic>('DELETE',
           '/v2/gen-ai/model_evaluation_runs/${Uri.encodeComponent(evalRunUuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteModelEvaluationRun',
-          fromJsonRaw: (value) =>
-              ApiDeleteModelEvaluationRunOutputPublic.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteModelEvaluationRunOutputPublic.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update a model evaluation run's display name, send a PATCH request to `/v2/gen-ai/model_evaluation_runs/{eval_run_uuid}`.
 ///
@@ -2965,12 +2351,12 @@ Future<ApiDeleteModelEvaluationRunOutputPublic> genaiDeleteModelEvaluationRun(
 ///   `CreateModelEvaluationRun` and listed via `ListModelEvaluationRuns`.
 /// [name] Optional new display name for the evaluation run (max 255
 ///   characters).
-Future<ApiUpdateModelEvaluationRunOutput> genaiUpdateModelEvaluationRun(
-    ClientConfig config,
-    {required String evalRunUuid,
-    SdkOptional<String> evalRunUuid_2 = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiUpdateModelEvaluationRunOutput>
+    genaiUpdateModelEvaluationRun(ClientConfig config,
+        {required String evalRunUuid,
+        SdkOptional<String> evalRunUuid_2 = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiUpdateModelEvaluationRunOutput>('PATCH',
           '/v2/gen-ai/model_evaluation_runs/${Uri.encodeComponent(evalRunUuid.toString())}',
           config: config,
@@ -2980,18 +2366,12 @@ Future<ApiUpdateModelEvaluationRunOutput> genaiUpdateModelEvaluationRun(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateModelEvaluationRun',
-          fromJsonRaw: (value) => ApiUpdateModelEvaluationRunOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateModelEvaluationRunOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To cancel an in-progress model evaluation run, send a PUT request to `/v2/gen-ai/model_evaluation_runs/{eval_run_uuid}/cancel`.
 ///
@@ -3003,55 +2383,40 @@ Future<ApiUpdateModelEvaluationRunOutput> genaiUpdateModelEvaluationRun(
 ///   `CreateModelEvaluationRun` and listed via `ListModelEvaluationRuns`. The run
 ///   must be in a non-terminal status (queued, running_dataset, or
 ///   evaluating_results); already-terminal runs return an error.
-Future<ApiCancelModelEvaluationRunOutput> genaiCancelModelEvaluationRun(
-    ClientConfig config,
-    {required String evalRunUuid,
-    SdkOptional<String> evalRunUuid_2 = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiCancelModelEvaluationRunOutput>
+    genaiCancelModelEvaluationRun(ClientConfig config,
+        {required String evalRunUuid,
+        SdkOptional<String> evalRunUuid_2 = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCancelModelEvaluationRunOutput>('PUT',
           '/v2/gen-ai/model_evaluation_runs/${Uri.encodeComponent(evalRunUuid.toString())}/cancel',
           config: config,
           body: {'eval_run_uuid': SdkUtils.unwrapOptional(evalRunUuid_2)},
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCancelModelEvaluationRun',
-          fromJsonRaw: (value) => ApiCancelModelEvaluationRunOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCancelModelEvaluationRunOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get a presigned download URL for model evaluation run results (gzip-compressed JSON), send a GET request to `/v2/genai/model_evaluation_runs/{eval_run_uuid}/results/download_url`.
 ///
 /// [evalRunUuid] UUID of the evaluation run.
-Future<ApiGetModelEvaluationRunResultsDownloadURLOutput>
-    genaiGetModelEvaluationRunResultsDownloadUrl(ClientConfig config,
-        {required String evalRunUuid, RequestOptions? requestOptions}) async {
-  return (await sdkRequest<ApiGetModelEvaluationRunResultsDownloadURLOutput>(
-          'GET',
+Future<ApiGetModelEvaluationRunResultsDownloadURLOutput> genaiGetModelEvaluationRunResultsDownloadUrl(ClientConfig config,
+    {required String evalRunUuid, RequestOptions? requestOptions}) async {
+  return (await sdkRequest<ApiGetModelEvaluationRunResultsDownloadURLOutput>('GET',
           '/v2/gen-ai/model_evaluation_runs/${Uri.encodeComponent(evalRunUuid.toString())}/results/download_url',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetModelEvaluationRunResultsDownloadUrl',
-          fromJsonRaw: (value) =>
-              ApiGetModelEvaluationRunResultsDownloadURLOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetModelEvaluationRunResultsDownloadURLOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all models, send a GET request to `/v2/gen-ai/models`.
 ///
@@ -3067,8 +2432,7 @@ Future<ApiGetModelEvaluationRunResultsDownloadURLOutput>
 /// [page] Page number.
 /// [perPage] Items per page.
 Future<ApiListModelsOutputPublic> genaiListModels(ClientConfig config,
-    {SdkOptional<List<GenaiListModelsUsecasesItem>> usecases =
-        const SdkOmitted(),
+    {SdkOptional<List<GenaiListModelsUsecasesItem>> usecases = const SdkOmitted(),
     SdkOptional<bool> publicOnly = const SdkOmitted(),
     SdkOptional<int> page = const SdkOmitted(),
     SdkOptional<int> perPage = const SdkOmitted(),
@@ -3077,29 +2441,19 @@ Future<ApiListModelsOutputPublic> genaiListModels(ClientConfig config,
           'GET', '/v2/gen-ai/models',
           config: config,
           query: {
-            'usecases': SdkQueryValue(SdkUtils.unwrapOptional(usecases),
-                style: 'form', explode: true),
-            'public_only': SdkQueryValue(SdkUtils.unwrapOptional(publicOnly),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'usecases': SdkQueryValue(SdkUtils.unwrapOptional(usecases), style: 'form', explode: true),
+            'public_only': SdkQueryValue(SdkUtils.unwrapOptional(publicOnly), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListModels',
-          fromJsonRaw: (value) =>
-              ApiListModelsOutputPublic.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListModelsOutputPublic.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all model API keys, send a GET request to `/v2/gen-ai/models/api_keys`.
 ///
@@ -3113,25 +2467,17 @@ Future<ApiListModelAPIKeysOutput> genaiListModelApiKeys(ClientConfig config,
           'GET', '/v2/gen-ai/models/api_keys',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListModelApiKeys',
-          fromJsonRaw: (value) =>
-              ApiListModelAPIKeysOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListModelAPIKeysOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// **Note: This endpoint is deprecated and has been retired. All requests return a `410 gone` response.** Creating model API keys through this endpoint is no longer supported. To create a model access key, visit the manage page in the control panel. Previously, you could create a model API key by sending a POST request to `/v2/gen-ai/models/api_keys`.
 ///
@@ -3146,18 +2492,12 @@ Future<Error2> genaiCreateModelApiKey(ClientConfig config,
           body: {'name': SdkUtils.unwrapOptional(name)},
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateModelApiKey',
-          fromJsonRaw: (value) =>
-              Error2.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Error2.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '410': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '410': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Replaces the model API key resource identified by its UUID. Use `api_key_uuid` to select the key and provide `name` to set its display name; the request body is optional.
 ///
@@ -3180,18 +2520,12 @@ Future<ApiUpdateModelAPIKeyOutput> genaiUpdateModelApiKey(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateModelApiKey',
-          fromJsonRaw: (value) => ApiUpdateModelAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateModelAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an API key for a model, send a DELETE request to `/v2/gen-ai/models/api_keys/{api_key_uuid}`.
 ///
@@ -3203,43 +2537,29 @@ Future<ApiDeleteModelAPIKeyOutput> genaiDeleteModelApiKey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteModelApiKey',
-          fromJsonRaw: (value) => ApiDeleteModelAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteModelAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To regenerate a model API key, send a PUT request to `/v2/gen-ai/models/api_keys/{api_key_uuid}/regenerate`.
 ///
 /// [apiKeyUuid] API key ID
-Future<ApiRegenerateModelAPIKeyOutput> genaiRegenerateModelApiKey(
-    ClientConfig config,
-    {required String apiKeyUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiRegenerateModelAPIKeyOutput> genaiRegenerateModelApiKey(ClientConfig config,
+    {required String apiKeyUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiRegenerateModelAPIKeyOutput>('PUT',
           '/v2/gen-ai/models/api_keys/${Uri.encodeComponent(apiKeyUuid.toString())}/regenerate',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiRegenerateModelApiKey',
-          fromJsonRaw: (value) => ApiRegenerateModelAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiRegenerateModelAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists models available in the model catalog with pagination, filtering, and sorting options. Use `search` and the model filters to narrow the results, and use `page` and `per_page` to paginate the results.
 ///
@@ -3294,53 +2614,33 @@ Future<ApiListModelCatalogOutput> genaiListModelCatalog(ClientConfig config,
     SdkOptional<List<String>> badges = const SdkOmitted(),
     SdkOptional<GenaiListModelCatalogSortBy> sortBy = const SdkOmitted(),
     SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<GenaiListModelCatalogSortDirection> sortDirection =
-        const SdkOmitted(),
+    SdkOptional<GenaiListModelCatalogSortDirection> sortDirection = const SdkOmitted(),
     SdkOptional<GenaiListModelCatalogUseCase> useCase = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListModelCatalogOutput>(
           'GET', '/v2/gen-ai/models/catalog',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
-                style: 'form', explode: true),
-            'model_type': SdkQueryValue(SdkUtils.unwrapOptional(modelType),
-                style: 'form', explode: true),
-            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider),
-                style: 'form', explode: true),
-            'availability': SdkQueryValue(SdkUtils.unwrapOptional(availability),
-                style: 'form', explode: true),
-            'badges': SdkQueryValue(SdkUtils.unwrapOptional(badges),
-                style: 'form', explode: true),
-            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'sort_direction': SdkQueryValue(
-                SdkUtils.unwrapOptional(sortDirection),
-                style: 'form',
-                explode: true),
-            'use_case': SdkQueryValue(SdkUtils.unwrapOptional(useCase),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true),
+            'model_type': SdkQueryValue(SdkUtils.unwrapOptional(modelType), style: 'form', explode: true),
+            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider), style: 'form', explode: true),
+            'availability': SdkQueryValue(SdkUtils.unwrapOptional(availability), style: 'form', explode: true),
+            'badges': SdkQueryValue(SdkUtils.unwrapOptional(badges), style: 'form', explode: true),
+            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'sort_direction': SdkQueryValue(SdkUtils.unwrapOptional(sortDirection), style: 'form', explode: true),
+            'use_case': SdkQueryValue(SdkUtils.unwrapOptional(useCase), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListModelCatalog',
-          fromJsonRaw: (value) =>
-              ApiListModelCatalogOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListModelCatalogOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves detailed information about a specific model in the catalog, including its capabilities, pricing, and code examples. Use the `id` path parameter to look up a catalog entry, or use `model_id` to look it up by the identifier used for API calls.
 ///
@@ -3348,32 +2648,25 @@ Future<ApiListModelCatalogOutput> genaiListModelCatalog(ClientConfig config,
 ///
 /// [modelId] Model identifier used for API calls (e.g.,
 ///   "llama3.1-70b-instruct"). Alternative to UUID lookup.
-Future<ApiGetModelCatalogCardOutput> genaiGetModelCatalogCard(
-    ClientConfig config,
-    {required String id,
-    SdkOptional<String> modelId = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiGetModelCatalogCardOutput>
+    genaiGetModelCatalogCard(ClientConfig config,
+        {required String id,
+        SdkOptional<String> modelId = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiGetModelCatalogCardOutput>('GET',
           '/v2/gen-ai/models/catalog/${Uri.encodeComponent(id.toString())}',
           config: config,
           query: {
-            'model_id': SdkQueryValue(SdkUtils.unwrapOptional(modelId),
-                style: 'form', explode: true)
+            'model_id': SdkQueryValue(SdkUtils.unwrapOptional(modelId), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetModelCatalogCard',
-          fromJsonRaw: (value) => ApiGetModelCatalogCardOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetModelCatalogCardOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list model routers, send a GET request to `/v2/gen-ai/models/routers`.
 ///
@@ -3387,25 +2680,17 @@ Future<ApiListModelRoutersOutput> genaiListModelRouters(ClientConfig config,
           'GET', '/v2/gen-ai/models/routers',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListModelRouters',
-          fromJsonRaw: (value) =>
-              ApiListModelRoutersOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListModelRoutersOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a model router, send a POST request to `/v2/gen-ai/models/routers`.
 ///
@@ -3437,84 +2722,62 @@ Future<ApiCreateModelRouterOutput> genaiCreateModelRouter(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateModelRouter',
-          fromJsonRaw: (value) => ApiCreateModelRouterOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateModelRouterOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list model router presets, send a GET request to `/v2/gen-ai/models/routers/presets`.
 ///
 /// [page] Page number.
 /// [perPage] Items per page.
-Future<ApiListModelRouterPresetsOutput> genaiListModelRouterPresets(
-    ClientConfig config,
-    {SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListModelRouterPresetsOutput>
+    genaiListModelRouterPresets(ClientConfig config,
+        {SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListModelRouterPresetsOutput>(
           'GET', '/v2/gen-ai/models/routers/presets',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListModelRouterPresets',
-          fromJsonRaw: (value) => ApiListModelRouterPresetsOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListModelRouterPresetsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list model router task presets, send a GET request to `/v2/gen-ai/models/routers/tasks/presets`.
 ///
 /// [page] Page number.
 /// [perPage] Items per page.
-Future<ApiListModelRouterTaskPresetsOutput> genaiListModelRouterTaskPresets(
-    ClientConfig config,
-    {SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListModelRouterTaskPresetsOutput>
+    genaiListModelRouterTaskPresets(ClientConfig config,
+        {SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListModelRouterTaskPresetsOutput>(
           'GET', '/v2/gen-ai/models/routers/tasks/presets',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListModelRouterTaskPresets',
-          fromJsonRaw: (value) => ApiListModelRouterTaskPresetsOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListModelRouterTaskPresetsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve details of a model router, send a GET request to `/v2/gen-ai/models/routers/{uuid}`.
 ///
@@ -3526,18 +2789,12 @@ Future<ApiGetModelRouterOutput> genaiGetModelRouter(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetModelRouter',
-          fromJsonRaw: (value) =>
-              ApiGetModelRouterOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetModelRouterOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Replaces the configuration of a model router identified by its UUID. Supply any settings you want to update, such as `name`, `description`, or `policies`. The deprecated `regions` field does not affect deployment; omit it or set it to `["all"]`.
 ///
@@ -3576,18 +2833,12 @@ Future<ApiUpdateModelRouterOutput> genaiUpdateModelRouter(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateModelRouter',
-          fromJsonRaw: (value) => ApiUpdateModelRouterOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateModelRouterOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a model router, send a DELETE request to `/v2/gen-ai/models/routers/{uuid}`.
 ///
@@ -3599,28 +2850,22 @@ Future<ApiDeleteModelRouterOutput> genaiDeleteModelRouter(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteModelRouter',
-          fromJsonRaw: (value) => ApiDeleteModelRouterOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteModelRouterOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To obtain the refresh token, needed for creation of data sources, send a GET request to `/v2/gen-ai/oauth2/dropbox/tokens`. Pass the code you obtrained from the oauth flow in the field 'code'
 ///
 /// [code] The oauth2 code from google
 /// [redirectUrl] Redirect url
-Future<ApiDropboxOauth2GetTokensOutput> genaiCreateOauth2DropboxTokens(
-    ClientConfig config,
-    {SdkOptional<String> code = const SdkOmitted(),
-    SdkOptional<String> redirectUrl = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiDropboxOauth2GetTokensOutput>
+    genaiCreateOauth2DropboxTokens(ClientConfig config,
+        {SdkOptional<String> code = const SdkOmitted(),
+        SdkOptional<String> redirectUrl = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiDropboxOauth2GetTokensOutput>(
           'POST', '/v2/gen-ai/oauth2/dropbox/tokens',
           config: config,
@@ -3630,18 +2875,12 @@ Future<ApiDropboxOauth2GetTokensOutput> genaiCreateOauth2DropboxTokens(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateOauth2DropboxTokens',
-          fromJsonRaw: (value) => ApiDropboxOauth2GetTokensOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDropboxOauth2GetTokensOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To generate an Oauth2-URL for use with your localhost, send a GET request to `/v2/gen-ai/oauth2/url`. Pass 'http://localhost:3000 as redirect_url
 ///
@@ -3655,25 +2894,17 @@ Future<ApiGenerateOauth2URLOutput> genaiGetOauth2Url(ClientConfig config,
           'GET', '/v2/gen-ai/oauth2/url',
           config: config,
           query: {
-            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_),
-                style: 'form', explode: true),
-            'redirect_url': SdkQueryValue(SdkUtils.unwrapOptional(redirectUrl),
-                style: 'form', explode: true)
+            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_), style: 'form', explode: true),
+            'redirect_url': SdkQueryValue(SdkUtils.unwrapOptional(redirectUrl), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetOauth2Url',
-          fromJsonRaw: (value) => ApiGenerateOauth2URLOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGenerateOauth2URLOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all OpenAI API keys, send a GET request to `/v2/gen-ai/openai/keys`.
 ///
@@ -3687,25 +2918,17 @@ Future<ApiListOpenAIAPIKeysOutput> genaiListOpenaiApiKeys(ClientConfig config,
           'GET', '/v2/gen-ai/openai/keys',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListOpenaiApiKeys',
-          fromJsonRaw: (value) => ApiListOpenAIAPIKeysOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListOpenAIAPIKeysOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create an OpenAI API key, send a POST request to `/v2/gen-ai/openai/keys`.
 ///
@@ -3724,18 +2947,12 @@ Future<ApiCreateOpenAIAPIKeyOutput> genaiCreateOpenaiApiKey(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateOpenaiApiKey',
-          fromJsonRaw: (value) => ApiCreateOpenAIAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateOpenAIAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve details of an OpenAI API key, send a GET request to `/v2/gen-ai/openai/keys/{api_key_uuid}`.
 ///
@@ -3747,18 +2964,12 @@ Future<ApiGetOpenAIAPIKeyOutput> genaiGetOpenaiApiKey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetOpenaiApiKey',
-          fromJsonRaw: (value) =>
-              ApiGetOpenAIAPIKeyOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetOpenAIAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update an OpenAI API key, send a PUT request to `/v2/gen-ai/openai/keys/{api_key_uuid}`.
 ///
@@ -3782,18 +2993,12 @@ Future<ApiUpdateOpenAIAPIKeyOutput> genaiUpdateOpenaiApiKey(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateOpenaiApiKey',
-          fromJsonRaw: (value) => ApiUpdateOpenAIAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateOpenAIAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an OpenAI API key, send a DELETE request to `/v2/gen-ai/openai/keys/{api_key_uuid}`.
 ///
@@ -3805,18 +3010,12 @@ Future<ApiDeleteOpenAIAPIKeyOutput> genaiDeleteOpenaiApiKey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteOpenaiApiKey',
-          fromJsonRaw: (value) => ApiDeleteOpenAIAPIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteOpenAIAPIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Lists agents linked to a specific OpenAI key. Use `page` and `per_page` to paginate the results. The response includes pagination metadata and links to other pages.
 ///
@@ -3825,35 +3024,27 @@ Future<ApiDeleteOpenAIAPIKeyOutput> genaiDeleteOpenaiApiKey(ClientConfig config,
 /// [uuid] Unique ID of OpenAI key
 /// [page] Page number.
 /// [perPage] Items per page.
-Future<ApiListAgentsByOpenAIKeyOutput> genaiListAgentsByOpenaiKey(
-    ClientConfig config,
-    {required String uuid,
-    SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListAgentsByOpenAIKeyOutput>
+    genaiListAgentsByOpenaiKey(ClientConfig config,
+        {required String uuid,
+        SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListAgentsByOpenAIKeyOutput>('GET',
           '/v2/gen-ai/openai/keys/${Uri.encodeComponent(uuid.toString())}/agents',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListAgentsByOpenaiKey',
-          fromJsonRaw: (value) => ApiListAgentsByOpenAIKeyOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListAgentsByOpenAIKeyOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all datacenter regions, send a GET request to `/v2/gen-ai/regions`.
 ///
@@ -3866,27 +3057,17 @@ Future<ApiListRegionsOutput> genaiListDatacenterRegions(ClientConfig config,
   return (await sdkRequest<ApiListRegionsOutput>('GET', '/v2/gen-ai/regions',
           config: config,
           query: {
-            'serves_inference': SdkQueryValue(
-                SdkUtils.unwrapOptional(servesInference),
-                style: 'form',
-                explode: true),
-            'serves_batch': SdkQueryValue(SdkUtils.unwrapOptional(servesBatch),
-                style: 'form', explode: true)
+            'serves_inference': SdkQueryValue(SdkUtils.unwrapOptional(servesInference), style: 'form', explode: true),
+            'serves_batch': SdkQueryValue(SdkUtils.unwrapOptional(servesBatch), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListDatacenterRegions',
-          fromJsonRaw: (value) =>
-              ApiListRegionsOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListRegionsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list the platform-curated Common Scenario & Goal Library, send a GET request to `/v2/gen-ai/scenario_library`.
 ///
@@ -3900,49 +3081,34 @@ Future<ApiListRegionsOutput> genaiListDatacenterRegions(ClientConfig config,
 ///   (case-insensitive). Default. - SCENARIO_LIBRARY_SORT_FIELD_CREATED_AT: Sort
 ///   by creation date.
 /// [sortDirection] Sort direction. Defaults to ascending when unspecified.
-Future<ApiListScenarioLibraryOutput> genaiListScenarioLibrary(
-    ClientConfig config,
-    {SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<String> category = const SdkOmitted(),
-    SdkOptional<String> search = const SdkOmitted(),
-    SdkOptional<GenaiListScenarioLibrarySortBy> sortBy = const SdkOmitted(),
-    SdkOptional<GenaiListScenarioLibrarySortDirection> sortDirection =
-        const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListScenarioLibraryOutput>
+    genaiListScenarioLibrary(ClientConfig config,
+        {SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        SdkOptional<String> category = const SdkOmitted(),
+        SdkOptional<String> search = const SdkOmitted(),
+        SdkOptional<GenaiListScenarioLibrarySortBy> sortBy = const SdkOmitted(),
+        SdkOptional<GenaiListScenarioLibrarySortDirection> sortDirection = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListScenarioLibraryOutput>(
           'GET', '/v2/gen-ai/scenario_library',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'category': SdkQueryValue(SdkUtils.unwrapOptional(category),
-                style: 'form', explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
-                style: 'form', explode: true),
-            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy),
-                style: 'form', explode: true),
-            'sort_direction': SdkQueryValue(
-                SdkUtils.unwrapOptional(sortDirection),
-                style: 'form',
-                explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'category': SdkQueryValue(SdkUtils.unwrapOptional(category), style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true),
+            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy), style: 'form', explode: true),
+            'sort_direction': SdkQueryValue(SdkUtils.unwrapOptional(sortDirection), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListScenarioLibrary',
-          fromJsonRaw: (value) => ApiListScenarioLibraryOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListScenarioLibraryOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a scenario set from a Common Scenario & Goal Library entry, send a POST request to `/v2/gen-ai/scenario_library/{library_scenario_uuid}/create_scenario_set`. The library scenarios are copied into a new scenario set owned by the calling team. The new set is ready to use when creating a simulation run.
 ///
@@ -3950,35 +3116,27 @@ Future<ApiListScenarioLibraryOutput> genaiListScenarioLibrary(
 /// [libraryScenarioUuid_2] UUID of the library entry to copy.
 /// [name] Optional name for the new scenario set. Defaults to the library
 ///   entry's name when unset.
-Future<ApiCreateScenarioSetFromLibraryOutput> genaiCreateScenarioSetFromLibrary(
-    ClientConfig config,
-    {required String libraryScenarioUuid,
-    SdkOptional<String> libraryScenarioUuid_2 = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiCreateScenarioSetFromLibraryOutput>
+    genaiCreateScenarioSetFromLibrary(ClientConfig config,
+        {required String libraryScenarioUuid,
+        SdkOptional<String> libraryScenarioUuid_2 = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCreateScenarioSetFromLibraryOutput>('POST',
           '/v2/gen-ai/scenario_library/${Uri.encodeComponent(libraryScenarioUuid.toString())}/create_scenario_set',
           config: config,
           body: {
-            'library_scenario_uuid':
-                SdkUtils.unwrapOptional(libraryScenarioUuid_2),
+            'library_scenario_uuid': SdkUtils.unwrapOptional(libraryScenarioUuid_2),
             'name': SdkUtils.unwrapOptional(name)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateScenarioSetFromLibrary',
-          fromJsonRaw: (value) =>
-              ApiCreateScenarioSetFromLibraryOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateScenarioSetFromLibraryOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list the scenarios inside a Common Scenario & Goal Library entry without creating a team-owned scenario set, send a GET request to `/v2/gen-ai/scenario_library/{library_scenario_uuid}/scenarios`.
 ///
@@ -3993,48 +3151,33 @@ Future<ApiCreateScenarioSetFromLibraryOutput> genaiCreateScenarioSetFromLibrary(
 ///   names sort last. - SCENARIO_SORT_FIELD_DESCRIPTION: Sort by scenario
 ///   description (case-insensitive).
 /// [sortDirection] Sort direction. Defaults to ascending when unspecified.
-Future<ApiListScenariosOutput> genaiListScenarioLibraryScenarios(
-    ClientConfig config,
-    {required String libraryScenarioUuid,
-    SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<String> search = const SdkOmitted(),
-    SdkOptional<GenaiListScenarioLibraryScenariosSortBy> sortBy =
-        const SdkOmitted(),
-    SdkOptional<GenaiListScenarioLibraryScenariosSortDirection> sortDirection =
-        const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListScenariosOutput>
+    genaiListScenarioLibraryScenarios(ClientConfig config,
+        {required String libraryScenarioUuid,
+        SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        SdkOptional<String> search = const SdkOmitted(),
+        SdkOptional<GenaiListScenarioLibraryScenariosSortBy> sortBy = const SdkOmitted(),
+        SdkOptional<GenaiListScenarioLibraryScenariosSortDirection> sortDirection = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListScenariosOutput>('GET',
           '/v2/gen-ai/scenario_library/${Uri.encodeComponent(libraryScenarioUuid.toString())}/scenarios',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
-                style: 'form', explode: true),
-            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy),
-                style: 'form', explode: true),
-            'sort_direction': SdkQueryValue(
-                SdkUtils.unwrapOptional(sortDirection),
-                style: 'form',
-                explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true),
+            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy), style: 'form', explode: true),
+            'sort_direction': SdkQueryValue(SdkUtils.unwrapOptional(sortDirection), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListScenarioLibraryScenarios',
-          fromJsonRaw: (value) =>
-              ApiListScenariosOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListScenariosOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list scenario sets, send a GET request to `/v2/gen-ai/scenario_sets`.
 ///
@@ -4065,50 +3208,32 @@ Future<ApiListScenariosOutput> genaiListScenarioLibraryScenarios(
 Future<ApiListScenarioSetsOutput> genaiListScenarioSets(ClientConfig config,
     {SdkOptional<int> page = const SdkOmitted(),
     SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<List<GenaiListScenarioSetsStatusesItem>> statuses =
-        const SdkOmitted(),
-    SdkOptional<List<GenaiListScenarioSetsSourceKindsItem>> sourceKinds =
-        const SdkOmitted(),
+    SdkOptional<List<GenaiListScenarioSetsStatusesItem>> statuses = const SdkOmitted(),
+    SdkOptional<List<GenaiListScenarioSetsSourceKindsItem>> sourceKinds = const SdkOmitted(),
     SdkOptional<String> search = const SdkOmitted(),
     SdkOptional<GenaiListScenarioSetsSortBy> sortBy = const SdkOmitted(),
-    SdkOptional<GenaiListScenarioSetsSortDirection> sortDirection =
-        const SdkOmitted(),
+    SdkOptional<GenaiListScenarioSetsSortDirection> sortDirection = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListScenarioSetsOutput>(
           'GET', '/v2/gen-ai/scenario_sets',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'statuses': SdkQueryValue(SdkUtils.unwrapOptional(statuses),
-                style: 'form', explode: true),
-            'source_kinds': SdkQueryValue(SdkUtils.unwrapOptional(sourceKinds),
-                style: 'form', explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
-                style: 'form', explode: true),
-            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy),
-                style: 'form', explode: true),
-            'sort_direction': SdkQueryValue(
-                SdkUtils.unwrapOptional(sortDirection),
-                style: 'form',
-                explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'statuses': SdkQueryValue(SdkUtils.unwrapOptional(statuses), style: 'form', explode: true),
+            'source_kinds': SdkQueryValue(SdkUtils.unwrapOptional(sourceKinds), style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true),
+            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy), style: 'form', explode: true),
+            'sort_direction': SdkQueryValue(SdkUtils.unwrapOptional(sortDirection), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListScenarioSets',
-          fromJsonRaw: (value) =>
-              ApiListScenarioSetsOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListScenarioSetsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a scenario set, send a POST request to `/v2/gen-ai/scenario_sets`. Provide exactly one of `scenarios` or `file_upload_scenario_set`. The set is created in the ready state.
 ///
@@ -4118,8 +3243,7 @@ Future<ApiListScenarioSetsOutput> genaiListScenarioSets(ClientConfig config,
 /// [scenarios] Inline scenarios. Provide this or `file_upload_scenario_set`,
 ///   not both.
 Future<ApiCreateScenarioSetOutput> genaiCreateScenarioSet(ClientConfig config,
-    {SdkOptional<ApiFileUploadDataSource> fileUploadScenarioSet =
-        const SdkOmitted(),
+    {SdkOptional<ApiFileUploadDataSource> fileUploadScenarioSet = const SdkOmitted(),
     SdkOptional<String> name = const SdkOmitted(),
     SdkOptional<List<ApiScenario>> scenarios = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -4127,25 +3251,18 @@ Future<ApiCreateScenarioSetOutput> genaiCreateScenarioSet(ClientConfig config,
           'POST', '/v2/gen-ai/scenario_sets',
           config: config,
           body: {
-            'file_upload_scenario_set':
-                SdkUtils.unwrapOptional(fileUploadScenarioSet),
+            'file_upload_scenario_set': SdkUtils.unwrapOptional(fileUploadScenarioSet),
             'name': SdkUtils.unwrapOptional(name),
             'scenarios': SdkUtils.unwrapOptional(scenarios)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateScenarioSet',
-          fromJsonRaw: (value) => ApiCreateScenarioSetOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateScenarioSetOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create presigned URLs for uploading a scenario set file, send a POST request to `/v2/gen-ai/scenario_sets/file_upload_presigned_urls`. After uploading, pass the stored object in Create Scenario Set as `file_upload_scenario_set`.
 ///
@@ -4160,19 +3277,12 @@ Future<ApiCreateDataSourceFileUploadPresignedUrlsOutput>
           body: {'files': SdkUtils.unwrapOptional(files)},
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateScenarioSetUploadPresignedUrls',
-          fromJsonRaw: (value) =>
-              ApiCreateDataSourceFileUploadPresignedUrlsOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateDataSourceFileUploadPresignedUrlsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To dispatch goal-driven scenario generation, send a POST request to `/v2/gen-ai/scenario_sets/generate`. The scenario set is returned in the generating state. Poll the retrieve scenario set endpoint until the set reaches a ready, failed, or cancelled status.
 ///
@@ -4181,13 +3291,13 @@ Future<ApiCreateDataSourceFileUploadPresignedUrlsOutput>
 /// [goalDescription] The goal that drives scenario generation.
 /// [name] The name of the scenario set to create.
 /// [numScenarios] Number of scenarios to generate. Defaults to 1 if unset.
-Future<ApiGenerateScenarioSetOutput> genaiCreateGeneratedScenarioSet(
-    ClientConfig config,
-    {SdkOptional<String> generatorModelUuid = const SdkOmitted(),
-    SdkOptional<String> goalDescription = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<int> numScenarios = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiGenerateScenarioSetOutput>
+    genaiCreateGeneratedScenarioSet(ClientConfig config,
+        {SdkOptional<String> generatorModelUuid = const SdkOmitted(),
+        SdkOptional<String> goalDescription = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        SdkOptional<int> numScenarios = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiGenerateScenarioSetOutput>(
           'POST', '/v2/gen-ai/scenario_sets/generate',
           config: config,
@@ -4199,18 +3309,12 @@ Future<ApiGenerateScenarioSetOutput> genaiCreateGeneratedScenarioSet(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateGeneratedScenarioSet',
-          fromJsonRaw: (value) => ApiGenerateScenarioSetOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGenerateScenarioSetOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve a scenario set, send a GET request to `/v2/gen-ai/scenario_sets/{scenario_set_uuid}`.
 ///
@@ -4222,18 +3326,12 @@ Future<ApiGetScenarioSetOutput> genaiGetScenarioSet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetScenarioSet',
-          fromJsonRaw: (value) =>
-              ApiGetScenarioSetOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetScenarioSetOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update a scenario set in place, send a PUT request to `/v2/gen-ai/scenario_sets/{scenario_set_uuid}`. Provide a new `name` and/or replacement `scenarios`. At least one is required. Replacing contents keeps the same scenario set UUID, remints scenario UUIDs, and is rejected unless the set is ready and no simulation run references it. There is no file-upload path on update.
 ///
@@ -4260,18 +3358,12 @@ Future<ApiUpdateScenarioSetOutput> genaiUpdateScenarioSet(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateScenarioSet',
-          fromJsonRaw: (value) => ApiUpdateScenarioSetOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateScenarioSetOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a scenario set, send a DELETE request to `/v2/gen-ai/scenario_sets/{scenario_set_uuid}`. A scenario set that is referenced by a simulation run cannot be deleted.
 ///
@@ -4285,53 +3377,39 @@ Future<ApiDeleteScenarioSetOutput> genaiDeleteScenarioSet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteScenarioSet',
-          fromJsonRaw: (value) => ApiDeleteScenarioSetOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteScenarioSetOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve a presigned download URL for a scenario set file, send a GET request to `/v2/gen-ai/scenario_sets/{scenario_set_uuid}/download_url`.
 ///
 /// [scenarioSetUuid] UUID of the scenario set.
-Future<ApiGetScenarioSetDownloadURLOutput> genaiGetScenarioSetDownloadUrl(
-    ClientConfig config,
-    {required String scenarioSetUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiGetScenarioSetDownloadURLOutput> genaiGetScenarioSetDownloadUrl(ClientConfig config,
+    {required String scenarioSetUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiGetScenarioSetDownloadURLOutput>('GET',
           '/v2/gen-ai/scenario_sets/${Uri.encodeComponent(scenarioSetUuid.toString())}/download_url',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetScenarioSetDownloadUrl',
-          fromJsonRaw: (value) => ApiGetScenarioSetDownloadURLOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetScenarioSetDownloadURLOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To duplicate a scenario set, send a POST request to `/v2/gen-ai/scenario_sets/{scenario_set_uuid}/duplicate`. The source set must be ready. The new set is named `{original name} duplicate` and contains a copy of the source scenarios.
 ///
 /// [scenarioSetUuid] UUID of the scenario set to duplicate.
 /// [scenarioSetUuid_2] UUID of the scenario set to duplicate.
-Future<ApiDuplicateScenarioSetOutput> genaiCreateDuplicateScenarioSet(
-    ClientConfig config,
-    {required String scenarioSetUuid,
-    SdkOptional<String> scenarioSetUuid_2 = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiDuplicateScenarioSetOutput>
+    genaiCreateDuplicateScenarioSet(ClientConfig config,
+        {required String scenarioSetUuid,
+        SdkOptional<String> scenarioSetUuid_2 = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiDuplicateScenarioSetOutput>('POST',
           '/v2/gen-ai/scenario_sets/${Uri.encodeComponent(scenarioSetUuid.toString())}/duplicate',
           config: config,
@@ -4340,18 +3418,12 @@ Future<ApiDuplicateScenarioSetOutput> genaiCreateDuplicateScenarioSet(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateDuplicateScenarioSet',
-          fromJsonRaw: (value) => ApiDuplicateScenarioSetOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDuplicateScenarioSetOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list the scenarios in a scenario set, send a GET request to `/v2/gen-ai/scenario_sets/{scenario_set_uuid}/scenarios`.
 ///
@@ -4372,40 +3444,26 @@ Future<ApiListScenariosOutput> genaiListScenarios(ClientConfig config,
     SdkOptional<int> perPage = const SdkOmitted(),
     SdkOptional<String> search = const SdkOmitted(),
     SdkOptional<GenaiListScenariosSortBy> sortBy = const SdkOmitted(),
-    SdkOptional<GenaiListScenariosSortDirection> sortDirection =
-        const SdkOmitted(),
+    SdkOptional<GenaiListScenariosSortDirection> sortDirection = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListScenariosOutput>('GET',
           '/v2/gen-ai/scenario_sets/${Uri.encodeComponent(scenarioSetUuid.toString())}/scenarios',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
-                style: 'form', explode: true),
-            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy),
-                style: 'form', explode: true),
-            'sort_direction': SdkQueryValue(
-                SdkUtils.unwrapOptional(sortDirection),
-                style: 'form',
-                explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true),
+            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy), style: 'form', explode: true),
+            'sort_direction': SdkQueryValue(SdkUtils.unwrapOptional(sortDirection), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListScenarios',
-          fromJsonRaw: (value) =>
-              ApiListScenariosOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListScenariosOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create scheduled indexing for a knowledge base, send a POST request to `/v2/gen-ai/scheduled-indexing`.
 ///
@@ -4413,12 +3471,12 @@ Future<ApiListScenariosOutput> genaiListScenarios(ClientConfig config,
 ///   e.g. Monday begins with 1 )
 /// [knowledgeBaseUuid] Knowledge base uuid for which the schedule is created
 /// [time] Time of execution (HH:MM) UTC
-Future<ApiCreateScheduledIndexingOutput> genaiCreateScheduledIndexing(
-    ClientConfig config,
-    {SdkOptional<List<int>> days = const SdkOmitted(),
-    SdkOptional<String> knowledgeBaseUuid = const SdkOmitted(),
-    SdkOptional<String> time = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiCreateScheduledIndexingOutput>
+    genaiCreateScheduledIndexing(ClientConfig config,
+        {SdkOptional<List<int>> days = const SdkOmitted(),
+        SdkOptional<String> knowledgeBaseUuid = const SdkOmitted(),
+        SdkOptional<String> time = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCreateScheduledIndexingOutput>(
           'POST', '/v2/gen-ai/scheduled-indexing',
           config: config,
@@ -4429,68 +3487,46 @@ Future<ApiCreateScheduledIndexingOutput> genaiCreateScheduledIndexing(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateScheduledIndexing',
-          fromJsonRaw: (value) => ApiCreateScheduledIndexingOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateScheduledIndexingOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Get Scheduled Indexing for knowledge base using knoweldge base uuid, send a GET request to `/v2/gen-ai/scheduled-indexing/knowledge-base/{knowledge_base_uuid}`.
 ///
 /// [knowledgeBaseUuid] UUID of the scheduled indexing entry
-Future<ApiGetScheduledIndexingOutput> genaiGetScheduledIndexing(
-    ClientConfig config,
-    {required String knowledgeBaseUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiGetScheduledIndexingOutput> genaiGetScheduledIndexing(ClientConfig config,
+    {required String knowledgeBaseUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiGetScheduledIndexingOutput>('GET',
           '/v2/gen-ai/scheduled-indexing/knowledge-base/${Uri.encodeComponent(knowledgeBaseUuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetScheduledIndexing',
-          fromJsonRaw: (value) => ApiGetScheduledIndexingOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetScheduledIndexingOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Delete Scheduled Indexing for knowledge base, send a DELETE request to `/v2/gen-ai/scheduled-indexing/{uuid}`.
 ///
 /// [uuid] UUID of the scheduled indexing
-Future<ApiDeleteScheduledIndexingOutput> genaiDeleteScheduledIndexing(
-    ClientConfig config,
-    {required String uuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiDeleteScheduledIndexingOutput> genaiDeleteScheduledIndexing(ClientConfig config,
+    {required String uuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiDeleteScheduledIndexingOutput>('DELETE',
           '/v2/gen-ai/scheduled-indexing/${Uri.encodeComponent(uuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteScheduledIndexing',
-          fromJsonRaw: (value) => ApiDeleteScheduledIndexingOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteScheduledIndexingOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list simulation runs, send a GET request to `/v2/gen-ai/simulation_runs`.
 ///
@@ -4522,50 +3558,31 @@ Future<ApiListSimulationRunsOutput> genaiListSimulationRuns(ClientConfig config,
     {SdkOptional<String> scenarioSetUuid = const SdkOmitted(),
     SdkOptional<int> page = const SdkOmitted(),
     SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<List<GenaiListSimulationRunsStatusesItem>> statuses =
-        const SdkOmitted(),
+    SdkOptional<List<GenaiListSimulationRunsStatusesItem>> statuses = const SdkOmitted(),
     SdkOptional<String> search = const SdkOmitted(),
     SdkOptional<GenaiListSimulationRunsSortBy> sortBy = const SdkOmitted(),
-    SdkOptional<GenaiListSimulationRunsSortDirection> sortDirection =
-        const SdkOmitted(),
+    SdkOptional<GenaiListSimulationRunsSortDirection> sortDirection = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListSimulationRunsOutput>(
           'GET', '/v2/gen-ai/simulation_runs',
           config: config,
           query: {
-            'scenario_set_uuid': SdkQueryValue(
-                SdkUtils.unwrapOptional(scenarioSetUuid),
-                style: 'form',
-                explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'statuses': SdkQueryValue(SdkUtils.unwrapOptional(statuses),
-                style: 'form', explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
-                style: 'form', explode: true),
-            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy),
-                style: 'form', explode: true),
-            'sort_direction': SdkQueryValue(
-                SdkUtils.unwrapOptional(sortDirection),
-                style: 'form',
-                explode: true)
+            'scenario_set_uuid': SdkQueryValue(SdkUtils.unwrapOptional(scenarioSetUuid), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'statuses': SdkQueryValue(SdkUtils.unwrapOptional(statuses), style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true),
+            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy), style: 'form', explode: true),
+            'sort_direction': SdkQueryValue(SdkUtils.unwrapOptional(sortDirection), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListSimulationRuns',
-          fromJsonRaw: (value) => ApiListSimulationRunsOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListSimulationRunsOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a simulation run, send a POST request to `/v2/gen-ai/simulation_runs`. The scenario set must be ready. Judge and user simulator models are optional and use platform defaults when omitted. The run is returned in the pending state.
 ///
@@ -4589,19 +3606,18 @@ Future<ApiListSimulationRunsOutput> genaiListSimulationRuns(ClientConfig config,
 ///   temperature and max_tokens.
 /// [userSimulatorModelUuid] Optional model override for the user simulator.
 ///   Platform default when unset.
-Future<ApiCreateSimulationRunOutput> genaiCreateSimulationRun(
-    ClientConfig config,
-    {SdkOptional<ApiCandidateAgentConfig> agentConfig = const SdkOmitted(),
-    SdkOptional<ApiSimulationEvaluationConfig> evaluationConfig =
-        const SdkOmitted(),
-    SdkOptional<int> explorationBudget = const SdkOmitted(),
-    SdkOptional<String> judgeModelUuid = const SdkOmitted(),
-    SdkOptional<int> maxTurns = const SdkOmitted(),
-    SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<String> scenarioSetUuid = const SdkOmitted(),
-    SdkOptional<Map<String, dynamic>> userSimulatorConfig = const SdkOmitted(),
-    SdkOptional<String> userSimulatorModelUuid = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiCreateSimulationRunOutput>
+    genaiCreateSimulationRun(ClientConfig config,
+        {SdkOptional<ApiCandidateAgentConfig> agentConfig = const SdkOmitted(),
+        SdkOptional<ApiSimulationEvaluationConfig> evaluationConfig = const SdkOmitted(),
+        SdkOptional<int> explorationBudget = const SdkOmitted(),
+        SdkOptional<String> judgeModelUuid = const SdkOmitted(),
+        SdkOptional<int> maxTurns = const SdkOmitted(),
+        SdkOptional<String> name = const SdkOmitted(),
+        SdkOptional<String> scenarioSetUuid = const SdkOmitted(),
+        SdkOptional<Map<String, dynamic>> userSimulatorConfig = const SdkOmitted(),
+        SdkOptional<String> userSimulatorModelUuid = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCreateSimulationRunOutput>(
           'POST', '/v2/gen-ai/simulation_runs',
           config: config,
@@ -4613,25 +3629,17 @@ Future<ApiCreateSimulationRunOutput> genaiCreateSimulationRun(
             'max_turns': SdkUtils.unwrapOptional(maxTurns),
             'name': SdkUtils.unwrapOptional(name),
             'scenario_set_uuid': SdkUtils.unwrapOptional(scenarioSetUuid),
-            'user_simulator_config':
-                SdkUtils.unwrapOptional(userSimulatorConfig),
-            'user_simulator_model_uuid':
-                SdkUtils.unwrapOptional(userSimulatorModelUuid)
+            'user_simulator_config': SdkUtils.unwrapOptional(userSimulatorConfig),
+            'user_simulator_model_uuid': SdkUtils.unwrapOptional(userSimulatorModelUuid)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateSimulationRun',
-          fromJsonRaw: (value) => ApiCreateSimulationRunOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateSimulationRunOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve a simulation run, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}`.
 ///
@@ -4643,18 +3651,12 @@ Future<ApiGetSimulationRunOutput> genaiGetSimulationRun(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetSimulationRun',
-          fromJsonRaw: (value) =>
-              ApiGetSimulationRunOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetSimulationRunOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update a simulation run's display name, send a PUT request to `/v2/gen-ai/simulation_runs/{run_uuid}`. Only the name is mutable; run configuration and results are immutable.
 ///
@@ -4662,12 +3664,12 @@ Future<ApiGetSimulationRunOutput> genaiGetSimulationRun(ClientConfig config,
 ///   `CreateSimulationRun` and listed via `ListSimulationRuns`.
 /// [name] The new name of the run.
 /// [runUuid_2] UUID of the run to update.
-Future<ApiUpdateSimulationRunOutput> genaiUpdateSimulationRun(
-    ClientConfig config,
-    {required String runUuid,
-    SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<String> runUuid_2 = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiUpdateSimulationRunOutput>
+    genaiUpdateSimulationRun(ClientConfig config,
+        {required String runUuid,
+        SdkOptional<String> name = const SdkOmitted(),
+        SdkOptional<String> runUuid_2 = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiUpdateSimulationRunOutput>('PUT',
           '/v2/gen-ai/simulation_runs/${Uri.encodeComponent(runUuid.toString())}',
           config: config,
@@ -4677,45 +3679,31 @@ Future<ApiUpdateSimulationRunOutput> genaiUpdateSimulationRun(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateSimulationRun',
-          fromJsonRaw: (value) => ApiUpdateSimulationRunOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateSimulationRunOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a simulation run, send a DELETE request to `/v2/gen-ai/simulation_runs/{run_uuid}`. The run must be in a terminal status (`SIMULATION_RUN_STATUS_SUCCEEDED`, `SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL`, `SIMULATION_RUN_STATUS_FAILED`, or `SIMULATION_RUN_STATUS_CANCELLED`). For runs still in progress, cancel the run first, then retry the delete.
 ///
 /// [runUuid] UUID of the simulation run to delete. The run must be in a
 ///   terminal status. For runs still in progress, cancel the run first, then
 ///   retry the delete.
-Future<ApiDeleteSimulationRunOutput> genaiDeleteSimulationRun(
-    ClientConfig config,
-    {required String runUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiDeleteSimulationRunOutput> genaiDeleteSimulationRun(ClientConfig config,
+    {required String runUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiDeleteSimulationRunOutput>('DELETE',
           '/v2/gen-ai/simulation_runs/${Uri.encodeComponent(runUuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteSimulationRun',
-          fromJsonRaw: (value) => ApiDeleteSimulationRunOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteSimulationRunOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To cancel an in-progress simulation run, send a PATCH request to `/v2/gen-ai/simulation_runs/{run_uuid}/cancel`.
 ///
@@ -4723,29 +3711,23 @@ Future<ApiDeleteSimulationRunOutput> genaiDeleteSimulationRun(
 ///   `CreateSimulationRun` and listed via `ListSimulationRuns`. The run must be
 ///   in a non-terminal status; already-terminal runs return an error.
 /// [runUuid_2] UUID of the run to cancel.
-Future<ApiCancelSimulationRunOutput> genaiPatchCancelSimulationRun(
-    ClientConfig config,
-    {required String runUuid,
-    SdkOptional<String> runUuid_2 = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiCancelSimulationRunOutput>
+    genaiPatchCancelSimulationRun(ClientConfig config,
+        {required String runUuid,
+        SdkOptional<String> runUuid_2 = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiCancelSimulationRunOutput>('PATCH',
           '/v2/gen-ai/simulation_runs/${Uri.encodeComponent(runUuid.toString())}/cancel',
           config: config,
           body: {'run_uuid': SdkUtils.unwrapOptional(runUuid_2)},
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiPatchCancelSimulationRun',
-          fromJsonRaw: (value) => ApiCancelSimulationRunOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCancelSimulationRunOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list the episodes within a simulation run, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/episodes`.
 ///
@@ -4775,87 +3757,60 @@ Future<ApiCancelSimulationRunOutput> genaiPatchCancelSimulationRun(
 ///   status using lifecycle order. - SIMULATION_EPISODE_SORT_FIELD_VERDICT: Sort
 ///   by verdict (nulls last).
 /// [sortDirection] Sort direction. Defaults to ascending when unspecified.
-Future<ApiListSimulationEpisodesOutput> genaiListSimulationEpisodes(
-    ClientConfig config,
-    {required String runUuid,
-    SdkOptional<String> scenarioUuid = const SdkOmitted(),
-    SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<List<GenaiListSimulationEpisodesStatusesItem>> statuses =
-        const SdkOmitted(),
-    SdkOptional<List<GenaiListSimulationEpisodesVerdictsItem>> verdicts =
-        const SdkOmitted(),
-    SdkOptional<String> search = const SdkOmitted(),
-    SdkOptional<GenaiListSimulationEpisodesSortBy> sortBy = const SdkOmitted(),
-    SdkOptional<GenaiListSimulationEpisodesSortDirection> sortDirection =
-        const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListSimulationEpisodesOutput>
+    genaiListSimulationEpisodes(ClientConfig config,
+        {required String runUuid,
+        SdkOptional<String> scenarioUuid = const SdkOmitted(),
+        SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        SdkOptional<List<GenaiListSimulationEpisodesStatusesItem>> statuses = const SdkOmitted(),
+        SdkOptional<List<GenaiListSimulationEpisodesVerdictsItem>> verdicts = const SdkOmitted(),
+        SdkOptional<String> search = const SdkOmitted(),
+        SdkOptional<GenaiListSimulationEpisodesSortBy> sortBy = const SdkOmitted(),
+        SdkOptional<GenaiListSimulationEpisodesSortDirection> sortDirection = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListSimulationEpisodesOutput>('GET',
           '/v2/gen-ai/simulation_runs/${Uri.encodeComponent(runUuid.toString())}/episodes',
           config: config,
           query: {
-            'scenario_uuid': SdkQueryValue(
-                SdkUtils.unwrapOptional(scenarioUuid),
-                style: 'form',
-                explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'statuses': SdkQueryValue(SdkUtils.unwrapOptional(statuses),
-                style: 'form', explode: true),
-            'verdicts': SdkQueryValue(SdkUtils.unwrapOptional(verdicts),
-                style: 'form', explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
-                style: 'form', explode: true),
-            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy),
-                style: 'form', explode: true),
-            'sort_direction': SdkQueryValue(
-                SdkUtils.unwrapOptional(sortDirection),
-                style: 'form',
-                explode: true)
+            'scenario_uuid': SdkQueryValue(SdkUtils.unwrapOptional(scenarioUuid), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'statuses': SdkQueryValue(SdkUtils.unwrapOptional(statuses), style: 'form', explode: true),
+            'verdicts': SdkQueryValue(SdkUtils.unwrapOptional(verdicts), style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true),
+            'sort_by': SdkQueryValue(SdkUtils.unwrapOptional(sortBy), style: 'form', explode: true),
+            'sort_direction': SdkQueryValue(SdkUtils.unwrapOptional(sortDirection), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListSimulationEpisodes',
-          fromJsonRaw: (value) => ApiListSimulationEpisodesOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListSimulationEpisodesOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve a single episode, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/episodes/{episode_uuid}`.
 ///
 /// [runUuid] UUID of the run the episode belongs to.
 /// [episodeUuid] UUID of the episode.
-Future<ApiGetSimulationEpisodeOutput> genaiGetSimulationEpisode(
-    ClientConfig config,
-    {required String runUuid,
-    required String episodeUuid,
-    RequestOptions? requestOptions}) async {
+Future<ApiGetSimulationEpisodeOutput>
+    genaiGetSimulationEpisode(ClientConfig config,
+        {required String runUuid,
+        required String episodeUuid,
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiGetSimulationEpisodeOutput>('GET',
           '/v2/gen-ai/simulation_runs/${Uri.encodeComponent(runUuid.toString())}/episodes/${Uri.encodeComponent(episodeUuid.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetSimulationEpisode',
-          fromJsonRaw: (value) => ApiGetSimulationEpisodeOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetSimulationEpisodeOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve an episode's live trajectory, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/episodes/{episode_uuid}/trajectory`. Poll while the episode is running to watch turn-by-turn progress.
 ///
@@ -4871,19 +3826,12 @@ Future<ApiGetSimulationEpisodeTrajectoryOutput>
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetSimulationEpisodeTrajectory',
-          fromJsonRaw: (value) =>
-              ApiGetSimulationEpisodeTrajectoryOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetSimulationEpisodeTrajectoryOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve a presigned download URL for an episode's trajectory, send a GET request to `/v2/gen-ai/simulation_runs/{run_uuid}/episodes/{episode_uuid}/trajectory_url`.
 ///
@@ -4899,19 +3847,12 @@ Future<ApiGetSimulationEpisodeTrajectoryURLOutput>
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetSimulationEpisodeTrajectoryUrl',
-          fromJsonRaw: (value) =>
-              ApiGetSimulationEpisodeTrajectoryURLOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetSimulationEpisodeTrajectoryURLOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all workspaces, send a GET request to `/v2/gen-ai/workspaces`.
 Future<ApiListWorkspacesOutput> genaiListWorkspaces(ClientConfig config,
@@ -4921,18 +3862,12 @@ Future<ApiListWorkspacesOutput> genaiListWorkspaces(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListWorkspaces',
-          fromJsonRaw: (value) =>
-              ApiListWorkspacesOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListWorkspacesOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a new workspace, send a POST request to `/v2/gen-ai/workspaces`. The response body contains a JSON object with the newly created workspace object.
 ///
@@ -4954,18 +3889,12 @@ Future<ApiCreateWorkspaceOutput> genaiCreateWorkspace(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiCreateWorkspace',
-          fromJsonRaw: (value) =>
-              ApiCreateWorkspaceOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiCreateWorkspaceOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve details of a workspace, GET request to `/v2/gen-ai/workspaces/{workspace_uuid}`. The response body is a JSON object containing the workspace.
 ///
@@ -4977,18 +3906,12 @@ Future<ApiGetWorkspaceOutput> genaiGetWorkspace(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiGetWorkspace',
-          fromJsonRaw: (value) =>
-              ApiGetWorkspaceOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiGetWorkspaceOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update a workspace, send a PUT request to `/v2/gen-ai/workspaces/{workspace_uuid}`. The response body is a JSON object containing the workspace.
 ///
@@ -5012,18 +3935,12 @@ Future<ApiUpdateWorkspaceOutput> genaiUpdateWorkspace(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateWorkspace',
-          fromJsonRaw: (value) =>
-              ApiUpdateWorkspaceOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiUpdateWorkspaceOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a workspace, send a DELETE request to `/v2/gen-ai/workspace/{workspace_uuid}`.
 ///
@@ -5035,18 +3952,12 @@ Future<ApiDeleteWorkspaceOutput> genaiDeleteWorkspace(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiDeleteWorkspace',
-          fromJsonRaw: (value) =>
-              ApiDeleteWorkspaceOutput.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiDeleteWorkspaceOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all agents by a Workspace, send a GET request to `/v2/gen-ai/workspaces/{workspace_uuid}/agents`.
 ///
@@ -5054,52 +3965,41 @@ Future<ApiDeleteWorkspaceOutput> genaiDeleteWorkspace(ClientConfig config,
 /// [onlyDeployed] Only list agents that are deployed.
 /// [page] Page number.
 /// [perPage] Items per page.
-Future<ApiListAgentsByWorkspaceOutput> genaiListAgentsByWorkspace(
-    ClientConfig config,
-    {required String workspaceUuid,
-    SdkOptional<bool> onlyDeployed = const SdkOmitted(),
-    SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<int> perPage = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiListAgentsByWorkspaceOutput>
+    genaiListAgentsByWorkspace(ClientConfig config,
+        {required String workspaceUuid,
+        SdkOptional<bool> onlyDeployed = const SdkOmitted(),
+        SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<int> perPage = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListAgentsByWorkspaceOutput>('GET',
           '/v2/gen-ai/workspaces/${Uri.encodeComponent(workspaceUuid.toString())}/agents',
           config: config,
           query: {
-            'only_deployed': SdkQueryValue(
-                SdkUtils.unwrapOptional(onlyDeployed),
-                style: 'form',
-                explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true)
+            'only_deployed': SdkQueryValue(SdkUtils.unwrapOptional(onlyDeployed), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListAgentsByWorkspace',
-          fromJsonRaw: (value) => ApiListAgentsByWorkspaceOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListAgentsByWorkspaceOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To move all listed agents a given workspace, send a PUT request to `/v2/gen-ai/workspaces/{workspace_uuid}/agents`.
 ///
 /// [workspaceUuid] Workspace uuid to move agents to
 /// [agentUuids] Agent uuids
 /// [workspaceUuid_2] Workspace uuid to move agents to
-Future<ApiMoveAgentsToWorkspaceOutput> genaiUpdateAgentsWorkspace(
-    ClientConfig config,
-    {required String workspaceUuid,
-    SdkOptional<List<String>> agentUuids = const SdkOmitted(),
-    SdkOptional<String> workspaceUuid_2 = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ApiMoveAgentsToWorkspaceOutput>
+    genaiUpdateAgentsWorkspace(ClientConfig config,
+        {required String workspaceUuid,
+        SdkOptional<List<String>> agentUuids = const SdkOmitted(),
+        SdkOptional<String> workspaceUuid_2 = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiMoveAgentsToWorkspaceOutput>('PUT',
           '/v2/gen-ai/workspaces/${Uri.encodeComponent(workspaceUuid.toString())}/agents',
           config: config,
@@ -5109,40 +4009,25 @@ Future<ApiMoveAgentsToWorkspaceOutput> genaiUpdateAgentsWorkspace(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiUpdateAgentsWorkspace',
-          fromJsonRaw: (value) => ApiMoveAgentsToWorkspaceOutput.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiMoveAgentsToWorkspaceOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all evaluation test cases by a workspace, send a GET request to `/v2/gen-ai/workspaces/{workspace_uuid}/evaluation_test_cases`.
 ///
 /// [workspaceUuid] Workspace UUID.
-Future<ApiListEvaluationTestCasesByWorkspaceOutput>
-    genaiListEvaluationTestCasesByWorkspace(ClientConfig config,
-        {required String workspaceUuid, RequestOptions? requestOptions}) async {
+Future<ApiListEvaluationTestCasesByWorkspaceOutput> genaiListEvaluationTestCasesByWorkspace(ClientConfig config,
+    {required String workspaceUuid, RequestOptions? requestOptions}) async {
   return (await sdkRequest<ApiListEvaluationTestCasesByWorkspaceOutput>('GET',
           '/v2/gen-ai/workspaces/${Uri.encodeComponent(workspaceUuid.toString())}/evaluation_test_cases',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'genaiListEvaluationTestCasesByWorkspace',
-          fromJsonRaw: (value) =>
-              ApiListEvaluationTestCasesByWorkspaceOutput.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ApiListEvaluationTestCasesByWorkspaceOutput.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

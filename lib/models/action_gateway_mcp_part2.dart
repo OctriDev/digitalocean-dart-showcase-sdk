@@ -8,251 +8,151 @@ part of 'action_gateway_mcp.dart';
 class McpServerResync {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required for a server registered with `credentialRefSource` connection: discovery reaches the server as this user, through their connection, because such a server has no team-wide credential. Ignored otherwise.
   final SdkOptional<String> userId;
 
   const McpServerResync({this.userId = const SdkOmitted()});
 
-  McpServerResync Function({SdkOptional<String> userId}) get copyWith =>
-      _copyWith;
+  McpServerResync Function({SdkOptional<String> userId}) get copyWith => _copyWith;
 
-  McpServerResync _copyWith({Object? userId = sdkOmittedValue}) =>
-      McpServerResync(
-        userId: identical(userId, sdkOmittedValue)
-            ? this.userId
-            : userId as SdkOptional<String>,
-      );
+  McpServerResync _copyWith({Object? userId = sdkOmittedValue}) => McpServerResync(
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
+  );
 
-  factory McpServerResync.fromJson(Map<String, dynamic> json) =>
-      McpServerResync(
-        userId: json['user_id'] != null
-            ? SdkPresent((json['user_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory McpServerResync.fromJson(Map<String, dynamic> json) => McpServerResync(
+    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (userId) {
-          SdkPresent<String>(value: final value) => {
-              'user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (userId) {
+      SdkPresent<String>(value: final value) => {'user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// One tool discovered on an MCP server.
 class McpServerTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Tool name as the server reports it, normalized to the catalog's naming rules.
   final SdkOptional<String> name;
-
   /// `&lt;server_ref&gt;_&lt;name&gt;`: the tool's catalog slug, and the value to list in `enabledToolSlugs`.
   final SdkOptional<String> toolSlug;
-
   /// Tool description as the server reports it.
   final SdkOptional<String> description;
-
   /// Whether the tool is enabled in your team's catalog.
   final SdkOptional<bool> enabled;
-
   /// True when the enabled tool was suspended because it disappeared from the server or its input schema changed incompatibly. Calls to it fail until it is enabled again.
   final SdkOptional<bool> quarantined;
-
   /// Why the tool was quarantined; empty otherwise.
   final SdkOptional<String> quarantineReason;
 
-  const McpServerTool(
-      {this.name = const SdkOmitted(),
-      this.toolSlug = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.enabled = const SdkOmitted(),
-      this.quarantined = const SdkOmitted(),
-      this.quarantineReason = const SdkOmitted()});
+  const McpServerTool({this.name = const SdkOmitted(), this.toolSlug = const SdkOmitted(), this.description = const SdkOmitted(), this.enabled = const SdkOmitted(), this.quarantined = const SdkOmitted(), this.quarantineReason = const SdkOmitted()});
 
-  McpServerTool Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> toolSlug,
-      SdkOptional<String> description,
-      SdkOptional<bool> enabled,
-      SdkOptional<bool> quarantined,
-      SdkOptional<String> quarantineReason}) get copyWith => _copyWith;
+  McpServerTool Function({SdkOptional<String> name, SdkOptional<String> toolSlug, SdkOptional<String> description, SdkOptional<bool> enabled, SdkOptional<bool> quarantined, SdkOptional<String> quarantineReason}) get copyWith => _copyWith;
 
-  McpServerTool _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? toolSlug = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? enabled = sdkOmittedValue,
-          Object? quarantined = sdkOmittedValue,
-          Object? quarantineReason = sdkOmittedValue}) =>
-      McpServerTool(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        toolSlug: identical(toolSlug, sdkOmittedValue)
-            ? this.toolSlug
-            : toolSlug as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as SdkOptional<bool>,
-        quarantined: identical(quarantined, sdkOmittedValue)
-            ? this.quarantined
-            : quarantined as SdkOptional<bool>,
-        quarantineReason: identical(quarantineReason, sdkOmittedValue)
-            ? this.quarantineReason
-            : quarantineReason as SdkOptional<String>,
-      );
+  McpServerTool _copyWith({Object? name = sdkOmittedValue, Object? toolSlug = sdkOmittedValue, Object? description = sdkOmittedValue, Object? enabled = sdkOmittedValue, Object? quarantined = sdkOmittedValue, Object? quarantineReason = sdkOmittedValue}) => McpServerTool(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    toolSlug: identical(toolSlug, sdkOmittedValue) ? this.toolSlug : toolSlug as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
+    quarantined: identical(quarantined, sdkOmittedValue) ? this.quarantined : quarantined as SdkOptional<bool>,
+    quarantineReason: identical(quarantineReason, sdkOmittedValue) ? this.quarantineReason : quarantineReason as SdkOptional<String>,
+  );
 
   factory McpServerTool.fromJson(Map<String, dynamic> json) => McpServerTool(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        toolSlug: json['toolSlug'] != null
-            ? SdkPresent((json['toolSlug'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        enabled: json['enabled'] != null
-            ? SdkPresent((json['enabled'] as bool?)!)
-            : const SdkOmitted(),
-        quarantined: json['quarantined'] != null
-            ? SdkPresent((json['quarantined'] as bool?)!)
-            : const SdkOmitted(),
-        quarantineReason: json['quarantineReason'] != null
-            ? SdkPresent((json['quarantineReason'] as String?)!)
-            : const SdkOmitted(),
-      );
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    toolSlug: json['toolSlug'] != null ? SdkPresent((json['toolSlug'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
+    quarantined: json['quarantined'] != null ? SdkPresent((json['quarantined'] as bool?)!) : const SdkOmitted(),
+    quarantineReason: json['quarantineReason'] != null ? SdkPresent((json['quarantineReason'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolSlug) {
-          SdkPresent<String>(value: final value) => {
-              'toolSlug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (enabled) {
-          SdkPresent<bool>(value: final value) => {
-              'enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (quarantined) {
-          SdkPresent<bool>(value: final value) => {
-              'quarantined': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (quarantineReason) {
-          SdkPresent<String>(value: final value) => {
-              'quarantineReason': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolSlug) {
+      SdkPresent<String>(value: final value) => {'toolSlug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (enabled) {
+      SdkPresent<bool>(value: final value) => {'enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (quarantined) {
+      SdkPresent<bool>(value: final value) => {'quarantined': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (quarantineReason) {
+      SdkPresent<String>(value: final value) => {'quarantineReason': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Complete set of a server's tools to enable.
 class McpServerToolsUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The complete set of tool slugs (`&lt;server_ref&gt;_&lt;name&gt;`) to enable; every other tool of the server is disabled. Empty disables every tool.
   final List<String> enabledToolSlugs;
-
   /// Required for a server registered with `credentialRefSource` connection when a tool needs verification against the live server, which can only be reached as a user who has authorized it. Ignored otherwise.
   final SdkOptional<String> userId;
 
-  const McpServerToolsUpdate(
-      {required this.enabledToolSlugs, this.userId = const SdkOmitted()});
+  const McpServerToolsUpdate({required this.enabledToolSlugs, this.userId = const SdkOmitted()});
 
-  McpServerToolsUpdate Function(
-      {List<String> enabledToolSlugs,
-      SdkOptional<String> userId}) get copyWith => _copyWith;
+  McpServerToolsUpdate Function({List<String> enabledToolSlugs, SdkOptional<String> userId}) get copyWith => _copyWith;
 
-  McpServerToolsUpdate _copyWith(
-          {Object? enabledToolSlugs = sdkOmittedValue,
-          Object? userId = sdkOmittedValue}) =>
-      McpServerToolsUpdate(
-        enabledToolSlugs: identical(enabledToolSlugs, sdkOmittedValue)
-            ? this.enabledToolSlugs
-            : enabledToolSlugs as List<String>,
-        userId: identical(userId, sdkOmittedValue)
-            ? this.userId
-            : userId as SdkOptional<String>,
-      );
+  McpServerToolsUpdate _copyWith({Object? enabledToolSlugs = sdkOmittedValue, Object? userId = sdkOmittedValue}) => McpServerToolsUpdate(
+    enabledToolSlugs: identical(enabledToolSlugs, sdkOmittedValue) ? this.enabledToolSlugs : enabledToolSlugs as List<String>,
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
+  );
 
-  factory McpServerToolsUpdate.fromJson(Map<String, dynamic> json) =>
-      McpServerToolsUpdate(
-        enabledToolSlugs: ((json['enabledToolSlugs'] as List?)
-            ?.map((e) => e as String)
-            .toList())!,
-        userId: json['user_id'] != null
-            ? SdkPresent((json['user_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory McpServerToolsUpdate.fromJson(Map<String, dynamic> json) => McpServerToolsUpdate(
+    enabledToolSlugs: ((json['enabledToolSlugs'] as List?)?.map((e) => e as String).toList())!,
+    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'enabledToolSlugs': enabledToolSlugs,
-        ...switch (userId) {
-          SdkPresent<String>(value: final value) => {
-              'user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'enabledToolSlugs': enabledToolSlugs,
+    ...switch (userId) {
+      SdkPresent<String>(value: final value) => {'user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Carries the editable fields of a registered server.
 class McpServerUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Replaces the stored description; empty clears it. At most 1024 characters.
   final SdkOptional<String> description;
 
   const McpServerUpdate({this.description = const SdkOmitted()});
 
-  McpServerUpdate Function({SdkOptional<String> description}) get copyWith =>
-      _copyWith;
+  McpServerUpdate Function({SdkOptional<String> description}) get copyWith => _copyWith;
 
-  McpServerUpdate _copyWith({Object? description = sdkOmittedValue}) =>
-      McpServerUpdate(
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-      );
+  McpServerUpdate _copyWith({Object? description = sdkOmittedValue}) => McpServerUpdate(
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+  );
 
-  factory McpServerUpdate.fromJson(Map<String, dynamic> json) =>
-      McpServerUpdate(
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory McpServerUpdate.fromJson(Map<String, dynamic> json) => McpServerUpdate(
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

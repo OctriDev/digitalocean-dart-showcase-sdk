@@ -8,424 +8,265 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetOpenAIAPIKeyOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// OpenAI API Key Info
   final SdkOptional<ApiOpenAIAPIKeyInfo> apiKeyInfo;
 
   const ApiGetOpenAIAPIKeyOutput({this.apiKeyInfo = const SdkOmitted()});
 
-  ApiGetOpenAIAPIKeyOutput Function(
-      {SdkOptional<ApiOpenAIAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
+  ApiGetOpenAIAPIKeyOutput Function({SdkOptional<ApiOpenAIAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
 
-  ApiGetOpenAIAPIKeyOutput _copyWith({Object? apiKeyInfo = sdkOmittedValue}) =>
-      ApiGetOpenAIAPIKeyOutput(
-        apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue)
-            ? this.apiKeyInfo
-            : apiKeyInfo as SdkOptional<ApiOpenAIAPIKeyInfo>,
-      );
+  ApiGetOpenAIAPIKeyOutput _copyWith({Object? apiKeyInfo = sdkOmittedValue}) => ApiGetOpenAIAPIKeyOutput(
+    apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue) ? this.apiKeyInfo : apiKeyInfo as SdkOptional<ApiOpenAIAPIKeyInfo>,
+  );
 
-  factory ApiGetOpenAIAPIKeyOutput.fromJson(Map<String, dynamic> json) =>
-      ApiGetOpenAIAPIKeyOutput(
-        apiKeyInfo: json['api_key_info'] != null
-            ? SdkPresent((json['api_key_info'] != null
-                ? ApiOpenAIAPIKeyInfo.fromJson(
-                    json['api_key_info'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetOpenAIAPIKeyOutput.fromJson(Map<String, dynamic> json) => ApiGetOpenAIAPIKeyOutput(
+    apiKeyInfo: json['api_key_info'] != null ? SdkPresent((json['api_key_info'] != null ? ApiOpenAIAPIKeyInfo.fromJson(json['api_key_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (apiKeyInfo) {
-          SdkPresent<ApiOpenAIAPIKeyInfo>(value: final value) => {
-              'api_key_info': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (apiKeyInfo) {
+      SdkPresent<ApiOpenAIAPIKeyInfo>(value: final value) => {'api_key_info': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Output containing a presigned download URL for a scenario set.
 class ApiGetScenarioSetDownloadURLOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The presigned URL to download the scenario set file.
   final SdkOptional<String> downloadUrl;
-
   /// The time the URL expires at.
   final SdkOptional<String> expiresAt;
 
-  const ApiGetScenarioSetDownloadURLOutput(
-      {this.downloadUrl = const SdkOmitted(),
-      this.expiresAt = const SdkOmitted()});
+  const ApiGetScenarioSetDownloadURLOutput({this.downloadUrl = const SdkOmitted(), this.expiresAt = const SdkOmitted()});
 
-  ApiGetScenarioSetDownloadURLOutput Function(
-      {SdkOptional<String> downloadUrl,
-      SdkOptional<String> expiresAt}) get copyWith => _copyWith;
+  ApiGetScenarioSetDownloadURLOutput Function({SdkOptional<String> downloadUrl, SdkOptional<String> expiresAt}) get copyWith => _copyWith;
 
-  ApiGetScenarioSetDownloadURLOutput _copyWith(
-          {Object? downloadUrl = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue}) =>
-      ApiGetScenarioSetDownloadURLOutput(
-        downloadUrl: identical(downloadUrl, sdkOmittedValue)
-            ? this.downloadUrl
-            : downloadUrl as SdkOptional<String>,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<String>,
-      );
+  ApiGetScenarioSetDownloadURLOutput _copyWith({Object? downloadUrl = sdkOmittedValue, Object? expiresAt = sdkOmittedValue}) => ApiGetScenarioSetDownloadURLOutput(
+    downloadUrl: identical(downloadUrl, sdkOmittedValue) ? this.downloadUrl : downloadUrl as SdkOptional<String>,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String>,
+  );
 
-  factory ApiGetScenarioSetDownloadURLOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiGetScenarioSetDownloadURLOutput(
-        downloadUrl: json['download_url'] != null
-            ? SdkPresent((json['download_url'] as String?)!)
-            : const SdkOmitted(),
-        expiresAt: json['expires_at'] != null
-            ? SdkPresent((json['expires_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetScenarioSetDownloadURLOutput.fromJson(Map<String, dynamic> json) => ApiGetScenarioSetDownloadURLOutput(
+    downloadUrl: json['download_url'] != null ? SdkPresent((json['download_url'] as String?)!) : const SdkOmitted(),
+    expiresAt: json['expires_at'] != null ? SdkPresent((json['expires_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (downloadUrl) {
-          SdkPresent<String>(value: final value) => {
-              'download_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAt) {
-          SdkPresent<String>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (downloadUrl) {
+      SdkPresent<String>(value: final value) => {'download_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiresAt) {
+      SdkPresent<String>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Output for getting a scenario set.
 class ApiGetScenarioSetOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A team-owned collection of scenarios.
   final SdkOptional<ApiScenarioSet> scenarioSet;
 
   const ApiGetScenarioSetOutput({this.scenarioSet = const SdkOmitted()});
 
-  ApiGetScenarioSetOutput Function({SdkOptional<ApiScenarioSet> scenarioSet})
-      get copyWith => _copyWith;
+  ApiGetScenarioSetOutput Function({SdkOptional<ApiScenarioSet> scenarioSet}) get copyWith => _copyWith;
 
-  ApiGetScenarioSetOutput _copyWith({Object? scenarioSet = sdkOmittedValue}) =>
-      ApiGetScenarioSetOutput(
-        scenarioSet: identical(scenarioSet, sdkOmittedValue)
-            ? this.scenarioSet
-            : scenarioSet as SdkOptional<ApiScenarioSet>,
-      );
+  ApiGetScenarioSetOutput _copyWith({Object? scenarioSet = sdkOmittedValue}) => ApiGetScenarioSetOutput(
+    scenarioSet: identical(scenarioSet, sdkOmittedValue) ? this.scenarioSet : scenarioSet as SdkOptional<ApiScenarioSet>,
+  );
 
-  factory ApiGetScenarioSetOutput.fromJson(Map<String, dynamic> json) =>
-      ApiGetScenarioSetOutput(
-        scenarioSet: json['scenario_set'] != null
-            ? SdkPresent((json['scenario_set'] != null
-                ? ApiScenarioSet.fromJson(
-                    json['scenario_set'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetScenarioSetOutput.fromJson(Map<String, dynamic> json) => ApiGetScenarioSetOutput(
+    scenarioSet: json['scenario_set'] != null ? SdkPresent((json['scenario_set'] != null ? ApiScenarioSet.fromJson(json['scenario_set'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (scenarioSet) {
-          SdkPresent<ApiScenarioSet>(value: final value) => {
-              'scenario_set': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (scenarioSet) {
+      SdkPresent<ApiScenarioSet>(value: final value) => {'scenario_set': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiGetScheduledIndexingOutput` API schema.
 class ApiGetScheduledIndexingOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Metadata for scheduled indexing entries
   final SdkOptional<ApiScheduledIndexingInfo> indexingInfo;
 
   const ApiGetScheduledIndexingOutput({this.indexingInfo = const SdkOmitted()});
 
-  ApiGetScheduledIndexingOutput Function(
-          {SdkOptional<ApiScheduledIndexingInfo> indexingInfo})
-      get copyWith => _copyWith;
+  ApiGetScheduledIndexingOutput Function({SdkOptional<ApiScheduledIndexingInfo> indexingInfo}) get copyWith => _copyWith;
 
-  ApiGetScheduledIndexingOutput _copyWith(
-          {Object? indexingInfo = sdkOmittedValue}) =>
-      ApiGetScheduledIndexingOutput(
-        indexingInfo: identical(indexingInfo, sdkOmittedValue)
-            ? this.indexingInfo
-            : indexingInfo as SdkOptional<ApiScheduledIndexingInfo>,
-      );
+  ApiGetScheduledIndexingOutput _copyWith({Object? indexingInfo = sdkOmittedValue}) => ApiGetScheduledIndexingOutput(
+    indexingInfo: identical(indexingInfo, sdkOmittedValue) ? this.indexingInfo : indexingInfo as SdkOptional<ApiScheduledIndexingInfo>,
+  );
 
-  factory ApiGetScheduledIndexingOutput.fromJson(Map<String, dynamic> json) =>
-      ApiGetScheduledIndexingOutput(
-        indexingInfo: json['indexing_info'] != null
-            ? SdkPresent((json['indexing_info'] != null
-                ? ApiScheduledIndexingInfo.fromJson(
-                    json['indexing_info'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetScheduledIndexingOutput.fromJson(Map<String, dynamic> json) => ApiGetScheduledIndexingOutput(
+    indexingInfo: json['indexing_info'] != null ? SdkPresent((json['indexing_info'] != null ? ApiScheduledIndexingInfo.fromJson(json['indexing_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (indexingInfo) {
-          SdkPresent<ApiScheduledIndexingInfo>(value: final value) => {
-              'indexing_info': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (indexingInfo) {
+      SdkPresent<ApiScheduledIndexingInfo>(value: final value) => {'indexing_info': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Output for getting a single episode.
 class ApiGetSimulationEpisodeOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// One independent execution within a simulation run, including its trajectory and verdict.
   final SdkOptional<ApiSimulationEpisode> episode;
 
   const ApiGetSimulationEpisodeOutput({this.episode = const SdkOmitted()});
 
-  ApiGetSimulationEpisodeOutput Function(
-      {SdkOptional<ApiSimulationEpisode> episode}) get copyWith => _copyWith;
+  ApiGetSimulationEpisodeOutput Function({SdkOptional<ApiSimulationEpisode> episode}) get copyWith => _copyWith;
 
-  ApiGetSimulationEpisodeOutput _copyWith(
-          {Object? episode = sdkOmittedValue}) =>
-      ApiGetSimulationEpisodeOutput(
-        episode: identical(episode, sdkOmittedValue)
-            ? this.episode
-            : episode as SdkOptional<ApiSimulationEpisode>,
-      );
+  ApiGetSimulationEpisodeOutput _copyWith({Object? episode = sdkOmittedValue}) => ApiGetSimulationEpisodeOutput(
+    episode: identical(episode, sdkOmittedValue) ? this.episode : episode as SdkOptional<ApiSimulationEpisode>,
+  );
 
-  factory ApiGetSimulationEpisodeOutput.fromJson(Map<String, dynamic> json) =>
-      ApiGetSimulationEpisodeOutput(
-        episode: json['episode'] != null
-            ? SdkPresent((json['episode'] != null
-                ? ApiSimulationEpisode.fromJson(
-                    json['episode'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetSimulationEpisodeOutput.fromJson(Map<String, dynamic> json) => ApiGetSimulationEpisodeOutput(
+    episode: json['episode'] != null ? SdkPresent((json['episode'] != null ? ApiSimulationEpisode.fromJson(json['episode'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (episode) {
-          SdkPresent<ApiSimulationEpisode>(value: final value) => {
-              'episode': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (episode) {
+      SdkPresent<ApiSimulationEpisode>(value: final value) => {'episode': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Output containing the parsed trajectory JSON.
 class ApiGetSimulationEpisodeTrajectoryOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Turn-by-turn trajectory for one episode. Poll this resource while the episode is running to watch live progress.
   final SdkOptional<ApiSimulationTrajectory> trajectory;
 
-  const ApiGetSimulationEpisodeTrajectoryOutput(
-      {this.trajectory = const SdkOmitted()});
+  const ApiGetSimulationEpisodeTrajectoryOutput({this.trajectory = const SdkOmitted()});
 
-  ApiGetSimulationEpisodeTrajectoryOutput Function(
-          {SdkOptional<ApiSimulationTrajectory> trajectory})
-      get copyWith => _copyWith;
+  ApiGetSimulationEpisodeTrajectoryOutput Function({SdkOptional<ApiSimulationTrajectory> trajectory}) get copyWith => _copyWith;
 
-  ApiGetSimulationEpisodeTrajectoryOutput _copyWith(
-          {Object? trajectory = sdkOmittedValue}) =>
-      ApiGetSimulationEpisodeTrajectoryOutput(
-        trajectory: identical(trajectory, sdkOmittedValue)
-            ? this.trajectory
-            : trajectory as SdkOptional<ApiSimulationTrajectory>,
-      );
+  ApiGetSimulationEpisodeTrajectoryOutput _copyWith({Object? trajectory = sdkOmittedValue}) => ApiGetSimulationEpisodeTrajectoryOutput(
+    trajectory: identical(trajectory, sdkOmittedValue) ? this.trajectory : trajectory as SdkOptional<ApiSimulationTrajectory>,
+  );
 
-  factory ApiGetSimulationEpisodeTrajectoryOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiGetSimulationEpisodeTrajectoryOutput(
-        trajectory: json['trajectory'] != null
-            ? SdkPresent((json['trajectory'] != null
-                ? ApiSimulationTrajectory.fromJson(
-                    json['trajectory'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetSimulationEpisodeTrajectoryOutput.fromJson(Map<String, dynamic> json) => ApiGetSimulationEpisodeTrajectoryOutput(
+    trajectory: json['trajectory'] != null ? SdkPresent((json['trajectory'] != null ? ApiSimulationTrajectory.fromJson(json['trajectory'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (trajectory) {
-          SdkPresent<ApiSimulationTrajectory>(value: final value) => {
-              'trajectory': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (trajectory) {
+      SdkPresent<ApiSimulationTrajectory>(value: final value) => {'trajectory': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Output containing a presigned download URL for an episode's trajectory JSON.
 class ApiGetSimulationEpisodeTrajectoryURLOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The presigned URL to download the trajectory JSON file.
   final SdkOptional<String> downloadUrl;
-
   /// The time the URL expires at.
   final SdkOptional<String> expiresAt;
 
-  const ApiGetSimulationEpisodeTrajectoryURLOutput(
-      {this.downloadUrl = const SdkOmitted(),
-      this.expiresAt = const SdkOmitted()});
+  const ApiGetSimulationEpisodeTrajectoryURLOutput({this.downloadUrl = const SdkOmitted(), this.expiresAt = const SdkOmitted()});
 
-  ApiGetSimulationEpisodeTrajectoryURLOutput Function(
-      {SdkOptional<String> downloadUrl,
-      SdkOptional<String> expiresAt}) get copyWith => _copyWith;
+  ApiGetSimulationEpisodeTrajectoryURLOutput Function({SdkOptional<String> downloadUrl, SdkOptional<String> expiresAt}) get copyWith => _copyWith;
 
-  ApiGetSimulationEpisodeTrajectoryURLOutput _copyWith(
-          {Object? downloadUrl = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue}) =>
-      ApiGetSimulationEpisodeTrajectoryURLOutput(
-        downloadUrl: identical(downloadUrl, sdkOmittedValue)
-            ? this.downloadUrl
-            : downloadUrl as SdkOptional<String>,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<String>,
-      );
+  ApiGetSimulationEpisodeTrajectoryURLOutput _copyWith({Object? downloadUrl = sdkOmittedValue, Object? expiresAt = sdkOmittedValue}) => ApiGetSimulationEpisodeTrajectoryURLOutput(
+    downloadUrl: identical(downloadUrl, sdkOmittedValue) ? this.downloadUrl : downloadUrl as SdkOptional<String>,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String>,
+  );
 
-  factory ApiGetSimulationEpisodeTrajectoryURLOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiGetSimulationEpisodeTrajectoryURLOutput(
-        downloadUrl: json['download_url'] != null
-            ? SdkPresent((json['download_url'] as String?)!)
-            : const SdkOmitted(),
-        expiresAt: json['expires_at'] != null
-            ? SdkPresent((json['expires_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetSimulationEpisodeTrajectoryURLOutput.fromJson(Map<String, dynamic> json) => ApiGetSimulationEpisodeTrajectoryURLOutput(
+    downloadUrl: json['download_url'] != null ? SdkPresent((json['download_url'] as String?)!) : const SdkOmitted(),
+    expiresAt: json['expires_at'] != null ? SdkPresent((json['expires_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (downloadUrl) {
-          SdkPresent<String>(value: final value) => {
-              'download_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAt) {
-          SdkPresent<String>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (downloadUrl) {
+      SdkPresent<String>(value: final value) => {'download_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiresAt) {
+      SdkPresent<String>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Output for getting a simulation run.
 class ApiGetSimulationRunOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Per-scenario breakdown of episode outcomes, aggregated from episode rows.
   final SdkOptional<List<ApiSimulationScenarioResult>> scenarioResults;
-
   /// One execution of a scenario set against a candidate agent.
   final SdkOptional<ApiSimulationRun> simulationRun;
 
-  const ApiGetSimulationRunOutput(
-      {this.scenarioResults = const SdkOmitted(),
-      this.simulationRun = const SdkOmitted()});
+  const ApiGetSimulationRunOutput({this.scenarioResults = const SdkOmitted(), this.simulationRun = const SdkOmitted()});
 
-  ApiGetSimulationRunOutput Function(
-      {SdkOptional<List<ApiSimulationScenarioResult>> scenarioResults,
-      SdkOptional<ApiSimulationRun> simulationRun}) get copyWith => _copyWith;
+  ApiGetSimulationRunOutput Function({SdkOptional<List<ApiSimulationScenarioResult>> scenarioResults, SdkOptional<ApiSimulationRun> simulationRun}) get copyWith => _copyWith;
 
-  ApiGetSimulationRunOutput _copyWith(
-          {Object? scenarioResults = sdkOmittedValue,
-          Object? simulationRun = sdkOmittedValue}) =>
-      ApiGetSimulationRunOutput(
-        scenarioResults: identical(scenarioResults, sdkOmittedValue)
-            ? this.scenarioResults
-            : scenarioResults as SdkOptional<List<ApiSimulationScenarioResult>>,
-        simulationRun: identical(simulationRun, sdkOmittedValue)
-            ? this.simulationRun
-            : simulationRun as SdkOptional<ApiSimulationRun>,
-      );
+  ApiGetSimulationRunOutput _copyWith({Object? scenarioResults = sdkOmittedValue, Object? simulationRun = sdkOmittedValue}) => ApiGetSimulationRunOutput(
+    scenarioResults: identical(scenarioResults, sdkOmittedValue) ? this.scenarioResults : scenarioResults as SdkOptional<List<ApiSimulationScenarioResult>>,
+    simulationRun: identical(simulationRun, sdkOmittedValue) ? this.simulationRun : simulationRun as SdkOptional<ApiSimulationRun>,
+  );
 
-  factory ApiGetSimulationRunOutput.fromJson(Map<String, dynamic> json) =>
-      ApiGetSimulationRunOutput(
-        scenarioResults: json['scenario_results'] != null
-            ? SdkPresent(((json['scenario_results'] as List?)
-                ?.map((e) => ApiSimulationScenarioResult.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        simulationRun: json['simulation_run'] != null
-            ? SdkPresent((json['simulation_run'] != null
-                ? ApiSimulationRun.fromJson(
-                    json['simulation_run'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetSimulationRunOutput.fromJson(Map<String, dynamic> json) => ApiGetSimulationRunOutput(
+    scenarioResults: json['scenario_results'] != null ? SdkPresent(((json['scenario_results'] as List?)?.map((e) => ApiSimulationScenarioResult.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    simulationRun: json['simulation_run'] != null ? SdkPresent((json['simulation_run'] != null ? ApiSimulationRun.fromJson(json['simulation_run'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (scenarioResults) {
-          SdkPresent<List<ApiSimulationScenarioResult>>(value: final value) => {
-              'scenario_results': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (simulationRun) {
-          SdkPresent<ApiSimulationRun>(value: final value) => {
-              'simulation_run': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (scenarioResults) {
+      SdkPresent<List<ApiSimulationScenarioResult>>(value: final value) => {'scenario_results': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (simulationRun) {
+      SdkPresent<ApiSimulationRun>(value: final value) => {'simulation_run': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiGetWorkspaceOutput` API schema.
 class ApiGetWorkspaceOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `workspace` wire field.
   final SdkOptional<ApiWorkspace> workspace;
 
   const ApiGetWorkspaceOutput({this.workspace = const SdkOmitted()});
 
-  ApiGetWorkspaceOutput Function({SdkOptional<ApiWorkspace> workspace})
-      get copyWith => _copyWith;
+  ApiGetWorkspaceOutput Function({SdkOptional<ApiWorkspace> workspace}) get copyWith => _copyWith;
 
-  ApiGetWorkspaceOutput _copyWith({Object? workspace = sdkOmittedValue}) =>
-      ApiGetWorkspaceOutput(
-        workspace: identical(workspace, sdkOmittedValue)
-            ? this.workspace
-            : workspace as SdkOptional<ApiWorkspace>,
-      );
+  ApiGetWorkspaceOutput _copyWith({Object? workspace = sdkOmittedValue}) => ApiGetWorkspaceOutput(
+    workspace: identical(workspace, sdkOmittedValue) ? this.workspace : workspace as SdkOptional<ApiWorkspace>,
+  );
 
-  factory ApiGetWorkspaceOutput.fromJson(Map<String, dynamic> json) =>
-      ApiGetWorkspaceOutput(
-        workspace: json['workspace'] != null
-            ? SdkPresent((json['workspace'] != null
-                ? ApiWorkspace.fromJson(
-                    json['workspace'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetWorkspaceOutput.fromJson(Map<String, dynamic> json) => ApiGetWorkspaceOutput(
+    workspace: json['workspace'] != null ? SdkPresent((json['workspace'] != null ? ApiWorkspace.fromJson(json['workspace'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (workspace) {
-          SdkPresent<ApiWorkspace>(value: final value) => {
-              'workspace': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (workspace) {
+      SdkPresent<ApiWorkspace>(value: final value) => {'workspace': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

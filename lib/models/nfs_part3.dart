@@ -8,95 +8,52 @@ part of 'nfs.dart';
 class NfsSnapshotResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier of the snapshot.
   final String id;
-
   /// The human-readable name of the snapshot.
   final String name;
-
   /// The size of the snapshot in GiB.
   final BigInt sizeGib;
-
   /// The DigitalOcean region slug where the snapshot is located.
   final String region;
-
   /// The current status of the snapshot.
   final NfsSnapshotResponseStatus status;
-
   /// The timestamp when the snapshot was created.
   final String createdAt;
-
   /// The unique identifier of the share from which this snapshot was created.
   final String shareId;
 
-  const NfsSnapshotResponse(
-      {required this.id,
-      required this.name,
-      required this.sizeGib,
-      required this.region,
-      required this.status,
-      required this.createdAt,
-      required this.shareId});
+  const NfsSnapshotResponse({required this.id, required this.name, required this.sizeGib, required this.region, required this.status, required this.createdAt, required this.shareId});
 
-  NfsSnapshotResponse Function(
-      {String id,
-      String name,
-      BigInt sizeGib,
-      String region,
-      NfsSnapshotResponseStatus status,
-      String createdAt,
-      String shareId}) get copyWith => _copyWith;
+  NfsSnapshotResponse Function({String id, String name, BigInt sizeGib, String region, NfsSnapshotResponseStatus status, String createdAt, String shareId}) get copyWith => _copyWith;
 
-  NfsSnapshotResponse _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? sizeGib = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? shareId = sdkOmittedValue}) =>
-      NfsSnapshotResponse(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        sizeGib: identical(sizeGib, sdkOmittedValue)
-            ? this.sizeGib
-            : sizeGib as BigInt,
-        region:
-            identical(region, sdkOmittedValue) ? this.region : region as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as NfsSnapshotResponseStatus,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        shareId: identical(shareId, sdkOmittedValue)
-            ? this.shareId
-            : shareId as String,
-      );
+  NfsSnapshotResponse _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? sizeGib = sdkOmittedValue, Object? region = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? shareId = sdkOmittedValue}) => NfsSnapshotResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    sizeGib: identical(sizeGib, sdkOmittedValue) ? this.sizeGib : sizeGib as BigInt,
+    region: identical(region, sdkOmittedValue) ? this.region : region as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as NfsSnapshotResponseStatus,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    shareId: identical(shareId, sdkOmittedValue) ? this.shareId : shareId as String,
+  );
 
-  factory NfsSnapshotResponse.fromJson(Map<String, dynamic> json) =>
-      NfsSnapshotResponse(
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        sizeGib: (json['size_gib'] == null
-            ? null
-            : BigInt.parse(json['size_gib'].toString()))!,
-        region: (json['region'] as String?)!,
-        status: (json['status'] != null
-            ? NfsSnapshotResponseStatus.fromJson(json['status'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        shareId: (json['share_id'] as String?)!,
-      );
+  factory NfsSnapshotResponse.fromJson(Map<String, dynamic> json) => NfsSnapshotResponse(
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    sizeGib: (json['size_gib'] == null ? null : BigInt.parse(json['size_gib'].toString()))!,
+    region: (json['region'] as String?)!,
+    status: (json['status'] != null ? NfsSnapshotResponseStatus.fromJson(json['status'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    shareId: (json['share_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'size_gib': sizeGib,
-        'region': region,
-        'status': status.toJson(),
-        'created_at': createdAt,
-        'share_id': shareId,
-      };
+    'id': id,
+    'name': name,
+    'size_gib': sizeGib,
+    'region': region,
+    'status': status.toJson(),
+    'created_at': createdAt,
+    'share_id': shareId,
+  };
 }

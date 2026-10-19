@@ -8,7 +8,6 @@ part of 'shared_meta.dart';
 class MetaMeta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Number of objects returned by the request.
   final SdkOptional<int> total;
 
@@ -17,32 +16,25 @@ class MetaMeta {
   MetaMeta Function({SdkOptional<int> total}) get copyWith => _copyWith;
 
   MetaMeta _copyWith({Object? total = sdkOmittedValue}) => MetaMeta(
-        total: identical(total, sdkOmittedValue)
-            ? this.total
-            : total as SdkOptional<int>,
-      );
+    total: identical(total, sdkOmittedValue) ? this.total : total as SdkOptional<int>,
+  );
 
   factory MetaMeta.fromJson(Map<String, dynamic> json) => MetaMeta(
-        total: json['total'] != null
-            ? SdkPresent(((json['total'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+    total: json['total'] != null ? SdkPresent(((json['total'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (total) {
-          SdkPresent<int>(value: final value) => {
-              'total': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (total) {
+      SdkPresent<int>(value: final value) => {'total': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `Meta` API schema.
 class Meta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
@@ -51,27 +43,22 @@ class Meta {
   Meta Function({MetaProperties meta}) get copyWith => _copyWith;
 
   Meta _copyWith({Object? meta = sdkOmittedValue}) => Meta(
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory Meta.fromJson(Map<String, dynamic> json) => Meta(
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'meta': meta.toJson(),
-      };
+    'meta': meta.toJson(),
+  };
 }
 
 /// Information about the response itself.
 class MetaProperties {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Number of objects returned by the request.
   final SdkOptional<int> total;
 
@@ -80,23 +67,17 @@ class MetaProperties {
   MetaProperties Function({SdkOptional<int> total}) get copyWith => _copyWith;
 
   MetaProperties _copyWith({Object? total = sdkOmittedValue}) => MetaProperties(
-        total: identical(total, sdkOmittedValue)
-            ? this.total
-            : total as SdkOptional<int>,
-      );
+    total: identical(total, sdkOmittedValue) ? this.total : total as SdkOptional<int>,
+  );
 
   factory MetaProperties.fromJson(Map<String, dynamic> json) => MetaProperties(
-        total: json['total'] != null
-            ? SdkPresent(((json['total'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+    total: json['total'] != null ? SdkPresent(((json['total'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (total) {
-          SdkPresent<int>(value: final value) => {
-              'total': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (total) {
+      SdkPresent<int>(value: final value) => {'total': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

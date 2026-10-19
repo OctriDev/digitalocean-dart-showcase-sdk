@@ -8,152 +8,93 @@ part of 'action_gateway_data_plane.dart';
 class ApprovalDecision {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether to let the pending call run.
   final ApprovalDecisionDecision decision;
 
   const ApprovalDecision({required this.decision});
 
-  ApprovalDecision Function({ApprovalDecisionDecision decision}) get copyWith =>
-      _copyWith;
+  ApprovalDecision Function({ApprovalDecisionDecision decision}) get copyWith => _copyWith;
 
-  ApprovalDecision _copyWith({Object? decision = sdkOmittedValue}) =>
-      ApprovalDecision(
-        decision: identical(decision, sdkOmittedValue)
-            ? this.decision
-            : decision as ApprovalDecisionDecision,
-      );
+  ApprovalDecision _copyWith({Object? decision = sdkOmittedValue}) => ApprovalDecision(
+    decision: identical(decision, sdkOmittedValue) ? this.decision : decision as ApprovalDecisionDecision,
+  );
 
-  factory ApprovalDecision.fromJson(Map<String, dynamic> json) =>
-      ApprovalDecision(
-        decision: (json['decision'] != null
-            ? ApprovalDecisionDecision.fromJson(json['decision'] as String)
-            : null)!,
-      );
+  factory ApprovalDecision.fromJson(Map<String, dynamic> json) => ApprovalDecision(
+    decision: (json['decision'] != null ? ApprovalDecisionDecision.fromJson(json['decision'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'decision': decision.toJson(),
-      };
+    'decision': decision.toJson(),
+  };
 }
 
 /// Typed representation of the `ApprovalDecisionResponse` API schema.
 class ApprovalDecisionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The approval ID.
   final SdkOptional<String> id;
-
   /// Optional enumerated value serialized in the `status` wire field.
   final SdkOptional<ApprovalDecisionResponseStatus> status;
-
   /// Repeat an approved call with the same arguments before this time.
   final SdkOptional<String> expiresAt;
 
-  const ApprovalDecisionResponse(
-      {this.id = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.expiresAt = const SdkOmitted()});
+  const ApprovalDecisionResponse({this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.expiresAt = const SdkOmitted()});
 
-  ApprovalDecisionResponse Function(
-      {SdkOptional<String> id,
-      SdkOptional<ApprovalDecisionResponseStatus> status,
-      SdkOptional<String> expiresAt}) get copyWith => _copyWith;
+  ApprovalDecisionResponse Function({SdkOptional<String> id, SdkOptional<ApprovalDecisionResponseStatus> status, SdkOptional<String> expiresAt}) get copyWith => _copyWith;
 
-  ApprovalDecisionResponse _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue}) =>
-      ApprovalDecisionResponse(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ApprovalDecisionResponseStatus>,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<String>,
-      );
+  ApprovalDecisionResponse _copyWith({Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? expiresAt = sdkOmittedValue}) => ApprovalDecisionResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ApprovalDecisionResponseStatus>,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String>,
+  );
 
-  factory ApprovalDecisionResponse.fromJson(Map<String, dynamic> json) =>
-      ApprovalDecisionResponse(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ApprovalDecisionResponseStatus.fromJson(
-                    json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        expiresAt: json['expires_at'] != null
-            ? SdkPresent((json['expires_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApprovalDecisionResponse.fromJson(Map<String, dynamic> json) => ApprovalDecisionResponse(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ApprovalDecisionResponseStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    expiresAt: json['expires_at'] != null ? SdkPresent((json['expires_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<ApprovalDecisionResponseStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAt) {
-          SdkPresent<String>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<ApprovalDecisionResponseStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiresAt) {
+      SdkPresent<String>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class DataPlaneSearchToolsResponseVariant1Output {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// One result group per query, in request order.
   final SdkOptional<List<SearchToolsGroup>> results;
 
-  const DataPlaneSearchToolsResponseVariant1Output(
-      {this.results = const SdkOmitted()});
+  const DataPlaneSearchToolsResponseVariant1Output({this.results = const SdkOmitted()});
 
-  DataPlaneSearchToolsResponseVariant1Output Function(
-      {SdkOptional<List<SearchToolsGroup>> results}) get copyWith => _copyWith;
+  DataPlaneSearchToolsResponseVariant1Output Function({SdkOptional<List<SearchToolsGroup>> results}) get copyWith => _copyWith;
 
-  DataPlaneSearchToolsResponseVariant1Output _copyWith(
-          {Object? results = sdkOmittedValue}) =>
-      DataPlaneSearchToolsResponseVariant1Output(
-        results: identical(results, sdkOmittedValue)
-            ? this.results
-            : results as SdkOptional<List<SearchToolsGroup>>,
-      );
+  DataPlaneSearchToolsResponseVariant1Output _copyWith({Object? results = sdkOmittedValue}) => DataPlaneSearchToolsResponseVariant1Output(
+    results: identical(results, sdkOmittedValue) ? this.results : results as SdkOptional<List<SearchToolsGroup>>,
+  );
 
-  factory DataPlaneSearchToolsResponseVariant1Output.fromJson(
-          Map<String, dynamic> json) =>
-      DataPlaneSearchToolsResponseVariant1Output(
-        results: json['results'] != null
-            ? SdkPresent(((json['results'] as List?)
-                ?.map(
-                    (e) => SearchToolsGroup.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory DataPlaneSearchToolsResponseVariant1Output.fromJson(Map<String, dynamic> json) => DataPlaneSearchToolsResponseVariant1Output(
+    results: json['results'] != null ? SdkPresent(((json['results'] as List?)?.map((e) => SearchToolsGroup.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (results) {
-          SdkPresent<List<SearchToolsGroup>>(value: final value) => {
-              'results': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (results) {
+      SdkPresent<List<SearchToolsGroup>>(value: final value) => {'results': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class DataPlaneSearchToolsResponseVariant1 {
@@ -161,255 +102,133 @@ class DataPlaneSearchToolsResponseVariant1 {
   static const String constructionSurface = 'named';
   final SdkOptional<DataPlaneSearchToolsResponseVariant1Output> output;
 
-  const DataPlaneSearchToolsResponseVariant1(
-      {this.output = const SdkOmitted()});
+  const DataPlaneSearchToolsResponseVariant1({this.output = const SdkOmitted()});
 
-  DataPlaneSearchToolsResponseVariant1 Function(
-          {SdkOptional<DataPlaneSearchToolsResponseVariant1Output> output})
-      get copyWith => _copyWith;
+  DataPlaneSearchToolsResponseVariant1 Function({SdkOptional<DataPlaneSearchToolsResponseVariant1Output> output}) get copyWith => _copyWith;
 
-  DataPlaneSearchToolsResponseVariant1 _copyWith(
-          {Object? output = sdkOmittedValue}) =>
-      DataPlaneSearchToolsResponseVariant1(
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as SdkOptional<DataPlaneSearchToolsResponseVariant1Output>,
-      );
+  DataPlaneSearchToolsResponseVariant1 _copyWith({Object? output = sdkOmittedValue}) => DataPlaneSearchToolsResponseVariant1(
+    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<DataPlaneSearchToolsResponseVariant1Output>,
+  );
 
-  factory DataPlaneSearchToolsResponseVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      DataPlaneSearchToolsResponseVariant1(
-        output: json['output'] != null
-            ? SdkPresent((json['output'] != null
-                ? DataPlaneSearchToolsResponseVariant1Output.fromJson(
-                    json['output'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DataPlaneSearchToolsResponseVariant1.fromJson(Map<String, dynamic> json) => DataPlaneSearchToolsResponseVariant1(
+    output: json['output'] != null ? SdkPresent((json['output'] != null ? DataPlaneSearchToolsResponseVariant1Output.fromJson(json['output'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (output) {
-          SdkPresent<DataPlaneSearchToolsResponseVariant1Output>(
-            value: final value
-          ) =>
-            {
-              'output': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (output) {
+      SdkPresent<DataPlaneSearchToolsResponseVariant1Output>(value: final value) => {'output': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DataPlaneSearchToolsResponse` API schema.
 class DataPlaneSearchToolsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `status` wire field.
   final ToolResultStatus status;
   final SdkOptional<DataPlaneSearchToolsResponseVariant1Output> output;
-
   /// Describes why a request or tool call failed and whether retrying can help.
   final SdkOptional<ErrorEnvelope> error;
-
   /// A unique identifier for this call. Include it when contacting support.
   final String callId;
-
   /// Additional result metadata. Keys include: - `status`: `requires_approval`, `requires_authorization`, or `requires_connection_configuration` when the call stopped before running. - `approval_id`, `tool_name`, `expires_at`, and `decide`: present with `requires_approval`. `decide` gives the `method`, `path`, and `body` of the approval request to send. Approve the call, then repeat it with the same arguments before `expires_at`. - `retry`: `{"attempt_count": N, "exhausted": bool}` when the gateway retried the call. - `output_view`: the output view applied to the result.
   final SdkOptional<Map<String, Object?>> meta;
 
-  const DataPlaneSearchToolsResponse(
-      {required this.status,
-      this.output = const SdkOmitted(),
-      this.error = const SdkOmitted(),
-      required this.callId,
-      this.meta = const SdkOmitted()});
+  const DataPlaneSearchToolsResponse({required this.status, this.output = const SdkOmitted(), this.error = const SdkOmitted(), required this.callId, this.meta = const SdkOmitted()});
 
-  DataPlaneSearchToolsResponse Function(
-      {ToolResultStatus status,
-      SdkOptional<DataPlaneSearchToolsResponseVariant1Output> output,
-      SdkOptional<ErrorEnvelope> error,
-      String callId,
-      SdkOptional<Map<String, Object?>> meta}) get copyWith => _copyWith;
+  DataPlaneSearchToolsResponse Function({ToolResultStatus status, SdkOptional<DataPlaneSearchToolsResponseVariant1Output> output, SdkOptional<ErrorEnvelope> error, String callId, SdkOptional<Map<String, Object?>> meta}) get copyWith => _copyWith;
 
-  DataPlaneSearchToolsResponse _copyWith(
-          {Object? status = sdkOmittedValue,
-          Object? output = sdkOmittedValue,
-          Object? error = sdkOmittedValue,
-          Object? callId = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      DataPlaneSearchToolsResponse(
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as ToolResultStatus,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as SdkOptional<DataPlaneSearchToolsResponseVariant1Output>,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as SdkOptional<ErrorEnvelope>,
-        callId:
-            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as SdkOptional<Map<String, Object?>>,
-      );
+  DataPlaneSearchToolsResponse _copyWith({Object? status = sdkOmittedValue, Object? output = sdkOmittedValue, Object? error = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? meta = sdkOmittedValue}) => DataPlaneSearchToolsResponse(
+    status: identical(status, sdkOmittedValue) ? this.status : status as ToolResultStatus,
+    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<DataPlaneSearchToolsResponseVariant1Output>,
+    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<ErrorEnvelope>,
+    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<Map<String, Object?>>,
+  );
 
-  factory DataPlaneSearchToolsResponse.fromJson(Map<String, dynamic> json) =>
-      DataPlaneSearchToolsResponse(
-        status: (json['status'] != null
-            ? ToolResultStatus.fromJson(json['status'] as String)
-            : null)!,
-        output: json['output'] != null
-            ? SdkPresent((json['output'] != null
-                ? DataPlaneSearchToolsResponseVariant1Output.fromJson(
-                    json['output'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        error: json['error'] != null
-            ? SdkPresent((json['error'] != null
-                ? ErrorEnvelope.fromJson(json['error'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        callId: (json['call_id'] as String?)!,
-        meta: json['_meta'] != null
-            ? SdkPresent((json['_meta'] == null
-                ? null
-                : Map<String, dynamic>.from(json['_meta'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-      );
+  factory DataPlaneSearchToolsResponse.fromJson(Map<String, dynamic> json) => DataPlaneSearchToolsResponse(
+    status: (json['status'] != null ? ToolResultStatus.fromJson(json['status'] as String) : null)!,
+    output: json['output'] != null ? SdkPresent((json['output'] != null ? DataPlaneSearchToolsResponseVariant1Output.fromJson(json['output'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    error: json['error'] != null ? SdkPresent((json['error'] != null ? ErrorEnvelope.fromJson(json['error'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    callId: (json['call_id'] as String?)!,
+    meta: json['_meta'] != null ? SdkPresent((json['_meta'] == null ? null : Map<String, dynamic>.from(json['_meta'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'status': status.toJson(),
-        ...switch (output) {
-          SdkPresent<DataPlaneSearchToolsResponseVariant1Output>(
-            value: final value
-          ) =>
-            {
-              'output': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (error) {
-          SdkPresent<ErrorEnvelope>(value: final value) => {
-              'error': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'call_id': callId,
-        ...switch (meta) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              '_meta': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'status': status.toJson(),
+    ...switch (output) {
+      SdkPresent<DataPlaneSearchToolsResponseVariant1Output>(value: final value) => {'output': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (error) {
+      SdkPresent<ErrorEnvelope>(value: final value) => {'error': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'call_id': callId,
+    ...switch (meta) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'_meta': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Describes why a request or tool call failed and whether retrying can help.
 class ErrorEnvelope {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The failure class. Branch on this value rather than on `message`, which may change.
   final SdkOptional<ErrorEnvelopeClass> class_;
-
   /// A human-readable explanation that is safe to show to an agent or end user.
   final SdkOptional<String> message;
-
   /// Whether retrying the same request later can succeed.
   final SdkOptional<bool> retriable;
-
   /// The suggested next step.
   final SdkOptional<ErrorEnvelopeRecoveryHint> recoveryHint;
 
-  const ErrorEnvelope(
-      {this.class_ = const SdkOmitted(),
-      this.message = const SdkOmitted(),
-      this.retriable = const SdkOmitted(),
-      this.recoveryHint = const SdkOmitted()});
+  const ErrorEnvelope({this.class_ = const SdkOmitted(), this.message = const SdkOmitted(), this.retriable = const SdkOmitted(), this.recoveryHint = const SdkOmitted()});
 
-  ErrorEnvelope Function(
-          {SdkOptional<ErrorEnvelopeClass> class_,
-          SdkOptional<String> message,
-          SdkOptional<bool> retriable,
-          SdkOptional<ErrorEnvelopeRecoveryHint> recoveryHint})
-      get copyWith => _copyWith;
+  ErrorEnvelope Function({SdkOptional<ErrorEnvelopeClass> class_, SdkOptional<String> message, SdkOptional<bool> retriable, SdkOptional<ErrorEnvelopeRecoveryHint> recoveryHint}) get copyWith => _copyWith;
 
-  ErrorEnvelope _copyWith(
-          {Object? class_ = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? retriable = sdkOmittedValue,
-          Object? recoveryHint = sdkOmittedValue}) =>
-      ErrorEnvelope(
-        class_: identical(class_, sdkOmittedValue)
-            ? this.class_
-            : class_ as SdkOptional<ErrorEnvelopeClass>,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as SdkOptional<String>,
-        retriable: identical(retriable, sdkOmittedValue)
-            ? this.retriable
-            : retriable as SdkOptional<bool>,
-        recoveryHint: identical(recoveryHint, sdkOmittedValue)
-            ? this.recoveryHint
-            : recoveryHint as SdkOptional<ErrorEnvelopeRecoveryHint>,
-      );
+  ErrorEnvelope _copyWith({Object? class_ = sdkOmittedValue, Object? message = sdkOmittedValue, Object? retriable = sdkOmittedValue, Object? recoveryHint = sdkOmittedValue}) => ErrorEnvelope(
+    class_: identical(class_, sdkOmittedValue) ? this.class_ : class_ as SdkOptional<ErrorEnvelopeClass>,
+    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
+    retriable: identical(retriable, sdkOmittedValue) ? this.retriable : retriable as SdkOptional<bool>,
+    recoveryHint: identical(recoveryHint, sdkOmittedValue) ? this.recoveryHint : recoveryHint as SdkOptional<ErrorEnvelopeRecoveryHint>,
+  );
 
   factory ErrorEnvelope.fromJson(Map<String, dynamic> json) => ErrorEnvelope(
-        class_: json['class'] != null
-            ? SdkPresent((json['class'] != null
-                ? ErrorEnvelopeClass.fromJson(json['class'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        message: json['message'] != null
-            ? SdkPresent((json['message'] as String?)!)
-            : const SdkOmitted(),
-        retriable: json['retriable'] != null
-            ? SdkPresent((json['retriable'] as bool?)!)
-            : const SdkOmitted(),
-        recoveryHint: json['recovery_hint'] != null
-            ? SdkPresent((json['recovery_hint'] != null
-                ? ErrorEnvelopeRecoveryHint.fromJson(
-                    json['recovery_hint'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    class_: json['class'] != null ? SdkPresent((json['class'] != null ? ErrorEnvelopeClass.fromJson(json['class'] as String) : null)!) : const SdkOmitted(),
+    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
+    retriable: json['retriable'] != null ? SdkPresent((json['retriable'] as bool?)!) : const SdkOmitted(),
+    recoveryHint: json['recovery_hint'] != null ? SdkPresent((json['recovery_hint'] != null ? ErrorEnvelopeRecoveryHint.fromJson(json['recovery_hint'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (class_) {
-          SdkPresent<ErrorEnvelopeClass>(value: final value) => {
-              'class': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (message) {
-          SdkPresent<String>(value: final value) => {
-              'message': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (retriable) {
-          SdkPresent<bool>(value: final value) => {
-              'retriable': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (recoveryHint) {
-          SdkPresent<ErrorEnvelopeRecoveryHint>(value: final value) => {
-              'recovery_hint': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (class_) {
+      SdkPresent<ErrorEnvelopeClass>(value: final value) => {'class': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (message) {
+      SdkPresent<String>(value: final value) => {'message': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (retriable) {
+      SdkPresent<bool>(value: final value) => {'retriable': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (recoveryHint) {
+      SdkPresent<ErrorEnvelopeRecoveryHint>(value: final value) => {'recovery_hint': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ExecuteCodeRequest` API schema.
 class ExecuteCodeRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Python source to run. The sandbox provides `invoke_digitalocean_tool(name: str, arguments: dict) -&gt; dict`, which calls a catalog tool under the session's policy and returns a tool result.
   final String code;
 
@@ -417,90 +236,56 @@ class ExecuteCodeRequest {
 
   ExecuteCodeRequest Function({String code}) get copyWith => _copyWith;
 
-  ExecuteCodeRequest _copyWith({Object? code = sdkOmittedValue}) =>
-      ExecuteCodeRequest(
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-      );
+  ExecuteCodeRequest _copyWith({Object? code = sdkOmittedValue}) => ExecuteCodeRequest(
+    code: identical(code, sdkOmittedValue) ? this.code : code as String,
+  );
 
-  factory ExecuteCodeRequest.fromJson(Map<String, dynamic> json) =>
-      ExecuteCodeRequest(
-        code: (json['code'] as String?)!,
-      );
+  factory ExecuteCodeRequest.fromJson(Map<String, dynamic> json) => ExecuteCodeRequest(
+    code: (json['code'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'code': code,
-      };
+    'code': code,
+  };
 }
 
 class ExecuteCodeResponseVariant1Output {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<String> stdout;
-
   /// Omitted when empty.
   final SdkOptional<String> stderr;
-
   /// The process exit code. A nonzero exit code is still a succeeded result.
   final SdkOptional<int> exitCode;
 
-  const ExecuteCodeResponseVariant1Output(
-      {this.stdout = const SdkOmitted(),
-      this.stderr = const SdkOmitted(),
-      this.exitCode = const SdkOmitted()});
+  const ExecuteCodeResponseVariant1Output({this.stdout = const SdkOmitted(), this.stderr = const SdkOmitted(), this.exitCode = const SdkOmitted()});
 
-  ExecuteCodeResponseVariant1Output Function(
-      {SdkOptional<String> stdout,
-      SdkOptional<String> stderr,
-      SdkOptional<int> exitCode}) get copyWith => _copyWith;
+  ExecuteCodeResponseVariant1Output Function({SdkOptional<String> stdout, SdkOptional<String> stderr, SdkOptional<int> exitCode}) get copyWith => _copyWith;
 
-  ExecuteCodeResponseVariant1Output _copyWith(
-          {Object? stdout = sdkOmittedValue,
-          Object? stderr = sdkOmittedValue,
-          Object? exitCode = sdkOmittedValue}) =>
-      ExecuteCodeResponseVariant1Output(
-        stdout: identical(stdout, sdkOmittedValue)
-            ? this.stdout
-            : stdout as SdkOptional<String>,
-        stderr: identical(stderr, sdkOmittedValue)
-            ? this.stderr
-            : stderr as SdkOptional<String>,
-        exitCode: identical(exitCode, sdkOmittedValue)
-            ? this.exitCode
-            : exitCode as SdkOptional<int>,
-      );
+  ExecuteCodeResponseVariant1Output _copyWith({Object? stdout = sdkOmittedValue, Object? stderr = sdkOmittedValue, Object? exitCode = sdkOmittedValue}) => ExecuteCodeResponseVariant1Output(
+    stdout: identical(stdout, sdkOmittedValue) ? this.stdout : stdout as SdkOptional<String>,
+    stderr: identical(stderr, sdkOmittedValue) ? this.stderr : stderr as SdkOptional<String>,
+    exitCode: identical(exitCode, sdkOmittedValue) ? this.exitCode : exitCode as SdkOptional<int>,
+  );
 
-  factory ExecuteCodeResponseVariant1Output.fromJson(
-          Map<String, dynamic> json) =>
-      ExecuteCodeResponseVariant1Output(
-        stdout: json['stdout'] != null
-            ? SdkPresent((json['stdout'] as String?)!)
-            : const SdkOmitted(),
-        stderr: json['stderr'] != null
-            ? SdkPresent((json['stderr'] as String?)!)
-            : const SdkOmitted(),
-        exitCode: json['exit_code'] != null
-            ? SdkPresent(((json['exit_code'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ExecuteCodeResponseVariant1Output.fromJson(Map<String, dynamic> json) => ExecuteCodeResponseVariant1Output(
+    stdout: json['stdout'] != null ? SdkPresent((json['stdout'] as String?)!) : const SdkOmitted(),
+    stderr: json['stderr'] != null ? SdkPresent((json['stderr'] as String?)!) : const SdkOmitted(),
+    exitCode: json['exit_code'] != null ? SdkPresent(((json['exit_code'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (stdout) {
-          SdkPresent<String>(value: final value) => {
-              'stdout': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (stderr) {
-          SdkPresent<String>(value: final value) => {
-              'stderr': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (exitCode) {
-          SdkPresent<int>(value: final value) => {
-              'exit_code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (stdout) {
+      SdkPresent<String>(value: final value) => {'stdout': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (stderr) {
+      SdkPresent<String>(value: final value) => {'stderr': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (exitCode) {
+      SdkPresent<int>(value: final value) => {'exit_code': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

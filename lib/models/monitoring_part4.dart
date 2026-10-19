@@ -8,50 +8,38 @@ part of 'monitoring.dart';
 class SinkResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The uniform resource name (URN) for the resource in the format do:resource_type:resource_id.
   final String urn;
-
   /// resource name
   final SdkOptional<String> name;
 
   const SinkResource({required this.urn, this.name = const SdkOmitted()});
 
-  SinkResource Function({String urn, SdkOptional<String> name}) get copyWith =>
-      _copyWith;
+  SinkResource Function({String urn, SdkOptional<String> name}) get copyWith => _copyWith;
 
-  SinkResource _copyWith(
-          {Object? urn = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
-      SinkResource(
-        urn: identical(urn, sdkOmittedValue) ? this.urn : urn as String,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  SinkResource _copyWith({Object? urn = sdkOmittedValue, Object? name = sdkOmittedValue}) => SinkResource(
+    urn: identical(urn, sdkOmittedValue) ? this.urn : urn as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
   factory SinkResource.fromJson(Map<String, dynamic> json) => SinkResource(
-        urn: (json['urn'] as String?)!,
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+    urn: (json['urn'] as String?)!,
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'urn': urn,
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'urn': urn,
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `Sinks` API schema.
 class Sinks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `sink` wire field.
   final SdkOptional<SinksResponse> sink;
 
@@ -60,98 +48,62 @@ class Sinks {
   Sinks Function({SdkOptional<SinksResponse> sink}) get copyWith => _copyWith;
 
   Sinks _copyWith({Object? sink = sdkOmittedValue}) => Sinks(
-        sink: identical(sink, sdkOmittedValue)
-            ? this.sink
-            : sink as SdkOptional<SinksResponse>,
-      );
+    sink: identical(sink, sdkOmittedValue) ? this.sink : sink as SdkOptional<SinksResponse>,
+  );
 
   factory Sinks.fromJson(Map<String, dynamic> json) => Sinks(
-        sink: json['sink'] != null
-            ? SdkPresent((json['sink'] != null
-                ? SinksResponse.fromJson(json['sink'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    sink: json['sink'] != null ? SdkPresent((json['sink'] != null ? SinksResponse.fromJson(json['sink'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (sink) {
-          SdkPresent<SinksResponse>(value: final value) => {
-              'sink': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (sink) {
+      SdkPresent<SinksResponse>(value: final value) => {'sink': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `SinksResponse` API schema.
 class SinksResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `destination` wire field.
   final SdkOptional<Destination> destination;
-
   /// List of resources identified by their URNs.
   final SdkOptional<List<SinkResource>> resources;
 
-  const SinksResponse(
-      {this.destination = const SdkOmitted(),
-      this.resources = const SdkOmitted()});
+  const SinksResponse({this.destination = const SdkOmitted(), this.resources = const SdkOmitted()});
 
-  SinksResponse Function(
-      {SdkOptional<Destination> destination,
-      SdkOptional<List<SinkResource>> resources}) get copyWith => _copyWith;
+  SinksResponse Function({SdkOptional<Destination> destination, SdkOptional<List<SinkResource>> resources}) get copyWith => _copyWith;
 
-  SinksResponse _copyWith(
-          {Object? destination = sdkOmittedValue,
-          Object? resources = sdkOmittedValue}) =>
-      SinksResponse(
-        destination: identical(destination, sdkOmittedValue)
-            ? this.destination
-            : destination as SdkOptional<Destination>,
-        resources: identical(resources, sdkOmittedValue)
-            ? this.resources
-            : resources as SdkOptional<List<SinkResource>>,
-      );
+  SinksResponse _copyWith({Object? destination = sdkOmittedValue, Object? resources = sdkOmittedValue}) => SinksResponse(
+    destination: identical(destination, sdkOmittedValue) ? this.destination : destination as SdkOptional<Destination>,
+    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<List<SinkResource>>,
+  );
 
   factory SinksResponse.fromJson(Map<String, dynamic> json) => SinksResponse(
-        destination: json['destination'] != null
-            ? SdkPresent((json['destination'] != null
-                ? Destination.fromJson(
-                    json['destination'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        resources: json['resources'] != null
-            ? SdkPresent(((json['resources'] as List?)
-                ?.map((e) => SinkResource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    destination: json['destination'] != null ? SdkPresent((json['destination'] != null ? Destination.fromJson(json['destination'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    resources: json['resources'] != null ? SdkPresent(((json['resources'] as List?)?.map((e) => SinkResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (destination) {
-          SdkPresent<Destination>(value: final value) => {
-              'destination': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resources) {
-          SdkPresent<List<SinkResource>>(value: final value) => {
-              'resources': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (destination) {
+      SdkPresent<Destination>(value: final value) => {'destination': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resources) {
+      SdkPresent<List<SinkResource>>(value: final value) => {'resources': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `SlackDetails` API schema.
 class SlackDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Slack channel to notify of an alert trigger.
   final String channel;
-
   /// Slack Webhook URL.
   final String url;
 
@@ -159,22 +111,18 @@ class SlackDetails {
 
   SlackDetails Function({String channel, String url}) get copyWith => _copyWith;
 
-  SlackDetails _copyWith(
-          {Object? channel = sdkOmittedValue, Object? url = sdkOmittedValue}) =>
-      SlackDetails(
-        channel: identical(channel, sdkOmittedValue)
-            ? this.channel
-            : channel as String,
-        url: identical(url, sdkOmittedValue) ? this.url : url as String,
-      );
+  SlackDetails _copyWith({Object? channel = sdkOmittedValue, Object? url = sdkOmittedValue}) => SlackDetails(
+    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as String,
+    url: identical(url, sdkOmittedValue) ? this.url : url as String,
+  );
 
   factory SlackDetails.fromJson(Map<String, dynamic> json) => SlackDetails(
-        channel: (json['channel'] as String?)!,
-        url: (json['url'] as String?)!,
-      );
+    channel: (json['channel'] as String?)!,
+    url: (json['url'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'channel': channel,
-        'url': url,
-      };
+    'channel': channel,
+    'url': url,
+  };
 }

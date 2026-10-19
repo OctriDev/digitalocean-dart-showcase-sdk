@@ -8,579 +8,293 @@ part of 'agent_platform_api_api_evaluation.dart';
 class ApiEvaluationDataset {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Time created at.
   final SdkOptional<String> createdAt;
-
   /// Name of the dataset.
   final SdkOptional<String> datasetName;
-
   /// EvaluationDatasetParadigm is the row/content shape of a dataset, orthogonal to the surface in EvaluationDatasetType (e.g. a model dataset can be single- or multi-turn).
   final SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm;
-
   /// Optional enumerated value serialized in the `dataset_type` wire field.
   final SdkOptional<ApiEvaluationDatasetType> datasetType;
-
   /// UUID of the dataset.
   final SdkOptional<String> datasetUuid;
-
   /// The size of the dataset uploaded file in bytes.
   final SdkOptional<String> fileSize;
-
   /// Does the dataset have a ground truth column?
   final SdkOptional<bool> hasGroundTruth;
-
   /// Number of rows in the dataset.
   final SdkOptional<int> rowCount;
 
-  const ApiEvaluationDataset(
-      {this.createdAt = const SdkOmitted(),
-      this.datasetName = const SdkOmitted(),
-      this.datasetParadigm = const SdkOmitted(),
-      this.datasetType = const SdkOmitted(),
-      this.datasetUuid = const SdkOmitted(),
-      this.fileSize = const SdkOmitted(),
-      this.hasGroundTruth = const SdkOmitted(),
-      this.rowCount = const SdkOmitted()});
+  const ApiEvaluationDataset({this.createdAt = const SdkOmitted(), this.datasetName = const SdkOmitted(), this.datasetParadigm = const SdkOmitted(), this.datasetType = const SdkOmitted(), this.datasetUuid = const SdkOmitted(), this.fileSize = const SdkOmitted(), this.hasGroundTruth = const SdkOmitted(), this.rowCount = const SdkOmitted()});
 
-  ApiEvaluationDataset Function(
-      {SdkOptional<String> createdAt,
-      SdkOptional<String> datasetName,
-      SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm,
-      SdkOptional<ApiEvaluationDatasetType> datasetType,
-      SdkOptional<String> datasetUuid,
-      SdkOptional<String> fileSize,
-      SdkOptional<bool> hasGroundTruth,
-      SdkOptional<int> rowCount}) get copyWith => _copyWith;
+  ApiEvaluationDataset Function({SdkOptional<String> createdAt, SdkOptional<String> datasetName, SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm, SdkOptional<ApiEvaluationDatasetType> datasetType, SdkOptional<String> datasetUuid, SdkOptional<String> fileSize, SdkOptional<bool> hasGroundTruth, SdkOptional<int> rowCount}) get copyWith => _copyWith;
 
-  ApiEvaluationDataset _copyWith(
-          {Object? createdAt = sdkOmittedValue,
-          Object? datasetName = sdkOmittedValue,
-          Object? datasetParadigm = sdkOmittedValue,
-          Object? datasetType = sdkOmittedValue,
-          Object? datasetUuid = sdkOmittedValue,
-          Object? fileSize = sdkOmittedValue,
-          Object? hasGroundTruth = sdkOmittedValue,
-          Object? rowCount = sdkOmittedValue}) =>
-      ApiEvaluationDataset(
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        datasetName: identical(datasetName, sdkOmittedValue)
-            ? this.datasetName
-            : datasetName as SdkOptional<String>,
-        datasetParadigm: identical(datasetParadigm, sdkOmittedValue)
-            ? this.datasetParadigm
-            : datasetParadigm as SdkOptional<ApiEvaluationDatasetParadigm>,
-        datasetType: identical(datasetType, sdkOmittedValue)
-            ? this.datasetType
-            : datasetType as SdkOptional<ApiEvaluationDatasetType>,
-        datasetUuid: identical(datasetUuid, sdkOmittedValue)
-            ? this.datasetUuid
-            : datasetUuid as SdkOptional<String>,
-        fileSize: identical(fileSize, sdkOmittedValue)
-            ? this.fileSize
-            : fileSize as SdkOptional<String>,
-        hasGroundTruth: identical(hasGroundTruth, sdkOmittedValue)
-            ? this.hasGroundTruth
-            : hasGroundTruth as SdkOptional<bool>,
-        rowCount: identical(rowCount, sdkOmittedValue)
-            ? this.rowCount
-            : rowCount as SdkOptional<int>,
-      );
+  ApiEvaluationDataset _copyWith({Object? createdAt = sdkOmittedValue, Object? datasetName = sdkOmittedValue, Object? datasetParadigm = sdkOmittedValue, Object? datasetType = sdkOmittedValue, Object? datasetUuid = sdkOmittedValue, Object? fileSize = sdkOmittedValue, Object? hasGroundTruth = sdkOmittedValue, Object? rowCount = sdkOmittedValue}) => ApiEvaluationDataset(
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    datasetName: identical(datasetName, sdkOmittedValue) ? this.datasetName : datasetName as SdkOptional<String>,
+    datasetParadigm: identical(datasetParadigm, sdkOmittedValue) ? this.datasetParadigm : datasetParadigm as SdkOptional<ApiEvaluationDatasetParadigm>,
+    datasetType: identical(datasetType, sdkOmittedValue) ? this.datasetType : datasetType as SdkOptional<ApiEvaluationDatasetType>,
+    datasetUuid: identical(datasetUuid, sdkOmittedValue) ? this.datasetUuid : datasetUuid as SdkOptional<String>,
+    fileSize: identical(fileSize, sdkOmittedValue) ? this.fileSize : fileSize as SdkOptional<String>,
+    hasGroundTruth: identical(hasGroundTruth, sdkOmittedValue) ? this.hasGroundTruth : hasGroundTruth as SdkOptional<bool>,
+    rowCount: identical(rowCount, sdkOmittedValue) ? this.rowCount : rowCount as SdkOptional<int>,
+  );
 
-  factory ApiEvaluationDataset.fromJson(Map<String, dynamic> json) =>
-      ApiEvaluationDataset(
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        datasetName: json['dataset_name'] != null
-            ? SdkPresent((json['dataset_name'] as String?)!)
-            : const SdkOmitted(),
-        datasetParadigm: json['dataset_paradigm'] != null
-            ? SdkPresent((json['dataset_paradigm'] != null
-                ? ApiEvaluationDatasetParadigm.fromJson(
-                    json['dataset_paradigm'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        datasetType: json['dataset_type'] != null
-            ? SdkPresent((json['dataset_type'] != null
-                ? ApiEvaluationDatasetType.fromJson(
-                    json['dataset_type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        datasetUuid: json['dataset_uuid'] != null
-            ? SdkPresent((json['dataset_uuid'] as String?)!)
-            : const SdkOmitted(),
-        fileSize: json['file_size'] != null
-            ? SdkPresent((json['file_size'] as String?)!)
-            : const SdkOmitted(),
-        hasGroundTruth: json['has_ground_truth'] != null
-            ? SdkPresent((json['has_ground_truth'] as bool?)!)
-            : const SdkOmitted(),
-        rowCount: json['row_count'] != null
-            ? SdkPresent(((json['row_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ApiEvaluationDataset.fromJson(Map<String, dynamic> json) => ApiEvaluationDataset(
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    datasetName: json['dataset_name'] != null ? SdkPresent((json['dataset_name'] as String?)!) : const SdkOmitted(),
+    datasetParadigm: json['dataset_paradigm'] != null ? SdkPresent((json['dataset_paradigm'] != null ? ApiEvaluationDatasetParadigm.fromJson(json['dataset_paradigm'] as String) : null)!) : const SdkOmitted(),
+    datasetType: json['dataset_type'] != null ? SdkPresent((json['dataset_type'] != null ? ApiEvaluationDatasetType.fromJson(json['dataset_type'] as String) : null)!) : const SdkOmitted(),
+    datasetUuid: json['dataset_uuid'] != null ? SdkPresent((json['dataset_uuid'] as String?)!) : const SdkOmitted(),
+    fileSize: json['file_size'] != null ? SdkPresent((json['file_size'] as String?)!) : const SdkOmitted(),
+    hasGroundTruth: json['has_ground_truth'] != null ? SdkPresent((json['has_ground_truth'] as bool?)!) : const SdkOmitted(),
+    rowCount: json['row_count'] != null ? SdkPresent(((json['row_count'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (datasetName) {
-          SdkPresent<String>(value: final value) => {
-              'dataset_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (datasetParadigm) {
-          SdkPresent<ApiEvaluationDatasetParadigm>(value: final value) => {
-              'dataset_paradigm': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (datasetType) {
-          SdkPresent<ApiEvaluationDatasetType>(value: final value) => {
-              'dataset_type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (datasetUuid) {
-          SdkPresent<String>(value: final value) => {
-              'dataset_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fileSize) {
-          SdkPresent<String>(value: final value) => {
-              'file_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasGroundTruth) {
-          SdkPresent<bool>(value: final value) => {
-              'has_ground_truth': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rowCount) {
-          SdkPresent<int>(value: final value) => {
-              'row_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (datasetName) {
+      SdkPresent<String>(value: final value) => {'dataset_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (datasetParadigm) {
+      SdkPresent<ApiEvaluationDatasetParadigm>(value: final value) => {'dataset_paradigm': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (datasetType) {
+      SdkPresent<ApiEvaluationDatasetType>(value: final value) => {'dataset_type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (datasetUuid) {
+      SdkPresent<String>(value: final value) => {'dataset_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fileSize) {
+      SdkPresent<String>(value: final value) => {'file_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasGroundTruth) {
+      SdkPresent<bool>(value: final value) => {'has_ground_truth': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rowCount) {
+      SdkPresent<int>(value: final value) => {'row_count': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// EvaluationDatasetParadigm is the row/content shape of a dataset, orthogonal to the surface in EvaluationDatasetType (e.g. a model dataset can be single- or multi-turn).
 final class ApiEvaluationDatasetParadigm {
+
   final String value;
 
   const ApiEvaluationDatasetParadigm._(this.value);
 
-  factory ApiEvaluationDatasetParadigm.fromJson(String value) =>
-      ApiEvaluationDatasetParadigm._(value);
+  factory ApiEvaluationDatasetParadigm.fromJson(String value) => ApiEvaluationDatasetParadigm._(value);
 
-  static const evaluationDatasetParadigmSingleTurn =
-      ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_SINGLE_TURN');
-  static const evaluationDatasetParadigmMultiTurn =
-      ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_MULTI_TURN');
-  static const evaluationDatasetParadigmCoding =
-      ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_CODING');
-  static const evaluationDatasetParadigmNPlus1 =
-      ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_N_PLUS_1');
+  static const evaluationDatasetParadigmSingleTurn = ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_SINGLE_TURN');
+  static const evaluationDatasetParadigmMultiTurn = ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_MULTI_TURN');
+  static const evaluationDatasetParadigmCoding = ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_CODING');
+  static const evaluationDatasetParadigmNPlus1 = ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_N_PLUS_1');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiEvaluationDatasetParadigm && other.value == value;
+  @override bool operator ==(Object other) => other is ApiEvaluationDatasetParadigm && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `ApiEvaluationDatasetType` API schema.
 final class ApiEvaluationDatasetType {
+
   final String value;
 
   const ApiEvaluationDatasetType._(this.value);
 
-  factory ApiEvaluationDatasetType.fromJson(String value) =>
-      ApiEvaluationDatasetType._(value);
+  factory ApiEvaluationDatasetType.fromJson(String value) => ApiEvaluationDatasetType._(value);
 
-  static const evaluationDatasetTypeUnknown =
-      ApiEvaluationDatasetType._('EVALUATION_DATASET_TYPE_UNKNOWN');
-  static const evaluationDatasetTypeModel =
-      ApiEvaluationDatasetType._('EVALUATION_DATASET_TYPE_MODEL');
+  static const evaluationDatasetTypeUnknown = ApiEvaluationDatasetType._('EVALUATION_DATASET_TYPE_UNKNOWN');
+  static const evaluationDatasetTypeModel = ApiEvaluationDatasetType._('EVALUATION_DATASET_TYPE_MODEL');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiEvaluationDatasetType && other.value == value;
+  @override bool operator ==(Object other) => other is ApiEvaluationDatasetType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `ApiEvaluationMetric` API schema.
 class ApiEvaluationMetric {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Saved model evaluation presets that reference this metric. Populated for custom metrics when listing metrics so the dashboard can warn that deleting the metric will also delete these presets. Empty for built-in metrics.
   final SdkOptional<List<ApiAssociatedModelEvaluationPreset>> associatedPresets;
-
   /// Optional enumerated value serialized in the `category` wire field.
   final SdkOptional<ApiEvaluationMetricCategory> category;
-
   /// Configuration for a custom model-evaluation metric scored by an LLM judge. Prompt and model response are always included in the judge context.
   final SdkOptional<ApiCustomEvaluationMetricConfig> customEvalConfig;
-
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
-
   /// Scope that determines whether a metric belongs to agent evaluation or model evaluation. For backwards compatibility, UNSPECIFIED defaults to agent metrics only in list operations.
   final SdkOptional<ApiEvaluationScope> evaluationScope;
-
   /// If true, the metric is inverted, meaning that a lower value is better.
   final SdkOptional<bool> inverted;
-
   /// Optional `boolean` value serialized in the `is_metric_goal` wire field.
   final SdkOptional<bool> isMetricGoal;
-
   /// Optional `string` value serialized in the `metric_name` wire field.
   final SdkOptional<String> metricName;
-
   /// Optional `int64`-formatted value serialized in the `metric_rank` wire field.
   final SdkOptional<int> metricRank;
-
   /// Optional enumerated value serialized in the `metric_type` wire field.
   final SdkOptional<ApiEvaluationMetricType> metricType;
-
   /// Optional `string` value serialized in the `metric_uuid` wire field.
   final SdkOptional<String> metricUuid;
-
   /// Optional enumerated value serialized in the `metric_value_type` wire field.
   final SdkOptional<ApiEvaluationMetricValueType> metricValueType;
-
   /// The maximum value for the metric.
   final SdkOptional<double> rangeMax;
-
   /// The minimum value for the metric.
   final SdkOptional<double> rangeMin;
-
   /// Distinguishes platform catalog metrics from user-defined LLM-as-judge metrics.
   final SdkOptional<ApiEvaluationMetricSource> source;
 
-  const ApiEvaluationMetric(
-      {this.associatedPresets = const SdkOmitted(),
-      this.category = const SdkOmitted(),
-      this.customEvalConfig = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.evaluationScope = const SdkOmitted(),
-      this.inverted = const SdkOmitted(),
-      this.isMetricGoal = const SdkOmitted(),
-      this.metricName = const SdkOmitted(),
-      this.metricRank = const SdkOmitted(),
-      this.metricType = const SdkOmitted(),
-      this.metricUuid = const SdkOmitted(),
-      this.metricValueType = const SdkOmitted(),
-      this.rangeMax = const SdkOmitted(),
-      this.rangeMin = const SdkOmitted(),
-      this.source = const SdkOmitted()});
+  const ApiEvaluationMetric({this.associatedPresets = const SdkOmitted(), this.category = const SdkOmitted(), this.customEvalConfig = const SdkOmitted(), this.description = const SdkOmitted(), this.evaluationScope = const SdkOmitted(), this.inverted = const SdkOmitted(), this.isMetricGoal = const SdkOmitted(), this.metricName = const SdkOmitted(), this.metricRank = const SdkOmitted(), this.metricType = const SdkOmitted(), this.metricUuid = const SdkOmitted(), this.metricValueType = const SdkOmitted(), this.rangeMax = const SdkOmitted(), this.rangeMin = const SdkOmitted(), this.source = const SdkOmitted()});
 
-  ApiEvaluationMetric Function(
-      {SdkOptional<List<ApiAssociatedModelEvaluationPreset>> associatedPresets,
-      SdkOptional<ApiEvaluationMetricCategory> category,
-      SdkOptional<ApiCustomEvaluationMetricConfig> customEvalConfig,
-      SdkOptional<String> description,
-      SdkOptional<ApiEvaluationScope> evaluationScope,
-      SdkOptional<bool> inverted,
-      SdkOptional<bool> isMetricGoal,
-      SdkOptional<String> metricName,
-      SdkOptional<int> metricRank,
-      SdkOptional<ApiEvaluationMetricType> metricType,
-      SdkOptional<String> metricUuid,
-      SdkOptional<ApiEvaluationMetricValueType> metricValueType,
-      SdkOptional<double> rangeMax,
-      SdkOptional<double> rangeMin,
-      SdkOptional<ApiEvaluationMetricSource> source}) get copyWith => _copyWith;
+  ApiEvaluationMetric Function({SdkOptional<List<ApiAssociatedModelEvaluationPreset>> associatedPresets, SdkOptional<ApiEvaluationMetricCategory> category, SdkOptional<ApiCustomEvaluationMetricConfig> customEvalConfig, SdkOptional<String> description, SdkOptional<ApiEvaluationScope> evaluationScope, SdkOptional<bool> inverted, SdkOptional<bool> isMetricGoal, SdkOptional<String> metricName, SdkOptional<int> metricRank, SdkOptional<ApiEvaluationMetricType> metricType, SdkOptional<String> metricUuid, SdkOptional<ApiEvaluationMetricValueType> metricValueType, SdkOptional<double> rangeMax, SdkOptional<double> rangeMin, SdkOptional<ApiEvaluationMetricSource> source}) get copyWith => _copyWith;
 
-  ApiEvaluationMetric _copyWith(
-          {Object? associatedPresets = sdkOmittedValue,
-          Object? category = sdkOmittedValue,
-          Object? customEvalConfig = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? evaluationScope = sdkOmittedValue,
-          Object? inverted = sdkOmittedValue,
-          Object? isMetricGoal = sdkOmittedValue,
-          Object? metricName = sdkOmittedValue,
-          Object? metricRank = sdkOmittedValue,
-          Object? metricType = sdkOmittedValue,
-          Object? metricUuid = sdkOmittedValue,
-          Object? metricValueType = sdkOmittedValue,
-          Object? rangeMax = sdkOmittedValue,
-          Object? rangeMin = sdkOmittedValue,
-          Object? source = sdkOmittedValue}) =>
-      ApiEvaluationMetric(
-        associatedPresets: identical(associatedPresets, sdkOmittedValue)
-            ? this.associatedPresets
-            : associatedPresets
-                as SdkOptional<List<ApiAssociatedModelEvaluationPreset>>,
-        category: identical(category, sdkOmittedValue)
-            ? this.category
-            : category as SdkOptional<ApiEvaluationMetricCategory>,
-        customEvalConfig: identical(customEvalConfig, sdkOmittedValue)
-            ? this.customEvalConfig
-            : customEvalConfig as SdkOptional<ApiCustomEvaluationMetricConfig>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        evaluationScope: identical(evaluationScope, sdkOmittedValue)
-            ? this.evaluationScope
-            : evaluationScope as SdkOptional<ApiEvaluationScope>,
-        inverted: identical(inverted, sdkOmittedValue)
-            ? this.inverted
-            : inverted as SdkOptional<bool>,
-        isMetricGoal: identical(isMetricGoal, sdkOmittedValue)
-            ? this.isMetricGoal
-            : isMetricGoal as SdkOptional<bool>,
-        metricName: identical(metricName, sdkOmittedValue)
-            ? this.metricName
-            : metricName as SdkOptional<String>,
-        metricRank: identical(metricRank, sdkOmittedValue)
-            ? this.metricRank
-            : metricRank as SdkOptional<int>,
-        metricType: identical(metricType, sdkOmittedValue)
-            ? this.metricType
-            : metricType as SdkOptional<ApiEvaluationMetricType>,
-        metricUuid: identical(metricUuid, sdkOmittedValue)
-            ? this.metricUuid
-            : metricUuid as SdkOptional<String>,
-        metricValueType: identical(metricValueType, sdkOmittedValue)
-            ? this.metricValueType
-            : metricValueType as SdkOptional<ApiEvaluationMetricValueType>,
-        rangeMax: identical(rangeMax, sdkOmittedValue)
-            ? this.rangeMax
-            : rangeMax as SdkOptional<double>,
-        rangeMin: identical(rangeMin, sdkOmittedValue)
-            ? this.rangeMin
-            : rangeMin as SdkOptional<double>,
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as SdkOptional<ApiEvaluationMetricSource>,
-      );
+  ApiEvaluationMetric _copyWith({Object? associatedPresets = sdkOmittedValue, Object? category = sdkOmittedValue, Object? customEvalConfig = sdkOmittedValue, Object? description = sdkOmittedValue, Object? evaluationScope = sdkOmittedValue, Object? inverted = sdkOmittedValue, Object? isMetricGoal = sdkOmittedValue, Object? metricName = sdkOmittedValue, Object? metricRank = sdkOmittedValue, Object? metricType = sdkOmittedValue, Object? metricUuid = sdkOmittedValue, Object? metricValueType = sdkOmittedValue, Object? rangeMax = sdkOmittedValue, Object? rangeMin = sdkOmittedValue, Object? source = sdkOmittedValue}) => ApiEvaluationMetric(
+    associatedPresets: identical(associatedPresets, sdkOmittedValue) ? this.associatedPresets : associatedPresets as SdkOptional<List<ApiAssociatedModelEvaluationPreset>>,
+    category: identical(category, sdkOmittedValue) ? this.category : category as SdkOptional<ApiEvaluationMetricCategory>,
+    customEvalConfig: identical(customEvalConfig, sdkOmittedValue) ? this.customEvalConfig : customEvalConfig as SdkOptional<ApiCustomEvaluationMetricConfig>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    evaluationScope: identical(evaluationScope, sdkOmittedValue) ? this.evaluationScope : evaluationScope as SdkOptional<ApiEvaluationScope>,
+    inverted: identical(inverted, sdkOmittedValue) ? this.inverted : inverted as SdkOptional<bool>,
+    isMetricGoal: identical(isMetricGoal, sdkOmittedValue) ? this.isMetricGoal : isMetricGoal as SdkOptional<bool>,
+    metricName: identical(metricName, sdkOmittedValue) ? this.metricName : metricName as SdkOptional<String>,
+    metricRank: identical(metricRank, sdkOmittedValue) ? this.metricRank : metricRank as SdkOptional<int>,
+    metricType: identical(metricType, sdkOmittedValue) ? this.metricType : metricType as SdkOptional<ApiEvaluationMetricType>,
+    metricUuid: identical(metricUuid, sdkOmittedValue) ? this.metricUuid : metricUuid as SdkOptional<String>,
+    metricValueType: identical(metricValueType, sdkOmittedValue) ? this.metricValueType : metricValueType as SdkOptional<ApiEvaluationMetricValueType>,
+    rangeMax: identical(rangeMax, sdkOmittedValue) ? this.rangeMax : rangeMax as SdkOptional<double>,
+    rangeMin: identical(rangeMin, sdkOmittedValue) ? this.rangeMin : rangeMin as SdkOptional<double>,
+    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<ApiEvaluationMetricSource>,
+  );
 
-  factory ApiEvaluationMetric.fromJson(Map<String, dynamic> json) =>
-      ApiEvaluationMetric(
-        associatedPresets: json['associated_presets'] != null
-            ? SdkPresent(((json['associated_presets'] as List?)
-                ?.map((e) => ApiAssociatedModelEvaluationPreset.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        category: json['category'] != null
-            ? SdkPresent((json['category'] != null
-                ? ApiEvaluationMetricCategory.fromJson(
-                    json['category'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        customEvalConfig: json['custom_eval_config'] != null
-            ? SdkPresent((json['custom_eval_config'] != null
-                ? ApiCustomEvaluationMetricConfig.fromJson(
-                    json['custom_eval_config'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        evaluationScope: json['evaluation_scope'] != null
-            ? SdkPresent((json['evaluation_scope'] != null
-                ? ApiEvaluationScope.fromJson(
-                    json['evaluation_scope'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        inverted: json['inverted'] != null
-            ? SdkPresent((json['inverted'] as bool?)!)
-            : const SdkOmitted(),
-        isMetricGoal: json['is_metric_goal'] != null
-            ? SdkPresent((json['is_metric_goal'] as bool?)!)
-            : const SdkOmitted(),
-        metricName: json['metric_name'] != null
-            ? SdkPresent((json['metric_name'] as String?)!)
-            : const SdkOmitted(),
-        metricRank: json['metric_rank'] != null
-            ? SdkPresent(((json['metric_rank'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        metricType: json['metric_type'] != null
-            ? SdkPresent((json['metric_type'] != null
-                ? ApiEvaluationMetricType.fromJson(
-                    json['metric_type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        metricUuid: json['metric_uuid'] != null
-            ? SdkPresent((json['metric_uuid'] as String?)!)
-            : const SdkOmitted(),
-        metricValueType: json['metric_value_type'] != null
-            ? SdkPresent((json['metric_value_type'] != null
-                ? ApiEvaluationMetricValueType.fromJson(
-                    json['metric_value_type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        rangeMax: json['range_max'] != null
-            ? SdkPresent(((json['range_max'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        rangeMin: json['range_min'] != null
-            ? SdkPresent(((json['range_min'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        source: json['source'] != null
-            ? SdkPresent((json['source'] != null
-                ? ApiEvaluationMetricSource.fromJson(json['source'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiEvaluationMetric.fromJson(Map<String, dynamic> json) => ApiEvaluationMetric(
+    associatedPresets: json['associated_presets'] != null ? SdkPresent(((json['associated_presets'] as List?)?.map((e) => ApiAssociatedModelEvaluationPreset.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    category: json['category'] != null ? SdkPresent((json['category'] != null ? ApiEvaluationMetricCategory.fromJson(json['category'] as String) : null)!) : const SdkOmitted(),
+    customEvalConfig: json['custom_eval_config'] != null ? SdkPresent((json['custom_eval_config'] != null ? ApiCustomEvaluationMetricConfig.fromJson(json['custom_eval_config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    evaluationScope: json['evaluation_scope'] != null ? SdkPresent((json['evaluation_scope'] != null ? ApiEvaluationScope.fromJson(json['evaluation_scope'] as String) : null)!) : const SdkOmitted(),
+    inverted: json['inverted'] != null ? SdkPresent((json['inverted'] as bool?)!) : const SdkOmitted(),
+    isMetricGoal: json['is_metric_goal'] != null ? SdkPresent((json['is_metric_goal'] as bool?)!) : const SdkOmitted(),
+    metricName: json['metric_name'] != null ? SdkPresent((json['metric_name'] as String?)!) : const SdkOmitted(),
+    metricRank: json['metric_rank'] != null ? SdkPresent(((json['metric_rank'] as num?)?.toInt())!) : const SdkOmitted(),
+    metricType: json['metric_type'] != null ? SdkPresent((json['metric_type'] != null ? ApiEvaluationMetricType.fromJson(json['metric_type'] as String) : null)!) : const SdkOmitted(),
+    metricUuid: json['metric_uuid'] != null ? SdkPresent((json['metric_uuid'] as String?)!) : const SdkOmitted(),
+    metricValueType: json['metric_value_type'] != null ? SdkPresent((json['metric_value_type'] != null ? ApiEvaluationMetricValueType.fromJson(json['metric_value_type'] as String) : null)!) : const SdkOmitted(),
+    rangeMax: json['range_max'] != null ? SdkPresent(((json['range_max'] as num?)?.toDouble())!) : const SdkOmitted(),
+    rangeMin: json['range_min'] != null ? SdkPresent(((json['range_min'] as num?)?.toDouble())!) : const SdkOmitted(),
+    source: json['source'] != null ? SdkPresent((json['source'] != null ? ApiEvaluationMetricSource.fromJson(json['source'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (associatedPresets) {
-          SdkPresent<List<ApiAssociatedModelEvaluationPreset>>(
-            value: final value
-          ) =>
-            {
-              'associated_presets': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (category) {
-          SdkPresent<ApiEvaluationMetricCategory>(value: final value) => {
-              'category': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (customEvalConfig) {
-          SdkPresent<ApiCustomEvaluationMetricConfig>(value: final value) => {
-              'custom_eval_config': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (evaluationScope) {
-          SdkPresent<ApiEvaluationScope>(value: final value) => {
-              'evaluation_scope': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inverted) {
-          SdkPresent<bool>(value: final value) => {
-              'inverted': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isMetricGoal) {
-          SdkPresent<bool>(value: final value) => {
-              'is_metric_goal': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metricName) {
-          SdkPresent<String>(value: final value) => {
-              'metric_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metricRank) {
-          SdkPresent<int>(value: final value) => {
-              'metric_rank': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metricType) {
-          SdkPresent<ApiEvaluationMetricType>(value: final value) => {
-              'metric_type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metricUuid) {
-          SdkPresent<String>(value: final value) => {
-              'metric_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metricValueType) {
-          SdkPresent<ApiEvaluationMetricValueType>(value: final value) => {
-              'metric_value_type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rangeMax) {
-          SdkPresent<double>(value: final value) => {
-              'range_max': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rangeMin) {
-          SdkPresent<double>(value: final value) => {
-              'range_min': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (source) {
-          SdkPresent<ApiEvaluationMetricSource>(value: final value) => {
-              'source': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (associatedPresets) {
+      SdkPresent<List<ApiAssociatedModelEvaluationPreset>>(value: final value) => {'associated_presets': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (category) {
+      SdkPresent<ApiEvaluationMetricCategory>(value: final value) => {'category': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (customEvalConfig) {
+      SdkPresent<ApiCustomEvaluationMetricConfig>(value: final value) => {'custom_eval_config': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (evaluationScope) {
+      SdkPresent<ApiEvaluationScope>(value: final value) => {'evaluation_scope': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inverted) {
+      SdkPresent<bool>(value: final value) => {'inverted': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isMetricGoal) {
+      SdkPresent<bool>(value: final value) => {'is_metric_goal': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metricName) {
+      SdkPresent<String>(value: final value) => {'metric_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metricRank) {
+      SdkPresent<int>(value: final value) => {'metric_rank': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metricType) {
+      SdkPresent<ApiEvaluationMetricType>(value: final value) => {'metric_type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metricUuid) {
+      SdkPresent<String>(value: final value) => {'metric_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metricValueType) {
+      SdkPresent<ApiEvaluationMetricValueType>(value: final value) => {'metric_value_type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rangeMax) {
+      SdkPresent<double>(value: final value) => {'range_max': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rangeMin) {
+      SdkPresent<double>(value: final value) => {'range_min': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (source) {
+      SdkPresent<ApiEvaluationMetricSource>(value: final value) => {'source': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiEvaluationMetricCategory` API schema.
 final class ApiEvaluationMetricCategory {
+
   final String value;
 
   const ApiEvaluationMetricCategory._(this.value);
 
-  factory ApiEvaluationMetricCategory.fromJson(String value) =>
-      ApiEvaluationMetricCategory._(value);
+  factory ApiEvaluationMetricCategory.fromJson(String value) => ApiEvaluationMetricCategory._(value);
 
-  static const metricCategoryUnspecified =
-      ApiEvaluationMetricCategory._('METRIC_CATEGORY_UNSPECIFIED');
-  static const metricCategoryCorrectness =
-      ApiEvaluationMetricCategory._('METRIC_CATEGORY_CORRECTNESS');
-  static const metricCategoryUserOutcomes =
-      ApiEvaluationMetricCategory._('METRIC_CATEGORY_USER_OUTCOMES');
-  static const metricCategorySafetyAndSecurity =
-      ApiEvaluationMetricCategory._('METRIC_CATEGORY_SAFETY_AND_SECURITY');
-  static const metricCategoryContextQuality =
-      ApiEvaluationMetricCategory._('METRIC_CATEGORY_CONTEXT_QUALITY');
-  static const metricCategoryModelFit =
-      ApiEvaluationMetricCategory._('METRIC_CATEGORY_MODEL_FIT');
-  static const metricCategoryConversational =
-      ApiEvaluationMetricCategory._('METRIC_CATEGORY_CONVERSATIONAL');
+  static const metricCategoryUnspecified = ApiEvaluationMetricCategory._('METRIC_CATEGORY_UNSPECIFIED');
+  static const metricCategoryCorrectness = ApiEvaluationMetricCategory._('METRIC_CATEGORY_CORRECTNESS');
+  static const metricCategoryUserOutcomes = ApiEvaluationMetricCategory._('METRIC_CATEGORY_USER_OUTCOMES');
+  static const metricCategorySafetyAndSecurity = ApiEvaluationMetricCategory._('METRIC_CATEGORY_SAFETY_AND_SECURITY');
+  static const metricCategoryContextQuality = ApiEvaluationMetricCategory._('METRIC_CATEGORY_CONTEXT_QUALITY');
+  static const metricCategoryModelFit = ApiEvaluationMetricCategory._('METRIC_CATEGORY_MODEL_FIT');
+  static const metricCategoryConversational = ApiEvaluationMetricCategory._('METRIC_CATEGORY_CONVERSATIONAL');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiEvaluationMetricCategory && other.value == value;
+  @override bool operator ==(Object other) => other is ApiEvaluationMetricCategory && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

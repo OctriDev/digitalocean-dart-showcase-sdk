@@ -8,408 +8,190 @@ part of 'apps_app_component.dart';
 class AppComponentBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name. Must be unique across all components within the same app.
   final SdkOptional<String> name;
-
   /// Optional object value serialized in the `git` wire field.
   final SdkOptional<AppsGitSourceSpec> git;
-
   /// Optional object value serialized in the `github` wire field.
   final SdkOptional<AppsGithubSourceSpec> github;
-
   /// Optional object value serialized in the `gitlab` wire field.
   final SdkOptional<AppsGitlabSourceSpec> gitlab;
-
   /// Optional object value serialized in the `bitbucket` wire field.
   final SdkOptional<AppsBitbucketSourceSpec> bitbucket;
-
   /// Optional object value serialized in the `image` wire field.
   final SdkOptional<AppsImageSourceSpec> image;
-
   /// The path to the Dockerfile relative to the root of the repo. If set, it will be used to build this component. Otherwise, App Platform will attempt to build it using buildpacks.
   final SdkOptional<String> dockerfilePath;
-
   /// An optional build command to run while building this component from source.
   final SdkOptional<String> buildCommand;
-
   /// An optional run command to override the component's default.
   final SdkOptional<String> runCommand;
-
   /// An optional path to the working directory to use for the build. For Dockerfile builds, this will be used as the build context. Must be relative to the root of the repo.
   final SdkOptional<String> sourceDir;
-
   /// A list of environment variables made available to the component.
   final SdkOptional<List<AppVariableDefinition>> envs;
-
   /// An environment slug describing the type of this app. For a full list, please refer to [the product documentation](https://docs.digitalocean.com/products/app-platform/).
   final SdkOptional<String> environmentSlug;
-
   /// A list of configured log forwarding destinations.
   final SdkOptional<List<AppLogDestinationDefinition>> logDestinations;
 
-  const AppComponentBase(
-      {this.name = const SdkOmitted(),
-      this.git = const SdkOmitted(),
-      this.github = const SdkOmitted(),
-      this.gitlab = const SdkOmitted(),
-      this.bitbucket = const SdkOmitted(),
-      this.image = const SdkOmitted(),
-      this.dockerfilePath = const SdkOmitted(),
-      this.buildCommand = const SdkOmitted(),
-      this.runCommand = const SdkOmitted(),
-      this.sourceDir = const SdkOmitted(),
-      this.envs = const SdkOmitted(),
-      this.environmentSlug = const SdkOmitted(),
-      this.logDestinations = const SdkOmitted()});
+  const AppComponentBase({this.name = const SdkOmitted(), this.git = const SdkOmitted(), this.github = const SdkOmitted(), this.gitlab = const SdkOmitted(), this.bitbucket = const SdkOmitted(), this.image = const SdkOmitted(), this.dockerfilePath = const SdkOmitted(), this.buildCommand = const SdkOmitted(), this.runCommand = const SdkOmitted(), this.sourceDir = const SdkOmitted(), this.envs = const SdkOmitted(), this.environmentSlug = const SdkOmitted(), this.logDestinations = const SdkOmitted()});
 
-  AppComponentBase Function(
-          {SdkOptional<String> name,
-          SdkOptional<AppsGitSourceSpec> git,
-          SdkOptional<AppsGithubSourceSpec> github,
-          SdkOptional<AppsGitlabSourceSpec> gitlab,
-          SdkOptional<AppsBitbucketSourceSpec> bitbucket,
-          SdkOptional<AppsImageSourceSpec> image,
-          SdkOptional<String> dockerfilePath,
-          SdkOptional<String> buildCommand,
-          SdkOptional<String> runCommand,
-          SdkOptional<String> sourceDir,
-          SdkOptional<List<AppVariableDefinition>> envs,
-          SdkOptional<String> environmentSlug,
-          SdkOptional<List<AppLogDestinationDefinition>> logDestinations})
-      get copyWith => _copyWith;
+  AppComponentBase Function({SdkOptional<String> name, SdkOptional<AppsGitSourceSpec> git, SdkOptional<AppsGithubSourceSpec> github, SdkOptional<AppsGitlabSourceSpec> gitlab, SdkOptional<AppsBitbucketSourceSpec> bitbucket, SdkOptional<AppsImageSourceSpec> image, SdkOptional<String> dockerfilePath, SdkOptional<String> buildCommand, SdkOptional<String> runCommand, SdkOptional<String> sourceDir, SdkOptional<List<AppVariableDefinition>> envs, SdkOptional<String> environmentSlug, SdkOptional<List<AppLogDestinationDefinition>> logDestinations}) get copyWith => _copyWith;
 
-  AppComponentBase _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? git = sdkOmittedValue,
-          Object? github = sdkOmittedValue,
-          Object? gitlab = sdkOmittedValue,
-          Object? bitbucket = sdkOmittedValue,
-          Object? image = sdkOmittedValue,
-          Object? dockerfilePath = sdkOmittedValue,
-          Object? buildCommand = sdkOmittedValue,
-          Object? runCommand = sdkOmittedValue,
-          Object? sourceDir = sdkOmittedValue,
-          Object? envs = sdkOmittedValue,
-          Object? environmentSlug = sdkOmittedValue,
-          Object? logDestinations = sdkOmittedValue}) =>
-      AppComponentBase(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        git: identical(git, sdkOmittedValue)
-            ? this.git
-            : git as SdkOptional<AppsGitSourceSpec>,
-        github: identical(github, sdkOmittedValue)
-            ? this.github
-            : github as SdkOptional<AppsGithubSourceSpec>,
-        gitlab: identical(gitlab, sdkOmittedValue)
-            ? this.gitlab
-            : gitlab as SdkOptional<AppsGitlabSourceSpec>,
-        bitbucket: identical(bitbucket, sdkOmittedValue)
-            ? this.bitbucket
-            : bitbucket as SdkOptional<AppsBitbucketSourceSpec>,
-        image: identical(image, sdkOmittedValue)
-            ? this.image
-            : image as SdkOptional<AppsImageSourceSpec>,
-        dockerfilePath: identical(dockerfilePath, sdkOmittedValue)
-            ? this.dockerfilePath
-            : dockerfilePath as SdkOptional<String>,
-        buildCommand: identical(buildCommand, sdkOmittedValue)
-            ? this.buildCommand
-            : buildCommand as SdkOptional<String>,
-        runCommand: identical(runCommand, sdkOmittedValue)
-            ? this.runCommand
-            : runCommand as SdkOptional<String>,
-        sourceDir: identical(sourceDir, sdkOmittedValue)
-            ? this.sourceDir
-            : sourceDir as SdkOptional<String>,
-        envs: identical(envs, sdkOmittedValue)
-            ? this.envs
-            : envs as SdkOptional<List<AppVariableDefinition>>,
-        environmentSlug: identical(environmentSlug, sdkOmittedValue)
-            ? this.environmentSlug
-            : environmentSlug as SdkOptional<String>,
-        logDestinations: identical(logDestinations, sdkOmittedValue)
-            ? this.logDestinations
-            : logDestinations as SdkOptional<List<AppLogDestinationDefinition>>,
-      );
+  AppComponentBase _copyWith({Object? name = sdkOmittedValue, Object? git = sdkOmittedValue, Object? github = sdkOmittedValue, Object? gitlab = sdkOmittedValue, Object? bitbucket = sdkOmittedValue, Object? image = sdkOmittedValue, Object? dockerfilePath = sdkOmittedValue, Object? buildCommand = sdkOmittedValue, Object? runCommand = sdkOmittedValue, Object? sourceDir = sdkOmittedValue, Object? envs = sdkOmittedValue, Object? environmentSlug = sdkOmittedValue, Object? logDestinations = sdkOmittedValue}) => AppComponentBase(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    git: identical(git, sdkOmittedValue) ? this.git : git as SdkOptional<AppsGitSourceSpec>,
+    github: identical(github, sdkOmittedValue) ? this.github : github as SdkOptional<AppsGithubSourceSpec>,
+    gitlab: identical(gitlab, sdkOmittedValue) ? this.gitlab : gitlab as SdkOptional<AppsGitlabSourceSpec>,
+    bitbucket: identical(bitbucket, sdkOmittedValue) ? this.bitbucket : bitbucket as SdkOptional<AppsBitbucketSourceSpec>,
+    image: identical(image, sdkOmittedValue) ? this.image : image as SdkOptional<AppsImageSourceSpec>,
+    dockerfilePath: identical(dockerfilePath, sdkOmittedValue) ? this.dockerfilePath : dockerfilePath as SdkOptional<String>,
+    buildCommand: identical(buildCommand, sdkOmittedValue) ? this.buildCommand : buildCommand as SdkOptional<String>,
+    runCommand: identical(runCommand, sdkOmittedValue) ? this.runCommand : runCommand as SdkOptional<String>,
+    sourceDir: identical(sourceDir, sdkOmittedValue) ? this.sourceDir : sourceDir as SdkOptional<String>,
+    envs: identical(envs, sdkOmittedValue) ? this.envs : envs as SdkOptional<List<AppVariableDefinition>>,
+    environmentSlug: identical(environmentSlug, sdkOmittedValue) ? this.environmentSlug : environmentSlug as SdkOptional<String>,
+    logDestinations: identical(logDestinations, sdkOmittedValue) ? this.logDestinations : logDestinations as SdkOptional<List<AppLogDestinationDefinition>>,
+  );
 
-  factory AppComponentBase.fromJson(Map<String, dynamic> json) =>
-      AppComponentBase(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        git: json['git'] != null
-            ? SdkPresent((json['git'] != null
-                ? AppsGitSourceSpec.fromJson(
-                    json['git'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        github: json['github'] != null
-            ? SdkPresent((json['github'] != null
-                ? AppsGithubSourceSpec.fromJson(
-                    json['github'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        gitlab: json['gitlab'] != null
-            ? SdkPresent((json['gitlab'] != null
-                ? AppsGitlabSourceSpec.fromJson(
-                    json['gitlab'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        bitbucket: json['bitbucket'] != null
-            ? SdkPresent((json['bitbucket'] != null
-                ? AppsBitbucketSourceSpec.fromJson(
-                    json['bitbucket'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        image: json['image'] != null
-            ? SdkPresent((json['image'] != null
-                ? AppsImageSourceSpec.fromJson(
-                    json['image'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        dockerfilePath: json['dockerfile_path'] != null
-            ? SdkPresent((json['dockerfile_path'] as String?)!)
-            : const SdkOmitted(),
-        buildCommand: json['build_command'] != null
-            ? SdkPresent((json['build_command'] as String?)!)
-            : const SdkOmitted(),
-        runCommand: json['run_command'] != null
-            ? SdkPresent((json['run_command'] as String?)!)
-            : const SdkOmitted(),
-        sourceDir: json['source_dir'] != null
-            ? SdkPresent((json['source_dir'] as String?)!)
-            : const SdkOmitted(),
-        envs: json['envs'] != null
-            ? SdkPresent(((json['envs'] as List?)
-                ?.map((e) =>
-                    AppVariableDefinition.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        environmentSlug: json['environment_slug'] != null
-            ? SdkPresent((json['environment_slug'] as String?)!)
-            : const SdkOmitted(),
-        logDestinations: json['log_destinations'] != null
-            ? SdkPresent(((json['log_destinations'] as List?)
-                ?.map((e) => AppLogDestinationDefinition.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AppComponentBase.fromJson(Map<String, dynamic> json) => AppComponentBase(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    git: json['git'] != null ? SdkPresent((json['git'] != null ? AppsGitSourceSpec.fromJson(json['git'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    github: json['github'] != null ? SdkPresent((json['github'] != null ? AppsGithubSourceSpec.fromJson(json['github'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    gitlab: json['gitlab'] != null ? SdkPresent((json['gitlab'] != null ? AppsGitlabSourceSpec.fromJson(json['gitlab'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    bitbucket: json['bitbucket'] != null ? SdkPresent((json['bitbucket'] != null ? AppsBitbucketSourceSpec.fromJson(json['bitbucket'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    image: json['image'] != null ? SdkPresent((json['image'] != null ? AppsImageSourceSpec.fromJson(json['image'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    dockerfilePath: json['dockerfile_path'] != null ? SdkPresent((json['dockerfile_path'] as String?)!) : const SdkOmitted(),
+    buildCommand: json['build_command'] != null ? SdkPresent((json['build_command'] as String?)!) : const SdkOmitted(),
+    runCommand: json['run_command'] != null ? SdkPresent((json['run_command'] as String?)!) : const SdkOmitted(),
+    sourceDir: json['source_dir'] != null ? SdkPresent((json['source_dir'] as String?)!) : const SdkOmitted(),
+    envs: json['envs'] != null ? SdkPresent(((json['envs'] as List?)?.map((e) => AppVariableDefinition.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    environmentSlug: json['environment_slug'] != null ? SdkPresent((json['environment_slug'] as String?)!) : const SdkOmitted(),
+    logDestinations: json['log_destinations'] != null ? SdkPresent(((json['log_destinations'] as List?)?.map((e) => AppLogDestinationDefinition.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (git) {
-          SdkPresent<AppsGitSourceSpec>(value: final value) => {
-              'git': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (github) {
-          SdkPresent<AppsGithubSourceSpec>(value: final value) => {
-              'github': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (gitlab) {
-          SdkPresent<AppsGitlabSourceSpec>(value: final value) => {
-              'gitlab': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (bitbucket) {
-          SdkPresent<AppsBitbucketSourceSpec>(value: final value) => {
-              'bitbucket': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (image) {
-          SdkPresent<AppsImageSourceSpec>(value: final value) => {
-              'image': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (dockerfilePath) {
-          SdkPresent<String>(value: final value) => {
-              'dockerfile_path': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (buildCommand) {
-          SdkPresent<String>(value: final value) => {
-              'build_command': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (runCommand) {
-          SdkPresent<String>(value: final value) => {
-              'run_command': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sourceDir) {
-          SdkPresent<String>(value: final value) => {
-              'source_dir': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (envs) {
-          SdkPresent<List<AppVariableDefinition>>(value: final value) => {
-              'envs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (environmentSlug) {
-          SdkPresent<String>(value: final value) => {
-              'environment_slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logDestinations) {
-          SdkPresent<List<AppLogDestinationDefinition>>(value: final value) => {
-              'log_destinations': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (git) {
+      SdkPresent<AppsGitSourceSpec>(value: final value) => {'git': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (github) {
+      SdkPresent<AppsGithubSourceSpec>(value: final value) => {'github': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (gitlab) {
+      SdkPresent<AppsGitlabSourceSpec>(value: final value) => {'gitlab': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (bitbucket) {
+      SdkPresent<AppsBitbucketSourceSpec>(value: final value) => {'bitbucket': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (image) {
+      SdkPresent<AppsImageSourceSpec>(value: final value) => {'image': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (dockerfilePath) {
+      SdkPresent<String>(value: final value) => {'dockerfile_path': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (buildCommand) {
+      SdkPresent<String>(value: final value) => {'build_command': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (runCommand) {
+      SdkPresent<String>(value: final value) => {'run_command': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sourceDir) {
+      SdkPresent<String>(value: final value) => {'source_dir': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (envs) {
+      SdkPresent<List<AppVariableDefinition>>(value: final value) => {'envs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (environmentSlug) {
+      SdkPresent<String>(value: final value) => {'environment_slug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logDestinations) {
+      SdkPresent<List<AppLogDestinationDefinition>>(value: final value) => {'log_destinations': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppComponentHealth` API schema.
 class AppComponentHealth {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
-
   /// Optional `double`-formatted value serialized in the `cpu_usage_percent` wire field.
   final SdkOptional<double> cpuUsagePercent;
-
   /// Optional `double`-formatted value serialized in the `memory_usage_percent` wire field.
   final SdkOptional<double> memoryUsagePercent;
-
   /// Optional `int64`-formatted value serialized in the `replicas_desired` wire field.
   final SdkOptional<int> replicasDesired;
-
   /// Optional `int64`-formatted value serialized in the `replicas_ready` wire field.
   final SdkOptional<int> replicasReady;
-
   /// Optional enumerated value serialized in the `state` wire field.
   final SdkOptional<AppComponentHealthState> state;
 
-  const AppComponentHealth(
-      {this.name = const SdkOmitted(),
-      this.cpuUsagePercent = const SdkOmitted(),
-      this.memoryUsagePercent = const SdkOmitted(),
-      this.replicasDesired = const SdkOmitted(),
-      this.replicasReady = const SdkOmitted(),
-      this.state = const SdkOmitted()});
+  const AppComponentHealth({this.name = const SdkOmitted(), this.cpuUsagePercent = const SdkOmitted(), this.memoryUsagePercent = const SdkOmitted(), this.replicasDesired = const SdkOmitted(), this.replicasReady = const SdkOmitted(), this.state = const SdkOmitted()});
 
-  AppComponentHealth Function(
-      {SdkOptional<String> name,
-      SdkOptional<double> cpuUsagePercent,
-      SdkOptional<double> memoryUsagePercent,
-      SdkOptional<int> replicasDesired,
-      SdkOptional<int> replicasReady,
-      SdkOptional<AppComponentHealthState> state}) get copyWith => _copyWith;
+  AppComponentHealth Function({SdkOptional<String> name, SdkOptional<double> cpuUsagePercent, SdkOptional<double> memoryUsagePercent, SdkOptional<int> replicasDesired, SdkOptional<int> replicasReady, SdkOptional<AppComponentHealthState> state}) get copyWith => _copyWith;
 
-  AppComponentHealth _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? cpuUsagePercent = sdkOmittedValue,
-          Object? memoryUsagePercent = sdkOmittedValue,
-          Object? replicasDesired = sdkOmittedValue,
-          Object? replicasReady = sdkOmittedValue,
-          Object? state = sdkOmittedValue}) =>
-      AppComponentHealth(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        cpuUsagePercent: identical(cpuUsagePercent, sdkOmittedValue)
-            ? this.cpuUsagePercent
-            : cpuUsagePercent as SdkOptional<double>,
-        memoryUsagePercent: identical(memoryUsagePercent, sdkOmittedValue)
-            ? this.memoryUsagePercent
-            : memoryUsagePercent as SdkOptional<double>,
-        replicasDesired: identical(replicasDesired, sdkOmittedValue)
-            ? this.replicasDesired
-            : replicasDesired as SdkOptional<int>,
-        replicasReady: identical(replicasReady, sdkOmittedValue)
-            ? this.replicasReady
-            : replicasReady as SdkOptional<int>,
-        state: identical(state, sdkOmittedValue)
-            ? this.state
-            : state as SdkOptional<AppComponentHealthState>,
-      );
+  AppComponentHealth _copyWith({Object? name = sdkOmittedValue, Object? cpuUsagePercent = sdkOmittedValue, Object? memoryUsagePercent = sdkOmittedValue, Object? replicasDesired = sdkOmittedValue, Object? replicasReady = sdkOmittedValue, Object? state = sdkOmittedValue}) => AppComponentHealth(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    cpuUsagePercent: identical(cpuUsagePercent, sdkOmittedValue) ? this.cpuUsagePercent : cpuUsagePercent as SdkOptional<double>,
+    memoryUsagePercent: identical(memoryUsagePercent, sdkOmittedValue) ? this.memoryUsagePercent : memoryUsagePercent as SdkOptional<double>,
+    replicasDesired: identical(replicasDesired, sdkOmittedValue) ? this.replicasDesired : replicasDesired as SdkOptional<int>,
+    replicasReady: identical(replicasReady, sdkOmittedValue) ? this.replicasReady : replicasReady as SdkOptional<int>,
+    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<AppComponentHealthState>,
+  );
 
-  factory AppComponentHealth.fromJson(Map<String, dynamic> json) =>
-      AppComponentHealth(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        cpuUsagePercent: json['cpu_usage_percent'] != null
-            ? SdkPresent(((json['cpu_usage_percent'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        memoryUsagePercent: json['memory_usage_percent'] != null
-            ? SdkPresent(((json['memory_usage_percent'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        replicasDesired: json['replicas_desired'] != null
-            ? SdkPresent(((json['replicas_desired'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        replicasReady: json['replicas_ready'] != null
-            ? SdkPresent(((json['replicas_ready'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        state: json['state'] != null
-            ? SdkPresent((json['state'] != null
-                ? AppComponentHealthState.fromJson(json['state'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AppComponentHealth.fromJson(Map<String, dynamic> json) => AppComponentHealth(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    cpuUsagePercent: json['cpu_usage_percent'] != null ? SdkPresent(((json['cpu_usage_percent'] as num?)?.toDouble())!) : const SdkOmitted(),
+    memoryUsagePercent: json['memory_usage_percent'] != null ? SdkPresent(((json['memory_usage_percent'] as num?)?.toDouble())!) : const SdkOmitted(),
+    replicasDesired: json['replicas_desired'] != null ? SdkPresent(((json['replicas_desired'] as num?)?.toInt())!) : const SdkOmitted(),
+    replicasReady: json['replicas_ready'] != null ? SdkPresent(((json['replicas_ready'] as num?)?.toInt())!) : const SdkOmitted(),
+    state: json['state'] != null ? SdkPresent((json['state'] != null ? AppComponentHealthState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cpuUsagePercent) {
-          SdkPresent<double>(value: final value) => {
-              'cpu_usage_percent': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (memoryUsagePercent) {
-          SdkPresent<double>(value: final value) => {
-              'memory_usage_percent': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (replicasDesired) {
-          SdkPresent<int>(value: final value) => {
-              'replicas_desired': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (replicasReady) {
-          SdkPresent<int>(value: final value) => {
-              'replicas_ready': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (state) {
-          SdkPresent<AppComponentHealthState>(value: final value) => {
-              'state': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cpuUsagePercent) {
+      SdkPresent<double>(value: final value) => {'cpu_usage_percent': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (memoryUsagePercent) {
+      SdkPresent<double>(value: final value) => {'memory_usage_percent': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (replicasDesired) {
+      SdkPresent<int>(value: final value) => {'replicas_desired': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (replicasReady) {
+      SdkPresent<int>(value: final value) => {'replicas_ready': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (state) {
+      SdkPresent<AppComponentHealthState>(value: final value) => {'state': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class AppComponentInstanceBaseInstanceSizeSlug {
@@ -417,102 +199,56 @@ sealed class AppComponentInstanceBaseInstanceSizeSlug {
   static const String constructionSurface = 'named';
   const AppComponentInstanceBaseInstanceSizeSlug();
   factory AppComponentInstanceBaseInstanceSizeSlug.fromJson(Object? json) {
-    try {
-      return AppComponentInstanceBaseInstanceSizeSlugAppComponentInstanceBaseInstanceSizeSlugVariant0(
-          AppComponentInstanceBaseInstanceSizeSlugVariant0.fromJson(
-              json as String));
-    } catch (_) {}
-    try {
-      return AppComponentInstanceBaseInstanceSizeSlugAppComponentInstanceBaseInstanceSizeSlugVariant1(
-          AppComponentInstanceBaseInstanceSizeSlugVariant1.fromJson(
-              json as String));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for AppComponentInstanceBaseInstanceSizeSlug");
+    try { return AppComponentInstanceBaseInstanceSizeSlugAppComponentInstanceBaseInstanceSizeSlugVariant0(AppComponentInstanceBaseInstanceSizeSlugVariant0.fromJson(json as String)); } catch (_) {}
+    try { return AppComponentInstanceBaseInstanceSizeSlugAppComponentInstanceBaseInstanceSizeSlugVariant1(AppComponentInstanceBaseInstanceSizeSlugVariant1.fromJson(json as String)); } catch (_) {}
+    throw FormatException("No variant matched for AppComponentInstanceBaseInstanceSizeSlug");
   }
   Object? toJson();
 }
 
-final class AppComponentInstanceBaseInstanceSizeSlugAppComponentInstanceBaseInstanceSizeSlugVariant0
-    extends AppComponentInstanceBaseInstanceSizeSlug {
+final class AppComponentInstanceBaseInstanceSizeSlugAppComponentInstanceBaseInstanceSizeSlugVariant0 extends AppComponentInstanceBaseInstanceSizeSlug {
   final AppComponentInstanceBaseInstanceSizeSlugVariant0 value;
-  const AppComponentInstanceBaseInstanceSizeSlugAppComponentInstanceBaseInstanceSizeSlugVariant0(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const AppComponentInstanceBaseInstanceSizeSlugAppComponentInstanceBaseInstanceSizeSlugVariant0(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class AppComponentInstanceBaseInstanceSizeSlugAppComponentInstanceBaseInstanceSizeSlugVariant1
-    extends AppComponentInstanceBaseInstanceSizeSlug {
+final class AppComponentInstanceBaseInstanceSizeSlugAppComponentInstanceBaseInstanceSizeSlugVariant1 extends AppComponentInstanceBaseInstanceSizeSlug {
   final AppComponentInstanceBaseInstanceSizeSlugVariant1 value;
-  const AppComponentInstanceBaseInstanceSizeSlugAppComponentInstanceBaseInstanceSizeSlugVariant1(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const AppComponentInstanceBaseInstanceSizeSlugAppComponentInstanceBaseInstanceSizeSlugVariant1(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `AppComponentInstanceBase` API schema.
 class AppComponentInstanceBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The amount of instances that this component should be scaled to. Default: 1. Must not be set if autoscaling is used.
   final SdkOptional<int> instanceCount;
-
   /// The instance size to use for this component. Default: `apps-s-1vcpu-0.5gb`
-  final SdkOptional<AppComponentInstanceBaseInstanceSizeSlugVariant0>
-      instanceSizeSlug;
+  final SdkOptional<AppComponentInstanceBaseInstanceSizeSlugVariant0> instanceSizeSlug;
 
-  const AppComponentInstanceBase(
-      {this.instanceCount = const SdkOmitted(),
-      this.instanceSizeSlug = const SdkOmitted()});
+  const AppComponentInstanceBase({this.instanceCount = const SdkOmitted(), this.instanceSizeSlug = const SdkOmitted()});
 
-  AppComponentInstanceBase Function(
-      {SdkOptional<int> instanceCount,
-      SdkOptional<AppComponentInstanceBaseInstanceSizeSlugVariant0>
-          instanceSizeSlug}) get copyWith => _copyWith;
+  AppComponentInstanceBase Function({SdkOptional<int> instanceCount, SdkOptional<AppComponentInstanceBaseInstanceSizeSlugVariant0> instanceSizeSlug}) get copyWith => _copyWith;
 
-  AppComponentInstanceBase _copyWith(
-          {Object? instanceCount = sdkOmittedValue,
-          Object? instanceSizeSlug = sdkOmittedValue}) =>
-      AppComponentInstanceBase(
-        instanceCount: identical(instanceCount, sdkOmittedValue)
-            ? this.instanceCount
-            : instanceCount as SdkOptional<int>,
-        instanceSizeSlug: identical(instanceSizeSlug, sdkOmittedValue)
-            ? this.instanceSizeSlug
-            : instanceSizeSlug as SdkOptional<
-                AppComponentInstanceBaseInstanceSizeSlugVariant0>,
-      );
+  AppComponentInstanceBase _copyWith({Object? instanceCount = sdkOmittedValue, Object? instanceSizeSlug = sdkOmittedValue}) => AppComponentInstanceBase(
+    instanceCount: identical(instanceCount, sdkOmittedValue) ? this.instanceCount : instanceCount as SdkOptional<int>,
+    instanceSizeSlug: identical(instanceSizeSlug, sdkOmittedValue) ? this.instanceSizeSlug : instanceSizeSlug as SdkOptional<AppComponentInstanceBaseInstanceSizeSlugVariant0>,
+  );
 
-  factory AppComponentInstanceBase.fromJson(Map<String, dynamic> json) =>
-      AppComponentInstanceBase(
-        instanceCount: json['instance_count'] != null
-            ? SdkPresent(((json['instance_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        instanceSizeSlug: json['instance_size_slug'] != null
-            ? SdkPresent((json['instance_size_slug'] != null
-                ? AppComponentInstanceBaseInstanceSizeSlugVariant0.fromJson(
-                    json['instance_size_slug'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AppComponentInstanceBase.fromJson(Map<String, dynamic> json) => AppComponentInstanceBase(
+    instanceCount: json['instance_count'] != null ? SdkPresent(((json['instance_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    instanceSizeSlug: json['instance_size_slug'] != null ? SdkPresent((json['instance_size_slug'] != null ? AppComponentInstanceBaseInstanceSizeSlugVariant0.fromJson(json['instance_size_slug'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (instanceCount) {
-          SdkPresent<int>(value: final value) => {
-              'instance_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (instanceSizeSlug) {
-          SdkPresent<AppComponentInstanceBaseInstanceSizeSlugVariant0>(
-            value: final value
-          ) =>
-            {
-              'instance_size_slug': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (instanceCount) {
+      SdkPresent<int>(value: final value) => {'instance_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (instanceSizeSlug) {
+      SdkPresent<AppComponentInstanceBaseInstanceSizeSlugVariant0>(value: final value) => {'instance_size_slug': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

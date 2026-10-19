@@ -8,393 +8,203 @@ part of 'apps_apps_deployment.dart';
 class AppsDeploymentProgress {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `int32`-formatted value serialized in the `error_steps` wire field.
   final SdkOptional<int> errorSteps;
-
   /// Optional `int32`-formatted value serialized in the `pending_steps` wire field.
   final SdkOptional<int> pendingSteps;
-
   /// Optional `int32`-formatted value serialized in the `running_steps` wire field.
   final SdkOptional<int> runningSteps;
-
   /// Optional array value serialized in the `steps` wire field.
   final SdkOptional<List<AppsDeploymentProgressStep>> steps;
-
   /// Optional `int32`-formatted value serialized in the `success_steps` wire field.
   final SdkOptional<int> successSteps;
-
   /// Optional array value serialized in the `summary_steps` wire field.
   final SdkOptional<List<AppsDeploymentProgressStep>> summarySteps;
-
   /// Optional `int32`-formatted value serialized in the `total_steps` wire field.
   final SdkOptional<int> totalSteps;
 
-  const AppsDeploymentProgress(
-      {this.errorSteps = const SdkOmitted(),
-      this.pendingSteps = const SdkOmitted(),
-      this.runningSteps = const SdkOmitted(),
-      this.steps = const SdkOmitted(),
-      this.successSteps = const SdkOmitted(),
-      this.summarySteps = const SdkOmitted(),
-      this.totalSteps = const SdkOmitted()});
+  const AppsDeploymentProgress({this.errorSteps = const SdkOmitted(), this.pendingSteps = const SdkOmitted(), this.runningSteps = const SdkOmitted(), this.steps = const SdkOmitted(), this.successSteps = const SdkOmitted(), this.summarySteps = const SdkOmitted(), this.totalSteps = const SdkOmitted()});
 
-  AppsDeploymentProgress Function(
-      {SdkOptional<int> errorSteps,
-      SdkOptional<int> pendingSteps,
-      SdkOptional<int> runningSteps,
-      SdkOptional<List<AppsDeploymentProgressStep>> steps,
-      SdkOptional<int> successSteps,
-      SdkOptional<List<AppsDeploymentProgressStep>> summarySteps,
-      SdkOptional<int> totalSteps}) get copyWith => _copyWith;
+  AppsDeploymentProgress Function({SdkOptional<int> errorSteps, SdkOptional<int> pendingSteps, SdkOptional<int> runningSteps, SdkOptional<List<AppsDeploymentProgressStep>> steps, SdkOptional<int> successSteps, SdkOptional<List<AppsDeploymentProgressStep>> summarySteps, SdkOptional<int> totalSteps}) get copyWith => _copyWith;
 
-  AppsDeploymentProgress _copyWith(
-          {Object? errorSteps = sdkOmittedValue,
-          Object? pendingSteps = sdkOmittedValue,
-          Object? runningSteps = sdkOmittedValue,
-          Object? steps = sdkOmittedValue,
-          Object? successSteps = sdkOmittedValue,
-          Object? summarySteps = sdkOmittedValue,
-          Object? totalSteps = sdkOmittedValue}) =>
-      AppsDeploymentProgress(
-        errorSteps: identical(errorSteps, sdkOmittedValue)
-            ? this.errorSteps
-            : errorSteps as SdkOptional<int>,
-        pendingSteps: identical(pendingSteps, sdkOmittedValue)
-            ? this.pendingSteps
-            : pendingSteps as SdkOptional<int>,
-        runningSteps: identical(runningSteps, sdkOmittedValue)
-            ? this.runningSteps
-            : runningSteps as SdkOptional<int>,
-        steps: identical(steps, sdkOmittedValue)
-            ? this.steps
-            : steps as SdkOptional<List<AppsDeploymentProgressStep>>,
-        successSteps: identical(successSteps, sdkOmittedValue)
-            ? this.successSteps
-            : successSteps as SdkOptional<int>,
-        summarySteps: identical(summarySteps, sdkOmittedValue)
-            ? this.summarySteps
-            : summarySteps as SdkOptional<List<AppsDeploymentProgressStep>>,
-        totalSteps: identical(totalSteps, sdkOmittedValue)
-            ? this.totalSteps
-            : totalSteps as SdkOptional<int>,
-      );
+  AppsDeploymentProgress _copyWith({Object? errorSteps = sdkOmittedValue, Object? pendingSteps = sdkOmittedValue, Object? runningSteps = sdkOmittedValue, Object? steps = sdkOmittedValue, Object? successSteps = sdkOmittedValue, Object? summarySteps = sdkOmittedValue, Object? totalSteps = sdkOmittedValue}) => AppsDeploymentProgress(
+    errorSteps: identical(errorSteps, sdkOmittedValue) ? this.errorSteps : errorSteps as SdkOptional<int>,
+    pendingSteps: identical(pendingSteps, sdkOmittedValue) ? this.pendingSteps : pendingSteps as SdkOptional<int>,
+    runningSteps: identical(runningSteps, sdkOmittedValue) ? this.runningSteps : runningSteps as SdkOptional<int>,
+    steps: identical(steps, sdkOmittedValue) ? this.steps : steps as SdkOptional<List<AppsDeploymentProgressStep>>,
+    successSteps: identical(successSteps, sdkOmittedValue) ? this.successSteps : successSteps as SdkOptional<int>,
+    summarySteps: identical(summarySteps, sdkOmittedValue) ? this.summarySteps : summarySteps as SdkOptional<List<AppsDeploymentProgressStep>>,
+    totalSteps: identical(totalSteps, sdkOmittedValue) ? this.totalSteps : totalSteps as SdkOptional<int>,
+  );
 
-  factory AppsDeploymentProgress.fromJson(Map<String, dynamic> json) =>
-      AppsDeploymentProgress(
-        errorSteps: json['error_steps'] != null
-            ? SdkPresent(((json['error_steps'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        pendingSteps: json['pending_steps'] != null
-            ? SdkPresent(((json['pending_steps'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        runningSteps: json['running_steps'] != null
-            ? SdkPresent(((json['running_steps'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        steps: json['steps'] != null
-            ? SdkPresent(((json['steps'] as List?)
-                ?.map((e) => AppsDeploymentProgressStep.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        successSteps: json['success_steps'] != null
-            ? SdkPresent(((json['success_steps'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        summarySteps: json['summary_steps'] != null
-            ? SdkPresent(((json['summary_steps'] as List?)
-                ?.map((e) => AppsDeploymentProgressStep.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        totalSteps: json['total_steps'] != null
-            ? SdkPresent(((json['total_steps'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory AppsDeploymentProgress.fromJson(Map<String, dynamic> json) => AppsDeploymentProgress(
+    errorSteps: json['error_steps'] != null ? SdkPresent(((json['error_steps'] as num?)?.toInt())!) : const SdkOmitted(),
+    pendingSteps: json['pending_steps'] != null ? SdkPresent(((json['pending_steps'] as num?)?.toInt())!) : const SdkOmitted(),
+    runningSteps: json['running_steps'] != null ? SdkPresent(((json['running_steps'] as num?)?.toInt())!) : const SdkOmitted(),
+    steps: json['steps'] != null ? SdkPresent(((json['steps'] as List?)?.map((e) => AppsDeploymentProgressStep.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    successSteps: json['success_steps'] != null ? SdkPresent(((json['success_steps'] as num?)?.toInt())!) : const SdkOmitted(),
+    summarySteps: json['summary_steps'] != null ? SdkPresent(((json['summary_steps'] as List?)?.map((e) => AppsDeploymentProgressStep.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    totalSteps: json['total_steps'] != null ? SdkPresent(((json['total_steps'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (errorSteps) {
-          SdkPresent<int>(value: final value) => {
-              'error_steps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pendingSteps) {
-          SdkPresent<int>(value: final value) => {
-              'pending_steps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (runningSteps) {
-          SdkPresent<int>(value: final value) => {
-              'running_steps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (steps) {
-          SdkPresent<List<AppsDeploymentProgressStep>>(value: final value) => {
-              'steps': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (successSteps) {
-          SdkPresent<int>(value: final value) => {
-              'success_steps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (summarySteps) {
-          SdkPresent<List<AppsDeploymentProgressStep>>(value: final value) => {
-              'summary_steps': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalSteps) {
-          SdkPresent<int>(value: final value) => {
-              'total_steps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (errorSteps) {
+      SdkPresent<int>(value: final value) => {'error_steps': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pendingSteps) {
+      SdkPresent<int>(value: final value) => {'pending_steps': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (runningSteps) {
+      SdkPresent<int>(value: final value) => {'running_steps': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (steps) {
+      SdkPresent<List<AppsDeploymentProgressStep>>(value: final value) => {'steps': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (successSteps) {
+      SdkPresent<int>(value: final value) => {'success_steps': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (summarySteps) {
+      SdkPresent<List<AppsDeploymentProgressStep>>(value: final value) => {'summary_steps': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalSteps) {
+      SdkPresent<int>(value: final value) => {'total_steps': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppsDeploymentProgressStep` API schema.
 class AppsDeploymentProgressStep {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `component_name` wire field.
   final SdkOptional<String> componentName;
-
   /// Optional `date-time`-formatted value serialized in the `ended_at` wire field.
   final SdkOptional<String> endedAt;
-
   /// The base of a human-readable description of the step intended to be combined with the component name for presentation. For example: `message_base` = "Building service" `component_name` = "api"
   final SdkOptional<String> messageBase;
-
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
-
   /// Optional object value serialized in the `reason` wire field.
   final SdkOptional<AppsDeploymentProgressStepReason> reason;
-
   /// Optional `date-time`-formatted value serialized in the `started_at` wire field.
   final SdkOptional<String> startedAt;
-
   /// Optional enumerated value serialized in the `status` wire field.
   final SdkOptional<AppsDeploymentProgressStepStatus> status;
-
   /// Optional array value serialized in the `steps` wire field.
   final SdkOptional<List<Map<String, dynamic>>> steps;
 
-  const AppsDeploymentProgressStep(
-      {this.componentName = const SdkOmitted(),
-      this.endedAt = const SdkOmitted(),
-      this.messageBase = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.reason = const SdkOmitted(),
-      this.startedAt = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.steps = const SdkOmitted()});
+  const AppsDeploymentProgressStep({this.componentName = const SdkOmitted(), this.endedAt = const SdkOmitted(), this.messageBase = const SdkOmitted(), this.name = const SdkOmitted(), this.reason = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.status = const SdkOmitted(), this.steps = const SdkOmitted()});
 
-  AppsDeploymentProgressStep Function(
-      {SdkOptional<String> componentName,
-      SdkOptional<String> endedAt,
-      SdkOptional<String> messageBase,
-      SdkOptional<String> name,
-      SdkOptional<AppsDeploymentProgressStepReason> reason,
-      SdkOptional<String> startedAt,
-      SdkOptional<AppsDeploymentProgressStepStatus> status,
-      SdkOptional<List<Map<String, dynamic>>> steps}) get copyWith => _copyWith;
+  AppsDeploymentProgressStep Function({SdkOptional<String> componentName, SdkOptional<String> endedAt, SdkOptional<String> messageBase, SdkOptional<String> name, SdkOptional<AppsDeploymentProgressStepReason> reason, SdkOptional<String> startedAt, SdkOptional<AppsDeploymentProgressStepStatus> status, SdkOptional<List<Map<String, dynamic>>> steps}) get copyWith => _copyWith;
 
-  AppsDeploymentProgressStep _copyWith(
-          {Object? componentName = sdkOmittedValue,
-          Object? endedAt = sdkOmittedValue,
-          Object? messageBase = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? reason = sdkOmittedValue,
-          Object? startedAt = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? steps = sdkOmittedValue}) =>
-      AppsDeploymentProgressStep(
-        componentName: identical(componentName, sdkOmittedValue)
-            ? this.componentName
-            : componentName as SdkOptional<String>,
-        endedAt: identical(endedAt, sdkOmittedValue)
-            ? this.endedAt
-            : endedAt as SdkOptional<String>,
-        messageBase: identical(messageBase, sdkOmittedValue)
-            ? this.messageBase
-            : messageBase as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        reason: identical(reason, sdkOmittedValue)
-            ? this.reason
-            : reason as SdkOptional<AppsDeploymentProgressStepReason>,
-        startedAt: identical(startedAt, sdkOmittedValue)
-            ? this.startedAt
-            : startedAt as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<AppsDeploymentProgressStepStatus>,
-        steps: identical(steps, sdkOmittedValue)
-            ? this.steps
-            : steps as SdkOptional<List<Map<String, dynamic>>>,
-      );
+  AppsDeploymentProgressStep _copyWith({Object? componentName = sdkOmittedValue, Object? endedAt = sdkOmittedValue, Object? messageBase = sdkOmittedValue, Object? name = sdkOmittedValue, Object? reason = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? status = sdkOmittedValue, Object? steps = sdkOmittedValue}) => AppsDeploymentProgressStep(
+    componentName: identical(componentName, sdkOmittedValue) ? this.componentName : componentName as SdkOptional<String>,
+    endedAt: identical(endedAt, sdkOmittedValue) ? this.endedAt : endedAt as SdkOptional<String>,
+    messageBase: identical(messageBase, sdkOmittedValue) ? this.messageBase : messageBase as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as SdkOptional<AppsDeploymentProgressStepReason>,
+    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<AppsDeploymentProgressStepStatus>,
+    steps: identical(steps, sdkOmittedValue) ? this.steps : steps as SdkOptional<List<Map<String, dynamic>>>,
+  );
 
-  factory AppsDeploymentProgressStep.fromJson(Map<String, dynamic> json) =>
-      AppsDeploymentProgressStep(
-        componentName: json['component_name'] != null
-            ? SdkPresent((json['component_name'] as String?)!)
-            : const SdkOmitted(),
-        endedAt: json['ended_at'] != null
-            ? SdkPresent((json['ended_at'] as String?)!)
-            : const SdkOmitted(),
-        messageBase: json['message_base'] != null
-            ? SdkPresent((json['message_base'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        reason: json['reason'] != null
-            ? SdkPresent((json['reason'] != null
-                ? AppsDeploymentProgressStepReason.fromJson(
-                    json['reason'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        startedAt: json['started_at'] != null
-            ? SdkPresent((json['started_at'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? AppsDeploymentProgressStepStatus.fromJson(
-                    json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        steps: json['steps'] != null
-            ? SdkPresent(((json['steps'] as List?)
-                ?.map((e) => e as Map<String, dynamic>)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AppsDeploymentProgressStep.fromJson(Map<String, dynamic> json) => AppsDeploymentProgressStep(
+    componentName: json['component_name'] != null ? SdkPresent((json['component_name'] as String?)!) : const SdkOmitted(),
+    endedAt: json['ended_at'] != null ? SdkPresent((json['ended_at'] as String?)!) : const SdkOmitted(),
+    messageBase: json['message_base'] != null ? SdkPresent((json['message_base'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    reason: json['reason'] != null ? SdkPresent((json['reason'] != null ? AppsDeploymentProgressStepReason.fromJson(json['reason'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    startedAt: json['started_at'] != null ? SdkPresent((json['started_at'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? AppsDeploymentProgressStepStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    steps: json['steps'] != null ? SdkPresent(((json['steps'] as List?)?.map((e) => e as Map<String, dynamic>).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (componentName) {
-          SdkPresent<String>(value: final value) => {
-              'component_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (endedAt) {
-          SdkPresent<String>(value: final value) => {
-              'ended_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (messageBase) {
-          SdkPresent<String>(value: final value) => {
-              'message_base': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reason) {
-          SdkPresent<AppsDeploymentProgressStepReason>(value: final value) => {
-              'reason': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startedAt) {
-          SdkPresent<String>(value: final value) => {
-              'started_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<AppsDeploymentProgressStepStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (steps) {
-          SdkPresent<List<Map<String, dynamic>>>(value: final value) => {
-              'steps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (componentName) {
+      SdkPresent<String>(value: final value) => {'component_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (endedAt) {
+      SdkPresent<String>(value: final value) => {'ended_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (messageBase) {
+      SdkPresent<String>(value: final value) => {'message_base': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reason) {
+      SdkPresent<AppsDeploymentProgressStepReason>(value: final value) => {'reason': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startedAt) {
+      SdkPresent<String>(value: final value) => {'started_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<AppsDeploymentProgressStepStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (steps) {
+      SdkPresent<List<Map<String, dynamic>>>(value: final value) => {'steps': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppsDeploymentProgressStepReason` API schema.
 class AppsDeploymentProgressStepReason {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `code` wire field.
   final SdkOptional<String> code;
-
   /// Optional `string` value serialized in the `message` wire field.
   final SdkOptional<String> message;
 
-  const AppsDeploymentProgressStepReason(
-      {this.code = const SdkOmitted(), this.message = const SdkOmitted()});
+  const AppsDeploymentProgressStepReason({this.code = const SdkOmitted(), this.message = const SdkOmitted()});
 
-  AppsDeploymentProgressStepReason Function(
-      {SdkOptional<String> code,
-      SdkOptional<String> message}) get copyWith => _copyWith;
+  AppsDeploymentProgressStepReason Function({SdkOptional<String> code, SdkOptional<String> message}) get copyWith => _copyWith;
 
-  AppsDeploymentProgressStepReason _copyWith(
-          {Object? code = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      AppsDeploymentProgressStepReason(
-        code: identical(code, sdkOmittedValue)
-            ? this.code
-            : code as SdkOptional<String>,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as SdkOptional<String>,
-      );
+  AppsDeploymentProgressStepReason _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => AppsDeploymentProgressStepReason(
+    code: identical(code, sdkOmittedValue) ? this.code : code as SdkOptional<String>,
+    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
+  );
 
-  factory AppsDeploymentProgressStepReason.fromJson(
-          Map<String, dynamic> json) =>
-      AppsDeploymentProgressStepReason(
-        code: json['code'] != null
-            ? SdkPresent((json['code'] as String?)!)
-            : const SdkOmitted(),
-        message: json['message'] != null
-            ? SdkPresent((json['message'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AppsDeploymentProgressStepReason.fromJson(Map<String, dynamic> json) => AppsDeploymentProgressStepReason(
+    code: json['code'] != null ? SdkPresent((json['code'] as String?)!) : const SdkOmitted(),
+    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (code) {
-          SdkPresent<String>(value: final value) => {
-              'code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (message) {
-          SdkPresent<String>(value: final value) => {
-              'message': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (code) {
+      SdkPresent<String>(value: final value) => {'code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (message) {
+      SdkPresent<String>(value: final value) => {'message': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppsDeploymentProgressStepStatus` API schema.
 final class AppsDeploymentProgressStepStatus {
+
   final String value;
 
   const AppsDeploymentProgressStepStatus._(this.value);
 
-  factory AppsDeploymentProgressStepStatus.fromJson(String value) =>
-      AppsDeploymentProgressStepStatus._(value);
+  factory AppsDeploymentProgressStepStatus.fromJson(String value) => AppsDeploymentProgressStepStatus._(value);
 
   static const unknown = AppsDeploymentProgressStepStatus._('UNKNOWN');
   static const pending = AppsDeploymentProgressStepStatus._('PENDING');
@@ -404,110 +214,72 @@ final class AppsDeploymentProgressStepStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppsDeploymentProgressStepStatus && other.value == value;
+  @override bool operator ==(Object other) => other is AppsDeploymentProgressStepStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `AppsDeploymentResponse` API schema.
 class AppsDeploymentResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `deployment` wire field.
   final SdkOptional<AppsDeployment> deployment;
 
   const AppsDeploymentResponse({this.deployment = const SdkOmitted()});
 
-  AppsDeploymentResponse Function({SdkOptional<AppsDeployment> deployment})
-      get copyWith => _copyWith;
+  AppsDeploymentResponse Function({SdkOptional<AppsDeployment> deployment}) get copyWith => _copyWith;
 
-  AppsDeploymentResponse _copyWith({Object? deployment = sdkOmittedValue}) =>
-      AppsDeploymentResponse(
-        deployment: identical(deployment, sdkOmittedValue)
-            ? this.deployment
-            : deployment as SdkOptional<AppsDeployment>,
-      );
+  AppsDeploymentResponse _copyWith({Object? deployment = sdkOmittedValue}) => AppsDeploymentResponse(
+    deployment: identical(deployment, sdkOmittedValue) ? this.deployment : deployment as SdkOptional<AppsDeployment>,
+  );
 
-  factory AppsDeploymentResponse.fromJson(Map<String, dynamic> json) =>
-      AppsDeploymentResponse(
-        deployment: json['deployment'] != null
-            ? SdkPresent((json['deployment'] != null
-                ? AppsDeployment.fromJson(
-                    json['deployment'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AppsDeploymentResponse.fromJson(Map<String, dynamic> json) => AppsDeploymentResponse(
+    deployment: json['deployment'] != null ? SdkPresent((json['deployment'] != null ? AppsDeployment.fromJson(json['deployment'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (deployment) {
-          SdkPresent<AppsDeployment>(value: final value) => {
-              'deployment': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (deployment) {
+      SdkPresent<AppsDeployment>(value: final value) => {'deployment': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppsDeploymentService` API schema.
 class AppsDeploymentService {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
-
   /// Optional `string` value serialized in the `source_commit_hash` wire field.
   final SdkOptional<String> sourceCommitHash;
 
-  const AppsDeploymentService(
-      {this.name = const SdkOmitted(),
-      this.sourceCommitHash = const SdkOmitted()});
+  const AppsDeploymentService({this.name = const SdkOmitted(), this.sourceCommitHash = const SdkOmitted()});
 
-  AppsDeploymentService Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> sourceCommitHash}) get copyWith => _copyWith;
+  AppsDeploymentService Function({SdkOptional<String> name, SdkOptional<String> sourceCommitHash}) get copyWith => _copyWith;
 
-  AppsDeploymentService _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? sourceCommitHash = sdkOmittedValue}) =>
-      AppsDeploymentService(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        sourceCommitHash: identical(sourceCommitHash, sdkOmittedValue)
-            ? this.sourceCommitHash
-            : sourceCommitHash as SdkOptional<String>,
-      );
+  AppsDeploymentService _copyWith({Object? name = sdkOmittedValue, Object? sourceCommitHash = sdkOmittedValue}) => AppsDeploymentService(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    sourceCommitHash: identical(sourceCommitHash, sdkOmittedValue) ? this.sourceCommitHash : sourceCommitHash as SdkOptional<String>,
+  );
 
-  factory AppsDeploymentService.fromJson(Map<String, dynamic> json) =>
-      AppsDeploymentService(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        sourceCommitHash: json['source_commit_hash'] != null
-            ? SdkPresent((json['source_commit_hash'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AppsDeploymentService.fromJson(Map<String, dynamic> json) => AppsDeploymentService(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    sourceCommitHash: json['source_commit_hash'] != null ? SdkPresent((json['source_commit_hash'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sourceCommitHash) {
-          SdkPresent<String>(value: final value) => {
-              'source_commit_hash': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sourceCommitHash) {
+      SdkPresent<String>(value: final value) => {'source_commit_hash': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

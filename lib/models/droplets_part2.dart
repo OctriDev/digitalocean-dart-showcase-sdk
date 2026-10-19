@@ -9,70 +9,38 @@ class AllFirewalls {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Firewall>> firewalls;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllFirewalls(
-      {this.firewalls = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllFirewalls({this.firewalls = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AllFirewalls Function(
-      {SdkOptional<List<Firewall>> firewalls,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllFirewalls Function({SdkOptional<List<Firewall>> firewalls, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllFirewalls _copyWith(
-          {Object? firewalls = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllFirewalls(
-        firewalls: identical(firewalls, sdkOmittedValue)
-            ? this.firewalls
-            : firewalls as SdkOptional<List<Firewall>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllFirewalls _copyWith({Object? firewalls = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllFirewalls(
+    firewalls: identical(firewalls, sdkOmittedValue) ? this.firewalls : firewalls as SdkOptional<List<Firewall>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory AllFirewalls.fromJson(Map<String, dynamic> json) => AllFirewalls(
-        firewalls: json['firewalls'] != null
-            ? SdkPresent(((json['firewalls'] as List?)
-                ?.map((e) => Firewall.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    firewalls: json['firewalls'] != null ? SdkPresent(((json['firewalls'] as List?)?.map((e) => Firewall.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (firewalls) {
-          SdkPresent<List<Firewall>>(value: final value) => {
-              'firewalls': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (firewalls) {
+      SdkPresent<List<Firewall>>(value: final value) => {'firewalls': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 class AllKernelsVariant0 {
@@ -82,35 +50,22 @@ class AllKernelsVariant0 {
 
   const AllKernelsVariant0({this.kernels = const SdkOmitted()});
 
-  AllKernelsVariant0 Function({SdkOptional<List<Kernel?>> kernels})
-      get copyWith => _copyWith;
+  AllKernelsVariant0 Function({SdkOptional<List<Kernel?>> kernels}) get copyWith => _copyWith;
 
-  AllKernelsVariant0 _copyWith({Object? kernels = sdkOmittedValue}) =>
-      AllKernelsVariant0(
-        kernels: identical(kernels, sdkOmittedValue)
-            ? this.kernels
-            : kernels as SdkOptional<List<Kernel?>>,
-      );
+  AllKernelsVariant0 _copyWith({Object? kernels = sdkOmittedValue}) => AllKernelsVariant0(
+    kernels: identical(kernels, sdkOmittedValue) ? this.kernels : kernels as SdkOptional<List<Kernel?>>,
+  );
 
-  factory AllKernelsVariant0.fromJson(Map<String, dynamic> json) =>
-      AllKernelsVariant0(
-        kernels: json['kernels'] != null
-            ? SdkPresent(((json['kernels'] as List?)
-                ?.map((e) => e == null
-                    ? null
-                    : Kernel.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AllKernelsVariant0.fromJson(Map<String, dynamic> json) => AllKernelsVariant0(
+    kernels: json['kernels'] != null ? SdkPresent(((json['kernels'] as List?)?.map((e) => e == null ? null : Kernel.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (kernels) {
-          SdkPresent<List<Kernel?>>(value: final value) => {
-              'kernels': value.map((item) => item?.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (kernels) {
+      SdkPresent<List<Kernel?>>(value: final value) => {'kernels': value.map((item) => item?.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AllKernels` API schema.
@@ -118,398 +73,196 @@ class AllKernels {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Kernel?>> kernels;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllKernels(
-      {this.kernels = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllKernels({this.kernels = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AllKernels Function(
-      {SdkOptional<List<Kernel?>> kernels,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllKernels Function({SdkOptional<List<Kernel?>> kernels, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllKernels _copyWith(
-          {Object? kernels = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllKernels(
-        kernels: identical(kernels, sdkOmittedValue)
-            ? this.kernels
-            : kernels as SdkOptional<List<Kernel?>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllKernels _copyWith({Object? kernels = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllKernels(
+    kernels: identical(kernels, sdkOmittedValue) ? this.kernels : kernels as SdkOptional<List<Kernel?>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory AllKernels.fromJson(Map<String, dynamic> json) => AllKernels(
-        kernels: json['kernels'] != null
-            ? SdkPresent(((json['kernels'] as List?)
-                ?.map((e) => e == null
-                    ? null
-                    : Kernel.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    kernels: json['kernels'] != null ? SdkPresent(((json['kernels'] as List?)?.map((e) => e == null ? null : Kernel.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (kernels) {
-          SdkPresent<List<Kernel?>>(value: final value) => {
-              'kernels': value.map((item) => item?.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (kernels) {
+      SdkPresent<List<Kernel?>>(value: final value) => {'kernels': value.map((item) => item?.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 /// An objects containing information about a resource associated with a Droplet.
 class AssociatedResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier for the resource associated with the Droplet.
   final SdkOptional<String> id;
-
   /// The name of the resource associated with the Droplet.
   final SdkOptional<String> name;
-
   /// The cost of the resource in USD per month if the resource is retained after the Droplet is destroyed.
   final SdkOptional<String> cost;
 
-  const AssociatedResource(
-      {this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.cost = const SdkOmitted()});
+  const AssociatedResource({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.cost = const SdkOmitted()});
 
-  AssociatedResource Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> name,
-      SdkOptional<String> cost}) get copyWith => _copyWith;
+  AssociatedResource Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> cost}) get copyWith => _copyWith;
 
-  AssociatedResource _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? cost = sdkOmittedValue}) =>
-      AssociatedResource(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        cost: identical(cost, sdkOmittedValue)
-            ? this.cost
-            : cost as SdkOptional<String>,
-      );
+  AssociatedResource _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? cost = sdkOmittedValue}) => AssociatedResource(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    cost: identical(cost, sdkOmittedValue) ? this.cost : cost as SdkOptional<String>,
+  );
 
-  factory AssociatedResource.fromJson(Map<String, dynamic> json) =>
-      AssociatedResource(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        cost: json['cost'] != null
-            ? SdkPresent((json['cost'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AssociatedResource.fromJson(Map<String, dynamic> json) => AssociatedResource(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    cost: json['cost'] != null ? SdkPresent((json['cost'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cost) {
-          SdkPresent<String>(value: final value) => {
-              'cost': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cost) {
+      SdkPresent<String>(value: final value) => {'cost': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class AssociatedResourcesListVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Reserved IPs that are associated with this Droplet.&lt;br&gt;Requires `reserved_ip:read` scope.
   final SdkOptional<List<AssociatedResource>> reservedIps;
-
   /// Floating IPs that are associated with this Droplet.&lt;br&gt;Requires `reserved_ip:read` scope.
   final SdkOptional<List<AssociatedResource>> floatingIps;
-
   /// Snapshots that are associated with this Droplet.&lt;br&gt;Requires `image:read` scope.
   final SdkOptional<List<AssociatedResource>> snapshots;
-
   /// Volumes that are associated with this Droplet.&lt;br&gt;Requires `block_storage:read` scope.
   final SdkOptional<List<AssociatedResource>> volumes;
-
   /// Volume Snapshots that are associated with this Droplet.&lt;br&gt;Requires `block_storage_snapshot:read` scope.
   final SdkOptional<List<AssociatedResource>> volumeSnapshots;
 
-  const AssociatedResourcesListVariant0(
-      {this.reservedIps = const SdkOmitted(),
-      this.floatingIps = const SdkOmitted(),
-      this.snapshots = const SdkOmitted(),
-      this.volumes = const SdkOmitted(),
-      this.volumeSnapshots = const SdkOmitted()});
+  const AssociatedResourcesListVariant0({this.reservedIps = const SdkOmitted(), this.floatingIps = const SdkOmitted(), this.snapshots = const SdkOmitted(), this.volumes = const SdkOmitted(), this.volumeSnapshots = const SdkOmitted()});
 
-  AssociatedResourcesListVariant0 Function(
-          {SdkOptional<List<AssociatedResource>> reservedIps,
-          SdkOptional<List<AssociatedResource>> floatingIps,
-          SdkOptional<List<AssociatedResource>> snapshots,
-          SdkOptional<List<AssociatedResource>> volumes,
-          SdkOptional<List<AssociatedResource>> volumeSnapshots})
-      get copyWith => _copyWith;
+  AssociatedResourcesListVariant0 Function({SdkOptional<List<AssociatedResource>> reservedIps, SdkOptional<List<AssociatedResource>> floatingIps, SdkOptional<List<AssociatedResource>> snapshots, SdkOptional<List<AssociatedResource>> volumes, SdkOptional<List<AssociatedResource>> volumeSnapshots}) get copyWith => _copyWith;
 
-  AssociatedResourcesListVariant0 _copyWith(
-          {Object? reservedIps = sdkOmittedValue,
-          Object? floatingIps = sdkOmittedValue,
-          Object? snapshots = sdkOmittedValue,
-          Object? volumes = sdkOmittedValue,
-          Object? volumeSnapshots = sdkOmittedValue}) =>
-      AssociatedResourcesListVariant0(
-        reservedIps: identical(reservedIps, sdkOmittedValue)
-            ? this.reservedIps
-            : reservedIps as SdkOptional<List<AssociatedResource>>,
-        floatingIps: identical(floatingIps, sdkOmittedValue)
-            ? this.floatingIps
-            : floatingIps as SdkOptional<List<AssociatedResource>>,
-        snapshots: identical(snapshots, sdkOmittedValue)
-            ? this.snapshots
-            : snapshots as SdkOptional<List<AssociatedResource>>,
-        volumes: identical(volumes, sdkOmittedValue)
-            ? this.volumes
-            : volumes as SdkOptional<List<AssociatedResource>>,
-        volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue)
-            ? this.volumeSnapshots
-            : volumeSnapshots as SdkOptional<List<AssociatedResource>>,
-      );
+  AssociatedResourcesListVariant0 _copyWith({Object? reservedIps = sdkOmittedValue, Object? floatingIps = sdkOmittedValue, Object? snapshots = sdkOmittedValue, Object? volumes = sdkOmittedValue, Object? volumeSnapshots = sdkOmittedValue}) => AssociatedResourcesListVariant0(
+    reservedIps: identical(reservedIps, sdkOmittedValue) ? this.reservedIps : reservedIps as SdkOptional<List<AssociatedResource>>,
+    floatingIps: identical(floatingIps, sdkOmittedValue) ? this.floatingIps : floatingIps as SdkOptional<List<AssociatedResource>>,
+    snapshots: identical(snapshots, sdkOmittedValue) ? this.snapshots : snapshots as SdkOptional<List<AssociatedResource>>,
+    volumes: identical(volumes, sdkOmittedValue) ? this.volumes : volumes as SdkOptional<List<AssociatedResource>>,
+    volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue) ? this.volumeSnapshots : volumeSnapshots as SdkOptional<List<AssociatedResource>>,
+  );
 
-  factory AssociatedResourcesListVariant0.fromJson(Map<String, dynamic> json) =>
-      AssociatedResourcesListVariant0(
-        reservedIps: json['reserved_ips'] != null
-            ? SdkPresent(((json['reserved_ips'] as List?)
-                ?.map((e) =>
-                    AssociatedResource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        floatingIps: json['floating_ips'] != null
-            ? SdkPresent(((json['floating_ips'] as List?)
-                ?.map((e) =>
-                    AssociatedResource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        snapshots: json['snapshots'] != null
-            ? SdkPresent(((json['snapshots'] as List?)
-                ?.map((e) =>
-                    AssociatedResource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        volumes: json['volumes'] != null
-            ? SdkPresent(((json['volumes'] as List?)
-                ?.map((e) =>
-                    AssociatedResource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        volumeSnapshots: json['volume_snapshots'] != null
-            ? SdkPresent(((json['volume_snapshots'] as List?)
-                ?.map((e) =>
-                    AssociatedResource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AssociatedResourcesListVariant0.fromJson(Map<String, dynamic> json) => AssociatedResourcesListVariant0(
+    reservedIps: json['reserved_ips'] != null ? SdkPresent(((json['reserved_ips'] as List?)?.map((e) => AssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    floatingIps: json['floating_ips'] != null ? SdkPresent(((json['floating_ips'] as List?)?.map((e) => AssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    snapshots: json['snapshots'] != null ? SdkPresent(((json['snapshots'] as List?)?.map((e) => AssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    volumes: json['volumes'] != null ? SdkPresent(((json['volumes'] as List?)?.map((e) => AssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    volumeSnapshots: json['volume_snapshots'] != null ? SdkPresent(((json['volume_snapshots'] as List?)?.map((e) => AssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (reservedIps) {
-          SdkPresent<List<AssociatedResource>>(value: final value) => {
-              'reserved_ips': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (floatingIps) {
-          SdkPresent<List<AssociatedResource>>(value: final value) => {
-              'floating_ips': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (snapshots) {
-          SdkPresent<List<AssociatedResource>>(value: final value) => {
-              'snapshots': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (volumes) {
-          SdkPresent<List<AssociatedResource>>(value: final value) => {
-              'volumes': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (volumeSnapshots) {
-          SdkPresent<List<AssociatedResource>>(value: final value) => {
-              'volume_snapshots': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (reservedIps) {
+      SdkPresent<List<AssociatedResource>>(value: final value) => {'reserved_ips': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (floatingIps) {
+      SdkPresent<List<AssociatedResource>>(value: final value) => {'floating_ips': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (snapshots) {
+      SdkPresent<List<AssociatedResource>>(value: final value) => {'snapshots': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (volumes) {
+      SdkPresent<List<AssociatedResource>>(value: final value) => {'volumes': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (volumeSnapshots) {
+      SdkPresent<List<AssociatedResource>>(value: final value) => {'volume_snapshots': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AssociatedResourcesList` API schema.
 class AssociatedResourcesList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Reserved IPs that are associated with this Droplet.&lt;br&gt;Requires `reserved_ip:read` scope.
   final SdkOptional<List<AssociatedResource>> reservedIps;
-
   /// Floating IPs that are associated with this Droplet.&lt;br&gt;Requires `reserved_ip:read` scope.
   final SdkOptional<List<AssociatedResource>> floatingIps;
-
   /// Snapshots that are associated with this Droplet.&lt;br&gt;Requires `image:read` scope.
   final SdkOptional<List<AssociatedResource>> snapshots;
-
   /// Volumes that are associated with this Droplet.&lt;br&gt;Requires `block_storage:read` scope.
   final SdkOptional<List<AssociatedResource>> volumes;
-
   /// Volume Snapshots that are associated with this Droplet.&lt;br&gt;Requires `block_storage_snapshot:read` scope.
   final SdkOptional<List<AssociatedResource>> volumeSnapshots;
 
-  const AssociatedResourcesList(
-      {this.reservedIps = const SdkOmitted(),
-      this.floatingIps = const SdkOmitted(),
-      this.snapshots = const SdkOmitted(),
-      this.volumes = const SdkOmitted(),
-      this.volumeSnapshots = const SdkOmitted()});
+  const AssociatedResourcesList({this.reservedIps = const SdkOmitted(), this.floatingIps = const SdkOmitted(), this.snapshots = const SdkOmitted(), this.volumes = const SdkOmitted(), this.volumeSnapshots = const SdkOmitted()});
 
-  AssociatedResourcesList Function(
-          {SdkOptional<List<AssociatedResource>> reservedIps,
-          SdkOptional<List<AssociatedResource>> floatingIps,
-          SdkOptional<List<AssociatedResource>> snapshots,
-          SdkOptional<List<AssociatedResource>> volumes,
-          SdkOptional<List<AssociatedResource>> volumeSnapshots})
-      get copyWith => _copyWith;
+  AssociatedResourcesList Function({SdkOptional<List<AssociatedResource>> reservedIps, SdkOptional<List<AssociatedResource>> floatingIps, SdkOptional<List<AssociatedResource>> snapshots, SdkOptional<List<AssociatedResource>> volumes, SdkOptional<List<AssociatedResource>> volumeSnapshots}) get copyWith => _copyWith;
 
-  AssociatedResourcesList _copyWith(
-          {Object? reservedIps = sdkOmittedValue,
-          Object? floatingIps = sdkOmittedValue,
-          Object? snapshots = sdkOmittedValue,
-          Object? volumes = sdkOmittedValue,
-          Object? volumeSnapshots = sdkOmittedValue}) =>
-      AssociatedResourcesList(
-        reservedIps: identical(reservedIps, sdkOmittedValue)
-            ? this.reservedIps
-            : reservedIps as SdkOptional<List<AssociatedResource>>,
-        floatingIps: identical(floatingIps, sdkOmittedValue)
-            ? this.floatingIps
-            : floatingIps as SdkOptional<List<AssociatedResource>>,
-        snapshots: identical(snapshots, sdkOmittedValue)
-            ? this.snapshots
-            : snapshots as SdkOptional<List<AssociatedResource>>,
-        volumes: identical(volumes, sdkOmittedValue)
-            ? this.volumes
-            : volumes as SdkOptional<List<AssociatedResource>>,
-        volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue)
-            ? this.volumeSnapshots
-            : volumeSnapshots as SdkOptional<List<AssociatedResource>>,
-      );
+  AssociatedResourcesList _copyWith({Object? reservedIps = sdkOmittedValue, Object? floatingIps = sdkOmittedValue, Object? snapshots = sdkOmittedValue, Object? volumes = sdkOmittedValue, Object? volumeSnapshots = sdkOmittedValue}) => AssociatedResourcesList(
+    reservedIps: identical(reservedIps, sdkOmittedValue) ? this.reservedIps : reservedIps as SdkOptional<List<AssociatedResource>>,
+    floatingIps: identical(floatingIps, sdkOmittedValue) ? this.floatingIps : floatingIps as SdkOptional<List<AssociatedResource>>,
+    snapshots: identical(snapshots, sdkOmittedValue) ? this.snapshots : snapshots as SdkOptional<List<AssociatedResource>>,
+    volumes: identical(volumes, sdkOmittedValue) ? this.volumes : volumes as SdkOptional<List<AssociatedResource>>,
+    volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue) ? this.volumeSnapshots : volumeSnapshots as SdkOptional<List<AssociatedResource>>,
+  );
 
-  factory AssociatedResourcesList.fromJson(Map<String, dynamic> json) =>
-      AssociatedResourcesList(
-        reservedIps: json['reserved_ips'] != null
-            ? SdkPresent(((json['reserved_ips'] as List?)
-                ?.map((e) =>
-                    AssociatedResource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        floatingIps: json['floating_ips'] != null
-            ? SdkPresent(((json['floating_ips'] as List?)
-                ?.map((e) =>
-                    AssociatedResource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        snapshots: json['snapshots'] != null
-            ? SdkPresent(((json['snapshots'] as List?)
-                ?.map((e) =>
-                    AssociatedResource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        volumes: json['volumes'] != null
-            ? SdkPresent(((json['volumes'] as List?)
-                ?.map((e) =>
-                    AssociatedResource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        volumeSnapshots: json['volume_snapshots'] != null
-            ? SdkPresent(((json['volume_snapshots'] as List?)
-                ?.map((e) =>
-                    AssociatedResource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AssociatedResourcesList.fromJson(Map<String, dynamic> json) => AssociatedResourcesList(
+    reservedIps: json['reserved_ips'] != null ? SdkPresent(((json['reserved_ips'] as List?)?.map((e) => AssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    floatingIps: json['floating_ips'] != null ? SdkPresent(((json['floating_ips'] as List?)?.map((e) => AssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    snapshots: json['snapshots'] != null ? SdkPresent(((json['snapshots'] as List?)?.map((e) => AssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    volumes: json['volumes'] != null ? SdkPresent(((json['volumes'] as List?)?.map((e) => AssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    volumeSnapshots: json['volume_snapshots'] != null ? SdkPresent(((json['volume_snapshots'] as List?)?.map((e) => AssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (reservedIps) {
-          SdkPresent<List<AssociatedResource>>(value: final value) => {
-              'reserved_ips': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (floatingIps) {
-          SdkPresent<List<AssociatedResource>>(value: final value) => {
-              'floating_ips': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (snapshots) {
-          SdkPresent<List<AssociatedResource>>(value: final value) => {
-              'snapshots': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (volumes) {
-          SdkPresent<List<AssociatedResource>>(value: final value) => {
-              'volumes': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (volumeSnapshots) {
-          SdkPresent<List<AssociatedResource>>(value: final value) => {
-              'volume_snapshots': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (reservedIps) {
+      SdkPresent<List<AssociatedResource>>(value: final value) => {'reserved_ips': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (floatingIps) {
+      SdkPresent<List<AssociatedResource>>(value: final value) => {'floating_ips': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (snapshots) {
+      SdkPresent<List<AssociatedResource>>(value: final value) => {'snapshots': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (volumes) {
+      SdkPresent<List<AssociatedResource>>(value: final value) => {'volumes': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (volumeSnapshots) {
+      SdkPresent<List<AssociatedResource>>(value: final value) => {'volume_snapshots': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

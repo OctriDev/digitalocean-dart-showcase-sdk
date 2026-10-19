@@ -8,582 +8,283 @@ part of 'databases.dart';
 class RedisAdvancedConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A string specifying the desired eviction policy for the Caching cluster. - `noeviction`: Don't evict any data, returns error when memory limit is reached. - `allkeys-lru:` Evict any key, least recently used (LRU) first. - `allkeys-random`: Evict keys in a random order. - `volatile-lru`: Evict keys with expiration only, least recently used (LRU) first. - `volatile-random`: Evict keys with expiration only in a random order. - `volatile-ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
-  final SdkOptional<RedisAdvancedConfigRedisMaxmemoryPolicy>
-      redisMaxmemoryPolicy;
-
+  final SdkOptional<RedisAdvancedConfigRedisMaxmemoryPolicy> redisMaxmemoryPolicy;
   /// Set output buffer limit for pub / sub clients in MB. The value is the hard limit, the soft limit is 1/4 of the hard limit. When setting the limit, be mindful of the available memory in the selected service plan.
   final SdkOptional<int> redisPubsubClientOutputBufferLimit;
-
   /// Set number of redis databases. Changing this will cause a restart of redis service.
   final SdkOptional<int> redisNumberOfDatabases;
-
   /// Caching IO thread count
   final SdkOptional<int> redisIoThreads;
-
   /// Counter logarithm factor for volatile-lfu and allkeys-lfu maxmemory-policies
   final SdkOptional<int> redisLfuLogFactor;
-
   /// LFU maxmemory-policy counter decay time in minutes
   final SdkOptional<int> redisLfuDecayTime;
-
   /// Require SSL to access Caching. - When enabled, Caching accepts only SSL connections on port `25061`. - When disabled, port `25060` is opened for non-SSL connections, while port `25061` remains available for SSL connections.
   final SdkOptional<bool> redisSsl;
-
   /// Caching idle connection timeout in seconds
   final SdkOptional<int> redisTimeout;
-
   /// Set notify-keyspace-events option. Requires at least `K` or `E` and accepts any combination of the following options. Setting the parameter to `""` disables notifications. - `K` &mdash; Keyspace events - `E` &mdash; Keyevent events - `g` &mdash; Generic commands (e.g. `DEL`, `EXPIRE`, `RENAME`, ...) - `$` &mdash; String commands - `l` &mdash; List commands - `s` &mdash; Set commands - `h` &mdash; Hash commands - `z` &mdash; Sorted set commands - `t` &mdash; Stream commands - `d` &mdash; Module key type events - `x` &mdash; Expired events - `e` &mdash; Evicted events - `m` &mdash; Key miss events - `n` &mdash; New key events - `A` &mdash; Alias for `"g$lshztxed"`
   final SdkOptional<String> redisNotifyKeyspaceEvents;
-
   /// Creates an RDB dump of the database every 10 minutes that can be used to recover data after a node crash. The database does not create the dump if no keys have changed since the last dump. When set to `off`, the database cannot fork services, and data can be lost if a service is restarted or powered off. DigitalOcean Managed Caching databases do not support the Append Only File (AOF) persistence method.
   final SdkOptional<RedisAdvancedConfigRedisPersistence> redisPersistence;
-
   /// Determines default pub/sub channels' ACL for new users if ACL is not supplied. When this option is not defined, all_channels is assumed to keep backward compatibility. This option doesn't affect Caching configuration acl-pubsub-default.
-  final SdkOptional<RedisAdvancedConfigRedisAclChannelsDefault>
-      redisAclChannelsDefault;
+  final SdkOptional<RedisAdvancedConfigRedisAclChannelsDefault> redisAclChannelsDefault;
 
-  const RedisAdvancedConfig(
-      {this.redisMaxmemoryPolicy = const SdkOmitted(),
-      this.redisPubsubClientOutputBufferLimit = const SdkOmitted(),
-      this.redisNumberOfDatabases = const SdkOmitted(),
-      this.redisIoThreads = const SdkOmitted(),
-      this.redisLfuLogFactor = const SdkOmitted(),
-      this.redisLfuDecayTime = const SdkOmitted(),
-      this.redisSsl = const SdkOmitted(),
-      this.redisTimeout = const SdkOmitted(),
-      this.redisNotifyKeyspaceEvents = const SdkOmitted(),
-      this.redisPersistence = const SdkOmitted(),
-      this.redisAclChannelsDefault = const SdkOmitted()});
+  const RedisAdvancedConfig({this.redisMaxmemoryPolicy = const SdkOmitted(), this.redisPubsubClientOutputBufferLimit = const SdkOmitted(), this.redisNumberOfDatabases = const SdkOmitted(), this.redisIoThreads = const SdkOmitted(), this.redisLfuLogFactor = const SdkOmitted(), this.redisLfuDecayTime = const SdkOmitted(), this.redisSsl = const SdkOmitted(), this.redisTimeout = const SdkOmitted(), this.redisNotifyKeyspaceEvents = const SdkOmitted(), this.redisPersistence = const SdkOmitted(), this.redisAclChannelsDefault = const SdkOmitted()});
 
-  RedisAdvancedConfig Function(
-      {SdkOptional<RedisAdvancedConfigRedisMaxmemoryPolicy>
-          redisMaxmemoryPolicy,
-      SdkOptional<int> redisPubsubClientOutputBufferLimit,
-      SdkOptional<int> redisNumberOfDatabases,
-      SdkOptional<int> redisIoThreads,
-      SdkOptional<int> redisLfuLogFactor,
-      SdkOptional<int> redisLfuDecayTime,
-      SdkOptional<bool> redisSsl,
-      SdkOptional<int> redisTimeout,
-      SdkOptional<String> redisNotifyKeyspaceEvents,
-      SdkOptional<RedisAdvancedConfigRedisPersistence> redisPersistence,
-      SdkOptional<RedisAdvancedConfigRedisAclChannelsDefault>
-          redisAclChannelsDefault}) get copyWith => _copyWith;
+  RedisAdvancedConfig Function({SdkOptional<RedisAdvancedConfigRedisMaxmemoryPolicy> redisMaxmemoryPolicy, SdkOptional<int> redisPubsubClientOutputBufferLimit, SdkOptional<int> redisNumberOfDatabases, SdkOptional<int> redisIoThreads, SdkOptional<int> redisLfuLogFactor, SdkOptional<int> redisLfuDecayTime, SdkOptional<bool> redisSsl, SdkOptional<int> redisTimeout, SdkOptional<String> redisNotifyKeyspaceEvents, SdkOptional<RedisAdvancedConfigRedisPersistence> redisPersistence, SdkOptional<RedisAdvancedConfigRedisAclChannelsDefault> redisAclChannelsDefault}) get copyWith => _copyWith;
 
-  RedisAdvancedConfig _copyWith(
-          {Object? redisMaxmemoryPolicy = sdkOmittedValue,
-          Object? redisPubsubClientOutputBufferLimit = sdkOmittedValue,
-          Object? redisNumberOfDatabases = sdkOmittedValue,
-          Object? redisIoThreads = sdkOmittedValue,
-          Object? redisLfuLogFactor = sdkOmittedValue,
-          Object? redisLfuDecayTime = sdkOmittedValue,
-          Object? redisSsl = sdkOmittedValue,
-          Object? redisTimeout = sdkOmittedValue,
-          Object? redisNotifyKeyspaceEvents = sdkOmittedValue,
-          Object? redisPersistence = sdkOmittedValue,
-          Object? redisAclChannelsDefault = sdkOmittedValue}) =>
-      RedisAdvancedConfig(
-        redisMaxmemoryPolicy: identical(redisMaxmemoryPolicy, sdkOmittedValue)
-            ? this.redisMaxmemoryPolicy
-            : redisMaxmemoryPolicy
-                as SdkOptional<RedisAdvancedConfigRedisMaxmemoryPolicy>,
-        redisPubsubClientOutputBufferLimit:
-            identical(redisPubsubClientOutputBufferLimit, sdkOmittedValue)
-                ? this.redisPubsubClientOutputBufferLimit
-                : redisPubsubClientOutputBufferLimit as SdkOptional<int>,
-        redisNumberOfDatabases:
-            identical(redisNumberOfDatabases, sdkOmittedValue)
-                ? this.redisNumberOfDatabases
-                : redisNumberOfDatabases as SdkOptional<int>,
-        redisIoThreads: identical(redisIoThreads, sdkOmittedValue)
-            ? this.redisIoThreads
-            : redisIoThreads as SdkOptional<int>,
-        redisLfuLogFactor: identical(redisLfuLogFactor, sdkOmittedValue)
-            ? this.redisLfuLogFactor
-            : redisLfuLogFactor as SdkOptional<int>,
-        redisLfuDecayTime: identical(redisLfuDecayTime, sdkOmittedValue)
-            ? this.redisLfuDecayTime
-            : redisLfuDecayTime as SdkOptional<int>,
-        redisSsl: identical(redisSsl, sdkOmittedValue)
-            ? this.redisSsl
-            : redisSsl as SdkOptional<bool>,
-        redisTimeout: identical(redisTimeout, sdkOmittedValue)
-            ? this.redisTimeout
-            : redisTimeout as SdkOptional<int>,
-        redisNotifyKeyspaceEvents:
-            identical(redisNotifyKeyspaceEvents, sdkOmittedValue)
-                ? this.redisNotifyKeyspaceEvents
-                : redisNotifyKeyspaceEvents as SdkOptional<String>,
-        redisPersistence: identical(redisPersistence, sdkOmittedValue)
-            ? this.redisPersistence
-            : redisPersistence
-                as SdkOptional<RedisAdvancedConfigRedisPersistence>,
-        redisAclChannelsDefault:
-            identical(redisAclChannelsDefault, sdkOmittedValue)
-                ? this.redisAclChannelsDefault
-                : redisAclChannelsDefault
-                    as SdkOptional<RedisAdvancedConfigRedisAclChannelsDefault>,
-      );
+  RedisAdvancedConfig _copyWith({Object? redisMaxmemoryPolicy = sdkOmittedValue, Object? redisPubsubClientOutputBufferLimit = sdkOmittedValue, Object? redisNumberOfDatabases = sdkOmittedValue, Object? redisIoThreads = sdkOmittedValue, Object? redisLfuLogFactor = sdkOmittedValue, Object? redisLfuDecayTime = sdkOmittedValue, Object? redisSsl = sdkOmittedValue, Object? redisTimeout = sdkOmittedValue, Object? redisNotifyKeyspaceEvents = sdkOmittedValue, Object? redisPersistence = sdkOmittedValue, Object? redisAclChannelsDefault = sdkOmittedValue}) => RedisAdvancedConfig(
+    redisMaxmemoryPolicy: identical(redisMaxmemoryPolicy, sdkOmittedValue) ? this.redisMaxmemoryPolicy : redisMaxmemoryPolicy as SdkOptional<RedisAdvancedConfigRedisMaxmemoryPolicy>,
+    redisPubsubClientOutputBufferLimit: identical(redisPubsubClientOutputBufferLimit, sdkOmittedValue) ? this.redisPubsubClientOutputBufferLimit : redisPubsubClientOutputBufferLimit as SdkOptional<int>,
+    redisNumberOfDatabases: identical(redisNumberOfDatabases, sdkOmittedValue) ? this.redisNumberOfDatabases : redisNumberOfDatabases as SdkOptional<int>,
+    redisIoThreads: identical(redisIoThreads, sdkOmittedValue) ? this.redisIoThreads : redisIoThreads as SdkOptional<int>,
+    redisLfuLogFactor: identical(redisLfuLogFactor, sdkOmittedValue) ? this.redisLfuLogFactor : redisLfuLogFactor as SdkOptional<int>,
+    redisLfuDecayTime: identical(redisLfuDecayTime, sdkOmittedValue) ? this.redisLfuDecayTime : redisLfuDecayTime as SdkOptional<int>,
+    redisSsl: identical(redisSsl, sdkOmittedValue) ? this.redisSsl : redisSsl as SdkOptional<bool>,
+    redisTimeout: identical(redisTimeout, sdkOmittedValue) ? this.redisTimeout : redisTimeout as SdkOptional<int>,
+    redisNotifyKeyspaceEvents: identical(redisNotifyKeyspaceEvents, sdkOmittedValue) ? this.redisNotifyKeyspaceEvents : redisNotifyKeyspaceEvents as SdkOptional<String>,
+    redisPersistence: identical(redisPersistence, sdkOmittedValue) ? this.redisPersistence : redisPersistence as SdkOptional<RedisAdvancedConfigRedisPersistence>,
+    redisAclChannelsDefault: identical(redisAclChannelsDefault, sdkOmittedValue) ? this.redisAclChannelsDefault : redisAclChannelsDefault as SdkOptional<RedisAdvancedConfigRedisAclChannelsDefault>,
+  );
 
-  factory RedisAdvancedConfig.fromJson(Map<String, dynamic> json) =>
-      RedisAdvancedConfig(
-        redisMaxmemoryPolicy: json['redis_maxmemory_policy'] != null
-            ? SdkPresent((json['redis_maxmemory_policy'] != null
-                ? RedisAdvancedConfigRedisMaxmemoryPolicy.fromJson(
-                    json['redis_maxmemory_policy'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        redisPubsubClientOutputBufferLimit:
-            json['redis_pubsub_client_output_buffer_limit'] != null
-                ? SdkPresent(
-                    ((json['redis_pubsub_client_output_buffer_limit'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        redisNumberOfDatabases: json['redis_number_of_databases'] != null
-            ? SdkPresent(
-                ((json['redis_number_of_databases'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        redisIoThreads: json['redis_io_threads'] != null
-            ? SdkPresent(((json['redis_io_threads'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        redisLfuLogFactor: json['redis_lfu_log_factor'] != null
-            ? SdkPresent(((json['redis_lfu_log_factor'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        redisLfuDecayTime: json['redis_lfu_decay_time'] != null
-            ? SdkPresent(((json['redis_lfu_decay_time'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        redisSsl: json['redis_ssl'] != null
-            ? SdkPresent((json['redis_ssl'] as bool?)!)
-            : const SdkOmitted(),
-        redisTimeout: json['redis_timeout'] != null
-            ? SdkPresent(((json['redis_timeout'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        redisNotifyKeyspaceEvents: json['redis_notify_keyspace_events'] != null
-            ? SdkPresent((json['redis_notify_keyspace_events'] as String?)!)
-            : const SdkOmitted(),
-        redisPersistence: json['redis_persistence'] != null
-            ? SdkPresent((json['redis_persistence'] != null
-                ? RedisAdvancedConfigRedisPersistence.fromJson(
-                    json['redis_persistence'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        redisAclChannelsDefault: json['redis_acl_channels_default'] != null
-            ? SdkPresent((json['redis_acl_channels_default'] != null
-                ? RedisAdvancedConfigRedisAclChannelsDefault.fromJson(
-                    json['redis_acl_channels_default'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RedisAdvancedConfig.fromJson(Map<String, dynamic> json) => RedisAdvancedConfig(
+    redisMaxmemoryPolicy: json['redis_maxmemory_policy'] != null ? SdkPresent((json['redis_maxmemory_policy'] != null ? RedisAdvancedConfigRedisMaxmemoryPolicy.fromJson(json['redis_maxmemory_policy'] as String) : null)!) : const SdkOmitted(),
+    redisPubsubClientOutputBufferLimit: json['redis_pubsub_client_output_buffer_limit'] != null ? SdkPresent(((json['redis_pubsub_client_output_buffer_limit'] as num?)?.toInt())!) : const SdkOmitted(),
+    redisNumberOfDatabases: json['redis_number_of_databases'] != null ? SdkPresent(((json['redis_number_of_databases'] as num?)?.toInt())!) : const SdkOmitted(),
+    redisIoThreads: json['redis_io_threads'] != null ? SdkPresent(((json['redis_io_threads'] as num?)?.toInt())!) : const SdkOmitted(),
+    redisLfuLogFactor: json['redis_lfu_log_factor'] != null ? SdkPresent(((json['redis_lfu_log_factor'] as num?)?.toInt())!) : const SdkOmitted(),
+    redisLfuDecayTime: json['redis_lfu_decay_time'] != null ? SdkPresent(((json['redis_lfu_decay_time'] as num?)?.toInt())!) : const SdkOmitted(),
+    redisSsl: json['redis_ssl'] != null ? SdkPresent((json['redis_ssl'] as bool?)!) : const SdkOmitted(),
+    redisTimeout: json['redis_timeout'] != null ? SdkPresent(((json['redis_timeout'] as num?)?.toInt())!) : const SdkOmitted(),
+    redisNotifyKeyspaceEvents: json['redis_notify_keyspace_events'] != null ? SdkPresent((json['redis_notify_keyspace_events'] as String?)!) : const SdkOmitted(),
+    redisPersistence: json['redis_persistence'] != null ? SdkPresent((json['redis_persistence'] != null ? RedisAdvancedConfigRedisPersistence.fromJson(json['redis_persistence'] as String) : null)!) : const SdkOmitted(),
+    redisAclChannelsDefault: json['redis_acl_channels_default'] != null ? SdkPresent((json['redis_acl_channels_default'] != null ? RedisAdvancedConfigRedisAclChannelsDefault.fromJson(json['redis_acl_channels_default'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (redisMaxmemoryPolicy) {
-          SdkPresent<RedisAdvancedConfigRedisMaxmemoryPolicy>(
-            value: final value
-          ) =>
-            {
-              'redis_maxmemory_policy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redisPubsubClientOutputBufferLimit) {
-          SdkPresent<int>(value: final value) => {
-              'redis_pubsub_client_output_buffer_limit': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redisNumberOfDatabases) {
-          SdkPresent<int>(value: final value) => {
-              'redis_number_of_databases': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redisIoThreads) {
-          SdkPresent<int>(value: final value) => {
-              'redis_io_threads': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redisLfuLogFactor) {
-          SdkPresent<int>(value: final value) => {
-              'redis_lfu_log_factor': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redisLfuDecayTime) {
-          SdkPresent<int>(value: final value) => {
-              'redis_lfu_decay_time': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redisSsl) {
-          SdkPresent<bool>(value: final value) => {
-              'redis_ssl': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redisTimeout) {
-          SdkPresent<int>(value: final value) => {
-              'redis_timeout': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redisNotifyKeyspaceEvents) {
-          SdkPresent<String>(value: final value) => {
-              'redis_notify_keyspace_events': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redisPersistence) {
-          SdkPresent<RedisAdvancedConfigRedisPersistence>(value: final value) =>
-            {
-              'redis_persistence': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redisAclChannelsDefault) {
-          SdkPresent<RedisAdvancedConfigRedisAclChannelsDefault>(
-            value: final value
-          ) =>
-            {
-              'redis_acl_channels_default': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (redisMaxmemoryPolicy) {
+      SdkPresent<RedisAdvancedConfigRedisMaxmemoryPolicy>(value: final value) => {'redis_maxmemory_policy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redisPubsubClientOutputBufferLimit) {
+      SdkPresent<int>(value: final value) => {'redis_pubsub_client_output_buffer_limit': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redisNumberOfDatabases) {
+      SdkPresent<int>(value: final value) => {'redis_number_of_databases': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redisIoThreads) {
+      SdkPresent<int>(value: final value) => {'redis_io_threads': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redisLfuLogFactor) {
+      SdkPresent<int>(value: final value) => {'redis_lfu_log_factor': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redisLfuDecayTime) {
+      SdkPresent<int>(value: final value) => {'redis_lfu_decay_time': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redisSsl) {
+      SdkPresent<bool>(value: final value) => {'redis_ssl': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redisTimeout) {
+      SdkPresent<int>(value: final value) => {'redis_timeout': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redisNotifyKeyspaceEvents) {
+      SdkPresent<String>(value: final value) => {'redis_notify_keyspace_events': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redisPersistence) {
+      SdkPresent<RedisAdvancedConfigRedisPersistence>(value: final value) => {'redis_persistence': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redisAclChannelsDefault) {
+      SdkPresent<RedisAdvancedConfigRedisAclChannelsDefault>(value: final value) => {'redis_acl_channels_default': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `RsyslogLogsink` API schema.
 class RsyslogLogsink {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// DNS name or IPv4 address of the rsyslog server
   final String server;
-
   /// The internal port on which the rsyslog server is listening
   final int port;
-
   /// Use TLS (as the messages are not filtered and may contain sensitive information, it is highly recommended to set this to true if the remote server supports it)
   final bool tls;
-
   /// Message format used by the server, this can be either rfc3164 (the old BSD style message format), `rfc5424` (current syslog message format) or custom
   final RsyslogLogsinkFormat format;
-
   /// Conditional (required if `format` == `custom`). Syslog log line template for a custom format, supporting limited rsyslog style templating (using `%tag%`). Supported tags are: `HOSTNAME`, `app-name`, `msg`, `msgid`, `pri`, `procid`, `structured-data`, `timestamp` and `timestamp:::date-rfc3339`. --- **Datadog Integration Example for Non-Mongo clusters**: ``` DD_KEY &lt;%pri%&gt;1 %timestamp:::date-rfc3339% %HOSTNAME%.DB_NAME %app-name% - - - %msg% ``` - Replace `DD_KEY` with your actual Datadog API key. - Replace `DB_NAME` with the actual name of your database cluster. - Configure the Server: - US Region: Use `intake.logs.datadoghq.com` - EU Region: Use `tcp-intake.logs.datadoghq.eu` - Configure the Port: - US Region: Use port `10516` - EU Region: Use port `443` - Enable TLS: - Ensure the TLS checkbox is enabled. - Note: This configuration applies to **non-Mongo clusters only**. For **Mongo clusters**, use the `datadog_logsink` integration instead.
   final SdkOptional<String> logline;
-
   /// content of the structured data block of rfc5424 message
   final SdkOptional<String> sd;
-
   /// PEM encoded CA certificate
   final SdkOptional<String> ca;
-
   /// (PEM format) client key if the server requires client authentication
   final SdkOptional<String> key;
-
   /// (PEM format) client cert to use
   final SdkOptional<String> cert;
 
-  const RsyslogLogsink(
-      {required this.server,
-      required this.port,
-      required this.tls,
-      required this.format,
-      this.logline = const SdkOmitted(),
-      this.sd = const SdkOmitted(),
-      this.ca = const SdkOmitted(),
-      this.key = const SdkOmitted(),
-      this.cert = const SdkOmitted()});
+  const RsyslogLogsink({required this.server, required this.port, required this.tls, required this.format, this.logline = const SdkOmitted(), this.sd = const SdkOmitted(), this.ca = const SdkOmitted(), this.key = const SdkOmitted(), this.cert = const SdkOmitted()});
 
-  RsyslogLogsink Function(
-      {String server,
-      int port,
-      bool tls,
-      RsyslogLogsinkFormat format,
-      SdkOptional<String> logline,
-      SdkOptional<String> sd,
-      SdkOptional<String> ca,
-      SdkOptional<String> key,
-      SdkOptional<String> cert}) get copyWith => _copyWith;
+  RsyslogLogsink Function({String server, int port, bool tls, RsyslogLogsinkFormat format, SdkOptional<String> logline, SdkOptional<String> sd, SdkOptional<String> ca, SdkOptional<String> key, SdkOptional<String> cert}) get copyWith => _copyWith;
 
-  RsyslogLogsink _copyWith(
-          {Object? server = sdkOmittedValue,
-          Object? port = sdkOmittedValue,
-          Object? tls = sdkOmittedValue,
-          Object? format = sdkOmittedValue,
-          Object? logline = sdkOmittedValue,
-          Object? sd = sdkOmittedValue,
-          Object? ca = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? cert = sdkOmittedValue}) =>
-      RsyslogLogsink(
-        server:
-            identical(server, sdkOmittedValue) ? this.server : server as String,
-        port: identical(port, sdkOmittedValue) ? this.port : port as int,
-        tls: identical(tls, sdkOmittedValue) ? this.tls : tls as bool,
-        format: identical(format, sdkOmittedValue)
-            ? this.format
-            : format as RsyslogLogsinkFormat,
-        logline: identical(logline, sdkOmittedValue)
-            ? this.logline
-            : logline as SdkOptional<String>,
-        sd: identical(sd, sdkOmittedValue)
-            ? this.sd
-            : sd as SdkOptional<String>,
-        ca: identical(ca, sdkOmittedValue)
-            ? this.ca
-            : ca as SdkOptional<String>,
-        key: identical(key, sdkOmittedValue)
-            ? this.key
-            : key as SdkOptional<String>,
-        cert: identical(cert, sdkOmittedValue)
-            ? this.cert
-            : cert as SdkOptional<String>,
-      );
+  RsyslogLogsink _copyWith({Object? server = sdkOmittedValue, Object? port = sdkOmittedValue, Object? tls = sdkOmittedValue, Object? format = sdkOmittedValue, Object? logline = sdkOmittedValue, Object? sd = sdkOmittedValue, Object? ca = sdkOmittedValue, Object? key = sdkOmittedValue, Object? cert = sdkOmittedValue}) => RsyslogLogsink(
+    server: identical(server, sdkOmittedValue) ? this.server : server as String,
+    port: identical(port, sdkOmittedValue) ? this.port : port as int,
+    tls: identical(tls, sdkOmittedValue) ? this.tls : tls as bool,
+    format: identical(format, sdkOmittedValue) ? this.format : format as RsyslogLogsinkFormat,
+    logline: identical(logline, sdkOmittedValue) ? this.logline : logline as SdkOptional<String>,
+    sd: identical(sd, sdkOmittedValue) ? this.sd : sd as SdkOptional<String>,
+    ca: identical(ca, sdkOmittedValue) ? this.ca : ca as SdkOptional<String>,
+    key: identical(key, sdkOmittedValue) ? this.key : key as SdkOptional<String>,
+    cert: identical(cert, sdkOmittedValue) ? this.cert : cert as SdkOptional<String>,
+  );
 
   factory RsyslogLogsink.fromJson(Map<String, dynamic> json) => RsyslogLogsink(
-        server: (json['server'] as String?)!,
-        port: ((json['port'] as num?)?.toInt())!,
-        tls: (json['tls'] as bool?)!,
-        format: (json['format'] != null
-            ? RsyslogLogsinkFormat.fromJson(json['format'] as String)
-            : null)!,
-        logline: json['logline'] != null
-            ? SdkPresent((json['logline'] as String?)!)
-            : const SdkOmitted(),
-        sd: json['sd'] != null
-            ? SdkPresent((json['sd'] as String?)!)
-            : const SdkOmitted(),
-        ca: json['ca'] != null
-            ? SdkPresent((json['ca'] as String?)!)
-            : const SdkOmitted(),
-        key: json['key'] != null
-            ? SdkPresent((json['key'] as String?)!)
-            : const SdkOmitted(),
-        cert: json['cert'] != null
-            ? SdkPresent((json['cert'] as String?)!)
-            : const SdkOmitted(),
-      );
+    server: (json['server'] as String?)!,
+    port: ((json['port'] as num?)?.toInt())!,
+    tls: (json['tls'] as bool?)!,
+    format: (json['format'] != null ? RsyslogLogsinkFormat.fromJson(json['format'] as String) : null)!,
+    logline: json['logline'] != null ? SdkPresent((json['logline'] as String?)!) : const SdkOmitted(),
+    sd: json['sd'] != null ? SdkPresent((json['sd'] as String?)!) : const SdkOmitted(),
+    ca: json['ca'] != null ? SdkPresent((json['ca'] as String?)!) : const SdkOmitted(),
+    key: json['key'] != null ? SdkPresent((json['key'] as String?)!) : const SdkOmitted(),
+    cert: json['cert'] != null ? SdkPresent((json['cert'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'server': server,
-        'port': port,
-        'tls': tls,
-        'format': format.toJson(),
-        ...switch (logline) {
-          SdkPresent<String>(value: final value) => {
-              'logline': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sd) {
-          SdkPresent<String>(value: final value) => {
-              'sd': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ca) {
-          SdkPresent<String>(value: final value) => {
-              'ca': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (key) {
-          SdkPresent<String>(value: final value) => {
-              'key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cert) {
-          SdkPresent<String>(value: final value) => {
-              'cert': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'server': server,
+    'port': port,
+    'tls': tls,
+    'format': format.toJson(),
+    ...switch (logline) {
+      SdkPresent<String>(value: final value) => {'logline': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sd) {
+      SdkPresent<String>(value: final value) => {'sd': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ca) {
+      SdkPresent<String>(value: final value) => {'ca': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (key) {
+      SdkPresent<String>(value: final value) => {'key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cert) {
+      SdkPresent<String>(value: final value) => {'cert': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `source` wire field.
 class SourceDatabaseSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The FQDN pointing to the database cluster's current primary node.
   final SdkOptional<String> host;
-
   /// The port on which the database cluster is listening.
   final SdkOptional<int> port;
-
   /// The name of the default database.
   final SdkOptional<String> dbname;
-
   /// The default user for the database.
   final SdkOptional<String> username;
-
   /// The randomly generated password for the default user.
   final SdkOptional<String> password;
 
-  const SourceDatabaseSource(
-      {this.host = const SdkOmitted(),
-      this.port = const SdkOmitted(),
-      this.dbname = const SdkOmitted(),
-      this.username = const SdkOmitted(),
-      this.password = const SdkOmitted()});
+  const SourceDatabaseSource({this.host = const SdkOmitted(), this.port = const SdkOmitted(), this.dbname = const SdkOmitted(), this.username = const SdkOmitted(), this.password = const SdkOmitted()});
 
-  SourceDatabaseSource Function(
-      {SdkOptional<String> host,
-      SdkOptional<int> port,
-      SdkOptional<String> dbname,
-      SdkOptional<String> username,
-      SdkOptional<String> password}) get copyWith => _copyWith;
+  SourceDatabaseSource Function({SdkOptional<String> host, SdkOptional<int> port, SdkOptional<String> dbname, SdkOptional<String> username, SdkOptional<String> password}) get copyWith => _copyWith;
 
-  SourceDatabaseSource _copyWith(
-          {Object? host = sdkOmittedValue,
-          Object? port = sdkOmittedValue,
-          Object? dbname = sdkOmittedValue,
-          Object? username = sdkOmittedValue,
-          Object? password = sdkOmittedValue}) =>
-      SourceDatabaseSource(
-        host: identical(host, sdkOmittedValue)
-            ? this.host
-            : host as SdkOptional<String>,
-        port: identical(port, sdkOmittedValue)
-            ? this.port
-            : port as SdkOptional<int>,
-        dbname: identical(dbname, sdkOmittedValue)
-            ? this.dbname
-            : dbname as SdkOptional<String>,
-        username: identical(username, sdkOmittedValue)
-            ? this.username
-            : username as SdkOptional<String>,
-        password: identical(password, sdkOmittedValue)
-            ? this.password
-            : password as SdkOptional<String>,
-      );
+  SourceDatabaseSource _copyWith({Object? host = sdkOmittedValue, Object? port = sdkOmittedValue, Object? dbname = sdkOmittedValue, Object? username = sdkOmittedValue, Object? password = sdkOmittedValue}) => SourceDatabaseSource(
+    host: identical(host, sdkOmittedValue) ? this.host : host as SdkOptional<String>,
+    port: identical(port, sdkOmittedValue) ? this.port : port as SdkOptional<int>,
+    dbname: identical(dbname, sdkOmittedValue) ? this.dbname : dbname as SdkOptional<String>,
+    username: identical(username, sdkOmittedValue) ? this.username : username as SdkOptional<String>,
+    password: identical(password, sdkOmittedValue) ? this.password : password as SdkOptional<String>,
+  );
 
-  factory SourceDatabaseSource.fromJson(Map<String, dynamic> json) =>
-      SourceDatabaseSource(
-        host: json['host'] != null
-            ? SdkPresent((json['host'] as String?)!)
-            : const SdkOmitted(),
-        port: json['port'] != null
-            ? SdkPresent(((json['port'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        dbname: json['dbname'] != null
-            ? SdkPresent((json['dbname'] as String?)!)
-            : const SdkOmitted(),
-        username: json['username'] != null
-            ? SdkPresent((json['username'] as String?)!)
-            : const SdkOmitted(),
-        password: json['password'] != null
-            ? SdkPresent((json['password'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SourceDatabaseSource.fromJson(Map<String, dynamic> json) => SourceDatabaseSource(
+    host: json['host'] != null ? SdkPresent((json['host'] as String?)!) : const SdkOmitted(),
+    port: json['port'] != null ? SdkPresent(((json['port'] as num?)?.toInt())!) : const SdkOmitted(),
+    dbname: json['dbname'] != null ? SdkPresent((json['dbname'] as String?)!) : const SdkOmitted(),
+    username: json['username'] != null ? SdkPresent((json['username'] as String?)!) : const SdkOmitted(),
+    password: json['password'] != null ? SdkPresent((json['password'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (host) {
-          SdkPresent<String>(value: final value) => {
-              'host': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (port) {
-          SdkPresent<int>(value: final value) => {
-              'port': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (dbname) {
-          SdkPresent<String>(value: final value) => {
-              'dbname': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (username) {
-          SdkPresent<String>(value: final value) => {
-              'username': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (password) {
-          SdkPresent<String>(value: final value) => {
-              'password': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (host) {
+      SdkPresent<String>(value: final value) => {'host': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (port) {
+      SdkPresent<int>(value: final value) => {'port': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (dbname) {
+      SdkPresent<String>(value: final value) => {'dbname': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (username) {
+      SdkPresent<String>(value: final value) => {'username': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (password) {
+      SdkPresent<String>(value: final value) => {'password': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `SourceDatabase` API schema.
 class SourceDatabase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required object value serialized in the `source` wire field.
   final SourceDatabaseSource source;
-
   /// Enables SSL encryption when connecting to the source database.
   final SdkOptional<bool> disableSsl;
-
   /// List of databases that should be ignored during migration.
   final SdkOptional<List<String>> ignoreDbs;
 
-  const SourceDatabase(
-      {required this.source,
-      this.disableSsl = const SdkOmitted(),
-      this.ignoreDbs = const SdkOmitted()});
+  const SourceDatabase({required this.source, this.disableSsl = const SdkOmitted(), this.ignoreDbs = const SdkOmitted()});
 
-  SourceDatabase Function(
-      {SourceDatabaseSource source,
-      SdkOptional<bool> disableSsl,
-      SdkOptional<List<String>> ignoreDbs}) get copyWith => _copyWith;
+  SourceDatabase Function({SourceDatabaseSource source, SdkOptional<bool> disableSsl, SdkOptional<List<String>> ignoreDbs}) get copyWith => _copyWith;
 
-  SourceDatabase _copyWith(
-          {Object? source = sdkOmittedValue,
-          Object? disableSsl = sdkOmittedValue,
-          Object? ignoreDbs = sdkOmittedValue}) =>
-      SourceDatabase(
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as SourceDatabaseSource,
-        disableSsl: identical(disableSsl, sdkOmittedValue)
-            ? this.disableSsl
-            : disableSsl as SdkOptional<bool>,
-        ignoreDbs: identical(ignoreDbs, sdkOmittedValue)
-            ? this.ignoreDbs
-            : ignoreDbs as SdkOptional<List<String>>,
-      );
+  SourceDatabase _copyWith({Object? source = sdkOmittedValue, Object? disableSsl = sdkOmittedValue, Object? ignoreDbs = sdkOmittedValue}) => SourceDatabase(
+    source: identical(source, sdkOmittedValue) ? this.source : source as SourceDatabaseSource,
+    disableSsl: identical(disableSsl, sdkOmittedValue) ? this.disableSsl : disableSsl as SdkOptional<bool>,
+    ignoreDbs: identical(ignoreDbs, sdkOmittedValue) ? this.ignoreDbs : ignoreDbs as SdkOptional<List<String>>,
+  );
 
   factory SourceDatabase.fromJson(Map<String, dynamic> json) => SourceDatabase(
-        source: (json['source'] != null
-            ? SourceDatabaseSource.fromJson(
-                json['source'] as Map<String, dynamic>)
-            : null)!,
-        disableSsl: json['disable_ssl'] != null
-            ? SdkPresent((json['disable_ssl'] as bool?)!)
-            : const SdkOmitted(),
-        ignoreDbs: json['ignore_dbs'] != null
-            ? SdkPresent(((json['ignore_dbs'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    source: (json['source'] != null ? SourceDatabaseSource.fromJson(json['source'] as Map<String, dynamic>) : null)!,
+    disableSsl: json['disable_ssl'] != null ? SdkPresent((json['disable_ssl'] as bool?)!) : const SdkOmitted(),
+    ignoreDbs: json['ignore_dbs'] != null ? SdkPresent(((json['ignore_dbs'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'source': source.toJson(),
-        ...switch (disableSsl) {
-          SdkPresent<bool>(value: final value) => {
-              'disable_ssl': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ignoreDbs) {
-          SdkPresent<List<String>>(value: final value) => {
-              'ignore_dbs': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'source': source.toJson(),
+    ...switch (disableSsl) {
+      SdkPresent<bool>(value: final value) => {'disable_ssl': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ignoreDbs) {
+      SdkPresent<List<String>>(value: final value) => {'ignore_dbs': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

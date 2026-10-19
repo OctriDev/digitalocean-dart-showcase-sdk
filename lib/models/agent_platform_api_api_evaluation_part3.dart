@@ -8,446 +8,201 @@ part of 'agent_platform_api_api_evaluation.dart';
 class ApiEvaluationRun {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether agent is deleted
   final SdkOptional<bool> agentDeleted;
-
   /// The agent deployment name
   final SdkOptional<String> agentDeploymentName;
-
   /// Agent name
   final SdkOptional<String> agentName;
-
   /// Agent UUID.
   final SdkOptional<String> agentUuid;
-
   /// Version hash
   final SdkOptional<String> agentVersionHash;
-
   /// Agent workspace uuid
   final SdkOptional<String> agentWorkspaceUuid;
-
   /// Optional `string` value serialized in the `created_by_user_email` wire field.
   final SdkOptional<String> createdByUserEmail;
-
   /// Optional `uint64`-formatted value serialized in the `created_by_user_id` wire field.
   final SdkOptional<String> createdByUserId;
-
   /// The error description
   final SdkOptional<String> errorDescription;
-
   /// Evaluation run UUID.
   final SdkOptional<String> evaluationRunUuid;
-
   /// Evaluation test case workspace uuid
   final SdkOptional<String> evaluationTestCaseWorkspaceUuid;
-
   /// Run end time.
   final SdkOptional<String> finishedAt;
-
   /// The pass status of the evaluation run based on the star metric.
   final SdkOptional<bool> passStatus;
-
   /// Run queued time.
   final SdkOptional<String> queuedAt;
-
   /// Optional array value serialized in the `run_level_metric_results` wire field.
   final SdkOptional<List<ApiEvaluationMetricResult>> runLevelMetricResults;
-
   /// Run name.
   final SdkOptional<String> runName;
-
   /// Optional object value serialized in the `star_metric_result` wire field.
   final SdkOptional<ApiEvaluationMetricResult> starMetricResult;
-
   /// Run start time.
   final SdkOptional<String> startedAt;
-
   /// Evaluation Run Statuses
   final SdkOptional<ApiEvaluationRunStatus> status;
-
   /// Test case description.
   final SdkOptional<String> testCaseDescription;
-
   /// Test case name.
   final SdkOptional<String> testCaseName;
-
   /// Test-case UUID.
   final SdkOptional<String> testCaseUuid;
-
   /// Test-case-version.
   final SdkOptional<int> testCaseVersion;
 
-  const ApiEvaluationRun(
-      {this.agentDeleted = const SdkOmitted(),
-      this.agentDeploymentName = const SdkOmitted(),
-      this.agentName = const SdkOmitted(),
-      this.agentUuid = const SdkOmitted(),
-      this.agentVersionHash = const SdkOmitted(),
-      this.agentWorkspaceUuid = const SdkOmitted(),
-      this.createdByUserEmail = const SdkOmitted(),
-      this.createdByUserId = const SdkOmitted(),
-      this.errorDescription = const SdkOmitted(),
-      this.evaluationRunUuid = const SdkOmitted(),
-      this.evaluationTestCaseWorkspaceUuid = const SdkOmitted(),
-      this.finishedAt = const SdkOmitted(),
-      this.passStatus = const SdkOmitted(),
-      this.queuedAt = const SdkOmitted(),
-      this.runLevelMetricResults = const SdkOmitted(),
-      this.runName = const SdkOmitted(),
-      this.starMetricResult = const SdkOmitted(),
-      this.startedAt = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.testCaseDescription = const SdkOmitted(),
-      this.testCaseName = const SdkOmitted(),
-      this.testCaseUuid = const SdkOmitted(),
-      this.testCaseVersion = const SdkOmitted()});
+  const ApiEvaluationRun({this.agentDeleted = const SdkOmitted(), this.agentDeploymentName = const SdkOmitted(), this.agentName = const SdkOmitted(), this.agentUuid = const SdkOmitted(), this.agentVersionHash = const SdkOmitted(), this.agentWorkspaceUuid = const SdkOmitted(), this.createdByUserEmail = const SdkOmitted(), this.createdByUserId = const SdkOmitted(), this.errorDescription = const SdkOmitted(), this.evaluationRunUuid = const SdkOmitted(), this.evaluationTestCaseWorkspaceUuid = const SdkOmitted(), this.finishedAt = const SdkOmitted(), this.passStatus = const SdkOmitted(), this.queuedAt = const SdkOmitted(), this.runLevelMetricResults = const SdkOmitted(), this.runName = const SdkOmitted(), this.starMetricResult = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.status = const SdkOmitted(), this.testCaseDescription = const SdkOmitted(), this.testCaseName = const SdkOmitted(), this.testCaseUuid = const SdkOmitted(), this.testCaseVersion = const SdkOmitted()});
 
-  ApiEvaluationRun Function(
-      {SdkOptional<bool> agentDeleted,
-      SdkOptional<String> agentDeploymentName,
-      SdkOptional<String> agentName,
-      SdkOptional<String> agentUuid,
-      SdkOptional<String> agentVersionHash,
-      SdkOptional<String> agentWorkspaceUuid,
-      SdkOptional<String> createdByUserEmail,
-      SdkOptional<String> createdByUserId,
-      SdkOptional<String> errorDescription,
-      SdkOptional<String> evaluationRunUuid,
-      SdkOptional<String> evaluationTestCaseWorkspaceUuid,
-      SdkOptional<String> finishedAt,
-      SdkOptional<bool> passStatus,
-      SdkOptional<String> queuedAt,
-      SdkOptional<List<ApiEvaluationMetricResult>> runLevelMetricResults,
-      SdkOptional<String> runName,
-      SdkOptional<ApiEvaluationMetricResult> starMetricResult,
-      SdkOptional<String> startedAt,
-      SdkOptional<ApiEvaluationRunStatus> status,
-      SdkOptional<String> testCaseDescription,
-      SdkOptional<String> testCaseName,
-      SdkOptional<String> testCaseUuid,
-      SdkOptional<int> testCaseVersion}) get copyWith => _copyWith;
+  ApiEvaluationRun Function({SdkOptional<bool> agentDeleted, SdkOptional<String> agentDeploymentName, SdkOptional<String> agentName, SdkOptional<String> agentUuid, SdkOptional<String> agentVersionHash, SdkOptional<String> agentWorkspaceUuid, SdkOptional<String> createdByUserEmail, SdkOptional<String> createdByUserId, SdkOptional<String> errorDescription, SdkOptional<String> evaluationRunUuid, SdkOptional<String> evaluationTestCaseWorkspaceUuid, SdkOptional<String> finishedAt, SdkOptional<bool> passStatus, SdkOptional<String> queuedAt, SdkOptional<List<ApiEvaluationMetricResult>> runLevelMetricResults, SdkOptional<String> runName, SdkOptional<ApiEvaluationMetricResult> starMetricResult, SdkOptional<String> startedAt, SdkOptional<ApiEvaluationRunStatus> status, SdkOptional<String> testCaseDescription, SdkOptional<String> testCaseName, SdkOptional<String> testCaseUuid, SdkOptional<int> testCaseVersion}) get copyWith => _copyWith;
 
-  ApiEvaluationRun _copyWith(
-          {Object? agentDeleted = sdkOmittedValue,
-          Object? agentDeploymentName = sdkOmittedValue,
-          Object? agentName = sdkOmittedValue,
-          Object? agentUuid = sdkOmittedValue,
-          Object? agentVersionHash = sdkOmittedValue,
-          Object? agentWorkspaceUuid = sdkOmittedValue,
-          Object? createdByUserEmail = sdkOmittedValue,
-          Object? createdByUserId = sdkOmittedValue,
-          Object? errorDescription = sdkOmittedValue,
-          Object? evaluationRunUuid = sdkOmittedValue,
-          Object? evaluationTestCaseWorkspaceUuid = sdkOmittedValue,
-          Object? finishedAt = sdkOmittedValue,
-          Object? passStatus = sdkOmittedValue,
-          Object? queuedAt = sdkOmittedValue,
-          Object? runLevelMetricResults = sdkOmittedValue,
-          Object? runName = sdkOmittedValue,
-          Object? starMetricResult = sdkOmittedValue,
-          Object? startedAt = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? testCaseDescription = sdkOmittedValue,
-          Object? testCaseName = sdkOmittedValue,
-          Object? testCaseUuid = sdkOmittedValue,
-          Object? testCaseVersion = sdkOmittedValue}) =>
-      ApiEvaluationRun(
-        agentDeleted: identical(agentDeleted, sdkOmittedValue)
-            ? this.agentDeleted
-            : agentDeleted as SdkOptional<bool>,
-        agentDeploymentName: identical(agentDeploymentName, sdkOmittedValue)
-            ? this.agentDeploymentName
-            : agentDeploymentName as SdkOptional<String>,
-        agentName: identical(agentName, sdkOmittedValue)
-            ? this.agentName
-            : agentName as SdkOptional<String>,
-        agentUuid: identical(agentUuid, sdkOmittedValue)
-            ? this.agentUuid
-            : agentUuid as SdkOptional<String>,
-        agentVersionHash: identical(agentVersionHash, sdkOmittedValue)
-            ? this.agentVersionHash
-            : agentVersionHash as SdkOptional<String>,
-        agentWorkspaceUuid: identical(agentWorkspaceUuid, sdkOmittedValue)
-            ? this.agentWorkspaceUuid
-            : agentWorkspaceUuid as SdkOptional<String>,
-        createdByUserEmail: identical(createdByUserEmail, sdkOmittedValue)
-            ? this.createdByUserEmail
-            : createdByUserEmail as SdkOptional<String>,
-        createdByUserId: identical(createdByUserId, sdkOmittedValue)
-            ? this.createdByUserId
-            : createdByUserId as SdkOptional<String>,
-        errorDescription: identical(errorDescription, sdkOmittedValue)
-            ? this.errorDescription
-            : errorDescription as SdkOptional<String>,
-        evaluationRunUuid: identical(evaluationRunUuid, sdkOmittedValue)
-            ? this.evaluationRunUuid
-            : evaluationRunUuid as SdkOptional<String>,
-        evaluationTestCaseWorkspaceUuid:
-            identical(evaluationTestCaseWorkspaceUuid, sdkOmittedValue)
-                ? this.evaluationTestCaseWorkspaceUuid
-                : evaluationTestCaseWorkspaceUuid as SdkOptional<String>,
-        finishedAt: identical(finishedAt, sdkOmittedValue)
-            ? this.finishedAt
-            : finishedAt as SdkOptional<String>,
-        passStatus: identical(passStatus, sdkOmittedValue)
-            ? this.passStatus
-            : passStatus as SdkOptional<bool>,
-        queuedAt: identical(queuedAt, sdkOmittedValue)
-            ? this.queuedAt
-            : queuedAt as SdkOptional<String>,
-        runLevelMetricResults: identical(runLevelMetricResults, sdkOmittedValue)
-            ? this.runLevelMetricResults
-            : runLevelMetricResults
-                as SdkOptional<List<ApiEvaluationMetricResult>>,
-        runName: identical(runName, sdkOmittedValue)
-            ? this.runName
-            : runName as SdkOptional<String>,
-        starMetricResult: identical(starMetricResult, sdkOmittedValue)
-            ? this.starMetricResult
-            : starMetricResult as SdkOptional<ApiEvaluationMetricResult>,
-        startedAt: identical(startedAt, sdkOmittedValue)
-            ? this.startedAt
-            : startedAt as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ApiEvaluationRunStatus>,
-        testCaseDescription: identical(testCaseDescription, sdkOmittedValue)
-            ? this.testCaseDescription
-            : testCaseDescription as SdkOptional<String>,
-        testCaseName: identical(testCaseName, sdkOmittedValue)
-            ? this.testCaseName
-            : testCaseName as SdkOptional<String>,
-        testCaseUuid: identical(testCaseUuid, sdkOmittedValue)
-            ? this.testCaseUuid
-            : testCaseUuid as SdkOptional<String>,
-        testCaseVersion: identical(testCaseVersion, sdkOmittedValue)
-            ? this.testCaseVersion
-            : testCaseVersion as SdkOptional<int>,
-      );
+  ApiEvaluationRun _copyWith({Object? agentDeleted = sdkOmittedValue, Object? agentDeploymentName = sdkOmittedValue, Object? agentName = sdkOmittedValue, Object? agentUuid = sdkOmittedValue, Object? agentVersionHash = sdkOmittedValue, Object? agentWorkspaceUuid = sdkOmittedValue, Object? createdByUserEmail = sdkOmittedValue, Object? createdByUserId = sdkOmittedValue, Object? errorDescription = sdkOmittedValue, Object? evaluationRunUuid = sdkOmittedValue, Object? evaluationTestCaseWorkspaceUuid = sdkOmittedValue, Object? finishedAt = sdkOmittedValue, Object? passStatus = sdkOmittedValue, Object? queuedAt = sdkOmittedValue, Object? runLevelMetricResults = sdkOmittedValue, Object? runName = sdkOmittedValue, Object? starMetricResult = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? status = sdkOmittedValue, Object? testCaseDescription = sdkOmittedValue, Object? testCaseName = sdkOmittedValue, Object? testCaseUuid = sdkOmittedValue, Object? testCaseVersion = sdkOmittedValue}) => ApiEvaluationRun(
+    agentDeleted: identical(agentDeleted, sdkOmittedValue) ? this.agentDeleted : agentDeleted as SdkOptional<bool>,
+    agentDeploymentName: identical(agentDeploymentName, sdkOmittedValue) ? this.agentDeploymentName : agentDeploymentName as SdkOptional<String>,
+    agentName: identical(agentName, sdkOmittedValue) ? this.agentName : agentName as SdkOptional<String>,
+    agentUuid: identical(agentUuid, sdkOmittedValue) ? this.agentUuid : agentUuid as SdkOptional<String>,
+    agentVersionHash: identical(agentVersionHash, sdkOmittedValue) ? this.agentVersionHash : agentVersionHash as SdkOptional<String>,
+    agentWorkspaceUuid: identical(agentWorkspaceUuid, sdkOmittedValue) ? this.agentWorkspaceUuid : agentWorkspaceUuid as SdkOptional<String>,
+    createdByUserEmail: identical(createdByUserEmail, sdkOmittedValue) ? this.createdByUserEmail : createdByUserEmail as SdkOptional<String>,
+    createdByUserId: identical(createdByUserId, sdkOmittedValue) ? this.createdByUserId : createdByUserId as SdkOptional<String>,
+    errorDescription: identical(errorDescription, sdkOmittedValue) ? this.errorDescription : errorDescription as SdkOptional<String>,
+    evaluationRunUuid: identical(evaluationRunUuid, sdkOmittedValue) ? this.evaluationRunUuid : evaluationRunUuid as SdkOptional<String>,
+    evaluationTestCaseWorkspaceUuid: identical(evaluationTestCaseWorkspaceUuid, sdkOmittedValue) ? this.evaluationTestCaseWorkspaceUuid : evaluationTestCaseWorkspaceUuid as SdkOptional<String>,
+    finishedAt: identical(finishedAt, sdkOmittedValue) ? this.finishedAt : finishedAt as SdkOptional<String>,
+    passStatus: identical(passStatus, sdkOmittedValue) ? this.passStatus : passStatus as SdkOptional<bool>,
+    queuedAt: identical(queuedAt, sdkOmittedValue) ? this.queuedAt : queuedAt as SdkOptional<String>,
+    runLevelMetricResults: identical(runLevelMetricResults, sdkOmittedValue) ? this.runLevelMetricResults : runLevelMetricResults as SdkOptional<List<ApiEvaluationMetricResult>>,
+    runName: identical(runName, sdkOmittedValue) ? this.runName : runName as SdkOptional<String>,
+    starMetricResult: identical(starMetricResult, sdkOmittedValue) ? this.starMetricResult : starMetricResult as SdkOptional<ApiEvaluationMetricResult>,
+    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ApiEvaluationRunStatus>,
+    testCaseDescription: identical(testCaseDescription, sdkOmittedValue) ? this.testCaseDescription : testCaseDescription as SdkOptional<String>,
+    testCaseName: identical(testCaseName, sdkOmittedValue) ? this.testCaseName : testCaseName as SdkOptional<String>,
+    testCaseUuid: identical(testCaseUuid, sdkOmittedValue) ? this.testCaseUuid : testCaseUuid as SdkOptional<String>,
+    testCaseVersion: identical(testCaseVersion, sdkOmittedValue) ? this.testCaseVersion : testCaseVersion as SdkOptional<int>,
+  );
 
-  factory ApiEvaluationRun.fromJson(Map<String, dynamic> json) =>
-      ApiEvaluationRun(
-        agentDeleted: json['agent_deleted'] != null
-            ? SdkPresent((json['agent_deleted'] as bool?)!)
-            : const SdkOmitted(),
-        agentDeploymentName: json['agent_deployment_name'] != null
-            ? SdkPresent((json['agent_deployment_name'] as String?)!)
-            : const SdkOmitted(),
-        agentName: json['agent_name'] != null
-            ? SdkPresent((json['agent_name'] as String?)!)
-            : const SdkOmitted(),
-        agentUuid: json['agent_uuid'] != null
-            ? SdkPresent((json['agent_uuid'] as String?)!)
-            : const SdkOmitted(),
-        agentVersionHash: json['agent_version_hash'] != null
-            ? SdkPresent((json['agent_version_hash'] as String?)!)
-            : const SdkOmitted(),
-        agentWorkspaceUuid: json['agent_workspace_uuid'] != null
-            ? SdkPresent((json['agent_workspace_uuid'] as String?)!)
-            : const SdkOmitted(),
-        createdByUserEmail: json['created_by_user_email'] != null
-            ? SdkPresent((json['created_by_user_email'] as String?)!)
-            : const SdkOmitted(),
-        createdByUserId: json['created_by_user_id'] != null
-            ? SdkPresent((json['created_by_user_id'] as String?)!)
-            : const SdkOmitted(),
-        errorDescription: json['error_description'] != null
-            ? SdkPresent((json['error_description'] as String?)!)
-            : const SdkOmitted(),
-        evaluationRunUuid: json['evaluation_run_uuid'] != null
-            ? SdkPresent((json['evaluation_run_uuid'] as String?)!)
-            : const SdkOmitted(),
-        evaluationTestCaseWorkspaceUuid:
-            json['evaluation_test_case_workspace_uuid'] != null
-                ? SdkPresent(
-                    (json['evaluation_test_case_workspace_uuid'] as String?)!)
-                : const SdkOmitted(),
-        finishedAt: json['finished_at'] != null
-            ? SdkPresent((json['finished_at'] as String?)!)
-            : const SdkOmitted(),
-        passStatus: json['pass_status'] != null
-            ? SdkPresent((json['pass_status'] as bool?)!)
-            : const SdkOmitted(),
-        queuedAt: json['queued_at'] != null
-            ? SdkPresent((json['queued_at'] as String?)!)
-            : const SdkOmitted(),
-        runLevelMetricResults: json['run_level_metric_results'] != null
-            ? SdkPresent(((json['run_level_metric_results'] as List?)
-                ?.map((e) => ApiEvaluationMetricResult.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        runName: json['run_name'] != null
-            ? SdkPresent((json['run_name'] as String?)!)
-            : const SdkOmitted(),
-        starMetricResult: json['star_metric_result'] != null
-            ? SdkPresent((json['star_metric_result'] != null
-                ? ApiEvaluationMetricResult.fromJson(
-                    json['star_metric_result'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        startedAt: json['started_at'] != null
-            ? SdkPresent((json['started_at'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ApiEvaluationRunStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        testCaseDescription: json['test_case_description'] != null
-            ? SdkPresent((json['test_case_description'] as String?)!)
-            : const SdkOmitted(),
-        testCaseName: json['test_case_name'] != null
-            ? SdkPresent((json['test_case_name'] as String?)!)
-            : const SdkOmitted(),
-        testCaseUuid: json['test_case_uuid'] != null
-            ? SdkPresent((json['test_case_uuid'] as String?)!)
-            : const SdkOmitted(),
-        testCaseVersion: json['test_case_version'] != null
-            ? SdkPresent(((json['test_case_version'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ApiEvaluationRun.fromJson(Map<String, dynamic> json) => ApiEvaluationRun(
+    agentDeleted: json['agent_deleted'] != null ? SdkPresent((json['agent_deleted'] as bool?)!) : const SdkOmitted(),
+    agentDeploymentName: json['agent_deployment_name'] != null ? SdkPresent((json['agent_deployment_name'] as String?)!) : const SdkOmitted(),
+    agentName: json['agent_name'] != null ? SdkPresent((json['agent_name'] as String?)!) : const SdkOmitted(),
+    agentUuid: json['agent_uuid'] != null ? SdkPresent((json['agent_uuid'] as String?)!) : const SdkOmitted(),
+    agentVersionHash: json['agent_version_hash'] != null ? SdkPresent((json['agent_version_hash'] as String?)!) : const SdkOmitted(),
+    agentWorkspaceUuid: json['agent_workspace_uuid'] != null ? SdkPresent((json['agent_workspace_uuid'] as String?)!) : const SdkOmitted(),
+    createdByUserEmail: json['created_by_user_email'] != null ? SdkPresent((json['created_by_user_email'] as String?)!) : const SdkOmitted(),
+    createdByUserId: json['created_by_user_id'] != null ? SdkPresent((json['created_by_user_id'] as String?)!) : const SdkOmitted(),
+    errorDescription: json['error_description'] != null ? SdkPresent((json['error_description'] as String?)!) : const SdkOmitted(),
+    evaluationRunUuid: json['evaluation_run_uuid'] != null ? SdkPresent((json['evaluation_run_uuid'] as String?)!) : const SdkOmitted(),
+    evaluationTestCaseWorkspaceUuid: json['evaluation_test_case_workspace_uuid'] != null ? SdkPresent((json['evaluation_test_case_workspace_uuid'] as String?)!) : const SdkOmitted(),
+    finishedAt: json['finished_at'] != null ? SdkPresent((json['finished_at'] as String?)!) : const SdkOmitted(),
+    passStatus: json['pass_status'] != null ? SdkPresent((json['pass_status'] as bool?)!) : const SdkOmitted(),
+    queuedAt: json['queued_at'] != null ? SdkPresent((json['queued_at'] as String?)!) : const SdkOmitted(),
+    runLevelMetricResults: json['run_level_metric_results'] != null ? SdkPresent(((json['run_level_metric_results'] as List?)?.map((e) => ApiEvaluationMetricResult.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    runName: json['run_name'] != null ? SdkPresent((json['run_name'] as String?)!) : const SdkOmitted(),
+    starMetricResult: json['star_metric_result'] != null ? SdkPresent((json['star_metric_result'] != null ? ApiEvaluationMetricResult.fromJson(json['star_metric_result'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    startedAt: json['started_at'] != null ? SdkPresent((json['started_at'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ApiEvaluationRunStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    testCaseDescription: json['test_case_description'] != null ? SdkPresent((json['test_case_description'] as String?)!) : const SdkOmitted(),
+    testCaseName: json['test_case_name'] != null ? SdkPresent((json['test_case_name'] as String?)!) : const SdkOmitted(),
+    testCaseUuid: json['test_case_uuid'] != null ? SdkPresent((json['test_case_uuid'] as String?)!) : const SdkOmitted(),
+    testCaseVersion: json['test_case_version'] != null ? SdkPresent(((json['test_case_version'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agentDeleted) {
-          SdkPresent<bool>(value: final value) => {
-              'agent_deleted': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (agentDeploymentName) {
-          SdkPresent<String>(value: final value) => {
-              'agent_deployment_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (agentName) {
-          SdkPresent<String>(value: final value) => {
-              'agent_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (agentUuid) {
-          SdkPresent<String>(value: final value) => {
-              'agent_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (agentVersionHash) {
-          SdkPresent<String>(value: final value) => {
-              'agent_version_hash': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (agentWorkspaceUuid) {
-          SdkPresent<String>(value: final value) => {
-              'agent_workspace_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdByUserEmail) {
-          SdkPresent<String>(value: final value) => {
-              'created_by_user_email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdByUserId) {
-          SdkPresent<String>(value: final value) => {
-              'created_by_user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (errorDescription) {
-          SdkPresent<String>(value: final value) => {
-              'error_description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (evaluationRunUuid) {
-          SdkPresent<String>(value: final value) => {
-              'evaluation_run_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (evaluationTestCaseWorkspaceUuid) {
-          SdkPresent<String>(value: final value) => {
-              'evaluation_test_case_workspace_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (finishedAt) {
-          SdkPresent<String>(value: final value) => {
-              'finished_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (passStatus) {
-          SdkPresent<bool>(value: final value) => {
-              'pass_status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (queuedAt) {
-          SdkPresent<String>(value: final value) => {
-              'queued_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (runLevelMetricResults) {
-          SdkPresent<List<ApiEvaluationMetricResult>>(value: final value) => {
-              'run_level_metric_results':
-                  value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (runName) {
-          SdkPresent<String>(value: final value) => {
-              'run_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (starMetricResult) {
-          SdkPresent<ApiEvaluationMetricResult>(value: final value) => {
-              'star_metric_result': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startedAt) {
-          SdkPresent<String>(value: final value) => {
-              'started_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<ApiEvaluationRunStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (testCaseDescription) {
-          SdkPresent<String>(value: final value) => {
-              'test_case_description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (testCaseName) {
-          SdkPresent<String>(value: final value) => {
-              'test_case_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (testCaseUuid) {
-          SdkPresent<String>(value: final value) => {
-              'test_case_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (testCaseVersion) {
-          SdkPresent<int>(value: final value) => {
-              'test_case_version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agentDeleted) {
+      SdkPresent<bool>(value: final value) => {'agent_deleted': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (agentDeploymentName) {
+      SdkPresent<String>(value: final value) => {'agent_deployment_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (agentName) {
+      SdkPresent<String>(value: final value) => {'agent_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (agentUuid) {
+      SdkPresent<String>(value: final value) => {'agent_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (agentVersionHash) {
+      SdkPresent<String>(value: final value) => {'agent_version_hash': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (agentWorkspaceUuid) {
+      SdkPresent<String>(value: final value) => {'agent_workspace_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdByUserEmail) {
+      SdkPresent<String>(value: final value) => {'created_by_user_email': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdByUserId) {
+      SdkPresent<String>(value: final value) => {'created_by_user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (errorDescription) {
+      SdkPresent<String>(value: final value) => {'error_description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (evaluationRunUuid) {
+      SdkPresent<String>(value: final value) => {'evaluation_run_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (evaluationTestCaseWorkspaceUuid) {
+      SdkPresent<String>(value: final value) => {'evaluation_test_case_workspace_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (finishedAt) {
+      SdkPresent<String>(value: final value) => {'finished_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (passStatus) {
+      SdkPresent<bool>(value: final value) => {'pass_status': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (queuedAt) {
+      SdkPresent<String>(value: final value) => {'queued_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (runLevelMetricResults) {
+      SdkPresent<List<ApiEvaluationMetricResult>>(value: final value) => {'run_level_metric_results': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (runName) {
+      SdkPresent<String>(value: final value) => {'run_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (starMetricResult) {
+      SdkPresent<ApiEvaluationMetricResult>(value: final value) => {'star_metric_result': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startedAt) {
+      SdkPresent<String>(value: final value) => {'started_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<ApiEvaluationRunStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (testCaseDescription) {
+      SdkPresent<String>(value: final value) => {'test_case_description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (testCaseName) {
+      SdkPresent<String>(value: final value) => {'test_case_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (testCaseUuid) {
+      SdkPresent<String>(value: final value) => {'test_case_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (testCaseVersion) {
+      SdkPresent<int>(value: final value) => {'test_case_version': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

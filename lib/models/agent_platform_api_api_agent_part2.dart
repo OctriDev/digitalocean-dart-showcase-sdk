@@ -8,518 +8,266 @@ part of 'agent_platform_api_api_agent.dart';
 class ApiAgentFunctionVersion {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Description of the function
   final SdkOptional<String> description;
-
   /// FaaS name of the function
   final SdkOptional<String> faasName;
-
   /// FaaS namespace of the function
   final SdkOptional<String> faasNamespace;
-
   /// Whether the function is deleted
   final SdkOptional<bool> isDeleted;
-
   /// Name of the function
   final SdkOptional<String> name;
 
-  const ApiAgentFunctionVersion(
-      {this.description = const SdkOmitted(),
-      this.faasName = const SdkOmitted(),
-      this.faasNamespace = const SdkOmitted(),
-      this.isDeleted = const SdkOmitted(),
-      this.name = const SdkOmitted()});
+  const ApiAgentFunctionVersion({this.description = const SdkOmitted(), this.faasName = const SdkOmitted(), this.faasNamespace = const SdkOmitted(), this.isDeleted = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  ApiAgentFunctionVersion Function(
-      {SdkOptional<String> description,
-      SdkOptional<String> faasName,
-      SdkOptional<String> faasNamespace,
-      SdkOptional<bool> isDeleted,
-      SdkOptional<String> name}) get copyWith => _copyWith;
+  ApiAgentFunctionVersion Function({SdkOptional<String> description, SdkOptional<String> faasName, SdkOptional<String> faasNamespace, SdkOptional<bool> isDeleted, SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ApiAgentFunctionVersion _copyWith(
-          {Object? description = sdkOmittedValue,
-          Object? faasName = sdkOmittedValue,
-          Object? faasNamespace = sdkOmittedValue,
-          Object? isDeleted = sdkOmittedValue,
-          Object? name = sdkOmittedValue}) =>
-      ApiAgentFunctionVersion(
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        faasName: identical(faasName, sdkOmittedValue)
-            ? this.faasName
-            : faasName as SdkOptional<String>,
-        faasNamespace: identical(faasNamespace, sdkOmittedValue)
-            ? this.faasNamespace
-            : faasNamespace as SdkOptional<String>,
-        isDeleted: identical(isDeleted, sdkOmittedValue)
-            ? this.isDeleted
-            : isDeleted as SdkOptional<bool>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  ApiAgentFunctionVersion _copyWith({Object? description = sdkOmittedValue, Object? faasName = sdkOmittedValue, Object? faasNamespace = sdkOmittedValue, Object? isDeleted = sdkOmittedValue, Object? name = sdkOmittedValue}) => ApiAgentFunctionVersion(
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    faasName: identical(faasName, sdkOmittedValue) ? this.faasName : faasName as SdkOptional<String>,
+    faasNamespace: identical(faasNamespace, sdkOmittedValue) ? this.faasNamespace : faasNamespace as SdkOptional<String>,
+    isDeleted: identical(isDeleted, sdkOmittedValue) ? this.isDeleted : isDeleted as SdkOptional<bool>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory ApiAgentFunctionVersion.fromJson(Map<String, dynamic> json) =>
-      ApiAgentFunctionVersion(
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        faasName: json['faas_name'] != null
-            ? SdkPresent((json['faas_name'] as String?)!)
-            : const SdkOmitted(),
-        faasNamespace: json['faas_namespace'] != null
-            ? SdkPresent((json['faas_namespace'] as String?)!)
-            : const SdkOmitted(),
-        isDeleted: json['is_deleted'] != null
-            ? SdkPresent((json['is_deleted'] as bool?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiAgentFunctionVersion.fromJson(Map<String, dynamic> json) => ApiAgentFunctionVersion(
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    faasName: json['faas_name'] != null ? SdkPresent((json['faas_name'] as String?)!) : const SdkOmitted(),
+    faasNamespace: json['faas_namespace'] != null ? SdkPresent((json['faas_namespace'] as String?)!) : const SdkOmitted(),
+    isDeleted: json['is_deleted'] != null ? SdkPresent((json['is_deleted'] as bool?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (faasName) {
-          SdkPresent<String>(value: final value) => {
-              'faas_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (faasNamespace) {
-          SdkPresent<String>(value: final value) => {
-              'faas_namespace': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isDeleted) {
-          SdkPresent<bool>(value: final value) => {
-              'is_deleted': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (faasName) {
+      SdkPresent<String>(value: final value) => {'faas_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (faasNamespace) {
+      SdkPresent<String>(value: final value) => {'faas_namespace': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isDeleted) {
+      SdkPresent<bool>(value: final value) => {'is_deleted': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A Agent Guardrail
 class ApiAgentGuardrail {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `agent_uuid` wire field.
   final SdkOptional<String> agentUuid;
-
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
-
   /// Optional `string` value serialized in the `default_response` wire field.
   final SdkOptional<String> defaultResponse;
-
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
-
   /// Optional `string` value serialized in the `guardrail_uuid` wire field.
   final SdkOptional<String> guardrailUuid;
-
   /// Optional `boolean` value serialized in the `is_attached` wire field.
   final SdkOptional<bool> isAttached;
-
   /// Optional `boolean` value serialized in the `is_default` wire field.
   final SdkOptional<bool> isDefault;
-
   /// Optional object value serialized in the `metadata` wire field.
   final SdkOptional<Map<String, dynamic>> metadata;
-
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
-
   /// Optional `int32`-formatted value serialized in the `priority` wire field.
   final SdkOptional<int> priority;
-
   /// Optional enumerated value serialized in the `type` wire field.
   final SdkOptional<ApiGuardrailType> type_;
-
   /// Optional `date-time`-formatted value serialized in the `updated_at` wire field.
   final SdkOptional<String> updatedAt;
-
   /// Optional `string` value serialized in the `uuid` wire field.
   final SdkOptional<String> uuid;
 
-  const ApiAgentGuardrail(
-      {this.agentUuid = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.defaultResponse = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.guardrailUuid = const SdkOmitted(),
-      this.isAttached = const SdkOmitted(),
-      this.isDefault = const SdkOmitted(),
-      this.metadata = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.priority = const SdkOmitted(),
-      this.type_ = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.uuid = const SdkOmitted()});
+  const ApiAgentGuardrail({this.agentUuid = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.defaultResponse = const SdkOmitted(), this.description = const SdkOmitted(), this.guardrailUuid = const SdkOmitted(), this.isAttached = const SdkOmitted(), this.isDefault = const SdkOmitted(), this.metadata = const SdkOmitted(), this.name = const SdkOmitted(), this.priority = const SdkOmitted(), this.type_ = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.uuid = const SdkOmitted()});
 
-  ApiAgentGuardrail Function(
-      {SdkOptional<String> agentUuid,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> defaultResponse,
-      SdkOptional<String> description,
-      SdkOptional<String> guardrailUuid,
-      SdkOptional<bool> isAttached,
-      SdkOptional<bool> isDefault,
-      SdkOptional<Map<String, dynamic>> metadata,
-      SdkOptional<String> name,
-      SdkOptional<int> priority,
-      SdkOptional<ApiGuardrailType> type_,
-      SdkOptional<String> updatedAt,
-      SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiAgentGuardrail Function({SdkOptional<String> agentUuid, SdkOptional<String> createdAt, SdkOptional<String> defaultResponse, SdkOptional<String> description, SdkOptional<String> guardrailUuid, SdkOptional<bool> isAttached, SdkOptional<bool> isDefault, SdkOptional<Map<String, dynamic>> metadata, SdkOptional<String> name, SdkOptional<int> priority, SdkOptional<ApiGuardrailType> type_, SdkOptional<String> updatedAt, SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiAgentGuardrail _copyWith(
-          {Object? agentUuid = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? defaultResponse = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? guardrailUuid = sdkOmittedValue,
-          Object? isAttached = sdkOmittedValue,
-          Object? isDefault = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? priority = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? uuid = sdkOmittedValue}) =>
-      ApiAgentGuardrail(
-        agentUuid: identical(agentUuid, sdkOmittedValue)
-            ? this.agentUuid
-            : agentUuid as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        defaultResponse: identical(defaultResponse, sdkOmittedValue)
-            ? this.defaultResponse
-            : defaultResponse as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        guardrailUuid: identical(guardrailUuid, sdkOmittedValue)
-            ? this.guardrailUuid
-            : guardrailUuid as SdkOptional<String>,
-        isAttached: identical(isAttached, sdkOmittedValue)
-            ? this.isAttached
-            : isAttached as SdkOptional<bool>,
-        isDefault: identical(isDefault, sdkOmittedValue)
-            ? this.isDefault
-            : isDefault as SdkOptional<bool>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, dynamic>>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        priority: identical(priority, sdkOmittedValue)
-            ? this.priority
-            : priority as SdkOptional<int>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<ApiGuardrailType>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-      );
+  ApiAgentGuardrail _copyWith({Object? agentUuid = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? defaultResponse = sdkOmittedValue, Object? description = sdkOmittedValue, Object? guardrailUuid = sdkOmittedValue, Object? isAttached = sdkOmittedValue, Object? isDefault = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? name = sdkOmittedValue, Object? priority = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiAgentGuardrail(
+    agentUuid: identical(agentUuid, sdkOmittedValue) ? this.agentUuid : agentUuid as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    defaultResponse: identical(defaultResponse, sdkOmittedValue) ? this.defaultResponse : defaultResponse as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    guardrailUuid: identical(guardrailUuid, sdkOmittedValue) ? this.guardrailUuid : guardrailUuid as SdkOptional<String>,
+    isAttached: identical(isAttached, sdkOmittedValue) ? this.isAttached : isAttached as SdkOptional<bool>,
+    isDefault: identical(isDefault, sdkOmittedValue) ? this.isDefault : isDefault as SdkOptional<bool>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    priority: identical(priority, sdkOmittedValue) ? this.priority : priority as SdkOptional<int>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ApiGuardrailType>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+  );
 
-  factory ApiAgentGuardrail.fromJson(Map<String, dynamic> json) =>
-      ApiAgentGuardrail(
-        agentUuid: json['agent_uuid'] != null
-            ? SdkPresent((json['agent_uuid'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        defaultResponse: json['default_response'] != null
-            ? SdkPresent((json['default_response'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        guardrailUuid: json['guardrail_uuid'] != null
-            ? SdkPresent((json['guardrail_uuid'] as String?)!)
-            : const SdkOmitted(),
-        isAttached: json['is_attached'] != null
-            ? SdkPresent((json['is_attached'] as bool?)!)
-            : const SdkOmitted(),
-        isDefault: json['is_default'] != null
-            ? SdkPresent((json['is_default'] as bool?)!)
-            : const SdkOmitted(),
-        metadata: json['metadata'] != null
-            ? SdkPresent((json['metadata'] == null
-                ? null
-                : json['metadata'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        priority: json['priority'] != null
-            ? SdkPresent(((json['priority'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? ApiGuardrailType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiAgentGuardrail.fromJson(Map<String, dynamic> json) => ApiAgentGuardrail(
+    agentUuid: json['agent_uuid'] != null ? SdkPresent((json['agent_uuid'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    defaultResponse: json['default_response'] != null ? SdkPresent((json['default_response'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    guardrailUuid: json['guardrail_uuid'] != null ? SdkPresent((json['guardrail_uuid'] as String?)!) : const SdkOmitted(),
+    isAttached: json['is_attached'] != null ? SdkPresent((json['is_attached'] as bool?)!) : const SdkOmitted(),
+    isDefault: json['is_default'] != null ? SdkPresent((json['is_default'] as bool?)!) : const SdkOmitted(),
+    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    priority: json['priority'] != null ? SdkPresent(((json['priority'] as num?)?.toInt())!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ApiGuardrailType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agentUuid) {
-          SdkPresent<String>(value: final value) => {
-              'agent_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultResponse) {
-          SdkPresent<String>(value: final value) => {
-              'default_response': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (guardrailUuid) {
-          SdkPresent<String>(value: final value) => {
-              'guardrail_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isAttached) {
-          SdkPresent<bool>(value: final value) => {
-              'is_attached': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isDefault) {
-          SdkPresent<bool>(value: final value) => {
-              'is_default': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (priority) {
-          SdkPresent<int>(value: final value) => {
-              'priority': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<ApiGuardrailType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agentUuid) {
+      SdkPresent<String>(value: final value) => {'agent_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultResponse) {
+      SdkPresent<String>(value: final value) => {'default_response': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (guardrailUuid) {
+      SdkPresent<String>(value: final value) => {'guardrail_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isAttached) {
+      SdkPresent<bool>(value: final value) => {'is_attached': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isDefault) {
+      SdkPresent<bool>(value: final value) => {'is_default': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (priority) {
+      SdkPresent<int>(value: final value) => {'priority': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<ApiGuardrailType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiAgentGuardrailInput` API schema.
 class ApiAgentGuardrailInput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Guardrail uuid
   final SdkOptional<String> guardrailUuid;
-
   /// Priority of the guardrail
   final SdkOptional<int> priority;
 
-  const ApiAgentGuardrailInput(
-      {this.guardrailUuid = const SdkOmitted(),
-      this.priority = const SdkOmitted()});
+  const ApiAgentGuardrailInput({this.guardrailUuid = const SdkOmitted(), this.priority = const SdkOmitted()});
 
-  ApiAgentGuardrailInput Function(
-      {SdkOptional<String> guardrailUuid,
-      SdkOptional<int> priority}) get copyWith => _copyWith;
+  ApiAgentGuardrailInput Function({SdkOptional<String> guardrailUuid, SdkOptional<int> priority}) get copyWith => _copyWith;
 
-  ApiAgentGuardrailInput _copyWith(
-          {Object? guardrailUuid = sdkOmittedValue,
-          Object? priority = sdkOmittedValue}) =>
-      ApiAgentGuardrailInput(
-        guardrailUuid: identical(guardrailUuid, sdkOmittedValue)
-            ? this.guardrailUuid
-            : guardrailUuid as SdkOptional<String>,
-        priority: identical(priority, sdkOmittedValue)
-            ? this.priority
-            : priority as SdkOptional<int>,
-      );
+  ApiAgentGuardrailInput _copyWith({Object? guardrailUuid = sdkOmittedValue, Object? priority = sdkOmittedValue}) => ApiAgentGuardrailInput(
+    guardrailUuid: identical(guardrailUuid, sdkOmittedValue) ? this.guardrailUuid : guardrailUuid as SdkOptional<String>,
+    priority: identical(priority, sdkOmittedValue) ? this.priority : priority as SdkOptional<int>,
+  );
 
-  factory ApiAgentGuardrailInput.fromJson(Map<String, dynamic> json) =>
-      ApiAgentGuardrailInput(
-        guardrailUuid: json['guardrail_uuid'] != null
-            ? SdkPresent((json['guardrail_uuid'] as String?)!)
-            : const SdkOmitted(),
-        priority: json['priority'] != null
-            ? SdkPresent(((json['priority'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ApiAgentGuardrailInput.fromJson(Map<String, dynamic> json) => ApiAgentGuardrailInput(
+    guardrailUuid: json['guardrail_uuid'] != null ? SdkPresent((json['guardrail_uuid'] as String?)!) : const SdkOmitted(),
+    priority: json['priority'] != null ? SdkPresent(((json['priority'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (guardrailUuid) {
-          SdkPresent<String>(value: final value) => {
-              'guardrail_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (priority) {
-          SdkPresent<int>(value: final value) => {
-              'priority': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (guardrailUuid) {
+      SdkPresent<String>(value: final value) => {'guardrail_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (priority) {
+      SdkPresent<int>(value: final value) => {'priority': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Agent Guardrail version
 class ApiAgentGuardrailVersion {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether the guardrail is deleted
   final SdkOptional<bool> isDeleted;
-
   /// Guardrail Name
   final SdkOptional<String> name;
-
   /// Guardrail Priority
   final SdkOptional<int> priority;
-
   /// Guardrail UUID
   final SdkOptional<String> uuid;
 
-  const ApiAgentGuardrailVersion(
-      {this.isDeleted = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.priority = const SdkOmitted(),
-      this.uuid = const SdkOmitted()});
+  const ApiAgentGuardrailVersion({this.isDeleted = const SdkOmitted(), this.name = const SdkOmitted(), this.priority = const SdkOmitted(), this.uuid = const SdkOmitted()});
 
-  ApiAgentGuardrailVersion Function(
-      {SdkOptional<bool> isDeleted,
-      SdkOptional<String> name,
-      SdkOptional<int> priority,
-      SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiAgentGuardrailVersion Function({SdkOptional<bool> isDeleted, SdkOptional<String> name, SdkOptional<int> priority, SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiAgentGuardrailVersion _copyWith(
-          {Object? isDeleted = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? priority = sdkOmittedValue,
-          Object? uuid = sdkOmittedValue}) =>
-      ApiAgentGuardrailVersion(
-        isDeleted: identical(isDeleted, sdkOmittedValue)
-            ? this.isDeleted
-            : isDeleted as SdkOptional<bool>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        priority: identical(priority, sdkOmittedValue)
-            ? this.priority
-            : priority as SdkOptional<int>,
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-      );
+  ApiAgentGuardrailVersion _copyWith({Object? isDeleted = sdkOmittedValue, Object? name = sdkOmittedValue, Object? priority = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiAgentGuardrailVersion(
+    isDeleted: identical(isDeleted, sdkOmittedValue) ? this.isDeleted : isDeleted as SdkOptional<bool>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    priority: identical(priority, sdkOmittedValue) ? this.priority : priority as SdkOptional<int>,
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+  );
 
-  factory ApiAgentGuardrailVersion.fromJson(Map<String, dynamic> json) =>
-      ApiAgentGuardrailVersion(
-        isDeleted: json['is_deleted'] != null
-            ? SdkPresent((json['is_deleted'] as bool?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        priority: json['priority'] != null
-            ? SdkPresent(((json['priority'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiAgentGuardrailVersion.fromJson(Map<String, dynamic> json) => ApiAgentGuardrailVersion(
+    isDeleted: json['is_deleted'] != null ? SdkPresent((json['is_deleted'] as bool?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    priority: json['priority'] != null ? SdkPresent(((json['priority'] as num?)?.toInt())!) : const SdkOmitted(),
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (isDeleted) {
-          SdkPresent<bool>(value: final value) => {
-              'is_deleted': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (priority) {
-          SdkPresent<int>(value: final value) => {
-              'priority': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (isDeleted) {
+      SdkPresent<bool>(value: final value) => {'is_deleted': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (priority) {
+      SdkPresent<int>(value: final value) => {'priority': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

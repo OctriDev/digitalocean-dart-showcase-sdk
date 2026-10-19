@@ -8,355 +8,161 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelCatalogEntry {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `availability` wire field.
   final SdkOptional<List<String>> availability;
-
   /// Badges for models
   final SdkOptional<List<String>> badges;
-
   /// Benchmark scores for this model, stored as arbitrary JSON
   final SdkOptional<Map<String, dynamic>> benchmarkScore;
-
   /// Optional array value serialized in the `capabilities` wire field.
   final SdkOptional<List<String>> capabilities;
-
   /// Specs (flat)
   final SdkOptional<String> contextWindow;
-
   /// RFC 3339 timestamp indicating when the model was added to the catalog.
   final SdkOptional<String> createdAt;
-
   /// Model creator/developer (e.g., "Meta", "Anthropic", "OpenAI")
   final SdkOptional<String> creator;
-
   /// The Hugging Face repository ID (e.g. "meta-llama/Llama-3.3-70B-Instruct") the model is based on, when applicable. Omitted for models not sourced from Hugging Face.
   final SdkOptional<String> huggingFaceId;
-
   /// Identity
   final SdkOptional<String> id;
-
   /// The maximum number of output tokens the model can generate in a single response.
   final SdkOptional<String> maxOutputTokens;
-
   /// Model identifier used for API calls (e.g., "llama3.1-70b-instruct")
   final SdkOptional<String> modelId;
-
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
-
   /// Optional `float`-formatted value serialized in the `parameter_count` wire field.
   final SdkOptional<double> parameterCount;
-
   /// Pricing per million tokens (aligns with existing ModelPrice pattern)
   final SdkOptional<ApiModelPricing> pricing;
-
   /// Optional enumerated value serialized in the `provider` wire field.
   final SdkOptional<ApiModelProvider> provider;
-
   /// True when this model's pricing varies over time. Retrieve the model's details for the full pricing schedule. False for models with fixed pricing.
   final SdkOptional<bool> scaledPricingEnabled;
-
   /// Optional `string` value serialized in the `short_description` wire field.
   final SdkOptional<String> shortDescription;
-
   /// Optional `string` value serialized in the `type` wire field.
   final SdkOptional<String> type_;
 
-  const ApiModelCatalogEntry(
-      {this.availability = const SdkOmitted(),
-      this.badges = const SdkOmitted(),
-      this.benchmarkScore = const SdkOmitted(),
-      this.capabilities = const SdkOmitted(),
-      this.contextWindow = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.creator = const SdkOmitted(),
-      this.huggingFaceId = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.maxOutputTokens = const SdkOmitted(),
-      this.modelId = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.parameterCount = const SdkOmitted(),
-      this.pricing = const SdkOmitted(),
-      this.provider = const SdkOmitted(),
-      this.scaledPricingEnabled = const SdkOmitted(),
-      this.shortDescription = const SdkOmitted(),
-      this.type_ = const SdkOmitted()});
+  const ApiModelCatalogEntry({this.availability = const SdkOmitted(), this.badges = const SdkOmitted(), this.benchmarkScore = const SdkOmitted(), this.capabilities = const SdkOmitted(), this.contextWindow = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.creator = const SdkOmitted(), this.huggingFaceId = const SdkOmitted(), this.id = const SdkOmitted(), this.maxOutputTokens = const SdkOmitted(), this.modelId = const SdkOmitted(), this.name = const SdkOmitted(), this.parameterCount = const SdkOmitted(), this.pricing = const SdkOmitted(), this.provider = const SdkOmitted(), this.scaledPricingEnabled = const SdkOmitted(), this.shortDescription = const SdkOmitted(), this.type_ = const SdkOmitted()});
 
-  ApiModelCatalogEntry Function(
-      {SdkOptional<List<String>> availability,
-      SdkOptional<List<String>> badges,
-      SdkOptional<Map<String, dynamic>> benchmarkScore,
-      SdkOptional<List<String>> capabilities,
-      SdkOptional<String> contextWindow,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> creator,
-      SdkOptional<String> huggingFaceId,
-      SdkOptional<String> id,
-      SdkOptional<String> maxOutputTokens,
-      SdkOptional<String> modelId,
-      SdkOptional<String> name,
-      SdkOptional<double> parameterCount,
-      SdkOptional<ApiModelPricing> pricing,
-      SdkOptional<ApiModelProvider> provider,
-      SdkOptional<bool> scaledPricingEnabled,
-      SdkOptional<String> shortDescription,
-      SdkOptional<String> type_}) get copyWith => _copyWith;
+  ApiModelCatalogEntry Function({SdkOptional<List<String>> availability, SdkOptional<List<String>> badges, SdkOptional<Map<String, dynamic>> benchmarkScore, SdkOptional<List<String>> capabilities, SdkOptional<String> contextWindow, SdkOptional<String> createdAt, SdkOptional<String> creator, SdkOptional<String> huggingFaceId, SdkOptional<String> id, SdkOptional<String> maxOutputTokens, SdkOptional<String> modelId, SdkOptional<String> name, SdkOptional<double> parameterCount, SdkOptional<ApiModelPricing> pricing, SdkOptional<ApiModelProvider> provider, SdkOptional<bool> scaledPricingEnabled, SdkOptional<String> shortDescription, SdkOptional<String> type_}) get copyWith => _copyWith;
 
-  ApiModelCatalogEntry _copyWith(
-          {Object? availability = sdkOmittedValue,
-          Object? badges = sdkOmittedValue,
-          Object? benchmarkScore = sdkOmittedValue,
-          Object? capabilities = sdkOmittedValue,
-          Object? contextWindow = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? creator = sdkOmittedValue,
-          Object? huggingFaceId = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? maxOutputTokens = sdkOmittedValue,
-          Object? modelId = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? parameterCount = sdkOmittedValue,
-          Object? pricing = sdkOmittedValue,
-          Object? provider = sdkOmittedValue,
-          Object? scaledPricingEnabled = sdkOmittedValue,
-          Object? shortDescription = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      ApiModelCatalogEntry(
-        availability: identical(availability, sdkOmittedValue)
-            ? this.availability
-            : availability as SdkOptional<List<String>>,
-        badges: identical(badges, sdkOmittedValue)
-            ? this.badges
-            : badges as SdkOptional<List<String>>,
-        benchmarkScore: identical(benchmarkScore, sdkOmittedValue)
-            ? this.benchmarkScore
-            : benchmarkScore as SdkOptional<Map<String, dynamic>>,
-        capabilities: identical(capabilities, sdkOmittedValue)
-            ? this.capabilities
-            : capabilities as SdkOptional<List<String>>,
-        contextWindow: identical(contextWindow, sdkOmittedValue)
-            ? this.contextWindow
-            : contextWindow as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        creator: identical(creator, sdkOmittedValue)
-            ? this.creator
-            : creator as SdkOptional<String>,
-        huggingFaceId: identical(huggingFaceId, sdkOmittedValue)
-            ? this.huggingFaceId
-            : huggingFaceId as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue)
-            ? this.maxOutputTokens
-            : maxOutputTokens as SdkOptional<String>,
-        modelId: identical(modelId, sdkOmittedValue)
-            ? this.modelId
-            : modelId as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        parameterCount: identical(parameterCount, sdkOmittedValue)
-            ? this.parameterCount
-            : parameterCount as SdkOptional<double>,
-        pricing: identical(pricing, sdkOmittedValue)
-            ? this.pricing
-            : pricing as SdkOptional<ApiModelPricing>,
-        provider: identical(provider, sdkOmittedValue)
-            ? this.provider
-            : provider as SdkOptional<ApiModelProvider>,
-        scaledPricingEnabled: identical(scaledPricingEnabled, sdkOmittedValue)
-            ? this.scaledPricingEnabled
-            : scaledPricingEnabled as SdkOptional<bool>,
-        shortDescription: identical(shortDescription, sdkOmittedValue)
-            ? this.shortDescription
-            : shortDescription as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-      );
+  ApiModelCatalogEntry _copyWith({Object? availability = sdkOmittedValue, Object? badges = sdkOmittedValue, Object? benchmarkScore = sdkOmittedValue, Object? capabilities = sdkOmittedValue, Object? contextWindow = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? creator = sdkOmittedValue, Object? huggingFaceId = sdkOmittedValue, Object? id = sdkOmittedValue, Object? maxOutputTokens = sdkOmittedValue, Object? modelId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? parameterCount = sdkOmittedValue, Object? pricing = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? scaledPricingEnabled = sdkOmittedValue, Object? shortDescription = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => ApiModelCatalogEntry(
+    availability: identical(availability, sdkOmittedValue) ? this.availability : availability as SdkOptional<List<String>>,
+    badges: identical(badges, sdkOmittedValue) ? this.badges : badges as SdkOptional<List<String>>,
+    benchmarkScore: identical(benchmarkScore, sdkOmittedValue) ? this.benchmarkScore : benchmarkScore as SdkOptional<Map<String, dynamic>>,
+    capabilities: identical(capabilities, sdkOmittedValue) ? this.capabilities : capabilities as SdkOptional<List<String>>,
+    contextWindow: identical(contextWindow, sdkOmittedValue) ? this.contextWindow : contextWindow as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    creator: identical(creator, sdkOmittedValue) ? this.creator : creator as SdkOptional<String>,
+    huggingFaceId: identical(huggingFaceId, sdkOmittedValue) ? this.huggingFaceId : huggingFaceId as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue) ? this.maxOutputTokens : maxOutputTokens as SdkOptional<String>,
+    modelId: identical(modelId, sdkOmittedValue) ? this.modelId : modelId as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    parameterCount: identical(parameterCount, sdkOmittedValue) ? this.parameterCount : parameterCount as SdkOptional<double>,
+    pricing: identical(pricing, sdkOmittedValue) ? this.pricing : pricing as SdkOptional<ApiModelPricing>,
+    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as SdkOptional<ApiModelProvider>,
+    scaledPricingEnabled: identical(scaledPricingEnabled, sdkOmittedValue) ? this.scaledPricingEnabled : scaledPricingEnabled as SdkOptional<bool>,
+    shortDescription: identical(shortDescription, sdkOmittedValue) ? this.shortDescription : shortDescription as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+  );
 
-  factory ApiModelCatalogEntry.fromJson(Map<String, dynamic> json) =>
-      ApiModelCatalogEntry(
-        availability: json['availability'] != null
-            ? SdkPresent(((json['availability'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        badges: json['badges'] != null
-            ? SdkPresent(
-                ((json['badges'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        benchmarkScore: json['benchmark_score'] != null
-            ? SdkPresent((json['benchmark_score'] == null
-                ? null
-                : json['benchmark_score'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-        capabilities: json['capabilities'] != null
-            ? SdkPresent(((json['capabilities'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        contextWindow: json['context_window'] != null
-            ? SdkPresent((json['context_window'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        creator: json['creator'] != null
-            ? SdkPresent((json['creator'] as String?)!)
-            : const SdkOmitted(),
-        huggingFaceId: json['hugging_face_id'] != null
-            ? SdkPresent((json['hugging_face_id'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        maxOutputTokens: json['max_output_tokens'] != null
-            ? SdkPresent((json['max_output_tokens'] as String?)!)
-            : const SdkOmitted(),
-        modelId: json['model_id'] != null
-            ? SdkPresent((json['model_id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        parameterCount: json['parameter_count'] != null
-            ? SdkPresent(((json['parameter_count'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        pricing: json['pricing'] != null
-            ? SdkPresent((json['pricing'] != null
-                ? ApiModelPricing.fromJson(
-                    json['pricing'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        provider: json['provider'] != null
-            ? SdkPresent((json['provider'] != null
-                ? ApiModelProvider.fromJson(json['provider'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        scaledPricingEnabled: json['scaled_pricing_enabled'] != null
-            ? SdkPresent((json['scaled_pricing_enabled'] as bool?)!)
-            : const SdkOmitted(),
-        shortDescription: json['short_description'] != null
-            ? SdkPresent((json['short_description'] as String?)!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiModelCatalogEntry.fromJson(Map<String, dynamic> json) => ApiModelCatalogEntry(
+    availability: json['availability'] != null ? SdkPresent(((json['availability'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    badges: json['badges'] != null ? SdkPresent(((json['badges'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    benchmarkScore: json['benchmark_score'] != null ? SdkPresent((json['benchmark_score'] == null ? null : json['benchmark_score'] as Map<String, dynamic>)!) : const SdkOmitted(),
+    capabilities: json['capabilities'] != null ? SdkPresent(((json['capabilities'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    contextWindow: json['context_window'] != null ? SdkPresent((json['context_window'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    creator: json['creator'] != null ? SdkPresent((json['creator'] as String?)!) : const SdkOmitted(),
+    huggingFaceId: json['hugging_face_id'] != null ? SdkPresent((json['hugging_face_id'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    maxOutputTokens: json['max_output_tokens'] != null ? SdkPresent((json['max_output_tokens'] as String?)!) : const SdkOmitted(),
+    modelId: json['model_id'] != null ? SdkPresent((json['model_id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    parameterCount: json['parameter_count'] != null ? SdkPresent(((json['parameter_count'] as num?)?.toDouble())!) : const SdkOmitted(),
+    pricing: json['pricing'] != null ? SdkPresent((json['pricing'] != null ? ApiModelPricing.fromJson(json['pricing'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    provider: json['provider'] != null ? SdkPresent((json['provider'] != null ? ApiModelProvider.fromJson(json['provider'] as String) : null)!) : const SdkOmitted(),
+    scaledPricingEnabled: json['scaled_pricing_enabled'] != null ? SdkPresent((json['scaled_pricing_enabled'] as bool?)!) : const SdkOmitted(),
+    shortDescription: json['short_description'] != null ? SdkPresent((json['short_description'] as String?)!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (availability) {
-          SdkPresent<List<String>>(value: final value) => {
-              'availability': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (badges) {
-          SdkPresent<List<String>>(value: final value) => {
-              'badges': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (benchmarkScore) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'benchmark_score': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (capabilities) {
-          SdkPresent<List<String>>(value: final value) => {
-              'capabilities': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contextWindow) {
-          SdkPresent<String>(value: final value) => {
-              'context_window': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (creator) {
-          SdkPresent<String>(value: final value) => {
-              'creator': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (huggingFaceId) {
-          SdkPresent<String>(value: final value) => {
-              'hugging_face_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxOutputTokens) {
-          SdkPresent<String>(value: final value) => {
-              'max_output_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (modelId) {
-          SdkPresent<String>(value: final value) => {
-              'model_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (parameterCount) {
-          SdkPresent<double>(value: final value) => {
-              'parameter_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pricing) {
-          SdkPresent<ApiModelPricing>(value: final value) => {
-              'pricing': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (provider) {
-          SdkPresent<ApiModelProvider>(value: final value) => {
-              'provider': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scaledPricingEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'scaled_pricing_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (shortDescription) {
-          SdkPresent<String>(value: final value) => {
-              'short_description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (availability) {
+      SdkPresent<List<String>>(value: final value) => {'availability': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (badges) {
+      SdkPresent<List<String>>(value: final value) => {'badges': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (benchmarkScore) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'benchmark_score': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (capabilities) {
+      SdkPresent<List<String>>(value: final value) => {'capabilities': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contextWindow) {
+      SdkPresent<String>(value: final value) => {'context_window': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (creator) {
+      SdkPresent<String>(value: final value) => {'creator': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (huggingFaceId) {
+      SdkPresent<String>(value: final value) => {'hugging_face_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxOutputTokens) {
+      SdkPresent<String>(value: final value) => {'max_output_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (modelId) {
+      SdkPresent<String>(value: final value) => {'model_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (parameterCount) {
+      SdkPresent<double>(value: final value) => {'parameter_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pricing) {
+      SdkPresent<ApiModelPricing>(value: final value) => {'pricing': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (provider) {
+      SdkPresent<ApiModelProvider>(value: final value) => {'provider': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scaledPricingEnabled) {
+      SdkPresent<bool>(value: final value) => {'scaled_pricing_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (shortDescription) {
+      SdkPresent<String>(value: final value) => {'short_description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models (part 9)
 /// The current status of the autoscale pool.
 final class AutoscalePoolStatus {
+
   final String value;
 
   const AutoscalePoolStatus._(this.value);
 
-  factory AutoscalePoolStatus.fromJson(String value) =>
-      AutoscalePoolStatus._(value);
+  factory AutoscalePoolStatus.fromJson(String value) => AutoscalePoolStatus._(value);
 
   static const active = AutoscalePoolStatus._('active');
   static const deleting = AutoscalePoolStatus._('deleting');
@@ -19,25 +19,22 @@ final class AutoscalePoolStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AutoscalePoolStatus && other.value == value;
+  @override bool operator ==(Object other) => other is AutoscalePoolStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The datacenter in which all of the Droplets will be created.
 final class AutoscalePoolDropletTemplateRegion {
+
   final String value;
 
   const AutoscalePoolDropletTemplateRegion._(this.value);
 
-  factory AutoscalePoolDropletTemplateRegion.fromJson(String value) =>
-      AutoscalePoolDropletTemplateRegion._(value);
+  factory AutoscalePoolDropletTemplateRegion.fromJson(String value) => AutoscalePoolDropletTemplateRegion._(value);
 
   static const nyc1 = AutoscalePoolDropletTemplateRegion._('nyc1');
   static const nyc2 = AutoscalePoolDropletTemplateRegion._('nyc2');
@@ -56,43 +53,38 @@ final class AutoscalePoolDropletTemplateRegion {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AutoscalePoolDropletTemplateRegion && other.value == value;
+  @override bool operator ==(Object other) => other is AutoscalePoolDropletTemplateRegion && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `completion_window` wire field.
 final class BatchCompletionWindow {
+
   final String value;
 
   const BatchCompletionWindow._(this.value);
 
-  factory BatchCompletionWindow.fromJson(String value) =>
-      BatchCompletionWindow._(value);
+  factory BatchCompletionWindow.fromJson(String value) => BatchCompletionWindow._(value);
 
   static const v24h = BatchCompletionWindow._('24h');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BatchCompletionWindow && other.value == value;
+  @override bool operator ==(Object other) => other is BatchCompletionWindow && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `provider` wire field.
 final class BatchProvider {
+
   final String value;
 
   const BatchProvider._(this.value);
@@ -104,19 +96,17 @@ final class BatchProvider {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BatchProvider && other.value == value;
+  @override bool operator ==(Object other) => other is BatchProvider && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Lifecycle status. Terminal states: `completed`, `failed`, `expired`, `cancelled`.
 final class BatchStatus {
+
   final String value;
 
   const BatchStatus._(this.value);
@@ -134,124 +124,108 @@ final class BatchStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BatchStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BatchStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Time window in which the job must complete. Jobs that do not finish in time transition to `expired`.
 final class BatchCreateRequestCompletionWindow {
+
   final String value;
 
   const BatchCreateRequestCompletionWindow._(this.value);
 
-  factory BatchCreateRequestCompletionWindow.fromJson(String value) =>
-      BatchCreateRequestCompletionWindow._(value);
+  factory BatchCreateRequestCompletionWindow.fromJson(String value) => BatchCreateRequestCompletionWindow._(value);
 
   static const v24h = BatchCreateRequestCompletionWindow._('24h');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BatchCreateRequestCompletionWindow && other.value == value;
+  @override bool operator ==(Object other) => other is BatchCreateRequestCompletionWindow && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Inference endpoint each request is dispatched to. **Required when `provider` is `openai` and must match the `url` on every JSONL line. Must be omitted when `provider` is `anthropic`.**
 final class BatchCreateRequestEndpoint {
+
   final String value;
 
   const BatchCreateRequestEndpoint._(this.value);
 
-  factory BatchCreateRequestEndpoint.fromJson(String value) =>
-      BatchCreateRequestEndpoint._(value);
+  factory BatchCreateRequestEndpoint.fromJson(String value) => BatchCreateRequestEndpoint._(value);
 
   static const v1Responses = BatchCreateRequestEndpoint._('/v1/responses');
-  static const v1ChatCompletions =
-      BatchCreateRequestEndpoint._('/v1/chat/completions');
+  static const v1ChatCompletions = BatchCreateRequestEndpoint._('/v1/chat/completions');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BatchCreateRequestEndpoint && other.value == value;
+  @override bool operator ==(Object other) => other is BatchCreateRequestEndpoint && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The inference provider whose JSONL schema the input file conforms to. `openai` follows the OpenAI Batch API input schema (`custom_id`, `method`, `url`, `body`); `anthropic` follows the Anthropic Message Batches JSONL conventions.
 final class BatchCreateRequestProvider {
+
   final String value;
 
   const BatchCreateRequestProvider._(this.value);
 
-  factory BatchCreateRequestProvider.fromJson(String value) =>
-      BatchCreateRequestProvider._(value);
+  factory BatchCreateRequestProvider.fromJson(String value) => BatchCreateRequestProvider._(value);
 
   static const openai = BatchCreateRequestProvider._('openai');
   static const anthropic = BatchCreateRequestProvider._('anthropic');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BatchCreateRequestProvider && other.value == value;
+  @override bool operator ==(Object other) => other is BatchCreateRequestProvider && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, always `list`.
 final class BatchListResponseObject {
+
   final String value;
 
   const BatchListResponseObject._(this.value);
 
-  factory BatchListResponseObject.fromJson(String value) =>
-      BatchListResponseObject._(value);
+  factory BatchListResponseObject.fromJson(String value) => BatchListResponseObject._(value);
 
   static const list = BatchListResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BatchListResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is BatchListResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Type of billing history entry.
 final class BillingHistoryType {
+
   final String value;
 
   const BillingHistoryType._(this.value);
 
-  factory BillingHistoryType.fromJson(String value) =>
-      BillingHistoryType._(value);
+  factory BillingHistoryType.fromJson(String value) => BillingHistoryType._(value);
 
   static const achfailure = BillingHistoryType._('ACHFailure');
   static const adjustment = BillingHistoryType._('Adjustment');
@@ -266,19 +240,17 @@ final class BillingHistoryType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BillingHistoryType && other.value == value;
+  @override bool operator ==(Object other) => other is BillingHistoryType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
 final class CdnEndpointTtl {
+
   final int value;
 
   const CdnEndpointTtl._(this.value);
@@ -293,13 +265,10 @@ final class CdnEndpointTtl {
 
   int toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CdnEndpointTtl && other.value == value;
+  @override bool operator ==(Object other) => other is CdnEndpointTtl && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

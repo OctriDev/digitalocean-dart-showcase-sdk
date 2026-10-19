@@ -8,135 +8,87 @@ part of 'apps_apps_get.dart';
 class AppsGetExecResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A websocket URL that allows sending/receiving console input and receiving console output.
   final SdkOptional<String> url;
 
   const AppsGetExecResponse({this.url = const SdkOmitted()});
 
-  AppsGetExecResponse Function({SdkOptional<String> url}) get copyWith =>
-      _copyWith;
+  AppsGetExecResponse Function({SdkOptional<String> url}) get copyWith => _copyWith;
 
-  AppsGetExecResponse _copyWith({Object? url = sdkOmittedValue}) =>
-      AppsGetExecResponse(
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-      );
+  AppsGetExecResponse _copyWith({Object? url = sdkOmittedValue}) => AppsGetExecResponse(
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+  );
 
-  factory AppsGetExecResponse.fromJson(Map<String, dynamic> json) =>
-      AppsGetExecResponse(
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AppsGetExecResponse.fromJson(Map<String, dynamic> json) => AppsGetExecResponse(
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppsGetInstanceSizeResponse` API schema.
 class AppsGetInstanceSizeResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `instance_size` wire field.
   final SdkOptional<AppsInstanceSize> instanceSize;
 
   const AppsGetInstanceSizeResponse({this.instanceSize = const SdkOmitted()});
 
-  AppsGetInstanceSizeResponse Function(
-      {SdkOptional<AppsInstanceSize> instanceSize}) get copyWith => _copyWith;
+  AppsGetInstanceSizeResponse Function({SdkOptional<AppsInstanceSize> instanceSize}) get copyWith => _copyWith;
 
-  AppsGetInstanceSizeResponse _copyWith(
-          {Object? instanceSize = sdkOmittedValue}) =>
-      AppsGetInstanceSizeResponse(
-        instanceSize: identical(instanceSize, sdkOmittedValue)
-            ? this.instanceSize
-            : instanceSize as SdkOptional<AppsInstanceSize>,
-      );
+  AppsGetInstanceSizeResponse _copyWith({Object? instanceSize = sdkOmittedValue}) => AppsGetInstanceSizeResponse(
+    instanceSize: identical(instanceSize, sdkOmittedValue) ? this.instanceSize : instanceSize as SdkOptional<AppsInstanceSize>,
+  );
 
-  factory AppsGetInstanceSizeResponse.fromJson(Map<String, dynamic> json) =>
-      AppsGetInstanceSizeResponse(
-        instanceSize: json['instance_size'] != null
-            ? SdkPresent((json['instance_size'] != null
-                ? AppsInstanceSize.fromJson(
-                    json['instance_size'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AppsGetInstanceSizeResponse.fromJson(Map<String, dynamic> json) => AppsGetInstanceSizeResponse(
+    instanceSize: json['instance_size'] != null ? SdkPresent((json['instance_size'] != null ? AppsInstanceSize.fromJson(json['instance_size'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (instanceSize) {
-          SdkPresent<AppsInstanceSize>(value: final value) => {
-              'instance_size': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (instanceSize) {
+      SdkPresent<AppsInstanceSize>(value: final value) => {'instance_size': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppsGetLogsResponse` API schema.
 class AppsGetLogsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `historic_urls` wire field.
   final SdkOptional<List<String>> historicUrls;
-
   /// A URL of the real-time live logs. This URL may use either the `https://` or `wss://` protocols and will keep pushing live logs as they become available.
   final SdkOptional<String> liveUrl;
 
-  const AppsGetLogsResponse(
-      {this.historicUrls = const SdkOmitted(),
-      this.liveUrl = const SdkOmitted()});
+  const AppsGetLogsResponse({this.historicUrls = const SdkOmitted(), this.liveUrl = const SdkOmitted()});
 
-  AppsGetLogsResponse Function(
-      {SdkOptional<List<String>> historicUrls,
-      SdkOptional<String> liveUrl}) get copyWith => _copyWith;
+  AppsGetLogsResponse Function({SdkOptional<List<String>> historicUrls, SdkOptional<String> liveUrl}) get copyWith => _copyWith;
 
-  AppsGetLogsResponse _copyWith(
-          {Object? historicUrls = sdkOmittedValue,
-          Object? liveUrl = sdkOmittedValue}) =>
-      AppsGetLogsResponse(
-        historicUrls: identical(historicUrls, sdkOmittedValue)
-            ? this.historicUrls
-            : historicUrls as SdkOptional<List<String>>,
-        liveUrl: identical(liveUrl, sdkOmittedValue)
-            ? this.liveUrl
-            : liveUrl as SdkOptional<String>,
-      );
+  AppsGetLogsResponse _copyWith({Object? historicUrls = sdkOmittedValue, Object? liveUrl = sdkOmittedValue}) => AppsGetLogsResponse(
+    historicUrls: identical(historicUrls, sdkOmittedValue) ? this.historicUrls : historicUrls as SdkOptional<List<String>>,
+    liveUrl: identical(liveUrl, sdkOmittedValue) ? this.liveUrl : liveUrl as SdkOptional<String>,
+  );
 
-  factory AppsGetLogsResponse.fromJson(Map<String, dynamic> json) =>
-      AppsGetLogsResponse(
-        historicUrls: json['historic_urls'] != null
-            ? SdkPresent(((json['historic_urls'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        liveUrl: json['live_url'] != null
-            ? SdkPresent((json['live_url'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AppsGetLogsResponse.fromJson(Map<String, dynamic> json) => AppsGetLogsResponse(
+    historicUrls: json['historic_urls'] != null ? SdkPresent(((json['historic_urls'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    liveUrl: json['live_url'] != null ? SdkPresent((json['live_url'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (historicUrls) {
-          SdkPresent<List<String>>(value: final value) => {
-              'historic_urls': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (liveUrl) {
-          SdkPresent<String>(value: final value) => {
-              'live_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (historicUrls) {
+      SdkPresent<List<String>>(value: final value) => {'historic_urls': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (liveUrl) {
+      SdkPresent<String>(value: final value) => {'live_url': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

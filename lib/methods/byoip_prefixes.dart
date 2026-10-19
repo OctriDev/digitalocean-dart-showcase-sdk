@@ -23,18 +23,12 @@ Future<ByoipPrefixCreateResponse> byoipPrefixesCreate(ClientConfig config,
           body: {'prefix': prefix, 'region': region, 'signature': signature},
           decoder: SdkResponseDecoder.json,
           operationId: 'byoipPrefixesCreate',
-          fromJsonRaw: (value) =>
-              ByoipPrefixCreateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ByoipPrefixCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all BYOIP prefixes, send a GET request to `/v2/byoip_prefixes`. A successful response will return a list of all BYOIP prefixes associated with the account.
 ///
@@ -54,24 +48,17 @@ Future<ByoipPrefixList> byoipPrefixesList(ClientConfig config,
   return (await sdkRequest<ByoipPrefixList>('GET', '/v2/byoip_prefixes',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'byoipPrefixesList',
-          fromJsonRaw: (value) =>
-              ByoipPrefixList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ByoipPrefixList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get a BYOIP prefix, send a GET request to `/v2/byoip_prefixes/$byoip_prefix_uuid`. A successful response will return the details of the specified BYOIP prefix.
 ///
@@ -85,19 +72,12 @@ Future<ByoipPrefixGet> byoipPrefixesGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'byoipPrefixesGet',
-          fromJsonRaw: (value) =>
-              ByoipPrefixGet.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ByoipPrefixGet.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a BYOIP prefix and remove it from your account, send a DELETE request to `/v2/byoip_prefixes/$byoip_prefix_uuid`. A successful request will receive a 202 status code with no body in response. This indicates that the request was accepted and the prefix is being deleted.
 ///
@@ -112,16 +92,10 @@ Future<void> byoipPrefixesDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'byoipPrefixesDelete',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update a BYOIP prefix, send a PATCH request to `/v2/byoip_prefixes/$byoip_prefix_uuid`. Currently, you can update the advertisement status of the prefix. The response will include the updated details of the prefix.
 ///
@@ -139,19 +113,12 @@ Future<ByoipPrefixUpdateResponse> byoipPrefixesPatch(ClientConfig config,
           body: {'advertise': SdkUtils.unwrapOptional(advertise)},
           decoder: SdkResponseDecoder.json,
           operationId: 'byoipPrefixesPatch',
-          fromJsonRaw: (value) =>
-              ByoipPrefixUpdateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ByoipPrefixUpdateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list resources associated with BYOIP prefixes, send a GET request to `/v2/byoip_prefixes/{byoip_prefix_uuid}/ips`. A successful response will return a list of resources associated with the specified BYOIP prefix.
 ///
@@ -175,22 +142,13 @@ Future<ByoipPrefixListResources> byoipPrefixesListResources(ClientConfig config,
           '/v2/byoip_prefixes/${Uri.encodeComponent(byoipPrefixUuid.toString())}/ips',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'byoipPrefixesListResources',
-          fromJsonRaw: (value) =>
-              ByoipPrefixListResources.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ByoipPrefixListResources.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

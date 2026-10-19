@@ -8,170 +8,115 @@ part of 'databases_database.dart';
 class DatabaseClusterResize {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A slug identifier representing desired the size of the nodes in the database cluster.
   final String size;
-
   /// The number of nodes in the database cluster. Valid values are are 1-3. In addition to the primary node, up to two standby nodes may be added for highly available configurations.
   final int numNodes;
-
   /// Additional storage added to the cluster, in MiB. If null, no additional storage is added to the cluster, beyond what is provided as a base amount from the 'size' and any previously added additional storage.
   final SdkOptional<int> storageSizeMib;
 
-  const DatabaseClusterResize(
-      {required this.size,
-      required this.numNodes,
-      this.storageSizeMib = const SdkOmitted()});
+  const DatabaseClusterResize({required this.size, required this.numNodes, this.storageSizeMib = const SdkOmitted()});
 
-  DatabaseClusterResize Function(
-      {String size,
-      int numNodes,
-      SdkOptional<int> storageSizeMib}) get copyWith => _copyWith;
+  DatabaseClusterResize Function({String size, int numNodes, SdkOptional<int> storageSizeMib}) get copyWith => _copyWith;
 
-  DatabaseClusterResize _copyWith(
-          {Object? size = sdkOmittedValue,
-          Object? numNodes = sdkOmittedValue,
-          Object? storageSizeMib = sdkOmittedValue}) =>
-      DatabaseClusterResize(
-        size: identical(size, sdkOmittedValue) ? this.size : size as String,
-        numNodes: identical(numNodes, sdkOmittedValue)
-            ? this.numNodes
-            : numNodes as int,
-        storageSizeMib: identical(storageSizeMib, sdkOmittedValue)
-            ? this.storageSizeMib
-            : storageSizeMib as SdkOptional<int>,
-      );
+  DatabaseClusterResize _copyWith({Object? size = sdkOmittedValue, Object? numNodes = sdkOmittedValue, Object? storageSizeMib = sdkOmittedValue}) => DatabaseClusterResize(
+    size: identical(size, sdkOmittedValue) ? this.size : size as String,
+    numNodes: identical(numNodes, sdkOmittedValue) ? this.numNodes : numNodes as int,
+    storageSizeMib: identical(storageSizeMib, sdkOmittedValue) ? this.storageSizeMib : storageSizeMib as SdkOptional<int>,
+  );
 
-  factory DatabaseClusterResize.fromJson(Map<String, dynamic> json) =>
-      DatabaseClusterResize(
-        size: (json['size'] as String?)!,
-        numNodes: ((json['num_nodes'] as num?)?.toInt())!,
-        storageSizeMib: json['storage_size_mib'] != null
-            ? SdkPresent(((json['storage_size_mib'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseClusterResize.fromJson(Map<String, dynamic> json) => DatabaseClusterResize(
+    size: (json['size'] as String?)!,
+    numNodes: ((json['num_nodes'] as num?)?.toInt())!,
+    storageSizeMib: json['storage_size_mib'] != null ? SdkPresent(((json['storage_size_mib'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'size': size,
-        'num_nodes': numNodes,
-        ...switch (storageSizeMib) {
-          SdkPresent<int>(value: final value) => {
-              'storage_size_mib': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'size': size,
+    'num_nodes': numNodes,
+    ...switch (storageSizeMib) {
+      SdkPresent<int>(value: final value) => {'storage_size_mib': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DatabaseClusterResponse` API schema.
 class DatabaseClusterResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required object value serialized in the `database` wire field.
   final DatabaseClusterRead database;
 
   const DatabaseClusterResponse({required this.database});
 
-  DatabaseClusterResponse Function({DatabaseClusterRead database})
-      get copyWith => _copyWith;
+  DatabaseClusterResponse Function({DatabaseClusterRead database}) get copyWith => _copyWith;
 
-  DatabaseClusterResponse _copyWith({Object? database = sdkOmittedValue}) =>
-      DatabaseClusterResponse(
-        database: identical(database, sdkOmittedValue)
-            ? this.database
-            : database as DatabaseClusterRead,
-      );
+  DatabaseClusterResponse _copyWith({Object? database = sdkOmittedValue}) => DatabaseClusterResponse(
+    database: identical(database, sdkOmittedValue) ? this.database : database as DatabaseClusterRead,
+  );
 
-  factory DatabaseClusterResponse.fromJson(Map<String, dynamic> json) =>
-      DatabaseClusterResponse(
-        database: (json['database'] != null
-            ? DatabaseClusterRead.fromJson(
-                json['database'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory DatabaseClusterResponse.fromJson(Map<String, dynamic> json) => DatabaseClusterResponse(
+    database: (json['database'] != null ? DatabaseClusterRead.fromJson(json['database'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'database': database.toJson(),
-      };
+    'database': database.toJson(),
+  };
 }
 
 /// Typed representation of the `DatabaseClusters` API schema.
 class DatabaseClusters {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `databases` wire field.
   final SdkOptional<List<DatabaseClusterRead>> databases;
 
   const DatabaseClusters({this.databases = const SdkOmitted()});
 
-  DatabaseClusters Function({SdkOptional<List<DatabaseClusterRead>> databases})
-      get copyWith => _copyWith;
+  DatabaseClusters Function({SdkOptional<List<DatabaseClusterRead>> databases}) get copyWith => _copyWith;
 
-  DatabaseClusters _copyWith({Object? databases = sdkOmittedValue}) =>
-      DatabaseClusters(
-        databases: identical(databases, sdkOmittedValue)
-            ? this.databases
-            : databases as SdkOptional<List<DatabaseClusterRead>>,
-      );
+  DatabaseClusters _copyWith({Object? databases = sdkOmittedValue}) => DatabaseClusters(
+    databases: identical(databases, sdkOmittedValue) ? this.databases : databases as SdkOptional<List<DatabaseClusterRead>>,
+  );
 
-  factory DatabaseClusters.fromJson(Map<String, dynamic> json) =>
-      DatabaseClusters(
-        databases: json['databases'] != null
-            ? SdkPresent(((json['databases'] as List?)
-                ?.map((e) =>
-                    DatabaseClusterRead.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseClusters.fromJson(Map<String, dynamic> json) => DatabaseClusters(
+    databases: json['databases'] != null ? SdkPresent(((json['databases'] as List?)?.map((e) => DatabaseClusterRead.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (databases) {
-          SdkPresent<List<DatabaseClusterRead>>(value: final value) => {
-              'databases': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (databases) {
+      SdkPresent<List<DatabaseClusterRead>>(value: final value) => {'databases': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DatabaseConfig` API schema.
 class DatabaseConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `config` wire field.
   final SdkOptional<DatabaseConfigConfig> config;
 
   const DatabaseConfig({this.config = const SdkOmitted()});
 
-  DatabaseConfig Function({SdkOptional<DatabaseConfigConfig> config})
-      get copyWith => _copyWith;
+  DatabaseConfig Function({SdkOptional<DatabaseConfigConfig> config}) get copyWith => _copyWith;
 
-  DatabaseConfig _copyWith({Object? config = sdkOmittedValue}) =>
-      DatabaseConfig(
-        config: identical(config, sdkOmittedValue)
-            ? this.config
-            : config as SdkOptional<DatabaseConfigConfig>,
-      );
+  DatabaseConfig _copyWith({Object? config = sdkOmittedValue}) => DatabaseConfig(
+    config: identical(config, sdkOmittedValue) ? this.config : config as SdkOptional<DatabaseConfigConfig>,
+  );
 
   factory DatabaseConfig.fromJson(Map<String, dynamic> json) => DatabaseConfig(
-        config: json['config'] != null
-            ? SdkPresent((json['config'] != null
-                ? DatabaseConfigConfig.fromJson(json['config'])
-                : null)!)
-            : const SdkOmitted(),
-      );
+    config: json['config'] != null ? SdkPresent((json['config'] != null ? DatabaseConfigConfig.fromJson(json['config']) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (config) {
-          SdkPresent<DatabaseConfigConfig>(value: final value) => {
-              'config': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (config) {
+      SdkPresent<DatabaseConfigConfig>(value: final value) => {'config': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class DatabaseConfigConfig {
@@ -180,168 +125,90 @@ sealed class DatabaseConfigConfig {
   const DatabaseConfigConfig();
   factory DatabaseConfigConfig.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = MysqlAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigConfigMysqlAdvancedConfig(value);
-        }
-      } catch (_) {}
-      try {
-        final value = PostgresAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigConfigPostgresAdvancedConfig(value);
-        }
-      } catch (_) {}
-      try {
-        final value = RedisAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigConfigRedisAdvancedConfig(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ValkeyAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigConfigValkeyAdvancedConfig(value);
-        }
-      } catch (_) {}
-      try {
-        final value = MongoAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigConfigMongoAdvancedConfig(value);
-        }
-      } catch (_) {}
-      try {
-        final value = KafkaAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigConfigKafkaAdvancedConfig(value);
-        }
-      } catch (_) {}
-      try {
-        final value = OpensearchAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigConfigOpensearchAdvancedConfig(value);
-        }
-      } catch (_) {}
+      try { final value = MysqlAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigConfigMysqlAdvancedConfig(value); } } catch (_) {}
+      try { final value = PostgresAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigConfigPostgresAdvancedConfig(value); } } catch (_) {}
+      try { final value = RedisAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigConfigRedisAdvancedConfig(value); } } catch (_) {}
+      try { final value = ValkeyAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigConfigValkeyAdvancedConfig(value); } } catch (_) {}
+      try { final value = MongoAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigConfigMongoAdvancedConfig(value); } } catch (_) {}
+      try { final value = KafkaAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigConfigKafkaAdvancedConfig(value); } } catch (_) {}
+      try { final value = OpensearchAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigConfigOpensearchAdvancedConfig(value); } } catch (_) {}
     }
-    try {
-      return DatabaseConfigConfigMysqlAdvancedConfig(
-          MysqlAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DatabaseConfigConfigPostgresAdvancedConfig(
-          PostgresAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DatabaseConfigConfigRedisAdvancedConfig(
-          RedisAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DatabaseConfigConfigValkeyAdvancedConfig(
-          ValkeyAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DatabaseConfigConfigMongoAdvancedConfig(
-          MongoAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DatabaseConfigConfigKafkaAdvancedConfig(
-          KafkaAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DatabaseConfigConfigOpensearchAdvancedConfig(
-          OpensearchAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return DatabaseConfigConfigMysqlAdvancedConfig(MysqlAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DatabaseConfigConfigPostgresAdvancedConfig(PostgresAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DatabaseConfigConfigRedisAdvancedConfig(RedisAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DatabaseConfigConfigValkeyAdvancedConfig(ValkeyAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DatabaseConfigConfigMongoAdvancedConfig(MongoAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DatabaseConfigConfigKafkaAdvancedConfig(KafkaAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DatabaseConfigConfigOpensearchAdvancedConfig(OpensearchAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for DatabaseConfigConfig");
   }
   Object? toJson();
 }
 
-final class DatabaseConfigConfigMysqlAdvancedConfig
-    extends DatabaseConfigConfig {
+final class DatabaseConfigConfigMysqlAdvancedConfig extends DatabaseConfigConfig {
   final MysqlAdvancedConfig value;
   const DatabaseConfigConfigMysqlAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigConfigPostgresAdvancedConfig
-    extends DatabaseConfigConfig {
+final class DatabaseConfigConfigPostgresAdvancedConfig extends DatabaseConfigConfig {
   final PostgresAdvancedConfig value;
   const DatabaseConfigConfigPostgresAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigConfigRedisAdvancedConfig
-    extends DatabaseConfigConfig {
+final class DatabaseConfigConfigRedisAdvancedConfig extends DatabaseConfigConfig {
   final RedisAdvancedConfig value;
   const DatabaseConfigConfigRedisAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigConfigValkeyAdvancedConfig
-    extends DatabaseConfigConfig {
+final class DatabaseConfigConfigValkeyAdvancedConfig extends DatabaseConfigConfig {
   final ValkeyAdvancedConfig value;
   const DatabaseConfigConfigValkeyAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigConfigMongoAdvancedConfig
-    extends DatabaseConfigConfig {
+final class DatabaseConfigConfigMongoAdvancedConfig extends DatabaseConfigConfig {
   final MongoAdvancedConfig value;
   const DatabaseConfigConfigMongoAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigConfigKafkaAdvancedConfig
-    extends DatabaseConfigConfig {
+final class DatabaseConfigConfigKafkaAdvancedConfig extends DatabaseConfigConfig {
   final KafkaAdvancedConfig value;
   const DatabaseConfigConfigKafkaAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigConfigOpensearchAdvancedConfig
-    extends DatabaseConfigConfig {
+final class DatabaseConfigConfigOpensearchAdvancedConfig extends DatabaseConfigConfig {
   final OpensearchAdvancedConfig value;
   const DatabaseConfigConfigOpensearchAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `DatabaseConfigResponse` API schema.
 class DatabaseConfigResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required API value serialized in the `config` wire field.
   final DatabaseConfigResponseConfig config;
 
   const DatabaseConfigResponse({required this.config});
 
-  DatabaseConfigResponse Function({DatabaseConfigResponseConfig config})
-      get copyWith => _copyWith;
+  DatabaseConfigResponse Function({DatabaseConfigResponseConfig config}) get copyWith => _copyWith;
 
-  DatabaseConfigResponse _copyWith({Object? config = sdkOmittedValue}) =>
-      DatabaseConfigResponse(
-        config: identical(config, sdkOmittedValue)
-            ? this.config
-            : config as DatabaseConfigResponseConfig,
-      );
+  DatabaseConfigResponse _copyWith({Object? config = sdkOmittedValue}) => DatabaseConfigResponse(
+    config: identical(config, sdkOmittedValue) ? this.config : config as DatabaseConfigResponseConfig,
+  );
 
-  factory DatabaseConfigResponse.fromJson(Map<String, dynamic> json) =>
-      DatabaseConfigResponse(
-        config: (json['config'] != null
-            ? DatabaseConfigResponseConfig.fromJson(json['config'])
-            : null)!,
-      );
+  factory DatabaseConfigResponse.fromJson(Map<String, dynamic> json) => DatabaseConfigResponse(
+    config: (json['config'] != null ? DatabaseConfigResponseConfig.fromJson(json['config']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'config': config.toJson(),
-      };
+    'config': config.toJson(),
+  };
 }
 
 sealed class DatabaseConfigResponseConfig {
@@ -350,135 +217,64 @@ sealed class DatabaseConfigResponseConfig {
   const DatabaseConfigResponseConfig();
   factory DatabaseConfigResponseConfig.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = MysqlAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigResponseConfigMysqlAdvancedConfig(value);
-        }
-      } catch (_) {}
-      try {
-        final value = PostgresAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigResponseConfigPostgresAdvancedConfig(value);
-        }
-      } catch (_) {}
-      try {
-        final value = RedisAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigResponseConfigRedisAdvancedConfig(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ValkeyAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigResponseConfigValkeyAdvancedConfig(value);
-        }
-      } catch (_) {}
-      try {
-        final value = KafkaAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigResponseConfigKafkaAdvancedConfig(value);
-        }
-      } catch (_) {}
-      try {
-        final value = OpensearchAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigResponseConfigOpensearchAdvancedConfig(value);
-        }
-      } catch (_) {}
-      try {
-        final value = MongoAdvancedConfig.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return DatabaseConfigResponseConfigMongoAdvancedConfig(value);
-        }
-      } catch (_) {}
+      try { final value = MysqlAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigMysqlAdvancedConfig(value); } } catch (_) {}
+      try { final value = PostgresAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigPostgresAdvancedConfig(value); } } catch (_) {}
+      try { final value = RedisAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigRedisAdvancedConfig(value); } } catch (_) {}
+      try { final value = ValkeyAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigValkeyAdvancedConfig(value); } } catch (_) {}
+      try { final value = KafkaAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigKafkaAdvancedConfig(value); } } catch (_) {}
+      try { final value = OpensearchAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigOpensearchAdvancedConfig(value); } } catch (_) {}
+      try { final value = MongoAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigMongoAdvancedConfig(value); } } catch (_) {}
     }
-    try {
-      return DatabaseConfigResponseConfigMysqlAdvancedConfig(
-          MysqlAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DatabaseConfigResponseConfigPostgresAdvancedConfig(
-          PostgresAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DatabaseConfigResponseConfigRedisAdvancedConfig(
-          RedisAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DatabaseConfigResponseConfigValkeyAdvancedConfig(
-          ValkeyAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DatabaseConfigResponseConfigKafkaAdvancedConfig(
-          KafkaAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DatabaseConfigResponseConfigOpensearchAdvancedConfig(
-          OpensearchAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return DatabaseConfigResponseConfigMongoAdvancedConfig(
-          MongoAdvancedConfig.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for DatabaseConfigResponseConfig");
+    try { return DatabaseConfigResponseConfigMysqlAdvancedConfig(MysqlAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DatabaseConfigResponseConfigPostgresAdvancedConfig(PostgresAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DatabaseConfigResponseConfigRedisAdvancedConfig(RedisAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DatabaseConfigResponseConfigValkeyAdvancedConfig(ValkeyAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DatabaseConfigResponseConfigKafkaAdvancedConfig(KafkaAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DatabaseConfigResponseConfigOpensearchAdvancedConfig(OpensearchAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return DatabaseConfigResponseConfigMongoAdvancedConfig(MongoAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for DatabaseConfigResponseConfig");
   }
   Object? toJson();
 }
 
-final class DatabaseConfigResponseConfigMysqlAdvancedConfig
-    extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigMysqlAdvancedConfig extends DatabaseConfigResponseConfig {
   final MysqlAdvancedConfig value;
   const DatabaseConfigResponseConfigMysqlAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigResponseConfigPostgresAdvancedConfig
-    extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigPostgresAdvancedConfig extends DatabaseConfigResponseConfig {
   final PostgresAdvancedConfig value;
   const DatabaseConfigResponseConfigPostgresAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigResponseConfigRedisAdvancedConfig
-    extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigRedisAdvancedConfig extends DatabaseConfigResponseConfig {
   final RedisAdvancedConfig value;
   const DatabaseConfigResponseConfigRedisAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigResponseConfigValkeyAdvancedConfig
-    extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigValkeyAdvancedConfig extends DatabaseConfigResponseConfig {
   final ValkeyAdvancedConfig value;
   const DatabaseConfigResponseConfigValkeyAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigResponseConfigKafkaAdvancedConfig
-    extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigKafkaAdvancedConfig extends DatabaseConfigResponseConfig {
   final KafkaAdvancedConfig value;
   const DatabaseConfigResponseConfigKafkaAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigResponseConfigOpensearchAdvancedConfig
-    extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigOpensearchAdvancedConfig extends DatabaseConfigResponseConfig {
   final OpensearchAdvancedConfig value;
   const DatabaseConfigResponseConfigOpensearchAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigResponseConfigMongoAdvancedConfig
-    extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigMongoAdvancedConfig extends DatabaseConfigResponseConfig {
   final MongoAdvancedConfig value;
   const DatabaseConfigResponseConfigMongoAdvancedConfig(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

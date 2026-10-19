@@ -8,277 +8,137 @@ part of 'database.dart';
 class DatabaseReplica {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique ID that can be used to identify and reference a database replica.
   final SdkOptional<String> id;
-
   /// The name to give the read-only replicating
   final String name;
-
   /// A slug identifier for the region where the read-only replica will be located. If excluded, the replica will be placed in the same region as the cluster.
   final SdkOptional<String> region;
-
   /// A slug identifier representing the size of the node for the read-only replica. The size of the replica must be at least as large as the node size for the database cluster from which it is replicating.
   final SdkOptional<String> size;
-
   /// A string representing the current status of the database cluster.
   final SdkOptional<DatabaseReplicaStatus> status;
-
   /// A flat array of tag names as strings to apply to the read-only replica after it is created. Tag names can either be existing or new tags. &lt;br&gt;&lt;br&gt;Requires `tag:create` scope.
   final SdkOptional<List<String>> tags;
-
   /// A time value given in ISO8601 combined date and time format that represents when the database cluster was created.
   final SdkOptional<String> createdAt;
-
   /// A string specifying the UUID of the VPC to which the read-only replica will be assigned. If excluded, the replica will be assigned to your account's default VPC for the region. &lt;br&gt;&lt;br&gt;Requires `vpc:read` scope.
   final SdkOptional<String> privateNetworkUuid;
-
   /// Optional API value serialized in the `connection` wire field.
   final SdkOptional<DatabaseConnection> connection;
-
   /// Optional API value serialized in the `private_connection` wire field.
   final SdkOptional<DatabaseConnection> privateConnection;
-
   /// Additional storage added to the cluster, in MiB. If null, no additional storage is added to the cluster, beyond what is provided as a base amount from the 'size' and any previously added additional storage.
   final SdkOptional<int> storageSizeMib;
-
   /// DigitalOcean-specific settings for the read-only replica, including custom service CNAMEs.
   final SdkOptional<DoSettings> doSettings;
 
-  const DatabaseReplica(
-      {this.id = const SdkOmitted(),
-      required this.name,
-      this.region = const SdkOmitted(),
-      this.size = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.tags = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.privateNetworkUuid = const SdkOmitted(),
-      this.connection = const SdkOmitted(),
-      this.privateConnection = const SdkOmitted(),
-      this.storageSizeMib = const SdkOmitted(),
-      this.doSettings = const SdkOmitted()});
+  const DatabaseReplica({this.id = const SdkOmitted(), required this.name, this.region = const SdkOmitted(), this.size = const SdkOmitted(), this.status = const SdkOmitted(), this.tags = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.privateNetworkUuid = const SdkOmitted(), this.connection = const SdkOmitted(), this.privateConnection = const SdkOmitted(), this.storageSizeMib = const SdkOmitted(), this.doSettings = const SdkOmitted()});
 
-  DatabaseReplica Function(
-      {SdkOptional<String> id,
-      String name,
-      SdkOptional<String> region,
-      SdkOptional<String> size,
-      SdkOptional<DatabaseReplicaStatus> status,
-      SdkOptional<List<String>> tags,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> privateNetworkUuid,
-      SdkOptional<DatabaseConnection> connection,
-      SdkOptional<DatabaseConnection> privateConnection,
-      SdkOptional<int> storageSizeMib,
-      SdkOptional<DoSettings> doSettings}) get copyWith => _copyWith;
+  DatabaseReplica Function({SdkOptional<String> id, String name, SdkOptional<String> region, SdkOptional<String> size, SdkOptional<DatabaseReplicaStatus> status, SdkOptional<List<String>> tags, SdkOptional<String> createdAt, SdkOptional<String> privateNetworkUuid, SdkOptional<DatabaseConnection> connection, SdkOptional<DatabaseConnection> privateConnection, SdkOptional<int> storageSizeMib, SdkOptional<DoSettings> doSettings}) get copyWith => _copyWith;
 
-  DatabaseReplica _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? tags = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? privateNetworkUuid = sdkOmittedValue,
-          Object? connection = sdkOmittedValue,
-          Object? privateConnection = sdkOmittedValue,
-          Object? storageSizeMib = sdkOmittedValue,
-          Object? doSettings = sdkOmittedValue}) =>
-      DatabaseReplica(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-        size: identical(size, sdkOmittedValue)
-            ? this.size
-            : size as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<DatabaseReplicaStatus>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        privateNetworkUuid: identical(privateNetworkUuid, sdkOmittedValue)
-            ? this.privateNetworkUuid
-            : privateNetworkUuid as SdkOptional<String>,
-        connection: identical(connection, sdkOmittedValue)
-            ? this.connection
-            : connection as SdkOptional<DatabaseConnection>,
-        privateConnection: identical(privateConnection, sdkOmittedValue)
-            ? this.privateConnection
-            : privateConnection as SdkOptional<DatabaseConnection>,
-        storageSizeMib: identical(storageSizeMib, sdkOmittedValue)
-            ? this.storageSizeMib
-            : storageSizeMib as SdkOptional<int>,
-        doSettings: identical(doSettings, sdkOmittedValue)
-            ? this.doSettings
-            : doSettings as SdkOptional<DoSettings>,
-      );
+  DatabaseReplica _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? region = sdkOmittedValue, Object? size = sdkOmittedValue, Object? status = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? privateNetworkUuid = sdkOmittedValue, Object? connection = sdkOmittedValue, Object? privateConnection = sdkOmittedValue, Object? storageSizeMib = sdkOmittedValue, Object? doSettings = sdkOmittedValue}) => DatabaseReplica(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<DatabaseReplicaStatus>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    privateNetworkUuid: identical(privateNetworkUuid, sdkOmittedValue) ? this.privateNetworkUuid : privateNetworkUuid as SdkOptional<String>,
+    connection: identical(connection, sdkOmittedValue) ? this.connection : connection as SdkOptional<DatabaseConnection>,
+    privateConnection: identical(privateConnection, sdkOmittedValue) ? this.privateConnection : privateConnection as SdkOptional<DatabaseConnection>,
+    storageSizeMib: identical(storageSizeMib, sdkOmittedValue) ? this.storageSizeMib : storageSizeMib as SdkOptional<int>,
+    doSettings: identical(doSettings, sdkOmittedValue) ? this.doSettings : doSettings as SdkOptional<DoSettings>,
+  );
 
-  factory DatabaseReplica.fromJson(Map<String, dynamic> json) =>
-      DatabaseReplica(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: (json['name'] as String?)!,
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-        size: json['size'] != null
-            ? SdkPresent((json['size'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? DatabaseReplicaStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        tags: json['tags'] != null
-            ? SdkPresent(
-                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        privateNetworkUuid: json['private_network_uuid'] != null
-            ? SdkPresent((json['private_network_uuid'] as String?)!)
-            : const SdkOmitted(),
-        connection: json['connection'] != null
-            ? SdkPresent((json['connection'] != null
-                ? DatabaseConnection.fromJson(
-                    json['connection'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        privateConnection: json['private_connection'] != null
-            ? SdkPresent((json['private_connection'] != null
-                ? DatabaseConnection.fromJson(
-                    json['private_connection'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        storageSizeMib: json['storage_size_mib'] != null
-            ? SdkPresent(((json['storage_size_mib'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        doSettings: json['do_settings'] != null
-            ? SdkPresent((json['do_settings'] != null
-                ? DoSettings.fromJson(
-                    json['do_settings'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseReplica.fromJson(Map<String, dynamic> json) => DatabaseReplica(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: (json['name'] as String?)!,
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+    size: json['size'] != null ? SdkPresent((json['size'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? DatabaseReplicaStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    privateNetworkUuid: json['private_network_uuid'] != null ? SdkPresent((json['private_network_uuid'] as String?)!) : const SdkOmitted(),
+    connection: json['connection'] != null ? SdkPresent((json['connection'] != null ? DatabaseConnection.fromJson(json['connection'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    privateConnection: json['private_connection'] != null ? SdkPresent((json['private_connection'] != null ? DatabaseConnection.fromJson(json['private_connection'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    storageSizeMib: json['storage_size_mib'] != null ? SdkPresent(((json['storage_size_mib'] as num?)?.toInt())!) : const SdkOmitted(),
+    doSettings: json['do_settings'] != null ? SdkPresent((json['do_settings'] != null ? DoSettings.fromJson(json['do_settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'name': name,
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (size) {
-          SdkPresent<String>(value: final value) => {
-              'size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<DatabaseReplicaStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<String>>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (privateNetworkUuid) {
-          SdkPresent<String>(value: final value) => {
-              'private_network_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (connection) {
-          SdkPresent<DatabaseConnection>(value: final value) => {
-              'connection': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (privateConnection) {
-          SdkPresent<DatabaseConnection>(value: final value) => {
-              'private_connection': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (storageSizeMib) {
-          SdkPresent<int>(value: final value) => {
-              'storage_size_mib': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (doSettings) {
-          SdkPresent<DoSettings>(value: final value) => {
-              'do_settings': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'name': name,
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (size) {
+      SdkPresent<String>(value: final value) => {'size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<DatabaseReplicaStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<String>>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (privateNetworkUuid) {
+      SdkPresent<String>(value: final value) => {'private_network_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (connection) {
+      SdkPresent<DatabaseConnection>(value: final value) => {'connection': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (privateConnection) {
+      SdkPresent<DatabaseConnection>(value: final value) => {'private_connection': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (storageSizeMib) {
+      SdkPresent<int>(value: final value) => {'storage_size_mib': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (doSettings) {
+      SdkPresent<DoSettings>(value: final value) => {'do_settings': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DatabaseVersionOptions` API schema.
 class DatabaseVersionOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> versions;
 
   const DatabaseVersionOptions({this.versions = const SdkOmitted()});
 
-  DatabaseVersionOptions Function({SdkOptional<List<String>> versions})
-      get copyWith => _copyWith;
+  DatabaseVersionOptions Function({SdkOptional<List<String>> versions}) get copyWith => _copyWith;
 
-  DatabaseVersionOptions _copyWith({Object? versions = sdkOmittedValue}) =>
-      DatabaseVersionOptions(
-        versions: identical(versions, sdkOmittedValue)
-            ? this.versions
-            : versions as SdkOptional<List<String>>,
-      );
+  DatabaseVersionOptions _copyWith({Object? versions = sdkOmittedValue}) => DatabaseVersionOptions(
+    versions: identical(versions, sdkOmittedValue) ? this.versions : versions as SdkOptional<List<String>>,
+  );
 
-  factory DatabaseVersionOptions.fromJson(Map<String, dynamic> json) =>
-      DatabaseVersionOptions(
-        versions: json['versions'] != null
-            ? SdkPresent(((json['versions'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseVersionOptions.fromJson(Map<String, dynamic> json) => DatabaseVersionOptions(
+    versions: json['versions'] != null ? SdkPresent(((json['versions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (versions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'versions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (versions) {
+      SdkPresent<List<String>>(value: final value) => {'versions': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,482 +8,289 @@ part of 'signals.dart';
 class ListDeletionsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `edges` wire field.
   final SdkOptional<List<ListDeletionsResponseEdgesItem>> edges;
-
   /// Optional object value serialized in the `page_info` wire field.
   final SdkOptional<ListDeletionsResponsePageInfo> pageInfo;
 
-  const ListDeletionsResponse(
-      {this.edges = const SdkOmitted(), this.pageInfo = const SdkOmitted()});
+  const ListDeletionsResponse({this.edges = const SdkOmitted(), this.pageInfo = const SdkOmitted()});
 
-  ListDeletionsResponse Function(
-          {SdkOptional<List<ListDeletionsResponseEdgesItem>> edges,
-          SdkOptional<ListDeletionsResponsePageInfo> pageInfo})
-      get copyWith => _copyWith;
+  ListDeletionsResponse Function({SdkOptional<List<ListDeletionsResponseEdgesItem>> edges, SdkOptional<ListDeletionsResponsePageInfo> pageInfo}) get copyWith => _copyWith;
 
-  ListDeletionsResponse _copyWith(
-          {Object? edges = sdkOmittedValue,
-          Object? pageInfo = sdkOmittedValue}) =>
-      ListDeletionsResponse(
-        edges: identical(edges, sdkOmittedValue)
-            ? this.edges
-            : edges as SdkOptional<List<ListDeletionsResponseEdgesItem>>,
-        pageInfo: identical(pageInfo, sdkOmittedValue)
-            ? this.pageInfo
-            : pageInfo as SdkOptional<ListDeletionsResponsePageInfo>,
-      );
+  ListDeletionsResponse _copyWith({Object? edges = sdkOmittedValue, Object? pageInfo = sdkOmittedValue}) => ListDeletionsResponse(
+    edges: identical(edges, sdkOmittedValue) ? this.edges : edges as SdkOptional<List<ListDeletionsResponseEdgesItem>>,
+    pageInfo: identical(pageInfo, sdkOmittedValue) ? this.pageInfo : pageInfo as SdkOptional<ListDeletionsResponsePageInfo>,
+  );
 
-  factory ListDeletionsResponse.fromJson(Map<String, dynamic> json) =>
-      ListDeletionsResponse(
-        edges: json['edges'] != null
-            ? SdkPresent(((json['edges'] as List?)
-                ?.map((e) => ListDeletionsResponseEdgesItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        pageInfo: json['page_info'] != null
-            ? SdkPresent((json['page_info'] != null
-                ? ListDeletionsResponsePageInfo.fromJson(
-                    json['page_info'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ListDeletionsResponse.fromJson(Map<String, dynamic> json) => ListDeletionsResponse(
+    edges: json['edges'] != null ? SdkPresent(((json['edges'] as List?)?.map((e) => ListDeletionsResponseEdgesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    pageInfo: json['page_info'] != null ? SdkPresent((json['page_info'] != null ? ListDeletionsResponsePageInfo.fromJson(json['page_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (edges) {
-          SdkPresent<List<ListDeletionsResponseEdgesItem>>(
-            value: final value
-          ) =>
-            {
-              'edges': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pageInfo) {
-          SdkPresent<ListDeletionsResponsePageInfo>(value: final value) => {
-              'page_info': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (edges) {
+      SdkPresent<List<ListDeletionsResponseEdgesItem>>(value: final value) => {'edges': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pageInfo) {
+      SdkPresent<ListDeletionsResponsePageInfo>(value: final value) => {'page_info': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `page_info` wire field.
 class ListDialoguesResponsePageInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether there are more results after this page.
   final SdkOptional<bool> hasNextPage;
 
   const ListDialoguesResponsePageInfo({this.hasNextPage = const SdkOmitted()});
 
-  ListDialoguesResponsePageInfo Function({SdkOptional<bool> hasNextPage})
-      get copyWith => _copyWith;
+  ListDialoguesResponsePageInfo Function({SdkOptional<bool> hasNextPage}) get copyWith => _copyWith;
 
-  ListDialoguesResponsePageInfo _copyWith(
-          {Object? hasNextPage = sdkOmittedValue}) =>
-      ListDialoguesResponsePageInfo(
-        hasNextPage: identical(hasNextPage, sdkOmittedValue)
-            ? this.hasNextPage
-            : hasNextPage as SdkOptional<bool>,
-      );
+  ListDialoguesResponsePageInfo _copyWith({Object? hasNextPage = sdkOmittedValue}) => ListDialoguesResponsePageInfo(
+    hasNextPage: identical(hasNextPage, sdkOmittedValue) ? this.hasNextPage : hasNextPage as SdkOptional<bool>,
+  );
 
-  factory ListDialoguesResponsePageInfo.fromJson(Map<String, dynamic> json) =>
-      ListDialoguesResponsePageInfo(
-        hasNextPage: json['has_next_page'] != null
-            ? SdkPresent((json['has_next_page'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory ListDialoguesResponsePageInfo.fromJson(Map<String, dynamic> json) => ListDialoguesResponsePageInfo(
+    hasNextPage: json['has_next_page'] != null ? SdkPresent((json['has_next_page'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (hasNextPage) {
-          SdkPresent<bool>(value: final value) => {
-              'has_next_page': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (hasNextPage) {
+      SdkPresent<bool>(value: final value) => {'has_next_page': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `edges[]` wire field.
 class ListDialoguesResponseEdgesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An opaque cursor for pagination.
   final SdkOptional<String> cursor;
-
   /// A dialogue entry within a session, representing a single turn of conversation.
   final SdkOptional<SessionDialogue> node;
 
-  const ListDialoguesResponseEdgesItem(
-      {this.cursor = const SdkOmitted(), this.node = const SdkOmitted()});
+  const ListDialoguesResponseEdgesItem({this.cursor = const SdkOmitted(), this.node = const SdkOmitted()});
 
-  ListDialoguesResponseEdgesItem Function(
-      {SdkOptional<String> cursor,
-      SdkOptional<SessionDialogue> node}) get copyWith => _copyWith;
+  ListDialoguesResponseEdgesItem Function({SdkOptional<String> cursor, SdkOptional<SessionDialogue> node}) get copyWith => _copyWith;
 
-  ListDialoguesResponseEdgesItem _copyWith(
-          {Object? cursor = sdkOmittedValue, Object? node = sdkOmittedValue}) =>
-      ListDialoguesResponseEdgesItem(
-        cursor: identical(cursor, sdkOmittedValue)
-            ? this.cursor
-            : cursor as SdkOptional<String>,
-        node: identical(node, sdkOmittedValue)
-            ? this.node
-            : node as SdkOptional<SessionDialogue>,
-      );
+  ListDialoguesResponseEdgesItem _copyWith({Object? cursor = sdkOmittedValue, Object? node = sdkOmittedValue}) => ListDialoguesResponseEdgesItem(
+    cursor: identical(cursor, sdkOmittedValue) ? this.cursor : cursor as SdkOptional<String>,
+    node: identical(node, sdkOmittedValue) ? this.node : node as SdkOptional<SessionDialogue>,
+  );
 
-  factory ListDialoguesResponseEdgesItem.fromJson(Map<String, dynamic> json) =>
-      ListDialoguesResponseEdgesItem(
-        cursor: json['cursor'] != null
-            ? SdkPresent((json['cursor'] as String?)!)
-            : const SdkOmitted(),
-        node: json['node'] != null
-            ? SdkPresent((json['node'] != null
-                ? SessionDialogue.fromJson(json['node'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ListDialoguesResponseEdgesItem.fromJson(Map<String, dynamic> json) => ListDialoguesResponseEdgesItem(
+    cursor: json['cursor'] != null ? SdkPresent((json['cursor'] as String?)!) : const SdkOmitted(),
+    node: json['node'] != null ? SdkPresent((json['node'] != null ? SessionDialogue.fromJson(json['node'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (cursor) {
-          SdkPresent<String>(value: final value) => {
-              'cursor': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (node) {
-          SdkPresent<SessionDialogue>(value: final value) => {
-              'node': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (cursor) {
+      SdkPresent<String>(value: final value) => {'cursor': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (node) {
+      SdkPresent<SessionDialogue>(value: final value) => {'node': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListDialoguesResponse` API schema.
 class ListDialoguesResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `edges` wire field.
   final SdkOptional<List<ListDialoguesResponseEdgesItem>> edges;
-
   /// Optional object value serialized in the `page_info` wire field.
   final SdkOptional<ListDialoguesResponsePageInfo> pageInfo;
 
-  const ListDialoguesResponse(
-      {this.edges = const SdkOmitted(), this.pageInfo = const SdkOmitted()});
+  const ListDialoguesResponse({this.edges = const SdkOmitted(), this.pageInfo = const SdkOmitted()});
 
-  ListDialoguesResponse Function(
-          {SdkOptional<List<ListDialoguesResponseEdgesItem>> edges,
-          SdkOptional<ListDialoguesResponsePageInfo> pageInfo})
-      get copyWith => _copyWith;
+  ListDialoguesResponse Function({SdkOptional<List<ListDialoguesResponseEdgesItem>> edges, SdkOptional<ListDialoguesResponsePageInfo> pageInfo}) get copyWith => _copyWith;
 
-  ListDialoguesResponse _copyWith(
-          {Object? edges = sdkOmittedValue,
-          Object? pageInfo = sdkOmittedValue}) =>
-      ListDialoguesResponse(
-        edges: identical(edges, sdkOmittedValue)
-            ? this.edges
-            : edges as SdkOptional<List<ListDialoguesResponseEdgesItem>>,
-        pageInfo: identical(pageInfo, sdkOmittedValue)
-            ? this.pageInfo
-            : pageInfo as SdkOptional<ListDialoguesResponsePageInfo>,
-      );
+  ListDialoguesResponse _copyWith({Object? edges = sdkOmittedValue, Object? pageInfo = sdkOmittedValue}) => ListDialoguesResponse(
+    edges: identical(edges, sdkOmittedValue) ? this.edges : edges as SdkOptional<List<ListDialoguesResponseEdgesItem>>,
+    pageInfo: identical(pageInfo, sdkOmittedValue) ? this.pageInfo : pageInfo as SdkOptional<ListDialoguesResponsePageInfo>,
+  );
 
-  factory ListDialoguesResponse.fromJson(Map<String, dynamic> json) =>
-      ListDialoguesResponse(
-        edges: json['edges'] != null
-            ? SdkPresent(((json['edges'] as List?)
-                ?.map((e) => ListDialoguesResponseEdgesItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        pageInfo: json['page_info'] != null
-            ? SdkPresent((json['page_info'] != null
-                ? ListDialoguesResponsePageInfo.fromJson(
-                    json['page_info'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ListDialoguesResponse.fromJson(Map<String, dynamic> json) => ListDialoguesResponse(
+    edges: json['edges'] != null ? SdkPresent(((json['edges'] as List?)?.map((e) => ListDialoguesResponseEdgesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    pageInfo: json['page_info'] != null ? SdkPresent((json['page_info'] != null ? ListDialoguesResponsePageInfo.fromJson(json['page_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (edges) {
-          SdkPresent<List<ListDialoguesResponseEdgesItem>>(
-            value: final value
-          ) =>
-            {
-              'edges': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pageInfo) {
-          SdkPresent<ListDialoguesResponsePageInfo>(value: final value) => {
-              'page_info': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (edges) {
+      SdkPresent<List<ListDialoguesResponseEdgesItem>>(value: final value) => {'edges': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pageInfo) {
+      SdkPresent<ListDialoguesResponsePageInfo>(value: final value) => {'page_info': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `page_info` wire field.
 class ListExportsResponsePageInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether there are more results after this page.
   final SdkOptional<bool> hasNextPage;
 
   const ListExportsResponsePageInfo({this.hasNextPage = const SdkOmitted()});
 
-  ListExportsResponsePageInfo Function({SdkOptional<bool> hasNextPage})
-      get copyWith => _copyWith;
+  ListExportsResponsePageInfo Function({SdkOptional<bool> hasNextPage}) get copyWith => _copyWith;
 
-  ListExportsResponsePageInfo _copyWith(
-          {Object? hasNextPage = sdkOmittedValue}) =>
-      ListExportsResponsePageInfo(
-        hasNextPage: identical(hasNextPage, sdkOmittedValue)
-            ? this.hasNextPage
-            : hasNextPage as SdkOptional<bool>,
-      );
+  ListExportsResponsePageInfo _copyWith({Object? hasNextPage = sdkOmittedValue}) => ListExportsResponsePageInfo(
+    hasNextPage: identical(hasNextPage, sdkOmittedValue) ? this.hasNextPage : hasNextPage as SdkOptional<bool>,
+  );
 
-  factory ListExportsResponsePageInfo.fromJson(Map<String, dynamic> json) =>
-      ListExportsResponsePageInfo(
-        hasNextPage: json['has_next_page'] != null
-            ? SdkPresent((json['has_next_page'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory ListExportsResponsePageInfo.fromJson(Map<String, dynamic> json) => ListExportsResponsePageInfo(
+    hasNextPage: json['has_next_page'] != null ? SdkPresent((json['has_next_page'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (hasNextPage) {
-          SdkPresent<bool>(value: final value) => {
-              'has_next_page': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (hasNextPage) {
+      SdkPresent<bool>(value: final value) => {'has_next_page': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `edges[]` wire field.
 class ListExportsResponseEdgesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An opaque cursor for pagination.
   final SdkOptional<String> cursor;
-
   /// An export job that produces a downloadable archive of signals data.
   final SdkOptional<ExportJob> node;
 
-  const ListExportsResponseEdgesItem(
-      {this.cursor = const SdkOmitted(), this.node = const SdkOmitted()});
+  const ListExportsResponseEdgesItem({this.cursor = const SdkOmitted(), this.node = const SdkOmitted()});
 
-  ListExportsResponseEdgesItem Function(
-      {SdkOptional<String> cursor,
-      SdkOptional<ExportJob> node}) get copyWith => _copyWith;
+  ListExportsResponseEdgesItem Function({SdkOptional<String> cursor, SdkOptional<ExportJob> node}) get copyWith => _copyWith;
 
-  ListExportsResponseEdgesItem _copyWith(
-          {Object? cursor = sdkOmittedValue, Object? node = sdkOmittedValue}) =>
-      ListExportsResponseEdgesItem(
-        cursor: identical(cursor, sdkOmittedValue)
-            ? this.cursor
-            : cursor as SdkOptional<String>,
-        node: identical(node, sdkOmittedValue)
-            ? this.node
-            : node as SdkOptional<ExportJob>,
-      );
+  ListExportsResponseEdgesItem _copyWith({Object? cursor = sdkOmittedValue, Object? node = sdkOmittedValue}) => ListExportsResponseEdgesItem(
+    cursor: identical(cursor, sdkOmittedValue) ? this.cursor : cursor as SdkOptional<String>,
+    node: identical(node, sdkOmittedValue) ? this.node : node as SdkOptional<ExportJob>,
+  );
 
-  factory ListExportsResponseEdgesItem.fromJson(Map<String, dynamic> json) =>
-      ListExportsResponseEdgesItem(
-        cursor: json['cursor'] != null
-            ? SdkPresent((json['cursor'] as String?)!)
-            : const SdkOmitted(),
-        node: json['node'] != null
-            ? SdkPresent((json['node'] != null
-                ? ExportJob.fromJson(json['node'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ListExportsResponseEdgesItem.fromJson(Map<String, dynamic> json) => ListExportsResponseEdgesItem(
+    cursor: json['cursor'] != null ? SdkPresent((json['cursor'] as String?)!) : const SdkOmitted(),
+    node: json['node'] != null ? SdkPresent((json['node'] != null ? ExportJob.fromJson(json['node'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (cursor) {
-          SdkPresent<String>(value: final value) => {
-              'cursor': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (node) {
-          SdkPresent<ExportJob>(value: final value) => {
-              'node': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (cursor) {
+      SdkPresent<String>(value: final value) => {'cursor': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (node) {
+      SdkPresent<ExportJob>(value: final value) => {'node': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListExportsResponse` API schema.
 class ListExportsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `edges` wire field.
   final SdkOptional<List<ListExportsResponseEdgesItem>> edges;
-
   /// Optional object value serialized in the `page_info` wire field.
   final SdkOptional<ListExportsResponsePageInfo> pageInfo;
 
-  const ListExportsResponse(
-      {this.edges = const SdkOmitted(), this.pageInfo = const SdkOmitted()});
+  const ListExportsResponse({this.edges = const SdkOmitted(), this.pageInfo = const SdkOmitted()});
 
-  ListExportsResponse Function(
-          {SdkOptional<List<ListExportsResponseEdgesItem>> edges,
-          SdkOptional<ListExportsResponsePageInfo> pageInfo})
-      get copyWith => _copyWith;
+  ListExportsResponse Function({SdkOptional<List<ListExportsResponseEdgesItem>> edges, SdkOptional<ListExportsResponsePageInfo> pageInfo}) get copyWith => _copyWith;
 
-  ListExportsResponse _copyWith(
-          {Object? edges = sdkOmittedValue,
-          Object? pageInfo = sdkOmittedValue}) =>
-      ListExportsResponse(
-        edges: identical(edges, sdkOmittedValue)
-            ? this.edges
-            : edges as SdkOptional<List<ListExportsResponseEdgesItem>>,
-        pageInfo: identical(pageInfo, sdkOmittedValue)
-            ? this.pageInfo
-            : pageInfo as SdkOptional<ListExportsResponsePageInfo>,
-      );
+  ListExportsResponse _copyWith({Object? edges = sdkOmittedValue, Object? pageInfo = sdkOmittedValue}) => ListExportsResponse(
+    edges: identical(edges, sdkOmittedValue) ? this.edges : edges as SdkOptional<List<ListExportsResponseEdgesItem>>,
+    pageInfo: identical(pageInfo, sdkOmittedValue) ? this.pageInfo : pageInfo as SdkOptional<ListExportsResponsePageInfo>,
+  );
 
-  factory ListExportsResponse.fromJson(Map<String, dynamic> json) =>
-      ListExportsResponse(
-        edges: json['edges'] != null
-            ? SdkPresent(((json['edges'] as List?)
-                ?.map((e) => ListExportsResponseEdgesItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        pageInfo: json['page_info'] != null
-            ? SdkPresent((json['page_info'] != null
-                ? ListExportsResponsePageInfo.fromJson(
-                    json['page_info'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ListExportsResponse.fromJson(Map<String, dynamic> json) => ListExportsResponse(
+    edges: json['edges'] != null ? SdkPresent(((json['edges'] as List?)?.map((e) => ListExportsResponseEdgesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    pageInfo: json['page_info'] != null ? SdkPresent((json['page_info'] != null ? ListExportsResponsePageInfo.fromJson(json['page_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (edges) {
-          SdkPresent<List<ListExportsResponseEdgesItem>>(value: final value) =>
-            {
-              'edges': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pageInfo) {
-          SdkPresent<ListExportsResponsePageInfo>(value: final value) => {
-              'page_info': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (edges) {
+      SdkPresent<List<ListExportsResponseEdgesItem>>(value: final value) => {'edges': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pageInfo) {
+      SdkPresent<ListExportsResponsePageInfo>(value: final value) => {'page_info': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `page_info` wire field.
 class ListSessionsResponseResponsePageInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether there are more results after this page.
   final SdkOptional<bool> hasNextPage;
 
-  const ListSessionsResponseResponsePageInfo(
-      {this.hasNextPage = const SdkOmitted()});
+  const ListSessionsResponseResponsePageInfo({this.hasNextPage = const SdkOmitted()});
 
-  ListSessionsResponseResponsePageInfo Function({SdkOptional<bool> hasNextPage})
-      get copyWith => _copyWith;
+  ListSessionsResponseResponsePageInfo Function({SdkOptional<bool> hasNextPage}) get copyWith => _copyWith;
 
-  ListSessionsResponseResponsePageInfo _copyWith(
-          {Object? hasNextPage = sdkOmittedValue}) =>
-      ListSessionsResponseResponsePageInfo(
-        hasNextPage: identical(hasNextPage, sdkOmittedValue)
-            ? this.hasNextPage
-            : hasNextPage as SdkOptional<bool>,
-      );
+  ListSessionsResponseResponsePageInfo _copyWith({Object? hasNextPage = sdkOmittedValue}) => ListSessionsResponseResponsePageInfo(
+    hasNextPage: identical(hasNextPage, sdkOmittedValue) ? this.hasNextPage : hasNextPage as SdkOptional<bool>,
+  );
 
-  factory ListSessionsResponseResponsePageInfo.fromJson(
-          Map<String, dynamic> json) =>
-      ListSessionsResponseResponsePageInfo(
-        hasNextPage: json['has_next_page'] != null
-            ? SdkPresent((json['has_next_page'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory ListSessionsResponseResponsePageInfo.fromJson(Map<String, dynamic> json) => ListSessionsResponseResponsePageInfo(
+    hasNextPage: json['has_next_page'] != null ? SdkPresent((json['has_next_page'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (hasNextPage) {
-          SdkPresent<bool>(value: final value) => {
-              'has_next_page': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (hasNextPage) {
+      SdkPresent<bool>(value: final value) => {'has_next_page': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `edges[]` wire field.
 class ListSessionsResponseResponseEdgesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An opaque cursor for pagination.
   final SdkOptional<String> cursor;
-
   /// A session represents a conversation monitored by Signals, such as a Harness Runtime environment session or a Serverless Inference chat completion.
   final SdkOptional<Session2> node;
 
-  const ListSessionsResponseResponseEdgesItem(
-      {this.cursor = const SdkOmitted(), this.node = const SdkOmitted()});
+  const ListSessionsResponseResponseEdgesItem({this.cursor = const SdkOmitted(), this.node = const SdkOmitted()});
 
-  ListSessionsResponseResponseEdgesItem Function(
-      {SdkOptional<String> cursor,
-      SdkOptional<Session2> node}) get copyWith => _copyWith;
+  ListSessionsResponseResponseEdgesItem Function({SdkOptional<String> cursor, SdkOptional<Session2> node}) get copyWith => _copyWith;
 
-  ListSessionsResponseResponseEdgesItem _copyWith(
-          {Object? cursor = sdkOmittedValue, Object? node = sdkOmittedValue}) =>
-      ListSessionsResponseResponseEdgesItem(
-        cursor: identical(cursor, sdkOmittedValue)
-            ? this.cursor
-            : cursor as SdkOptional<String>,
-        node: identical(node, sdkOmittedValue)
-            ? this.node
-            : node as SdkOptional<Session2>,
-      );
+  ListSessionsResponseResponseEdgesItem _copyWith({Object? cursor = sdkOmittedValue, Object? node = sdkOmittedValue}) => ListSessionsResponseResponseEdgesItem(
+    cursor: identical(cursor, sdkOmittedValue) ? this.cursor : cursor as SdkOptional<String>,
+    node: identical(node, sdkOmittedValue) ? this.node : node as SdkOptional<Session2>,
+  );
 
-  factory ListSessionsResponseResponseEdgesItem.fromJson(
-          Map<String, dynamic> json) =>
-      ListSessionsResponseResponseEdgesItem(
-        cursor: json['cursor'] != null
-            ? SdkPresent((json['cursor'] as String?)!)
-            : const SdkOmitted(),
-        node: json['node'] != null
-            ? SdkPresent((json['node'] != null
-                ? Session2.fromJson(json['node'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ListSessionsResponseResponseEdgesItem.fromJson(Map<String, dynamic> json) => ListSessionsResponseResponseEdgesItem(
+    cursor: json['cursor'] != null ? SdkPresent((json['cursor'] as String?)!) : const SdkOmitted(),
+    node: json['node'] != null ? SdkPresent((json['node'] != null ? Session2.fromJson(json['node'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (cursor) {
-          SdkPresent<String>(value: final value) => {
-              'cursor': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (node) {
-          SdkPresent<Session2>(value: final value) => {
-              'node': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (cursor) {
+      SdkPresent<String>(value: final value) => {'cursor': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (node) {
+      SdkPresent<Session2>(value: final value) => {'node': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

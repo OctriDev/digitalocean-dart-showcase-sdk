@@ -21,18 +21,12 @@ Future<DedicatedInferenceResponse> dedicatedInferencesGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dedicatedInferencesGet',
-          fromJsonRaw: (value) => DedicatedInferenceResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DedicatedInferenceResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Update an existing Dedicated Inference. Send a PATCH request to `/v2/dedicated-inferences/{dedicated_inference_id}` with updated `spec` and/or `access_tokens`. Status will move to updating and return to active when done.
 ///
@@ -41,13 +35,12 @@ Future<DedicatedInferenceResponse> dedicatedInferencesGet(ClientConfig config,
 /// [spec] Structured configuration for a Dedicated Inference deployment.
 /// [accessTokens] Provider tokens for model access (e.g. gated Hugging Face
 ///   models).
-Future<DedicatedInferenceUpdateAccepted> dedicatedInferencesPatch(
-    ClientConfig config,
-    {required String dedicatedInferenceId,
-    SdkOptional<DedicatedInferenceSpecRequest> spec = const SdkOmitted(),
-    SdkOptional<DedicatedInferenceUpdateRequestRequestAccessTokens>
-        accessTokens = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<DedicatedInferenceUpdateAccepted>
+    dedicatedInferencesPatch(ClientConfig config,
+        {required String dedicatedInferenceId,
+        SdkOptional<DedicatedInferenceSpecRequest> spec = const SdkOmitted(),
+        SdkOptional<DedicatedInferenceUpdateRequestRequestAccessTokens> accessTokens = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   sdkValidateUuid('dedicated_inference_id', dedicatedInferenceId);
 
   return (await sdkRequest<DedicatedInferenceUpdateAccepted>('PATCH',
@@ -59,18 +52,12 @@ Future<DedicatedInferenceUpdateAccepted> dedicatedInferencesPatch(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'dedicatedInferencesPatch',
-          fromJsonRaw: (value) => DedicatedInferenceUpdateAccepted.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DedicatedInferenceUpdateAccepted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Delete an existing Dedicated Inference. Send a DELETE request to `/v2/dedicated-inferences/{dedicated_inference_id}`. The response 202 Accepted indicates the request was accepted for processing.
 ///
@@ -87,15 +74,10 @@ Future<void> dedicatedInferencesDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'dedicatedInferencesDelete',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// List all Dedicated Inference instances for your team. Send a GET request to `/v2/dedicated-inferences`. You may filter by region and use page and per_page for pagination.
 ///
@@ -119,36 +101,28 @@ Future<AllDedicatedInferences> dedicatedInferencesList(ClientConfig config,
           'GET', '/v2/dedicated-inferences',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'region': SdkQueryValue(SdkUtils.unwrapOptional(region),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'region': SdkQueryValue(SdkUtils.unwrapOptional(region), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'dedicatedInferencesList',
-          fromJsonRaw: (value) =>
-              AllDedicatedInferences.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllDedicatedInferences.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Create a new Dedicated Inference for your team. Send a POST request to `/v2/dedicated-inferences` with a `spec` object (version, name, region, vpc, enable_public_endpoint, model_deployments) and optional `access_tokens` (e.g. hugging_face_token for gated models). The response code 202 Accepted indicates the request was accepted for processing; it does not indicate success or failure. The token value is returned only on create; store it securely.
 ///
 /// [spec] Structured configuration for a Dedicated Inference deployment.
 /// [accessTokens] Key-value pairs for provider tokens (e.g. Hugging Face).
-Future<DedicatedInferenceProvisioning> dedicatedInferencesCreate(
-    ClientConfig config,
-    {required DedicatedInferenceSpecRequest spec,
-    SdkOptional<Map<String, String>> accessTokens = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<DedicatedInferenceProvisioning>
+    dedicatedInferencesCreate(ClientConfig config,
+        {required DedicatedInferenceSpecRequest spec,
+        SdkOptional<Map<String, String>> accessTokens = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<DedicatedInferenceProvisioning>(
           'POST', '/v2/dedicated-inferences',
           config: config,
@@ -158,17 +132,12 @@ Future<DedicatedInferenceProvisioning> dedicatedInferencesCreate(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'dedicatedInferencesCreate',
-          fromJsonRaw: (value) => DedicatedInferenceProvisioning.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DedicatedInferenceProvisioning.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// List all accelerators (GPUs) in use by a Dedicated Inference instance. Send a GET request to `/v2/dedicated-inferences/{dedicated_inference_id}/accelerators`. Optionally filter by slug and use page/per_page for pagination.
 ///
@@ -177,13 +146,13 @@ Future<DedicatedInferenceProvisioning> dedicatedInferencesCreate(
 /// [perPage] Number of items returned per page
 /// [page] Which 'page' of paginated results to return.
 /// [slug] Filter accelerators by GPU slug.
-Future<AcceleratorsList> dedicatedInferencesListAccelerators(
-    ClientConfig config,
-    {required String dedicatedInferenceId,
-    SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<int> page = const SdkOmitted(),
-    SdkOptional<String> slug = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<AcceleratorsList>
+    dedicatedInferencesListAccelerators(ClientConfig config,
+        {required String dedicatedInferenceId,
+        SdkOptional<int> perPage = const SdkOmitted(),
+        SdkOptional<int> page = const SdkOmitted(),
+        SdkOptional<String> slug = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   sdkValidateUuid('dedicated_inference_id', dedicatedInferenceId);
   if (perPage is SdkPresent<int>) {
     validateRange('per_page', perPage.value, min: 1, max: 200);
@@ -196,38 +165,29 @@ Future<AcceleratorsList> dedicatedInferencesListAccelerators(
           '/v2/dedicated-inferences/${Uri.encodeComponent(dedicatedInferenceId.toString())}/accelerators',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'slug': SdkQueryValue(SdkUtils.unwrapOptional(slug),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'slug': SdkQueryValue(SdkUtils.unwrapOptional(slug), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'dedicatedInferencesListAccelerators',
-          fromJsonRaw: (value) =>
-              AcceleratorsList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AcceleratorsList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieve a single accelerator by ID for a Dedicated Inference instance. Send a GET request to `/v2/dedicated-inferences/{dedicated_inference_id}/accelerators/{accelerator_id}`.
 ///
 /// [dedicatedInferenceId] A unique identifier for a Dedicated Inference
 ///   instance.
 /// [acceleratorId] A unique identifier for a Dedicated Inference accelerator.
-Future<DedicatedInferenceAccelerator> dedicatedInferencesGetAccelerator(
-    ClientConfig config,
-    {required String dedicatedInferenceId,
-    required String acceleratorId,
-    RequestOptions? requestOptions}) async {
+Future<DedicatedInferenceAccelerator>
+    dedicatedInferencesGetAccelerator(ClientConfig config,
+        {required String dedicatedInferenceId,
+        required String acceleratorId,
+        RequestOptions? requestOptions}) async {
   sdkValidateUuid('dedicated_inference_id', dedicatedInferenceId);
   sdkValidateUuid('accelerator_id', acceleratorId);
 
@@ -236,18 +196,12 @@ Future<DedicatedInferenceAccelerator> dedicatedInferencesGetAccelerator(
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dedicatedInferencesGetAccelerator',
-          fromJsonRaw: (value) => DedicatedInferenceAccelerator.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DedicatedInferenceAccelerator.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Get the CA certificate for a Dedicated Inference instance (base64-encoded). Required for private endpoint connectivity. Send a GET request to `/v2/dedicated-inferences/{dedicated_inference_id}/ca`.
 ///
@@ -263,18 +217,12 @@ Future<CaCertificate> dedicatedInferencesGetCa(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dedicatedInferencesGetCa',
-          fromJsonRaw: (value) =>
-              CaCertificate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CaCertificate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// List all access tokens for a Dedicated Inference instance. Token values are not returned; only id, name, created_at, and is_managed. Send a GET request to `/v2/dedicated-inferences/{dedicated_inference_id}/tokens`.
 ///
@@ -299,25 +247,17 @@ Future<TokensList> dedicatedInferencesListTokens(ClientConfig config,
           '/v2/dedicated-inferences/${Uri.encodeComponent(dedicatedInferenceId.toString())}/tokens',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'dedicatedInferencesListTokens',
-          fromJsonRaw: (value) =>
-              TokensList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TokensList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Create a new access token for a Dedicated Inference instance. Send a POST request to `/v2/dedicated-inferences/{dedicated_inference_id}/tokens` with a `name`. The token value is returned only once in the response; store it securely.
 ///
@@ -338,18 +278,12 @@ Future<TokenCreated> dedicatedInferencesCreateTokens(ClientConfig config,
           body: {'name': name},
           decoder: SdkResponseDecoder.json,
           operationId: 'dedicatedInferencesCreateTokens',
-          fromJsonRaw: (value) =>
-              TokenCreated.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TokenCreated.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Revoke (delete) an access token for a Dedicated Inference instance. Send a DELETE request to `/v2/dedicated-inferences/{dedicated_inference_id}/tokens/{token_id}`.
 ///
@@ -369,55 +303,36 @@ Future<void> dedicatedInferencesDeleteTokens(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'dedicatedInferencesDeleteTokens',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
 
+
 /// Get available Dedicated Inference sizes and pricing for supported GPUs. Send a GET request to `/v2/dedicated-inferences/sizes`.
-Future<DedicatedInferenceSizesResponse> dedicatedInferencesListSizes(
-    ClientConfig config,
+Future<DedicatedInferenceSizesResponse> dedicatedInferencesListSizes(ClientConfig config,
     {RequestOptions? requestOptions}) async {
   return (await sdkRequest<DedicatedInferenceSizesResponse>(
           'GET', '/v2/dedicated-inferences/sizes',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dedicatedInferencesListSizes',
-          fromJsonRaw: (value) => DedicatedInferenceSizesResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DedicatedInferenceSizesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
 
+
 /// Get supported GPU and model configurations for Dedicated Inference. Use this to discover supported GPU slugs and model slugs (e.g. Hugging Face). Send a GET request to `/v2/dedicated-inferences/gpu-model-config`.
-Future<DedicatedInferenceGpuModelConfigsResponse>
-    dedicatedInferencesGetGpuModelConfig(ClientConfig config,
-        {RequestOptions? requestOptions}) async {
+Future<DedicatedInferenceGpuModelConfigsResponse> dedicatedInferencesGetGpuModelConfig(ClientConfig config,
+    {RequestOptions? requestOptions}) async {
   return (await sdkRequest<DedicatedInferenceGpuModelConfigsResponse>(
           'GET', '/v2/dedicated-inferences/gpu-model-config',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dedicatedInferencesGetGpuModelConfig',
-          fromJsonRaw: (value) =>
-              DedicatedInferenceGpuModelConfigsResponse.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DedicatedInferenceGpuModelConfigsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

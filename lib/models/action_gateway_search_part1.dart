@@ -8,237 +8,138 @@ part of 'action_gateway_search.dart';
 class SearchProvidersResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Matching providers sorted by name.
   final SdkOptional<List<ProviderSummary>> providers;
-
   /// Token for the next page; empty on the last page.
   final SdkOptional<String> nextPageToken;
 
-  const SearchProvidersResponse(
-      {this.providers = const SdkOmitted(),
-      this.nextPageToken = const SdkOmitted()});
+  const SearchProvidersResponse({this.providers = const SdkOmitted(), this.nextPageToken = const SdkOmitted()});
 
-  SearchProvidersResponse Function(
-      {SdkOptional<List<ProviderSummary>> providers,
-      SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
+  SearchProvidersResponse Function({SdkOptional<List<ProviderSummary>> providers, SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
 
-  SearchProvidersResponse _copyWith(
-          {Object? providers = sdkOmittedValue,
-          Object? nextPageToken = sdkOmittedValue}) =>
-      SearchProvidersResponse(
-        providers: identical(providers, sdkOmittedValue)
-            ? this.providers
-            : providers as SdkOptional<List<ProviderSummary>>,
-        nextPageToken: identical(nextPageToken, sdkOmittedValue)
-            ? this.nextPageToken
-            : nextPageToken as SdkOptional<String>,
-      );
+  SearchProvidersResponse _copyWith({Object? providers = sdkOmittedValue, Object? nextPageToken = sdkOmittedValue}) => SearchProvidersResponse(
+    providers: identical(providers, sdkOmittedValue) ? this.providers : providers as SdkOptional<List<ProviderSummary>>,
+    nextPageToken: identical(nextPageToken, sdkOmittedValue) ? this.nextPageToken : nextPageToken as SdkOptional<String>,
+  );
 
-  factory SearchProvidersResponse.fromJson(Map<String, dynamic> json) =>
-      SearchProvidersResponse(
-        providers: json['providers'] != null
-            ? SdkPresent(((json['providers'] as List?)
-                ?.map(
-                    (e) => ProviderSummary.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        nextPageToken: json['next_page_token'] != null
-            ? SdkPresent((json['next_page_token'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SearchProvidersResponse.fromJson(Map<String, dynamic> json) => SearchProvidersResponse(
+    providers: json['providers'] != null ? SdkPresent(((json['providers'] as List?)?.map((e) => ProviderSummary.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    nextPageToken: json['next_page_token'] != null ? SdkPresent((json['next_page_token'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (providers) {
-          SdkPresent<List<ProviderSummary>>(value: final value) => {
-              'providers': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextPageToken) {
-          SdkPresent<String>(value: final value) => {
-              'next_page_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (providers) {
+      SdkPresent<List<ProviderSummary>>(value: final value) => {'providers': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextPageToken) {
+      SdkPresent<String>(value: final value) => {'next_page_token': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// One page of matching sessions.
 class SearchSessionsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Matching sessions in rank order.
   final SdkOptional<List<Session>> sessions;
-
   /// Token for the next page; empty on the last page.
   final SdkOptional<String> nextPageToken;
 
-  const SearchSessionsResponse(
-      {this.sessions = const SdkOmitted(),
-      this.nextPageToken = const SdkOmitted()});
+  const SearchSessionsResponse({this.sessions = const SdkOmitted(), this.nextPageToken = const SdkOmitted()});
 
-  SearchSessionsResponse Function(
-      {SdkOptional<List<Session>> sessions,
-      SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
+  SearchSessionsResponse Function({SdkOptional<List<Session>> sessions, SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
 
-  SearchSessionsResponse _copyWith(
-          {Object? sessions = sdkOmittedValue,
-          Object? nextPageToken = sdkOmittedValue}) =>
-      SearchSessionsResponse(
-        sessions: identical(sessions, sdkOmittedValue)
-            ? this.sessions
-            : sessions as SdkOptional<List<Session>>,
-        nextPageToken: identical(nextPageToken, sdkOmittedValue)
-            ? this.nextPageToken
-            : nextPageToken as SdkOptional<String>,
-      );
+  SearchSessionsResponse _copyWith({Object? sessions = sdkOmittedValue, Object? nextPageToken = sdkOmittedValue}) => SearchSessionsResponse(
+    sessions: identical(sessions, sdkOmittedValue) ? this.sessions : sessions as SdkOptional<List<Session>>,
+    nextPageToken: identical(nextPageToken, sdkOmittedValue) ? this.nextPageToken : nextPageToken as SdkOptional<String>,
+  );
 
-  factory SearchSessionsResponse.fromJson(Map<String, dynamic> json) =>
-      SearchSessionsResponse(
-        sessions: json['sessions'] != null
-            ? SdkPresent(((json['sessions'] as List?)
-                ?.map((e) => Session.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        nextPageToken: json['next_page_token'] != null
-            ? SdkPresent((json['next_page_token'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SearchSessionsResponse.fromJson(Map<String, dynamic> json) => SearchSessionsResponse(
+    sessions: json['sessions'] != null ? SdkPresent(((json['sessions'] as List?)?.map((e) => Session.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    nextPageToken: json['next_page_token'] != null ? SdkPresent((json['next_page_token'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (sessions) {
-          SdkPresent<List<Session>>(value: final value) => {
-              'sessions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextPageToken) {
-          SdkPresent<String>(value: final value) => {
-              'next_page_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (sessions) {
+      SdkPresent<List<Session>>(value: final value) => {'sessions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextPageToken) {
+      SdkPresent<String>(value: final value) => {'next_page_token': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// One page of matching toolbelts.
 class SearchToolbeltsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Matching toolbelts sorted by name.
   final SdkOptional<List<ToolbeltSummary>> toolbelts;
-
   /// Token for the next page; empty on the last page.
   final SdkOptional<String> nextPageToken;
 
-  const SearchToolbeltsResponse(
-      {this.toolbelts = const SdkOmitted(),
-      this.nextPageToken = const SdkOmitted()});
+  const SearchToolbeltsResponse({this.toolbelts = const SdkOmitted(), this.nextPageToken = const SdkOmitted()});
 
-  SearchToolbeltsResponse Function(
-      {SdkOptional<List<ToolbeltSummary>> toolbelts,
-      SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
+  SearchToolbeltsResponse Function({SdkOptional<List<ToolbeltSummary>> toolbelts, SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
 
-  SearchToolbeltsResponse _copyWith(
-          {Object? toolbelts = sdkOmittedValue,
-          Object? nextPageToken = sdkOmittedValue}) =>
-      SearchToolbeltsResponse(
-        toolbelts: identical(toolbelts, sdkOmittedValue)
-            ? this.toolbelts
-            : toolbelts as SdkOptional<List<ToolbeltSummary>>,
-        nextPageToken: identical(nextPageToken, sdkOmittedValue)
-            ? this.nextPageToken
-            : nextPageToken as SdkOptional<String>,
-      );
+  SearchToolbeltsResponse _copyWith({Object? toolbelts = sdkOmittedValue, Object? nextPageToken = sdkOmittedValue}) => SearchToolbeltsResponse(
+    toolbelts: identical(toolbelts, sdkOmittedValue) ? this.toolbelts : toolbelts as SdkOptional<List<ToolbeltSummary>>,
+    nextPageToken: identical(nextPageToken, sdkOmittedValue) ? this.nextPageToken : nextPageToken as SdkOptional<String>,
+  );
 
-  factory SearchToolbeltsResponse.fromJson(Map<String, dynamic> json) =>
-      SearchToolbeltsResponse(
-        toolbelts: json['toolbelts'] != null
-            ? SdkPresent(((json['toolbelts'] as List?)
-                ?.map(
-                    (e) => ToolbeltSummary.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        nextPageToken: json['next_page_token'] != null
-            ? SdkPresent((json['next_page_token'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SearchToolbeltsResponse.fromJson(Map<String, dynamic> json) => SearchToolbeltsResponse(
+    toolbelts: json['toolbelts'] != null ? SdkPresent(((json['toolbelts'] as List?)?.map((e) => ToolbeltSummary.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    nextPageToken: json['next_page_token'] != null ? SdkPresent((json['next_page_token'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (toolbelts) {
-          SdkPresent<List<ToolbeltSummary>>(value: final value) => {
-              'toolbelts': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextPageToken) {
-          SdkPresent<String>(value: final value) => {
-              'next_page_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (toolbelts) {
+      SdkPresent<List<ToolbeltSummary>>(value: final value) => {'toolbelts': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextPageToken) {
+      SdkPresent<String>(value: final value) => {'next_page_token': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// One page of matching tools.
 class SearchToolsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Ordered by descending match quality, then by provider and name. The ordering is applied across the whole result set rather than within a page, so a client must not re-sort a page to rank it.
   final SdkOptional<List<ToolSearchResult>> tools;
-
   /// Token for the next page; empty on the last page.
   final SdkOptional<String> nextPageToken;
 
-  const SearchToolsResponse(
-      {this.tools = const SdkOmitted(),
-      this.nextPageToken = const SdkOmitted()});
+  const SearchToolsResponse({this.tools = const SdkOmitted(), this.nextPageToken = const SdkOmitted()});
 
-  SearchToolsResponse Function(
-      {SdkOptional<List<ToolSearchResult>> tools,
-      SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
+  SearchToolsResponse Function({SdkOptional<List<ToolSearchResult>> tools, SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
 
-  SearchToolsResponse _copyWith(
-          {Object? tools = sdkOmittedValue,
-          Object? nextPageToken = sdkOmittedValue}) =>
-      SearchToolsResponse(
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<ToolSearchResult>>,
-        nextPageToken: identical(nextPageToken, sdkOmittedValue)
-            ? this.nextPageToken
-            : nextPageToken as SdkOptional<String>,
-      );
+  SearchToolsResponse _copyWith({Object? tools = sdkOmittedValue, Object? nextPageToken = sdkOmittedValue}) => SearchToolsResponse(
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<ToolSearchResult>>,
+    nextPageToken: identical(nextPageToken, sdkOmittedValue) ? this.nextPageToken : nextPageToken as SdkOptional<String>,
+  );
 
-  factory SearchToolsResponse.fromJson(Map<String, dynamic> json) =>
-      SearchToolsResponse(
-        tools: json['tools'] != null
-            ? SdkPresent(((json['tools'] as List?)
-                ?.map(
-                    (e) => ToolSearchResult.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        nextPageToken: json['next_page_token'] != null
-            ? SdkPresent((json['next_page_token'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SearchToolsResponse.fromJson(Map<String, dynamic> json) => SearchToolsResponse(
+    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => ToolSearchResult.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    nextPageToken: json['next_page_token'] != null ? SdkPresent((json['next_page_token'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (tools) {
-          SdkPresent<List<ToolSearchResult>>(value: final value) => {
-              'tools': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextPageToken) {
-          SdkPresent<String>(value: final value) => {
-              'next_page_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (tools) {
+      SdkPresent<List<ToolSearchResult>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextPageToken) {
+      SdkPresent<String>(value: final value) => {'next_page_token': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

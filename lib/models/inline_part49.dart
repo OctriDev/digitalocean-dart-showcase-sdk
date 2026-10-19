@@ -7,232 +7,148 @@ part of 'inline.dart';
 class SecurityUpdateSettingsPlanRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Scan coverage for each available plan tier.
-  final SdkOptional<
-          Map<String, SecurityUpdateSettingsPlanRequestBodyTierCoverageValue>>
-      tierCoverage;
+  final SdkOptional<Map<String, SecurityUpdateSettingsPlanRequestBodyTierCoverageValue>> tierCoverage;
 
-  const SecurityUpdateSettingsPlanRequestBody(
-      {this.tierCoverage = const SdkOmitted()});
+  const SecurityUpdateSettingsPlanRequestBody({this.tierCoverage = const SdkOmitted()});
 
-  SecurityUpdateSettingsPlanRequestBody Function(
-      {SdkOptional<
-              Map<String,
-                  SecurityUpdateSettingsPlanRequestBodyTierCoverageValue>>
-          tierCoverage}) get copyWith => _copyWith;
+  SecurityUpdateSettingsPlanRequestBody Function({SdkOptional<Map<String, SecurityUpdateSettingsPlanRequestBodyTierCoverageValue>> tierCoverage}) get copyWith => _copyWith;
 
-  SecurityUpdateSettingsPlanRequestBody _copyWith(
-          {Object? tierCoverage = sdkOmittedValue}) =>
-      SecurityUpdateSettingsPlanRequestBody(
-        tierCoverage: identical(tierCoverage, sdkOmittedValue)
-            ? this.tierCoverage
-            : tierCoverage as SdkOptional<
-                Map<String,
-                    SecurityUpdateSettingsPlanRequestBodyTierCoverageValue>>,
-      );
+  SecurityUpdateSettingsPlanRequestBody _copyWith({Object? tierCoverage = sdkOmittedValue}) => SecurityUpdateSettingsPlanRequestBody(
+    tierCoverage: identical(tierCoverage, sdkOmittedValue) ? this.tierCoverage : tierCoverage as SdkOptional<Map<String, SecurityUpdateSettingsPlanRequestBodyTierCoverageValue>>,
+  );
 
-  factory SecurityUpdateSettingsPlanRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      SecurityUpdateSettingsPlanRequestBody(
-        tierCoverage: json['tier_coverage'] != null
-            ? SdkPresent((json['tier_coverage'] == null
-                ? null
-                : Map<String, dynamic>.from(json['tier_coverage'] as Map).map(
-                    (key, value) => MapEntry(
-                        key,
-                        SecurityUpdateSettingsPlanRequestBodyTierCoverageValue
-                            .fromJson(value as Map<String, dynamic>))))!)
-            : const SdkOmitted(),
-      );
+  factory SecurityUpdateSettingsPlanRequestBody.fromJson(Map<String, dynamic> json) => SecurityUpdateSettingsPlanRequestBody(
+    tierCoverage: json['tier_coverage'] != null ? SdkPresent((json['tier_coverage'] == null ? null : Map<String, dynamic>.from(json['tier_coverage'] as Map).map((key, value) => MapEntry(key, SecurityUpdateSettingsPlanRequestBodyTierCoverageValue.fromJson(value as Map<String, dynamic>))))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (tierCoverage) {
-          SdkPresent<
-                Map<String,
-                    SecurityUpdateSettingsPlanRequestBodyTierCoverageValue>>(
-            value: final value
-          ) =>
-            {
-              'tier_coverage':
-                  value.map((key, value) => MapEntry(key, value.toJson())),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (tierCoverage) {
+      SdkPresent<Map<String, SecurityUpdateSettingsPlanRequestBodyTierCoverageValue>>(value: final value) => {'tier_coverage': value.map((key, value) => MapEntry(key, value.toJson())),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class SecurityCreateSuppressionRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The rule UUID to suppress for the listed resources.
   final SdkOptional<String> ruleUuid;
-
   /// The URNs of resources to suppress for the rule.
   final SdkOptional<List<String>> resources;
 
-  const SecurityCreateSuppressionRequestBody(
-      {this.ruleUuid = const SdkOmitted(),
-      this.resources = const SdkOmitted()});
+  const SecurityCreateSuppressionRequestBody({this.ruleUuid = const SdkOmitted(), this.resources = const SdkOmitted()});
 
-  SecurityCreateSuppressionRequestBody Function(
-      {SdkOptional<String> ruleUuid,
-      SdkOptional<List<String>> resources}) get copyWith => _copyWith;
+  SecurityCreateSuppressionRequestBody Function({SdkOptional<String> ruleUuid, SdkOptional<List<String>> resources}) get copyWith => _copyWith;
 
-  SecurityCreateSuppressionRequestBody _copyWith(
-          {Object? ruleUuid = sdkOmittedValue,
-          Object? resources = sdkOmittedValue}) =>
-      SecurityCreateSuppressionRequestBody(
-        ruleUuid: identical(ruleUuid, sdkOmittedValue)
-            ? this.ruleUuid
-            : ruleUuid as SdkOptional<String>,
-        resources: identical(resources, sdkOmittedValue)
-            ? this.resources
-            : resources as SdkOptional<List<String>>,
-      );
+  SecurityCreateSuppressionRequestBody _copyWith({Object? ruleUuid = sdkOmittedValue, Object? resources = sdkOmittedValue}) => SecurityCreateSuppressionRequestBody(
+    ruleUuid: identical(ruleUuid, sdkOmittedValue) ? this.ruleUuid : ruleUuid as SdkOptional<String>,
+    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<List<String>>,
+  );
 
-  factory SecurityCreateSuppressionRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      SecurityCreateSuppressionRequestBody(
-        ruleUuid: json['rule_uuid'] != null
-            ? SdkPresent((json['rule_uuid'] as String?)!)
-            : const SdkOmitted(),
-        resources: json['resources'] != null
-            ? SdkPresent(((json['resources'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory SecurityCreateSuppressionRequestBody.fromJson(Map<String, dynamic> json) => SecurityCreateSuppressionRequestBody(
+    ruleUuid: json['rule_uuid'] != null ? SdkPresent((json['rule_uuid'] as String?)!) : const SdkOmitted(),
+    resources: json['resources'] != null ? SdkPresent(((json['resources'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (ruleUuid) {
-          SdkPresent<String>(value: final value) => {
-              'rule_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resources) {
-          SdkPresent<List<String>>(value: final value) => {
-              'resources': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (ruleUuid) {
+      SdkPresent<String>(value: final value) => {'rule_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resources) {
+      SdkPresent<List<String>>(value: final value) => {'resources': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class VolumeSnapshotsCreateRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A human-readable name for the volume snapshot.
   final String name;
-
   /// A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. &lt;br&gt;&lt;br&gt;Requires `tag:create` scope.
   final SdkOptional<List<String>?> tags;
 
-  const VolumeSnapshotsCreateRequestBody(
-      {required this.name, this.tags = const SdkOmitted()});
+  const VolumeSnapshotsCreateRequestBody({required this.name, this.tags = const SdkOmitted()});
 
-  VolumeSnapshotsCreateRequestBody Function(
-      {String name, SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
+  VolumeSnapshotsCreateRequestBody Function({String name, SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
 
-  VolumeSnapshotsCreateRequestBody _copyWith(
-          {Object? name = sdkOmittedValue, Object? tags = sdkOmittedValue}) =>
-      VolumeSnapshotsCreateRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>?>,
-      );
+  VolumeSnapshotsCreateRequestBody _copyWith({Object? name = sdkOmittedValue, Object? tags = sdkOmittedValue}) => VolumeSnapshotsCreateRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>?>,
+  );
 
-  factory VolumeSnapshotsCreateRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      VolumeSnapshotsCreateRequestBody(
-        name: (json['name'] as String?)!,
-        tags: json.containsKey('tags')
-            ? SdkPresent(
-                (json['tags'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-      );
+  factory VolumeSnapshotsCreateRequestBody.fromJson(Map<String, dynamic> json) => VolumeSnapshotsCreateRequestBody(
+    name: (json['name'] as String?)!,
+    tags: json.containsKey('tags') ? SdkPresent((json['tags'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (tags) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (tags) {
+      SdkPresent<List<String>?>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class VpcsCreatePeeringsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the VPC peering. Must be unique and may only contain alphanumeric characters, dashes, and periods.
   final String name;
-
   /// The ID of the VPC to peer with.
   final String vpcId;
 
-  const VpcsCreatePeeringsRequestBody(
-      {required this.name, required this.vpcId});
+  const VpcsCreatePeeringsRequestBody({required this.name, required this.vpcId});
 
-  VpcsCreatePeeringsRequestBody Function({String name, String vpcId})
-      get copyWith => _copyWith;
+  VpcsCreatePeeringsRequestBody Function({String name, String vpcId}) get copyWith => _copyWith;
 
-  VpcsCreatePeeringsRequestBody _copyWith(
-          {Object? name = sdkOmittedValue, Object? vpcId = sdkOmittedValue}) =>
-      VpcsCreatePeeringsRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        vpcId: identical(vpcId, sdkOmittedValue) ? this.vpcId : vpcId as String,
-      );
+  VpcsCreatePeeringsRequestBody _copyWith({Object? name = sdkOmittedValue, Object? vpcId = sdkOmittedValue}) => VpcsCreatePeeringsRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    vpcId: identical(vpcId, sdkOmittedValue) ? this.vpcId : vpcId as String,
+  );
 
-  factory VpcsCreatePeeringsRequestBody.fromJson(Map<String, dynamic> json) =>
-      VpcsCreatePeeringsRequestBody(
-        name: (json['name'] as String?)!,
-        vpcId: (json['vpc_id'] as String?)!,
-      );
+  factory VpcsCreatePeeringsRequestBody.fromJson(Map<String, dynamic> json) => VpcsCreatePeeringsRequestBody(
+    name: (json['name'] as String?)!,
+    vpcId: (json['vpc_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'vpc_id': vpcId,
-      };
+    'name': name,
+    'vpc_id': vpcId,
+  };
 }
 
 class VpcsPatchPeeringsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the VPC peering. Must be unique within the team and may only contain alphanumeric characters and dashes.
   final String name;
 
   const VpcsPatchPeeringsRequestBody({required this.name});
 
-  VpcsPatchPeeringsRequestBody Function({String name}) get copyWith =>
-      _copyWith;
+  VpcsPatchPeeringsRequestBody Function({String name}) get copyWith => _copyWith;
 
-  VpcsPatchPeeringsRequestBody _copyWith({Object? name = sdkOmittedValue}) =>
-      VpcsPatchPeeringsRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-      );
+  VpcsPatchPeeringsRequestBody _copyWith({Object? name = sdkOmittedValue}) => VpcsPatchPeeringsRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+  );
 
-  factory VpcsPatchPeeringsRequestBody.fromJson(Map<String, dynamic> json) =>
-      VpcsPatchPeeringsRequestBody(
-        name: (json['name'] as String?)!,
-      );
+  factory VpcsPatchPeeringsRequestBody.fromJson(Map<String, dynamic> json) => VpcsPatchPeeringsRequestBody(
+    name: (json['name'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-      };
+    'name': name,
+  };
 }
 
 class VpcPeeringsPatchRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the VPC peering. Must be unique within the team and may only contain alphanumeric characters and dashes.
   final String name;
 
@@ -240,206 +156,112 @@ class VpcPeeringsPatchRequestBody {
 
   VpcPeeringsPatchRequestBody Function({String name}) get copyWith => _copyWith;
 
-  VpcPeeringsPatchRequestBody _copyWith({Object? name = sdkOmittedValue}) =>
-      VpcPeeringsPatchRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-      );
+  VpcPeeringsPatchRequestBody _copyWith({Object? name = sdkOmittedValue}) => VpcPeeringsPatchRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+  );
 
-  factory VpcPeeringsPatchRequestBody.fromJson(Map<String, dynamic> json) =>
-      VpcPeeringsPatchRequestBody(
-        name: (json['name'] as String?)!,
-      );
+  factory VpcPeeringsPatchRequestBody.fromJson(Map<String, dynamic> json) => VpcPeeringsPatchRequestBody(
+    name: (json['name'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-      };
+    'name': name,
+  };
 }
 
 class UptimeCreateCheckRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A human-friendly display name.
   final String name;
-
   /// The type of health check to perform.
   final UptimeCreateCheckRequestBodyType type_;
-
   /// The endpoint to perform healthchecks on.
   final String target;
-
   /// An array containing the selected regions to perform healthchecks from.
   final List<UptimeCreateCheckRequestBodyRegionsItem> regions;
-
   /// A boolean value indicating whether the check is enabled/disabled.
   final bool enabled;
 
-  const UptimeCreateCheckRequestBody(
-      {required this.name,
-      required this.type_,
-      required this.target,
-      required this.regions,
-      required this.enabled});
+  const UptimeCreateCheckRequestBody({required this.name, required this.type_, required this.target, required this.regions, required this.enabled});
 
-  UptimeCreateCheckRequestBody Function(
-      {String name,
-      UptimeCreateCheckRequestBodyType type_,
-      String target,
-      List<UptimeCreateCheckRequestBodyRegionsItem> regions,
-      bool enabled}) get copyWith => _copyWith;
+  UptimeCreateCheckRequestBody Function({String name, UptimeCreateCheckRequestBodyType type_, String target, List<UptimeCreateCheckRequestBodyRegionsItem> regions, bool enabled}) get copyWith => _copyWith;
 
-  UptimeCreateCheckRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? target = sdkOmittedValue,
-          Object? regions = sdkOmittedValue,
-          Object? enabled = sdkOmittedValue}) =>
-      UptimeCreateCheckRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as UptimeCreateCheckRequestBodyType,
-        target:
-            identical(target, sdkOmittedValue) ? this.target : target as String,
-        regions: identical(regions, sdkOmittedValue)
-            ? this.regions
-            : regions as List<UptimeCreateCheckRequestBodyRegionsItem>,
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as bool,
-      );
+  UptimeCreateCheckRequestBody _copyWith({Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? target = sdkOmittedValue, Object? regions = sdkOmittedValue, Object? enabled = sdkOmittedValue}) => UptimeCreateCheckRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as UptimeCreateCheckRequestBodyType,
+    target: identical(target, sdkOmittedValue) ? this.target : target as String,
+    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as List<UptimeCreateCheckRequestBodyRegionsItem>,
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
+  );
 
-  factory UptimeCreateCheckRequestBody.fromJson(Map<String, dynamic> json) =>
-      UptimeCreateCheckRequestBody(
-        name: (json['name'] as String?)!,
-        type_: (json['type'] != null
-            ? UptimeCreateCheckRequestBodyType.fromJson(json['type'] as String)
-            : null)!,
-        target: (json['target'] as String?)!,
-        regions: ((json['regions'] as List?)
-            ?.map((e) =>
-                UptimeCreateCheckRequestBodyRegionsItem.fromJson(e as String))
-            .toList())!,
-        enabled: (json['enabled'] as bool?)!,
-      );
+  factory UptimeCreateCheckRequestBody.fromJson(Map<String, dynamic> json) => UptimeCreateCheckRequestBody(
+    name: (json['name'] as String?)!,
+    type_: (json['type'] != null ? UptimeCreateCheckRequestBodyType.fromJson(json['type'] as String) : null)!,
+    target: (json['target'] as String?)!,
+    regions: ((json['regions'] as List?)?.map((e) => UptimeCreateCheckRequestBodyRegionsItem.fromJson(e as String)).toList())!,
+    enabled: (json['enabled'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'type': type_.toJson(),
-        'target': target,
-        'regions': regions.map((item) => item.toJson()).toList(),
-        'enabled': enabled,
-      };
+    'name': name,
+    'type': type_.toJson(),
+    'target': target,
+    'regions': regions.map((item) => item.toJson()).toList(),
+    'enabled': enabled,
+  };
 }
 
 class UptimeCreateAlertRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A human-friendly display name.
   final String name;
-
   /// The type of alert.
   final UptimeCreateAlertRequestBodyType type_;
-
   /// The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type.
   final SdkOptional<int> threshold;
-
   /// The comparison operator used against the alert's threshold.
   final SdkOptional<UptimeCreateAlertRequestBodyComparison> comparison;
-
   /// The notification settings for a trigger alert.
   final Notification notifications;
-
   /// Period of time the threshold must be exceeded to trigger the alert.
   final UptimeCreateAlertRequestBodyPeriod period;
 
-  const UptimeCreateAlertRequestBody(
-      {required this.name,
-      required this.type_,
-      this.threshold = const SdkOmitted(),
-      this.comparison = const SdkOmitted(),
-      required this.notifications,
-      required this.period});
+  const UptimeCreateAlertRequestBody({required this.name, required this.type_, this.threshold = const SdkOmitted(), this.comparison = const SdkOmitted(), required this.notifications, required this.period});
 
-  UptimeCreateAlertRequestBody Function(
-      {String name,
-      UptimeCreateAlertRequestBodyType type_,
-      SdkOptional<int> threshold,
-      SdkOptional<UptimeCreateAlertRequestBodyComparison> comparison,
-      Notification notifications,
-      UptimeCreateAlertRequestBodyPeriod period}) get copyWith => _copyWith;
+  UptimeCreateAlertRequestBody Function({String name, UptimeCreateAlertRequestBodyType type_, SdkOptional<int> threshold, SdkOptional<UptimeCreateAlertRequestBodyComparison> comparison, Notification notifications, UptimeCreateAlertRequestBodyPeriod period}) get copyWith => _copyWith;
 
-  UptimeCreateAlertRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? threshold = sdkOmittedValue,
-          Object? comparison = sdkOmittedValue,
-          Object? notifications = sdkOmittedValue,
-          Object? period = sdkOmittedValue}) =>
-      UptimeCreateAlertRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as UptimeCreateAlertRequestBodyType,
-        threshold: identical(threshold, sdkOmittedValue)
-            ? this.threshold
-            : threshold as SdkOptional<int>,
-        comparison: identical(comparison, sdkOmittedValue)
-            ? this.comparison
-            : comparison as SdkOptional<UptimeCreateAlertRequestBodyComparison>,
-        notifications: identical(notifications, sdkOmittedValue)
-            ? this.notifications
-            : notifications as Notification,
-        period: identical(period, sdkOmittedValue)
-            ? this.period
-            : period as UptimeCreateAlertRequestBodyPeriod,
-      );
+  UptimeCreateAlertRequestBody _copyWith({Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? threshold = sdkOmittedValue, Object? comparison = sdkOmittedValue, Object? notifications = sdkOmittedValue, Object? period = sdkOmittedValue}) => UptimeCreateAlertRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as UptimeCreateAlertRequestBodyType,
+    threshold: identical(threshold, sdkOmittedValue) ? this.threshold : threshold as SdkOptional<int>,
+    comparison: identical(comparison, sdkOmittedValue) ? this.comparison : comparison as SdkOptional<UptimeCreateAlertRequestBodyComparison>,
+    notifications: identical(notifications, sdkOmittedValue) ? this.notifications : notifications as Notification,
+    period: identical(period, sdkOmittedValue) ? this.period : period as UptimeCreateAlertRequestBodyPeriod,
+  );
 
-  factory UptimeCreateAlertRequestBody.fromJson(Map<String, dynamic> json) =>
-      UptimeCreateAlertRequestBody(
-        name: (json['name'] as String?)!,
-        type_: (json['type'] != null
-            ? UptimeCreateAlertRequestBodyType.fromJson(json['type'] as String)
-            : null)!,
-        threshold: json['threshold'] != null
-            ? SdkPresent(((json['threshold'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        comparison: json['comparison'] != null
-            ? SdkPresent((json['comparison'] != null
-                ? UptimeCreateAlertRequestBodyComparison.fromJson(
-                    json['comparison'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        notifications: (json['notifications'] != null
-            ? Notification.fromJson(
-                json['notifications'] as Map<String, dynamic>)
-            : null)!,
-        period: (json['period'] != null
-            ? UptimeCreateAlertRequestBodyPeriod.fromJson(
-                json['period'] as String)
-            : null)!,
-      );
+  factory UptimeCreateAlertRequestBody.fromJson(Map<String, dynamic> json) => UptimeCreateAlertRequestBody(
+    name: (json['name'] as String?)!,
+    type_: (json['type'] != null ? UptimeCreateAlertRequestBodyType.fromJson(json['type'] as String) : null)!,
+    threshold: json['threshold'] != null ? SdkPresent(((json['threshold'] as num?)?.toInt())!) : const SdkOmitted(),
+    comparison: json['comparison'] != null ? SdkPresent((json['comparison'] != null ? UptimeCreateAlertRequestBodyComparison.fromJson(json['comparison'] as String) : null)!) : const SdkOmitted(),
+    notifications: (json['notifications'] != null ? Notification.fromJson(json['notifications'] as Map<String, dynamic>) : null)!,
+    period: (json['period'] != null ? UptimeCreateAlertRequestBodyPeriod.fromJson(json['period'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'type': type_.toJson(),
-        ...switch (threshold) {
-          SdkPresent<int>(value: final value) => {
-              'threshold': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (comparison) {
-          SdkPresent<UptimeCreateAlertRequestBodyComparison>(
-            value: final value
-          ) =>
-            {
-              'comparison': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'notifications': notifications.toJson(),
-        'period': period.toJson(),
-      };
+    'name': name,
+    'type': type_.toJson(),
+    ...switch (threshold) {
+      SdkPresent<int>(value: final value) => {'threshold': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (comparison) {
+      SdkPresent<UptimeCreateAlertRequestBodyComparison>(value: final value) => {'comparison': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'notifications': notifications.toJson(),
+    'period': period.toJson(),
+  };
 }

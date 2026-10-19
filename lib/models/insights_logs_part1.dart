@@ -8,396 +8,246 @@ part of 'insights_logs.dart';
 class LogsFieldRef {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The field name. Intrinsic columns include `timestamp`, `severity_text`, `severity_number`, `body`, `trace_id`, `span_id`, and `trace_flags`. The dotted shorthands `service.name`, `resource.type`, and `resource.urn` are also supported. Arbitrary resource or log attributes can be accessed with `ResourceAttributes['key']` or `LogAttributes['key']`.
   final String name;
-
   /// The attribute scope to resolve the field against. Omit to let the server apply its default mapping for the field name.
   final SdkOptional<LogsFieldRefScope> scope;
 
   const LogsFieldRef({required this.name, this.scope = const SdkOmitted()});
 
-  LogsFieldRef Function({String name, SdkOptional<LogsFieldRefScope> scope})
-      get copyWith => _copyWith;
+  LogsFieldRef Function({String name, SdkOptional<LogsFieldRefScope> scope}) get copyWith => _copyWith;
 
-  LogsFieldRef _copyWith(
-          {Object? name = sdkOmittedValue, Object? scope = sdkOmittedValue}) =>
-      LogsFieldRef(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        scope: identical(scope, sdkOmittedValue)
-            ? this.scope
-            : scope as SdkOptional<LogsFieldRefScope>,
-      );
+  LogsFieldRef _copyWith({Object? name = sdkOmittedValue, Object? scope = sdkOmittedValue}) => LogsFieldRef(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    scope: identical(scope, sdkOmittedValue) ? this.scope : scope as SdkOptional<LogsFieldRefScope>,
+  );
 
   factory LogsFieldRef.fromJson(Map<String, dynamic> json) => LogsFieldRef(
-        name: (json['name'] as String?)!,
-        scope: json['scope'] != null
-            ? SdkPresent((json['scope'] != null
-                ? LogsFieldRefScope.fromJson(json['scope'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    name: (json['name'] as String?)!,
+    scope: json['scope'] != null ? SdkPresent((json['scope'] != null ? LogsFieldRefScope.fromJson(json['scope'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (scope) {
-          SdkPresent<LogsFieldRefScope>(value: final value) => {
-              'scope': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (scope) {
+      SdkPresent<LogsFieldRefScope>(value: final value) => {'scope': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A single field comparison in a logs filter expression.
 class LogsFilterCondition {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A reference to a logical field for filters, ordering, grouping, or facets.
   final LogsFieldRef field;
-
   /// The comparison operator.
   final LogsFilterConditionOperator operator_;
-
   /// A typed literal or list value for a filter condition. Exactly one kind is set per message.
   final SdkOptional<LogsFilterValue> value;
 
-  const LogsFilterCondition(
-      {required this.field,
-      required this.operator_,
-      this.value = const SdkOmitted()});
+  const LogsFilterCondition({required this.field, required this.operator_, this.value = const SdkOmitted()});
 
-  LogsFilterCondition Function(
-      {LogsFieldRef field,
-      LogsFilterConditionOperator operator_,
-      SdkOptional<LogsFilterValue> value}) get copyWith => _copyWith;
+  LogsFilterCondition Function({LogsFieldRef field, LogsFilterConditionOperator operator_, SdkOptional<LogsFilterValue> value}) get copyWith => _copyWith;
 
-  LogsFilterCondition _copyWith(
-          {Object? field = sdkOmittedValue,
-          Object? operator_ = sdkOmittedValue,
-          Object? value = sdkOmittedValue}) =>
-      LogsFilterCondition(
-        field: identical(field, sdkOmittedValue)
-            ? this.field
-            : field as LogsFieldRef,
-        operator_: identical(operator_, sdkOmittedValue)
-            ? this.operator_
-            : operator_ as LogsFilterConditionOperator,
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as SdkOptional<LogsFilterValue>,
-      );
+  LogsFilterCondition _copyWith({Object? field = sdkOmittedValue, Object? operator_ = sdkOmittedValue, Object? value = sdkOmittedValue}) => LogsFilterCondition(
+    field: identical(field, sdkOmittedValue) ? this.field : field as LogsFieldRef,
+    operator_: identical(operator_, sdkOmittedValue) ? this.operator_ : operator_ as LogsFilterConditionOperator,
+    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<LogsFilterValue>,
+  );
 
-  factory LogsFilterCondition.fromJson(Map<String, dynamic> json) =>
-      LogsFilterCondition(
-        field: (json['field'] != null
-            ? LogsFieldRef.fromJson(json['field'] as Map<String, dynamic>)
-            : null)!,
-        operator_: (json['operator'] != null
-            ? LogsFilterConditionOperator.fromJson(json['operator'] as String)
-            : null)!,
-        value: json['value'] != null
-            ? SdkPresent((json['value'] != null
-                ? LogsFilterValue.fromJson(
-                    json['value'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory LogsFilterCondition.fromJson(Map<String, dynamic> json) => LogsFilterCondition(
+    field: (json['field'] != null ? LogsFieldRef.fromJson(json['field'] as Map<String, dynamic>) : null)!,
+    operator_: (json['operator'] != null ? LogsFilterConditionOperator.fromJson(json['operator'] as String) : null)!,
+    value: json['value'] != null ? SdkPresent((json['value'] != null ? LogsFilterValue.fromJson(json['value'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'field': field.toJson(),
-        'operator': operator_.toJson(),
-        ...switch (value) {
-          SdkPresent<LogsFilterValue>(value: final value) => {
-              'value': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'field': field.toJson(),
+    'operator': operator_.toJson(),
+    ...switch (value) {
+      SdkPresent<LogsFilterValue>(value: final value) => {'value': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `and` wire field.
 class LogsFilterExpressionAnd {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `expressions` wire field.
   final List<LogsFilterExpression> expressions;
 
   const LogsFilterExpressionAnd({required this.expressions});
 
-  LogsFilterExpressionAnd Function({List<LogsFilterExpression> expressions})
-      get copyWith => _copyWith;
+  LogsFilterExpressionAnd Function({List<LogsFilterExpression> expressions}) get copyWith => _copyWith;
 
-  LogsFilterExpressionAnd _copyWith({Object? expressions = sdkOmittedValue}) =>
-      LogsFilterExpressionAnd(
-        expressions: identical(expressions, sdkOmittedValue)
-            ? this.expressions
-            : expressions as List<LogsFilterExpression>,
-      );
+  LogsFilterExpressionAnd _copyWith({Object? expressions = sdkOmittedValue}) => LogsFilterExpressionAnd(
+    expressions: identical(expressions, sdkOmittedValue) ? this.expressions : expressions as List<LogsFilterExpression>,
+  );
 
-  factory LogsFilterExpressionAnd.fromJson(Map<String, dynamic> json) =>
-      LogsFilterExpressionAnd(
-        expressions: ((json['expressions'] as List?)
-            ?.map(
-                (e) => LogsFilterExpression.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory LogsFilterExpressionAnd.fromJson(Map<String, dynamic> json) => LogsFilterExpressionAnd(
+    expressions: ((json['expressions'] as List?)?.map((e) => LogsFilterExpression.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'expressions': expressions.map((item) => item.toJson()).toList(),
-      };
+    'expressions': expressions.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Optional object value serialized in the `or` wire field.
 class LogsFilterExpressionOr {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `expressions` wire field.
   final List<LogsFilterExpression> expressions;
 
   const LogsFilterExpressionOr({required this.expressions});
 
-  LogsFilterExpressionOr Function({List<LogsFilterExpression> expressions})
-      get copyWith => _copyWith;
+  LogsFilterExpressionOr Function({List<LogsFilterExpression> expressions}) get copyWith => _copyWith;
 
-  LogsFilterExpressionOr _copyWith({Object? expressions = sdkOmittedValue}) =>
-      LogsFilterExpressionOr(
-        expressions: identical(expressions, sdkOmittedValue)
-            ? this.expressions
-            : expressions as List<LogsFilterExpression>,
-      );
+  LogsFilterExpressionOr _copyWith({Object? expressions = sdkOmittedValue}) => LogsFilterExpressionOr(
+    expressions: identical(expressions, sdkOmittedValue) ? this.expressions : expressions as List<LogsFilterExpression>,
+  );
 
-  factory LogsFilterExpressionOr.fromJson(Map<String, dynamic> json) =>
-      LogsFilterExpressionOr(
-        expressions: ((json['expressions'] as List?)
-            ?.map(
-                (e) => LogsFilterExpression.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory LogsFilterExpressionOr.fromJson(Map<String, dynamic> json) => LogsFilterExpressionOr(
+    expressions: ((json['expressions'] as List?)?.map((e) => LogsFilterExpression.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'expressions': expressions.map((item) => item.toJson()).toList(),
-      };
+    'expressions': expressions.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// A substring search across the log body, service name, and resource URN.
 class LogsFilterExpressionTextSearch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The search string.
   final String query;
 
   const LogsFilterExpressionTextSearch({required this.query});
 
-  LogsFilterExpressionTextSearch Function({String query}) get copyWith =>
-      _copyWith;
+  LogsFilterExpressionTextSearch Function({String query}) get copyWith => _copyWith;
 
-  LogsFilterExpressionTextSearch _copyWith({Object? query = sdkOmittedValue}) =>
-      LogsFilterExpressionTextSearch(
-        query: identical(query, sdkOmittedValue) ? this.query : query as String,
-      );
+  LogsFilterExpressionTextSearch _copyWith({Object? query = sdkOmittedValue}) => LogsFilterExpressionTextSearch(
+    query: identical(query, sdkOmittedValue) ? this.query : query as String,
+  );
 
-  factory LogsFilterExpressionTextSearch.fromJson(Map<String, dynamic> json) =>
-      LogsFilterExpressionTextSearch(
-        query: (json['query'] as String?)!,
-      );
+  factory LogsFilterExpressionTextSearch.fromJson(Map<String, dynamic> json) => LogsFilterExpressionTextSearch(
+    query: (json['query'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'query': query,
-      };
+    'query': query,
+  };
 }
 
 /// A boolean filter tree for logs queries. Exactly one node is set per message.
 class LogsFilterExpression {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A single field comparison in a logs filter expression.
   final SdkOptional<LogsFilterCondition> condition;
-
   /// Optional object value serialized in the `and` wire field.
   final SdkOptional<LogsFilterExpressionAnd> and;
-
   /// Optional object value serialized in the `or` wire field.
   final SdkOptional<LogsFilterExpressionOr> or;
-
   /// A boolean filter tree for logs queries. Exactly one node is set per message.
   final SdkOptional<LogsFilterExpression> not;
-
   /// A substring search across the log body, service name, and resource URN.
   final SdkOptional<LogsFilterExpressionTextSearch> textSearch;
 
-  const LogsFilterExpression(
-      {this.condition = const SdkOmitted(),
-      this.and = const SdkOmitted(),
-      this.or = const SdkOmitted(),
-      this.not = const SdkOmitted(),
-      this.textSearch = const SdkOmitted()});
+  const LogsFilterExpression({this.condition = const SdkOmitted(), this.and = const SdkOmitted(), this.or = const SdkOmitted(), this.not = const SdkOmitted(), this.textSearch = const SdkOmitted()});
 
-  LogsFilterExpression Function(
-          {SdkOptional<LogsFilterCondition> condition,
-          SdkOptional<LogsFilterExpressionAnd> and,
-          SdkOptional<LogsFilterExpressionOr> or,
-          SdkOptional<LogsFilterExpression> not,
-          SdkOptional<LogsFilterExpressionTextSearch> textSearch})
-      get copyWith => _copyWith;
+  LogsFilterExpression Function({SdkOptional<LogsFilterCondition> condition, SdkOptional<LogsFilterExpressionAnd> and, SdkOptional<LogsFilterExpressionOr> or, SdkOptional<LogsFilterExpression> not, SdkOptional<LogsFilterExpressionTextSearch> textSearch}) get copyWith => _copyWith;
 
-  LogsFilterExpression _copyWith(
-          {Object? condition = sdkOmittedValue,
-          Object? and = sdkOmittedValue,
-          Object? or = sdkOmittedValue,
-          Object? not = sdkOmittedValue,
-          Object? textSearch = sdkOmittedValue}) =>
-      LogsFilterExpression(
-        condition: identical(condition, sdkOmittedValue)
-            ? this.condition
-            : condition as SdkOptional<LogsFilterCondition>,
-        and: identical(and, sdkOmittedValue)
-            ? this.and
-            : and as SdkOptional<LogsFilterExpressionAnd>,
-        or: identical(or, sdkOmittedValue)
-            ? this.or
-            : or as SdkOptional<LogsFilterExpressionOr>,
-        not: identical(not, sdkOmittedValue)
-            ? this.not
-            : not as SdkOptional<LogsFilterExpression>,
-        textSearch: identical(textSearch, sdkOmittedValue)
-            ? this.textSearch
-            : textSearch as SdkOptional<LogsFilterExpressionTextSearch>,
-      );
+  LogsFilterExpression _copyWith({Object? condition = sdkOmittedValue, Object? and = sdkOmittedValue, Object? or = sdkOmittedValue, Object? not = sdkOmittedValue, Object? textSearch = sdkOmittedValue}) => LogsFilterExpression(
+    condition: identical(condition, sdkOmittedValue) ? this.condition : condition as SdkOptional<LogsFilterCondition>,
+    and: identical(and, sdkOmittedValue) ? this.and : and as SdkOptional<LogsFilterExpressionAnd>,
+    or: identical(or, sdkOmittedValue) ? this.or : or as SdkOptional<LogsFilterExpressionOr>,
+    not: identical(not, sdkOmittedValue) ? this.not : not as SdkOptional<LogsFilterExpression>,
+    textSearch: identical(textSearch, sdkOmittedValue) ? this.textSearch : textSearch as SdkOptional<LogsFilterExpressionTextSearch>,
+  );
 
-  factory LogsFilterExpression.fromJson(Map<String, dynamic> json) =>
-      LogsFilterExpression(
-        condition: json['condition'] != null
-            ? SdkPresent((json['condition'] != null
-                ? LogsFilterCondition.fromJson(
-                    json['condition'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        and: json['and'] != null
-            ? SdkPresent((json['and'] != null
-                ? LogsFilterExpressionAnd.fromJson(
-                    json['and'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        or: json['or'] != null
-            ? SdkPresent((json['or'] != null
-                ? LogsFilterExpressionOr.fromJson(
-                    json['or'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        not: json['not'] != null
-            ? SdkPresent((json['not'] != null
-                ? LogsFilterExpression.fromJson(
-                    json['not'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        textSearch: json['text_search'] != null
-            ? SdkPresent((json['text_search'] != null
-                ? LogsFilterExpressionTextSearch.fromJson(
-                    json['text_search'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory LogsFilterExpression.fromJson(Map<String, dynamic> json) => LogsFilterExpression(
+    condition: json['condition'] != null ? SdkPresent((json['condition'] != null ? LogsFilterCondition.fromJson(json['condition'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    and: json['and'] != null ? SdkPresent((json['and'] != null ? LogsFilterExpressionAnd.fromJson(json['and'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    or: json['or'] != null ? SdkPresent((json['or'] != null ? LogsFilterExpressionOr.fromJson(json['or'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    not: json['not'] != null ? SdkPresent((json['not'] != null ? LogsFilterExpression.fromJson(json['not'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    textSearch: json['text_search'] != null ? SdkPresent((json['text_search'] != null ? LogsFilterExpressionTextSearch.fromJson(json['text_search'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (condition) {
-          SdkPresent<LogsFilterCondition>(value: final value) => {
-              'condition': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (and) {
-          SdkPresent<LogsFilterExpressionAnd>(value: final value) => {
-              'and': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (or) {
-          SdkPresent<LogsFilterExpressionOr>(value: final value) => {
-              'or': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (not) {
-          SdkPresent<LogsFilterExpression>(value: final value) => {
-              'not': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (textSearch) {
-          SdkPresent<LogsFilterExpressionTextSearch>(value: final value) => {
-              'text_search': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (condition) {
+      SdkPresent<LogsFilterCondition>(value: final value) => {'condition': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (and) {
+      SdkPresent<LogsFilterExpressionAnd>(value: final value) => {'and': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (or) {
+      SdkPresent<LogsFilterExpressionOr>(value: final value) => {'or': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (not) {
+      SdkPresent<LogsFilterExpression>(value: final value) => {'not': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (textSearch) {
+      SdkPresent<LogsFilterExpressionTextSearch>(value: final value) => {'text_search': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Optional object value serialized in the `string_array_value` wire field.
 class LogsFilterValueStringArrayValue {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `values` wire field.
   final List<String> values;
 
   const LogsFilterValueStringArrayValue({required this.values});
 
-  LogsFilterValueStringArrayValue Function({List<String> values})
-      get copyWith => _copyWith;
+  LogsFilterValueStringArrayValue Function({List<String> values}) get copyWith => _copyWith;
 
-  LogsFilterValueStringArrayValue _copyWith(
-          {Object? values = sdkOmittedValue}) =>
-      LogsFilterValueStringArrayValue(
-        values: identical(values, sdkOmittedValue)
-            ? this.values
-            : values as List<String>,
-      );
+  LogsFilterValueStringArrayValue _copyWith({Object? values = sdkOmittedValue}) => LogsFilterValueStringArrayValue(
+    values: identical(values, sdkOmittedValue) ? this.values : values as List<String>,
+  );
 
-  factory LogsFilterValueStringArrayValue.fromJson(Map<String, dynamic> json) =>
-      LogsFilterValueStringArrayValue(
-        values: ((json['values'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory LogsFilterValueStringArrayValue.fromJson(Map<String, dynamic> json) => LogsFilterValueStringArrayValue(
+    values: ((json['values'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'values': values,
-      };
+    'values': values,
+  };
 }
 
 /// Optional object value serialized in the `number_array_value` wire field.
 class LogsFilterValueNumberArrayValue {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `values` wire field.
   final List<double> values;
 
   const LogsFilterValueNumberArrayValue({required this.values});
 
-  LogsFilterValueNumberArrayValue Function({List<double> values})
-      get copyWith => _copyWith;
+  LogsFilterValueNumberArrayValue Function({List<double> values}) get copyWith => _copyWith;
 
-  LogsFilterValueNumberArrayValue _copyWith(
-          {Object? values = sdkOmittedValue}) =>
-      LogsFilterValueNumberArrayValue(
-        values: identical(values, sdkOmittedValue)
-            ? this.values
-            : values as List<double>,
-      );
+  LogsFilterValueNumberArrayValue _copyWith({Object? values = sdkOmittedValue}) => LogsFilterValueNumberArrayValue(
+    values: identical(values, sdkOmittedValue) ? this.values : values as List<double>,
+  );
 
-  factory LogsFilterValueNumberArrayValue.fromJson(Map<String, dynamic> json) =>
-      LogsFilterValueNumberArrayValue(
-        values: ((json['values'] as List?)
-            ?.map((e) => (e as num).toDouble())
-            .toList())!,
-      );
+  factory LogsFilterValueNumberArrayValue.fromJson(Map<String, dynamic> json) => LogsFilterValueNumberArrayValue(
+    values: ((json['values'] as List?)?.map((e) => (e as num).toDouble()).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'values': values,
-      };
+    'values': values,
+  };
 }

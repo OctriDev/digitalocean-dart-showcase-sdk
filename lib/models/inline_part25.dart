@@ -6,6 +6,7 @@ part of 'inline.dart';
 // Inline operation models (part 25)
 /// The MicroVM's current state.
 final class MicrovmState {
+
   final String value;
 
   const MicrovmState._(this.value);
@@ -24,119 +25,105 @@ final class MicrovmState {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MicrovmState && other.value == value;
+  @override bool operator ==(Object other) => other is MicrovmState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The protocol the HTTP port serves.
 final class MicrovmCreateHttpProtocol {
+
   final String value;
 
   const MicrovmCreateHttpProtocol._(this.value);
 
-  factory MicrovmCreateHttpProtocol.fromJson(String value) =>
-      MicrovmCreateHttpProtocol._(value);
+  factory MicrovmCreateHttpProtocol.fromJson(String value) => MicrovmCreateHttpProtocol._(value);
 
   static const http = MicrovmCreateHttpProtocol._('http');
   static const http2 = MicrovmCreateHttpProtocol._('http2');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MicrovmCreateHttpProtocol && other.value == value;
+  @override bool operator ==(Object other) => other is MicrovmCreateHttpProtocol && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// `public` sends outbound traffic through a shared NAT gateway. `vpc` places the MicroVM in the VPC network set by `vpc_uuid`.
 final class MicrovmCreateNetworking {
+
   final String value;
 
   const MicrovmCreateNetworking._(this.value);
 
-  factory MicrovmCreateNetworking.fromJson(String value) =>
-      MicrovmCreateNetworking._(value);
+  factory MicrovmCreateNetworking.fromJson(String value) => MicrovmCreateNetworking._(value);
 
   static const public = MicrovmCreateNetworking._('public');
   static const vpc = MicrovmCreateNetworking._('vpc');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MicrovmCreateNetworking && other.value == value;
+  @override bool operator ==(Object other) => other is MicrovmCreateNetworking && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The protocol the HTTP port serves.
 final class MicrovmCreateRequestHttpProtocol {
+
   final String value;
 
   const MicrovmCreateRequestHttpProtocol._(this.value);
 
-  factory MicrovmCreateRequestHttpProtocol.fromJson(String value) =>
-      MicrovmCreateRequestHttpProtocol._(value);
+  factory MicrovmCreateRequestHttpProtocol.fromJson(String value) => MicrovmCreateRequestHttpProtocol._(value);
 
   static const http = MicrovmCreateRequestHttpProtocol._('http');
   static const http2 = MicrovmCreateRequestHttpProtocol._('http2');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MicrovmCreateRequestHttpProtocol && other.value == value;
+  @override bool operator ==(Object other) => other is MicrovmCreateRequestHttpProtocol && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// `public` sends outbound traffic through a shared NAT gateway. `vpc` places the MicroVM in the VPC network set by `vpc_uuid`.
 final class MicrovmCreateRequestNetworking {
+
   final String value;
 
   const MicrovmCreateRequestNetworking._(this.value);
 
-  factory MicrovmCreateRequestNetworking.fromJson(String value) =>
-      MicrovmCreateRequestNetworking._(value);
+  factory MicrovmCreateRequestNetworking.fromJson(String value) => MicrovmCreateRequestNetworking._(value);
 
   static const public = MicrovmCreateRequestNetworking._('public');
   static const vpc = MicrovmCreateRequestNetworking._('vpc');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MicrovmCreateRequestNetworking && other.value == value;
+  @override bool operator ==(Object other) => other is MicrovmCreateRequestNetworking && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// `PENDING` until provisioning finishes, then `ACTIVE`.
 final class MicrovmUrlStatus {
+
   final String value;
 
   const MicrovmUrlStatus._(this.value);
@@ -148,19 +135,17 @@ final class MicrovmUrlStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MicrovmUrlStatus && other.value == value;
+  @override bool operator ==(Object other) => other is MicrovmUrlStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always "model".
 final class ModelObject {
+
   final String value;
 
   const ModelObject._(this.value);
@@ -171,74 +156,64 @@ final class ModelObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ModelObject && other.value == value;
+  @override bool operator ==(Object other) => other is ModelObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Model provider.
 final class ModelDeploymentSpecModelProvider {
+
   final String value;
 
   const ModelDeploymentSpecModelProvider._(this.value);
 
-  factory ModelDeploymentSpecModelProvider.fromJson(String value) =>
-      ModelDeploymentSpecModelProvider._(value);
+  factory ModelDeploymentSpecModelProvider.fromJson(String value) => ModelDeploymentSpecModelProvider._(value);
 
   static const huggingFace = ModelDeploymentSpecModelProvider._('hugging_face');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ModelDeploymentSpecModelProvider && other.value == value;
+  @override bool operator ==(Object other) => other is ModelDeploymentSpecModelProvider && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Model provider.
 final class ModelDeploymentSpecRequestModelProvider {
+
   final String value;
 
   const ModelDeploymentSpecRequestModelProvider._(this.value);
 
-  factory ModelDeploymentSpecRequestModelProvider.fromJson(String value) =>
-      ModelDeploymentSpecRequestModelProvider._(value);
+  factory ModelDeploymentSpecRequestModelProvider.fromJson(String value) => ModelDeploymentSpecRequestModelProvider._(value);
 
-  static const huggingFace =
-      ModelDeploymentSpecRequestModelProvider._('hugging_face');
+  static const huggingFace = ModelDeploymentSpecRequestModelProvider._('hugging_face');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ModelDeploymentSpecRequestModelProvider && other.value == value;
+  @override bool operator ==(Object other) => other is ModelDeploymentSpecRequestModelProvider && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Specifies the default consistency behavior of reads from the database. Data that is returned from the query with may or may not have been acknowledged by all nodes in the replicaset depending on this value. Learn more [here](https://www.mongodb.com/docs/manual/reference/read-concern/).
 final class MongoAdvancedConfigDefaultReadConcern {
+
   final String value;
 
   const MongoAdvancedConfigDefaultReadConcern._(this.value);
 
-  factory MongoAdvancedConfigDefaultReadConcern.fromJson(String value) =>
-      MongoAdvancedConfigDefaultReadConcern._(value);
+  factory MongoAdvancedConfigDefaultReadConcern.fromJson(String value) => MongoAdvancedConfigDefaultReadConcern._(value);
 
   static const local = MongoAdvancedConfigDefaultReadConcern._('local');
   static const available = MongoAdvancedConfigDefaultReadConcern._('available');
@@ -246,25 +221,22 @@ final class MongoAdvancedConfigDefaultReadConcern {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MongoAdvancedConfigDefaultReadConcern && other.value == value;
+  @override bool operator ==(Object other) => other is MongoAdvancedConfigDefaultReadConcern && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Slug of the region where registry data is stored. When not provided, a region will be selected.
 final class MultiregistryCreateRegion {
+
   final String value;
 
   const MultiregistryCreateRegion._(this.value);
 
-  factory MultiregistryCreateRegion.fromJson(String value) =>
-      MultiregistryCreateRegion._(value);
+  factory MultiregistryCreateRegion.fromJson(String value) => MultiregistryCreateRegion._(value);
 
   static const nyc3 = MultiregistryCreateRegion._('nyc3');
   static const sfo3 = MultiregistryCreateRegion._('sfo3');
@@ -277,40 +249,33 @@ final class MultiregistryCreateRegion {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MultiregistryCreateRegion && other.value == value;
+  @override bool operator ==(Object other) => other is MultiregistryCreateRegion && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
 final class MultiregistryCreateSubscriptionTierSlug {
+
   final String value;
 
   const MultiregistryCreateSubscriptionTierSlug._(this.value);
 
-  factory MultiregistryCreateSubscriptionTierSlug.fromJson(String value) =>
-      MultiregistryCreateSubscriptionTierSlug._(value);
+  factory MultiregistryCreateSubscriptionTierSlug.fromJson(String value) => MultiregistryCreateSubscriptionTierSlug._(value);
 
   static const starter = MultiregistryCreateSubscriptionTierSlug._('starter');
   static const basic = MultiregistryCreateSubscriptionTierSlug._('basic');
-  static const professional =
-      MultiregistryCreateSubscriptionTierSlug._('professional');
+  static const professional = MultiregistryCreateSubscriptionTierSlug._('professional');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MultiregistryCreateSubscriptionTierSlug && other.value == value;
+  @override bool operator ==(Object other) => other is MultiregistryCreateSubscriptionTierSlug && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

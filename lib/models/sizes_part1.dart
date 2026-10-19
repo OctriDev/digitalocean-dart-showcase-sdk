@@ -13,23 +13,17 @@ class AllSizesVariant0 {
 
   AllSizesVariant0 Function({List<Size> sizes}) get copyWith => _copyWith;
 
-  AllSizesVariant0 _copyWith({Object? sizes = sdkOmittedValue}) =>
-      AllSizesVariant0(
-        sizes: identical(sizes, sdkOmittedValue)
-            ? this.sizes
-            : sizes as List<Size>,
-      );
+  AllSizesVariant0 _copyWith({Object? sizes = sdkOmittedValue}) => AllSizesVariant0(
+    sizes: identical(sizes, sdkOmittedValue) ? this.sizes : sizes as List<Size>,
+  );
 
-  factory AllSizesVariant0.fromJson(Map<String, dynamic> json) =>
-      AllSizesVariant0(
-        sizes: ((json['sizes'] as List?)
-            ?.map((e) => Size.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory AllSizesVariant0.fromJson(Map<String, dynamic> json) => AllSizesVariant0(
+    sizes: ((json['sizes'] as List?)?.map((e) => Size.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'sizes': sizes.map((item) => item.toJson()).toList(),
-      };
+    'sizes': sizes.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Typed representation of the `AllSizes` API schema.
@@ -37,61 +31,33 @@ class AllSizes {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final List<Size> sizes;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllSizes(
-      {required this.sizes,
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllSizes({required this.sizes, this.links = const SdkOmitted(), required this.meta});
 
-  AllSizes Function(
-      {List<Size> sizes,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllSizes Function({List<Size> sizes, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllSizes _copyWith(
-          {Object? sizes = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllSizes(
-        sizes: identical(sizes, sdkOmittedValue)
-            ? this.sizes
-            : sizes as List<Size>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllSizes _copyWith({Object? sizes = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllSizes(
+    sizes: identical(sizes, sdkOmittedValue) ? this.sizes : sizes as List<Size>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory AllSizes.fromJson(Map<String, dynamic> json) => AllSizes(
-        sizes: ((json['sizes'] as List?)
-            ?.map((e) => Size.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    sizes: ((json['sizes'] as List?)?.map((e) => Size.fromJson(e as Map<String, dynamic>)).toList())!,
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'sizes': sizes.map((item) => item.toJson()).toList(),
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    'sizes': sizes.map((item) => item.toJson()).toList(),
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

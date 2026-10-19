@@ -8,199 +8,124 @@ part of 'block_storage_actions.dart';
 class VolumeActionPostDetach {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The volume action to initiate.
   final VolumeActionPostBaseType type_;
-
   /// The slug identifier for the region where the resource will initially be available.
   final SdkOptional<RegionSlug> region;
-
   /// The unique identifier for the Droplet the volume will be attached or detached from.
   final int dropletId;
 
-  const VolumeActionPostDetach(
-      {required this.type_,
-      this.region = const SdkOmitted(),
-      required this.dropletId});
+  const VolumeActionPostDetach({required this.type_, this.region = const SdkOmitted(), required this.dropletId});
 
-  VolumeActionPostDetach Function(
-      {VolumeActionPostBaseType type_,
-      SdkOptional<RegionSlug> region,
-      int dropletId}) get copyWith => _copyWith;
+  VolumeActionPostDetach Function({VolumeActionPostBaseType type_, SdkOptional<RegionSlug> region, int dropletId}) get copyWith => _copyWith;
 
-  VolumeActionPostDetach _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? dropletId = sdkOmittedValue}) =>
-      VolumeActionPostDetach(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as VolumeActionPostBaseType,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<RegionSlug>,
-        dropletId: identical(dropletId, sdkOmittedValue)
-            ? this.dropletId
-            : dropletId as int,
-      );
+  VolumeActionPostDetach _copyWith({Object? type_ = sdkOmittedValue, Object? region = sdkOmittedValue, Object? dropletId = sdkOmittedValue}) => VolumeActionPostDetach(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as VolumeActionPostBaseType,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<RegionSlug>,
+    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as int,
+  );
 
-  factory VolumeActionPostDetach.fromJson(Map<String, dynamic> json) =>
-      VolumeActionPostDetach(
-        type_: (json['type'] != null
-            ? VolumeActionPostBaseType.fromJson(json['type'] as String)
-            : null)!,
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? RegionSlug.fromJson(json['region'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        dropletId: ((json['droplet_id'] as num?)?.toInt())!,
-      );
+  factory VolumeActionPostDetach.fromJson(Map<String, dynamic> json) => VolumeActionPostDetach(
+    type_: (json['type'] != null ? VolumeActionPostBaseType.fromJson(json['type'] as String) : null)!,
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? RegionSlug.fromJson(json['region'] as String) : null)!) : const SdkOmitted(),
+    dropletId: ((json['droplet_id'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (region) {
-          SdkPresent<RegionSlug>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'droplet_id': dropletId,
-      };
+    'type': type_.toJson(),
+    ...switch (region) {
+      SdkPresent<RegionSlug>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'droplet_id': dropletId,
+  };
 }
 
 class VolumeActionPostResizeVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The new size of the block storage volume in GiB (1024^3).
   final int sizeGigabytes;
 
   const VolumeActionPostResizeVariant1({required this.sizeGigabytes});
 
-  VolumeActionPostResizeVariant1 Function({int sizeGigabytes}) get copyWith =>
-      _copyWith;
+  VolumeActionPostResizeVariant1 Function({int sizeGigabytes}) get copyWith => _copyWith;
 
-  VolumeActionPostResizeVariant1 _copyWith(
-          {Object? sizeGigabytes = sdkOmittedValue}) =>
-      VolumeActionPostResizeVariant1(
-        sizeGigabytes: identical(sizeGigabytes, sdkOmittedValue)
-            ? this.sizeGigabytes
-            : sizeGigabytes as int,
-      );
+  VolumeActionPostResizeVariant1 _copyWith({Object? sizeGigabytes = sdkOmittedValue}) => VolumeActionPostResizeVariant1(
+    sizeGigabytes: identical(sizeGigabytes, sdkOmittedValue) ? this.sizeGigabytes : sizeGigabytes as int,
+  );
 
-  factory VolumeActionPostResizeVariant1.fromJson(Map<String, dynamic> json) =>
-      VolumeActionPostResizeVariant1(
-        sizeGigabytes: ((json['size_gigabytes'] as num?)?.toInt())!,
-      );
+  factory VolumeActionPostResizeVariant1.fromJson(Map<String, dynamic> json) => VolumeActionPostResizeVariant1(
+    sizeGigabytes: ((json['size_gigabytes'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'size_gigabytes': sizeGigabytes,
-      };
+    'size_gigabytes': sizeGigabytes,
+  };
 }
 
 /// Typed representation of the `VolumeActionPostResize` API schema.
 class VolumeActionPostResize {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The volume action to initiate.
   final VolumeActionPostBaseType type_;
-
   /// The slug identifier for the region where the resource will initially be available.
   final SdkOptional<RegionSlug> region;
-
   /// The new size of the block storage volume in GiB (1024^3).
   final int sizeGigabytes;
 
-  const VolumeActionPostResize(
-      {required this.type_,
-      this.region = const SdkOmitted(),
-      required this.sizeGigabytes});
+  const VolumeActionPostResize({required this.type_, this.region = const SdkOmitted(), required this.sizeGigabytes});
 
-  VolumeActionPostResize Function(
-      {VolumeActionPostBaseType type_,
-      SdkOptional<RegionSlug> region,
-      int sizeGigabytes}) get copyWith => _copyWith;
+  VolumeActionPostResize Function({VolumeActionPostBaseType type_, SdkOptional<RegionSlug> region, int sizeGigabytes}) get copyWith => _copyWith;
 
-  VolumeActionPostResize _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? sizeGigabytes = sdkOmittedValue}) =>
-      VolumeActionPostResize(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as VolumeActionPostBaseType,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<RegionSlug>,
-        sizeGigabytes: identical(sizeGigabytes, sdkOmittedValue)
-            ? this.sizeGigabytes
-            : sizeGigabytes as int,
-      );
+  VolumeActionPostResize _copyWith({Object? type_ = sdkOmittedValue, Object? region = sdkOmittedValue, Object? sizeGigabytes = sdkOmittedValue}) => VolumeActionPostResize(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as VolumeActionPostBaseType,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<RegionSlug>,
+    sizeGigabytes: identical(sizeGigabytes, sdkOmittedValue) ? this.sizeGigabytes : sizeGigabytes as int,
+  );
 
-  factory VolumeActionPostResize.fromJson(Map<String, dynamic> json) =>
-      VolumeActionPostResize(
-        type_: (json['type'] != null
-            ? VolumeActionPostBaseType.fromJson(json['type'] as String)
-            : null)!,
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? RegionSlug.fromJson(json['region'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        sizeGigabytes: ((json['size_gigabytes'] as num?)?.toInt())!,
-      );
+  factory VolumeActionPostResize.fromJson(Map<String, dynamic> json) => VolumeActionPostResize(
+    type_: (json['type'] != null ? VolumeActionPostBaseType.fromJson(json['type'] as String) : null)!,
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? RegionSlug.fromJson(json['region'] as String) : null)!) : const SdkOmitted(),
+    sizeGigabytes: ((json['size_gigabytes'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (region) {
-          SdkPresent<RegionSlug>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'size_gigabytes': sizeGigabytes,
-      };
+    'type': type_.toJson(),
+    ...switch (region) {
+      SdkPresent<RegionSlug>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'size_gigabytes': sizeGigabytes,
+  };
 }
 
 /// Typed representation of the `VolumeActionResponse` API schema.
 class VolumeActionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `action` wire field.
   final SdkOptional<VolumeAction> action;
 
   const VolumeActionResponse({this.action = const SdkOmitted()});
 
-  VolumeActionResponse Function({SdkOptional<VolumeAction> action})
-      get copyWith => _copyWith;
+  VolumeActionResponse Function({SdkOptional<VolumeAction> action}) get copyWith => _copyWith;
 
-  VolumeActionResponse _copyWith({Object? action = sdkOmittedValue}) =>
-      VolumeActionResponse(
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as SdkOptional<VolumeAction>,
-      );
+  VolumeActionResponse _copyWith({Object? action = sdkOmittedValue}) => VolumeActionResponse(
+    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<VolumeAction>,
+  );
 
-  factory VolumeActionResponse.fromJson(Map<String, dynamic> json) =>
-      VolumeActionResponse(
-        action: json['action'] != null
-            ? SdkPresent((json['action'] != null
-                ? VolumeAction.fromJson(json['action'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory VolumeActionResponse.fromJson(Map<String, dynamic> json) => VolumeActionResponse(
+    action: json['action'] != null ? SdkPresent((json['action'] != null ? VolumeAction.fromJson(json['action'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (action) {
-          SdkPresent<VolumeAction>(value: final value) => {
-              'action': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (action) {
+      SdkPresent<VolumeAction>(value: final value) => {'action': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class VolumeActionsVariant0 {
@@ -210,33 +135,22 @@ class VolumeActionsVariant0 {
 
   const VolumeActionsVariant0({this.actions = const SdkOmitted()});
 
-  VolumeActionsVariant0 Function({SdkOptional<List<VolumeAction>> actions})
-      get copyWith => _copyWith;
+  VolumeActionsVariant0 Function({SdkOptional<List<VolumeAction>> actions}) get copyWith => _copyWith;
 
-  VolumeActionsVariant0 _copyWith({Object? actions = sdkOmittedValue}) =>
-      VolumeActionsVariant0(
-        actions: identical(actions, sdkOmittedValue)
-            ? this.actions
-            : actions as SdkOptional<List<VolumeAction>>,
-      );
+  VolumeActionsVariant0 _copyWith({Object? actions = sdkOmittedValue}) => VolumeActionsVariant0(
+    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<VolumeAction>>,
+  );
 
-  factory VolumeActionsVariant0.fromJson(Map<String, dynamic> json) =>
-      VolumeActionsVariant0(
-        actions: json['actions'] != null
-            ? SdkPresent(((json['actions'] as List?)
-                ?.map((e) => VolumeAction.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory VolumeActionsVariant0.fromJson(Map<String, dynamic> json) => VolumeActionsVariant0(
+    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => VolumeAction.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (actions) {
-          SdkPresent<List<VolumeAction>>(value: final value) => {
-              'actions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (actions) {
+      SdkPresent<List<VolumeAction>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VolumeActions` API schema.
@@ -244,68 +158,36 @@ class VolumeActions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<VolumeAction>> actions;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const VolumeActions(
-      {this.actions = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const VolumeActions({this.actions = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  VolumeActions Function(
-      {SdkOptional<List<VolumeAction>> actions,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  VolumeActions Function({SdkOptional<List<VolumeAction>> actions, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  VolumeActions _copyWith(
-          {Object? actions = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      VolumeActions(
-        actions: identical(actions, sdkOmittedValue)
-            ? this.actions
-            : actions as SdkOptional<List<VolumeAction>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  VolumeActions _copyWith({Object? actions = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => VolumeActions(
+    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<VolumeAction>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory VolumeActions.fromJson(Map<String, dynamic> json) => VolumeActions(
-        actions: json['actions'] != null
-            ? SdkPresent(((json['actions'] as List?)
-                ?.map((e) => VolumeAction.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => VolumeAction.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (actions) {
-          SdkPresent<List<VolumeAction>>(value: final value) => {
-              'actions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (actions) {
+      SdkPresent<List<VolumeAction>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

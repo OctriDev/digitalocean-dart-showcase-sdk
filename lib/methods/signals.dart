@@ -19,23 +19,16 @@ Future<ListConsents> signalsListConsents(ClientConfig config,
   return (await sdkRequest<ListConsents>('GET', '/v1/consent',
           config: config,
           query: {
-            'source': SdkQueryValue(SdkUtils.unwrapOptional(source),
-                style: 'form', explode: true)
+            'source': SdkQueryValue(SdkUtils.unwrapOptional(source), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsListConsents',
-          fromJsonRaw: (value) =>
-              ListConsents.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListConsents.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To enable or disable signals collection for a source that is consented at the team level, send a PUT request to `/v1/consent?source=inference` with an `enabled` boolean in the request body. Currently the only team-level source is `inference`, which covers Serverless Inference chat completions made by your team. To revoke consent, send the same request with `enabled` set to `false`. The `source` query parameter is required. Per-environment consent for Harness Runtime environments is managed with `PUT /v1/consent/{agent_id}` instead.
 ///
@@ -56,18 +49,12 @@ Future<UpdateTeamConsentResponse> signalsUpdateTeamConsent(ClientConfig config,
           body: {'enabled': enabled},
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsUpdateTeamConsent',
-          fromJsonRaw: (value) =>
-              UpdateTeamConsentResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateTeamConsentResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve the consent record for a specific environment, send a GET request to `/v1/consent/{agent_id}`. The response includes an `enabled` field indicating whether signals collection is on for this environment. This endpoint only serves per-environment (`source: agent`) records. Team-level inference consent is read from `GET /v1/consent?source=inference`.
 ///
@@ -82,19 +69,12 @@ Future<AgentConsent> signalsGetConsent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsGetConsent',
-          fromJsonRaw: (value) =>
-              AgentConsent.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AgentConsent.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To enable or disable signals collection for a specific environment, send a PUT request to `/v1/consent/{agent_id}` with an `enabled` boolean in the request body. This endpoint only manages per-environment (`source: agent`) consent. To manage team-level consent for Serverless Inference, use `PUT /v1/consent?source=inference` instead.
 ///
@@ -113,19 +93,12 @@ Future<UpdateConsentResponse> signalsUpdateConsent(ClientConfig config,
           body: {'enabled': enabled},
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsUpdateConsent',
-          fromJsonRaw: (value) =>
-              UpdateConsentResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdateConsentResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list signals sessions for a specific environment, send a GET request to `/v1/signals/agents/{agent_id}/sessions`. Results are paginated using cursor-based pagination with `limit` and `after` parameters.
 ///
@@ -140,15 +113,15 @@ Future<UpdateConsentResponse> signalsUpdateConsent(ClientConfig config,
 ///   3339).
 /// [signalType] Filter results by signal type. Use the export options endpoint
 ///   to list available signal types.
-Future<ListSessionsResponseResponse> signalsListAgentSessions(
-    ClientConfig config,
-    {required String agentId,
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<String> after = const SdkOmitted(),
-    SdkOptional<String> startTime = const SdkOmitted(),
-    SdkOptional<String> endTime = const SdkOmitted(),
-    SdkOptional<String> signalType = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<ListSessionsResponseResponse>
+    signalsListAgentSessions(ClientConfig config,
+        {required String agentId,
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<String> after = const SdkOmitted(),
+        SdkOptional<String> startTime = const SdkOmitted(),
+        SdkOptional<String> endTime = const SdkOmitted(),
+        SdkOptional<String> signalType = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   sdkValidateUuid('agent_id', agentId);
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 100);
@@ -164,31 +137,20 @@ Future<ListSessionsResponseResponse> signalsListAgentSessions(
           '/v1/signals/agents/${Uri.encodeComponent(agentId.toString())}/sessions',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'start_time': SdkQueryValue(SdkUtils.unwrapOptional(startTime),
-                style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'signal_type': SdkQueryValue(SdkUtils.unwrapOptional(signalType),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'start_time': SdkQueryValue(SdkUtils.unwrapOptional(startTime), style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'signal_type': SdkQueryValue(SdkUtils.unwrapOptional(signalType), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsListAgentSessions',
-          fromJsonRaw: (value) => ListSessionsResponseResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListSessionsResponseResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list the dialogue turns within a specific session, send a GET request to `/v1/signals/sessions/{session_id}/dialogues`. Each dialogue represents a single turn of conversation between a user and the environment, along with any signals detected. Results are paginated using cursor-based pagination.
 ///
@@ -225,31 +187,20 @@ Future<ListDialoguesResponse> signalsListSessionDialogues(ClientConfig config,
           '/v1/signals/sessions/${Uri.encodeComponent(sessionId.toString())}/dialogues',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'start_time': SdkQueryValue(SdkUtils.unwrapOptional(startTime),
-                style: 'form', explode: true),
-            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime),
-                style: 'form', explode: true),
-            'signal_type': SdkQueryValue(SdkUtils.unwrapOptional(signalType),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'start_time': SdkQueryValue(SdkUtils.unwrapOptional(startTime), style: 'form', explode: true),
+            'end_time': SdkQueryValue(SdkUtils.unwrapOptional(endTime), style: 'form', explode: true),
+            'signal_type': SdkQueryValue(SdkUtils.unwrapOptional(signalType), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsListSessionDialogues',
-          fromJsonRaw: (value) =>
-              ListDialoguesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListDialoguesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list signals export jobs for your team, send a GET request to `/v1/signals/exports`. Results are paginated using cursor-based pagination with `limit` and `after` parameters.
 ///
@@ -267,24 +218,17 @@ Future<ListExportsResponse> signalsListExports(ClientConfig config,
   return (await sdkRequest<ListExportsResponse>('GET', '/v1/signals/exports',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsListExports',
-          fromJsonRaw: (value) =>
-              ListExportsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListExportsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a new signals data export, send a POST request to `/v1/signals/exports`. To export one Harness Runtime environment, include its `agent_id` (`type` defaults to `agent`). To export the team's Serverless Inference Signals conversations, set `type` to `inference` and omit `agent_id`. You may optionally filter the export by `signal_type`, `session_ids`, `start_time`, and `end_time`. Use the export options endpoint to discover available signal types. The export job runs asynchronously. Poll the get export endpoint to check its status. When complete, use the download endpoint to retrieve a pre-signed URL.
 ///
@@ -331,19 +275,12 @@ Future<ExportJob> signalsCreateExport(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsCreateExport',
-          fromJsonRaw: (value) =>
-              ExportJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExportJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve the available filter options for creating an export, send a GET request to `/v1/signals/exports/options`. The response lists valid signal types that can be used in the `signal_type` filter when creating an export.
 Future<ExportOptions> signalsGetExportOptions(ClientConfig config,
@@ -352,17 +289,12 @@ Future<ExportOptions> signalsGetExportOptions(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsGetExportOptions',
-          fromJsonRaw: (value) =>
-              ExportOptions.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExportOptions.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve the status and details of a signals export job, send a GET request to `/v1/signals/exports/{export_id}`.
 ///
@@ -376,18 +308,12 @@ Future<ExportJob> signalsGetExport(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsGetExport',
-          fromJsonRaw: (value) =>
-              ExportJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExportJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve a pre-signed download URL for a completed export, send a GET request to `/v1/signals/exports/{export_id}/download`. The export must have a `complete` status. The URL is temporary and will expire.
 ///
@@ -401,18 +327,12 @@ Future<ExportDownload> signalsGetExportDownload(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsGetExportDownload',
-          fromJsonRaw: (value) =>
-              ExportDownload.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExportDownload.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list signals data deletion jobs for your team, newest first, send a GET request to `/v1/signals/deletions`. Results are paginated using cursor-based pagination with `limit` and `after` parameters.
 ///
@@ -431,25 +351,17 @@ Future<ListDeletionsResponse> signalsListDeletions(ClientConfig config,
           'GET', '/v1/signals/deletions',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsListDeletions',
-          fromJsonRaw: (value) =>
-              ListDeletionsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListDeletionsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To permanently delete Signals conversation data, send a POST request to `/v1/signals/deletions`. Deletion cannot be undone. Two deletion types are supported: - `agent` — deletes Signals conversations for one Harness Runtime environment and turns off collection for that environment. Requires `agent_id`, which is the environment's Environment Config ID (the environment's `agent_id`). On create, matching conversations are hidden from Signals reads immediately. Wait until the job is `complete` before enabling Signals for the environment again. - `inference` — deletes Serverless Inference Signals conversations for your whole team (team-wide; not limited to one endpoint or model) that were collected at or before the deletion request, and turns off team inference collection (`source=inference`). Do not send `agent_id`. On create, matching conversations are hidden from Signals reads immediately. The job runs asynchronously; poll the get endpoint until `status` is `complete` or `failed`. DigitalOcean may retry transient processing errors while a job is still active. If a job ends as `failed`, matching conversations stay hidden and collection stays off; send the same create request again to retry. Earlier export files are not deleted and remain available until they expire. Note: Deletion removes Signals conversation data for the requested scope. Aggregated Insights or metrics charts may still show historical summary datapoints after deletion. Those summaries are not the same as recoverable conversation content. The endpoint is idempotent: if a queued or running job already exists for the same target, it is returned with `200 OK`. A new job returns `202 Accepted`. Each team can have a limited number of active jobs; requests beyond that limit return `429 Too Many Requests`.
 ///
@@ -480,20 +392,12 @@ Future<DeletionJob> signalsCreateDeletion(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsCreateDeletion',
-          fromJsonRaw: (value) =>
-              DeletionJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletionJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve the status of a signals data deletion job, send a GET request to `/v1/signals/deletions/{deletion_id}`.
 ///
@@ -505,15 +409,8 @@ Future<DeletionJob> signalsGetDeletion(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'signalsGetDeletion',
-          fromJsonRaw: (value) =>
-              DeletionJob.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletionJob.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

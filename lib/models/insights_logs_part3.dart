@@ -8,271 +8,153 @@ part of 'insights_logs.dart';
 class LogsSearchRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An inclusive query time window.
   final LogsTimeRange timeRange;
-
   /// A boolean filter tree for logs queries. Exactly one node is set per message.
   final SdkOptional<LogsFilterExpression> filter;
-
   /// Sort clauses applied to the result set.
   final SdkOptional<List<LogsOrderBy>> orderBy;
-
   /// Opaque keyset pagination request. Cursors are only valid when ordering by `timestamp` alone.
   final SdkOptional<LogsPaginationRequest> pagination;
 
-  const LogsSearchRequest(
-      {required this.timeRange,
-      this.filter = const SdkOmitted(),
-      this.orderBy = const SdkOmitted(),
-      this.pagination = const SdkOmitted()});
+  const LogsSearchRequest({required this.timeRange, this.filter = const SdkOmitted(), this.orderBy = const SdkOmitted(), this.pagination = const SdkOmitted()});
 
-  LogsSearchRequest Function(
-      {LogsTimeRange timeRange,
-      SdkOptional<LogsFilterExpression> filter,
-      SdkOptional<List<LogsOrderBy>> orderBy,
-      SdkOptional<LogsPaginationRequest> pagination}) get copyWith => _copyWith;
+  LogsSearchRequest Function({LogsTimeRange timeRange, SdkOptional<LogsFilterExpression> filter, SdkOptional<List<LogsOrderBy>> orderBy, SdkOptional<LogsPaginationRequest> pagination}) get copyWith => _copyWith;
 
-  LogsSearchRequest _copyWith(
-          {Object? timeRange = sdkOmittedValue,
-          Object? filter = sdkOmittedValue,
-          Object? orderBy = sdkOmittedValue,
-          Object? pagination = sdkOmittedValue}) =>
-      LogsSearchRequest(
-        timeRange: identical(timeRange, sdkOmittedValue)
-            ? this.timeRange
-            : timeRange as LogsTimeRange,
-        filter: identical(filter, sdkOmittedValue)
-            ? this.filter
-            : filter as SdkOptional<LogsFilterExpression>,
-        orderBy: identical(orderBy, sdkOmittedValue)
-            ? this.orderBy
-            : orderBy as SdkOptional<List<LogsOrderBy>>,
-        pagination: identical(pagination, sdkOmittedValue)
-            ? this.pagination
-            : pagination as SdkOptional<LogsPaginationRequest>,
-      );
+  LogsSearchRequest _copyWith({Object? timeRange = sdkOmittedValue, Object? filter = sdkOmittedValue, Object? orderBy = sdkOmittedValue, Object? pagination = sdkOmittedValue}) => LogsSearchRequest(
+    timeRange: identical(timeRange, sdkOmittedValue) ? this.timeRange : timeRange as LogsTimeRange,
+    filter: identical(filter, sdkOmittedValue) ? this.filter : filter as SdkOptional<LogsFilterExpression>,
+    orderBy: identical(orderBy, sdkOmittedValue) ? this.orderBy : orderBy as SdkOptional<List<LogsOrderBy>>,
+    pagination: identical(pagination, sdkOmittedValue) ? this.pagination : pagination as SdkOptional<LogsPaginationRequest>,
+  );
 
-  factory LogsSearchRequest.fromJson(Map<String, dynamic> json) =>
-      LogsSearchRequest(
-        timeRange: (json['time_range'] != null
-            ? LogsTimeRange.fromJson(json['time_range'] as Map<String, dynamic>)
-            : null)!,
-        filter: json['filter'] != null
-            ? SdkPresent((json['filter'] != null
-                ? LogsFilterExpression.fromJson(
-                    json['filter'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        orderBy: json['order_by'] != null
-            ? SdkPresent(((json['order_by'] as List?)
-                ?.map((e) => LogsOrderBy.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        pagination: json['pagination'] != null
-            ? SdkPresent((json['pagination'] != null
-                ? LogsPaginationRequest.fromJson(
-                    json['pagination'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory LogsSearchRequest.fromJson(Map<String, dynamic> json) => LogsSearchRequest(
+    timeRange: (json['time_range'] != null ? LogsTimeRange.fromJson(json['time_range'] as Map<String, dynamic>) : null)!,
+    filter: json['filter'] != null ? SdkPresent((json['filter'] != null ? LogsFilterExpression.fromJson(json['filter'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    orderBy: json['order_by'] != null ? SdkPresent(((json['order_by'] as List?)?.map((e) => LogsOrderBy.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    pagination: json['pagination'] != null ? SdkPresent((json['pagination'] != null ? LogsPaginationRequest.fromJson(json['pagination'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'time_range': timeRange.toJson(),
-        ...switch (filter) {
-          SdkPresent<LogsFilterExpression>(value: final value) => {
-              'filter': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (orderBy) {
-          SdkPresent<List<LogsOrderBy>>(value: final value) => {
-              'order_by': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pagination) {
-          SdkPresent<LogsPaginationRequest>(value: final value) => {
-              'pagination': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'time_range': timeRange.toJson(),
+    ...switch (filter) {
+      SdkPresent<LogsFilterExpression>(value: final value) => {'filter': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (orderBy) {
+      SdkPresent<List<LogsOrderBy>>(value: final value) => {'order_by': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pagination) {
+      SdkPresent<LogsPaginationRequest>(value: final value) => {'pagination': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Response body for a logs search.
 class LogsSearchResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Matching log records. Omitted when no records match.
   final SdkOptional<List<LogsLogRecord>> data;
-
   /// Pagination response.
   final SdkOptional<LogsPaginationResponse> pagination;
 
-  const LogsSearchResponse(
-      {this.data = const SdkOmitted(), this.pagination = const SdkOmitted()});
+  const LogsSearchResponse({this.data = const SdkOmitted(), this.pagination = const SdkOmitted()});
 
-  LogsSearchResponse Function(
-          {SdkOptional<List<LogsLogRecord>> data,
-          SdkOptional<LogsPaginationResponse> pagination})
-      get copyWith => _copyWith;
+  LogsSearchResponse Function({SdkOptional<List<LogsLogRecord>> data, SdkOptional<LogsPaginationResponse> pagination}) get copyWith => _copyWith;
 
-  LogsSearchResponse _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? pagination = sdkOmittedValue}) =>
-      LogsSearchResponse(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<List<LogsLogRecord>>,
-        pagination: identical(pagination, sdkOmittedValue)
-            ? this.pagination
-            : pagination as SdkOptional<LogsPaginationResponse>,
-      );
+  LogsSearchResponse _copyWith({Object? data = sdkOmittedValue, Object? pagination = sdkOmittedValue}) => LogsSearchResponse(
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<LogsLogRecord>>,
+    pagination: identical(pagination, sdkOmittedValue) ? this.pagination : pagination as SdkOptional<LogsPaginationResponse>,
+  );
 
-  factory LogsSearchResponse.fromJson(Map<String, dynamic> json) =>
-      LogsSearchResponse(
-        data: json['data'] != null
-            ? SdkPresent(((json['data'] as List?)
-                ?.map((e) => LogsLogRecord.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        pagination: json['pagination'] != null
-            ? SdkPresent((json['pagination'] != null
-                ? LogsPaginationResponse.fromJson(
-                    json['pagination'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory LogsSearchResponse.fromJson(Map<String, dynamic> json) => LogsSearchResponse(
+    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => LogsLogRecord.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    pagination: json['pagination'] != null ? SdkPresent((json['pagination'] != null ? LogsPaginationResponse.fromJson(json['pagination'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (data) {
-          SdkPresent<List<LogsLogRecord>>(value: final value) => {
-              'data': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pagination) {
-          SdkPresent<LogsPaginationResponse>(value: final value) => {
-              'pagination': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (data) {
+      SdkPresent<List<LogsLogRecord>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pagination) {
+      SdkPresent<LogsPaginationResponse>(value: final value) => {'pagination': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A single point in time. Exactly one value form is set per message.
 class LogsTimeInstant {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An absolute timestamp. Accepts RFC3339/RFC3339Nano strings or Unix seconds/nanoseconds as decimal strings.
   final SdkOptional<String> absolute;
-
   /// A relative time. Use `now` for the current time, a bare duration such as `1h` or `7d` to look back from now, or an offset such as `now-1h` or `now+30m`. Supported units are `s`, `m`, `h`, `d`, and `w`.
   final SdkOptional<String> relative;
-
   /// A Unix nanosecond timestamp, encoded as a string to preserve 64-bit precision.
   final SdkOptional<String> unixNano;
 
-  const LogsTimeInstant(
-      {this.absolute = const SdkOmitted(),
-      this.relative = const SdkOmitted(),
-      this.unixNano = const SdkOmitted()});
+  const LogsTimeInstant({this.absolute = const SdkOmitted(), this.relative = const SdkOmitted(), this.unixNano = const SdkOmitted()});
 
-  LogsTimeInstant Function(
-      {SdkOptional<String> absolute,
-      SdkOptional<String> relative,
-      SdkOptional<String> unixNano}) get copyWith => _copyWith;
+  LogsTimeInstant Function({SdkOptional<String> absolute, SdkOptional<String> relative, SdkOptional<String> unixNano}) get copyWith => _copyWith;
 
-  LogsTimeInstant _copyWith(
-          {Object? absolute = sdkOmittedValue,
-          Object? relative = sdkOmittedValue,
-          Object? unixNano = sdkOmittedValue}) =>
-      LogsTimeInstant(
-        absolute: identical(absolute, sdkOmittedValue)
-            ? this.absolute
-            : absolute as SdkOptional<String>,
-        relative: identical(relative, sdkOmittedValue)
-            ? this.relative
-            : relative as SdkOptional<String>,
-        unixNano: identical(unixNano, sdkOmittedValue)
-            ? this.unixNano
-            : unixNano as SdkOptional<String>,
-      );
+  LogsTimeInstant _copyWith({Object? absolute = sdkOmittedValue, Object? relative = sdkOmittedValue, Object? unixNano = sdkOmittedValue}) => LogsTimeInstant(
+    absolute: identical(absolute, sdkOmittedValue) ? this.absolute : absolute as SdkOptional<String>,
+    relative: identical(relative, sdkOmittedValue) ? this.relative : relative as SdkOptional<String>,
+    unixNano: identical(unixNano, sdkOmittedValue) ? this.unixNano : unixNano as SdkOptional<String>,
+  );
 
-  factory LogsTimeInstant.fromJson(Map<String, dynamic> json) =>
-      LogsTimeInstant(
-        absolute: json['absolute'] != null
-            ? SdkPresent((json['absolute'] as String?)!)
-            : const SdkOmitted(),
-        relative: json['relative'] != null
-            ? SdkPresent((json['relative'] as String?)!)
-            : const SdkOmitted(),
-        unixNano: json['unix_nano'] != null
-            ? SdkPresent((json['unix_nano'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory LogsTimeInstant.fromJson(Map<String, dynamic> json) => LogsTimeInstant(
+    absolute: json['absolute'] != null ? SdkPresent((json['absolute'] as String?)!) : const SdkOmitted(),
+    relative: json['relative'] != null ? SdkPresent((json['relative'] as String?)!) : const SdkOmitted(),
+    unixNano: json['unix_nano'] != null ? SdkPresent((json['unix_nano'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (absolute) {
-          SdkPresent<String>(value: final value) => {
-              'absolute': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (relative) {
-          SdkPresent<String>(value: final value) => {
-              'relative': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (unixNano) {
-          SdkPresent<String>(value: final value) => {
-              'unix_nano': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (absolute) {
+      SdkPresent<String>(value: final value) => {'absolute': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (relative) {
+      SdkPresent<String>(value: final value) => {'relative': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (unixNano) {
+      SdkPresent<String>(value: final value) => {'unix_nano': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// An inclusive query time window.
 class LogsTimeRange {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A single point in time. Exactly one value form is set per message.
   final LogsTimeInstant from;
-
   /// A single point in time. Exactly one value form is set per message.
   final LogsTimeInstant to;
 
   const LogsTimeRange({required this.from, required this.to});
 
-  LogsTimeRange Function({LogsTimeInstant from, LogsTimeInstant to})
-      get copyWith => _copyWith;
+  LogsTimeRange Function({LogsTimeInstant from, LogsTimeInstant to}) get copyWith => _copyWith;
 
-  LogsTimeRange _copyWith(
-          {Object? from = sdkOmittedValue, Object? to = sdkOmittedValue}) =>
-      LogsTimeRange(
-        from: identical(from, sdkOmittedValue)
-            ? this.from
-            : from as LogsTimeInstant,
-        to: identical(to, sdkOmittedValue) ? this.to : to as LogsTimeInstant,
-      );
+  LogsTimeRange _copyWith({Object? from = sdkOmittedValue, Object? to = sdkOmittedValue}) => LogsTimeRange(
+    from: identical(from, sdkOmittedValue) ? this.from : from as LogsTimeInstant,
+    to: identical(to, sdkOmittedValue) ? this.to : to as LogsTimeInstant,
+  );
 
   factory LogsTimeRange.fromJson(Map<String, dynamic> json) => LogsTimeRange(
-        from: (json['from'] != null
-            ? LogsTimeInstant.fromJson(json['from'] as Map<String, dynamic>)
-            : null)!,
-        to: (json['to'] != null
-            ? LogsTimeInstant.fromJson(json['to'] as Map<String, dynamic>)
-            : null)!,
-      );
+    from: (json['from'] != null ? LogsTimeInstant.fromJson(json['from'] as Map<String, dynamic>) : null)!,
+    to: (json['to'] != null ? LogsTimeInstant.fromJson(json['to'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'from': from.toJson(),
-        'to': to.toJson(),
-      };
+    'from': from.toJson(),
+    'to': to.toJson(),
+  };
 }

@@ -6,12 +6,12 @@ part of 'databases_eviction.dart';
 // databases_eviction domain models
 /// A string specifying the desired eviction policy for a Caching or Valkey cluster. - `noeviction`: Don't evict any data, returns error when memory limit is reached. - `allkeys_lru:` Evict any key, least recently used (LRU) first. - `allkeys_random`: Evict keys in a random order. - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first. - `volatile_random`: Evict keys with expiration only in a random order. - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
 final class EvictionPolicyModel {
+
   final String value;
 
   const EvictionPolicyModel._(this.value);
 
-  factory EvictionPolicyModel.fromJson(String value) =>
-      EvictionPolicyModel._(value);
+  factory EvictionPolicyModel.fromJson(String value) => EvictionPolicyModel._(value);
 
   static const noeviction = EvictionPolicyModel._('noeviction');
   static const allkeysLru = EvictionPolicyModel._('allkeys_lru');
@@ -22,46 +22,34 @@ final class EvictionPolicyModel {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is EvictionPolicyModel && other.value == value;
+  @override bool operator ==(Object other) => other is EvictionPolicyModel && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Typed representation of the `EvictionPolicyResponse` API schema.
 class EvictionPolicyResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A string specifying the desired eviction policy for a Caching or Valkey cluster. - `noeviction`: Don't evict any data, returns error when memory limit is reached. - `allkeys_lru:` Evict any key, least recently used (LRU) first. - `allkeys_random`: Evict keys in a random order. - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first. - `volatile_random`: Evict keys with expiration only in a random order. - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
   final EvictionPolicyModel evictionPolicy;
 
   const EvictionPolicyResponse({required this.evictionPolicy});
 
-  EvictionPolicyResponse Function({EvictionPolicyModel evictionPolicy})
-      get copyWith => _copyWith;
+  EvictionPolicyResponse Function({EvictionPolicyModel evictionPolicy}) get copyWith => _copyWith;
 
-  EvictionPolicyResponse _copyWith(
-          {Object? evictionPolicy = sdkOmittedValue}) =>
-      EvictionPolicyResponse(
-        evictionPolicy: identical(evictionPolicy, sdkOmittedValue)
-            ? this.evictionPolicy
-            : evictionPolicy as EvictionPolicyModel,
-      );
+  EvictionPolicyResponse _copyWith({Object? evictionPolicy = sdkOmittedValue}) => EvictionPolicyResponse(
+    evictionPolicy: identical(evictionPolicy, sdkOmittedValue) ? this.evictionPolicy : evictionPolicy as EvictionPolicyModel,
+  );
 
-  factory EvictionPolicyResponse.fromJson(Map<String, dynamic> json) =>
-      EvictionPolicyResponse(
-        evictionPolicy: (json['eviction_policy'] != null
-            ? EvictionPolicyModel.fromJson(json['eviction_policy'] as String)
-            : null)!,
-      );
+  factory EvictionPolicyResponse.fromJson(Map<String, dynamic> json) => EvictionPolicyResponse(
+    evictionPolicy: (json['eviction_policy'] != null ? EvictionPolicyModel.fromJson(json['eviction_policy'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'eviction_policy': evictionPolicy.toJson(),
-      };
+    'eviction_policy': evictionPolicy.toJson(),
+  };
 }

@@ -8,57 +8,33 @@ part of 'shared_droplet.dart';
 class DropletNetworks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `v4` wire field.
   final SdkOptional<List<NetworkV4>> v4;
-
   /// Optional array value serialized in the `v6` wire field.
   final SdkOptional<List<NetworkV6>> v6;
 
-  const DropletNetworks(
-      {this.v4 = const SdkOmitted(), this.v6 = const SdkOmitted()});
+  const DropletNetworks({this.v4 = const SdkOmitted(), this.v6 = const SdkOmitted()});
 
-  DropletNetworks Function(
-      {SdkOptional<List<NetworkV4>> v4,
-      SdkOptional<List<NetworkV6>> v6}) get copyWith => _copyWith;
+  DropletNetworks Function({SdkOptional<List<NetworkV4>> v4, SdkOptional<List<NetworkV6>> v6}) get copyWith => _copyWith;
 
-  DropletNetworks _copyWith(
-          {Object? v4 = sdkOmittedValue, Object? v6 = sdkOmittedValue}) =>
-      DropletNetworks(
-        v4: identical(v4, sdkOmittedValue)
-            ? this.v4
-            : v4 as SdkOptional<List<NetworkV4>>,
-        v6: identical(v6, sdkOmittedValue)
-            ? this.v6
-            : v6 as SdkOptional<List<NetworkV6>>,
-      );
+  DropletNetworks _copyWith({Object? v4 = sdkOmittedValue, Object? v6 = sdkOmittedValue}) => DropletNetworks(
+    v4: identical(v4, sdkOmittedValue) ? this.v4 : v4 as SdkOptional<List<NetworkV4>>,
+    v6: identical(v6, sdkOmittedValue) ? this.v6 : v6 as SdkOptional<List<NetworkV6>>,
+  );
 
-  factory DropletNetworks.fromJson(Map<String, dynamic> json) =>
-      DropletNetworks(
-        v4: json['v4'] != null
-            ? SdkPresent(((json['v4'] as List?)
-                ?.map((e) => NetworkV4.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        v6: json['v6'] != null
-            ? SdkPresent(((json['v6'] as List?)
-                ?.map((e) => NetworkV6.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory DropletNetworks.fromJson(Map<String, dynamic> json) => DropletNetworks(
+    v4: json['v4'] != null ? SdkPresent(((json['v4'] as List?)?.map((e) => NetworkV4.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    v6: json['v6'] != null ? SdkPresent(((json['v6'] as List?)?.map((e) => NetworkV6.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (v4) {
-          SdkPresent<List<NetworkV4>>(value: final value) => {
-              'v4': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (v6) {
-          SdkPresent<List<NetworkV6>>(value: final value) => {
-              'v6': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (v4) {
+      SdkPresent<List<NetworkV4>>(value: final value) => {'v4': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (v6) {
+      SdkPresent<List<NetworkV6>>(value: final value) => {'v6': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

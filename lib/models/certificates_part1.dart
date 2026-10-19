@@ -11,33 +11,22 @@ class AllCertificatesVariant0 {
 
   const AllCertificatesVariant0({this.certificates = const SdkOmitted()});
 
-  AllCertificatesVariant0 Function(
-      {SdkOptional<List<Certificate>> certificates}) get copyWith => _copyWith;
+  AllCertificatesVariant0 Function({SdkOptional<List<Certificate>> certificates}) get copyWith => _copyWith;
 
-  AllCertificatesVariant0 _copyWith({Object? certificates = sdkOmittedValue}) =>
-      AllCertificatesVariant0(
-        certificates: identical(certificates, sdkOmittedValue)
-            ? this.certificates
-            : certificates as SdkOptional<List<Certificate>>,
-      );
+  AllCertificatesVariant0 _copyWith({Object? certificates = sdkOmittedValue}) => AllCertificatesVariant0(
+    certificates: identical(certificates, sdkOmittedValue) ? this.certificates : certificates as SdkOptional<List<Certificate>>,
+  );
 
-  factory AllCertificatesVariant0.fromJson(Map<String, dynamic> json) =>
-      AllCertificatesVariant0(
-        certificates: json['certificates'] != null
-            ? SdkPresent(((json['certificates'] as List?)
-                ?.map((e) => Certificate.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AllCertificatesVariant0.fromJson(Map<String, dynamic> json) => AllCertificatesVariant0(
+    certificates: json['certificates'] != null ? SdkPresent(((json['certificates'] as List?)?.map((e) => Certificate.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (certificates) {
-          SdkPresent<List<Certificate>>(value: final value) => {
-              'certificates': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (certificates) {
+      SdkPresent<List<Certificate>>(value: final value) => {'certificates': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AllCertificates` API schema.
@@ -45,470 +34,260 @@ class AllCertificates {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Certificate>> certificates;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllCertificates(
-      {this.certificates = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllCertificates({this.certificates = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AllCertificates Function(
-      {SdkOptional<List<Certificate>> certificates,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllCertificates Function({SdkOptional<List<Certificate>> certificates, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllCertificates _copyWith(
-          {Object? certificates = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllCertificates(
-        certificates: identical(certificates, sdkOmittedValue)
-            ? this.certificates
-            : certificates as SdkOptional<List<Certificate>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllCertificates _copyWith({Object? certificates = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllCertificates(
+    certificates: identical(certificates, sdkOmittedValue) ? this.certificates : certificates as SdkOptional<List<Certificate>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory AllCertificates.fromJson(Map<String, dynamic> json) =>
-      AllCertificates(
-        certificates: json['certificates'] != null
-            ? SdkPresent(((json['certificates'] as List?)
-                ?.map((e) => Certificate.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AllCertificates.fromJson(Map<String, dynamic> json) => AllCertificates(
+    certificates: json['certificates'] != null ? SdkPresent(((json['certificates'] as List?)?.map((e) => Certificate.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (certificates) {
-          SdkPresent<List<Certificate>>(value: final value) => {
-              'certificates': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (certificates) {
+      SdkPresent<List<Certificate>>(value: final value) => {'certificates': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 /// Typed representation of the `Certificate` API schema.
 class Certificate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique ID that can be used to identify and reference a certificate.
   final SdkOptional<String> id;
-
   /// A unique human-readable name referring to a certificate.
   final SdkOptional<String> name;
-
   /// A time value given in ISO8601 combined date and time format that represents the certificate's expiration date.
   final SdkOptional<String> notAfter;
-
   /// A unique identifier generated from the SHA-1 fingerprint of the certificate.
   final SdkOptional<String> sha1Fingerprint;
-
   /// A time value given in ISO8601 combined date and time format that represents when the certificate was created.
   final SdkOptional<String> createdAt;
-
   /// An array of fully qualified domain names (FQDNs) for which the certificate was issued.
   final SdkOptional<List<String>> dnsNames;
-
   /// A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.
   final SdkOptional<CertificateState> state;
-
   /// A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
   final SdkOptional<CertificateType> type_;
 
-  const Certificate(
-      {this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.notAfter = const SdkOmitted(),
-      this.sha1Fingerprint = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.dnsNames = const SdkOmitted(),
-      this.state = const SdkOmitted(),
-      this.type_ = const SdkOmitted()});
+  const Certificate({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.notAfter = const SdkOmitted(), this.sha1Fingerprint = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.dnsNames = const SdkOmitted(), this.state = const SdkOmitted(), this.type_ = const SdkOmitted()});
 
-  Certificate Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> name,
-      SdkOptional<String> notAfter,
-      SdkOptional<String> sha1Fingerprint,
-      SdkOptional<String> createdAt,
-      SdkOptional<List<String>> dnsNames,
-      SdkOptional<CertificateState> state,
-      SdkOptional<CertificateType> type_}) get copyWith => _copyWith;
+  Certificate Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> notAfter, SdkOptional<String> sha1Fingerprint, SdkOptional<String> createdAt, SdkOptional<List<String>> dnsNames, SdkOptional<CertificateState> state, SdkOptional<CertificateType> type_}) get copyWith => _copyWith;
 
-  Certificate _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? notAfter = sdkOmittedValue,
-          Object? sha1Fingerprint = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? dnsNames = sdkOmittedValue,
-          Object? state = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      Certificate(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        notAfter: identical(notAfter, sdkOmittedValue)
-            ? this.notAfter
-            : notAfter as SdkOptional<String>,
-        sha1Fingerprint: identical(sha1Fingerprint, sdkOmittedValue)
-            ? this.sha1Fingerprint
-            : sha1Fingerprint as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        dnsNames: identical(dnsNames, sdkOmittedValue)
-            ? this.dnsNames
-            : dnsNames as SdkOptional<List<String>>,
-        state: identical(state, sdkOmittedValue)
-            ? this.state
-            : state as SdkOptional<CertificateState>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<CertificateType>,
-      );
+  Certificate _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? notAfter = sdkOmittedValue, Object? sha1Fingerprint = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? dnsNames = sdkOmittedValue, Object? state = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => Certificate(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    notAfter: identical(notAfter, sdkOmittedValue) ? this.notAfter : notAfter as SdkOptional<String>,
+    sha1Fingerprint: identical(sha1Fingerprint, sdkOmittedValue) ? this.sha1Fingerprint : sha1Fingerprint as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    dnsNames: identical(dnsNames, sdkOmittedValue) ? this.dnsNames : dnsNames as SdkOptional<List<String>>,
+    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<CertificateState>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<CertificateType>,
+  );
 
   factory Certificate.fromJson(Map<String, dynamic> json) => Certificate(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        notAfter: json['not_after'] != null
-            ? SdkPresent((json['not_after'] as String?)!)
-            : const SdkOmitted(),
-        sha1Fingerprint: json['sha1_fingerprint'] != null
-            ? SdkPresent((json['sha1_fingerprint'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        dnsNames: json['dns_names'] != null
-            ? SdkPresent(((json['dns_names'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        state: json['state'] != null
-            ? SdkPresent((json['state'] != null
-                ? CertificateState.fromJson(json['state'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? CertificateType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    notAfter: json['not_after'] != null ? SdkPresent((json['not_after'] as String?)!) : const SdkOmitted(),
+    sha1Fingerprint: json['sha1_fingerprint'] != null ? SdkPresent((json['sha1_fingerprint'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    dnsNames: json['dns_names'] != null ? SdkPresent(((json['dns_names'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    state: json['state'] != null ? SdkPresent((json['state'] != null ? CertificateState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? CertificateType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (notAfter) {
-          SdkPresent<String>(value: final value) => {
-              'not_after': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sha1Fingerprint) {
-          SdkPresent<String>(value: final value) => {
-              'sha1_fingerprint': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (dnsNames) {
-          SdkPresent<List<String>>(value: final value) => {
-              'dns_names': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (state) {
-          SdkPresent<CertificateState>(value: final value) => {
-              'state': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<CertificateType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (notAfter) {
+      SdkPresent<String>(value: final value) => {'not_after': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sha1Fingerprint) {
+      SdkPresent<String>(value: final value) => {'sha1_fingerprint': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (dnsNames) {
+      SdkPresent<List<String>>(value: final value) => {'dns_names': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (state) {
+      SdkPresent<CertificateState>(value: final value) => {'state': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<CertificateType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `CertificateCreateBase` API schema.
 class CertificateCreateBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique human-readable name referring to a certificate.
   final String name;
-
   /// A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
   final SdkOptional<CertificateCreateBaseType> type_;
 
-  const CertificateCreateBase(
-      {required this.name, this.type_ = const SdkOmitted()});
+  const CertificateCreateBase({required this.name, this.type_ = const SdkOmitted()});
 
-  CertificateCreateBase Function(
-      {String name,
-      SdkOptional<CertificateCreateBaseType> type_}) get copyWith => _copyWith;
+  CertificateCreateBase Function({String name, SdkOptional<CertificateCreateBaseType> type_}) get copyWith => _copyWith;
 
-  CertificateCreateBase _copyWith(
-          {Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue}) =>
-      CertificateCreateBase(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<CertificateCreateBaseType>,
-      );
+  CertificateCreateBase _copyWith({Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => CertificateCreateBase(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<CertificateCreateBaseType>,
+  );
 
-  factory CertificateCreateBase.fromJson(Map<String, dynamic> json) =>
-      CertificateCreateBase(
-        name: (json['name'] as String?)!,
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? CertificateCreateBaseType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory CertificateCreateBase.fromJson(Map<String, dynamic> json) => CertificateCreateBase(
+    name: (json['name'] as String?)!,
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? CertificateCreateBaseType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (type_) {
-          SdkPresent<CertificateCreateBaseType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (type_) {
+      SdkPresent<CertificateCreateBaseType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CertificateRequestCustomVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The contents of a PEM-formatted private-key corresponding to the SSL certificate.
   final String privateKey;
-
   /// The contents of a PEM-formatted public SSL certificate.
   final String leafCertificate;
-
   /// The full PEM-formatted trust chain between the certificate authority's certificate and your domain's SSL certificate.
   final SdkOptional<String> certificateChain;
 
-  const CertificateRequestCustomVariant1(
-      {required this.privateKey,
-      required this.leafCertificate,
-      this.certificateChain = const SdkOmitted()});
+  const CertificateRequestCustomVariant1({required this.privateKey, required this.leafCertificate, this.certificateChain = const SdkOmitted()});
 
-  CertificateRequestCustomVariant1 Function(
-      {String privateKey,
-      String leafCertificate,
-      SdkOptional<String> certificateChain}) get copyWith => _copyWith;
+  CertificateRequestCustomVariant1 Function({String privateKey, String leafCertificate, SdkOptional<String> certificateChain}) get copyWith => _copyWith;
 
-  CertificateRequestCustomVariant1 _copyWith(
-          {Object? privateKey = sdkOmittedValue,
-          Object? leafCertificate = sdkOmittedValue,
-          Object? certificateChain = sdkOmittedValue}) =>
-      CertificateRequestCustomVariant1(
-        privateKey: identical(privateKey, sdkOmittedValue)
-            ? this.privateKey
-            : privateKey as String,
-        leafCertificate: identical(leafCertificate, sdkOmittedValue)
-            ? this.leafCertificate
-            : leafCertificate as String,
-        certificateChain: identical(certificateChain, sdkOmittedValue)
-            ? this.certificateChain
-            : certificateChain as SdkOptional<String>,
-      );
+  CertificateRequestCustomVariant1 _copyWith({Object? privateKey = sdkOmittedValue, Object? leafCertificate = sdkOmittedValue, Object? certificateChain = sdkOmittedValue}) => CertificateRequestCustomVariant1(
+    privateKey: identical(privateKey, sdkOmittedValue) ? this.privateKey : privateKey as String,
+    leafCertificate: identical(leafCertificate, sdkOmittedValue) ? this.leafCertificate : leafCertificate as String,
+    certificateChain: identical(certificateChain, sdkOmittedValue) ? this.certificateChain : certificateChain as SdkOptional<String>,
+  );
 
-  factory CertificateRequestCustomVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      CertificateRequestCustomVariant1(
-        privateKey: (json['private_key'] as String?)!,
-        leafCertificate: (json['leaf_certificate'] as String?)!,
-        certificateChain: json['certificate_chain'] != null
-            ? SdkPresent((json['certificate_chain'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CertificateRequestCustomVariant1.fromJson(Map<String, dynamic> json) => CertificateRequestCustomVariant1(
+    privateKey: (json['private_key'] as String?)!,
+    leafCertificate: (json['leaf_certificate'] as String?)!,
+    certificateChain: json['certificate_chain'] != null ? SdkPresent((json['certificate_chain'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'private_key': privateKey,
-        'leaf_certificate': leafCertificate,
-        ...switch (certificateChain) {
-          SdkPresent<String>(value: final value) => {
-              'certificate_chain': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'private_key': privateKey,
+    'leaf_certificate': leafCertificate,
+    ...switch (certificateChain) {
+      SdkPresent<String>(value: final value) => {'certificate_chain': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `CertificateRequestCustom` API schema.
 class CertificateRequestCustom {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique human-readable name referring to a certificate.
   final String name;
-
   /// A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
   final SdkOptional<CertificateCreateBaseType> type_;
-
   /// The contents of a PEM-formatted private-key corresponding to the SSL certificate.
   final String privateKey;
-
   /// The contents of a PEM-formatted public SSL certificate.
   final String leafCertificate;
-
   /// The full PEM-formatted trust chain between the certificate authority's certificate and your domain's SSL certificate.
   final SdkOptional<String> certificateChain;
 
-  const CertificateRequestCustom(
-      {required this.name,
-      this.type_ = const SdkOmitted(),
-      required this.privateKey,
-      required this.leafCertificate,
-      this.certificateChain = const SdkOmitted()});
+  const CertificateRequestCustom({required this.name, this.type_ = const SdkOmitted(), required this.privateKey, required this.leafCertificate, this.certificateChain = const SdkOmitted()});
 
-  CertificateRequestCustom Function(
-      {String name,
-      SdkOptional<CertificateCreateBaseType> type_,
-      String privateKey,
-      String leafCertificate,
-      SdkOptional<String> certificateChain}) get copyWith => _copyWith;
+  CertificateRequestCustom Function({String name, SdkOptional<CertificateCreateBaseType> type_, String privateKey, String leafCertificate, SdkOptional<String> certificateChain}) get copyWith => _copyWith;
 
-  CertificateRequestCustom _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? privateKey = sdkOmittedValue,
-          Object? leafCertificate = sdkOmittedValue,
-          Object? certificateChain = sdkOmittedValue}) =>
-      CertificateRequestCustom(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<CertificateCreateBaseType>,
-        privateKey: identical(privateKey, sdkOmittedValue)
-            ? this.privateKey
-            : privateKey as String,
-        leafCertificate: identical(leafCertificate, sdkOmittedValue)
-            ? this.leafCertificate
-            : leafCertificate as String,
-        certificateChain: identical(certificateChain, sdkOmittedValue)
-            ? this.certificateChain
-            : certificateChain as SdkOptional<String>,
-      );
+  CertificateRequestCustom _copyWith({Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? privateKey = sdkOmittedValue, Object? leafCertificate = sdkOmittedValue, Object? certificateChain = sdkOmittedValue}) => CertificateRequestCustom(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<CertificateCreateBaseType>,
+    privateKey: identical(privateKey, sdkOmittedValue) ? this.privateKey : privateKey as String,
+    leafCertificate: identical(leafCertificate, sdkOmittedValue) ? this.leafCertificate : leafCertificate as String,
+    certificateChain: identical(certificateChain, sdkOmittedValue) ? this.certificateChain : certificateChain as SdkOptional<String>,
+  );
 
-  factory CertificateRequestCustom.fromJson(Map<String, dynamic> json) =>
-      CertificateRequestCustom(
-        name: (json['name'] as String?)!,
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? CertificateCreateBaseType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        privateKey: (json['private_key'] as String?)!,
-        leafCertificate: (json['leaf_certificate'] as String?)!,
-        certificateChain: json['certificate_chain'] != null
-            ? SdkPresent((json['certificate_chain'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CertificateRequestCustom.fromJson(Map<String, dynamic> json) => CertificateRequestCustom(
+    name: (json['name'] as String?)!,
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? CertificateCreateBaseType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    privateKey: (json['private_key'] as String?)!,
+    leafCertificate: (json['leaf_certificate'] as String?)!,
+    certificateChain: json['certificate_chain'] != null ? SdkPresent((json['certificate_chain'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (type_) {
-          SdkPresent<CertificateCreateBaseType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'private_key': privateKey,
-        'leaf_certificate': leafCertificate,
-        ...switch (certificateChain) {
-          SdkPresent<String>(value: final value) => {
-              'certificate_chain': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (type_) {
+      SdkPresent<CertificateCreateBaseType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'private_key': privateKey,
+    'leaf_certificate': leafCertificate,
+    ...switch (certificateChain) {
+      SdkPresent<String>(value: final value) => {'certificate_chain': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CertificateRequestLetsEncryptVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of fully qualified domain names (FQDNs) for which the certificate was issued. A certificate covering all subdomains can be issued using a wildcard (e.g. `*.example.com`).
   final List<String> dnsNames;
 
   const CertificateRequestLetsEncryptVariant1({required this.dnsNames});
 
-  CertificateRequestLetsEncryptVariant1 Function({List<String> dnsNames})
-      get copyWith => _copyWith;
+  CertificateRequestLetsEncryptVariant1 Function({List<String> dnsNames}) get copyWith => _copyWith;
 
-  CertificateRequestLetsEncryptVariant1 _copyWith(
-          {Object? dnsNames = sdkOmittedValue}) =>
-      CertificateRequestLetsEncryptVariant1(
-        dnsNames: identical(dnsNames, sdkOmittedValue)
-            ? this.dnsNames
-            : dnsNames as List<String>,
-      );
+  CertificateRequestLetsEncryptVariant1 _copyWith({Object? dnsNames = sdkOmittedValue}) => CertificateRequestLetsEncryptVariant1(
+    dnsNames: identical(dnsNames, sdkOmittedValue) ? this.dnsNames : dnsNames as List<String>,
+  );
 
-  factory CertificateRequestLetsEncryptVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      CertificateRequestLetsEncryptVariant1(
-        dnsNames:
-            ((json['dns_names'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory CertificateRequestLetsEncryptVariant1.fromJson(Map<String, dynamic> json) => CertificateRequestLetsEncryptVariant1(
+    dnsNames: ((json['dns_names'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'dns_names': dnsNames,
-      };
+    'dns_names': dnsNames,
+  };
 }

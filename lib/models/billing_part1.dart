@@ -8,531 +8,274 @@ part of 'billing.dart';
 class Balance {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Balance as of the `generated_at` time. This value includes the `account_balance` and `month_to_date_usage`.
   final SdkOptional<String> monthToDateBalance;
-
   /// Current balance of the customer's most recent billing activity. Does not reflect `month_to_date_usage`.
   final SdkOptional<String> accountBalance;
-
   /// Amount used in the current billing period as of the `generated_at` time.
   final SdkOptional<String> monthToDateUsage;
-
   /// The time at which balances were most recently generated.
   final SdkOptional<String> generatedAt;
 
-  const Balance(
-      {this.monthToDateBalance = const SdkOmitted(),
-      this.accountBalance = const SdkOmitted(),
-      this.monthToDateUsage = const SdkOmitted(),
-      this.generatedAt = const SdkOmitted()});
+  const Balance({this.monthToDateBalance = const SdkOmitted(), this.accountBalance = const SdkOmitted(), this.monthToDateUsage = const SdkOmitted(), this.generatedAt = const SdkOmitted()});
 
-  Balance Function(
-      {SdkOptional<String> monthToDateBalance,
-      SdkOptional<String> accountBalance,
-      SdkOptional<String> monthToDateUsage,
-      SdkOptional<String> generatedAt}) get copyWith => _copyWith;
+  Balance Function({SdkOptional<String> monthToDateBalance, SdkOptional<String> accountBalance, SdkOptional<String> monthToDateUsage, SdkOptional<String> generatedAt}) get copyWith => _copyWith;
 
-  Balance _copyWith(
-          {Object? monthToDateBalance = sdkOmittedValue,
-          Object? accountBalance = sdkOmittedValue,
-          Object? monthToDateUsage = sdkOmittedValue,
-          Object? generatedAt = sdkOmittedValue}) =>
-      Balance(
-        monthToDateBalance: identical(monthToDateBalance, sdkOmittedValue)
-            ? this.monthToDateBalance
-            : monthToDateBalance as SdkOptional<String>,
-        accountBalance: identical(accountBalance, sdkOmittedValue)
-            ? this.accountBalance
-            : accountBalance as SdkOptional<String>,
-        monthToDateUsage: identical(monthToDateUsage, sdkOmittedValue)
-            ? this.monthToDateUsage
-            : monthToDateUsage as SdkOptional<String>,
-        generatedAt: identical(generatedAt, sdkOmittedValue)
-            ? this.generatedAt
-            : generatedAt as SdkOptional<String>,
-      );
+  Balance _copyWith({Object? monthToDateBalance = sdkOmittedValue, Object? accountBalance = sdkOmittedValue, Object? monthToDateUsage = sdkOmittedValue, Object? generatedAt = sdkOmittedValue}) => Balance(
+    monthToDateBalance: identical(monthToDateBalance, sdkOmittedValue) ? this.monthToDateBalance : monthToDateBalance as SdkOptional<String>,
+    accountBalance: identical(accountBalance, sdkOmittedValue) ? this.accountBalance : accountBalance as SdkOptional<String>,
+    monthToDateUsage: identical(monthToDateUsage, sdkOmittedValue) ? this.monthToDateUsage : monthToDateUsage as SdkOptional<String>,
+    generatedAt: identical(generatedAt, sdkOmittedValue) ? this.generatedAt : generatedAt as SdkOptional<String>,
+  );
 
   factory Balance.fromJson(Map<String, dynamic> json) => Balance(
-        monthToDateBalance: json['month_to_date_balance'] != null
-            ? SdkPresent((json['month_to_date_balance'] as String?)!)
-            : const SdkOmitted(),
-        accountBalance: json['account_balance'] != null
-            ? SdkPresent((json['account_balance'] as String?)!)
-            : const SdkOmitted(),
-        monthToDateUsage: json['month_to_date_usage'] != null
-            ? SdkPresent((json['month_to_date_usage'] as String?)!)
-            : const SdkOmitted(),
-        generatedAt: json['generated_at'] != null
-            ? SdkPresent((json['generated_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+    monthToDateBalance: json['month_to_date_balance'] != null ? SdkPresent((json['month_to_date_balance'] as String?)!) : const SdkOmitted(),
+    accountBalance: json['account_balance'] != null ? SdkPresent((json['account_balance'] as String?)!) : const SdkOmitted(),
+    monthToDateUsage: json['month_to_date_usage'] != null ? SdkPresent((json['month_to_date_usage'] as String?)!) : const SdkOmitted(),
+    generatedAt: json['generated_at'] != null ? SdkPresent((json['generated_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (monthToDateBalance) {
-          SdkPresent<String>(value: final value) => {
-              'month_to_date_balance': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (accountBalance) {
-          SdkPresent<String>(value: final value) => {
-              'account_balance': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (monthToDateUsage) {
-          SdkPresent<String>(value: final value) => {
-              'month_to_date_usage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (generatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'generated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (monthToDateBalance) {
+      SdkPresent<String>(value: final value) => {'month_to_date_balance': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (accountBalance) {
+      SdkPresent<String>(value: final value) => {'account_balance': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (monthToDateUsage) {
+      SdkPresent<String>(value: final value) => {'month_to_date_usage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (generatedAt) {
+      SdkPresent<String>(value: final value) => {'generated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `BillingAddress` API schema.
 class BillingAddress {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Street address line 1
   final SdkOptional<String> addressLine1;
-
   /// Street address line 2
   final SdkOptional<String> addressLine2;
-
   /// City
   final SdkOptional<String> city;
-
   /// Region
   final SdkOptional<String> region;
-
   /// Postal code
   final SdkOptional<String> postalCode;
-
   /// Country (ISO2) code
   final SdkOptional<String> countryIso2Code;
-
   /// Timestamp billing address was created
   final SdkOptional<String> createdAt;
-
   /// Timestamp billing address was updated
   final SdkOptional<String> updatedAt;
 
-  const BillingAddress(
-      {this.addressLine1 = const SdkOmitted(),
-      this.addressLine2 = const SdkOmitted(),
-      this.city = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.postalCode = const SdkOmitted(),
-      this.countryIso2Code = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted()});
+  const BillingAddress({this.addressLine1 = const SdkOmitted(), this.addressLine2 = const SdkOmitted(), this.city = const SdkOmitted(), this.region = const SdkOmitted(), this.postalCode = const SdkOmitted(), this.countryIso2Code = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
 
-  BillingAddress Function(
-      {SdkOptional<String> addressLine1,
-      SdkOptional<String> addressLine2,
-      SdkOptional<String> city,
-      SdkOptional<String> region,
-      SdkOptional<String> postalCode,
-      SdkOptional<String> countryIso2Code,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  BillingAddress Function({SdkOptional<String> addressLine1, SdkOptional<String> addressLine2, SdkOptional<String> city, SdkOptional<String> region, SdkOptional<String> postalCode, SdkOptional<String> countryIso2Code, SdkOptional<String> createdAt, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  BillingAddress _copyWith(
-          {Object? addressLine1 = sdkOmittedValue,
-          Object? addressLine2 = sdkOmittedValue,
-          Object? city = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? postalCode = sdkOmittedValue,
-          Object? countryIso2Code = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      BillingAddress(
-        addressLine1: identical(addressLine1, sdkOmittedValue)
-            ? this.addressLine1
-            : addressLine1 as SdkOptional<String>,
-        addressLine2: identical(addressLine2, sdkOmittedValue)
-            ? this.addressLine2
-            : addressLine2 as SdkOptional<String>,
-        city: identical(city, sdkOmittedValue)
-            ? this.city
-            : city as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-        postalCode: identical(postalCode, sdkOmittedValue)
-            ? this.postalCode
-            : postalCode as SdkOptional<String>,
-        countryIso2Code: identical(countryIso2Code, sdkOmittedValue)
-            ? this.countryIso2Code
-            : countryIso2Code as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-      );
+  BillingAddress _copyWith({Object? addressLine1 = sdkOmittedValue, Object? addressLine2 = sdkOmittedValue, Object? city = sdkOmittedValue, Object? region = sdkOmittedValue, Object? postalCode = sdkOmittedValue, Object? countryIso2Code = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => BillingAddress(
+    addressLine1: identical(addressLine1, sdkOmittedValue) ? this.addressLine1 : addressLine1 as SdkOptional<String>,
+    addressLine2: identical(addressLine2, sdkOmittedValue) ? this.addressLine2 : addressLine2 as SdkOptional<String>,
+    city: identical(city, sdkOmittedValue) ? this.city : city as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+    postalCode: identical(postalCode, sdkOmittedValue) ? this.postalCode : postalCode as SdkOptional<String>,
+    countryIso2Code: identical(countryIso2Code, sdkOmittedValue) ? this.countryIso2Code : countryIso2Code as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+  );
 
   factory BillingAddress.fromJson(Map<String, dynamic> json) => BillingAddress(
-        addressLine1: json['address_line1'] != null
-            ? SdkPresent((json['address_line1'] as String?)!)
-            : const SdkOmitted(),
-        addressLine2: json['address_line2'] != null
-            ? SdkPresent((json['address_line2'] as String?)!)
-            : const SdkOmitted(),
-        city: json['city'] != null
-            ? SdkPresent((json['city'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-        postalCode: json['postal_code'] != null
-            ? SdkPresent((json['postal_code'] as String?)!)
-            : const SdkOmitted(),
-        countryIso2Code: json['country_iso2_code'] != null
-            ? SdkPresent((json['country_iso2_code'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+    addressLine1: json['address_line1'] != null ? SdkPresent((json['address_line1'] as String?)!) : const SdkOmitted(),
+    addressLine2: json['address_line2'] != null ? SdkPresent((json['address_line2'] as String?)!) : const SdkOmitted(),
+    city: json['city'] != null ? SdkPresent((json['city'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+    postalCode: json['postal_code'] != null ? SdkPresent((json['postal_code'] as String?)!) : const SdkOmitted(),
+    countryIso2Code: json['country_iso2_code'] != null ? SdkPresent((json['country_iso2_code'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (addressLine1) {
-          SdkPresent<String>(value: final value) => {
-              'address_line1': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (addressLine2) {
-          SdkPresent<String>(value: final value) => {
-              'address_line2': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (city) {
-          SdkPresent<String>(value: final value) => {
-              'city': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (postalCode) {
-          SdkPresent<String>(value: final value) => {
-              'postal_code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (countryIso2Code) {
-          SdkPresent<String>(value: final value) => {
-              'country_iso2_code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (addressLine1) {
+      SdkPresent<String>(value: final value) => {'address_line1': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (addressLine2) {
+      SdkPresent<String>(value: final value) => {'address_line2': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (city) {
+      SdkPresent<String>(value: final value) => {'city': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (postalCode) {
+      SdkPresent<String>(value: final value) => {'postal_code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (countryIso2Code) {
+      SdkPresent<String>(value: final value) => {'country_iso2_code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `BillingDataPoint` API schema.
 class BillingDataPoint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// URN of the team that incurred the usage
   final SdkOptional<String> usageTeamUrn;
-
   /// Start date of the billing data point in YYYY-MM-DD format
   final SdkOptional<String> startDate;
-
   /// Total amount for this data point in USD
   final SdkOptional<String> totalAmount;
-
   /// Region where the usage occurred
   final SdkOptional<String> region;
-
   /// Unique SKU identifier for the billed resource
   final SdkOptional<String> sku;
-
   /// Description of the billed resource or service as shown on an invoice item
   final SdkOptional<String> description;
-
   /// Optional invoice item group name of the billed resource or service, blank when not part an invoice item group
   final SdkOptional<String> groupDescription;
 
-  const BillingDataPoint(
-      {this.usageTeamUrn = const SdkOmitted(),
-      this.startDate = const SdkOmitted(),
-      this.totalAmount = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.sku = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.groupDescription = const SdkOmitted()});
+  const BillingDataPoint({this.usageTeamUrn = const SdkOmitted(), this.startDate = const SdkOmitted(), this.totalAmount = const SdkOmitted(), this.region = const SdkOmitted(), this.sku = const SdkOmitted(), this.description = const SdkOmitted(), this.groupDescription = const SdkOmitted()});
 
-  BillingDataPoint Function(
-      {SdkOptional<String> usageTeamUrn,
-      SdkOptional<String> startDate,
-      SdkOptional<String> totalAmount,
-      SdkOptional<String> region,
-      SdkOptional<String> sku,
-      SdkOptional<String> description,
-      SdkOptional<String> groupDescription}) get copyWith => _copyWith;
+  BillingDataPoint Function({SdkOptional<String> usageTeamUrn, SdkOptional<String> startDate, SdkOptional<String> totalAmount, SdkOptional<String> region, SdkOptional<String> sku, SdkOptional<String> description, SdkOptional<String> groupDescription}) get copyWith => _copyWith;
 
-  BillingDataPoint _copyWith(
-          {Object? usageTeamUrn = sdkOmittedValue,
-          Object? startDate = sdkOmittedValue,
-          Object? totalAmount = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? sku = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? groupDescription = sdkOmittedValue}) =>
-      BillingDataPoint(
-        usageTeamUrn: identical(usageTeamUrn, sdkOmittedValue)
-            ? this.usageTeamUrn
-            : usageTeamUrn as SdkOptional<String>,
-        startDate: identical(startDate, sdkOmittedValue)
-            ? this.startDate
-            : startDate as SdkOptional<String>,
-        totalAmount: identical(totalAmount, sdkOmittedValue)
-            ? this.totalAmount
-            : totalAmount as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-        sku: identical(sku, sdkOmittedValue)
-            ? this.sku
-            : sku as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        groupDescription: identical(groupDescription, sdkOmittedValue)
-            ? this.groupDescription
-            : groupDescription as SdkOptional<String>,
-      );
+  BillingDataPoint _copyWith({Object? usageTeamUrn = sdkOmittedValue, Object? startDate = sdkOmittedValue, Object? totalAmount = sdkOmittedValue, Object? region = sdkOmittedValue, Object? sku = sdkOmittedValue, Object? description = sdkOmittedValue, Object? groupDescription = sdkOmittedValue}) => BillingDataPoint(
+    usageTeamUrn: identical(usageTeamUrn, sdkOmittedValue) ? this.usageTeamUrn : usageTeamUrn as SdkOptional<String>,
+    startDate: identical(startDate, sdkOmittedValue) ? this.startDate : startDate as SdkOptional<String>,
+    totalAmount: identical(totalAmount, sdkOmittedValue) ? this.totalAmount : totalAmount as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+    sku: identical(sku, sdkOmittedValue) ? this.sku : sku as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    groupDescription: identical(groupDescription, sdkOmittedValue) ? this.groupDescription : groupDescription as SdkOptional<String>,
+  );
 
-  factory BillingDataPoint.fromJson(Map<String, dynamic> json) =>
-      BillingDataPoint(
-        usageTeamUrn: json['usage_team_urn'] != null
-            ? SdkPresent((json['usage_team_urn'] as String?)!)
-            : const SdkOmitted(),
-        startDate: json['start_date'] != null
-            ? SdkPresent((json['start_date'] as String?)!)
-            : const SdkOmitted(),
-        totalAmount: json['total_amount'] != null
-            ? SdkPresent((json['total_amount'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-        sku: json['sku'] != null
-            ? SdkPresent((json['sku'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        groupDescription: json['group_description'] != null
-            ? SdkPresent((json['group_description'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory BillingDataPoint.fromJson(Map<String, dynamic> json) => BillingDataPoint(
+    usageTeamUrn: json['usage_team_urn'] != null ? SdkPresent((json['usage_team_urn'] as String?)!) : const SdkOmitted(),
+    startDate: json['start_date'] != null ? SdkPresent((json['start_date'] as String?)!) : const SdkOmitted(),
+    totalAmount: json['total_amount'] != null ? SdkPresent((json['total_amount'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+    sku: json['sku'] != null ? SdkPresent((json['sku'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    groupDescription: json['group_description'] != null ? SdkPresent((json['group_description'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (usageTeamUrn) {
-          SdkPresent<String>(value: final value) => {
-              'usage_team_urn': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startDate) {
-          SdkPresent<String>(value: final value) => {
-              'start_date': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalAmount) {
-          SdkPresent<String>(value: final value) => {
-              'total_amount': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sku) {
-          SdkPresent<String>(value: final value) => {
-              'sku': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (groupDescription) {
-          SdkPresent<String>(value: final value) => {
-              'group_description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (usageTeamUrn) {
+      SdkPresent<String>(value: final value) => {'usage_team_urn': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startDate) {
+      SdkPresent<String>(value: final value) => {'start_date': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalAmount) {
+      SdkPresent<String>(value: final value) => {'total_amount': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sku) {
+      SdkPresent<String>(value: final value) => {'sku': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (groupDescription) {
+      SdkPresent<String>(value: final value) => {'group_description': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `BillingHistory` API schema.
 class BillingHistory {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Description of the billing history entry.
   final SdkOptional<String> description;
-
   /// Amount of the billing history entry.
   final SdkOptional<String> amount;
-
   /// ID of the invoice associated with the billing history entry, if applicable.
   final SdkOptional<String> invoiceId;
-
   /// UUID of the invoice associated with the billing history entry, if applicable.
   final SdkOptional<String> invoiceUuid;
-
   /// Time the billing history entry occurred.
   final SdkOptional<String> date;
-
   /// Type of billing history entry.
   final SdkOptional<BillingHistoryType> type_;
 
-  const BillingHistory(
-      {this.description = const SdkOmitted(),
-      this.amount = const SdkOmitted(),
-      this.invoiceId = const SdkOmitted(),
-      this.invoiceUuid = const SdkOmitted(),
-      this.date = const SdkOmitted(),
-      this.type_ = const SdkOmitted()});
+  const BillingHistory({this.description = const SdkOmitted(), this.amount = const SdkOmitted(), this.invoiceId = const SdkOmitted(), this.invoiceUuid = const SdkOmitted(), this.date = const SdkOmitted(), this.type_ = const SdkOmitted()});
 
-  BillingHistory Function(
-      {SdkOptional<String> description,
-      SdkOptional<String> amount,
-      SdkOptional<String> invoiceId,
-      SdkOptional<String> invoiceUuid,
-      SdkOptional<String> date,
-      SdkOptional<BillingHistoryType> type_}) get copyWith => _copyWith;
+  BillingHistory Function({SdkOptional<String> description, SdkOptional<String> amount, SdkOptional<String> invoiceId, SdkOptional<String> invoiceUuid, SdkOptional<String> date, SdkOptional<BillingHistoryType> type_}) get copyWith => _copyWith;
 
-  BillingHistory _copyWith(
-          {Object? description = sdkOmittedValue,
-          Object? amount = sdkOmittedValue,
-          Object? invoiceId = sdkOmittedValue,
-          Object? invoiceUuid = sdkOmittedValue,
-          Object? date = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      BillingHistory(
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        amount: identical(amount, sdkOmittedValue)
-            ? this.amount
-            : amount as SdkOptional<String>,
-        invoiceId: identical(invoiceId, sdkOmittedValue)
-            ? this.invoiceId
-            : invoiceId as SdkOptional<String>,
-        invoiceUuid: identical(invoiceUuid, sdkOmittedValue)
-            ? this.invoiceUuid
-            : invoiceUuid as SdkOptional<String>,
-        date: identical(date, sdkOmittedValue)
-            ? this.date
-            : date as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<BillingHistoryType>,
-      );
+  BillingHistory _copyWith({Object? description = sdkOmittedValue, Object? amount = sdkOmittedValue, Object? invoiceId = sdkOmittedValue, Object? invoiceUuid = sdkOmittedValue, Object? date = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => BillingHistory(
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<String>,
+    invoiceId: identical(invoiceId, sdkOmittedValue) ? this.invoiceId : invoiceId as SdkOptional<String>,
+    invoiceUuid: identical(invoiceUuid, sdkOmittedValue) ? this.invoiceUuid : invoiceUuid as SdkOptional<String>,
+    date: identical(date, sdkOmittedValue) ? this.date : date as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<BillingHistoryType>,
+  );
 
   factory BillingHistory.fromJson(Map<String, dynamic> json) => BillingHistory(
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        amount: json['amount'] != null
-            ? SdkPresent((json['amount'] as String?)!)
-            : const SdkOmitted(),
-        invoiceId: json['invoice_id'] != null
-            ? SdkPresent((json['invoice_id'] as String?)!)
-            : const SdkOmitted(),
-        invoiceUuid: json['invoice_uuid'] != null
-            ? SdkPresent((json['invoice_uuid'] as String?)!)
-            : const SdkOmitted(),
-        date: json['date'] != null
-            ? SdkPresent((json['date'] as String?)!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? BillingHistoryType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    amount: json['amount'] != null ? SdkPresent((json['amount'] as String?)!) : const SdkOmitted(),
+    invoiceId: json['invoice_id'] != null ? SdkPresent((json['invoice_id'] as String?)!) : const SdkOmitted(),
+    invoiceUuid: json['invoice_uuid'] != null ? SdkPresent((json['invoice_uuid'] as String?)!) : const SdkOmitted(),
+    date: json['date'] != null ? SdkPresent((json['date'] as String?)!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? BillingHistoryType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (amount) {
-          SdkPresent<String>(value: final value) => {
-              'amount': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (invoiceId) {
-          SdkPresent<String>(value: final value) => {
-              'invoice_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (invoiceUuid) {
-          SdkPresent<String>(value: final value) => {
-              'invoice_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (date) {
-          SdkPresent<String>(value: final value) => {
-              'date': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<BillingHistoryType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (amount) {
+      SdkPresent<String>(value: final value) => {'amount': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (invoiceId) {
+      SdkPresent<String>(value: final value) => {'invoice_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (invoiceUuid) {
+      SdkPresent<String>(value: final value) => {'invoice_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (date) {
+      SdkPresent<String>(value: final value) => {'date': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<BillingHistoryType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

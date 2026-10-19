@@ -7,169 +7,112 @@ part of 'inline.dart';
 class InsightsPostPromSeriesRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// One or more series selectors.
   final List<String> match;
-
   /// Optional start timestamp.
   final SdkOptional<String> start;
-
   /// Optional end timestamp.
   final SdkOptional<String> end;
 
-  const InsightsPostPromSeriesRequestBody(
-      {required this.match,
-      this.start = const SdkOmitted(),
-      this.end = const SdkOmitted()});
+  const InsightsPostPromSeriesRequestBody({required this.match, this.start = const SdkOmitted(), this.end = const SdkOmitted()});
 
-  InsightsPostPromSeriesRequestBody Function(
-      {List<String> match,
-      SdkOptional<String> start,
-      SdkOptional<String> end}) get copyWith => _copyWith;
+  InsightsPostPromSeriesRequestBody Function({List<String> match, SdkOptional<String> start, SdkOptional<String> end}) get copyWith => _copyWith;
 
-  InsightsPostPromSeriesRequestBody _copyWith(
-          {Object? match = sdkOmittedValue,
-          Object? start = sdkOmittedValue,
-          Object? end = sdkOmittedValue}) =>
-      InsightsPostPromSeriesRequestBody(
-        match: identical(match, sdkOmittedValue)
-            ? this.match
-            : match as List<String>,
-        start: identical(start, sdkOmittedValue)
-            ? this.start
-            : start as SdkOptional<String>,
-        end: identical(end, sdkOmittedValue)
-            ? this.end
-            : end as SdkOptional<String>,
-      );
+  InsightsPostPromSeriesRequestBody _copyWith({Object? match = sdkOmittedValue, Object? start = sdkOmittedValue, Object? end = sdkOmittedValue}) => InsightsPostPromSeriesRequestBody(
+    match: identical(match, sdkOmittedValue) ? this.match : match as List<String>,
+    start: identical(start, sdkOmittedValue) ? this.start : start as SdkOptional<String>,
+    end: identical(end, sdkOmittedValue) ? this.end : end as SdkOptional<String>,
+  );
 
-  factory InsightsPostPromSeriesRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      InsightsPostPromSeriesRequestBody(
-        match: ((json['match[]'] as List?)?.map((e) => e as String).toList())!,
-        start: json['start'] != null
-            ? SdkPresent((json['start'] as String?)!)
-            : const SdkOmitted(),
-        end: json['end'] != null
-            ? SdkPresent((json['end'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory InsightsPostPromSeriesRequestBody.fromJson(Map<String, dynamic> json) => InsightsPostPromSeriesRequestBody(
+    match: ((json['match[]'] as List?)?.map((e) => e as String).toList())!,
+    start: json['start'] != null ? SdkPresent((json['start'] as String?)!) : const SdkOmitted(),
+    end: json['end'] != null ? SdkPresent((json['end'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'match[]': match,
-        ...switch (start) {
-          SdkPresent<String>(value: final value) => {
-              'start': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (end) {
-          SdkPresent<String>(value: final value) => {
-              'end': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'match[]': match,
+    ...switch (start) {
+      SdkPresent<String>(value: final value) => {'start': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (end) {
+      SdkPresent<String>(value: final value) => {'end': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class SignalsUpdateTeamConsentRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether to enable signals collection for this source.
   final bool enabled;
 
   const SignalsUpdateTeamConsentRequestBody({required this.enabled});
 
-  SignalsUpdateTeamConsentRequestBody Function({bool enabled}) get copyWith =>
-      _copyWith;
+  SignalsUpdateTeamConsentRequestBody Function({bool enabled}) get copyWith => _copyWith;
 
-  SignalsUpdateTeamConsentRequestBody _copyWith(
-          {Object? enabled = sdkOmittedValue}) =>
-      SignalsUpdateTeamConsentRequestBody(
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as bool,
-      );
+  SignalsUpdateTeamConsentRequestBody _copyWith({Object? enabled = sdkOmittedValue}) => SignalsUpdateTeamConsentRequestBody(
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
+  );
 
-  factory SignalsUpdateTeamConsentRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      SignalsUpdateTeamConsentRequestBody(
-        enabled: (json['enabled'] as bool?)!,
-      );
+  factory SignalsUpdateTeamConsentRequestBody.fromJson(Map<String, dynamic> json) => SignalsUpdateTeamConsentRequestBody(
+    enabled: (json['enabled'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'enabled': enabled,
-      };
+    'enabled': enabled,
+  };
 }
 
 class SignalsUpdateConsentRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether to enable signals collection for this environment.
   final bool enabled;
 
   const SignalsUpdateConsentRequestBody({required this.enabled});
 
-  SignalsUpdateConsentRequestBody Function({bool enabled}) get copyWith =>
-      _copyWith;
+  SignalsUpdateConsentRequestBody Function({bool enabled}) get copyWith => _copyWith;
 
-  SignalsUpdateConsentRequestBody _copyWith(
-          {Object? enabled = sdkOmittedValue}) =>
-      SignalsUpdateConsentRequestBody(
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as bool,
-      );
+  SignalsUpdateConsentRequestBody _copyWith({Object? enabled = sdkOmittedValue}) => SignalsUpdateConsentRequestBody(
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
+  );
 
-  factory SignalsUpdateConsentRequestBody.fromJson(Map<String, dynamic> json) =>
-      SignalsUpdateConsentRequestBody(
-        enabled: (json['enabled'] as bool?)!,
-      );
+  factory SignalsUpdateConsentRequestBody.fromJson(Map<String, dynamic> json) => SignalsUpdateConsentRequestBody(
+    enabled: (json['enabled'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'enabled': enabled,
-      };
+    'enabled': enabled,
+  };
 }
 
 class KubernetesUpgradeClusterRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The slug identifier for the version of Kubernetes that the cluster will be upgraded to.
   final SdkOptional<String> version;
 
-  const KubernetesUpgradeClusterRequestBody(
-      {this.version = const SdkOmitted()});
+  const KubernetesUpgradeClusterRequestBody({this.version = const SdkOmitted()});
 
-  KubernetesUpgradeClusterRequestBody Function({SdkOptional<String> version})
-      get copyWith => _copyWith;
+  KubernetesUpgradeClusterRequestBody Function({SdkOptional<String> version}) get copyWith => _copyWith;
 
-  KubernetesUpgradeClusterRequestBody _copyWith(
-          {Object? version = sdkOmittedValue}) =>
-      KubernetesUpgradeClusterRequestBody(
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String>,
-      );
+  KubernetesUpgradeClusterRequestBody _copyWith({Object? version = sdkOmittedValue}) => KubernetesUpgradeClusterRequestBody(
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
+  );
 
-  factory KubernetesUpgradeClusterRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      KubernetesUpgradeClusterRequestBody(
-        version: json['version'] != null
-            ? SdkPresent((json['version'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory KubernetesUpgradeClusterRequestBody.fromJson(Map<String, dynamic> json) => KubernetesUpgradeClusterRequestBody(
+    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (version) {
-          SdkPresent<String>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (version) {
+      SdkPresent<String>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class KubernetesRecycleNodePoolRequestBody {
@@ -179,130 +122,82 @@ class KubernetesRecycleNodePoolRequestBody {
 
   const KubernetesRecycleNodePoolRequestBody({this.nodes = const SdkOmitted()});
 
-  KubernetesRecycleNodePoolRequestBody Function(
-      {SdkOptional<List<String>> nodes}) get copyWith => _copyWith;
+  KubernetesRecycleNodePoolRequestBody Function({SdkOptional<List<String>> nodes}) get copyWith => _copyWith;
 
-  KubernetesRecycleNodePoolRequestBody _copyWith(
-          {Object? nodes = sdkOmittedValue}) =>
-      KubernetesRecycleNodePoolRequestBody(
-        nodes: identical(nodes, sdkOmittedValue)
-            ? this.nodes
-            : nodes as SdkOptional<List<String>>,
-      );
+  KubernetesRecycleNodePoolRequestBody _copyWith({Object? nodes = sdkOmittedValue}) => KubernetesRecycleNodePoolRequestBody(
+    nodes: identical(nodes, sdkOmittedValue) ? this.nodes : nodes as SdkOptional<List<String>>,
+  );
 
-  factory KubernetesRecycleNodePoolRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      KubernetesRecycleNodePoolRequestBody(
-        nodes: json['nodes'] != null
-            ? SdkPresent(
-                ((json['nodes'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+  factory KubernetesRecycleNodePoolRequestBody.fromJson(Map<String, dynamic> json) => KubernetesRecycleNodePoolRequestBody(
+    nodes: json['nodes'] != null ? SdkPresent(((json['nodes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (nodes) {
-          SdkPresent<List<String>>(value: final value) => {
-              'nodes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (nodes) {
+      SdkPresent<List<String>>(value: final value) => {'nodes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class LoadBalancersAddDropletsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array containing the IDs of the Droplets assigned to the load balancer.
   final SdkOptional<List<int>> dropletIds;
   final Map<String, dynamic> additionalProperties;
 
-  const LoadBalancersAddDropletsRequestBody(
-      {this.dropletIds = const SdkOmitted(),
-      this.additionalProperties = const <String, dynamic>{}});
+  const LoadBalancersAddDropletsRequestBody({this.dropletIds = const SdkOmitted(), this.additionalProperties = const <String, dynamic>{}});
 
-  LoadBalancersAddDropletsRequestBody Function(
-      {SdkOptional<List<int>> dropletIds}) get copyWith => _copyWith;
+  LoadBalancersAddDropletsRequestBody Function({SdkOptional<List<int>> dropletIds}) get copyWith => _copyWith;
 
-  LoadBalancersAddDropletsRequestBody _copyWith(
-          {Object? dropletIds = sdkOmittedValue}) =>
-      LoadBalancersAddDropletsRequestBody(
-        dropletIds: identical(dropletIds, sdkOmittedValue)
-            ? this.dropletIds
-            : dropletIds as SdkOptional<List<int>>,
-        additionalProperties: additionalProperties,
-      );
+  LoadBalancersAddDropletsRequestBody _copyWith({Object? dropletIds = sdkOmittedValue}) => LoadBalancersAddDropletsRequestBody(
+    dropletIds: identical(dropletIds, sdkOmittedValue) ? this.dropletIds : dropletIds as SdkOptional<List<int>>,
+    additionalProperties: additionalProperties,
+  );
 
-  factory LoadBalancersAddDropletsRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      LoadBalancersAddDropletsRequestBody(
-        dropletIds: json['droplet_ids'] != null
-            ? SdkPresent(((json['droplet_ids'] as List?)
-                ?.map((e) => (e as num).toInt())
-                .toList())!)
-            : const SdkOmitted(),
-        additionalProperties: Map.of(json)
-          ..removeWhere(
-              (key, _) => const <String>{'droplet_ids'}.contains(key)),
-      );
+  factory LoadBalancersAddDropletsRequestBody.fromJson(Map<String, dynamic> json) => LoadBalancersAddDropletsRequestBody(
+    dropletIds: json['droplet_ids'] != null ? SdkPresent(((json['droplet_ids'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
+    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{'droplet_ids'}.contains(key)),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...additionalProperties,
-        ...switch (dropletIds) {
-          SdkPresent<List<int>>(value: final value) => {
-              'droplet_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...additionalProperties,
+    ...switch (dropletIds) {
+      SdkPresent<List<int>>(value: final value) => {'droplet_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class LoadBalancersRemoveDropletsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array containing the IDs of the Droplets assigned to the load balancer.
   final SdkOptional<List<int>> dropletIds;
   final Map<String, dynamic> additionalProperties;
 
-  const LoadBalancersRemoveDropletsRequestBody(
-      {this.dropletIds = const SdkOmitted(),
-      this.additionalProperties = const <String, dynamic>{}});
+  const LoadBalancersRemoveDropletsRequestBody({this.dropletIds = const SdkOmitted(), this.additionalProperties = const <String, dynamic>{}});
 
-  LoadBalancersRemoveDropletsRequestBody Function(
-      {SdkOptional<List<int>> dropletIds}) get copyWith => _copyWith;
+  LoadBalancersRemoveDropletsRequestBody Function({SdkOptional<List<int>> dropletIds}) get copyWith => _copyWith;
 
-  LoadBalancersRemoveDropletsRequestBody _copyWith(
-          {Object? dropletIds = sdkOmittedValue}) =>
-      LoadBalancersRemoveDropletsRequestBody(
-        dropletIds: identical(dropletIds, sdkOmittedValue)
-            ? this.dropletIds
-            : dropletIds as SdkOptional<List<int>>,
-        additionalProperties: additionalProperties,
-      );
+  LoadBalancersRemoveDropletsRequestBody _copyWith({Object? dropletIds = sdkOmittedValue}) => LoadBalancersRemoveDropletsRequestBody(
+    dropletIds: identical(dropletIds, sdkOmittedValue) ? this.dropletIds : dropletIds as SdkOptional<List<int>>,
+    additionalProperties: additionalProperties,
+  );
 
-  factory LoadBalancersRemoveDropletsRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      LoadBalancersRemoveDropletsRequestBody(
-        dropletIds: json['droplet_ids'] != null
-            ? SdkPresent(((json['droplet_ids'] as List?)
-                ?.map((e) => (e as num).toInt())
-                .toList())!)
-            : const SdkOmitted(),
-        additionalProperties: Map.of(json)
-          ..removeWhere(
-              (key, _) => const <String>{'droplet_ids'}.contains(key)),
-      );
+  factory LoadBalancersRemoveDropletsRequestBody.fromJson(Map<String, dynamic> json) => LoadBalancersRemoveDropletsRequestBody(
+    dropletIds: json['droplet_ids'] != null ? SdkPresent(((json['droplet_ids'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
+    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{'droplet_ids'}.contains(key)),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...additionalProperties,
-        ...switch (dropletIds) {
-          SdkPresent<List<int>>(value: final value) => {
-              'droplet_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...additionalProperties,
+    ...switch (dropletIds) {
+      SdkPresent<List<int>>(value: final value) => {'droplet_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class LoadBalancersAddForwardingRulesRequestBody {
@@ -310,32 +205,21 @@ class LoadBalancersAddForwardingRulesRequestBody {
   static const String constructionSurface = 'named';
   final List<ForwardingRule> forwardingRules;
 
-  const LoadBalancersAddForwardingRulesRequestBody(
-      {required this.forwardingRules});
+  const LoadBalancersAddForwardingRulesRequestBody({required this.forwardingRules});
 
-  LoadBalancersAddForwardingRulesRequestBody Function(
-      {List<ForwardingRule> forwardingRules}) get copyWith => _copyWith;
+  LoadBalancersAddForwardingRulesRequestBody Function({List<ForwardingRule> forwardingRules}) get copyWith => _copyWith;
 
-  LoadBalancersAddForwardingRulesRequestBody _copyWith(
-          {Object? forwardingRules = sdkOmittedValue}) =>
-      LoadBalancersAddForwardingRulesRequestBody(
-        forwardingRules: identical(forwardingRules, sdkOmittedValue)
-            ? this.forwardingRules
-            : forwardingRules as List<ForwardingRule>,
-      );
+  LoadBalancersAddForwardingRulesRequestBody _copyWith({Object? forwardingRules = sdkOmittedValue}) => LoadBalancersAddForwardingRulesRequestBody(
+    forwardingRules: identical(forwardingRules, sdkOmittedValue) ? this.forwardingRules : forwardingRules as List<ForwardingRule>,
+  );
 
-  factory LoadBalancersAddForwardingRulesRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      LoadBalancersAddForwardingRulesRequestBody(
-        forwardingRules: ((json['forwarding_rules'] as List?)
-            ?.map((e) => ForwardingRule.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory LoadBalancersAddForwardingRulesRequestBody.fromJson(Map<String, dynamic> json) => LoadBalancersAddForwardingRulesRequestBody(
+    forwardingRules: ((json['forwarding_rules'] as List?)?.map((e) => ForwardingRule.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'forwarding_rules':
-            forwardingRules.map((item) => item.toJson()).toList(),
-      };
+    'forwarding_rules': forwardingRules.map((item) => item.toJson()).toList(),
+  };
 }
 
 class LoadBalancersRemoveForwardingRulesRequestBody {
@@ -343,68 +227,45 @@ class LoadBalancersRemoveForwardingRulesRequestBody {
   static const String constructionSurface = 'named';
   final List<ForwardingRule> forwardingRules;
 
-  const LoadBalancersRemoveForwardingRulesRequestBody(
-      {required this.forwardingRules});
+  const LoadBalancersRemoveForwardingRulesRequestBody({required this.forwardingRules});
 
-  LoadBalancersRemoveForwardingRulesRequestBody Function(
-      {List<ForwardingRule> forwardingRules}) get copyWith => _copyWith;
+  LoadBalancersRemoveForwardingRulesRequestBody Function({List<ForwardingRule> forwardingRules}) get copyWith => _copyWith;
 
-  LoadBalancersRemoveForwardingRulesRequestBody _copyWith(
-          {Object? forwardingRules = sdkOmittedValue}) =>
-      LoadBalancersRemoveForwardingRulesRequestBody(
-        forwardingRules: identical(forwardingRules, sdkOmittedValue)
-            ? this.forwardingRules
-            : forwardingRules as List<ForwardingRule>,
-      );
+  LoadBalancersRemoveForwardingRulesRequestBody _copyWith({Object? forwardingRules = sdkOmittedValue}) => LoadBalancersRemoveForwardingRulesRequestBody(
+    forwardingRules: identical(forwardingRules, sdkOmittedValue) ? this.forwardingRules : forwardingRules as List<ForwardingRule>,
+  );
 
-  factory LoadBalancersRemoveForwardingRulesRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      LoadBalancersRemoveForwardingRulesRequestBody(
-        forwardingRules: ((json['forwarding_rules'] as List?)
-            ?.map((e) => ForwardingRule.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory LoadBalancersRemoveForwardingRulesRequestBody.fromJson(Map<String, dynamic> json) => LoadBalancersRemoveForwardingRulesRequestBody(
+    forwardingRules: ((json['forwarding_rules'] as List?)?.map((e) => ForwardingRule.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'forwarding_rules':
-            forwardingRules.map((item) => item.toJson()).toList(),
-      };
+    'forwarding_rules': forwardingRules.map((item) => item.toJson()).toList(),
+  };
 }
 
 class MicrovmCheckpointsCreateRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A name for the checkpoint. If you omit it, a name such as `checkpoint-20260929-143559` is generated.
   final SdkOptional<String> name;
 
   const MicrovmCheckpointsCreateRequestBody({this.name = const SdkOmitted()});
 
-  MicrovmCheckpointsCreateRequestBody Function({SdkOptional<String> name})
-      get copyWith => _copyWith;
+  MicrovmCheckpointsCreateRequestBody Function({SdkOptional<String> name}) get copyWith => _copyWith;
 
-  MicrovmCheckpointsCreateRequestBody _copyWith(
-          {Object? name = sdkOmittedValue}) =>
-      MicrovmCheckpointsCreateRequestBody(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  MicrovmCheckpointsCreateRequestBody _copyWith({Object? name = sdkOmittedValue}) => MicrovmCheckpointsCreateRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory MicrovmCheckpointsCreateRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      MicrovmCheckpointsCreateRequestBody(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory MicrovmCheckpointsCreateRequestBody.fromJson(Map<String, dynamic> json) => MicrovmCheckpointsCreateRequestBody(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

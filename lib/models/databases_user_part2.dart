@@ -8,84 +8,41 @@ part of 'databases_user.dart';
 class UserSettingsUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// For PostgreSQL clusters, set to `true` to grant the user replication privileges. When omitted on create or update, the value defaults to `false` and replication privileges are not granted. This option is not currently supported for other database engines.
   final SdkOptional<bool> pgAllowReplication;
-
   /// ACLs (Access Control Lists) specifying permissions on index within a OpenSearch cluster.
   final SdkOptional<List<UserSettingsUpdateOpensearchAclItem>> opensearchAcl;
-
   /// ACLs (Access Control Lists) specifying permissions on topics within a Kafka cluster.
   final SdkOptional<List<UserSettingsUpdateAclItem>> acl;
 
-  const UserSettingsUpdate(
-      {this.pgAllowReplication = const SdkOmitted(),
-      this.opensearchAcl = const SdkOmitted(),
-      this.acl = const SdkOmitted()});
+  const UserSettingsUpdate({this.pgAllowReplication = const SdkOmitted(), this.opensearchAcl = const SdkOmitted(), this.acl = const SdkOmitted()});
 
-  UserSettingsUpdate Function(
-          {SdkOptional<bool> pgAllowReplication,
-          SdkOptional<List<UserSettingsUpdateOpensearchAclItem>> opensearchAcl,
-          SdkOptional<List<UserSettingsUpdateAclItem>> acl})
-      get copyWith => _copyWith;
+  UserSettingsUpdate Function({SdkOptional<bool> pgAllowReplication, SdkOptional<List<UserSettingsUpdateOpensearchAclItem>> opensearchAcl, SdkOptional<List<UserSettingsUpdateAclItem>> acl}) get copyWith => _copyWith;
 
-  UserSettingsUpdate _copyWith(
-          {Object? pgAllowReplication = sdkOmittedValue,
-          Object? opensearchAcl = sdkOmittedValue,
-          Object? acl = sdkOmittedValue}) =>
-      UserSettingsUpdate(
-        pgAllowReplication: identical(pgAllowReplication, sdkOmittedValue)
-            ? this.pgAllowReplication
-            : pgAllowReplication as SdkOptional<bool>,
-        opensearchAcl: identical(opensearchAcl, sdkOmittedValue)
-            ? this.opensearchAcl
-            : opensearchAcl
-                as SdkOptional<List<UserSettingsUpdateOpensearchAclItem>>,
-        acl: identical(acl, sdkOmittedValue)
-            ? this.acl
-            : acl as SdkOptional<List<UserSettingsUpdateAclItem>>,
-      );
+  UserSettingsUpdate _copyWith({Object? pgAllowReplication = sdkOmittedValue, Object? opensearchAcl = sdkOmittedValue, Object? acl = sdkOmittedValue}) => UserSettingsUpdate(
+    pgAllowReplication: identical(pgAllowReplication, sdkOmittedValue) ? this.pgAllowReplication : pgAllowReplication as SdkOptional<bool>,
+    opensearchAcl: identical(opensearchAcl, sdkOmittedValue) ? this.opensearchAcl : opensearchAcl as SdkOptional<List<UserSettingsUpdateOpensearchAclItem>>,
+    acl: identical(acl, sdkOmittedValue) ? this.acl : acl as SdkOptional<List<UserSettingsUpdateAclItem>>,
+  );
 
-  factory UserSettingsUpdate.fromJson(Map<String, dynamic> json) =>
-      UserSettingsUpdate(
-        pgAllowReplication: json['pg_allow_replication'] != null
-            ? SdkPresent((json['pg_allow_replication'] as bool?)!)
-            : const SdkOmitted(),
-        opensearchAcl: json['opensearch_acl'] != null
-            ? SdkPresent(((json['opensearch_acl'] as List?)
-                ?.map((e) => UserSettingsUpdateOpensearchAclItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        acl: json['acl'] != null
-            ? SdkPresent(((json['acl'] as List?)
-                ?.map((e) => UserSettingsUpdateAclItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory UserSettingsUpdate.fromJson(Map<String, dynamic> json) => UserSettingsUpdate(
+    pgAllowReplication: json['pg_allow_replication'] != null ? SdkPresent((json['pg_allow_replication'] as bool?)!) : const SdkOmitted(),
+    opensearchAcl: json['opensearch_acl'] != null ? SdkPresent(((json['opensearch_acl'] as List?)?.map((e) => UserSettingsUpdateOpensearchAclItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    acl: json['acl'] != null ? SdkPresent(((json['acl'] as List?)?.map((e) => UserSettingsUpdateAclItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (pgAllowReplication) {
-          SdkPresent<bool>(value: final value) => {
-              'pg_allow_replication': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (opensearchAcl) {
-          SdkPresent<List<UserSettingsUpdateOpensearchAclItem>>(
-            value: final value
-          ) =>
-            {
-              'opensearch_acl': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (acl) {
-          SdkPresent<List<UserSettingsUpdateAclItem>>(value: final value) => {
-              'acl': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (pgAllowReplication) {
+      SdkPresent<bool>(value: final value) => {'pg_allow_replication': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (opensearchAcl) {
+      SdkPresent<List<UserSettingsUpdateOpensearchAclItem>>(value: final value) => {'opensearch_acl': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (acl) {
+      SdkPresent<List<UserSettingsUpdateAclItem>>(value: final value) => {'acl': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

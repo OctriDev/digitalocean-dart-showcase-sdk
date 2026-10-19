@@ -8,66 +8,41 @@ part of 'vpc_subnets_public_preview.dart';
 class VpcSubnetStatistics {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of members in the VPC subnet.
   final SdkOptional<int> members;
-
   /// The number of members grouped by resource type.
   final SdkOptional<Map<String, int>> resources;
 
-  const VpcSubnetStatistics(
-      {this.members = const SdkOmitted(), this.resources = const SdkOmitted()});
+  const VpcSubnetStatistics({this.members = const SdkOmitted(), this.resources = const SdkOmitted()});
 
-  VpcSubnetStatistics Function(
-      {SdkOptional<int> members,
-      SdkOptional<Map<String, int>> resources}) get copyWith => _copyWith;
+  VpcSubnetStatistics Function({SdkOptional<int> members, SdkOptional<Map<String, int>> resources}) get copyWith => _copyWith;
 
-  VpcSubnetStatistics _copyWith(
-          {Object? members = sdkOmittedValue,
-          Object? resources = sdkOmittedValue}) =>
-      VpcSubnetStatistics(
-        members: identical(members, sdkOmittedValue)
-            ? this.members
-            : members as SdkOptional<int>,
-        resources: identical(resources, sdkOmittedValue)
-            ? this.resources
-            : resources as SdkOptional<Map<String, int>>,
-      );
+  VpcSubnetStatistics _copyWith({Object? members = sdkOmittedValue, Object? resources = sdkOmittedValue}) => VpcSubnetStatistics(
+    members: identical(members, sdkOmittedValue) ? this.members : members as SdkOptional<int>,
+    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<Map<String, int>>,
+  );
 
-  factory VpcSubnetStatistics.fromJson(Map<String, dynamic> json) =>
-      VpcSubnetStatistics(
-        members: json['members'] != null
-            ? SdkPresent(((json['members'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        resources: json['resources'] != null
-            ? SdkPresent((json['resources'] == null
-                ? null
-                : Map<String, dynamic>.from(json['resources'] as Map).map(
-                    (key, value) => MapEntry(key, (value as num).toInt())))!)
-            : const SdkOmitted(),
-      );
+  factory VpcSubnetStatistics.fromJson(Map<String, dynamic> json) => VpcSubnetStatistics(
+    members: json['members'] != null ? SdkPresent(((json['members'] as num?)?.toInt())!) : const SdkOmitted(),
+    resources: json['resources'] != null ? SdkPresent((json['resources'] == null ? null : Map<String, dynamic>.from(json['resources'] as Map).map((key, value) => MapEntry(key, (value as num).toInt())))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (members) {
-          SdkPresent<int>(value: final value) => {
-              'members': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resources) {
-          SdkPresent<Map<String, int>>(value: final value) => {
-              'resources': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (members) {
+      SdkPresent<int>(value: final value) => {'members': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resources) {
+      SdkPresent<Map<String, int>>(value: final value) => {'resources': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VpcSubnetUpdate` API schema.
 class VpcSubnetUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The new human-readable name of the VPC subnet.
   final String name;
 
@@ -75,17 +50,15 @@ class VpcSubnetUpdate {
 
   VpcSubnetUpdate Function({String name}) get copyWith => _copyWith;
 
-  VpcSubnetUpdate _copyWith({Object? name = sdkOmittedValue}) =>
-      VpcSubnetUpdate(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-      );
+  VpcSubnetUpdate _copyWith({Object? name = sdkOmittedValue}) => VpcSubnetUpdate(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+  );
 
-  factory VpcSubnetUpdate.fromJson(Map<String, dynamic> json) =>
-      VpcSubnetUpdate(
-        name: (json['name'] as String?)!,
-      );
+  factory VpcSubnetUpdate.fromJson(Map<String, dynamic> json) => VpcSubnetUpdate(
+    name: (json['name'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-      };
+    'name': name,
+  };
 }

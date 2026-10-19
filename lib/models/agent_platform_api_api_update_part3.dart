@@ -8,509 +8,283 @@ part of 'agent_platform_api_api_update.dart';
 class ApiUpdateAgentOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An Agent
   final SdkOptional<ApiAgent> agent;
 
   const ApiUpdateAgentOutput({this.agent = const SdkOmitted()});
 
-  ApiUpdateAgentOutput Function({SdkOptional<ApiAgent> agent}) get copyWith =>
-      _copyWith;
+  ApiUpdateAgentOutput Function({SdkOptional<ApiAgent> agent}) get copyWith => _copyWith;
 
-  ApiUpdateAgentOutput _copyWith({Object? agent = sdkOmittedValue}) =>
-      ApiUpdateAgentOutput(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<ApiAgent>,
-      );
+  ApiUpdateAgentOutput _copyWith({Object? agent = sdkOmittedValue}) => ApiUpdateAgentOutput(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<ApiAgent>,
+  );
 
-  factory ApiUpdateAgentOutput.fromJson(Map<String, dynamic> json) =>
-      ApiUpdateAgentOutput(
-        agent: json['agent'] != null
-            ? SdkPresent((json['agent'] != null
-                ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateAgentOutput.fromJson(Map<String, dynamic> json) => ApiUpdateAgentOutput(
+    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<ApiAgent>(value: final value) => {
-              'agent': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<ApiAgent>(value: final value) => {'agent': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// UpdateAnthropicAPIKeyInputPublic is used to update an existing Anthropic API key for a specific agent.
 class ApiUpdateAnthropicAPIKeyInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Anthropic API key
   final SdkOptional<String> apiKey;
-
   /// API key ID
   final SdkOptional<String> apiKeyUuid;
-
   /// Name of the key
   final SdkOptional<String> name;
 
-  const ApiUpdateAnthropicAPIKeyInputPublic(
-      {this.apiKey = const SdkOmitted(),
-      this.apiKeyUuid = const SdkOmitted(),
-      this.name = const SdkOmitted()});
+  const ApiUpdateAnthropicAPIKeyInputPublic({this.apiKey = const SdkOmitted(), this.apiKeyUuid = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  ApiUpdateAnthropicAPIKeyInputPublic Function(
-      {SdkOptional<String> apiKey,
-      SdkOptional<String> apiKeyUuid,
-      SdkOptional<String> name}) get copyWith => _copyWith;
+  ApiUpdateAnthropicAPIKeyInputPublic Function({SdkOptional<String> apiKey, SdkOptional<String> apiKeyUuid, SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ApiUpdateAnthropicAPIKeyInputPublic _copyWith(
-          {Object? apiKey = sdkOmittedValue,
-          Object? apiKeyUuid = sdkOmittedValue,
-          Object? name = sdkOmittedValue}) =>
-      ApiUpdateAnthropicAPIKeyInputPublic(
-        apiKey: identical(apiKey, sdkOmittedValue)
-            ? this.apiKey
-            : apiKey as SdkOptional<String>,
-        apiKeyUuid: identical(apiKeyUuid, sdkOmittedValue)
-            ? this.apiKeyUuid
-            : apiKeyUuid as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  ApiUpdateAnthropicAPIKeyInputPublic _copyWith({Object? apiKey = sdkOmittedValue, Object? apiKeyUuid = sdkOmittedValue, Object? name = sdkOmittedValue}) => ApiUpdateAnthropicAPIKeyInputPublic(
+    apiKey: identical(apiKey, sdkOmittedValue) ? this.apiKey : apiKey as SdkOptional<String>,
+    apiKeyUuid: identical(apiKeyUuid, sdkOmittedValue) ? this.apiKeyUuid : apiKeyUuid as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory ApiUpdateAnthropicAPIKeyInputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiUpdateAnthropicAPIKeyInputPublic(
-        apiKey: json['api_key'] != null
-            ? SdkPresent((json['api_key'] as String?)!)
-            : const SdkOmitted(),
-        apiKeyUuid: json['api_key_uuid'] != null
-            ? SdkPresent((json['api_key_uuid'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateAnthropicAPIKeyInputPublic.fromJson(Map<String, dynamic> json) => ApiUpdateAnthropicAPIKeyInputPublic(
+    apiKey: json['api_key'] != null ? SdkPresent((json['api_key'] as String?)!) : const SdkOmitted(),
+    apiKeyUuid: json['api_key_uuid'] != null ? SdkPresent((json['api_key_uuid'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (apiKey) {
-          SdkPresent<String>(value: final value) => {
-              'api_key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (apiKeyUuid) {
-          SdkPresent<String>(value: final value) => {
-              'api_key_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (apiKey) {
+      SdkPresent<String>(value: final value) => {'api_key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (apiKeyUuid) {
+      SdkPresent<String>(value: final value) => {'api_key_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// UpdateAnthropicAPIKeyOutput is used to return the updated Anthropic API key.
 class ApiUpdateAnthropicAPIKeyOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Anthropic API Key Info
   final SdkOptional<ApiAnthropicAPIKeyInfo> apiKeyInfo;
 
   const ApiUpdateAnthropicAPIKeyOutput({this.apiKeyInfo = const SdkOmitted()});
 
-  ApiUpdateAnthropicAPIKeyOutput Function(
-          {SdkOptional<ApiAnthropicAPIKeyInfo> apiKeyInfo})
-      get copyWith => _copyWith;
+  ApiUpdateAnthropicAPIKeyOutput Function({SdkOptional<ApiAnthropicAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
 
-  ApiUpdateAnthropicAPIKeyOutput _copyWith(
-          {Object? apiKeyInfo = sdkOmittedValue}) =>
-      ApiUpdateAnthropicAPIKeyOutput(
-        apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue)
-            ? this.apiKeyInfo
-            : apiKeyInfo as SdkOptional<ApiAnthropicAPIKeyInfo>,
-      );
+  ApiUpdateAnthropicAPIKeyOutput _copyWith({Object? apiKeyInfo = sdkOmittedValue}) => ApiUpdateAnthropicAPIKeyOutput(
+    apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue) ? this.apiKeyInfo : apiKeyInfo as SdkOptional<ApiAnthropicAPIKeyInfo>,
+  );
 
-  factory ApiUpdateAnthropicAPIKeyOutput.fromJson(Map<String, dynamic> json) =>
-      ApiUpdateAnthropicAPIKeyOutput(
-        apiKeyInfo: json['api_key_info'] != null
-            ? SdkPresent((json['api_key_info'] != null
-                ? ApiAnthropicAPIKeyInfo.fromJson(
-                    json['api_key_info'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateAnthropicAPIKeyOutput.fromJson(Map<String, dynamic> json) => ApiUpdateAnthropicAPIKeyOutput(
+    apiKeyInfo: json['api_key_info'] != null ? SdkPresent((json['api_key_info'] != null ? ApiAnthropicAPIKeyInfo.fromJson(json['api_key_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (apiKeyInfo) {
-          SdkPresent<ApiAnthropicAPIKeyInfo>(value: final value) => {
-              'api_key_info': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (apiKeyInfo) {
+      SdkPresent<ApiAnthropicAPIKeyInfo>(value: final value) => {'api_key_info': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiUpdateCustomEvaluationMetricInputPublic` API schema.
 class ApiUpdateCustomEvaluationMetricInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Configuration for a custom model-evaluation metric scored by an LLM judge. Prompt and model response are always included in the judge context.
   final SdkOptional<ApiCustomEvaluationMetricConfig> config;
-
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
-
   /// Optional `string` value serialized in the `metric_name` wire field.
   final SdkOptional<String> metricName;
-
   /// Optional `string` value serialized in the `metric_uuid` wire field.
   final SdkOptional<String> metricUuid;
 
-  const ApiUpdateCustomEvaluationMetricInputPublic(
-      {this.config = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.metricName = const SdkOmitted(),
-      this.metricUuid = const SdkOmitted()});
+  const ApiUpdateCustomEvaluationMetricInputPublic({this.config = const SdkOmitted(), this.description = const SdkOmitted(), this.metricName = const SdkOmitted(), this.metricUuid = const SdkOmitted()});
 
-  ApiUpdateCustomEvaluationMetricInputPublic Function(
-      {SdkOptional<ApiCustomEvaluationMetricConfig> config,
-      SdkOptional<String> description,
-      SdkOptional<String> metricName,
-      SdkOptional<String> metricUuid}) get copyWith => _copyWith;
+  ApiUpdateCustomEvaluationMetricInputPublic Function({SdkOptional<ApiCustomEvaluationMetricConfig> config, SdkOptional<String> description, SdkOptional<String> metricName, SdkOptional<String> metricUuid}) get copyWith => _copyWith;
 
-  ApiUpdateCustomEvaluationMetricInputPublic _copyWith(
-          {Object? config = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? metricName = sdkOmittedValue,
-          Object? metricUuid = sdkOmittedValue}) =>
-      ApiUpdateCustomEvaluationMetricInputPublic(
-        config: identical(config, sdkOmittedValue)
-            ? this.config
-            : config as SdkOptional<ApiCustomEvaluationMetricConfig>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        metricName: identical(metricName, sdkOmittedValue)
-            ? this.metricName
-            : metricName as SdkOptional<String>,
-        metricUuid: identical(metricUuid, sdkOmittedValue)
-            ? this.metricUuid
-            : metricUuid as SdkOptional<String>,
-      );
+  ApiUpdateCustomEvaluationMetricInputPublic _copyWith({Object? config = sdkOmittedValue, Object? description = sdkOmittedValue, Object? metricName = sdkOmittedValue, Object? metricUuid = sdkOmittedValue}) => ApiUpdateCustomEvaluationMetricInputPublic(
+    config: identical(config, sdkOmittedValue) ? this.config : config as SdkOptional<ApiCustomEvaluationMetricConfig>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    metricName: identical(metricName, sdkOmittedValue) ? this.metricName : metricName as SdkOptional<String>,
+    metricUuid: identical(metricUuid, sdkOmittedValue) ? this.metricUuid : metricUuid as SdkOptional<String>,
+  );
 
-  factory ApiUpdateCustomEvaluationMetricInputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiUpdateCustomEvaluationMetricInputPublic(
-        config: json['config'] != null
-            ? SdkPresent((json['config'] != null
-                ? ApiCustomEvaluationMetricConfig.fromJson(
-                    json['config'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        metricName: json['metric_name'] != null
-            ? SdkPresent((json['metric_name'] as String?)!)
-            : const SdkOmitted(),
-        metricUuid: json['metric_uuid'] != null
-            ? SdkPresent((json['metric_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateCustomEvaluationMetricInputPublic.fromJson(Map<String, dynamic> json) => ApiUpdateCustomEvaluationMetricInputPublic(
+    config: json['config'] != null ? SdkPresent((json['config'] != null ? ApiCustomEvaluationMetricConfig.fromJson(json['config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    metricName: json['metric_name'] != null ? SdkPresent((json['metric_name'] as String?)!) : const SdkOmitted(),
+    metricUuid: json['metric_uuid'] != null ? SdkPresent((json['metric_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (config) {
-          SdkPresent<ApiCustomEvaluationMetricConfig>(value: final value) => {
-              'config': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metricName) {
-          SdkPresent<String>(value: final value) => {
-              'metric_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metricUuid) {
-          SdkPresent<String>(value: final value) => {
-              'metric_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (config) {
+      SdkPresent<ApiCustomEvaluationMetricConfig>(value: final value) => {'config': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metricName) {
+      SdkPresent<String>(value: final value) => {'metric_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metricUuid) {
+      SdkPresent<String>(value: final value) => {'metric_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiUpdateCustomEvaluationMetricOutput` API schema.
 class ApiUpdateCustomEvaluationMetricOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `metric` wire field.
   final SdkOptional<ApiEvaluationMetric> metric;
 
-  const ApiUpdateCustomEvaluationMetricOutput(
-      {this.metric = const SdkOmitted()});
+  const ApiUpdateCustomEvaluationMetricOutput({this.metric = const SdkOmitted()});
 
-  ApiUpdateCustomEvaluationMetricOutput Function(
-      {SdkOptional<ApiEvaluationMetric> metric}) get copyWith => _copyWith;
+  ApiUpdateCustomEvaluationMetricOutput Function({SdkOptional<ApiEvaluationMetric> metric}) get copyWith => _copyWith;
 
-  ApiUpdateCustomEvaluationMetricOutput _copyWith(
-          {Object? metric = sdkOmittedValue}) =>
-      ApiUpdateCustomEvaluationMetricOutput(
-        metric: identical(metric, sdkOmittedValue)
-            ? this.metric
-            : metric as SdkOptional<ApiEvaluationMetric>,
-      );
+  ApiUpdateCustomEvaluationMetricOutput _copyWith({Object? metric = sdkOmittedValue}) => ApiUpdateCustomEvaluationMetricOutput(
+    metric: identical(metric, sdkOmittedValue) ? this.metric : metric as SdkOptional<ApiEvaluationMetric>,
+  );
 
-  factory ApiUpdateCustomEvaluationMetricOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiUpdateCustomEvaluationMetricOutput(
-        metric: json['metric'] != null
-            ? SdkPresent((json['metric'] != null
-                ? ApiEvaluationMetric.fromJson(
-                    json['metric'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateCustomEvaluationMetricOutput.fromJson(Map<String, dynamic> json) => ApiUpdateCustomEvaluationMetricOutput(
+    metric: json['metric'] != null ? SdkPresent((json['metric'] != null ? ApiEvaluationMetric.fromJson(json['metric'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (metric) {
-          SdkPresent<ApiEvaluationMetric>(value: final value) => {
-              'metric': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (metric) {
+      SdkPresent<ApiEvaluationMetric>(value: final value) => {'metric': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Request to update custom model metadata (public)
 class ApiUpdateCustomModelMetadataInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
-
   /// Optional new input modalities for the model (replaces existing list when non-empty). Spaces-imported models only.
   final SdkOptional<List<String>> inputModalities;
-
   /// Optional `string` value serialized in the `license` wire field.
   final SdkOptional<String> license;
-
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
-
   /// Optional new output modalities for the model (replaces existing list when non-empty). Spaces-imported models only.
   final SdkOptional<List<String>> outputModalities;
-
   /// Optional `uint64`-formatted value serialized in the `parameters` wire field.
   final SdkOptional<String> parameters;
-
   /// User-defined tags for organizing models
   final SdkOptional<CustomModelTags> tags;
-
   /// UUID of the custom model to update
   final SdkOptional<String> uuid;
 
-  const ApiUpdateCustomModelMetadataInputPublic(
-      {this.description = const SdkOmitted(),
-      this.inputModalities = const SdkOmitted(),
-      this.license = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.outputModalities = const SdkOmitted(),
-      this.parameters = const SdkOmitted(),
-      this.tags = const SdkOmitted(),
-      this.uuid = const SdkOmitted()});
+  const ApiUpdateCustomModelMetadataInputPublic({this.description = const SdkOmitted(), this.inputModalities = const SdkOmitted(), this.license = const SdkOmitted(), this.name = const SdkOmitted(), this.outputModalities = const SdkOmitted(), this.parameters = const SdkOmitted(), this.tags = const SdkOmitted(), this.uuid = const SdkOmitted()});
 
-  ApiUpdateCustomModelMetadataInputPublic Function(
-      {SdkOptional<String> description,
-      SdkOptional<List<String>> inputModalities,
-      SdkOptional<String> license,
-      SdkOptional<String> name,
-      SdkOptional<List<String>> outputModalities,
-      SdkOptional<String> parameters,
-      SdkOptional<CustomModelTags> tags,
-      SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiUpdateCustomModelMetadataInputPublic Function({SdkOptional<String> description, SdkOptional<List<String>> inputModalities, SdkOptional<String> license, SdkOptional<String> name, SdkOptional<List<String>> outputModalities, SdkOptional<String> parameters, SdkOptional<CustomModelTags> tags, SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiUpdateCustomModelMetadataInputPublic _copyWith(
-          {Object? description = sdkOmittedValue,
-          Object? inputModalities = sdkOmittedValue,
-          Object? license = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? outputModalities = sdkOmittedValue,
-          Object? parameters = sdkOmittedValue,
-          Object? tags = sdkOmittedValue,
-          Object? uuid = sdkOmittedValue}) =>
-      ApiUpdateCustomModelMetadataInputPublic(
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        inputModalities: identical(inputModalities, sdkOmittedValue)
-            ? this.inputModalities
-            : inputModalities as SdkOptional<List<String>>,
-        license: identical(license, sdkOmittedValue)
-            ? this.license
-            : license as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        outputModalities: identical(outputModalities, sdkOmittedValue)
-            ? this.outputModalities
-            : outputModalities as SdkOptional<List<String>>,
-        parameters: identical(parameters, sdkOmittedValue)
-            ? this.parameters
-            : parameters as SdkOptional<String>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<CustomModelTags>,
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-      );
+  ApiUpdateCustomModelMetadataInputPublic _copyWith({Object? description = sdkOmittedValue, Object? inputModalities = sdkOmittedValue, Object? license = sdkOmittedValue, Object? name = sdkOmittedValue, Object? outputModalities = sdkOmittedValue, Object? parameters = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiUpdateCustomModelMetadataInputPublic(
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    inputModalities: identical(inputModalities, sdkOmittedValue) ? this.inputModalities : inputModalities as SdkOptional<List<String>>,
+    license: identical(license, sdkOmittedValue) ? this.license : license as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    outputModalities: identical(outputModalities, sdkOmittedValue) ? this.outputModalities : outputModalities as SdkOptional<List<String>>,
+    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as SdkOptional<String>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<CustomModelTags>,
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+  );
 
-  factory ApiUpdateCustomModelMetadataInputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiUpdateCustomModelMetadataInputPublic(
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        inputModalities: json['input_modalities'] != null
-            ? SdkPresent(((json['input_modalities'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        license: json['license'] != null
-            ? SdkPresent((json['license'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        outputModalities: json['output_modalities'] != null
-            ? SdkPresent(((json['output_modalities'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        parameters: json['parameters'] != null
-            ? SdkPresent((json['parameters'] as String?)!)
-            : const SdkOmitted(),
-        tags: json['tags'] != null
-            ? SdkPresent((json['tags'] != null
-                ? CustomModelTags.fromJson(json['tags'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateCustomModelMetadataInputPublic.fromJson(Map<String, dynamic> json) => ApiUpdateCustomModelMetadataInputPublic(
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    inputModalities: json['input_modalities'] != null ? SdkPresent(((json['input_modalities'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    license: json['license'] != null ? SdkPresent((json['license'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    outputModalities: json['output_modalities'] != null ? SdkPresent(((json['output_modalities'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    parameters: json['parameters'] != null ? SdkPresent((json['parameters'] as String?)!) : const SdkOmitted(),
+    tags: json['tags'] != null ? SdkPresent((json['tags'] != null ? CustomModelTags.fromJson(json['tags'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputModalities) {
-          SdkPresent<List<String>>(value: final value) => {
-              'input_modalities': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (license) {
-          SdkPresent<String>(value: final value) => {
-              'license': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputModalities) {
-          SdkPresent<List<String>>(value: final value) => {
-              'output_modalities': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (parameters) {
-          SdkPresent<String>(value: final value) => {
-              'parameters': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<CustomModelTags>(value: final value) => {
-              'tags': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputModalities) {
+      SdkPresent<List<String>>(value: final value) => {'input_modalities': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (license) {
+      SdkPresent<String>(value: final value) => {'license': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputModalities) {
+      SdkPresent<List<String>>(value: final value) => {'output_modalities': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (parameters) {
+      SdkPresent<String>(value: final value) => {'parameters': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<CustomModelTags>(value: final value) => {'tags': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Response containing the updated custom model (public)
 class ApiUpdateCustomModelMetadataOutputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Custom model - user-imported model from HuggingFace, Spaces, etc.
   final SdkOptional<ApiCustomModel> model;
 
-  const ApiUpdateCustomModelMetadataOutputPublic(
-      {this.model = const SdkOmitted()});
+  const ApiUpdateCustomModelMetadataOutputPublic({this.model = const SdkOmitted()});
 
-  ApiUpdateCustomModelMetadataOutputPublic Function(
-      {SdkOptional<ApiCustomModel> model}) get copyWith => _copyWith;
+  ApiUpdateCustomModelMetadataOutputPublic Function({SdkOptional<ApiCustomModel> model}) get copyWith => _copyWith;
 
-  ApiUpdateCustomModelMetadataOutputPublic _copyWith(
-          {Object? model = sdkOmittedValue}) =>
-      ApiUpdateCustomModelMetadataOutputPublic(
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<ApiCustomModel>,
-      );
+  ApiUpdateCustomModelMetadataOutputPublic _copyWith({Object? model = sdkOmittedValue}) => ApiUpdateCustomModelMetadataOutputPublic(
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<ApiCustomModel>,
+  );
 
-  factory ApiUpdateCustomModelMetadataOutputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiUpdateCustomModelMetadataOutputPublic(
-        model: json['model'] != null
-            ? SdkPresent((json['model'] != null
-                ? ApiCustomModel.fromJson(json['model'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateCustomModelMetadataOutputPublic.fromJson(Map<String, dynamic> json) => ApiUpdateCustomModelMetadataOutputPublic(
+    model: json['model'] != null ? SdkPresent((json['model'] != null ? ApiCustomModel.fromJson(json['model'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (model) {
-          SdkPresent<ApiCustomModel>(value: final value) => {
-              'model': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (model) {
+      SdkPresent<ApiCustomModel>(value: final value) => {'model': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

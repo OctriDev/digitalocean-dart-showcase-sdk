@@ -7,104 +7,64 @@ part of 'droplet.dart';
 class DropletActionEnableBackupsVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An object specifying the backup policy for the Droplet. If omitted, the backup plan will default to daily.
   final SdkOptional<DropletBackupPolicy> backupPolicy;
 
-  const DropletActionEnableBackupsVariant1(
-      {this.backupPolicy = const SdkOmitted()});
+  const DropletActionEnableBackupsVariant1({this.backupPolicy = const SdkOmitted()});
 
-  DropletActionEnableBackupsVariant1 Function(
-          {SdkOptional<DropletBackupPolicy> backupPolicy})
-      get copyWith => _copyWith;
+  DropletActionEnableBackupsVariant1 Function({SdkOptional<DropletBackupPolicy> backupPolicy}) get copyWith => _copyWith;
 
-  DropletActionEnableBackupsVariant1 _copyWith(
-          {Object? backupPolicy = sdkOmittedValue}) =>
-      DropletActionEnableBackupsVariant1(
-        backupPolicy: identical(backupPolicy, sdkOmittedValue)
-            ? this.backupPolicy
-            : backupPolicy as SdkOptional<DropletBackupPolicy>,
-      );
+  DropletActionEnableBackupsVariant1 _copyWith({Object? backupPolicy = sdkOmittedValue}) => DropletActionEnableBackupsVariant1(
+    backupPolicy: identical(backupPolicy, sdkOmittedValue) ? this.backupPolicy : backupPolicy as SdkOptional<DropletBackupPolicy>,
+  );
 
-  factory DropletActionEnableBackupsVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      DropletActionEnableBackupsVariant1(
-        backupPolicy: json['backup_policy'] != null
-            ? SdkPresent((json['backup_policy'] != null
-                ? DropletBackupPolicy.fromJson(
-                    json['backup_policy'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DropletActionEnableBackupsVariant1.fromJson(Map<String, dynamic> json) => DropletActionEnableBackupsVariant1(
+    backupPolicy: json['backup_policy'] != null ? SdkPresent((json['backup_policy'] != null ? DropletBackupPolicy.fromJson(json['backup_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (backupPolicy) {
-          SdkPresent<DropletBackupPolicy>(value: final value) => {
-              'backup_policy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (backupPolicy) {
+      SdkPresent<DropletBackupPolicy>(value: final value) => {'backup_policy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DropletActionEnableBackups` API schema.
 class DropletActionEnableBackups {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
-
   /// An object specifying the backup policy for the Droplet. If omitted, the backup plan will default to daily.
   final SdkOptional<DropletBackupPolicy> backupPolicy;
 
-  const DropletActionEnableBackups(
-      {required this.type_, this.backupPolicy = const SdkOmitted()});
+  const DropletActionEnableBackups({required this.type_, this.backupPolicy = const SdkOmitted()});
 
-  DropletActionEnableBackups Function(
-      {DropletActionType type_,
-      SdkOptional<DropletBackupPolicy> backupPolicy}) get copyWith => _copyWith;
+  DropletActionEnableBackups Function({DropletActionType type_, SdkOptional<DropletBackupPolicy> backupPolicy}) get copyWith => _copyWith;
 
-  DropletActionEnableBackups _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? backupPolicy = sdkOmittedValue}) =>
-      DropletActionEnableBackups(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as DropletActionType,
-        backupPolicy: identical(backupPolicy, sdkOmittedValue)
-            ? this.backupPolicy
-            : backupPolicy as SdkOptional<DropletBackupPolicy>,
-      );
+  DropletActionEnableBackups _copyWith({Object? type_ = sdkOmittedValue, Object? backupPolicy = sdkOmittedValue}) => DropletActionEnableBackups(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
+    backupPolicy: identical(backupPolicy, sdkOmittedValue) ? this.backupPolicy : backupPolicy as SdkOptional<DropletBackupPolicy>,
+  );
 
-  factory DropletActionEnableBackups.fromJson(Map<String, dynamic> json) =>
-      DropletActionEnableBackups(
-        type_: (json['type'] != null
-            ? DropletActionType.fromJson(json['type'] as String)
-            : null)!,
-        backupPolicy: json['backup_policy'] != null
-            ? SdkPresent((json['backup_policy'] != null
-                ? DropletBackupPolicy.fromJson(
-                    json['backup_policy'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DropletActionEnableBackups.fromJson(Map<String, dynamic> json) => DropletActionEnableBackups(
+    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
+    backupPolicy: json['backup_policy'] != null ? SdkPresent((json['backup_policy'] != null ? DropletBackupPolicy.fromJson(json['backup_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (backupPolicy) {
-          SdkPresent<DropletBackupPolicy>(value: final value) => {
-              'backup_policy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (backupPolicy) {
+      SdkPresent<DropletBackupPolicy>(value: final value) => {'backup_policy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class DropletSingleCreateVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
   final String name;
 
@@ -112,323 +72,161 @@ class DropletSingleCreateVariant0 {
 
   DropletSingleCreateVariant0 Function({String name}) get copyWith => _copyWith;
 
-  DropletSingleCreateVariant0 _copyWith({Object? name = sdkOmittedValue}) =>
-      DropletSingleCreateVariant0(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-      );
+  DropletSingleCreateVariant0 _copyWith({Object? name = sdkOmittedValue}) => DropletSingleCreateVariant0(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+  );
 
-  factory DropletSingleCreateVariant0.fromJson(Map<String, dynamic> json) =>
-      DropletSingleCreateVariant0(
-        name: (json['name'] as String?)!,
-      );
+  factory DropletSingleCreateVariant0.fromJson(Map<String, dynamic> json) => DropletSingleCreateVariant0(
+    name: (json['name'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-      };
+    'name': name,
+  };
 }
 
 /// Typed representation of the `DropletSingleCreate` API schema.
 class DropletSingleCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation will also determine the hostname for the Droplet in its internal configuration.
   final String name;
-
   /// The slug identifier for the region that you wish to deploy the Droplet in. If the specific datacenter is not not important, a slug prefix (e.g. `nyc`) can be used to deploy the Droplet in any of the that region's locations (`nyc1`, `nyc2`, or `nyc3`). If the region is omitted from the create request completely, the Droplet may deploy in any region.
   final SdkOptional<String> region;
-
   /// The slug identifier for the size that you wish to select for this Droplet.
   final String size;
-
   /// The image ID of a public or private image or the slug identifier for a public image. This image will be the base image for your Droplet.&lt;br&gt;Requires `image:read` scope.
   final dynamic image;
-
   /// An array containing the IDs or fingerprints of the SSH keys that you wish to embed in the Droplet's root account upon creation. You must add the keys to your team before they can be embedded on a Droplet.&lt;br&gt;Requires `ssh_key:read` scope.
   final SdkOptional<List<dynamic>> sshKeys;
-
   /// A boolean indicating whether automated backups should be enabled for the Droplet.
   final SdkOptional<bool> backups;
-
   /// An object specifying the backup policy for the Droplet. If omitted and `backups` is `true`, the backup plan will default to daily.
   final SdkOptional<DropletBackupPolicy> backupPolicy;
-
   /// A boolean indicating whether to enable IPv6 on the Droplet.
   final SdkOptional<bool> ipv6;
-
   /// A boolean indicating whether to install the DigitalOcean agent for monitoring.
   final SdkOptional<bool> monitoring;
-
   /// A flat array of tag names as strings to apply to the Droplet after it is created. Tag names can either be existing or new tags.&lt;br&gt;Requires `tag:create` scope.
   final SdkOptional<List<String>?> tags;
-
   /// A string containing 'user data' which may be used to configure the Droplet on first boot, often a 'cloud-config' file or Bash script. It must be plain text and may not exceed 64 KiB in size.
   final SdkOptional<String> userData;
-
   /// This parameter has been deprecated. Use `vpc_uuid` instead to specify a VPC network for the Droplet. If no `vpc_uuid` is provided, the Droplet will be placed in your account's default VPC for the region.
   final SdkOptional<bool> privateNetworking;
-
   /// An array of IDs for block storage volumes that will be attached to the Droplet once created. The volumes must not already be attached to an existing Droplet.&lt;br&gt;Requires `block_storage:read` scpoe.
   final SdkOptional<List<String>> volumes;
-
   /// A string specifying the UUID of the VPC to which the Droplet will be assigned. If excluded, the Droplet will be assigned to your account's default VPC for the region.&lt;br&gt;Requires `vpc:read` scope.
   final SdkOptional<String> vpcUuid;
-
   /// An optional string specifying the UUID of the VPC subnet to which the Droplet will be assigned. If excluded, the Droplet will be assigned to a default subnet of the VPC.&lt;br&gt;Requires `vpc:read` scope.
   final SdkOptional<String> subnetUuid;
-
   /// A boolean indicating whether to install the DigitalOcean agent used for providing access to the Droplet web console in the control panel. By default, the agent is installed on new Droplets but installation errors (i.e. OS not supported) are ignored. To prevent it from being installed, set to `false`. To make installation errors fatal, explicitly set it to `true`.
   final SdkOptional<bool> withDropletAgent;
-
   /// An optional boolean indicating whether this Droplet should be created with public networking or not. By default, all Droplets are created with public networking available. If explicitly set to `false`, only private networking will be enabled, and public networking will be disabled; currently this means that it will not have any public static or Reserved IPv4 or IPv6 address, nor can one be assigned later. If explicitly set to `false`, `ipv6` must also be `false`.
   final SdkOptional<bool> publicNetworking;
 
-  const DropletSingleCreate(
-      {required this.name,
-      this.region = const SdkOmitted(),
-      required this.size,
-      required this.image,
-      this.sshKeys = const SdkOmitted(),
-      this.backups = const SdkOmitted(),
-      this.backupPolicy = const SdkOmitted(),
-      this.ipv6 = const SdkOmitted(),
-      this.monitoring = const SdkOmitted(),
-      this.tags = const SdkOmitted(),
-      this.userData = const SdkOmitted(),
-      this.privateNetworking = const SdkOmitted(),
-      this.volumes = const SdkOmitted(),
-      this.vpcUuid = const SdkOmitted(),
-      this.subnetUuid = const SdkOmitted(),
-      this.withDropletAgent = const SdkOmitted(),
-      this.publicNetworking = const SdkOmitted()});
+  const DropletSingleCreate({required this.name, this.region = const SdkOmitted(), required this.size, required this.image, this.sshKeys = const SdkOmitted(), this.backups = const SdkOmitted(), this.backupPolicy = const SdkOmitted(), this.ipv6 = const SdkOmitted(), this.monitoring = const SdkOmitted(), this.tags = const SdkOmitted(), this.userData = const SdkOmitted(), this.privateNetworking = const SdkOmitted(), this.volumes = const SdkOmitted(), this.vpcUuid = const SdkOmitted(), this.subnetUuid = const SdkOmitted(), this.withDropletAgent = const SdkOmitted(), this.publicNetworking = const SdkOmitted()});
 
-  DropletSingleCreate Function(
-      {String name,
-      SdkOptional<String> region,
-      String size,
-      dynamic image,
-      SdkOptional<List<dynamic>> sshKeys,
-      SdkOptional<bool> backups,
-      SdkOptional<DropletBackupPolicy> backupPolicy,
-      SdkOptional<bool> ipv6,
-      SdkOptional<bool> monitoring,
-      SdkOptional<List<String>?> tags,
-      SdkOptional<String> userData,
-      SdkOptional<bool> privateNetworking,
-      SdkOptional<List<String>> volumes,
-      SdkOptional<String> vpcUuid,
-      SdkOptional<String> subnetUuid,
-      SdkOptional<bool> withDropletAgent,
-      SdkOptional<bool> publicNetworking}) get copyWith => _copyWith;
+  DropletSingleCreate Function({String name, SdkOptional<String> region, String size, dynamic image, SdkOptional<List<dynamic>> sshKeys, SdkOptional<bool> backups, SdkOptional<DropletBackupPolicy> backupPolicy, SdkOptional<bool> ipv6, SdkOptional<bool> monitoring, SdkOptional<List<String>?> tags, SdkOptional<String> userData, SdkOptional<bool> privateNetworking, SdkOptional<List<String>> volumes, SdkOptional<String> vpcUuid, SdkOptional<String> subnetUuid, SdkOptional<bool> withDropletAgent, SdkOptional<bool> publicNetworking}) get copyWith => _copyWith;
 
-  DropletSingleCreate _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? image = sdkOmittedValue,
-          Object? sshKeys = sdkOmittedValue,
-          Object? backups = sdkOmittedValue,
-          Object? backupPolicy = sdkOmittedValue,
-          Object? ipv6 = sdkOmittedValue,
-          Object? monitoring = sdkOmittedValue,
-          Object? tags = sdkOmittedValue,
-          Object? userData = sdkOmittedValue,
-          Object? privateNetworking = sdkOmittedValue,
-          Object? volumes = sdkOmittedValue,
-          Object? vpcUuid = sdkOmittedValue,
-          Object? subnetUuid = sdkOmittedValue,
-          Object? withDropletAgent = sdkOmittedValue,
-          Object? publicNetworking = sdkOmittedValue}) =>
-      DropletSingleCreate(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-        size: identical(size, sdkOmittedValue) ? this.size : size as String,
-        image:
-            identical(image, sdkOmittedValue) ? this.image : image as dynamic,
-        sshKeys: identical(sshKeys, sdkOmittedValue)
-            ? this.sshKeys
-            : sshKeys as SdkOptional<List<dynamic>>,
-        backups: identical(backups, sdkOmittedValue)
-            ? this.backups
-            : backups as SdkOptional<bool>,
-        backupPolicy: identical(backupPolicy, sdkOmittedValue)
-            ? this.backupPolicy
-            : backupPolicy as SdkOptional<DropletBackupPolicy>,
-        ipv6: identical(ipv6, sdkOmittedValue)
-            ? this.ipv6
-            : ipv6 as SdkOptional<bool>,
-        monitoring: identical(monitoring, sdkOmittedValue)
-            ? this.monitoring
-            : monitoring as SdkOptional<bool>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>?>,
-        userData: identical(userData, sdkOmittedValue)
-            ? this.userData
-            : userData as SdkOptional<String>,
-        privateNetworking: identical(privateNetworking, sdkOmittedValue)
-            ? this.privateNetworking
-            : privateNetworking as SdkOptional<bool>,
-        volumes: identical(volumes, sdkOmittedValue)
-            ? this.volumes
-            : volumes as SdkOptional<List<String>>,
-        vpcUuid: identical(vpcUuid, sdkOmittedValue)
-            ? this.vpcUuid
-            : vpcUuid as SdkOptional<String>,
-        subnetUuid: identical(subnetUuid, sdkOmittedValue)
-            ? this.subnetUuid
-            : subnetUuid as SdkOptional<String>,
-        withDropletAgent: identical(withDropletAgent, sdkOmittedValue)
-            ? this.withDropletAgent
-            : withDropletAgent as SdkOptional<bool>,
-        publicNetworking: identical(publicNetworking, sdkOmittedValue)
-            ? this.publicNetworking
-            : publicNetworking as SdkOptional<bool>,
-      );
+  DropletSingleCreate _copyWith({Object? name = sdkOmittedValue, Object? region = sdkOmittedValue, Object? size = sdkOmittedValue, Object? image = sdkOmittedValue, Object? sshKeys = sdkOmittedValue, Object? backups = sdkOmittedValue, Object? backupPolicy = sdkOmittedValue, Object? ipv6 = sdkOmittedValue, Object? monitoring = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? userData = sdkOmittedValue, Object? privateNetworking = sdkOmittedValue, Object? volumes = sdkOmittedValue, Object? vpcUuid = sdkOmittedValue, Object? subnetUuid = sdkOmittedValue, Object? withDropletAgent = sdkOmittedValue, Object? publicNetworking = sdkOmittedValue}) => DropletSingleCreate(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+    size: identical(size, sdkOmittedValue) ? this.size : size as String,
+    image: identical(image, sdkOmittedValue) ? this.image : image as dynamic,
+    sshKeys: identical(sshKeys, sdkOmittedValue) ? this.sshKeys : sshKeys as SdkOptional<List<dynamic>>,
+    backups: identical(backups, sdkOmittedValue) ? this.backups : backups as SdkOptional<bool>,
+    backupPolicy: identical(backupPolicy, sdkOmittedValue) ? this.backupPolicy : backupPolicy as SdkOptional<DropletBackupPolicy>,
+    ipv6: identical(ipv6, sdkOmittedValue) ? this.ipv6 : ipv6 as SdkOptional<bool>,
+    monitoring: identical(monitoring, sdkOmittedValue) ? this.monitoring : monitoring as SdkOptional<bool>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>?>,
+    userData: identical(userData, sdkOmittedValue) ? this.userData : userData as SdkOptional<String>,
+    privateNetworking: identical(privateNetworking, sdkOmittedValue) ? this.privateNetworking : privateNetworking as SdkOptional<bool>,
+    volumes: identical(volumes, sdkOmittedValue) ? this.volumes : volumes as SdkOptional<List<String>>,
+    vpcUuid: identical(vpcUuid, sdkOmittedValue) ? this.vpcUuid : vpcUuid as SdkOptional<String>,
+    subnetUuid: identical(subnetUuid, sdkOmittedValue) ? this.subnetUuid : subnetUuid as SdkOptional<String>,
+    withDropletAgent: identical(withDropletAgent, sdkOmittedValue) ? this.withDropletAgent : withDropletAgent as SdkOptional<bool>,
+    publicNetworking: identical(publicNetworking, sdkOmittedValue) ? this.publicNetworking : publicNetworking as SdkOptional<bool>,
+  );
 
-  factory DropletSingleCreate.fromJson(Map<String, dynamic> json) =>
-      DropletSingleCreate(
-        name: (json['name'] as String?)!,
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-        size: (json['size'] as String?)!,
-        image: (json['image'])!,
-        sshKeys: json['ssh_keys'] != null
-            ? SdkPresent(((json['ssh_keys'] as List?)?.map((e) => e).toList())!)
-            : const SdkOmitted(),
-        backups: json['backups'] != null
-            ? SdkPresent((json['backups'] as bool?)!)
-            : const SdkOmitted(),
-        backupPolicy: json['backup_policy'] != null
-            ? SdkPresent((json['backup_policy'] != null
-                ? DropletBackupPolicy.fromJson(
-                    json['backup_policy'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        ipv6: json['ipv6'] != null
-            ? SdkPresent((json['ipv6'] as bool?)!)
-            : const SdkOmitted(),
-        monitoring: json['monitoring'] != null
-            ? SdkPresent((json['monitoring'] as bool?)!)
-            : const SdkOmitted(),
-        tags: json.containsKey('tags')
-            ? SdkPresent(
-                (json['tags'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-        userData: json['user_data'] != null
-            ? SdkPresent((json['user_data'] as String?)!)
-            : const SdkOmitted(),
-        privateNetworking: json['private_networking'] != null
-            ? SdkPresent((json['private_networking'] as bool?)!)
-            : const SdkOmitted(),
-        volumes: json['volumes'] != null
-            ? SdkPresent(
-                ((json['volumes'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        vpcUuid: json['vpc_uuid'] != null
-            ? SdkPresent((json['vpc_uuid'] as String?)!)
-            : const SdkOmitted(),
-        subnetUuid: json['subnet_uuid'] != null
-            ? SdkPresent((json['subnet_uuid'] as String?)!)
-            : const SdkOmitted(),
-        withDropletAgent: json['with_droplet_agent'] != null
-            ? SdkPresent((json['with_droplet_agent'] as bool?)!)
-            : const SdkOmitted(),
-        publicNetworking: json['public_networking'] != null
-            ? SdkPresent((json['public_networking'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory DropletSingleCreate.fromJson(Map<String, dynamic> json) => DropletSingleCreate(
+    name: (json['name'] as String?)!,
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+    size: (json['size'] as String?)!,
+    image: (json['image'])!,
+    sshKeys: json['ssh_keys'] != null ? SdkPresent(((json['ssh_keys'] as List?)?.map((e) => e).toList())!) : const SdkOmitted(),
+    backups: json['backups'] != null ? SdkPresent((json['backups'] as bool?)!) : const SdkOmitted(),
+    backupPolicy: json['backup_policy'] != null ? SdkPresent((json['backup_policy'] != null ? DropletBackupPolicy.fromJson(json['backup_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    ipv6: json['ipv6'] != null ? SdkPresent((json['ipv6'] as bool?)!) : const SdkOmitted(),
+    monitoring: json['monitoring'] != null ? SdkPresent((json['monitoring'] as bool?)!) : const SdkOmitted(),
+    tags: json.containsKey('tags') ? SdkPresent((json['tags'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    userData: json['user_data'] != null ? SdkPresent((json['user_data'] as String?)!) : const SdkOmitted(),
+    privateNetworking: json['private_networking'] != null ? SdkPresent((json['private_networking'] as bool?)!) : const SdkOmitted(),
+    volumes: json['volumes'] != null ? SdkPresent(((json['volumes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    vpcUuid: json['vpc_uuid'] != null ? SdkPresent((json['vpc_uuid'] as String?)!) : const SdkOmitted(),
+    subnetUuid: json['subnet_uuid'] != null ? SdkPresent((json['subnet_uuid'] as String?)!) : const SdkOmitted(),
+    withDropletAgent: json['with_droplet_agent'] != null ? SdkPresent((json['with_droplet_agent'] as bool?)!) : const SdkOmitted(),
+    publicNetworking: json['public_networking'] != null ? SdkPresent((json['public_networking'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'size': size,
-        'image': image,
-        ...switch (sshKeys) {
-          SdkPresent<List<dynamic>>(value: final value) => {
-              'ssh_keys': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (backups) {
-          SdkPresent<bool>(value: final value) => {
-              'backups': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (backupPolicy) {
-          SdkPresent<DropletBackupPolicy>(value: final value) => {
-              'backup_policy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ipv6) {
-          SdkPresent<bool>(value: final value) => {
-              'ipv6': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (monitoring) {
-          SdkPresent<bool>(value: final value) => {
-              'monitoring': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (userData) {
-          SdkPresent<String>(value: final value) => {
-              'user_data': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (privateNetworking) {
-          SdkPresent<bool>(value: final value) => {
-              'private_networking': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (volumes) {
-          SdkPresent<List<String>>(value: final value) => {
-              'volumes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (vpcUuid) {
-          SdkPresent<String>(value: final value) => {
-              'vpc_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (subnetUuid) {
-          SdkPresent<String>(value: final value) => {
-              'subnet_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (withDropletAgent) {
-          SdkPresent<bool>(value: final value) => {
-              'with_droplet_agent': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (publicNetworking) {
-          SdkPresent<bool>(value: final value) => {
-              'public_networking': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+    'size': size,
+    'image': image,
+    ...switch (sshKeys) {
+      SdkPresent<List<dynamic>>(value: final value) => {'ssh_keys': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (backups) {
+      SdkPresent<bool>(value: final value) => {'backups': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (backupPolicy) {
+      SdkPresent<DropletBackupPolicy>(value: final value) => {'backup_policy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ipv6) {
+      SdkPresent<bool>(value: final value) => {'ipv6': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (monitoring) {
+      SdkPresent<bool>(value: final value) => {'monitoring': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<String>?>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (userData) {
+      SdkPresent<String>(value: final value) => {'user_data': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (privateNetworking) {
+      SdkPresent<bool>(value: final value) => {'private_networking': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (volumes) {
+      SdkPresent<List<String>>(value: final value) => {'volumes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (vpcUuid) {
+      SdkPresent<String>(value: final value) => {'vpc_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (subnetUuid) {
+      SdkPresent<String>(value: final value) => {'subnet_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (withDropletAgent) {
+      SdkPresent<bool>(value: final value) => {'with_droplet_agent': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (publicNetworking) {
+      SdkPresent<bool>(value: final value) => {'public_networking': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

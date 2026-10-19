@@ -8,147 +8,75 @@ part of 'databases_database.dart';
 class DatabaseConnection {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A connection string in the format accepted by the `psql` command. This is provided as a convenience and should be able to be constructed by the other attributes.
   final SdkOptional<String> uri;
-
   /// The name of the default database.
   final SdkOptional<String> database;
-
   /// The FQDN pointing to the database cluster's current primary node.
   final SdkOptional<String> host;
-
   /// The port on which the database cluster is listening.
   final SdkOptional<int> port;
-
   /// The default user for the database.&lt;br&gt;&lt;br&gt;Requires `database:view_credentials` scope.
   final SdkOptional<String> user;
-
   /// The randomly generated password for the default user.&lt;br&gt;&lt;br&gt;Requires `database:view_credentials` scope.
   final SdkOptional<String> password;
-
   /// A boolean value indicating if the connection should be made over SSL.
   final SdkOptional<bool> ssl;
 
-  const DatabaseConnection(
-      {this.uri = const SdkOmitted(),
-      this.database = const SdkOmitted(),
-      this.host = const SdkOmitted(),
-      this.port = const SdkOmitted(),
-      this.user = const SdkOmitted(),
-      this.password = const SdkOmitted(),
-      this.ssl = const SdkOmitted()});
+  const DatabaseConnection({this.uri = const SdkOmitted(), this.database = const SdkOmitted(), this.host = const SdkOmitted(), this.port = const SdkOmitted(), this.user = const SdkOmitted(), this.password = const SdkOmitted(), this.ssl = const SdkOmitted()});
 
-  DatabaseConnection Function(
-      {SdkOptional<String> uri,
-      SdkOptional<String> database,
-      SdkOptional<String> host,
-      SdkOptional<int> port,
-      SdkOptional<String> user,
-      SdkOptional<String> password,
-      SdkOptional<bool> ssl}) get copyWith => _copyWith;
+  DatabaseConnection Function({SdkOptional<String> uri, SdkOptional<String> database, SdkOptional<String> host, SdkOptional<int> port, SdkOptional<String> user, SdkOptional<String> password, SdkOptional<bool> ssl}) get copyWith => _copyWith;
 
-  DatabaseConnection _copyWith(
-          {Object? uri = sdkOmittedValue,
-          Object? database = sdkOmittedValue,
-          Object? host = sdkOmittedValue,
-          Object? port = sdkOmittedValue,
-          Object? user = sdkOmittedValue,
-          Object? password = sdkOmittedValue,
-          Object? ssl = sdkOmittedValue}) =>
-      DatabaseConnection(
-        uri: identical(uri, sdkOmittedValue)
-            ? this.uri
-            : uri as SdkOptional<String>,
-        database: identical(database, sdkOmittedValue)
-            ? this.database
-            : database as SdkOptional<String>,
-        host: identical(host, sdkOmittedValue)
-            ? this.host
-            : host as SdkOptional<String>,
-        port: identical(port, sdkOmittedValue)
-            ? this.port
-            : port as SdkOptional<int>,
-        user: identical(user, sdkOmittedValue)
-            ? this.user
-            : user as SdkOptional<String>,
-        password: identical(password, sdkOmittedValue)
-            ? this.password
-            : password as SdkOptional<String>,
-        ssl: identical(ssl, sdkOmittedValue)
-            ? this.ssl
-            : ssl as SdkOptional<bool>,
-      );
+  DatabaseConnection _copyWith({Object? uri = sdkOmittedValue, Object? database = sdkOmittedValue, Object? host = sdkOmittedValue, Object? port = sdkOmittedValue, Object? user = sdkOmittedValue, Object? password = sdkOmittedValue, Object? ssl = sdkOmittedValue}) => DatabaseConnection(
+    uri: identical(uri, sdkOmittedValue) ? this.uri : uri as SdkOptional<String>,
+    database: identical(database, sdkOmittedValue) ? this.database : database as SdkOptional<String>,
+    host: identical(host, sdkOmittedValue) ? this.host : host as SdkOptional<String>,
+    port: identical(port, sdkOmittedValue) ? this.port : port as SdkOptional<int>,
+    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String>,
+    password: identical(password, sdkOmittedValue) ? this.password : password as SdkOptional<String>,
+    ssl: identical(ssl, sdkOmittedValue) ? this.ssl : ssl as SdkOptional<bool>,
+  );
 
-  factory DatabaseConnection.fromJson(Map<String, dynamic> json) =>
-      DatabaseConnection(
-        uri: json['uri'] != null
-            ? SdkPresent((json['uri'] as String?)!)
-            : const SdkOmitted(),
-        database: json['database'] != null
-            ? SdkPresent((json['database'] as String?)!)
-            : const SdkOmitted(),
-        host: json['host'] != null
-            ? SdkPresent((json['host'] as String?)!)
-            : const SdkOmitted(),
-        port: json['port'] != null
-            ? SdkPresent(((json['port'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        user: json['user'] != null
-            ? SdkPresent((json['user'] as String?)!)
-            : const SdkOmitted(),
-        password: json['password'] != null
-            ? SdkPresent((json['password'] as String?)!)
-            : const SdkOmitted(),
-        ssl: json['ssl'] != null
-            ? SdkPresent((json['ssl'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseConnection.fromJson(Map<String, dynamic> json) => DatabaseConnection(
+    uri: json['uri'] != null ? SdkPresent((json['uri'] as String?)!) : const SdkOmitted(),
+    database: json['database'] != null ? SdkPresent((json['database'] as String?)!) : const SdkOmitted(),
+    host: json['host'] != null ? SdkPresent((json['host'] as String?)!) : const SdkOmitted(),
+    port: json['port'] != null ? SdkPresent(((json['port'] as num?)?.toInt())!) : const SdkOmitted(),
+    user: json['user'] != null ? SdkPresent((json['user'] as String?)!) : const SdkOmitted(),
+    password: json['password'] != null ? SdkPresent((json['password'] as String?)!) : const SdkOmitted(),
+    ssl: json['ssl'] != null ? SdkPresent((json['ssl'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (uri) {
-          SdkPresent<String>(value: final value) => {
-              'uri': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (database) {
-          SdkPresent<String>(value: final value) => {
-              'database': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (host) {
-          SdkPresent<String>(value: final value) => {
-              'host': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (port) {
-          SdkPresent<int>(value: final value) => {
-              'port': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (user) {
-          SdkPresent<String>(value: final value) => {
-              'user': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (password) {
-          SdkPresent<String>(value: final value) => {
-              'password': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ssl) {
-          SdkPresent<bool>(value: final value) => {
-              'ssl': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (uri) {
+      SdkPresent<String>(value: final value) => {'uri': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (database) {
+      SdkPresent<String>(value: final value) => {'database': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (host) {
+      SdkPresent<String>(value: final value) => {'host': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (port) {
+      SdkPresent<int>(value: final value) => {'port': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (user) {
+      SdkPresent<String>(value: final value) => {'user': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (password) {
+      SdkPresent<String>(value: final value) => {'password': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ssl) {
+      SdkPresent<bool>(value: final value) => {'ssl': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DatabaseConnectionRequest` API schema.
@@ -158,262 +86,172 @@ class DatabaseConnectionRequest {
 
   const DatabaseConnectionRequest();
 
-  factory DatabaseConnectionRequest.fromJson(Map<String, dynamic> json) =>
-      DatabaseConnectionRequest();
+  factory DatabaseConnectionRequest.fromJson(Map<String, dynamic> json) => DatabaseConnectionRequest(
+  );
 
-  Map<String, dynamic> toJson() => {};
+  Map<String, dynamic> toJson() => {
+  };
 }
 
 /// Typed representation of the `DatabaseLayoutOption` API schema.
 class DatabaseLayoutOption {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `integer` value serialized in the `num_nodes` wire field.
   final SdkOptional<int> numNodes;
-
   /// An array of objects containing the slugs available with various node counts
   final SdkOptional<List<String>> sizes;
 
-  const DatabaseLayoutOption(
-      {this.numNodes = const SdkOmitted(), this.sizes = const SdkOmitted()});
+  const DatabaseLayoutOption({this.numNodes = const SdkOmitted(), this.sizes = const SdkOmitted()});
 
-  DatabaseLayoutOption Function(
-      {SdkOptional<int> numNodes,
-      SdkOptional<List<String>> sizes}) get copyWith => _copyWith;
+  DatabaseLayoutOption Function({SdkOptional<int> numNodes, SdkOptional<List<String>> sizes}) get copyWith => _copyWith;
 
-  DatabaseLayoutOption _copyWith(
-          {Object? numNodes = sdkOmittedValue,
-          Object? sizes = sdkOmittedValue}) =>
-      DatabaseLayoutOption(
-        numNodes: identical(numNodes, sdkOmittedValue)
-            ? this.numNodes
-            : numNodes as SdkOptional<int>,
-        sizes: identical(sizes, sdkOmittedValue)
-            ? this.sizes
-            : sizes as SdkOptional<List<String>>,
-      );
+  DatabaseLayoutOption _copyWith({Object? numNodes = sdkOmittedValue, Object? sizes = sdkOmittedValue}) => DatabaseLayoutOption(
+    numNodes: identical(numNodes, sdkOmittedValue) ? this.numNodes : numNodes as SdkOptional<int>,
+    sizes: identical(sizes, sdkOmittedValue) ? this.sizes : sizes as SdkOptional<List<String>>,
+  );
 
-  factory DatabaseLayoutOption.fromJson(Map<String, dynamic> json) =>
-      DatabaseLayoutOption(
-        numNodes: json['num_nodes'] != null
-            ? SdkPresent(((json['num_nodes'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        sizes: json['sizes'] != null
-            ? SdkPresent(
-                ((json['sizes'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseLayoutOption.fromJson(Map<String, dynamic> json) => DatabaseLayoutOption(
+    numNodes: json['num_nodes'] != null ? SdkPresent(((json['num_nodes'] as num?)?.toInt())!) : const SdkOmitted(),
+    sizes: json['sizes'] != null ? SdkPresent(((json['sizes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (numNodes) {
-          SdkPresent<int>(value: final value) => {
-              'num_nodes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sizes) {
-          SdkPresent<List<String>>(value: final value) => {
-              'sizes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (numNodes) {
+      SdkPresent<int>(value: final value) => {'num_nodes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sizes) {
+      SdkPresent<List<String>>(value: final value) => {'sizes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DatabaseMaintenanceWindow` API schema.
 class DatabaseMaintenanceWindow {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The day of the week on which to apply maintenance updates.
   final String day;
-
   /// The hour in UTC at which maintenance updates will be applied in 24 hour format.
   final String hour;
-
   /// A boolean value indicating whether any maintenance is scheduled to be performed in the next window.
   final SdkOptional<bool> pending;
-
   /// A list of strings, each containing information about a pending maintenance update.
   final SdkOptional<List<String>> description;
 
-  const DatabaseMaintenanceWindow(
-      {required this.day,
-      required this.hour,
-      this.pending = const SdkOmitted(),
-      this.description = const SdkOmitted()});
+  const DatabaseMaintenanceWindow({required this.day, required this.hour, this.pending = const SdkOmitted(), this.description = const SdkOmitted()});
 
-  DatabaseMaintenanceWindow Function(
-      {String day,
-      String hour,
-      SdkOptional<bool> pending,
-      SdkOptional<List<String>> description}) get copyWith => _copyWith;
+  DatabaseMaintenanceWindow Function({String day, String hour, SdkOptional<bool> pending, SdkOptional<List<String>> description}) get copyWith => _copyWith;
 
-  DatabaseMaintenanceWindow _copyWith(
-          {Object? day = sdkOmittedValue,
-          Object? hour = sdkOmittedValue,
-          Object? pending = sdkOmittedValue,
-          Object? description = sdkOmittedValue}) =>
-      DatabaseMaintenanceWindow(
-        day: identical(day, sdkOmittedValue) ? this.day : day as String,
-        hour: identical(hour, sdkOmittedValue) ? this.hour : hour as String,
-        pending: identical(pending, sdkOmittedValue)
-            ? this.pending
-            : pending as SdkOptional<bool>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<List<String>>,
-      );
+  DatabaseMaintenanceWindow _copyWith({Object? day = sdkOmittedValue, Object? hour = sdkOmittedValue, Object? pending = sdkOmittedValue, Object? description = sdkOmittedValue}) => DatabaseMaintenanceWindow(
+    day: identical(day, sdkOmittedValue) ? this.day : day as String,
+    hour: identical(hour, sdkOmittedValue) ? this.hour : hour as String,
+    pending: identical(pending, sdkOmittedValue) ? this.pending : pending as SdkOptional<bool>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<List<String>>,
+  );
 
-  factory DatabaseMaintenanceWindow.fromJson(Map<String, dynamic> json) =>
-      DatabaseMaintenanceWindow(
-        day: (json['day'] as String?)!,
-        hour: (json['hour'] as String?)!,
-        pending: json['pending'] != null
-            ? SdkPresent((json['pending'] as bool?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent(((json['description'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseMaintenanceWindow.fromJson(Map<String, dynamic> json) => DatabaseMaintenanceWindow(
+    day: (json['day'] as String?)!,
+    hour: (json['hour'] as String?)!,
+    pending: json['pending'] != null ? SdkPresent((json['pending'] as bool?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent(((json['description'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'day': day,
-        'hour': hour,
-        ...switch (pending) {
-          SdkPresent<bool>(value: final value) => {
-              'pending': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<List<String>>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'day': day,
+    'hour': hour,
+    ...switch (pending) {
+      SdkPresent<bool>(value: final value) => {'pending': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<List<String>>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DatabaseMaintenanceWindowRequest` API schema.
 class DatabaseMaintenanceWindowRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The day of the week on which to apply maintenance updates.
   final String day;
-
   /// The hour in UTC at which maintenance updates will be applied in 24 hour format.
   final String hour;
 
-  const DatabaseMaintenanceWindowRequest(
-      {required this.day, required this.hour});
+  const DatabaseMaintenanceWindowRequest({required this.day, required this.hour});
 
-  DatabaseMaintenanceWindowRequest Function({String day, String hour})
-      get copyWith => _copyWith;
+  DatabaseMaintenanceWindowRequest Function({String day, String hour}) get copyWith => _copyWith;
 
-  DatabaseMaintenanceWindowRequest _copyWith(
-          {Object? day = sdkOmittedValue, Object? hour = sdkOmittedValue}) =>
-      DatabaseMaintenanceWindowRequest(
-        day: identical(day, sdkOmittedValue) ? this.day : day as String,
-        hour: identical(hour, sdkOmittedValue) ? this.hour : hour as String,
-      );
+  DatabaseMaintenanceWindowRequest _copyWith({Object? day = sdkOmittedValue, Object? hour = sdkOmittedValue}) => DatabaseMaintenanceWindowRequest(
+    day: identical(day, sdkOmittedValue) ? this.day : day as String,
+    hour: identical(hour, sdkOmittedValue) ? this.hour : hour as String,
+  );
 
-  factory DatabaseMaintenanceWindowRequest.fromJson(
-          Map<String, dynamic> json) =>
-      DatabaseMaintenanceWindowRequest(
-        day: (json['day'] as String?)!,
-        hour: (json['hour'] as String?)!,
-      );
+  factory DatabaseMaintenanceWindowRequest.fromJson(Map<String, dynamic> json) => DatabaseMaintenanceWindowRequest(
+    day: (json['day'] as String?)!,
+    hour: (json['hour'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'day': day,
-        'hour': hour,
-      };
+    'day': day,
+    'hour': hour,
+  };
 }
 
 /// Typed representation of the `DatabaseMetricsAuth` API schema.
 class DatabaseMetricsAuth {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `credentials` wire field.
   final SdkOptional<DatabaseMetricsCredentials> credentials;
 
   const DatabaseMetricsAuth({this.credentials = const SdkOmitted()});
 
-  DatabaseMetricsAuth Function(
-          {SdkOptional<DatabaseMetricsCredentials> credentials})
-      get copyWith => _copyWith;
+  DatabaseMetricsAuth Function({SdkOptional<DatabaseMetricsCredentials> credentials}) get copyWith => _copyWith;
 
-  DatabaseMetricsAuth _copyWith({Object? credentials = sdkOmittedValue}) =>
-      DatabaseMetricsAuth(
-        credentials: identical(credentials, sdkOmittedValue)
-            ? this.credentials
-            : credentials as SdkOptional<DatabaseMetricsCredentials>,
-      );
+  DatabaseMetricsAuth _copyWith({Object? credentials = sdkOmittedValue}) => DatabaseMetricsAuth(
+    credentials: identical(credentials, sdkOmittedValue) ? this.credentials : credentials as SdkOptional<DatabaseMetricsCredentials>,
+  );
 
-  factory DatabaseMetricsAuth.fromJson(Map<String, dynamic> json) =>
-      DatabaseMetricsAuth(
-        credentials: json['credentials'] != null
-            ? SdkPresent((json['credentials'] != null
-                ? DatabaseMetricsCredentials.fromJson(
-                    json['credentials'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseMetricsAuth.fromJson(Map<String, dynamic> json) => DatabaseMetricsAuth(
+    credentials: json['credentials'] != null ? SdkPresent((json['credentials'] != null ? DatabaseMetricsCredentials.fromJson(json['credentials'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (credentials) {
-          SdkPresent<DatabaseMetricsCredentials>(value: final value) => {
-              'credentials': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (credentials) {
+      SdkPresent<DatabaseMetricsCredentials>(value: final value) => {'credentials': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DatabaseMetricsCredentials` API schema.
 class DatabaseMetricsCredentials {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `credentials` wire field.
   final SdkOptional<DatabasesBasicAuthCredentials> credentials;
 
   const DatabaseMetricsCredentials({this.credentials = const SdkOmitted()});
 
-  DatabaseMetricsCredentials Function(
-          {SdkOptional<DatabasesBasicAuthCredentials> credentials})
-      get copyWith => _copyWith;
+  DatabaseMetricsCredentials Function({SdkOptional<DatabasesBasicAuthCredentials> credentials}) get copyWith => _copyWith;
 
-  DatabaseMetricsCredentials _copyWith(
-          {Object? credentials = sdkOmittedValue}) =>
-      DatabaseMetricsCredentials(
-        credentials: identical(credentials, sdkOmittedValue)
-            ? this.credentials
-            : credentials as SdkOptional<DatabasesBasicAuthCredentials>,
-      );
+  DatabaseMetricsCredentials _copyWith({Object? credentials = sdkOmittedValue}) => DatabaseMetricsCredentials(
+    credentials: identical(credentials, sdkOmittedValue) ? this.credentials : credentials as SdkOptional<DatabasesBasicAuthCredentials>,
+  );
 
-  factory DatabaseMetricsCredentials.fromJson(Map<String, dynamic> json) =>
-      DatabaseMetricsCredentials(
-        credentials: json['credentials'] != null
-            ? SdkPresent((json['credentials'] != null
-                ? DatabasesBasicAuthCredentials.fromJson(
-                    json['credentials'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseMetricsCredentials.fromJson(Map<String, dynamic> json) => DatabaseMetricsCredentials(
+    credentials: json['credentials'] != null ? SdkPresent((json['credentials'] != null ? DatabasesBasicAuthCredentials.fromJson(json['credentials'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (credentials) {
-          SdkPresent<DatabasesBasicAuthCredentials>(value: final value) => {
-              'credentials': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (credentials) {
+      SdkPresent<DatabasesBasicAuthCredentials>(value: final value) => {'credentials': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

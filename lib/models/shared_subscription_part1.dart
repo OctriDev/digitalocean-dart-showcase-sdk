@@ -8,284 +8,151 @@ part of 'shared_subscription.dart';
 class Subscription {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `tier` wire field.
   final SdkOptional<SubscriptionTierBase> tier;
-
   /// The time at which the subscription was created.
   final SdkOptional<String> createdAt;
-
   /// The time at which the subscription was last updated.
   final SdkOptional<String> updatedAt;
 
-  const Subscription(
-      {this.tier = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted()});
+  const Subscription({this.tier = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
 
-  Subscription Function(
-      {SdkOptional<SubscriptionTierBase> tier,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  Subscription Function({SdkOptional<SubscriptionTierBase> tier, SdkOptional<String> createdAt, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  Subscription _copyWith(
-          {Object? tier = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      Subscription(
-        tier: identical(tier, sdkOmittedValue)
-            ? this.tier
-            : tier as SdkOptional<SubscriptionTierBase>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-      );
+  Subscription _copyWith({Object? tier = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => Subscription(
+    tier: identical(tier, sdkOmittedValue) ? this.tier : tier as SdkOptional<SubscriptionTierBase>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+  );
 
   factory Subscription.fromJson(Map<String, dynamic> json) => Subscription(
-        tier: json['tier'] != null
-            ? SdkPresent((json['tier'] != null
-                ? SubscriptionTierBase.fromJson(
-                    json['tier'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+    tier: json['tier'] != null ? SdkPresent((json['tier'] != null ? SubscriptionTierBase.fromJson(json['tier'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (tier) {
-          SdkPresent<SubscriptionTierBase>(value: final value) => {
-              'tier': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (tier) {
+      SdkPresent<SubscriptionTierBase>(value: final value) => {'tier': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `SubscriptionResponse` API schema.
 class SubscriptionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `subscription` wire field.
   final SdkOptional<Subscription> subscription;
 
   const SubscriptionResponse({this.subscription = const SdkOmitted()});
 
-  SubscriptionResponse Function({SdkOptional<Subscription> subscription})
-      get copyWith => _copyWith;
+  SubscriptionResponse Function({SdkOptional<Subscription> subscription}) get copyWith => _copyWith;
 
-  SubscriptionResponse _copyWith({Object? subscription = sdkOmittedValue}) =>
-      SubscriptionResponse(
-        subscription: identical(subscription, sdkOmittedValue)
-            ? this.subscription
-            : subscription as SdkOptional<Subscription>,
-      );
+  SubscriptionResponse _copyWith({Object? subscription = sdkOmittedValue}) => SubscriptionResponse(
+    subscription: identical(subscription, sdkOmittedValue) ? this.subscription : subscription as SdkOptional<Subscription>,
+  );
 
-  factory SubscriptionResponse.fromJson(Map<String, dynamic> json) =>
-      SubscriptionResponse(
-        subscription: json['subscription'] != null
-            ? SdkPresent((json['subscription'] != null
-                ? Subscription.fromJson(
-                    json['subscription'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory SubscriptionResponse.fromJson(Map<String, dynamic> json) => SubscriptionResponse(
+    subscription: json['subscription'] != null ? SdkPresent((json['subscription'] != null ? Subscription.fromJson(json['subscription'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (subscription) {
-          SdkPresent<Subscription>(value: final value) => {
-              'subscription': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (subscription) {
+      SdkPresent<Subscription>(value: final value) => {'subscription': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `SubscriptionTierBase` API schema.
 class SubscriptionTierBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the subscription tier.
   final SdkOptional<String> name;
-
   /// The slug identifier of the subscription tier.
   final SdkOptional<String> slug;
-
   /// The number of repositories included in the subscription tier. `0` indicates that the subscription tier includes unlimited repositories.
   final SdkOptional<int> includedRepositories;
-
   /// The amount of storage included in the subscription tier in bytes.
   final SdkOptional<int> includedStorageBytes;
-
   /// A boolean indicating whether the subscription tier supports additional storage above what is included in the base plan at an additional cost per GiB used.
   final SdkOptional<bool> allowStorageOverage;
-
   /// The amount of outbound data transfer included in the subscription tier in bytes.
   final SdkOptional<int> includedBandwidthBytes;
-
   /// The monthly cost of the subscription tier in cents.
   final SdkOptional<int> monthlyPriceInCents;
-
   /// The price paid in cents per GiB for additional storage beyond what is included in the subscription plan.
   final SdkOptional<int> storageOveragePriceInCents;
 
-  const SubscriptionTierBase(
-      {this.name = const SdkOmitted(),
-      this.slug = const SdkOmitted(),
-      this.includedRepositories = const SdkOmitted(),
-      this.includedStorageBytes = const SdkOmitted(),
-      this.allowStorageOverage = const SdkOmitted(),
-      this.includedBandwidthBytes = const SdkOmitted(),
-      this.monthlyPriceInCents = const SdkOmitted(),
-      this.storageOveragePriceInCents = const SdkOmitted()});
+  const SubscriptionTierBase({this.name = const SdkOmitted(), this.slug = const SdkOmitted(), this.includedRepositories = const SdkOmitted(), this.includedStorageBytes = const SdkOmitted(), this.allowStorageOverage = const SdkOmitted(), this.includedBandwidthBytes = const SdkOmitted(), this.monthlyPriceInCents = const SdkOmitted(), this.storageOveragePriceInCents = const SdkOmitted()});
 
-  SubscriptionTierBase Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> slug,
-      SdkOptional<int> includedRepositories,
-      SdkOptional<int> includedStorageBytes,
-      SdkOptional<bool> allowStorageOverage,
-      SdkOptional<int> includedBandwidthBytes,
-      SdkOptional<int> monthlyPriceInCents,
-      SdkOptional<int> storageOveragePriceInCents}) get copyWith => _copyWith;
+  SubscriptionTierBase Function({SdkOptional<String> name, SdkOptional<String> slug, SdkOptional<int> includedRepositories, SdkOptional<int> includedStorageBytes, SdkOptional<bool> allowStorageOverage, SdkOptional<int> includedBandwidthBytes, SdkOptional<int> monthlyPriceInCents, SdkOptional<int> storageOveragePriceInCents}) get copyWith => _copyWith;
 
-  SubscriptionTierBase _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? slug = sdkOmittedValue,
-          Object? includedRepositories = sdkOmittedValue,
-          Object? includedStorageBytes = sdkOmittedValue,
-          Object? allowStorageOverage = sdkOmittedValue,
-          Object? includedBandwidthBytes = sdkOmittedValue,
-          Object? monthlyPriceInCents = sdkOmittedValue,
-          Object? storageOveragePriceInCents = sdkOmittedValue}) =>
-      SubscriptionTierBase(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        slug: identical(slug, sdkOmittedValue)
-            ? this.slug
-            : slug as SdkOptional<String>,
-        includedRepositories: identical(includedRepositories, sdkOmittedValue)
-            ? this.includedRepositories
-            : includedRepositories as SdkOptional<int>,
-        includedStorageBytes: identical(includedStorageBytes, sdkOmittedValue)
-            ? this.includedStorageBytes
-            : includedStorageBytes as SdkOptional<int>,
-        allowStorageOverage: identical(allowStorageOverage, sdkOmittedValue)
-            ? this.allowStorageOverage
-            : allowStorageOverage as SdkOptional<bool>,
-        includedBandwidthBytes:
-            identical(includedBandwidthBytes, sdkOmittedValue)
-                ? this.includedBandwidthBytes
-                : includedBandwidthBytes as SdkOptional<int>,
-        monthlyPriceInCents: identical(monthlyPriceInCents, sdkOmittedValue)
-            ? this.monthlyPriceInCents
-            : monthlyPriceInCents as SdkOptional<int>,
-        storageOveragePriceInCents:
-            identical(storageOveragePriceInCents, sdkOmittedValue)
-                ? this.storageOveragePriceInCents
-                : storageOveragePriceInCents as SdkOptional<int>,
-      );
+  SubscriptionTierBase _copyWith({Object? name = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? includedRepositories = sdkOmittedValue, Object? includedStorageBytes = sdkOmittedValue, Object? allowStorageOverage = sdkOmittedValue, Object? includedBandwidthBytes = sdkOmittedValue, Object? monthlyPriceInCents = sdkOmittedValue, Object? storageOveragePriceInCents = sdkOmittedValue}) => SubscriptionTierBase(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as SdkOptional<String>,
+    includedRepositories: identical(includedRepositories, sdkOmittedValue) ? this.includedRepositories : includedRepositories as SdkOptional<int>,
+    includedStorageBytes: identical(includedStorageBytes, sdkOmittedValue) ? this.includedStorageBytes : includedStorageBytes as SdkOptional<int>,
+    allowStorageOverage: identical(allowStorageOverage, sdkOmittedValue) ? this.allowStorageOverage : allowStorageOverage as SdkOptional<bool>,
+    includedBandwidthBytes: identical(includedBandwidthBytes, sdkOmittedValue) ? this.includedBandwidthBytes : includedBandwidthBytes as SdkOptional<int>,
+    monthlyPriceInCents: identical(monthlyPriceInCents, sdkOmittedValue) ? this.monthlyPriceInCents : monthlyPriceInCents as SdkOptional<int>,
+    storageOveragePriceInCents: identical(storageOveragePriceInCents, sdkOmittedValue) ? this.storageOveragePriceInCents : storageOveragePriceInCents as SdkOptional<int>,
+  );
 
-  factory SubscriptionTierBase.fromJson(Map<String, dynamic> json) =>
-      SubscriptionTierBase(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        slug: json['slug'] != null
-            ? SdkPresent((json['slug'] as String?)!)
-            : const SdkOmitted(),
-        includedRepositories: json['included_repositories'] != null
-            ? SdkPresent(((json['included_repositories'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        includedStorageBytes: json['included_storage_bytes'] != null
-            ? SdkPresent(((json['included_storage_bytes'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        allowStorageOverage: json['allow_storage_overage'] != null
-            ? SdkPresent((json['allow_storage_overage'] as bool?)!)
-            : const SdkOmitted(),
-        includedBandwidthBytes: json['included_bandwidth_bytes'] != null
-            ? SdkPresent(((json['included_bandwidth_bytes'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        monthlyPriceInCents: json['monthly_price_in_cents'] != null
-            ? SdkPresent(((json['monthly_price_in_cents'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        storageOveragePriceInCents: json['storage_overage_price_in_cents'] !=
-                null
-            ? SdkPresent(
-                ((json['storage_overage_price_in_cents'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory SubscriptionTierBase.fromJson(Map<String, dynamic> json) => SubscriptionTierBase(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    slug: json['slug'] != null ? SdkPresent((json['slug'] as String?)!) : const SdkOmitted(),
+    includedRepositories: json['included_repositories'] != null ? SdkPresent(((json['included_repositories'] as num?)?.toInt())!) : const SdkOmitted(),
+    includedStorageBytes: json['included_storage_bytes'] != null ? SdkPresent(((json['included_storage_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
+    allowStorageOverage: json['allow_storage_overage'] != null ? SdkPresent((json['allow_storage_overage'] as bool?)!) : const SdkOmitted(),
+    includedBandwidthBytes: json['included_bandwidth_bytes'] != null ? SdkPresent(((json['included_bandwidth_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
+    monthlyPriceInCents: json['monthly_price_in_cents'] != null ? SdkPresent(((json['monthly_price_in_cents'] as num?)?.toInt())!) : const SdkOmitted(),
+    storageOveragePriceInCents: json['storage_overage_price_in_cents'] != null ? SdkPresent(((json['storage_overage_price_in_cents'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (slug) {
-          SdkPresent<String>(value: final value) => {
-              'slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (includedRepositories) {
-          SdkPresent<int>(value: final value) => {
-              'included_repositories': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (includedStorageBytes) {
-          SdkPresent<int>(value: final value) => {
-              'included_storage_bytes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowStorageOverage) {
-          SdkPresent<bool>(value: final value) => {
-              'allow_storage_overage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (includedBandwidthBytes) {
-          SdkPresent<int>(value: final value) => {
-              'included_bandwidth_bytes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (monthlyPriceInCents) {
-          SdkPresent<int>(value: final value) => {
-              'monthly_price_in_cents': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (storageOveragePriceInCents) {
-          SdkPresent<int>(value: final value) => {
-              'storage_overage_price_in_cents': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (slug) {
+      SdkPresent<String>(value: final value) => {'slug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (includedRepositories) {
+      SdkPresent<int>(value: final value) => {'included_repositories': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (includedStorageBytes) {
+      SdkPresent<int>(value: final value) => {'included_storage_bytes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowStorageOverage) {
+      SdkPresent<bool>(value: final value) => {'allow_storage_overage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (includedBandwidthBytes) {
+      SdkPresent<int>(value: final value) => {'included_bandwidth_bytes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (monthlyPriceInCents) {
+      SdkPresent<int>(value: final value) => {'monthly_price_in_cents': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (storageOveragePriceInCents) {
+      SdkPresent<int>(value: final value) => {'storage_overage_price_in_cents': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

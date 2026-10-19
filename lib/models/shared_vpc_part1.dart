@@ -8,336 +8,197 @@ part of 'shared_vpc.dart';
 class VpcMember {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the resource.
   final SdkOptional<String> name;
-
   /// The uniform resource name (URN) for the resource in the format do:resource_type:resource_id.
   final SdkOptional<String> urn;
-
   /// A time value given in ISO8601 combined date and time format that represents when the resource was created.
   final SdkOptional<String> createdAt;
 
-  const VpcMember(
-      {this.name = const SdkOmitted(),
-      this.urn = const SdkOmitted(),
-      this.createdAt = const SdkOmitted()});
+  const VpcMember({this.name = const SdkOmitted(), this.urn = const SdkOmitted(), this.createdAt = const SdkOmitted()});
 
-  VpcMember Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> urn,
-      SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  VpcMember Function({SdkOptional<String> name, SdkOptional<String> urn, SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  VpcMember _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? urn = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      VpcMember(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        urn: identical(urn, sdkOmittedValue)
-            ? this.urn
-            : urn as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-      );
+  VpcMember _copyWith({Object? name = sdkOmittedValue, Object? urn = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => VpcMember(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    urn: identical(urn, sdkOmittedValue) ? this.urn : urn as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+  );
 
   factory VpcMember.fromJson(Map<String, dynamic> json) => VpcMember(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        urn: json['urn'] != null
-            ? SdkPresent((json['urn'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    urn: json['urn'] != null ? SdkPresent((json['urn'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (urn) {
-          SdkPresent<String>(value: final value) => {
-              'urn': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (urn) {
+      SdkPresent<String>(value: final value) => {'urn': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VpcPeering` API schema.
 class VpcPeering {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique ID that can be used to identify and reference the VPC peering.
   final SdkOptional<String> id;
-
   /// A time value given in ISO8601 combined date and time format.
   final SdkOptional<String> createdAt;
-
   /// The current status of the VPC peering.
   final SdkOptional<VpcPeeringBaseStatus> status;
-
   /// An array of the two peered VPCs IDs.
   final SdkOptional<List<String>> vpcIds;
-
   /// The name of the VPC peering. Must be unique within the team and may only contain alphanumeric characters and dashes.
   final SdkOptional<String> name;
 
-  const VpcPeering(
-      {this.id = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.vpcIds = const SdkOmitted(),
-      this.name = const SdkOmitted()});
+  const VpcPeering({this.id = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.status = const SdkOmitted(), this.vpcIds = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  VpcPeering Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> createdAt,
-      SdkOptional<VpcPeeringBaseStatus> status,
-      SdkOptional<List<String>> vpcIds,
-      SdkOptional<String> name}) get copyWith => _copyWith;
+  VpcPeering Function({SdkOptional<String> id, SdkOptional<String> createdAt, SdkOptional<VpcPeeringBaseStatus> status, SdkOptional<List<String>> vpcIds, SdkOptional<String> name}) get copyWith => _copyWith;
 
-  VpcPeering _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? vpcIds = sdkOmittedValue,
-          Object? name = sdkOmittedValue}) =>
-      VpcPeering(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<VpcPeeringBaseStatus>,
-        vpcIds: identical(vpcIds, sdkOmittedValue)
-            ? this.vpcIds
-            : vpcIds as SdkOptional<List<String>>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  VpcPeering _copyWith({Object? id = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? status = sdkOmittedValue, Object? vpcIds = sdkOmittedValue, Object? name = sdkOmittedValue}) => VpcPeering(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<VpcPeeringBaseStatus>,
+    vpcIds: identical(vpcIds, sdkOmittedValue) ? this.vpcIds : vpcIds as SdkOptional<List<String>>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
   factory VpcPeering.fromJson(Map<String, dynamic> json) => VpcPeering(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? VpcPeeringBaseStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        vpcIds: json['vpc_ids'] != null
-            ? SdkPresent(
-                ((json['vpc_ids'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? VpcPeeringBaseStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    vpcIds: json['vpc_ids'] != null ? SdkPresent(((json['vpc_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<VpcPeeringBaseStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (vpcIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'vpc_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<VpcPeeringBaseStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (vpcIds) {
+      SdkPresent<List<String>>(value: final value) => {'vpc_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VpcPeeringBase` API schema.
 class VpcPeeringBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique ID that can be used to identify and reference the VPC peering.
   final SdkOptional<String> id;
-
   /// A time value given in ISO8601 combined date and time format.
   final SdkOptional<String> createdAt;
-
   /// The current status of the VPC peering.
   final SdkOptional<VpcPeeringBaseStatus> status;
 
-  const VpcPeeringBase(
-      {this.id = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.status = const SdkOmitted()});
+  const VpcPeeringBase({this.id = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.status = const SdkOmitted()});
 
-  VpcPeeringBase Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> createdAt,
-      SdkOptional<VpcPeeringBaseStatus> status}) get copyWith => _copyWith;
+  VpcPeeringBase Function({SdkOptional<String> id, SdkOptional<String> createdAt, SdkOptional<VpcPeeringBaseStatus> status}) get copyWith => _copyWith;
 
-  VpcPeeringBase _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      VpcPeeringBase(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<VpcPeeringBaseStatus>,
-      );
+  VpcPeeringBase _copyWith({Object? id = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? status = sdkOmittedValue}) => VpcPeeringBase(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<VpcPeeringBaseStatus>,
+  );
 
   factory VpcPeeringBase.fromJson(Map<String, dynamic> json) => VpcPeeringBase(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? VpcPeeringBaseStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? VpcPeeringBaseStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<VpcPeeringBaseStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<VpcPeeringBaseStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VpcPeeringCreate` API schema.
 class VpcPeeringCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of the two peered VPCs IDs.
   final SdkOptional<List<String>> vpcIds;
 
   const VpcPeeringCreate({this.vpcIds = const SdkOmitted()});
 
-  VpcPeeringCreate Function({SdkOptional<List<String>> vpcIds}) get copyWith =>
-      _copyWith;
+  VpcPeeringCreate Function({SdkOptional<List<String>> vpcIds}) get copyWith => _copyWith;
 
-  VpcPeeringCreate _copyWith({Object? vpcIds = sdkOmittedValue}) =>
-      VpcPeeringCreate(
-        vpcIds: identical(vpcIds, sdkOmittedValue)
-            ? this.vpcIds
-            : vpcIds as SdkOptional<List<String>>,
-      );
+  VpcPeeringCreate _copyWith({Object? vpcIds = sdkOmittedValue}) => VpcPeeringCreate(
+    vpcIds: identical(vpcIds, sdkOmittedValue) ? this.vpcIds : vpcIds as SdkOptional<List<String>>,
+  );
 
-  factory VpcPeeringCreate.fromJson(Map<String, dynamic> json) =>
-      VpcPeeringCreate(
-        vpcIds: json['vpc_ids'] != null
-            ? SdkPresent(
-                ((json['vpc_ids'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+  factory VpcPeeringCreate.fromJson(Map<String, dynamic> json) => VpcPeeringCreate(
+    vpcIds: json['vpc_ids'] != null ? SdkPresent(((json['vpc_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (vpcIds) {
-          SdkPresent<List<String>>(value: final value) => {
-              'vpc_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (vpcIds) {
+      SdkPresent<List<String>>(value: final value) => {'vpc_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VpcPeeringUpdatable` API schema.
 class VpcPeeringUpdatable {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the VPC peering. Must be unique within the team and may only contain alphanumeric characters and dashes.
   final SdkOptional<String> name;
 
   const VpcPeeringUpdatable({this.name = const SdkOmitted()});
 
-  VpcPeeringUpdatable Function({SdkOptional<String> name}) get copyWith =>
-      _copyWith;
+  VpcPeeringUpdatable Function({SdkOptional<String> name}) get copyWith => _copyWith;
 
-  VpcPeeringUpdatable _copyWith({Object? name = sdkOmittedValue}) =>
-      VpcPeeringUpdatable(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  VpcPeeringUpdatable _copyWith({Object? name = sdkOmittedValue}) => VpcPeeringUpdatable(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory VpcPeeringUpdatable.fromJson(Map<String, dynamic> json) =>
-      VpcPeeringUpdatable(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VpcPeeringUpdatable.fromJson(Map<String, dynamic> json) => VpcPeeringUpdatable(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

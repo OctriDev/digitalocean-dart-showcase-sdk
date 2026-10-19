@@ -8,326 +8,218 @@ part of 'agent_platform_api_api_delete.dart';
 class ApiDeleteModelEvaluationRunOutputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Error message if deletion failed
   final SdkOptional<String> error;
-
   /// Status of delete operation
   final SdkOptional<ApiDeleteModelEvaluationRunStatus> status;
 
-  const ApiDeleteModelEvaluationRunOutputPublic(
-      {this.error = const SdkOmitted(), this.status = const SdkOmitted()});
+  const ApiDeleteModelEvaluationRunOutputPublic({this.error = const SdkOmitted(), this.status = const SdkOmitted()});
 
-  ApiDeleteModelEvaluationRunOutputPublic Function(
-          {SdkOptional<String> error,
-          SdkOptional<ApiDeleteModelEvaluationRunStatus> status})
-      get copyWith => _copyWith;
+  ApiDeleteModelEvaluationRunOutputPublic Function({SdkOptional<String> error, SdkOptional<ApiDeleteModelEvaluationRunStatus> status}) get copyWith => _copyWith;
 
-  ApiDeleteModelEvaluationRunOutputPublic _copyWith(
-          {Object? error = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      ApiDeleteModelEvaluationRunOutputPublic(
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ApiDeleteModelEvaluationRunStatus>,
-      );
+  ApiDeleteModelEvaluationRunOutputPublic _copyWith({Object? error = sdkOmittedValue, Object? status = sdkOmittedValue}) => ApiDeleteModelEvaluationRunOutputPublic(
+    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ApiDeleteModelEvaluationRunStatus>,
+  );
 
-  factory ApiDeleteModelEvaluationRunOutputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiDeleteModelEvaluationRunOutputPublic(
-        error: json['error'] != null
-            ? SdkPresent((json['error'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ApiDeleteModelEvaluationRunStatus.fromJson(
-                    json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiDeleteModelEvaluationRunOutputPublic.fromJson(Map<String, dynamic> json) => ApiDeleteModelEvaluationRunOutputPublic(
+    error: json['error'] != null ? SdkPresent((json['error'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ApiDeleteModelEvaluationRunStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (error) {
-          SdkPresent<String>(value: final value) => {
-              'error': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<ApiDeleteModelEvaluationRunStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (error) {
+      SdkPresent<String>(value: final value) => {'error': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<ApiDeleteModelEvaluationRunStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Status of delete operation
 final class ApiDeleteModelEvaluationRunStatus {
+
   final String value;
 
   const ApiDeleteModelEvaluationRunStatus._(this.value);
 
-  factory ApiDeleteModelEvaluationRunStatus.fromJson(String value) =>
-      ApiDeleteModelEvaluationRunStatus._(value);
+  factory ApiDeleteModelEvaluationRunStatus.fromJson(String value) => ApiDeleteModelEvaluationRunStatus._(value);
 
-  static const deleteModelEvaluationRunStatusUnspecified =
-      ApiDeleteModelEvaluationRunStatus._(
-          'DELETE_MODEL_EVALUATION_RUN_STATUS_UNSPECIFIED');
-  static const deleteModelEvaluationRunStatusSuccess =
-      ApiDeleteModelEvaluationRunStatus._(
-          'DELETE_MODEL_EVALUATION_RUN_STATUS_SUCCESS');
-  static const deleteModelEvaluationRunStatusFail =
-      ApiDeleteModelEvaluationRunStatus._(
-          'DELETE_MODEL_EVALUATION_RUN_STATUS_FAIL');
+  static const deleteModelEvaluationRunStatusUnspecified = ApiDeleteModelEvaluationRunStatus._('DELETE_MODEL_EVALUATION_RUN_STATUS_UNSPECIFIED');
+  static const deleteModelEvaluationRunStatusSuccess = ApiDeleteModelEvaluationRunStatus._('DELETE_MODEL_EVALUATION_RUN_STATUS_SUCCESS');
+  static const deleteModelEvaluationRunStatusFail = ApiDeleteModelEvaluationRunStatus._('DELETE_MODEL_EVALUATION_RUN_STATUS_FAIL');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiDeleteModelEvaluationRunStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ApiDeleteModelEvaluationRunStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Information about a deleted model router
 class ApiDeleteModelRouterOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The id of the deleted model router
   final SdkOptional<String> uuid;
 
   const ApiDeleteModelRouterOutput({this.uuid = const SdkOmitted()});
 
-  ApiDeleteModelRouterOutput Function({SdkOptional<String> uuid})
-      get copyWith => _copyWith;
+  ApiDeleteModelRouterOutput Function({SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiDeleteModelRouterOutput _copyWith({Object? uuid = sdkOmittedValue}) =>
-      ApiDeleteModelRouterOutput(
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-      );
+  ApiDeleteModelRouterOutput _copyWith({Object? uuid = sdkOmittedValue}) => ApiDeleteModelRouterOutput(
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+  );
 
-  factory ApiDeleteModelRouterOutput.fromJson(Map<String, dynamic> json) =>
-      ApiDeleteModelRouterOutput(
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiDeleteModelRouterOutput.fromJson(Map<String, dynamic> json) => ApiDeleteModelRouterOutput(
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// DeleteOpenAIAPIKeyOutput is used to return the deleted OpenAI API key.
 class ApiDeleteOpenAIAPIKeyOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// OpenAI API Key Info
   final SdkOptional<ApiOpenAIAPIKeyInfo> apiKeyInfo;
 
   const ApiDeleteOpenAIAPIKeyOutput({this.apiKeyInfo = const SdkOmitted()});
 
-  ApiDeleteOpenAIAPIKeyOutput Function(
-      {SdkOptional<ApiOpenAIAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
+  ApiDeleteOpenAIAPIKeyOutput Function({SdkOptional<ApiOpenAIAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
 
-  ApiDeleteOpenAIAPIKeyOutput _copyWith(
-          {Object? apiKeyInfo = sdkOmittedValue}) =>
-      ApiDeleteOpenAIAPIKeyOutput(
-        apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue)
-            ? this.apiKeyInfo
-            : apiKeyInfo as SdkOptional<ApiOpenAIAPIKeyInfo>,
-      );
+  ApiDeleteOpenAIAPIKeyOutput _copyWith({Object? apiKeyInfo = sdkOmittedValue}) => ApiDeleteOpenAIAPIKeyOutput(
+    apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue) ? this.apiKeyInfo : apiKeyInfo as SdkOptional<ApiOpenAIAPIKeyInfo>,
+  );
 
-  factory ApiDeleteOpenAIAPIKeyOutput.fromJson(Map<String, dynamic> json) =>
-      ApiDeleteOpenAIAPIKeyOutput(
-        apiKeyInfo: json['api_key_info'] != null
-            ? SdkPresent((json['api_key_info'] != null
-                ? ApiOpenAIAPIKeyInfo.fromJson(
-                    json['api_key_info'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiDeleteOpenAIAPIKeyOutput.fromJson(Map<String, dynamic> json) => ApiDeleteOpenAIAPIKeyOutput(
+    apiKeyInfo: json['api_key_info'] != null ? SdkPresent((json['api_key_info'] != null ? ApiOpenAIAPIKeyInfo.fromJson(json['api_key_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (apiKeyInfo) {
-          SdkPresent<ApiOpenAIAPIKeyInfo>(value: final value) => {
-              'api_key_info': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (apiKeyInfo) {
+      SdkPresent<ApiOpenAIAPIKeyInfo>(value: final value) => {'api_key_info': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Output for deleting a scenario set.
 class ApiDeleteScenarioSetOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// UUID of the deleted scenario set.
   final SdkOptional<String> scenarioSetUuid;
 
   const ApiDeleteScenarioSetOutput({this.scenarioSetUuid = const SdkOmitted()});
 
-  ApiDeleteScenarioSetOutput Function({SdkOptional<String> scenarioSetUuid})
-      get copyWith => _copyWith;
+  ApiDeleteScenarioSetOutput Function({SdkOptional<String> scenarioSetUuid}) get copyWith => _copyWith;
 
-  ApiDeleteScenarioSetOutput _copyWith(
-          {Object? scenarioSetUuid = sdkOmittedValue}) =>
-      ApiDeleteScenarioSetOutput(
-        scenarioSetUuid: identical(scenarioSetUuid, sdkOmittedValue)
-            ? this.scenarioSetUuid
-            : scenarioSetUuid as SdkOptional<String>,
-      );
+  ApiDeleteScenarioSetOutput _copyWith({Object? scenarioSetUuid = sdkOmittedValue}) => ApiDeleteScenarioSetOutput(
+    scenarioSetUuid: identical(scenarioSetUuid, sdkOmittedValue) ? this.scenarioSetUuid : scenarioSetUuid as SdkOptional<String>,
+  );
 
-  factory ApiDeleteScenarioSetOutput.fromJson(Map<String, dynamic> json) =>
-      ApiDeleteScenarioSetOutput(
-        scenarioSetUuid: json['scenario_set_uuid'] != null
-            ? SdkPresent((json['scenario_set_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiDeleteScenarioSetOutput.fromJson(Map<String, dynamic> json) => ApiDeleteScenarioSetOutput(
+    scenarioSetUuid: json['scenario_set_uuid'] != null ? SdkPresent((json['scenario_set_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (scenarioSetUuid) {
-          SdkPresent<String>(value: final value) => {
-              'scenario_set_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (scenarioSetUuid) {
+      SdkPresent<String>(value: final value) => {'scenario_set_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiDeleteScheduledIndexingOutput` API schema.
 class ApiDeleteScheduledIndexingOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Metadata for scheduled indexing entries
   final SdkOptional<ApiScheduledIndexingInfo> indexingInfo;
 
-  const ApiDeleteScheduledIndexingOutput(
-      {this.indexingInfo = const SdkOmitted()});
+  const ApiDeleteScheduledIndexingOutput({this.indexingInfo = const SdkOmitted()});
 
-  ApiDeleteScheduledIndexingOutput Function(
-          {SdkOptional<ApiScheduledIndexingInfo> indexingInfo})
-      get copyWith => _copyWith;
+  ApiDeleteScheduledIndexingOutput Function({SdkOptional<ApiScheduledIndexingInfo> indexingInfo}) get copyWith => _copyWith;
 
-  ApiDeleteScheduledIndexingOutput _copyWith(
-          {Object? indexingInfo = sdkOmittedValue}) =>
-      ApiDeleteScheduledIndexingOutput(
-        indexingInfo: identical(indexingInfo, sdkOmittedValue)
-            ? this.indexingInfo
-            : indexingInfo as SdkOptional<ApiScheduledIndexingInfo>,
-      );
+  ApiDeleteScheduledIndexingOutput _copyWith({Object? indexingInfo = sdkOmittedValue}) => ApiDeleteScheduledIndexingOutput(
+    indexingInfo: identical(indexingInfo, sdkOmittedValue) ? this.indexingInfo : indexingInfo as SdkOptional<ApiScheduledIndexingInfo>,
+  );
 
-  factory ApiDeleteScheduledIndexingOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiDeleteScheduledIndexingOutput(
-        indexingInfo: json['indexing_info'] != null
-            ? SdkPresent((json['indexing_info'] != null
-                ? ApiScheduledIndexingInfo.fromJson(
-                    json['indexing_info'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiDeleteScheduledIndexingOutput.fromJson(Map<String, dynamic> json) => ApiDeleteScheduledIndexingOutput(
+    indexingInfo: json['indexing_info'] != null ? SdkPresent((json['indexing_info'] != null ? ApiScheduledIndexingInfo.fromJson(json['indexing_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (indexingInfo) {
-          SdkPresent<ApiScheduledIndexingInfo>(value: final value) => {
-              'indexing_info': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (indexingInfo) {
+      SdkPresent<ApiScheduledIndexingInfo>(value: final value) => {'indexing_info': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Output for deleting a simulation run.
 class ApiDeleteSimulationRunOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// UUID of the deleted run.
   final SdkOptional<String> runUuid;
 
   const ApiDeleteSimulationRunOutput({this.runUuid = const SdkOmitted()});
 
-  ApiDeleteSimulationRunOutput Function({SdkOptional<String> runUuid})
-      get copyWith => _copyWith;
+  ApiDeleteSimulationRunOutput Function({SdkOptional<String> runUuid}) get copyWith => _copyWith;
 
-  ApiDeleteSimulationRunOutput _copyWith({Object? runUuid = sdkOmittedValue}) =>
-      ApiDeleteSimulationRunOutput(
-        runUuid: identical(runUuid, sdkOmittedValue)
-            ? this.runUuid
-            : runUuid as SdkOptional<String>,
-      );
+  ApiDeleteSimulationRunOutput _copyWith({Object? runUuid = sdkOmittedValue}) => ApiDeleteSimulationRunOutput(
+    runUuid: identical(runUuid, sdkOmittedValue) ? this.runUuid : runUuid as SdkOptional<String>,
+  );
 
-  factory ApiDeleteSimulationRunOutput.fromJson(Map<String, dynamic> json) =>
-      ApiDeleteSimulationRunOutput(
-        runUuid: json['run_uuid'] != null
-            ? SdkPresent((json['run_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiDeleteSimulationRunOutput.fromJson(Map<String, dynamic> json) => ApiDeleteSimulationRunOutput(
+    runUuid: json['run_uuid'] != null ? SdkPresent((json['run_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (runUuid) {
-          SdkPresent<String>(value: final value) => {
-              'run_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (runUuid) {
+      SdkPresent<String>(value: final value) => {'run_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiDeleteWorkspaceOutput` API schema.
 class ApiDeleteWorkspaceOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Workspace
   final SdkOptional<String> workspaceUuid;
 
   const ApiDeleteWorkspaceOutput({this.workspaceUuid = const SdkOmitted()});
 
-  ApiDeleteWorkspaceOutput Function({SdkOptional<String> workspaceUuid})
-      get copyWith => _copyWith;
+  ApiDeleteWorkspaceOutput Function({SdkOptional<String> workspaceUuid}) get copyWith => _copyWith;
 
-  ApiDeleteWorkspaceOutput _copyWith(
-          {Object? workspaceUuid = sdkOmittedValue}) =>
-      ApiDeleteWorkspaceOutput(
-        workspaceUuid: identical(workspaceUuid, sdkOmittedValue)
-            ? this.workspaceUuid
-            : workspaceUuid as SdkOptional<String>,
-      );
+  ApiDeleteWorkspaceOutput _copyWith({Object? workspaceUuid = sdkOmittedValue}) => ApiDeleteWorkspaceOutput(
+    workspaceUuid: identical(workspaceUuid, sdkOmittedValue) ? this.workspaceUuid : workspaceUuid as SdkOptional<String>,
+  );
 
-  factory ApiDeleteWorkspaceOutput.fromJson(Map<String, dynamic> json) =>
-      ApiDeleteWorkspaceOutput(
-        workspaceUuid: json['workspace_uuid'] != null
-            ? SdkPresent((json['workspace_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiDeleteWorkspaceOutput.fromJson(Map<String, dynamic> json) => ApiDeleteWorkspaceOutput(
+    workspaceUuid: json['workspace_uuid'] != null ? SdkPresent((json['workspace_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (workspaceUuid) {
-          SdkPresent<String>(value: final value) => {
-              'workspace_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (workspaceUuid) {
+      SdkPresent<String>(value: final value) => {'workspace_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

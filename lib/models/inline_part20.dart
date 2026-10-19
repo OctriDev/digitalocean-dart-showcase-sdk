@@ -6,39 +6,35 @@ part of 'inline.dart';
 // Inline operation models (part 20)
 /// The cleanup_policy sets the retention policy to use on log segments. 'delete' will discard old segments when retention time/size limits are reached. 'compact' will enable log compaction, resulting in retention of the latest value for each key.
 final class KafkaTopicConfigCleanupPolicy {
+
   final String value;
 
   const KafkaTopicConfigCleanupPolicy._(this.value);
 
-  factory KafkaTopicConfigCleanupPolicy.fromJson(String value) =>
-      KafkaTopicConfigCleanupPolicy._(value);
+  factory KafkaTopicConfigCleanupPolicy.fromJson(String value) => KafkaTopicConfigCleanupPolicy._(value);
 
   static const delete = KafkaTopicConfigCleanupPolicy._('delete');
   static const compact = KafkaTopicConfigCleanupPolicy._('compact');
-  static const compactDelete =
-      KafkaTopicConfigCleanupPolicy._('compact_delete');
+  static const compactDelete = KafkaTopicConfigCleanupPolicy._('compact_delete');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is KafkaTopicConfigCleanupPolicy && other.value == value;
+  @override bool operator ==(Object other) => other is KafkaTopicConfigCleanupPolicy && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The compression_type specifies the compression type of the topic.
 final class KafkaTopicConfigCompressionType {
+
   final String value;
 
   const KafkaTopicConfigCompressionType._(this.value);
 
-  factory KafkaTopicConfigCompressionType.fromJson(String value) =>
-      KafkaTopicConfigCompressionType._(value);
+  factory KafkaTopicConfigCompressionType.fromJson(String value) => KafkaTopicConfigCompressionType._(value);
 
   static const producer = KafkaTopicConfigCompressionType._('producer');
   static const gzip = KafkaTopicConfigCompressionType._('gzip');
@@ -49,25 +45,22 @@ final class KafkaTopicConfigCompressionType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is KafkaTopicConfigCompressionType && other.value == value;
+  @override bool operator ==(Object other) => other is KafkaTopicConfigCompressionType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The message_format_version specifies the message format version used by the broker to append messages to the logs. The value of this setting is assumed to be 3.0-IV1 if the broker protocol version is 3.0 or higher. By setting a particular message format version, all existing messages on disk must be smaller or equal to the specified version.
 final class KafkaTopicConfigMessageFormatVersion {
+
   final String value;
 
   const KafkaTopicConfigMessageFormatVersion._(this.value);
 
-  factory KafkaTopicConfigMessageFormatVersion.fromJson(String value) =>
-      KafkaTopicConfigMessageFormatVersion._(value);
+  factory KafkaTopicConfigMessageFormatVersion.fromJson(String value) => KafkaTopicConfigMessageFormatVersion._(value);
 
   static const v080 = KafkaTopicConfigMessageFormatVersion._('0.8.0');
   static const v081 = KafkaTopicConfigMessageFormatVersion._('0.8.1');
@@ -113,52 +106,44 @@ final class KafkaTopicConfigMessageFormatVersion {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is KafkaTopicConfigMessageFormatVersion && other.value == value;
+  @override bool operator ==(Object other) => other is KafkaTopicConfigMessageFormatVersion && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The message_timestamp_type specifies whether to use the message create time or log append time as the timestamp on a message.
 final class KafkaTopicConfigMessageTimestampType {
+
   final String value;
 
   const KafkaTopicConfigMessageTimestampType._(this.value);
 
-  factory KafkaTopicConfigMessageTimestampType.fromJson(String value) =>
-      KafkaTopicConfigMessageTimestampType._(value);
+  factory KafkaTopicConfigMessageTimestampType.fromJson(String value) => KafkaTopicConfigMessageTimestampType._(value);
 
-  static const createTime =
-      KafkaTopicConfigMessageTimestampType._('create_time');
-  static const logAppendTime =
-      KafkaTopicConfigMessageTimestampType._('log_append_time');
+  static const createTime = KafkaTopicConfigMessageTimestampType._('create_time');
+  static const logAppendTime = KafkaTopicConfigMessageTimestampType._('log_append_time');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is KafkaTopicConfigMessageTimestampType && other.value == value;
+  @override bool operator ==(Object other) => other is KafkaTopicConfigMessageTimestampType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The state of the Kafka topic.
 final class KafkaTopicVerboseState {
+
   final String value;
 
   const KafkaTopicVerboseState._(this.value);
 
-  factory KafkaTopicVerboseState.fromJson(String value) =>
-      KafkaTopicVerboseState._(value);
+  factory KafkaTopicVerboseState.fromJson(String value) => KafkaTopicVerboseState._(value);
 
   static const active = KafkaTopicVerboseState._('active');
   static const configuring = KafkaTopicVerboseState._('configuring');
@@ -167,171 +152,142 @@ final class KafkaTopicVerboseState {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is KafkaTopicVerboseState && other.value == value;
+  @override bool operator ==(Object other) => other is KafkaTopicVerboseState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The AMD GPU partition mode for this node pool. Only applicable to AMD GPU sizes that support partitioning. Immutable after the node pool is created. When omitted, the GPUs in the pool are left unpartitioned.
 final class KubernetesNodePoolGpuPartitionGpuPartitionMode {
+
   final String value;
 
   const KubernetesNodePoolGpuPartitionGpuPartitionMode._(this.value);
 
-  factory KubernetesNodePoolGpuPartitionGpuPartitionMode.fromJson(
-          String value) =>
-      KubernetesNodePoolGpuPartitionGpuPartitionMode._(value);
+  factory KubernetesNodePoolGpuPartitionGpuPartitionMode.fromJson(String value) => KubernetesNodePoolGpuPartitionGpuPartitionMode._(value);
 
-  static const amdPartitionModeSpxNps1 =
-      KubernetesNodePoolGpuPartitionGpuPartitionMode._(
-          'AMD_PARTITION_MODE_SPX_NPS1');
-  static const amdPartitionModeDpxNps2 =
-      KubernetesNodePoolGpuPartitionGpuPartitionMode._(
-          'AMD_PARTITION_MODE_DPX_NPS2');
+  static const amdPartitionModeSpxNps1 = KubernetesNodePoolGpuPartitionGpuPartitionMode._('AMD_PARTITION_MODE_SPX_NPS1');
+  static const amdPartitionModeDpxNps2 = KubernetesNodePoolGpuPartitionGpuPartitionMode._('AMD_PARTITION_MODE_DPX_NPS2');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is KubernetesNodePoolGpuPartitionGpuPartitionMode &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is KubernetesNodePoolGpuPartitionGpuPartitionMode && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// How the node reacts to pods that it won't tolerate. Available effect values are `NoSchedule`, `PreferNoSchedule`, and `NoExecute`.
 final class KubernetesNodePoolTaintEffect {
+
   final String value;
 
   const KubernetesNodePoolTaintEffect._(this.value);
 
-  factory KubernetesNodePoolTaintEffect.fromJson(String value) =>
-      KubernetesNodePoolTaintEffect._(value);
+  factory KubernetesNodePoolTaintEffect.fromJson(String value) => KubernetesNodePoolTaintEffect._(value);
 
   static const noschedule = KubernetesNodePoolTaintEffect._('NoSchedule');
-  static const prefernoschedule =
-      KubernetesNodePoolTaintEffect._('PreferNoSchedule');
+  static const prefernoschedule = KubernetesNodePoolTaintEffect._('PreferNoSchedule');
   static const noexecute = KubernetesNodePoolTaintEffect._('NoExecute');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is KubernetesNodePoolTaintEffect && other.value == value;
+  @override bool operator ==(Object other) => other is KubernetesNodePoolTaintEffect && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Echoes the `source` filter when the request was filtered by source. Omitted when the list was not filtered.
 final class ListConsentsSource {
+
   final String value;
 
   const ListConsentsSource._(this.value);
 
-  factory ListConsentsSource.fromJson(String value) =>
-      ListConsentsSource._(value);
+  factory ListConsentsSource.fromJson(String value) => ListConsentsSource._(value);
 
   static const agent = ListConsentsSource._('agent');
   static const inference = ListConsentsSource._('inference');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListConsentsSource && other.value == value;
+  @override bool operator ==(Object other) => other is ListConsentsSource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The object type, which is always "list".
 final class ListModelsResponseObject {
+
   final String value;
 
   const ListModelsResponseObject._(this.value);
 
-  factory ListModelsResponseObject.fromJson(String value) =>
-      ListModelsResponseObject._(value);
+  factory ListModelsResponseObject.fromJson(String value) => ListModelsResponseObject._(value);
 
   static const list = ListModelsResponseObject._('list');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListModelsResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is ListModelsResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// This field has been deprecated. You can no longer specify an algorithm for load balancers.
 final class LoadBalancerBaseAlgorithm {
+
   final String value;
 
   const LoadBalancerBaseAlgorithm._(this.value);
 
-  factory LoadBalancerBaseAlgorithm.fromJson(String value) =>
-      LoadBalancerBaseAlgorithm._(value);
+  factory LoadBalancerBaseAlgorithm.fromJson(String value) => LoadBalancerBaseAlgorithm._(value);
 
   static const roundRobin = LoadBalancerBaseAlgorithm._('round_robin');
-  static const leastConnections =
-      LoadBalancerBaseAlgorithm._('least_connections');
+  static const leastConnections = LoadBalancerBaseAlgorithm._('least_connections');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LoadBalancerBaseAlgorithm && other.value == value;
+  @override bool operator ==(Object other) => other is LoadBalancerBaseAlgorithm && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A string indicating whether the load balancer should be external or internal. Internal load balancers have no public IPs and are only accessible to resources on the same VPC network. This property cannot be updated after creating the load balancer.
 final class LoadBalancerBaseNetwork {
+
   final String value;
 
   const LoadBalancerBaseNetwork._(this.value);
 
-  factory LoadBalancerBaseNetwork.fromJson(String value) =>
-      LoadBalancerBaseNetwork._(value);
+  factory LoadBalancerBaseNetwork.fromJson(String value) => LoadBalancerBaseNetwork._(value);
 
   static const external_ = LoadBalancerBaseNetwork._('EXTERNAL');
   static const internal = LoadBalancerBaseNetwork._('INTERNAL');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LoadBalancerBaseNetwork && other.value == value;
+  @override bool operator ==(Object other) => other is LoadBalancerBaseNetwork && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

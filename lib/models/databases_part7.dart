@@ -8,7 +8,6 @@ part of 'databases.dart';
 class SqlMode {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A string specifying the configured SQL modes for the MySQL cluster.
   final String sqlMode;
 
@@ -17,379 +16,193 @@ class SqlMode {
   SqlMode Function({String sqlMode}) get copyWith => _copyWith;
 
   SqlMode _copyWith({Object? sqlMode = sdkOmittedValue}) => SqlMode(
-        sqlMode: identical(sqlMode, sdkOmittedValue)
-            ? this.sqlMode
-            : sqlMode as String,
-      );
+    sqlMode: identical(sqlMode, sdkOmittedValue) ? this.sqlMode : sqlMode as String,
+  );
 
   factory SqlMode.fromJson(Map<String, dynamic> json) => SqlMode(
-        sqlMode: (json['sql_mode'] as String?)!,
-      );
+    sqlMode: (json['sql_mode'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'sql_mode': sqlMode,
-      };
+    'sql_mode': sqlMode,
+  };
 }
 
 /// TimescaleDB extension configuration values
 class TimescaledbAdvancedConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of background workers for timescaledb operations. Set to the sum of your number of databases and the total number of concurrent background workers you want running at any given point in time.
   final SdkOptional<int> maxBackgroundWorkers;
 
-  const TimescaledbAdvancedConfig(
-      {this.maxBackgroundWorkers = const SdkOmitted()});
+  const TimescaledbAdvancedConfig({this.maxBackgroundWorkers = const SdkOmitted()});
 
-  TimescaledbAdvancedConfig Function({SdkOptional<int> maxBackgroundWorkers})
-      get copyWith => _copyWith;
+  TimescaledbAdvancedConfig Function({SdkOptional<int> maxBackgroundWorkers}) get copyWith => _copyWith;
 
-  TimescaledbAdvancedConfig _copyWith(
-          {Object? maxBackgroundWorkers = sdkOmittedValue}) =>
-      TimescaledbAdvancedConfig(
-        maxBackgroundWorkers: identical(maxBackgroundWorkers, sdkOmittedValue)
-            ? this.maxBackgroundWorkers
-            : maxBackgroundWorkers as SdkOptional<int>,
-      );
+  TimescaledbAdvancedConfig _copyWith({Object? maxBackgroundWorkers = sdkOmittedValue}) => TimescaledbAdvancedConfig(
+    maxBackgroundWorkers: identical(maxBackgroundWorkers, sdkOmittedValue) ? this.maxBackgroundWorkers : maxBackgroundWorkers as SdkOptional<int>,
+  );
 
-  factory TimescaledbAdvancedConfig.fromJson(Map<String, dynamic> json) =>
-      TimescaledbAdvancedConfig(
-        maxBackgroundWorkers: json['max_background_workers'] != null
-            ? SdkPresent(((json['max_background_workers'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory TimescaledbAdvancedConfig.fromJson(Map<String, dynamic> json) => TimescaledbAdvancedConfig(
+    maxBackgroundWorkers: json['max_background_workers'] != null ? SdkPresent(((json['max_background_workers'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (maxBackgroundWorkers) {
-          SdkPresent<int>(value: final value) => {
-              'max_background_workers': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (maxBackgroundWorkers) {
+      SdkPresent<int>(value: final value) => {'max_background_workers': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `Users` API schema.
 class Users {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `users` wire field.
   final SdkOptional<List<DatabaseUser>> users;
 
   const Users({this.users = const SdkOmitted()});
 
-  Users Function({SdkOptional<List<DatabaseUser>> users}) get copyWith =>
-      _copyWith;
+  Users Function({SdkOptional<List<DatabaseUser>> users}) get copyWith => _copyWith;
 
   Users _copyWith({Object? users = sdkOmittedValue}) => Users(
-        users: identical(users, sdkOmittedValue)
-            ? this.users
-            : users as SdkOptional<List<DatabaseUser>>,
-      );
+    users: identical(users, sdkOmittedValue) ? this.users : users as SdkOptional<List<DatabaseUser>>,
+  );
 
   factory Users.fromJson(Map<String, dynamic> json) => Users(
-        users: json['users'] != null
-            ? SdkPresent(((json['users'] as List?)
-                ?.map((e) => DatabaseUser.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    users: json['users'] != null ? SdkPresent(((json['users'] as List?)?.map((e) => DatabaseUser.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (users) {
-          SdkPresent<List<DatabaseUser>>(value: final value) => {
-              'users': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (users) {
+      SdkPresent<List<DatabaseUser>>(value: final value) => {'users': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ValkeyAdvancedConfig` API schema.
 class ValkeyAdvancedConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A string specifying the desired eviction policy for a Caching or Valkey cluster. - `noeviction`: Don't evict any data, returns error when memory limit is reached. - `allkeys_lru:` Evict any key, least recently used (LRU) first. - `allkeys_random`: Evict keys in a random order. - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first. - `volatile_random`: Evict keys with expiration only in a random order. - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
   final SdkOptional<EvictionPolicyModel> valkeyMaxmemoryPolicy;
-
   /// Set output buffer limit for pub / sub clients in MB. The value is the hard limit, the soft limit is 1/4 of the hard limit. When setting the limit, be mindful of the available memory in the selected service plan.
   final SdkOptional<int> valkeyPubsubClientOutputBufferLimit;
-
   /// Set number of valkey databases. Changing this will cause a restart of valkey service.
   final SdkOptional<int> valkeyNumberOfDatabases;
-
   /// Valkey IO thread count
   final SdkOptional<int> valkeyIoThreads;
-
   /// Counter logarithm factor for volatile-lfu and allkeys-lfu maxmemory-policies
   final SdkOptional<int> valkeyLfuLogFactor;
-
   /// LFU maxmemory-policy counter decay time in minutes
   final SdkOptional<int> valkeyLfuDecayTime;
-
   /// Require SSL to access Valkey
   final SdkOptional<bool> valkeySsl;
-
   /// Valkey idle connection timeout in seconds
   final SdkOptional<int> valkeyTimeout;
-
   /// Set notify-keyspace-events option. Requires at least `K` or `E` and accepts any combination of the following options. Setting the parameter to `""` disables notifications. - `K` &mdash; Keyspace events - `E` &mdash; Keyevent events - `g` &mdash; Generic commands (e.g. `DEL`, `EXPIRE`, `RENAME`, ...) - `$` &mdash; String commands - `l` &mdash; List commands - `s` &mdash; Set commands - `h` &mdash; Hash commands - `z` &mdash; Sorted set commands - `t` &mdash; Stream commands - `d` &mdash; Module key type events - `x` &mdash; Expired events - `e` &mdash; Evicted events - `m` &mdash; Key miss events - `n` &mdash; New key events - `A` &mdash; Alias for `"g$lshztxed"`
   final SdkOptional<String> valkeyNotifyKeyspaceEvents;
-
   /// When persistence is 'rdb', Valkey does RDB dumps each 10 minutes if any key is changed. Also RDB dumps are done according to backup schedule for backup purposes. When persistence is 'off', no RDB dumps and backups are done, so data can be lost at any moment if service is restarted for any reason, or if service is powered off. Also service can't be forked.
   final SdkOptional<ValkeyAdvancedConfigValkeyPersistence> valkeyPersistence;
-
   /// Determines default pub/sub channels' ACL for new users if ACL is not supplied. When this option is not defined, all_channels is assumed to keep backward compatibility. This option doesn't affect Valkey configuration acl-pubsub-default.
-  final SdkOptional<ValkeyAdvancedConfigValkeyAclChannelsDefault>
-      valkeyAclChannelsDefault;
-
+  final SdkOptional<ValkeyAdvancedConfigValkeyAclChannelsDefault> valkeyAclChannelsDefault;
   /// Frequent RDB snapshots When enabled, Valkey will create frequent local RDB snapshots. When disabled, Valkey will only take RDB snapshots when a backup is created, based on the backup schedule. This setting is ignored when valkey_persistence is set to off.
   final SdkOptional<bool> frequentSnapshots;
-
   /// Active expire effort Valkey reclaims expired keys both when accessed and in the background. The background process scans for expired keys to free memory. Increasing the active-expire-effort setting (default 1, max 10) uses more CPU to reclaim expired keys faster, reducing memory usage but potentially increasing latency.
   final SdkOptional<int> valkeyActiveExpireEffort;
 
-  const ValkeyAdvancedConfig(
-      {this.valkeyMaxmemoryPolicy = const SdkOmitted(),
-      this.valkeyPubsubClientOutputBufferLimit = const SdkOmitted(),
-      this.valkeyNumberOfDatabases = const SdkOmitted(),
-      this.valkeyIoThreads = const SdkOmitted(),
-      this.valkeyLfuLogFactor = const SdkOmitted(),
-      this.valkeyLfuDecayTime = const SdkOmitted(),
-      this.valkeySsl = const SdkOmitted(),
-      this.valkeyTimeout = const SdkOmitted(),
-      this.valkeyNotifyKeyspaceEvents = const SdkOmitted(),
-      this.valkeyPersistence = const SdkOmitted(),
-      this.valkeyAclChannelsDefault = const SdkOmitted(),
-      this.frequentSnapshots = const SdkOmitted(),
-      this.valkeyActiveExpireEffort = const SdkOmitted()});
+  const ValkeyAdvancedConfig({this.valkeyMaxmemoryPolicy = const SdkOmitted(), this.valkeyPubsubClientOutputBufferLimit = const SdkOmitted(), this.valkeyNumberOfDatabases = const SdkOmitted(), this.valkeyIoThreads = const SdkOmitted(), this.valkeyLfuLogFactor = const SdkOmitted(), this.valkeyLfuDecayTime = const SdkOmitted(), this.valkeySsl = const SdkOmitted(), this.valkeyTimeout = const SdkOmitted(), this.valkeyNotifyKeyspaceEvents = const SdkOmitted(), this.valkeyPersistence = const SdkOmitted(), this.valkeyAclChannelsDefault = const SdkOmitted(), this.frequentSnapshots = const SdkOmitted(), this.valkeyActiveExpireEffort = const SdkOmitted()});
 
-  ValkeyAdvancedConfig Function(
-      {SdkOptional<EvictionPolicyModel> valkeyMaxmemoryPolicy,
-      SdkOptional<int> valkeyPubsubClientOutputBufferLimit,
-      SdkOptional<int> valkeyNumberOfDatabases,
-      SdkOptional<int> valkeyIoThreads,
-      SdkOptional<int> valkeyLfuLogFactor,
-      SdkOptional<int> valkeyLfuDecayTime,
-      SdkOptional<bool> valkeySsl,
-      SdkOptional<int> valkeyTimeout,
-      SdkOptional<String> valkeyNotifyKeyspaceEvents,
-      SdkOptional<ValkeyAdvancedConfigValkeyPersistence> valkeyPersistence,
-      SdkOptional<ValkeyAdvancedConfigValkeyAclChannelsDefault>
-          valkeyAclChannelsDefault,
-      SdkOptional<bool> frequentSnapshots,
-      SdkOptional<int> valkeyActiveExpireEffort}) get copyWith => _copyWith;
+  ValkeyAdvancedConfig Function({SdkOptional<EvictionPolicyModel> valkeyMaxmemoryPolicy, SdkOptional<int> valkeyPubsubClientOutputBufferLimit, SdkOptional<int> valkeyNumberOfDatabases, SdkOptional<int> valkeyIoThreads, SdkOptional<int> valkeyLfuLogFactor, SdkOptional<int> valkeyLfuDecayTime, SdkOptional<bool> valkeySsl, SdkOptional<int> valkeyTimeout, SdkOptional<String> valkeyNotifyKeyspaceEvents, SdkOptional<ValkeyAdvancedConfigValkeyPersistence> valkeyPersistence, SdkOptional<ValkeyAdvancedConfigValkeyAclChannelsDefault> valkeyAclChannelsDefault, SdkOptional<bool> frequentSnapshots, SdkOptional<int> valkeyActiveExpireEffort}) get copyWith => _copyWith;
 
-  ValkeyAdvancedConfig _copyWith(
-          {Object? valkeyMaxmemoryPolicy = sdkOmittedValue,
-          Object? valkeyPubsubClientOutputBufferLimit = sdkOmittedValue,
-          Object? valkeyNumberOfDatabases = sdkOmittedValue,
-          Object? valkeyIoThreads = sdkOmittedValue,
-          Object? valkeyLfuLogFactor = sdkOmittedValue,
-          Object? valkeyLfuDecayTime = sdkOmittedValue,
-          Object? valkeySsl = sdkOmittedValue,
-          Object? valkeyTimeout = sdkOmittedValue,
-          Object? valkeyNotifyKeyspaceEvents = sdkOmittedValue,
-          Object? valkeyPersistence = sdkOmittedValue,
-          Object? valkeyAclChannelsDefault = sdkOmittedValue,
-          Object? frequentSnapshots = sdkOmittedValue,
-          Object? valkeyActiveExpireEffort = sdkOmittedValue}) =>
-      ValkeyAdvancedConfig(
-        valkeyMaxmemoryPolicy: identical(valkeyMaxmemoryPolicy, sdkOmittedValue)
-            ? this.valkeyMaxmemoryPolicy
-            : valkeyMaxmemoryPolicy as SdkOptional<EvictionPolicyModel>,
-        valkeyPubsubClientOutputBufferLimit:
-            identical(valkeyPubsubClientOutputBufferLimit, sdkOmittedValue)
-                ? this.valkeyPubsubClientOutputBufferLimit
-                : valkeyPubsubClientOutputBufferLimit as SdkOptional<int>,
-        valkeyNumberOfDatabases:
-            identical(valkeyNumberOfDatabases, sdkOmittedValue)
-                ? this.valkeyNumberOfDatabases
-                : valkeyNumberOfDatabases as SdkOptional<int>,
-        valkeyIoThreads: identical(valkeyIoThreads, sdkOmittedValue)
-            ? this.valkeyIoThreads
-            : valkeyIoThreads as SdkOptional<int>,
-        valkeyLfuLogFactor: identical(valkeyLfuLogFactor, sdkOmittedValue)
-            ? this.valkeyLfuLogFactor
-            : valkeyLfuLogFactor as SdkOptional<int>,
-        valkeyLfuDecayTime: identical(valkeyLfuDecayTime, sdkOmittedValue)
-            ? this.valkeyLfuDecayTime
-            : valkeyLfuDecayTime as SdkOptional<int>,
-        valkeySsl: identical(valkeySsl, sdkOmittedValue)
-            ? this.valkeySsl
-            : valkeySsl as SdkOptional<bool>,
-        valkeyTimeout: identical(valkeyTimeout, sdkOmittedValue)
-            ? this.valkeyTimeout
-            : valkeyTimeout as SdkOptional<int>,
-        valkeyNotifyKeyspaceEvents:
-            identical(valkeyNotifyKeyspaceEvents, sdkOmittedValue)
-                ? this.valkeyNotifyKeyspaceEvents
-                : valkeyNotifyKeyspaceEvents as SdkOptional<String>,
-        valkeyPersistence: identical(valkeyPersistence, sdkOmittedValue)
-            ? this.valkeyPersistence
-            : valkeyPersistence
-                as SdkOptional<ValkeyAdvancedConfigValkeyPersistence>,
-        valkeyAclChannelsDefault: identical(
-                valkeyAclChannelsDefault, sdkOmittedValue)
-            ? this.valkeyAclChannelsDefault
-            : valkeyAclChannelsDefault
-                as SdkOptional<ValkeyAdvancedConfigValkeyAclChannelsDefault>,
-        frequentSnapshots: identical(frequentSnapshots, sdkOmittedValue)
-            ? this.frequentSnapshots
-            : frequentSnapshots as SdkOptional<bool>,
-        valkeyActiveExpireEffort:
-            identical(valkeyActiveExpireEffort, sdkOmittedValue)
-                ? this.valkeyActiveExpireEffort
-                : valkeyActiveExpireEffort as SdkOptional<int>,
-      );
+  ValkeyAdvancedConfig _copyWith({Object? valkeyMaxmemoryPolicy = sdkOmittedValue, Object? valkeyPubsubClientOutputBufferLimit = sdkOmittedValue, Object? valkeyNumberOfDatabases = sdkOmittedValue, Object? valkeyIoThreads = sdkOmittedValue, Object? valkeyLfuLogFactor = sdkOmittedValue, Object? valkeyLfuDecayTime = sdkOmittedValue, Object? valkeySsl = sdkOmittedValue, Object? valkeyTimeout = sdkOmittedValue, Object? valkeyNotifyKeyspaceEvents = sdkOmittedValue, Object? valkeyPersistence = sdkOmittedValue, Object? valkeyAclChannelsDefault = sdkOmittedValue, Object? frequentSnapshots = sdkOmittedValue, Object? valkeyActiveExpireEffort = sdkOmittedValue}) => ValkeyAdvancedConfig(
+    valkeyMaxmemoryPolicy: identical(valkeyMaxmemoryPolicy, sdkOmittedValue) ? this.valkeyMaxmemoryPolicy : valkeyMaxmemoryPolicy as SdkOptional<EvictionPolicyModel>,
+    valkeyPubsubClientOutputBufferLimit: identical(valkeyPubsubClientOutputBufferLimit, sdkOmittedValue) ? this.valkeyPubsubClientOutputBufferLimit : valkeyPubsubClientOutputBufferLimit as SdkOptional<int>,
+    valkeyNumberOfDatabases: identical(valkeyNumberOfDatabases, sdkOmittedValue) ? this.valkeyNumberOfDatabases : valkeyNumberOfDatabases as SdkOptional<int>,
+    valkeyIoThreads: identical(valkeyIoThreads, sdkOmittedValue) ? this.valkeyIoThreads : valkeyIoThreads as SdkOptional<int>,
+    valkeyLfuLogFactor: identical(valkeyLfuLogFactor, sdkOmittedValue) ? this.valkeyLfuLogFactor : valkeyLfuLogFactor as SdkOptional<int>,
+    valkeyLfuDecayTime: identical(valkeyLfuDecayTime, sdkOmittedValue) ? this.valkeyLfuDecayTime : valkeyLfuDecayTime as SdkOptional<int>,
+    valkeySsl: identical(valkeySsl, sdkOmittedValue) ? this.valkeySsl : valkeySsl as SdkOptional<bool>,
+    valkeyTimeout: identical(valkeyTimeout, sdkOmittedValue) ? this.valkeyTimeout : valkeyTimeout as SdkOptional<int>,
+    valkeyNotifyKeyspaceEvents: identical(valkeyNotifyKeyspaceEvents, sdkOmittedValue) ? this.valkeyNotifyKeyspaceEvents : valkeyNotifyKeyspaceEvents as SdkOptional<String>,
+    valkeyPersistence: identical(valkeyPersistence, sdkOmittedValue) ? this.valkeyPersistence : valkeyPersistence as SdkOptional<ValkeyAdvancedConfigValkeyPersistence>,
+    valkeyAclChannelsDefault: identical(valkeyAclChannelsDefault, sdkOmittedValue) ? this.valkeyAclChannelsDefault : valkeyAclChannelsDefault as SdkOptional<ValkeyAdvancedConfigValkeyAclChannelsDefault>,
+    frequentSnapshots: identical(frequentSnapshots, sdkOmittedValue) ? this.frequentSnapshots : frequentSnapshots as SdkOptional<bool>,
+    valkeyActiveExpireEffort: identical(valkeyActiveExpireEffort, sdkOmittedValue) ? this.valkeyActiveExpireEffort : valkeyActiveExpireEffort as SdkOptional<int>,
+  );
 
-  factory ValkeyAdvancedConfig.fromJson(Map<String, dynamic> json) =>
-      ValkeyAdvancedConfig(
-        valkeyMaxmemoryPolicy: json['valkey_maxmemory_policy'] != null
-            ? SdkPresent((json['valkey_maxmemory_policy'] != null
-                ? EvictionPolicyModel.fromJson(
-                    json['valkey_maxmemory_policy'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        valkeyPubsubClientOutputBufferLimit:
-            json['valkey_pubsub_client_output_buffer_limit'] != null
-                ? SdkPresent(
-                    ((json['valkey_pubsub_client_output_buffer_limit'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        valkeyNumberOfDatabases: json['valkey_number_of_databases'] != null
-            ? SdkPresent(
-                ((json['valkey_number_of_databases'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        valkeyIoThreads: json['valkey_io_threads'] != null
-            ? SdkPresent(((json['valkey_io_threads'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        valkeyLfuLogFactor: json['valkey_lfu_log_factor'] != null
-            ? SdkPresent(((json['valkey_lfu_log_factor'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        valkeyLfuDecayTime: json['valkey_lfu_decay_time'] != null
-            ? SdkPresent(((json['valkey_lfu_decay_time'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        valkeySsl: json['valkey_ssl'] != null
-            ? SdkPresent((json['valkey_ssl'] as bool?)!)
-            : const SdkOmitted(),
-        valkeyTimeout: json['valkey_timeout'] != null
-            ? SdkPresent(((json['valkey_timeout'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        valkeyNotifyKeyspaceEvents: json['valkey_notify_keyspace_events'] !=
-                null
-            ? SdkPresent((json['valkey_notify_keyspace_events'] as String?)!)
-            : const SdkOmitted(),
-        valkeyPersistence: json['valkey_persistence'] != null
-            ? SdkPresent((json['valkey_persistence'] != null
-                ? ValkeyAdvancedConfigValkeyPersistence.fromJson(
-                    json['valkey_persistence'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        valkeyAclChannelsDefault: json['valkey_acl_channels_default'] != null
-            ? SdkPresent((json['valkey_acl_channels_default'] != null
-                ? ValkeyAdvancedConfigValkeyAclChannelsDefault.fromJson(
-                    json['valkey_acl_channels_default'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        frequentSnapshots: json['frequent_snapshots'] != null
-            ? SdkPresent((json['frequent_snapshots'] as bool?)!)
-            : const SdkOmitted(),
-        valkeyActiveExpireEffort: json['valkey_active_expire_effort'] != null
-            ? SdkPresent(
-                ((json['valkey_active_expire_effort'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ValkeyAdvancedConfig.fromJson(Map<String, dynamic> json) => ValkeyAdvancedConfig(
+    valkeyMaxmemoryPolicy: json['valkey_maxmemory_policy'] != null ? SdkPresent((json['valkey_maxmemory_policy'] != null ? EvictionPolicyModel.fromJson(json['valkey_maxmemory_policy'] as String) : null)!) : const SdkOmitted(),
+    valkeyPubsubClientOutputBufferLimit: json['valkey_pubsub_client_output_buffer_limit'] != null ? SdkPresent(((json['valkey_pubsub_client_output_buffer_limit'] as num?)?.toInt())!) : const SdkOmitted(),
+    valkeyNumberOfDatabases: json['valkey_number_of_databases'] != null ? SdkPresent(((json['valkey_number_of_databases'] as num?)?.toInt())!) : const SdkOmitted(),
+    valkeyIoThreads: json['valkey_io_threads'] != null ? SdkPresent(((json['valkey_io_threads'] as num?)?.toInt())!) : const SdkOmitted(),
+    valkeyLfuLogFactor: json['valkey_lfu_log_factor'] != null ? SdkPresent(((json['valkey_lfu_log_factor'] as num?)?.toInt())!) : const SdkOmitted(),
+    valkeyLfuDecayTime: json['valkey_lfu_decay_time'] != null ? SdkPresent(((json['valkey_lfu_decay_time'] as num?)?.toInt())!) : const SdkOmitted(),
+    valkeySsl: json['valkey_ssl'] != null ? SdkPresent((json['valkey_ssl'] as bool?)!) : const SdkOmitted(),
+    valkeyTimeout: json['valkey_timeout'] != null ? SdkPresent(((json['valkey_timeout'] as num?)?.toInt())!) : const SdkOmitted(),
+    valkeyNotifyKeyspaceEvents: json['valkey_notify_keyspace_events'] != null ? SdkPresent((json['valkey_notify_keyspace_events'] as String?)!) : const SdkOmitted(),
+    valkeyPersistence: json['valkey_persistence'] != null ? SdkPresent((json['valkey_persistence'] != null ? ValkeyAdvancedConfigValkeyPersistence.fromJson(json['valkey_persistence'] as String) : null)!) : const SdkOmitted(),
+    valkeyAclChannelsDefault: json['valkey_acl_channels_default'] != null ? SdkPresent((json['valkey_acl_channels_default'] != null ? ValkeyAdvancedConfigValkeyAclChannelsDefault.fromJson(json['valkey_acl_channels_default'] as String) : null)!) : const SdkOmitted(),
+    frequentSnapshots: json['frequent_snapshots'] != null ? SdkPresent((json['frequent_snapshots'] as bool?)!) : const SdkOmitted(),
+    valkeyActiveExpireEffort: json['valkey_active_expire_effort'] != null ? SdkPresent(((json['valkey_active_expire_effort'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (valkeyMaxmemoryPolicy) {
-          SdkPresent<EvictionPolicyModel>(value: final value) => {
-              'valkey_maxmemory_policy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valkeyPubsubClientOutputBufferLimit) {
-          SdkPresent<int>(value: final value) => {
-              'valkey_pubsub_client_output_buffer_limit': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valkeyNumberOfDatabases) {
-          SdkPresent<int>(value: final value) => {
-              'valkey_number_of_databases': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valkeyIoThreads) {
-          SdkPresent<int>(value: final value) => {
-              'valkey_io_threads': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valkeyLfuLogFactor) {
-          SdkPresent<int>(value: final value) => {
-              'valkey_lfu_log_factor': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valkeyLfuDecayTime) {
-          SdkPresent<int>(value: final value) => {
-              'valkey_lfu_decay_time': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valkeySsl) {
-          SdkPresent<bool>(value: final value) => {
-              'valkey_ssl': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valkeyTimeout) {
-          SdkPresent<int>(value: final value) => {
-              'valkey_timeout': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valkeyNotifyKeyspaceEvents) {
-          SdkPresent<String>(value: final value) => {
-              'valkey_notify_keyspace_events': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valkeyPersistence) {
-          SdkPresent<ValkeyAdvancedConfigValkeyPersistence>(
-            value: final value
-          ) =>
-            {
-              'valkey_persistence': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valkeyAclChannelsDefault) {
-          SdkPresent<ValkeyAdvancedConfigValkeyAclChannelsDefault>(
-            value: final value
-          ) =>
-            {
-              'valkey_acl_channels_default': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (frequentSnapshots) {
-          SdkPresent<bool>(value: final value) => {
-              'frequent_snapshots': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valkeyActiveExpireEffort) {
-          SdkPresent<int>(value: final value) => {
-              'valkey_active_expire_effort': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (valkeyMaxmemoryPolicy) {
+      SdkPresent<EvictionPolicyModel>(value: final value) => {'valkey_maxmemory_policy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valkeyPubsubClientOutputBufferLimit) {
+      SdkPresent<int>(value: final value) => {'valkey_pubsub_client_output_buffer_limit': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valkeyNumberOfDatabases) {
+      SdkPresent<int>(value: final value) => {'valkey_number_of_databases': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valkeyIoThreads) {
+      SdkPresent<int>(value: final value) => {'valkey_io_threads': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valkeyLfuLogFactor) {
+      SdkPresent<int>(value: final value) => {'valkey_lfu_log_factor': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valkeyLfuDecayTime) {
+      SdkPresent<int>(value: final value) => {'valkey_lfu_decay_time': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valkeySsl) {
+      SdkPresent<bool>(value: final value) => {'valkey_ssl': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valkeyTimeout) {
+      SdkPresent<int>(value: final value) => {'valkey_timeout': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valkeyNotifyKeyspaceEvents) {
+      SdkPresent<String>(value: final value) => {'valkey_notify_keyspace_events': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valkeyPersistence) {
+      SdkPresent<ValkeyAdvancedConfigValkeyPersistence>(value: final value) => {'valkey_persistence': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valkeyAclChannelsDefault) {
+      SdkPresent<ValkeyAdvancedConfigValkeyAclChannelsDefault>(value: final value) => {'valkey_acl_channels_default': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (frequentSnapshots) {
+      SdkPresent<bool>(value: final value) => {'frequent_snapshots': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valkeyActiveExpireEffort) {
+      SdkPresent<int>(value: final value) => {'valkey_active_expire_effort': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 // Version = String
@@ -398,7 +211,6 @@ class ValkeyAdvancedConfig {
 class Version2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A string representing the version of the database engine in use for the cluster.
   final SdkOptional<String> version;
 
@@ -407,23 +219,17 @@ class Version2 {
   Version2 Function({SdkOptional<String> version}) get copyWith => _copyWith;
 
   Version2 _copyWith({Object? version = sdkOmittedValue}) => Version2(
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String>,
-      );
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
+  );
 
   factory Version2.fromJson(Map<String, dynamic> json) => Version2(
-        version: json['version'] != null
-            ? SdkPresent((json['version'] as String?)!)
-            : const SdkOmitted(),
-      );
+    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (version) {
-          SdkPresent<String>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (version) {
+      SdkPresent<String>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

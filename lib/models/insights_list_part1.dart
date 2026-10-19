@@ -9,39 +9,24 @@ class ListAlertInstancesResponseVariant0 {
   static const String constructionSurface = 'named';
   final SdkOptional<List<AlertInstance>> alertInstances;
 
-  const ListAlertInstancesResponseVariant0(
-      {this.alertInstances = const SdkOmitted()});
+  const ListAlertInstancesResponseVariant0({this.alertInstances = const SdkOmitted()});
 
-  ListAlertInstancesResponseVariant0 Function(
-          {SdkOptional<List<AlertInstance>> alertInstances})
-      get copyWith => _copyWith;
+  ListAlertInstancesResponseVariant0 Function({SdkOptional<List<AlertInstance>> alertInstances}) get copyWith => _copyWith;
 
-  ListAlertInstancesResponseVariant0 _copyWith(
-          {Object? alertInstances = sdkOmittedValue}) =>
-      ListAlertInstancesResponseVariant0(
-        alertInstances: identical(alertInstances, sdkOmittedValue)
-            ? this.alertInstances
-            : alertInstances as SdkOptional<List<AlertInstance>>,
-      );
+  ListAlertInstancesResponseVariant0 _copyWith({Object? alertInstances = sdkOmittedValue}) => ListAlertInstancesResponseVariant0(
+    alertInstances: identical(alertInstances, sdkOmittedValue) ? this.alertInstances : alertInstances as SdkOptional<List<AlertInstance>>,
+  );
 
-  factory ListAlertInstancesResponseVariant0.fromJson(
-          Map<String, dynamic> json) =>
-      ListAlertInstancesResponseVariant0(
-        alertInstances: json['alert_instances'] != null
-            ? SdkPresent(((json['alert_instances'] as List?)
-                ?.map((e) => AlertInstance.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ListAlertInstancesResponseVariant0.fromJson(Map<String, dynamic> json) => ListAlertInstancesResponseVariant0(
+    alertInstances: json['alert_instances'] != null ? SdkPresent(((json['alert_instances'] as List?)?.map((e) => AlertInstance.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (alertInstances) {
-          SdkPresent<List<AlertInstance>>(value: final value) => {
-              'alert_instances': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (alertInstances) {
+      SdkPresent<List<AlertInstance>>(value: final value) => {'alert_instances': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ListAlertInstancesResponse` API schema.
@@ -49,136 +34,84 @@ class ListAlertInstancesResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<AlertInstance>> alertInstances;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const ListAlertInstancesResponse(
-      {this.alertInstances = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const ListAlertInstancesResponse({this.alertInstances = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  ListAlertInstancesResponse Function(
-      {SdkOptional<List<AlertInstance>> alertInstances,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  ListAlertInstancesResponse Function({SdkOptional<List<AlertInstance>> alertInstances, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  ListAlertInstancesResponse _copyWith(
-          {Object? alertInstances = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      ListAlertInstancesResponse(
-        alertInstances: identical(alertInstances, sdkOmittedValue)
-            ? this.alertInstances
-            : alertInstances as SdkOptional<List<AlertInstance>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  ListAlertInstancesResponse _copyWith({Object? alertInstances = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ListAlertInstancesResponse(
+    alertInstances: identical(alertInstances, sdkOmittedValue) ? this.alertInstances : alertInstances as SdkOptional<List<AlertInstance>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory ListAlertInstancesResponse.fromJson(Map<String, dynamic> json) =>
-      ListAlertInstancesResponse(
-        alertInstances: json['alert_instances'] != null
-            ? SdkPresent(((json['alert_instances'] as List?)
-                ?.map((e) => AlertInstance.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ListAlertInstancesResponse.fromJson(Map<String, dynamic> json) => ListAlertInstancesResponse(
+    alertInstances: json['alert_instances'] != null ? SdkPresent(((json['alert_instances'] as List?)?.map((e) => AlertInstance.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (alertInstances) {
-          SdkPresent<List<AlertInstance>>(value: final value) => {
-              'alert_instances': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (alertInstances) {
+      SdkPresent<List<AlertInstance>>(value: final value) => {'alert_instances': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 /// Typed representation of the `ListAlertRules` API schema.
 class ListAlertRules {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `alert_rules` wire field.
   final List<AlertRule> alertRules;
 
   const ListAlertRules({required this.alertRules});
 
-  ListAlertRules Function({List<AlertRule> alertRules}) get copyWith =>
-      _copyWith;
+  ListAlertRules Function({List<AlertRule> alertRules}) get copyWith => _copyWith;
 
-  ListAlertRules _copyWith({Object? alertRules = sdkOmittedValue}) =>
-      ListAlertRules(
-        alertRules: identical(alertRules, sdkOmittedValue)
-            ? this.alertRules
-            : alertRules as List<AlertRule>,
-      );
+  ListAlertRules _copyWith({Object? alertRules = sdkOmittedValue}) => ListAlertRules(
+    alertRules: identical(alertRules, sdkOmittedValue) ? this.alertRules : alertRules as List<AlertRule>,
+  );
 
   factory ListAlertRules.fromJson(Map<String, dynamic> json) => ListAlertRules(
-        alertRules: ((json['alert_rules'] as List?)
-            ?.map((e) => AlertRule.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+    alertRules: ((json['alert_rules'] as List?)?.map((e) => AlertRule.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'alert_rules': alertRules.map((item) => item.toJson()).toList(),
-      };
+    'alert_rules': alertRules.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Typed representation of the `ListNotificationChannels` API schema.
 class ListNotificationChannels {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `notification_channels` wire field.
   final List<NotificationChannel> notificationChannels;
 
   const ListNotificationChannels({required this.notificationChannels});
 
-  ListNotificationChannels Function(
-          {List<NotificationChannel> notificationChannels})
-      get copyWith => _copyWith;
+  ListNotificationChannels Function({List<NotificationChannel> notificationChannels}) get copyWith => _copyWith;
 
-  ListNotificationChannels _copyWith(
-          {Object? notificationChannels = sdkOmittedValue}) =>
-      ListNotificationChannels(
-        notificationChannels: identical(notificationChannels, sdkOmittedValue)
-            ? this.notificationChannels
-            : notificationChannels as List<NotificationChannel>,
-      );
+  ListNotificationChannels _copyWith({Object? notificationChannels = sdkOmittedValue}) => ListNotificationChannels(
+    notificationChannels: identical(notificationChannels, sdkOmittedValue) ? this.notificationChannels : notificationChannels as List<NotificationChannel>,
+  );
 
-  factory ListNotificationChannels.fromJson(Map<String, dynamic> json) =>
-      ListNotificationChannels(
-        notificationChannels: ((json['notification_channels'] as List?)
-            ?.map(
-                (e) => NotificationChannel.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory ListNotificationChannels.fromJson(Map<String, dynamic> json) => ListNotificationChannels(
+    notificationChannels: ((json['notification_channels'] as List?)?.map((e) => NotificationChannel.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'notification_channels':
-            notificationChannels.map((item) => item.toJson()).toList(),
-      };
+    'notification_channels': notificationChannels.map((item) => item.toJson()).toList(),
+  };
 }

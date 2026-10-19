@@ -9,39 +9,24 @@ class AllDomainRecordsResponseVariant0 {
   static const String constructionSurface = 'named';
   final SdkOptional<List<DomainRecord>> domainRecords;
 
-  const AllDomainRecordsResponseVariant0(
-      {this.domainRecords = const SdkOmitted()});
+  const AllDomainRecordsResponseVariant0({this.domainRecords = const SdkOmitted()});
 
-  AllDomainRecordsResponseVariant0 Function(
-          {SdkOptional<List<DomainRecord>> domainRecords})
-      get copyWith => _copyWith;
+  AllDomainRecordsResponseVariant0 Function({SdkOptional<List<DomainRecord>> domainRecords}) get copyWith => _copyWith;
 
-  AllDomainRecordsResponseVariant0 _copyWith(
-          {Object? domainRecords = sdkOmittedValue}) =>
-      AllDomainRecordsResponseVariant0(
-        domainRecords: identical(domainRecords, sdkOmittedValue)
-            ? this.domainRecords
-            : domainRecords as SdkOptional<List<DomainRecord>>,
-      );
+  AllDomainRecordsResponseVariant0 _copyWith({Object? domainRecords = sdkOmittedValue}) => AllDomainRecordsResponseVariant0(
+    domainRecords: identical(domainRecords, sdkOmittedValue) ? this.domainRecords : domainRecords as SdkOptional<List<DomainRecord>>,
+  );
 
-  factory AllDomainRecordsResponseVariant0.fromJson(
-          Map<String, dynamic> json) =>
-      AllDomainRecordsResponseVariant0(
-        domainRecords: json['domain_records'] != null
-            ? SdkPresent(((json['domain_records'] as List?)
-                ?.map((e) => DomainRecord.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AllDomainRecordsResponseVariant0.fromJson(Map<String, dynamic> json) => AllDomainRecordsResponseVariant0(
+    domainRecords: json['domain_records'] != null ? SdkPresent(((json['domain_records'] as List?)?.map((e) => DomainRecord.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (domainRecords) {
-          SdkPresent<List<DomainRecord>>(value: final value) => {
-              'domain_records': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (domainRecords) {
+      SdkPresent<List<DomainRecord>>(value: final value) => {'domain_records': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AllDomainRecordsResponse` API schema.
@@ -49,488 +34,255 @@ class AllDomainRecordsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<DomainRecord>> domainRecords;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllDomainRecordsResponse(
-      {this.domainRecords = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllDomainRecordsResponse({this.domainRecords = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AllDomainRecordsResponse Function(
-      {SdkOptional<List<DomainRecord>> domainRecords,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllDomainRecordsResponse Function({SdkOptional<List<DomainRecord>> domainRecords, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllDomainRecordsResponse _copyWith(
-          {Object? domainRecords = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllDomainRecordsResponse(
-        domainRecords: identical(domainRecords, sdkOmittedValue)
-            ? this.domainRecords
-            : domainRecords as SdkOptional<List<DomainRecord>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllDomainRecordsResponse _copyWith({Object? domainRecords = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllDomainRecordsResponse(
+    domainRecords: identical(domainRecords, sdkOmittedValue) ? this.domainRecords : domainRecords as SdkOptional<List<DomainRecord>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory AllDomainRecordsResponse.fromJson(Map<String, dynamic> json) =>
-      AllDomainRecordsResponse(
-        domainRecords: json['domain_records'] != null
-            ? SdkPresent(((json['domain_records'] as List?)
-                ?.map((e) => DomainRecord.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AllDomainRecordsResponse.fromJson(Map<String, dynamic> json) => AllDomainRecordsResponse(
+    domainRecords: json['domain_records'] != null ? SdkPresent(((json['domain_records'] as List?)?.map((e) => DomainRecord.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (domainRecords) {
-          SdkPresent<List<DomainRecord>>(value: final value) => {
-              'domain_records': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (domainRecords) {
+      SdkPresent<List<DomainRecord>>(value: final value) => {'domain_records': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 /// Typed representation of the `CreatedDomainRecord` API schema.
 class CreatedDomainRecord {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `domain_record` wire field.
   final SdkOptional<DomainRecord> domainRecord;
 
   const CreatedDomainRecord({this.domainRecord = const SdkOmitted()});
 
-  CreatedDomainRecord Function({SdkOptional<DomainRecord> domainRecord})
-      get copyWith => _copyWith;
+  CreatedDomainRecord Function({SdkOptional<DomainRecord> domainRecord}) get copyWith => _copyWith;
 
-  CreatedDomainRecord _copyWith({Object? domainRecord = sdkOmittedValue}) =>
-      CreatedDomainRecord(
-        domainRecord: identical(domainRecord, sdkOmittedValue)
-            ? this.domainRecord
-            : domainRecord as SdkOptional<DomainRecord>,
-      );
+  CreatedDomainRecord _copyWith({Object? domainRecord = sdkOmittedValue}) => CreatedDomainRecord(
+    domainRecord: identical(domainRecord, sdkOmittedValue) ? this.domainRecord : domainRecord as SdkOptional<DomainRecord>,
+  );
 
-  factory CreatedDomainRecord.fromJson(Map<String, dynamic> json) =>
-      CreatedDomainRecord(
-        domainRecord: json['domain_record'] != null
-            ? SdkPresent((json['domain_record'] != null
-                ? DomainRecord.fromJson(
-                    json['domain_record'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory CreatedDomainRecord.fromJson(Map<String, dynamic> json) => CreatedDomainRecord(
+    domainRecord: json['domain_record'] != null ? SdkPresent((json['domain_record'] != null ? DomainRecord.fromJson(json['domain_record'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (domainRecord) {
-          SdkPresent<DomainRecord>(value: final value) => {
-              'domain_record': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (domainRecord) {
+      SdkPresent<DomainRecord>(value: final value) => {'domain_record': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DomainRecord` API schema.
 class DomainRecord {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique identifier for each domain record.
   final SdkOptional<int> id;
-
   /// The type of the DNS record. For example: A, CNAME, TXT, ...
   final String type_;
-
   /// The host name, alias, or service being defined by the record.
   final SdkOptional<String> name;
-
   /// Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
   final SdkOptional<String> data;
-
   /// The priority for SRV and MX records.
   final SdkOptional<int?> priority;
-
   /// The port for SRV records.
   final SdkOptional<int?> port;
-
   /// This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.
   final SdkOptional<int> ttl;
-
   /// The weight for SRV records.
   final SdkOptional<int?> weight;
-
   /// An unsigned integer between 0-255 used for CAA records.
   final SdkOptional<int?> flags;
-
   /// The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"
   final SdkOptional<String?> tag;
 
-  const DomainRecord(
-      {this.id = const SdkOmitted(),
-      required this.type_,
-      this.name = const SdkOmitted(),
-      this.data = const SdkOmitted(),
-      this.priority = const SdkOmitted(),
-      this.port = const SdkOmitted(),
-      this.ttl = const SdkOmitted(),
-      this.weight = const SdkOmitted(),
-      this.flags = const SdkOmitted(),
-      this.tag = const SdkOmitted()});
+  const DomainRecord({this.id = const SdkOmitted(), required this.type_, this.name = const SdkOmitted(), this.data = const SdkOmitted(), this.priority = const SdkOmitted(), this.port = const SdkOmitted(), this.ttl = const SdkOmitted(), this.weight = const SdkOmitted(), this.flags = const SdkOmitted(), this.tag = const SdkOmitted()});
 
-  DomainRecord Function(
-      {SdkOptional<int> id,
-      String type_,
-      SdkOptional<String> name,
-      SdkOptional<String> data,
-      SdkOptional<int?> priority,
-      SdkOptional<int?> port,
-      SdkOptional<int> ttl,
-      SdkOptional<int?> weight,
-      SdkOptional<int?> flags,
-      SdkOptional<String?> tag}) get copyWith => _copyWith;
+  DomainRecord Function({SdkOptional<int> id, String type_, SdkOptional<String> name, SdkOptional<String> data, SdkOptional<int?> priority, SdkOptional<int?> port, SdkOptional<int> ttl, SdkOptional<int?> weight, SdkOptional<int?> flags, SdkOptional<String?> tag}) get copyWith => _copyWith;
 
-  DomainRecord _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? priority = sdkOmittedValue,
-          Object? port = sdkOmittedValue,
-          Object? ttl = sdkOmittedValue,
-          Object? weight = sdkOmittedValue,
-          Object? flags = sdkOmittedValue,
-          Object? tag = sdkOmittedValue}) =>
-      DomainRecord(
-        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<String>,
-        priority: identical(priority, sdkOmittedValue)
-            ? this.priority
-            : priority as SdkOptional<int?>,
-        port: identical(port, sdkOmittedValue)
-            ? this.port
-            : port as SdkOptional<int?>,
-        ttl: identical(ttl, sdkOmittedValue)
-            ? this.ttl
-            : ttl as SdkOptional<int>,
-        weight: identical(weight, sdkOmittedValue)
-            ? this.weight
-            : weight as SdkOptional<int?>,
-        flags: identical(flags, sdkOmittedValue)
-            ? this.flags
-            : flags as SdkOptional<int?>,
-        tag: identical(tag, sdkOmittedValue)
-            ? this.tag
-            : tag as SdkOptional<String?>,
-      );
+  DomainRecord _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? data = sdkOmittedValue, Object? priority = sdkOmittedValue, Object? port = sdkOmittedValue, Object? ttl = sdkOmittedValue, Object? weight = sdkOmittedValue, Object? flags = sdkOmittedValue, Object? tag = sdkOmittedValue}) => DomainRecord(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<String>,
+    priority: identical(priority, sdkOmittedValue) ? this.priority : priority as SdkOptional<int?>,
+    port: identical(port, sdkOmittedValue) ? this.port : port as SdkOptional<int?>,
+    ttl: identical(ttl, sdkOmittedValue) ? this.ttl : ttl as SdkOptional<int>,
+    weight: identical(weight, sdkOmittedValue) ? this.weight : weight as SdkOptional<int?>,
+    flags: identical(flags, sdkOmittedValue) ? this.flags : flags as SdkOptional<int?>,
+    tag: identical(tag, sdkOmittedValue) ? this.tag : tag as SdkOptional<String?>,
+  );
 
   factory DomainRecord.fromJson(Map<String, dynamic> json) => DomainRecord(
-        id: json['id'] != null
-            ? SdkPresent(((json['id'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        type_: (json['type'] as String?)!,
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent((json['data'] as String?)!)
-            : const SdkOmitted(),
-        priority: json.containsKey('priority')
-            ? SdkPresent((json['priority'] as num?)?.toInt())
-            : const SdkOmitted(),
-        port: json.containsKey('port')
-            ? SdkPresent((json['port'] as num?)?.toInt())
-            : const SdkOmitted(),
-        ttl: json['ttl'] != null
-            ? SdkPresent(((json['ttl'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        weight: json.containsKey('weight')
-            ? SdkPresent((json['weight'] as num?)?.toInt())
-            : const SdkOmitted(),
-        flags: json.containsKey('flags')
-            ? SdkPresent((json['flags'] as num?)?.toInt())
-            : const SdkOmitted(),
-        tag: json.containsKey('tag')
-            ? SdkPresent(json['tag'] as String?)
-            : const SdkOmitted(),
-      );
+    id: json['id'] != null ? SdkPresent(((json['id'] as num?)?.toInt())!) : const SdkOmitted(),
+    type_: (json['type'] as String?)!,
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent((json['data'] as String?)!) : const SdkOmitted(),
+    priority: json.containsKey('priority') ? SdkPresent((json['priority'] as num?)?.toInt()) : const SdkOmitted(),
+    port: json.containsKey('port') ? SdkPresent((json['port'] as num?)?.toInt()) : const SdkOmitted(),
+    ttl: json['ttl'] != null ? SdkPresent(((json['ttl'] as num?)?.toInt())!) : const SdkOmitted(),
+    weight: json.containsKey('weight') ? SdkPresent((json['weight'] as num?)?.toInt()) : const SdkOmitted(),
+    flags: json.containsKey('flags') ? SdkPresent((json['flags'] as num?)?.toInt()) : const SdkOmitted(),
+    tag: json.containsKey('tag') ? SdkPresent(json['tag'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<int>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_,
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<String>(value: final value) => {
-              'data': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (priority) {
-          SdkPresent<int?>(value: final value) => {
-              'priority': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (port) {
-          SdkPresent<int?>(value: final value) => {
-              'port': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ttl) {
-          SdkPresent<int>(value: final value) => {
-              'ttl': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (weight) {
-          SdkPresent<int?>(value: final value) => {
-              'weight': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (flags) {
-          SdkPresent<int?>(value: final value) => {
-              'flags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tag) {
-          SdkPresent<String?>(value: final value) => {
-              'tag': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<int>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_,
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<String>(value: final value) => {'data': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (priority) {
+      SdkPresent<int?>(value: final value) => {'priority': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (port) {
+      SdkPresent<int?>(value: final value) => {'port': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ttl) {
+      SdkPresent<int>(value: final value) => {'ttl': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (weight) {
+      SdkPresent<int?>(value: final value) => {'weight': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (flags) {
+      SdkPresent<int?>(value: final value) => {'flags': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tag) {
+      SdkPresent<String?>(value: final value) => {'tag': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DomainRecordAaaa` API schema.
 class DomainRecordAaaa {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique identifier for each domain record.
   final SdkOptional<int> id;
-
   /// The type of the DNS record. For example: A, CNAME, TXT, ...
   final String type_;
-
   /// The host name, alias, or service being defined by the record.
   final SdkOptional<String> name;
-
   /// Variable data depending on record type. For example, the "data" value for an A record would be the IPv4 address to which the domain will be mapped. For a CAA record, it would contain the domain name of the CA being granted permission to issue certificates.
   final SdkOptional<String> data;
-
   /// The priority for SRV and MX records.
   final SdkOptional<int?> priority;
-
   /// The port for SRV records.
   final SdkOptional<int?> port;
-
   /// This value is the time to live for the record, in seconds. This defines the time frame that clients can cache queried information before a refresh should be requested.
   final SdkOptional<int> ttl;
-
   /// The weight for SRV records.
   final SdkOptional<int?> weight;
-
   /// An unsigned integer between 0-255 used for CAA records.
   final SdkOptional<int?> flags;
-
   /// The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"
   final SdkOptional<String?> tag;
 
-  const DomainRecordAaaa(
-      {this.id = const SdkOmitted(),
-      required this.type_,
-      this.name = const SdkOmitted(),
-      this.data = const SdkOmitted(),
-      this.priority = const SdkOmitted(),
-      this.port = const SdkOmitted(),
-      this.ttl = const SdkOmitted(),
-      this.weight = const SdkOmitted(),
-      this.flags = const SdkOmitted(),
-      this.tag = const SdkOmitted()});
+  const DomainRecordAaaa({this.id = const SdkOmitted(), required this.type_, this.name = const SdkOmitted(), this.data = const SdkOmitted(), this.priority = const SdkOmitted(), this.port = const SdkOmitted(), this.ttl = const SdkOmitted(), this.weight = const SdkOmitted(), this.flags = const SdkOmitted(), this.tag = const SdkOmitted()});
 
-  DomainRecordAaaa Function(
-      {SdkOptional<int> id,
-      String type_,
-      SdkOptional<String> name,
-      SdkOptional<String> data,
-      SdkOptional<int?> priority,
-      SdkOptional<int?> port,
-      SdkOptional<int> ttl,
-      SdkOptional<int?> weight,
-      SdkOptional<int?> flags,
-      SdkOptional<String?> tag}) get copyWith => _copyWith;
+  DomainRecordAaaa Function({SdkOptional<int> id, String type_, SdkOptional<String> name, SdkOptional<String> data, SdkOptional<int?> priority, SdkOptional<int?> port, SdkOptional<int> ttl, SdkOptional<int?> weight, SdkOptional<int?> flags, SdkOptional<String?> tag}) get copyWith => _copyWith;
 
-  DomainRecordAaaa _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? priority = sdkOmittedValue,
-          Object? port = sdkOmittedValue,
-          Object? ttl = sdkOmittedValue,
-          Object? weight = sdkOmittedValue,
-          Object? flags = sdkOmittedValue,
-          Object? tag = sdkOmittedValue}) =>
-      DomainRecordAaaa(
-        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as SdkOptional<String>,
-        priority: identical(priority, sdkOmittedValue)
-            ? this.priority
-            : priority as SdkOptional<int?>,
-        port: identical(port, sdkOmittedValue)
-            ? this.port
-            : port as SdkOptional<int?>,
-        ttl: identical(ttl, sdkOmittedValue)
-            ? this.ttl
-            : ttl as SdkOptional<int>,
-        weight: identical(weight, sdkOmittedValue)
-            ? this.weight
-            : weight as SdkOptional<int?>,
-        flags: identical(flags, sdkOmittedValue)
-            ? this.flags
-            : flags as SdkOptional<int?>,
-        tag: identical(tag, sdkOmittedValue)
-            ? this.tag
-            : tag as SdkOptional<String?>,
-      );
+  DomainRecordAaaa _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? data = sdkOmittedValue, Object? priority = sdkOmittedValue, Object? port = sdkOmittedValue, Object? ttl = sdkOmittedValue, Object? weight = sdkOmittedValue, Object? flags = sdkOmittedValue, Object? tag = sdkOmittedValue}) => DomainRecordAaaa(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<String>,
+    priority: identical(priority, sdkOmittedValue) ? this.priority : priority as SdkOptional<int?>,
+    port: identical(port, sdkOmittedValue) ? this.port : port as SdkOptional<int?>,
+    ttl: identical(ttl, sdkOmittedValue) ? this.ttl : ttl as SdkOptional<int>,
+    weight: identical(weight, sdkOmittedValue) ? this.weight : weight as SdkOptional<int?>,
+    flags: identical(flags, sdkOmittedValue) ? this.flags : flags as SdkOptional<int?>,
+    tag: identical(tag, sdkOmittedValue) ? this.tag : tag as SdkOptional<String?>,
+  );
 
-  factory DomainRecordAaaa.fromJson(Map<String, dynamic> json) =>
-      DomainRecordAaaa(
-        id: json['id'] != null
-            ? SdkPresent(((json['id'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        type_: (json['type'] as String?)!,
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        data: json['data'] != null
-            ? SdkPresent((json['data'] as String?)!)
-            : const SdkOmitted(),
-        priority: json.containsKey('priority')
-            ? SdkPresent((json['priority'] as num?)?.toInt())
-            : const SdkOmitted(),
-        port: json.containsKey('port')
-            ? SdkPresent((json['port'] as num?)?.toInt())
-            : const SdkOmitted(),
-        ttl: json['ttl'] != null
-            ? SdkPresent(((json['ttl'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        weight: json.containsKey('weight')
-            ? SdkPresent((json['weight'] as num?)?.toInt())
-            : const SdkOmitted(),
-        flags: json.containsKey('flags')
-            ? SdkPresent((json['flags'] as num?)?.toInt())
-            : const SdkOmitted(),
-        tag: json.containsKey('tag')
-            ? SdkPresent(json['tag'] as String?)
-            : const SdkOmitted(),
-      );
+  factory DomainRecordAaaa.fromJson(Map<String, dynamic> json) => DomainRecordAaaa(
+    id: json['id'] != null ? SdkPresent(((json['id'] as num?)?.toInt())!) : const SdkOmitted(),
+    type_: (json['type'] as String?)!,
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    data: json['data'] != null ? SdkPresent((json['data'] as String?)!) : const SdkOmitted(),
+    priority: json.containsKey('priority') ? SdkPresent((json['priority'] as num?)?.toInt()) : const SdkOmitted(),
+    port: json.containsKey('port') ? SdkPresent((json['port'] as num?)?.toInt()) : const SdkOmitted(),
+    ttl: json['ttl'] != null ? SdkPresent(((json['ttl'] as num?)?.toInt())!) : const SdkOmitted(),
+    weight: json.containsKey('weight') ? SdkPresent((json['weight'] as num?)?.toInt()) : const SdkOmitted(),
+    flags: json.containsKey('flags') ? SdkPresent((json['flags'] as num?)?.toInt()) : const SdkOmitted(),
+    tag: json.containsKey('tag') ? SdkPresent(json['tag'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<int>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_,
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (data) {
-          SdkPresent<String>(value: final value) => {
-              'data': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (priority) {
-          SdkPresent<int?>(value: final value) => {
-              'priority': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (port) {
-          SdkPresent<int?>(value: final value) => {
-              'port': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ttl) {
-          SdkPresent<int>(value: final value) => {
-              'ttl': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (weight) {
-          SdkPresent<int?>(value: final value) => {
-              'weight': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (flags) {
-          SdkPresent<int?>(value: final value) => {
-              'flags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tag) {
-          SdkPresent<String?>(value: final value) => {
-              'tag': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<int>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_,
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (data) {
+      SdkPresent<String>(value: final value) => {'data': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (priority) {
+      SdkPresent<int?>(value: final value) => {'priority': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (port) {
+      SdkPresent<int?>(value: final value) => {'port': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ttl) {
+      SdkPresent<int>(value: final value) => {'ttl': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (weight) {
+      SdkPresent<int?>(value: final value) => {'weight': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (flags) {
+      SdkPresent<int?>(value: final value) => {'flags': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tag) {
+      SdkPresent<String?>(value: final value) => {'tag': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

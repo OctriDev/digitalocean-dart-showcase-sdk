@@ -8,464 +8,273 @@ part of 'databases.dart';
 class Autoscale {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Contains all autoscaling configuration for a database cluster
   final SdkOptional<DatabaseAutoscaleParams> autoscale;
 
   const Autoscale({this.autoscale = const SdkOmitted()});
 
-  Autoscale Function({SdkOptional<DatabaseAutoscaleParams> autoscale})
-      get copyWith => _copyWith;
+  Autoscale Function({SdkOptional<DatabaseAutoscaleParams> autoscale}) get copyWith => _copyWith;
 
   Autoscale _copyWith({Object? autoscale = sdkOmittedValue}) => Autoscale(
-        autoscale: identical(autoscale, sdkOmittedValue)
-            ? this.autoscale
-            : autoscale as SdkOptional<DatabaseAutoscaleParams>,
-      );
+    autoscale: identical(autoscale, sdkOmittedValue) ? this.autoscale : autoscale as SdkOptional<DatabaseAutoscaleParams>,
+  );
 
   factory Autoscale.fromJson(Map<String, dynamic> json) => Autoscale(
-        autoscale: json['autoscale'] != null
-            ? SdkPresent((json['autoscale'] != null
-                ? DatabaseAutoscaleParams.fromJson(
-                    json['autoscale'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    autoscale: json['autoscale'] != null ? SdkPresent((json['autoscale'] != null ? DatabaseAutoscaleParams.fromJson(json['autoscale'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (autoscale) {
-          SdkPresent<DatabaseAutoscaleParams>(value: final value) => {
-              'autoscale': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (autoscale) {
+      SdkPresent<DatabaseAutoscaleParams>(value: final value) => {'autoscale': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `Backup` API schema.
 class Backup {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A time value given in ISO8601 combined date and time format at which the backup was created.
   final String createdAt;
-
   /// The size of the database backup in GBs.
   final double sizeGigabytes;
-
   /// Indicates if this backup is a full or an incremental one (available only for MySQL).
   final SdkOptional<bool> incremental;
 
-  const Backup(
-      {required this.createdAt,
-      required this.sizeGigabytes,
-      this.incremental = const SdkOmitted()});
+  const Backup({required this.createdAt, required this.sizeGigabytes, this.incremental = const SdkOmitted()});
 
-  Backup Function(
-      {String createdAt,
-      double sizeGigabytes,
-      SdkOptional<bool> incremental}) get copyWith => _copyWith;
+  Backup Function({String createdAt, double sizeGigabytes, SdkOptional<bool> incremental}) get copyWith => _copyWith;
 
-  Backup _copyWith(
-          {Object? createdAt = sdkOmittedValue,
-          Object? sizeGigabytes = sdkOmittedValue,
-          Object? incremental = sdkOmittedValue}) =>
-      Backup(
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        sizeGigabytes: identical(sizeGigabytes, sdkOmittedValue)
-            ? this.sizeGigabytes
-            : sizeGigabytes as double,
-        incremental: identical(incremental, sdkOmittedValue)
-            ? this.incremental
-            : incremental as SdkOptional<bool>,
-      );
+  Backup _copyWith({Object? createdAt = sdkOmittedValue, Object? sizeGigabytes = sdkOmittedValue, Object? incremental = sdkOmittedValue}) => Backup(
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    sizeGigabytes: identical(sizeGigabytes, sdkOmittedValue) ? this.sizeGigabytes : sizeGigabytes as double,
+    incremental: identical(incremental, sdkOmittedValue) ? this.incremental : incremental as SdkOptional<bool>,
+  );
 
   factory Backup.fromJson(Map<String, dynamic> json) => Backup(
-        createdAt: (json['created_at'] as String?)!,
-        sizeGigabytes: ((json['size_gigabytes'] as num?)?.toDouble())!,
-        incremental: json['incremental'] != null
-            ? SdkPresent((json['incremental'] as bool?)!)
-            : const SdkOmitted(),
-      );
+    createdAt: (json['created_at'] as String?)!,
+    sizeGigabytes: ((json['size_gigabytes'] as num?)?.toDouble())!,
+    incremental: json['incremental'] != null ? SdkPresent((json['incremental'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'created_at': createdAt,
-        'size_gigabytes': sizeGigabytes,
-        ...switch (incremental) {
-          SdkPresent<bool>(value: final value) => {
-              'incremental': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'created_at': createdAt,
+    'size_gigabytes': sizeGigabytes,
+    ...switch (incremental) {
+      SdkPresent<bool>(value: final value) => {'incremental': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Configuration for Datadog integration **applicable only to MongoDB clusters**.
 class DatadogLogsink {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Datadog connection URL
   final String site;
-
   /// Datadog API key
   final String datadogApiKey;
 
   const DatadogLogsink({required this.site, required this.datadogApiKey});
 
-  DatadogLogsink Function({String site, String datadogApiKey}) get copyWith =>
-      _copyWith;
+  DatadogLogsink Function({String site, String datadogApiKey}) get copyWith => _copyWith;
 
-  DatadogLogsink _copyWith(
-          {Object? site = sdkOmittedValue,
-          Object? datadogApiKey = sdkOmittedValue}) =>
-      DatadogLogsink(
-        site: identical(site, sdkOmittedValue) ? this.site : site as String,
-        datadogApiKey: identical(datadogApiKey, sdkOmittedValue)
-            ? this.datadogApiKey
-            : datadogApiKey as String,
-      );
+  DatadogLogsink _copyWith({Object? site = sdkOmittedValue, Object? datadogApiKey = sdkOmittedValue}) => DatadogLogsink(
+    site: identical(site, sdkOmittedValue) ? this.site : site as String,
+    datadogApiKey: identical(datadogApiKey, sdkOmittedValue) ? this.datadogApiKey : datadogApiKey as String,
+  );
 
   factory DatadogLogsink.fromJson(Map<String, dynamic> json) => DatadogLogsink(
-        site: (json['site'] as String?)!,
-        datadogApiKey: (json['datadog_api_key'] as String?)!,
-      );
+    site: (json['site'] as String?)!,
+    datadogApiKey: (json['datadog_api_key'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'site': site,
-        'datadog_api_key': datadogApiKey,
-      };
+    'site': site,
+    'datadog_api_key': datadogApiKey,
+  };
 }
 
 /// Typed representation of the `ElasticsearchLogsink` API schema.
 class ElasticsearchLogsink {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Elasticsearch connection URL
   final String url;
-
   /// Elasticsearch index prefix
   final String indexPrefix;
-
   /// Maximum number of days of logs to keep
   final SdkOptional<int> indexDaysMax;
-
   /// Elasticsearch request timeout limit
   final SdkOptional<double> timeout;
-
   /// PEM encoded CA certificate
   final SdkOptional<String> ca;
 
-  const ElasticsearchLogsink(
-      {required this.url,
-      required this.indexPrefix,
-      this.indexDaysMax = const SdkOmitted(),
-      this.timeout = const SdkOmitted(),
-      this.ca = const SdkOmitted()});
+  const ElasticsearchLogsink({required this.url, required this.indexPrefix, this.indexDaysMax = const SdkOmitted(), this.timeout = const SdkOmitted(), this.ca = const SdkOmitted()});
 
-  ElasticsearchLogsink Function(
-      {String url,
-      String indexPrefix,
-      SdkOptional<int> indexDaysMax,
-      SdkOptional<double> timeout,
-      SdkOptional<String> ca}) get copyWith => _copyWith;
+  ElasticsearchLogsink Function({String url, String indexPrefix, SdkOptional<int> indexDaysMax, SdkOptional<double> timeout, SdkOptional<String> ca}) get copyWith => _copyWith;
 
-  ElasticsearchLogsink _copyWith(
-          {Object? url = sdkOmittedValue,
-          Object? indexPrefix = sdkOmittedValue,
-          Object? indexDaysMax = sdkOmittedValue,
-          Object? timeout = sdkOmittedValue,
-          Object? ca = sdkOmittedValue}) =>
-      ElasticsearchLogsink(
-        url: identical(url, sdkOmittedValue) ? this.url : url as String,
-        indexPrefix: identical(indexPrefix, sdkOmittedValue)
-            ? this.indexPrefix
-            : indexPrefix as String,
-        indexDaysMax: identical(indexDaysMax, sdkOmittedValue)
-            ? this.indexDaysMax
-            : indexDaysMax as SdkOptional<int>,
-        timeout: identical(timeout, sdkOmittedValue)
-            ? this.timeout
-            : timeout as SdkOptional<double>,
-        ca: identical(ca, sdkOmittedValue)
-            ? this.ca
-            : ca as SdkOptional<String>,
-      );
+  ElasticsearchLogsink _copyWith({Object? url = sdkOmittedValue, Object? indexPrefix = sdkOmittedValue, Object? indexDaysMax = sdkOmittedValue, Object? timeout = sdkOmittedValue, Object? ca = sdkOmittedValue}) => ElasticsearchLogsink(
+    url: identical(url, sdkOmittedValue) ? this.url : url as String,
+    indexPrefix: identical(indexPrefix, sdkOmittedValue) ? this.indexPrefix : indexPrefix as String,
+    indexDaysMax: identical(indexDaysMax, sdkOmittedValue) ? this.indexDaysMax : indexDaysMax as SdkOptional<int>,
+    timeout: identical(timeout, sdkOmittedValue) ? this.timeout : timeout as SdkOptional<double>,
+    ca: identical(ca, sdkOmittedValue) ? this.ca : ca as SdkOptional<String>,
+  );
 
-  factory ElasticsearchLogsink.fromJson(Map<String, dynamic> json) =>
-      ElasticsearchLogsink(
-        url: (json['url'] as String?)!,
-        indexPrefix: (json['index_prefix'] as String?)!,
-        indexDaysMax: json['index_days_max'] != null
-            ? SdkPresent(((json['index_days_max'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        timeout: json['timeout'] != null
-            ? SdkPresent(((json['timeout'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        ca: json['ca'] != null
-            ? SdkPresent((json['ca'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ElasticsearchLogsink.fromJson(Map<String, dynamic> json) => ElasticsearchLogsink(
+    url: (json['url'] as String?)!,
+    indexPrefix: (json['index_prefix'] as String?)!,
+    indexDaysMax: json['index_days_max'] != null ? SdkPresent(((json['index_days_max'] as num?)?.toInt())!) : const SdkOmitted(),
+    timeout: json['timeout'] != null ? SdkPresent(((json['timeout'] as num?)?.toDouble())!) : const SdkOmitted(),
+    ca: json['ca'] != null ? SdkPresent((json['ca'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'url': url,
-        'index_prefix': indexPrefix,
-        ...switch (indexDaysMax) {
-          SdkPresent<int>(value: final value) => {
-              'index_days_max': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timeout) {
-          SdkPresent<double>(value: final value) => {
-              'timeout': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ca) {
-          SdkPresent<String>(value: final value) => {
-              'ca': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'url': url,
+    'index_prefix': indexPrefix,
+    ...switch (indexDaysMax) {
+      SdkPresent<int>(value: final value) => {'index_days_max': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timeout) {
+      SdkPresent<double>(value: final value) => {'timeout': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ca) {
+      SdkPresent<String>(value: final value) => {'ca': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `Logsinks` API schema.
 class Logsinks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `sinks` wire field.
   final SdkOptional<List<LogsinkSchema>> sinks;
 
   const Logsinks({this.sinks = const SdkOmitted()});
 
-  Logsinks Function({SdkOptional<List<LogsinkSchema>> sinks}) get copyWith =>
-      _copyWith;
+  Logsinks Function({SdkOptional<List<LogsinkSchema>> sinks}) get copyWith => _copyWith;
 
   Logsinks _copyWith({Object? sinks = sdkOmittedValue}) => Logsinks(
-        sinks: identical(sinks, sdkOmittedValue)
-            ? this.sinks
-            : sinks as SdkOptional<List<LogsinkSchema>>,
-      );
+    sinks: identical(sinks, sdkOmittedValue) ? this.sinks : sinks as SdkOptional<List<LogsinkSchema>>,
+  );
 
   factory Logsinks.fromJson(Map<String, dynamic> json) => Logsinks(
-        sinks: json['sinks'] != null
-            ? SdkPresent(((json['sinks'] as List?)
-                ?.map((e) => LogsinkSchema.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    sinks: json['sinks'] != null ? SdkPresent(((json['sinks'] as List?)?.map((e) => LogsinkSchema.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (sinks) {
-          SdkPresent<List<LogsinkSchema>>(value: final value) => {
-              'sinks': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (sinks) {
+      SdkPresent<List<LogsinkSchema>>(value: final value) => {'sinks': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `MongoAdvancedConfig` API schema.
 class MongoAdvancedConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the default consistency behavior of reads from the database. Data that is returned from the query with may or may not have been acknowledged by all nodes in the replicaset depending on this value. Learn more [here](https://www.mongodb.com/docs/manual/reference/read-concern/).
   final SdkOptional<MongoAdvancedConfigDefaultReadConcern> defaultReadConcern;
-
   /// Describes the level of acknowledgment requested from MongoDB for write operations clusters. This field can set to either `majority` or a number `0...n` which will describe the number of nodes that must acknowledge the write operation before it is fully accepted. Setting to `0` will request no acknowledgement of the write operation. Learn more [here](https://www.mongodb.com/docs/manual/reference/write-concern/).
   final SdkOptional<String> defaultWriteConcern;
-
   /// Specifies the lifetime of multi-document transactions. Transactions that exceed this limit are considered expired and will be aborted by a periodic cleanup process. The cleanup process runs every `transactionLifetimeLimitSeconds/2 seconds` or at least once every 60 seconds. *Changing this parameter will lead to a restart of the MongoDB service.* Learn more [here](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.transactionLifetimeLimitSeconds).
   final SdkOptional<int> transactionLifetimeLimitSeconds;
-
   /// Operations that run for longer than this threshold are considered slow which are then recorded to the diagnostic logs. Higher log levels (verbosity) will record all operations regardless of this threshold on the primary node. *Changing this parameter will lead to a restart of the MongoDB service.* Learn more [here](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).
   final SdkOptional<int> slowOpThresholdMs;
-
   /// The log message verbosity level. The verbosity level determines the amount of Informational and Debug messages MongoDB outputs. 0 includes informational messages while 1...5 increases the level to include debug messages. *Changing this parameter will lead to a restart of the MongoDB service.* Learn more [here](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-systemLog.verbosity).
   final SdkOptional<int> verbosity;
 
-  const MongoAdvancedConfig(
-      {this.defaultReadConcern = const SdkOmitted(),
-      this.defaultWriteConcern = const SdkOmitted(),
-      this.transactionLifetimeLimitSeconds = const SdkOmitted(),
-      this.slowOpThresholdMs = const SdkOmitted(),
-      this.verbosity = const SdkOmitted()});
+  const MongoAdvancedConfig({this.defaultReadConcern = const SdkOmitted(), this.defaultWriteConcern = const SdkOmitted(), this.transactionLifetimeLimitSeconds = const SdkOmitted(), this.slowOpThresholdMs = const SdkOmitted(), this.verbosity = const SdkOmitted()});
 
-  MongoAdvancedConfig Function(
-      {SdkOptional<MongoAdvancedConfigDefaultReadConcern> defaultReadConcern,
-      SdkOptional<String> defaultWriteConcern,
-      SdkOptional<int> transactionLifetimeLimitSeconds,
-      SdkOptional<int> slowOpThresholdMs,
-      SdkOptional<int> verbosity}) get copyWith => _copyWith;
+  MongoAdvancedConfig Function({SdkOptional<MongoAdvancedConfigDefaultReadConcern> defaultReadConcern, SdkOptional<String> defaultWriteConcern, SdkOptional<int> transactionLifetimeLimitSeconds, SdkOptional<int> slowOpThresholdMs, SdkOptional<int> verbosity}) get copyWith => _copyWith;
 
-  MongoAdvancedConfig _copyWith(
-          {Object? defaultReadConcern = sdkOmittedValue,
-          Object? defaultWriteConcern = sdkOmittedValue,
-          Object? transactionLifetimeLimitSeconds = sdkOmittedValue,
-          Object? slowOpThresholdMs = sdkOmittedValue,
-          Object? verbosity = sdkOmittedValue}) =>
-      MongoAdvancedConfig(
-        defaultReadConcern: identical(defaultReadConcern, sdkOmittedValue)
-            ? this.defaultReadConcern
-            : defaultReadConcern
-                as SdkOptional<MongoAdvancedConfigDefaultReadConcern>,
-        defaultWriteConcern: identical(defaultWriteConcern, sdkOmittedValue)
-            ? this.defaultWriteConcern
-            : defaultWriteConcern as SdkOptional<String>,
-        transactionLifetimeLimitSeconds:
-            identical(transactionLifetimeLimitSeconds, sdkOmittedValue)
-                ? this.transactionLifetimeLimitSeconds
-                : transactionLifetimeLimitSeconds as SdkOptional<int>,
-        slowOpThresholdMs: identical(slowOpThresholdMs, sdkOmittedValue)
-            ? this.slowOpThresholdMs
-            : slowOpThresholdMs as SdkOptional<int>,
-        verbosity: identical(verbosity, sdkOmittedValue)
-            ? this.verbosity
-            : verbosity as SdkOptional<int>,
-      );
+  MongoAdvancedConfig _copyWith({Object? defaultReadConcern = sdkOmittedValue, Object? defaultWriteConcern = sdkOmittedValue, Object? transactionLifetimeLimitSeconds = sdkOmittedValue, Object? slowOpThresholdMs = sdkOmittedValue, Object? verbosity = sdkOmittedValue}) => MongoAdvancedConfig(
+    defaultReadConcern: identical(defaultReadConcern, sdkOmittedValue) ? this.defaultReadConcern : defaultReadConcern as SdkOptional<MongoAdvancedConfigDefaultReadConcern>,
+    defaultWriteConcern: identical(defaultWriteConcern, sdkOmittedValue) ? this.defaultWriteConcern : defaultWriteConcern as SdkOptional<String>,
+    transactionLifetimeLimitSeconds: identical(transactionLifetimeLimitSeconds, sdkOmittedValue) ? this.transactionLifetimeLimitSeconds : transactionLifetimeLimitSeconds as SdkOptional<int>,
+    slowOpThresholdMs: identical(slowOpThresholdMs, sdkOmittedValue) ? this.slowOpThresholdMs : slowOpThresholdMs as SdkOptional<int>,
+    verbosity: identical(verbosity, sdkOmittedValue) ? this.verbosity : verbosity as SdkOptional<int>,
+  );
 
-  factory MongoAdvancedConfig.fromJson(Map<String, dynamic> json) =>
-      MongoAdvancedConfig(
-        defaultReadConcern: json['default_read_concern'] != null
-            ? SdkPresent((json['default_read_concern'] != null
-                ? MongoAdvancedConfigDefaultReadConcern.fromJson(
-                    json['default_read_concern'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        defaultWriteConcern: json['default_write_concern'] != null
-            ? SdkPresent((json['default_write_concern'] as String?)!)
-            : const SdkOmitted(),
-        transactionLifetimeLimitSeconds:
-            json['transaction_lifetime_limit_seconds'] != null
-                ? SdkPresent(
-                    ((json['transaction_lifetime_limit_seconds'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        slowOpThresholdMs: json['slow_op_threshold_ms'] != null
-            ? SdkPresent(((json['slow_op_threshold_ms'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        verbosity: json['verbosity'] != null
-            ? SdkPresent(((json['verbosity'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory MongoAdvancedConfig.fromJson(Map<String, dynamic> json) => MongoAdvancedConfig(
+    defaultReadConcern: json['default_read_concern'] != null ? SdkPresent((json['default_read_concern'] != null ? MongoAdvancedConfigDefaultReadConcern.fromJson(json['default_read_concern'] as String) : null)!) : const SdkOmitted(),
+    defaultWriteConcern: json['default_write_concern'] != null ? SdkPresent((json['default_write_concern'] as String?)!) : const SdkOmitted(),
+    transactionLifetimeLimitSeconds: json['transaction_lifetime_limit_seconds'] != null ? SdkPresent(((json['transaction_lifetime_limit_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+    slowOpThresholdMs: json['slow_op_threshold_ms'] != null ? SdkPresent(((json['slow_op_threshold_ms'] as num?)?.toInt())!) : const SdkOmitted(),
+    verbosity: json['verbosity'] != null ? SdkPresent(((json['verbosity'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (defaultReadConcern) {
-          SdkPresent<MongoAdvancedConfigDefaultReadConcern>(
-            value: final value
-          ) =>
-            {
-              'default_read_concern': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultWriteConcern) {
-          SdkPresent<String>(value: final value) => {
-              'default_write_concern': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (transactionLifetimeLimitSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'transaction_lifetime_limit_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (slowOpThresholdMs) {
-          SdkPresent<int>(value: final value) => {
-              'slow_op_threshold_ms': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (verbosity) {
-          SdkPresent<int>(value: final value) => {
-              'verbosity': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (defaultReadConcern) {
+      SdkPresent<MongoAdvancedConfigDefaultReadConcern>(value: final value) => {'default_read_concern': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultWriteConcern) {
+      SdkPresent<String>(value: final value) => {'default_write_concern': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (transactionLifetimeLimitSeconds) {
+      SdkPresent<int>(value: final value) => {'transaction_lifetime_limit_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (slowOpThresholdMs) {
+      SdkPresent<int>(value: final value) => {'slow_op_threshold_ms': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (verbosity) {
+      SdkPresent<int>(value: final value) => {'verbosity': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `OnlineMigration` API schema.
 class OnlineMigration {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the most recent migration.
   final SdkOptional<String> id;
-
   /// The current status of the migration.
   final SdkOptional<OnlineMigrationStatus> status;
-
   /// The time the migration was initiated, in ISO 8601 format.
   final SdkOptional<String> createdAt;
 
-  const OnlineMigration(
-      {this.id = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.createdAt = const SdkOmitted()});
+  const OnlineMigration({this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAt = const SdkOmitted()});
 
-  OnlineMigration Function(
-      {SdkOptional<String> id,
-      SdkOptional<OnlineMigrationStatus> status,
-      SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  OnlineMigration Function({SdkOptional<String> id, SdkOptional<OnlineMigrationStatus> status, SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  OnlineMigration _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      OnlineMigration(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<OnlineMigrationStatus>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-      );
+  OnlineMigration _copyWith({Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => OnlineMigration(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<OnlineMigrationStatus>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+  );
 
-  factory OnlineMigration.fromJson(Map<String, dynamic> json) =>
-      OnlineMigration(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? OnlineMigrationStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory OnlineMigration.fromJson(Map<String, dynamic> json) => OnlineMigration(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? OnlineMigrationStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<OnlineMigrationStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<OnlineMigrationStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

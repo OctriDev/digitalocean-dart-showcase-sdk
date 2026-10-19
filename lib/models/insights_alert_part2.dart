@@ -8,59 +8,38 @@ part of 'insights_alert.dart';
 class AlertRuleRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Spec for an Insights alert rule. On create, `name`, `query`, `thresholds`, and at least one `notification_channels` binding are required. On update, omit `notification_channels` to keep existing bindings; an explicit empty list is rejected.
   final AlertRuleSpec spec;
-
   /// Desired alert rule status. Allowed values: - `ALERT_RULE_STATUS_ACTIVE` = active - `ALERT_RULE_STATUS_PAUSED` = paused
   final SdkOptional<AlertRuleRequestStatus> status;
 
-  const AlertRuleRequest(
-      {required this.spec, this.status = const SdkOmitted()});
+  const AlertRuleRequest({required this.spec, this.status = const SdkOmitted()});
 
-  AlertRuleRequest Function(
-      {AlertRuleSpec spec,
-      SdkOptional<AlertRuleRequestStatus> status}) get copyWith => _copyWith;
+  AlertRuleRequest Function({AlertRuleSpec spec, SdkOptional<AlertRuleRequestStatus> status}) get copyWith => _copyWith;
 
-  AlertRuleRequest _copyWith(
-          {Object? spec = sdkOmittedValue, Object? status = sdkOmittedValue}) =>
-      AlertRuleRequest(
-        spec: identical(spec, sdkOmittedValue)
-            ? this.spec
-            : spec as AlertRuleSpec,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<AlertRuleRequestStatus>,
-      );
+  AlertRuleRequest _copyWith({Object? spec = sdkOmittedValue, Object? status = sdkOmittedValue}) => AlertRuleRequest(
+    spec: identical(spec, sdkOmittedValue) ? this.spec : spec as AlertRuleSpec,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<AlertRuleRequestStatus>,
+  );
 
-  factory AlertRuleRequest.fromJson(Map<String, dynamic> json) =>
-      AlertRuleRequest(
-        spec: (json['spec'] != null
-            ? AlertRuleSpec.fromJson(json['spec'] as Map<String, dynamic>)
-            : null)!,
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? AlertRuleRequestStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AlertRuleRequest.fromJson(Map<String, dynamic> json) => AlertRuleRequest(
+    spec: (json['spec'] != null ? AlertRuleSpec.fromJson(json['spec'] as Map<String, dynamic>) : null)!,
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? AlertRuleRequestStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'spec': spec.toJson(),
-        ...switch (status) {
-          SdkPresent<AlertRuleRequestStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'spec': spec.toJson(),
+    ...switch (status) {
+      SdkPresent<AlertRuleRequestStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AlertRuleResponse` API schema.
 class AlertRuleResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An Insights alert rule.
   final AlertRule alertRule;
 
@@ -68,213 +47,113 @@ class AlertRuleResponse {
 
   AlertRuleResponse Function({AlertRule alertRule}) get copyWith => _copyWith;
 
-  AlertRuleResponse _copyWith({Object? alertRule = sdkOmittedValue}) =>
-      AlertRuleResponse(
-        alertRule: identical(alertRule, sdkOmittedValue)
-            ? this.alertRule
-            : alertRule as AlertRule,
-      );
+  AlertRuleResponse _copyWith({Object? alertRule = sdkOmittedValue}) => AlertRuleResponse(
+    alertRule: identical(alertRule, sdkOmittedValue) ? this.alertRule : alertRule as AlertRule,
+  );
 
-  factory AlertRuleResponse.fromJson(Map<String, dynamic> json) =>
-      AlertRuleResponse(
-        alertRule: (json['alert_rule'] != null
-            ? AlertRule.fromJson(json['alert_rule'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AlertRuleResponse.fromJson(Map<String, dynamic> json) => AlertRuleResponse(
+    alertRule: (json['alert_rule'] != null ? AlertRule.fromJson(json['alert_rule'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'alert_rule': alertRule.toJson(),
-      };
+    'alert_rule': alertRule.toJson(),
+  };
 }
 
 /// Spec for an Insights alert rule. On create, `name`, `query`, `thresholds`, and at least one `notification_channels` binding are required. On update, omit `notification_channels` to keep existing bindings; an explicit empty list is rejected.
 class AlertRuleSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A human-readable name for the alert rule.
   final String name;
-
   /// Metrics query that the alert rule evaluates. `metric` must be a dotted OpenTelemetry name (for example `do.droplets.cpu_utilization`). Underscored Prometheus-style names are rejected. When `resource_urns` is omitted or empty, the rule is not scoped to specific resources.
   final MetricsQuery query;
-
   /// Evaluation condition for the alert rule.
   final SdkOptional<AlertCondition> condition;
-
   /// Threshold configuration for the alert rule. At least one of `warning` or `critical` must be set.
   final AlertThresholds thresholds;
-
   /// Notification channels to notify when the rule fires.
   final SdkOptional<List<NotificationChannelBinding>> notificationChannels;
-
   /// Minimum wait before re-notifying a still-firing alert. Defaults to `RE_ALERT_DURATION_4H` on create when omitted. Allowed values: - `RE_ALERT_DURATION_30M` = `30m` - `RE_ALERT_DURATION_1H` = `1h` - `RE_ALERT_DURATION_4H` = `4h` - `RE_ALERT_DURATION_NEVER` = never
   final SdkOptional<AlertRuleSpecReAlertDuration> reAlertDuration;
 
-  const AlertRuleSpec(
-      {required this.name,
-      required this.query,
-      this.condition = const SdkOmitted(),
-      required this.thresholds,
-      this.notificationChannels = const SdkOmitted(),
-      this.reAlertDuration = const SdkOmitted()});
+  const AlertRuleSpec({required this.name, required this.query, this.condition = const SdkOmitted(), required this.thresholds, this.notificationChannels = const SdkOmitted(), this.reAlertDuration = const SdkOmitted()});
 
-  AlertRuleSpec Function(
-          {String name,
-          MetricsQuery query,
-          SdkOptional<AlertCondition> condition,
-          AlertThresholds thresholds,
-          SdkOptional<List<NotificationChannelBinding>> notificationChannels,
-          SdkOptional<AlertRuleSpecReAlertDuration> reAlertDuration})
-      get copyWith => _copyWith;
+  AlertRuleSpec Function({String name, MetricsQuery query, SdkOptional<AlertCondition> condition, AlertThresholds thresholds, SdkOptional<List<NotificationChannelBinding>> notificationChannels, SdkOptional<AlertRuleSpecReAlertDuration> reAlertDuration}) get copyWith => _copyWith;
 
-  AlertRuleSpec _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? query = sdkOmittedValue,
-          Object? condition = sdkOmittedValue,
-          Object? thresholds = sdkOmittedValue,
-          Object? notificationChannels = sdkOmittedValue,
-          Object? reAlertDuration = sdkOmittedValue}) =>
-      AlertRuleSpec(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        query: identical(query, sdkOmittedValue)
-            ? this.query
-            : query as MetricsQuery,
-        condition: identical(condition, sdkOmittedValue)
-            ? this.condition
-            : condition as SdkOptional<AlertCondition>,
-        thresholds: identical(thresholds, sdkOmittedValue)
-            ? this.thresholds
-            : thresholds as AlertThresholds,
-        notificationChannels: identical(notificationChannels, sdkOmittedValue)
-            ? this.notificationChannels
-            : notificationChannels
-                as SdkOptional<List<NotificationChannelBinding>>,
-        reAlertDuration: identical(reAlertDuration, sdkOmittedValue)
-            ? this.reAlertDuration
-            : reAlertDuration as SdkOptional<AlertRuleSpecReAlertDuration>,
-      );
+  AlertRuleSpec _copyWith({Object? name = sdkOmittedValue, Object? query = sdkOmittedValue, Object? condition = sdkOmittedValue, Object? thresholds = sdkOmittedValue, Object? notificationChannels = sdkOmittedValue, Object? reAlertDuration = sdkOmittedValue}) => AlertRuleSpec(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    query: identical(query, sdkOmittedValue) ? this.query : query as MetricsQuery,
+    condition: identical(condition, sdkOmittedValue) ? this.condition : condition as SdkOptional<AlertCondition>,
+    thresholds: identical(thresholds, sdkOmittedValue) ? this.thresholds : thresholds as AlertThresholds,
+    notificationChannels: identical(notificationChannels, sdkOmittedValue) ? this.notificationChannels : notificationChannels as SdkOptional<List<NotificationChannelBinding>>,
+    reAlertDuration: identical(reAlertDuration, sdkOmittedValue) ? this.reAlertDuration : reAlertDuration as SdkOptional<AlertRuleSpecReAlertDuration>,
+  );
 
   factory AlertRuleSpec.fromJson(Map<String, dynamic> json) => AlertRuleSpec(
-        name: (json['name'] as String?)!,
-        query: (json['query'] != null
-            ? MetricsQuery.fromJson(json['query'] as Map<String, dynamic>)
-            : null)!,
-        condition: json['condition'] != null
-            ? SdkPresent((json['condition'] != null
-                ? AlertCondition.fromJson(
-                    json['condition'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        thresholds: (json['thresholds'] != null
-            ? AlertThresholds.fromJson(
-                json['thresholds'] as Map<String, dynamic>)
-            : null)!,
-        notificationChannels: json['notification_channels'] != null
-            ? SdkPresent(((json['notification_channels'] as List?)
-                ?.map((e) => NotificationChannelBinding.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        reAlertDuration: json['re_alert_duration'] != null
-            ? SdkPresent((json['re_alert_duration'] != null
-                ? AlertRuleSpecReAlertDuration.fromJson(
-                    json['re_alert_duration'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    name: (json['name'] as String?)!,
+    query: (json['query'] != null ? MetricsQuery.fromJson(json['query'] as Map<String, dynamic>) : null)!,
+    condition: json['condition'] != null ? SdkPresent((json['condition'] != null ? AlertCondition.fromJson(json['condition'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    thresholds: (json['thresholds'] != null ? AlertThresholds.fromJson(json['thresholds'] as Map<String, dynamic>) : null)!,
+    notificationChannels: json['notification_channels'] != null ? SdkPresent(((json['notification_channels'] as List?)?.map((e) => NotificationChannelBinding.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    reAlertDuration: json['re_alert_duration'] != null ? SdkPresent((json['re_alert_duration'] != null ? AlertRuleSpecReAlertDuration.fromJson(json['re_alert_duration'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'query': query.toJson(),
-        ...switch (condition) {
-          SdkPresent<AlertCondition>(value: final value) => {
-              'condition': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'thresholds': thresholds.toJson(),
-        ...switch (notificationChannels) {
-          SdkPresent<List<NotificationChannelBinding>>(value: final value) => {
-              'notification_channels':
-                  value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reAlertDuration) {
-          SdkPresent<AlertRuleSpecReAlertDuration>(value: final value) => {
-              're_alert_duration': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    'query': query.toJson(),
+    ...switch (condition) {
+      SdkPresent<AlertCondition>(value: final value) => {'condition': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'thresholds': thresholds.toJson(),
+    ...switch (notificationChannels) {
+      SdkPresent<List<NotificationChannelBinding>>(value: final value) => {'notification_channels': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reAlertDuration) {
+      SdkPresent<AlertRuleSpecReAlertDuration>(value: final value) => {'re_alert_duration': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Threshold configuration for the alert rule. At least one of `warning` or `critical` must be set.
 class AlertThresholds {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Warning threshold value.
   final SdkOptional<double> warning;
-
   /// Critical threshold value.
   final SdkOptional<double> critical;
-
   /// Comparison operator applied to the aggregated metric value. Allowed values: - `THRESHOLD_OPERATOR_EQUAL` = equal - `THRESHOLD_OPERATOR_LESS_THAN_OR_EQUAL` = `less_than_or_equal` - `THRESHOLD_OPERATOR_LESS_THAN` = `less_than` - `THRESHOLD_OPERATOR_GREATER_THAN` = `greater_than` - `THRESHOLD_OPERATOR_GREATER_THAN_OR_EQUAL` = `greater_than_or_equal` - `THRESHOLD_OPERATOR_NOT_EQUAL` = `not_equal`
   final AlertThresholdsOperator operator_;
 
-  const AlertThresholds(
-      {this.warning = const SdkOmitted(),
-      this.critical = const SdkOmitted(),
-      required this.operator_});
+  const AlertThresholds({this.warning = const SdkOmitted(), this.critical = const SdkOmitted(), required this.operator_});
 
-  AlertThresholds Function(
-      {SdkOptional<double> warning,
-      SdkOptional<double> critical,
-      AlertThresholdsOperator operator_}) get copyWith => _copyWith;
+  AlertThresholds Function({SdkOptional<double> warning, SdkOptional<double> critical, AlertThresholdsOperator operator_}) get copyWith => _copyWith;
 
-  AlertThresholds _copyWith(
-          {Object? warning = sdkOmittedValue,
-          Object? critical = sdkOmittedValue,
-          Object? operator_ = sdkOmittedValue}) =>
-      AlertThresholds(
-        warning: identical(warning, sdkOmittedValue)
-            ? this.warning
-            : warning as SdkOptional<double>,
-        critical: identical(critical, sdkOmittedValue)
-            ? this.critical
-            : critical as SdkOptional<double>,
-        operator_: identical(operator_, sdkOmittedValue)
-            ? this.operator_
-            : operator_ as AlertThresholdsOperator,
-      );
+  AlertThresholds _copyWith({Object? warning = sdkOmittedValue, Object? critical = sdkOmittedValue, Object? operator_ = sdkOmittedValue}) => AlertThresholds(
+    warning: identical(warning, sdkOmittedValue) ? this.warning : warning as SdkOptional<double>,
+    critical: identical(critical, sdkOmittedValue) ? this.critical : critical as SdkOptional<double>,
+    operator_: identical(operator_, sdkOmittedValue) ? this.operator_ : operator_ as AlertThresholdsOperator,
+  );
 
-  factory AlertThresholds.fromJson(Map<String, dynamic> json) =>
-      AlertThresholds(
-        warning: json['warning'] != null
-            ? SdkPresent(((json['warning'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        critical: json['critical'] != null
-            ? SdkPresent(((json['critical'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        operator_: (json['operator'] != null
-            ? AlertThresholdsOperator.fromJson(json['operator'] as String)
-            : null)!,
-      );
+  factory AlertThresholds.fromJson(Map<String, dynamic> json) => AlertThresholds(
+    warning: json['warning'] != null ? SdkPresent(((json['warning'] as num?)?.toDouble())!) : const SdkOmitted(),
+    critical: json['critical'] != null ? SdkPresent(((json['critical'] as num?)?.toDouble())!) : const SdkOmitted(),
+    operator_: (json['operator'] != null ? AlertThresholdsOperator.fromJson(json['operator'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (warning) {
-          SdkPresent<double>(value: final value) => {
-              'warning': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (critical) {
-          SdkPresent<double>(value: final value) => {
-              'critical': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'operator': operator_.toJson(),
-      };
+    ...switch (warning) {
+      SdkPresent<double>(value: final value) => {'warning': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (critical) {
+      SdkPresent<double>(value: final value) => {'critical': value,},
+      _ => const <String, dynamic>{},
+    },
+    'operator': operator_.toJson(),
+  };
 }

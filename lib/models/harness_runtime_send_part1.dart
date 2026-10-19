@@ -8,7 +8,6 @@ part of 'harness_runtime_send.dart';
 class SendInputRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The user message to deliver into the session. Required and non-empty.
   final String text;
 
@@ -16,54 +15,42 @@ class SendInputRequest {
 
   SendInputRequest Function({String text}) get copyWith => _copyWith;
 
-  SendInputRequest _copyWith({Object? text = sdkOmittedValue}) =>
-      SendInputRequest(
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  SendInputRequest _copyWith({Object? text = sdkOmittedValue}) => SendInputRequest(
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory SendInputRequest.fromJson(Map<String, dynamic> json) =>
-      SendInputRequest(
-        text: (json['text'] as String?)!,
-      );
+  factory SendInputRequest.fromJson(Map<String, dynamic> json) => SendInputRequest(
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'text': text,
-      };
+    'text': text,
+  };
 }
 
 /// Typed representation of the `SendInputResponse` API schema.
 class SendInputResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The run id the input was attributed to. Clients can correlate against the run.started event on the stream. May be empty if OHR returned no run id.
   final SdkOptional<String> runId;
 
   const SendInputResponse({this.runId = const SdkOmitted()});
 
-  SendInputResponse Function({SdkOptional<String> runId}) get copyWith =>
-      _copyWith;
+  SendInputResponse Function({SdkOptional<String> runId}) get copyWith => _copyWith;
 
-  SendInputResponse _copyWith({Object? runId = sdkOmittedValue}) =>
-      SendInputResponse(
-        runId: identical(runId, sdkOmittedValue)
-            ? this.runId
-            : runId as SdkOptional<String>,
-      );
+  SendInputResponse _copyWith({Object? runId = sdkOmittedValue}) => SendInputResponse(
+    runId: identical(runId, sdkOmittedValue) ? this.runId : runId as SdkOptional<String>,
+  );
 
-  factory SendInputResponse.fromJson(Map<String, dynamic> json) =>
-      SendInputResponse(
-        runId: json['run_id'] != null
-            ? SdkPresent((json['run_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SendInputResponse.fromJson(Map<String, dynamic> json) => SendInputResponse(
+    runId: json['run_id'] != null ? SdkPresent((json['run_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (runId) {
-          SdkPresent<String>(value: final value) => {
-              'run_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (runId) {
+      SdkPresent<String>(value: final value) => {'run_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
