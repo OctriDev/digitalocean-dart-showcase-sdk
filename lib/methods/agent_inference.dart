@@ -90,7 +90,7 @@ Future<ChatCompletionResponse> agentInferenceCreateChatCompletion(
     SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
         const SdkOmitted(),
     SdkOptional<bool?> stream = const SdkOmitted(),
-    SdkOptional<dynamic> stop = const SdkOmitted(),
+    SdkOptional<List<String>> stop = const SdkOmitted(),
     SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
     SdkOptional<bool?> logprobs = const SdkOmitted(),
     SdkOptional<int?> n = const SdkOmitted(),
@@ -136,6 +136,9 @@ Future<ChatCompletionResponse> agentInferenceCreateChatCompletion(
     if (topLogprobsValue != null) {
       validateRange('top_logprobs', topLogprobsValue, min: 0, max: 20);
     }
+  }
+  if (stop is SdkPresent<List<String>>) {
+    validateItems('stop', stop.value, min: 1, max: 4);
   }
   if (n is SdkPresent<int?>) {
     final nValue = n.value;
@@ -281,7 +284,7 @@ Stream<ChatCompletionChunk> agentInferenceCreateChatCompletionStream(
     SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
     SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
         const SdkOmitted(),
-    SdkOptional<dynamic> stop = const SdkOmitted(),
+    SdkOptional<List<String>> stop = const SdkOmitted(),
     SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
     SdkOptional<bool?> logprobs = const SdkOmitted(),
     SdkOptional<int?> n = const SdkOmitted(),

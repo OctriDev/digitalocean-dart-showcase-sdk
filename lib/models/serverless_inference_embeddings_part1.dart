@@ -4,37 +4,6 @@
 part of 'serverless_inference_embeddings.dart';
 
 // serverless_inference_embeddings domain models
-sealed class EmbeddingsRequestInput {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const EmbeddingsRequestInput();
-  factory EmbeddingsRequestInput.fromJson(Object? json) {
-    if (json is String) {
-      return EmbeddingsRequestInputString(json);
-    }
-    if (json is List) {
-      return EmbeddingsRequestInputListString(
-          json.map((e) => e as String).toList().cast<String>());
-    }
-    throw FormatException("No variant matched for EmbeddingsRequestInput");
-  }
-  Object? toJson();
-}
-
-final class EmbeddingsRequestInputString extends EmbeddingsRequestInput {
-  final String value;
-  const EmbeddingsRequestInputString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
-final class EmbeddingsRequestInputListString extends EmbeddingsRequestInput {
-  final List<String> value;
-  const EmbeddingsRequestInputListString(this.value);
-  @override
-  Object? toJson() => value;
-}
-
 /// Request body for `POST /v1/embeddings` (OpenAI-compatible). Extra fields are rejected.
 class EmbeddingsRequest {
   /// This model is constructed from named fields in one call.
@@ -44,7 +13,7 @@ class EmbeddingsRequest {
   final String model;
 
   /// A single string or 1–2048 strings; each string produces one row in `data`, in order.
-  final dynamic input;
+  final List<String> input;
 
   /// Optional end-user identifier to help with abuse monitoring.
   final SdkOptional<String> user;
@@ -60,7 +29,7 @@ class EmbeddingsRequest {
 
   EmbeddingsRequest Function(
           {String model,
-          dynamic input,
+          List<String> input,
           SdkOptional<String> user,
           SdkOptional<EmbeddingsRequestEncodingFormat> encodingFormat})
       get copyWith => _copyWith;
@@ -72,8 +41,9 @@ class EmbeddingsRequest {
           Object? encodingFormat = sdkOmittedValue}) =>
       EmbeddingsRequest(
         model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        input:
-            identical(input, sdkOmittedValue) ? this.input : input as dynamic,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as List<String>,
         user: identical(user, sdkOmittedValue)
             ? this.user
             : user as SdkOptional<String>,
@@ -85,7 +55,7 @@ class EmbeddingsRequest {
   factory EmbeddingsRequest.fromJson(Map<String, dynamic> json) =>
       EmbeddingsRequest(
         model: (json['model'] as String?)!,
-        input: (json['input'])!,
+        input: ((json['input'] as List?)?.map((e) => e as String).toList())!,
         user: json['user'] != null
             ? SdkPresent((json['user'] as String?)!)
             : const SdkOmitted(),

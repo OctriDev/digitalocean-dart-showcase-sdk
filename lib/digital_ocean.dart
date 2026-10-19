@@ -10640,7 +10640,7 @@ class ServerlessInferenceNamespace {
       SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
           const SdkOmitted(),
       SdkOptional<bool?> stream = const SdkOmitted(),
-      SdkOptional<dynamic> stop = const SdkOmitted(),
+      SdkOptional<List<String>> stop = const SdkOmitted(),
       SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
       SdkOptional<bool?> logprobs = const SdkOmitted(),
       SdkOptional<int?> n = const SdkOmitted(),
@@ -10692,7 +10692,7 @@ class ServerlessInferenceNamespace {
       SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
       SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
           const SdkOmitted(),
-      SdkOptional<dynamic> stop = const SdkOmitted(),
+      SdkOptional<List<String>> stop = const SdkOmitted(),
       SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
       SdkOptional<bool?> logprobs = const SdkOmitted(),
       SdkOptional<int?> n = const SdkOmitted(),
@@ -10811,7 +10811,7 @@ class ServerlessInferenceNamespace {
   /// Create vector embeddings for one or more text inputs. OpenAI-compatible request and response. Unknown fields in the request body are rejected. There is no streaming response for this endpoint.
   Future<EmbeddingsResponse> inferenceCreateEmbedding(
       {required String model,
-      required dynamic input,
+      required List<String> input,
       SdkOptional<String> user = const SdkOmitted(),
       SdkOptional<EmbeddingsRequestEncodingFormat> encodingFormat =
           const SdkOmitted(),
@@ -10921,7 +10921,7 @@ class ServerlessInferenceNamespace {
           const SdkOmitted(),
       SdkOptional<CreateResponseRequestToolChoice> toolChoice =
           const SdkOmitted(),
-      SdkOptional<dynamic> stop = const SdkOmitted(),
+      SdkOptional<List<String>?> stop = const SdkOmitted(),
       SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
       SdkOptional<String?> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
@@ -10957,7 +10957,7 @@ class ServerlessInferenceNamespace {
           const SdkOmitted(),
       SdkOptional<CreateResponseRequestToolChoice> toolChoice =
           const SdkOmitted(),
-      SdkOptional<dynamic> stop = const SdkOmitted(),
+      SdkOptional<List<String>?> stop = const SdkOmitted(),
       SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
       SdkOptional<String?> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async* {
@@ -11056,7 +11056,7 @@ class AgentInferenceNamespace {
       SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
           const SdkOmitted(),
       SdkOptional<bool?> stream = const SdkOmitted(),
-      SdkOptional<dynamic> stop = const SdkOmitted(),
+      SdkOptional<List<String>> stop = const SdkOmitted(),
       SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
       SdkOptional<bool?> logprobs = const SdkOmitted(),
       SdkOptional<int?> n = const SdkOmitted(),
@@ -11110,7 +11110,7 @@ class AgentInferenceNamespace {
       SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
       SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
           const SdkOmitted(),
-      SdkOptional<dynamic> stop = const SdkOmitted(),
+      SdkOptional<List<String>> stop = const SdkOmitted(),
       SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
       SdkOptional<bool?> logprobs = const SdkOmitted(),
       SdkOptional<int?> n = const SdkOmitted(),
