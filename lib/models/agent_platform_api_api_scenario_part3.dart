@@ -6,100 +6,132 @@ part of 'agent_platform_api_api_scenario.dart';
 // agent_platform_api_api_scenario domain models (part 3)
 /// Sortable fields for listing scenario sets. - SCENARIO_SET_SORT_FIELD_CREATED_AT: Sort by creation date. Default. - SCENARIO_SET_SORT_FIELD_NAME: Sort by customer-supplied name (case-insensitive). - SCENARIO_SET_SORT_FIELD_STATUS: Sort by status using lifecycle order (generating → ready → terminal). - SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT: Sort by scenario_count. - SCENARIO_SET_SORT_FIELD_UPDATED_AT: Sort by last update date.
 final class ApiScenarioSetSortField {
-
   final String value;
 
   const ApiScenarioSetSortField._(this.value);
 
-  factory ApiScenarioSetSortField.fromJson(String value) => ApiScenarioSetSortField._(value);
+  factory ApiScenarioSetSortField.fromJson(String value) =>
+      ApiScenarioSetSortField._(value);
 
-  static const scenarioSetSortFieldUnspecified = ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_UNSPECIFIED');
-  static const scenarioSetSortFieldCreatedAt = ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_CREATED_AT');
-  static const scenarioSetSortFieldName = ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_NAME');
-  static const scenarioSetSortFieldStatus = ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_STATUS');
-  static const scenarioSetSortFieldScenarioCount = ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT');
-  static const scenarioSetSortFieldUpdatedAt = ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_UPDATED_AT');
+  static const scenarioSetSortFieldUnspecified =
+      ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_UNSPECIFIED');
+  static const scenarioSetSortFieldCreatedAt =
+      ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_CREATED_AT');
+  static const scenarioSetSortFieldName =
+      ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_NAME');
+  static const scenarioSetSortFieldStatus =
+      ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_STATUS');
+  static const scenarioSetSortFieldScenarioCount =
+      ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT');
+  static const scenarioSetSortFieldUpdatedAt =
+      ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_UPDATED_AT');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiScenarioSetSortField && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiScenarioSetSortField && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// How a scenario set was created. - SCENARIO_SET_SOURCE_KIND_USER_UPLOAD: Created from uploaded or inline scenarios. - SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED: Produced by goal-driven generation. - SCENARIO_SET_SOURCE_KIND_LIBRARY: Copied from a platform-curated library entry. - SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED: Produced from a completed Signals export.
 final class ApiScenarioSetSourceKind {
-
   final String value;
 
   const ApiScenarioSetSourceKind._(this.value);
 
-  factory ApiScenarioSetSourceKind.fromJson(String value) => ApiScenarioSetSourceKind._(value);
+  factory ApiScenarioSetSourceKind.fromJson(String value) =>
+      ApiScenarioSetSourceKind._(value);
 
-  static const scenarioSetSourceKindUnspecified = ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_UNSPECIFIED');
-  static const scenarioSetSourceKindUserUpload = ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_USER_UPLOAD');
-  static const scenarioSetSourceKindGoalGenerated = ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED');
-  static const scenarioSetSourceKindLibrary = ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_LIBRARY');
-  static const scenarioSetSourceKindSignalGenerated = ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED');
+  static const scenarioSetSourceKindUnspecified =
+      ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_UNSPECIFIED');
+  static const scenarioSetSourceKindUserUpload =
+      ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_USER_UPLOAD');
+  static const scenarioSetSourceKindGoalGenerated =
+      ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED');
+  static const scenarioSetSourceKindLibrary =
+      ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_LIBRARY');
+  static const scenarioSetSourceKindSignalGenerated =
+      ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiScenarioSetSourceKind && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiScenarioSetSourceKind && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Lifecycle status of a scenario set. Uploaded sets are created as ready. Generated sets start as generating and then become ready, failed, or cancelled. - SCENARIO_SET_STATUS_GENERATING: Generation is in progress. The scenarios are not ready yet. - SCENARIO_SET_STATUS_READY: The scenario set is ready to use. - SCENARIO_SET_STATUS_FAILED: Generation failed. The scenario set has no readable scenarios. - SCENARIO_SET_STATUS_CANCELLED: Generation was cancelled before completion.
 final class ApiScenarioSetStatus {
-
   final String value;
 
   const ApiScenarioSetStatus._(this.value);
 
-  factory ApiScenarioSetStatus.fromJson(String value) => ApiScenarioSetStatus._(value);
+  factory ApiScenarioSetStatus.fromJson(String value) =>
+      ApiScenarioSetStatus._(value);
 
-  static const scenarioSetStatusUnspecified = ApiScenarioSetStatus._('SCENARIO_SET_STATUS_UNSPECIFIED');
-  static const scenarioSetStatusGenerating = ApiScenarioSetStatus._('SCENARIO_SET_STATUS_GENERATING');
-  static const scenarioSetStatusReady = ApiScenarioSetStatus._('SCENARIO_SET_STATUS_READY');
-  static const scenarioSetStatusFailed = ApiScenarioSetStatus._('SCENARIO_SET_STATUS_FAILED');
-  static const scenarioSetStatusCancelled = ApiScenarioSetStatus._('SCENARIO_SET_STATUS_CANCELLED');
+  static const scenarioSetStatusUnspecified =
+      ApiScenarioSetStatus._('SCENARIO_SET_STATUS_UNSPECIFIED');
+  static const scenarioSetStatusGenerating =
+      ApiScenarioSetStatus._('SCENARIO_SET_STATUS_GENERATING');
+  static const scenarioSetStatusReady =
+      ApiScenarioSetStatus._('SCENARIO_SET_STATUS_READY');
+  static const scenarioSetStatusFailed =
+      ApiScenarioSetStatus._('SCENARIO_SET_STATUS_FAILED');
+  static const scenarioSetStatusCancelled =
+      ApiScenarioSetStatus._('SCENARIO_SET_STATUS_CANCELLED');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiScenarioSetStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiScenarioSetStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Sortable fields for listing scenarios. - SCENARIO_SORT_FIELD_FILE_ORDER: Preserve original file order. Default. - SCENARIO_SORT_FIELD_NAME: Sort by scenario name (case-insensitive). Empty names sort last. - SCENARIO_SORT_FIELD_DESCRIPTION: Sort by scenario description (case-insensitive).
 final class ApiScenarioSortField {
-
   final String value;
 
   const ApiScenarioSortField._(this.value);
 
-  factory ApiScenarioSortField.fromJson(String value) => ApiScenarioSortField._(value);
+  factory ApiScenarioSortField.fromJson(String value) =>
+      ApiScenarioSortField._(value);
 
-  static const scenarioSortFieldUnspecified = ApiScenarioSortField._('SCENARIO_SORT_FIELD_UNSPECIFIED');
-  static const scenarioSortFieldFileOrder = ApiScenarioSortField._('SCENARIO_SORT_FIELD_FILE_ORDER');
-  static const scenarioSortFieldName = ApiScenarioSortField._('SCENARIO_SORT_FIELD_NAME');
-  static const scenarioSortFieldDescription = ApiScenarioSortField._('SCENARIO_SORT_FIELD_DESCRIPTION');
+  static const scenarioSortFieldUnspecified =
+      ApiScenarioSortField._('SCENARIO_SORT_FIELD_UNSPECIFIED');
+  static const scenarioSortFieldFileOrder =
+      ApiScenarioSortField._('SCENARIO_SORT_FIELD_FILE_ORDER');
+  static const scenarioSortFieldName =
+      ApiScenarioSortField._('SCENARIO_SORT_FIELD_NAME');
+  static const scenarioSortFieldDescription =
+      ApiScenarioSortField._('SCENARIO_SORT_FIELD_DESCRIPTION');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiScenarioSortField && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiScenarioSortField && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

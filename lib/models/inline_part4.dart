@@ -6,7 +6,6 @@ part of 'inline.dart';
 // Inline operation models (part 4)
 /// The current status of the action. This can be "in-progress", "completed", or "errored".
 final class ActionStatus {
-
   final String value;
 
   const ActionStatus._(this.value);
@@ -19,44 +18,50 @@ final class ActionStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ActionStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ActionStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The data type of the metadata value.
 final class AddonsAppMetadataType {
-
   final String value;
 
   const AddonsAppMetadataType._(this.value);
 
-  factory AddonsAppMetadataType.fromJson(String value) => AddonsAppMetadataType._(value);
+  factory AddonsAppMetadataType.fromJson(String value) =>
+      AddonsAppMetadataType._(value);
 
   static const string = AddonsAppMetadataType._('string');
   static const boolean = AddonsAppMetadataType._('boolean');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AddonsAppMetadataType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AddonsAppMetadataType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Feature type, indicating the kind of data it holds.
 final class AddonsFeatureType {
-
   final String value;
 
   const AddonsFeatureType._(this.value);
 
-  factory AddonsFeatureType.fromJson(String value) => AddonsFeatureType._(value);
+  factory AddonsFeatureType.fromJson(String value) =>
+      AddonsFeatureType._(value);
 
   static const unknown = AddonsFeatureType._('unknown');
   static const string = AddonsFeatureType._('string');
@@ -65,22 +70,25 @@ final class AddonsFeatureType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AddonsFeatureType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AddonsFeatureType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Unit of measurement for the feature, if applicable. Units apply to allowance features.
 final class AddonsFeatureUnit {
-
   final String value;
 
   const AddonsFeatureUnit._(this.value);
 
-  factory AddonsFeatureUnit.fromJson(String value) => AddonsFeatureUnit._(value);
+  factory AddonsFeatureUnit.fromJson(String value) =>
+      AddonsFeatureUnit._(value);
 
   static const unitUnknown = AddonsFeatureUnit._('unit_unknown');
   static const gb = AddonsFeatureUnit._('GB');
@@ -91,17 +99,19 @@ final class AddonsFeatureUnit {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AddonsFeatureUnit && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AddonsFeatureUnit && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Current state of the plan.
 final class AddonsPlanState {
-
   final String value;
 
   const AddonsPlanState._(this.value);
@@ -117,158 +127,183 @@ final class AddonsPlanState {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AddonsPlanState && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AddonsPlanState && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The state the resource is currently in.
 final class AddonsResourceState {
-
   final String value;
 
   const AddonsResourceState._(this.value);
 
-  factory AddonsResourceState.fromJson(String value) => AddonsResourceState._(value);
+  factory AddonsResourceState.fromJson(String value) =>
+      AddonsResourceState._(value);
 
   static const pending = AddonsResourceState._('pending');
   static const provisioning = AddonsResourceState._('provisioning');
   static const provisioned = AddonsResourceState._('provisioned');
   static const deprovisioning = AddonsResourceState._('deprovisioning');
   static const deprovisioned = AddonsResourceState._('deprovisioned');
-  static const provisioningFailed = AddonsResourceState._('provisioning-failed');
-  static const deprovisioningFailed = AddonsResourceState._('deprovisioning-failed');
+  static const provisioningFailed =
+      AddonsResourceState._('provisioning-failed');
+  static const deprovisioningFailed =
+      AddonsResourceState._('deprovisioning-failed');
   static const suspended = AddonsResourceState._('suspended');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AddonsResourceState && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AddonsResourceState && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `source` wire field.
 final class AgentConfigCredentialSlotSource {
-
   final String value;
 
   const AgentConfigCredentialSlotSource._(this.value);
 
-  factory AgentConfigCredentialSlotSource.fromJson(String value) => AgentConfigCredentialSlotSource._(value);
+  factory AgentConfigCredentialSlotSource.fromJson(String value) =>
+      AgentConfigCredentialSlotSource._(value);
 
   static const tenantsecret = AgentConfigCredentialSlotSource._('tenantSecret');
   static const oauth = AgentConfigCredentialSlotSource._('oauth');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AgentConfigCredentialSlotSource && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AgentConfigCredentialSlotSource && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The source this consent applies to. Always `agent` for per-environment records returned by this endpoint.
 final class AgentConsentSource {
-
   final String value;
 
   const AgentConsentSource._(this.value);
 
-  factory AgentConsentSource.fromJson(String value) => AgentConsentSource._(value);
+  factory AgentConsentSource.fromJson(String value) =>
+      AgentConsentSource._(value);
 
   static const agent = AgentConsentSource._('agent');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AgentConsentSource && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AgentConsentSource && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Legacy envelope only - must be "agents.digitalocean.com/v1alpha1", and its presence is what routes the document to the deprecated legacy parser. Flat-format manifests carry no version key (the endpoint owns the contract); required, with kind and spec, when authoring the legacy format.
 final class AgentManifestApiVersion {
-
   final String value;
 
   const AgentManifestApiVersion._(this.value);
 
-  factory AgentManifestApiVersion.fromJson(String value) => AgentManifestApiVersion._(value);
+  factory AgentManifestApiVersion.fromJson(String value) =>
+      AgentManifestApiVersion._(value);
 
-  static const agentsDigitaloceanComV1alpha1 = AgentManifestApiVersion._('agents.digitalocean.com/v1alpha1');
+  static const agentsDigitaloceanComV1alpha1 =
+      AgentManifestApiVersion._('agents.digitalocean.com/v1alpha1');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AgentManifestApiVersion && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AgentManifestApiVersion && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Must be "Agent".
 final class AgentManifestKind {
-
   final String value;
 
   const AgentManifestKind._(this.value);
 
-  factory AgentManifestKind.fromJson(String value) => AgentManifestKind._(value);
+  factory AgentManifestKind.fromJson(String value) =>
+      AgentManifestKind._(value);
 
   static const agent = AgentManifestKind._('Agent');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AgentManifestKind && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AgentManifestKind && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `onBreach` wire field.
 final class AgentManifestSpecDefaultsBudgetOnBreach {
-
   final String value;
 
   const AgentManifestSpecDefaultsBudgetOnBreach._(this.value);
 
-  factory AgentManifestSpecDefaultsBudgetOnBreach.fromJson(String value) => AgentManifestSpecDefaultsBudgetOnBreach._(value);
+  factory AgentManifestSpecDefaultsBudgetOnBreach.fromJson(String value) =>
+      AgentManifestSpecDefaultsBudgetOnBreach._(value);
 
   static const pause = AgentManifestSpecDefaultsBudgetOnBreach._('pause');
-  static const humaninput = AgentManifestSpecDefaultsBudgetOnBreach._('humanInput');
+  static const humaninput =
+      AgentManifestSpecDefaultsBudgetOnBreach._('humanInput');
   static const fail = AgentManifestSpecDefaultsBudgetOnBreach._('fail');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AgentManifestSpecDefaultsBudgetOnBreach && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AgentManifestSpecDefaultsBudgetOnBreach && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `scope` wire field.
 final class AgentManifestSpecMemoryScope {
-
   final String value;
 
   const AgentManifestSpecMemoryScope._(this.value);
 
-  factory AgentManifestSpecMemoryScope.fromJson(String value) => AgentManifestSpecMemoryScope._(value);
+  factory AgentManifestSpecMemoryScope.fromJson(String value) =>
+      AgentManifestSpecMemoryScope._(value);
 
   static const tenant = AgentManifestSpecMemoryScope._('tenant');
   static const user = AgentManifestSpecMemoryScope._('user');
@@ -277,10 +312,13 @@ final class AgentManifestSpecMemoryScope {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AgentManifestSpecMemoryScope && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AgentManifestSpecMemoryScope && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

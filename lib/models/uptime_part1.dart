@@ -8,81 +8,163 @@ part of 'uptime.dart';
 class Alert {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique ID that can be used to identify and reference the alert.
   final SdkOptional<String> id;
+
   /// A human-friendly display name.
   final SdkOptional<String> name;
+
   /// The type of alert.
   final SdkOptional<AlertUpdatableType> type_;
+
   /// The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type.
   final SdkOptional<int> threshold;
+
   /// The comparison operator used against the alert's threshold.
   final SdkOptional<AlertUpdatableComparison> comparison;
+
   /// The notification settings for a trigger alert.
   final SdkOptional<Notification> notifications;
+
   /// Period of time the threshold must be exceeded to trigger the alert.
   final SdkOptional<AlertUpdatablePeriod> period;
 
-  const Alert({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.type_ = const SdkOmitted(), this.threshold = const SdkOmitted(), this.comparison = const SdkOmitted(), this.notifications = const SdkOmitted(), this.period = const SdkOmitted()});
+  const Alert(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.threshold = const SdkOmitted(),
+      this.comparison = const SdkOmitted(),
+      this.notifications = const SdkOmitted(),
+      this.period = const SdkOmitted()});
 
-  Alert Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<AlertUpdatableType> type_, SdkOptional<int> threshold, SdkOptional<AlertUpdatableComparison> comparison, SdkOptional<Notification> notifications, SdkOptional<AlertUpdatablePeriod> period}) get copyWith => _copyWith;
+  Alert Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<AlertUpdatableType> type_,
+      SdkOptional<int> threshold,
+      SdkOptional<AlertUpdatableComparison> comparison,
+      SdkOptional<Notification> notifications,
+      SdkOptional<AlertUpdatablePeriod> period}) get copyWith => _copyWith;
 
-  Alert _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? threshold = sdkOmittedValue, Object? comparison = sdkOmittedValue, Object? notifications = sdkOmittedValue, Object? period = sdkOmittedValue}) => Alert(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<AlertUpdatableType>,
-    threshold: identical(threshold, sdkOmittedValue) ? this.threshold : threshold as SdkOptional<int>,
-    comparison: identical(comparison, sdkOmittedValue) ? this.comparison : comparison as SdkOptional<AlertUpdatableComparison>,
-    notifications: identical(notifications, sdkOmittedValue) ? this.notifications : notifications as SdkOptional<Notification>,
-    period: identical(period, sdkOmittedValue) ? this.period : period as SdkOptional<AlertUpdatablePeriod>,
-  );
+  Alert _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? threshold = sdkOmittedValue,
+          Object? comparison = sdkOmittedValue,
+          Object? notifications = sdkOmittedValue,
+          Object? period = sdkOmittedValue}) =>
+      Alert(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<AlertUpdatableType>,
+        threshold: identical(threshold, sdkOmittedValue)
+            ? this.threshold
+            : threshold as SdkOptional<int>,
+        comparison: identical(comparison, sdkOmittedValue)
+            ? this.comparison
+            : comparison as SdkOptional<AlertUpdatableComparison>,
+        notifications: identical(notifications, sdkOmittedValue)
+            ? this.notifications
+            : notifications as SdkOptional<Notification>,
+        period: identical(period, sdkOmittedValue)
+            ? this.period
+            : period as SdkOptional<AlertUpdatablePeriod>,
+      );
 
   factory Alert.fromJson(Map<String, dynamic> json) => Alert(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? AlertUpdatableType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    threshold: json['threshold'] != null ? SdkPresent(((json['threshold'] as num?)?.toInt())!) : const SdkOmitted(),
-    comparison: json['comparison'] != null ? SdkPresent((json['comparison'] != null ? AlertUpdatableComparison.fromJson(json['comparison'] as String) : null)!) : const SdkOmitted(),
-    notifications: json['notifications'] != null ? SdkPresent((json['notifications'] != null ? Notification.fromJson(json['notifications'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    period: json['period'] != null ? SdkPresent((json['period'] != null ? AlertUpdatablePeriod.fromJson(json['period'] as String) : null)!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? AlertUpdatableType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        threshold: json['threshold'] != null
+            ? SdkPresent(((json['threshold'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        comparison: json['comparison'] != null
+            ? SdkPresent((json['comparison'] != null
+                ? AlertUpdatableComparison.fromJson(
+                    json['comparison'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        notifications: json['notifications'] != null
+            ? SdkPresent((json['notifications'] != null
+                ? Notification.fromJson(
+                    json['notifications'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        period: json['period'] != null
+            ? SdkPresent((json['period'] != null
+                ? AlertUpdatablePeriod.fromJson(json['period'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<AlertUpdatableType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (threshold) {
-      SdkPresent<int>(value: final value) => {'threshold': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (comparison) {
-      SdkPresent<AlertUpdatableComparison>(value: final value) => {'comparison': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (notifications) {
-      SdkPresent<Notification>(value: final value) => {'notifications': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (period) {
-      SdkPresent<AlertUpdatablePeriod>(value: final value) => {'period': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<AlertUpdatableType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (threshold) {
+          SdkPresent<int>(value: final value) => {
+              'threshold': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (comparison) {
+          SdkPresent<AlertUpdatableComparison>(value: final value) => {
+              'comparison': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (notifications) {
+          SdkPresent<Notification>(value: final value) => {
+              'notifications': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (period) {
+          SdkPresent<AlertUpdatablePeriod>(value: final value) => {
+              'period': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AlertBase` API schema.
 class AlertBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique ID that can be used to identify and reference the alert.
   final SdkOptional<String> id;
 
@@ -91,86 +173,163 @@ class AlertBase {
   AlertBase Function({SdkOptional<String> id}) get copyWith => _copyWith;
 
   AlertBase _copyWith({Object? id = sdkOmittedValue}) => AlertBase(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
   factory AlertBase.fromJson(Map<String, dynamic> json) => AlertBase(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AlertUpdatable` API schema.
 class AlertUpdatable {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A human-friendly display name.
   final SdkOptional<String> name;
+
   /// The type of alert.
   final SdkOptional<AlertUpdatableType> type_;
+
   /// The threshold at which the alert will enter a trigger state. The specific threshold is dependent on the alert type.
   final SdkOptional<int> threshold;
+
   /// The comparison operator used against the alert's threshold.
   final SdkOptional<AlertUpdatableComparison> comparison;
+
   /// The notification settings for a trigger alert.
   final SdkOptional<Notification> notifications;
+
   /// Period of time the threshold must be exceeded to trigger the alert.
   final SdkOptional<AlertUpdatablePeriod> period;
 
-  const AlertUpdatable({this.name = const SdkOmitted(), this.type_ = const SdkOmitted(), this.threshold = const SdkOmitted(), this.comparison = const SdkOmitted(), this.notifications = const SdkOmitted(), this.period = const SdkOmitted()});
+  const AlertUpdatable(
+      {this.name = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.threshold = const SdkOmitted(),
+      this.comparison = const SdkOmitted(),
+      this.notifications = const SdkOmitted(),
+      this.period = const SdkOmitted()});
 
-  AlertUpdatable Function({SdkOptional<String> name, SdkOptional<AlertUpdatableType> type_, SdkOptional<int> threshold, SdkOptional<AlertUpdatableComparison> comparison, SdkOptional<Notification> notifications, SdkOptional<AlertUpdatablePeriod> period}) get copyWith => _copyWith;
+  AlertUpdatable Function(
+      {SdkOptional<String> name,
+      SdkOptional<AlertUpdatableType> type_,
+      SdkOptional<int> threshold,
+      SdkOptional<AlertUpdatableComparison> comparison,
+      SdkOptional<Notification> notifications,
+      SdkOptional<AlertUpdatablePeriod> period}) get copyWith => _copyWith;
 
-  AlertUpdatable _copyWith({Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? threshold = sdkOmittedValue, Object? comparison = sdkOmittedValue, Object? notifications = sdkOmittedValue, Object? period = sdkOmittedValue}) => AlertUpdatable(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<AlertUpdatableType>,
-    threshold: identical(threshold, sdkOmittedValue) ? this.threshold : threshold as SdkOptional<int>,
-    comparison: identical(comparison, sdkOmittedValue) ? this.comparison : comparison as SdkOptional<AlertUpdatableComparison>,
-    notifications: identical(notifications, sdkOmittedValue) ? this.notifications : notifications as SdkOptional<Notification>,
-    period: identical(period, sdkOmittedValue) ? this.period : period as SdkOptional<AlertUpdatablePeriod>,
-  );
+  AlertUpdatable _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? threshold = sdkOmittedValue,
+          Object? comparison = sdkOmittedValue,
+          Object? notifications = sdkOmittedValue,
+          Object? period = sdkOmittedValue}) =>
+      AlertUpdatable(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<AlertUpdatableType>,
+        threshold: identical(threshold, sdkOmittedValue)
+            ? this.threshold
+            : threshold as SdkOptional<int>,
+        comparison: identical(comparison, sdkOmittedValue)
+            ? this.comparison
+            : comparison as SdkOptional<AlertUpdatableComparison>,
+        notifications: identical(notifications, sdkOmittedValue)
+            ? this.notifications
+            : notifications as SdkOptional<Notification>,
+        period: identical(period, sdkOmittedValue)
+            ? this.period
+            : period as SdkOptional<AlertUpdatablePeriod>,
+      );
 
   factory AlertUpdatable.fromJson(Map<String, dynamic> json) => AlertUpdatable(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? AlertUpdatableType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    threshold: json['threshold'] != null ? SdkPresent(((json['threshold'] as num?)?.toInt())!) : const SdkOmitted(),
-    comparison: json['comparison'] != null ? SdkPresent((json['comparison'] != null ? AlertUpdatableComparison.fromJson(json['comparison'] as String) : null)!) : const SdkOmitted(),
-    notifications: json['notifications'] != null ? SdkPresent((json['notifications'] != null ? Notification.fromJson(json['notifications'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    period: json['period'] != null ? SdkPresent((json['period'] != null ? AlertUpdatablePeriod.fromJson(json['period'] as String) : null)!) : const SdkOmitted(),
-  );
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? AlertUpdatableType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        threshold: json['threshold'] != null
+            ? SdkPresent(((json['threshold'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        comparison: json['comparison'] != null
+            ? SdkPresent((json['comparison'] != null
+                ? AlertUpdatableComparison.fromJson(
+                    json['comparison'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        notifications: json['notifications'] != null
+            ? SdkPresent((json['notifications'] != null
+                ? Notification.fromJson(
+                    json['notifications'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        period: json['period'] != null
+            ? SdkPresent((json['period'] != null
+                ? AlertUpdatablePeriod.fromJson(json['period'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<AlertUpdatableType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (threshold) {
-      SdkPresent<int>(value: final value) => {'threshold': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (comparison) {
-      SdkPresent<AlertUpdatableComparison>(value: final value) => {'comparison': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (notifications) {
-      SdkPresent<Notification>(value: final value) => {'notifications': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (period) {
-      SdkPresent<AlertUpdatablePeriod>(value: final value) => {'period': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<AlertUpdatableType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (threshold) {
+          SdkPresent<int>(value: final value) => {
+              'threshold': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (comparison) {
+          SdkPresent<AlertUpdatableComparison>(value: final value) => {
+              'comparison': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (notifications) {
+          SdkPresent<Notification>(value: final value) => {
+              'notifications': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (period) {
+          SdkPresent<AlertUpdatablePeriod>(value: final value) => {
+              'period': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class AllAlertsVariant0 {
@@ -180,22 +339,33 @@ class AllAlertsVariant0 {
 
   const AllAlertsVariant0({this.alerts = const SdkOmitted()});
 
-  AllAlertsVariant0 Function({SdkOptional<List<Alert>> alerts}) get copyWith => _copyWith;
+  AllAlertsVariant0 Function({SdkOptional<List<Alert>> alerts}) get copyWith =>
+      _copyWith;
 
-  AllAlertsVariant0 _copyWith({Object? alerts = sdkOmittedValue}) => AllAlertsVariant0(
-    alerts: identical(alerts, sdkOmittedValue) ? this.alerts : alerts as SdkOptional<List<Alert>>,
-  );
+  AllAlertsVariant0 _copyWith({Object? alerts = sdkOmittedValue}) =>
+      AllAlertsVariant0(
+        alerts: identical(alerts, sdkOmittedValue)
+            ? this.alerts
+            : alerts as SdkOptional<List<Alert>>,
+      );
 
-  factory AllAlertsVariant0.fromJson(Map<String, dynamic> json) => AllAlertsVariant0(
-    alerts: json['alerts'] != null ? SdkPresent(((json['alerts'] as List?)?.map((e) => Alert.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AllAlertsVariant0.fromJson(Map<String, dynamic> json) =>
+      AllAlertsVariant0(
+        alerts: json['alerts'] != null
+            ? SdkPresent(((json['alerts'] as List?)
+                ?.map((e) => Alert.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (alerts) {
-      SdkPresent<List<Alert>>(value: final value) => {'alerts': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (alerts) {
+          SdkPresent<List<Alert>>(value: final value) => {
+              'alerts': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllAlerts` API schema.
@@ -203,38 +373,70 @@ class AllAlerts {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Alert>> alerts;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllAlerts({this.alerts = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllAlerts(
+      {this.alerts = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllAlerts Function({SdkOptional<List<Alert>> alerts, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllAlerts Function(
+      {SdkOptional<List<Alert>> alerts,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllAlerts _copyWith({Object? alerts = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllAlerts(
-    alerts: identical(alerts, sdkOmittedValue) ? this.alerts : alerts as SdkOptional<List<Alert>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllAlerts _copyWith(
+          {Object? alerts = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllAlerts(
+        alerts: identical(alerts, sdkOmittedValue)
+            ? this.alerts
+            : alerts as SdkOptional<List<Alert>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
   factory AllAlerts.fromJson(Map<String, dynamic> json) => AllAlerts(
-    alerts: json['alerts'] != null ? SdkPresent(((json['alerts'] as List?)?.map((e) => Alert.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+        alerts: json['alerts'] != null
+            ? SdkPresent(((json['alerts'] as List?)
+                ?.map((e) => Alert.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (alerts) {
-      SdkPresent<List<Alert>>(value: final value) => {'alerts': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (alerts) {
+          SdkPresent<List<Alert>>(value: final value) => {
+              'alerts': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 class AllChecksVariant0 {
@@ -244,20 +446,31 @@ class AllChecksVariant0 {
 
   const AllChecksVariant0({this.checks = const SdkOmitted()});
 
-  AllChecksVariant0 Function({SdkOptional<List<Check>> checks}) get copyWith => _copyWith;
+  AllChecksVariant0 Function({SdkOptional<List<Check>> checks}) get copyWith =>
+      _copyWith;
 
-  AllChecksVariant0 _copyWith({Object? checks = sdkOmittedValue}) => AllChecksVariant0(
-    checks: identical(checks, sdkOmittedValue) ? this.checks : checks as SdkOptional<List<Check>>,
-  );
+  AllChecksVariant0 _copyWith({Object? checks = sdkOmittedValue}) =>
+      AllChecksVariant0(
+        checks: identical(checks, sdkOmittedValue)
+            ? this.checks
+            : checks as SdkOptional<List<Check>>,
+      );
 
-  factory AllChecksVariant0.fromJson(Map<String, dynamic> json) => AllChecksVariant0(
-    checks: json['checks'] != null ? SdkPresent(((json['checks'] as List?)?.map((e) => Check.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AllChecksVariant0.fromJson(Map<String, dynamic> json) =>
+      AllChecksVariant0(
+        checks: json['checks'] != null
+            ? SdkPresent(((json['checks'] as List?)
+                ?.map((e) => Check.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (checks) {
-      SdkPresent<List<Check>>(value: final value) => {'checks': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (checks) {
+          SdkPresent<List<Check>>(value: final value) => {
+              'checks': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

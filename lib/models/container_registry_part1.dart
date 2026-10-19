@@ -11,22 +11,33 @@ class AllRepositoriesVariant0 {
 
   const AllRepositoriesVariant0({this.repositories = const SdkOmitted()});
 
-  AllRepositoriesVariant0 Function({SdkOptional<List<Repository>> repositories}) get copyWith => _copyWith;
+  AllRepositoriesVariant0 Function({SdkOptional<List<Repository>> repositories})
+      get copyWith => _copyWith;
 
-  AllRepositoriesVariant0 _copyWith({Object? repositories = sdkOmittedValue}) => AllRepositoriesVariant0(
-    repositories: identical(repositories, sdkOmittedValue) ? this.repositories : repositories as SdkOptional<List<Repository>>,
-  );
+  AllRepositoriesVariant0 _copyWith({Object? repositories = sdkOmittedValue}) =>
+      AllRepositoriesVariant0(
+        repositories: identical(repositories, sdkOmittedValue)
+            ? this.repositories
+            : repositories as SdkOptional<List<Repository>>,
+      );
 
-  factory AllRepositoriesVariant0.fromJson(Map<String, dynamic> json) => AllRepositoriesVariant0(
-    repositories: json['repositories'] != null ? SdkPresent(((json['repositories'] as List?)?.map((e) => Repository.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AllRepositoriesVariant0.fromJson(Map<String, dynamic> json) =>
+      AllRepositoriesVariant0(
+        repositories: json['repositories'] != null
+            ? SdkPresent(((json['repositories'] as List?)
+                ?.map((e) => Repository.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (repositories) {
-      SdkPresent<List<Repository>>(value: final value) => {'repositories': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (repositories) {
+          SdkPresent<List<Repository>>(value: final value) => {
+              'repositories': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllRepositories` API schema.
@@ -34,178 +45,301 @@ class AllRepositories {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Repository>> repositories;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllRepositories({this.repositories = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllRepositories(
+      {this.repositories = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllRepositories Function({SdkOptional<List<Repository>> repositories, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllRepositories Function(
+      {SdkOptional<List<Repository>> repositories,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllRepositories _copyWith({Object? repositories = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllRepositories(
-    repositories: identical(repositories, sdkOmittedValue) ? this.repositories : repositories as SdkOptional<List<Repository>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllRepositories _copyWith(
+          {Object? repositories = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllRepositories(
+        repositories: identical(repositories, sdkOmittedValue)
+            ? this.repositories
+            : repositories as SdkOptional<List<Repository>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AllRepositories.fromJson(Map<String, dynamic> json) => AllRepositories(
-    repositories: json['repositories'] != null ? SdkPresent(((json['repositories'] as List?)?.map((e) => Repository.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory AllRepositories.fromJson(Map<String, dynamic> json) =>
+      AllRepositories(
+        repositories: json['repositories'] != null
+            ? SdkPresent(((json['repositories'] as List?)
+                ?.map((e) => Repository.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (repositories) {
-      SdkPresent<List<Repository>>(value: final value) => {'repositories': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (repositories) {
+          SdkPresent<List<Repository>>(value: final value) => {
+              'repositories': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 /// Typed representation of the `RegistryCreate` API schema.
 class RegistryCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
   final String name;
+
   /// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
   final RegistryCreateSubscriptionTierSlug subscriptionTierSlug;
+
   /// Slug of the region where registry data is stored. When not provided, a region will be selected.
   final SdkOptional<RegistryCreateRegion> region;
 
-  const RegistryCreate({required this.name, required this.subscriptionTierSlug, this.region = const SdkOmitted()});
+  const RegistryCreate(
+      {required this.name,
+      required this.subscriptionTierSlug,
+      this.region = const SdkOmitted()});
 
-  RegistryCreate Function({String name, RegistryCreateSubscriptionTierSlug subscriptionTierSlug, SdkOptional<RegistryCreateRegion> region}) get copyWith => _copyWith;
+  RegistryCreate Function(
+      {String name,
+      RegistryCreateSubscriptionTierSlug subscriptionTierSlug,
+      SdkOptional<RegistryCreateRegion> region}) get copyWith => _copyWith;
 
-  RegistryCreate _copyWith({Object? name = sdkOmittedValue, Object? subscriptionTierSlug = sdkOmittedValue, Object? region = sdkOmittedValue}) => RegistryCreate(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    subscriptionTierSlug: identical(subscriptionTierSlug, sdkOmittedValue) ? this.subscriptionTierSlug : subscriptionTierSlug as RegistryCreateSubscriptionTierSlug,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<RegistryCreateRegion>,
-  );
+  RegistryCreate _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? subscriptionTierSlug = sdkOmittedValue,
+          Object? region = sdkOmittedValue}) =>
+      RegistryCreate(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        subscriptionTierSlug: identical(subscriptionTierSlug, sdkOmittedValue)
+            ? this.subscriptionTierSlug
+            : subscriptionTierSlug as RegistryCreateSubscriptionTierSlug,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<RegistryCreateRegion>,
+      );
 
   factory RegistryCreate.fromJson(Map<String, dynamic> json) => RegistryCreate(
-    name: (json['name'] as String?)!,
-    subscriptionTierSlug: (json['subscription_tier_slug'] != null ? RegistryCreateSubscriptionTierSlug.fromJson(json['subscription_tier_slug'] as String) : null)!,
-    region: json['region'] != null ? SdkPresent((json['region'] != null ? RegistryCreateRegion.fromJson(json['region'] as String) : null)!) : const SdkOmitted(),
-  );
+        name: (json['name'] as String?)!,
+        subscriptionTierSlug: (json['subscription_tier_slug'] != null
+            ? RegistryCreateSubscriptionTierSlug.fromJson(
+                json['subscription_tier_slug'] as String)
+            : null)!,
+        region: json['region'] != null
+            ? SdkPresent((json['region'] != null
+                ? RegistryCreateRegion.fromJson(json['region'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'subscription_tier_slug': subscriptionTierSlug.toJson(),
-    ...switch (region) {
-      SdkPresent<RegistryCreateRegion>(value: final value) => {'region': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        'subscription_tier_slug': subscriptionTierSlug.toJson(),
+        ...switch (region) {
+          SdkPresent<RegistryCreateRegion>(value: final value) => {
+              'region': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `RegistryInfo` API schema.
 class RegistryInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `registry` wire field.
   final SdkOptional<Registry> registry;
 
   const RegistryInfo({this.registry = const SdkOmitted()});
 
-  RegistryInfo Function({SdkOptional<Registry> registry}) get copyWith => _copyWith;
+  RegistryInfo Function({SdkOptional<Registry> registry}) get copyWith =>
+      _copyWith;
 
   RegistryInfo _copyWith({Object? registry = sdkOmittedValue}) => RegistryInfo(
-    registry: identical(registry, sdkOmittedValue) ? this.registry : registry as SdkOptional<Registry>,
-  );
+        registry: identical(registry, sdkOmittedValue)
+            ? this.registry
+            : registry as SdkOptional<Registry>,
+      );
 
   factory RegistryInfo.fromJson(Map<String, dynamic> json) => RegistryInfo(
-    registry: json['registry'] != null ? SdkPresent((json['registry'] != null ? Registry.fromJson(json['registry'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        registry: json['registry'] != null
+            ? SdkPresent((json['registry'] != null
+                ? Registry.fromJson(json['registry'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (registry) {
-      SdkPresent<Registry>(value: final value) => {'registry': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (registry) {
+          SdkPresent<Registry>(value: final value) => {
+              'registry': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `RegistryRunGc` API schema.
 class RegistryRunGc {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Type of the garbage collection to run against this registry
   final SdkOptional<RegistryRunGcType> type_;
 
   const RegistryRunGc({this.type_ = const SdkOmitted()});
 
-  RegistryRunGc Function({SdkOptional<RegistryRunGcType> type_}) get copyWith => _copyWith;
+  RegistryRunGc Function({SdkOptional<RegistryRunGcType> type_}) get copyWith =>
+      _copyWith;
 
   RegistryRunGc _copyWith({Object? type_ = sdkOmittedValue}) => RegistryRunGc(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<RegistryRunGcType>,
-  );
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<RegistryRunGcType>,
+      );
 
   factory RegistryRunGc.fromJson(Map<String, dynamic> json) => RegistryRunGc(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? RegistryRunGcType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-  );
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? RegistryRunGcType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<RegistryRunGcType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<RegistryRunGcType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `Repository` API schema.
 class Repository {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the container registry.
   final SdkOptional<String> registryName;
+
   /// The name of the repository.
   final SdkOptional<String> name;
+
   /// Optional object value serialized in the `latest_tag` wire field.
   final SdkOptional<RepositoryTag> latestTag;
+
   /// The number of tags in the repository.
   final SdkOptional<int> tagCount;
 
-  const Repository({this.registryName = const SdkOmitted(), this.name = const SdkOmitted(), this.latestTag = const SdkOmitted(), this.tagCount = const SdkOmitted()});
+  const Repository(
+      {this.registryName = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.latestTag = const SdkOmitted(),
+      this.tagCount = const SdkOmitted()});
 
-  Repository Function({SdkOptional<String> registryName, SdkOptional<String> name, SdkOptional<RepositoryTag> latestTag, SdkOptional<int> tagCount}) get copyWith => _copyWith;
+  Repository Function(
+      {SdkOptional<String> registryName,
+      SdkOptional<String> name,
+      SdkOptional<RepositoryTag> latestTag,
+      SdkOptional<int> tagCount}) get copyWith => _copyWith;
 
-  Repository _copyWith({Object? registryName = sdkOmittedValue, Object? name = sdkOmittedValue, Object? latestTag = sdkOmittedValue, Object? tagCount = sdkOmittedValue}) => Repository(
-    registryName: identical(registryName, sdkOmittedValue) ? this.registryName : registryName as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    latestTag: identical(latestTag, sdkOmittedValue) ? this.latestTag : latestTag as SdkOptional<RepositoryTag>,
-    tagCount: identical(tagCount, sdkOmittedValue) ? this.tagCount : tagCount as SdkOptional<int>,
-  );
+  Repository _copyWith(
+          {Object? registryName = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? latestTag = sdkOmittedValue,
+          Object? tagCount = sdkOmittedValue}) =>
+      Repository(
+        registryName: identical(registryName, sdkOmittedValue)
+            ? this.registryName
+            : registryName as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        latestTag: identical(latestTag, sdkOmittedValue)
+            ? this.latestTag
+            : latestTag as SdkOptional<RepositoryTag>,
+        tagCount: identical(tagCount, sdkOmittedValue)
+            ? this.tagCount
+            : tagCount as SdkOptional<int>,
+      );
 
   factory Repository.fromJson(Map<String, dynamic> json) => Repository(
-    registryName: json['registry_name'] != null ? SdkPresent((json['registry_name'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    latestTag: json['latest_tag'] != null ? SdkPresent((json['latest_tag'] != null ? RepositoryTag.fromJson(json['latest_tag'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    tagCount: json['tag_count'] != null ? SdkPresent(((json['tag_count'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+        registryName: json['registry_name'] != null
+            ? SdkPresent((json['registry_name'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        latestTag: json['latest_tag'] != null
+            ? SdkPresent((json['latest_tag'] != null
+                ? RepositoryTag.fromJson(
+                    json['latest_tag'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        tagCount: json['tag_count'] != null
+            ? SdkPresent(((json['tag_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (registryName) {
-      SdkPresent<String>(value: final value) => {'registry_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (latestTag) {
-      SdkPresent<RepositoryTag>(value: final value) => {'latest_tag': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tagCount) {
-      SdkPresent<int>(value: final value) => {'tag_count': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (registryName) {
+          SdkPresent<String>(value: final value) => {
+              'registry_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (latestTag) {
+          SdkPresent<RepositoryTag>(value: final value) => {
+              'latest_tag': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tagCount) {
+          SdkPresent<int>(value: final value) => {
+              'tag_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

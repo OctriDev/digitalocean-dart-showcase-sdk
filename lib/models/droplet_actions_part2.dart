@@ -7,274 +7,420 @@ part of 'droplet_actions.dart';
 class DropletActionRebuildVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base.
   final SdkOptional<dynamic> image;
 
   const DropletActionRebuildVariant1({this.image = const SdkOmitted()});
 
-  DropletActionRebuildVariant1 Function({SdkOptional<dynamic> image}) get copyWith => _copyWith;
+  DropletActionRebuildVariant1 Function({SdkOptional<dynamic> image})
+      get copyWith => _copyWith;
 
-  DropletActionRebuildVariant1 _copyWith({Object? image = sdkOmittedValue}) => DropletActionRebuildVariant1(
-    image: identical(image, sdkOmittedValue) ? this.image : image as SdkOptional<dynamic>,
-  );
+  DropletActionRebuildVariant1 _copyWith({Object? image = sdkOmittedValue}) =>
+      DropletActionRebuildVariant1(
+        image: identical(image, sdkOmittedValue)
+            ? this.image
+            : image as SdkOptional<dynamic>,
+      );
 
-  factory DropletActionRebuildVariant1.fromJson(Map<String, dynamic> json) => DropletActionRebuildVariant1(
-    image: json['image'] != null ? SdkPresent((json['image'])!) : const SdkOmitted(),
-  );
+  factory DropletActionRebuildVariant1.fromJson(Map<String, dynamic> json) =>
+      DropletActionRebuildVariant1(
+        image: json['image'] != null
+            ? SdkPresent((json['image'])!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (image) {
-      SdkPresent<dynamic>(value: final value) => {'image': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (image) {
+          SdkPresent<dynamic>(value: final value) => {
+              'image': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DropletActionRebuild` API schema.
 class DropletActionRebuild {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
+
   /// The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base.
   final SdkOptional<dynamic> image;
 
-  const DropletActionRebuild({required this.type_, this.image = const SdkOmitted()});
+  const DropletActionRebuild(
+      {required this.type_, this.image = const SdkOmitted()});
 
-  DropletActionRebuild Function({DropletActionType type_, SdkOptional<dynamic> image}) get copyWith => _copyWith;
+  DropletActionRebuild Function(
+      {DropletActionType type_,
+      SdkOptional<dynamic> image}) get copyWith => _copyWith;
 
-  DropletActionRebuild _copyWith({Object? type_ = sdkOmittedValue, Object? image = sdkOmittedValue}) => DropletActionRebuild(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
-    image: identical(image, sdkOmittedValue) ? this.image : image as SdkOptional<dynamic>,
-  );
+  DropletActionRebuild _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? image = sdkOmittedValue}) =>
+      DropletActionRebuild(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DropletActionType,
+        image: identical(image, sdkOmittedValue)
+            ? this.image
+            : image as SdkOptional<dynamic>,
+      );
 
-  factory DropletActionRebuild.fromJson(Map<String, dynamic> json) => DropletActionRebuild(
-    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
-    image: json['image'] != null ? SdkPresent((json['image'])!) : const SdkOmitted(),
-  );
+  factory DropletActionRebuild.fromJson(Map<String, dynamic> json) =>
+      DropletActionRebuild(
+        type_: (json['type'] != null
+            ? DropletActionType.fromJson(json['type'] as String)
+            : null)!,
+        image: json['image'] != null
+            ? SdkPresent((json['image'])!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (image) {
-      SdkPresent<dynamic>(value: final value) => {'image': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (image) {
+          SdkPresent<dynamic>(value: final value) => {
+              'image': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DropletActionRenameVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new name for the Droplet.
   final SdkOptional<String> name;
 
   const DropletActionRenameVariant1({this.name = const SdkOmitted()});
 
-  DropletActionRenameVariant1 Function({SdkOptional<String> name}) get copyWith => _copyWith;
+  DropletActionRenameVariant1 Function({SdkOptional<String> name})
+      get copyWith => _copyWith;
 
-  DropletActionRenameVariant1 _copyWith({Object? name = sdkOmittedValue}) => DropletActionRenameVariant1(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  DropletActionRenameVariant1 _copyWith({Object? name = sdkOmittedValue}) =>
+      DropletActionRenameVariant1(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory DropletActionRenameVariant1.fromJson(Map<String, dynamic> json) => DropletActionRenameVariant1(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory DropletActionRenameVariant1.fromJson(Map<String, dynamic> json) =>
+      DropletActionRenameVariant1(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DropletActionRename` API schema.
 class DropletActionRename {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
+
   /// The new name for the Droplet.
   final SdkOptional<String> name;
 
-  const DropletActionRename({required this.type_, this.name = const SdkOmitted()});
+  const DropletActionRename(
+      {required this.type_, this.name = const SdkOmitted()});
 
-  DropletActionRename Function({DropletActionType type_, SdkOptional<String> name}) get copyWith => _copyWith;
+  DropletActionRename Function(
+      {DropletActionType type_,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  DropletActionRename _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) => DropletActionRename(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  DropletActionRename _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
+      DropletActionRename(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DropletActionType,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory DropletActionRename.fromJson(Map<String, dynamic> json) => DropletActionRename(
-    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory DropletActionRename.fromJson(Map<String, dynamic> json) =>
+      DropletActionRename(
+        type_: (json['type'] != null
+            ? DropletActionType.fromJson(json['type'] as String)
+            : null)!,
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DropletActionResizeVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// When `true`, the Droplet's disk will be resized in addition to its RAM and CPU. This is a permanent change and cannot be reversed as a Droplet's disk size cannot be decreased.
   final SdkOptional<bool> disk;
+
   /// The slug identifier for the size to which you wish to resize the Droplet.
   final SdkOptional<String> size;
 
-  const DropletActionResizeVariant1({this.disk = const SdkOmitted(), this.size = const SdkOmitted()});
+  const DropletActionResizeVariant1(
+      {this.disk = const SdkOmitted(), this.size = const SdkOmitted()});
 
-  DropletActionResizeVariant1 Function({SdkOptional<bool> disk, SdkOptional<String> size}) get copyWith => _copyWith;
+  DropletActionResizeVariant1 Function(
+      {SdkOptional<bool> disk,
+      SdkOptional<String> size}) get copyWith => _copyWith;
 
-  DropletActionResizeVariant1 _copyWith({Object? disk = sdkOmittedValue, Object? size = sdkOmittedValue}) => DropletActionResizeVariant1(
-    disk: identical(disk, sdkOmittedValue) ? this.disk : disk as SdkOptional<bool>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String>,
-  );
+  DropletActionResizeVariant1 _copyWith(
+          {Object? disk = sdkOmittedValue, Object? size = sdkOmittedValue}) =>
+      DropletActionResizeVariant1(
+        disk: identical(disk, sdkOmittedValue)
+            ? this.disk
+            : disk as SdkOptional<bool>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<String>,
+      );
 
-  factory DropletActionResizeVariant1.fromJson(Map<String, dynamic> json) => DropletActionResizeVariant1(
-    disk: json['disk'] != null ? SdkPresent((json['disk'] as bool?)!) : const SdkOmitted(),
-    size: json['size'] != null ? SdkPresent((json['size'] as String?)!) : const SdkOmitted(),
-  );
+  factory DropletActionResizeVariant1.fromJson(Map<String, dynamic> json) =>
+      DropletActionResizeVariant1(
+        disk: json['disk'] != null
+            ? SdkPresent((json['disk'] as bool?)!)
+            : const SdkOmitted(),
+        size: json['size'] != null
+            ? SdkPresent((json['size'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (disk) {
-      SdkPresent<bool>(value: final value) => {'disk': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<String>(value: final value) => {'size': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (disk) {
+          SdkPresent<bool>(value: final value) => {
+              'disk': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<String>(value: final value) => {
+              'size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DropletActionResize` API schema.
 class DropletActionResize {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
+
   /// When `true`, the Droplet's disk will be resized in addition to its RAM and CPU. This is a permanent change and cannot be reversed as a Droplet's disk size cannot be decreased.
   final SdkOptional<bool> disk;
+
   /// The slug identifier for the size to which you wish to resize the Droplet.
   final SdkOptional<String> size;
 
-  const DropletActionResize({required this.type_, this.disk = const SdkOmitted(), this.size = const SdkOmitted()});
+  const DropletActionResize(
+      {required this.type_,
+      this.disk = const SdkOmitted(),
+      this.size = const SdkOmitted()});
 
-  DropletActionResize Function({DropletActionType type_, SdkOptional<bool> disk, SdkOptional<String> size}) get copyWith => _copyWith;
+  DropletActionResize Function(
+      {DropletActionType type_,
+      SdkOptional<bool> disk,
+      SdkOptional<String> size}) get copyWith => _copyWith;
 
-  DropletActionResize _copyWith({Object? type_ = sdkOmittedValue, Object? disk = sdkOmittedValue, Object? size = sdkOmittedValue}) => DropletActionResize(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
-    disk: identical(disk, sdkOmittedValue) ? this.disk : disk as SdkOptional<bool>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String>,
-  );
+  DropletActionResize _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? disk = sdkOmittedValue,
+          Object? size = sdkOmittedValue}) =>
+      DropletActionResize(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DropletActionType,
+        disk: identical(disk, sdkOmittedValue)
+            ? this.disk
+            : disk as SdkOptional<bool>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<String>,
+      );
 
-  factory DropletActionResize.fromJson(Map<String, dynamic> json) => DropletActionResize(
-    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
-    disk: json['disk'] != null ? SdkPresent((json['disk'] as bool?)!) : const SdkOmitted(),
-    size: json['size'] != null ? SdkPresent((json['size'] as String?)!) : const SdkOmitted(),
-  );
+  factory DropletActionResize.fromJson(Map<String, dynamic> json) =>
+      DropletActionResize(
+        type_: (json['type'] != null
+            ? DropletActionType.fromJson(json['type'] as String)
+            : null)!,
+        disk: json['disk'] != null
+            ? SdkPresent((json['disk'] as bool?)!)
+            : const SdkOmitted(),
+        size: json['size'] != null
+            ? SdkPresent((json['size'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (disk) {
-      SdkPresent<bool>(value: final value) => {'disk': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<String>(value: final value) => {'size': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (disk) {
+          SdkPresent<bool>(value: final value) => {
+              'disk': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<String>(value: final value) => {
+              'size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DropletActionResponse` API schema.
 class DropletActionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `action` wire field.
   final SdkOptional<Action> action;
 
   const DropletActionResponse({this.action = const SdkOmitted()});
 
-  DropletActionResponse Function({SdkOptional<Action> action}) get copyWith => _copyWith;
+  DropletActionResponse Function({SdkOptional<Action> action}) get copyWith =>
+      _copyWith;
 
-  DropletActionResponse _copyWith({Object? action = sdkOmittedValue}) => DropletActionResponse(
-    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<Action>,
-  );
+  DropletActionResponse _copyWith({Object? action = sdkOmittedValue}) =>
+      DropletActionResponse(
+        action: identical(action, sdkOmittedValue)
+            ? this.action
+            : action as SdkOptional<Action>,
+      );
 
-  factory DropletActionResponse.fromJson(Map<String, dynamic> json) => DropletActionResponse(
-    action: json['action'] != null ? SdkPresent((json['action'] != null ? Action.fromJson(json['action'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DropletActionResponse.fromJson(Map<String, dynamic> json) =>
+      DropletActionResponse(
+        action: json['action'] != null
+            ? SdkPresent((json['action'] != null
+                ? Action.fromJson(json['action'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (action) {
-      SdkPresent<Action>(value: final value) => {'action': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (action) {
+          SdkPresent<Action>(value: final value) => {
+              'action': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DropletActionRestoreVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of a backup of the current Droplet instance to restore from.
   final SdkOptional<int> image;
 
   const DropletActionRestoreVariant1({this.image = const SdkOmitted()});
 
-  DropletActionRestoreVariant1 Function({SdkOptional<int> image}) get copyWith => _copyWith;
+  DropletActionRestoreVariant1 Function({SdkOptional<int> image})
+      get copyWith => _copyWith;
 
-  DropletActionRestoreVariant1 _copyWith({Object? image = sdkOmittedValue}) => DropletActionRestoreVariant1(
-    image: identical(image, sdkOmittedValue) ? this.image : image as SdkOptional<int>,
-  );
+  DropletActionRestoreVariant1 _copyWith({Object? image = sdkOmittedValue}) =>
+      DropletActionRestoreVariant1(
+        image: identical(image, sdkOmittedValue)
+            ? this.image
+            : image as SdkOptional<int>,
+      );
 
-  factory DropletActionRestoreVariant1.fromJson(Map<String, dynamic> json) => DropletActionRestoreVariant1(
-    image: json['image'] != null ? SdkPresent(((json['image'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory DropletActionRestoreVariant1.fromJson(Map<String, dynamic> json) =>
+      DropletActionRestoreVariant1(
+        image: json['image'] != null
+            ? SdkPresent(((json['image'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (image) {
-      SdkPresent<int>(value: final value) => {'image': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (image) {
+          SdkPresent<int>(value: final value) => {
+              'image': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DropletActionRestore` API schema.
 class DropletActionRestore {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
+
   /// The ID of a backup of the current Droplet instance to restore from.
   final SdkOptional<int> image;
 
-  const DropletActionRestore({required this.type_, this.image = const SdkOmitted()});
+  const DropletActionRestore(
+      {required this.type_, this.image = const SdkOmitted()});
 
-  DropletActionRestore Function({DropletActionType type_, SdkOptional<int> image}) get copyWith => _copyWith;
+  DropletActionRestore Function(
+      {DropletActionType type_,
+      SdkOptional<int> image}) get copyWith => _copyWith;
 
-  DropletActionRestore _copyWith({Object? type_ = sdkOmittedValue, Object? image = sdkOmittedValue}) => DropletActionRestore(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
-    image: identical(image, sdkOmittedValue) ? this.image : image as SdkOptional<int>,
-  );
+  DropletActionRestore _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? image = sdkOmittedValue}) =>
+      DropletActionRestore(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DropletActionType,
+        image: identical(image, sdkOmittedValue)
+            ? this.image
+            : image as SdkOptional<int>,
+      );
 
-  factory DropletActionRestore.fromJson(Map<String, dynamic> json) => DropletActionRestore(
-    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
-    image: json['image'] != null ? SdkPresent(((json['image'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory DropletActionRestore.fromJson(Map<String, dynamic> json) =>
+      DropletActionRestore(
+        type_: (json['type'] != null
+            ? DropletActionType.fromJson(json['type'] as String)
+            : null)!,
+        image: json['image'] != null
+            ? SdkPresent(((json['image'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (image) {
-      SdkPresent<int>(value: final value) => {'image': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (image) {
+          SdkPresent<int>(value: final value) => {
+              'image': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

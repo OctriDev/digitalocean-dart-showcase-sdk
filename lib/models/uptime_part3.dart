@@ -8,220 +8,367 @@ part of 'uptime.dart';
 class NotificationSlackItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Slack channel to notify of an alert trigger.
   final String channel;
+
   /// Slack Webhook URL.
   final String url;
 
   const NotificationSlackItem({required this.channel, required this.url});
 
-  NotificationSlackItem Function({String channel, String url}) get copyWith => _copyWith;
+  NotificationSlackItem Function({String channel, String url}) get copyWith =>
+      _copyWith;
 
-  NotificationSlackItem _copyWith({Object? channel = sdkOmittedValue, Object? url = sdkOmittedValue}) => NotificationSlackItem(
-    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as String,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-  );
+  NotificationSlackItem _copyWith(
+          {Object? channel = sdkOmittedValue, Object? url = sdkOmittedValue}) =>
+      NotificationSlackItem(
+        channel: identical(channel, sdkOmittedValue)
+            ? this.channel
+            : channel as String,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+      );
 
-  factory NotificationSlackItem.fromJson(Map<String, dynamic> json) => NotificationSlackItem(
-    channel: (json['channel'] as String?)!,
-    url: (json['url'] as String?)!,
-  );
+  factory NotificationSlackItem.fromJson(Map<String, dynamic> json) =>
+      NotificationSlackItem(
+        channel: (json['channel'] as String?)!,
+        url: (json['url'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'channel': channel,
-    'url': url,
-  };
+        'channel': channel,
+        'url': url,
+      };
 }
 
 /// The notification settings for a trigger alert.
 class Notification {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An email to notify on an alert trigger. The Email has to be one that is verified on that DigitalOcean account.
   final List<String> email;
+
   /// Slack integration details.
   final List<NotificationSlackItem> slack;
 
   const Notification({required this.email, required this.slack});
 
-  Notification Function({List<String> email, List<NotificationSlackItem> slack}) get copyWith => _copyWith;
+  Notification Function({List<String> email, List<NotificationSlackItem> slack})
+      get copyWith => _copyWith;
 
-  Notification _copyWith({Object? email = sdkOmittedValue, Object? slack = sdkOmittedValue}) => Notification(
-    email: identical(email, sdkOmittedValue) ? this.email : email as List<String>,
-    slack: identical(slack, sdkOmittedValue) ? this.slack : slack as List<NotificationSlackItem>,
-  );
+  Notification _copyWith(
+          {Object? email = sdkOmittedValue, Object? slack = sdkOmittedValue}) =>
+      Notification(
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as List<String>,
+        slack: identical(slack, sdkOmittedValue)
+            ? this.slack
+            : slack as List<NotificationSlackItem>,
+      );
 
   factory Notification.fromJson(Map<String, dynamic> json) => Notification(
-    email: ((json['email'] as List?)?.map((e) => e as String).toList())!,
-    slack: ((json['slack'] as List?)?.map((e) => NotificationSlackItem.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+        email: ((json['email'] as List?)?.map((e) => e as String).toList())!,
+        slack: ((json['slack'] as List?)
+            ?.map((e) =>
+                NotificationSlackItem.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'email': email,
-    'slack': slack.map((item) => item.toJson()).toList(),
-  };
+        'email': email,
+        'slack': slack.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Typed representation of the `PreviousOutage` API schema.
 class PreviousOutage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `region` wire field.
   final SdkOptional<String> region;
+
   /// Optional `string` value serialized in the `started_at` wire field.
   final SdkOptional<String> startedAt;
+
   /// Optional `string` value serialized in the `ended_at` wire field.
   final SdkOptional<String> endedAt;
+
   /// Optional `integer` value serialized in the `duration_seconds` wire field.
   final SdkOptional<int> durationSeconds;
 
-  const PreviousOutage({this.region = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.endedAt = const SdkOmitted(), this.durationSeconds = const SdkOmitted()});
+  const PreviousOutage(
+      {this.region = const SdkOmitted(),
+      this.startedAt = const SdkOmitted(),
+      this.endedAt = const SdkOmitted(),
+      this.durationSeconds = const SdkOmitted()});
 
-  PreviousOutage Function({SdkOptional<String> region, SdkOptional<String> startedAt, SdkOptional<String> endedAt, SdkOptional<int> durationSeconds}) get copyWith => _copyWith;
+  PreviousOutage Function(
+      {SdkOptional<String> region,
+      SdkOptional<String> startedAt,
+      SdkOptional<String> endedAt,
+      SdkOptional<int> durationSeconds}) get copyWith => _copyWith;
 
-  PreviousOutage _copyWith({Object? region = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? endedAt = sdkOmittedValue, Object? durationSeconds = sdkOmittedValue}) => PreviousOutage(
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String>,
-    endedAt: identical(endedAt, sdkOmittedValue) ? this.endedAt : endedAt as SdkOptional<String>,
-    durationSeconds: identical(durationSeconds, sdkOmittedValue) ? this.durationSeconds : durationSeconds as SdkOptional<int>,
-  );
+  PreviousOutage _copyWith(
+          {Object? region = sdkOmittedValue,
+          Object? startedAt = sdkOmittedValue,
+          Object? endedAt = sdkOmittedValue,
+          Object? durationSeconds = sdkOmittedValue}) =>
+      PreviousOutage(
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        startedAt: identical(startedAt, sdkOmittedValue)
+            ? this.startedAt
+            : startedAt as SdkOptional<String>,
+        endedAt: identical(endedAt, sdkOmittedValue)
+            ? this.endedAt
+            : endedAt as SdkOptional<String>,
+        durationSeconds: identical(durationSeconds, sdkOmittedValue)
+            ? this.durationSeconds
+            : durationSeconds as SdkOptional<int>,
+      );
 
   factory PreviousOutage.fromJson(Map<String, dynamic> json) => PreviousOutage(
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    startedAt: json['started_at'] != null ? SdkPresent((json['started_at'] as String?)!) : const SdkOmitted(),
-    endedAt: json['ended_at'] != null ? SdkPresent((json['ended_at'] as String?)!) : const SdkOmitted(),
-    durationSeconds: json['duration_seconds'] != null ? SdkPresent(((json['duration_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        startedAt: json['started_at'] != null
+            ? SdkPresent((json['started_at'] as String?)!)
+            : const SdkOmitted(),
+        endedAt: json['ended_at'] != null
+            ? SdkPresent((json['ended_at'] as String?)!)
+            : const SdkOmitted(),
+        durationSeconds: json['duration_seconds'] != null
+            ? SdkPresent(((json['duration_seconds'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (startedAt) {
-      SdkPresent<String>(value: final value) => {'started_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (endedAt) {
-      SdkPresent<String>(value: final value) => {'ended_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (durationSeconds) {
-      SdkPresent<int>(value: final value) => {'duration_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (startedAt) {
+          SdkPresent<String>(value: final value) => {
+              'started_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (endedAt) {
+          SdkPresent<String>(value: final value) => {
+              'ended_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (durationSeconds) {
+          SdkPresent<int>(value: final value) => {
+              'duration_seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A map of region to regional state
 class RegionalState {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `us_east` wire field.
   final SdkOptional<RegionState> usEast;
+
   /// Optional object value serialized in the `eu_west` wire field.
   final SdkOptional<RegionState> euWest;
 
-  const RegionalState({this.usEast = const SdkOmitted(), this.euWest = const SdkOmitted()});
+  const RegionalState(
+      {this.usEast = const SdkOmitted(), this.euWest = const SdkOmitted()});
 
-  RegionalState Function({SdkOptional<RegionState> usEast, SdkOptional<RegionState> euWest}) get copyWith => _copyWith;
+  RegionalState Function(
+      {SdkOptional<RegionState> usEast,
+      SdkOptional<RegionState> euWest}) get copyWith => _copyWith;
 
-  RegionalState _copyWith({Object? usEast = sdkOmittedValue, Object? euWest = sdkOmittedValue}) => RegionalState(
-    usEast: identical(usEast, sdkOmittedValue) ? this.usEast : usEast as SdkOptional<RegionState>,
-    euWest: identical(euWest, sdkOmittedValue) ? this.euWest : euWest as SdkOptional<RegionState>,
-  );
+  RegionalState _copyWith(
+          {Object? usEast = sdkOmittedValue,
+          Object? euWest = sdkOmittedValue}) =>
+      RegionalState(
+        usEast: identical(usEast, sdkOmittedValue)
+            ? this.usEast
+            : usEast as SdkOptional<RegionState>,
+        euWest: identical(euWest, sdkOmittedValue)
+            ? this.euWest
+            : euWest as SdkOptional<RegionState>,
+      );
 
   factory RegionalState.fromJson(Map<String, dynamic> json) => RegionalState(
-    usEast: json['us_east'] != null ? SdkPresent((json['us_east'] != null ? RegionState.fromJson(json['us_east'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    euWest: json['eu_west'] != null ? SdkPresent((json['eu_west'] != null ? RegionState.fromJson(json['eu_west'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        usEast: json['us_east'] != null
+            ? SdkPresent((json['us_east'] != null
+                ? RegionState.fromJson(json['us_east'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        euWest: json['eu_west'] != null
+            ? SdkPresent((json['eu_west'] != null
+                ? RegionState.fromJson(json['eu_west'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (usEast) {
-      SdkPresent<RegionState>(value: final value) => {'us_east': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (euWest) {
-      SdkPresent<RegionState>(value: final value) => {'eu_west': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (usEast) {
+          SdkPresent<RegionState>(value: final value) => {
+              'us_east': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (euWest) {
+          SdkPresent<RegionState>(value: final value) => {
+              'eu_west': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `RegionState` API schema.
 class RegionState {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `status` wire field.
   final SdkOptional<RegionStateStatus> status;
+
   /// Optional `string` value serialized in the `status_changed_at` wire field.
   final SdkOptional<String> statusChangedAt;
+
   /// Optional `number` value serialized in the `thirty_day_uptime_percentage` wire field.
   final SdkOptional<double> thirtyDayUptimePercentage;
 
-  const RegionState({this.status = const SdkOmitted(), this.statusChangedAt = const SdkOmitted(), this.thirtyDayUptimePercentage = const SdkOmitted()});
+  const RegionState(
+      {this.status = const SdkOmitted(),
+      this.statusChangedAt = const SdkOmitted(),
+      this.thirtyDayUptimePercentage = const SdkOmitted()});
 
-  RegionState Function({SdkOptional<RegionStateStatus> status, SdkOptional<String> statusChangedAt, SdkOptional<double> thirtyDayUptimePercentage}) get copyWith => _copyWith;
+  RegionState Function(
+      {SdkOptional<RegionStateStatus> status,
+      SdkOptional<String> statusChangedAt,
+      SdkOptional<double> thirtyDayUptimePercentage}) get copyWith => _copyWith;
 
-  RegionState _copyWith({Object? status = sdkOmittedValue, Object? statusChangedAt = sdkOmittedValue, Object? thirtyDayUptimePercentage = sdkOmittedValue}) => RegionState(
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<RegionStateStatus>,
-    statusChangedAt: identical(statusChangedAt, sdkOmittedValue) ? this.statusChangedAt : statusChangedAt as SdkOptional<String>,
-    thirtyDayUptimePercentage: identical(thirtyDayUptimePercentage, sdkOmittedValue) ? this.thirtyDayUptimePercentage : thirtyDayUptimePercentage as SdkOptional<double>,
-  );
+  RegionState _copyWith(
+          {Object? status = sdkOmittedValue,
+          Object? statusChangedAt = sdkOmittedValue,
+          Object? thirtyDayUptimePercentage = sdkOmittedValue}) =>
+      RegionState(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<RegionStateStatus>,
+        statusChangedAt: identical(statusChangedAt, sdkOmittedValue)
+            ? this.statusChangedAt
+            : statusChangedAt as SdkOptional<String>,
+        thirtyDayUptimePercentage:
+            identical(thirtyDayUptimePercentage, sdkOmittedValue)
+                ? this.thirtyDayUptimePercentage
+                : thirtyDayUptimePercentage as SdkOptional<double>,
+      );
 
   factory RegionState.fromJson(Map<String, dynamic> json) => RegionState(
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? RegionStateStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    statusChangedAt: json['status_changed_at'] != null ? SdkPresent((json['status_changed_at'] as String?)!) : const SdkOmitted(),
-    thirtyDayUptimePercentage: json['thirty_day_uptime_percentage'] != null ? SdkPresent(((json['thirty_day_uptime_percentage'] as num?)?.toDouble())!) : const SdkOmitted(),
-  );
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? RegionStateStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        statusChangedAt: json['status_changed_at'] != null
+            ? SdkPresent((json['status_changed_at'] as String?)!)
+            : const SdkOmitted(),
+        thirtyDayUptimePercentage: json['thirty_day_uptime_percentage'] != null
+            ? SdkPresent(
+                ((json['thirty_day_uptime_percentage'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (status) {
-      SdkPresent<RegionStateStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (statusChangedAt) {
-      SdkPresent<String>(value: final value) => {'status_changed_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (thirtyDayUptimePercentage) {
-      SdkPresent<double>(value: final value) => {'thirty_day_uptime_percentage': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (status) {
+          SdkPresent<RegionStateStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (statusChangedAt) {
+          SdkPresent<String>(value: final value) => {
+              'status_changed_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (thirtyDayUptimePercentage) {
+          SdkPresent<double>(value: final value) => {
+              'thirty_day_uptime_percentage': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `State` API schema.
 class State {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A map of region to regional state
   final SdkOptional<RegionalState> regions;
+
   /// Optional object value serialized in the `previous_outage` wire field.
   final SdkOptional<PreviousOutage> previousOutage;
 
-  const State({this.regions = const SdkOmitted(), this.previousOutage = const SdkOmitted()});
+  const State(
+      {this.regions = const SdkOmitted(),
+      this.previousOutage = const SdkOmitted()});
 
-  State Function({SdkOptional<RegionalState> regions, SdkOptional<PreviousOutage> previousOutage}) get copyWith => _copyWith;
+  State Function(
+      {SdkOptional<RegionalState> regions,
+      SdkOptional<PreviousOutage> previousOutage}) get copyWith => _copyWith;
 
-  State _copyWith({Object? regions = sdkOmittedValue, Object? previousOutage = sdkOmittedValue}) => State(
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<RegionalState>,
-    previousOutage: identical(previousOutage, sdkOmittedValue) ? this.previousOutage : previousOutage as SdkOptional<PreviousOutage>,
-  );
+  State _copyWith(
+          {Object? regions = sdkOmittedValue,
+          Object? previousOutage = sdkOmittedValue}) =>
+      State(
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as SdkOptional<RegionalState>,
+        previousOutage: identical(previousOutage, sdkOmittedValue)
+            ? this.previousOutage
+            : previousOutage as SdkOptional<PreviousOutage>,
+      );
 
   factory State.fromJson(Map<String, dynamic> json) => State(
-    regions: json['regions'] != null ? SdkPresent((json['regions'] != null ? RegionalState.fromJson(json['regions'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    previousOutage: json['previous_outage'] != null ? SdkPresent((json['previous_outage'] != null ? PreviousOutage.fromJson(json['previous_outage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        regions: json['regions'] != null
+            ? SdkPresent((json['regions'] != null
+                ? RegionalState.fromJson(
+                    json['regions'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        previousOutage: json['previous_outage'] != null
+            ? SdkPresent((json['previous_outage'] != null
+                ? PreviousOutage.fromJson(
+                    json['previous_outage'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (regions) {
-      SdkPresent<RegionalState>(value: final value) => {'regions': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (previousOutage) {
-      SdkPresent<PreviousOutage>(value: final value) => {'previous_outage': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (regions) {
+          SdkPresent<RegionalState>(value: final value) => {
+              'regions': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (previousOutage) {
+          SdkPresent<PreviousOutage>(value: final value) => {
+              'previous_outage': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

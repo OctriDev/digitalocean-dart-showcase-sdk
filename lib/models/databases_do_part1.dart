@@ -8,49 +8,67 @@ part of 'databases_do.dart';
 class DoSettings {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of custom CNAMEs for the database cluster. Each CNAME must be a valid RFC 1123 hostname (e.g., "db.example.com"). Maximum of 16 CNAMEs allowed, each up to 253 characters.
   final SdkOptional<List<String>> serviceCnames;
 
   const DoSettings({this.serviceCnames = const SdkOmitted()});
 
-  DoSettings Function({SdkOptional<List<String>> serviceCnames}) get copyWith => _copyWith;
+  DoSettings Function({SdkOptional<List<String>> serviceCnames}) get copyWith =>
+      _copyWith;
 
   DoSettings _copyWith({Object? serviceCnames = sdkOmittedValue}) => DoSettings(
-    serviceCnames: identical(serviceCnames, sdkOmittedValue) ? this.serviceCnames : serviceCnames as SdkOptional<List<String>>,
-  );
+        serviceCnames: identical(serviceCnames, sdkOmittedValue)
+            ? this.serviceCnames
+            : serviceCnames as SdkOptional<List<String>>,
+      );
 
   factory DoSettings.fromJson(Map<String, dynamic> json) => DoSettings(
-    serviceCnames: json['service_cnames'] != null ? SdkPresent(((json['service_cnames'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+        serviceCnames: json['service_cnames'] != null
+            ? SdkPresent(((json['service_cnames'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (serviceCnames) {
-      SdkPresent<List<String>>(value: final value) => {'service_cnames': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (serviceCnames) {
+          SdkPresent<List<String>>(value: final value) => {
+              'service_cnames': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DoSettingsResponse` API schema.
 class DoSettingsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// DigitalOcean-specific settings for the database cluster.
   final DoSettings doSettings;
 
   const DoSettingsResponse({required this.doSettings});
 
-  DoSettingsResponse Function({DoSettings doSettings}) get copyWith => _copyWith;
+  DoSettingsResponse Function({DoSettings doSettings}) get copyWith =>
+      _copyWith;
 
-  DoSettingsResponse _copyWith({Object? doSettings = sdkOmittedValue}) => DoSettingsResponse(
-    doSettings: identical(doSettings, sdkOmittedValue) ? this.doSettings : doSettings as DoSettings,
-  );
+  DoSettingsResponse _copyWith({Object? doSettings = sdkOmittedValue}) =>
+      DoSettingsResponse(
+        doSettings: identical(doSettings, sdkOmittedValue)
+            ? this.doSettings
+            : doSettings as DoSettings,
+      );
 
-  factory DoSettingsResponse.fromJson(Map<String, dynamic> json) => DoSettingsResponse(
-    doSettings: (json['do_settings'] != null ? DoSettings.fromJson(json['do_settings'] as Map<String, dynamic>) : null)!,
-  );
+  factory DoSettingsResponse.fromJson(Map<String, dynamic> json) =>
+      DoSettingsResponse(
+        doSettings: (json['do_settings'] != null
+            ? DoSettings.fromJson(json['do_settings'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'do_settings': doSettings.toJson(),
-  };
+        'do_settings': doSettings.toJson(),
+      };
 }

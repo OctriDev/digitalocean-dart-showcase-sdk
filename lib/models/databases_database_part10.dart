@@ -8,33 +8,47 @@ part of 'databases_database.dart';
 class DatabaseReplicas {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `replicas` wire field.
   final SdkOptional<List<DatabaseReplicaRead>> replicas;
 
   const DatabaseReplicas({this.replicas = const SdkOmitted()});
 
-  DatabaseReplicas Function({SdkOptional<List<DatabaseReplicaRead>> replicas}) get copyWith => _copyWith;
+  DatabaseReplicas Function({SdkOptional<List<DatabaseReplicaRead>> replicas})
+      get copyWith => _copyWith;
 
-  DatabaseReplicas _copyWith({Object? replicas = sdkOmittedValue}) => DatabaseReplicas(
-    replicas: identical(replicas, sdkOmittedValue) ? this.replicas : replicas as SdkOptional<List<DatabaseReplicaRead>>,
-  );
+  DatabaseReplicas _copyWith({Object? replicas = sdkOmittedValue}) =>
+      DatabaseReplicas(
+        replicas: identical(replicas, sdkOmittedValue)
+            ? this.replicas
+            : replicas as SdkOptional<List<DatabaseReplicaRead>>,
+      );
 
-  factory DatabaseReplicas.fromJson(Map<String, dynamic> json) => DatabaseReplicas(
-    replicas: json['replicas'] != null ? SdkPresent(((json['replicas'] as List?)?.map((e) => DatabaseReplicaRead.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory DatabaseReplicas.fromJson(Map<String, dynamic> json) =>
+      DatabaseReplicas(
+        replicas: json['replicas'] != null
+            ? SdkPresent(((json['replicas'] as List?)
+                ?.map((e) =>
+                    DatabaseReplicaRead.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (replicas) {
-      SdkPresent<List<DatabaseReplicaRead>>(value: final value) => {'replicas': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (replicas) {
+          SdkPresent<List<DatabaseReplicaRead>>(value: final value) => {
+              'replicas': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DatabaseResponse` API schema.
 class DatabaseResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `db` wire field.
   final Database db;
 
@@ -42,257 +56,446 @@ class DatabaseResponse {
 
   DatabaseResponse Function({Database db}) get copyWith => _copyWith;
 
-  DatabaseResponse _copyWith({Object? db = sdkOmittedValue}) => DatabaseResponse(
-    db: identical(db, sdkOmittedValue) ? this.db : db as Database,
-  );
+  DatabaseResponse _copyWith({Object? db = sdkOmittedValue}) =>
+      DatabaseResponse(
+        db: identical(db, sdkOmittedValue) ? this.db : db as Database,
+      );
 
-  factory DatabaseResponse.fromJson(Map<String, dynamic> json) => DatabaseResponse(
-    db: (json['db'] != null ? Database.fromJson(json['db'] as Map<String, dynamic>) : null)!,
-  );
+  factory DatabaseResponse.fromJson(Map<String, dynamic> json) =>
+      DatabaseResponse(
+        db: (json['db'] != null
+            ? Database.fromJson(json['db'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'db': db.toJson(),
-  };
+        'db': db.toJson(),
+      };
 }
 
 /// Typed representation of the `DatabaseSchemaRegistryConfig` API schema.
 class DatabaseSchemaRegistryConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The compatibility level of the schema registry.
   final DatabaseSchemaRegistryConfigCompatibilityLevel compatibilityLevel;
 
   const DatabaseSchemaRegistryConfig({required this.compatibilityLevel});
 
-  DatabaseSchemaRegistryConfig Function({DatabaseSchemaRegistryConfigCompatibilityLevel compatibilityLevel}) get copyWith => _copyWith;
+  DatabaseSchemaRegistryConfig Function(
+          {DatabaseSchemaRegistryConfigCompatibilityLevel compatibilityLevel})
+      get copyWith => _copyWith;
 
-  DatabaseSchemaRegistryConfig _copyWith({Object? compatibilityLevel = sdkOmittedValue}) => DatabaseSchemaRegistryConfig(
-    compatibilityLevel: identical(compatibilityLevel, sdkOmittedValue) ? this.compatibilityLevel : compatibilityLevel as DatabaseSchemaRegistryConfigCompatibilityLevel,
-  );
+  DatabaseSchemaRegistryConfig _copyWith(
+          {Object? compatibilityLevel = sdkOmittedValue}) =>
+      DatabaseSchemaRegistryConfig(
+        compatibilityLevel: identical(compatibilityLevel, sdkOmittedValue)
+            ? this.compatibilityLevel
+            : compatibilityLevel
+                as DatabaseSchemaRegistryConfigCompatibilityLevel,
+      );
 
-  factory DatabaseSchemaRegistryConfig.fromJson(Map<String, dynamic> json) => DatabaseSchemaRegistryConfig(
-    compatibilityLevel: (json['compatibility_level'] != null ? DatabaseSchemaRegistryConfigCompatibilityLevel.fromJson(json['compatibility_level'] as String) : null)!,
-  );
+  factory DatabaseSchemaRegistryConfig.fromJson(Map<String, dynamic> json) =>
+      DatabaseSchemaRegistryConfig(
+        compatibilityLevel: (json['compatibility_level'] != null
+            ? DatabaseSchemaRegistryConfigCompatibilityLevel.fromJson(
+                json['compatibility_level'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'compatibility_level': compatibilityLevel.toJson(),
-  };
+        'compatibility_level': compatibilityLevel.toJson(),
+      };
 }
 
 /// Typed representation of the `DatabaseSchemaRegistrySubjectConfig` API schema.
 class DatabaseSchemaRegistrySubjectConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the schema subject.
   final String subjectName;
+
   /// The compatibility level of the schema registry.
-  final DatabaseSchemaRegistrySubjectConfigCompatibilityLevel compatibilityLevel;
+  final DatabaseSchemaRegistrySubjectConfigCompatibilityLevel
+      compatibilityLevel;
 
-  const DatabaseSchemaRegistrySubjectConfig({required this.subjectName, required this.compatibilityLevel});
+  const DatabaseSchemaRegistrySubjectConfig(
+      {required this.subjectName, required this.compatibilityLevel});
 
-  DatabaseSchemaRegistrySubjectConfig Function({String subjectName, DatabaseSchemaRegistrySubjectConfigCompatibilityLevel compatibilityLevel}) get copyWith => _copyWith;
+  DatabaseSchemaRegistrySubjectConfig Function(
+      {String subjectName,
+      DatabaseSchemaRegistrySubjectConfigCompatibilityLevel
+          compatibilityLevel}) get copyWith => _copyWith;
 
-  DatabaseSchemaRegistrySubjectConfig _copyWith({Object? subjectName = sdkOmittedValue, Object? compatibilityLevel = sdkOmittedValue}) => DatabaseSchemaRegistrySubjectConfig(
-    subjectName: identical(subjectName, sdkOmittedValue) ? this.subjectName : subjectName as String,
-    compatibilityLevel: identical(compatibilityLevel, sdkOmittedValue) ? this.compatibilityLevel : compatibilityLevel as DatabaseSchemaRegistrySubjectConfigCompatibilityLevel,
-  );
+  DatabaseSchemaRegistrySubjectConfig _copyWith(
+          {Object? subjectName = sdkOmittedValue,
+          Object? compatibilityLevel = sdkOmittedValue}) =>
+      DatabaseSchemaRegistrySubjectConfig(
+        subjectName: identical(subjectName, sdkOmittedValue)
+            ? this.subjectName
+            : subjectName as String,
+        compatibilityLevel: identical(compatibilityLevel, sdkOmittedValue)
+            ? this.compatibilityLevel
+            : compatibilityLevel
+                as DatabaseSchemaRegistrySubjectConfigCompatibilityLevel,
+      );
 
-  factory DatabaseSchemaRegistrySubjectConfig.fromJson(Map<String, dynamic> json) => DatabaseSchemaRegistrySubjectConfig(
-    subjectName: (json['subject_name'] as String?)!,
-    compatibilityLevel: (json['compatibility_level'] != null ? DatabaseSchemaRegistrySubjectConfigCompatibilityLevel.fromJson(json['compatibility_level'] as String) : null)!,
-  );
+  factory DatabaseSchemaRegistrySubjectConfig.fromJson(
+          Map<String, dynamic> json) =>
+      DatabaseSchemaRegistrySubjectConfig(
+        subjectName: (json['subject_name'] as String?)!,
+        compatibilityLevel: (json['compatibility_level'] != null
+            ? DatabaseSchemaRegistrySubjectConfigCompatibilityLevel.fromJson(
+                json['compatibility_level'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'subject_name': subjectName,
-    'compatibility_level': compatibilityLevel.toJson(),
-  };
+        'subject_name': subjectName,
+        'compatibility_level': compatibilityLevel.toJson(),
+      };
 }
 
 /// Typed representation of the `DatabaseServiceEndpoint` API schema.
 class DatabaseServiceEndpoint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A FQDN pointing to the database cluster's node(s).
   final SdkOptional<String> host;
+
   /// The port on which a service is listening.
   final SdkOptional<int> port;
 
-  const DatabaseServiceEndpoint({this.host = const SdkOmitted(), this.port = const SdkOmitted()});
+  const DatabaseServiceEndpoint(
+      {this.host = const SdkOmitted(), this.port = const SdkOmitted()});
 
-  DatabaseServiceEndpoint Function({SdkOptional<String> host, SdkOptional<int> port}) get copyWith => _copyWith;
+  DatabaseServiceEndpoint Function(
+      {SdkOptional<String> host,
+      SdkOptional<int> port}) get copyWith => _copyWith;
 
-  DatabaseServiceEndpoint _copyWith({Object? host = sdkOmittedValue, Object? port = sdkOmittedValue}) => DatabaseServiceEndpoint(
-    host: identical(host, sdkOmittedValue) ? this.host : host as SdkOptional<String>,
-    port: identical(port, sdkOmittedValue) ? this.port : port as SdkOptional<int>,
-  );
+  DatabaseServiceEndpoint _copyWith(
+          {Object? host = sdkOmittedValue, Object? port = sdkOmittedValue}) =>
+      DatabaseServiceEndpoint(
+        host: identical(host, sdkOmittedValue)
+            ? this.host
+            : host as SdkOptional<String>,
+        port: identical(port, sdkOmittedValue)
+            ? this.port
+            : port as SdkOptional<int>,
+      );
 
-  factory DatabaseServiceEndpoint.fromJson(Map<String, dynamic> json) => DatabaseServiceEndpoint(
-    host: json['host'] != null ? SdkPresent((json['host'] as String?)!) : const SdkOmitted(),
-    port: json['port'] != null ? SdkPresent(((json['port'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory DatabaseServiceEndpoint.fromJson(Map<String, dynamic> json) =>
+      DatabaseServiceEndpoint(
+        host: json['host'] != null
+            ? SdkPresent((json['host'] as String?)!)
+            : const SdkOmitted(),
+        port: json['port'] != null
+            ? SdkPresent(((json['port'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (host) {
-      SdkPresent<String>(value: final value) => {'host': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (port) {
-      SdkPresent<int>(value: final value) => {'port': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (host) {
+          SdkPresent<String>(value: final value) => {
+              'host': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (port) {
+          SdkPresent<int>(value: final value) => {
+              'port': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Configuration for database cluster storage autoscaling
 class DatabaseStorageAutoscaleParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether storage autoscaling is enabled for the cluster
   final bool enabled;
+
   /// The storage usage threshold percentage that triggers autoscaling. When storage usage exceeds this percentage, additional storage will be added automatically.
   final SdkOptional<int> thresholdPercent;
+
   /// The amount of additional storage to add (in GiB) when autoscaling is triggered
   final SdkOptional<int> incrementGib;
 
-  const DatabaseStorageAutoscaleParams({required this.enabled, this.thresholdPercent = const SdkOmitted(), this.incrementGib = const SdkOmitted()});
+  const DatabaseStorageAutoscaleParams(
+      {required this.enabled,
+      this.thresholdPercent = const SdkOmitted(),
+      this.incrementGib = const SdkOmitted()});
 
-  DatabaseStorageAutoscaleParams Function({bool enabled, SdkOptional<int> thresholdPercent, SdkOptional<int> incrementGib}) get copyWith => _copyWith;
+  DatabaseStorageAutoscaleParams Function(
+      {bool enabled,
+      SdkOptional<int> thresholdPercent,
+      SdkOptional<int> incrementGib}) get copyWith => _copyWith;
 
-  DatabaseStorageAutoscaleParams _copyWith({Object? enabled = sdkOmittedValue, Object? thresholdPercent = sdkOmittedValue, Object? incrementGib = sdkOmittedValue}) => DatabaseStorageAutoscaleParams(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
-    thresholdPercent: identical(thresholdPercent, sdkOmittedValue) ? this.thresholdPercent : thresholdPercent as SdkOptional<int>,
-    incrementGib: identical(incrementGib, sdkOmittedValue) ? this.incrementGib : incrementGib as SdkOptional<int>,
-  );
+  DatabaseStorageAutoscaleParams _copyWith(
+          {Object? enabled = sdkOmittedValue,
+          Object? thresholdPercent = sdkOmittedValue,
+          Object? incrementGib = sdkOmittedValue}) =>
+      DatabaseStorageAutoscaleParams(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as bool,
+        thresholdPercent: identical(thresholdPercent, sdkOmittedValue)
+            ? this.thresholdPercent
+            : thresholdPercent as SdkOptional<int>,
+        incrementGib: identical(incrementGib, sdkOmittedValue)
+            ? this.incrementGib
+            : incrementGib as SdkOptional<int>,
+      );
 
-  factory DatabaseStorageAutoscaleParams.fromJson(Map<String, dynamic> json) => DatabaseStorageAutoscaleParams(
-    enabled: (json['enabled'] as bool?)!,
-    thresholdPercent: json['threshold_percent'] != null ? SdkPresent(((json['threshold_percent'] as num?)?.toInt())!) : const SdkOmitted(),
-    incrementGib: json['increment_gib'] != null ? SdkPresent(((json['increment_gib'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory DatabaseStorageAutoscaleParams.fromJson(Map<String, dynamic> json) =>
+      DatabaseStorageAutoscaleParams(
+        enabled: (json['enabled'] as bool?)!,
+        thresholdPercent: json['threshold_percent'] != null
+            ? SdkPresent(((json['threshold_percent'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        incrementGib: json['increment_gib'] != null
+            ? SdkPresent(((json['increment_gib'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'enabled': enabled,
-    ...switch (thresholdPercent) {
-      SdkPresent<int>(value: final value) => {'threshold_percent': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (incrementGib) {
-      SdkPresent<int>(value: final value) => {'increment_gib': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'enabled': enabled,
+        ...switch (thresholdPercent) {
+          SdkPresent<int>(value: final value) => {
+              'threshold_percent': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (incrementGib) {
+          SdkPresent<int>(value: final value) => {
+              'increment_gib': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DatabaseUser` API schema.
 class DatabaseUser {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of a database user.
   final String name;
+
   /// A string representing the database user's role. The value will be either "primary" or "normal".
   final SdkOptional<DatabaseUserRole> role;
+
   /// A randomly generated password for the database user.&lt;br&gt;Requires `database:view_credentials` scope.
   final SdkOptional<String> password;
+
   /// Access certificate for TLS client authentication. (Kafka only)
   final SdkOptional<String> accessCert;
+
   /// Access key for TLS client authentication. (Kafka only)
   final SdkOptional<String> accessKey;
+
   /// Optional object value serialized in the `mysql_settings` wire field.
   final SdkOptional<MysqlSettings> mysqlSettings;
+
   /// Optional object value serialized in the `settings` wire field.
   final SdkOptional<UserSettings> settings;
 
-  const DatabaseUser({required this.name, this.role = const SdkOmitted(), this.password = const SdkOmitted(), this.accessCert = const SdkOmitted(), this.accessKey = const SdkOmitted(), this.mysqlSettings = const SdkOmitted(), this.settings = const SdkOmitted()});
+  const DatabaseUser(
+      {required this.name,
+      this.role = const SdkOmitted(),
+      this.password = const SdkOmitted(),
+      this.accessCert = const SdkOmitted(),
+      this.accessKey = const SdkOmitted(),
+      this.mysqlSettings = const SdkOmitted(),
+      this.settings = const SdkOmitted()});
 
-  DatabaseUser Function({String name, SdkOptional<DatabaseUserRole> role, SdkOptional<String> password, SdkOptional<String> accessCert, SdkOptional<String> accessKey, SdkOptional<MysqlSettings> mysqlSettings, SdkOptional<UserSettings> settings}) get copyWith => _copyWith;
+  DatabaseUser Function(
+      {String name,
+      SdkOptional<DatabaseUserRole> role,
+      SdkOptional<String> password,
+      SdkOptional<String> accessCert,
+      SdkOptional<String> accessKey,
+      SdkOptional<MysqlSettings> mysqlSettings,
+      SdkOptional<UserSettings> settings}) get copyWith => _copyWith;
 
-  DatabaseUser _copyWith({Object? name = sdkOmittedValue, Object? role = sdkOmittedValue, Object? password = sdkOmittedValue, Object? accessCert = sdkOmittedValue, Object? accessKey = sdkOmittedValue, Object? mysqlSettings = sdkOmittedValue, Object? settings = sdkOmittedValue}) => DatabaseUser(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<DatabaseUserRole>,
-    password: identical(password, sdkOmittedValue) ? this.password : password as SdkOptional<String>,
-    accessCert: identical(accessCert, sdkOmittedValue) ? this.accessCert : accessCert as SdkOptional<String>,
-    accessKey: identical(accessKey, sdkOmittedValue) ? this.accessKey : accessKey as SdkOptional<String>,
-    mysqlSettings: identical(mysqlSettings, sdkOmittedValue) ? this.mysqlSettings : mysqlSettings as SdkOptional<MysqlSettings>,
-    settings: identical(settings, sdkOmittedValue) ? this.settings : settings as SdkOptional<UserSettings>,
-  );
+  DatabaseUser _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? password = sdkOmittedValue,
+          Object? accessCert = sdkOmittedValue,
+          Object? accessKey = sdkOmittedValue,
+          Object? mysqlSettings = sdkOmittedValue,
+          Object? settings = sdkOmittedValue}) =>
+      DatabaseUser(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as SdkOptional<DatabaseUserRole>,
+        password: identical(password, sdkOmittedValue)
+            ? this.password
+            : password as SdkOptional<String>,
+        accessCert: identical(accessCert, sdkOmittedValue)
+            ? this.accessCert
+            : accessCert as SdkOptional<String>,
+        accessKey: identical(accessKey, sdkOmittedValue)
+            ? this.accessKey
+            : accessKey as SdkOptional<String>,
+        mysqlSettings: identical(mysqlSettings, sdkOmittedValue)
+            ? this.mysqlSettings
+            : mysqlSettings as SdkOptional<MysqlSettings>,
+        settings: identical(settings, sdkOmittedValue)
+            ? this.settings
+            : settings as SdkOptional<UserSettings>,
+      );
 
   factory DatabaseUser.fromJson(Map<String, dynamic> json) => DatabaseUser(
-    name: (json['name'] as String?)!,
-    role: json['role'] != null ? SdkPresent((json['role'] != null ? DatabaseUserRole.fromJson(json['role'] as String) : null)!) : const SdkOmitted(),
-    password: json['password'] != null ? SdkPresent((json['password'] as String?)!) : const SdkOmitted(),
-    accessCert: json['access_cert'] != null ? SdkPresent((json['access_cert'] as String?)!) : const SdkOmitted(),
-    accessKey: json['access_key'] != null ? SdkPresent((json['access_key'] as String?)!) : const SdkOmitted(),
-    mysqlSettings: json['mysql_settings'] != null ? SdkPresent((json['mysql_settings'] != null ? MysqlSettings.fromJson(json['mysql_settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    settings: json['settings'] != null ? SdkPresent((json['settings'] != null ? UserSettings.fromJson(json['settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        name: (json['name'] as String?)!,
+        role: json['role'] != null
+            ? SdkPresent((json['role'] != null
+                ? DatabaseUserRole.fromJson(json['role'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        password: json['password'] != null
+            ? SdkPresent((json['password'] as String?)!)
+            : const SdkOmitted(),
+        accessCert: json['access_cert'] != null
+            ? SdkPresent((json['access_cert'] as String?)!)
+            : const SdkOmitted(),
+        accessKey: json['access_key'] != null
+            ? SdkPresent((json['access_key'] as String?)!)
+            : const SdkOmitted(),
+        mysqlSettings: json['mysql_settings'] != null
+            ? SdkPresent((json['mysql_settings'] != null
+                ? MysqlSettings.fromJson(
+                    json['mysql_settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        settings: json['settings'] != null
+            ? SdkPresent((json['settings'] != null
+                ? UserSettings.fromJson(
+                    json['settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (role) {
-      SdkPresent<DatabaseUserRole>(value: final value) => {'role': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (password) {
-      SdkPresent<String>(value: final value) => {'password': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (accessCert) {
-      SdkPresent<String>(value: final value) => {'access_cert': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (accessKey) {
-      SdkPresent<String>(value: final value) => {'access_key': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (mysqlSettings) {
-      SdkPresent<MysqlSettings>(value: final value) => {'mysql_settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (settings) {
-      SdkPresent<UserSettings>(value: final value) => {'settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (role) {
+          SdkPresent<DatabaseUserRole>(value: final value) => {
+              'role': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (password) {
+          SdkPresent<String>(value: final value) => {
+              'password': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (accessCert) {
+          SdkPresent<String>(value: final value) => {
+              'access_cert': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (accessKey) {
+          SdkPresent<String>(value: final value) => {
+              'access_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (mysqlSettings) {
+          SdkPresent<MysqlSettings>(value: final value) => {
+              'mysql_settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (settings) {
+          SdkPresent<UserSettings>(value: final value) => {
+              'settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DatabaseUserRequest` API schema.
 class DatabaseUserRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of a database user.
   final String name;
+
   /// Optional object value serialized in the `mysql_settings` wire field.
   final SdkOptional<MysqlSettings> mysqlSettings;
+
   /// Optional object value serialized in the `settings` wire field.
   final SdkOptional<UserSettings> settings;
 
-  const DatabaseUserRequest({required this.name, this.mysqlSettings = const SdkOmitted(), this.settings = const SdkOmitted()});
+  const DatabaseUserRequest(
+      {required this.name,
+      this.mysqlSettings = const SdkOmitted(),
+      this.settings = const SdkOmitted()});
 
-  DatabaseUserRequest Function({String name, SdkOptional<MysqlSettings> mysqlSettings, SdkOptional<UserSettings> settings}) get copyWith => _copyWith;
+  DatabaseUserRequest Function(
+      {String name,
+      SdkOptional<MysqlSettings> mysqlSettings,
+      SdkOptional<UserSettings> settings}) get copyWith => _copyWith;
 
-  DatabaseUserRequest _copyWith({Object? name = sdkOmittedValue, Object? mysqlSettings = sdkOmittedValue, Object? settings = sdkOmittedValue}) => DatabaseUserRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    mysqlSettings: identical(mysqlSettings, sdkOmittedValue) ? this.mysqlSettings : mysqlSettings as SdkOptional<MysqlSettings>,
-    settings: identical(settings, sdkOmittedValue) ? this.settings : settings as SdkOptional<UserSettings>,
-  );
+  DatabaseUserRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? mysqlSettings = sdkOmittedValue,
+          Object? settings = sdkOmittedValue}) =>
+      DatabaseUserRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        mysqlSettings: identical(mysqlSettings, sdkOmittedValue)
+            ? this.mysqlSettings
+            : mysqlSettings as SdkOptional<MysqlSettings>,
+        settings: identical(settings, sdkOmittedValue)
+            ? this.settings
+            : settings as SdkOptional<UserSettings>,
+      );
 
-  factory DatabaseUserRequest.fromJson(Map<String, dynamic> json) => DatabaseUserRequest(
-    name: (json['name'] as String?)!,
-    mysqlSettings: json['mysql_settings'] != null ? SdkPresent((json['mysql_settings'] != null ? MysqlSettings.fromJson(json['mysql_settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    settings: json['settings'] != null ? SdkPresent((json['settings'] != null ? UserSettings.fromJson(json['settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DatabaseUserRequest.fromJson(Map<String, dynamic> json) =>
+      DatabaseUserRequest(
+        name: (json['name'] as String?)!,
+        mysqlSettings: json['mysql_settings'] != null
+            ? SdkPresent((json['mysql_settings'] != null
+                ? MysqlSettings.fromJson(
+                    json['mysql_settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        settings: json['settings'] != null
+            ? SdkPresent((json['settings'] != null
+                ? UserSettings.fromJson(
+                    json['settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (mysqlSettings) {
-      SdkPresent<MysqlSettings>(value: final value) => {'mysql_settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (settings) {
-      SdkPresent<UserSettings>(value: final value) => {'settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (mysqlSettings) {
+          SdkPresent<MysqlSettings>(value: final value) => {
+              'mysql_settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (settings) {
+          SdkPresent<UserSettings>(value: final value) => {
+              'settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 // DatabaseVersionAvailabilities = List<DatabaseVersionAvailability>

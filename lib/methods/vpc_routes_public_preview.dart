@@ -29,17 +29,25 @@ Future<AllVpcRoutes> vpcRoutesList(ClientConfig config,
           'GET', '/v2/vpcs/${Uri.encodeComponent(vpcUuid.toString())}/routes',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcRoutesList',
-          fromJsonRaw: (value) => AllVpcRoutes.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllVpcRoutes.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To list routes for a VPC subnet, send a GET request to `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes`. The response includes VPC-scoped routes propagated into the subnet and subnet-scoped routes.
 ///
@@ -66,17 +74,25 @@ Future<AllVpcSubnetRoutes> vpcSubnetRoutesList(ClientConfig config,
           '/v2/vpcs/${Uri.encodeComponent(vpcUuid.toString())}/subnets/${Uri.encodeComponent(subnetUuid.toString())}/routes',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcSubnetRoutesList',
-          fromJsonRaw: (value) => AllVpcSubnetRoutes.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllVpcSubnetRoutes.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To add a static route to a VPC subnet, send a POST request to `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes`. This route is additional to the routes the VPC already propagates to the subnet. The server assigns the route's `id` and `type`. Droplet targets must use a numeric ID. A Droplet UUID or another invalid `target_urns` value returns a 422 response.
 ///
@@ -104,12 +120,20 @@ Future<SingleRoute> vpcSubnetRoutesCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcSubnetRoutesCreate',
-          fromJsonRaw: (value) => SingleRoute.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SingleRoute.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To update the next hop for a user-defined VPC subnet route, send a PATCH request to `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes/$ROUTE_UUID`. The `destination_cidr` cannot be changed. Droplet targets must use a numeric ID. A Droplet UUID or another invalid `target_urns` value returns a 422 response.
 ///
@@ -135,12 +159,20 @@ Future<SingleRoute> vpcSubnetRoutesUpdate(ClientConfig config,
           body: {'target_urns': targetUrns},
           decoder: SdkResponseDecoder.json,
           operationId: 'vpcSubnetRoutesUpdate',
-          fromJsonRaw: (value) => SingleRoute.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SingleRoute.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To delete a user-defined VPC subnet route, send a DELETE request to `/v2/vpcs/$VPC_UUID/subnets/$SUBNET_UUID/routes/$ROUTE_UUID`. Managed routes cannot be deleted. A successful request returns a 204 status code with no response body.
 ///
@@ -162,6 +194,12 @@ Future<void> vpcSubnetRoutesDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'vpcSubnetRoutesDelete',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

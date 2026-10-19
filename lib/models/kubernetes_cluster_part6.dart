@@ -8,229 +8,548 @@ part of 'kubernetes_cluster.dart';
 class ClusterRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A human-readable name for a Kubernetes cluster.
   final String name;
+
   /// The slug identifier for the region where the Kubernetes cluster is located.
   final String region;
+
   /// The slug identifier for the version of Kubernetes used for the cluster. If set to a minor version (e.g. "1.14"), the latest version within it will be used (e.g. "1.14.6-do.1"); if set to "latest", the latest published version will be used. See the `/v2/kubernetes/options` endpoint to find all currently available versions.
   final String version;
+
   /// The range of IP addresses for the overlay network of the Kubernetes cluster in CIDR notation.
   final SdkOptional<String> clusterSubnet;
+
   /// The range of assignable IP addresses for services running in the Kubernetes cluster in CIDR notation.
   final SdkOptional<String> serviceSubnet;
+
   /// A string specifying the UUID of the VPC to which the Kubernetes cluster is assigned.&lt;br&gt;&lt;br&gt;Requires `vpc:read` scope.
   final SdkOptional<String> vpcUuid;
+
   /// The UUID of the VPC subnet to attach worker nodes to. When omitted on create, the default subnet for the VPC is used. This value cannot be changed after the cluster is created. `vpc_uuid` must also be set. &lt;br&gt;&lt;br&gt;Requires `vpc:read` scope.
   final SdkOptional<String> workerSubnetUuid;
+
   /// An array of tags to apply to the Kubernetes cluster. All clusters are automatically tagged `k8s` and `k8s:$K8S_CLUSTER_ID`. &lt;br&gt;&lt;br&gt;Requires `tag:read` and `tag:create` scope, as well as `tag:delete` if existing tags are getting removed.
   final SdkOptional<List<String>> tags;
+
   /// An object specifying the details of the worker nodes available to the Kubernetes cluster.
   final List<KubernetesNodePoolRequest> nodePools;
+
   /// An object specifying the maintenance window policy for the Kubernetes cluster.
   final SdkOptional<MaintenancePolicyRequest?> maintenancePolicy;
+
   /// A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window.
   final SdkOptional<bool> autoUpgrade;
+
   /// A boolean value indicating whether worker nodes in the cluster are not assigned public IP addresses. When omitted on create, the default value is false. When enabled, a NAT gateway must exist in the VPC where the cluster is created.
   final SdkOptional<bool> isolatedWorkers;
+
   /// A boolean value indicating whether GPU nodes in the cluster are launched with images that do not include pre-installed GPU drivers, allowing GPU drivers to be managed by a GPU operator instead. Mutually exclusive with other GPU-related cluster options, such as `nvidia_gpu_dra_driver` and `amd_gpu_dra_driver`. When omitted on create, the default value is false.
   final SdkOptional<bool> gpuOperatorReady;
+
   /// A boolean value indicating whether surge upgrade is enabled/disabled for the cluster. Surge upgrade makes cluster upgrades fast and reliable by bringing up new nodes before destroying the outdated nodes.
   final SdkOptional<bool> surgeUpgrade;
+
   /// A boolean value indicating whether the control plane is run in a highly available configuration in the cluster. Highly available control planes incur less downtime. The property cannot be disabled. When omitted on create, the default is version-dependent; for DOKS 1.36.0 and later, the default is true; for earlier versions, the default is false.
   final SdkOptional<bool> ha;
+
   /// An object specifying the control plane firewall for the Kubernetes cluster. Control plane firewall is in early availability (invite only).
   final SdkOptional<ControlPlaneFirewall?> controlPlaneFirewall;
+
   /// An object specifying custom cluster autoscaler configuration.
-  final SdkOptional<ClusterAutoscalerConfiguration?> clusterAutoscalerConfiguration;
+  final SdkOptional<ClusterAutoscalerConfiguration?>
+      clusterAutoscalerConfiguration;
+
   /// An object specifying Single Sign-On (SSO) configuration for the Kubernetes cluster.
   final SdkOptional<Sso?> sso;
+
   /// An object specifying whether the routing-agent component should be enabled for the Kubernetes cluster.
   final SdkOptional<RoutingAgent?> routingAgent;
+
   /// An object specifying whether the Peer-to-peer OCI registry component should be enabled for the Kubernetes cluster.
   final SdkOptional<P2pOciRegistryPlugin?> p2pOciRegistryPlugin;
+
   /// An object specifying whether the NFS CSI plugin should be enabled for the Kubernetes cluster.
   final SdkOptional<NfsCsiPlugin?> nfsCsiPlugin;
+
   /// An object specifying whether the AMD GPU Device Plugin should be enabled in the Kubernetes cluster. It's enabled by default for clusters with an AMD GPU node pool.
   final SdkOptional<AmdGpuDevicePlugin?> amdGpuDevicePlugin;
+
   /// An object specifying whether the AMD Device Metrics Exporter should be enabled in the Kubernetes cluster.
-  final SdkOptional<AmdGpuDeviceMetricsExporterPlugin?> amdGpuDeviceMetricsExporterPlugin;
+  final SdkOptional<AmdGpuDeviceMetricsExporterPlugin?>
+      amdGpuDeviceMetricsExporterPlugin;
+
   /// An object specifying whether the Nvidia GPU Device Plugin should be enabled in the Kubernetes cluster. It's enabled by default for clusters with an Nvidia GPU node pool.
   final SdkOptional<NvidiaGpuDevicePlugin?> nvidiaGpuDevicePlugin;
+
   /// An object specifying whether the NVIDIA GPU DRA Driver should be enabled in the Kubernetes cluster. Mutually exclusive with `nvidia_gpu_device_plugin`.
   final SdkOptional<NvidiaGpuDraDriver?> nvidiaGpuDraDriver;
+
   /// An object specifying whether the AMD GPU DRA Driver should be enabled in the Kubernetes cluster. Mutually exclusive with `amd_gpu_device_plugin`.
   final SdkOptional<AmdGpuDraDriver?> amdGpuDraDriver;
+
   /// An object specifying whether the RDMA shared device plugin should be enabled in the Kubernetes cluster.
   final SdkOptional<RdmaSharedDevPlugin?> rdmaSharedDevPlugin;
+
   /// An object specifying whether the Cluster Proportional Autoscaler (CPA) add-on for CoreDNS should be enabled for the Kubernetes cluster.
   final SdkOptional<CorednsAutoscaler?> corednsAutoscaler;
 
-  const ClusterRequest({required this.name, required this.region, required this.version, this.clusterSubnet = const SdkOmitted(), this.serviceSubnet = const SdkOmitted(), this.vpcUuid = const SdkOmitted(), this.workerSubnetUuid = const SdkOmitted(), this.tags = const SdkOmitted(), required this.nodePools, this.maintenancePolicy = const SdkOmitted(), this.autoUpgrade = const SdkOmitted(), this.isolatedWorkers = const SdkOmitted(), this.gpuOperatorReady = const SdkOmitted(), this.surgeUpgrade = const SdkOmitted(), this.ha = const SdkOmitted(), this.controlPlaneFirewall = const SdkOmitted(), this.clusterAutoscalerConfiguration = const SdkOmitted(), this.sso = const SdkOmitted(), this.routingAgent = const SdkOmitted(), this.p2pOciRegistryPlugin = const SdkOmitted(), this.nfsCsiPlugin = const SdkOmitted(), this.amdGpuDevicePlugin = const SdkOmitted(), this.amdGpuDeviceMetricsExporterPlugin = const SdkOmitted(), this.nvidiaGpuDevicePlugin = const SdkOmitted(), this.nvidiaGpuDraDriver = const SdkOmitted(), this.amdGpuDraDriver = const SdkOmitted(), this.rdmaSharedDevPlugin = const SdkOmitted(), this.corednsAutoscaler = const SdkOmitted()});
+  const ClusterRequest(
+      {required this.name,
+      required this.region,
+      required this.version,
+      this.clusterSubnet = const SdkOmitted(),
+      this.serviceSubnet = const SdkOmitted(),
+      this.vpcUuid = const SdkOmitted(),
+      this.workerSubnetUuid = const SdkOmitted(),
+      this.tags = const SdkOmitted(),
+      required this.nodePools,
+      this.maintenancePolicy = const SdkOmitted(),
+      this.autoUpgrade = const SdkOmitted(),
+      this.isolatedWorkers = const SdkOmitted(),
+      this.gpuOperatorReady = const SdkOmitted(),
+      this.surgeUpgrade = const SdkOmitted(),
+      this.ha = const SdkOmitted(),
+      this.controlPlaneFirewall = const SdkOmitted(),
+      this.clusterAutoscalerConfiguration = const SdkOmitted(),
+      this.sso = const SdkOmitted(),
+      this.routingAgent = const SdkOmitted(),
+      this.p2pOciRegistryPlugin = const SdkOmitted(),
+      this.nfsCsiPlugin = const SdkOmitted(),
+      this.amdGpuDevicePlugin = const SdkOmitted(),
+      this.amdGpuDeviceMetricsExporterPlugin = const SdkOmitted(),
+      this.nvidiaGpuDevicePlugin = const SdkOmitted(),
+      this.nvidiaGpuDraDriver = const SdkOmitted(),
+      this.amdGpuDraDriver = const SdkOmitted(),
+      this.rdmaSharedDevPlugin = const SdkOmitted(),
+      this.corednsAutoscaler = const SdkOmitted()});
 
-  ClusterRequest Function({String name, String region, String version, SdkOptional<String> clusterSubnet, SdkOptional<String> serviceSubnet, SdkOptional<String> vpcUuid, SdkOptional<String> workerSubnetUuid, SdkOptional<List<String>> tags, List<KubernetesNodePoolRequest> nodePools, SdkOptional<MaintenancePolicyRequest?> maintenancePolicy, SdkOptional<bool> autoUpgrade, SdkOptional<bool> isolatedWorkers, SdkOptional<bool> gpuOperatorReady, SdkOptional<bool> surgeUpgrade, SdkOptional<bool> ha, SdkOptional<ControlPlaneFirewall?> controlPlaneFirewall, SdkOptional<ClusterAutoscalerConfiguration?> clusterAutoscalerConfiguration, SdkOptional<Sso?> sso, SdkOptional<RoutingAgent?> routingAgent, SdkOptional<P2pOciRegistryPlugin?> p2pOciRegistryPlugin, SdkOptional<NfsCsiPlugin?> nfsCsiPlugin, SdkOptional<AmdGpuDevicePlugin?> amdGpuDevicePlugin, SdkOptional<AmdGpuDeviceMetricsExporterPlugin?> amdGpuDeviceMetricsExporterPlugin, SdkOptional<NvidiaGpuDevicePlugin?> nvidiaGpuDevicePlugin, SdkOptional<NvidiaGpuDraDriver?> nvidiaGpuDraDriver, SdkOptional<AmdGpuDraDriver?> amdGpuDraDriver, SdkOptional<RdmaSharedDevPlugin?> rdmaSharedDevPlugin, SdkOptional<CorednsAutoscaler?> corednsAutoscaler}) get copyWith => _copyWith;
+  ClusterRequest Function(
+          {String name,
+          String region,
+          String version,
+          SdkOptional<String> clusterSubnet,
+          SdkOptional<String> serviceSubnet,
+          SdkOptional<String> vpcUuid,
+          SdkOptional<String> workerSubnetUuid,
+          SdkOptional<List<String>> tags,
+          List<KubernetesNodePoolRequest> nodePools,
+          SdkOptional<MaintenancePolicyRequest?> maintenancePolicy,
+          SdkOptional<bool> autoUpgrade,
+          SdkOptional<bool> isolatedWorkers,
+          SdkOptional<bool> gpuOperatorReady,
+          SdkOptional<bool> surgeUpgrade,
+          SdkOptional<bool> ha,
+          SdkOptional<ControlPlaneFirewall?> controlPlaneFirewall,
+          SdkOptional<ClusterAutoscalerConfiguration?>
+              clusterAutoscalerConfiguration,
+          SdkOptional<Sso?> sso,
+          SdkOptional<RoutingAgent?> routingAgent,
+          SdkOptional<P2pOciRegistryPlugin?> p2pOciRegistryPlugin,
+          SdkOptional<NfsCsiPlugin?> nfsCsiPlugin,
+          SdkOptional<AmdGpuDevicePlugin?> amdGpuDevicePlugin,
+          SdkOptional<AmdGpuDeviceMetricsExporterPlugin?>
+              amdGpuDeviceMetricsExporterPlugin,
+          SdkOptional<NvidiaGpuDevicePlugin?> nvidiaGpuDevicePlugin,
+          SdkOptional<NvidiaGpuDraDriver?> nvidiaGpuDraDriver,
+          SdkOptional<AmdGpuDraDriver?> amdGpuDraDriver,
+          SdkOptional<RdmaSharedDevPlugin?> rdmaSharedDevPlugin,
+          SdkOptional<CorednsAutoscaler?> corednsAutoscaler})
+      get copyWith => _copyWith;
 
-  ClusterRequest _copyWith({Object? name = sdkOmittedValue, Object? region = sdkOmittedValue, Object? version = sdkOmittedValue, Object? clusterSubnet = sdkOmittedValue, Object? serviceSubnet = sdkOmittedValue, Object? vpcUuid = sdkOmittedValue, Object? workerSubnetUuid = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? nodePools = sdkOmittedValue, Object? maintenancePolicy = sdkOmittedValue, Object? autoUpgrade = sdkOmittedValue, Object? isolatedWorkers = sdkOmittedValue, Object? gpuOperatorReady = sdkOmittedValue, Object? surgeUpgrade = sdkOmittedValue, Object? ha = sdkOmittedValue, Object? controlPlaneFirewall = sdkOmittedValue, Object? clusterAutoscalerConfiguration = sdkOmittedValue, Object? sso = sdkOmittedValue, Object? routingAgent = sdkOmittedValue, Object? p2pOciRegistryPlugin = sdkOmittedValue, Object? nfsCsiPlugin = sdkOmittedValue, Object? amdGpuDevicePlugin = sdkOmittedValue, Object? amdGpuDeviceMetricsExporterPlugin = sdkOmittedValue, Object? nvidiaGpuDevicePlugin = sdkOmittedValue, Object? nvidiaGpuDraDriver = sdkOmittedValue, Object? amdGpuDraDriver = sdkOmittedValue, Object? rdmaSharedDevPlugin = sdkOmittedValue, Object? corednsAutoscaler = sdkOmittedValue}) => ClusterRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    region: identical(region, sdkOmittedValue) ? this.region : region as String,
-    version: identical(version, sdkOmittedValue) ? this.version : version as String,
-    clusterSubnet: identical(clusterSubnet, sdkOmittedValue) ? this.clusterSubnet : clusterSubnet as SdkOptional<String>,
-    serviceSubnet: identical(serviceSubnet, sdkOmittedValue) ? this.serviceSubnet : serviceSubnet as SdkOptional<String>,
-    vpcUuid: identical(vpcUuid, sdkOmittedValue) ? this.vpcUuid : vpcUuid as SdkOptional<String>,
-    workerSubnetUuid: identical(workerSubnetUuid, sdkOmittedValue) ? this.workerSubnetUuid : workerSubnetUuid as SdkOptional<String>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    nodePools: identical(nodePools, sdkOmittedValue) ? this.nodePools : nodePools as List<KubernetesNodePoolRequest>,
-    maintenancePolicy: identical(maintenancePolicy, sdkOmittedValue) ? this.maintenancePolicy : maintenancePolicy as SdkOptional<MaintenancePolicyRequest?>,
-    autoUpgrade: identical(autoUpgrade, sdkOmittedValue) ? this.autoUpgrade : autoUpgrade as SdkOptional<bool>,
-    isolatedWorkers: identical(isolatedWorkers, sdkOmittedValue) ? this.isolatedWorkers : isolatedWorkers as SdkOptional<bool>,
-    gpuOperatorReady: identical(gpuOperatorReady, sdkOmittedValue) ? this.gpuOperatorReady : gpuOperatorReady as SdkOptional<bool>,
-    surgeUpgrade: identical(surgeUpgrade, sdkOmittedValue) ? this.surgeUpgrade : surgeUpgrade as SdkOptional<bool>,
-    ha: identical(ha, sdkOmittedValue) ? this.ha : ha as SdkOptional<bool>,
-    controlPlaneFirewall: identical(controlPlaneFirewall, sdkOmittedValue) ? this.controlPlaneFirewall : controlPlaneFirewall as SdkOptional<ControlPlaneFirewall?>,
-    clusterAutoscalerConfiguration: identical(clusterAutoscalerConfiguration, sdkOmittedValue) ? this.clusterAutoscalerConfiguration : clusterAutoscalerConfiguration as SdkOptional<ClusterAutoscalerConfiguration?>,
-    sso: identical(sso, sdkOmittedValue) ? this.sso : sso as SdkOptional<Sso?>,
-    routingAgent: identical(routingAgent, sdkOmittedValue) ? this.routingAgent : routingAgent as SdkOptional<RoutingAgent?>,
-    p2pOciRegistryPlugin: identical(p2pOciRegistryPlugin, sdkOmittedValue) ? this.p2pOciRegistryPlugin : p2pOciRegistryPlugin as SdkOptional<P2pOciRegistryPlugin?>,
-    nfsCsiPlugin: identical(nfsCsiPlugin, sdkOmittedValue) ? this.nfsCsiPlugin : nfsCsiPlugin as SdkOptional<NfsCsiPlugin?>,
-    amdGpuDevicePlugin: identical(amdGpuDevicePlugin, sdkOmittedValue) ? this.amdGpuDevicePlugin : amdGpuDevicePlugin as SdkOptional<AmdGpuDevicePlugin?>,
-    amdGpuDeviceMetricsExporterPlugin: identical(amdGpuDeviceMetricsExporterPlugin, sdkOmittedValue) ? this.amdGpuDeviceMetricsExporterPlugin : amdGpuDeviceMetricsExporterPlugin as SdkOptional<AmdGpuDeviceMetricsExporterPlugin?>,
-    nvidiaGpuDevicePlugin: identical(nvidiaGpuDevicePlugin, sdkOmittedValue) ? this.nvidiaGpuDevicePlugin : nvidiaGpuDevicePlugin as SdkOptional<NvidiaGpuDevicePlugin?>,
-    nvidiaGpuDraDriver: identical(nvidiaGpuDraDriver, sdkOmittedValue) ? this.nvidiaGpuDraDriver : nvidiaGpuDraDriver as SdkOptional<NvidiaGpuDraDriver?>,
-    amdGpuDraDriver: identical(amdGpuDraDriver, sdkOmittedValue) ? this.amdGpuDraDriver : amdGpuDraDriver as SdkOptional<AmdGpuDraDriver?>,
-    rdmaSharedDevPlugin: identical(rdmaSharedDevPlugin, sdkOmittedValue) ? this.rdmaSharedDevPlugin : rdmaSharedDevPlugin as SdkOptional<RdmaSharedDevPlugin?>,
-    corednsAutoscaler: identical(corednsAutoscaler, sdkOmittedValue) ? this.corednsAutoscaler : corednsAutoscaler as SdkOptional<CorednsAutoscaler?>,
-  );
+  ClusterRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? version = sdkOmittedValue,
+          Object? clusterSubnet = sdkOmittedValue,
+          Object? serviceSubnet = sdkOmittedValue,
+          Object? vpcUuid = sdkOmittedValue,
+          Object? workerSubnetUuid = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? nodePools = sdkOmittedValue,
+          Object? maintenancePolicy = sdkOmittedValue,
+          Object? autoUpgrade = sdkOmittedValue,
+          Object? isolatedWorkers = sdkOmittedValue,
+          Object? gpuOperatorReady = sdkOmittedValue,
+          Object? surgeUpgrade = sdkOmittedValue,
+          Object? ha = sdkOmittedValue,
+          Object? controlPlaneFirewall = sdkOmittedValue,
+          Object? clusterAutoscalerConfiguration = sdkOmittedValue,
+          Object? sso = sdkOmittedValue,
+          Object? routingAgent = sdkOmittedValue,
+          Object? p2pOciRegistryPlugin = sdkOmittedValue,
+          Object? nfsCsiPlugin = sdkOmittedValue,
+          Object? amdGpuDevicePlugin = sdkOmittedValue,
+          Object? amdGpuDeviceMetricsExporterPlugin = sdkOmittedValue,
+          Object? nvidiaGpuDevicePlugin = sdkOmittedValue,
+          Object? nvidiaGpuDraDriver = sdkOmittedValue,
+          Object? amdGpuDraDriver = sdkOmittedValue,
+          Object? rdmaSharedDevPlugin = sdkOmittedValue,
+          Object? corednsAutoscaler = sdkOmittedValue}) =>
+      ClusterRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        region:
+            identical(region, sdkOmittedValue) ? this.region : region as String,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as String,
+        clusterSubnet: identical(clusterSubnet, sdkOmittedValue)
+            ? this.clusterSubnet
+            : clusterSubnet as SdkOptional<String>,
+        serviceSubnet: identical(serviceSubnet, sdkOmittedValue)
+            ? this.serviceSubnet
+            : serviceSubnet as SdkOptional<String>,
+        vpcUuid: identical(vpcUuid, sdkOmittedValue)
+            ? this.vpcUuid
+            : vpcUuid as SdkOptional<String>,
+        workerSubnetUuid: identical(workerSubnetUuid, sdkOmittedValue)
+            ? this.workerSubnetUuid
+            : workerSubnetUuid as SdkOptional<String>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        nodePools: identical(nodePools, sdkOmittedValue)
+            ? this.nodePools
+            : nodePools as List<KubernetesNodePoolRequest>,
+        maintenancePolicy: identical(maintenancePolicy, sdkOmittedValue)
+            ? this.maintenancePolicy
+            : maintenancePolicy as SdkOptional<MaintenancePolicyRequest?>,
+        autoUpgrade: identical(autoUpgrade, sdkOmittedValue)
+            ? this.autoUpgrade
+            : autoUpgrade as SdkOptional<bool>,
+        isolatedWorkers: identical(isolatedWorkers, sdkOmittedValue)
+            ? this.isolatedWorkers
+            : isolatedWorkers as SdkOptional<bool>,
+        gpuOperatorReady: identical(gpuOperatorReady, sdkOmittedValue)
+            ? this.gpuOperatorReady
+            : gpuOperatorReady as SdkOptional<bool>,
+        surgeUpgrade: identical(surgeUpgrade, sdkOmittedValue)
+            ? this.surgeUpgrade
+            : surgeUpgrade as SdkOptional<bool>,
+        ha: identical(ha, sdkOmittedValue) ? this.ha : ha as SdkOptional<bool>,
+        controlPlaneFirewall: identical(controlPlaneFirewall, sdkOmittedValue)
+            ? this.controlPlaneFirewall
+            : controlPlaneFirewall as SdkOptional<ControlPlaneFirewall?>,
+        clusterAutoscalerConfiguration:
+            identical(clusterAutoscalerConfiguration, sdkOmittedValue)
+                ? this.clusterAutoscalerConfiguration
+                : clusterAutoscalerConfiguration
+                    as SdkOptional<ClusterAutoscalerConfiguration?>,
+        sso: identical(sso, sdkOmittedValue)
+            ? this.sso
+            : sso as SdkOptional<Sso?>,
+        routingAgent: identical(routingAgent, sdkOmittedValue)
+            ? this.routingAgent
+            : routingAgent as SdkOptional<RoutingAgent?>,
+        p2pOciRegistryPlugin: identical(p2pOciRegistryPlugin, sdkOmittedValue)
+            ? this.p2pOciRegistryPlugin
+            : p2pOciRegistryPlugin as SdkOptional<P2pOciRegistryPlugin?>,
+        nfsCsiPlugin: identical(nfsCsiPlugin, sdkOmittedValue)
+            ? this.nfsCsiPlugin
+            : nfsCsiPlugin as SdkOptional<NfsCsiPlugin?>,
+        amdGpuDevicePlugin: identical(amdGpuDevicePlugin, sdkOmittedValue)
+            ? this.amdGpuDevicePlugin
+            : amdGpuDevicePlugin as SdkOptional<AmdGpuDevicePlugin?>,
+        amdGpuDeviceMetricsExporterPlugin:
+            identical(amdGpuDeviceMetricsExporterPlugin, sdkOmittedValue)
+                ? this.amdGpuDeviceMetricsExporterPlugin
+                : amdGpuDeviceMetricsExporterPlugin
+                    as SdkOptional<AmdGpuDeviceMetricsExporterPlugin?>,
+        nvidiaGpuDevicePlugin: identical(nvidiaGpuDevicePlugin, sdkOmittedValue)
+            ? this.nvidiaGpuDevicePlugin
+            : nvidiaGpuDevicePlugin as SdkOptional<NvidiaGpuDevicePlugin?>,
+        nvidiaGpuDraDriver: identical(nvidiaGpuDraDriver, sdkOmittedValue)
+            ? this.nvidiaGpuDraDriver
+            : nvidiaGpuDraDriver as SdkOptional<NvidiaGpuDraDriver?>,
+        amdGpuDraDriver: identical(amdGpuDraDriver, sdkOmittedValue)
+            ? this.amdGpuDraDriver
+            : amdGpuDraDriver as SdkOptional<AmdGpuDraDriver?>,
+        rdmaSharedDevPlugin: identical(rdmaSharedDevPlugin, sdkOmittedValue)
+            ? this.rdmaSharedDevPlugin
+            : rdmaSharedDevPlugin as SdkOptional<RdmaSharedDevPlugin?>,
+        corednsAutoscaler: identical(corednsAutoscaler, sdkOmittedValue)
+            ? this.corednsAutoscaler
+            : corednsAutoscaler as SdkOptional<CorednsAutoscaler?>,
+      );
 
   factory ClusterRequest.fromJson(Map<String, dynamic> json) => ClusterRequest(
-    name: (json['name'] as String?)!,
-    region: (json['region'] as String?)!,
-    version: (json['version'] as String?)!,
-    clusterSubnet: json['cluster_subnet'] != null ? SdkPresent((json['cluster_subnet'] as String?)!) : const SdkOmitted(),
-    serviceSubnet: json['service_subnet'] != null ? SdkPresent((json['service_subnet'] as String?)!) : const SdkOmitted(),
-    vpcUuid: json['vpc_uuid'] != null ? SdkPresent((json['vpc_uuid'] as String?)!) : const SdkOmitted(),
-    workerSubnetUuid: json['worker_subnet_uuid'] != null ? SdkPresent((json['worker_subnet_uuid'] as String?)!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    nodePools: ((json['node_pools'] as List?)?.map((e) => KubernetesNodePoolRequest.fromJson(e as Map<String, dynamic>)).toList())!,
-    maintenancePolicy: json.containsKey('maintenance_policy') ? SdkPresent(json['maintenance_policy'] != null ? MaintenancePolicyRequest.fromJson(json['maintenance_policy'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    autoUpgrade: json['auto_upgrade'] != null ? SdkPresent((json['auto_upgrade'] as bool?)!) : const SdkOmitted(),
-    isolatedWorkers: json['isolated_workers'] != null ? SdkPresent((json['isolated_workers'] as bool?)!) : const SdkOmitted(),
-    gpuOperatorReady: json['gpu_operator_ready'] != null ? SdkPresent((json['gpu_operator_ready'] as bool?)!) : const SdkOmitted(),
-    surgeUpgrade: json['surge_upgrade'] != null ? SdkPresent((json['surge_upgrade'] as bool?)!) : const SdkOmitted(),
-    ha: json['ha'] != null ? SdkPresent((json['ha'] as bool?)!) : const SdkOmitted(),
-    controlPlaneFirewall: json.containsKey('control_plane_firewall') ? SdkPresent(json['control_plane_firewall'] != null ? ControlPlaneFirewall.fromJson(json['control_plane_firewall'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    clusterAutoscalerConfiguration: json.containsKey('cluster_autoscaler_configuration') ? SdkPresent(json['cluster_autoscaler_configuration'] != null ? ClusterAutoscalerConfiguration.fromJson(json['cluster_autoscaler_configuration'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    sso: json.containsKey('sso') ? SdkPresent(json['sso'] != null ? Sso.fromJson(json['sso'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    routingAgent: json.containsKey('routing_agent') ? SdkPresent(json['routing_agent'] != null ? RoutingAgent.fromJson(json['routing_agent'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    p2pOciRegistryPlugin: json.containsKey('p2p_oci_registry_plugin') ? SdkPresent(json['p2p_oci_registry_plugin'] != null ? P2pOciRegistryPlugin.fromJson(json['p2p_oci_registry_plugin'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    nfsCsiPlugin: json.containsKey('nfs_csi_plugin') ? SdkPresent(json['nfs_csi_plugin'] != null ? NfsCsiPlugin.fromJson(json['nfs_csi_plugin'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    amdGpuDevicePlugin: json.containsKey('amd_gpu_device_plugin') ? SdkPresent(json['amd_gpu_device_plugin'] != null ? AmdGpuDevicePlugin.fromJson(json['amd_gpu_device_plugin'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    amdGpuDeviceMetricsExporterPlugin: json.containsKey('amd_gpu_device_metrics_exporter_plugin') ? SdkPresent(json['amd_gpu_device_metrics_exporter_plugin'] != null ? AmdGpuDeviceMetricsExporterPlugin.fromJson(json['amd_gpu_device_metrics_exporter_plugin'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    nvidiaGpuDevicePlugin: json.containsKey('nvidia_gpu_device_plugin') ? SdkPresent(json['nvidia_gpu_device_plugin'] != null ? NvidiaGpuDevicePlugin.fromJson(json['nvidia_gpu_device_plugin'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    nvidiaGpuDraDriver: json.containsKey('nvidia_gpu_dra_driver') ? SdkPresent(json['nvidia_gpu_dra_driver'] != null ? NvidiaGpuDraDriver.fromJson(json['nvidia_gpu_dra_driver'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    amdGpuDraDriver: json.containsKey('amd_gpu_dra_driver') ? SdkPresent(json['amd_gpu_dra_driver'] != null ? AmdGpuDraDriver.fromJson(json['amd_gpu_dra_driver'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    rdmaSharedDevPlugin: json.containsKey('rdma_shared_dev_plugin') ? SdkPresent(json['rdma_shared_dev_plugin'] != null ? RdmaSharedDevPlugin.fromJson(json['rdma_shared_dev_plugin'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    corednsAutoscaler: json.containsKey('coredns_autoscaler') ? SdkPresent(json['coredns_autoscaler'] != null ? CorednsAutoscaler.fromJson(json['coredns_autoscaler'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+        name: (json['name'] as String?)!,
+        region: (json['region'] as String?)!,
+        version: (json['version'] as String?)!,
+        clusterSubnet: json['cluster_subnet'] != null
+            ? SdkPresent((json['cluster_subnet'] as String?)!)
+            : const SdkOmitted(),
+        serviceSubnet: json['service_subnet'] != null
+            ? SdkPresent((json['service_subnet'] as String?)!)
+            : const SdkOmitted(),
+        vpcUuid: json['vpc_uuid'] != null
+            ? SdkPresent((json['vpc_uuid'] as String?)!)
+            : const SdkOmitted(),
+        workerSubnetUuid: json['worker_subnet_uuid'] != null
+            ? SdkPresent((json['worker_subnet_uuid'] as String?)!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        nodePools: ((json['node_pools'] as List?)
+            ?.map((e) =>
+                KubernetesNodePoolRequest.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        maintenancePolicy: json.containsKey('maintenance_policy')
+            ? SdkPresent(json['maintenance_policy'] != null
+                ? MaintenancePolicyRequest.fromJson(
+                    json['maintenance_policy'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        autoUpgrade: json['auto_upgrade'] != null
+            ? SdkPresent((json['auto_upgrade'] as bool?)!)
+            : const SdkOmitted(),
+        isolatedWorkers: json['isolated_workers'] != null
+            ? SdkPresent((json['isolated_workers'] as bool?)!)
+            : const SdkOmitted(),
+        gpuOperatorReady: json['gpu_operator_ready'] != null
+            ? SdkPresent((json['gpu_operator_ready'] as bool?)!)
+            : const SdkOmitted(),
+        surgeUpgrade: json['surge_upgrade'] != null
+            ? SdkPresent((json['surge_upgrade'] as bool?)!)
+            : const SdkOmitted(),
+        ha: json['ha'] != null
+            ? SdkPresent((json['ha'] as bool?)!)
+            : const SdkOmitted(),
+        controlPlaneFirewall: json.containsKey('control_plane_firewall')
+            ? SdkPresent(json['control_plane_firewall'] != null
+                ? ControlPlaneFirewall.fromJson(
+                    json['control_plane_firewall'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        clusterAutoscalerConfiguration:
+            json.containsKey('cluster_autoscaler_configuration')
+                ? SdkPresent(json['cluster_autoscaler_configuration'] != null
+                    ? ClusterAutoscalerConfiguration.fromJson(
+                        json['cluster_autoscaler_configuration']
+                            as Map<String, dynamic>)
+                    : null)
+                : const SdkOmitted(),
+        sso: json.containsKey('sso')
+            ? SdkPresent(json['sso'] != null
+                ? Sso.fromJson(json['sso'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        routingAgent: json.containsKey('routing_agent')
+            ? SdkPresent(json['routing_agent'] != null
+                ? RoutingAgent.fromJson(
+                    json['routing_agent'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        p2pOciRegistryPlugin: json.containsKey('p2p_oci_registry_plugin')
+            ? SdkPresent(json['p2p_oci_registry_plugin'] != null
+                ? P2pOciRegistryPlugin.fromJson(
+                    json['p2p_oci_registry_plugin'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        nfsCsiPlugin: json.containsKey('nfs_csi_plugin')
+            ? SdkPresent(json['nfs_csi_plugin'] != null
+                ? NfsCsiPlugin.fromJson(
+                    json['nfs_csi_plugin'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        amdGpuDevicePlugin: json.containsKey('amd_gpu_device_plugin')
+            ? SdkPresent(json['amd_gpu_device_plugin'] != null
+                ? AmdGpuDevicePlugin.fromJson(
+                    json['amd_gpu_device_plugin'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        amdGpuDeviceMetricsExporterPlugin: json
+                .containsKey('amd_gpu_device_metrics_exporter_plugin')
+            ? SdkPresent(json['amd_gpu_device_metrics_exporter_plugin'] != null
+                ? AmdGpuDeviceMetricsExporterPlugin.fromJson(
+                    json['amd_gpu_device_metrics_exporter_plugin']
+                        as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        nvidiaGpuDevicePlugin: json.containsKey('nvidia_gpu_device_plugin')
+            ? SdkPresent(json['nvidia_gpu_device_plugin'] != null
+                ? NvidiaGpuDevicePlugin.fromJson(
+                    json['nvidia_gpu_device_plugin'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        nvidiaGpuDraDriver: json.containsKey('nvidia_gpu_dra_driver')
+            ? SdkPresent(json['nvidia_gpu_dra_driver'] != null
+                ? NvidiaGpuDraDriver.fromJson(
+                    json['nvidia_gpu_dra_driver'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        amdGpuDraDriver: json.containsKey('amd_gpu_dra_driver')
+            ? SdkPresent(json['amd_gpu_dra_driver'] != null
+                ? AmdGpuDraDriver.fromJson(
+                    json['amd_gpu_dra_driver'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        rdmaSharedDevPlugin: json.containsKey('rdma_shared_dev_plugin')
+            ? SdkPresent(json['rdma_shared_dev_plugin'] != null
+                ? RdmaSharedDevPlugin.fromJson(
+                    json['rdma_shared_dev_plugin'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        corednsAutoscaler: json.containsKey('coredns_autoscaler')
+            ? SdkPresent(json['coredns_autoscaler'] != null
+                ? CorednsAutoscaler.fromJson(
+                    json['coredns_autoscaler'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'region': region,
-    'version': version,
-    ...switch (clusterSubnet) {
-      SdkPresent<String>(value: final value) => {'cluster_subnet': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (serviceSubnet) {
-      SdkPresent<String>(value: final value) => {'service_subnet': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (vpcUuid) {
-      SdkPresent<String>(value: final value) => {'vpc_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (workerSubnetUuid) {
-      SdkPresent<String>(value: final value) => {'worker_subnet_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    'node_pools': nodePools.map((item) => item.toJson()).toList(),
-    ...switch (maintenancePolicy) {
-      SdkPresent<MaintenancePolicyRequest?>(value: final value) => {'maintenance_policy': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (autoUpgrade) {
-      SdkPresent<bool>(value: final value) => {'auto_upgrade': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (isolatedWorkers) {
-      SdkPresent<bool>(value: final value) => {'isolated_workers': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (gpuOperatorReady) {
-      SdkPresent<bool>(value: final value) => {'gpu_operator_ready': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (surgeUpgrade) {
-      SdkPresent<bool>(value: final value) => {'surge_upgrade': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ha) {
-      SdkPresent<bool>(value: final value) => {'ha': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (controlPlaneFirewall) {
-      SdkPresent<ControlPlaneFirewall?>(value: final value) => {'control_plane_firewall': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (clusterAutoscalerConfiguration) {
-      SdkPresent<ClusterAutoscalerConfiguration?>(value: final value) => {'cluster_autoscaler_configuration': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sso) {
-      SdkPresent<Sso?>(value: final value) => {'sso': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (routingAgent) {
-      SdkPresent<RoutingAgent?>(value: final value) => {'routing_agent': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (p2pOciRegistryPlugin) {
-      SdkPresent<P2pOciRegistryPlugin?>(value: final value) => {'p2p_oci_registry_plugin': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nfsCsiPlugin) {
-      SdkPresent<NfsCsiPlugin?>(value: final value) => {'nfs_csi_plugin': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (amdGpuDevicePlugin) {
-      SdkPresent<AmdGpuDevicePlugin?>(value: final value) => {'amd_gpu_device_plugin': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (amdGpuDeviceMetricsExporterPlugin) {
-      SdkPresent<AmdGpuDeviceMetricsExporterPlugin?>(value: final value) => {'amd_gpu_device_metrics_exporter_plugin': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nvidiaGpuDevicePlugin) {
-      SdkPresent<NvidiaGpuDevicePlugin?>(value: final value) => {'nvidia_gpu_device_plugin': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nvidiaGpuDraDriver) {
-      SdkPresent<NvidiaGpuDraDriver?>(value: final value) => {'nvidia_gpu_dra_driver': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (amdGpuDraDriver) {
-      SdkPresent<AmdGpuDraDriver?>(value: final value) => {'amd_gpu_dra_driver': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (rdmaSharedDevPlugin) {
-      SdkPresent<RdmaSharedDevPlugin?>(value: final value) => {'rdma_shared_dev_plugin': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (corednsAutoscaler) {
-      SdkPresent<CorednsAutoscaler?>(value: final value) => {'coredns_autoscaler': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        'region': region,
+        'version': version,
+        ...switch (clusterSubnet) {
+          SdkPresent<String>(value: final value) => {
+              'cluster_subnet': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (serviceSubnet) {
+          SdkPresent<String>(value: final value) => {
+              'service_subnet': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (vpcUuid) {
+          SdkPresent<String>(value: final value) => {
+              'vpc_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (workerSubnetUuid) {
+          SdkPresent<String>(value: final value) => {
+              'worker_subnet_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'node_pools': nodePools.map((item) => item.toJson()).toList(),
+        ...switch (maintenancePolicy) {
+          SdkPresent<MaintenancePolicyRequest?>(value: final value) => {
+              'maintenance_policy': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (autoUpgrade) {
+          SdkPresent<bool>(value: final value) => {
+              'auto_upgrade': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (isolatedWorkers) {
+          SdkPresent<bool>(value: final value) => {
+              'isolated_workers': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (gpuOperatorReady) {
+          SdkPresent<bool>(value: final value) => {
+              'gpu_operator_ready': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (surgeUpgrade) {
+          SdkPresent<bool>(value: final value) => {
+              'surge_upgrade': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ha) {
+          SdkPresent<bool>(value: final value) => {
+              'ha': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (controlPlaneFirewall) {
+          SdkPresent<ControlPlaneFirewall?>(value: final value) => {
+              'control_plane_firewall': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (clusterAutoscalerConfiguration) {
+          SdkPresent<ClusterAutoscalerConfiguration?>(value: final value) => {
+              'cluster_autoscaler_configuration': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sso) {
+          SdkPresent<Sso?>(value: final value) => {
+              'sso': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (routingAgent) {
+          SdkPresent<RoutingAgent?>(value: final value) => {
+              'routing_agent': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (p2pOciRegistryPlugin) {
+          SdkPresent<P2pOciRegistryPlugin?>(value: final value) => {
+              'p2p_oci_registry_plugin': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nfsCsiPlugin) {
+          SdkPresent<NfsCsiPlugin?>(value: final value) => {
+              'nfs_csi_plugin': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (amdGpuDevicePlugin) {
+          SdkPresent<AmdGpuDevicePlugin?>(value: final value) => {
+              'amd_gpu_device_plugin': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (amdGpuDeviceMetricsExporterPlugin) {
+          SdkPresent<AmdGpuDeviceMetricsExporterPlugin?>(value: final value) =>
+            {
+              'amd_gpu_device_metrics_exporter_plugin': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nvidiaGpuDevicePlugin) {
+          SdkPresent<NvidiaGpuDevicePlugin?>(value: final value) => {
+              'nvidia_gpu_device_plugin': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nvidiaGpuDraDriver) {
+          SdkPresent<NvidiaGpuDraDriver?>(value: final value) => {
+              'nvidia_gpu_dra_driver': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (amdGpuDraDriver) {
+          SdkPresent<AmdGpuDraDriver?>(value: final value) => {
+              'amd_gpu_dra_driver': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (rdmaSharedDevPlugin) {
+          SdkPresent<RdmaSharedDevPlugin?>(value: final value) => {
+              'rdma_shared_dev_plugin': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (corednsAutoscaler) {
+          SdkPresent<CorednsAutoscaler?>(value: final value) => {
+              'coredns_autoscaler': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

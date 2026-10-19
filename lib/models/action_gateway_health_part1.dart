@@ -8,92 +8,167 @@ part of 'action_gateway_health.dart';
 class HealthMetrics {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// `HEALTH_DATA_STATUS_AVAILABLE` when the window has calls to measure; `HEALTH_DATA_STATUS_NO_DATA` when it has none, in which case the metrics are null. Do not treat no data as healthy.
   final SdkOptional<HealthMetricsDataStatus> dataStatus;
+
   /// Percentage of calls that did not fail because of the provider (an upstream error, timeout, rate limit, or unavailability). Calls that failed for other reasons are not counted.
   final SdkOptional<double?> uptimePercentage;
+
   /// Median duration of successful calls, in milliseconds. Durations above 40960 ms are reported as 40960.
   final SdkOptional<double?> latencyP50Ms;
+
   /// 95th-percentile duration of successful calls, in milliseconds. Durations above 40960 ms are reported as 40960.
   final SdkOptional<double?> latencyP95Ms;
 
-  const HealthMetrics({this.dataStatus = const SdkOmitted(), this.uptimePercentage = const SdkOmitted(), this.latencyP50Ms = const SdkOmitted(), this.latencyP95Ms = const SdkOmitted()});
+  const HealthMetrics(
+      {this.dataStatus = const SdkOmitted(),
+      this.uptimePercentage = const SdkOmitted(),
+      this.latencyP50Ms = const SdkOmitted(),
+      this.latencyP95Ms = const SdkOmitted()});
 
-  HealthMetrics Function({SdkOptional<HealthMetricsDataStatus> dataStatus, SdkOptional<double?> uptimePercentage, SdkOptional<double?> latencyP50Ms, SdkOptional<double?> latencyP95Ms}) get copyWith => _copyWith;
+  HealthMetrics Function(
+      {SdkOptional<HealthMetricsDataStatus> dataStatus,
+      SdkOptional<double?> uptimePercentage,
+      SdkOptional<double?> latencyP50Ms,
+      SdkOptional<double?> latencyP95Ms}) get copyWith => _copyWith;
 
-  HealthMetrics _copyWith({Object? dataStatus = sdkOmittedValue, Object? uptimePercentage = sdkOmittedValue, Object? latencyP50Ms = sdkOmittedValue, Object? latencyP95Ms = sdkOmittedValue}) => HealthMetrics(
-    dataStatus: identical(dataStatus, sdkOmittedValue) ? this.dataStatus : dataStatus as SdkOptional<HealthMetricsDataStatus>,
-    uptimePercentage: identical(uptimePercentage, sdkOmittedValue) ? this.uptimePercentage : uptimePercentage as SdkOptional<double?>,
-    latencyP50Ms: identical(latencyP50Ms, sdkOmittedValue) ? this.latencyP50Ms : latencyP50Ms as SdkOptional<double?>,
-    latencyP95Ms: identical(latencyP95Ms, sdkOmittedValue) ? this.latencyP95Ms : latencyP95Ms as SdkOptional<double?>,
-  );
+  HealthMetrics _copyWith(
+          {Object? dataStatus = sdkOmittedValue,
+          Object? uptimePercentage = sdkOmittedValue,
+          Object? latencyP50Ms = sdkOmittedValue,
+          Object? latencyP95Ms = sdkOmittedValue}) =>
+      HealthMetrics(
+        dataStatus: identical(dataStatus, sdkOmittedValue)
+            ? this.dataStatus
+            : dataStatus as SdkOptional<HealthMetricsDataStatus>,
+        uptimePercentage: identical(uptimePercentage, sdkOmittedValue)
+            ? this.uptimePercentage
+            : uptimePercentage as SdkOptional<double?>,
+        latencyP50Ms: identical(latencyP50Ms, sdkOmittedValue)
+            ? this.latencyP50Ms
+            : latencyP50Ms as SdkOptional<double?>,
+        latencyP95Ms: identical(latencyP95Ms, sdkOmittedValue)
+            ? this.latencyP95Ms
+            : latencyP95Ms as SdkOptional<double?>,
+      );
 
   factory HealthMetrics.fromJson(Map<String, dynamic> json) => HealthMetrics(
-    dataStatus: json['data_status'] != null ? SdkPresent((json['data_status'] != null ? HealthMetricsDataStatus.fromJson(json['data_status'] as String) : null)!) : const SdkOmitted(),
-    uptimePercentage: json.containsKey('uptime_percentage') ? SdkPresent((json['uptime_percentage'] as num?)?.toDouble()) : const SdkOmitted(),
-    latencyP50Ms: json.containsKey('latency_p50_ms') ? SdkPresent((json['latency_p50_ms'] as num?)?.toDouble()) : const SdkOmitted(),
-    latencyP95Ms: json.containsKey('latency_p95_ms') ? SdkPresent((json['latency_p95_ms'] as num?)?.toDouble()) : const SdkOmitted(),
-  );
+        dataStatus: json['data_status'] != null
+            ? SdkPresent((json['data_status'] != null
+                ? HealthMetricsDataStatus.fromJson(
+                    json['data_status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        uptimePercentage: json.containsKey('uptime_percentage')
+            ? SdkPresent((json['uptime_percentage'] as num?)?.toDouble())
+            : const SdkOmitted(),
+        latencyP50Ms: json.containsKey('latency_p50_ms')
+            ? SdkPresent((json['latency_p50_ms'] as num?)?.toDouble())
+            : const SdkOmitted(),
+        latencyP95Ms: json.containsKey('latency_p95_ms')
+            ? SdkPresent((json['latency_p95_ms'] as num?)?.toDouble())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (dataStatus) {
-      SdkPresent<HealthMetricsDataStatus>(value: final value) => {'data_status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (uptimePercentage) {
-      SdkPresent<double?>(value: final value) => {'uptime_percentage': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (latencyP50Ms) {
-      SdkPresent<double?>(value: final value) => {'latency_p50_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (latencyP95Ms) {
-      SdkPresent<double?>(value: final value) => {'latency_p95_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (dataStatus) {
+          SdkPresent<HealthMetricsDataStatus>(value: final value) => {
+              'data_status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (uptimePercentage) {
+          SdkPresent<double?>(value: final value) => {
+              'uptime_percentage': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (latencyP50Ms) {
+          SdkPresent<double?>(value: final value) => {
+              'latency_p50_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (latencyP95Ms) {
+          SdkPresent<double?>(value: final value) => {
+              'latency_p95_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Describes when health metrics were computed.
 class HealthSnapshot {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// When the metrics were computed. They are recomputed at most every five minutes.
   final SdkOptional<String?> measuredAt;
+
   /// Length of the window the metrics cover, ending at `measured_at`.
   final SdkOptional<String> window;
+
   /// True when the latest recomputation failed and earlier metrics, up to 30 minutes old, are returned instead.
   final SdkOptional<bool> stale;
 
-  const HealthSnapshot({this.measuredAt = const SdkOmitted(), this.window = const SdkOmitted(), this.stale = const SdkOmitted()});
+  const HealthSnapshot(
+      {this.measuredAt = const SdkOmitted(),
+      this.window = const SdkOmitted(),
+      this.stale = const SdkOmitted()});
 
-  HealthSnapshot Function({SdkOptional<String?> measuredAt, SdkOptional<String> window, SdkOptional<bool> stale}) get copyWith => _copyWith;
+  HealthSnapshot Function(
+      {SdkOptional<String?> measuredAt,
+      SdkOptional<String> window,
+      SdkOptional<bool> stale}) get copyWith => _copyWith;
 
-  HealthSnapshot _copyWith({Object? measuredAt = sdkOmittedValue, Object? window = sdkOmittedValue, Object? stale = sdkOmittedValue}) => HealthSnapshot(
-    measuredAt: identical(measuredAt, sdkOmittedValue) ? this.measuredAt : measuredAt as SdkOptional<String?>,
-    window: identical(window, sdkOmittedValue) ? this.window : window as SdkOptional<String>,
-    stale: identical(stale, sdkOmittedValue) ? this.stale : stale as SdkOptional<bool>,
-  );
+  HealthSnapshot _copyWith(
+          {Object? measuredAt = sdkOmittedValue,
+          Object? window = sdkOmittedValue,
+          Object? stale = sdkOmittedValue}) =>
+      HealthSnapshot(
+        measuredAt: identical(measuredAt, sdkOmittedValue)
+            ? this.measuredAt
+            : measuredAt as SdkOptional<String?>,
+        window: identical(window, sdkOmittedValue)
+            ? this.window
+            : window as SdkOptional<String>,
+        stale: identical(stale, sdkOmittedValue)
+            ? this.stale
+            : stale as SdkOptional<bool>,
+      );
 
   factory HealthSnapshot.fromJson(Map<String, dynamic> json) => HealthSnapshot(
-    measuredAt: json.containsKey('measured_at') ? SdkPresent(json['measured_at'] as String?) : const SdkOmitted(),
-    window: json['window'] != null ? SdkPresent((json['window'] as String?)!) : const SdkOmitted(),
-    stale: json['stale'] != null ? SdkPresent((json['stale'] as bool?)!) : const SdkOmitted(),
-  );
+        measuredAt: json.containsKey('measured_at')
+            ? SdkPresent(json['measured_at'] as String?)
+            : const SdkOmitted(),
+        window: json['window'] != null
+            ? SdkPresent((json['window'] as String?)!)
+            : const SdkOmitted(),
+        stale: json['stale'] != null
+            ? SdkPresent((json['stale'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (measuredAt) {
-      SdkPresent<String?>(value: final value) => {'measured_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (window) {
-      SdkPresent<String>(value: final value) => {'window': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (stale) {
-      SdkPresent<bool>(value: final value) => {'stale': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (measuredAt) {
+          SdkPresent<String?>(value: final value) => {
+              'measured_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (window) {
+          SdkPresent<String>(value: final value) => {
+              'window': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (stale) {
+          SdkPresent<bool>(value: final value) => {
+              'stale': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

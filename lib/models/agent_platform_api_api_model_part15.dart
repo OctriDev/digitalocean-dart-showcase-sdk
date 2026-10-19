@@ -8,206 +8,406 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelRouterTaskPreset {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Higher-level grouping used by the UI
   final SdkOptional<String> category;
+
   /// Task description
   final SdkOptional<String> description;
+
   /// Default models assigned to this task
   final SdkOptional<List<String>> models;
+
   /// Display name
   final SdkOptional<String> name;
+
   /// Selection policy preference for choosing among assigned models.
   final SdkOptional<ApiModelRouterSelectionPolicy> selectionPolicy;
+
   /// Lightweight labels for filtering
   final SdkOptional<List<String>> tags;
+
   /// Task slug
   final SdkOptional<String> taskSlug;
 
-  const ApiModelRouterTaskPreset({this.category = const SdkOmitted(), this.description = const SdkOmitted(), this.models = const SdkOmitted(), this.name = const SdkOmitted(), this.selectionPolicy = const SdkOmitted(), this.tags = const SdkOmitted(), this.taskSlug = const SdkOmitted()});
+  const ApiModelRouterTaskPreset(
+      {this.category = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.models = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.selectionPolicy = const SdkOmitted(),
+      this.tags = const SdkOmitted(),
+      this.taskSlug = const SdkOmitted()});
 
-  ApiModelRouterTaskPreset Function({SdkOptional<String> category, SdkOptional<String> description, SdkOptional<List<String>> models, SdkOptional<String> name, SdkOptional<ApiModelRouterSelectionPolicy> selectionPolicy, SdkOptional<List<String>> tags, SdkOptional<String> taskSlug}) get copyWith => _copyWith;
+  ApiModelRouterTaskPreset Function(
+      {SdkOptional<String> category,
+      SdkOptional<String> description,
+      SdkOptional<List<String>> models,
+      SdkOptional<String> name,
+      SdkOptional<ApiModelRouterSelectionPolicy> selectionPolicy,
+      SdkOptional<List<String>> tags,
+      SdkOptional<String> taskSlug}) get copyWith => _copyWith;
 
-  ApiModelRouterTaskPreset _copyWith({Object? category = sdkOmittedValue, Object? description = sdkOmittedValue, Object? models = sdkOmittedValue, Object? name = sdkOmittedValue, Object? selectionPolicy = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? taskSlug = sdkOmittedValue}) => ApiModelRouterTaskPreset(
-    category: identical(category, sdkOmittedValue) ? this.category : category as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    models: identical(models, sdkOmittedValue) ? this.models : models as SdkOptional<List<String>>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    selectionPolicy: identical(selectionPolicy, sdkOmittedValue) ? this.selectionPolicy : selectionPolicy as SdkOptional<ApiModelRouterSelectionPolicy>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    taskSlug: identical(taskSlug, sdkOmittedValue) ? this.taskSlug : taskSlug as SdkOptional<String>,
-  );
+  ApiModelRouterTaskPreset _copyWith(
+          {Object? category = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? models = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? selectionPolicy = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? taskSlug = sdkOmittedValue}) =>
+      ApiModelRouterTaskPreset(
+        category: identical(category, sdkOmittedValue)
+            ? this.category
+            : category as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        models: identical(models, sdkOmittedValue)
+            ? this.models
+            : models as SdkOptional<List<String>>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        selectionPolicy: identical(selectionPolicy, sdkOmittedValue)
+            ? this.selectionPolicy
+            : selectionPolicy as SdkOptional<ApiModelRouterSelectionPolicy>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        taskSlug: identical(taskSlug, sdkOmittedValue)
+            ? this.taskSlug
+            : taskSlug as SdkOptional<String>,
+      );
 
-  factory ApiModelRouterTaskPreset.fromJson(Map<String, dynamic> json) => ApiModelRouterTaskPreset(
-    category: json['category'] != null ? SdkPresent((json['category'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    models: json['models'] != null ? SdkPresent(((json['models'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    selectionPolicy: json['selection_policy'] != null ? SdkPresent((json['selection_policy'] != null ? ApiModelRouterSelectionPolicy.fromJson(json['selection_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    taskSlug: json['task_slug'] != null ? SdkPresent((json['task_slug'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiModelRouterTaskPreset.fromJson(Map<String, dynamic> json) =>
+      ApiModelRouterTaskPreset(
+        category: json['category'] != null
+            ? SdkPresent((json['category'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        models: json['models'] != null
+            ? SdkPresent(
+                ((json['models'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        selectionPolicy: json['selection_policy'] != null
+            ? SdkPresent((json['selection_policy'] != null
+                ? ApiModelRouterSelectionPolicy.fromJson(
+                    json['selection_policy'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        taskSlug: json['task_slug'] != null
+            ? SdkPresent((json['task_slug'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (category) {
-      SdkPresent<String>(value: final value) => {'category': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (models) {
-      SdkPresent<List<String>>(value: final value) => {'models': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (selectionPolicy) {
-      SdkPresent<ApiModelRouterSelectionPolicy>(value: final value) => {'selection_policy': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (taskSlug) {
-      SdkPresent<String>(value: final value) => {'task_slug': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (category) {
+          SdkPresent<String>(value: final value) => {
+              'category': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (models) {
+          SdkPresent<List<String>>(value: final value) => {
+              'models': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (selectionPolicy) {
+          SdkPresent<ApiModelRouterSelectionPolicy>(value: final value) => {
+              'selection_policy': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (taskSlug) {
+          SdkPresent<String>(value: final value) => {
+              'task_slug': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Pricing that varies over time. When present, the rates move between the low and high bounds below across the intervals in the schedule.
 class ApiModelScaledPricing {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The pricing schedule as a series of consecutive time intervals, ordered by start time. Neighboring hours with the same rates are combined, so each interval represents a distinct price.
   final SdkOptional<List<ApiModelPricingInterval>> intervals;
+
   /// Pricing per million tokens (aligns with existing ModelPrice pattern)
   final SdkOptional<ApiModelPricing> maxPrices;
+
   /// Pricing per million tokens (aligns with existing ModelPrice pattern)
   final SdkOptional<ApiModelPricing> minPrices;
 
-  const ApiModelScaledPricing({this.intervals = const SdkOmitted(), this.maxPrices = const SdkOmitted(), this.minPrices = const SdkOmitted()});
+  const ApiModelScaledPricing(
+      {this.intervals = const SdkOmitted(),
+      this.maxPrices = const SdkOmitted(),
+      this.minPrices = const SdkOmitted()});
 
-  ApiModelScaledPricing Function({SdkOptional<List<ApiModelPricingInterval>> intervals, SdkOptional<ApiModelPricing> maxPrices, SdkOptional<ApiModelPricing> minPrices}) get copyWith => _copyWith;
+  ApiModelScaledPricing Function(
+      {SdkOptional<List<ApiModelPricingInterval>> intervals,
+      SdkOptional<ApiModelPricing> maxPrices,
+      SdkOptional<ApiModelPricing> minPrices}) get copyWith => _copyWith;
 
-  ApiModelScaledPricing _copyWith({Object? intervals = sdkOmittedValue, Object? maxPrices = sdkOmittedValue, Object? minPrices = sdkOmittedValue}) => ApiModelScaledPricing(
-    intervals: identical(intervals, sdkOmittedValue) ? this.intervals : intervals as SdkOptional<List<ApiModelPricingInterval>>,
-    maxPrices: identical(maxPrices, sdkOmittedValue) ? this.maxPrices : maxPrices as SdkOptional<ApiModelPricing>,
-    minPrices: identical(minPrices, sdkOmittedValue) ? this.minPrices : minPrices as SdkOptional<ApiModelPricing>,
-  );
+  ApiModelScaledPricing _copyWith(
+          {Object? intervals = sdkOmittedValue,
+          Object? maxPrices = sdkOmittedValue,
+          Object? minPrices = sdkOmittedValue}) =>
+      ApiModelScaledPricing(
+        intervals: identical(intervals, sdkOmittedValue)
+            ? this.intervals
+            : intervals as SdkOptional<List<ApiModelPricingInterval>>,
+        maxPrices: identical(maxPrices, sdkOmittedValue)
+            ? this.maxPrices
+            : maxPrices as SdkOptional<ApiModelPricing>,
+        minPrices: identical(minPrices, sdkOmittedValue)
+            ? this.minPrices
+            : minPrices as SdkOptional<ApiModelPricing>,
+      );
 
-  factory ApiModelScaledPricing.fromJson(Map<String, dynamic> json) => ApiModelScaledPricing(
-    intervals: json['intervals'] != null ? SdkPresent(((json['intervals'] as List?)?.map((e) => ApiModelPricingInterval.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    maxPrices: json['max_prices'] != null ? SdkPresent((json['max_prices'] != null ? ApiModelPricing.fromJson(json['max_prices'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    minPrices: json['min_prices'] != null ? SdkPresent((json['min_prices'] != null ? ApiModelPricing.fromJson(json['min_prices'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiModelScaledPricing.fromJson(Map<String, dynamic> json) =>
+      ApiModelScaledPricing(
+        intervals: json['intervals'] != null
+            ? SdkPresent(((json['intervals'] as List?)
+                ?.map((e) =>
+                    ApiModelPricingInterval.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        maxPrices: json['max_prices'] != null
+            ? SdkPresent((json['max_prices'] != null
+                ? ApiModelPricing.fromJson(
+                    json['max_prices'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        minPrices: json['min_prices'] != null
+            ? SdkPresent((json['min_prices'] != null
+                ? ApiModelPricing.fromJson(
+                    json['min_prices'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (intervals) {
-      SdkPresent<List<ApiModelPricingInterval>>(value: final value) => {'intervals': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxPrices) {
-      SdkPresent<ApiModelPricing>(value: final value) => {'max_prices': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (minPrices) {
-      SdkPresent<ApiModelPricing>(value: final value) => {'min_prices': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (intervals) {
+          SdkPresent<List<ApiModelPricingInterval>>(value: final value) => {
+              'intervals': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxPrices) {
+          SdkPresent<ApiModelPricing>(value: final value) => {
+              'max_prices': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (minPrices) {
+          SdkPresent<ApiModelPricing>(value: final value) => {
+              'min_prices': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A configurable setting for a model in the playground
 class ApiModelSetting {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String default value (for type="dropdown", e.g. "medium")
   final SdkOptional<String> defaultString;
+
   /// Numeric default value (for type="number")
   final SdkOptional<double> defaultValue;
+
   /// Maximum allowed value (for type="number")
   final SdkOptional<double> max;
+
   /// Minimum allowed value (for type="number")
   final SdkOptional<double> min;
+
   /// Setting key name (e.g. "max_tokens", "temperature", "resolution")
   final SdkOptional<String> name;
+
   /// Allowed values for dropdown selections (for type="dropdown")
   final SdkOptional<List<String>> options;
+
   /// Step increment for numeric settings (for type="number")
   final SdkOptional<double> step;
+
   /// Setting value type: "number" or "dropdown"
   final SdkOptional<String> type_;
 
-  const ApiModelSetting({this.defaultString = const SdkOmitted(), this.defaultValue = const SdkOmitted(), this.max = const SdkOmitted(), this.min = const SdkOmitted(), this.name = const SdkOmitted(), this.options = const SdkOmitted(), this.step = const SdkOmitted(), this.type_ = const SdkOmitted()});
+  const ApiModelSetting(
+      {this.defaultString = const SdkOmitted(),
+      this.defaultValue = const SdkOmitted(),
+      this.max = const SdkOmitted(),
+      this.min = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.options = const SdkOmitted(),
+      this.step = const SdkOmitted(),
+      this.type_ = const SdkOmitted()});
 
-  ApiModelSetting Function({SdkOptional<String> defaultString, SdkOptional<double> defaultValue, SdkOptional<double> max, SdkOptional<double> min, SdkOptional<String> name, SdkOptional<List<String>> options, SdkOptional<double> step, SdkOptional<String> type_}) get copyWith => _copyWith;
+  ApiModelSetting Function(
+      {SdkOptional<String> defaultString,
+      SdkOptional<double> defaultValue,
+      SdkOptional<double> max,
+      SdkOptional<double> min,
+      SdkOptional<String> name,
+      SdkOptional<List<String>> options,
+      SdkOptional<double> step,
+      SdkOptional<String> type_}) get copyWith => _copyWith;
 
-  ApiModelSetting _copyWith({Object? defaultString = sdkOmittedValue, Object? defaultValue = sdkOmittedValue, Object? max = sdkOmittedValue, Object? min = sdkOmittedValue, Object? name = sdkOmittedValue, Object? options = sdkOmittedValue, Object? step = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => ApiModelSetting(
-    defaultString: identical(defaultString, sdkOmittedValue) ? this.defaultString : defaultString as SdkOptional<String>,
-    defaultValue: identical(defaultValue, sdkOmittedValue) ? this.defaultValue : defaultValue as SdkOptional<double>,
-    max: identical(max, sdkOmittedValue) ? this.max : max as SdkOptional<double>,
-    min: identical(min, sdkOmittedValue) ? this.min : min as SdkOptional<double>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    options: identical(options, sdkOmittedValue) ? this.options : options as SdkOptional<List<String>>,
-    step: identical(step, sdkOmittedValue) ? this.step : step as SdkOptional<double>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-  );
+  ApiModelSetting _copyWith(
+          {Object? defaultString = sdkOmittedValue,
+          Object? defaultValue = sdkOmittedValue,
+          Object? max = sdkOmittedValue,
+          Object? min = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? options = sdkOmittedValue,
+          Object? step = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      ApiModelSetting(
+        defaultString: identical(defaultString, sdkOmittedValue)
+            ? this.defaultString
+            : defaultString as SdkOptional<String>,
+        defaultValue: identical(defaultValue, sdkOmittedValue)
+            ? this.defaultValue
+            : defaultValue as SdkOptional<double>,
+        max: identical(max, sdkOmittedValue)
+            ? this.max
+            : max as SdkOptional<double>,
+        min: identical(min, sdkOmittedValue)
+            ? this.min
+            : min as SdkOptional<double>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        options: identical(options, sdkOmittedValue)
+            ? this.options
+            : options as SdkOptional<List<String>>,
+        step: identical(step, sdkOmittedValue)
+            ? this.step
+            : step as SdkOptional<double>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+      );
 
-  factory ApiModelSetting.fromJson(Map<String, dynamic> json) => ApiModelSetting(
-    defaultString: json['default_string'] != null ? SdkPresent((json['default_string'] as String?)!) : const SdkOmitted(),
-    defaultValue: json['default_value'] != null ? SdkPresent(((json['default_value'] as num?)?.toDouble())!) : const SdkOmitted(),
-    max: json['max'] != null ? SdkPresent(((json['max'] as num?)?.toDouble())!) : const SdkOmitted(),
-    min: json['min'] != null ? SdkPresent(((json['min'] as num?)?.toDouble())!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    options: json['options'] != null ? SdkPresent(((json['options'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    step: json['step'] != null ? SdkPresent(((json['step'] as num?)?.toDouble())!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiModelSetting.fromJson(Map<String, dynamic> json) =>
+      ApiModelSetting(
+        defaultString: json['default_string'] != null
+            ? SdkPresent((json['default_string'] as String?)!)
+            : const SdkOmitted(),
+        defaultValue: json['default_value'] != null
+            ? SdkPresent(((json['default_value'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        max: json['max'] != null
+            ? SdkPresent(((json['max'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        min: json['min'] != null
+            ? SdkPresent(((json['min'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        options: json['options'] != null
+            ? SdkPresent(
+                ((json['options'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        step: json['step'] != null
+            ? SdkPresent(((json['step'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (defaultString) {
-      SdkPresent<String>(value: final value) => {'default_string': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (defaultValue) {
-      SdkPresent<double>(value: final value) => {'default_value': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (max) {
-      SdkPresent<double>(value: final value) => {'max': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (min) {
-      SdkPresent<double>(value: final value) => {'min': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (options) {
-      SdkPresent<List<String>>(value: final value) => {'options': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (step) {
-      SdkPresent<double>(value: final value) => {'step': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (defaultString) {
+          SdkPresent<String>(value: final value) => {
+              'default_string': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (defaultValue) {
+          SdkPresent<double>(value: final value) => {
+              'default_value': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (max) {
+          SdkPresent<double>(value: final value) => {
+              'max': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (min) {
+          SdkPresent<double>(value: final value) => {
+              'min': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (options) {
+          SdkPresent<List<String>>(value: final value) => {
+              'options': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (step) {
+          SdkPresent<double>(value: final value) => {
+              'step': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// - MODEL_USECASE_UNKNOWN: The use case of the model is unknown - MODEL_USECASE_AGENT: The model maybe used in an agent - MODEL_USECASE_FINETUNED: The model maybe used for fine tuning - MODEL_USECASE_KNOWLEDGEBASE: The model maybe used for knowledge bases (embedding models) - MODEL_USECASE_GUARDRAIL: The model maybe used for guardrails - MODEL_USECASE_REASONING: The model usecase for reasoning - MODEL_USECASE_SERVERLESS: The model usecase for serverless inference - MODEL_USECASE_EVALUATION_JUDGE: The model usecase for evaluation judge - MODEL_USECASE_CODING: The model usecase for coding-optimized models - MODEL_USECASE_AUDIO: The model usecase for audio models - MODEL_USECASE_RERANKING: The model usecase for knowledge base reranking (cross-encoder) models - MODEL_USECASE_TEXT: The model usecase for text modality (non image, non audio, non embedding, non reranking) serverless chat models
 final class ApiModelUsecase {
-
   final String value;
 
   const ApiModelUsecase._(this.value);
@@ -216,66 +416,108 @@ final class ApiModelUsecase {
 
   static const modelUsecaseUnknown = ApiModelUsecase._('MODEL_USECASE_UNKNOWN');
   static const modelUsecaseAgent = ApiModelUsecase._('MODEL_USECASE_AGENT');
-  static const modelUsecaseFinetuned = ApiModelUsecase._('MODEL_USECASE_FINETUNED');
-  static const modelUsecaseKnowledgebase = ApiModelUsecase._('MODEL_USECASE_KNOWLEDGEBASE');
-  static const modelUsecaseGuardrail = ApiModelUsecase._('MODEL_USECASE_GUARDRAIL');
-  static const modelUsecaseReasoning = ApiModelUsecase._('MODEL_USECASE_REASONING');
-  static const modelUsecaseServerless = ApiModelUsecase._('MODEL_USECASE_SERVERLESS');
-  static const modelUsecaseEvaluationJudge = ApiModelUsecase._('MODEL_USECASE_EVALUATION_JUDGE');
+  static const modelUsecaseFinetuned =
+      ApiModelUsecase._('MODEL_USECASE_FINETUNED');
+  static const modelUsecaseKnowledgebase =
+      ApiModelUsecase._('MODEL_USECASE_KNOWLEDGEBASE');
+  static const modelUsecaseGuardrail =
+      ApiModelUsecase._('MODEL_USECASE_GUARDRAIL');
+  static const modelUsecaseReasoning =
+      ApiModelUsecase._('MODEL_USECASE_REASONING');
+  static const modelUsecaseServerless =
+      ApiModelUsecase._('MODEL_USECASE_SERVERLESS');
+  static const modelUsecaseEvaluationJudge =
+      ApiModelUsecase._('MODEL_USECASE_EVALUATION_JUDGE');
   static const modelUsecaseCoding = ApiModelUsecase._('MODEL_USECASE_CODING');
   static const modelUsecaseAudio = ApiModelUsecase._('MODEL_USECASE_AUDIO');
-  static const modelUsecaseReranking = ApiModelUsecase._('MODEL_USECASE_RERANKING');
+  static const modelUsecaseReranking =
+      ApiModelUsecase._('MODEL_USECASE_RERANKING');
   static const modelUsecaseText = ApiModelUsecase._('MODEL_USECASE_TEXT');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiModelUsecase && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiModelUsecase && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Version Information about a Model
 class ApiModelVersion {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Major version number
   final SdkOptional<int> major;
+
   /// Minor version number
   final SdkOptional<int> minor;
+
   /// Patch version number
   final SdkOptional<int> patch;
 
-  const ApiModelVersion({this.major = const SdkOmitted(), this.minor = const SdkOmitted(), this.patch = const SdkOmitted()});
+  const ApiModelVersion(
+      {this.major = const SdkOmitted(),
+      this.minor = const SdkOmitted(),
+      this.patch = const SdkOmitted()});
 
-  ApiModelVersion Function({SdkOptional<int> major, SdkOptional<int> minor, SdkOptional<int> patch}) get copyWith => _copyWith;
+  ApiModelVersion Function(
+      {SdkOptional<int> major,
+      SdkOptional<int> minor,
+      SdkOptional<int> patch}) get copyWith => _copyWith;
 
-  ApiModelVersion _copyWith({Object? major = sdkOmittedValue, Object? minor = sdkOmittedValue, Object? patch = sdkOmittedValue}) => ApiModelVersion(
-    major: identical(major, sdkOmittedValue) ? this.major : major as SdkOptional<int>,
-    minor: identical(minor, sdkOmittedValue) ? this.minor : minor as SdkOptional<int>,
-    patch: identical(patch, sdkOmittedValue) ? this.patch : patch as SdkOptional<int>,
-  );
+  ApiModelVersion _copyWith(
+          {Object? major = sdkOmittedValue,
+          Object? minor = sdkOmittedValue,
+          Object? patch = sdkOmittedValue}) =>
+      ApiModelVersion(
+        major: identical(major, sdkOmittedValue)
+            ? this.major
+            : major as SdkOptional<int>,
+        minor: identical(minor, sdkOmittedValue)
+            ? this.minor
+            : minor as SdkOptional<int>,
+        patch: identical(patch, sdkOmittedValue)
+            ? this.patch
+            : patch as SdkOptional<int>,
+      );
 
-  factory ApiModelVersion.fromJson(Map<String, dynamic> json) => ApiModelVersion(
-    major: json['major'] != null ? SdkPresent(((json['major'] as num?)?.toInt())!) : const SdkOmitted(),
-    minor: json['minor'] != null ? SdkPresent(((json['minor'] as num?)?.toInt())!) : const SdkOmitted(),
-    patch: json['patch'] != null ? SdkPresent(((json['patch'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory ApiModelVersion.fromJson(Map<String, dynamic> json) =>
+      ApiModelVersion(
+        major: json['major'] != null
+            ? SdkPresent(((json['major'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        minor: json['minor'] != null
+            ? SdkPresent(((json['minor'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        patch: json['patch'] != null
+            ? SdkPresent(((json['patch'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (major) {
-      SdkPresent<int>(value: final value) => {'major': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (minor) {
-      SdkPresent<int>(value: final value) => {'minor': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (patch) {
-      SdkPresent<int>(value: final value) => {'patch': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (major) {
+          SdkPresent<int>(value: final value) => {
+              'major': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (minor) {
+          SdkPresent<int>(value: final value) => {
+              'minor': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (patch) {
+          SdkPresent<int>(value: final value) => {
+              'patch': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -17,12 +17,18 @@ Future<FloatingIpActions> floatingIpsActionList(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'floatingIpsActionList',
-          fromJsonRaw: (value) => FloatingIpActions.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              FloatingIpActions.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Triggers an assignment or unassignment action on a floating IP. Set `type` to `assign` or `unassign`; include `droplet_id` when assigning the floating IP to a Droplet. The response contains the action object for tracking the operation.
 ///
@@ -39,12 +45,18 @@ Future<FloatingIpAction> floatingIpsActionPost(ClientConfig config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
           operationId: 'floatingIpsActionPost',
-          fromJsonRaw: (value) => FloatingIpAction.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              FloatingIpAction.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To retrieve the status of a floating IP action, send a GET request to `/v2/floating_ips/$FLOATING_IP/actions/$ACTION_ID`.
 ///
@@ -62,8 +74,15 @@ Future<FloatingIpAction> floatingIpsActionGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'floatingIpsActionGet',
-          fromJsonRaw: (value) => FloatingIpAction.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              FloatingIpAction.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

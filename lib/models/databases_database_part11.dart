@@ -8,41 +8,73 @@ part of 'databases_database.dart';
 class DatabaseVersionAvailability {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A timestamp referring to the date when the particular version will no longer be supported. If null, the version does not have an end of life timeline.
   final SdkOptional<String?> endOfLife;
+
   /// A timestamp referring to the date when the particular version will no longer be available for creating new clusters. If null, the version does not have an end of availability timeline.
   final SdkOptional<String?> endOfAvailability;
+
   /// The engine version.
   final SdkOptional<String> version;
 
-  const DatabaseVersionAvailability({this.endOfLife = const SdkOmitted(), this.endOfAvailability = const SdkOmitted(), this.version = const SdkOmitted()});
+  const DatabaseVersionAvailability(
+      {this.endOfLife = const SdkOmitted(),
+      this.endOfAvailability = const SdkOmitted(),
+      this.version = const SdkOmitted()});
 
-  DatabaseVersionAvailability Function({SdkOptional<String?> endOfLife, SdkOptional<String?> endOfAvailability, SdkOptional<String> version}) get copyWith => _copyWith;
+  DatabaseVersionAvailability Function(
+      {SdkOptional<String?> endOfLife,
+      SdkOptional<String?> endOfAvailability,
+      SdkOptional<String> version}) get copyWith => _copyWith;
 
-  DatabaseVersionAvailability _copyWith({Object? endOfLife = sdkOmittedValue, Object? endOfAvailability = sdkOmittedValue, Object? version = sdkOmittedValue}) => DatabaseVersionAvailability(
-    endOfLife: identical(endOfLife, sdkOmittedValue) ? this.endOfLife : endOfLife as SdkOptional<String?>,
-    endOfAvailability: identical(endOfAvailability, sdkOmittedValue) ? this.endOfAvailability : endOfAvailability as SdkOptional<String?>,
-    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
-  );
+  DatabaseVersionAvailability _copyWith(
+          {Object? endOfLife = sdkOmittedValue,
+          Object? endOfAvailability = sdkOmittedValue,
+          Object? version = sdkOmittedValue}) =>
+      DatabaseVersionAvailability(
+        endOfLife: identical(endOfLife, sdkOmittedValue)
+            ? this.endOfLife
+            : endOfLife as SdkOptional<String?>,
+        endOfAvailability: identical(endOfAvailability, sdkOmittedValue)
+            ? this.endOfAvailability
+            : endOfAvailability as SdkOptional<String?>,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as SdkOptional<String>,
+      );
 
-  factory DatabaseVersionAvailability.fromJson(Map<String, dynamic> json) => DatabaseVersionAvailability(
-    endOfLife: json.containsKey('end_of_life') ? SdkPresent(json['end_of_life'] as String?) : const SdkOmitted(),
-    endOfAvailability: json.containsKey('end_of_availability') ? SdkPresent(json['end_of_availability'] as String?) : const SdkOmitted(),
-    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
-  );
+  factory DatabaseVersionAvailability.fromJson(Map<String, dynamic> json) =>
+      DatabaseVersionAvailability(
+        endOfLife: json.containsKey('end_of_life')
+            ? SdkPresent(json['end_of_life'] as String?)
+            : const SdkOmitted(),
+        endOfAvailability: json.containsKey('end_of_availability')
+            ? SdkPresent(json['end_of_availability'] as String?)
+            : const SdkOmitted(),
+        version: json['version'] != null
+            ? SdkPresent((json['version'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (endOfLife) {
-      SdkPresent<String?>(value: final value) => {'end_of_life': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (endOfAvailability) {
-      SdkPresent<String?>(value: final value) => {'end_of_availability': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (version) {
-      SdkPresent<String>(value: final value) => {'version': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (endOfLife) {
+          SdkPresent<String?>(value: final value) => {
+              'end_of_life': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (endOfAvailability) {
+          SdkPresent<String?>(value: final value) => {
+              'end_of_availability': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (version) {
+          SdkPresent<String>(value: final value) => {
+              'version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

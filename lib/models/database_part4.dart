@@ -8,245 +8,451 @@ part of 'database.dart';
 class DatabaseKafkaSchemaCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the schema subject.
   final SdkOptional<String> subjectName;
+
   /// The type of the schema.
   final SdkOptional<DatabaseKafkaSchemaCreateSchemaType> schemaType;
+
   /// The schema definition in the specified format.
   final SdkOptional<String> schema;
 
-  const DatabaseKafkaSchemaCreate({this.subjectName = const SdkOmitted(), this.schemaType = const SdkOmitted(), this.schema = const SdkOmitted()});
+  const DatabaseKafkaSchemaCreate(
+      {this.subjectName = const SdkOmitted(),
+      this.schemaType = const SdkOmitted(),
+      this.schema = const SdkOmitted()});
 
-  DatabaseKafkaSchemaCreate Function({SdkOptional<String> subjectName, SdkOptional<DatabaseKafkaSchemaCreateSchemaType> schemaType, SdkOptional<String> schema}) get copyWith => _copyWith;
+  DatabaseKafkaSchemaCreate Function(
+      {SdkOptional<String> subjectName,
+      SdkOptional<DatabaseKafkaSchemaCreateSchemaType> schemaType,
+      SdkOptional<String> schema}) get copyWith => _copyWith;
 
-  DatabaseKafkaSchemaCreate _copyWith({Object? subjectName = sdkOmittedValue, Object? schemaType = sdkOmittedValue, Object? schema = sdkOmittedValue}) => DatabaseKafkaSchemaCreate(
-    subjectName: identical(subjectName, sdkOmittedValue) ? this.subjectName : subjectName as SdkOptional<String>,
-    schemaType: identical(schemaType, sdkOmittedValue) ? this.schemaType : schemaType as SdkOptional<DatabaseKafkaSchemaCreateSchemaType>,
-    schema: identical(schema, sdkOmittedValue) ? this.schema : schema as SdkOptional<String>,
-  );
+  DatabaseKafkaSchemaCreate _copyWith(
+          {Object? subjectName = sdkOmittedValue,
+          Object? schemaType = sdkOmittedValue,
+          Object? schema = sdkOmittedValue}) =>
+      DatabaseKafkaSchemaCreate(
+        subjectName: identical(subjectName, sdkOmittedValue)
+            ? this.subjectName
+            : subjectName as SdkOptional<String>,
+        schemaType: identical(schemaType, sdkOmittedValue)
+            ? this.schemaType
+            : schemaType as SdkOptional<DatabaseKafkaSchemaCreateSchemaType>,
+        schema: identical(schema, sdkOmittedValue)
+            ? this.schema
+            : schema as SdkOptional<String>,
+      );
 
-  factory DatabaseKafkaSchemaCreate.fromJson(Map<String, dynamic> json) => DatabaseKafkaSchemaCreate(
-    subjectName: json['subject_name'] != null ? SdkPresent((json['subject_name'] as String?)!) : const SdkOmitted(),
-    schemaType: json['schema_type'] != null ? SdkPresent((json['schema_type'] != null ? DatabaseKafkaSchemaCreateSchemaType.fromJson(json['schema_type'] as String) : null)!) : const SdkOmitted(),
-    schema: json['schema'] != null ? SdkPresent((json['schema'] as String?)!) : const SdkOmitted(),
-  );
+  factory DatabaseKafkaSchemaCreate.fromJson(Map<String, dynamic> json) =>
+      DatabaseKafkaSchemaCreate(
+        subjectName: json['subject_name'] != null
+            ? SdkPresent((json['subject_name'] as String?)!)
+            : const SdkOmitted(),
+        schemaType: json['schema_type'] != null
+            ? SdkPresent((json['schema_type'] != null
+                ? DatabaseKafkaSchemaCreateSchemaType.fromJson(
+                    json['schema_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        schema: json['schema'] != null
+            ? SdkPresent((json['schema'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (subjectName) {
-      SdkPresent<String>(value: final value) => {'subject_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (schemaType) {
-      SdkPresent<DatabaseKafkaSchemaCreateSchemaType>(value: final value) => {'schema_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (schema) {
-      SdkPresent<String>(value: final value) => {'schema': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (subjectName) {
+          SdkPresent<String>(value: final value) => {
+              'subject_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (schemaType) {
+          SdkPresent<DatabaseKafkaSchemaCreateSchemaType>(value: final value) =>
+            {
+              'schema_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (schema) {
+          SdkPresent<String>(value: final value) => {
+              'schema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DatabaseLayoutOptions` API schema.
 class DatabaseLayoutOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of objects, each indicating the node sizes (otherwise referred to as slugs) that are available with various numbers of nodes in the database cluster. Each slugs denotes the node's identifier, CPU, and RAM (in that order).
   final SdkOptional<List<DatabaseLayoutOption>> layouts;
 
   const DatabaseLayoutOptions({this.layouts = const SdkOmitted()});
 
-  DatabaseLayoutOptions Function({SdkOptional<List<DatabaseLayoutOption>> layouts}) get copyWith => _copyWith;
+  DatabaseLayoutOptions Function(
+          {SdkOptional<List<DatabaseLayoutOption>> layouts})
+      get copyWith => _copyWith;
 
-  DatabaseLayoutOptions _copyWith({Object? layouts = sdkOmittedValue}) => DatabaseLayoutOptions(
-    layouts: identical(layouts, sdkOmittedValue) ? this.layouts : layouts as SdkOptional<List<DatabaseLayoutOption>>,
-  );
+  DatabaseLayoutOptions _copyWith({Object? layouts = sdkOmittedValue}) =>
+      DatabaseLayoutOptions(
+        layouts: identical(layouts, sdkOmittedValue)
+            ? this.layouts
+            : layouts as SdkOptional<List<DatabaseLayoutOption>>,
+      );
 
-  factory DatabaseLayoutOptions.fromJson(Map<String, dynamic> json) => DatabaseLayoutOptions(
-    layouts: json['layouts'] != null ? SdkPresent(((json['layouts'] as List?)?.map((e) => DatabaseLayoutOption.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory DatabaseLayoutOptions.fromJson(Map<String, dynamic> json) =>
+      DatabaseLayoutOptions(
+        layouts: json['layouts'] != null
+            ? SdkPresent(((json['layouts'] as List?)
+                ?.map((e) =>
+                    DatabaseLayoutOption.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (layouts) {
-      SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {'layouts': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (layouts) {
+          SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {
+              'layouts': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DatabaseRegionOptions` API schema.
 class DatabaseRegionOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> regions;
 
   const DatabaseRegionOptions({this.regions = const SdkOmitted()});
 
-  DatabaseRegionOptions Function({SdkOptional<List<String>> regions}) get copyWith => _copyWith;
+  DatabaseRegionOptions Function({SdkOptional<List<String>> regions})
+      get copyWith => _copyWith;
 
-  DatabaseRegionOptions _copyWith({Object? regions = sdkOmittedValue}) => DatabaseRegionOptions(
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
-  );
+  DatabaseRegionOptions _copyWith({Object? regions = sdkOmittedValue}) =>
+      DatabaseRegionOptions(
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as SdkOptional<List<String>>,
+      );
 
-  factory DatabaseRegionOptions.fromJson(Map<String, dynamic> json) => DatabaseRegionOptions(
-    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory DatabaseRegionOptions.fromJson(Map<String, dynamic> json) =>
+      DatabaseRegionOptions(
+        regions: json['regions'] != null
+            ? SdkPresent(
+                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (regions) {
-      SdkPresent<List<String>>(value: final value) => {'regions': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (regions) {
+          SdkPresent<List<String>>(value: final value) => {
+              'regions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional API value serialized in the `connection` wire field.
 class DatabaseReplicaConnection {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A connection string in the format accepted by the `psql` command. This is provided as a convenience and should be able to be constructed by the other attributes.
   final SdkOptional<String> uri;
+
   /// The name of the default database.
   final SdkOptional<String> database;
+
   /// The FQDN pointing to the database cluster's current primary node.
   final SdkOptional<String> host;
+
   /// The port on which the database cluster is listening.
   final SdkOptional<int> port;
+
   /// The default user for the database.&lt;br&gt;&lt;br&gt;Requires `database:view_credentials` scope.
   final SdkOptional<String> user;
+
   /// The randomly generated password for the default user.&lt;br&gt;&lt;br&gt;Requires `database:view_credentials` scope.
   final SdkOptional<String> password;
+
   /// A boolean value indicating if the connection should be made over SSL.
   final SdkOptional<bool> ssl;
 
-  const DatabaseReplicaConnection({this.uri = const SdkOmitted(), this.database = const SdkOmitted(), this.host = const SdkOmitted(), this.port = const SdkOmitted(), this.user = const SdkOmitted(), this.password = const SdkOmitted(), this.ssl = const SdkOmitted()});
+  const DatabaseReplicaConnection(
+      {this.uri = const SdkOmitted(),
+      this.database = const SdkOmitted(),
+      this.host = const SdkOmitted(),
+      this.port = const SdkOmitted(),
+      this.user = const SdkOmitted(),
+      this.password = const SdkOmitted(),
+      this.ssl = const SdkOmitted()});
 
-  DatabaseReplicaConnection Function({SdkOptional<String> uri, SdkOptional<String> database, SdkOptional<String> host, SdkOptional<int> port, SdkOptional<String> user, SdkOptional<String> password, SdkOptional<bool> ssl}) get copyWith => _copyWith;
+  DatabaseReplicaConnection Function(
+      {SdkOptional<String> uri,
+      SdkOptional<String> database,
+      SdkOptional<String> host,
+      SdkOptional<int> port,
+      SdkOptional<String> user,
+      SdkOptional<String> password,
+      SdkOptional<bool> ssl}) get copyWith => _copyWith;
 
-  DatabaseReplicaConnection _copyWith({Object? uri = sdkOmittedValue, Object? database = sdkOmittedValue, Object? host = sdkOmittedValue, Object? port = sdkOmittedValue, Object? user = sdkOmittedValue, Object? password = sdkOmittedValue, Object? ssl = sdkOmittedValue}) => DatabaseReplicaConnection(
-    uri: identical(uri, sdkOmittedValue) ? this.uri : uri as SdkOptional<String>,
-    database: identical(database, sdkOmittedValue) ? this.database : database as SdkOptional<String>,
-    host: identical(host, sdkOmittedValue) ? this.host : host as SdkOptional<String>,
-    port: identical(port, sdkOmittedValue) ? this.port : port as SdkOptional<int>,
-    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String>,
-    password: identical(password, sdkOmittedValue) ? this.password : password as SdkOptional<String>,
-    ssl: identical(ssl, sdkOmittedValue) ? this.ssl : ssl as SdkOptional<bool>,
-  );
+  DatabaseReplicaConnection _copyWith(
+          {Object? uri = sdkOmittedValue,
+          Object? database = sdkOmittedValue,
+          Object? host = sdkOmittedValue,
+          Object? port = sdkOmittedValue,
+          Object? user = sdkOmittedValue,
+          Object? password = sdkOmittedValue,
+          Object? ssl = sdkOmittedValue}) =>
+      DatabaseReplicaConnection(
+        uri: identical(uri, sdkOmittedValue)
+            ? this.uri
+            : uri as SdkOptional<String>,
+        database: identical(database, sdkOmittedValue)
+            ? this.database
+            : database as SdkOptional<String>,
+        host: identical(host, sdkOmittedValue)
+            ? this.host
+            : host as SdkOptional<String>,
+        port: identical(port, sdkOmittedValue)
+            ? this.port
+            : port as SdkOptional<int>,
+        user: identical(user, sdkOmittedValue)
+            ? this.user
+            : user as SdkOptional<String>,
+        password: identical(password, sdkOmittedValue)
+            ? this.password
+            : password as SdkOptional<String>,
+        ssl: identical(ssl, sdkOmittedValue)
+            ? this.ssl
+            : ssl as SdkOptional<bool>,
+      );
 
-  factory DatabaseReplicaConnection.fromJson(Map<String, dynamic> json) => DatabaseReplicaConnection(
-    uri: json['uri'] != null ? SdkPresent((json['uri'] as String?)!) : const SdkOmitted(),
-    database: json['database'] != null ? SdkPresent((json['database'] as String?)!) : const SdkOmitted(),
-    host: json['host'] != null ? SdkPresent((json['host'] as String?)!) : const SdkOmitted(),
-    port: json['port'] != null ? SdkPresent(((json['port'] as num?)?.toInt())!) : const SdkOmitted(),
-    user: json['user'] != null ? SdkPresent((json['user'] as String?)!) : const SdkOmitted(),
-    password: json['password'] != null ? SdkPresent((json['password'] as String?)!) : const SdkOmitted(),
-    ssl: json['ssl'] != null ? SdkPresent((json['ssl'] as bool?)!) : const SdkOmitted(),
-  );
+  factory DatabaseReplicaConnection.fromJson(Map<String, dynamic> json) =>
+      DatabaseReplicaConnection(
+        uri: json['uri'] != null
+            ? SdkPresent((json['uri'] as String?)!)
+            : const SdkOmitted(),
+        database: json['database'] != null
+            ? SdkPresent((json['database'] as String?)!)
+            : const SdkOmitted(),
+        host: json['host'] != null
+            ? SdkPresent((json['host'] as String?)!)
+            : const SdkOmitted(),
+        port: json['port'] != null
+            ? SdkPresent(((json['port'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        user: json['user'] != null
+            ? SdkPresent((json['user'] as String?)!)
+            : const SdkOmitted(),
+        password: json['password'] != null
+            ? SdkPresent((json['password'] as String?)!)
+            : const SdkOmitted(),
+        ssl: json['ssl'] != null
+            ? SdkPresent((json['ssl'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (uri) {
-      SdkPresent<String>(value: final value) => {'uri': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (database) {
-      SdkPresent<String>(value: final value) => {'database': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (host) {
-      SdkPresent<String>(value: final value) => {'host': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (port) {
-      SdkPresent<int>(value: final value) => {'port': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (user) {
-      SdkPresent<String>(value: final value) => {'user': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (password) {
-      SdkPresent<String>(value: final value) => {'password': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ssl) {
-      SdkPresent<bool>(value: final value) => {'ssl': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (uri) {
+          SdkPresent<String>(value: final value) => {
+              'uri': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (database) {
+          SdkPresent<String>(value: final value) => {
+              'database': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (host) {
+          SdkPresent<String>(value: final value) => {
+              'host': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (port) {
+          SdkPresent<int>(value: final value) => {
+              'port': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (user) {
+          SdkPresent<String>(value: final value) => {
+              'user': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (password) {
+          SdkPresent<String>(value: final value) => {
+              'password': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ssl) {
+          SdkPresent<bool>(value: final value) => {
+              'ssl': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional API value serialized in the `private_connection` wire field.
 class DatabaseReplicaPrivateConnection {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A connection string in the format accepted by the `psql` command. This is provided as a convenience and should be able to be constructed by the other attributes.
   final SdkOptional<String> uri;
+
   /// The name of the default database.
   final SdkOptional<String> database;
+
   /// The FQDN pointing to the database cluster's current primary node.
   final SdkOptional<String> host;
+
   /// The port on which the database cluster is listening.
   final SdkOptional<int> port;
+
   /// The default user for the database.&lt;br&gt;&lt;br&gt;Requires `database:view_credentials` scope.
   final SdkOptional<String> user;
+
   /// The randomly generated password for the default user.&lt;br&gt;&lt;br&gt;Requires `database:view_credentials` scope.
   final SdkOptional<String> password;
+
   /// A boolean value indicating if the connection should be made over SSL.
   final SdkOptional<bool> ssl;
 
-  const DatabaseReplicaPrivateConnection({this.uri = const SdkOmitted(), this.database = const SdkOmitted(), this.host = const SdkOmitted(), this.port = const SdkOmitted(), this.user = const SdkOmitted(), this.password = const SdkOmitted(), this.ssl = const SdkOmitted()});
+  const DatabaseReplicaPrivateConnection(
+      {this.uri = const SdkOmitted(),
+      this.database = const SdkOmitted(),
+      this.host = const SdkOmitted(),
+      this.port = const SdkOmitted(),
+      this.user = const SdkOmitted(),
+      this.password = const SdkOmitted(),
+      this.ssl = const SdkOmitted()});
 
-  DatabaseReplicaPrivateConnection Function({SdkOptional<String> uri, SdkOptional<String> database, SdkOptional<String> host, SdkOptional<int> port, SdkOptional<String> user, SdkOptional<String> password, SdkOptional<bool> ssl}) get copyWith => _copyWith;
+  DatabaseReplicaPrivateConnection Function(
+      {SdkOptional<String> uri,
+      SdkOptional<String> database,
+      SdkOptional<String> host,
+      SdkOptional<int> port,
+      SdkOptional<String> user,
+      SdkOptional<String> password,
+      SdkOptional<bool> ssl}) get copyWith => _copyWith;
 
-  DatabaseReplicaPrivateConnection _copyWith({Object? uri = sdkOmittedValue, Object? database = sdkOmittedValue, Object? host = sdkOmittedValue, Object? port = sdkOmittedValue, Object? user = sdkOmittedValue, Object? password = sdkOmittedValue, Object? ssl = sdkOmittedValue}) => DatabaseReplicaPrivateConnection(
-    uri: identical(uri, sdkOmittedValue) ? this.uri : uri as SdkOptional<String>,
-    database: identical(database, sdkOmittedValue) ? this.database : database as SdkOptional<String>,
-    host: identical(host, sdkOmittedValue) ? this.host : host as SdkOptional<String>,
-    port: identical(port, sdkOmittedValue) ? this.port : port as SdkOptional<int>,
-    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String>,
-    password: identical(password, sdkOmittedValue) ? this.password : password as SdkOptional<String>,
-    ssl: identical(ssl, sdkOmittedValue) ? this.ssl : ssl as SdkOptional<bool>,
-  );
+  DatabaseReplicaPrivateConnection _copyWith(
+          {Object? uri = sdkOmittedValue,
+          Object? database = sdkOmittedValue,
+          Object? host = sdkOmittedValue,
+          Object? port = sdkOmittedValue,
+          Object? user = sdkOmittedValue,
+          Object? password = sdkOmittedValue,
+          Object? ssl = sdkOmittedValue}) =>
+      DatabaseReplicaPrivateConnection(
+        uri: identical(uri, sdkOmittedValue)
+            ? this.uri
+            : uri as SdkOptional<String>,
+        database: identical(database, sdkOmittedValue)
+            ? this.database
+            : database as SdkOptional<String>,
+        host: identical(host, sdkOmittedValue)
+            ? this.host
+            : host as SdkOptional<String>,
+        port: identical(port, sdkOmittedValue)
+            ? this.port
+            : port as SdkOptional<int>,
+        user: identical(user, sdkOmittedValue)
+            ? this.user
+            : user as SdkOptional<String>,
+        password: identical(password, sdkOmittedValue)
+            ? this.password
+            : password as SdkOptional<String>,
+        ssl: identical(ssl, sdkOmittedValue)
+            ? this.ssl
+            : ssl as SdkOptional<bool>,
+      );
 
-  factory DatabaseReplicaPrivateConnection.fromJson(Map<String, dynamic> json) => DatabaseReplicaPrivateConnection(
-    uri: json['uri'] != null ? SdkPresent((json['uri'] as String?)!) : const SdkOmitted(),
-    database: json['database'] != null ? SdkPresent((json['database'] as String?)!) : const SdkOmitted(),
-    host: json['host'] != null ? SdkPresent((json['host'] as String?)!) : const SdkOmitted(),
-    port: json['port'] != null ? SdkPresent(((json['port'] as num?)?.toInt())!) : const SdkOmitted(),
-    user: json['user'] != null ? SdkPresent((json['user'] as String?)!) : const SdkOmitted(),
-    password: json['password'] != null ? SdkPresent((json['password'] as String?)!) : const SdkOmitted(),
-    ssl: json['ssl'] != null ? SdkPresent((json['ssl'] as bool?)!) : const SdkOmitted(),
-  );
+  factory DatabaseReplicaPrivateConnection.fromJson(
+          Map<String, dynamic> json) =>
+      DatabaseReplicaPrivateConnection(
+        uri: json['uri'] != null
+            ? SdkPresent((json['uri'] as String?)!)
+            : const SdkOmitted(),
+        database: json['database'] != null
+            ? SdkPresent((json['database'] as String?)!)
+            : const SdkOmitted(),
+        host: json['host'] != null
+            ? SdkPresent((json['host'] as String?)!)
+            : const SdkOmitted(),
+        port: json['port'] != null
+            ? SdkPresent(((json['port'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        user: json['user'] != null
+            ? SdkPresent((json['user'] as String?)!)
+            : const SdkOmitted(),
+        password: json['password'] != null
+            ? SdkPresent((json['password'] as String?)!)
+            : const SdkOmitted(),
+        ssl: json['ssl'] != null
+            ? SdkPresent((json['ssl'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (uri) {
-      SdkPresent<String>(value: final value) => {'uri': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (database) {
-      SdkPresent<String>(value: final value) => {'database': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (host) {
-      SdkPresent<String>(value: final value) => {'host': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (port) {
-      SdkPresent<int>(value: final value) => {'port': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (user) {
-      SdkPresent<String>(value: final value) => {'user': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (password) {
-      SdkPresent<String>(value: final value) => {'password': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ssl) {
-      SdkPresent<bool>(value: final value) => {'ssl': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (uri) {
+          SdkPresent<String>(value: final value) => {
+              'uri': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (database) {
+          SdkPresent<String>(value: final value) => {
+              'database': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (host) {
+          SdkPresent<String>(value: final value) => {
+              'host': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (port) {
+          SdkPresent<int>(value: final value) => {
+              'port': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (user) {
+          SdkPresent<String>(value: final value) => {
+              'user': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (password) {
+          SdkPresent<String>(value: final value) => {
+              'password': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ssl) {
+          SdkPresent<bool>(value: final value) => {
+              'ssl': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

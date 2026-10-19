@@ -8,280 +8,558 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListKnowledgeBaseDataSourcesOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The data sources
   final SdkOptional<List<ApiKnowledgeBaseDataSource>> knowledgeBaseDataSources;
+
   /// Links to other pages
   final SdkOptional<ApiLinks> links;
+
   /// Meta information about the data set
   final SdkOptional<ApiMeta> meta;
 
-  const ApiListKnowledgeBaseDataSourcesOutput({this.knowledgeBaseDataSources = const SdkOmitted(), this.links = const SdkOmitted(), this.meta = const SdkOmitted()});
+  const ApiListKnowledgeBaseDataSourcesOutput(
+      {this.knowledgeBaseDataSources = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      this.meta = const SdkOmitted()});
 
-  ApiListKnowledgeBaseDataSourcesOutput Function({SdkOptional<List<ApiKnowledgeBaseDataSource>> knowledgeBaseDataSources, SdkOptional<ApiLinks> links, SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
+  ApiListKnowledgeBaseDataSourcesOutput Function(
+      {SdkOptional<List<ApiKnowledgeBaseDataSource>> knowledgeBaseDataSources,
+      SdkOptional<ApiLinks> links,
+      SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
 
-  ApiListKnowledgeBaseDataSourcesOutput _copyWith({Object? knowledgeBaseDataSources = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ApiListKnowledgeBaseDataSourcesOutput(
-    knowledgeBaseDataSources: identical(knowledgeBaseDataSources, sdkOmittedValue) ? this.knowledgeBaseDataSources : knowledgeBaseDataSources as SdkOptional<List<ApiKnowledgeBaseDataSource>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<ApiLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<ApiMeta>,
-  );
+  ApiListKnowledgeBaseDataSourcesOutput _copyWith(
+          {Object? knowledgeBaseDataSources = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      ApiListKnowledgeBaseDataSourcesOutput(
+        knowledgeBaseDataSources:
+            identical(knowledgeBaseDataSources, sdkOmittedValue)
+                ? this.knowledgeBaseDataSources
+                : knowledgeBaseDataSources
+                    as SdkOptional<List<ApiKnowledgeBaseDataSource>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<ApiLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<ApiMeta>,
+      );
 
-  factory ApiListKnowledgeBaseDataSourcesOutput.fromJson(Map<String, dynamic> json) => ApiListKnowledgeBaseDataSourcesOutput(
-    knowledgeBaseDataSources: json['knowledge_base_data_sources'] != null ? SdkPresent(((json['knowledge_base_data_sources'] as List?)?.map((e) => ApiKnowledgeBaseDataSource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: json['meta'] != null ? SdkPresent((json['meta'] != null ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiListKnowledgeBaseDataSourcesOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiListKnowledgeBaseDataSourcesOutput(
+        knowledgeBaseDataSources: json['knowledge_base_data_sources'] != null
+            ? SdkPresent(((json['knowledge_base_data_sources'] as List?)
+                ?.map((e) => ApiKnowledgeBaseDataSource.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: json['meta'] != null
+            ? SdkPresent((json['meta'] != null
+                ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (knowledgeBaseDataSources) {
-      SdkPresent<List<ApiKnowledgeBaseDataSource>>(value: final value) => {'knowledge_base_data_sources': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<ApiLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (meta) {
-      SdkPresent<ApiMeta>(value: final value) => {'meta': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (knowledgeBaseDataSources) {
+          SdkPresent<List<ApiKnowledgeBaseDataSource>>(value: final value) => {
+              'knowledge_base_data_sources':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<ApiLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (meta) {
+          SdkPresent<ApiMeta>(value: final value) => {
+              'meta': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Indexing jobs
 class ApiListKnowledgeBaseIndexingJobsOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The indexing jobs
   final SdkOptional<List<ApiIndexingJob>> jobs;
+
   /// Links to other pages
   final SdkOptional<ApiLinks> links;
+
   /// Meta information about the data set
   final SdkOptional<ApiMeta> meta;
 
-  const ApiListKnowledgeBaseIndexingJobsOutput({this.jobs = const SdkOmitted(), this.links = const SdkOmitted(), this.meta = const SdkOmitted()});
+  const ApiListKnowledgeBaseIndexingJobsOutput(
+      {this.jobs = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      this.meta = const SdkOmitted()});
 
-  ApiListKnowledgeBaseIndexingJobsOutput Function({SdkOptional<List<ApiIndexingJob>> jobs, SdkOptional<ApiLinks> links, SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
+  ApiListKnowledgeBaseIndexingJobsOutput Function(
+      {SdkOptional<List<ApiIndexingJob>> jobs,
+      SdkOptional<ApiLinks> links,
+      SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
 
-  ApiListKnowledgeBaseIndexingJobsOutput _copyWith({Object? jobs = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ApiListKnowledgeBaseIndexingJobsOutput(
-    jobs: identical(jobs, sdkOmittedValue) ? this.jobs : jobs as SdkOptional<List<ApiIndexingJob>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<ApiLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<ApiMeta>,
-  );
+  ApiListKnowledgeBaseIndexingJobsOutput _copyWith(
+          {Object? jobs = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      ApiListKnowledgeBaseIndexingJobsOutput(
+        jobs: identical(jobs, sdkOmittedValue)
+            ? this.jobs
+            : jobs as SdkOptional<List<ApiIndexingJob>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<ApiLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<ApiMeta>,
+      );
 
-  factory ApiListKnowledgeBaseIndexingJobsOutput.fromJson(Map<String, dynamic> json) => ApiListKnowledgeBaseIndexingJobsOutput(
-    jobs: json['jobs'] != null ? SdkPresent(((json['jobs'] as List?)?.map((e) => ApiIndexingJob.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: json['meta'] != null ? SdkPresent((json['meta'] != null ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiListKnowledgeBaseIndexingJobsOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiListKnowledgeBaseIndexingJobsOutput(
+        jobs: json['jobs'] != null
+            ? SdkPresent(((json['jobs'] as List?)
+                ?.map((e) => ApiIndexingJob.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: json['meta'] != null
+            ? SdkPresent((json['meta'] != null
+                ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (jobs) {
-      SdkPresent<List<ApiIndexingJob>>(value: final value) => {'jobs': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<ApiLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (meta) {
-      SdkPresent<ApiMeta>(value: final value) => {'meta': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (jobs) {
+          SdkPresent<List<ApiIndexingJob>>(value: final value) => {
+              'jobs': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<ApiLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (meta) {
+          SdkPresent<ApiMeta>(value: final value) => {
+              'meta': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// List of knowledge bases
 class ApiListKnowledgeBasesOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The knowledge bases
   final SdkOptional<List<ApiKnowledgeBase>> knowledgeBases;
+
   /// Links to other pages
   final SdkOptional<ApiLinks> links;
+
   /// Meta information about the data set
   final SdkOptional<ApiMeta> meta;
 
-  const ApiListKnowledgeBasesOutput({this.knowledgeBases = const SdkOmitted(), this.links = const SdkOmitted(), this.meta = const SdkOmitted()});
+  const ApiListKnowledgeBasesOutput(
+      {this.knowledgeBases = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      this.meta = const SdkOmitted()});
 
-  ApiListKnowledgeBasesOutput Function({SdkOptional<List<ApiKnowledgeBase>> knowledgeBases, SdkOptional<ApiLinks> links, SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
+  ApiListKnowledgeBasesOutput Function(
+      {SdkOptional<List<ApiKnowledgeBase>> knowledgeBases,
+      SdkOptional<ApiLinks> links,
+      SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
 
-  ApiListKnowledgeBasesOutput _copyWith({Object? knowledgeBases = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ApiListKnowledgeBasesOutput(
-    knowledgeBases: identical(knowledgeBases, sdkOmittedValue) ? this.knowledgeBases : knowledgeBases as SdkOptional<List<ApiKnowledgeBase>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<ApiLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<ApiMeta>,
-  );
+  ApiListKnowledgeBasesOutput _copyWith(
+          {Object? knowledgeBases = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      ApiListKnowledgeBasesOutput(
+        knowledgeBases: identical(knowledgeBases, sdkOmittedValue)
+            ? this.knowledgeBases
+            : knowledgeBases as SdkOptional<List<ApiKnowledgeBase>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<ApiLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<ApiMeta>,
+      );
 
-  factory ApiListKnowledgeBasesOutput.fromJson(Map<String, dynamic> json) => ApiListKnowledgeBasesOutput(
-    knowledgeBases: json['knowledge_bases'] != null ? SdkPresent(((json['knowledge_bases'] as List?)?.map((e) => ApiKnowledgeBase.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: json['meta'] != null ? SdkPresent((json['meta'] != null ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiListKnowledgeBasesOutput.fromJson(Map<String, dynamic> json) =>
+      ApiListKnowledgeBasesOutput(
+        knowledgeBases: json['knowledge_bases'] != null
+            ? SdkPresent(((json['knowledge_bases'] as List?)
+                ?.map(
+                    (e) => ApiKnowledgeBase.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: json['meta'] != null
+            ? SdkPresent((json['meta'] != null
+                ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (knowledgeBases) {
-      SdkPresent<List<ApiKnowledgeBase>>(value: final value) => {'knowledge_bases': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<ApiLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (meta) {
-      SdkPresent<ApiMeta>(value: final value) => {'meta': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (knowledgeBases) {
+          SdkPresent<List<ApiKnowledgeBase>>(value: final value) => {
+              'knowledge_bases': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<ApiLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (meta) {
+          SdkPresent<ApiMeta>(value: final value) => {
+              'meta': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ApiListModelAPIKeysOutput` API schema.
 class ApiListModelAPIKeysOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Api key infos
   final SdkOptional<List<ApiModelAPIKeyInfo>> apiKeyInfos;
+
   /// Links to other pages
   final SdkOptional<ApiLinks> links;
+
   /// Meta information about the data set
   final SdkOptional<ApiMeta> meta;
 
-  const ApiListModelAPIKeysOutput({this.apiKeyInfos = const SdkOmitted(), this.links = const SdkOmitted(), this.meta = const SdkOmitted()});
+  const ApiListModelAPIKeysOutput(
+      {this.apiKeyInfos = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      this.meta = const SdkOmitted()});
 
-  ApiListModelAPIKeysOutput Function({SdkOptional<List<ApiModelAPIKeyInfo>> apiKeyInfos, SdkOptional<ApiLinks> links, SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
+  ApiListModelAPIKeysOutput Function(
+      {SdkOptional<List<ApiModelAPIKeyInfo>> apiKeyInfos,
+      SdkOptional<ApiLinks> links,
+      SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
 
-  ApiListModelAPIKeysOutput _copyWith({Object? apiKeyInfos = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ApiListModelAPIKeysOutput(
-    apiKeyInfos: identical(apiKeyInfos, sdkOmittedValue) ? this.apiKeyInfos : apiKeyInfos as SdkOptional<List<ApiModelAPIKeyInfo>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<ApiLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<ApiMeta>,
-  );
+  ApiListModelAPIKeysOutput _copyWith(
+          {Object? apiKeyInfos = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      ApiListModelAPIKeysOutput(
+        apiKeyInfos: identical(apiKeyInfos, sdkOmittedValue)
+            ? this.apiKeyInfos
+            : apiKeyInfos as SdkOptional<List<ApiModelAPIKeyInfo>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<ApiLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<ApiMeta>,
+      );
 
-  factory ApiListModelAPIKeysOutput.fromJson(Map<String, dynamic> json) => ApiListModelAPIKeysOutput(
-    apiKeyInfos: json['api_key_infos'] != null ? SdkPresent(((json['api_key_infos'] as List?)?.map((e) => ApiModelAPIKeyInfo.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: json['meta'] != null ? SdkPresent((json['meta'] != null ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiListModelAPIKeysOutput.fromJson(Map<String, dynamic> json) =>
+      ApiListModelAPIKeysOutput(
+        apiKeyInfos: json['api_key_infos'] != null
+            ? SdkPresent(((json['api_key_infos'] as List?)
+                ?.map((e) =>
+                    ApiModelAPIKeyInfo.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: json['meta'] != null
+            ? SdkPresent((json['meta'] != null
+                ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (apiKeyInfos) {
-      SdkPresent<List<ApiModelAPIKeyInfo>>(value: final value) => {'api_key_infos': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<ApiLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (meta) {
-      SdkPresent<ApiMeta>(value: final value) => {'meta': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (apiKeyInfos) {
+          SdkPresent<List<ApiModelAPIKeyInfo>>(value: final value) => {
+              'api_key_infos': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<ApiLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (meta) {
+          SdkPresent<ApiMeta>(value: final value) => {
+              'meta': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ApiListModelCatalogOutput` API schema.
 class ApiListModelCatalogOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// All deployment availability values the client can offer in the availability filter UI.
   final SdkOptional<List<String>> availableAvailability;
+
   /// All badge values the client can offer in the badges filter UI.
   final SdkOptional<List<String>> availableBadges;
+
   /// All model type values the client can offer in the type filter UI.
   final SdkOptional<List<String>> availableModelTypes;
+
   /// All provider values the client can offer in the provider filter UI.
   final SdkOptional<List<String>> availableProviders;
+
   /// All sort-by field values the client can offer in the sort UI.
   final SdkOptional<List<ApiModelCatalogSortBy>> availableSortBy;
+
   /// All sort-direction values the client can offer in the sort UI.
   final SdkOptional<List<ApiSortDirection>> availableSortDirections;
+
   /// Optional array value serialized in the `data` wire field.
   final SdkOptional<List<ApiModelCatalogEntry>> data;
+
   /// Meta information about the data set
   final SdkOptional<ApiMeta> meta;
 
-  const ApiListModelCatalogOutput({this.availableAvailability = const SdkOmitted(), this.availableBadges = const SdkOmitted(), this.availableModelTypes = const SdkOmitted(), this.availableProviders = const SdkOmitted(), this.availableSortBy = const SdkOmitted(), this.availableSortDirections = const SdkOmitted(), this.data = const SdkOmitted(), this.meta = const SdkOmitted()});
+  const ApiListModelCatalogOutput(
+      {this.availableAvailability = const SdkOmitted(),
+      this.availableBadges = const SdkOmitted(),
+      this.availableModelTypes = const SdkOmitted(),
+      this.availableProviders = const SdkOmitted(),
+      this.availableSortBy = const SdkOmitted(),
+      this.availableSortDirections = const SdkOmitted(),
+      this.data = const SdkOmitted(),
+      this.meta = const SdkOmitted()});
 
-  ApiListModelCatalogOutput Function({SdkOptional<List<String>> availableAvailability, SdkOptional<List<String>> availableBadges, SdkOptional<List<String>> availableModelTypes, SdkOptional<List<String>> availableProviders, SdkOptional<List<ApiModelCatalogSortBy>> availableSortBy, SdkOptional<List<ApiSortDirection>> availableSortDirections, SdkOptional<List<ApiModelCatalogEntry>> data, SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
+  ApiListModelCatalogOutput Function(
+      {SdkOptional<List<String>> availableAvailability,
+      SdkOptional<List<String>> availableBadges,
+      SdkOptional<List<String>> availableModelTypes,
+      SdkOptional<List<String>> availableProviders,
+      SdkOptional<List<ApiModelCatalogSortBy>> availableSortBy,
+      SdkOptional<List<ApiSortDirection>> availableSortDirections,
+      SdkOptional<List<ApiModelCatalogEntry>> data,
+      SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
 
-  ApiListModelCatalogOutput _copyWith({Object? availableAvailability = sdkOmittedValue, Object? availableBadges = sdkOmittedValue, Object? availableModelTypes = sdkOmittedValue, Object? availableProviders = sdkOmittedValue, Object? availableSortBy = sdkOmittedValue, Object? availableSortDirections = sdkOmittedValue, Object? data = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ApiListModelCatalogOutput(
-    availableAvailability: identical(availableAvailability, sdkOmittedValue) ? this.availableAvailability : availableAvailability as SdkOptional<List<String>>,
-    availableBadges: identical(availableBadges, sdkOmittedValue) ? this.availableBadges : availableBadges as SdkOptional<List<String>>,
-    availableModelTypes: identical(availableModelTypes, sdkOmittedValue) ? this.availableModelTypes : availableModelTypes as SdkOptional<List<String>>,
-    availableProviders: identical(availableProviders, sdkOmittedValue) ? this.availableProviders : availableProviders as SdkOptional<List<String>>,
-    availableSortBy: identical(availableSortBy, sdkOmittedValue) ? this.availableSortBy : availableSortBy as SdkOptional<List<ApiModelCatalogSortBy>>,
-    availableSortDirections: identical(availableSortDirections, sdkOmittedValue) ? this.availableSortDirections : availableSortDirections as SdkOptional<List<ApiSortDirection>>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<ApiModelCatalogEntry>>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<ApiMeta>,
-  );
+  ApiListModelCatalogOutput _copyWith(
+          {Object? availableAvailability = sdkOmittedValue,
+          Object? availableBadges = sdkOmittedValue,
+          Object? availableModelTypes = sdkOmittedValue,
+          Object? availableProviders = sdkOmittedValue,
+          Object? availableSortBy = sdkOmittedValue,
+          Object? availableSortDirections = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      ApiListModelCatalogOutput(
+        availableAvailability: identical(availableAvailability, sdkOmittedValue)
+            ? this.availableAvailability
+            : availableAvailability as SdkOptional<List<String>>,
+        availableBadges: identical(availableBadges, sdkOmittedValue)
+            ? this.availableBadges
+            : availableBadges as SdkOptional<List<String>>,
+        availableModelTypes: identical(availableModelTypes, sdkOmittedValue)
+            ? this.availableModelTypes
+            : availableModelTypes as SdkOptional<List<String>>,
+        availableProviders: identical(availableProviders, sdkOmittedValue)
+            ? this.availableProviders
+            : availableProviders as SdkOptional<List<String>>,
+        availableSortBy: identical(availableSortBy, sdkOmittedValue)
+            ? this.availableSortBy
+            : availableSortBy as SdkOptional<List<ApiModelCatalogSortBy>>,
+        availableSortDirections: identical(
+                availableSortDirections, sdkOmittedValue)
+            ? this.availableSortDirections
+            : availableSortDirections as SdkOptional<List<ApiSortDirection>>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<ApiModelCatalogEntry>>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<ApiMeta>,
+      );
 
-  factory ApiListModelCatalogOutput.fromJson(Map<String, dynamic> json) => ApiListModelCatalogOutput(
-    availableAvailability: json['available_availability'] != null ? SdkPresent(((json['available_availability'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    availableBadges: json['available_badges'] != null ? SdkPresent(((json['available_badges'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    availableModelTypes: json['available_model_types'] != null ? SdkPresent(((json['available_model_types'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    availableProviders: json['available_providers'] != null ? SdkPresent(((json['available_providers'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    availableSortBy: json['available_sort_by'] != null ? SdkPresent(((json['available_sort_by'] as List?)?.map((e) => ApiModelCatalogSortBy.fromJson(e as String)).toList())!) : const SdkOmitted(),
-    availableSortDirections: json['available_sort_directions'] != null ? SdkPresent(((json['available_sort_directions'] as List?)?.map((e) => ApiSortDirection.fromJson(e as String)).toList())!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => ApiModelCatalogEntry.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    meta: json['meta'] != null ? SdkPresent((json['meta'] != null ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiListModelCatalogOutput.fromJson(Map<String, dynamic> json) =>
+      ApiListModelCatalogOutput(
+        availableAvailability: json['available_availability'] != null
+            ? SdkPresent(((json['available_availability'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        availableBadges: json['available_badges'] != null
+            ? SdkPresent(((json['available_badges'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        availableModelTypes: json['available_model_types'] != null
+            ? SdkPresent(((json['available_model_types'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        availableProviders: json['available_providers'] != null
+            ? SdkPresent(((json['available_providers'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        availableSortBy: json['available_sort_by'] != null
+            ? SdkPresent(((json['available_sort_by'] as List?)
+                ?.map((e) => ApiModelCatalogSortBy.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+        availableSortDirections: json['available_sort_directions'] != null
+            ? SdkPresent(((json['available_sort_directions'] as List?)
+                ?.map((e) => ApiSortDirection.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) =>
+                    ApiModelCatalogEntry.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        meta: json['meta'] != null
+            ? SdkPresent((json['meta'] != null
+                ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (availableAvailability) {
-      SdkPresent<List<String>>(value: final value) => {'available_availability': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (availableBadges) {
-      SdkPresent<List<String>>(value: final value) => {'available_badges': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (availableModelTypes) {
-      SdkPresent<List<String>>(value: final value) => {'available_model_types': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (availableProviders) {
-      SdkPresent<List<String>>(value: final value) => {'available_providers': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (availableSortBy) {
-      SdkPresent<List<ApiModelCatalogSortBy>>(value: final value) => {'available_sort_by': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (availableSortDirections) {
-      SdkPresent<List<ApiSortDirection>>(value: final value) => {'available_sort_directions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<List<ApiModelCatalogEntry>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (meta) {
-      SdkPresent<ApiMeta>(value: final value) => {'meta': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (availableAvailability) {
+          SdkPresent<List<String>>(value: final value) => {
+              'available_availability': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (availableBadges) {
+          SdkPresent<List<String>>(value: final value) => {
+              'available_badges': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (availableModelTypes) {
+          SdkPresent<List<String>>(value: final value) => {
+              'available_model_types': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (availableProviders) {
+          SdkPresent<List<String>>(value: final value) => {
+              'available_providers': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (availableSortBy) {
+          SdkPresent<List<ApiModelCatalogSortBy>>(value: final value) => {
+              'available_sort_by': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (availableSortDirections) {
+          SdkPresent<List<ApiSortDirection>>(value: final value) => {
+              'available_sort_directions':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<List<ApiModelCatalogEntry>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (meta) {
+          SdkPresent<ApiMeta>(value: final value) => {
+              'meta': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ApiListModelEvaluationMetricsOutput` API schema.
 class ApiListModelEvaluationMetricsOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// List of model evaluation metrics
   final SdkOptional<List<ApiEvaluationMetric>> metrics;
 
-  const ApiListModelEvaluationMetricsOutput({this.metrics = const SdkOmitted()});
+  const ApiListModelEvaluationMetricsOutput(
+      {this.metrics = const SdkOmitted()});
 
-  ApiListModelEvaluationMetricsOutput Function({SdkOptional<List<ApiEvaluationMetric>> metrics}) get copyWith => _copyWith;
+  ApiListModelEvaluationMetricsOutput Function(
+          {SdkOptional<List<ApiEvaluationMetric>> metrics})
+      get copyWith => _copyWith;
 
-  ApiListModelEvaluationMetricsOutput _copyWith({Object? metrics = sdkOmittedValue}) => ApiListModelEvaluationMetricsOutput(
-    metrics: identical(metrics, sdkOmittedValue) ? this.metrics : metrics as SdkOptional<List<ApiEvaluationMetric>>,
-  );
+  ApiListModelEvaluationMetricsOutput _copyWith(
+          {Object? metrics = sdkOmittedValue}) =>
+      ApiListModelEvaluationMetricsOutput(
+        metrics: identical(metrics, sdkOmittedValue)
+            ? this.metrics
+            : metrics as SdkOptional<List<ApiEvaluationMetric>>,
+      );
 
-  factory ApiListModelEvaluationMetricsOutput.fromJson(Map<String, dynamic> json) => ApiListModelEvaluationMetricsOutput(
-    metrics: json['metrics'] != null ? SdkPresent(((json['metrics'] as List?)?.map((e) => ApiEvaluationMetric.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiListModelEvaluationMetricsOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiListModelEvaluationMetricsOutput(
+        metrics: json['metrics'] != null
+            ? SdkPresent(((json['metrics'] as List?)
+                ?.map((e) =>
+                    ApiEvaluationMetric.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (metrics) {
-      SdkPresent<List<ApiEvaluationMetric>>(value: final value) => {'metrics': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (metrics) {
+          SdkPresent<List<ApiEvaluationMetric>>(value: final value) => {
+              'metrics': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

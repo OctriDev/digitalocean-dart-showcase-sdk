@@ -11,22 +11,33 @@ class AllCdnEndpointsVariant0 {
 
   const AllCdnEndpointsVariant0({this.endpoints = const SdkOmitted()});
 
-  AllCdnEndpointsVariant0 Function({SdkOptional<List<CdnEndpoint>> endpoints}) get copyWith => _copyWith;
+  AllCdnEndpointsVariant0 Function({SdkOptional<List<CdnEndpoint>> endpoints})
+      get copyWith => _copyWith;
 
-  AllCdnEndpointsVariant0 _copyWith({Object? endpoints = sdkOmittedValue}) => AllCdnEndpointsVariant0(
-    endpoints: identical(endpoints, sdkOmittedValue) ? this.endpoints : endpoints as SdkOptional<List<CdnEndpoint>>,
-  );
+  AllCdnEndpointsVariant0 _copyWith({Object? endpoints = sdkOmittedValue}) =>
+      AllCdnEndpointsVariant0(
+        endpoints: identical(endpoints, sdkOmittedValue)
+            ? this.endpoints
+            : endpoints as SdkOptional<List<CdnEndpoint>>,
+      );
 
-  factory AllCdnEndpointsVariant0.fromJson(Map<String, dynamic> json) => AllCdnEndpointsVariant0(
-    endpoints: json['endpoints'] != null ? SdkPresent(((json['endpoints'] as List?)?.map((e) => CdnEndpoint.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AllCdnEndpointsVariant0.fromJson(Map<String, dynamic> json) =>
+      AllCdnEndpointsVariant0(
+        endpoints: json['endpoints'] != null
+            ? SdkPresent(((json['endpoints'] as List?)
+                ?.map((e) => CdnEndpoint.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (endpoints) {
-      SdkPresent<List<CdnEndpoint>>(value: final value) => {'endpoints': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (endpoints) {
+          SdkPresent<List<CdnEndpoint>>(value: final value) => {
+              'endpoints': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllCdnEndpoints` API schema.
@@ -34,191 +45,344 @@ class AllCdnEndpoints {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<CdnEndpoint>> endpoints;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllCdnEndpoints({this.endpoints = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllCdnEndpoints(
+      {this.endpoints = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllCdnEndpoints Function({SdkOptional<List<CdnEndpoint>> endpoints, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllCdnEndpoints Function(
+      {SdkOptional<List<CdnEndpoint>> endpoints,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllCdnEndpoints _copyWith({Object? endpoints = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllCdnEndpoints(
-    endpoints: identical(endpoints, sdkOmittedValue) ? this.endpoints : endpoints as SdkOptional<List<CdnEndpoint>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllCdnEndpoints _copyWith(
+          {Object? endpoints = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllCdnEndpoints(
+        endpoints: identical(endpoints, sdkOmittedValue)
+            ? this.endpoints
+            : endpoints as SdkOptional<List<CdnEndpoint>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AllCdnEndpoints.fromJson(Map<String, dynamic> json) => AllCdnEndpoints(
-    endpoints: json['endpoints'] != null ? SdkPresent(((json['endpoints'] as List?)?.map((e) => CdnEndpoint.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory AllCdnEndpoints.fromJson(Map<String, dynamic> json) =>
+      AllCdnEndpoints(
+        endpoints: json['endpoints'] != null
+            ? SdkPresent(((json['endpoints'] as List?)
+                ?.map((e) => CdnEndpoint.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (endpoints) {
-      SdkPresent<List<CdnEndpoint>>(value: final value) => {'endpoints': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (endpoints) {
+          SdkPresent<List<CdnEndpoint>>(value: final value) => {
+              'endpoints': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 /// Typed representation of the `CdnEndpoint` API schema.
 class CdnEndpoint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique ID that can be used to identify and reference a CDN endpoint.
   final SdkOptional<String> id;
+
   /// The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space.
   final String origin;
+
   /// The fully qualified domain name (FQDN) from which the CDN-backed content is served.
   final SdkOptional<String> endpoint;
+
   /// The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
   final SdkOptional<CdnEndpointTtl> ttl;
+
   /// The ID of a DigitalOcean managed TLS certificate used for SSL when a custom subdomain is provided.
   final SdkOptional<String> certificateId;
+
   /// The fully qualified domain name (FQDN) of the custom subdomain used with the CDN endpoint.
   final SdkOptional<String> customDomain;
+
   /// A time value given in ISO8601 combined date and time format that represents when the CDN endpoint was created.
   final SdkOptional<String> createdAt;
 
-  const CdnEndpoint({this.id = const SdkOmitted(), required this.origin, this.endpoint = const SdkOmitted(), this.ttl = const SdkOmitted(), this.certificateId = const SdkOmitted(), this.customDomain = const SdkOmitted(), this.createdAt = const SdkOmitted()});
+  const CdnEndpoint(
+      {this.id = const SdkOmitted(),
+      required this.origin,
+      this.endpoint = const SdkOmitted(),
+      this.ttl = const SdkOmitted(),
+      this.certificateId = const SdkOmitted(),
+      this.customDomain = const SdkOmitted(),
+      this.createdAt = const SdkOmitted()});
 
-  CdnEndpoint Function({SdkOptional<String> id, String origin, SdkOptional<String> endpoint, SdkOptional<CdnEndpointTtl> ttl, SdkOptional<String> certificateId, SdkOptional<String> customDomain, SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  CdnEndpoint Function(
+      {SdkOptional<String> id,
+      String origin,
+      SdkOptional<String> endpoint,
+      SdkOptional<CdnEndpointTtl> ttl,
+      SdkOptional<String> certificateId,
+      SdkOptional<String> customDomain,
+      SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  CdnEndpoint _copyWith({Object? id = sdkOmittedValue, Object? origin = sdkOmittedValue, Object? endpoint = sdkOmittedValue, Object? ttl = sdkOmittedValue, Object? certificateId = sdkOmittedValue, Object? customDomain = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => CdnEndpoint(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    origin: identical(origin, sdkOmittedValue) ? this.origin : origin as String,
-    endpoint: identical(endpoint, sdkOmittedValue) ? this.endpoint : endpoint as SdkOptional<String>,
-    ttl: identical(ttl, sdkOmittedValue) ? this.ttl : ttl as SdkOptional<CdnEndpointTtl>,
-    certificateId: identical(certificateId, sdkOmittedValue) ? this.certificateId : certificateId as SdkOptional<String>,
-    customDomain: identical(customDomain, sdkOmittedValue) ? this.customDomain : customDomain as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-  );
+  CdnEndpoint _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? origin = sdkOmittedValue,
+          Object? endpoint = sdkOmittedValue,
+          Object? ttl = sdkOmittedValue,
+          Object? certificateId = sdkOmittedValue,
+          Object? customDomain = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      CdnEndpoint(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        origin:
+            identical(origin, sdkOmittedValue) ? this.origin : origin as String,
+        endpoint: identical(endpoint, sdkOmittedValue)
+            ? this.endpoint
+            : endpoint as SdkOptional<String>,
+        ttl: identical(ttl, sdkOmittedValue)
+            ? this.ttl
+            : ttl as SdkOptional<CdnEndpointTtl>,
+        certificateId: identical(certificateId, sdkOmittedValue)
+            ? this.certificateId
+            : certificateId as SdkOptional<String>,
+        customDomain: identical(customDomain, sdkOmittedValue)
+            ? this.customDomain
+            : customDomain as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+      );
 
   factory CdnEndpoint.fromJson(Map<String, dynamic> json) => CdnEndpoint(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    origin: (json['origin'] as String?)!,
-    endpoint: json['endpoint'] != null ? SdkPresent((json['endpoint'] as String?)!) : const SdkOmitted(),
-    ttl: json['ttl'] != null ? SdkPresent((json['ttl'] != null ? CdnEndpointTtl.fromJson((json['ttl'] as num).toInt()) : null)!) : const SdkOmitted(),
-    certificateId: json['certificate_id'] != null ? SdkPresent((json['certificate_id'] as String?)!) : const SdkOmitted(),
-    customDomain: json['custom_domain'] != null ? SdkPresent((json['custom_domain'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        origin: (json['origin'] as String?)!,
+        endpoint: json['endpoint'] != null
+            ? SdkPresent((json['endpoint'] as String?)!)
+            : const SdkOmitted(),
+        ttl: json['ttl'] != null
+            ? SdkPresent((json['ttl'] != null
+                ? CdnEndpointTtl.fromJson((json['ttl'] as num).toInt())
+                : null)!)
+            : const SdkOmitted(),
+        certificateId: json['certificate_id'] != null
+            ? SdkPresent((json['certificate_id'] as String?)!)
+            : const SdkOmitted(),
+        customDomain: json['custom_domain'] != null
+            ? SdkPresent((json['custom_domain'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'origin': origin,
-    ...switch (endpoint) {
-      SdkPresent<String>(value: final value) => {'endpoint': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ttl) {
-      SdkPresent<CdnEndpointTtl>(value: final value) => {'ttl': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (certificateId) {
-      SdkPresent<String>(value: final value) => {'certificate_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (customDomain) {
-      SdkPresent<String>(value: final value) => {'custom_domain': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'origin': origin,
+        ...switch (endpoint) {
+          SdkPresent<String>(value: final value) => {
+              'endpoint': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ttl) {
+          SdkPresent<CdnEndpointTtl>(value: final value) => {
+              'ttl': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (certificateId) {
+          SdkPresent<String>(value: final value) => {
+              'certificate_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (customDomain) {
+          SdkPresent<String>(value: final value) => {
+              'custom_domain': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CdnEndpointRequest` API schema.
 class CdnEndpointRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The fully qualified domain name (FQDN) for the origin server which provides the content for the CDN. This is currently restricted to a Space.
   final String origin;
+
   /// The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
   final SdkOptional<CdnEndpointRequestTtl> ttl;
+
   /// The ID of a DigitalOcean managed TLS certificate used for SSL when a custom subdomain is provided.
   final SdkOptional<String> certificateId;
+
   /// The fully qualified domain name (FQDN) of the custom subdomain used with the CDN endpoint.
   final SdkOptional<String> customDomain;
 
-  const CdnEndpointRequest({required this.origin, this.ttl = const SdkOmitted(), this.certificateId = const SdkOmitted(), this.customDomain = const SdkOmitted()});
+  const CdnEndpointRequest(
+      {required this.origin,
+      this.ttl = const SdkOmitted(),
+      this.certificateId = const SdkOmitted(),
+      this.customDomain = const SdkOmitted()});
 
-  CdnEndpointRequest Function({String origin, SdkOptional<CdnEndpointRequestTtl> ttl, SdkOptional<String> certificateId, SdkOptional<String> customDomain}) get copyWith => _copyWith;
+  CdnEndpointRequest Function(
+      {String origin,
+      SdkOptional<CdnEndpointRequestTtl> ttl,
+      SdkOptional<String> certificateId,
+      SdkOptional<String> customDomain}) get copyWith => _copyWith;
 
-  CdnEndpointRequest _copyWith({Object? origin = sdkOmittedValue, Object? ttl = sdkOmittedValue, Object? certificateId = sdkOmittedValue, Object? customDomain = sdkOmittedValue}) => CdnEndpointRequest(
-    origin: identical(origin, sdkOmittedValue) ? this.origin : origin as String,
-    ttl: identical(ttl, sdkOmittedValue) ? this.ttl : ttl as SdkOptional<CdnEndpointRequestTtl>,
-    certificateId: identical(certificateId, sdkOmittedValue) ? this.certificateId : certificateId as SdkOptional<String>,
-    customDomain: identical(customDomain, sdkOmittedValue) ? this.customDomain : customDomain as SdkOptional<String>,
-  );
+  CdnEndpointRequest _copyWith(
+          {Object? origin = sdkOmittedValue,
+          Object? ttl = sdkOmittedValue,
+          Object? certificateId = sdkOmittedValue,
+          Object? customDomain = sdkOmittedValue}) =>
+      CdnEndpointRequest(
+        origin:
+            identical(origin, sdkOmittedValue) ? this.origin : origin as String,
+        ttl: identical(ttl, sdkOmittedValue)
+            ? this.ttl
+            : ttl as SdkOptional<CdnEndpointRequestTtl>,
+        certificateId: identical(certificateId, sdkOmittedValue)
+            ? this.certificateId
+            : certificateId as SdkOptional<String>,
+        customDomain: identical(customDomain, sdkOmittedValue)
+            ? this.customDomain
+            : customDomain as SdkOptional<String>,
+      );
 
-  factory CdnEndpointRequest.fromJson(Map<String, dynamic> json) => CdnEndpointRequest(
-    origin: (json['origin'] as String?)!,
-    ttl: json['ttl'] != null ? SdkPresent((json['ttl'] != null ? CdnEndpointRequestTtl.fromJson((json['ttl'] as num).toInt()) : null)!) : const SdkOmitted(),
-    certificateId: json['certificate_id'] != null ? SdkPresent((json['certificate_id'] as String?)!) : const SdkOmitted(),
-    customDomain: json['custom_domain'] != null ? SdkPresent((json['custom_domain'] as String?)!) : const SdkOmitted(),
-  );
+  factory CdnEndpointRequest.fromJson(Map<String, dynamic> json) =>
+      CdnEndpointRequest(
+        origin: (json['origin'] as String?)!,
+        ttl: json['ttl'] != null
+            ? SdkPresent((json['ttl'] != null
+                ? CdnEndpointRequestTtl.fromJson((json['ttl'] as num).toInt())
+                : null)!)
+            : const SdkOmitted(),
+        certificateId: json['certificate_id'] != null
+            ? SdkPresent((json['certificate_id'] as String?)!)
+            : const SdkOmitted(),
+        customDomain: json['custom_domain'] != null
+            ? SdkPresent((json['custom_domain'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'origin': origin,
-    ...switch (ttl) {
-      SdkPresent<CdnEndpointRequestTtl>(value: final value) => {'ttl': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (certificateId) {
-      SdkPresent<String>(value: final value) => {'certificate_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (customDomain) {
-      SdkPresent<String>(value: final value) => {'custom_domain': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'origin': origin,
+        ...switch (ttl) {
+          SdkPresent<CdnEndpointRequestTtl>(value: final value) => {
+              'ttl': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (certificateId) {
+          SdkPresent<String>(value: final value) => {
+              'certificate_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (customDomain) {
+          SdkPresent<String>(value: final value) => {
+              'custom_domain': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ExistingEndpoint` API schema.
 class ExistingEndpoint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `endpoint` wire field.
   final SdkOptional<CdnEndpoint> endpoint;
 
   const ExistingEndpoint({this.endpoint = const SdkOmitted()});
 
-  ExistingEndpoint Function({SdkOptional<CdnEndpoint> endpoint}) get copyWith => _copyWith;
+  ExistingEndpoint Function({SdkOptional<CdnEndpoint> endpoint}) get copyWith =>
+      _copyWith;
 
-  ExistingEndpoint _copyWith({Object? endpoint = sdkOmittedValue}) => ExistingEndpoint(
-    endpoint: identical(endpoint, sdkOmittedValue) ? this.endpoint : endpoint as SdkOptional<CdnEndpoint>,
-  );
+  ExistingEndpoint _copyWith({Object? endpoint = sdkOmittedValue}) =>
+      ExistingEndpoint(
+        endpoint: identical(endpoint, sdkOmittedValue)
+            ? this.endpoint
+            : endpoint as SdkOptional<CdnEndpoint>,
+      );
 
-  factory ExistingEndpoint.fromJson(Map<String, dynamic> json) => ExistingEndpoint(
-    endpoint: json['endpoint'] != null ? SdkPresent((json['endpoint'] != null ? CdnEndpoint.fromJson(json['endpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ExistingEndpoint.fromJson(Map<String, dynamic> json) =>
+      ExistingEndpoint(
+        endpoint: json['endpoint'] != null
+            ? SdkPresent((json['endpoint'] != null
+                ? CdnEndpoint.fromJson(json['endpoint'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (endpoint) {
-      SdkPresent<CdnEndpoint>(value: final value) => {'endpoint': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (endpoint) {
+          SdkPresent<CdnEndpoint>(value: final value) => {
+              'endpoint': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `PurgeCache` API schema.
 class PurgeCache {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of strings containing the path to the content to be purged from the CDN cache.
   final List<String> files;
 
@@ -227,57 +391,92 @@ class PurgeCache {
   PurgeCache Function({List<String> files}) get copyWith => _copyWith;
 
   PurgeCache _copyWith({Object? files = sdkOmittedValue}) => PurgeCache(
-    files: identical(files, sdkOmittedValue) ? this.files : files as List<String>,
-  );
+        files: identical(files, sdkOmittedValue)
+            ? this.files
+            : files as List<String>,
+      );
 
   factory PurgeCache.fromJson(Map<String, dynamic> json) => PurgeCache(
-    files: ((json['files'] as List?)?.map((e) => e as String).toList())!,
-  );
+        files: ((json['files'] as List?)?.map((e) => e as String).toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'files': files,
-  };
+        'files': files,
+      };
 }
 
 /// Typed representation of the `UpdateEndpoint` API schema.
 class UpdateEndpoint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The amount of time the content is cached by the CDN's edge servers in seconds. TTL must be one of 60, 600, 3600, 86400, or 604800. Defaults to 3600 (one hour) when excluded.
   final SdkOptional<UpdateEndpointTtl> ttl;
+
   /// The ID of a DigitalOcean managed TLS certificate used for SSL when a custom subdomain is provided.
   final SdkOptional<String> certificateId;
+
   /// The fully qualified domain name (FQDN) of the custom subdomain used with the CDN endpoint.
   final SdkOptional<String> customDomain;
 
-  const UpdateEndpoint({this.ttl = const SdkOmitted(), this.certificateId = const SdkOmitted(), this.customDomain = const SdkOmitted()});
+  const UpdateEndpoint(
+      {this.ttl = const SdkOmitted(),
+      this.certificateId = const SdkOmitted(),
+      this.customDomain = const SdkOmitted()});
 
-  UpdateEndpoint Function({SdkOptional<UpdateEndpointTtl> ttl, SdkOptional<String> certificateId, SdkOptional<String> customDomain}) get copyWith => _copyWith;
+  UpdateEndpoint Function(
+      {SdkOptional<UpdateEndpointTtl> ttl,
+      SdkOptional<String> certificateId,
+      SdkOptional<String> customDomain}) get copyWith => _copyWith;
 
-  UpdateEndpoint _copyWith({Object? ttl = sdkOmittedValue, Object? certificateId = sdkOmittedValue, Object? customDomain = sdkOmittedValue}) => UpdateEndpoint(
-    ttl: identical(ttl, sdkOmittedValue) ? this.ttl : ttl as SdkOptional<UpdateEndpointTtl>,
-    certificateId: identical(certificateId, sdkOmittedValue) ? this.certificateId : certificateId as SdkOptional<String>,
-    customDomain: identical(customDomain, sdkOmittedValue) ? this.customDomain : customDomain as SdkOptional<String>,
-  );
+  UpdateEndpoint _copyWith(
+          {Object? ttl = sdkOmittedValue,
+          Object? certificateId = sdkOmittedValue,
+          Object? customDomain = sdkOmittedValue}) =>
+      UpdateEndpoint(
+        ttl: identical(ttl, sdkOmittedValue)
+            ? this.ttl
+            : ttl as SdkOptional<UpdateEndpointTtl>,
+        certificateId: identical(certificateId, sdkOmittedValue)
+            ? this.certificateId
+            : certificateId as SdkOptional<String>,
+        customDomain: identical(customDomain, sdkOmittedValue)
+            ? this.customDomain
+            : customDomain as SdkOptional<String>,
+      );
 
   factory UpdateEndpoint.fromJson(Map<String, dynamic> json) => UpdateEndpoint(
-    ttl: json['ttl'] != null ? SdkPresent((json['ttl'] != null ? UpdateEndpointTtl.fromJson((json['ttl'] as num).toInt()) : null)!) : const SdkOmitted(),
-    certificateId: json['certificate_id'] != null ? SdkPresent((json['certificate_id'] as String?)!) : const SdkOmitted(),
-    customDomain: json['custom_domain'] != null ? SdkPresent((json['custom_domain'] as String?)!) : const SdkOmitted(),
-  );
+        ttl: json['ttl'] != null
+            ? SdkPresent((json['ttl'] != null
+                ? UpdateEndpointTtl.fromJson((json['ttl'] as num).toInt())
+                : null)!)
+            : const SdkOmitted(),
+        certificateId: json['certificate_id'] != null
+            ? SdkPresent((json['certificate_id'] as String?)!)
+            : const SdkOmitted(),
+        customDomain: json['custom_domain'] != null
+            ? SdkPresent((json['custom_domain'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (ttl) {
-      SdkPresent<UpdateEndpointTtl>(value: final value) => {'ttl': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (certificateId) {
-      SdkPresent<String>(value: final value) => {'certificate_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (customDomain) {
-      SdkPresent<String>(value: final value) => {'custom_domain': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (ttl) {
+          SdkPresent<UpdateEndpointTtl>(value: final value) => {
+              'ttl': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (certificateId) {
+          SdkPresent<String>(value: final value) => {
+              'certificate_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (customDomain) {
+          SdkPresent<String>(value: final value) => {
+              'custom_domain': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

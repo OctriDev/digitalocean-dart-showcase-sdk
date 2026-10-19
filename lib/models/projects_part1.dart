@@ -8,269 +8,498 @@ part of 'projects.dart';
 class DefaultProject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `project` wire field.
   final SdkOptional<Project> project;
 
   const DefaultProject({this.project = const SdkOmitted()});
 
-  DefaultProject Function({SdkOptional<Project> project}) get copyWith => _copyWith;
+  DefaultProject Function({SdkOptional<Project> project}) get copyWith =>
+      _copyWith;
 
-  DefaultProject _copyWith({Object? project = sdkOmittedValue}) => DefaultProject(
-    project: identical(project, sdkOmittedValue) ? this.project : project as SdkOptional<Project>,
-  );
+  DefaultProject _copyWith({Object? project = sdkOmittedValue}) =>
+      DefaultProject(
+        project: identical(project, sdkOmittedValue)
+            ? this.project
+            : project as SdkOptional<Project>,
+      );
 
   factory DefaultProject.fromJson(Map<String, dynamic> json) => DefaultProject(
-    project: json['project'] != null ? SdkPresent((json['project'] != null ? Project.fromJson(json['project'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        project: json['project'] != null
+            ? SdkPresent((json['project'] != null
+                ? Project.fromJson(json['project'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (project) {
-      SdkPresent<Project>(value: final value) => {'project': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (project) {
+          SdkPresent<Project>(value: final value) => {
+              'project': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ExistingProject` API schema.
 class ExistingProject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `project` wire field.
   final SdkOptional<Project> project;
 
   const ExistingProject({this.project = const SdkOmitted()});
 
-  ExistingProject Function({SdkOptional<Project> project}) get copyWith => _copyWith;
+  ExistingProject Function({SdkOptional<Project> project}) get copyWith =>
+      _copyWith;
 
-  ExistingProject _copyWith({Object? project = sdkOmittedValue}) => ExistingProject(
-    project: identical(project, sdkOmittedValue) ? this.project : project as SdkOptional<Project>,
-  );
+  ExistingProject _copyWith({Object? project = sdkOmittedValue}) =>
+      ExistingProject(
+        project: identical(project, sdkOmittedValue)
+            ? this.project
+            : project as SdkOptional<Project>,
+      );
 
-  factory ExistingProject.fromJson(Map<String, dynamic> json) => ExistingProject(
-    project: json['project'] != null ? SdkPresent((json['project'] != null ? Project.fromJson(json['project'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ExistingProject.fromJson(Map<String, dynamic> json) =>
+      ExistingProject(
+        project: json['project'] != null
+            ? SdkPresent((json['project'] != null
+                ? Project.fromJson(json['project'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (project) {
-      SdkPresent<Project>(value: final value) => {'project': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (project) {
+          SdkPresent<Project>(value: final value) => {
+              'project': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `project` wire field.
 class ProjectVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// If true, all resources will be added to this project if no project is specified.
   final SdkOptional<bool> isDefault;
 
   const ProjectVariant1({this.isDefault = const SdkOmitted()});
 
-  ProjectVariant1 Function({SdkOptional<bool> isDefault}) get copyWith => _copyWith;
+  ProjectVariant1 Function({SdkOptional<bool> isDefault}) get copyWith =>
+      _copyWith;
 
-  ProjectVariant1 _copyWith({Object? isDefault = sdkOmittedValue}) => ProjectVariant1(
-    isDefault: identical(isDefault, sdkOmittedValue) ? this.isDefault : isDefault as SdkOptional<bool>,
-  );
+  ProjectVariant1 _copyWith({Object? isDefault = sdkOmittedValue}) =>
+      ProjectVariant1(
+        isDefault: identical(isDefault, sdkOmittedValue)
+            ? this.isDefault
+            : isDefault as SdkOptional<bool>,
+      );
 
-  factory ProjectVariant1.fromJson(Map<String, dynamic> json) => ProjectVariant1(
-    isDefault: json['is_default'] != null ? SdkPresent((json['is_default'] as bool?)!) : const SdkOmitted(),
-  );
+  factory ProjectVariant1.fromJson(Map<String, dynamic> json) =>
+      ProjectVariant1(
+        isDefault: json['is_default'] != null
+            ? SdkPresent((json['is_default'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (isDefault) {
-      SdkPresent<bool>(value: final value) => {'is_default': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (isDefault) {
+          SdkPresent<bool>(value: final value) => {
+              'is_default': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `Project` API schema.
 class Project {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique universal identifier of this project.
   final SdkOptional<String> id;
+
   /// The unique universal identifier of the project owner.
   final SdkOptional<String> ownerUuid;
+
   /// The integer id of the project owner.
   final SdkOptional<int> ownerId;
+
   /// The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
   final SdkOptional<String> name;
+
   /// The description of the project. The maximum length is 255 characters.
   final SdkOptional<String> description;
+
   /// The purpose of the project. The maximum length is 255 characters. It can have one of the following values: - Just trying out DigitalOcean - Class project / Educational purposes - Website or blog - Web Application - Service or API - Mobile Application - Machine learning / AI / Data processing - IoT - Operational / Developer tooling If another value for purpose is specified, for example, "your custom purpose", your purpose will be stored as `Other: your custom purpose`.
   final SdkOptional<String> purpose;
+
   /// The environment of the project's resources.
   final SdkOptional<ProjectBaseEnvironment> environment;
+
   /// A time value given in ISO8601 combined date and time format that represents when the project was created.
   final SdkOptional<String> createdAt;
+
   /// A time value given in ISO8601 combined date and time format that represents when the project was updated.
   final SdkOptional<String> updatedAt;
+
   /// If true, all resources will be added to this project if no project is specified.
   final SdkOptional<bool> isDefault;
 
-  const Project({this.id = const SdkOmitted(), this.ownerUuid = const SdkOmitted(), this.ownerId = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.purpose = const SdkOmitted(), this.environment = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.isDefault = const SdkOmitted()});
+  const Project(
+      {this.id = const SdkOmitted(),
+      this.ownerUuid = const SdkOmitted(),
+      this.ownerId = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.purpose = const SdkOmitted(),
+      this.environment = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.isDefault = const SdkOmitted()});
 
-  Project Function({SdkOptional<String> id, SdkOptional<String> ownerUuid, SdkOptional<int> ownerId, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<String> purpose, SdkOptional<ProjectBaseEnvironment> environment, SdkOptional<String> createdAt, SdkOptional<String> updatedAt, SdkOptional<bool> isDefault}) get copyWith => _copyWith;
+  Project Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> ownerUuid,
+      SdkOptional<int> ownerId,
+      SdkOptional<String> name,
+      SdkOptional<String> description,
+      SdkOptional<String> purpose,
+      SdkOptional<ProjectBaseEnvironment> environment,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> updatedAt,
+      SdkOptional<bool> isDefault}) get copyWith => _copyWith;
 
-  Project _copyWith({Object? id = sdkOmittedValue, Object? ownerUuid = sdkOmittedValue, Object? ownerId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? purpose = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? isDefault = sdkOmittedValue}) => Project(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    ownerUuid: identical(ownerUuid, sdkOmittedValue) ? this.ownerUuid : ownerUuid as SdkOptional<String>,
-    ownerId: identical(ownerId, sdkOmittedValue) ? this.ownerId : ownerId as SdkOptional<int>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    purpose: identical(purpose, sdkOmittedValue) ? this.purpose : purpose as SdkOptional<String>,
-    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as SdkOptional<ProjectBaseEnvironment>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-    isDefault: identical(isDefault, sdkOmittedValue) ? this.isDefault : isDefault as SdkOptional<bool>,
-  );
+  Project _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? ownerUuid = sdkOmittedValue,
+          Object? ownerId = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? purpose = sdkOmittedValue,
+          Object? environment = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? isDefault = sdkOmittedValue}) =>
+      Project(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        ownerUuid: identical(ownerUuid, sdkOmittedValue)
+            ? this.ownerUuid
+            : ownerUuid as SdkOptional<String>,
+        ownerId: identical(ownerId, sdkOmittedValue)
+            ? this.ownerId
+            : ownerId as SdkOptional<int>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        purpose: identical(purpose, sdkOmittedValue)
+            ? this.purpose
+            : purpose as SdkOptional<String>,
+        environment: identical(environment, sdkOmittedValue)
+            ? this.environment
+            : environment as SdkOptional<ProjectBaseEnvironment>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+        isDefault: identical(isDefault, sdkOmittedValue)
+            ? this.isDefault
+            : isDefault as SdkOptional<bool>,
+      );
 
   factory Project.fromJson(Map<String, dynamic> json) => Project(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    ownerUuid: json['owner_uuid'] != null ? SdkPresent((json['owner_uuid'] as String?)!) : const SdkOmitted(),
-    ownerId: json['owner_id'] != null ? SdkPresent(((json['owner_id'] as num?)?.toInt())!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    purpose: json['purpose'] != null ? SdkPresent((json['purpose'] as String?)!) : const SdkOmitted(),
-    environment: json['environment'] != null ? SdkPresent((json['environment'] != null ? ProjectBaseEnvironment.fromJson(json['environment'] as String) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-    isDefault: json['is_default'] != null ? SdkPresent((json['is_default'] as bool?)!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        ownerUuid: json['owner_uuid'] != null
+            ? SdkPresent((json['owner_uuid'] as String?)!)
+            : const SdkOmitted(),
+        ownerId: json['owner_id'] != null
+            ? SdkPresent(((json['owner_id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        purpose: json['purpose'] != null
+            ? SdkPresent((json['purpose'] as String?)!)
+            : const SdkOmitted(),
+        environment: json['environment'] != null
+            ? SdkPresent((json['environment'] != null
+                ? ProjectBaseEnvironment.fromJson(json['environment'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+        isDefault: json['is_default'] != null
+            ? SdkPresent((json['is_default'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ownerUuid) {
-      SdkPresent<String>(value: final value) => {'owner_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ownerId) {
-      SdkPresent<int>(value: final value) => {'owner_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (purpose) {
-      SdkPresent<String>(value: final value) => {'purpose': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (environment) {
-      SdkPresent<ProjectBaseEnvironment>(value: final value) => {'environment': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (isDefault) {
-      SdkPresent<bool>(value: final value) => {'is_default': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ownerUuid) {
+          SdkPresent<String>(value: final value) => {
+              'owner_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ownerId) {
+          SdkPresent<int>(value: final value) => {
+              'owner_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (purpose) {
+          SdkPresent<String>(value: final value) => {
+              'purpose': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (environment) {
+          SdkPresent<ProjectBaseEnvironment>(value: final value) => {
+              'environment': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (isDefault) {
+          SdkPresent<bool>(value: final value) => {
+              'is_default': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ProjectBase` API schema.
 class ProjectBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique universal identifier of this project.
   final SdkOptional<String> id;
+
   /// The unique universal identifier of the project owner.
   final SdkOptional<String> ownerUuid;
+
   /// The integer id of the project owner.
   final SdkOptional<int> ownerId;
+
   /// The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
   final SdkOptional<String> name;
+
   /// The description of the project. The maximum length is 255 characters.
   final SdkOptional<String> description;
+
   /// The purpose of the project. The maximum length is 255 characters. It can have one of the following values: - Just trying out DigitalOcean - Class project / Educational purposes - Website or blog - Web Application - Service or API - Mobile Application - Machine learning / AI / Data processing - IoT - Operational / Developer tooling If another value for purpose is specified, for example, "your custom purpose", your purpose will be stored as `Other: your custom purpose`.
   final SdkOptional<String> purpose;
+
   /// The environment of the project's resources.
   final SdkOptional<ProjectBaseEnvironment> environment;
+
   /// A time value given in ISO8601 combined date and time format that represents when the project was created.
   final SdkOptional<String> createdAt;
+
   /// A time value given in ISO8601 combined date and time format that represents when the project was updated.
   final SdkOptional<String> updatedAt;
 
-  const ProjectBase({this.id = const SdkOmitted(), this.ownerUuid = const SdkOmitted(), this.ownerId = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.purpose = const SdkOmitted(), this.environment = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
+  const ProjectBase(
+      {this.id = const SdkOmitted(),
+      this.ownerUuid = const SdkOmitted(),
+      this.ownerId = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.purpose = const SdkOmitted(),
+      this.environment = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted()});
 
-  ProjectBase Function({SdkOptional<String> id, SdkOptional<String> ownerUuid, SdkOptional<int> ownerId, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<String> purpose, SdkOptional<ProjectBaseEnvironment> environment, SdkOptional<String> createdAt, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  ProjectBase Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> ownerUuid,
+      SdkOptional<int> ownerId,
+      SdkOptional<String> name,
+      SdkOptional<String> description,
+      SdkOptional<String> purpose,
+      SdkOptional<ProjectBaseEnvironment> environment,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  ProjectBase _copyWith({Object? id = sdkOmittedValue, Object? ownerUuid = sdkOmittedValue, Object? ownerId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? purpose = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => ProjectBase(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    ownerUuid: identical(ownerUuid, sdkOmittedValue) ? this.ownerUuid : ownerUuid as SdkOptional<String>,
-    ownerId: identical(ownerId, sdkOmittedValue) ? this.ownerId : ownerId as SdkOptional<int>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    purpose: identical(purpose, sdkOmittedValue) ? this.purpose : purpose as SdkOptional<String>,
-    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as SdkOptional<ProjectBaseEnvironment>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-  );
+  ProjectBase _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? ownerUuid = sdkOmittedValue,
+          Object? ownerId = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? purpose = sdkOmittedValue,
+          Object? environment = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      ProjectBase(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        ownerUuid: identical(ownerUuid, sdkOmittedValue)
+            ? this.ownerUuid
+            : ownerUuid as SdkOptional<String>,
+        ownerId: identical(ownerId, sdkOmittedValue)
+            ? this.ownerId
+            : ownerId as SdkOptional<int>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        purpose: identical(purpose, sdkOmittedValue)
+            ? this.purpose
+            : purpose as SdkOptional<String>,
+        environment: identical(environment, sdkOmittedValue)
+            ? this.environment
+            : environment as SdkOptional<ProjectBaseEnvironment>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+      );
 
   factory ProjectBase.fromJson(Map<String, dynamic> json) => ProjectBase(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    ownerUuid: json['owner_uuid'] != null ? SdkPresent((json['owner_uuid'] as String?)!) : const SdkOmitted(),
-    ownerId: json['owner_id'] != null ? SdkPresent(((json['owner_id'] as num?)?.toInt())!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    purpose: json['purpose'] != null ? SdkPresent((json['purpose'] as String?)!) : const SdkOmitted(),
-    environment: json['environment'] != null ? SdkPresent((json['environment'] != null ? ProjectBaseEnvironment.fromJson(json['environment'] as String) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        ownerUuid: json['owner_uuid'] != null
+            ? SdkPresent((json['owner_uuid'] as String?)!)
+            : const SdkOmitted(),
+        ownerId: json['owner_id'] != null
+            ? SdkPresent(((json['owner_id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        purpose: json['purpose'] != null
+            ? SdkPresent((json['purpose'] as String?)!)
+            : const SdkOmitted(),
+        environment: json['environment'] != null
+            ? SdkPresent((json['environment'] != null
+                ? ProjectBaseEnvironment.fromJson(json['environment'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ownerUuid) {
-      SdkPresent<String>(value: final value) => {'owner_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ownerId) {
-      SdkPresent<int>(value: final value) => {'owner_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (purpose) {
-      SdkPresent<String>(value: final value) => {'purpose': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (environment) {
-      SdkPresent<ProjectBaseEnvironment>(value: final value) => {'environment': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ownerUuid) {
+          SdkPresent<String>(value: final value) => {
+              'owner_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ownerId) {
+          SdkPresent<int>(value: final value) => {
+              'owner_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (purpose) {
+          SdkPresent<String>(value: final value) => {
+              'purpose': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (environment) {
+          SdkPresent<ProjectBaseEnvironment>(value: final value) => {
+              'environment': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

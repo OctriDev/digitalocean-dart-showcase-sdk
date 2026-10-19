@@ -8,118 +8,224 @@ part of 'shared_repository.dart';
 class RepositoryBlob {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The digest of the blob
   final SdkOptional<String> digest;
+
   /// The compressed size of the blob in bytes.
   final SdkOptional<int> compressedSizeBytes;
 
-  const RepositoryBlob({this.digest = const SdkOmitted(), this.compressedSizeBytes = const SdkOmitted()});
+  const RepositoryBlob(
+      {this.digest = const SdkOmitted(),
+      this.compressedSizeBytes = const SdkOmitted()});
 
-  RepositoryBlob Function({SdkOptional<String> digest, SdkOptional<int> compressedSizeBytes}) get copyWith => _copyWith;
+  RepositoryBlob Function(
+      {SdkOptional<String> digest,
+      SdkOptional<int> compressedSizeBytes}) get copyWith => _copyWith;
 
-  RepositoryBlob _copyWith({Object? digest = sdkOmittedValue, Object? compressedSizeBytes = sdkOmittedValue}) => RepositoryBlob(
-    digest: identical(digest, sdkOmittedValue) ? this.digest : digest as SdkOptional<String>,
-    compressedSizeBytes: identical(compressedSizeBytes, sdkOmittedValue) ? this.compressedSizeBytes : compressedSizeBytes as SdkOptional<int>,
-  );
+  RepositoryBlob _copyWith(
+          {Object? digest = sdkOmittedValue,
+          Object? compressedSizeBytes = sdkOmittedValue}) =>
+      RepositoryBlob(
+        digest: identical(digest, sdkOmittedValue)
+            ? this.digest
+            : digest as SdkOptional<String>,
+        compressedSizeBytes: identical(compressedSizeBytes, sdkOmittedValue)
+            ? this.compressedSizeBytes
+            : compressedSizeBytes as SdkOptional<int>,
+      );
 
   factory RepositoryBlob.fromJson(Map<String, dynamic> json) => RepositoryBlob(
-    digest: json['digest'] != null ? SdkPresent((json['digest'] as String?)!) : const SdkOmitted(),
-    compressedSizeBytes: json['compressed_size_bytes'] != null ? SdkPresent(((json['compressed_size_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+        digest: json['digest'] != null
+            ? SdkPresent((json['digest'] as String?)!)
+            : const SdkOmitted(),
+        compressedSizeBytes: json['compressed_size_bytes'] != null
+            ? SdkPresent(((json['compressed_size_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (digest) {
-      SdkPresent<String>(value: final value) => {'digest': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (compressedSizeBytes) {
-      SdkPresent<int>(value: final value) => {'compressed_size_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (digest) {
+          SdkPresent<String>(value: final value) => {
+              'digest': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (compressedSizeBytes) {
+          SdkPresent<int>(value: final value) => {
+              'compressed_size_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `RepositoryManifest` API schema.
 class RepositoryManifest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the container registry.
   final SdkOptional<String> registryName;
+
   /// The name of the repository.
   final SdkOptional<String> repository;
+
   /// The manifest digest
   final SdkOptional<String> digest;
+
   /// The compressed size of the manifest in bytes.
   final SdkOptional<int> compressedSizeBytes;
+
   /// The uncompressed size of the manifest in bytes (this size is calculated asynchronously so it may not be immediately available).
   final SdkOptional<int> sizeBytes;
+
   /// The time the manifest was last updated.
   final SdkOptional<String> updatedAt;
+
   /// All tags associated with this manifest
   final SdkOptional<List<String>> tags;
+
   /// All blobs associated with this manifest
   final SdkOptional<List<RepositoryBlob>> blobs;
 
-  const RepositoryManifest({this.registryName = const SdkOmitted(), this.repository = const SdkOmitted(), this.digest = const SdkOmitted(), this.compressedSizeBytes = const SdkOmitted(), this.sizeBytes = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.tags = const SdkOmitted(), this.blobs = const SdkOmitted()});
+  const RepositoryManifest(
+      {this.registryName = const SdkOmitted(),
+      this.repository = const SdkOmitted(),
+      this.digest = const SdkOmitted(),
+      this.compressedSizeBytes = const SdkOmitted(),
+      this.sizeBytes = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.tags = const SdkOmitted(),
+      this.blobs = const SdkOmitted()});
 
-  RepositoryManifest Function({SdkOptional<String> registryName, SdkOptional<String> repository, SdkOptional<String> digest, SdkOptional<int> compressedSizeBytes, SdkOptional<int> sizeBytes, SdkOptional<String> updatedAt, SdkOptional<List<String>> tags, SdkOptional<List<RepositoryBlob>> blobs}) get copyWith => _copyWith;
+  RepositoryManifest Function(
+      {SdkOptional<String> registryName,
+      SdkOptional<String> repository,
+      SdkOptional<String> digest,
+      SdkOptional<int> compressedSizeBytes,
+      SdkOptional<int> sizeBytes,
+      SdkOptional<String> updatedAt,
+      SdkOptional<List<String>> tags,
+      SdkOptional<List<RepositoryBlob>> blobs}) get copyWith => _copyWith;
 
-  RepositoryManifest _copyWith({Object? registryName = sdkOmittedValue, Object? repository = sdkOmittedValue, Object? digest = sdkOmittedValue, Object? compressedSizeBytes = sdkOmittedValue, Object? sizeBytes = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? blobs = sdkOmittedValue}) => RepositoryManifest(
-    registryName: identical(registryName, sdkOmittedValue) ? this.registryName : registryName as SdkOptional<String>,
-    repository: identical(repository, sdkOmittedValue) ? this.repository : repository as SdkOptional<String>,
-    digest: identical(digest, sdkOmittedValue) ? this.digest : digest as SdkOptional<String>,
-    compressedSizeBytes: identical(compressedSizeBytes, sdkOmittedValue) ? this.compressedSizeBytes : compressedSizeBytes as SdkOptional<int>,
-    sizeBytes: identical(sizeBytes, sdkOmittedValue) ? this.sizeBytes : sizeBytes as SdkOptional<int>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    blobs: identical(blobs, sdkOmittedValue) ? this.blobs : blobs as SdkOptional<List<RepositoryBlob>>,
-  );
+  RepositoryManifest _copyWith(
+          {Object? registryName = sdkOmittedValue,
+          Object? repository = sdkOmittedValue,
+          Object? digest = sdkOmittedValue,
+          Object? compressedSizeBytes = sdkOmittedValue,
+          Object? sizeBytes = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? blobs = sdkOmittedValue}) =>
+      RepositoryManifest(
+        registryName: identical(registryName, sdkOmittedValue)
+            ? this.registryName
+            : registryName as SdkOptional<String>,
+        repository: identical(repository, sdkOmittedValue)
+            ? this.repository
+            : repository as SdkOptional<String>,
+        digest: identical(digest, sdkOmittedValue)
+            ? this.digest
+            : digest as SdkOptional<String>,
+        compressedSizeBytes: identical(compressedSizeBytes, sdkOmittedValue)
+            ? this.compressedSizeBytes
+            : compressedSizeBytes as SdkOptional<int>,
+        sizeBytes: identical(sizeBytes, sdkOmittedValue)
+            ? this.sizeBytes
+            : sizeBytes as SdkOptional<int>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        blobs: identical(blobs, sdkOmittedValue)
+            ? this.blobs
+            : blobs as SdkOptional<List<RepositoryBlob>>,
+      );
 
-  factory RepositoryManifest.fromJson(Map<String, dynamic> json) => RepositoryManifest(
-    registryName: json['registry_name'] != null ? SdkPresent((json['registry_name'] as String?)!) : const SdkOmitted(),
-    repository: json['repository'] != null ? SdkPresent((json['repository'] as String?)!) : const SdkOmitted(),
-    digest: json['digest'] != null ? SdkPresent((json['digest'] as String?)!) : const SdkOmitted(),
-    compressedSizeBytes: json['compressed_size_bytes'] != null ? SdkPresent(((json['compressed_size_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    sizeBytes: json['size_bytes'] != null ? SdkPresent(((json['size_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    blobs: json['blobs'] != null ? SdkPresent(((json['blobs'] as List?)?.map((e) => RepositoryBlob.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory RepositoryManifest.fromJson(Map<String, dynamic> json) =>
+      RepositoryManifest(
+        registryName: json['registry_name'] != null
+            ? SdkPresent((json['registry_name'] as String?)!)
+            : const SdkOmitted(),
+        repository: json['repository'] != null
+            ? SdkPresent((json['repository'] as String?)!)
+            : const SdkOmitted(),
+        digest: json['digest'] != null
+            ? SdkPresent((json['digest'] as String?)!)
+            : const SdkOmitted(),
+        compressedSizeBytes: json['compressed_size_bytes'] != null
+            ? SdkPresent(((json['compressed_size_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        sizeBytes: json['size_bytes'] != null
+            ? SdkPresent(((json['size_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        blobs: json['blobs'] != null
+            ? SdkPresent(((json['blobs'] as List?)
+                ?.map((e) => RepositoryBlob.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (registryName) {
-      SdkPresent<String>(value: final value) => {'registry_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (repository) {
-      SdkPresent<String>(value: final value) => {'repository': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (digest) {
-      SdkPresent<String>(value: final value) => {'digest': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (compressedSizeBytes) {
-      SdkPresent<int>(value: final value) => {'compressed_size_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sizeBytes) {
-      SdkPresent<int>(value: final value) => {'size_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (blobs) {
-      SdkPresent<List<RepositoryBlob>>(value: final value) => {'blobs': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (registryName) {
+          SdkPresent<String>(value: final value) => {
+              'registry_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (repository) {
+          SdkPresent<String>(value: final value) => {
+              'repository': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (digest) {
+          SdkPresent<String>(value: final value) => {
+              'digest': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (compressedSizeBytes) {
+          SdkPresent<int>(value: final value) => {
+              'compressed_size_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sizeBytes) {
+          SdkPresent<int>(value: final value) => {
+              'size_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (blobs) {
+          SdkPresent<List<RepositoryBlob>>(value: final value) => {
+              'blobs': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class RepositoryManifestsVariant0 {
@@ -129,22 +235,36 @@ class RepositoryManifestsVariant0 {
 
   const RepositoryManifestsVariant0({this.manifests = const SdkOmitted()});
 
-  RepositoryManifestsVariant0 Function({SdkOptional<List<RepositoryManifest>> manifests}) get copyWith => _copyWith;
+  RepositoryManifestsVariant0 Function(
+          {SdkOptional<List<RepositoryManifest>> manifests})
+      get copyWith => _copyWith;
 
-  RepositoryManifestsVariant0 _copyWith({Object? manifests = sdkOmittedValue}) => RepositoryManifestsVariant0(
-    manifests: identical(manifests, sdkOmittedValue) ? this.manifests : manifests as SdkOptional<List<RepositoryManifest>>,
-  );
+  RepositoryManifestsVariant0 _copyWith(
+          {Object? manifests = sdkOmittedValue}) =>
+      RepositoryManifestsVariant0(
+        manifests: identical(manifests, sdkOmittedValue)
+            ? this.manifests
+            : manifests as SdkOptional<List<RepositoryManifest>>,
+      );
 
-  factory RepositoryManifestsVariant0.fromJson(Map<String, dynamic> json) => RepositoryManifestsVariant0(
-    manifests: json['manifests'] != null ? SdkPresent(((json['manifests'] as List?)?.map((e) => RepositoryManifest.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory RepositoryManifestsVariant0.fromJson(Map<String, dynamic> json) =>
+      RepositoryManifestsVariant0(
+        manifests: json['manifests'] != null
+            ? SdkPresent(((json['manifests'] as List?)
+                ?.map((e) =>
+                    RepositoryManifest.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (manifests) {
-      SdkPresent<List<RepositoryManifest>>(value: final value) => {'manifests': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (manifests) {
+          SdkPresent<List<RepositoryManifest>>(value: final value) => {
+              'manifests': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `RepositoryManifests` API schema.
@@ -152,113 +272,218 @@ class RepositoryManifests {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<RepositoryManifest>> manifests;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const RepositoryManifests({this.manifests = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const RepositoryManifests(
+      {this.manifests = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  RepositoryManifests Function({SdkOptional<List<RepositoryManifest>> manifests, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  RepositoryManifests Function(
+      {SdkOptional<List<RepositoryManifest>> manifests,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  RepositoryManifests _copyWith({Object? manifests = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => RepositoryManifests(
-    manifests: identical(manifests, sdkOmittedValue) ? this.manifests : manifests as SdkOptional<List<RepositoryManifest>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  RepositoryManifests _copyWith(
+          {Object? manifests = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      RepositoryManifests(
+        manifests: identical(manifests, sdkOmittedValue)
+            ? this.manifests
+            : manifests as SdkOptional<List<RepositoryManifest>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory RepositoryManifests.fromJson(Map<String, dynamic> json) => RepositoryManifests(
-    manifests: json['manifests'] != null ? SdkPresent(((json['manifests'] as List?)?.map((e) => RepositoryManifest.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory RepositoryManifests.fromJson(Map<String, dynamic> json) =>
+      RepositoryManifests(
+        manifests: json['manifests'] != null
+            ? SdkPresent(((json['manifests'] as List?)
+                ?.map((e) =>
+                    RepositoryManifest.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (manifests) {
-      SdkPresent<List<RepositoryManifest>>(value: final value) => {'manifests': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (manifests) {
+          SdkPresent<List<RepositoryManifest>>(value: final value) => {
+              'manifests': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 /// Typed representation of the `RepositoryTag` API schema.
 class RepositoryTag {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the container registry.
   final SdkOptional<String> registryName;
+
   /// The name of the repository.
   final SdkOptional<String> repository;
+
   /// The name of the tag.
   final SdkOptional<String> tag;
+
   /// The digest of the manifest associated with the tag.
   final SdkOptional<String> manifestDigest;
+
   /// The compressed size of the tag in bytes.
   final SdkOptional<int> compressedSizeBytes;
+
   /// The uncompressed size of the tag in bytes (this size is calculated asynchronously so it may not be immediately available).
   final SdkOptional<int> sizeBytes;
+
   /// The time the tag was last updated.
   final SdkOptional<String> updatedAt;
 
-  const RepositoryTag({this.registryName = const SdkOmitted(), this.repository = const SdkOmitted(), this.tag = const SdkOmitted(), this.manifestDigest = const SdkOmitted(), this.compressedSizeBytes = const SdkOmitted(), this.sizeBytes = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
+  const RepositoryTag(
+      {this.registryName = const SdkOmitted(),
+      this.repository = const SdkOmitted(),
+      this.tag = const SdkOmitted(),
+      this.manifestDigest = const SdkOmitted(),
+      this.compressedSizeBytes = const SdkOmitted(),
+      this.sizeBytes = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted()});
 
-  RepositoryTag Function({SdkOptional<String> registryName, SdkOptional<String> repository, SdkOptional<String> tag, SdkOptional<String> manifestDigest, SdkOptional<int> compressedSizeBytes, SdkOptional<int> sizeBytes, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  RepositoryTag Function(
+      {SdkOptional<String> registryName,
+      SdkOptional<String> repository,
+      SdkOptional<String> tag,
+      SdkOptional<String> manifestDigest,
+      SdkOptional<int> compressedSizeBytes,
+      SdkOptional<int> sizeBytes,
+      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  RepositoryTag _copyWith({Object? registryName = sdkOmittedValue, Object? repository = sdkOmittedValue, Object? tag = sdkOmittedValue, Object? manifestDigest = sdkOmittedValue, Object? compressedSizeBytes = sdkOmittedValue, Object? sizeBytes = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RepositoryTag(
-    registryName: identical(registryName, sdkOmittedValue) ? this.registryName : registryName as SdkOptional<String>,
-    repository: identical(repository, sdkOmittedValue) ? this.repository : repository as SdkOptional<String>,
-    tag: identical(tag, sdkOmittedValue) ? this.tag : tag as SdkOptional<String>,
-    manifestDigest: identical(manifestDigest, sdkOmittedValue) ? this.manifestDigest : manifestDigest as SdkOptional<String>,
-    compressedSizeBytes: identical(compressedSizeBytes, sdkOmittedValue) ? this.compressedSizeBytes : compressedSizeBytes as SdkOptional<int>,
-    sizeBytes: identical(sizeBytes, sdkOmittedValue) ? this.sizeBytes : sizeBytes as SdkOptional<int>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-  );
+  RepositoryTag _copyWith(
+          {Object? registryName = sdkOmittedValue,
+          Object? repository = sdkOmittedValue,
+          Object? tag = sdkOmittedValue,
+          Object? manifestDigest = sdkOmittedValue,
+          Object? compressedSizeBytes = sdkOmittedValue,
+          Object? sizeBytes = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      RepositoryTag(
+        registryName: identical(registryName, sdkOmittedValue)
+            ? this.registryName
+            : registryName as SdkOptional<String>,
+        repository: identical(repository, sdkOmittedValue)
+            ? this.repository
+            : repository as SdkOptional<String>,
+        tag: identical(tag, sdkOmittedValue)
+            ? this.tag
+            : tag as SdkOptional<String>,
+        manifestDigest: identical(manifestDigest, sdkOmittedValue)
+            ? this.manifestDigest
+            : manifestDigest as SdkOptional<String>,
+        compressedSizeBytes: identical(compressedSizeBytes, sdkOmittedValue)
+            ? this.compressedSizeBytes
+            : compressedSizeBytes as SdkOptional<int>,
+        sizeBytes: identical(sizeBytes, sdkOmittedValue)
+            ? this.sizeBytes
+            : sizeBytes as SdkOptional<int>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+      );
 
   factory RepositoryTag.fromJson(Map<String, dynamic> json) => RepositoryTag(
-    registryName: json['registry_name'] != null ? SdkPresent((json['registry_name'] as String?)!) : const SdkOmitted(),
-    repository: json['repository'] != null ? SdkPresent((json['repository'] as String?)!) : const SdkOmitted(),
-    tag: json['tag'] != null ? SdkPresent((json['tag'] as String?)!) : const SdkOmitted(),
-    manifestDigest: json['manifest_digest'] != null ? SdkPresent((json['manifest_digest'] as String?)!) : const SdkOmitted(),
-    compressedSizeBytes: json['compressed_size_bytes'] != null ? SdkPresent(((json['compressed_size_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    sizeBytes: json['size_bytes'] != null ? SdkPresent(((json['size_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-  );
+        registryName: json['registry_name'] != null
+            ? SdkPresent((json['registry_name'] as String?)!)
+            : const SdkOmitted(),
+        repository: json['repository'] != null
+            ? SdkPresent((json['repository'] as String?)!)
+            : const SdkOmitted(),
+        tag: json['tag'] != null
+            ? SdkPresent((json['tag'] as String?)!)
+            : const SdkOmitted(),
+        manifestDigest: json['manifest_digest'] != null
+            ? SdkPresent((json['manifest_digest'] as String?)!)
+            : const SdkOmitted(),
+        compressedSizeBytes: json['compressed_size_bytes'] != null
+            ? SdkPresent(((json['compressed_size_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        sizeBytes: json['size_bytes'] != null
+            ? SdkPresent(((json['size_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (registryName) {
-      SdkPresent<String>(value: final value) => {'registry_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (repository) {
-      SdkPresent<String>(value: final value) => {'repository': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tag) {
-      SdkPresent<String>(value: final value) => {'tag': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (manifestDigest) {
-      SdkPresent<String>(value: final value) => {'manifest_digest': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (compressedSizeBytes) {
-      SdkPresent<int>(value: final value) => {'compressed_size_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sizeBytes) {
-      SdkPresent<int>(value: final value) => {'size_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (registryName) {
+          SdkPresent<String>(value: final value) => {
+              'registry_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (repository) {
+          SdkPresent<String>(value: final value) => {
+              'repository': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tag) {
+          SdkPresent<String>(value: final value) => {
+              'tag': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (manifestDigest) {
+          SdkPresent<String>(value: final value) => {
+              'manifest_digest': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (compressedSizeBytes) {
+          SdkPresent<int>(value: final value) => {
+              'compressed_size_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sizeBytes) {
+          SdkPresent<int>(value: final value) => {
+              'size_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class RepositoryTagsVariant0 {
@@ -268,20 +493,31 @@ class RepositoryTagsVariant0 {
 
   const RepositoryTagsVariant0({this.tags = const SdkOmitted()});
 
-  RepositoryTagsVariant0 Function({SdkOptional<List<RepositoryTag>> tags}) get copyWith => _copyWith;
+  RepositoryTagsVariant0 Function({SdkOptional<List<RepositoryTag>> tags})
+      get copyWith => _copyWith;
 
-  RepositoryTagsVariant0 _copyWith({Object? tags = sdkOmittedValue}) => RepositoryTagsVariant0(
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<RepositoryTag>>,
-  );
+  RepositoryTagsVariant0 _copyWith({Object? tags = sdkOmittedValue}) =>
+      RepositoryTagsVariant0(
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<RepositoryTag>>,
+      );
 
-  factory RepositoryTagsVariant0.fromJson(Map<String, dynamic> json) => RepositoryTagsVariant0(
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => RepositoryTag.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory RepositoryTagsVariant0.fromJson(Map<String, dynamic> json) =>
+      RepositoryTagsVariant0(
+        tags: json['tags'] != null
+            ? SdkPresent(((json['tags'] as List?)
+                ?.map((e) => RepositoryTag.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (tags) {
-      SdkPresent<List<RepositoryTag>>(value: final value) => {'tags': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (tags) {
+          SdkPresent<List<RepositoryTag>>(value: final value) => {
+              'tags': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

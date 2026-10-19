@@ -8,285 +8,539 @@ part of 'agent_platform_api_api.dart';
 class ApiAgentSpan {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Agent span
   final SdkOptional<ApiAgentType> agentType;
+
   /// Common optional fields shared by all span types
   final SdkOptional<ApiSpanCommon> common;
+
   /// Optional `string` value serialized in the `redacted_input` wire field.
   final SdkOptional<String> redactedInput;
+
   /// Optional `string` value serialized in the `redacted_output` wire field.
   final SdkOptional<String> redactedOutput;
+
   /// Child spans - must contain between 1 and 999 spans Allowed types: llm, tool, retriever
   final SdkOptional<List<ApiTraceSpan>> spans;
 
-  const ApiAgentSpan({this.agentType = const SdkOmitted(), this.common = const SdkOmitted(), this.redactedInput = const SdkOmitted(), this.redactedOutput = const SdkOmitted(), this.spans = const SdkOmitted()});
+  const ApiAgentSpan(
+      {this.agentType = const SdkOmitted(),
+      this.common = const SdkOmitted(),
+      this.redactedInput = const SdkOmitted(),
+      this.redactedOutput = const SdkOmitted(),
+      this.spans = const SdkOmitted()});
 
-  ApiAgentSpan Function({SdkOptional<ApiAgentType> agentType, SdkOptional<ApiSpanCommon> common, SdkOptional<String> redactedInput, SdkOptional<String> redactedOutput, SdkOptional<List<ApiTraceSpan>> spans}) get copyWith => _copyWith;
+  ApiAgentSpan Function(
+      {SdkOptional<ApiAgentType> agentType,
+      SdkOptional<ApiSpanCommon> common,
+      SdkOptional<String> redactedInput,
+      SdkOptional<String> redactedOutput,
+      SdkOptional<List<ApiTraceSpan>> spans}) get copyWith => _copyWith;
 
-  ApiAgentSpan _copyWith({Object? agentType = sdkOmittedValue, Object? common = sdkOmittedValue, Object? redactedInput = sdkOmittedValue, Object? redactedOutput = sdkOmittedValue, Object? spans = sdkOmittedValue}) => ApiAgentSpan(
-    agentType: identical(agentType, sdkOmittedValue) ? this.agentType : agentType as SdkOptional<ApiAgentType>,
-    common: identical(common, sdkOmittedValue) ? this.common : common as SdkOptional<ApiSpanCommon>,
-    redactedInput: identical(redactedInput, sdkOmittedValue) ? this.redactedInput : redactedInput as SdkOptional<String>,
-    redactedOutput: identical(redactedOutput, sdkOmittedValue) ? this.redactedOutput : redactedOutput as SdkOptional<String>,
-    spans: identical(spans, sdkOmittedValue) ? this.spans : spans as SdkOptional<List<ApiTraceSpan>>,
-  );
+  ApiAgentSpan _copyWith(
+          {Object? agentType = sdkOmittedValue,
+          Object? common = sdkOmittedValue,
+          Object? redactedInput = sdkOmittedValue,
+          Object? redactedOutput = sdkOmittedValue,
+          Object? spans = sdkOmittedValue}) =>
+      ApiAgentSpan(
+        agentType: identical(agentType, sdkOmittedValue)
+            ? this.agentType
+            : agentType as SdkOptional<ApiAgentType>,
+        common: identical(common, sdkOmittedValue)
+            ? this.common
+            : common as SdkOptional<ApiSpanCommon>,
+        redactedInput: identical(redactedInput, sdkOmittedValue)
+            ? this.redactedInput
+            : redactedInput as SdkOptional<String>,
+        redactedOutput: identical(redactedOutput, sdkOmittedValue)
+            ? this.redactedOutput
+            : redactedOutput as SdkOptional<String>,
+        spans: identical(spans, sdkOmittedValue)
+            ? this.spans
+            : spans as SdkOptional<List<ApiTraceSpan>>,
+      );
 
   factory ApiAgentSpan.fromJson(Map<String, dynamic> json) => ApiAgentSpan(
-    agentType: json['agent_type'] != null ? SdkPresent((json['agent_type'] != null ? ApiAgentType.fromJson(json['agent_type'] as String) : null)!) : const SdkOmitted(),
-    common: json['common'] != null ? SdkPresent((json['common'] != null ? ApiSpanCommon.fromJson(json['common'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    redactedInput: json['redacted_input'] != null ? SdkPresent((json['redacted_input'] as String?)!) : const SdkOmitted(),
-    redactedOutput: json['redacted_output'] != null ? SdkPresent((json['redacted_output'] as String?)!) : const SdkOmitted(),
-    spans: json['spans'] != null ? SdkPresent(((json['spans'] as List?)?.map((e) => ApiTraceSpan.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        agentType: json['agent_type'] != null
+            ? SdkPresent((json['agent_type'] != null
+                ? ApiAgentType.fromJson(json['agent_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        common: json['common'] != null
+            ? SdkPresent((json['common'] != null
+                ? ApiSpanCommon.fromJson(json['common'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        redactedInput: json['redacted_input'] != null
+            ? SdkPresent((json['redacted_input'] as String?)!)
+            : const SdkOmitted(),
+        redactedOutput: json['redacted_output'] != null
+            ? SdkPresent((json['redacted_output'] as String?)!)
+            : const SdkOmitted(),
+        spans: json['spans'] != null
+            ? SdkPresent(((json['spans'] as List?)
+                ?.map((e) => ApiTraceSpan.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agentType) {
-      SdkPresent<ApiAgentType>(value: final value) => {'agent_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (common) {
-      SdkPresent<ApiSpanCommon>(value: final value) => {'common': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (redactedInput) {
-      SdkPresent<String>(value: final value) => {'redacted_input': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (redactedOutput) {
-      SdkPresent<String>(value: final value) => {'redacted_output': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (spans) {
-      SdkPresent<List<ApiTraceSpan>>(value: final value) => {'spans': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agentType) {
+          SdkPresent<ApiAgentType>(value: final value) => {
+              'agent_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (common) {
+          SdkPresent<ApiSpanCommon>(value: final value) => {
+              'common': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (redactedInput) {
+          SdkPresent<String>(value: final value) => {
+              'redacted_input': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (redactedOutput) {
+          SdkPresent<String>(value: final value) => {
+              'redacted_output': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (spans) {
+          SdkPresent<List<ApiTraceSpan>>(value: final value) => {
+              'spans': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Agreement Description
 class ApiAgreement {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
+
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
+
   /// Optional `string` value serialized in the `url` wire field.
   final SdkOptional<String> url;
+
   /// Optional `string` value serialized in the `uuid` wire field.
   final SdkOptional<String> uuid;
 
-  const ApiAgreement({this.description = const SdkOmitted(), this.name = const SdkOmitted(), this.url = const SdkOmitted(), this.uuid = const SdkOmitted()});
+  const ApiAgreement(
+      {this.description = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.url = const SdkOmitted(),
+      this.uuid = const SdkOmitted()});
 
-  ApiAgreement Function({SdkOptional<String> description, SdkOptional<String> name, SdkOptional<String> url, SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiAgreement Function(
+      {SdkOptional<String> description,
+      SdkOptional<String> name,
+      SdkOptional<String> url,
+      SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiAgreement _copyWith({Object? description = sdkOmittedValue, Object? name = sdkOmittedValue, Object? url = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiAgreement(
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
-  );
+  ApiAgreement _copyWith(
+          {Object? description = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? uuid = sdkOmittedValue}) =>
+      ApiAgreement(
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        uuid: identical(uuid, sdkOmittedValue)
+            ? this.uuid
+            : uuid as SdkOptional<String>,
+      );
 
   factory ApiAgreement.fromJson(Map<String, dynamic> json) => ApiAgreement(
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
-  );
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        uuid: json['uuid'] != null
+            ? SdkPresent((json['uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (uuid) {
-      SdkPresent<String>(value: final value) => {'uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (uuid) {
+          SdkPresent<String>(value: final value) => {
+              'uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Anthropic API Key Info
 class ApiAnthropicAPIKeyInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Key creation date
   final SdkOptional<String> createdAt;
+
   /// Created by user id from DO
   final SdkOptional<String> createdBy;
+
   /// Key deleted date
   final SdkOptional<String> deletedAt;
+
   /// Name
   final SdkOptional<String> name;
+
   /// Key last updated date
   final SdkOptional<String> updatedAt;
+
   /// Uuid
   final SdkOptional<String> uuid;
 
-  const ApiAnthropicAPIKeyInfo({this.createdAt = const SdkOmitted(), this.createdBy = const SdkOmitted(), this.deletedAt = const SdkOmitted(), this.name = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.uuid = const SdkOmitted()});
+  const ApiAnthropicAPIKeyInfo(
+      {this.createdAt = const SdkOmitted(),
+      this.createdBy = const SdkOmitted(),
+      this.deletedAt = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.uuid = const SdkOmitted()});
 
-  ApiAnthropicAPIKeyInfo Function({SdkOptional<String> createdAt, SdkOptional<String> createdBy, SdkOptional<String> deletedAt, SdkOptional<String> name, SdkOptional<String> updatedAt, SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiAnthropicAPIKeyInfo Function(
+      {SdkOptional<String> createdAt,
+      SdkOptional<String> createdBy,
+      SdkOptional<String> deletedAt,
+      SdkOptional<String> name,
+      SdkOptional<String> updatedAt,
+      SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiAnthropicAPIKeyInfo _copyWith({Object? createdAt = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? deletedAt = sdkOmittedValue, Object? name = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiAnthropicAPIKeyInfo(
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
-    deletedAt: identical(deletedAt, sdkOmittedValue) ? this.deletedAt : deletedAt as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
-  );
+  ApiAnthropicAPIKeyInfo _copyWith(
+          {Object? createdAt = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue,
+          Object? deletedAt = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? uuid = sdkOmittedValue}) =>
+      ApiAnthropicAPIKeyInfo(
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as SdkOptional<String>,
+        deletedAt: identical(deletedAt, sdkOmittedValue)
+            ? this.deletedAt
+            : deletedAt as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+        uuid: identical(uuid, sdkOmittedValue)
+            ? this.uuid
+            : uuid as SdkOptional<String>,
+      );
 
-  factory ApiAnthropicAPIKeyInfo.fromJson(Map<String, dynamic> json) => ApiAnthropicAPIKeyInfo(
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
-    deletedAt: json['deleted_at'] != null ? SdkPresent((json['deleted_at'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiAnthropicAPIKeyInfo.fromJson(Map<String, dynamic> json) =>
+      ApiAnthropicAPIKeyInfo(
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        createdBy: json['created_by'] != null
+            ? SdkPresent((json['created_by'] as String?)!)
+            : const SdkOmitted(),
+        deletedAt: json['deleted_at'] != null
+            ? SdkPresent((json['deleted_at'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+        uuid: json['uuid'] != null
+            ? SdkPresent((json['uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdBy) {
-      SdkPresent<String>(value: final value) => {'created_by': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deletedAt) {
-      SdkPresent<String>(value: final value) => {'deleted_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (uuid) {
-      SdkPresent<String>(value: final value) => {'uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdBy) {
+          SdkPresent<String>(value: final value) => {
+              'created_by': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deletedAt) {
+          SdkPresent<String>(value: final value) => {
+              'deleted_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (uuid) {
+          SdkPresent<String>(value: final value) => {
+              'uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// AssociatedModelEvaluationPreset identifies a saved model evaluation preset that references a metric. Returned alongside custom metrics so the dashboard can warn that deleting the metric will also delete these presets.
 class ApiAssociatedModelEvaluationPreset {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier of the saved model evaluation preset that references the metric.
   final SdkOptional<String> evalPresetUuid;
+
   /// Display name of the saved model evaluation preset.
   final SdkOptional<String> name;
 
-  const ApiAssociatedModelEvaluationPreset({this.evalPresetUuid = const SdkOmitted(), this.name = const SdkOmitted()});
+  const ApiAssociatedModelEvaluationPreset(
+      {this.evalPresetUuid = const SdkOmitted(),
+      this.name = const SdkOmitted()});
 
-  ApiAssociatedModelEvaluationPreset Function({SdkOptional<String> evalPresetUuid, SdkOptional<String> name}) get copyWith => _copyWith;
+  ApiAssociatedModelEvaluationPreset Function(
+      {SdkOptional<String> evalPresetUuid,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ApiAssociatedModelEvaluationPreset _copyWith({Object? evalPresetUuid = sdkOmittedValue, Object? name = sdkOmittedValue}) => ApiAssociatedModelEvaluationPreset(
-    evalPresetUuid: identical(evalPresetUuid, sdkOmittedValue) ? this.evalPresetUuid : evalPresetUuid as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  ApiAssociatedModelEvaluationPreset _copyWith(
+          {Object? evalPresetUuid = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      ApiAssociatedModelEvaluationPreset(
+        evalPresetUuid: identical(evalPresetUuid, sdkOmittedValue)
+            ? this.evalPresetUuid
+            : evalPresetUuid as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory ApiAssociatedModelEvaluationPreset.fromJson(Map<String, dynamic> json) => ApiAssociatedModelEvaluationPreset(
-    evalPresetUuid: json['eval_preset_uuid'] != null ? SdkPresent((json['eval_preset_uuid'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiAssociatedModelEvaluationPreset.fromJson(
+          Map<String, dynamic> json) =>
+      ApiAssociatedModelEvaluationPreset(
+        evalPresetUuid: json['eval_preset_uuid'] != null
+            ? SdkPresent((json['eval_preset_uuid'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (evalPresetUuid) {
-      SdkPresent<String>(value: final value) => {'eval_preset_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (evalPresetUuid) {
+          SdkPresent<String>(value: final value) => {
+              'eval_preset_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An alternative way to provide auth information. for internal use only.
 class ApiAuditHeader {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `uint64`-formatted value serialized in the `actor_id` wire field.
   final SdkOptional<String> actorId;
+
   /// Optional `string` value serialized in the `actor_ip` wire field.
   final SdkOptional<String> actorIp;
+
   /// Optional `string` value serialized in the `actor_uuid` wire field.
   final SdkOptional<String> actorUuid;
+
   /// Optional `string` value serialized in the `context_urn` wire field.
   final SdkOptional<String> contextUrn;
+
   /// Optional `string` value serialized in the `origin_application` wire field.
   final SdkOptional<String> originApplication;
+
   /// Optional `uint64`-formatted value serialized in the `user_id` wire field.
   final SdkOptional<String> userId;
+
   /// Optional `string` value serialized in the `user_uuid` wire field.
   final SdkOptional<String> userUuid;
 
-  const ApiAuditHeader({this.actorId = const SdkOmitted(), this.actorIp = const SdkOmitted(), this.actorUuid = const SdkOmitted(), this.contextUrn = const SdkOmitted(), this.originApplication = const SdkOmitted(), this.userId = const SdkOmitted(), this.userUuid = const SdkOmitted()});
+  const ApiAuditHeader(
+      {this.actorId = const SdkOmitted(),
+      this.actorIp = const SdkOmitted(),
+      this.actorUuid = const SdkOmitted(),
+      this.contextUrn = const SdkOmitted(),
+      this.originApplication = const SdkOmitted(),
+      this.userId = const SdkOmitted(),
+      this.userUuid = const SdkOmitted()});
 
-  ApiAuditHeader Function({SdkOptional<String> actorId, SdkOptional<String> actorIp, SdkOptional<String> actorUuid, SdkOptional<String> contextUrn, SdkOptional<String> originApplication, SdkOptional<String> userId, SdkOptional<String> userUuid}) get copyWith => _copyWith;
+  ApiAuditHeader Function(
+      {SdkOptional<String> actorId,
+      SdkOptional<String> actorIp,
+      SdkOptional<String> actorUuid,
+      SdkOptional<String> contextUrn,
+      SdkOptional<String> originApplication,
+      SdkOptional<String> userId,
+      SdkOptional<String> userUuid}) get copyWith => _copyWith;
 
-  ApiAuditHeader _copyWith({Object? actorId = sdkOmittedValue, Object? actorIp = sdkOmittedValue, Object? actorUuid = sdkOmittedValue, Object? contextUrn = sdkOmittedValue, Object? originApplication = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? userUuid = sdkOmittedValue}) => ApiAuditHeader(
-    actorId: identical(actorId, sdkOmittedValue) ? this.actorId : actorId as SdkOptional<String>,
-    actorIp: identical(actorIp, sdkOmittedValue) ? this.actorIp : actorIp as SdkOptional<String>,
-    actorUuid: identical(actorUuid, sdkOmittedValue) ? this.actorUuid : actorUuid as SdkOptional<String>,
-    contextUrn: identical(contextUrn, sdkOmittedValue) ? this.contextUrn : contextUrn as SdkOptional<String>,
-    originApplication: identical(originApplication, sdkOmittedValue) ? this.originApplication : originApplication as SdkOptional<String>,
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
-    userUuid: identical(userUuid, sdkOmittedValue) ? this.userUuid : userUuid as SdkOptional<String>,
-  );
+  ApiAuditHeader _copyWith(
+          {Object? actorId = sdkOmittedValue,
+          Object? actorIp = sdkOmittedValue,
+          Object? actorUuid = sdkOmittedValue,
+          Object? contextUrn = sdkOmittedValue,
+          Object? originApplication = sdkOmittedValue,
+          Object? userId = sdkOmittedValue,
+          Object? userUuid = sdkOmittedValue}) =>
+      ApiAuditHeader(
+        actorId: identical(actorId, sdkOmittedValue)
+            ? this.actorId
+            : actorId as SdkOptional<String>,
+        actorIp: identical(actorIp, sdkOmittedValue)
+            ? this.actorIp
+            : actorIp as SdkOptional<String>,
+        actorUuid: identical(actorUuid, sdkOmittedValue)
+            ? this.actorUuid
+            : actorUuid as SdkOptional<String>,
+        contextUrn: identical(contextUrn, sdkOmittedValue)
+            ? this.contextUrn
+            : contextUrn as SdkOptional<String>,
+        originApplication: identical(originApplication, sdkOmittedValue)
+            ? this.originApplication
+            : originApplication as SdkOptional<String>,
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String>,
+        userUuid: identical(userUuid, sdkOmittedValue)
+            ? this.userUuid
+            : userUuid as SdkOptional<String>,
+      );
 
   factory ApiAuditHeader.fromJson(Map<String, dynamic> json) => ApiAuditHeader(
-    actorId: json['actor_id'] != null ? SdkPresent((json['actor_id'] as String?)!) : const SdkOmitted(),
-    actorIp: json['actor_ip'] != null ? SdkPresent((json['actor_ip'] as String?)!) : const SdkOmitted(),
-    actorUuid: json['actor_uuid'] != null ? SdkPresent((json['actor_uuid'] as String?)!) : const SdkOmitted(),
-    contextUrn: json['context_urn'] != null ? SdkPresent((json['context_urn'] as String?)!) : const SdkOmitted(),
-    originApplication: json['origin_application'] != null ? SdkPresent((json['origin_application'] as String?)!) : const SdkOmitted(),
-    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
-    userUuid: json['user_uuid'] != null ? SdkPresent((json['user_uuid'] as String?)!) : const SdkOmitted(),
-  );
+        actorId: json['actor_id'] != null
+            ? SdkPresent((json['actor_id'] as String?)!)
+            : const SdkOmitted(),
+        actorIp: json['actor_ip'] != null
+            ? SdkPresent((json['actor_ip'] as String?)!)
+            : const SdkOmitted(),
+        actorUuid: json['actor_uuid'] != null
+            ? SdkPresent((json['actor_uuid'] as String?)!)
+            : const SdkOmitted(),
+        contextUrn: json['context_urn'] != null
+            ? SdkPresent((json['context_urn'] as String?)!)
+            : const SdkOmitted(),
+        originApplication: json['origin_application'] != null
+            ? SdkPresent((json['origin_application'] as String?)!)
+            : const SdkOmitted(),
+        userId: json['user_id'] != null
+            ? SdkPresent((json['user_id'] as String?)!)
+            : const SdkOmitted(),
+        userUuid: json['user_uuid'] != null
+            ? SdkPresent((json['user_uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (actorId) {
-      SdkPresent<String>(value: final value) => {'actor_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (actorIp) {
-      SdkPresent<String>(value: final value) => {'actor_ip': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (actorUuid) {
-      SdkPresent<String>(value: final value) => {'actor_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contextUrn) {
-      SdkPresent<String>(value: final value) => {'context_urn': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (originApplication) {
-      SdkPresent<String>(value: final value) => {'origin_application': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userId) {
-      SdkPresent<String>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userUuid) {
-      SdkPresent<String>(value: final value) => {'user_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (actorId) {
+          SdkPresent<String>(value: final value) => {
+              'actor_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (actorIp) {
+          SdkPresent<String>(value: final value) => {
+              'actor_ip': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (actorUuid) {
+          SdkPresent<String>(value: final value) => {
+              'actor_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contextUrn) {
+          SdkPresent<String>(value: final value) => {
+              'context_urn': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (originApplication) {
+          SdkPresent<String>(value: final value) => {
+              'origin_application': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userId) {
+          SdkPresent<String>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userUuid) {
+          SdkPresent<String>(value: final value) => {
+              'user_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

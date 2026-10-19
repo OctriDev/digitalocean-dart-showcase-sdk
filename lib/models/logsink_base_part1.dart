@@ -8,76 +8,134 @@ part of 'logsink_base.dart';
 class LogsinkBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the Logsink
   final SdkOptional<String> sinkName;
+
   /// Type of logsink integration. - Use `datadog` for Datadog integration **only with MongoDB clusters**. - For non-MongoDB clusters, use `rsyslog` for general syslog forwarding. - Other supported types include `elasticsearch` and `opensearch`. More details about the configuration can be found in the `config` property.
   final SdkOptional<LogsinkBaseSinkType> sinkType;
 
-  const LogsinkBase({this.sinkName = const SdkOmitted(), this.sinkType = const SdkOmitted()});
+  const LogsinkBase(
+      {this.sinkName = const SdkOmitted(), this.sinkType = const SdkOmitted()});
 
-  LogsinkBase Function({SdkOptional<String> sinkName, SdkOptional<LogsinkBaseSinkType> sinkType}) get copyWith => _copyWith;
+  LogsinkBase Function(
+      {SdkOptional<String> sinkName,
+      SdkOptional<LogsinkBaseSinkType> sinkType}) get copyWith => _copyWith;
 
-  LogsinkBase _copyWith({Object? sinkName = sdkOmittedValue, Object? sinkType = sdkOmittedValue}) => LogsinkBase(
-    sinkName: identical(sinkName, sdkOmittedValue) ? this.sinkName : sinkName as SdkOptional<String>,
-    sinkType: identical(sinkType, sdkOmittedValue) ? this.sinkType : sinkType as SdkOptional<LogsinkBaseSinkType>,
-  );
+  LogsinkBase _copyWith(
+          {Object? sinkName = sdkOmittedValue,
+          Object? sinkType = sdkOmittedValue}) =>
+      LogsinkBase(
+        sinkName: identical(sinkName, sdkOmittedValue)
+            ? this.sinkName
+            : sinkName as SdkOptional<String>,
+        sinkType: identical(sinkType, sdkOmittedValue)
+            ? this.sinkType
+            : sinkType as SdkOptional<LogsinkBaseSinkType>,
+      );
 
   factory LogsinkBase.fromJson(Map<String, dynamic> json) => LogsinkBase(
-    sinkName: json['sink_name'] != null ? SdkPresent((json['sink_name'] as String?)!) : const SdkOmitted(),
-    sinkType: json['sink_type'] != null ? SdkPresent((json['sink_type'] != null ? LogsinkBaseSinkType.fromJson(json['sink_type'] as String) : null)!) : const SdkOmitted(),
-  );
+        sinkName: json['sink_name'] != null
+            ? SdkPresent((json['sink_name'] as String?)!)
+            : const SdkOmitted(),
+        sinkType: json['sink_type'] != null
+            ? SdkPresent((json['sink_type'] != null
+                ? LogsinkBaseSinkType.fromJson(json['sink_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sinkName) {
-      SdkPresent<String>(value: final value) => {'sink_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sinkType) {
-      SdkPresent<LogsinkBaseSinkType>(value: final value) => {'sink_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sinkName) {
+          SdkPresent<String>(value: final value) => {
+              'sink_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sinkType) {
+          SdkPresent<LogsinkBaseSinkType>(value: final value) => {
+              'sink_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `LogsinkBaseVerbose` API schema.
 class LogsinkBaseVerbose {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique identifier for Logsink
   final SdkOptional<String> sinkId;
+
   /// The name of the Logsink
   final SdkOptional<String> sinkName;
+
   /// Optional enumerated value serialized in the `sink_type` wire field.
   final SdkOptional<LogsinkBaseVerboseSinkType> sinkType;
 
-  const LogsinkBaseVerbose({this.sinkId = const SdkOmitted(), this.sinkName = const SdkOmitted(), this.sinkType = const SdkOmitted()});
+  const LogsinkBaseVerbose(
+      {this.sinkId = const SdkOmitted(),
+      this.sinkName = const SdkOmitted(),
+      this.sinkType = const SdkOmitted()});
 
-  LogsinkBaseVerbose Function({SdkOptional<String> sinkId, SdkOptional<String> sinkName, SdkOptional<LogsinkBaseVerboseSinkType> sinkType}) get copyWith => _copyWith;
+  LogsinkBaseVerbose Function(
+          {SdkOptional<String> sinkId,
+          SdkOptional<String> sinkName,
+          SdkOptional<LogsinkBaseVerboseSinkType> sinkType})
+      get copyWith => _copyWith;
 
-  LogsinkBaseVerbose _copyWith({Object? sinkId = sdkOmittedValue, Object? sinkName = sdkOmittedValue, Object? sinkType = sdkOmittedValue}) => LogsinkBaseVerbose(
-    sinkId: identical(sinkId, sdkOmittedValue) ? this.sinkId : sinkId as SdkOptional<String>,
-    sinkName: identical(sinkName, sdkOmittedValue) ? this.sinkName : sinkName as SdkOptional<String>,
-    sinkType: identical(sinkType, sdkOmittedValue) ? this.sinkType : sinkType as SdkOptional<LogsinkBaseVerboseSinkType>,
-  );
+  LogsinkBaseVerbose _copyWith(
+          {Object? sinkId = sdkOmittedValue,
+          Object? sinkName = sdkOmittedValue,
+          Object? sinkType = sdkOmittedValue}) =>
+      LogsinkBaseVerbose(
+        sinkId: identical(sinkId, sdkOmittedValue)
+            ? this.sinkId
+            : sinkId as SdkOptional<String>,
+        sinkName: identical(sinkName, sdkOmittedValue)
+            ? this.sinkName
+            : sinkName as SdkOptional<String>,
+        sinkType: identical(sinkType, sdkOmittedValue)
+            ? this.sinkType
+            : sinkType as SdkOptional<LogsinkBaseVerboseSinkType>,
+      );
 
-  factory LogsinkBaseVerbose.fromJson(Map<String, dynamic> json) => LogsinkBaseVerbose(
-    sinkId: json['sink_id'] != null ? SdkPresent((json['sink_id'] as String?)!) : const SdkOmitted(),
-    sinkName: json['sink_name'] != null ? SdkPresent((json['sink_name'] as String?)!) : const SdkOmitted(),
-    sinkType: json['sink_type'] != null ? SdkPresent((json['sink_type'] != null ? LogsinkBaseVerboseSinkType.fromJson(json['sink_type'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory LogsinkBaseVerbose.fromJson(Map<String, dynamic> json) =>
+      LogsinkBaseVerbose(
+        sinkId: json['sink_id'] != null
+            ? SdkPresent((json['sink_id'] as String?)!)
+            : const SdkOmitted(),
+        sinkName: json['sink_name'] != null
+            ? SdkPresent((json['sink_name'] as String?)!)
+            : const SdkOmitted(),
+        sinkType: json['sink_type'] != null
+            ? SdkPresent((json['sink_type'] != null
+                ? LogsinkBaseVerboseSinkType.fromJson(
+                    json['sink_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sinkId) {
-      SdkPresent<String>(value: final value) => {'sink_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sinkName) {
-      SdkPresent<String>(value: final value) => {'sink_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sinkType) {
-      SdkPresent<LogsinkBaseVerboseSinkType>(value: final value) => {'sink_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sinkId) {
+          SdkPresent<String>(value: final value) => {
+              'sink_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sinkName) {
+          SdkPresent<String>(value: final value) => {
+              'sink_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sinkType) {
+          SdkPresent<LogsinkBaseVerboseSinkType>(value: final value) => {
+              'sink_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -9,110 +9,162 @@ sealed class MessagesApiMessageParamContent {
   static const String constructionSurface = 'named';
   const MessagesApiMessageParamContent();
   factory MessagesApiMessageParamContent.fromJson(Object? json) {
-    if (json is String) { return MessagesApiMessageParamContentString(json); }
-    try { return MessagesApiMessageParamContentMessagesRequestContentBlockParam(MessagesRequestContentBlockParam.fromJson(json)); } catch (_) {}
-    throw FormatException("No variant matched for MessagesApiMessageParamContent");
+    if (json is String) {
+      return MessagesApiMessageParamContentString(json);
+    }
+    try {
+      return MessagesApiMessageParamContentMessagesRequestContentBlockParam(
+          MessagesRequestContentBlockParam.fromJson(json));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for MessagesApiMessageParamContent");
   }
   Object? toJson();
 }
 
-final class MessagesApiMessageParamContentString extends MessagesApiMessageParamContent {
+final class MessagesApiMessageParamContentString
+    extends MessagesApiMessageParamContent {
   final String value;
   const MessagesApiMessageParamContentString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class MessagesApiMessageParamContentMessagesRequestContentBlockParam extends MessagesApiMessageParamContent {
+final class MessagesApiMessageParamContentMessagesRequestContentBlockParam
+    extends MessagesApiMessageParamContent {
   final MessagesRequestContentBlockParam value;
-  const MessagesApiMessageParamContentMessagesRequestContentBlockParam(this.value);
-  @override Object? toJson() => value.toJson();
+  const MessagesApiMessageParamContentMessagesRequestContentBlockParam(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// One turn in the conversation. Roles are `user` or `assistant` (no `system` role; use the top-level `system` field). Content may be a string (equivalent to a single text block) or an array of content blocks.
 class MessagesApiMessageParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Speaker role for this message.
   final MessagesApiMessageParamRole role;
+
   /// Message body as plain text or structured blocks.
   final dynamic content;
 
   const MessagesApiMessageParam({required this.role, required this.content});
 
-  MessagesApiMessageParam Function({MessagesApiMessageParamRole role, dynamic content}) get copyWith => _copyWith;
+  MessagesApiMessageParam Function(
+      {MessagesApiMessageParamRole role,
+      dynamic content}) get copyWith => _copyWith;
 
-  MessagesApiMessageParam _copyWith({Object? role = sdkOmittedValue, Object? content = sdkOmittedValue}) => MessagesApiMessageParam(
-    role: identical(role, sdkOmittedValue) ? this.role : role as MessagesApiMessageParamRole,
-    content: identical(content, sdkOmittedValue) ? this.content : content as dynamic,
-  );
+  MessagesApiMessageParam _copyWith(
+          {Object? role = sdkOmittedValue,
+          Object? content = sdkOmittedValue}) =>
+      MessagesApiMessageParam(
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as MessagesApiMessageParamRole,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as dynamic,
+      );
 
-  factory MessagesApiMessageParam.fromJson(Map<String, dynamic> json) => MessagesApiMessageParam(
-    role: (json['role'] != null ? MessagesApiMessageParamRole.fromJson(json['role'] as String) : null)!,
-    content: (json['content'])!,
-  );
+  factory MessagesApiMessageParam.fromJson(Map<String, dynamic> json) =>
+      MessagesApiMessageParam(
+        role: (json['role'] != null
+            ? MessagesApiMessageParamRole.fromJson(json['role'] as String)
+            : null)!,
+        content: (json['content'])!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'role': role.toJson(),
-    'content': content,
-  };
+        'role': role.toJson(),
+        'content': content,
+      };
 }
 
 /// Required object value serialized in the `error` wire field.
 class MessagesCreateErrorResponseError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Machine-readable error code.
   final String type_;
+
   /// Human-readable error message.
   final String message;
 
-  const MessagesCreateErrorResponseError({required this.type_, required this.message});
+  const MessagesCreateErrorResponseError(
+      {required this.type_, required this.message});
 
-  MessagesCreateErrorResponseError Function({String type_, String message}) get copyWith => _copyWith;
+  MessagesCreateErrorResponseError Function({String type_, String message})
+      get copyWith => _copyWith;
 
-  MessagesCreateErrorResponseError _copyWith({Object? type_ = sdkOmittedValue, Object? message = sdkOmittedValue}) => MessagesCreateErrorResponseError(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-    message: identical(message, sdkOmittedValue) ? this.message : message as String,
-  );
+  MessagesCreateErrorResponseError _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? message = sdkOmittedValue}) =>
+      MessagesCreateErrorResponseError(
+        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as String,
+      );
 
-  factory MessagesCreateErrorResponseError.fromJson(Map<String, dynamic> json) => MessagesCreateErrorResponseError(
-    type_: (json['type'] as String?)!,
-    message: (json['message'] as String?)!,
-  );
+  factory MessagesCreateErrorResponseError.fromJson(
+          Map<String, dynamic> json) =>
+      MessagesCreateErrorResponseError(
+        type_: (json['type'] as String?)!,
+        message: (json['message'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_,
-    'message': message,
-  };
+        'type': type_,
+        'message': message,
+      };
 }
 
 /// Error envelope for some failures from this endpoint.
 class MessagesCreateErrorResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final MessagesCreateErrorResponseType type_;
+
   /// Required object value serialized in the `error` wire field.
   final MessagesCreateErrorResponseError error;
 
   const MessagesCreateErrorResponse({required this.type_, required this.error});
 
-  MessagesCreateErrorResponse Function({MessagesCreateErrorResponseType type_, MessagesCreateErrorResponseError error}) get copyWith => _copyWith;
+  MessagesCreateErrorResponse Function(
+      {MessagesCreateErrorResponseType type_,
+      MessagesCreateErrorResponseError error}) get copyWith => _copyWith;
 
-  MessagesCreateErrorResponse _copyWith({Object? type_ = sdkOmittedValue, Object? error = sdkOmittedValue}) => MessagesCreateErrorResponse(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesCreateErrorResponseType,
-    error: identical(error, sdkOmittedValue) ? this.error : error as MessagesCreateErrorResponseError,
-  );
+  MessagesCreateErrorResponse _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? error = sdkOmittedValue}) =>
+      MessagesCreateErrorResponse(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessagesCreateErrorResponseType,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as MessagesCreateErrorResponseError,
+      );
 
-  factory MessagesCreateErrorResponse.fromJson(Map<String, dynamic> json) => MessagesCreateErrorResponse(
-    type_: (json['type'] != null ? MessagesCreateErrorResponseType.fromJson(json['type'] as String) : null)!,
-    error: (json['error'] != null ? MessagesCreateErrorResponseError.fromJson(json['error'] as Map<String, dynamic>) : null)!,
-  );
+  factory MessagesCreateErrorResponse.fromJson(Map<String, dynamic> json) =>
+      MessagesCreateErrorResponse(
+        type_: (json['type'] != null
+            ? MessagesCreateErrorResponseType.fromJson(json['type'] as String)
+            : null)!,
+        error: (json['error'] != null
+            ? MessagesCreateErrorResponseError.fromJson(
+                json['error'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'error': error.toJson(),
-  };
+        'type': type_.toJson(),
+        'error': error.toJson(),
+      };
 }
 
 sealed class MessagesCreateRequestSystem {
@@ -120,48 +172,67 @@ sealed class MessagesCreateRequestSystem {
   static const String constructionSurface = 'named';
   const MessagesCreateRequestSystem();
   factory MessagesCreateRequestSystem.fromJson(Object? json) {
-    if (json is String) { return MessagesCreateRequestSystemString(json); }
-    try { return MessagesCreateRequestSystemMessagesRequestTextBlockParam(MessagesRequestTextBlockParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is String) {
+      return MessagesCreateRequestSystemString(json);
+    }
+    try {
+      return MessagesCreateRequestSystemMessagesRequestTextBlockParam(
+          MessagesRequestTextBlockParam.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for MessagesCreateRequestSystem");
   }
   Object? toJson();
 }
 
-final class MessagesCreateRequestSystemString extends MessagesCreateRequestSystem {
+final class MessagesCreateRequestSystemString
+    extends MessagesCreateRequestSystem {
   final String value;
   const MessagesCreateRequestSystemString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class MessagesCreateRequestSystemMessagesRequestTextBlockParam extends MessagesCreateRequestSystem {
+final class MessagesCreateRequestSystemMessagesRequestTextBlockParam
+    extends MessagesCreateRequestSystem {
   final MessagesRequestTextBlockParam value;
   const MessagesCreateRequestSystemMessagesRequestTextBlockParam(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Optional request metadata.
 class MessagesCreateRequestMetadata {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Opaque identifier for the end user (for example a UUID or hash). Do not include PII.
   final SdkOptional<String> userId;
 
   const MessagesCreateRequestMetadata({this.userId = const SdkOmitted()});
 
-  MessagesCreateRequestMetadata Function({SdkOptional<String> userId}) get copyWith => _copyWith;
+  MessagesCreateRequestMetadata Function({SdkOptional<String> userId})
+      get copyWith => _copyWith;
 
-  MessagesCreateRequestMetadata _copyWith({Object? userId = sdkOmittedValue}) => MessagesCreateRequestMetadata(
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
-  );
+  MessagesCreateRequestMetadata _copyWith({Object? userId = sdkOmittedValue}) =>
+      MessagesCreateRequestMetadata(
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String>,
+      );
 
-  factory MessagesCreateRequestMetadata.fromJson(Map<String, dynamic> json) => MessagesCreateRequestMetadata(
-    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory MessagesCreateRequestMetadata.fromJson(Map<String, dynamic> json) =>
+      MessagesCreateRequestMetadata(
+        userId: json['user_id'] != null
+            ? SdkPresent((json['user_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (userId) {
-      SdkPresent<String>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (userId) {
+          SdkPresent<String>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

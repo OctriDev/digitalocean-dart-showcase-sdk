@@ -9,267 +9,427 @@ sealed class EmbeddingDataItemEmbedding {
   static const String constructionSurface = 'named';
   const EmbeddingDataItemEmbedding();
   factory EmbeddingDataItemEmbedding.fromJson(Object? json) {
-    if (json is String) { return EmbeddingDataItemEmbeddingString(json); }
-    if (json is List) { return EmbeddingDataItemEmbeddingListdouble(json.map((e) => (e as num).toDouble()).toList().cast<double>()); }
+    if (json is String) {
+      return EmbeddingDataItemEmbeddingString(json);
+    }
+    if (json is List) {
+      return EmbeddingDataItemEmbeddingListdouble(
+          json.map((e) => (e as num).toDouble()).toList().cast<double>());
+    }
     throw FormatException("No variant matched for EmbeddingDataItemEmbedding");
   }
   Object? toJson();
 }
 
-final class EmbeddingDataItemEmbeddingListdouble extends EmbeddingDataItemEmbedding {
+final class EmbeddingDataItemEmbeddingListdouble
+    extends EmbeddingDataItemEmbedding {
   final List<double> value;
   const EmbeddingDataItemEmbeddingListdouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class EmbeddingDataItemEmbeddingString extends EmbeddingDataItemEmbedding {
+final class EmbeddingDataItemEmbeddingString
+    extends EmbeddingDataItemEmbedding {
   final String value;
   const EmbeddingDataItemEmbeddingString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 /// One row in the embeddings `data` array, aligned with a single `input` item.
 class EmbeddingDataItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Zero-based index of the corresponding `input` item (0 when `input` is a string).
   final int index;
+
   /// The object type, which is always `embedding`.
   final EmbeddingDataItemObject object;
+
   /// The embedding vector, or a base64-encoded string when the request set encoding_format to base64.
   final dynamic embedding;
 
-  const EmbeddingDataItem({required this.index, required this.object, required this.embedding});
+  const EmbeddingDataItem(
+      {required this.index, required this.object, required this.embedding});
 
-  EmbeddingDataItem Function({int index, EmbeddingDataItemObject object, dynamic embedding}) get copyWith => _copyWith;
+  EmbeddingDataItem Function(
+      {int index,
+      EmbeddingDataItemObject object,
+      dynamic embedding}) get copyWith => _copyWith;
 
-  EmbeddingDataItem _copyWith({Object? index = sdkOmittedValue, Object? object = sdkOmittedValue, Object? embedding = sdkOmittedValue}) => EmbeddingDataItem(
-    index: identical(index, sdkOmittedValue) ? this.index : index as int,
-    object: identical(object, sdkOmittedValue) ? this.object : object as EmbeddingDataItemObject,
-    embedding: identical(embedding, sdkOmittedValue) ? this.embedding : embedding as dynamic,
-  );
+  EmbeddingDataItem _copyWith(
+          {Object? index = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? embedding = sdkOmittedValue}) =>
+      EmbeddingDataItem(
+        index: identical(index, sdkOmittedValue) ? this.index : index as int,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as EmbeddingDataItemObject,
+        embedding: identical(embedding, sdkOmittedValue)
+            ? this.embedding
+            : embedding as dynamic,
+      );
 
-  factory EmbeddingDataItem.fromJson(Map<String, dynamic> json) => EmbeddingDataItem(
-    index: ((json['index'] as num?)?.toInt())!,
-    object: (json['object'] != null ? EmbeddingDataItemObject.fromJson(json['object'] as String) : null)!,
-    embedding: (json['embedding'])!,
-  );
+  factory EmbeddingDataItem.fromJson(Map<String, dynamic> json) =>
+      EmbeddingDataItem(
+        index: ((json['index'] as num?)?.toInt())!,
+        object: (json['object'] != null
+            ? EmbeddingDataItemObject.fromJson(json['object'] as String)
+            : null)!,
+        embedding: (json['embedding'])!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'index': index,
-    'object': object.toJson(),
-    'embedding': embedding,
-  };
+        'index': index,
+        'object': object.toJson(),
+        'embedding': embedding,
+      };
 }
 
 /// Represents the content of a generated image.
 class GeneratedImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The base64-encoded JSON of the generated image.
   final String b64Json;
+
   /// The optimized prompt that was used to generate the image.
   final SdkOptional<String> revisedPrompt;
 
-  const GeneratedImage({required this.b64Json, this.revisedPrompt = const SdkOmitted()});
+  const GeneratedImage(
+      {required this.b64Json, this.revisedPrompt = const SdkOmitted()});
 
-  GeneratedImage Function({String b64Json, SdkOptional<String> revisedPrompt}) get copyWith => _copyWith;
+  GeneratedImage Function({String b64Json, SdkOptional<String> revisedPrompt})
+      get copyWith => _copyWith;
 
-  GeneratedImage _copyWith({Object? b64Json = sdkOmittedValue, Object? revisedPrompt = sdkOmittedValue}) => GeneratedImage(
-    b64Json: identical(b64Json, sdkOmittedValue) ? this.b64Json : b64Json as String,
-    revisedPrompt: identical(revisedPrompt, sdkOmittedValue) ? this.revisedPrompt : revisedPrompt as SdkOptional<String>,
-  );
+  GeneratedImage _copyWith(
+          {Object? b64Json = sdkOmittedValue,
+          Object? revisedPrompt = sdkOmittedValue}) =>
+      GeneratedImage(
+        b64Json: identical(b64Json, sdkOmittedValue)
+            ? this.b64Json
+            : b64Json as String,
+        revisedPrompt: identical(revisedPrompt, sdkOmittedValue)
+            ? this.revisedPrompt
+            : revisedPrompt as SdkOptional<String>,
+      );
 
   factory GeneratedImage.fromJson(Map<String, dynamic> json) => GeneratedImage(
-    b64Json: (json['b64_json'] as String?)!,
-    revisedPrompt: json['revised_prompt'] != null ? SdkPresent((json['revised_prompt'] as String?)!) : const SdkOmitted(),
-  );
+        b64Json: (json['b64_json'] as String?)!,
+        revisedPrompt: json['revised_prompt'] != null
+            ? SdkPresent((json['revised_prompt'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'b64_json': b64Json,
-    ...switch (revisedPrompt) {
-      SdkPresent<String>(value: final value) => {'revised_prompt': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'b64_json': b64Json,
+        ...switch (revisedPrompt) {
+          SdkPresent<String>(value: final value) => {
+              'revised_prompt': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Emitted when a partial image is available during image generation streaming.
 class ImageGenPartialImageEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the event. Always `image_generation.partial_image`.
   final ImageGenPartialImageEventType type_;
+
   /// Base64-encoded partial image data, suitable for rendering as an image.
   final String b64Json;
+
   /// The Unix timestamp when the event was created.
   final int createdAt;
+
   /// The size of the requested image.
   final ImageGenPartialImageEventSize size;
+
   /// The quality setting for the requested image.
   final ImageGenPartialImageEventQuality quality;
+
   /// The background setting for the requested image.
   final ImageGenPartialImageEventBackground background;
+
   /// The output format for the requested image.
   final ImageGenPartialImageEventOutputFormat outputFormat;
+
   /// 0-based index for the partial image (streaming).
   final int partialImageIndex;
 
-  const ImageGenPartialImageEvent({required this.type_, required this.b64Json, required this.createdAt, required this.size, required this.quality, required this.background, required this.outputFormat, required this.partialImageIndex});
+  const ImageGenPartialImageEvent(
+      {required this.type_,
+      required this.b64Json,
+      required this.createdAt,
+      required this.size,
+      required this.quality,
+      required this.background,
+      required this.outputFormat,
+      required this.partialImageIndex});
 
-  ImageGenPartialImageEvent Function({ImageGenPartialImageEventType type_, String b64Json, int createdAt, ImageGenPartialImageEventSize size, ImageGenPartialImageEventQuality quality, ImageGenPartialImageEventBackground background, ImageGenPartialImageEventOutputFormat outputFormat, int partialImageIndex}) get copyWith => _copyWith;
+  ImageGenPartialImageEvent Function(
+      {ImageGenPartialImageEventType type_,
+      String b64Json,
+      int createdAt,
+      ImageGenPartialImageEventSize size,
+      ImageGenPartialImageEventQuality quality,
+      ImageGenPartialImageEventBackground background,
+      ImageGenPartialImageEventOutputFormat outputFormat,
+      int partialImageIndex}) get copyWith => _copyWith;
 
-  ImageGenPartialImageEvent _copyWith({Object? type_ = sdkOmittedValue, Object? b64Json = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? size = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? background = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? partialImageIndex = sdkOmittedValue}) => ImageGenPartialImageEvent(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ImageGenPartialImageEventType,
-    b64Json: identical(b64Json, sdkOmittedValue) ? this.b64Json : b64Json as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    size: identical(size, sdkOmittedValue) ? this.size : size as ImageGenPartialImageEventSize,
-    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as ImageGenPartialImageEventQuality,
-    background: identical(background, sdkOmittedValue) ? this.background : background as ImageGenPartialImageEventBackground,
-    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as ImageGenPartialImageEventOutputFormat,
-    partialImageIndex: identical(partialImageIndex, sdkOmittedValue) ? this.partialImageIndex : partialImageIndex as int,
-  );
+  ImageGenPartialImageEvent _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? b64Json = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? quality = sdkOmittedValue,
+          Object? background = sdkOmittedValue,
+          Object? outputFormat = sdkOmittedValue,
+          Object? partialImageIndex = sdkOmittedValue}) =>
+      ImageGenPartialImageEvent(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ImageGenPartialImageEventType,
+        b64Json: identical(b64Json, sdkOmittedValue)
+            ? this.b64Json
+            : b64Json as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as ImageGenPartialImageEventSize,
+        quality: identical(quality, sdkOmittedValue)
+            ? this.quality
+            : quality as ImageGenPartialImageEventQuality,
+        background: identical(background, sdkOmittedValue)
+            ? this.background
+            : background as ImageGenPartialImageEventBackground,
+        outputFormat: identical(outputFormat, sdkOmittedValue)
+            ? this.outputFormat
+            : outputFormat as ImageGenPartialImageEventOutputFormat,
+        partialImageIndex: identical(partialImageIndex, sdkOmittedValue)
+            ? this.partialImageIndex
+            : partialImageIndex as int,
+      );
 
-  factory ImageGenPartialImageEvent.fromJson(Map<String, dynamic> json) => ImageGenPartialImageEvent(
-    type_: (json['type'] != null ? ImageGenPartialImageEventType.fromJson(json['type'] as String) : null)!,
-    b64Json: (json['b64_json'] as String?)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    size: (json['size'] != null ? ImageGenPartialImageEventSize.fromJson(json['size'] as String) : null)!,
-    quality: (json['quality'] != null ? ImageGenPartialImageEventQuality.fromJson(json['quality'] as String) : null)!,
-    background: (json['background'] != null ? ImageGenPartialImageEventBackground.fromJson(json['background'] as String) : null)!,
-    outputFormat: (json['output_format'] != null ? ImageGenPartialImageEventOutputFormat.fromJson(json['output_format'] as String) : null)!,
-    partialImageIndex: ((json['partial_image_index'] as num?)?.toInt())!,
-  );
+  factory ImageGenPartialImageEvent.fromJson(Map<String, dynamic> json) =>
+      ImageGenPartialImageEvent(
+        type_: (json['type'] != null
+            ? ImageGenPartialImageEventType.fromJson(json['type'] as String)
+            : null)!,
+        b64Json: (json['b64_json'] as String?)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        size: (json['size'] != null
+            ? ImageGenPartialImageEventSize.fromJson(json['size'] as String)
+            : null)!,
+        quality: (json['quality'] != null
+            ? ImageGenPartialImageEventQuality.fromJson(
+                json['quality'] as String)
+            : null)!,
+        background: (json['background'] != null
+            ? ImageGenPartialImageEventBackground.fromJson(
+                json['background'] as String)
+            : null)!,
+        outputFormat: (json['output_format'] != null
+            ? ImageGenPartialImageEventOutputFormat.fromJson(
+                json['output_format'] as String)
+            : null)!,
+        partialImageIndex: ((json['partial_image_index'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'b64_json': b64Json,
-    'created_at': createdAt,
-    'size': size.toJson(),
-    'quality': quality.toJson(),
-    'background': background.toJson(),
-    'output_format': outputFormat.toJson(),
-    'partial_image_index': partialImageIndex,
-  };
+        'type': type_.toJson(),
+        'b64_json': b64Json,
+        'created_at': createdAt,
+        'size': size.toJson(),
+        'quality': quality.toJson(),
+        'background': background.toJson(),
+        'output_format': outputFormat.toJson(),
+        'partial_image_index': partialImageIndex,
+      };
 }
 
 /// Response listing available models.
 class ListModelsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, which is always "list".
   final ListModelsResponseObject object;
+
   /// The list of available models.
   final List<Model> data;
 
   const ListModelsResponse({required this.object, required this.data});
 
-  ListModelsResponse Function({ListModelsResponseObject object, List<Model> data}) get copyWith => _copyWith;
+  ListModelsResponse Function(
+      {ListModelsResponseObject object,
+      List<Model> data}) get copyWith => _copyWith;
 
-  ListModelsResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue}) => ListModelsResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ListModelsResponseObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<Model>,
-  );
+  ListModelsResponse _copyWith(
+          {Object? object = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      ListModelsResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ListModelsResponseObject,
+        data:
+            identical(data, sdkOmittedValue) ? this.data : data as List<Model>,
+      );
 
-  factory ListModelsResponse.fromJson(Map<String, dynamic> json) => ListModelsResponse(
-    object: (json['object'] != null ? ListModelsResponseObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => Model.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory ListModelsResponse.fromJson(Map<String, dynamic> json) =>
+      ListModelsResponse(
+        object: (json['object'] != null
+            ? ListModelsResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => Model.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Describes a model offering that can be used with the API.
 class Model {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The model identifier, which can be referenced in the API endpoints.
   final String id;
+
   /// The Unix timestamp (in seconds) when the model was created.
   final int created;
+
   /// The object type, which is always "model".
   final ModelObject object;
+
   /// The organization that owns the model.
   final String ownedBy;
 
-  const Model({required this.id, required this.created, required this.object, required this.ownedBy});
+  const Model(
+      {required this.id,
+      required this.created,
+      required this.object,
+      required this.ownedBy});
 
-  Model Function({String id, int created, ModelObject object, String ownedBy}) get copyWith => _copyWith;
+  Model Function({String id, int created, ModelObject object, String ownedBy})
+      get copyWith => _copyWith;
 
-  Model _copyWith({Object? id = sdkOmittedValue, Object? created = sdkOmittedValue, Object? object = sdkOmittedValue, Object? ownedBy = sdkOmittedValue}) => Model(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    created: identical(created, sdkOmittedValue) ? this.created : created as int,
-    object: identical(object, sdkOmittedValue) ? this.object : object as ModelObject,
-    ownedBy: identical(ownedBy, sdkOmittedValue) ? this.ownedBy : ownedBy as String,
-  );
+  Model _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? created = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? ownedBy = sdkOmittedValue}) =>
+      Model(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        created:
+            identical(created, sdkOmittedValue) ? this.created : created as int,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ModelObject,
+        ownedBy: identical(ownedBy, sdkOmittedValue)
+            ? this.ownedBy
+            : ownedBy as String,
+      );
 
   factory Model.fromJson(Map<String, dynamic> json) => Model(
-    id: (json['id'] as String?)!,
-    created: ((json['created'] as num?)?.toInt())!,
-    object: (json['object'] != null ? ModelObject.fromJson(json['object'] as String) : null)!,
-    ownedBy: (json['owned_by'] as String?)!,
-  );
+        id: (json['id'] as String?)!,
+        created: ((json['created'] as num?)?.toInt())!,
+        object: (json['object'] != null
+            ? ModelObject.fromJson(json['object'] as String)
+            : null)!,
+        ownedBy: (json['owned_by'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'created': created,
-    'object': object.toJson(),
-    'owned_by': ownedBy,
-  };
+        'id': id,
+        'created': created,
+        'object': object.toJson(),
+        'owned_by': ownedBy,
+      };
 }
 
 /// A detailed breakdown of the input tokens.
 class ResponseUsageInputTokensDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of tokens that were retrieved from the cache.
   final int cachedTokens;
 
   const ResponseUsageInputTokensDetails({required this.cachedTokens});
 
-  ResponseUsageInputTokensDetails Function({int cachedTokens}) get copyWith => _copyWith;
+  ResponseUsageInputTokensDetails Function({int cachedTokens}) get copyWith =>
+      _copyWith;
 
-  ResponseUsageInputTokensDetails _copyWith({Object? cachedTokens = sdkOmittedValue}) => ResponseUsageInputTokensDetails(
-    cachedTokens: identical(cachedTokens, sdkOmittedValue) ? this.cachedTokens : cachedTokens as int,
-  );
+  ResponseUsageInputTokensDetails _copyWith(
+          {Object? cachedTokens = sdkOmittedValue}) =>
+      ResponseUsageInputTokensDetails(
+        cachedTokens: identical(cachedTokens, sdkOmittedValue)
+            ? this.cachedTokens
+            : cachedTokens as int,
+      );
 
-  factory ResponseUsageInputTokensDetails.fromJson(Map<String, dynamic> json) => ResponseUsageInputTokensDetails(
-    cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
-  );
+  factory ResponseUsageInputTokensDetails.fromJson(Map<String, dynamic> json) =>
+      ResponseUsageInputTokensDetails(
+        cachedTokens: ((json['cached_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'cached_tokens': cachedTokens,
-  };
+        'cached_tokens': cachedTokens,
+      };
 }
 
 /// A detailed breakdown of the output tokens.
 class ResponseUsageOutputTokensDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of reasoning tokens.
   final int reasoningTokens;
+
   /// The number of tool output tokens.
   final int toolOutputTokens;
 
-  const ResponseUsageOutputTokensDetails({required this.reasoningTokens, required this.toolOutputTokens});
+  const ResponseUsageOutputTokensDetails(
+      {required this.reasoningTokens, required this.toolOutputTokens});
 
-  ResponseUsageOutputTokensDetails Function({int reasoningTokens, int toolOutputTokens}) get copyWith => _copyWith;
+  ResponseUsageOutputTokensDetails Function(
+      {int reasoningTokens, int toolOutputTokens}) get copyWith => _copyWith;
 
-  ResponseUsageOutputTokensDetails _copyWith({Object? reasoningTokens = sdkOmittedValue, Object? toolOutputTokens = sdkOmittedValue}) => ResponseUsageOutputTokensDetails(
-    reasoningTokens: identical(reasoningTokens, sdkOmittedValue) ? this.reasoningTokens : reasoningTokens as int,
-    toolOutputTokens: identical(toolOutputTokens, sdkOmittedValue) ? this.toolOutputTokens : toolOutputTokens as int,
-  );
+  ResponseUsageOutputTokensDetails _copyWith(
+          {Object? reasoningTokens = sdkOmittedValue,
+          Object? toolOutputTokens = sdkOmittedValue}) =>
+      ResponseUsageOutputTokensDetails(
+        reasoningTokens: identical(reasoningTokens, sdkOmittedValue)
+            ? this.reasoningTokens
+            : reasoningTokens as int,
+        toolOutputTokens: identical(toolOutputTokens, sdkOmittedValue)
+            ? this.toolOutputTokens
+            : toolOutputTokens as int,
+      );
 
-  factory ResponseUsageOutputTokensDetails.fromJson(Map<String, dynamic> json) => ResponseUsageOutputTokensDetails(
-    reasoningTokens: ((json['reasoning_tokens'] as num?)?.toInt())!,
-    toolOutputTokens: ((json['tool_output_tokens'] as num?)?.toInt())!,
-  );
+  factory ResponseUsageOutputTokensDetails.fromJson(
+          Map<String, dynamic> json) =>
+      ResponseUsageOutputTokensDetails(
+        reasoningTokens: ((json['reasoning_tokens'] as num?)?.toInt())!,
+        toolOutputTokens: ((json['tool_output_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'reasoning_tokens': reasoningTokens,
-    'tool_output_tokens': toolOutputTokens,
-  };
+        'reasoning_tokens': reasoningTokens,
+        'tool_output_tokens': toolOutputTokens,
+      };
 }

@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models (part 14)
 /// A slug representing the database engine used for the cluster. The possible values are: "pg" for PostgreSQL, "mysql" for MySQL, "redis" for Caching, "mongodb" for MongoDB, "kafka" for Kafka, "opensearch" for OpenSearch, "valkey" for Valkey, "advanced_pg" for PostgreSQL Advanced Edition, and "advanced_mysql" for MySQL Advanced Edition. Advanced Edition engines are currently in public preview.
 final class DatabaseClusterRequestEngine {
-
   final String value;
 
   const DatabaseClusterRequestEngine._(this.value);
 
-  factory DatabaseClusterRequestEngine.fromJson(String value) => DatabaseClusterRequestEngine._(value);
+  factory DatabaseClusterRequestEngine.fromJson(String value) =>
+      DatabaseClusterRequestEngine._(value);
 
   static const pg = DatabaseClusterRequestEngine._('pg');
   static const mysql = DatabaseClusterRequestEngine._('mysql');
@@ -25,22 +25,25 @@ final class DatabaseClusterRequestEngine {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DatabaseClusterRequestEngine && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DatabaseClusterRequestEngine && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the schema.
 final class DatabaseKafkaSchemaCreateSchemaType {
-
   final String value;
 
   const DatabaseKafkaSchemaCreateSchemaType._(this.value);
 
-  factory DatabaseKafkaSchemaCreateSchemaType.fromJson(String value) => DatabaseKafkaSchemaCreateSchemaType._(value);
+  factory DatabaseKafkaSchemaCreateSchemaType.fromJson(String value) =>
+      DatabaseKafkaSchemaCreateSchemaType._(value);
 
   static const avro = DatabaseKafkaSchemaCreateSchemaType._('AVRO');
   static const json = DatabaseKafkaSchemaCreateSchemaType._('JSON');
@@ -48,22 +51,25 @@ final class DatabaseKafkaSchemaCreateSchemaType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DatabaseKafkaSchemaCreateSchemaType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DatabaseKafkaSchemaCreateSchemaType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// A string representing the current status of the database cluster.
 final class DatabaseReplicaStatus {
-
   final String value;
 
   const DatabaseReplicaStatus._(this.value);
 
-  factory DatabaseReplicaStatus.fromJson(String value) => DatabaseReplicaStatus._(value);
+  factory DatabaseReplicaStatus.fromJson(String value) =>
+      DatabaseReplicaStatus._(value);
 
   static const creating = DatabaseReplicaStatus._('creating');
   static const online = DatabaseReplicaStatus._('online');
@@ -73,22 +79,25 @@ final class DatabaseReplicaStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DatabaseReplicaStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DatabaseReplicaStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// A string representing the current status of the database cluster.
 final class DatabaseReplicaReadStatus {
-
   final String value;
 
   const DatabaseReplicaReadStatus._(this.value);
 
-  factory DatabaseReplicaReadStatus.fromJson(String value) => DatabaseReplicaReadStatus._(value);
+  factory DatabaseReplicaReadStatus.fromJson(String value) =>
+      DatabaseReplicaReadStatus._(value);
 
   static const creating = DatabaseReplicaReadStatus._('creating');
   static const online = DatabaseReplicaReadStatus._('online');
@@ -98,71 +107,98 @@ final class DatabaseReplicaReadStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DatabaseReplicaReadStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DatabaseReplicaReadStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The compatibility level of the schema registry.
 final class DatabaseSchemaRegistryConfigCompatibilityLevel {
-
   final String value;
 
   const DatabaseSchemaRegistryConfigCompatibilityLevel._(this.value);
 
-  factory DatabaseSchemaRegistryConfigCompatibilityLevel.fromJson(String value) => DatabaseSchemaRegistryConfigCompatibilityLevel._(value);
+  factory DatabaseSchemaRegistryConfigCompatibilityLevel.fromJson(
+          String value) =>
+      DatabaseSchemaRegistryConfigCompatibilityLevel._(value);
 
   static const none = DatabaseSchemaRegistryConfigCompatibilityLevel._('NONE');
-  static const backward = DatabaseSchemaRegistryConfigCompatibilityLevel._('BACKWARD');
-  static const backwardTransitive = DatabaseSchemaRegistryConfigCompatibilityLevel._('BACKWARD_TRANSITIVE');
-  static const forward = DatabaseSchemaRegistryConfigCompatibilityLevel._('FORWARD');
-  static const forwardTransitive = DatabaseSchemaRegistryConfigCompatibilityLevel._('FORWARD_TRANSITIVE');
+  static const backward =
+      DatabaseSchemaRegistryConfigCompatibilityLevel._('BACKWARD');
+  static const backwardTransitive =
+      DatabaseSchemaRegistryConfigCompatibilityLevel._('BACKWARD_TRANSITIVE');
+  static const forward =
+      DatabaseSchemaRegistryConfigCompatibilityLevel._('FORWARD');
+  static const forwardTransitive =
+      DatabaseSchemaRegistryConfigCompatibilityLevel._('FORWARD_TRANSITIVE');
   static const full = DatabaseSchemaRegistryConfigCompatibilityLevel._('FULL');
-  static const fullTransitive = DatabaseSchemaRegistryConfigCompatibilityLevel._('FULL_TRANSITIVE');
+  static const fullTransitive =
+      DatabaseSchemaRegistryConfigCompatibilityLevel._('FULL_TRANSITIVE');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DatabaseSchemaRegistryConfigCompatibilityLevel && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DatabaseSchemaRegistryConfigCompatibilityLevel &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The compatibility level of the schema registry.
 final class DatabaseSchemaRegistrySubjectConfigCompatibilityLevel {
-
   final String value;
 
   const DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._(this.value);
 
-  factory DatabaseSchemaRegistrySubjectConfigCompatibilityLevel.fromJson(String value) => DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._(value);
+  factory DatabaseSchemaRegistrySubjectConfigCompatibilityLevel.fromJson(
+          String value) =>
+      DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._(value);
 
-  static const none = DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._('NONE');
-  static const backward = DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._('BACKWARD');
-  static const backwardTransitive = DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._('BACKWARD_TRANSITIVE');
-  static const forward = DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._('FORWARD');
-  static const forwardTransitive = DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._('FORWARD_TRANSITIVE');
-  static const full = DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._('FULL');
-  static const fullTransitive = DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._('FULL_TRANSITIVE');
+  static const none =
+      DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._('NONE');
+  static const backward =
+      DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._('BACKWARD');
+  static const backwardTransitive =
+      DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._(
+          'BACKWARD_TRANSITIVE');
+  static const forward =
+      DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._('FORWARD');
+  static const forwardTransitive =
+      DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._(
+          'FORWARD_TRANSITIVE');
+  static const full =
+      DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._('FULL');
+  static const fullTransitive =
+      DatabaseSchemaRegistrySubjectConfigCompatibilityLevel._(
+          'FULL_TRANSITIVE');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DatabaseSchemaRegistrySubjectConfigCompatibilityLevel && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DatabaseSchemaRegistrySubjectConfigCompatibilityLevel &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// A string representing the database user's role. The value will be either "primary" or "normal".
 final class DatabaseUserRole {
-
   final String value;
 
   const DatabaseUserRole._(this.value);
@@ -174,22 +210,25 @@ final class DatabaseUserRole {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DatabaseUserRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DatabaseUserRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Current state of the Dedicated Inference.
 final class DedicatedInferenceStatus {
-
   final String value;
 
   const DedicatedInferenceStatus._(this.value);
 
-  factory DedicatedInferenceStatus.fromJson(String value) => DedicatedInferenceStatus._(value);
+  factory DedicatedInferenceStatus.fromJson(String value) =>
+      DedicatedInferenceStatus._(value);
 
   static const active = DedicatedInferenceStatus._('active');
   static const new_ = DedicatedInferenceStatus._('new');
@@ -200,22 +239,25 @@ final class DedicatedInferenceStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DedicatedInferenceStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DedicatedInferenceStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// DigitalOcean region where the Dedicated Inference is hosted.
 final class DedicatedInferenceSpecRegion {
-
   final String value;
 
   const DedicatedInferenceSpecRegion._(this.value);
 
-  factory DedicatedInferenceSpecRegion.fromJson(String value) => DedicatedInferenceSpecRegion._(value);
+  factory DedicatedInferenceSpecRegion.fromJson(String value) =>
+      DedicatedInferenceSpecRegion._(value);
 
   static const atl1 = DedicatedInferenceSpecRegion._('atl1');
   static const nyc2 = DedicatedInferenceSpecRegion._('nyc2');
@@ -223,22 +265,25 @@ final class DedicatedInferenceSpecRegion {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DedicatedInferenceSpecRegion && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DedicatedInferenceSpecRegion && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// DigitalOcean region where the Dedicated Inference is hosted.
 final class DedicatedInferenceSpecRequestRegion {
-
   final String value;
 
   const DedicatedInferenceSpecRequestRegion._(this.value);
 
-  factory DedicatedInferenceSpecRequestRegion.fromJson(String value) => DedicatedInferenceSpecRequestRegion._(value);
+  factory DedicatedInferenceSpecRequestRegion.fromJson(String value) =>
+      DedicatedInferenceSpecRequestRegion._(value);
 
   static const atl1 = DedicatedInferenceSpecRequestRegion._('atl1');
   static const nyc2 = DedicatedInferenceSpecRequestRegion._('nyc2');
@@ -246,22 +291,25 @@ final class DedicatedInferenceSpecRequestRegion {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DedicatedInferenceSpecRequestRegion && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DedicatedInferenceSpecRequestRegion && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The current status of the deletion job.
 final class DeletionJobStatus {
-
   final String value;
 
   const DeletionJobStatus._(this.value);
 
-  factory DeletionJobStatus.fromJson(String value) => DeletionJobStatus._(value);
+  factory DeletionJobStatus.fromJson(String value) =>
+      DeletionJobStatus._(value);
 
   static const queued = DeletionJobStatus._('queued');
   static const running = DeletionJobStatus._('running');
@@ -270,10 +318,13 @@ final class DeletionJobStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is DeletionJobStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is DeletionJobStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -8,60 +8,99 @@ part of 'agent_platform_api_api_start.dart';
 class ApiStartKnowledgeBaseIndexingJobInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// List of data source ids to index, if none are provided, all data sources will be indexed
   final SdkOptional<List<String>> dataSourceUuids;
+
   /// Knowledge base id
   final SdkOptional<String> knowledgeBaseUuid;
 
-  const ApiStartKnowledgeBaseIndexingJobInputPublic({this.dataSourceUuids = const SdkOmitted(), this.knowledgeBaseUuid = const SdkOmitted()});
+  const ApiStartKnowledgeBaseIndexingJobInputPublic(
+      {this.dataSourceUuids = const SdkOmitted(),
+      this.knowledgeBaseUuid = const SdkOmitted()});
 
-  ApiStartKnowledgeBaseIndexingJobInputPublic Function({SdkOptional<List<String>> dataSourceUuids, SdkOptional<String> knowledgeBaseUuid}) get copyWith => _copyWith;
+  ApiStartKnowledgeBaseIndexingJobInputPublic Function(
+      {SdkOptional<List<String>> dataSourceUuids,
+      SdkOptional<String> knowledgeBaseUuid}) get copyWith => _copyWith;
 
-  ApiStartKnowledgeBaseIndexingJobInputPublic _copyWith({Object? dataSourceUuids = sdkOmittedValue, Object? knowledgeBaseUuid = sdkOmittedValue}) => ApiStartKnowledgeBaseIndexingJobInputPublic(
-    dataSourceUuids: identical(dataSourceUuids, sdkOmittedValue) ? this.dataSourceUuids : dataSourceUuids as SdkOptional<List<String>>,
-    knowledgeBaseUuid: identical(knowledgeBaseUuid, sdkOmittedValue) ? this.knowledgeBaseUuid : knowledgeBaseUuid as SdkOptional<String>,
-  );
+  ApiStartKnowledgeBaseIndexingJobInputPublic _copyWith(
+          {Object? dataSourceUuids = sdkOmittedValue,
+          Object? knowledgeBaseUuid = sdkOmittedValue}) =>
+      ApiStartKnowledgeBaseIndexingJobInputPublic(
+        dataSourceUuids: identical(dataSourceUuids, sdkOmittedValue)
+            ? this.dataSourceUuids
+            : dataSourceUuids as SdkOptional<List<String>>,
+        knowledgeBaseUuid: identical(knowledgeBaseUuid, sdkOmittedValue)
+            ? this.knowledgeBaseUuid
+            : knowledgeBaseUuid as SdkOptional<String>,
+      );
 
-  factory ApiStartKnowledgeBaseIndexingJobInputPublic.fromJson(Map<String, dynamic> json) => ApiStartKnowledgeBaseIndexingJobInputPublic(
-    dataSourceUuids: json['data_source_uuids'] != null ? SdkPresent(((json['data_source_uuids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    knowledgeBaseUuid: json['knowledge_base_uuid'] != null ? SdkPresent((json['knowledge_base_uuid'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiStartKnowledgeBaseIndexingJobInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiStartKnowledgeBaseIndexingJobInputPublic(
+        dataSourceUuids: json['data_source_uuids'] != null
+            ? SdkPresent(((json['data_source_uuids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        knowledgeBaseUuid: json['knowledge_base_uuid'] != null
+            ? SdkPresent((json['knowledge_base_uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (dataSourceUuids) {
-      SdkPresent<List<String>>(value: final value) => {'data_source_uuids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (knowledgeBaseUuid) {
-      SdkPresent<String>(value: final value) => {'knowledge_base_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (dataSourceUuids) {
+          SdkPresent<List<String>>(value: final value) => {
+              'data_source_uuids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (knowledgeBaseUuid) {
+          SdkPresent<String>(value: final value) => {
+              'knowledge_base_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// StartKnowledgeBaseIndexingJobOutput description
 class ApiStartKnowledgeBaseIndexingJobOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// IndexingJob description
   final SdkOptional<ApiIndexingJob> job;
 
   const ApiStartKnowledgeBaseIndexingJobOutput({this.job = const SdkOmitted()});
 
-  ApiStartKnowledgeBaseIndexingJobOutput Function({SdkOptional<ApiIndexingJob> job}) get copyWith => _copyWith;
+  ApiStartKnowledgeBaseIndexingJobOutput Function(
+      {SdkOptional<ApiIndexingJob> job}) get copyWith => _copyWith;
 
-  ApiStartKnowledgeBaseIndexingJobOutput _copyWith({Object? job = sdkOmittedValue}) => ApiStartKnowledgeBaseIndexingJobOutput(
-    job: identical(job, sdkOmittedValue) ? this.job : job as SdkOptional<ApiIndexingJob>,
-  );
+  ApiStartKnowledgeBaseIndexingJobOutput _copyWith(
+          {Object? job = sdkOmittedValue}) =>
+      ApiStartKnowledgeBaseIndexingJobOutput(
+        job: identical(job, sdkOmittedValue)
+            ? this.job
+            : job as SdkOptional<ApiIndexingJob>,
+      );
 
-  factory ApiStartKnowledgeBaseIndexingJobOutput.fromJson(Map<String, dynamic> json) => ApiStartKnowledgeBaseIndexingJobOutput(
-    job: json['job'] != null ? SdkPresent((json['job'] != null ? ApiIndexingJob.fromJson(json['job'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiStartKnowledgeBaseIndexingJobOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiStartKnowledgeBaseIndexingJobOutput(
+        job: json['job'] != null
+            ? SdkPresent((json['job'] != null
+                ? ApiIndexingJob.fromJson(json['job'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (job) {
-      SdkPresent<ApiIndexingJob>(value: final value) => {'job': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (job) {
+          SdkPresent<ApiIndexingJob>(value: final value) => {
+              'job': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

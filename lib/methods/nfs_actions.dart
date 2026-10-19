@@ -20,8 +20,15 @@ Future<NfsActionsResponse> nfsCreateAction(ClientConfig config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'nfsCreateAction',
-          fromJsonRaw: (value) => NfsActionsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              NfsActionsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

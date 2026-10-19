@@ -8,84 +8,148 @@ part of 'batch_inference.dart';
 class BatchRequestCounts {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `integer` value serialized in the `total` wire field.
   final SdkOptional<int> total;
+
   /// Optional `integer` value serialized in the `completed` wire field.
   final SdkOptional<int> completed;
+
   /// Optional `integer` value serialized in the `failed` wire field.
   final SdkOptional<int> failed;
 
-  const BatchRequestCounts({this.total = const SdkOmitted(), this.completed = const SdkOmitted(), this.failed = const SdkOmitted()});
+  const BatchRequestCounts(
+      {this.total = const SdkOmitted(),
+      this.completed = const SdkOmitted(),
+      this.failed = const SdkOmitted()});
 
-  BatchRequestCounts Function({SdkOptional<int> total, SdkOptional<int> completed, SdkOptional<int> failed}) get copyWith => _copyWith;
+  BatchRequestCounts Function(
+      {SdkOptional<int> total,
+      SdkOptional<int> completed,
+      SdkOptional<int> failed}) get copyWith => _copyWith;
 
-  BatchRequestCounts _copyWith({Object? total = sdkOmittedValue, Object? completed = sdkOmittedValue, Object? failed = sdkOmittedValue}) => BatchRequestCounts(
-    total: identical(total, sdkOmittedValue) ? this.total : total as SdkOptional<int>,
-    completed: identical(completed, sdkOmittedValue) ? this.completed : completed as SdkOptional<int>,
-    failed: identical(failed, sdkOmittedValue) ? this.failed : failed as SdkOptional<int>,
-  );
+  BatchRequestCounts _copyWith(
+          {Object? total = sdkOmittedValue,
+          Object? completed = sdkOmittedValue,
+          Object? failed = sdkOmittedValue}) =>
+      BatchRequestCounts(
+        total: identical(total, sdkOmittedValue)
+            ? this.total
+            : total as SdkOptional<int>,
+        completed: identical(completed, sdkOmittedValue)
+            ? this.completed
+            : completed as SdkOptional<int>,
+        failed: identical(failed, sdkOmittedValue)
+            ? this.failed
+            : failed as SdkOptional<int>,
+      );
 
-  factory BatchRequestCounts.fromJson(Map<String, dynamic> json) => BatchRequestCounts(
-    total: json['total'] != null ? SdkPresent(((json['total'] as num?)?.toInt())!) : const SdkOmitted(),
-    completed: json['completed'] != null ? SdkPresent(((json['completed'] as num?)?.toInt())!) : const SdkOmitted(),
-    failed: json['failed'] != null ? SdkPresent(((json['failed'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory BatchRequestCounts.fromJson(Map<String, dynamic> json) =>
+      BatchRequestCounts(
+        total: json['total'] != null
+            ? SdkPresent(((json['total'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        completed: json['completed'] != null
+            ? SdkPresent(((json['completed'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        failed: json['failed'] != null
+            ? SdkPresent(((json['failed'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (total) {
-      SdkPresent<int>(value: final value) => {'total': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (completed) {
-      SdkPresent<int>(value: final value) => {'completed': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (failed) {
-      SdkPresent<int>(value: final value) => {'failed': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (total) {
+          SdkPresent<int>(value: final value) => {
+              'total': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (completed) {
+          SdkPresent<int>(value: final value) => {
+              'completed': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (failed) {
+          SdkPresent<int>(value: final value) => {
+              'failed': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `errors[]` wire field.
 class BatchErrorsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `code` wire field.
   final SdkOptional<String> code;
+
   /// Optional `string` value serialized in the `message` wire field.
   final SdkOptional<String> message;
+
   /// 1-based JSONL line number, if applicable.
   final SdkOptional<int?> line;
 
-  const BatchErrorsItem({this.code = const SdkOmitted(), this.message = const SdkOmitted(), this.line = const SdkOmitted()});
+  const BatchErrorsItem(
+      {this.code = const SdkOmitted(),
+      this.message = const SdkOmitted(),
+      this.line = const SdkOmitted()});
 
-  BatchErrorsItem Function({SdkOptional<String> code, SdkOptional<String> message, SdkOptional<int?> line}) get copyWith => _copyWith;
+  BatchErrorsItem Function(
+      {SdkOptional<String> code,
+      SdkOptional<String> message,
+      SdkOptional<int?> line}) get copyWith => _copyWith;
 
-  BatchErrorsItem _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue, Object? line = sdkOmittedValue}) => BatchErrorsItem(
-    code: identical(code, sdkOmittedValue) ? this.code : code as SdkOptional<String>,
-    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
-    line: identical(line, sdkOmittedValue) ? this.line : line as SdkOptional<int?>,
-  );
+  BatchErrorsItem _copyWith(
+          {Object? code = sdkOmittedValue,
+          Object? message = sdkOmittedValue,
+          Object? line = sdkOmittedValue}) =>
+      BatchErrorsItem(
+        code: identical(code, sdkOmittedValue)
+            ? this.code
+            : code as SdkOptional<String>,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as SdkOptional<String>,
+        line: identical(line, sdkOmittedValue)
+            ? this.line
+            : line as SdkOptional<int?>,
+      );
 
-  factory BatchErrorsItem.fromJson(Map<String, dynamic> json) => BatchErrorsItem(
-    code: json['code'] != null ? SdkPresent((json['code'] as String?)!) : const SdkOmitted(),
-    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
-    line: json.containsKey('line') ? SdkPresent((json['line'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+  factory BatchErrorsItem.fromJson(Map<String, dynamic> json) =>
+      BatchErrorsItem(
+        code: json['code'] != null
+            ? SdkPresent((json['code'] as String?)!)
+            : const SdkOmitted(),
+        message: json['message'] != null
+            ? SdkPresent((json['message'] as String?)!)
+            : const SdkOmitted(),
+        line: json.containsKey('line')
+            ? SdkPresent((json['line'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (code) {
-      SdkPresent<String>(value: final value) => {'code': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (message) {
-      SdkPresent<String>(value: final value) => {'message': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (line) {
-      SdkPresent<int?>(value: final value) => {'line': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (code) {
+          SdkPresent<String>(value: final value) => {
+              'code': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (message) {
+          SdkPresent<String>(value: final value) => {
+              'message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (line) {
+          SdkPresent<int?>(value: final value) => {
+              'line': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
