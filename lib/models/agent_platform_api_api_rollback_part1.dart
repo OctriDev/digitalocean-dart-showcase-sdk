@@ -8,68 +8,115 @@ part of 'agent_platform_api_api_rollback.dart';
 class ApiRollbackToAgentVersionInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Agent unique identifier
   final SdkOptional<String> uuid;
+
   /// Unique identifier
   final SdkOptional<String> versionHash;
 
-  const ApiRollbackToAgentVersionInputPublic({this.uuid = const SdkOmitted(), this.versionHash = const SdkOmitted()});
+  const ApiRollbackToAgentVersionInputPublic(
+      {this.uuid = const SdkOmitted(), this.versionHash = const SdkOmitted()});
 
-  ApiRollbackToAgentVersionInputPublic Function({SdkOptional<String> uuid, SdkOptional<String> versionHash}) get copyWith => _copyWith;
+  ApiRollbackToAgentVersionInputPublic Function(
+      {SdkOptional<String> uuid,
+      SdkOptional<String> versionHash}) get copyWith => _copyWith;
 
-  ApiRollbackToAgentVersionInputPublic _copyWith({Object? uuid = sdkOmittedValue, Object? versionHash = sdkOmittedValue}) => ApiRollbackToAgentVersionInputPublic(
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
-    versionHash: identical(versionHash, sdkOmittedValue) ? this.versionHash : versionHash as SdkOptional<String>,
-  );
+  ApiRollbackToAgentVersionInputPublic _copyWith(
+          {Object? uuid = sdkOmittedValue,
+          Object? versionHash = sdkOmittedValue}) =>
+      ApiRollbackToAgentVersionInputPublic(
+        uuid: identical(uuid, sdkOmittedValue)
+            ? this.uuid
+            : uuid as SdkOptional<String>,
+        versionHash: identical(versionHash, sdkOmittedValue)
+            ? this.versionHash
+            : versionHash as SdkOptional<String>,
+      );
 
-  factory ApiRollbackToAgentVersionInputPublic.fromJson(Map<String, dynamic> json) => ApiRollbackToAgentVersionInputPublic(
-    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
-    versionHash: json['version_hash'] != null ? SdkPresent((json['version_hash'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiRollbackToAgentVersionInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiRollbackToAgentVersionInputPublic(
+        uuid: json['uuid'] != null
+            ? SdkPresent((json['uuid'] as String?)!)
+            : const SdkOmitted(),
+        versionHash: json['version_hash'] != null
+            ? SdkPresent((json['version_hash'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (uuid) {
-      SdkPresent<String>(value: final value) => {'uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (versionHash) {
-      SdkPresent<String>(value: final value) => {'version_hash': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (uuid) {
+          SdkPresent<String>(value: final value) => {
+              'uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (versionHash) {
+          SdkPresent<String>(value: final value) => {
+              'version_hash': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ApiRollbackToAgentVersionOutput` API schema.
 class ApiRollbackToAgentVersionOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An alternative way to provide auth information. for internal use only.
   final SdkOptional<ApiAuditHeader> auditHeader;
+
   /// Unique identifier
   final SdkOptional<String> versionHash;
 
-  const ApiRollbackToAgentVersionOutput({this.auditHeader = const SdkOmitted(), this.versionHash = const SdkOmitted()});
+  const ApiRollbackToAgentVersionOutput(
+      {this.auditHeader = const SdkOmitted(),
+      this.versionHash = const SdkOmitted()});
 
-  ApiRollbackToAgentVersionOutput Function({SdkOptional<ApiAuditHeader> auditHeader, SdkOptional<String> versionHash}) get copyWith => _copyWith;
+  ApiRollbackToAgentVersionOutput Function(
+      {SdkOptional<ApiAuditHeader> auditHeader,
+      SdkOptional<String> versionHash}) get copyWith => _copyWith;
 
-  ApiRollbackToAgentVersionOutput _copyWith({Object? auditHeader = sdkOmittedValue, Object? versionHash = sdkOmittedValue}) => ApiRollbackToAgentVersionOutput(
-    auditHeader: identical(auditHeader, sdkOmittedValue) ? this.auditHeader : auditHeader as SdkOptional<ApiAuditHeader>,
-    versionHash: identical(versionHash, sdkOmittedValue) ? this.versionHash : versionHash as SdkOptional<String>,
-  );
+  ApiRollbackToAgentVersionOutput _copyWith(
+          {Object? auditHeader = sdkOmittedValue,
+          Object? versionHash = sdkOmittedValue}) =>
+      ApiRollbackToAgentVersionOutput(
+        auditHeader: identical(auditHeader, sdkOmittedValue)
+            ? this.auditHeader
+            : auditHeader as SdkOptional<ApiAuditHeader>,
+        versionHash: identical(versionHash, sdkOmittedValue)
+            ? this.versionHash
+            : versionHash as SdkOptional<String>,
+      );
 
-  factory ApiRollbackToAgentVersionOutput.fromJson(Map<String, dynamic> json) => ApiRollbackToAgentVersionOutput(
-    auditHeader: json['audit_header'] != null ? SdkPresent((json['audit_header'] != null ? ApiAuditHeader.fromJson(json['audit_header'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    versionHash: json['version_hash'] != null ? SdkPresent((json['version_hash'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiRollbackToAgentVersionOutput.fromJson(Map<String, dynamic> json) =>
+      ApiRollbackToAgentVersionOutput(
+        auditHeader: json['audit_header'] != null
+            ? SdkPresent((json['audit_header'] != null
+                ? ApiAuditHeader.fromJson(
+                    json['audit_header'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        versionHash: json['version_hash'] != null
+            ? SdkPresent((json['version_hash'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (auditHeader) {
-      SdkPresent<ApiAuditHeader>(value: final value) => {'audit_header': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (versionHash) {
-      SdkPresent<String>(value: final value) => {'version_hash': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (auditHeader) {
+          SdkPresent<ApiAuditHeader>(value: final value) => {
+              'audit_header': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (versionHash) {
+          SdkPresent<String>(value: final value) => {
+              'version_hash': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -10,113 +10,174 @@ sealed class LoadBalancerCreateRequest {
   const LoadBalancerCreateRequest();
   factory LoadBalancerCreateRequest.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = LoadBalancerCreateRequestVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LoadBalancerCreateRequestLoadBalancerCreateRequestVariant0(value); } } catch (_) {}
-      try { final value = LoadBalancerCreateRequestVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LoadBalancerCreateRequestLoadBalancerCreateRequestVariant1(value); } } catch (_) {}
+      try {
+        final value = LoadBalancerCreateRequestVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LoadBalancerCreateRequestLoadBalancerCreateRequestVariant0(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = LoadBalancerCreateRequestVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return LoadBalancerCreateRequestLoadBalancerCreateRequestVariant1(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return LoadBalancerCreateRequestLoadBalancerCreateRequestVariant0(LoadBalancerCreateRequestVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return LoadBalancerCreateRequestLoadBalancerCreateRequestVariant1(LoadBalancerCreateRequestVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return LoadBalancerCreateRequestLoadBalancerCreateRequestVariant0(
+          LoadBalancerCreateRequestVariant0.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return LoadBalancerCreateRequestLoadBalancerCreateRequestVariant1(
+          LoadBalancerCreateRequestVariant1.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for LoadBalancerCreateRequest");
   }
   Object? toJson();
 }
 
-final class LoadBalancerCreateRequestLoadBalancerCreateRequestVariant0 extends LoadBalancerCreateRequest {
+final class LoadBalancerCreateRequestLoadBalancerCreateRequestVariant0
+    extends LoadBalancerCreateRequest {
   final LoadBalancerCreateRequestVariant0 value;
   const LoadBalancerCreateRequestLoadBalancerCreateRequestVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class LoadBalancerCreateRequestLoadBalancerCreateRequestVariant1 extends LoadBalancerCreateRequest {
+final class LoadBalancerCreateRequestLoadBalancerCreateRequestVariant1
+    extends LoadBalancerCreateRequest {
   final LoadBalancerCreateRequestVariant1 value;
   const LoadBalancerCreateRequestLoadBalancerCreateRequestVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `LoadBalancerCreateResponse` API schema.
 class LoadBalancerCreateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `load_balancer` wire field.
   final SdkOptional<LoadBalancer> loadBalancer;
 
   const LoadBalancerCreateResponse({this.loadBalancer = const SdkOmitted()});
 
-  LoadBalancerCreateResponse Function({SdkOptional<LoadBalancer> loadBalancer}) get copyWith => _copyWith;
+  LoadBalancerCreateResponse Function({SdkOptional<LoadBalancer> loadBalancer})
+      get copyWith => _copyWith;
 
-  LoadBalancerCreateResponse _copyWith({Object? loadBalancer = sdkOmittedValue}) => LoadBalancerCreateResponse(
-    loadBalancer: identical(loadBalancer, sdkOmittedValue) ? this.loadBalancer : loadBalancer as SdkOptional<LoadBalancer>,
-  );
+  LoadBalancerCreateResponse _copyWith(
+          {Object? loadBalancer = sdkOmittedValue}) =>
+      LoadBalancerCreateResponse(
+        loadBalancer: identical(loadBalancer, sdkOmittedValue)
+            ? this.loadBalancer
+            : loadBalancer as SdkOptional<LoadBalancer>,
+      );
 
-  factory LoadBalancerCreateResponse.fromJson(Map<String, dynamic> json) => LoadBalancerCreateResponse(
-    loadBalancer: json['load_balancer'] != null ? SdkPresent((json['load_balancer'] != null ? LoadBalancer.fromJson(json['load_balancer'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory LoadBalancerCreateResponse.fromJson(Map<String, dynamic> json) =>
+      LoadBalancerCreateResponse(
+        loadBalancer: json['load_balancer'] != null
+            ? SdkPresent((json['load_balancer'] != null
+                ? LoadBalancer.fromJson(
+                    json['load_balancer'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (loadBalancer) {
-      SdkPresent<LoadBalancer>(value: final value) => {'load_balancer': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (loadBalancer) {
+          SdkPresent<LoadBalancer>(value: final value) => {
+              'load_balancer': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `LoadBalancerDropletIds` API schema.
 class LoadBalancerDropletIds {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array containing the IDs of the Droplets assigned to the load balancer.
   final SdkOptional<List<int>> dropletIds;
 
   const LoadBalancerDropletIds({this.dropletIds = const SdkOmitted()});
 
-  LoadBalancerDropletIds Function({SdkOptional<List<int>> dropletIds}) get copyWith => _copyWith;
+  LoadBalancerDropletIds Function({SdkOptional<List<int>> dropletIds})
+      get copyWith => _copyWith;
 
-  LoadBalancerDropletIds _copyWith({Object? dropletIds = sdkOmittedValue}) => LoadBalancerDropletIds(
-    dropletIds: identical(dropletIds, sdkOmittedValue) ? this.dropletIds : dropletIds as SdkOptional<List<int>>,
-  );
+  LoadBalancerDropletIds _copyWith({Object? dropletIds = sdkOmittedValue}) =>
+      LoadBalancerDropletIds(
+        dropletIds: identical(dropletIds, sdkOmittedValue)
+            ? this.dropletIds
+            : dropletIds as SdkOptional<List<int>>,
+      );
 
-  factory LoadBalancerDropletIds.fromJson(Map<String, dynamic> json) => LoadBalancerDropletIds(
-    dropletIds: json['droplet_ids'] != null ? SdkPresent(((json['droplet_ids'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
-  );
+  factory LoadBalancerDropletIds.fromJson(Map<String, dynamic> json) =>
+      LoadBalancerDropletIds(
+        dropletIds: json['droplet_ids'] != null
+            ? SdkPresent(((json['droplet_ids'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (dropletIds) {
-      SdkPresent<List<int>>(value: final value) => {'droplet_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (dropletIds) {
+          SdkPresent<List<int>>(value: final value) => {
+              'droplet_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `LoadBalancerDropletTag` API schema.
 class LoadBalancerDropletTag {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of a Droplet tag corresponding to Droplets assigned to the load balancer.
   final SdkOptional<String> tag;
 
   const LoadBalancerDropletTag({this.tag = const SdkOmitted()});
 
-  LoadBalancerDropletTag Function({SdkOptional<String> tag}) get copyWith => _copyWith;
+  LoadBalancerDropletTag Function({SdkOptional<String> tag}) get copyWith =>
+      _copyWith;
 
-  LoadBalancerDropletTag _copyWith({Object? tag = sdkOmittedValue}) => LoadBalancerDropletTag(
-    tag: identical(tag, sdkOmittedValue) ? this.tag : tag as SdkOptional<String>,
-  );
+  LoadBalancerDropletTag _copyWith({Object? tag = sdkOmittedValue}) =>
+      LoadBalancerDropletTag(
+        tag: identical(tag, sdkOmittedValue)
+            ? this.tag
+            : tag as SdkOptional<String>,
+      );
 
-  factory LoadBalancerDropletTag.fromJson(Map<String, dynamic> json) => LoadBalancerDropletTag(
-    tag: json['tag'] != null ? SdkPresent((json['tag'] as String?)!) : const SdkOmitted(),
-  );
+  factory LoadBalancerDropletTag.fromJson(Map<String, dynamic> json) =>
+      LoadBalancerDropletTag(
+        tag: json['tag'] != null
+            ? SdkPresent((json['tag'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (tag) {
-      SdkPresent<String>(value: final value) => {'tag': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (tag) {
+          SdkPresent<String>(value: final value) => {
+              'tag': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `LoadBalancerIp` API schema.
 class LoadBalancerIp {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An optional IP address to assign to the load balancer from one of your Bring Your Own IP (BYOIP) prefixes. The address must be an unassigned BYOIP address on your account in the same region as the load balancer. If omitted, DigitalOcean assigns a public IP address automatically. This field is only applied when creating the load balancer, cannot be changed afterward, and is not supported for `GLOBAL` or `INTERNAL` load balancers.
   final SdkOptional<String> ip;
 
@@ -125,43 +186,64 @@ class LoadBalancerIp {
   LoadBalancerIp Function({SdkOptional<String> ip}) get copyWith => _copyWith;
 
   LoadBalancerIp _copyWith({Object? ip = sdkOmittedValue}) => LoadBalancerIp(
-    ip: identical(ip, sdkOmittedValue) ? this.ip : ip as SdkOptional<String>,
-  );
+        ip: identical(ip, sdkOmittedValue)
+            ? this.ip
+            : ip as SdkOptional<String>,
+      );
 
   factory LoadBalancerIp.fromJson(Map<String, dynamic> json) => LoadBalancerIp(
-    ip: json['ip'] != null ? SdkPresent((json['ip'] as String?)!) : const SdkOmitted(),
-  );
+        ip: json['ip'] != null
+            ? SdkPresent((json['ip'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (ip) {
-      SdkPresent<String>(value: final value) => {'ip': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (ip) {
+          SdkPresent<String>(value: final value) => {
+              'ip': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class LoadBalancerUpdateRequestVariant0Variant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The slug identifier for the region where the resource will initially be available.
   final SdkOptional<RegionSlug> region;
 
-  const LoadBalancerUpdateRequestVariant0Variant1({this.region = const SdkOmitted()});
+  const LoadBalancerUpdateRequestVariant0Variant1(
+      {this.region = const SdkOmitted()});
 
-  LoadBalancerUpdateRequestVariant0Variant1 Function({SdkOptional<RegionSlug> region}) get copyWith => _copyWith;
+  LoadBalancerUpdateRequestVariant0Variant1 Function(
+      {SdkOptional<RegionSlug> region}) get copyWith => _copyWith;
 
-  LoadBalancerUpdateRequestVariant0Variant1 _copyWith({Object? region = sdkOmittedValue}) => LoadBalancerUpdateRequestVariant0Variant1(
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<RegionSlug>,
-  );
+  LoadBalancerUpdateRequestVariant0Variant1 _copyWith(
+          {Object? region = sdkOmittedValue}) =>
+      LoadBalancerUpdateRequestVariant0Variant1(
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<RegionSlug>,
+      );
 
-  factory LoadBalancerUpdateRequestVariant0Variant1.fromJson(Map<String, dynamic> json) => LoadBalancerUpdateRequestVariant0Variant1(
-    region: json['region'] != null ? SdkPresent((json['region'] != null ? RegionSlug.fromJson(json['region'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory LoadBalancerUpdateRequestVariant0Variant1.fromJson(
+          Map<String, dynamic> json) =>
+      LoadBalancerUpdateRequestVariant0Variant1(
+        region: json['region'] != null
+            ? SdkPresent((json['region'] != null
+                ? RegionSlug.fromJson(json['region'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (region) {
-      SdkPresent<RegionSlug>(value: final value) => {'region': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (region) {
+          SdkPresent<RegionSlug>(value: final value) => {
+              'region': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

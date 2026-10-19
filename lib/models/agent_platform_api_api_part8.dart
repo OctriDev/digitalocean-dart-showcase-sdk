@@ -8,269 +8,518 @@ part of 'agent_platform_api_api.dart';
 class ApiSpacesDataSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Spaces bucket name
   final SdkOptional<String> bucketName;
+
   /// Optional `string` value serialized in the `item_path` wire field.
   final SdkOptional<String> itemPath;
+
   /// Region of bucket
   final SdkOptional<String> region;
 
-  const ApiSpacesDataSource({this.bucketName = const SdkOmitted(), this.itemPath = const SdkOmitted(), this.region = const SdkOmitted()});
+  const ApiSpacesDataSource(
+      {this.bucketName = const SdkOmitted(),
+      this.itemPath = const SdkOmitted(),
+      this.region = const SdkOmitted()});
 
-  ApiSpacesDataSource Function({SdkOptional<String> bucketName, SdkOptional<String> itemPath, SdkOptional<String> region}) get copyWith => _copyWith;
+  ApiSpacesDataSource Function(
+      {SdkOptional<String> bucketName,
+      SdkOptional<String> itemPath,
+      SdkOptional<String> region}) get copyWith => _copyWith;
 
-  ApiSpacesDataSource _copyWith({Object? bucketName = sdkOmittedValue, Object? itemPath = sdkOmittedValue, Object? region = sdkOmittedValue}) => ApiSpacesDataSource(
-    bucketName: identical(bucketName, sdkOmittedValue) ? this.bucketName : bucketName as SdkOptional<String>,
-    itemPath: identical(itemPath, sdkOmittedValue) ? this.itemPath : itemPath as SdkOptional<String>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-  );
+  ApiSpacesDataSource _copyWith(
+          {Object? bucketName = sdkOmittedValue,
+          Object? itemPath = sdkOmittedValue,
+          Object? region = sdkOmittedValue}) =>
+      ApiSpacesDataSource(
+        bucketName: identical(bucketName, sdkOmittedValue)
+            ? this.bucketName
+            : bucketName as SdkOptional<String>,
+        itemPath: identical(itemPath, sdkOmittedValue)
+            ? this.itemPath
+            : itemPath as SdkOptional<String>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+      );
 
-  factory ApiSpacesDataSource.fromJson(Map<String, dynamic> json) => ApiSpacesDataSource(
-    bucketName: json['bucket_name'] != null ? SdkPresent((json['bucket_name'] as String?)!) : const SdkOmitted(),
-    itemPath: json['item_path'] != null ? SdkPresent((json['item_path'] as String?)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiSpacesDataSource.fromJson(Map<String, dynamic> json) =>
+      ApiSpacesDataSource(
+        bucketName: json['bucket_name'] != null
+            ? SdkPresent((json['bucket_name'] as String?)!)
+            : const SdkOmitted(),
+        itemPath: json['item_path'] != null
+            ? SdkPresent((json['item_path'] as String?)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (bucketName) {
-      SdkPresent<String>(value: final value) => {'bucket_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (itemPath) {
-      SdkPresent<String>(value: final value) => {'item_path': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (bucketName) {
+          SdkPresent<String>(value: final value) => {
+              'bucket_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (itemPath) {
+          SdkPresent<String>(value: final value) => {
+              'item_path': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Common optional fields shared by all span types
 class ApiSpanCommon {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
+
   /// Optional `int64`-formatted value serialized in the `duration_ns` wire field.
   final SdkOptional<String> durationNs;
+
   /// Arbitrary structured metadata
   final SdkOptional<Map<String, String>> metadata;
+
   /// Optional `int32`-formatted value serialized in the `status_code` wire field.
   final SdkOptional<int> statusCode;
+
   /// Free-form tags for filtering/grouping
   final SdkOptional<List<String>> tags;
 
-  const ApiSpanCommon({this.createdAt = const SdkOmitted(), this.durationNs = const SdkOmitted(), this.metadata = const SdkOmitted(), this.statusCode = const SdkOmitted(), this.tags = const SdkOmitted()});
+  const ApiSpanCommon(
+      {this.createdAt = const SdkOmitted(),
+      this.durationNs = const SdkOmitted(),
+      this.metadata = const SdkOmitted(),
+      this.statusCode = const SdkOmitted(),
+      this.tags = const SdkOmitted()});
 
-  ApiSpanCommon Function({SdkOptional<String> createdAt, SdkOptional<String> durationNs, SdkOptional<Map<String, String>> metadata, SdkOptional<int> statusCode, SdkOptional<List<String>> tags}) get copyWith => _copyWith;
+  ApiSpanCommon Function(
+      {SdkOptional<String> createdAt,
+      SdkOptional<String> durationNs,
+      SdkOptional<Map<String, String>> metadata,
+      SdkOptional<int> statusCode,
+      SdkOptional<List<String>> tags}) get copyWith => _copyWith;
 
-  ApiSpanCommon _copyWith({Object? createdAt = sdkOmittedValue, Object? durationNs = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? statusCode = sdkOmittedValue, Object? tags = sdkOmittedValue}) => ApiSpanCommon(
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    durationNs: identical(durationNs, sdkOmittedValue) ? this.durationNs : durationNs as SdkOptional<String>,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, String>>,
-    statusCode: identical(statusCode, sdkOmittedValue) ? this.statusCode : statusCode as SdkOptional<int>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-  );
+  ApiSpanCommon _copyWith(
+          {Object? createdAt = sdkOmittedValue,
+          Object? durationNs = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue,
+          Object? statusCode = sdkOmittedValue,
+          Object? tags = sdkOmittedValue}) =>
+      ApiSpanCommon(
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        durationNs: identical(durationNs, sdkOmittedValue)
+            ? this.durationNs
+            : durationNs as SdkOptional<String>,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, String>>,
+        statusCode: identical(statusCode, sdkOmittedValue)
+            ? this.statusCode
+            : statusCode as SdkOptional<int>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+      );
 
   factory ApiSpanCommon.fromJson(Map<String, dynamic> json) => ApiSpanCommon(
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    durationNs: json['duration_ns'] != null ? SdkPresent((json['duration_ns'] as String?)!) : const SdkOmitted(),
-    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-    statusCode: json['status_code'] != null ? SdkPresent(((json['status_code'] as num?)?.toInt())!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        durationNs: json['duration_ns'] != null
+            ? SdkPresent((json['duration_ns'] as String?)!)
+            : const SdkOmitted(),
+        metadata: json['metadata'] != null
+            ? SdkPresent((json['metadata'] == null
+                ? null
+                : Map<String, dynamic>.from(json['metadata'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+        statusCode: json['status_code'] != null
+            ? SdkPresent(((json['status_code'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (durationNs) {
-      SdkPresent<String>(value: final value) => {'duration_ns': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metadata) {
-      SdkPresent<Map<String, String>>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (statusCode) {
-      SdkPresent<int>(value: final value) => {'status_code': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (durationNs) {
+          SdkPresent<String>(value: final value) => {
+              'duration_ns': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metadata) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (statusCode) {
+          SdkPresent<int>(value: final value) => {
+              'status_code': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Tool span
 class ApiToolSpan {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Common optional fields shared by all span types
   final SdkOptional<ApiSpanCommon> common;
+
   /// Optional `string` value serialized in the `tool_call_id` wire field.
   final SdkOptional<String> toolCallId;
 
-  const ApiToolSpan({this.common = const SdkOmitted(), this.toolCallId = const SdkOmitted()});
+  const ApiToolSpan(
+      {this.common = const SdkOmitted(), this.toolCallId = const SdkOmitted()});
 
-  ApiToolSpan Function({SdkOptional<ApiSpanCommon> common, SdkOptional<String> toolCallId}) get copyWith => _copyWith;
+  ApiToolSpan Function(
+      {SdkOptional<ApiSpanCommon> common,
+      SdkOptional<String> toolCallId}) get copyWith => _copyWith;
 
-  ApiToolSpan _copyWith({Object? common = sdkOmittedValue, Object? toolCallId = sdkOmittedValue}) => ApiToolSpan(
-    common: identical(common, sdkOmittedValue) ? this.common : common as SdkOptional<ApiSpanCommon>,
-    toolCallId: identical(toolCallId, sdkOmittedValue) ? this.toolCallId : toolCallId as SdkOptional<String>,
-  );
+  ApiToolSpan _copyWith(
+          {Object? common = sdkOmittedValue,
+          Object? toolCallId = sdkOmittedValue}) =>
+      ApiToolSpan(
+        common: identical(common, sdkOmittedValue)
+            ? this.common
+            : common as SdkOptional<ApiSpanCommon>,
+        toolCallId: identical(toolCallId, sdkOmittedValue)
+            ? this.toolCallId
+            : toolCallId as SdkOptional<String>,
+      );
 
   factory ApiToolSpan.fromJson(Map<String, dynamic> json) => ApiToolSpan(
-    common: json['common'] != null ? SdkPresent((json['common'] != null ? ApiSpanCommon.fromJson(json['common'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    toolCallId: json['tool_call_id'] != null ? SdkPresent((json['tool_call_id'] as String?)!) : const SdkOmitted(),
-  );
+        common: json['common'] != null
+            ? SdkPresent((json['common'] != null
+                ? ApiSpanCommon.fromJson(json['common'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        toolCallId: json['tool_call_id'] != null
+            ? SdkPresent((json['tool_call_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (common) {
-      SdkPresent<ApiSpanCommon>(value: final value) => {'common': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (toolCallId) {
-      SdkPresent<String>(value: final value) => {'tool_call_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (common) {
+          SdkPresent<ApiSpanCommon>(value: final value) => {
+              'common': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (toolCallId) {
+          SdkPresent<String>(value: final value) => {
+              'tool_call_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Represents a span within a trace (e.g., LLM call, tool call, etc.)
 class ApiTraceSpan {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `agent` wire field.
   final SdkOptional<ApiAgentSpan> agent;
+
   /// When the span was created
   final SdkOptional<String> createdAt;
+
   /// Input data for the span (flexible structure - can be messages array, string, etc.)
   final SdkOptional<Map<String, dynamic>> input;
+
   /// LLM span
   final SdkOptional<ApiLLMSpan> llm;
+
   /// Name/identifier for the span
   final SdkOptional<String> name;
+
   /// Output data from the span (flexible structure - can be message, string, etc.)
   final SdkOptional<Map<String, dynamic>> output;
+
   /// Retriever span
   final SdkOptional<ApiRetrieverSpan> retriever;
+
   /// Tool span
   final SdkOptional<ApiToolSpan> tool;
+
   /// Types of spans in a trace
   final SdkOptional<ApiTraceSpanType> type_;
+
   /// Workflow span - can contain child spans (agent, llm, tool, retriever)
   final SdkOptional<ApiWorkflowSpan> workflow;
 
-  const ApiTraceSpan({this.agent = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.input = const SdkOmitted(), this.llm = const SdkOmitted(), this.name = const SdkOmitted(), this.output = const SdkOmitted(), this.retriever = const SdkOmitted(), this.tool = const SdkOmitted(), this.type_ = const SdkOmitted(), this.workflow = const SdkOmitted()});
+  const ApiTraceSpan(
+      {this.agent = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.input = const SdkOmitted(),
+      this.llm = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.output = const SdkOmitted(),
+      this.retriever = const SdkOmitted(),
+      this.tool = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.workflow = const SdkOmitted()});
 
-  ApiTraceSpan Function({SdkOptional<ApiAgentSpan> agent, SdkOptional<String> createdAt, SdkOptional<Map<String, dynamic>> input, SdkOptional<ApiLLMSpan> llm, SdkOptional<String> name, SdkOptional<Map<String, dynamic>> output, SdkOptional<ApiRetrieverSpan> retriever, SdkOptional<ApiToolSpan> tool, SdkOptional<ApiTraceSpanType> type_, SdkOptional<ApiWorkflowSpan> workflow}) get copyWith => _copyWith;
+  ApiTraceSpan Function(
+      {SdkOptional<ApiAgentSpan> agent,
+      SdkOptional<String> createdAt,
+      SdkOptional<Map<String, dynamic>> input,
+      SdkOptional<ApiLLMSpan> llm,
+      SdkOptional<String> name,
+      SdkOptional<Map<String, dynamic>> output,
+      SdkOptional<ApiRetrieverSpan> retriever,
+      SdkOptional<ApiToolSpan> tool,
+      SdkOptional<ApiTraceSpanType> type_,
+      SdkOptional<ApiWorkflowSpan> workflow}) get copyWith => _copyWith;
 
-  ApiTraceSpan _copyWith({Object? agent = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? input = sdkOmittedValue, Object? llm = sdkOmittedValue, Object? name = sdkOmittedValue, Object? output = sdkOmittedValue, Object? retriever = sdkOmittedValue, Object? tool = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? workflow = sdkOmittedValue}) => ApiTraceSpan(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<ApiAgentSpan>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<Map<String, dynamic>>,
-    llm: identical(llm, sdkOmittedValue) ? this.llm : llm as SdkOptional<ApiLLMSpan>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<Map<String, dynamic>>,
-    retriever: identical(retriever, sdkOmittedValue) ? this.retriever : retriever as SdkOptional<ApiRetrieverSpan>,
-    tool: identical(tool, sdkOmittedValue) ? this.tool : tool as SdkOptional<ApiToolSpan>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ApiTraceSpanType>,
-    workflow: identical(workflow, sdkOmittedValue) ? this.workflow : workflow as SdkOptional<ApiWorkflowSpan>,
-  );
+  ApiTraceSpan _copyWith(
+          {Object? agent = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? input = sdkOmittedValue,
+          Object? llm = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? retriever = sdkOmittedValue,
+          Object? tool = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? workflow = sdkOmittedValue}) =>
+      ApiTraceSpan(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<ApiAgentSpan>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as SdkOptional<Map<String, dynamic>>,
+        llm: identical(llm, sdkOmittedValue)
+            ? this.llm
+            : llm as SdkOptional<ApiLLMSpan>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<Map<String, dynamic>>,
+        retriever: identical(retriever, sdkOmittedValue)
+            ? this.retriever
+            : retriever as SdkOptional<ApiRetrieverSpan>,
+        tool: identical(tool, sdkOmittedValue)
+            ? this.tool
+            : tool as SdkOptional<ApiToolSpan>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ApiTraceSpanType>,
+        workflow: identical(workflow, sdkOmittedValue)
+            ? this.workflow
+            : workflow as SdkOptional<ApiWorkflowSpan>,
+      );
 
   factory ApiTraceSpan.fromJson(Map<String, dynamic> json) => ApiTraceSpan(
-    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? ApiAgentSpan.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    input: json['input'] != null ? SdkPresent((json['input'] == null ? null : json['input'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    llm: json['llm'] != null ? SdkPresent((json['llm'] != null ? ApiLLMSpan.fromJson(json['llm'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    output: json['output'] != null ? SdkPresent((json['output'] == null ? null : json['output'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    retriever: json['retriever'] != null ? SdkPresent((json['retriever'] != null ? ApiRetrieverSpan.fromJson(json['retriever'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    tool: json['tool'] != null ? SdkPresent((json['tool'] != null ? ApiToolSpan.fromJson(json['tool'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ApiTraceSpanType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    workflow: json['workflow'] != null ? SdkPresent((json['workflow'] != null ? ApiWorkflowSpan.fromJson(json['workflow'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        agent: json['agent'] != null
+            ? SdkPresent((json['agent'] != null
+                ? ApiAgentSpan.fromJson(json['agent'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        input: json['input'] != null
+            ? SdkPresent((json['input'] == null
+                ? null
+                : json['input'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        llm: json['llm'] != null
+            ? SdkPresent((json['llm'] != null
+                ? ApiLLMSpan.fromJson(json['llm'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        output: json['output'] != null
+            ? SdkPresent((json['output'] == null
+                ? null
+                : json['output'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        retriever: json['retriever'] != null
+            ? SdkPresent((json['retriever'] != null
+                ? ApiRetrieverSpan.fromJson(
+                    json['retriever'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        tool: json['tool'] != null
+            ? SdkPresent((json['tool'] != null
+                ? ApiToolSpan.fromJson(json['tool'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ApiTraceSpanType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        workflow: json['workflow'] != null
+            ? SdkPresent((json['workflow'] != null
+                ? ApiWorkflowSpan.fromJson(
+                    json['workflow'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<ApiAgentSpan>(value: final value) => {'agent': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (input) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'input': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (llm) {
-      SdkPresent<ApiLLMSpan>(value: final value) => {'llm': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (output) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'output': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (retriever) {
-      SdkPresent<ApiRetrieverSpan>(value: final value) => {'retriever': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tool) {
-      SdkPresent<ApiToolSpan>(value: final value) => {'tool': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<ApiTraceSpanType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (workflow) {
-      SdkPresent<ApiWorkflowSpan>(value: final value) => {'workflow': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<ApiAgentSpan>(value: final value) => {
+              'agent': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (input) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'input': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (llm) {
+          SdkPresent<ApiLLMSpan>(value: final value) => {
+              'llm': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (output) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'output': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (retriever) {
+          SdkPresent<ApiRetrieverSpan>(value: final value) => {
+              'retriever': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tool) {
+          SdkPresent<ApiToolSpan>(value: final value) => {
+              'tool': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<ApiTraceSpanType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (workflow) {
+          SdkPresent<ApiWorkflowSpan>(value: final value) => {
+              'workflow': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Usage Measurement Description
 class ApiUsageMeasurement {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `int64`-formatted value serialized in the `tokens` wire field.
   final SdkOptional<int> tokens;
+
   /// Optional `string` value serialized in the `usage_type` wire field.
   final SdkOptional<String> usageType;
 
-  const ApiUsageMeasurement({this.tokens = const SdkOmitted(), this.usageType = const SdkOmitted()});
+  const ApiUsageMeasurement(
+      {this.tokens = const SdkOmitted(), this.usageType = const SdkOmitted()});
 
-  ApiUsageMeasurement Function({SdkOptional<int> tokens, SdkOptional<String> usageType}) get copyWith => _copyWith;
+  ApiUsageMeasurement Function(
+      {SdkOptional<int> tokens,
+      SdkOptional<String> usageType}) get copyWith => _copyWith;
 
-  ApiUsageMeasurement _copyWith({Object? tokens = sdkOmittedValue, Object? usageType = sdkOmittedValue}) => ApiUsageMeasurement(
-    tokens: identical(tokens, sdkOmittedValue) ? this.tokens : tokens as SdkOptional<int>,
-    usageType: identical(usageType, sdkOmittedValue) ? this.usageType : usageType as SdkOptional<String>,
-  );
+  ApiUsageMeasurement _copyWith(
+          {Object? tokens = sdkOmittedValue,
+          Object? usageType = sdkOmittedValue}) =>
+      ApiUsageMeasurement(
+        tokens: identical(tokens, sdkOmittedValue)
+            ? this.tokens
+            : tokens as SdkOptional<int>,
+        usageType: identical(usageType, sdkOmittedValue)
+            ? this.usageType
+            : usageType as SdkOptional<String>,
+      );
 
-  factory ApiUsageMeasurement.fromJson(Map<String, dynamic> json) => ApiUsageMeasurement(
-    tokens: json['tokens'] != null ? SdkPresent(((json['tokens'] as num?)?.toInt())!) : const SdkOmitted(),
-    usageType: json['usage_type'] != null ? SdkPresent((json['usage_type'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiUsageMeasurement.fromJson(Map<String, dynamic> json) =>
+      ApiUsageMeasurement(
+        tokens: json['tokens'] != null
+            ? SdkPresent(((json['tokens'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        usageType: json['usage_type'] != null
+            ? SdkPresent((json['usage_type'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (tokens) {
-      SdkPresent<int>(value: final value) => {'tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (usageType) {
-      SdkPresent<String>(value: final value) => {'usage_type': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (tokens) {
+          SdkPresent<int>(value: final value) => {
+              'tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (usageType) {
+          SdkPresent<String>(value: final value) => {
+              'usage_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

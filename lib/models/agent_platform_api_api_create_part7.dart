@@ -8,254 +8,426 @@ part of 'agent_platform_api_api_create.dart';
 class ApiCreateOpenAIAPIKeyOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// OpenAI API Key Info
   final SdkOptional<ApiOpenAIAPIKeyInfo> apiKeyInfo;
 
   const ApiCreateOpenAIAPIKeyOutput({this.apiKeyInfo = const SdkOmitted()});
 
-  ApiCreateOpenAIAPIKeyOutput Function({SdkOptional<ApiOpenAIAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
+  ApiCreateOpenAIAPIKeyOutput Function(
+      {SdkOptional<ApiOpenAIAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
 
-  ApiCreateOpenAIAPIKeyOutput _copyWith({Object? apiKeyInfo = sdkOmittedValue}) => ApiCreateOpenAIAPIKeyOutput(
-    apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue) ? this.apiKeyInfo : apiKeyInfo as SdkOptional<ApiOpenAIAPIKeyInfo>,
-  );
+  ApiCreateOpenAIAPIKeyOutput _copyWith(
+          {Object? apiKeyInfo = sdkOmittedValue}) =>
+      ApiCreateOpenAIAPIKeyOutput(
+        apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue)
+            ? this.apiKeyInfo
+            : apiKeyInfo as SdkOptional<ApiOpenAIAPIKeyInfo>,
+      );
 
-  factory ApiCreateOpenAIAPIKeyOutput.fromJson(Map<String, dynamic> json) => ApiCreateOpenAIAPIKeyOutput(
-    apiKeyInfo: json['api_key_info'] != null ? SdkPresent((json['api_key_info'] != null ? ApiOpenAIAPIKeyInfo.fromJson(json['api_key_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiCreateOpenAIAPIKeyOutput.fromJson(Map<String, dynamic> json) =>
+      ApiCreateOpenAIAPIKeyOutput(
+        apiKeyInfo: json['api_key_info'] != null
+            ? SdkPresent((json['api_key_info'] != null
+                ? ApiOpenAIAPIKeyInfo.fromJson(
+                    json['api_key_info'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (apiKeyInfo) {
-      SdkPresent<ApiOpenAIAPIKeyInfo>(value: final value) => {'api_key_info': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (apiKeyInfo) {
+          SdkPresent<ApiOpenAIAPIKeyInfo>(value: final value) => {
+              'api_key_info': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Public parameters for creating a scenario set from a Common Scenario & Goal Library entry.
 class ApiCreateScenarioSetFromLibraryInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// UUID of the library entry to copy.
   final SdkOptional<String> libraryScenarioUuid;
+
   /// Optional name for the new scenario set. Defaults to the library entry's name when unset.
   final SdkOptional<String> name;
 
-  const ApiCreateScenarioSetFromLibraryInputPublic({this.libraryScenarioUuid = const SdkOmitted(), this.name = const SdkOmitted()});
+  const ApiCreateScenarioSetFromLibraryInputPublic(
+      {this.libraryScenarioUuid = const SdkOmitted(),
+      this.name = const SdkOmitted()});
 
-  ApiCreateScenarioSetFromLibraryInputPublic Function({SdkOptional<String> libraryScenarioUuid, SdkOptional<String> name}) get copyWith => _copyWith;
+  ApiCreateScenarioSetFromLibraryInputPublic Function(
+      {SdkOptional<String> libraryScenarioUuid,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ApiCreateScenarioSetFromLibraryInputPublic _copyWith({Object? libraryScenarioUuid = sdkOmittedValue, Object? name = sdkOmittedValue}) => ApiCreateScenarioSetFromLibraryInputPublic(
-    libraryScenarioUuid: identical(libraryScenarioUuid, sdkOmittedValue) ? this.libraryScenarioUuid : libraryScenarioUuid as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  ApiCreateScenarioSetFromLibraryInputPublic _copyWith(
+          {Object? libraryScenarioUuid = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      ApiCreateScenarioSetFromLibraryInputPublic(
+        libraryScenarioUuid: identical(libraryScenarioUuid, sdkOmittedValue)
+            ? this.libraryScenarioUuid
+            : libraryScenarioUuid as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory ApiCreateScenarioSetFromLibraryInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateScenarioSetFromLibraryInputPublic(
-    libraryScenarioUuid: json['library_scenario_uuid'] != null ? SdkPresent((json['library_scenario_uuid'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiCreateScenarioSetFromLibraryInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiCreateScenarioSetFromLibraryInputPublic(
+        libraryScenarioUuid: json['library_scenario_uuid'] != null
+            ? SdkPresent((json['library_scenario_uuid'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (libraryScenarioUuid) {
-      SdkPresent<String>(value: final value) => {'library_scenario_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (libraryScenarioUuid) {
+          SdkPresent<String>(value: final value) => {
+              'library_scenario_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Output for creating a scenario set from a Common Scenario & Goal Library entry.
 class ApiCreateScenarioSetFromLibraryOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A team-owned collection of scenarios.
   final SdkOptional<ApiScenarioSet> scenarioSet;
 
-  const ApiCreateScenarioSetFromLibraryOutput({this.scenarioSet = const SdkOmitted()});
+  const ApiCreateScenarioSetFromLibraryOutput(
+      {this.scenarioSet = const SdkOmitted()});
 
-  ApiCreateScenarioSetFromLibraryOutput Function({SdkOptional<ApiScenarioSet> scenarioSet}) get copyWith => _copyWith;
+  ApiCreateScenarioSetFromLibraryOutput Function(
+      {SdkOptional<ApiScenarioSet> scenarioSet}) get copyWith => _copyWith;
 
-  ApiCreateScenarioSetFromLibraryOutput _copyWith({Object? scenarioSet = sdkOmittedValue}) => ApiCreateScenarioSetFromLibraryOutput(
-    scenarioSet: identical(scenarioSet, sdkOmittedValue) ? this.scenarioSet : scenarioSet as SdkOptional<ApiScenarioSet>,
-  );
+  ApiCreateScenarioSetFromLibraryOutput _copyWith(
+          {Object? scenarioSet = sdkOmittedValue}) =>
+      ApiCreateScenarioSetFromLibraryOutput(
+        scenarioSet: identical(scenarioSet, sdkOmittedValue)
+            ? this.scenarioSet
+            : scenarioSet as SdkOptional<ApiScenarioSet>,
+      );
 
-  factory ApiCreateScenarioSetFromLibraryOutput.fromJson(Map<String, dynamic> json) => ApiCreateScenarioSetFromLibraryOutput(
-    scenarioSet: json['scenario_set'] != null ? SdkPresent((json['scenario_set'] != null ? ApiScenarioSet.fromJson(json['scenario_set'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiCreateScenarioSetFromLibraryOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiCreateScenarioSetFromLibraryOutput(
+        scenarioSet: json['scenario_set'] != null
+            ? SdkPresent((json['scenario_set'] != null
+                ? ApiScenarioSet.fromJson(
+                    json['scenario_set'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (scenarioSet) {
-      SdkPresent<ApiScenarioSet>(value: final value) => {'scenario_set': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (scenarioSet) {
+          SdkPresent<ApiScenarioSet>(value: final value) => {
+              'scenario_set': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Public parameters for creating a scenario set.
 class ApiCreateScenarioSetInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Uploaded scenario file to ingest. Provide this or `scenarios`, not both.
   final SdkOptional<ApiFileUploadDataSource> fileUploadScenarioSet;
+
   /// The name of the scenario set.
   final SdkOptional<String> name;
+
   /// Inline scenarios. Provide this or `file_upload_scenario_set`, not both.
   final SdkOptional<List<ApiScenario>> scenarios;
 
-  const ApiCreateScenarioSetInputPublic({this.fileUploadScenarioSet = const SdkOmitted(), this.name = const SdkOmitted(), this.scenarios = const SdkOmitted()});
+  const ApiCreateScenarioSetInputPublic(
+      {this.fileUploadScenarioSet = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.scenarios = const SdkOmitted()});
 
-  ApiCreateScenarioSetInputPublic Function({SdkOptional<ApiFileUploadDataSource> fileUploadScenarioSet, SdkOptional<String> name, SdkOptional<List<ApiScenario>> scenarios}) get copyWith => _copyWith;
+  ApiCreateScenarioSetInputPublic Function(
+      {SdkOptional<ApiFileUploadDataSource> fileUploadScenarioSet,
+      SdkOptional<String> name,
+      SdkOptional<List<ApiScenario>> scenarios}) get copyWith => _copyWith;
 
-  ApiCreateScenarioSetInputPublic _copyWith({Object? fileUploadScenarioSet = sdkOmittedValue, Object? name = sdkOmittedValue, Object? scenarios = sdkOmittedValue}) => ApiCreateScenarioSetInputPublic(
-    fileUploadScenarioSet: identical(fileUploadScenarioSet, sdkOmittedValue) ? this.fileUploadScenarioSet : fileUploadScenarioSet as SdkOptional<ApiFileUploadDataSource>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    scenarios: identical(scenarios, sdkOmittedValue) ? this.scenarios : scenarios as SdkOptional<List<ApiScenario>>,
-  );
+  ApiCreateScenarioSetInputPublic _copyWith(
+          {Object? fileUploadScenarioSet = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? scenarios = sdkOmittedValue}) =>
+      ApiCreateScenarioSetInputPublic(
+        fileUploadScenarioSet: identical(fileUploadScenarioSet, sdkOmittedValue)
+            ? this.fileUploadScenarioSet
+            : fileUploadScenarioSet as SdkOptional<ApiFileUploadDataSource>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        scenarios: identical(scenarios, sdkOmittedValue)
+            ? this.scenarios
+            : scenarios as SdkOptional<List<ApiScenario>>,
+      );
 
-  factory ApiCreateScenarioSetInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateScenarioSetInputPublic(
-    fileUploadScenarioSet: json['file_upload_scenario_set'] != null ? SdkPresent((json['file_upload_scenario_set'] != null ? ApiFileUploadDataSource.fromJson(json['file_upload_scenario_set'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    scenarios: json['scenarios'] != null ? SdkPresent(((json['scenarios'] as List?)?.map((e) => ApiScenario.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiCreateScenarioSetInputPublic.fromJson(Map<String, dynamic> json) =>
+      ApiCreateScenarioSetInputPublic(
+        fileUploadScenarioSet: json['file_upload_scenario_set'] != null
+            ? SdkPresent((json['file_upload_scenario_set'] != null
+                ? ApiFileUploadDataSource.fromJson(
+                    json['file_upload_scenario_set'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        scenarios: json['scenarios'] != null
+            ? SdkPresent(((json['scenarios'] as List?)
+                ?.map((e) => ApiScenario.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (fileUploadScenarioSet) {
-      SdkPresent<ApiFileUploadDataSource>(value: final value) => {'file_upload_scenario_set': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scenarios) {
-      SdkPresent<List<ApiScenario>>(value: final value) => {'scenarios': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (fileUploadScenarioSet) {
+          SdkPresent<ApiFileUploadDataSource>(value: final value) => {
+              'file_upload_scenario_set': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scenarios) {
+          SdkPresent<List<ApiScenario>>(value: final value) => {
+              'scenarios': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Output for creating a scenario set.
 class ApiCreateScenarioSetOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A team-owned collection of scenarios.
   final SdkOptional<ApiScenarioSet> scenarioSet;
 
   const ApiCreateScenarioSetOutput({this.scenarioSet = const SdkOmitted()});
 
-  ApiCreateScenarioSetOutput Function({SdkOptional<ApiScenarioSet> scenarioSet}) get copyWith => _copyWith;
+  ApiCreateScenarioSetOutput Function({SdkOptional<ApiScenarioSet> scenarioSet})
+      get copyWith => _copyWith;
 
-  ApiCreateScenarioSetOutput _copyWith({Object? scenarioSet = sdkOmittedValue}) => ApiCreateScenarioSetOutput(
-    scenarioSet: identical(scenarioSet, sdkOmittedValue) ? this.scenarioSet : scenarioSet as SdkOptional<ApiScenarioSet>,
-  );
+  ApiCreateScenarioSetOutput _copyWith(
+          {Object? scenarioSet = sdkOmittedValue}) =>
+      ApiCreateScenarioSetOutput(
+        scenarioSet: identical(scenarioSet, sdkOmittedValue)
+            ? this.scenarioSet
+            : scenarioSet as SdkOptional<ApiScenarioSet>,
+      );
 
-  factory ApiCreateScenarioSetOutput.fromJson(Map<String, dynamic> json) => ApiCreateScenarioSetOutput(
-    scenarioSet: json['scenario_set'] != null ? SdkPresent((json['scenario_set'] != null ? ApiScenarioSet.fromJson(json['scenario_set'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiCreateScenarioSetOutput.fromJson(Map<String, dynamic> json) =>
+      ApiCreateScenarioSetOutput(
+        scenarioSet: json['scenario_set'] != null
+            ? SdkPresent((json['scenario_set'] != null
+                ? ApiScenarioSet.fromJson(
+                    json['scenario_set'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (scenarioSet) {
-      SdkPresent<ApiScenarioSet>(value: final value) => {'scenario_set': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (scenarioSet) {
+          SdkPresent<ApiScenarioSet>(value: final value) => {
+              'scenario_set': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Public parameters for requesting scenario set upload presigned URLs.
 class ApiCreateScenarioSetUploadPresignedUrlsInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of files to generate presigned URLs for.
   final SdkOptional<List<ApiPresignedUrlFile>> files;
 
-  const ApiCreateScenarioSetUploadPresignedUrlsInputPublic({this.files = const SdkOmitted()});
+  const ApiCreateScenarioSetUploadPresignedUrlsInputPublic(
+      {this.files = const SdkOmitted()});
 
-  ApiCreateScenarioSetUploadPresignedUrlsInputPublic Function({SdkOptional<List<ApiPresignedUrlFile>> files}) get copyWith => _copyWith;
+  ApiCreateScenarioSetUploadPresignedUrlsInputPublic Function(
+      {SdkOptional<List<ApiPresignedUrlFile>> files}) get copyWith => _copyWith;
 
-  ApiCreateScenarioSetUploadPresignedUrlsInputPublic _copyWith({Object? files = sdkOmittedValue}) => ApiCreateScenarioSetUploadPresignedUrlsInputPublic(
-    files: identical(files, sdkOmittedValue) ? this.files : files as SdkOptional<List<ApiPresignedUrlFile>>,
-  );
+  ApiCreateScenarioSetUploadPresignedUrlsInputPublic _copyWith(
+          {Object? files = sdkOmittedValue}) =>
+      ApiCreateScenarioSetUploadPresignedUrlsInputPublic(
+        files: identical(files, sdkOmittedValue)
+            ? this.files
+            : files as SdkOptional<List<ApiPresignedUrlFile>>,
+      );
 
-  factory ApiCreateScenarioSetUploadPresignedUrlsInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateScenarioSetUploadPresignedUrlsInputPublic(
-    files: json['files'] != null ? SdkPresent(((json['files'] as List?)?.map((e) => ApiPresignedUrlFile.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiCreateScenarioSetUploadPresignedUrlsInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiCreateScenarioSetUploadPresignedUrlsInputPublic(
+        files: json['files'] != null
+            ? SdkPresent(((json['files'] as List?)
+                ?.map((e) =>
+                    ApiPresignedUrlFile.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (files) {
-      SdkPresent<List<ApiPresignedUrlFile>>(value: final value) => {'files': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (files) {
+          SdkPresent<List<ApiPresignedUrlFile>>(value: final value) => {
+              'files': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ApiCreateScheduledIndexingInputPublic` API schema.
 class ApiCreateScheduledIndexingInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Days for execution (day is represented same as in a cron expression, e.g. Monday begins with 1 )
   final SdkOptional<List<int>> days;
+
   /// Knowledge base uuid for which the schedule is created
   final SdkOptional<String> knowledgeBaseUuid;
+
   /// Time of execution (HH:MM) UTC
   final SdkOptional<String> time;
 
-  const ApiCreateScheduledIndexingInputPublic({this.days = const SdkOmitted(), this.knowledgeBaseUuid = const SdkOmitted(), this.time = const SdkOmitted()});
+  const ApiCreateScheduledIndexingInputPublic(
+      {this.days = const SdkOmitted(),
+      this.knowledgeBaseUuid = const SdkOmitted(),
+      this.time = const SdkOmitted()});
 
-  ApiCreateScheduledIndexingInputPublic Function({SdkOptional<List<int>> days, SdkOptional<String> knowledgeBaseUuid, SdkOptional<String> time}) get copyWith => _copyWith;
+  ApiCreateScheduledIndexingInputPublic Function(
+      {SdkOptional<List<int>> days,
+      SdkOptional<String> knowledgeBaseUuid,
+      SdkOptional<String> time}) get copyWith => _copyWith;
 
-  ApiCreateScheduledIndexingInputPublic _copyWith({Object? days = sdkOmittedValue, Object? knowledgeBaseUuid = sdkOmittedValue, Object? time = sdkOmittedValue}) => ApiCreateScheduledIndexingInputPublic(
-    days: identical(days, sdkOmittedValue) ? this.days : days as SdkOptional<List<int>>,
-    knowledgeBaseUuid: identical(knowledgeBaseUuid, sdkOmittedValue) ? this.knowledgeBaseUuid : knowledgeBaseUuid as SdkOptional<String>,
-    time: identical(time, sdkOmittedValue) ? this.time : time as SdkOptional<String>,
-  );
+  ApiCreateScheduledIndexingInputPublic _copyWith(
+          {Object? days = sdkOmittedValue,
+          Object? knowledgeBaseUuid = sdkOmittedValue,
+          Object? time = sdkOmittedValue}) =>
+      ApiCreateScheduledIndexingInputPublic(
+        days: identical(days, sdkOmittedValue)
+            ? this.days
+            : days as SdkOptional<List<int>>,
+        knowledgeBaseUuid: identical(knowledgeBaseUuid, sdkOmittedValue)
+            ? this.knowledgeBaseUuid
+            : knowledgeBaseUuid as SdkOptional<String>,
+        time: identical(time, sdkOmittedValue)
+            ? this.time
+            : time as SdkOptional<String>,
+      );
 
-  factory ApiCreateScheduledIndexingInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateScheduledIndexingInputPublic(
-    days: json['days'] != null ? SdkPresent(((json['days'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
-    knowledgeBaseUuid: json['knowledge_base_uuid'] != null ? SdkPresent((json['knowledge_base_uuid'] as String?)!) : const SdkOmitted(),
-    time: json['time'] != null ? SdkPresent((json['time'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiCreateScheduledIndexingInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiCreateScheduledIndexingInputPublic(
+        days: json['days'] != null
+            ? SdkPresent(((json['days'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())!)
+            : const SdkOmitted(),
+        knowledgeBaseUuid: json['knowledge_base_uuid'] != null
+            ? SdkPresent((json['knowledge_base_uuid'] as String?)!)
+            : const SdkOmitted(),
+        time: json['time'] != null
+            ? SdkPresent((json['time'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (days) {
-      SdkPresent<List<int>>(value: final value) => {'days': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (knowledgeBaseUuid) {
-      SdkPresent<String>(value: final value) => {'knowledge_base_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (time) {
-      SdkPresent<String>(value: final value) => {'time': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (days) {
+          SdkPresent<List<int>>(value: final value) => {
+              'days': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (knowledgeBaseUuid) {
+          SdkPresent<String>(value: final value) => {
+              'knowledge_base_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (time) {
+          SdkPresent<String>(value: final value) => {
+              'time': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ApiCreateScheduledIndexingOutput` API schema.
 class ApiCreateScheduledIndexingOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Metadata for scheduled indexing entries
   final SdkOptional<ApiScheduledIndexingInfo> indexingInfo;
 
-  const ApiCreateScheduledIndexingOutput({this.indexingInfo = const SdkOmitted()});
+  const ApiCreateScheduledIndexingOutput(
+      {this.indexingInfo = const SdkOmitted()});
 
-  ApiCreateScheduledIndexingOutput Function({SdkOptional<ApiScheduledIndexingInfo> indexingInfo}) get copyWith => _copyWith;
+  ApiCreateScheduledIndexingOutput Function(
+          {SdkOptional<ApiScheduledIndexingInfo> indexingInfo})
+      get copyWith => _copyWith;
 
-  ApiCreateScheduledIndexingOutput _copyWith({Object? indexingInfo = sdkOmittedValue}) => ApiCreateScheduledIndexingOutput(
-    indexingInfo: identical(indexingInfo, sdkOmittedValue) ? this.indexingInfo : indexingInfo as SdkOptional<ApiScheduledIndexingInfo>,
-  );
+  ApiCreateScheduledIndexingOutput _copyWith(
+          {Object? indexingInfo = sdkOmittedValue}) =>
+      ApiCreateScheduledIndexingOutput(
+        indexingInfo: identical(indexingInfo, sdkOmittedValue)
+            ? this.indexingInfo
+            : indexingInfo as SdkOptional<ApiScheduledIndexingInfo>,
+      );
 
-  factory ApiCreateScheduledIndexingOutput.fromJson(Map<String, dynamic> json) => ApiCreateScheduledIndexingOutput(
-    indexingInfo: json['indexing_info'] != null ? SdkPresent((json['indexing_info'] != null ? ApiScheduledIndexingInfo.fromJson(json['indexing_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiCreateScheduledIndexingOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiCreateScheduledIndexingOutput(
+        indexingInfo: json['indexing_info'] != null
+            ? SdkPresent((json['indexing_info'] != null
+                ? ApiScheduledIndexingInfo.fromJson(
+                    json['indexing_info'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (indexingInfo) {
-      SdkPresent<ApiScheduledIndexingInfo>(value: final value) => {'indexing_info': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (indexingInfo) {
+          SdkPresent<ApiScheduledIndexingInfo>(value: final value) => {
+              'indexing_info': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

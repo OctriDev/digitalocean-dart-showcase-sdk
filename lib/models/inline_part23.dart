@@ -6,73 +6,84 @@ part of 'inline.dart';
 // Inline operation models (part 23)
 /// How requests to the server authenticate: none (the default), secret, or connection. With secret, the value from `credentialRef` or `api_key` is sent in the Authorization header, prefixed with "Bearer " unless it already contains a space.
 final class McpServerCreateRequestCredentialRefSource {
-
   final String value;
 
   const McpServerCreateRequestCredentialRefSource._(this.value);
 
-  factory McpServerCreateRequestCredentialRefSource.fromJson(String value) => McpServerCreateRequestCredentialRefSource._(value);
+  factory McpServerCreateRequestCredentialRefSource.fromJson(String value) =>
+      McpServerCreateRequestCredentialRefSource._(value);
 
   static const none = McpServerCreateRequestCredentialRefSource._('none');
   static const secret = McpServerCreateRequestCredentialRefSource._('secret');
-  static const connection = McpServerCreateRequestCredentialRefSource._('connection');
+  static const connection =
+      McpServerCreateRequestCredentialRefSource._('connection');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is McpServerCreateRequestCredentialRefSource && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is McpServerCreateRequestCredentialRefSource &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional. `streamable_http`, the default and only accepted value.
 final class McpServerCreateRequestTransport {
-
   final String value;
 
   const McpServerCreateRequestTransport._(this.value);
 
-  factory McpServerCreateRequestTransport.fromJson(String value) => McpServerCreateRequestTransport._(value);
+  factory McpServerCreateRequestTransport.fromJson(String value) =>
+      McpServerCreateRequestTransport._(value);
 
-  static const streamableHttp = McpServerCreateRequestTransport._('streamable_http');
+  static const streamableHttp =
+      McpServerCreateRequestTransport._('streamable_http');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is McpServerCreateRequestTransport && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is McpServerCreateRequestTransport && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The health status of the Droplet.
 final class MemberHealthStatus {
-
   final String value;
 
   const MemberHealthStatus._(this.value);
 
-  factory MemberHealthStatus.fromJson(String value) => MemberHealthStatus._(value);
+  factory MemberHealthStatus.fromJson(String value) =>
+      MemberHealthStatus._(value);
 
   static const healthy = MemberHealthStatus._('healthy');
   static const unhealthy = MemberHealthStatus._('unhealthy');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MemberHealthStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MemberHealthStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The power status of the Droplet.
 final class MemberStatus {
-
   final String value;
 
   const MemberStatus._(this.value);
@@ -86,65 +97,74 @@ final class MemberStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MemberStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MemberStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Speaker role for this message.
 final class MessagesApiMessageParamRole {
-
   final String value;
 
   const MessagesApiMessageParamRole._(this.value);
 
-  factory MessagesApiMessageParamRole.fromJson(String value) => MessagesApiMessageParamRole._(value);
+  factory MessagesApiMessageParamRole.fromJson(String value) =>
+      MessagesApiMessageParamRole._(value);
 
   static const user = MessagesApiMessageParamRole._('user');
   static const assistant = MessagesApiMessageParamRole._('assistant');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagesApiMessageParamRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagesApiMessageParamRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
 final class MessagesCreateErrorResponseType {
-
   final String value;
 
   const MessagesCreateErrorResponseType._(this.value);
 
-  factory MessagesCreateErrorResponseType.fromJson(String value) => MessagesCreateErrorResponseType._(value);
+  factory MessagesCreateErrorResponseType.fromJson(String value) =>
+      MessagesCreateErrorResponseType._(value);
 
   static const error = MessagesCreateErrorResponseType._('error');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagesCreateErrorResponseType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagesCreateErrorResponseType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// DigitalOcean extension for reasoning-capable models. Ignored by executors that do not support it.
 final class MessagesCreateRequestReasoningEffort {
-
   final String value;
 
   const MessagesCreateRequestReasoningEffort._(this.value);
 
-  factory MessagesCreateRequestReasoningEffort.fromJson(String value) => MessagesCreateRequestReasoningEffort._(value);
+  factory MessagesCreateRequestReasoningEffort.fromJson(String value) =>
+      MessagesCreateRequestReasoningEffort._(value);
 
   static const none = MessagesCreateRequestReasoningEffort._('none');
   static const minimal = MessagesCreateRequestReasoningEffort._('minimal');
@@ -155,100 +175,116 @@ final class MessagesCreateRequestReasoningEffort {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagesCreateRequestReasoningEffort && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagesCreateRequestReasoningEffort && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// DigitalOcean extension for preferred inference speed. Ignored when not supported.
 final class MessagesCreateRequestSpeed {
-
   final String value;
 
   const MessagesCreateRequestSpeed._(this.value);
 
-  factory MessagesCreateRequestSpeed.fromJson(String value) => MessagesCreateRequestSpeed._(value);
+  factory MessagesCreateRequestSpeed.fromJson(String value) =>
+      MessagesCreateRequestSpeed._(value);
 
   static const standard = MessagesCreateRequestSpeed._('standard');
   static const fast = MessagesCreateRequestSpeed._('fast');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagesCreateRequestSpeed && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagesCreateRequestSpeed && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Always `assistant` for this response.
 final class MessagesCreateResponseRole {
-
   final String value;
 
   const MessagesCreateResponseRole._(this.value);
 
-  factory MessagesCreateResponseRole.fromJson(String value) => MessagesCreateResponseRole._(value);
+  factory MessagesCreateResponseRole.fromJson(String value) =>
+      MessagesCreateResponseRole._(value);
 
   static const assistant = MessagesCreateResponseRole._('assistant');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagesCreateResponseRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagesCreateResponseRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Why generation stopped.
 final class MessagesCreateResponseStopReason {
-
   final String value;
 
   const MessagesCreateResponseStopReason._(this.value);
 
-  factory MessagesCreateResponseStopReason.fromJson(String value) => MessagesCreateResponseStopReason._(value);
+  factory MessagesCreateResponseStopReason.fromJson(String value) =>
+      MessagesCreateResponseStopReason._(value);
 
   static const endTurn = MessagesCreateResponseStopReason._('end_turn');
   static const maxTokens = MessagesCreateResponseStopReason._('max_tokens');
-  static const stopSequence = MessagesCreateResponseStopReason._('stop_sequence');
+  static const stopSequence =
+      MessagesCreateResponseStopReason._('stop_sequence');
   static const toolUse = MessagesCreateResponseStopReason._('tool_use');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagesCreateResponseStopReason && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagesCreateResponseStopReason && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Object type discriminator.
 final class MessagesCreateResponseType {
-
   final String value;
 
   const MessagesCreateResponseType._(this.value);
 
-  factory MessagesCreateResponseType.fromJson(String value) => MessagesCreateResponseType._(value);
+  factory MessagesCreateResponseType.fromJson(String value) =>
+      MessagesCreateResponseType._(value);
 
   static const message = MessagesCreateResponseType._('message');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagesCreateResponseType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagesCreateResponseType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -257,14 +293,17 @@ enum MessagesImageBlockParamType {
 
   static MessagesImageBlockParamType fromJson(String value) {
     switch (value) {
-      case 'image': return MessagesImageBlockParamType.image;
-      default: throw ArgumentError('Unknown MessagesImageBlockParamType: $value');
+      case 'image':
+        return MessagesImageBlockParamType.image;
+      default:
+        throw ArgumentError('Unknown MessagesImageBlockParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessagesImageBlockParamType.image: return 'image';
+      case MessagesImageBlockParamType.image:
+        return 'image';
     }
   }
 
@@ -278,14 +317,18 @@ enum MessagesRequestTextBlockParamType {
 
   static MessagesRequestTextBlockParamType fromJson(String value) {
     switch (value) {
-      case 'text': return MessagesRequestTextBlockParamType.text;
-      default: throw ArgumentError('Unknown MessagesRequestTextBlockParamType: $value');
+      case 'text':
+        return MessagesRequestTextBlockParamType.text;
+      default:
+        throw ArgumentError(
+            'Unknown MessagesRequestTextBlockParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessagesRequestTextBlockParamType.text: return 'text';
+      case MessagesRequestTextBlockParamType.text:
+        return 'text';
     }
   }
 

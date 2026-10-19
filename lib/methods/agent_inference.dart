@@ -76,31 +76,34 @@ import '../types.dart';
 ///   both.
 /// [user] A unique identifier representing your end-user, which can help
 ///   DigitalOcean to monitor and detect abuse.
-Future<ChatCompletionResponse>
-    agentInferenceCreateChatCompletion(ClientConfig config,
-        {required bool agent,
-        required List<ChatMessage> messages,
-        required String model,
-        SdkOptional<int?> maxTokens = const SdkOmitted(),
-        SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
-        SdkOptional<double?> frequencyPenalty = const SdkOmitted(),
-        SdkOptional<double?> presencePenalty = const SdkOmitted(),
-        SdkOptional<int?> topLogprobs = const SdkOmitted(),
-        SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
-        SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(),
-        SdkOptional<bool?> stream = const SdkOmitted(),
-        SdkOptional<List<String>> stop = const SdkOmitted(),
-        SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
-        SdkOptional<bool?> logprobs = const SdkOmitted(),
-        SdkOptional<int?> n = const SdkOmitted(),
-        SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(),
-        SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(),
-        SdkOptional<int?> seed = const SdkOmitted(),
-        SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
-        SdkOptional<double?> temperature = const SdkOmitted(),
-        SdkOptional<double?> topP = const SdkOmitted(),
-        SdkOptional<String> user = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ChatCompletionResponse> agentInferenceCreateChatCompletion(
+    ClientConfig config,
+    {required bool agent,
+    required List<ChatMessage> messages,
+    required String model,
+    SdkOptional<int?> maxTokens = const SdkOmitted(),
+    SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
+    SdkOptional<double?> frequencyPenalty = const SdkOmitted(),
+    SdkOptional<double?> presencePenalty = const SdkOmitted(),
+    SdkOptional<int?> topLogprobs = const SdkOmitted(),
+    SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
+    SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
+        const SdkOmitted(),
+    SdkOptional<bool?> stream = const SdkOmitted(),
+    SdkOptional<List<String>> stop = const SdkOmitted(),
+    SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
+    SdkOptional<bool?> logprobs = const SdkOmitted(),
+    SdkOptional<int?> n = const SdkOmitted(),
+    SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions =
+        const SdkOmitted(),
+    SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort =
+        const SdkOmitted(),
+    SdkOptional<int?> seed = const SdkOmitted(),
+    SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
+    SdkOptional<double?> temperature = const SdkOmitted(),
+    SdkOptional<double?> topP = const SdkOmitted(),
+    SdkOptional<String> user = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   validateItems('messages', messages, min: 1);
   if (maxTokens is SdkPresent<int?>) {
     final maxTokensValue = maxTokens.value;
@@ -111,13 +114,15 @@ Future<ChatCompletionResponse>
   if (maxCompletionTokens is SdkPresent<int?>) {
     final maxCompletionTokensValue = maxCompletionTokens.value;
     if (maxCompletionTokensValue != null) {
-      validateRange('max_completion_tokens', maxCompletionTokensValue, min: 256);
+      validateRange('max_completion_tokens', maxCompletionTokensValue,
+          min: 256);
     }
   }
   if (frequencyPenalty is SdkPresent<double?>) {
     final frequencyPenaltyValue = frequencyPenalty.value;
     if (frequencyPenaltyValue != null) {
-      validateRange('frequency_penalty', frequencyPenaltyValue, min: -2, max: 2);
+      validateRange('frequency_penalty', frequencyPenaltyValue,
+          min: -2, max: 2);
     }
   }
   if (presencePenalty is SdkPresent<double?>) {
@@ -162,7 +167,8 @@ Future<ChatCompletionResponse>
             'messages': messages,
             'model': model,
             'max_tokens': SdkUtils.unwrapOptional(maxTokens),
-            'max_completion_tokens': SdkUtils.unwrapOptional(maxCompletionTokens),
+            'max_completion_tokens':
+                SdkUtils.unwrapOptional(maxCompletionTokens),
             'frequency_penalty': SdkUtils.unwrapOptional(frequencyPenalty),
             'presence_penalty': SdkUtils.unwrapOptional(presencePenalty),
             'top_logprobs': SdkUtils.unwrapOptional(topLogprobs),
@@ -183,12 +189,17 @@ Future<ChatCompletionResponse>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'agentInferenceCreateChatCompletion',
-          fromJsonRaw: (value) => ChatCompletionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ChatCompletionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a model response for the given chat conversation via a customer-provisioned agent endpoint.
 ///
@@ -259,45 +270,77 @@ Future<ChatCompletionResponse>
 ///   both.
 /// [user] A unique identifier representing your end-user, which can help
 ///   DigitalOcean to monitor and detect abuse.
-Stream<ChatCompletionChunk> agentInferenceCreateChatCompletionStream(ClientConfig config, {required bool agent, required List<ChatMessage> messages, required String model, required bool? stream, SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> topLogprobs = const SdkOmitted(), SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(), SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<List<String>> stop = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<bool?> logprobs = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<ChatCompletionChunk> agentInferenceCreateChatCompletionStream(
+    ClientConfig config,
+    {required bool agent,
+    required List<ChatMessage> messages,
+    required String model,
+    required bool? stream,
+    SdkOptional<int?> maxTokens = const SdkOmitted(),
+    SdkOptional<int?> maxCompletionTokens = const SdkOmitted(),
+    SdkOptional<double?> frequencyPenalty = const SdkOmitted(),
+    SdkOptional<double?> presencePenalty = const SdkOmitted(),
+    SdkOptional<int?> topLogprobs = const SdkOmitted(),
+    SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
+    SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
+        const SdkOmitted(),
+    SdkOptional<List<String>> stop = const SdkOmitted(),
+    SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
+    SdkOptional<bool?> logprobs = const SdkOmitted(),
+    SdkOptional<int?> n = const SdkOmitted(),
+    SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions =
+        const SdkOmitted(),
+    SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort =
+        const SdkOmitted(),
+    SdkOptional<int?> seed = const SdkOmitted(),
+    SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
+    SdkOptional<double?> temperature = const SdkOmitted(),
+    SdkOptional<double?> topP = const SdkOmitted(),
+    SdkOptional<String> user = const SdkOmitted(),
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/api/v1/chat/completions',
     query: {
-    'agent': SdkQueryValue(agent, style: 'form', explode: true),
-  },
+      'agent': SdkQueryValue(agent, style: 'form', explode: true),
+    },
     config: config,
     body: {
-    'messages': messages,
-    'model': model,
-    'stream': stream,
-    'max_tokens': SdkUtils.unwrapOptional(maxTokens),
-    'max_completion_tokens': SdkUtils.unwrapOptional(maxCompletionTokens),
-    'frequency_penalty': SdkUtils.unwrapOptional(frequencyPenalty),
-    'presence_penalty': SdkUtils.unwrapOptional(presencePenalty),
-    'top_logprobs': SdkUtils.unwrapOptional(topLogprobs),
-    'tools': SdkUtils.unwrapOptional(tools),
-    'tool_choice': SdkUtils.unwrapOptional(toolChoice),
-    'stop': SdkUtils.unwrapOptional(stop),
-    'logit_bias': SdkUtils.unwrapOptional(logitBias),
-    'logprobs': SdkUtils.unwrapOptional(logprobs),
-    'n': SdkUtils.unwrapOptional(n),
-    'stream_options': SdkUtils.unwrapOptional(streamOptions),
-    'reasoning_effort': SdkUtils.unwrapOptional(reasoningEffort),
-    'seed': SdkUtils.unwrapOptional(seed),
-    'metadata': SdkUtils.unwrapOptional(metadata),
-    'temperature': SdkUtils.unwrapOptional(temperature),
-    'top_p': SdkUtils.unwrapOptional(topP),
-    'user': SdkUtils.unwrapOptional(user),
-  },
+      'messages': messages,
+      'model': model,
+      'stream': stream,
+      'max_tokens': SdkUtils.unwrapOptional(maxTokens),
+      'max_completion_tokens': SdkUtils.unwrapOptional(maxCompletionTokens),
+      'frequency_penalty': SdkUtils.unwrapOptional(frequencyPenalty),
+      'presence_penalty': SdkUtils.unwrapOptional(presencePenalty),
+      'top_logprobs': SdkUtils.unwrapOptional(topLogprobs),
+      'tools': SdkUtils.unwrapOptional(tools),
+      'tool_choice': SdkUtils.unwrapOptional(toolChoice),
+      'stop': SdkUtils.unwrapOptional(stop),
+      'logit_bias': SdkUtils.unwrapOptional(logitBias),
+      'logprobs': SdkUtils.unwrapOptional(logprobs),
+      'n': SdkUtils.unwrapOptional(n),
+      'stream_options': SdkUtils.unwrapOptional(streamOptions),
+      'reasoning_effort': SdkUtils.unwrapOptional(reasoningEffort),
+      'seed': SdkUtils.unwrapOptional(seed),
+      'metadata': SdkUtils.unwrapOptional(metadata),
+      'temperature': SdkUtils.unwrapOptional(temperature),
+      'top_p': SdkUtils.unwrapOptional(topP),
+      'user': SdkUtils.unwrapOptional(user),
+    },
     operationId: 'agentInferenceCreateChatCompletionStream',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '500': (value) => Error2.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
-    yield sdkDecode(() => ChatCompletionChunk.fromJson(event.data as Map<String, dynamic>));
+    yield sdkDecode(
+        () => ChatCompletionChunk.fromJson(event.data as Map<String, dynamic>));
   }
 }

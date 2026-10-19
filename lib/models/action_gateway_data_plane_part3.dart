@@ -8,295 +8,576 @@ part of 'action_gateway_data_plane.dart';
 class SearchQuery {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A normalized English description of one complete use case: the action and the intended outcome, including any app the user named. Put personal identifiers in `known_fields` instead. Up to 512 bytes and 32 search terms, with at least one letter or digit.
   final String useCase;
+
   /// Known workflow inputs as one string of comma-separated `key:value` pairs, such as identifiers or settings. Used as context, not for keyword matching.
   final SdkOptional<String> knownFields;
 
-  const SearchQuery({required this.useCase, this.knownFields = const SdkOmitted()});
+  const SearchQuery(
+      {required this.useCase, this.knownFields = const SdkOmitted()});
 
-  SearchQuery Function({String useCase, SdkOptional<String> knownFields}) get copyWith => _copyWith;
+  SearchQuery Function({String useCase, SdkOptional<String> knownFields})
+      get copyWith => _copyWith;
 
-  SearchQuery _copyWith({Object? useCase = sdkOmittedValue, Object? knownFields = sdkOmittedValue}) => SearchQuery(
-    useCase: identical(useCase, sdkOmittedValue) ? this.useCase : useCase as String,
-    knownFields: identical(knownFields, sdkOmittedValue) ? this.knownFields : knownFields as SdkOptional<String>,
-  );
+  SearchQuery _copyWith(
+          {Object? useCase = sdkOmittedValue,
+          Object? knownFields = sdkOmittedValue}) =>
+      SearchQuery(
+        useCase: identical(useCase, sdkOmittedValue)
+            ? this.useCase
+            : useCase as String,
+        knownFields: identical(knownFields, sdkOmittedValue)
+            ? this.knownFields
+            : knownFields as SdkOptional<String>,
+      );
 
   factory SearchQuery.fromJson(Map<String, dynamic> json) => SearchQuery(
-    useCase: (json['use_case'] as String?)!,
-    knownFields: json['known_fields'] != null ? SdkPresent((json['known_fields'] as String?)!) : const SdkOmitted(),
-  );
+        useCase: (json['use_case'] as String?)!,
+        knownFields: json['known_fields'] != null
+            ? SdkPresent((json['known_fields'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'use_case': useCase,
-    ...switch (knownFields) {
-      SdkPresent<String>(value: final value) => {'known_fields': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'use_case': useCase,
+        ...switch (knownFields) {
+          SdkPresent<String>(value: final value) => {
+              'known_fields': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The results for one query, in request order.
 class SearchToolsGroup {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The 1-based position of the query in the request.
   final SdkOptional<int> index;
+
   /// The query's `use_case`.
   final SdkOptional<String> useCase;
+
   /// Optional array value serialized in the `results` wire field.
   final SdkOptional<List<SearchToolsResult>> results;
+
   /// A suggested next step. Present only when no tools matched.
   final SdkOptional<String> guidance;
 
-  const SearchToolsGroup({this.index = const SdkOmitted(), this.useCase = const SdkOmitted(), this.results = const SdkOmitted(), this.guidance = const SdkOmitted()});
+  const SearchToolsGroup(
+      {this.index = const SdkOmitted(),
+      this.useCase = const SdkOmitted(),
+      this.results = const SdkOmitted(),
+      this.guidance = const SdkOmitted()});
 
-  SearchToolsGroup Function({SdkOptional<int> index, SdkOptional<String> useCase, SdkOptional<List<SearchToolsResult>> results, SdkOptional<String> guidance}) get copyWith => _copyWith;
+  SearchToolsGroup Function(
+      {SdkOptional<int> index,
+      SdkOptional<String> useCase,
+      SdkOptional<List<SearchToolsResult>> results,
+      SdkOptional<String> guidance}) get copyWith => _copyWith;
 
-  SearchToolsGroup _copyWith({Object? index = sdkOmittedValue, Object? useCase = sdkOmittedValue, Object? results = sdkOmittedValue, Object? guidance = sdkOmittedValue}) => SearchToolsGroup(
-    index: identical(index, sdkOmittedValue) ? this.index : index as SdkOptional<int>,
-    useCase: identical(useCase, sdkOmittedValue) ? this.useCase : useCase as SdkOptional<String>,
-    results: identical(results, sdkOmittedValue) ? this.results : results as SdkOptional<List<SearchToolsResult>>,
-    guidance: identical(guidance, sdkOmittedValue) ? this.guidance : guidance as SdkOptional<String>,
-  );
+  SearchToolsGroup _copyWith(
+          {Object? index = sdkOmittedValue,
+          Object? useCase = sdkOmittedValue,
+          Object? results = sdkOmittedValue,
+          Object? guidance = sdkOmittedValue}) =>
+      SearchToolsGroup(
+        index: identical(index, sdkOmittedValue)
+            ? this.index
+            : index as SdkOptional<int>,
+        useCase: identical(useCase, sdkOmittedValue)
+            ? this.useCase
+            : useCase as SdkOptional<String>,
+        results: identical(results, sdkOmittedValue)
+            ? this.results
+            : results as SdkOptional<List<SearchToolsResult>>,
+        guidance: identical(guidance, sdkOmittedValue)
+            ? this.guidance
+            : guidance as SdkOptional<String>,
+      );
 
-  factory SearchToolsGroup.fromJson(Map<String, dynamic> json) => SearchToolsGroup(
-    index: json['index'] != null ? SdkPresent(((json['index'] as num?)?.toInt())!) : const SdkOmitted(),
-    useCase: json['use_case'] != null ? SdkPresent((json['use_case'] as String?)!) : const SdkOmitted(),
-    results: json['results'] != null ? SdkPresent(((json['results'] as List?)?.map((e) => SearchToolsResult.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    guidance: json['guidance'] != null ? SdkPresent((json['guidance'] as String?)!) : const SdkOmitted(),
-  );
+  factory SearchToolsGroup.fromJson(Map<String, dynamic> json) =>
+      SearchToolsGroup(
+        index: json['index'] != null
+            ? SdkPresent(((json['index'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        useCase: json['use_case'] != null
+            ? SdkPresent((json['use_case'] as String?)!)
+            : const SdkOmitted(),
+        results: json['results'] != null
+            ? SdkPresent(((json['results'] as List?)
+                ?.map((e) =>
+                    SearchToolsResult.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        guidance: json['guidance'] != null
+            ? SdkPresent((json['guidance'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (index) {
-      SdkPresent<int>(value: final value) => {'index': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (useCase) {
-      SdkPresent<String>(value: final value) => {'use_case': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (results) {
-      SdkPresent<List<SearchToolsResult>>(value: final value) => {'results': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (guidance) {
-      SdkPresent<String>(value: final value) => {'guidance': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (index) {
+          SdkPresent<int>(value: final value) => {
+              'index': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (useCase) {
+          SdkPresent<String>(value: final value) => {
+              'use_case': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (results) {
+          SdkPresent<List<SearchToolsResult>>(value: final value) => {
+              'results': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (guidance) {
+          SdkPresent<String>(value: final value) => {
+              'guidance': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `SearchToolsRequest` API schema.
 class SearchToolsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Independent search queries. Split separate actions into separate queries. Each query is searched on its own and gets its own result group.
   final List<SearchQuery> queries;
+
   /// Restricts every query to these providers.
   final SdkOptional<List<String>> providers;
+
   /// Restricts every query to tools with these tags.
   final SdkOptional<List<String>> tags;
+
   /// The maximum number of tools returned per query. Values above 50 are capped at 50.
   final SdkOptional<int> limit;
 
-  const SearchToolsRequest({required this.queries, this.providers = const SdkOmitted(), this.tags = const SdkOmitted(), this.limit = const SdkOmitted()});
+  const SearchToolsRequest(
+      {required this.queries,
+      this.providers = const SdkOmitted(),
+      this.tags = const SdkOmitted(),
+      this.limit = const SdkOmitted()});
 
-  SearchToolsRequest Function({List<SearchQuery> queries, SdkOptional<List<String>> providers, SdkOptional<List<String>> tags, SdkOptional<int> limit}) get copyWith => _copyWith;
+  SearchToolsRequest Function(
+      {List<SearchQuery> queries,
+      SdkOptional<List<String>> providers,
+      SdkOptional<List<String>> tags,
+      SdkOptional<int> limit}) get copyWith => _copyWith;
 
-  SearchToolsRequest _copyWith({Object? queries = sdkOmittedValue, Object? providers = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? limit = sdkOmittedValue}) => SearchToolsRequest(
-    queries: identical(queries, sdkOmittedValue) ? this.queries : queries as List<SearchQuery>,
-    providers: identical(providers, sdkOmittedValue) ? this.providers : providers as SdkOptional<List<String>>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    limit: identical(limit, sdkOmittedValue) ? this.limit : limit as SdkOptional<int>,
-  );
+  SearchToolsRequest _copyWith(
+          {Object? queries = sdkOmittedValue,
+          Object? providers = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? limit = sdkOmittedValue}) =>
+      SearchToolsRequest(
+        queries: identical(queries, sdkOmittedValue)
+            ? this.queries
+            : queries as List<SearchQuery>,
+        providers: identical(providers, sdkOmittedValue)
+            ? this.providers
+            : providers as SdkOptional<List<String>>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        limit: identical(limit, sdkOmittedValue)
+            ? this.limit
+            : limit as SdkOptional<int>,
+      );
 
-  factory SearchToolsRequest.fromJson(Map<String, dynamic> json) => SearchToolsRequest(
-    queries: ((json['queries'] as List?)?.map((e) => SearchQuery.fromJson(e as Map<String, dynamic>)).toList())!,
-    providers: json['providers'] != null ? SdkPresent(((json['providers'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    limit: json['limit'] != null ? SdkPresent(((json['limit'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory SearchToolsRequest.fromJson(Map<String, dynamic> json) =>
+      SearchToolsRequest(
+        queries: ((json['queries'] as List?)
+            ?.map((e) => SearchQuery.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        providers: json['providers'] != null
+            ? SdkPresent(((json['providers'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        limit: json['limit'] != null
+            ? SdkPresent(((json['limit'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'queries': queries.map((item) => item.toJson()).toList(),
-    ...switch (providers) {
-      SdkPresent<List<String>>(value: final value) => {'providers': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (limit) {
-      SdkPresent<int>(value: final value) => {'limit': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'queries': queries.map((item) => item.toJson()).toList(),
+        ...switch (providers) {
+          SdkPresent<List<String>>(value: final value) => {
+              'providers': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (limit) {
+          SdkPresent<int>(value: final value) => {
+              'limit': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A tool that matched a query.
 class SearchToolsResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The provider-qualified tool name. Pass it as `tool` to invoke the tool.
   final SdkOptional<String> name;
+
   /// Optional `string` value serialized in the `version` wire field.
   final SdkOptional<String> version;
+
   /// Optional `string` value serialized in the `title` wire field.
   final SdkOptional<String> title;
+
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
+
   /// The JSON Schema for the tool's `arguments`.
   final SdkOptional<Map<String, Object?>> inputSchema;
+
   /// The relevance score. Higher is more relevant.
   final SdkOptional<double> score;
 
-  const SearchToolsResult({this.name = const SdkOmitted(), this.version = const SdkOmitted(), this.title = const SdkOmitted(), this.description = const SdkOmitted(), this.inputSchema = const SdkOmitted(), this.score = const SdkOmitted()});
+  const SearchToolsResult(
+      {this.name = const SdkOmitted(),
+      this.version = const SdkOmitted(),
+      this.title = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.inputSchema = const SdkOmitted(),
+      this.score = const SdkOmitted()});
 
-  SearchToolsResult Function({SdkOptional<String> name, SdkOptional<String> version, SdkOptional<String> title, SdkOptional<String> description, SdkOptional<Map<String, Object?>> inputSchema, SdkOptional<double> score}) get copyWith => _copyWith;
+  SearchToolsResult Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> version,
+      SdkOptional<String> title,
+      SdkOptional<String> description,
+      SdkOptional<Map<String, Object?>> inputSchema,
+      SdkOptional<double> score}) get copyWith => _copyWith;
 
-  SearchToolsResult _copyWith({Object? name = sdkOmittedValue, Object? version = sdkOmittedValue, Object? title = sdkOmittedValue, Object? description = sdkOmittedValue, Object? inputSchema = sdkOmittedValue, Object? score = sdkOmittedValue}) => SearchToolsResult(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
-    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    inputSchema: identical(inputSchema, sdkOmittedValue) ? this.inputSchema : inputSchema as SdkOptional<Map<String, Object?>>,
-    score: identical(score, sdkOmittedValue) ? this.score : score as SdkOptional<double>,
-  );
+  SearchToolsResult _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? version = sdkOmittedValue,
+          Object? title = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? inputSchema = sdkOmittedValue,
+          Object? score = sdkOmittedValue}) =>
+      SearchToolsResult(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as SdkOptional<String>,
+        title: identical(title, sdkOmittedValue)
+            ? this.title
+            : title as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        inputSchema: identical(inputSchema, sdkOmittedValue)
+            ? this.inputSchema
+            : inputSchema as SdkOptional<Map<String, Object?>>,
+        score: identical(score, sdkOmittedValue)
+            ? this.score
+            : score as SdkOptional<double>,
+      );
 
-  factory SearchToolsResult.fromJson(Map<String, dynamic> json) => SearchToolsResult(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
-    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    inputSchema: json['inputSchema'] != null ? SdkPresent((json['inputSchema'] == null ? null : Map<String, dynamic>.from(json['inputSchema'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-    score: json['score'] != null ? SdkPresent(((json['score'] as num?)?.toDouble())!) : const SdkOmitted(),
-  );
+  factory SearchToolsResult.fromJson(Map<String, dynamic> json) =>
+      SearchToolsResult(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        version: json['version'] != null
+            ? SdkPresent((json['version'] as String?)!)
+            : const SdkOmitted(),
+        title: json['title'] != null
+            ? SdkPresent((json['title'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        inputSchema: json['inputSchema'] != null
+            ? SdkPresent((json['inputSchema'] == null
+                ? null
+                : Map<String, dynamic>.from(json['inputSchema'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+        score: json['score'] != null
+            ? SdkPresent(((json['score'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (version) {
-      SdkPresent<String>(value: final value) => {'version': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (title) {
-      SdkPresent<String>(value: final value) => {'title': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inputSchema) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'inputSchema': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (score) {
-      SdkPresent<double>(value: final value) => {'score': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (version) {
+          SdkPresent<String>(value: final value) => {
+              'version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (title) {
+          SdkPresent<String>(value: final value) => {
+              'title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inputSchema) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'inputSchema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (score) {
+          SdkPresent<double>(value: final value) => {
+              'score': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A catalog tool the session can call, in MCP tool format plus Action Gateway fields.
 class SessionTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The provider-qualified tool name. Pass it as `tool` to invoke the tool.
   final SdkOptional<String> name;
+
   /// Optional `string` value serialized in the `title` wire field.
   final SdkOptional<String> title;
+
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
+
   /// The JSON Schema for the tool's `arguments`.
   final SdkOptional<Map<String, Object?>> inputSchema;
+
   /// The JSON Schema for the tool's output, or for the output view bound to the tool in the session.
   final SdkOptional<Map<String, Object?>> outputSchema;
+
   /// Advisory hints about a tool's behavior, with the meaning of MCP tool annotations. Do not rely on them for security decisions.
   final SdkOptional<ToolAnnotations?> annotations;
+
   /// Additional tool metadata.
   final SdkOptional<Map<String, Object?>> meta;
+
   /// The immutable tool version.
   final SdkOptional<String> version;
+
   /// Whether the tool can run alongside other calls in one invoke request.
   final SdkOptional<bool> parallelizable;
+
   /// Optional `boolean` value serialized in the `streamingSafe` wire field.
   final SdkOptional<bool> streamingSafe;
 
-  const SessionTool({this.name = const SdkOmitted(), this.title = const SdkOmitted(), this.description = const SdkOmitted(), this.inputSchema = const SdkOmitted(), this.outputSchema = const SdkOmitted(), this.annotations = const SdkOmitted(), this.meta = const SdkOmitted(), this.version = const SdkOmitted(), this.parallelizable = const SdkOmitted(), this.streamingSafe = const SdkOmitted()});
+  const SessionTool(
+      {this.name = const SdkOmitted(),
+      this.title = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.inputSchema = const SdkOmitted(),
+      this.outputSchema = const SdkOmitted(),
+      this.annotations = const SdkOmitted(),
+      this.meta = const SdkOmitted(),
+      this.version = const SdkOmitted(),
+      this.parallelizable = const SdkOmitted(),
+      this.streamingSafe = const SdkOmitted()});
 
-  SessionTool Function({SdkOptional<String> name, SdkOptional<String> title, SdkOptional<String> description, SdkOptional<Map<String, Object?>> inputSchema, SdkOptional<Map<String, Object?>> outputSchema, SdkOptional<ToolAnnotations?> annotations, SdkOptional<Map<String, Object?>> meta, SdkOptional<String> version, SdkOptional<bool> parallelizable, SdkOptional<bool> streamingSafe}) get copyWith => _copyWith;
+  SessionTool Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> title,
+      SdkOptional<String> description,
+      SdkOptional<Map<String, Object?>> inputSchema,
+      SdkOptional<Map<String, Object?>> outputSchema,
+      SdkOptional<ToolAnnotations?> annotations,
+      SdkOptional<Map<String, Object?>> meta,
+      SdkOptional<String> version,
+      SdkOptional<bool> parallelizable,
+      SdkOptional<bool> streamingSafe}) get copyWith => _copyWith;
 
-  SessionTool _copyWith({Object? name = sdkOmittedValue, Object? title = sdkOmittedValue, Object? description = sdkOmittedValue, Object? inputSchema = sdkOmittedValue, Object? outputSchema = sdkOmittedValue, Object? annotations = sdkOmittedValue, Object? meta = sdkOmittedValue, Object? version = sdkOmittedValue, Object? parallelizable = sdkOmittedValue, Object? streamingSafe = sdkOmittedValue}) => SessionTool(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    inputSchema: identical(inputSchema, sdkOmittedValue) ? this.inputSchema : inputSchema as SdkOptional<Map<String, Object?>>,
-    outputSchema: identical(outputSchema, sdkOmittedValue) ? this.outputSchema : outputSchema as SdkOptional<Map<String, Object?>>,
-    annotations: identical(annotations, sdkOmittedValue) ? this.annotations : annotations as SdkOptional<ToolAnnotations?>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<Map<String, Object?>>,
-    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
-    parallelizable: identical(parallelizable, sdkOmittedValue) ? this.parallelizable : parallelizable as SdkOptional<bool>,
-    streamingSafe: identical(streamingSafe, sdkOmittedValue) ? this.streamingSafe : streamingSafe as SdkOptional<bool>,
-  );
+  SessionTool _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? title = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? inputSchema = sdkOmittedValue,
+          Object? outputSchema = sdkOmittedValue,
+          Object? annotations = sdkOmittedValue,
+          Object? meta = sdkOmittedValue,
+          Object? version = sdkOmittedValue,
+          Object? parallelizable = sdkOmittedValue,
+          Object? streamingSafe = sdkOmittedValue}) =>
+      SessionTool(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        title: identical(title, sdkOmittedValue)
+            ? this.title
+            : title as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        inputSchema: identical(inputSchema, sdkOmittedValue)
+            ? this.inputSchema
+            : inputSchema as SdkOptional<Map<String, Object?>>,
+        outputSchema: identical(outputSchema, sdkOmittedValue)
+            ? this.outputSchema
+            : outputSchema as SdkOptional<Map<String, Object?>>,
+        annotations: identical(annotations, sdkOmittedValue)
+            ? this.annotations
+            : annotations as SdkOptional<ToolAnnotations?>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<Map<String, Object?>>,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as SdkOptional<String>,
+        parallelizable: identical(parallelizable, sdkOmittedValue)
+            ? this.parallelizable
+            : parallelizable as SdkOptional<bool>,
+        streamingSafe: identical(streamingSafe, sdkOmittedValue)
+            ? this.streamingSafe
+            : streamingSafe as SdkOptional<bool>,
+      );
 
   factory SessionTool.fromJson(Map<String, dynamic> json) => SessionTool(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    inputSchema: json['inputSchema'] != null ? SdkPresent((json['inputSchema'] == null ? null : Map<String, dynamic>.from(json['inputSchema'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-    outputSchema: json['outputSchema'] != null ? SdkPresent((json['outputSchema'] == null ? null : Map<String, dynamic>.from(json['outputSchema'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-    annotations: json.containsKey('annotations') ? SdkPresent(json['annotations'] != null ? ToolAnnotations.fromJson(json['annotations'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    meta: json['_meta'] != null ? SdkPresent((json['_meta'] == null ? null : Map<String, dynamic>.from(json['_meta'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
-    parallelizable: json['parallelizable'] != null ? SdkPresent((json['parallelizable'] as bool?)!) : const SdkOmitted(),
-    streamingSafe: json['streamingSafe'] != null ? SdkPresent((json['streamingSafe'] as bool?)!) : const SdkOmitted(),
-  );
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        title: json['title'] != null
+            ? SdkPresent((json['title'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        inputSchema: json['inputSchema'] != null
+            ? SdkPresent((json['inputSchema'] == null
+                ? null
+                : Map<String, dynamic>.from(json['inputSchema'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+        outputSchema: json['outputSchema'] != null
+            ? SdkPresent((json['outputSchema'] == null
+                ? null
+                : Map<String, dynamic>.from(json['outputSchema'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+        annotations: json.containsKey('annotations')
+            ? SdkPresent(json['annotations'] != null
+                ? ToolAnnotations.fromJson(
+                    json['annotations'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        meta: json['_meta'] != null
+            ? SdkPresent((json['_meta'] == null
+                ? null
+                : Map<String, dynamic>.from(json['_meta'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+        version: json['version'] != null
+            ? SdkPresent((json['version'] as String?)!)
+            : const SdkOmitted(),
+        parallelizable: json['parallelizable'] != null
+            ? SdkPresent((json['parallelizable'] as bool?)!)
+            : const SdkOmitted(),
+        streamingSafe: json['streamingSafe'] != null
+            ? SdkPresent((json['streamingSafe'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (title) {
-      SdkPresent<String>(value: final value) => {'title': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inputSchema) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'inputSchema': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outputSchema) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'outputSchema': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (annotations) {
-      SdkPresent<ToolAnnotations?>(value: final value) => {'annotations': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (meta) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'_meta': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (version) {
-      SdkPresent<String>(value: final value) => {'version': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parallelizable) {
-      SdkPresent<bool>(value: final value) => {'parallelizable': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (streamingSafe) {
-      SdkPresent<bool>(value: final value) => {'streamingSafe': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (title) {
+          SdkPresent<String>(value: final value) => {
+              'title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inputSchema) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'inputSchema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outputSchema) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'outputSchema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (annotations) {
+          SdkPresent<ToolAnnotations?>(value: final value) => {
+              'annotations': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (meta) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              '_meta': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (version) {
+          SdkPresent<String>(value: final value) => {
+              'version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parallelizable) {
+          SdkPresent<bool>(value: final value) => {
+              'parallelizable': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (streamingSafe) {
+          SdkPresent<bool>(value: final value) => {
+              'streamingSafe': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

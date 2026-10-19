@@ -20,12 +20,19 @@ Future<GetActorLimitsResponse> actorLimitsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'actorLimitsGet',
-          fromJsonRaw: (value) => GetActorLimitsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetActorLimitsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Removes the actor's overrides for the listed categories, which then follow your team's limits again. Clearing a category without an override succeeds.
 ///
@@ -47,10 +54,16 @@ Future<Map<String, dynamic>> actorLimitsDelete(ClientConfig config,
           operationId: 'actorLimitsDelete',
           fromJsonRaw: (value) => value as Map<String, dynamic>,
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Sets per-minute limits for the listed categories and leaves the others unchanged. A limit may not exceed your team's current limit for the category (400 otherwise), and 0 blocks every call in the category. The actor does not need to exist yet.
 ///
@@ -72,10 +85,16 @@ Future<Map<String, dynamic>> actorLimitsUpdate(ClientConfig config,
           operationId: 'actorLimitsUpdate',
           fromJsonRaw: (value) => value as Map<String, dynamic>,
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Connects one of your users, identified by `user_id`, to a provider so tools can act on their account. An OAuth connection starts pending, and authorization carries the URL to send the user to; read the connection until it is active or expired. A connection through a team API-key credential is active immediately. There is one connection per provider and `user_id` for each DigitalOcean user who creates connections. Repeating the request returns the existing connection when its scopes cover the request, reusing a pending connection's link, and restarts an expired or revoked connection under the same ID. Requesting scopes beyond an existing connection's, or a different credential, returns 400 until that connection is deleted.
 ///
@@ -109,18 +128,26 @@ Future<ConnectionResponse> connectionsCreate(ClientConfig config,
             'provider': provider,
             'user_id': userId,
             'scopes': SdkUtils.unwrapOptional(scopes),
-            'connection_parameters': SdkUtils.unwrapOptional(connectionParameters),
+            'connection_parameters':
+                SdkUtils.unwrapOptional(connectionParameters),
             'credential': SdkUtils.unwrapOptional(credential),
             'network': SdkUtils.unwrapOptional(network)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'connectionsCreate',
-          fromJsonRaw: (value) => ConnectionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ConnectionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns the connections you can see, excluding revoked ones. Offset-paged with page and `per_page`; filter by provider, `user_id`, and status.
 ///
@@ -154,22 +181,37 @@ Future<ListConnectionsResponse> connectionsList(ClientConfig config,
           'GET', '/v2/action-gateway/connections',
           config: config,
           query: {
-            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider), style: 'form', explode: true),
-            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId), style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
-            'sort': SdkQueryValue(SdkUtils.unwrapOptional(sort), style: 'form', explode: true),
-            'sort_direction': SdkQueryValue(SdkUtils.unwrapOptional(sortDirection), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider),
+                style: 'form', explode: true),
+            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId),
+                style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true),
+            'sort': SdkQueryValue(SdkUtils.unwrapOptional(sort),
+                style: 'form', explode: true),
+            'sort_direction': SdkQueryValue(
+                SdkUtils.unwrapOptional(sortDirection),
+                style: 'form',
+                explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'connectionsList',
-          fromJsonRaw: (value) => ListConnectionsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListConnectionsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns the connection and, while it is pending, the authorization the user still has to complete. Reading a pending connection picks up a completed authorization, and marks the connection expired once its link has lapsed. Returns 404 for an unknown connection or one you cannot see.
 ///
@@ -181,12 +223,18 @@ Future<GetConnectionResponse> connectionsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'connectionsGet',
-          fromJsonRaw: (value) => GetConnectionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetConnectionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Marks the connection revoked and returns it; for an OAuth connection, its stored tokens are deleted first. Creating a connection for the same provider and `user_id` later reuses the same ID. Only the user who created the connection can delete it; for anyone else it is 404.
 ///
@@ -198,12 +246,18 @@ Future<DeleteConnectionResponse> connectionsDelete(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'connectionsDelete',
-          fromJsonRaw: (value) => DeleteConnectionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeleteConnectionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Registers a remote MCP server for your team, using the streamable HTTP transport. The server starts with `syncStatus` pending and no tools: discover its tools with `POST .../mcp-servers/{server_ref}/resync`, then choose which to enable with `PUT .../mcp-servers/{server_ref}/tools`. The endpoint must be HTTPS and resolve only to public IP addresses. The number of servers per team is limited (10 by default); registering beyond it returns 429. Returns 409 when `serverRef` is already in use.
 ///
@@ -249,7 +303,8 @@ Future<McpServerResponse> mcpServersCreate(ClientConfig config,
     {required String serverRef,
     required String endpoint,
     SdkOptional<McpServerCreateRequestTransport> transport = const SdkOmitted(),
-    SdkOptional<McpServerCreateRequestCredentialRefSource> credentialRefSource = const SdkOmitted(),
+    SdkOptional<McpServerCreateRequestCredentialRefSource> credentialRefSource =
+        const SdkOmitted(),
     SdkOptional<String> description = const SdkOmitted(),
     SdkOptional<String> credentialRef = const SdkOmitted(),
     SdkOptional<String> apiKey = const SdkOmitted(),
@@ -281,16 +336,24 @@ Future<McpServerResponse> mcpServersCreate(ClientConfig config,
             'oauth_authorize_url': SdkUtils.unwrapOptional(oauthAuthorizeUrl),
             'oauth_token_url': SdkUtils.unwrapOptional(oauthTokenUrl),
             'oauth_scopes': SdkUtils.unwrapOptional(oauthScopes),
-            'oauth_authorization_ttl_seconds': SdkUtils.unwrapOptional(oauthAuthorizationTtlSeconds)
+            'oauth_authorization_ttl_seconds':
+                SdkUtils.unwrapOptional(oauthAuthorizationTtlSeconds)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'mcpServersCreate',
-          fromJsonRaw: (value) => McpServerResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              McpServerResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns every MCP server your team has registered, sorted by `serverRef`.
 Future<ListMcpServersResponse> mcpServersList(ClientConfig config,
@@ -300,12 +363,17 @@ Future<ListMcpServersResponse> mcpServersList(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'mcpServersList',
-          fromJsonRaw: (value) => ListMcpServersResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListMcpServersResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Returns one of your team's MCP servers, or 404 when your team has none with this `serverRef`.
 ///
@@ -318,12 +386,18 @@ Future<McpServerResponse> mcpServersGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'mcpServersGet',
-          fromJsonRaw: (value) => McpServerResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              McpServerResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the description of a registered MCP server, which appears on its catalog card immediately. Supply `description` to replace the stored text, or an empty value to clear it; the description can contain at most 1024 characters. You cannot change the server endpoint or credentials with this operation; delete the server and register it again to change them.
 ///
@@ -347,12 +421,19 @@ Future<McpServerResponse> mcpServersPatch(ClientConfig config,
           body: {'description': SdkUtils.unwrapOptional(description)},
           decoder: SdkResponseDecoder.json,
           operationId: 'mcpServersPatch',
-          fromJsonRaw: (value) => McpServerResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              McpServerResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Disables all of the server's tools, removes them from your team's catalog, and deletes the server. An `api_key` supplied at registration is deleted; a `credentialRef` you supplied is left untouched. For a server registered with `credentialRefSource` connection, every user connection made through its OAuth client is revoked. Returns the deleted server, or 404 when it does not exist.
 ///
@@ -365,12 +446,18 @@ Future<McpServerResponse> mcpServersDelete(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'mcpServersDelete',
-          fromJsonRaw: (value) => McpServerResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              McpServerResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Connects to the server, lists its tools, and records them. Discovered tools are not callable until you enable them. When discovery finishes in time, returns 200 with the server and its tools; a discovery failure is reported in `syncStatus` and `syncError` rather than as an error. Otherwise returns 202 with pending set while discovery continues: poll `GET .../mcp-servers/{server_ref}` until `lastSyncedAt` or `syncError` changes (`syncStatus` is not reset while discovery runs). For a server registered with `credentialRefSource` connection, `user_id` is required; if that user has not authorized the server yet, the response carries authorization with the URL to send them to. Resyncs are rate limited per team, and a team can run only a few discoveries at once; either limit returns 429.
 ///
@@ -390,12 +477,19 @@ Future<ResyncMcpServerResponse> mcpServersRunResync(ClientConfig config,
           body: {'user_id': SdkUtils.unwrapOptional(userId)},
           decoder: SdkResponseDecoder.json,
           operationId: 'mcpServersRunResync',
-          fromJsonRaw: (value) => ResyncMcpServerResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ResyncMcpServerResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns every tool discovered on the server, sorted by name, with whether each is enabled. Tools that have since disappeared from the server stay listed.
 ///
@@ -408,12 +502,18 @@ Future<ListMcpServerToolsResponse> mcpServersListTools(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'mcpServersListTools',
-          fromJsonRaw: (value) => ListMcpServerToolsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListMcpServerToolsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// `enabledToolSlugs` is the complete set to enable; every other tool of the server is disabled. An enabled tool is added to your team's catalog at its latest discovered version, and a disabled one is removed from it. Repeating the same set changes nothing. Before changing anything, each tool being enabled, re-enabled, or moved to a newer discovered version is verified against the live server: it must still be listed there, with the same input schema as when it was discovered. If any check fails or the server cannot be reached, the request fails with 400 and nothing changes; resync and try again. An unknown tool slug is also rejected with 400. A request that needs verification counts against the resync rate limit (429). Returns the server's full tool list.
 ///
@@ -439,12 +539,19 @@ Future<ListMcpServerToolsResponse> mcpServersUpdateTools(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'mcpServersUpdateTools',
-          fromJsonRaw: (value) => ListMcpServerToolsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListMcpServerToolsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// An output view is a named projection of one tool version's output: tool calls that use it return only the listed fields, and its `output_schema` describes the result. The view is bound to the tool version your catalog currently releases. Returns 409 when your team already has a view with this name on the tool version, and 429 when your team already has the maximum of 20 views on it.
 ///
@@ -488,12 +595,20 @@ Future<OutputViewResponse> outputViewsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'outputViewsCreate',
-          fromJsonRaw: (value) => OutputViewResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OutputViewResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns the output views your team can use: views DigitalOcean publishes to every team, plus your team's own. Cursor-paged with `page_size` and `page_token`; no total is reported.
 ///
@@ -520,20 +635,30 @@ Future<ListOutputViewsResponse> outputViewsList(ClientConfig config,
           'GET', '/v2/action-gateway/output-views',
           config: config,
           query: {
-            'tool': SdkQueryValue(SdkUtils.unwrapOptional(tool), style: 'form', explode: true),
-            'tool_id': SdkQueryValue(SdkUtils.unwrapOptional(toolId), style: 'form', explode: true),
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true)
+            'tool': SdkQueryValue(SdkUtils.unwrapOptional(tool),
+                style: 'form', explode: true),
+            'tool_id': SdkQueryValue(SdkUtils.unwrapOptional(toolId),
+                style: 'form', explode: true),
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'outputViewsList',
-          fromJsonRaw: (value) => ListOutputViewsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListOutputViewsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Returns the output views your team can use: views DigitalOcean publishes to every team, plus your team's own. Cursor-paged with `page_size` and `page_token`; no total is reported.
 ///
@@ -546,23 +671,62 @@ Future<ListOutputViewsResponse> outputViewsList(ClientConfig config,
 ///   values are rejected with 400.
 /// [pageToken] `next_page_token` from the previous response. Valid only with
 ///   the same tool selection; otherwise the request is rejected with 400.
-Stream<OutputView> outputViewsListPaginated(ClientConfig config, {String? tool, String? toolId, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<OutputView> outputViewsListPaginated(ClientConfig config,
+    {String? tool,
+    String? toolId,
+    int? pageSize,
+    String? pageToken,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await outputViewsList(config, tool: tool == null ? const SdkOmitted<String>() : SdkPresent<String>(tool), toolId: toolId == null ? const SdkOmitted<String>() : SdkPresent<String>(toolId), pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await outputViewsList(config,
+        tool: tool == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(tool),
+        toolId: toolId == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(toolId),
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.views.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListOutputViewsResponse, OutputView>> outputViewsListPages(ClientConfig config, {String? tool, String? toolId, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListOutputViewsResponse, OutputView>> outputViewsListPages(
+    ClientConfig config,
+    {String? tool,
+    String? toolId,
+    int? pageSize,
+    String? pageToken,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await outputViewsList(config, tool: tool == null ? const SdkOmitted<String>() : SdkPresent<String>(tool), toolId: toolId == null ? const SdkOmitted<String>() : SdkPresent<String>(toolId), pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await outputViewsList(config,
+        tool: tool == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(tool),
+        toolId: toolId == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(toolId),
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.views.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -572,7 +736,6 @@ Stream<SdkPage<ListOutputViewsResponse, OutputView>> outputViewsListPages(Client
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Validates a projection exactly as create does and returns the view it would produce, including `output_schema`, without storing anything. name and description are optional here; name uniqueness and the per-tool-version limit are not checked.
 ///
@@ -600,12 +763,19 @@ Future<OutputViewResponse> outputViewsValidate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'outputViewsValidate',
-          fromJsonRaw: (value) => OutputViewResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OutputViewResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns one of your team's views, or a published view on a tool version your catalog exposes. Returns 404 when the view does not exist, was deleted, or belongs to another team.
 ///
@@ -617,12 +787,18 @@ Future<OutputViewResponse> outputViewsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'outputViewsGet',
-          fromJsonRaw: (value) => OutputViewResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OutputViewResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Deletes one of your team's views and returns it with audit.deleted_at set; it can no longer be used. Published views cannot be deleted. Returns 404 when the view does not exist, is already deleted, or is not your team's.
 ///
@@ -634,12 +810,18 @@ Future<OutputViewResponse> outputViewsDelete(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'outputViewsDelete',
-          fromJsonRaw: (value) => OutputViewResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OutputViewResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a session owned by your team, with a new session URN, and returns the MCP URL an agent connects to. tools selects the tools and toolbelts the session exposes, and policy decides which calls run, need approval, or are refused.
 ///
@@ -690,12 +872,18 @@ Future<CreateSessionResponse> sessionsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'sessionsCreate',
-          fromJsonRaw: (value) => CreateSessionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CreateSessionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns the sessions you can see, newest first. Offset-paged with page and `per_page`; `end_user_id` filters to one actor.
 ///
@@ -718,18 +906,26 @@ Future<ListSessionsResponse> sessionsList(ClientConfig config,
           'GET', '/v2/action-gateway/sessions',
           config: config,
           query: {
-            'end_user_id': SdkQueryValue(SdkUtils.unwrapOptional(endUserId), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'end_user_id': SdkQueryValue(SdkUtils.unwrapOptional(endUserId),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'sessionsList',
-          fromJsonRaw: (value) => ListSessionsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListSessionsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns the sessions you can see whose name, `actor_id`, `session_urn`, or `agentName` contains query, case-insensitively, ranked across the whole result set. Cursor-paged with `page_size` and `page_token`; no total is reported.
 ///
@@ -759,20 +955,29 @@ Future<SearchSessionsResponse> sessionsListSearch(ClientConfig config,
           'GET', '/v2/action-gateway/sessions/search',
           config: config,
           query: {
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
-            'end_user_id': SdkQueryValue(SdkUtils.unwrapOptional(endUserId), style: 'form', explode: true),
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true)
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true),
+            'end_user_id': SdkQueryValue(SdkUtils.unwrapOptional(endUserId),
+                style: 'form', explode: true),
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'sessionsListSearch',
-          fromJsonRaw: (value) => SearchSessionsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SearchSessionsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Returns the sessions you can see whose name, `actor_id`, `session_urn`, or `agentName` contains query, case-insensitively, ranked across the whole result set. Cursor-paged with `page_size` and `page_token`; no total is reported.
 ///
@@ -788,23 +993,62 @@ Future<SearchSessionsResponse> sessionsListSearch(ClientConfig config,
 /// [pageToken] `next_page_token` from the previous response. Valid only with
 ///   the same query and `end_user_id`; otherwise the request is rejected with
 ///   400.
-Stream<Session> sessionsListSearchPaginated(ClientConfig config, {String? query, String? endUserId, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<Session> sessionsListSearchPaginated(ClientConfig config,
+    {String? query,
+    String? endUserId,
+    int? pageSize,
+    String? pageToken,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await sessionsListSearch(config, query: query == null ? const SdkOmitted<String>() : SdkPresent<String>(query), endUserId: endUserId == null ? const SdkOmitted<String>() : SdkPresent<String>(endUserId), pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await sessionsListSearch(config,
+        query: query == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(query),
+        endUserId: endUserId == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(endUserId),
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.sessions.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<SearchSessionsResponse, Session>> sessionsListSearchPages(ClientConfig config, {String? query, String? endUserId, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SearchSessionsResponse, Session>> sessionsListSearchPages(
+    ClientConfig config,
+    {String? query,
+    String? endUserId,
+    int? pageSize,
+    String? pageToken,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await sessionsListSearch(config, query: query == null ? const SdkOmitted<String>() : SdkPresent<String>(query), endUserId: endUserId == null ? const SdkOmitted<String>() : SdkPresent<String>(endUserId), pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await sessionsListSearch(config,
+        query: query == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(query),
+        endUserId: endUserId == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(endUserId),
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.sessions.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -814,7 +1058,6 @@ Stream<SdkPage<SearchSessionsResponse, Session>> sessionsListSearchPages(ClientC
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Deletes the session and its policy. Succeeds without deleting anything when the session does not exist or you cannot delete it, so repeating a delete also succeeds. A malformed `session_urn` is rejected with 400.
 ///
@@ -829,10 +1072,16 @@ Future<Map<String, dynamic>> sessionsDelete(ClientConfig config,
           operationId: 'sessionsDelete',
           fromJsonRaw: (value) => value as Map<String, dynamic>,
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// A toolbelt is a named set of tools, each pinned to a version, that your team can attach to sessions as `toolbelt:&lt;name&gt;@&lt;version&gt;`. The first version is 1 unless version is set. Returns 409 if an active toolbelt with the same name exists. The name of a deleted toolbelt can be reused; its versions start again from the initial version.
 ///
@@ -882,12 +1131,19 @@ Future<ToolbeltResponse> toolbeltsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toolbeltsCreate',
-          fromJsonRaw: (value) => ToolbeltResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ToolbeltResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns your team's toolbelts, one entry per name describing its latest version, sorted by name. Offset-paged with page and `per_page`; pagination reports the total.
 ///
@@ -910,18 +1166,27 @@ Future<ToolbeltsResponse> toolbeltsList(ClientConfig config,
           'GET', '/v2/action-gateway/toolbelts',
           config: config,
           query: {
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toolbeltsList',
-          fromJsonRaw: (value) => ToolbeltsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ToolbeltsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns your team's toolbelts whose name, display name, or description contains query, case-insensitively, sorted by name. Cursor-paged with `page_size` and `page_token`; no total is reported.
 ///
@@ -946,20 +1211,29 @@ Future<SearchToolbeltsResponse> toolbeltsListSearch(ClientConfig config,
           'GET', '/v2/action-gateway/toolbelts/search',
           config: config,
           query: {
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true)
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true),
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toolbeltsListSearch',
-          fromJsonRaw: (value) => SearchToolbeltsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SearchToolbeltsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Returns your team's toolbelts whose name, display name, or description contains query, case-insensitively, sorted by name. Cursor-paged with `page_size` and `page_token`; no total is reported.
 ///
@@ -970,23 +1244,62 @@ Future<SearchToolbeltsResponse> toolbeltsListSearch(ClientConfig config,
 ///   values are rejected with 400.
 /// [pageToken] `next_page_token` from the previous response. Valid only with
 ///   the same query and status; otherwise the request is rejected with 400.
-Stream<ToolbeltSummary> toolbeltsListSearchPaginated(ClientConfig config, {String? query, SchemaSchemadba9253b? status, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<ToolbeltSummary> toolbeltsListSearchPaginated(ClientConfig config,
+    {String? query,
+    SchemaSchemadba9253b? status,
+    int? pageSize,
+    String? pageToken,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await toolbeltsListSearch(config, query: query == null ? const SdkOmitted<String>() : SdkPresent<String>(query), status: status == null ? const SdkOmitted<SchemaSchemadba9253b>() : SdkPresent<SchemaSchemadba9253b>(status), pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await toolbeltsListSearch(config,
+        query: query == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(query),
+        status: status == null
+            ? const SdkOmitted<SchemaSchemadba9253b>()
+            : SdkPresent<SchemaSchemadba9253b>(status),
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.toolbelts.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<SearchToolbeltsResponse, ToolbeltSummary>> toolbeltsListSearchPages(ClientConfig config, {String? query, SchemaSchemadba9253b? status, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SearchToolbeltsResponse, ToolbeltSummary>>
+    toolbeltsListSearchPages(ClientConfig config,
+        {String? query,
+        SchemaSchemadba9253b? status,
+        int? pageSize,
+        String? pageToken,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await toolbeltsListSearch(config, query: query == null ? const SdkOmitted<String>() : SdkPresent<String>(query), status: status == null ? const SdkOmitted<SchemaSchemadba9253b>() : SdkPresent<SchemaSchemadba9253b>(status), pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await toolbeltsListSearch(config,
+        query: query == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(query),
+        status: status == null
+            ? const SdkOmitted<SchemaSchemadba9253b>()
+            : SdkPresent<SchemaSchemadba9253b>(status),
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.toolbelts.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -996,7 +1309,6 @@ Stream<SdkPage<SearchToolbeltsResponse, ToolbeltSummary>> toolbeltsListSearchPag
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Returns the latest version of the named toolbelt, or the version requested, with catalog metadata for one page of its members in `tool_details`. A deleted toolbelt returns 404 unless a version is requested.
 ///
@@ -1030,20 +1342,30 @@ Future<GetToolbeltResponse> toolbeltsGet(ClientConfig config,
           '/v2/action-gateway/toolbelts/${Uri.encodeComponent(name.toString())}',
           config: config,
           query: {
-            'version': SdkQueryValue(SdkUtils.unwrapOptional(version), style: 'form', explode: true),
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true)
+            'version': SdkQueryValue(SdkUtils.unwrapOptional(version),
+                style: 'form', explode: true),
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toolbeltsGet',
-          fromJsonRaw: (value) => GetToolbeltResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetToolbeltResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Returns the latest version of the named toolbelt, or the version requested, with catalog metadata for one page of its members in `tool_details`. A deleted toolbelt returns 404 unless a version is requested.
 ///
@@ -1058,23 +1380,66 @@ Future<GetToolbeltResponse> toolbeltsGet(ClientConfig config,
 ///   description, provider, or category contains this value, case-insensitively.
 ///   It does not filter toolbelt.tools. This is a substring match, not a filter
 ///   expression.
-Stream<ToolbeltToolDetail> toolbeltsGetPaginated(ClientConfig config, {required String name, String? version, int? pageSize, String? pageToken, String? search, RequestOptions? requestOptions}) async* {
+Stream<ToolbeltToolDetail> toolbeltsGetPaginated(ClientConfig config,
+    {required String name,
+    String? version,
+    int? pageSize,
+    String? pageToken,
+    String? search,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await toolbeltsGet(config, name: name, version: version == null ? const SdkOmitted<String>() : SdkPresent<String>(version), pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), search: search == null ? const SdkOmitted<String>() : SdkPresent<String>(search), requestOptions: requestOptions);
+    final sdkPage = await toolbeltsGet(config,
+        name: name,
+        version: version == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(version),
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        search: search == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(search),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.toolDetails.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<GetToolbeltResponse, ToolbeltToolDetail>> toolbeltsGetPages(ClientConfig config, {required String name, String? version, int? pageSize, String? pageToken, String? search, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<GetToolbeltResponse, ToolbeltToolDetail>> toolbeltsGetPages(
+    ClientConfig config,
+    {required String name,
+    String? version,
+    int? pageSize,
+    String? pageToken,
+    String? search,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await toolbeltsGet(config, name: name, version: version == null ? const SdkOmitted<String>() : SdkPresent<String>(version), pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), search: search == null ? const SdkOmitted<String>() : SdkPresent<String>(search), requestOptions: requestOptions);
+    final sdkPage = await toolbeltsGet(config,
+        name: name,
+        version: version == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(version),
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        search: search == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(search),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.toolDetails.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -1084,7 +1449,6 @@ Stream<SdkPage<GetToolbeltResponse, ToolbeltToolDetail>> toolbeltsGetPages(Clien
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Marks the toolbelt deleted and returns its latest version with status deprecated. Its versions stay readable by explicit version until the name is reused. The name is free to reuse immediately; a new toolbelt with it starts a fresh version history. Returns 404 when the toolbelt does not exist or is already deleted.
 ///
@@ -1098,12 +1462,18 @@ Future<ToolbeltUpdateResponse> toolbeltsDelete(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'toolbeltsDelete',
-          fromJsonRaw: (value) => ToolbeltUpdateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ToolbeltUpdateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Returns the distinct providers of the toolbelt's members, each with its member count, sorted by provider ID. List one provider's members with `GET .../toolbelts/{name}/providers/{provider}/tools`.
 ///
@@ -1113,14 +1483,14 @@ Future<ToolbeltUpdateResponse> toolbeltsDelete(ClientConfig config,
 /// [perPage] Page size. Defaults to 20; values above 100 are capped at 100.
 /// [search] Restricts providers whose ID, name, or description contains this
 ///   value, case-insensitively.
-Future<ListToolbeltProvidersResponse>
-    toolbeltsListProviders(ClientConfig config,
-        {required String name,
-        SdkOptional<String> version = const SdkOmitted(),
-        SdkOptional<int> page = const SdkOmitted(),
-        SdkOptional<int> perPage = const SdkOmitted(),
-        SdkOptional<String> search = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ListToolbeltProvidersResponse> toolbeltsListProviders(
+    ClientConfig config,
+    {required String name,
+    SdkOptional<String> version = const SdkOmitted(),
+    SdkOptional<int> page = const SdkOmitted(),
+    SdkOptional<int> perPage = const SdkOmitted(),
+    SdkOptional<String> search = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   sdkValidatePattern('name', name, '^[a-z][a-z0-9_-]{0,63}\$');
   if (version is SdkPresent<String>) {
     sdkValidatePattern('version', version.value, '^[0-9]+\$');
@@ -1136,19 +1506,30 @@ Future<ListToolbeltProvidersResponse>
           '/v2/action-gateway/toolbelts/${Uri.encodeComponent(name.toString())}/providers',
           config: config,
           query: {
-            'version': SdkQueryValue(SdkUtils.unwrapOptional(version), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true)
+            'version': SdkQueryValue(SdkUtils.unwrapOptional(version),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toolbeltsListProviders',
-          fromJsonRaw: (value) => ListToolbeltProvidersResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListToolbeltProvidersResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns a page of catalog metadata for the toolbelt's members from the named provider, sorted by tool slug. An unknown provider returns an empty page.
 ///
@@ -1160,15 +1541,15 @@ Future<ListToolbeltProvidersResponse>
 /// [perPage] Page size. Defaults to 20; values above 100 are capped at 100.
 /// [search] Restricts tools whose slug, name, title, description, provider, or
 ///   category contains this value, case-insensitively, within the provider only.
-Future<ListToolbeltProviderToolsResponse>
-    toolbeltsListProviderTools(ClientConfig config,
-        {required String name,
-        required String provider,
-        SdkOptional<String> version = const SdkOmitted(),
-        SdkOptional<int> page = const SdkOmitted(),
-        SdkOptional<int> perPage = const SdkOmitted(),
-        SdkOptional<String> search = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ListToolbeltProviderToolsResponse> toolbeltsListProviderTools(
+    ClientConfig config,
+    {required String name,
+    required String provider,
+    SdkOptional<String> version = const SdkOmitted(),
+    SdkOptional<int> page = const SdkOmitted(),
+    SdkOptional<int> perPage = const SdkOmitted(),
+    SdkOptional<String> search = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   sdkValidatePattern('name', name, '^[a-z][a-z0-9_-]{0,63}\$');
   if (version is SdkPresent<String>) {
     sdkValidatePattern('version', version.value, '^[0-9]+\$');
@@ -1184,19 +1565,30 @@ Future<ListToolbeltProviderToolsResponse>
           '/v2/action-gateway/toolbelts/${Uri.encodeComponent(name.toString())}/providers/${Uri.encodeComponent(provider.toString())}/tools',
           config: config,
           query: {
-            'version': SdkQueryValue(SdkUtils.unwrapOptional(version), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true)
+            'version': SdkQueryValue(SdkUtils.unwrapOptional(version),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toolbeltsListProviderTools',
-          fromJsonRaw: (value) => ListToolbeltProviderToolsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListToolbeltProviderToolsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Adds the listed tools and returns the toolbelt. When membership changes, this creates a new version that keeps the display name and description. Tools already in the toolbelt are left as they are, so a request that adds nothing new returns the current version unchanged. Returns 400 when a tool is not an active catalog tool, when a pin differs from the tool's current released version or from the version the toolbelt already holds, or when the toolbelt would exceed 500 tools. Returns 404 for an unknown or deleted toolbelt.
 ///
@@ -1217,12 +1609,19 @@ Future<ToolbeltUpdateResponse> toolbeltsAddTools(ClientConfig config,
           body: {'tools': tools},
           decoder: SdkResponseDecoder.json,
           operationId: 'toolbeltsAddTools',
-          fromJsonRaw: (value) => ToolbeltUpdateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ToolbeltUpdateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Removes the listed tools and returns the toolbelt. When membership changes, this creates a new version that keeps the display name and description. Tools that are not members are ignored, and removing every tool is allowed; deleting the toolbelt itself is a separate DELETE. Returns 400 when a pin differs from the version the toolbelt holds, and 404 for an unknown or deleted toolbelt.
 ///
@@ -1243,12 +1642,19 @@ Future<ToolbeltUpdateResponse> toolbeltsDeleteTools(ClientConfig config,
           body: {'tools': tools},
           decoder: SdkResponseDecoder.json,
           operationId: 'toolbeltsDeleteTools',
-          fromJsonRaw: (value) => ToolbeltUpdateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ToolbeltUpdateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns one page of the tools your team can use: released catalog tools plus the enabled tools of your team's MCP servers. definitions[i] describes tools[i]. Offset-paged with page and `per_page`; an unknown `toolkitId` returns an empty page.
 ///
@@ -1274,18 +1680,26 @@ Future<ListToolsResponse> toolsList(ClientConfig config,
   return (await sdkRequest<ListToolsResponse>('GET', '/v2/action-gateway/tools',
           config: config,
           query: {
-            'toolkit_id': SdkQueryValue(SdkUtils.unwrapOptional(toolkitId), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'toolkit_id': SdkQueryValue(SdkUtils.unwrapOptional(toolkitId),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toolsList',
-          fromJsonRaw: (value) => ListToolsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListToolsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns availability and latency for each catalog tool over the requested window, sorted by provider and then tool slug. A tool with no calls in the window is listed with `data_status` `HEALTH_DATA_STATUS_NO_DATA`. Metrics are aggregated across all customers; request volumes are not reported. Tools of your team's MCP servers are not included. Offset-paged with page and `per_page`.
 ///
@@ -1316,19 +1730,29 @@ Future<ListToolHealthResponse> toolsListHealth(ClientConfig config,
           'GET', '/v2/action-gateway/tools/health',
           config: config,
           query: {
-            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider), style: 'form', explode: true),
-            'window': SdkQueryValue(SdkUtils.unwrapOptional(window), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider),
+                style: 'form', explode: true),
+            'window': SdkQueryValue(SdkUtils.unwrapOptional(window),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toolsListHealth',
-          fromJsonRaw: (value) => ListToolHealthResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListToolHealthResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns availability and latency for each catalog provider over the requested window, sorted by provider ID. Metrics are aggregated across all customers; request volumes are not reported. Tools of your team's MCP servers are not included. Offset-paged with page and `per_page`.
 ///
@@ -1359,19 +1783,29 @@ Future<ListProviderHealthResponse> toolsListHealthProviders(ClientConfig config,
           'GET', '/v2/action-gateway/tools/health/providers',
           config: config,
           query: {
-            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider), style: 'form', explode: true),
-            'window': SdkQueryValue(SdkUtils.unwrapOptional(window), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider),
+                style: 'form', explode: true),
+            'window': SdkQueryValue(SdkUtils.unwrapOptional(window),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toolsListHealthProviders',
-          fromJsonRaw: (value) => ListProviderHealthResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListProviderHealthResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns availability and latency for one catalog tool over the requested window, optionally with a history series. Metrics are aggregated across all customers; request volumes are not reported. Returns 404 when `tool_slug` is not a catalog tool.
 ///
@@ -1393,17 +1827,28 @@ Future<GetToolHealthResponse> toolsGetHealth(ClientConfig config,
           '/v2/action-gateway/tools/health/tools/${Uri.encodeComponent(toolSlug.toString())}',
           config: config,
           query: {
-            'window': SdkQueryValue(SdkUtils.unwrapOptional(window), style: 'form', explode: true),
-            'include_history': SdkQueryValue(SdkUtils.unwrapOptional(includeHistory), style: 'form', explode: true)
+            'window': SdkQueryValue(SdkUtils.unwrapOptional(window),
+                style: 'form', explode: true),
+            'include_history': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeHistory),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toolsGetHealth',
-          fromJsonRaw: (value) => GetToolHealthResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetToolHealthResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns the active catalog providers with at least one released tool, sorted by display name, with the credential kinds each accepts and the parameters a connection or team credential needs. Your team's MCP servers are listed separately under `/v2/action-gateway/mcp-servers`.
 Future<ListProvidersResponse> toolsListProviders(ClientConfig config,
@@ -1413,12 +1858,17 @@ Future<ListProvidersResponse> toolsListProviders(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'toolsListProviders',
-          fromJsonRaw: (value) => ListProvidersResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListProvidersResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Returns the providers of `GET /v2/action-gateway/tools/providers` whose name, display name, or description contains query, case-insensitively, sorted by name. Cursor-paged with `page_size` and `page_token`; no total is reported.
 ///
@@ -1443,19 +1893,27 @@ Future<SearchProvidersResponse> toolsListSearchProviders(ClientConfig config,
           'GET', '/v2/action-gateway/tools/providers/search',
           config: config,
           query: {
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true)
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true),
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toolsListSearchProviders',
-          fromJsonRaw: (value) => SearchProvidersResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SearchProvidersResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Returns the providers of `GET /v2/action-gateway/tools/providers` whose name, display name, or description contains query, case-insensitively, sorted by name. Cursor-paged with `page_size` and `page_token`; no total is reported.
 ///
@@ -1467,23 +1925,54 @@ Future<SearchProvidersResponse> toolsListSearchProviders(ClientConfig config,
 ///   values are rejected with 400.
 /// [pageToken] `next_page_token` from the previous response. Valid only with
 ///   the same query; otherwise the request is rejected with 400.
-Stream<ProviderSummary> toolsListSearchProvidersPaginated(ClientConfig config, {String? query, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<ProviderSummary> toolsListSearchProvidersPaginated(ClientConfig config,
+    {String? query,
+    int? pageSize,
+    String? pageToken,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await toolsListSearchProviders(config, query: query == null ? const SdkOmitted<String>() : SdkPresent<String>(query), pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await toolsListSearchProviders(config,
+        query: query == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(query),
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.providers.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<SearchProvidersResponse, ProviderSummary>> toolsListSearchProvidersPages(ClientConfig config, {String? query, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SearchProvidersResponse, ProviderSummary>>
+    toolsListSearchProvidersPages(ClientConfig config,
+        {String? query,
+        int? pageSize,
+        String? pageToken,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await toolsListSearchProviders(config, query: query == null ? const SdkOmitted<String>() : SdkPresent<String>(query), pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await toolsListSearchProviders(config,
+        query: query == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(query),
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.providers.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -1493,7 +1982,6 @@ Stream<SdkPage<SearchProvidersResponse, ProviderSummary>> toolsListSearchProvide
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Returns the tools your team can use that match query, optionally restricted to some providers or to the members of one of your toolbelts. Results are ranked across the whole result set: exact tool name matches first, then name or title prefixes, then name or title substrings, then other matches. Cursor-paged with `page_size` and `page_token`; no total is reported.
 ///
@@ -1527,21 +2015,32 @@ Future<SearchToolsResponse> toolsListSearch(ClientConfig config,
           'GET', '/v2/action-gateway/tools/search',
           config: config,
           query: {
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
-            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider), style: 'form', explode: true),
-            'toolbelt': SdkQueryValue(SdkUtils.unwrapOptional(toolbelt), style: 'form', explode: true),
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true)
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true),
+            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider),
+                style: 'form', explode: true),
+            'toolbelt': SdkQueryValue(SdkUtils.unwrapOptional(toolbelt),
+                style: 'form', explode: true),
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toolsListSearch',
-          fromJsonRaw: (value) => SearchToolsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SearchToolsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Returns the tools your team can use that match query, optionally restricted to some providers or to the members of one of your toolbelts. Results are ranked across the whole result set: exact tool name matches first, then name or title prefixes, then name or title substrings, then other matches. Cursor-paged with `page_size` and `page_token`; no total is reported.
 ///
@@ -1560,23 +2059,70 @@ Future<SearchToolsResponse> toolsListSearch(ClientConfig config,
 /// [pageToken] A `next_page_token` from the preceding response. It is pinned to
 ///   the query and filters that produced it: replaying one against a different
 ///   search is rejected with 400, not a silent restart from the top.
-Stream<ToolSearchResult> toolsListSearchPaginated(ClientConfig config, {String? query, List<String>? provider, String? toolbelt, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<ToolSearchResult> toolsListSearchPaginated(ClientConfig config,
+    {String? query,
+    List<String>? provider,
+    String? toolbelt,
+    int? pageSize,
+    String? pageToken,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await toolsListSearch(config, query: query == null ? const SdkOmitted<String>() : SdkPresent<String>(query), provider: provider == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(provider), toolbelt: toolbelt == null ? const SdkOmitted<String>() : SdkPresent<String>(toolbelt), pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await toolsListSearch(config,
+        query: query == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(query),
+        provider: provider == null
+            ? const SdkOmitted<List<String>>()
+            : SdkPresent<List<String>>(provider),
+        toolbelt: toolbelt == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(toolbelt),
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.tools.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<SearchToolsResponse, ToolSearchResult>> toolsListSearchPages(ClientConfig config, {String? query, List<String>? provider, String? toolbelt, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<SearchToolsResponse, ToolSearchResult>> toolsListSearchPages(
+    ClientConfig config,
+    {String? query,
+    List<String>? provider,
+    String? toolbelt,
+    int? pageSize,
+    String? pageToken,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await toolsListSearch(config, query: query == null ? const SdkOmitted<String>() : SdkPresent<String>(query), provider: provider == null ? const SdkOmitted<List<String>>() : SdkPresent<List<String>>(provider), toolbelt: toolbelt == null ? const SdkOmitted<String>() : SdkPresent<String>(toolbelt), pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await toolsListSearch(config,
+        query: query == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(query),
+        provider: provider == null
+            ? const SdkOmitted<List<String>>()
+            : SdkPresent<List<String>>(provider),
+        toolbelt: toolbelt == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(toolbelt),
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.tools.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -1587,7 +2133,6 @@ Stream<SdkPage<SearchToolsResponse, ToolSearchResult>> toolsListSearchPages(Clie
   }
 }
 
-
 /// Returns the providers (toolkits) whose tools your team can use: catalog providers with at least one released tool, plus your team's registered MCP servers.
 Future<ListToolkitsResponse> toolsListToolkits(ClientConfig config,
     {RequestOptions? requestOptions}) async {
@@ -1596,12 +2141,17 @@ Future<ListToolkitsResponse> toolsListToolkits(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'toolsListToolkits',
-          fromJsonRaw: (value) => ListToolkitsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListToolkitsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Returns the user IDs known for your team: session `actor_id` values, the `user_id` of connections that are not revoked, and actors with limit overrides. Only sessions and connections you can see count. Offset-paged with page and `per_page`.
 ///
@@ -1629,20 +2179,33 @@ Future<ListUsersResponse> usersList(ClientConfig config,
   return (await sdkRequest<ListUsersResponse>('GET', '/v2/action-gateway/users',
           config: config,
           query: {
-            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId), style: 'form', explode: true),
-            'sort': SdkQueryValue(SdkUtils.unwrapOptional(sort), style: 'form', explode: true),
-            'sort_direction': SdkQueryValue(SdkUtils.unwrapOptional(sortDirection), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId),
+                style: 'form', explode: true),
+            'sort': SdkQueryValue(SdkUtils.unwrapOptional(sort),
+                style: 'form', explode: true),
+            'sort_direction': SdkQueryValue(
+                SdkUtils.unwrapOptional(sortDirection),
+                style: 'form',
+                explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usersList',
-          fromJsonRaw: (value) => ListUsersResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListUsersResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns the sessions and non-revoked connections of one user ID. Returns 404 when the user has none you can see and no limit overrides.
 ///
@@ -1654,8 +2217,15 @@ Future<GetUserResponse> usersGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'usersGet',
-          fromJsonRaw: (value) => GetUserResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetUserResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

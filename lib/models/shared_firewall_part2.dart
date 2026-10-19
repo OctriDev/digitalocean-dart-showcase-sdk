@@ -8,92 +8,188 @@ part of 'shared_firewall.dart';
 class FirewallRules {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `inbound_rules` wire field.
   final SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules;
+
   /// Optional array value serialized in the `outbound_rules` wire field.
   final SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules;
 
-  const FirewallRules({this.inboundRules = const SdkOmitted(), this.outboundRules = const SdkOmitted()});
+  const FirewallRules(
+      {this.inboundRules = const SdkOmitted(),
+      this.outboundRules = const SdkOmitted()});
 
-  FirewallRules Function({SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules, SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules}) get copyWith => _copyWith;
+  FirewallRules Function(
+          {SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules,
+          SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules})
+      get copyWith => _copyWith;
 
-  FirewallRules _copyWith({Object? inboundRules = sdkOmittedValue, Object? outboundRules = sdkOmittedValue}) => FirewallRules(
-    inboundRules: identical(inboundRules, sdkOmittedValue) ? this.inboundRules : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
-    outboundRules: identical(outboundRules, sdkOmittedValue) ? this.outboundRules : outboundRules as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
-  );
+  FirewallRules _copyWith(
+          {Object? inboundRules = sdkOmittedValue,
+          Object? outboundRules = sdkOmittedValue}) =>
+      FirewallRules(
+        inboundRules: identical(inboundRules, sdkOmittedValue)
+            ? this.inboundRules
+            : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
+        outboundRules: identical(outboundRules, sdkOmittedValue)
+            ? this.outboundRules
+            : outboundRules
+                as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
+      );
 
   factory FirewallRules.fromJson(Map<String, dynamic> json) => FirewallRules(
-    inboundRules: json.containsKey('inbound_rules') ? SdkPresent((json['inbound_rules'] as List?)?.map((e) => FirewallRulesInboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-    outboundRules: json.containsKey('outbound_rules') ? SdkPresent((json['outbound_rules'] as List?)?.map((e) => FirewallRulesOutboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+        inboundRules: json.containsKey('inbound_rules')
+            ? SdkPresent((json['inbound_rules'] as List?)
+                ?.map((e) => FirewallRulesInboundRulesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+        outboundRules: json.containsKey('outbound_rules')
+            ? SdkPresent((json['outbound_rules'] as List?)
+                ?.map((e) => FirewallRulesOutboundRulesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (inboundRules) {
-      SdkPresent<List<FirewallRulesInboundRulesItem>?>(value: final value) => {'inbound_rules': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outboundRules) {
-      SdkPresent<List<FirewallRulesOutboundRulesItem>?>(value: final value) => {'outbound_rules': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (inboundRules) {
+          SdkPresent<List<FirewallRulesInboundRulesItem>?>(
+            value: final value
+          ) =>
+            {
+              'inbound_rules': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outboundRules) {
+          SdkPresent<List<FirewallRulesOutboundRulesItem>?>(
+            value: final value
+          ) =>
+            {
+              'outbound_rules': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `FirewallRuleTarget` API schema.
 class FirewallRuleTarget {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of strings containing the IPv4 addresses, IPv6 addresses, IPv4 CIDRs, and/or IPv6 CIDRs to which the firewall will allow traffic.
   final SdkOptional<List<String>> addresses;
+
   /// An array containing the IDs of the Droplets to which the firewall will allow traffic.
   final SdkOptional<List<int>> dropletIds;
+
   /// An array containing the IDs of the load balancers to which the firewall will allow traffic.
   final SdkOptional<List<String>> loadBalancerUids;
+
   /// An array containing the IDs of the Kubernetes clusters to which the firewall will allow traffic.
   final SdkOptional<List<String>> kubernetesIds;
+
   /// Optional API value serialized in the `tags` wire field.
   final SdkOptional<List<String>> tags;
 
-  const FirewallRuleTarget({this.addresses = const SdkOmitted(), this.dropletIds = const SdkOmitted(), this.loadBalancerUids = const SdkOmitted(), this.kubernetesIds = const SdkOmitted(), this.tags = const SdkOmitted()});
+  const FirewallRuleTarget(
+      {this.addresses = const SdkOmitted(),
+      this.dropletIds = const SdkOmitted(),
+      this.loadBalancerUids = const SdkOmitted(),
+      this.kubernetesIds = const SdkOmitted(),
+      this.tags = const SdkOmitted()});
 
-  FirewallRuleTarget Function({SdkOptional<List<String>> addresses, SdkOptional<List<int>> dropletIds, SdkOptional<List<String>> loadBalancerUids, SdkOptional<List<String>> kubernetesIds, SdkOptional<List<String>> tags}) get copyWith => _copyWith;
+  FirewallRuleTarget Function(
+      {SdkOptional<List<String>> addresses,
+      SdkOptional<List<int>> dropletIds,
+      SdkOptional<List<String>> loadBalancerUids,
+      SdkOptional<List<String>> kubernetesIds,
+      SdkOptional<List<String>> tags}) get copyWith => _copyWith;
 
-  FirewallRuleTarget _copyWith({Object? addresses = sdkOmittedValue, Object? dropletIds = sdkOmittedValue, Object? loadBalancerUids = sdkOmittedValue, Object? kubernetesIds = sdkOmittedValue, Object? tags = sdkOmittedValue}) => FirewallRuleTarget(
-    addresses: identical(addresses, sdkOmittedValue) ? this.addresses : addresses as SdkOptional<List<String>>,
-    dropletIds: identical(dropletIds, sdkOmittedValue) ? this.dropletIds : dropletIds as SdkOptional<List<int>>,
-    loadBalancerUids: identical(loadBalancerUids, sdkOmittedValue) ? this.loadBalancerUids : loadBalancerUids as SdkOptional<List<String>>,
-    kubernetesIds: identical(kubernetesIds, sdkOmittedValue) ? this.kubernetesIds : kubernetesIds as SdkOptional<List<String>>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-  );
+  FirewallRuleTarget _copyWith(
+          {Object? addresses = sdkOmittedValue,
+          Object? dropletIds = sdkOmittedValue,
+          Object? loadBalancerUids = sdkOmittedValue,
+          Object? kubernetesIds = sdkOmittedValue,
+          Object? tags = sdkOmittedValue}) =>
+      FirewallRuleTarget(
+        addresses: identical(addresses, sdkOmittedValue)
+            ? this.addresses
+            : addresses as SdkOptional<List<String>>,
+        dropletIds: identical(dropletIds, sdkOmittedValue)
+            ? this.dropletIds
+            : dropletIds as SdkOptional<List<int>>,
+        loadBalancerUids: identical(loadBalancerUids, sdkOmittedValue)
+            ? this.loadBalancerUids
+            : loadBalancerUids as SdkOptional<List<String>>,
+        kubernetesIds: identical(kubernetesIds, sdkOmittedValue)
+            ? this.kubernetesIds
+            : kubernetesIds as SdkOptional<List<String>>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+      );
 
-  factory FirewallRuleTarget.fromJson(Map<String, dynamic> json) => FirewallRuleTarget(
-    addresses: json['addresses'] != null ? SdkPresent(((json['addresses'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    dropletIds: json['droplet_ids'] != null ? SdkPresent(((json['droplet_ids'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
-    loadBalancerUids: json['load_balancer_uids'] != null ? SdkPresent(((json['load_balancer_uids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    kubernetesIds: json['kubernetes_ids'] != null ? SdkPresent(((json['kubernetes_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory FirewallRuleTarget.fromJson(Map<String, dynamic> json) =>
+      FirewallRuleTarget(
+        addresses: json['addresses'] != null
+            ? SdkPresent(((json['addresses'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        dropletIds: json['droplet_ids'] != null
+            ? SdkPresent(((json['droplet_ids'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())!)
+            : const SdkOmitted(),
+        loadBalancerUids: json['load_balancer_uids'] != null
+            ? SdkPresent(((json['load_balancer_uids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        kubernetesIds: json['kubernetes_ids'] != null
+            ? SdkPresent(((json['kubernetes_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (addresses) {
-      SdkPresent<List<String>>(value: final value) => {'addresses': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dropletIds) {
-      SdkPresent<List<int>>(value: final value) => {'droplet_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (loadBalancerUids) {
-      SdkPresent<List<String>>(value: final value) => {'load_balancer_uids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (kubernetesIds) {
-      SdkPresent<List<String>>(value: final value) => {'kubernetes_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (addresses) {
+          SdkPresent<List<String>>(value: final value) => {
+              'addresses': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dropletIds) {
+          SdkPresent<List<int>>(value: final value) => {
+              'droplet_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (loadBalancerUids) {
+          SdkPresent<List<String>>(value: final value) => {
+              'load_balancer_uids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (kubernetesIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'kubernetes_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

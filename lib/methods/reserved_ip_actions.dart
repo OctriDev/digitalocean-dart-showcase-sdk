@@ -17,12 +17,18 @@ Future<ReservedIpActions> reservedIpsActionsList(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'reservedIpsActionsList',
-          fromJsonRaw: (value) => ReservedIpActions.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ReservedIpActions.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Submits an action to assign or unassign a reserved IP. Set `type` to `assign` or `unassign`, and include `droplet_id` when assigning the address to a Droplet. The response contains the action object for the requested operation.
 ///
@@ -39,12 +45,18 @@ Future<ReservedIpAction> reservedIpsActionsPost(ClientConfig config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
           operationId: 'reservedIpsActionsPost',
-          fromJsonRaw: (value) => ReservedIpAction.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ReservedIpAction.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To retrieve the status of a reserved IP action, send a GET request to `/v2/reserved_ips/$RESERVED_IP/actions/$ACTION_ID`.
 ///
@@ -62,8 +74,15 @@ Future<ReservedIpAction> reservedIpsActionsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'reservedIpsActionsGet',
-          fromJsonRaw: (value) => ReservedIpAction.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ReservedIpAction.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

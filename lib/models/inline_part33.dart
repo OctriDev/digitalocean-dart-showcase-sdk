@@ -6,7 +6,6 @@ part of 'inline.dart';
 // Inline operation models (part 33)
 /// Canonical SPI event type. The SSE `event:` field carries the same value.
 final class StreamEventType {
-
   final String value;
 
   const StreamEventType._(this.value);
@@ -16,15 +15,19 @@ final class StreamEventType {
   static const runStarted = StreamEventType._('run.started');
   static const runTokenDelta = StreamEventType._('run.token_delta');
   static const runToolCallStarted = StreamEventType._('run.tool_call_started');
-  static const runToolCallCompleted = StreamEventType._('run.tool_call_completed');
-  static const runHumanInputRequested = StreamEventType._('run.human_input_requested');
-  static const runHumanInputReceived = StreamEventType._('run.human_input_received');
+  static const runToolCallCompleted =
+      StreamEventType._('run.tool_call_completed');
+  static const runHumanInputRequested =
+      StreamEventType._('run.human_input_requested');
+  static const runHumanInputReceived =
+      StreamEventType._('run.human_input_received');
   static const runCompleted = StreamEventType._('run.completed');
   static const runFailed = StreamEventType._('run.failed');
   static const runPaused = StreamEventType._('run.paused');
   static const runResumed = StreamEventType._('run.resumed');
   static const sessionUpdated = StreamEventType._('session.updated');
-  static const runStateCheckpointed = StreamEventType._('run.state_checkpointed');
+  static const runStateCheckpointed =
+      StreamEventType._('run.state_checkpointed');
   static const runHandoff = StreamEventType._('run.handoff');
   static const runUsageRecorded = StreamEventType._('run.usage_recorded');
   static const runSandboxAllocated = StreamEventType._('run.sandbox_allocated');
@@ -36,44 +39,54 @@ final class StreamEventType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is StreamEventType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is StreamEventType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `eligibility_reasons[]` wire field.
 final class SubscriptionTierExtendedEligibilityReasonsItem {
-
   final String value;
 
   const SubscriptionTierExtendedEligibilityReasonsItem._(this.value);
 
-  factory SubscriptionTierExtendedEligibilityReasonsItem.fromJson(String value) => SubscriptionTierExtendedEligibilityReasonsItem._(value);
+  factory SubscriptionTierExtendedEligibilityReasonsItem.fromJson(
+          String value) =>
+      SubscriptionTierExtendedEligibilityReasonsItem._(value);
 
-  static const overrepositorylimit = SubscriptionTierExtendedEligibilityReasonsItem._('OverRepositoryLimit');
-  static const overstoragelimit = SubscriptionTierExtendedEligibilityReasonsItem._('OverStorageLimit');
+  static const overrepositorylimit =
+      SubscriptionTierExtendedEligibilityReasonsItem._('OverRepositoryLimit');
+  static const overstoragelimit =
+      SubscriptionTierExtendedEligibilityReasonsItem._('OverStorageLimit');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SubscriptionTierExtendedEligibilityReasonsItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SubscriptionTierExtendedEligibilityReasonsItem &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Echoes the `type` of the question this answer corresponds to.
 final class SystemoneAnswerType {
-
   final String value;
 
   const SystemoneAnswerType._(this.value);
 
-  factory SystemoneAnswerType.fromJson(String value) => SystemoneAnswerType._(value);
+  factory SystemoneAnswerType.fromJson(String value) =>
+      SystemoneAnswerType._(value);
 
   static const noul = SystemoneAnswerType._('noul');
   static const choice = SystemoneAnswerType._('choice');
@@ -81,22 +94,25 @@ final class SystemoneAnswerType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SystemoneAnswerType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SystemoneAnswerType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Question discriminator. Use `noul` for a boolean-like true/false check, `choice` to select one option from a fixed set, and `score` to rate against an ordered rubric.
 final class SystemoneQuestionType {
-
   final String value;
 
   const SystemoneQuestionType._(this.value);
 
-  factory SystemoneQuestionType.fromJson(String value) => SystemoneQuestionType._(value);
+  factory SystemoneQuestionType.fromJson(String value) =>
+      SystemoneQuestionType._(value);
 
   static const noul = SystemoneQuestionType._('noul');
   static const choice = SystemoneQuestionType._('choice');
@@ -104,46 +120,53 @@ final class SystemoneQuestionType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SystemoneQuestionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SystemoneQuestionType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the resource.
 final class TagsResourceResourcesItemResourceType {
-
   final String value;
 
   const TagsResourceResourcesItemResourceType._(this.value);
 
-  factory TagsResourceResourcesItemResourceType.fromJson(String value) => TagsResourceResourcesItemResourceType._(value);
+  factory TagsResourceResourcesItemResourceType.fromJson(String value) =>
+      TagsResourceResourcesItemResourceType._(value);
 
   static const droplet = TagsResourceResourcesItemResourceType._('droplet');
   static const image = TagsResourceResourcesItemResourceType._('image');
   static const volume = TagsResourceResourcesItemResourceType._('volume');
-  static const volumeSnapshot = TagsResourceResourcesItemResourceType._('volume_snapshot');
+  static const volumeSnapshot =
+      TagsResourceResourcesItemResourceType._('volume_snapshot');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TagsResourceResourcesItemResourceType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TagsResourceResourcesItemResourceType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The role to assign to the invited user. The `owner` role cannot be assigned via invitation.
 final class TeamInvitationRole {
-
   final String value;
 
   const TeamInvitationRole._(this.value);
 
-  factory TeamInvitationRole.fromJson(String value) => TeamInvitationRole._(value);
+  factory TeamInvitationRole.fromJson(String value) =>
+      TeamInvitationRole._(value);
 
   static const member = TeamInvitationRole._('member');
   static const biller = TeamInvitationRole._('biller');
@@ -153,39 +176,45 @@ final class TeamInvitationRole {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TeamInvitationRole && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TeamInvitationRole && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The invitation delivery status for the email address.
 final class TeamInvitationStatusStatus {
-
   final String value;
 
   const TeamInvitationStatusStatus._(this.value);
 
-  factory TeamInvitationStatusStatus.fromJson(String value) => TeamInvitationStatusStatus._(value);
+  factory TeamInvitationStatusStatus.fromJson(String value) =>
+      TeamInvitationStatusStatus._(value);
 
   static const ok = TeamInvitationStatusStatus._('ok');
-  static const dailyInviteLimitReached = TeamInvitationStatusStatus._('daily_invite_limit_reached');
+  static const dailyInviteLimitReached =
+      TeamInvitationStatusStatus._('daily_invite_limit_reached');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TeamInvitationStatusStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TeamInvitationStatusStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// active, or deprecated once the toolbelt is deleted.
 final class ToolbeltStatus {
-
   final String value;
 
   const ToolbeltStatus._(this.value);
@@ -197,39 +226,44 @@ final class ToolbeltStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ToolbeltStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ToolbeltStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// active, or deprecated once the toolbelt is deleted.
 final class ToolbeltSummaryStatus {
-
   final String value;
 
   const ToolbeltSummaryStatus._(this.value);
 
-  factory ToolbeltSummaryStatus.fromJson(String value) => ToolbeltSummaryStatus._(value);
+  factory ToolbeltSummaryStatus.fromJson(String value) =>
+      ToolbeltSummaryStatus._(value);
 
   static const active = ToolbeltSummaryStatus._('active');
   static const deprecated = ToolbeltSummaryStatus._('deprecated');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ToolbeltSummaryStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ToolbeltSummaryStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class ToolResultStatus {
-
   final String value;
 
   const ToolResultStatus._(this.value);
@@ -241,31 +275,37 @@ final class ToolResultStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ToolResultStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ToolResultStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class ToolResultErrorStatus {
-
   final String value;
 
   const ToolResultErrorStatus._(this.value);
 
-  factory ToolResultErrorStatus.fromJson(String value) => ToolResultErrorStatus._(value);
+  factory ToolResultErrorStatus.fromJson(String value) =>
+      ToolResultErrorStatus._(value);
 
   static const failed = ToolResultErrorStatus._('failed');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ToolResultErrorStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ToolResultErrorStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

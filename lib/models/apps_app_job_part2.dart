@@ -9,66 +9,119 @@ class AppJobInvocations {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<AppJobInvocation>> jobInvocations;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
 
-  const AppJobInvocations({this.jobInvocations = const SdkOmitted(), this.links = const SdkOmitted()});
+  const AppJobInvocations(
+      {this.jobInvocations = const SdkOmitted(),
+      this.links = const SdkOmitted()});
 
-  AppJobInvocations Function({SdkOptional<List<AppJobInvocation>> jobInvocations, SdkOptional<PageLinks> links}) get copyWith => _copyWith;
+  AppJobInvocations Function(
+      {SdkOptional<List<AppJobInvocation>> jobInvocations,
+      SdkOptional<PageLinks> links}) get copyWith => _copyWith;
 
-  AppJobInvocations _copyWith({Object? jobInvocations = sdkOmittedValue, Object? links = sdkOmittedValue}) => AppJobInvocations(
-    jobInvocations: identical(jobInvocations, sdkOmittedValue) ? this.jobInvocations : jobInvocations as SdkOptional<List<AppJobInvocation>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-  );
+  AppJobInvocations _copyWith(
+          {Object? jobInvocations = sdkOmittedValue,
+          Object? links = sdkOmittedValue}) =>
+      AppJobInvocations(
+        jobInvocations: identical(jobInvocations, sdkOmittedValue)
+            ? this.jobInvocations
+            : jobInvocations as SdkOptional<List<AppJobInvocation>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+      );
 
-  factory AppJobInvocations.fromJson(Map<String, dynamic> json) => AppJobInvocations(
-    jobInvocations: json['job_invocations'] != null ? SdkPresent(((json['job_invocations'] as List?)?.map((e) => AppJobInvocation.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AppJobInvocations.fromJson(Map<String, dynamic> json) =>
+      AppJobInvocations(
+        jobInvocations: json['job_invocations'] != null
+            ? SdkPresent(((json['job_invocations'] as List?)
+                ?.map(
+                    (e) => AppJobInvocation.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (jobInvocations) {
-      SdkPresent<List<AppJobInvocation>>(value: final value) => {'job_invocations': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (jobInvocations) {
+          SdkPresent<List<AppJobInvocation>>(value: final value) => {
+              'job_invocations': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `jobs[]` wire field.
 class AppJobSpecVariant2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind. - PRE_DEPLOY: Indicates a job that runs before an app deployment. - POST_DEPLOY: Indicates a job that runs after an app deployment. - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
   final SdkOptional<AppJobSpecVariant2Kind> kind;
+
   /// Optional object value serialized in the `termination` wire field.
   final SdkOptional<AppJobSpecTermination> termination;
 
-  const AppJobSpecVariant2({this.kind = const SdkOmitted(), this.termination = const SdkOmitted()});
+  const AppJobSpecVariant2(
+      {this.kind = const SdkOmitted(), this.termination = const SdkOmitted()});
 
-  AppJobSpecVariant2 Function({SdkOptional<AppJobSpecVariant2Kind> kind, SdkOptional<AppJobSpecTermination> termination}) get copyWith => _copyWith;
+  AppJobSpecVariant2 Function(
+          {SdkOptional<AppJobSpecVariant2Kind> kind,
+          SdkOptional<AppJobSpecTermination> termination})
+      get copyWith => _copyWith;
 
-  AppJobSpecVariant2 _copyWith({Object? kind = sdkOmittedValue, Object? termination = sdkOmittedValue}) => AppJobSpecVariant2(
-    kind: identical(kind, sdkOmittedValue) ? this.kind : kind as SdkOptional<AppJobSpecVariant2Kind>,
-    termination: identical(termination, sdkOmittedValue) ? this.termination : termination as SdkOptional<AppJobSpecTermination>,
-  );
+  AppJobSpecVariant2 _copyWith(
+          {Object? kind = sdkOmittedValue,
+          Object? termination = sdkOmittedValue}) =>
+      AppJobSpecVariant2(
+        kind: identical(kind, sdkOmittedValue)
+            ? this.kind
+            : kind as SdkOptional<AppJobSpecVariant2Kind>,
+        termination: identical(termination, sdkOmittedValue)
+            ? this.termination
+            : termination as SdkOptional<AppJobSpecTermination>,
+      );
 
-  factory AppJobSpecVariant2.fromJson(Map<String, dynamic> json) => AppJobSpecVariant2(
-    kind: json['kind'] != null ? SdkPresent((json['kind'] != null ? AppJobSpecVariant2Kind.fromJson(json['kind'] as String) : null)!) : const SdkOmitted(),
-    termination: json['termination'] != null ? SdkPresent((json['termination'] != null ? AppJobSpecTermination.fromJson(json['termination'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AppJobSpecVariant2.fromJson(Map<String, dynamic> json) =>
+      AppJobSpecVariant2(
+        kind: json['kind'] != null
+            ? SdkPresent((json['kind'] != null
+                ? AppJobSpecVariant2Kind.fromJson(json['kind'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        termination: json['termination'] != null
+            ? SdkPresent((json['termination'] != null
+                ? AppJobSpecTermination.fromJson(
+                    json['termination'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (kind) {
-      SdkPresent<AppJobSpecVariant2Kind>(value: final value) => {'kind': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (termination) {
-      SdkPresent<AppJobSpecTermination>(value: final value) => {'termination': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (kind) {
+          SdkPresent<AppJobSpecVariant2Kind>(value: final value) => {
+              'kind': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (termination) {
+          SdkPresent<AppJobSpecTermination>(value: final value) => {
+              'termination': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
