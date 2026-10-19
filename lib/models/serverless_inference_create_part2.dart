@@ -29,7 +29,7 @@ class CreateResponseRequest {
   /// Controls which (if any) tool is called by the model.
   final SdkOptional<CreateResponseRequestToolChoice> toolChoice;
   /// Up to 4 sequences where the API will stop generating further tokens.
-  final SdkOptional<dynamic> stop;
+  final SdkOptional<List<String>?> stop;
   /// Set of key-value pairs that can be attached to the request.
   final SdkOptional<Map<String, String>?> metadata;
   /// A unique identifier representing your end-user.
@@ -37,7 +37,7 @@ class CreateResponseRequest {
 
   const CreateResponseRequest({required this.model, required this.input, this.maxOutputTokens = const SdkOmitted(), this.temperature = const SdkOmitted(), this.stream = const SdkOmitted(), this.instructions = const SdkOmitted(), this.topP = const SdkOmitted(), this.streamOptions = const SdkOmitted(), this.tools = const SdkOmitted(), this.toolChoice = const SdkOmitted(), this.stop = const SdkOmitted(), this.metadata = const SdkOmitted(), this.user = const SdkOmitted()});
 
-  CreateResponseRequest Function({String model, dynamic input, SdkOptional<int?> maxOutputTokens, SdkOptional<double?> temperature, SdkOptional<bool?> stream, SdkOptional<String?> instructions, SdkOptional<double?> topP, SdkOptional<CreateResponseRequestStreamOptions?> streamOptions, SdkOptional<List<CreateResponseRequestToolsItem>?> tools, SdkOptional<CreateResponseRequestToolChoice> toolChoice, SdkOptional<dynamic> stop, SdkOptional<Map<String, String>?> metadata, SdkOptional<String?> user}) get copyWith => _copyWith;
+  CreateResponseRequest Function({String model, dynamic input, SdkOptional<int?> maxOutputTokens, SdkOptional<double?> temperature, SdkOptional<bool?> stream, SdkOptional<String?> instructions, SdkOptional<double?> topP, SdkOptional<CreateResponseRequestStreamOptions?> streamOptions, SdkOptional<List<CreateResponseRequestToolsItem>?> tools, SdkOptional<CreateResponseRequestToolChoice> toolChoice, SdkOptional<List<String>?> stop, SdkOptional<Map<String, String>?> metadata, SdkOptional<String?> user}) get copyWith => _copyWith;
 
   CreateResponseRequest _copyWith({Object? model = sdkOmittedValue, Object? input = sdkOmittedValue, Object? maxOutputTokens = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? stream = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? topP = sdkOmittedValue, Object? streamOptions = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? stop = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? user = sdkOmittedValue}) => CreateResponseRequest(
     model: identical(model, sdkOmittedValue) ? this.model : model as String,
@@ -50,7 +50,7 @@ class CreateResponseRequest {
     streamOptions: identical(streamOptions, sdkOmittedValue) ? this.streamOptions : streamOptions as SdkOptional<CreateResponseRequestStreamOptions?>,
     tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<CreateResponseRequestToolsItem>?>,
     toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as SdkOptional<CreateResponseRequestToolChoice>,
-    stop: identical(stop, sdkOmittedValue) ? this.stop : stop as SdkOptional<dynamic>,
+    stop: identical(stop, sdkOmittedValue) ? this.stop : stop as SdkOptional<List<String>?>,
     metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, String>?>,
     user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String?>,
   );
@@ -66,7 +66,7 @@ class CreateResponseRequest {
     streamOptions: json.containsKey('stream_options') ? SdkPresent(json['stream_options'] != null ? CreateResponseRequestStreamOptions.fromJson(json['stream_options'] as Map<String, dynamic>) : null) : const SdkOmitted(),
     tools: json.containsKey('tools') ? SdkPresent((json['tools'] as List?)?.map((e) => CreateResponseRequestToolsItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
     toolChoice: json['tool_choice'] != null ? SdkPresent((json['tool_choice'] != null ? CreateResponseRequestToolChoice.fromJson(json['tool_choice']) : null)!) : const SdkOmitted(),
-    stop: json.containsKey('stop') ? SdkPresent(json['stop']) : const SdkOmitted(),
+    stop: json.containsKey('stop') ? SdkPresent((json['stop'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
     metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String))) : const SdkOmitted(),
     user: json.containsKey('user') ? SdkPresent(json['user'] as String?) : const SdkOmitted(),
   );
@@ -107,7 +107,7 @@ class CreateResponseRequest {
       _ => const <String, dynamic>{},
     },
     ...switch (stop) {
-      SdkPresent<dynamic>(value: final value) => {'stop': value,},
+      SdkPresent<List<String>?>(value: final value) => {'stop': value,},
       _ => const <String, dynamic>{},
     },
     ...switch (metadata) {

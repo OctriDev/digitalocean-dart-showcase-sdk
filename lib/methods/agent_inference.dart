@@ -89,7 +89,7 @@ Future<ChatCompletionResponse>
         SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
         SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(),
         SdkOptional<bool?> stream = const SdkOmitted(),
-        SdkOptional<dynamic> stop = const SdkOmitted(),
+        SdkOptional<List<String>> stop = const SdkOmitted(),
         SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
         SdkOptional<bool?> logprobs = const SdkOmitted(),
         SdkOptional<int?> n = const SdkOmitted(),
@@ -131,6 +131,9 @@ Future<ChatCompletionResponse>
     if (topLogprobsValue != null) {
       validateRange('top_logprobs', topLogprobsValue, min: 0, max: 20);
     }
+  }
+  if (stop is SdkPresent<List<String>>) {
+    validateItems('stop', stop.value, min: 1, max: 4);
   }
   if (n is SdkPresent<int?>) {
     final nValue = n.value;
@@ -256,7 +259,7 @@ Future<ChatCompletionResponse>
 ///   both.
 /// [user] A unique identifier representing your end-user, which can help
 ///   DigitalOcean to monitor and detect abuse.
-Stream<ChatCompletionChunk> agentInferenceCreateChatCompletionStream(ClientConfig config, {required bool agent, required List<ChatMessage> messages, required String model, required bool? stream, SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> topLogprobs = const SdkOmitted(), SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(), SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<dynamic> stop = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<bool?> logprobs = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<ChatCompletionChunk> agentInferenceCreateChatCompletionStream(ClientConfig config, {required bool agent, required List<ChatMessage> messages, required String model, required bool? stream, SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> topLogprobs = const SdkOmitted(), SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(), SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<List<String>> stop = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<bool?> logprobs = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/api/v1/chat/completions',

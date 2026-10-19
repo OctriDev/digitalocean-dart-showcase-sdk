@@ -161,30 +161,6 @@ class CreateResponseRequestStreamOptions {
   };
 }
 
-sealed class CreateResponseRequestStop {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const CreateResponseRequestStop();
-  factory CreateResponseRequestStop.fromJson(Object? json) {
-    if (json is String) { return CreateResponseRequestStopString(json); }
-    if (json is List) { return CreateResponseRequestStopListString(json.map((e) => e as String).toList().cast<String>()); }
-    throw FormatException("No variant matched for CreateResponseRequestStop");
-  }
-  Object? toJson();
-}
-
-final class CreateResponseRequestStopString extends CreateResponseRequestStop {
-  final String value;
-  const CreateResponseRequestStopString(this.value);
-  @override Object? toJson() => value;
-}
-
-final class CreateResponseRequestStopListString extends CreateResponseRequestStop {
-  final List<String> value;
-  const CreateResponseRequestStopListString(this.value);
-  @override Object? toJson() => value;
-}
-
 /// Required object value serialized in the `input[]` wire field.
 class CreateResponseRequestInputVariant1Item {
   /// This model is constructed from named fields in one call.

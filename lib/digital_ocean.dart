@@ -7754,7 +7754,7 @@ class ServerlessInferenceNamespace {
       SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
       SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(),
       SdkOptional<bool?> stream = const SdkOmitted(),
-      SdkOptional<dynamic> stop = const SdkOmitted(),
+      SdkOptional<List<String>> stop = const SdkOmitted(),
       SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
       SdkOptional<bool?> logprobs = const SdkOmitted(),
       SdkOptional<int?> n = const SdkOmitted(),
@@ -7770,7 +7770,7 @@ class ServerlessInferenceNamespace {
   }
 
   /// Creates a model response for the given chat conversation.
-  Stream<ChatCompletionChunk> inferenceCreateChatCompletionStream({required List<ChatMessage> messages, required String model, required bool? stream, SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> topLogprobs = const SdkOmitted(), SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(), SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<dynamic> stop = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<bool?> logprobs = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+  Stream<ChatCompletionChunk> inferenceCreateChatCompletionStream({required List<ChatMessage> messages, required String model, required bool? stream, SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> topLogprobs = const SdkOmitted(), SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(), SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<List<String>> stop = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<bool?> logprobs = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
     yield* serverless_inference_methods.inferenceCreateChatCompletionStream(_config, messages: messages, model: model, stream: stream, maxTokens: maxTokens, maxCompletionTokens: maxCompletionTokens, frequencyPenalty: frequencyPenalty, presencePenalty: presencePenalty, topLogprobs: topLogprobs, tools: tools, toolChoice: toolChoice, stop: stop, logitBias: logitBias, logprobs: logprobs, n: n, streamOptions: streamOptions, reasoningEffort: reasoningEffort, seed: seed, metadata: metadata, temperature: temperature, topP: topP, user: user, requestOptions: requestOptions);
   }
 
@@ -7803,7 +7803,7 @@ class ServerlessInferenceNamespace {
   /// Create vector embeddings for one or more text inputs. OpenAI-compatible request and response. Unknown fields in the request body are rejected. There is no streaming response for this endpoint.
   Future<EmbeddingsResponse> inferenceCreateEmbedding(
       {required String model,
-      required dynamic input,
+      required List<String> input,
       SdkOptional<String> user = const SdkOmitted(),
       SdkOptional<EmbeddingsRequestEncodingFormat> encodingFormat = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
@@ -7860,7 +7860,7 @@ class ServerlessInferenceNamespace {
       SdkOptional<CreateResponseRequestStreamOptions?> streamOptions = const SdkOmitted(),
       SdkOptional<List<CreateResponseRequestToolsItem>?> tools = const SdkOmitted(),
       SdkOptional<CreateResponseRequestToolChoice> toolChoice = const SdkOmitted(),
-      SdkOptional<dynamic> stop = const SdkOmitted(),
+      SdkOptional<List<String>?> stop = const SdkOmitted(),
       SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
       SdkOptional<String?> user = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
@@ -7868,7 +7868,7 @@ class ServerlessInferenceNamespace {
   }
 
   /// Generate text responses from text prompts. This endpoint supports both streaming and non-streaming responses for supported text models.
-  Stream<CreateResponseStreamResponse> inferenceCreateResponseStream({required String model, required dynamic input, required bool? stream, SdkOptional<int?> maxOutputTokens = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<String?> instructions = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<CreateResponseRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<List<CreateResponseRequestToolsItem>?> tools = const SdkOmitted(), SdkOptional<CreateResponseRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<dynamic> stop = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<String?> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+  Stream<CreateResponseStreamResponse> inferenceCreateResponseStream({required String model, required dynamic input, required bool? stream, SdkOptional<int?> maxOutputTokens = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<String?> instructions = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<CreateResponseRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<List<CreateResponseRequestToolsItem>?> tools = const SdkOmitted(), SdkOptional<CreateResponseRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<List<String>?> stop = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<String?> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
     yield* serverless_inference_methods.inferenceCreateResponseStream(_config, model: model, input: input, stream: stream, maxOutputTokens: maxOutputTokens, temperature: temperature, instructions: instructions, topP: topP, streamOptions: streamOptions, tools: tools, toolChoice: toolChoice, stop: stop, metadata: metadata, user: user, requestOptions: requestOptions);
   }
 
@@ -7932,7 +7932,7 @@ class AgentInferenceNamespace {
       SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
       SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(),
       SdkOptional<bool?> stream = const SdkOmitted(),
-      SdkOptional<dynamic> stop = const SdkOmitted(),
+      SdkOptional<List<String>> stop = const SdkOmitted(),
       SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
       SdkOptional<bool?> logprobs = const SdkOmitted(),
       SdkOptional<int?> n = const SdkOmitted(),
@@ -7948,7 +7948,7 @@ class AgentInferenceNamespace {
   }
 
   /// Creates a model response for the given chat conversation via a customer-provisioned agent endpoint.
-  Stream<ChatCompletionChunk> createChatCompletionStream({required bool agent, required List<ChatMessage> messages, required String model, required bool? stream, SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> topLogprobs = const SdkOmitted(), SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(), SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<dynamic> stop = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<bool?> logprobs = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+  Stream<ChatCompletionChunk> createChatCompletionStream({required bool agent, required List<ChatMessage> messages, required String model, required bool? stream, SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> topLogprobs = const SdkOmitted(), SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(), SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<List<String>> stop = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<bool?> logprobs = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
     yield* agent_inference_methods.agentInferenceCreateChatCompletionStream(_config, agent: agent, messages: messages, model: model, stream: stream, maxTokens: maxTokens, maxCompletionTokens: maxCompletionTokens, frequencyPenalty: frequencyPenalty, presencePenalty: presencePenalty, topLogprobs: topLogprobs, tools: tools, toolChoice: toolChoice, stop: stop, logitBias: logitBias, logprobs: logprobs, n: n, streamOptions: streamOptions, reasoningEffort: reasoningEffort, seed: seed, metadata: metadata, temperature: temperature, topP: topP, user: user, requestOptions: requestOptions);
   }
 

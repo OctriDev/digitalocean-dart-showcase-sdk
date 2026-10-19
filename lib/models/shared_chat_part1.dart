@@ -127,30 +127,6 @@ class ChatCompletionChunk {
   };
 }
 
-sealed class ChatCompletionRequestStop {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const ChatCompletionRequestStop();
-  factory ChatCompletionRequestStop.fromJson(Object? json) {
-    if (json is String) { return ChatCompletionRequestStopString(json); }
-    if (json is List) { return ChatCompletionRequestStopListString(json.map((e) => e as String).toList().cast<String>()); }
-    throw FormatException("No variant matched for ChatCompletionRequestStop");
-  }
-  Object? toJson();
-}
-
-final class ChatCompletionRequestStopString extends ChatCompletionRequestStop {
-  final String value;
-  const ChatCompletionRequestStopString(this.value);
-  @override Object? toJson() => value;
-}
-
-final class ChatCompletionRequestStopListString extends ChatCompletionRequestStop {
-  final List<String> value;
-  const ChatCompletionRequestStopListString(this.value);
-  @override Object? toJson() => value;
-}
-
 /// Options for streaming response. Only set this when you set stream to true.
 class ChatCompletionRequestStreamOptions {
   /// This model is constructed from named fields in one call.

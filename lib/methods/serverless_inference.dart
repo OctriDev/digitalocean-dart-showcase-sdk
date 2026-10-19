@@ -87,7 +87,7 @@ Future<ChatCompletionResponse>
         SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
         SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(),
         SdkOptional<bool?> stream = const SdkOmitted(),
-        SdkOptional<dynamic> stop = const SdkOmitted(),
+        SdkOptional<List<String>> stop = const SdkOmitted(),
         SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
         SdkOptional<bool?> logprobs = const SdkOmitted(),
         SdkOptional<int?> n = const SdkOmitted(),
@@ -129,6 +129,9 @@ Future<ChatCompletionResponse>
     if (topLogprobsValue != null) {
       validateRange('top_logprobs', topLogprobsValue, min: 0, max: 20);
     }
+  }
+  if (stop is SdkPresent<List<String>>) {
+    validateItems('stop', stop.value, min: 1, max: 4);
   }
   if (n is SdkPresent<int?>) {
     final nValue = n.value;
@@ -252,7 +255,7 @@ Future<ChatCompletionResponse>
 ///   both.
 /// [user] A unique identifier representing your end-user, which can help
 ///   DigitalOcean to monitor and detect abuse.
-Stream<ChatCompletionChunk> inferenceCreateChatCompletionStream(ClientConfig config, {required List<ChatMessage> messages, required String model, required bool? stream, SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> topLogprobs = const SdkOmitted(), SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(), SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<dynamic> stop = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<bool?> logprobs = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<ChatCompletionChunk> inferenceCreateChatCompletionStream(ClientConfig config, {required List<ChatMessage> messages, required String model, required bool? stream, SdkOptional<int?> maxTokens = const SdkOmitted(), SdkOptional<int?> maxCompletionTokens = const SdkOmitted(), SdkOptional<double?> frequencyPenalty = const SdkOmitted(), SdkOptional<double?> presencePenalty = const SdkOmitted(), SdkOptional<int?> topLogprobs = const SdkOmitted(), SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(), SdkOptional<ChatCompletionRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<List<String>> stop = const SdkOmitted(), SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(), SdkOptional<bool?> logprobs = const SdkOmitted(), SdkOptional<int?> n = const SdkOmitted(), SdkOptional<ChatCompletionRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<ChatCompletionRequestReasoningEffort?> reasoningEffort = const SdkOmitted(), SdkOptional<int?> seed = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<String> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/v1/chat/completions',
@@ -439,10 +442,12 @@ Stream<MessagesStreamEvent> inferenceCreateMessagesStream(ClientConfig config, {
 ///   `data[].embedding` field.
 Future<EmbeddingsResponse> inferenceCreateEmbedding(ClientConfig config,
     {required String model,
-    required dynamic input,
+    required List<String> input,
     SdkOptional<String> user = const SdkOmitted(),
     SdkOptional<EmbeddingsRequestEncodingFormat> encodingFormat = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
+  validateItems('input', input, min: 1, max: 2048);
+
   return (await sdkRequest<EmbeddingsResponse>('POST', '/v1/embeddings',
           config: config,
           body: {
@@ -678,7 +683,7 @@ Future<CreateResponseResponse> inferenceCreateResponse(ClientConfig config,
     SdkOptional<CreateResponseRequestStreamOptions?> streamOptions = const SdkOmitted(),
     SdkOptional<List<CreateResponseRequestToolsItem>?> tools = const SdkOmitted(),
     SdkOptional<CreateResponseRequestToolChoice> toolChoice = const SdkOmitted(),
-    SdkOptional<dynamic> stop = const SdkOmitted(),
+    SdkOptional<List<String>?> stop = const SdkOmitted(),
     SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
     SdkOptional<String?> user = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -698,6 +703,12 @@ Future<CreateResponseResponse> inferenceCreateResponse(ClientConfig config,
     final topPValue = topP.value;
     if (topPValue != null) {
       validateRange('top_p', topPValue, min: 0, max: 1);
+    }
+  }
+  if (stop is SdkPresent<List<String>?>) {
+    final stopValue = stop.value;
+    if (stopValue != null) {
+      validateItems('stop', stopValue, min: 1, max: 4);
     }
   }
 
@@ -751,7 +762,7 @@ Future<CreateResponseResponse> inferenceCreateResponse(ClientConfig config,
 /// [stop] Up to 4 sequences where the API will stop generating further tokens.
 /// [metadata] Set of key-value pairs that can be attached to the request.
 /// [user] A unique identifier representing your end-user.
-Stream<CreateResponseStreamResponse> inferenceCreateResponseStream(ClientConfig config, {required String model, required dynamic input, required bool? stream, SdkOptional<int?> maxOutputTokens = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<String?> instructions = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<CreateResponseRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<List<CreateResponseRequestToolsItem>?> tools = const SdkOmitted(), SdkOptional<CreateResponseRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<dynamic> stop = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<String?> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<CreateResponseStreamResponse> inferenceCreateResponseStream(ClientConfig config, {required String model, required dynamic input, required bool? stream, SdkOptional<int?> maxOutputTokens = const SdkOmitted(), SdkOptional<double?> temperature = const SdkOmitted(), SdkOptional<String?> instructions = const SdkOmitted(), SdkOptional<double?> topP = const SdkOmitted(), SdkOptional<CreateResponseRequestStreamOptions?> streamOptions = const SdkOmitted(), SdkOptional<List<CreateResponseRequestToolsItem>?> tools = const SdkOmitted(), SdkOptional<CreateResponseRequestToolChoice> toolChoice = const SdkOmitted(), SdkOptional<List<String>?> stop = const SdkOmitted(), SdkOptional<Map<String, String>?> metadata = const SdkOmitted(), SdkOptional<String?> user = const SdkOmitted(), RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'POST',
     '/v1/responses',
