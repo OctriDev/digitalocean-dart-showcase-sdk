@@ -40,7 +40,7 @@ class CreateResponseRequest {
   final SdkOptional<CreateResponseRequestToolChoice> toolChoice;
 
   /// Up to 4 sequences where the API will stop generating further tokens.
-  final SdkOptional<dynamic> stop;
+  final SdkOptional<List<String>?> stop;
 
   /// Set of key-value pairs that can be attached to the request.
   final SdkOptional<Map<String, String>?> metadata;
@@ -74,7 +74,7 @@ class CreateResponseRequest {
       SdkOptional<CreateResponseRequestStreamOptions?> streamOptions,
       SdkOptional<List<CreateResponseRequestToolsItem>?> tools,
       SdkOptional<CreateResponseRequestToolChoice> toolChoice,
-      SdkOptional<dynamic> stop,
+      SdkOptional<List<String>?> stop,
       SdkOptional<Map<String, String>?> metadata,
       SdkOptional<String?> user}) get copyWith => _copyWith;
 
@@ -122,7 +122,7 @@ class CreateResponseRequest {
             : toolChoice as SdkOptional<CreateResponseRequestToolChoice>,
         stop: identical(stop, sdkOmittedValue)
             ? this.stop
-            : stop as SdkOptional<dynamic>,
+            : stop as SdkOptional<List<String>?>,
         metadata: identical(metadata, sdkOmittedValue)
             ? this.metadata
             : metadata as SdkOptional<Map<String, String>?>,
@@ -168,7 +168,8 @@ class CreateResponseRequest {
                 : null)!)
             : const SdkOmitted(),
         stop: json.containsKey('stop')
-            ? SdkPresent(json['stop'])
+            ? SdkPresent(
+                (json['stop'] as List?)?.map((e) => e as String).toList())
             : const SdkOmitted(),
         metadata: json.containsKey('metadata')
             ? SdkPresent(json['metadata'] == null
@@ -237,7 +238,7 @@ class CreateResponseRequest {
           _ => const <String, dynamic>{},
         },
         ...switch (stop) {
-          SdkPresent<dynamic>(value: final value) => {
+          SdkPresent<List<String>?>(value: final value) => {
               'stop': value,
             },
           _ => const <String, dynamic>{},

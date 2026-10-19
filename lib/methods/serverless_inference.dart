@@ -88,7 +88,7 @@ Future<ChatCompletionResponse> inferenceCreateChatCompletion(
     SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
         const SdkOmitted(),
     SdkOptional<bool?> stream = const SdkOmitted(),
-    SdkOptional<dynamic> stop = const SdkOmitted(),
+    SdkOptional<List<String>> stop = const SdkOmitted(),
     SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
     SdkOptional<bool?> logprobs = const SdkOmitted(),
     SdkOptional<int?> n = const SdkOmitted(),
@@ -134,6 +134,9 @@ Future<ChatCompletionResponse> inferenceCreateChatCompletion(
     if (topLogprobsValue != null) {
       validateRange('top_logprobs', topLogprobsValue, min: 0, max: 20);
     }
+  }
+  if (stop is SdkPresent<List<String>>) {
+    validateItems('stop', stop.value, min: 1, max: 4);
   }
   if (n is SdkPresent<int?>) {
     final nValue = n.value;
@@ -276,7 +279,7 @@ Stream<ChatCompletionChunk> inferenceCreateChatCompletionStream(
     SdkOptional<List<ChatCompletionTool>> tools = const SdkOmitted(),
     SdkOptional<ChatCompletionRequestToolChoice> toolChoice =
         const SdkOmitted(),
-    SdkOptional<dynamic> stop = const SdkOmitted(),
+    SdkOptional<List<String>> stop = const SdkOmitted(),
     SdkOptional<Map<String, int>?> logitBias = const SdkOmitted(),
     SdkOptional<bool?> logprobs = const SdkOmitted(),
     SdkOptional<int?> n = const SdkOmitted(),
@@ -515,11 +518,13 @@ Stream<MessagesStreamEvent> inferenceCreateMessagesStream(ClientConfig config,
 ///   `data[].embedding` field.
 Future<EmbeddingsResponse> inferenceCreateEmbedding(ClientConfig config,
     {required String model,
-    required dynamic input,
+    required List<String> input,
     SdkOptional<String> user = const SdkOmitted(),
     SdkOptional<EmbeddingsRequestEncodingFormat> encodingFormat =
         const SdkOmitted(),
     RequestOptions? requestOptions}) async {
+  validateItems('input', input, min: 1, max: 2048);
+
   return (await sdkRequest<EmbeddingsResponse>('POST', '/v1/embeddings',
           config: config,
           body: {
@@ -803,7 +808,7 @@ Future<CreateResponseResponse> inferenceCreateResponse(ClientConfig config,
         const SdkOmitted(),
     SdkOptional<CreateResponseRequestToolChoice> toolChoice =
         const SdkOmitted(),
-    SdkOptional<dynamic> stop = const SdkOmitted(),
+    SdkOptional<List<String>?> stop = const SdkOmitted(),
     SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
     SdkOptional<String?> user = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -823,6 +828,12 @@ Future<CreateResponseResponse> inferenceCreateResponse(ClientConfig config,
     final topPValue = topP.value;
     if (topPValue != null) {
       validateRange('top_p', topPValue, min: 0, max: 1);
+    }
+  }
+  if (stop is SdkPresent<List<String>?>) {
+    final stopValue = stop.value;
+    if (stopValue != null) {
+      validateItems('stop', stopValue, min: 1, max: 4);
     }
   }
 
@@ -896,7 +907,7 @@ Stream<CreateResponseStreamResponse> inferenceCreateResponseStream(
         const SdkOmitted(),
     SdkOptional<CreateResponseRequestToolChoice> toolChoice =
         const SdkOmitted(),
-    SdkOptional<dynamic> stop = const SdkOmitted(),
+    SdkOptional<List<String>?> stop = const SdkOmitted(),
     SdkOptional<Map<String, String>?> metadata = const SdkOmitted(),
     SdkOptional<String?> user = const SdkOmitted(),
     RequestOptions? requestOptions}) async* {

@@ -799,7 +799,9 @@ void main() {
             ChatCompletionRequestToolChoice.fromJson(
                 jsonDecode("\"none\"") as String)),
         stream: SdkPresent<bool?>((jsonDecode("false") as bool)),
-        stop: SdkPresent<dynamic>(jsonDecode("\"stop\"")),
+        stop: SdkPresent<List<String>>((jsonDecode("[\"stop\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
         logitBias: const SdkOmitted<Map<String, int>?>(),
         logprobs: SdkPresent<bool?>((jsonDecode("false") as bool)),
         n: SdkPresent<int?>((jsonDecode("1") as num).toInt()),
@@ -860,7 +862,9 @@ void main() {
               ChatCompletionRequestToolChoice.fromJson(
                   jsonDecode("\"none\"") as String)),
           stream: SdkPresent<bool?>((jsonDecode("false") as bool)),
-          stop: SdkPresent<dynamic>(jsonDecode("\"stop\"")),
+          stop: SdkPresent<List<String>>((jsonDecode("[\"stop\"]") as List)
+              .map((element) => (element as String))
+              .toList()),
           logitBias: const SdkOmitted<Map<String, int>?>(),
           logprobs: SdkPresent<bool?>((jsonDecode("false") as bool)),
           n: SdkPresent<int?>((jsonDecode("1") as num).toInt()),
@@ -923,7 +927,9 @@ void main() {
             toolChoice: SdkPresent<ChatCompletionRequestToolChoice>(
                 ChatCompletionRequestToolChoice.fromJson(
                     jsonDecode("\"none\"") as String)),
-            stop: SdkPresent<dynamic>(jsonDecode("\"stop\"")),
+            stop: SdkPresent<List<String>>((jsonDecode("[\"stop\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
             logitBias: const SdkOmitted<Map<String, int>?>(),
             logprobs: SdkPresent<bool?>((jsonDecode("false") as bool)),
             n: SdkPresent<int?>((jsonDecode("1") as num).toInt()),
@@ -22113,7 +22119,9 @@ void main() {
             ChatCompletionRequestToolChoice.fromJson(
                 jsonDecode("\"none\"") as String)),
         stream: SdkPresent<bool?>((jsonDecode("false") as bool)),
-        stop: SdkPresent<dynamic>(jsonDecode("\"stop\"")),
+        stop: SdkPresent<List<String>>((jsonDecode("[\"stop\"]") as List)
+            .map((element) => (element as String))
+            .toList()),
         logitBias: const SdkOmitted<Map<String, int>?>(),
         logprobs: SdkPresent<bool?>((jsonDecode("false") as bool)),
         n: SdkPresent<int?>((jsonDecode("1") as num).toInt()),
@@ -22173,7 +22181,9 @@ void main() {
               ChatCompletionRequestToolChoice.fromJson(
                   jsonDecode("\"none\"") as String)),
           stream: SdkPresent<bool?>((jsonDecode("false") as bool)),
-          stop: SdkPresent<dynamic>(jsonDecode("\"stop\"")),
+          stop: SdkPresent<List<String>>((jsonDecode("[\"stop\"]") as List)
+              .map((element) => (element as String))
+              .toList()),
           logitBias: const SdkOmitted<Map<String, int>?>(),
           logprobs: SdkPresent<bool?>((jsonDecode("false") as bool)),
           n: SdkPresent<int?>((jsonDecode("1") as num).toInt()),
@@ -22235,7 +22245,9 @@ void main() {
             toolChoice: SdkPresent<ChatCompletionRequestToolChoice>(
                 ChatCompletionRequestToolChoice.fromJson(
                     jsonDecode("\"none\"") as String)),
-            stop: SdkPresent<dynamic>(jsonDecode("\"stop\"")),
+            stop: SdkPresent<List<String>>((jsonDecode("[\"stop\"]") as List)
+                .map((element) => (element as String))
+                .toList()),
             logitBias: const SdkOmitted<Map<String, int>?>(),
             logprobs: SdkPresent<bool?>((jsonDecode("false") as bool)),
             n: SdkPresent<int?>((jsonDecode("1") as num).toInt()),
@@ -22270,7 +22282,9 @@ void main() {
       final actual = await sdk_methods_27.inferenceCreateEmbedding(
         config,
         model: (jsonDecode("\"qwen3-embedding-0.6b\"") as String),
-        input: jsonDecode("\"hello world\""),
+        input: (jsonDecode("[\"hello world\",\"goodbye world\"]") as List)
+            .map((element) => (element as String))
+            .toList(),
         user: SdkPresent<String>((jsonDecode("\"user-1234\"") as String)),
         encodingFormat: SdkPresent<EmbeddingsRequestEncodingFormat>(
             EmbeddingsRequestEncodingFormat.fromJson(
@@ -22295,7 +22309,9 @@ void main() {
         await sdk_methods_27.inferenceCreateEmbedding(
           config,
           model: (jsonDecode("\"qwen3-embedding-0.6b\"") as String),
-          input: jsonDecode("\"hello world\""),
+          input: (jsonDecode("[\"hello world\",\"goodbye world\"]") as List)
+              .map((element) => (element as String))
+              .toList(),
           user: SdkPresent<String>((jsonDecode("\"user-1234\"") as String)),
           encodingFormat: SdkPresent<EmbeddingsRequestEncodingFormat>(
               EmbeddingsRequestEncodingFormat.fromJson(
@@ -22623,7 +22639,7 @@ void main() {
         toolChoice: SdkPresent<CreateResponseRequestToolChoice>(
             CreateResponseRequestToolChoice.fromJson(
                 jsonDecode("\"auto\"") as String)),
-        stop: const SdkOmitted<dynamic>(),
+        stop: const SdkOmitted<List<String>?>(),
         metadata: SdkPresent<Map<String, String>?>(
             (jsonDecode("{\"session_id\":\"abc123\"}") as Map).map(
                 (key, value) => MapEntry((key as String), (value as String)))),
@@ -22667,7 +22683,7 @@ void main() {
           toolChoice: SdkPresent<CreateResponseRequestToolChoice>(
               CreateResponseRequestToolChoice.fromJson(
                   jsonDecode("\"auto\"") as String)),
-          stop: const SdkOmitted<dynamic>(),
+          stop: const SdkOmitted<List<String>?>(),
           metadata: SdkPresent<Map<String, String>?>(
               (jsonDecode("{\"session_id\":\"abc123\"}") as Map).map(
                   (key, value) =>
@@ -22716,7 +22732,7 @@ void main() {
             toolChoice: SdkPresent<CreateResponseRequestToolChoice>(
                 CreateResponseRequestToolChoice.fromJson(
                     jsonDecode("\"auto\"") as String)),
-            stop: const SdkOmitted<dynamic>(),
+            stop: const SdkOmitted<List<String>?>(),
             metadata: SdkPresent<Map<String, String>?>(
                 (jsonDecode("{\"session_id\":\"abc123\"}") as Map).map(
                     (key, value) =>
