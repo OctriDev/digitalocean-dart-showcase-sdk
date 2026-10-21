@@ -8,435 +8,228 @@ part of 'shared_chat.dart';
 class ChatCompletionResponseChoicesItemMessageToolCallsItemFunction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the function to call.
   final String name;
-
   /// The arguments to call the function with.
   final String arguments;
 
-  const ChatCompletionResponseChoicesItemMessageToolCallsItemFunction(
-      {required this.name, required this.arguments});
+  const ChatCompletionResponseChoicesItemMessageToolCallsItemFunction({required this.name, required this.arguments});
 
-  ChatCompletionResponseChoicesItemMessageToolCallsItemFunction Function(
-      {String name, String arguments}) get copyWith => _copyWith;
+  ChatCompletionResponseChoicesItemMessageToolCallsItemFunction Function({String name, String arguments}) get copyWith => _copyWith;
 
-  ChatCompletionResponseChoicesItemMessageToolCallsItemFunction _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? arguments = sdkOmittedValue}) =>
-      ChatCompletionResponseChoicesItemMessageToolCallsItemFunction(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        arguments: identical(arguments, sdkOmittedValue)
-            ? this.arguments
-            : arguments as String,
-      );
+  ChatCompletionResponseChoicesItemMessageToolCallsItemFunction _copyWith({Object? name = sdkOmittedValue, Object? arguments = sdkOmittedValue}) => ChatCompletionResponseChoicesItemMessageToolCallsItemFunction(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as String,
+  );
 
-  factory ChatCompletionResponseChoicesItemMessageToolCallsItemFunction.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionResponseChoicesItemMessageToolCallsItemFunction(
-        name: (json['name'] as String?)!,
-        arguments: (json['arguments'] as String?)!,
-      );
+  factory ChatCompletionResponseChoicesItemMessageToolCallsItemFunction.fromJson(Map<String, dynamic> json) => ChatCompletionResponseChoicesItemMessageToolCallsItemFunction(
+    name: (json['name'] as String?)!,
+    arguments: (json['arguments'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'arguments': arguments,
-      };
+    'name': name,
+    'arguments': arguments,
+  };
 }
 
 /// Required object value serialized in the `tool_calls[]` wire field.
 class ChatCompletionResponseChoicesItemMessageToolCallsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the tool call.
   final String id;
-
   /// The type of the tool.
   final ChatCompletionResponseChoicesItemMessageToolCallsItemType type_;
-
   /// Required object value serialized in the `function` wire field.
   final ChatCompletionResponseChoicesItemMessageToolCallsItemFunction function_;
 
-  const ChatCompletionResponseChoicesItemMessageToolCallsItem(
-      {required this.id, required this.type_, required this.function_});
+  const ChatCompletionResponseChoicesItemMessageToolCallsItem({required this.id, required this.type_, required this.function_});
 
-  ChatCompletionResponseChoicesItemMessageToolCallsItem Function(
-      {String id,
-      ChatCompletionResponseChoicesItemMessageToolCallsItemType type_,
-      ChatCompletionResponseChoicesItemMessageToolCallsItemFunction
-          function_}) get copyWith => _copyWith;
+  ChatCompletionResponseChoicesItemMessageToolCallsItem Function({String id, ChatCompletionResponseChoicesItemMessageToolCallsItemType type_, ChatCompletionResponseChoicesItemMessageToolCallsItemFunction function_}) get copyWith => _copyWith;
 
-  ChatCompletionResponseChoicesItemMessageToolCallsItem _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? function_ = sdkOmittedValue}) =>
-      ChatCompletionResponseChoicesItemMessageToolCallsItem(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_
-                as ChatCompletionResponseChoicesItemMessageToolCallsItemType,
-        function_: identical(function_, sdkOmittedValue)
-            ? this.function_
-            : function_
-                as ChatCompletionResponseChoicesItemMessageToolCallsItemFunction,
-      );
+  ChatCompletionResponseChoicesItemMessageToolCallsItem _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? function_ = sdkOmittedValue}) => ChatCompletionResponseChoicesItemMessageToolCallsItem(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ChatCompletionResponseChoicesItemMessageToolCallsItemType,
+    function_: identical(function_, sdkOmittedValue) ? this.function_ : function_ as ChatCompletionResponseChoicesItemMessageToolCallsItemFunction,
+  );
 
-  factory ChatCompletionResponseChoicesItemMessageToolCallsItem.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionResponseChoicesItemMessageToolCallsItem(
-        id: (json['id'] as String?)!,
-        type_: (json['type'] != null
-            ? ChatCompletionResponseChoicesItemMessageToolCallsItemType
-                .fromJson(json['type'] as String)
-            : null)!,
-        function_: (json['function'] != null
-            ? ChatCompletionResponseChoicesItemMessageToolCallsItemFunction
-                .fromJson(json['function'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ChatCompletionResponseChoicesItemMessageToolCallsItem.fromJson(Map<String, dynamic> json) => ChatCompletionResponseChoicesItemMessageToolCallsItem(
+    id: (json['id'] as String?)!,
+    type_: (json['type'] != null ? ChatCompletionResponseChoicesItemMessageToolCallsItemType.fromJson(json['type'] as String) : null)!,
+    function_: (json['function'] != null ? ChatCompletionResponseChoicesItemMessageToolCallsItemFunction.fromJson(json['function'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'type': type_.toJson(),
-        'function': function_.toJson(),
-      };
+    'id': id,
+    'type': type_.toJson(),
+    'function': function_.toJson(),
+  };
 }
 
 /// A chat completion message generated by the model.
 class ChatCompletionResponseChoicesItemMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The contents of the message.
   final String? content;
-
   /// The refusal message generated by the model.
   final String? refusal;
-
   /// The tool calls generated by the model, such as function calls.
-  final SdkOptional<List<ChatCompletionResponseChoicesItemMessageToolCallsItem>>
-      toolCalls;
-
+  final SdkOptional<List<ChatCompletionResponseChoicesItemMessageToolCallsItem>> toolCalls;
   /// The reasoning content generated by the model.
   final String? reasoningContent;
-
   /// The role of the author of this message.
   final ChatCompletionResponseChoicesItemMessageRole role;
 
-  const ChatCompletionResponseChoicesItemMessage(
-      {required this.content,
-      required this.refusal,
-      this.toolCalls = const SdkOmitted(),
-      required this.reasoningContent,
-      required this.role});
+  const ChatCompletionResponseChoicesItemMessage({required this.content, required this.refusal, this.toolCalls = const SdkOmitted(), required this.reasoningContent, required this.role});
 
-  ChatCompletionResponseChoicesItemMessage Function(
-      {String? content,
-      String? refusal,
-      SdkOptional<List<ChatCompletionResponseChoicesItemMessageToolCallsItem>>
-          toolCalls,
-      String? reasoningContent,
-      ChatCompletionResponseChoicesItemMessageRole
-          role}) get copyWith => _copyWith;
+  ChatCompletionResponseChoicesItemMessage Function({String? content, String? refusal, SdkOptional<List<ChatCompletionResponseChoicesItemMessageToolCallsItem>> toolCalls, String? reasoningContent, ChatCompletionResponseChoicesItemMessageRole role}) get copyWith => _copyWith;
 
-  ChatCompletionResponseChoicesItemMessage _copyWith(
-          {Object? content = sdkOmittedValue,
-          Object? refusal = sdkOmittedValue,
-          Object? toolCalls = sdkOmittedValue,
-          Object? reasoningContent = sdkOmittedValue,
-          Object? role = sdkOmittedValue}) =>
-      ChatCompletionResponseChoicesItemMessage(
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as String?,
-        refusal: identical(refusal, sdkOmittedValue)
-            ? this.refusal
-            : refusal as String?,
-        toolCalls: identical(toolCalls, sdkOmittedValue)
-            ? this.toolCalls
-            : toolCalls as SdkOptional<
-                List<ChatCompletionResponseChoicesItemMessageToolCallsItem>>,
-        reasoningContent: identical(reasoningContent, sdkOmittedValue)
-            ? this.reasoningContent
-            : reasoningContent as String?,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as ChatCompletionResponseChoicesItemMessageRole,
-      );
+  ChatCompletionResponseChoicesItemMessage _copyWith({Object? content = sdkOmittedValue, Object? refusal = sdkOmittedValue, Object? toolCalls = sdkOmittedValue, Object? reasoningContent = sdkOmittedValue, Object? role = sdkOmittedValue}) => ChatCompletionResponseChoicesItemMessage(
+    content: identical(content, sdkOmittedValue) ? this.content : content as String?,
+    refusal: identical(refusal, sdkOmittedValue) ? this.refusal : refusal as String?,
+    toolCalls: identical(toolCalls, sdkOmittedValue) ? this.toolCalls : toolCalls as SdkOptional<List<ChatCompletionResponseChoicesItemMessageToolCallsItem>>,
+    reasoningContent: identical(reasoningContent, sdkOmittedValue) ? this.reasoningContent : reasoningContent as String?,
+    role: identical(role, sdkOmittedValue) ? this.role : role as ChatCompletionResponseChoicesItemMessageRole,
+  );
 
-  factory ChatCompletionResponseChoicesItemMessage.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionResponseChoicesItemMessage(
-        content: json.containsKey('content')
-            ? json['content'] as String?
-            : throw ArgumentError.value(
-                null, 'content', 'Required property is missing'),
-        refusal: json.containsKey('refusal')
-            ? json['refusal'] as String?
-            : throw ArgumentError.value(
-                null, 'refusal', 'Required property is missing'),
-        toolCalls: json['tool_calls'] != null
-            ? SdkPresent(((json['tool_calls'] as List?)
-                ?.map((e) =>
-                    ChatCompletionResponseChoicesItemMessageToolCallsItem
-                        .fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        reasoningContent: json.containsKey('reasoning_content')
-            ? json['reasoning_content'] as String?
-            : throw ArgumentError.value(
-                null, 'reasoning_content', 'Required property is missing'),
-        role: (json['role'] != null
-            ? ChatCompletionResponseChoicesItemMessageRole.fromJson(
-                json['role'] as String)
-            : null)!,
-      );
+  factory ChatCompletionResponseChoicesItemMessage.fromJson(Map<String, dynamic> json) => ChatCompletionResponseChoicesItemMessage(
+    content: json.containsKey('content') ? json['content'] as String? : throw ArgumentError.value(null, 'content', 'Required property is missing'),
+    refusal: json.containsKey('refusal') ? json['refusal'] as String? : throw ArgumentError.value(null, 'refusal', 'Required property is missing'),
+    toolCalls: json['tool_calls'] != null ? SdkPresent(((json['tool_calls'] as List?)?.map((e) => ChatCompletionResponseChoicesItemMessageToolCallsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    reasoningContent: json.containsKey('reasoning_content') ? json['reasoning_content'] as String? : throw ArgumentError.value(null, 'reasoning_content', 'Required property is missing'),
+    role: (json['role'] != null ? ChatCompletionResponseChoicesItemMessageRole.fromJson(json['role'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'content': content,
-        'refusal': refusal,
-        ...switch (toolCalls) {
-          SdkPresent<
-                List<ChatCompletionResponseChoicesItemMessageToolCallsItem>>(
-            value: final value
-          ) =>
-            {
-              'tool_calls': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'reasoning_content': reasoningContent,
-        'role': role.toJson(),
-      };
+    'content': content,
+    'refusal': refusal,
+    ...switch (toolCalls) {
+      SdkPresent<List<ChatCompletionResponseChoicesItemMessageToolCallsItem>>(value: final value) => {'tool_calls': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    'reasoning_content': reasoningContent,
+    'role': role.toJson(),
+  };
 }
 
 /// Log probability information for the choice.
 class ChatCompletionResponseChoicesItemLogprobs {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A list of message content tokens with log probability information.
   final List<ChatCompletionTokenLogprob>? content;
-
   /// A list of message refusal tokens with log probability information.
   final List<ChatCompletionTokenLogprob>? refusal;
 
-  const ChatCompletionResponseChoicesItemLogprobs(
-      {required this.content, required this.refusal});
+  const ChatCompletionResponseChoicesItemLogprobs({required this.content, required this.refusal});
 
-  ChatCompletionResponseChoicesItemLogprobs Function(
-      {List<ChatCompletionTokenLogprob>? content,
-      List<ChatCompletionTokenLogprob>? refusal}) get copyWith => _copyWith;
+  ChatCompletionResponseChoicesItemLogprobs Function({List<ChatCompletionTokenLogprob>? content, List<ChatCompletionTokenLogprob>? refusal}) get copyWith => _copyWith;
 
-  ChatCompletionResponseChoicesItemLogprobs _copyWith(
-          {Object? content = sdkOmittedValue,
-          Object? refusal = sdkOmittedValue}) =>
-      ChatCompletionResponseChoicesItemLogprobs(
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as List<ChatCompletionTokenLogprob>?,
-        refusal: identical(refusal, sdkOmittedValue)
-            ? this.refusal
-            : refusal as List<ChatCompletionTokenLogprob>?,
-      );
+  ChatCompletionResponseChoicesItemLogprobs _copyWith({Object? content = sdkOmittedValue, Object? refusal = sdkOmittedValue}) => ChatCompletionResponseChoicesItemLogprobs(
+    content: identical(content, sdkOmittedValue) ? this.content : content as List<ChatCompletionTokenLogprob>?,
+    refusal: identical(refusal, sdkOmittedValue) ? this.refusal : refusal as List<ChatCompletionTokenLogprob>?,
+  );
 
-  factory ChatCompletionResponseChoicesItemLogprobs.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionResponseChoicesItemLogprobs(
-        content: json.containsKey('content')
-            ? (json['content'] as List?)
-                ?.map((e) => ChatCompletionTokenLogprob.fromJson(
-                    e as Map<String, dynamic>))
-                .toList()
-            : throw ArgumentError.value(
-                null, 'content', 'Required property is missing'),
-        refusal: json.containsKey('refusal')
-            ? (json['refusal'] as List?)
-                ?.map((e) => ChatCompletionTokenLogprob.fromJson(
-                    e as Map<String, dynamic>))
-                .toList()
-            : throw ArgumentError.value(
-                null, 'refusal', 'Required property is missing'),
-      );
+  factory ChatCompletionResponseChoicesItemLogprobs.fromJson(Map<String, dynamic> json) => ChatCompletionResponseChoicesItemLogprobs(
+    content: json.containsKey('content') ? (json['content'] as List?)?.map((e) => ChatCompletionTokenLogprob.fromJson(e as Map<String, dynamic>)).toList() : throw ArgumentError.value(null, 'content', 'Required property is missing'),
+    refusal: json.containsKey('refusal') ? (json['refusal'] as List?)?.map((e) => ChatCompletionTokenLogprob.fromJson(e as Map<String, dynamic>)).toList() : throw ArgumentError.value(null, 'refusal', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'content': content?.map((item) => item.toJson()).toList(),
-        'refusal': refusal?.map((item) => item.toJson()).toList(),
-      };
+    'content': content?.map((item) => item.toJson()).toList(),
+    'refusal': refusal?.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Required object value serialized in the `choices[]` wire field.
 class ChatCompletionResponseChoicesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The reason the model stopped generating tokens. stop if the model hit a natural stop point or a provided stop sequence, length if the maximum number of tokens specified in the request was reached, tool_calls if the model called a tool.
   final ChatCompletionResponseChoicesItemFinishReason finishReason;
-
   /// The index of the choice in the list of choices.
   final int index;
-
   /// A chat completion message generated by the model.
   final ChatCompletionResponseChoicesItemMessage message;
-
   /// Log probability information for the choice.
   final ChatCompletionResponseChoicesItemLogprobs? logprobs;
 
-  const ChatCompletionResponseChoicesItem(
-      {required this.finishReason,
-      required this.index,
-      required this.message,
-      required this.logprobs});
+  const ChatCompletionResponseChoicesItem({required this.finishReason, required this.index, required this.message, required this.logprobs});
 
-  ChatCompletionResponseChoicesItem Function(
-          {ChatCompletionResponseChoicesItemFinishReason finishReason,
-          int index,
-          ChatCompletionResponseChoicesItemMessage message,
-          ChatCompletionResponseChoicesItemLogprobs? logprobs})
-      get copyWith => _copyWith;
+  ChatCompletionResponseChoicesItem Function({ChatCompletionResponseChoicesItemFinishReason finishReason, int index, ChatCompletionResponseChoicesItemMessage message, ChatCompletionResponseChoicesItemLogprobs? logprobs}) get copyWith => _copyWith;
 
-  ChatCompletionResponseChoicesItem _copyWith(
-          {Object? finishReason = sdkOmittedValue,
-          Object? index = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? logprobs = sdkOmittedValue}) =>
-      ChatCompletionResponseChoicesItem(
-        finishReason: identical(finishReason, sdkOmittedValue)
-            ? this.finishReason
-            : finishReason as ChatCompletionResponseChoicesItemFinishReason,
-        index: identical(index, sdkOmittedValue) ? this.index : index as int,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as ChatCompletionResponseChoicesItemMessage,
-        logprobs: identical(logprobs, sdkOmittedValue)
-            ? this.logprobs
-            : logprobs as ChatCompletionResponseChoicesItemLogprobs?,
-      );
+  ChatCompletionResponseChoicesItem _copyWith({Object? finishReason = sdkOmittedValue, Object? index = sdkOmittedValue, Object? message = sdkOmittedValue, Object? logprobs = sdkOmittedValue}) => ChatCompletionResponseChoicesItem(
+    finishReason: identical(finishReason, sdkOmittedValue) ? this.finishReason : finishReason as ChatCompletionResponseChoicesItemFinishReason,
+    index: identical(index, sdkOmittedValue) ? this.index : index as int,
+    message: identical(message, sdkOmittedValue) ? this.message : message as ChatCompletionResponseChoicesItemMessage,
+    logprobs: identical(logprobs, sdkOmittedValue) ? this.logprobs : logprobs as ChatCompletionResponseChoicesItemLogprobs?,
+  );
 
-  factory ChatCompletionResponseChoicesItem.fromJson(
-          Map<String, dynamic> json) =>
-      ChatCompletionResponseChoicesItem(
-        finishReason: (json['finish_reason'] != null
-            ? ChatCompletionResponseChoicesItemFinishReason.fromJson(
-                json['finish_reason'] as String)
-            : null)!,
-        index: ((json['index'] as num?)?.toInt())!,
-        message: (json['message'] != null
-            ? ChatCompletionResponseChoicesItemMessage.fromJson(
-                json['message'] as Map<String, dynamic>)
-            : null)!,
-        logprobs: json.containsKey('logprobs')
-            ? json['logprobs'] != null
-                ? ChatCompletionResponseChoicesItemLogprobs.fromJson(
-                    json['logprobs'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'logprobs', 'Required property is missing'),
-      );
+  factory ChatCompletionResponseChoicesItem.fromJson(Map<String, dynamic> json) => ChatCompletionResponseChoicesItem(
+    finishReason: (json['finish_reason'] != null ? ChatCompletionResponseChoicesItemFinishReason.fromJson(json['finish_reason'] as String) : null)!,
+    index: ((json['index'] as num?)?.toInt())!,
+    message: (json['message'] != null ? ChatCompletionResponseChoicesItemMessage.fromJson(json['message'] as Map<String, dynamic>) : null)!,
+    logprobs: json.containsKey('logprobs') ? json['logprobs'] != null ? ChatCompletionResponseChoicesItemLogprobs.fromJson(json['logprobs'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'logprobs', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'finish_reason': finishReason.toJson(),
-        'index': index,
-        'message': message.toJson(),
-        'logprobs': logprobs?.toJson(),
-      };
+    'finish_reason': finishReason.toJson(),
+    'index': index,
+    'message': message.toJson(),
+    'logprobs': logprobs?.toJson(),
+  };
 }
 
 /// Represents a chat completion response returned by model, based on the provided input.
 class ChatCompletionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique identifier for the chat completion.
   final String id;
-
   /// A list of chat completion choices. Can be more than one if n is greater than 1.
   final List<ChatCompletionResponseChoicesItem> choices;
-
   /// The Unix timestamp (in seconds) of when the chat completion was created.
   final int created;
-
   /// The model used for the chat completion.
   final String model;
-
   /// The object type, which is always chat.completion.
   final ChatCompletionResponseObject object;
-
   /// Usage statistics for the completion request.
   final SdkOptional<CompletionUsage> usage;
 
-  const ChatCompletionResponse(
-      {required this.id,
-      required this.choices,
-      required this.created,
-      required this.model,
-      required this.object,
-      this.usage = const SdkOmitted()});
+  const ChatCompletionResponse({required this.id, required this.choices, required this.created, required this.model, required this.object, this.usage = const SdkOmitted()});
 
-  ChatCompletionResponse Function(
-      {String id,
-      List<ChatCompletionResponseChoicesItem> choices,
-      int created,
-      String model,
-      ChatCompletionResponseObject object,
-      SdkOptional<CompletionUsage> usage}) get copyWith => _copyWith;
+  ChatCompletionResponse Function({String id, List<ChatCompletionResponseChoicesItem> choices, int created, String model, ChatCompletionResponseObject object, SdkOptional<CompletionUsage> usage}) get copyWith => _copyWith;
 
-  ChatCompletionResponse _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? choices = sdkOmittedValue,
-          Object? created = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? usage = sdkOmittedValue}) =>
-      ChatCompletionResponse(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        choices: identical(choices, sdkOmittedValue)
-            ? this.choices
-            : choices as List<ChatCompletionResponseChoicesItem>,
-        created:
-            identical(created, sdkOmittedValue) ? this.created : created as int,
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ChatCompletionResponseObject,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as SdkOptional<CompletionUsage>,
-      );
+  ChatCompletionResponse _copyWith({Object? id = sdkOmittedValue, Object? choices = sdkOmittedValue, Object? created = sdkOmittedValue, Object? model = sdkOmittedValue, Object? object = sdkOmittedValue, Object? usage = sdkOmittedValue}) => ChatCompletionResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    choices: identical(choices, sdkOmittedValue) ? this.choices : choices as List<ChatCompletionResponseChoicesItem>,
+    created: identical(created, sdkOmittedValue) ? this.created : created as int,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as ChatCompletionResponseObject,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SdkOptional<CompletionUsage>,
+  );
 
-  factory ChatCompletionResponse.fromJson(Map<String, dynamic> json) =>
-      ChatCompletionResponse(
-        id: (json['id'] as String?)!,
-        choices: ((json['choices'] as List?)
-            ?.map((e) => ChatCompletionResponseChoicesItem.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-        created: ((json['created'] as num?)?.toInt())!,
-        model: (json['model'] as String?)!,
-        object: (json['object'] != null
-            ? ChatCompletionResponseObject.fromJson(json['object'] as String)
-            : null)!,
-        usage: json['usage'] != null
-            ? SdkPresent((json['usage'] != null
-                ? CompletionUsage.fromJson(
-                    json['usage'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ChatCompletionResponse.fromJson(Map<String, dynamic> json) => ChatCompletionResponse(
+    id: (json['id'] as String?)!,
+    choices: ((json['choices'] as List?)?.map((e) => ChatCompletionResponseChoicesItem.fromJson(e as Map<String, dynamic>)).toList())!,
+    created: ((json['created'] as num?)?.toInt())!,
+    model: (json['model'] as String?)!,
+    object: (json['object'] != null ? ChatCompletionResponseObject.fromJson(json['object'] as String) : null)!,
+    usage: json['usage'] != null ? SdkPresent((json['usage'] != null ? CompletionUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'choices': choices.map((item) => item.toJson()).toList(),
-        'created': created,
-        'model': model,
-        'object': object.toJson(),
-        ...switch (usage) {
-          SdkPresent<CompletionUsage>(value: final value) => {
-              'usage': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    'choices': choices.map((item) => item.toJson()).toList(),
+    'created': created,
+    'model': model,
+    'object': object.toJson(),
+    ...switch (usage) {
+      SdkPresent<CompletionUsage>(value: final value) => {'usage': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

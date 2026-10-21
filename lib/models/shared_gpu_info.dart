@@ -8,127 +8,76 @@ part of 'shared.dart';
 class GpuInfoVram {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The amount of VRAM allocated to the GPU.
   final SdkOptional<int> amount;
-
   /// The unit of measure for the VRAM.
   final SdkOptional<String> unit;
 
-  const GpuInfoVram(
-      {this.amount = const SdkOmitted(), this.unit = const SdkOmitted()});
+  const GpuInfoVram({this.amount = const SdkOmitted(), this.unit = const SdkOmitted()});
 
-  GpuInfoVram Function({SdkOptional<int> amount, SdkOptional<String> unit})
-      get copyWith => _copyWith;
+  GpuInfoVram Function({SdkOptional<int> amount, SdkOptional<String> unit}) get copyWith => _copyWith;
 
-  GpuInfoVram _copyWith(
-          {Object? amount = sdkOmittedValue, Object? unit = sdkOmittedValue}) =>
-      GpuInfoVram(
-        amount: identical(amount, sdkOmittedValue)
-            ? this.amount
-            : amount as SdkOptional<int>,
-        unit: identical(unit, sdkOmittedValue)
-            ? this.unit
-            : unit as SdkOptional<String>,
-      );
+  GpuInfoVram _copyWith({Object? amount = sdkOmittedValue, Object? unit = sdkOmittedValue}) => GpuInfoVram(
+    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<int>,
+    unit: identical(unit, sdkOmittedValue) ? this.unit : unit as SdkOptional<String>,
+  );
 
   factory GpuInfoVram.fromJson(Map<String, dynamic> json) => GpuInfoVram(
-        amount: json['amount'] != null
-            ? SdkPresent(((json['amount'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        unit: json['unit'] != null
-            ? SdkPresent((json['unit'] as String?)!)
-            : const SdkOmitted(),
-      );
+    amount: json['amount'] != null ? SdkPresent(((json['amount'] as num?)?.toInt())!) : const SdkOmitted(),
+    unit: json['unit'] != null ? SdkPresent((json['unit'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (amount) {
-          SdkPresent<int>(value: final value) => {
-              'amount': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (unit) {
-          SdkPresent<String>(value: final value) => {
-              'unit': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (amount) {
+      SdkPresent<int>(value: final value) => {'amount': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (unit) {
+      SdkPresent<String>(value: final value) => {'unit': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// An object containing information about the GPU capabilities of Droplets created with this size.
 class GpuInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of GPUs allocated to the Droplet.
   final SdkOptional<int> count;
-
   /// The model of the GPU.
   final SdkOptional<String> model;
-
   /// Optional object value serialized in the `vram` wire field.
   final SdkOptional<GpuInfoVram> vram;
 
-  const GpuInfo(
-      {this.count = const SdkOmitted(),
-      this.model = const SdkOmitted(),
-      this.vram = const SdkOmitted()});
+  const GpuInfo({this.count = const SdkOmitted(), this.model = const SdkOmitted(), this.vram = const SdkOmitted()});
 
-  GpuInfo Function(
-      {SdkOptional<int> count,
-      SdkOptional<String> model,
-      SdkOptional<GpuInfoVram> vram}) get copyWith => _copyWith;
+  GpuInfo Function({SdkOptional<int> count, SdkOptional<String> model, SdkOptional<GpuInfoVram> vram}) get copyWith => _copyWith;
 
-  GpuInfo _copyWith(
-          {Object? count = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? vram = sdkOmittedValue}) =>
-      GpuInfo(
-        count: identical(count, sdkOmittedValue)
-            ? this.count
-            : count as SdkOptional<int>,
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<String>,
-        vram: identical(vram, sdkOmittedValue)
-            ? this.vram
-            : vram as SdkOptional<GpuInfoVram>,
-      );
+  GpuInfo _copyWith({Object? count = sdkOmittedValue, Object? model = sdkOmittedValue, Object? vram = sdkOmittedValue}) => GpuInfo(
+    count: identical(count, sdkOmittedValue) ? this.count : count as SdkOptional<int>,
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
+    vram: identical(vram, sdkOmittedValue) ? this.vram : vram as SdkOptional<GpuInfoVram>,
+  );
 
   factory GpuInfo.fromJson(Map<String, dynamic> json) => GpuInfo(
-        count: json['count'] != null
-            ? SdkPresent(((json['count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        model: json['model'] != null
-            ? SdkPresent((json['model'] as String?)!)
-            : const SdkOmitted(),
-        vram: json['vram'] != null
-            ? SdkPresent((json['vram'] != null
-                ? GpuInfoVram.fromJson(json['vram'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    count: json['count'] != null ? SdkPresent(((json['count'] as num?)?.toInt())!) : const SdkOmitted(),
+    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
+    vram: json['vram'] != null ? SdkPresent((json['vram'] != null ? GpuInfoVram.fromJson(json['vram'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (count) {
-          SdkPresent<int>(value: final value) => {
-              'count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (model) {
-          SdkPresent<String>(value: final value) => {
-              'model': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (vram) {
-          SdkPresent<GpuInfoVram>(value: final value) => {
-              'vram': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (count) {
+      SdkPresent<int>(value: final value) => {'count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (model) {
+      SdkPresent<String>(value: final value) => {'model': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (vram) {
+      SdkPresent<GpuInfoVram>(value: final value) => {'vram': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

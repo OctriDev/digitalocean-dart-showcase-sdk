@@ -8,99 +8,49 @@ part of 'action_gateway.dart';
 class ResyncMcpServerResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The server, including `syncStatus` and `syncError`.
   final SdkOptional<McpServer> mcpServer;
-
   /// Every tool discovered on the server when discovery finished in time; empty when pending is true.
   final SdkOptional<List<McpServerTool>> tools;
-
   /// True when discovery is still running (HTTP 202). Poll the server to see the outcome.
   final SdkOptional<bool> pending;
-
   /// Set when discovery could not run because `user_id` has no authorized connection to this server yet. It carries the remedy — send the user to `connect_url` — so the caller acts on this response rather than parsing the server's `syncError`.
   final SdkOptional<ConnectionAuthorization?> authorization;
 
-  const ResyncMcpServerResponse(
-      {this.mcpServer = const SdkOmitted(),
-      this.tools = const SdkOmitted(),
-      this.pending = const SdkOmitted(),
-      this.authorization = const SdkOmitted()});
+  const ResyncMcpServerResponse({this.mcpServer = const SdkOmitted(), this.tools = const SdkOmitted(), this.pending = const SdkOmitted(), this.authorization = const SdkOmitted()});
 
-  ResyncMcpServerResponse Function(
-          {SdkOptional<McpServer> mcpServer,
-          SdkOptional<List<McpServerTool>> tools,
-          SdkOptional<bool> pending,
-          SdkOptional<ConnectionAuthorization?> authorization})
-      get copyWith => _copyWith;
+  ResyncMcpServerResponse Function({SdkOptional<McpServer> mcpServer, SdkOptional<List<McpServerTool>> tools, SdkOptional<bool> pending, SdkOptional<ConnectionAuthorization?> authorization}) get copyWith => _copyWith;
 
-  ResyncMcpServerResponse _copyWith(
-          {Object? mcpServer = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? pending = sdkOmittedValue,
-          Object? authorization = sdkOmittedValue}) =>
-      ResyncMcpServerResponse(
-        mcpServer: identical(mcpServer, sdkOmittedValue)
-            ? this.mcpServer
-            : mcpServer as SdkOptional<McpServer>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<McpServerTool>>,
-        pending: identical(pending, sdkOmittedValue)
-            ? this.pending
-            : pending as SdkOptional<bool>,
-        authorization: identical(authorization, sdkOmittedValue)
-            ? this.authorization
-            : authorization as SdkOptional<ConnectionAuthorization?>,
-      );
+  ResyncMcpServerResponse _copyWith({Object? mcpServer = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? pending = sdkOmittedValue, Object? authorization = sdkOmittedValue}) => ResyncMcpServerResponse(
+    mcpServer: identical(mcpServer, sdkOmittedValue) ? this.mcpServer : mcpServer as SdkOptional<McpServer>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<McpServerTool>>,
+    pending: identical(pending, sdkOmittedValue) ? this.pending : pending as SdkOptional<bool>,
+    authorization: identical(authorization, sdkOmittedValue) ? this.authorization : authorization as SdkOptional<ConnectionAuthorization?>,
+  );
 
-  factory ResyncMcpServerResponse.fromJson(Map<String, dynamic> json) =>
-      ResyncMcpServerResponse(
-        mcpServer: json['mcpServer'] != null
-            ? SdkPresent((json['mcpServer'] != null
-                ? McpServer.fromJson(json['mcpServer'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        tools: json['tools'] != null
-            ? SdkPresent(((json['tools'] as List?)
-                ?.map((e) => McpServerTool.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        pending: json['pending'] != null
-            ? SdkPresent((json['pending'] as bool?)!)
-            : const SdkOmitted(),
-        authorization: json.containsKey('authorization')
-            ? SdkPresent(json['authorization'] != null
-                ? ConnectionAuthorization.fromJson(
-                    json['authorization'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory ResyncMcpServerResponse.fromJson(Map<String, dynamic> json) => ResyncMcpServerResponse(
+    mcpServer: json['mcpServer'] != null ? SdkPresent((json['mcpServer'] != null ? McpServer.fromJson(json['mcpServer'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => McpServerTool.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    pending: json['pending'] != null ? SdkPresent((json['pending'] as bool?)!) : const SdkOmitted(),
+    authorization: json.containsKey('authorization') ? SdkPresent(json['authorization'] != null ? ConnectionAuthorization.fromJson(json['authorization'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (mcpServer) {
-          SdkPresent<McpServer>(value: final value) => {
-              'mcpServer': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tools) {
-          SdkPresent<List<McpServerTool>>(value: final value) => {
-              'tools': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pending) {
-          SdkPresent<bool>(value: final value) => {
-              'pending': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (authorization) {
-          SdkPresent<ConnectionAuthorization?>(value: final value) => {
-              'authorization': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (mcpServer) {
+      SdkPresent<McpServer>(value: final value) => {'mcpServer': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tools) {
+      SdkPresent<List<McpServerTool>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pending) {
+      SdkPresent<bool>(value: final value) => {'pending': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (authorization) {
+      SdkPresent<ConnectionAuthorization?>(value: final value) => {'authorization': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,35 +8,25 @@ part of 'harness_runtime.dart';
 class PatchSessionRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// When present, sets whether this session opts in to automatic resumption when the team's prepayment balance is restored after a low-balance pause. Session-scoped consent, not config-scoped. Omitted properties are not modified.
   final SdkOptional<bool> resumeOnTopoff;
 
   const PatchSessionRequest({this.resumeOnTopoff = const SdkOmitted()});
 
-  PatchSessionRequest Function({SdkOptional<bool> resumeOnTopoff})
-      get copyWith => _copyWith;
+  PatchSessionRequest Function({SdkOptional<bool> resumeOnTopoff}) get copyWith => _copyWith;
 
-  PatchSessionRequest _copyWith({Object? resumeOnTopoff = sdkOmittedValue}) =>
-      PatchSessionRequest(
-        resumeOnTopoff: identical(resumeOnTopoff, sdkOmittedValue)
-            ? this.resumeOnTopoff
-            : resumeOnTopoff as SdkOptional<bool>,
-      );
+  PatchSessionRequest _copyWith({Object? resumeOnTopoff = sdkOmittedValue}) => PatchSessionRequest(
+    resumeOnTopoff: identical(resumeOnTopoff, sdkOmittedValue) ? this.resumeOnTopoff : resumeOnTopoff as SdkOptional<bool>,
+  );
 
-  factory PatchSessionRequest.fromJson(Map<String, dynamic> json) =>
-      PatchSessionRequest(
-        resumeOnTopoff: json['resume_on_topoff'] != null
-            ? SdkPresent((json['resume_on_topoff'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory PatchSessionRequest.fromJson(Map<String, dynamic> json) => PatchSessionRequest(
+    resumeOnTopoff: json['resume_on_topoff'] != null ? SdkPresent((json['resume_on_topoff'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (resumeOnTopoff) {
-          SdkPresent<bool>(value: final value) => {
-              'resume_on_topoff': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (resumeOnTopoff) {
+      SdkPresent<bool>(value: final value) => {'resume_on_topoff': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

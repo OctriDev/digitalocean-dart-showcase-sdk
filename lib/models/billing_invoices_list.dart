@@ -8,169 +8,92 @@ part of 'billing.dart';
 class InvoicePreview {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The UUID of the invoice. The canonical reference for the invoice.
   final SdkOptional<String> invoiceUuid;
-
   /// ID of the invoice. Listed on the face of the invoice PDF as the "Invoice number".
   final SdkOptional<String> invoiceId;
-
   /// Total amount of the invoice, in USD. This will reflect month-to-date usage in the invoice preview.
   final SdkOptional<String> amount;
-
   /// Billing period of usage for which the invoice is issued, in `YYYY-MM` format.
   final SdkOptional<String> invoicePeriod;
-
   /// Time the invoice was last updated. This is only included with the invoice preview.
   final SdkOptional<String> updatedAt;
 
-  const InvoicePreview(
-      {this.invoiceUuid = const SdkOmitted(),
-      this.invoiceId = const SdkOmitted(),
-      this.amount = const SdkOmitted(),
-      this.invoicePeriod = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted()});
+  const InvoicePreview({this.invoiceUuid = const SdkOmitted(), this.invoiceId = const SdkOmitted(), this.amount = const SdkOmitted(), this.invoicePeriod = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
 
-  InvoicePreview Function(
-      {SdkOptional<String> invoiceUuid,
-      SdkOptional<String> invoiceId,
-      SdkOptional<String> amount,
-      SdkOptional<String> invoicePeriod,
-      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  InvoicePreview Function({SdkOptional<String> invoiceUuid, SdkOptional<String> invoiceId, SdkOptional<String> amount, SdkOptional<String> invoicePeriod, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  InvoicePreview _copyWith(
-          {Object? invoiceUuid = sdkOmittedValue,
-          Object? invoiceId = sdkOmittedValue,
-          Object? amount = sdkOmittedValue,
-          Object? invoicePeriod = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      InvoicePreview(
-        invoiceUuid: identical(invoiceUuid, sdkOmittedValue)
-            ? this.invoiceUuid
-            : invoiceUuid as SdkOptional<String>,
-        invoiceId: identical(invoiceId, sdkOmittedValue)
-            ? this.invoiceId
-            : invoiceId as SdkOptional<String>,
-        amount: identical(amount, sdkOmittedValue)
-            ? this.amount
-            : amount as SdkOptional<String>,
-        invoicePeriod: identical(invoicePeriod, sdkOmittedValue)
-            ? this.invoicePeriod
-            : invoicePeriod as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-      );
+  InvoicePreview _copyWith({Object? invoiceUuid = sdkOmittedValue, Object? invoiceId = sdkOmittedValue, Object? amount = sdkOmittedValue, Object? invoicePeriod = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => InvoicePreview(
+    invoiceUuid: identical(invoiceUuid, sdkOmittedValue) ? this.invoiceUuid : invoiceUuid as SdkOptional<String>,
+    invoiceId: identical(invoiceId, sdkOmittedValue) ? this.invoiceId : invoiceId as SdkOptional<String>,
+    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<String>,
+    invoicePeriod: identical(invoicePeriod, sdkOmittedValue) ? this.invoicePeriod : invoicePeriod as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+  );
 
   factory InvoicePreview.fromJson(Map<String, dynamic> json) => InvoicePreview(
-        invoiceUuid: json['invoice_uuid'] != null
-            ? SdkPresent((json['invoice_uuid'] as String?)!)
-            : const SdkOmitted(),
-        invoiceId: json['invoice_id'] != null
-            ? SdkPresent((json['invoice_id'] as String?)!)
-            : const SdkOmitted(),
-        amount: json['amount'] != null
-            ? SdkPresent((json['amount'] as String?)!)
-            : const SdkOmitted(),
-        invoicePeriod: json['invoice_period'] != null
-            ? SdkPresent((json['invoice_period'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+    invoiceUuid: json['invoice_uuid'] != null ? SdkPresent((json['invoice_uuid'] as String?)!) : const SdkOmitted(),
+    invoiceId: json['invoice_id'] != null ? SdkPresent((json['invoice_id'] as String?)!) : const SdkOmitted(),
+    amount: json['amount'] != null ? SdkPresent((json['amount'] as String?)!) : const SdkOmitted(),
+    invoicePeriod: json['invoice_period'] != null ? SdkPresent((json['invoice_period'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (invoiceUuid) {
-          SdkPresent<String>(value: final value) => {
-              'invoice_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (invoiceId) {
-          SdkPresent<String>(value: final value) => {
-              'invoice_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (amount) {
-          SdkPresent<String>(value: final value) => {
-              'amount': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (invoicePeriod) {
-          SdkPresent<String>(value: final value) => {
-              'invoice_period': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (invoiceUuid) {
+      SdkPresent<String>(value: final value) => {'invoice_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (invoiceId) {
+      SdkPresent<String>(value: final value) => {'invoice_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (amount) {
+      SdkPresent<String>(value: final value) => {'amount': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (invoicePeriod) {
+      SdkPresent<String>(value: final value) => {'invoice_period': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class InvoicesVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<InvoicePreview>> invoices;
-
   /// The invoice preview.
   final SdkOptional<InvoicePreview> invoicePreview;
 
-  const InvoicesVariant0(
-      {this.invoices = const SdkOmitted(),
-      this.invoicePreview = const SdkOmitted()});
+  const InvoicesVariant0({this.invoices = const SdkOmitted(), this.invoicePreview = const SdkOmitted()});
 
-  InvoicesVariant0 Function(
-      {SdkOptional<List<InvoicePreview>> invoices,
-      SdkOptional<InvoicePreview> invoicePreview}) get copyWith => _copyWith;
+  InvoicesVariant0 Function({SdkOptional<List<InvoicePreview>> invoices, SdkOptional<InvoicePreview> invoicePreview}) get copyWith => _copyWith;
 
-  InvoicesVariant0 _copyWith(
-          {Object? invoices = sdkOmittedValue,
-          Object? invoicePreview = sdkOmittedValue}) =>
-      InvoicesVariant0(
-        invoices: identical(invoices, sdkOmittedValue)
-            ? this.invoices
-            : invoices as SdkOptional<List<InvoicePreview>>,
-        invoicePreview: identical(invoicePreview, sdkOmittedValue)
-            ? this.invoicePreview
-            : invoicePreview as SdkOptional<InvoicePreview>,
-      );
+  InvoicesVariant0 _copyWith({Object? invoices = sdkOmittedValue, Object? invoicePreview = sdkOmittedValue}) => InvoicesVariant0(
+    invoices: identical(invoices, sdkOmittedValue) ? this.invoices : invoices as SdkOptional<List<InvoicePreview>>,
+    invoicePreview: identical(invoicePreview, sdkOmittedValue) ? this.invoicePreview : invoicePreview as SdkOptional<InvoicePreview>,
+  );
 
-  factory InvoicesVariant0.fromJson(Map<String, dynamic> json) =>
-      InvoicesVariant0(
-        invoices: json['invoices'] != null
-            ? SdkPresent(((json['invoices'] as List?)
-                ?.map((e) => InvoicePreview.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        invoicePreview: json['invoice_preview'] != null
-            ? SdkPresent((json['invoice_preview'] != null
-                ? InvoicePreview.fromJson(
-                    json['invoice_preview'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory InvoicesVariant0.fromJson(Map<String, dynamic> json) => InvoicesVariant0(
+    invoices: json['invoices'] != null ? SdkPresent(((json['invoices'] as List?)?.map((e) => InvoicePreview.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    invoicePreview: json['invoice_preview'] != null ? SdkPresent((json['invoice_preview'] != null ? InvoicePreview.fromJson(json['invoice_preview'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (invoices) {
-          SdkPresent<List<InvoicePreview>>(value: final value) => {
-              'invoices': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (invoicePreview) {
-          SdkPresent<InvoicePreview>(value: final value) => {
-              'invoice_preview': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (invoices) {
+      SdkPresent<List<InvoicePreview>>(value: final value) => {'invoices': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (invoicePreview) {
+      SdkPresent<InvoicePreview>(value: final value) => {'invoice_preview': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `Invoices` API schema.
@@ -178,89 +101,44 @@ class Invoices {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<InvoicePreview>> invoices;
-
   /// The invoice preview.
   final SdkOptional<InvoicePreview> invoicePreview;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const Invoices(
-      {this.invoices = const SdkOmitted(),
-      this.invoicePreview = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const Invoices({this.invoices = const SdkOmitted(), this.invoicePreview = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  Invoices Function(
-      {SdkOptional<List<InvoicePreview>> invoices,
-      SdkOptional<InvoicePreview> invoicePreview,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  Invoices Function({SdkOptional<List<InvoicePreview>> invoices, SdkOptional<InvoicePreview> invoicePreview, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  Invoices _copyWith(
-          {Object? invoices = sdkOmittedValue,
-          Object? invoicePreview = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      Invoices(
-        invoices: identical(invoices, sdkOmittedValue)
-            ? this.invoices
-            : invoices as SdkOptional<List<InvoicePreview>>,
-        invoicePreview: identical(invoicePreview, sdkOmittedValue)
-            ? this.invoicePreview
-            : invoicePreview as SdkOptional<InvoicePreview>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  Invoices _copyWith({Object? invoices = sdkOmittedValue, Object? invoicePreview = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => Invoices(
+    invoices: identical(invoices, sdkOmittedValue) ? this.invoices : invoices as SdkOptional<List<InvoicePreview>>,
+    invoicePreview: identical(invoicePreview, sdkOmittedValue) ? this.invoicePreview : invoicePreview as SdkOptional<InvoicePreview>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory Invoices.fromJson(Map<String, dynamic> json) => Invoices(
-        invoices: json['invoices'] != null
-            ? SdkPresent(((json['invoices'] as List?)
-                ?.map((e) => InvoicePreview.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        invoicePreview: json['invoice_preview'] != null
-            ? SdkPresent((json['invoice_preview'] != null
-                ? InvoicePreview.fromJson(
-                    json['invoice_preview'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    invoices: json['invoices'] != null ? SdkPresent(((json['invoices'] as List?)?.map((e) => InvoicePreview.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    invoicePreview: json['invoice_preview'] != null ? SdkPresent((json['invoice_preview'] != null ? InvoicePreview.fromJson(json['invoice_preview'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (invoices) {
-          SdkPresent<List<InvoicePreview>>(value: final value) => {
-              'invoices': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (invoicePreview) {
-          SdkPresent<InvoicePreview>(value: final value) => {
-              'invoice_preview': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (invoices) {
+      SdkPresent<List<InvoicePreview>>(value: final value) => {'invoices': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (invoicePreview) {
+      SdkPresent<InvoicePreview>(value: final value) => {'invoice_preview': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

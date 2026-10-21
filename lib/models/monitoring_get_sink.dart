@@ -8,7 +8,6 @@ part of 'monitoring.dart';
 class Sinks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `sink` wire field.
   final SdkOptional<SinksResponse> sink;
 
@@ -17,25 +16,17 @@ class Sinks {
   Sinks Function({SdkOptional<SinksResponse> sink}) get copyWith => _copyWith;
 
   Sinks _copyWith({Object? sink = sdkOmittedValue}) => Sinks(
-        sink: identical(sink, sdkOmittedValue)
-            ? this.sink
-            : sink as SdkOptional<SinksResponse>,
-      );
+    sink: identical(sink, sdkOmittedValue) ? this.sink : sink as SdkOptional<SinksResponse>,
+  );
 
   factory Sinks.fromJson(Map<String, dynamic> json) => Sinks(
-        sink: json['sink'] != null
-            ? SdkPresent((json['sink'] != null
-                ? SinksResponse.fromJson(json['sink'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    sink: json['sink'] != null ? SdkPresent((json['sink'] != null ? SinksResponse.fromJson(json['sink'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (sink) {
-          SdkPresent<SinksResponse>(value: final value) => {
-              'sink': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (sink) {
+      SdkPresent<SinksResponse>(value: final value) => {'sink': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

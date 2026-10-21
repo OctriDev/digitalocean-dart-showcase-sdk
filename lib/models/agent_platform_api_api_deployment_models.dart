@@ -8,218 +8,128 @@ part of 'agent_platform_api_api_deployment.dart';
 class ApiDeployment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Creation date / time
   final SdkOptional<String> createdAt;
-
   /// Name
   final SdkOptional<String> name;
-
   /// Optional enumerated value serialized in the `status` wire field.
   final SdkOptional<ApiDeploymentStatus> status;
-
   /// Last modified
   final SdkOptional<String> updatedAt;
-
   /// Access your deployed agent here
   final SdkOptional<String> url;
-
   /// Unique id
   final SdkOptional<String> uuid;
-
   /// - VISIBILITY_UNKNOWN: The status of the deployment is unknown - VISIBILITY_DISABLED: The deployment is disabled and will no longer service requests - VISIBILITY_PLAYGROUND: Deprecated: No longer a valid state - VISIBILITY_PUBLIC: The deployment is public and will service requests from the public internet - VISIBILITY_PRIVATE: The deployment is private and will only service requests from other agents, or through API keys
   final SdkOptional<ApiDeploymentVisibility> visibility;
 
-  const ApiDeployment(
-      {this.createdAt = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.url = const SdkOmitted(),
-      this.uuid = const SdkOmitted(),
-      this.visibility = const SdkOmitted()});
+  const ApiDeployment({this.createdAt = const SdkOmitted(), this.name = const SdkOmitted(), this.status = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.url = const SdkOmitted(), this.uuid = const SdkOmitted(), this.visibility = const SdkOmitted()});
 
-  ApiDeployment Function(
-          {SdkOptional<String> createdAt,
-          SdkOptional<String> name,
-          SdkOptional<ApiDeploymentStatus> status,
-          SdkOptional<String> updatedAt,
-          SdkOptional<String> url,
-          SdkOptional<String> uuid,
-          SdkOptional<ApiDeploymentVisibility> visibility})
-      get copyWith => _copyWith;
+  ApiDeployment Function({SdkOptional<String> createdAt, SdkOptional<String> name, SdkOptional<ApiDeploymentStatus> status, SdkOptional<String> updatedAt, SdkOptional<String> url, SdkOptional<String> uuid, SdkOptional<ApiDeploymentVisibility> visibility}) get copyWith => _copyWith;
 
-  ApiDeployment _copyWith(
-          {Object? createdAt = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? uuid = sdkOmittedValue,
-          Object? visibility = sdkOmittedValue}) =>
-      ApiDeployment(
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ApiDeploymentStatus>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-        visibility: identical(visibility, sdkOmittedValue)
-            ? this.visibility
-            : visibility as SdkOptional<ApiDeploymentVisibility>,
-      );
+  ApiDeployment _copyWith({Object? createdAt = sdkOmittedValue, Object? name = sdkOmittedValue, Object? status = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? url = sdkOmittedValue, Object? uuid = sdkOmittedValue, Object? visibility = sdkOmittedValue}) => ApiDeployment(
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ApiDeploymentStatus>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+    visibility: identical(visibility, sdkOmittedValue) ? this.visibility : visibility as SdkOptional<ApiDeploymentVisibility>,
+  );
 
   factory ApiDeployment.fromJson(Map<String, dynamic> json) => ApiDeployment(
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ApiDeploymentStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-        visibility: json['visibility'] != null
-            ? SdkPresent((json['visibility'] != null
-                ? ApiDeploymentVisibility.fromJson(json['visibility'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ApiDeploymentStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+    visibility: json['visibility'] != null ? SdkPresent((json['visibility'] != null ? ApiDeploymentVisibility.fromJson(json['visibility'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<ApiDeploymentStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (visibility) {
-          SdkPresent<ApiDeploymentVisibility>(value: final value) => {
-              'visibility': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<ApiDeploymentStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (visibility) {
+      SdkPresent<ApiDeploymentVisibility>(value: final value) => {'visibility': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiDeploymentStatus` API schema.
 final class ApiDeploymentStatus {
+
   final String value;
 
   const ApiDeploymentStatus._(this.value);
 
-  factory ApiDeploymentStatus.fromJson(String value) =>
-      ApiDeploymentStatus._(value);
+  factory ApiDeploymentStatus.fromJson(String value) => ApiDeploymentStatus._(value);
 
   static const statusUnknown = ApiDeploymentStatus._('STATUS_UNKNOWN');
-  static const statusWaitingForDeployment =
-      ApiDeploymentStatus._('STATUS_WAITING_FOR_DEPLOYMENT');
+  static const statusWaitingForDeployment = ApiDeploymentStatus._('STATUS_WAITING_FOR_DEPLOYMENT');
   static const statusDeploying = ApiDeploymentStatus._('STATUS_DEPLOYING');
   static const statusRunning = ApiDeploymentStatus._('STATUS_RUNNING');
   static const statusFailed = ApiDeploymentStatus._('STATUS_FAILED');
-  static const statusWaitingForUndeployment =
-      ApiDeploymentStatus._('STATUS_WAITING_FOR_UNDEPLOYMENT');
+  static const statusWaitingForUndeployment = ApiDeploymentStatus._('STATUS_WAITING_FOR_UNDEPLOYMENT');
   static const statusUndeploying = ApiDeploymentStatus._('STATUS_UNDEPLOYING');
-  static const statusUndeploymentFailed =
-      ApiDeploymentStatus._('STATUS_UNDEPLOYMENT_FAILED');
+  static const statusUndeploymentFailed = ApiDeploymentStatus._('STATUS_UNDEPLOYMENT_FAILED');
   static const statusDeleted = ApiDeploymentStatus._('STATUS_DELETED');
   static const statusBuilding = ApiDeploymentStatus._('STATUS_BUILDING');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiDeploymentStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ApiDeploymentStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// - VISIBILITY_UNKNOWN: The status of the deployment is unknown - VISIBILITY_DISABLED: The deployment is disabled and will no longer service requests - VISIBILITY_PLAYGROUND: Deprecated: No longer a valid state - VISIBILITY_PUBLIC: The deployment is public and will service requests from the public internet - VISIBILITY_PRIVATE: The deployment is private and will only service requests from other agents, or through API keys
 final class ApiDeploymentVisibility {
+
   final String value;
 
   const ApiDeploymentVisibility._(this.value);
 
-  factory ApiDeploymentVisibility.fromJson(String value) =>
-      ApiDeploymentVisibility._(value);
+  factory ApiDeploymentVisibility.fromJson(String value) => ApiDeploymentVisibility._(value);
 
-  static const visibilityUnknown =
-      ApiDeploymentVisibility._('VISIBILITY_UNKNOWN');
-  static const visibilityDisabled =
-      ApiDeploymentVisibility._('VISIBILITY_DISABLED');
-  static const visibilityPlayground =
-      ApiDeploymentVisibility._('VISIBILITY_PLAYGROUND');
-  static const visibilityPublic =
-      ApiDeploymentVisibility._('VISIBILITY_PUBLIC');
-  static const visibilityPrivate =
-      ApiDeploymentVisibility._('VISIBILITY_PRIVATE');
+  static const visibilityUnknown = ApiDeploymentVisibility._('VISIBILITY_UNKNOWN');
+  static const visibilityDisabled = ApiDeploymentVisibility._('VISIBILITY_DISABLED');
+  static const visibilityPlayground = ApiDeploymentVisibility._('VISIBILITY_PLAYGROUND');
+  static const visibilityPublic = ApiDeploymentVisibility._('VISIBILITY_PUBLIC');
+  static const visibilityPrivate = ApiDeploymentVisibility._('VISIBILITY_PRIVATE');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiDeploymentVisibility && other.value == value;
+  @override bool operator ==(Object other) => other is ApiDeploymentVisibility && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

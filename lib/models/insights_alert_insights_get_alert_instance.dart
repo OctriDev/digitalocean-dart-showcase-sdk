@@ -8,31 +8,22 @@ part of 'insights_alert.dart';
 class AlertInstanceResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A read-only record of an alert rule firing against a resource.
   final AlertInstance alertInstance;
 
   const AlertInstanceResponse({required this.alertInstance});
 
-  AlertInstanceResponse Function({AlertInstance alertInstance}) get copyWith =>
-      _copyWith;
+  AlertInstanceResponse Function({AlertInstance alertInstance}) get copyWith => _copyWith;
 
-  AlertInstanceResponse _copyWith({Object? alertInstance = sdkOmittedValue}) =>
-      AlertInstanceResponse(
-        alertInstance: identical(alertInstance, sdkOmittedValue)
-            ? this.alertInstance
-            : alertInstance as AlertInstance,
-      );
+  AlertInstanceResponse _copyWith({Object? alertInstance = sdkOmittedValue}) => AlertInstanceResponse(
+    alertInstance: identical(alertInstance, sdkOmittedValue) ? this.alertInstance : alertInstance as AlertInstance,
+  );
 
-  factory AlertInstanceResponse.fromJson(Map<String, dynamic> json) =>
-      AlertInstanceResponse(
-        alertInstance: (json['alert_instance'] != null
-            ? AlertInstance.fromJson(
-                json['alert_instance'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AlertInstanceResponse.fromJson(Map<String, dynamic> json) => AlertInstanceResponse(
+    alertInstance: (json['alert_instance'] != null ? AlertInstance.fromJson(json['alert_instance'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'alert_instance': alertInstance.toJson(),
-      };
+    'alert_instance': alertInstance.toJson(),
+  };
 }

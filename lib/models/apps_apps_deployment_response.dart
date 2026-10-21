@@ -8,38 +8,25 @@ part of 'apps_apps_deployment.dart';
 class AppsDeploymentResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `deployment` wire field.
   final SdkOptional<AppsDeployment> deployment;
 
   const AppsDeploymentResponse({this.deployment = const SdkOmitted()});
 
-  AppsDeploymentResponse Function({SdkOptional<AppsDeployment> deployment})
-      get copyWith => _copyWith;
+  AppsDeploymentResponse Function({SdkOptional<AppsDeployment> deployment}) get copyWith => _copyWith;
 
-  AppsDeploymentResponse _copyWith({Object? deployment = sdkOmittedValue}) =>
-      AppsDeploymentResponse(
-        deployment: identical(deployment, sdkOmittedValue)
-            ? this.deployment
-            : deployment as SdkOptional<AppsDeployment>,
-      );
+  AppsDeploymentResponse _copyWith({Object? deployment = sdkOmittedValue}) => AppsDeploymentResponse(
+    deployment: identical(deployment, sdkOmittedValue) ? this.deployment : deployment as SdkOptional<AppsDeployment>,
+  );
 
-  factory AppsDeploymentResponse.fromJson(Map<String, dynamic> json) =>
-      AppsDeploymentResponse(
-        deployment: json['deployment'] != null
-            ? SdkPresent((json['deployment'] != null
-                ? AppsDeployment.fromJson(
-                    json['deployment'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AppsDeploymentResponse.fromJson(Map<String, dynamic> json) => AppsDeploymentResponse(
+    deployment: json['deployment'] != null ? SdkPresent((json['deployment'] != null ? AppsDeployment.fromJson(json['deployment'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (deployment) {
-          SdkPresent<AppsDeployment>(value: final value) => {
-              'deployment': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (deployment) {
+      SdkPresent<AppsDeployment>(value: final value) => {'deployment': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

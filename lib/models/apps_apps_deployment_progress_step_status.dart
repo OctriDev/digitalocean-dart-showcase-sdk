@@ -6,12 +6,12 @@ part of 'apps_apps_deployment.dart';
 // apps_apps_deployment domain models
 /// Typed representation of the `AppsDeploymentProgressStepStatus` API schema.
 final class AppsDeploymentProgressStepStatus {
+
   final String value;
 
   const AppsDeploymentProgressStepStatus._(this.value);
 
-  factory AppsDeploymentProgressStepStatus.fromJson(String value) =>
-      AppsDeploymentProgressStepStatus._(value);
+  factory AppsDeploymentProgressStepStatus.fromJson(String value) => AppsDeploymentProgressStepStatus._(value);
 
   static const unknown = AppsDeploymentProgressStepStatus._('UNKNOWN');
   static const pending = AppsDeploymentProgressStepStatus._('PENDING');
@@ -21,13 +21,10 @@ final class AppsDeploymentProgressStepStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppsDeploymentProgressStepStatus && other.value == value;
+  @override bool operator ==(Object other) => other is AppsDeploymentProgressStepStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

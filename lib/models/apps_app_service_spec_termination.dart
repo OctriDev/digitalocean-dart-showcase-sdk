@@ -8,55 +8,33 @@ part of 'apps_app_service.dart';
 class AppServiceSpecTermination {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of seconds to wait between selecting a container instance for termination and issuing the TERM signal. Selecting a container instance for termination begins an asynchronous drain of new requests on upstream load-balancers. (Default 15)
   final SdkOptional<int> drainSeconds;
-
   /// The number of seconds to wait between sending a TERM signal to a container and issuing a KILL which causes immediate shutdown. (Default 120)
   final SdkOptional<int> gracePeriodSeconds;
 
-  const AppServiceSpecTermination(
-      {this.drainSeconds = const SdkOmitted(),
-      this.gracePeriodSeconds = const SdkOmitted()});
+  const AppServiceSpecTermination({this.drainSeconds = const SdkOmitted(), this.gracePeriodSeconds = const SdkOmitted()});
 
-  AppServiceSpecTermination Function(
-      {SdkOptional<int> drainSeconds,
-      SdkOptional<int> gracePeriodSeconds}) get copyWith => _copyWith;
+  AppServiceSpecTermination Function({SdkOptional<int> drainSeconds, SdkOptional<int> gracePeriodSeconds}) get copyWith => _copyWith;
 
-  AppServiceSpecTermination _copyWith(
-          {Object? drainSeconds = sdkOmittedValue,
-          Object? gracePeriodSeconds = sdkOmittedValue}) =>
-      AppServiceSpecTermination(
-        drainSeconds: identical(drainSeconds, sdkOmittedValue)
-            ? this.drainSeconds
-            : drainSeconds as SdkOptional<int>,
-        gracePeriodSeconds: identical(gracePeriodSeconds, sdkOmittedValue)
-            ? this.gracePeriodSeconds
-            : gracePeriodSeconds as SdkOptional<int>,
-      );
+  AppServiceSpecTermination _copyWith({Object? drainSeconds = sdkOmittedValue, Object? gracePeriodSeconds = sdkOmittedValue}) => AppServiceSpecTermination(
+    drainSeconds: identical(drainSeconds, sdkOmittedValue) ? this.drainSeconds : drainSeconds as SdkOptional<int>,
+    gracePeriodSeconds: identical(gracePeriodSeconds, sdkOmittedValue) ? this.gracePeriodSeconds : gracePeriodSeconds as SdkOptional<int>,
+  );
 
-  factory AppServiceSpecTermination.fromJson(Map<String, dynamic> json) =>
-      AppServiceSpecTermination(
-        drainSeconds: json['drain_seconds'] != null
-            ? SdkPresent(((json['drain_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        gracePeriodSeconds: json['grace_period_seconds'] != null
-            ? SdkPresent(((json['grace_period_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory AppServiceSpecTermination.fromJson(Map<String, dynamic> json) => AppServiceSpecTermination(
+    drainSeconds: json['drain_seconds'] != null ? SdkPresent(((json['drain_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+    gracePeriodSeconds: json['grace_period_seconds'] != null ? SdkPresent(((json['grace_period_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (drainSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'drain_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (gracePeriodSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'grace_period_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (drainSeconds) {
+      SdkPresent<int>(value: final value) => {'drain_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (gracePeriodSeconds) {
+      SdkPresent<int>(value: final value) => {'grace_period_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

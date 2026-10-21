@@ -8,37 +8,25 @@ part of 'kubernetes_cluster.dart';
 class ClusterRegistry {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array containing the UUIDs of Kubernetes clusters.
   final SdkOptional<List<String>> clusterUuids;
 
   const ClusterRegistry({this.clusterUuids = const SdkOmitted()});
 
-  ClusterRegistry Function({SdkOptional<List<String>> clusterUuids})
-      get copyWith => _copyWith;
+  ClusterRegistry Function({SdkOptional<List<String>> clusterUuids}) get copyWith => _copyWith;
 
-  ClusterRegistry _copyWith({Object? clusterUuids = sdkOmittedValue}) =>
-      ClusterRegistry(
-        clusterUuids: identical(clusterUuids, sdkOmittedValue)
-            ? this.clusterUuids
-            : clusterUuids as SdkOptional<List<String>>,
-      );
+  ClusterRegistry _copyWith({Object? clusterUuids = sdkOmittedValue}) => ClusterRegistry(
+    clusterUuids: identical(clusterUuids, sdkOmittedValue) ? this.clusterUuids : clusterUuids as SdkOptional<List<String>>,
+  );
 
-  factory ClusterRegistry.fromJson(Map<String, dynamic> json) =>
-      ClusterRegistry(
-        clusterUuids: json['cluster_uuids'] != null
-            ? SdkPresent(((json['cluster_uuids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ClusterRegistry.fromJson(Map<String, dynamic> json) => ClusterRegistry(
+    clusterUuids: json['cluster_uuids'] != null ? SdkPresent(((json['cluster_uuids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (clusterUuids) {
-          SdkPresent<List<String>>(value: final value) => {
-              'cluster_uuids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (clusterUuids) {
+      SdkPresent<List<String>>(value: final value) => {'cluster_uuids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

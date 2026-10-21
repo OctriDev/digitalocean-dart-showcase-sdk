@@ -8,37 +8,25 @@ part of 'action_gateway_list.dart';
 class ListMcpServerToolsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Tools sorted by name.
   final SdkOptional<List<McpServerTool>> tools;
 
   const ListMcpServerToolsResponse({this.tools = const SdkOmitted()});
 
-  ListMcpServerToolsResponse Function({SdkOptional<List<McpServerTool>> tools})
-      get copyWith => _copyWith;
+  ListMcpServerToolsResponse Function({SdkOptional<List<McpServerTool>> tools}) get copyWith => _copyWith;
 
-  ListMcpServerToolsResponse _copyWith({Object? tools = sdkOmittedValue}) =>
-      ListMcpServerToolsResponse(
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<McpServerTool>>,
-      );
+  ListMcpServerToolsResponse _copyWith({Object? tools = sdkOmittedValue}) => ListMcpServerToolsResponse(
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<McpServerTool>>,
+  );
 
-  factory ListMcpServerToolsResponse.fromJson(Map<String, dynamic> json) =>
-      ListMcpServerToolsResponse(
-        tools: json['tools'] != null
-            ? SdkPresent(((json['tools'] as List?)
-                ?.map((e) => McpServerTool.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ListMcpServerToolsResponse.fromJson(Map<String, dynamic> json) => ListMcpServerToolsResponse(
+    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => McpServerTool.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (tools) {
-          SdkPresent<List<McpServerTool>>(value: final value) => {
-              'tools': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (tools) {
+      SdkPresent<List<McpServerTool>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

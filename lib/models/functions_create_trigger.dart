@@ -8,72 +8,42 @@ part of 'functions.dart';
 class CreateTrigger {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The trigger's unique name within the namespace.
   final String name;
-
   /// Name of function(action) that exists in the given namespace.
   final String function_;
-
   /// One of different type of triggers. Currently only SCHEDULED is supported.
   final String type_;
-
   /// Indicates weather the trigger is paused or unpaused.
   final bool isEnabled;
-
   /// Trigger details for SCHEDULED type, where body is optional.
   final ScheduledDetails scheduledDetails;
 
-  const CreateTrigger(
-      {required this.name,
-      required this.function_,
-      required this.type_,
-      required this.isEnabled,
-      required this.scheduledDetails});
+  const CreateTrigger({required this.name, required this.function_, required this.type_, required this.isEnabled, required this.scheduledDetails});
 
-  CreateTrigger Function(
-      {String name,
-      String function_,
-      String type_,
-      bool isEnabled,
-      ScheduledDetails scheduledDetails}) get copyWith => _copyWith;
+  CreateTrigger Function({String name, String function_, String type_, bool isEnabled, ScheduledDetails scheduledDetails}) get copyWith => _copyWith;
 
-  CreateTrigger _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? function_ = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? isEnabled = sdkOmittedValue,
-          Object? scheduledDetails = sdkOmittedValue}) =>
-      CreateTrigger(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        function_: identical(function_, sdkOmittedValue)
-            ? this.function_
-            : function_ as String,
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-        isEnabled: identical(isEnabled, sdkOmittedValue)
-            ? this.isEnabled
-            : isEnabled as bool,
-        scheduledDetails: identical(scheduledDetails, sdkOmittedValue)
-            ? this.scheduledDetails
-            : scheduledDetails as ScheduledDetails,
-      );
+  CreateTrigger _copyWith({Object? name = sdkOmittedValue, Object? function_ = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? isEnabled = sdkOmittedValue, Object? scheduledDetails = sdkOmittedValue}) => CreateTrigger(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    function_: identical(function_, sdkOmittedValue) ? this.function_ : function_ as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    isEnabled: identical(isEnabled, sdkOmittedValue) ? this.isEnabled : isEnabled as bool,
+    scheduledDetails: identical(scheduledDetails, sdkOmittedValue) ? this.scheduledDetails : scheduledDetails as ScheduledDetails,
+  );
 
   factory CreateTrigger.fromJson(Map<String, dynamic> json) => CreateTrigger(
-        name: (json['name'] as String?)!,
-        function_: (json['function'] as String?)!,
-        type_: (json['type'] as String?)!,
-        isEnabled: (json['is_enabled'] as bool?)!,
-        scheduledDetails: (json['scheduled_details'] != null
-            ? ScheduledDetails.fromJson(
-                json['scheduled_details'] as Map<String, dynamic>)
-            : null)!,
-      );
+    name: (json['name'] as String?)!,
+    function_: (json['function'] as String?)!,
+    type_: (json['type'] as String?)!,
+    isEnabled: (json['is_enabled'] as bool?)!,
+    scheduledDetails: (json['scheduled_details'] != null ? ScheduledDetails.fromJson(json['scheduled_details'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'function': function_,
-        'type': type_,
-        'is_enabled': isEnabled,
-        'scheduled_details': scheduledDetails.toJson(),
-      };
+    'name': name,
+    'function': function_,
+    'type': type_,
+    'is_enabled': isEnabled,
+    'scheduled_details': scheduledDetails.toJson(),
+  };
 }

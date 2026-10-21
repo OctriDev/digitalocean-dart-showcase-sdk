@@ -8,41 +8,30 @@ part of 'monitoring.dart';
 class SinkResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The uniform resource name (URN) for the resource in the format do:resource_type:resource_id.
   final String urn;
-
   /// resource name
   final SdkOptional<String> name;
 
   const SinkResource({required this.urn, this.name = const SdkOmitted()});
 
-  SinkResource Function({String urn, SdkOptional<String> name}) get copyWith =>
-      _copyWith;
+  SinkResource Function({String urn, SdkOptional<String> name}) get copyWith => _copyWith;
 
-  SinkResource _copyWith(
-          {Object? urn = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
-      SinkResource(
-        urn: identical(urn, sdkOmittedValue) ? this.urn : urn as String,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  SinkResource _copyWith({Object? urn = sdkOmittedValue, Object? name = sdkOmittedValue}) => SinkResource(
+    urn: identical(urn, sdkOmittedValue) ? this.urn : urn as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
   factory SinkResource.fromJson(Map<String, dynamic> json) => SinkResource(
-        urn: (json['urn'] as String?)!,
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+    urn: (json['urn'] as String?)!,
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'urn': urn,
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'urn': urn,
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

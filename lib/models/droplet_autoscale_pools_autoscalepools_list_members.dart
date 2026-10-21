@@ -11,33 +11,22 @@ class AllMembersVariant0 {
 
   const AllMembersVariant0({this.droplets = const SdkOmitted()});
 
-  AllMembersVariant0 Function({SdkOptional<List<Member>> droplets})
-      get copyWith => _copyWith;
+  AllMembersVariant0 Function({SdkOptional<List<Member>> droplets}) get copyWith => _copyWith;
 
-  AllMembersVariant0 _copyWith({Object? droplets = sdkOmittedValue}) =>
-      AllMembersVariant0(
-        droplets: identical(droplets, sdkOmittedValue)
-            ? this.droplets
-            : droplets as SdkOptional<List<Member>>,
-      );
+  AllMembersVariant0 _copyWith({Object? droplets = sdkOmittedValue}) => AllMembersVariant0(
+    droplets: identical(droplets, sdkOmittedValue) ? this.droplets : droplets as SdkOptional<List<Member>>,
+  );
 
-  factory AllMembersVariant0.fromJson(Map<String, dynamic> json) =>
-      AllMembersVariant0(
-        droplets: json['droplets'] != null
-            ? SdkPresent(((json['droplets'] as List?)
-                ?.map((e) => Member.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AllMembersVariant0.fromJson(Map<String, dynamic> json) => AllMembersVariant0(
+    droplets: json['droplets'] != null ? SdkPresent(((json['droplets'] as List?)?.map((e) => Member.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (droplets) {
-          SdkPresent<List<Member>>(value: final value) => {
-              'droplets': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (droplets) {
+      SdkPresent<List<Member>>(value: final value) => {'droplets': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AllMembers` API schema.
@@ -45,234 +34,128 @@ class AllMembers {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Member>> droplets;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllMembers(
-      {this.droplets = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllMembers({this.droplets = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AllMembers Function(
-      {SdkOptional<List<Member>> droplets,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllMembers Function({SdkOptional<List<Member>> droplets, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllMembers _copyWith(
-          {Object? droplets = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllMembers(
-        droplets: identical(droplets, sdkOmittedValue)
-            ? this.droplets
-            : droplets as SdkOptional<List<Member>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllMembers _copyWith({Object? droplets = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllMembers(
+    droplets: identical(droplets, sdkOmittedValue) ? this.droplets : droplets as SdkOptional<List<Member>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory AllMembers.fromJson(Map<String, dynamic> json) => AllMembers(
-        droplets: json['droplets'] != null
-            ? SdkPresent(((json['droplets'] as List?)
-                ?.map((e) => Member.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    droplets: json['droplets'] != null ? SdkPresent(((json['droplets'] as List?)?.map((e) => Member.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (droplets) {
-          SdkPresent<List<Member>>(value: final value) => {
-              'droplets': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (droplets) {
+      SdkPresent<List<Member>>(value: final value) => {'droplets': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 /// Typed representation of the `Member` API schema.
 class Member {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier of the Droplet.
   final int dropletId;
-
   /// The creation time of the Droplet in ISO8601 combined date and time format.
   final String createdAt;
-
   /// The last updated time of the Droplet in ISO8601 combined date and time format.
   final String updatedAt;
-
   /// The health status of the Droplet.
   final MemberHealthStatus healthStatus;
-
   /// A human-readable description of why the Droplet is unhealthy. Only present when `health_status` is `unhealthy`.
   final SdkOptional<String> unhealthyReason;
-
   /// The power status of the Droplet.
   final MemberStatus status;
-
   /// Required object value serialized in the `current_utilization` wire field.
   final MemberCurrentUtilization currentUtilization;
 
-  const Member(
-      {required this.dropletId,
-      required this.createdAt,
-      required this.updatedAt,
-      required this.healthStatus,
-      this.unhealthyReason = const SdkOmitted(),
-      required this.status,
-      required this.currentUtilization});
+  const Member({required this.dropletId, required this.createdAt, required this.updatedAt, required this.healthStatus, this.unhealthyReason = const SdkOmitted(), required this.status, required this.currentUtilization});
 
-  Member Function(
-      {int dropletId,
-      String createdAt,
-      String updatedAt,
-      MemberHealthStatus healthStatus,
-      SdkOptional<String> unhealthyReason,
-      MemberStatus status,
-      MemberCurrentUtilization currentUtilization}) get copyWith => _copyWith;
+  Member Function({int dropletId, String createdAt, String updatedAt, MemberHealthStatus healthStatus, SdkOptional<String> unhealthyReason, MemberStatus status, MemberCurrentUtilization currentUtilization}) get copyWith => _copyWith;
 
-  Member _copyWith(
-          {Object? dropletId = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? healthStatus = sdkOmittedValue,
-          Object? unhealthyReason = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? currentUtilization = sdkOmittedValue}) =>
-      Member(
-        dropletId: identical(dropletId, sdkOmittedValue)
-            ? this.dropletId
-            : dropletId as int,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as String,
-        healthStatus: identical(healthStatus, sdkOmittedValue)
-            ? this.healthStatus
-            : healthStatus as MemberHealthStatus,
-        unhealthyReason: identical(unhealthyReason, sdkOmittedValue)
-            ? this.unhealthyReason
-            : unhealthyReason as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as MemberStatus,
-        currentUtilization: identical(currentUtilization, sdkOmittedValue)
-            ? this.currentUtilization
-            : currentUtilization as MemberCurrentUtilization,
-      );
+  Member _copyWith({Object? dropletId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? healthStatus = sdkOmittedValue, Object? unhealthyReason = sdkOmittedValue, Object? status = sdkOmittedValue, Object? currentUtilization = sdkOmittedValue}) => Member(
+    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as int,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
+    healthStatus: identical(healthStatus, sdkOmittedValue) ? this.healthStatus : healthStatus as MemberHealthStatus,
+    unhealthyReason: identical(unhealthyReason, sdkOmittedValue) ? this.unhealthyReason : unhealthyReason as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as MemberStatus,
+    currentUtilization: identical(currentUtilization, sdkOmittedValue) ? this.currentUtilization : currentUtilization as MemberCurrentUtilization,
+  );
 
   factory Member.fromJson(Map<String, dynamic> json) => Member(
-        dropletId: ((json['droplet_id'] as num?)?.toInt())!,
-        createdAt: (json['created_at'] as String?)!,
-        updatedAt: (json['updated_at'] as String?)!,
-        healthStatus: (json['health_status'] != null
-            ? MemberHealthStatus.fromJson(json['health_status'] as String)
-            : null)!,
-        unhealthyReason: json['unhealthy_reason'] != null
-            ? SdkPresent((json['unhealthy_reason'] as String?)!)
-            : const SdkOmitted(),
-        status: (json['status'] != null
-            ? MemberStatus.fromJson(json['status'] as String)
-            : null)!,
-        currentUtilization: (json['current_utilization'] != null
-            ? MemberCurrentUtilization.fromJson(
-                json['current_utilization'] as Map<String, dynamic>)
-            : null)!,
-      );
+    dropletId: ((json['droplet_id'] as num?)?.toInt())!,
+    createdAt: (json['created_at'] as String?)!,
+    updatedAt: (json['updated_at'] as String?)!,
+    healthStatus: (json['health_status'] != null ? MemberHealthStatus.fromJson(json['health_status'] as String) : null)!,
+    unhealthyReason: json['unhealthy_reason'] != null ? SdkPresent((json['unhealthy_reason'] as String?)!) : const SdkOmitted(),
+    status: (json['status'] != null ? MemberStatus.fromJson(json['status'] as String) : null)!,
+    currentUtilization: (json['current_utilization'] != null ? MemberCurrentUtilization.fromJson(json['current_utilization'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'droplet_id': dropletId,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-        'health_status': healthStatus.toJson(),
-        ...switch (unhealthyReason) {
-          SdkPresent<String>(value: final value) => {
-              'unhealthy_reason': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'status': status.toJson(),
-        'current_utilization': currentUtilization.toJson(),
-      };
+    'droplet_id': dropletId,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+    'health_status': healthStatus.toJson(),
+    ...switch (unhealthyReason) {
+      SdkPresent<String>(value: final value) => {'unhealthy_reason': value,},
+      _ => const <String, dynamic>{},
+    },
+    'status': status.toJson(),
+    'current_utilization': currentUtilization.toJson(),
+  };
 }
 
 /// Typed representation of the `MemberCurrentUtilization` API schema.
 class MemberCurrentUtilization {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The memory utilization average of the individual Droplet.
   final SdkOptional<double> memory;
-
   /// The CPU utilization average of the individual Droplet.
   final SdkOptional<double> cpu;
 
-  const MemberCurrentUtilization(
-      {this.memory = const SdkOmitted(), this.cpu = const SdkOmitted()});
+  const MemberCurrentUtilization({this.memory = const SdkOmitted(), this.cpu = const SdkOmitted()});
 
-  MemberCurrentUtilization Function(
-      {SdkOptional<double> memory,
-      SdkOptional<double> cpu}) get copyWith => _copyWith;
+  MemberCurrentUtilization Function({SdkOptional<double> memory, SdkOptional<double> cpu}) get copyWith => _copyWith;
 
-  MemberCurrentUtilization _copyWith(
-          {Object? memory = sdkOmittedValue, Object? cpu = sdkOmittedValue}) =>
-      MemberCurrentUtilization(
-        memory: identical(memory, sdkOmittedValue)
-            ? this.memory
-            : memory as SdkOptional<double>,
-        cpu: identical(cpu, sdkOmittedValue)
-            ? this.cpu
-            : cpu as SdkOptional<double>,
-      );
+  MemberCurrentUtilization _copyWith({Object? memory = sdkOmittedValue, Object? cpu = sdkOmittedValue}) => MemberCurrentUtilization(
+    memory: identical(memory, sdkOmittedValue) ? this.memory : memory as SdkOptional<double>,
+    cpu: identical(cpu, sdkOmittedValue) ? this.cpu : cpu as SdkOptional<double>,
+  );
 
-  factory MemberCurrentUtilization.fromJson(Map<String, dynamic> json) =>
-      MemberCurrentUtilization(
-        memory: json['memory'] != null
-            ? SdkPresent(((json['memory'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        cpu: json['cpu'] != null
-            ? SdkPresent(((json['cpu'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-      );
+  factory MemberCurrentUtilization.fromJson(Map<String, dynamic> json) => MemberCurrentUtilization(
+    memory: json['memory'] != null ? SdkPresent(((json['memory'] as num?)?.toDouble())!) : const SdkOmitted(),
+    cpu: json['cpu'] != null ? SdkPresent(((json['cpu'] as num?)?.toDouble())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (memory) {
-          SdkPresent<double>(value: final value) => {
-              'memory': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cpu) {
-          SdkPresent<double>(value: final value) => {
-              'cpu': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (memory) {
+      SdkPresent<double>(value: final value) => {'memory': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cpu) {
+      SdkPresent<double>(value: final value) => {'cpu': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,38 +8,25 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetScenarioSetOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A team-owned collection of scenarios.
   final SdkOptional<ApiScenarioSet> scenarioSet;
 
   const ApiGetScenarioSetOutput({this.scenarioSet = const SdkOmitted()});
 
-  ApiGetScenarioSetOutput Function({SdkOptional<ApiScenarioSet> scenarioSet})
-      get copyWith => _copyWith;
+  ApiGetScenarioSetOutput Function({SdkOptional<ApiScenarioSet> scenarioSet}) get copyWith => _copyWith;
 
-  ApiGetScenarioSetOutput _copyWith({Object? scenarioSet = sdkOmittedValue}) =>
-      ApiGetScenarioSetOutput(
-        scenarioSet: identical(scenarioSet, sdkOmittedValue)
-            ? this.scenarioSet
-            : scenarioSet as SdkOptional<ApiScenarioSet>,
-      );
+  ApiGetScenarioSetOutput _copyWith({Object? scenarioSet = sdkOmittedValue}) => ApiGetScenarioSetOutput(
+    scenarioSet: identical(scenarioSet, sdkOmittedValue) ? this.scenarioSet : scenarioSet as SdkOptional<ApiScenarioSet>,
+  );
 
-  factory ApiGetScenarioSetOutput.fromJson(Map<String, dynamic> json) =>
-      ApiGetScenarioSetOutput(
-        scenarioSet: json['scenario_set'] != null
-            ? SdkPresent((json['scenario_set'] != null
-                ? ApiScenarioSet.fromJson(
-                    json['scenario_set'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetScenarioSetOutput.fromJson(Map<String, dynamic> json) => ApiGetScenarioSetOutput(
+    scenarioSet: json['scenario_set'] != null ? SdkPresent((json['scenario_set'] != null ? ApiScenarioSet.fromJson(json['scenario_set'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (scenarioSet) {
-          SdkPresent<ApiScenarioSet>(value: final value) => {
-              'scenario_set': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (scenarioSet) {
+      SdkPresent<ApiScenarioSet>(value: final value) => {'scenario_set': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

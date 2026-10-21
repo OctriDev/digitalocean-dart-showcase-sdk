@@ -8,167 +8,89 @@ part of 'serverless_inference.dart';
 class GeneratedImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The base64-encoded JSON of the generated image.
   final String b64Json;
-
   /// The optimized prompt that was used to generate the image.
   final SdkOptional<String> revisedPrompt;
 
-  const GeneratedImage(
-      {required this.b64Json, this.revisedPrompt = const SdkOmitted()});
+  const GeneratedImage({required this.b64Json, this.revisedPrompt = const SdkOmitted()});
 
-  GeneratedImage Function({String b64Json, SdkOptional<String> revisedPrompt})
-      get copyWith => _copyWith;
+  GeneratedImage Function({String b64Json, SdkOptional<String> revisedPrompt}) get copyWith => _copyWith;
 
-  GeneratedImage _copyWith(
-          {Object? b64Json = sdkOmittedValue,
-          Object? revisedPrompt = sdkOmittedValue}) =>
-      GeneratedImage(
-        b64Json: identical(b64Json, sdkOmittedValue)
-            ? this.b64Json
-            : b64Json as String,
-        revisedPrompt: identical(revisedPrompt, sdkOmittedValue)
-            ? this.revisedPrompt
-            : revisedPrompt as SdkOptional<String>,
-      );
+  GeneratedImage _copyWith({Object? b64Json = sdkOmittedValue, Object? revisedPrompt = sdkOmittedValue}) => GeneratedImage(
+    b64Json: identical(b64Json, sdkOmittedValue) ? this.b64Json : b64Json as String,
+    revisedPrompt: identical(revisedPrompt, sdkOmittedValue) ? this.revisedPrompt : revisedPrompt as SdkOptional<String>,
+  );
 
   factory GeneratedImage.fromJson(Map<String, dynamic> json) => GeneratedImage(
-        b64Json: (json['b64_json'] as String?)!,
-        revisedPrompt: json['revised_prompt'] != null
-            ? SdkPresent((json['revised_prompt'] as String?)!)
-            : const SdkOmitted(),
-      );
+    b64Json: (json['b64_json'] as String?)!,
+    revisedPrompt: json['revised_prompt'] != null ? SdkPresent((json['revised_prompt'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'b64_json': b64Json,
-        ...switch (revisedPrompt) {
-          SdkPresent<String>(value: final value) => {
-              'revised_prompt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'b64_json': b64Json,
+    ...switch (revisedPrompt) {
+      SdkPresent<String>(value: final value) => {'revised_prompt': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Emitted when a partial image is available during image generation streaming.
 class ImageGenPartialImageEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the event. Always `image_generation.partial_image`.
   final ImageGenPartialImageEventType type_;
-
   /// Base64-encoded partial image data, suitable for rendering as an image.
   final String b64Json;
-
   /// The Unix timestamp when the event was created.
   final int createdAt;
-
   /// The size of the requested image.
   final ImageGenPartialImageEventSize size;
-
   /// The quality setting for the requested image.
   final ImageGenPartialImageEventQuality quality;
-
   /// The background setting for the requested image.
   final ImageGenPartialImageEventBackground background;
-
   /// The output format for the requested image.
   final ImageGenPartialImageEventOutputFormat outputFormat;
-
   /// 0-based index for the partial image (streaming).
   final int partialImageIndex;
 
-  const ImageGenPartialImageEvent(
-      {required this.type_,
-      required this.b64Json,
-      required this.createdAt,
-      required this.size,
-      required this.quality,
-      required this.background,
-      required this.outputFormat,
-      required this.partialImageIndex});
+  const ImageGenPartialImageEvent({required this.type_, required this.b64Json, required this.createdAt, required this.size, required this.quality, required this.background, required this.outputFormat, required this.partialImageIndex});
 
-  ImageGenPartialImageEvent Function(
-      {ImageGenPartialImageEventType type_,
-      String b64Json,
-      int createdAt,
-      ImageGenPartialImageEventSize size,
-      ImageGenPartialImageEventQuality quality,
-      ImageGenPartialImageEventBackground background,
-      ImageGenPartialImageEventOutputFormat outputFormat,
-      int partialImageIndex}) get copyWith => _copyWith;
+  ImageGenPartialImageEvent Function({ImageGenPartialImageEventType type_, String b64Json, int createdAt, ImageGenPartialImageEventSize size, ImageGenPartialImageEventQuality quality, ImageGenPartialImageEventBackground background, ImageGenPartialImageEventOutputFormat outputFormat, int partialImageIndex}) get copyWith => _copyWith;
 
-  ImageGenPartialImageEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? b64Json = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? size = sdkOmittedValue,
-          Object? quality = sdkOmittedValue,
-          Object? background = sdkOmittedValue,
-          Object? outputFormat = sdkOmittedValue,
-          Object? partialImageIndex = sdkOmittedValue}) =>
-      ImageGenPartialImageEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ImageGenPartialImageEventType,
-        b64Json: identical(b64Json, sdkOmittedValue)
-            ? this.b64Json
-            : b64Json as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        size: identical(size, sdkOmittedValue)
-            ? this.size
-            : size as ImageGenPartialImageEventSize,
-        quality: identical(quality, sdkOmittedValue)
-            ? this.quality
-            : quality as ImageGenPartialImageEventQuality,
-        background: identical(background, sdkOmittedValue)
-            ? this.background
-            : background as ImageGenPartialImageEventBackground,
-        outputFormat: identical(outputFormat, sdkOmittedValue)
-            ? this.outputFormat
-            : outputFormat as ImageGenPartialImageEventOutputFormat,
-        partialImageIndex: identical(partialImageIndex, sdkOmittedValue)
-            ? this.partialImageIndex
-            : partialImageIndex as int,
-      );
+  ImageGenPartialImageEvent _copyWith({Object? type_ = sdkOmittedValue, Object? b64Json = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? size = sdkOmittedValue, Object? quality = sdkOmittedValue, Object? background = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? partialImageIndex = sdkOmittedValue}) => ImageGenPartialImageEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ImageGenPartialImageEventType,
+    b64Json: identical(b64Json, sdkOmittedValue) ? this.b64Json : b64Json as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    size: identical(size, sdkOmittedValue) ? this.size : size as ImageGenPartialImageEventSize,
+    quality: identical(quality, sdkOmittedValue) ? this.quality : quality as ImageGenPartialImageEventQuality,
+    background: identical(background, sdkOmittedValue) ? this.background : background as ImageGenPartialImageEventBackground,
+    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as ImageGenPartialImageEventOutputFormat,
+    partialImageIndex: identical(partialImageIndex, sdkOmittedValue) ? this.partialImageIndex : partialImageIndex as int,
+  );
 
-  factory ImageGenPartialImageEvent.fromJson(Map<String, dynamic> json) =>
-      ImageGenPartialImageEvent(
-        type_: (json['type'] != null
-            ? ImageGenPartialImageEventType.fromJson(json['type'] as String)
-            : null)!,
-        b64Json: (json['b64_json'] as String?)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        size: (json['size'] != null
-            ? ImageGenPartialImageEventSize.fromJson(json['size'] as String)
-            : null)!,
-        quality: (json['quality'] != null
-            ? ImageGenPartialImageEventQuality.fromJson(
-                json['quality'] as String)
-            : null)!,
-        background: (json['background'] != null
-            ? ImageGenPartialImageEventBackground.fromJson(
-                json['background'] as String)
-            : null)!,
-        outputFormat: (json['output_format'] != null
-            ? ImageGenPartialImageEventOutputFormat.fromJson(
-                json['output_format'] as String)
-            : null)!,
-        partialImageIndex: ((json['partial_image_index'] as num?)?.toInt())!,
-      );
+  factory ImageGenPartialImageEvent.fromJson(Map<String, dynamic> json) => ImageGenPartialImageEvent(
+    type_: (json['type'] != null ? ImageGenPartialImageEventType.fromJson(json['type'] as String) : null)!,
+    b64Json: (json['b64_json'] as String?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    size: (json['size'] != null ? ImageGenPartialImageEventSize.fromJson(json['size'] as String) : null)!,
+    quality: (json['quality'] != null ? ImageGenPartialImageEventQuality.fromJson(json['quality'] as String) : null)!,
+    background: (json['background'] != null ? ImageGenPartialImageEventBackground.fromJson(json['background'] as String) : null)!,
+    outputFormat: (json['output_format'] != null ? ImageGenPartialImageEventOutputFormat.fromJson(json['output_format'] as String) : null)!,
+    partialImageIndex: ((json['partial_image_index'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'b64_json': b64Json,
-        'created_at': createdAt,
-        'size': size.toJson(),
-        'quality': quality.toJson(),
-        'background': background.toJson(),
-        'output_format': outputFormat.toJson(),
-        'partial_image_index': partialImageIndex,
-      };
+    'type': type_.toJson(),
+    'b64_json': b64Json,
+    'created_at': createdAt,
+    'size': size.toJson(),
+    'quality': quality.toJson(),
+    'background': background.toJson(),
+    'output_format': outputFormat.toJson(),
+    'partial_image_index': partialImageIndex,
+  };
 }

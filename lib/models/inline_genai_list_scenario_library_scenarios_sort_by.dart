@@ -5,391 +5,283 @@ part of 'inline.dart';
 
 // Inline operation models
 final class GenaiListScenarioLibraryScenariosSortBy {
+
   final String value;
 
   const GenaiListScenarioLibraryScenariosSortBy._(this.value);
 
-  factory GenaiListScenarioLibraryScenariosSortBy.fromJson(String value) =>
-      GenaiListScenarioLibraryScenariosSortBy._(value);
+  factory GenaiListScenarioLibraryScenariosSortBy.fromJson(String value) => GenaiListScenarioLibraryScenariosSortBy._(value);
 
-  static const scenarioSortFieldUnspecified =
-      GenaiListScenarioLibraryScenariosSortBy._(
-          'SCENARIO_SORT_FIELD_UNSPECIFIED');
-  static const scenarioSortFieldFileOrder =
-      GenaiListScenarioLibraryScenariosSortBy._(
-          'SCENARIO_SORT_FIELD_FILE_ORDER');
-  static const scenarioSortFieldName =
-      GenaiListScenarioLibraryScenariosSortBy._('SCENARIO_SORT_FIELD_NAME');
-  static const scenarioSortFieldDescription =
-      GenaiListScenarioLibraryScenariosSortBy._(
-          'SCENARIO_SORT_FIELD_DESCRIPTION');
+  static const scenarioSortFieldUnspecified = GenaiListScenarioLibraryScenariosSortBy._('SCENARIO_SORT_FIELD_UNSPECIFIED');
+  static const scenarioSortFieldFileOrder = GenaiListScenarioLibraryScenariosSortBy._('SCENARIO_SORT_FIELD_FILE_ORDER');
+  static const scenarioSortFieldName = GenaiListScenarioLibraryScenariosSortBy._('SCENARIO_SORT_FIELD_NAME');
+  static const scenarioSortFieldDescription = GenaiListScenarioLibraryScenariosSortBy._('SCENARIO_SORT_FIELD_DESCRIPTION');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListScenarioLibraryScenariosSortBy && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListScenarioLibraryScenariosSortBy && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListScenarioLibraryScenariosSortDirection {
+
   final String value;
 
   const GenaiListScenarioLibraryScenariosSortDirection._(this.value);
 
-  factory GenaiListScenarioLibraryScenariosSortDirection.fromJson(
-          String value) =>
-      GenaiListScenarioLibraryScenariosSortDirection._(value);
+  factory GenaiListScenarioLibraryScenariosSortDirection.fromJson(String value) => GenaiListScenarioLibraryScenariosSortDirection._(value);
 
-  static const sortDirectionUnspecified =
-      GenaiListScenarioLibraryScenariosSortDirection._(
-          'SORT_DIRECTION_UNSPECIFIED');
-  static const sortDirectionAsc =
-      GenaiListScenarioLibraryScenariosSortDirection._('SORT_DIRECTION_ASC');
-  static const sortDirectionDesc =
-      GenaiListScenarioLibraryScenariosSortDirection._('SORT_DIRECTION_DESC');
+  static const sortDirectionUnspecified = GenaiListScenarioLibraryScenariosSortDirection._('SORT_DIRECTION_UNSPECIFIED');
+  static const sortDirectionAsc = GenaiListScenarioLibraryScenariosSortDirection._('SORT_DIRECTION_ASC');
+  static const sortDirectionDesc = GenaiListScenarioLibraryScenariosSortDirection._('SORT_DIRECTION_DESC');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListScenarioLibraryScenariosSortDirection &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListScenarioLibraryScenariosSortDirection && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListScenarioSetsStatusesItem {
+
   final String value;
 
   const GenaiListScenarioSetsStatusesItem._(this.value);
 
-  factory GenaiListScenarioSetsStatusesItem.fromJson(String value) =>
-      GenaiListScenarioSetsStatusesItem._(value);
+  factory GenaiListScenarioSetsStatusesItem.fromJson(String value) => GenaiListScenarioSetsStatusesItem._(value);
 
-  static const scenarioSetStatusUnspecified =
-      GenaiListScenarioSetsStatusesItem._('SCENARIO_SET_STATUS_UNSPECIFIED');
-  static const scenarioSetStatusGenerating =
-      GenaiListScenarioSetsStatusesItem._('SCENARIO_SET_STATUS_GENERATING');
-  static const scenarioSetStatusReady =
-      GenaiListScenarioSetsStatusesItem._('SCENARIO_SET_STATUS_READY');
-  static const scenarioSetStatusFailed =
-      GenaiListScenarioSetsStatusesItem._('SCENARIO_SET_STATUS_FAILED');
-  static const scenarioSetStatusCancelled =
-      GenaiListScenarioSetsStatusesItem._('SCENARIO_SET_STATUS_CANCELLED');
+  static const scenarioSetStatusUnspecified = GenaiListScenarioSetsStatusesItem._('SCENARIO_SET_STATUS_UNSPECIFIED');
+  static const scenarioSetStatusGenerating = GenaiListScenarioSetsStatusesItem._('SCENARIO_SET_STATUS_GENERATING');
+  static const scenarioSetStatusReady = GenaiListScenarioSetsStatusesItem._('SCENARIO_SET_STATUS_READY');
+  static const scenarioSetStatusFailed = GenaiListScenarioSetsStatusesItem._('SCENARIO_SET_STATUS_FAILED');
+  static const scenarioSetStatusCancelled = GenaiListScenarioSetsStatusesItem._('SCENARIO_SET_STATUS_CANCELLED');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListScenarioSetsStatusesItem && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListScenarioSetsStatusesItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListScenarioSetsSourceKindsItem {
+
   final String value;
 
   const GenaiListScenarioSetsSourceKindsItem._(this.value);
 
-  factory GenaiListScenarioSetsSourceKindsItem.fromJson(String value) =>
-      GenaiListScenarioSetsSourceKindsItem._(value);
+  factory GenaiListScenarioSetsSourceKindsItem.fromJson(String value) => GenaiListScenarioSetsSourceKindsItem._(value);
 
-  static const scenarioSetSourceKindUnspecified =
-      GenaiListScenarioSetsSourceKindsItem._(
-          'SCENARIO_SET_SOURCE_KIND_UNSPECIFIED');
-  static const scenarioSetSourceKindUserUpload =
-      GenaiListScenarioSetsSourceKindsItem._(
-          'SCENARIO_SET_SOURCE_KIND_USER_UPLOAD');
-  static const scenarioSetSourceKindGoalGenerated =
-      GenaiListScenarioSetsSourceKindsItem._(
-          'SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED');
-  static const scenarioSetSourceKindLibrary =
-      GenaiListScenarioSetsSourceKindsItem._(
-          'SCENARIO_SET_SOURCE_KIND_LIBRARY');
-  static const scenarioSetSourceKindSignalGenerated =
-      GenaiListScenarioSetsSourceKindsItem._(
-          'SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED');
+  static const scenarioSetSourceKindUnspecified = GenaiListScenarioSetsSourceKindsItem._('SCENARIO_SET_SOURCE_KIND_UNSPECIFIED');
+  static const scenarioSetSourceKindUserUpload = GenaiListScenarioSetsSourceKindsItem._('SCENARIO_SET_SOURCE_KIND_USER_UPLOAD');
+  static const scenarioSetSourceKindGoalGenerated = GenaiListScenarioSetsSourceKindsItem._('SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED');
+  static const scenarioSetSourceKindLibrary = GenaiListScenarioSetsSourceKindsItem._('SCENARIO_SET_SOURCE_KIND_LIBRARY');
+  static const scenarioSetSourceKindSignalGenerated = GenaiListScenarioSetsSourceKindsItem._('SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListScenarioSetsSourceKindsItem && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListScenarioSetsSourceKindsItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListScenarioSetsSortBy {
+
   final String value;
 
   const GenaiListScenarioSetsSortBy._(this.value);
 
-  factory GenaiListScenarioSetsSortBy.fromJson(String value) =>
-      GenaiListScenarioSetsSortBy._(value);
+  factory GenaiListScenarioSetsSortBy.fromJson(String value) => GenaiListScenarioSetsSortBy._(value);
 
-  static const scenarioSetSortFieldUnspecified =
-      GenaiListScenarioSetsSortBy._('SCENARIO_SET_SORT_FIELD_UNSPECIFIED');
-  static const scenarioSetSortFieldCreatedAt =
-      GenaiListScenarioSetsSortBy._('SCENARIO_SET_SORT_FIELD_CREATED_AT');
-  static const scenarioSetSortFieldName =
-      GenaiListScenarioSetsSortBy._('SCENARIO_SET_SORT_FIELD_NAME');
-  static const scenarioSetSortFieldStatus =
-      GenaiListScenarioSetsSortBy._('SCENARIO_SET_SORT_FIELD_STATUS');
-  static const scenarioSetSortFieldScenarioCount =
-      GenaiListScenarioSetsSortBy._('SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT');
-  static const scenarioSetSortFieldUpdatedAt =
-      GenaiListScenarioSetsSortBy._('SCENARIO_SET_SORT_FIELD_UPDATED_AT');
+  static const scenarioSetSortFieldUnspecified = GenaiListScenarioSetsSortBy._('SCENARIO_SET_SORT_FIELD_UNSPECIFIED');
+  static const scenarioSetSortFieldCreatedAt = GenaiListScenarioSetsSortBy._('SCENARIO_SET_SORT_FIELD_CREATED_AT');
+  static const scenarioSetSortFieldName = GenaiListScenarioSetsSortBy._('SCENARIO_SET_SORT_FIELD_NAME');
+  static const scenarioSetSortFieldStatus = GenaiListScenarioSetsSortBy._('SCENARIO_SET_SORT_FIELD_STATUS');
+  static const scenarioSetSortFieldScenarioCount = GenaiListScenarioSetsSortBy._('SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT');
+  static const scenarioSetSortFieldUpdatedAt = GenaiListScenarioSetsSortBy._('SCENARIO_SET_SORT_FIELD_UPDATED_AT');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListScenarioSetsSortBy && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListScenarioSetsSortBy && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListScenarioSetsSortDirection {
+
   final String value;
 
   const GenaiListScenarioSetsSortDirection._(this.value);
 
-  factory GenaiListScenarioSetsSortDirection.fromJson(String value) =>
-      GenaiListScenarioSetsSortDirection._(value);
+  factory GenaiListScenarioSetsSortDirection.fromJson(String value) => GenaiListScenarioSetsSortDirection._(value);
 
-  static const sortDirectionUnspecified =
-      GenaiListScenarioSetsSortDirection._('SORT_DIRECTION_UNSPECIFIED');
-  static const sortDirectionAsc =
-      GenaiListScenarioSetsSortDirection._('SORT_DIRECTION_ASC');
-  static const sortDirectionDesc =
-      GenaiListScenarioSetsSortDirection._('SORT_DIRECTION_DESC');
+  static const sortDirectionUnspecified = GenaiListScenarioSetsSortDirection._('SORT_DIRECTION_UNSPECIFIED');
+  static const sortDirectionAsc = GenaiListScenarioSetsSortDirection._('SORT_DIRECTION_ASC');
+  static const sortDirectionDesc = GenaiListScenarioSetsSortDirection._('SORT_DIRECTION_DESC');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListScenarioSetsSortDirection && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListScenarioSetsSortDirection && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListScenariosSortBy {
+
   final String value;
 
   const GenaiListScenariosSortBy._(this.value);
 
-  factory GenaiListScenariosSortBy.fromJson(String value) =>
-      GenaiListScenariosSortBy._(value);
+  factory GenaiListScenariosSortBy.fromJson(String value) => GenaiListScenariosSortBy._(value);
 
-  static const scenarioSortFieldUnspecified =
-      GenaiListScenariosSortBy._('SCENARIO_SORT_FIELD_UNSPECIFIED');
-  static const scenarioSortFieldFileOrder =
-      GenaiListScenariosSortBy._('SCENARIO_SORT_FIELD_FILE_ORDER');
-  static const scenarioSortFieldName =
-      GenaiListScenariosSortBy._('SCENARIO_SORT_FIELD_NAME');
-  static const scenarioSortFieldDescription =
-      GenaiListScenariosSortBy._('SCENARIO_SORT_FIELD_DESCRIPTION');
+  static const scenarioSortFieldUnspecified = GenaiListScenariosSortBy._('SCENARIO_SORT_FIELD_UNSPECIFIED');
+  static const scenarioSortFieldFileOrder = GenaiListScenariosSortBy._('SCENARIO_SORT_FIELD_FILE_ORDER');
+  static const scenarioSortFieldName = GenaiListScenariosSortBy._('SCENARIO_SORT_FIELD_NAME');
+  static const scenarioSortFieldDescription = GenaiListScenariosSortBy._('SCENARIO_SORT_FIELD_DESCRIPTION');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListScenariosSortBy && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListScenariosSortBy && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListScenariosSortDirection {
+
   final String value;
 
   const GenaiListScenariosSortDirection._(this.value);
 
-  factory GenaiListScenariosSortDirection.fromJson(String value) =>
-      GenaiListScenariosSortDirection._(value);
+  factory GenaiListScenariosSortDirection.fromJson(String value) => GenaiListScenariosSortDirection._(value);
 
-  static const sortDirectionUnspecified =
-      GenaiListScenariosSortDirection._('SORT_DIRECTION_UNSPECIFIED');
-  static const sortDirectionAsc =
-      GenaiListScenariosSortDirection._('SORT_DIRECTION_ASC');
-  static const sortDirectionDesc =
-      GenaiListScenariosSortDirection._('SORT_DIRECTION_DESC');
+  static const sortDirectionUnspecified = GenaiListScenariosSortDirection._('SORT_DIRECTION_UNSPECIFIED');
+  static const sortDirectionAsc = GenaiListScenariosSortDirection._('SORT_DIRECTION_ASC');
+  static const sortDirectionDesc = GenaiListScenariosSortDirection._('SORT_DIRECTION_DESC');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListScenariosSortDirection && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListScenariosSortDirection && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListSimulationRunsStatusesItem {
+
   final String value;
 
   const GenaiListSimulationRunsStatusesItem._(this.value);
 
-  factory GenaiListSimulationRunsStatusesItem.fromJson(String value) =>
-      GenaiListSimulationRunsStatusesItem._(value);
+  factory GenaiListSimulationRunsStatusesItem.fromJson(String value) => GenaiListSimulationRunsStatusesItem._(value);
 
-  static const simulationRunStatusUnspecified =
-      GenaiListSimulationRunsStatusesItem._(
-          'SIMULATION_RUN_STATUS_UNSPECIFIED');
-  static const simulationRunStatusPending =
-      GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_PENDING');
-  static const simulationRunStatusRunning =
-      GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_RUNNING');
-  static const simulationRunStatusSucceeded =
-      GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_SUCCEEDED');
-  static const simulationRunStatusFailed =
-      GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_FAILED');
-  static const simulationRunStatusCancelled =
-      GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_CANCELLED');
-  static const simulationRunStatusEvaluating =
-      GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_EVALUATING');
-  static const simulationRunStatusPartiallySuccessful =
-      GenaiListSimulationRunsStatusesItem._(
-          'SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL');
+  static const simulationRunStatusUnspecified = GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_UNSPECIFIED');
+  static const simulationRunStatusPending = GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_PENDING');
+  static const simulationRunStatusRunning = GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_RUNNING');
+  static const simulationRunStatusSucceeded = GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_SUCCEEDED');
+  static const simulationRunStatusFailed = GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_FAILED');
+  static const simulationRunStatusCancelled = GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_CANCELLED');
+  static const simulationRunStatusEvaluating = GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_EVALUATING');
+  static const simulationRunStatusPartiallySuccessful = GenaiListSimulationRunsStatusesItem._('SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListSimulationRunsStatusesItem && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListSimulationRunsStatusesItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListSimulationRunsSortBy {
+
   final String value;
 
   const GenaiListSimulationRunsSortBy._(this.value);
 
-  factory GenaiListSimulationRunsSortBy.fromJson(String value) =>
-      GenaiListSimulationRunsSortBy._(value);
+  factory GenaiListSimulationRunsSortBy.fromJson(String value) => GenaiListSimulationRunsSortBy._(value);
 
-  static const simulationRunSortFieldUnspecified =
-      GenaiListSimulationRunsSortBy._('SIMULATION_RUN_SORT_FIELD_UNSPECIFIED');
-  static const simulationRunSortFieldCreatedAt =
-      GenaiListSimulationRunsSortBy._('SIMULATION_RUN_SORT_FIELD_CREATED_AT');
-  static const simulationRunSortFieldName =
-      GenaiListSimulationRunsSortBy._('SIMULATION_RUN_SORT_FIELD_NAME');
-  static const simulationRunSortFieldStatus =
-      GenaiListSimulationRunsSortBy._('SIMULATION_RUN_SORT_FIELD_STATUS');
-  static const simulationRunSortFieldUpdatedAt =
-      GenaiListSimulationRunsSortBy._('SIMULATION_RUN_SORT_FIELD_UPDATED_AT');
+  static const simulationRunSortFieldUnspecified = GenaiListSimulationRunsSortBy._('SIMULATION_RUN_SORT_FIELD_UNSPECIFIED');
+  static const simulationRunSortFieldCreatedAt = GenaiListSimulationRunsSortBy._('SIMULATION_RUN_SORT_FIELD_CREATED_AT');
+  static const simulationRunSortFieldName = GenaiListSimulationRunsSortBy._('SIMULATION_RUN_SORT_FIELD_NAME');
+  static const simulationRunSortFieldStatus = GenaiListSimulationRunsSortBy._('SIMULATION_RUN_SORT_FIELD_STATUS');
+  static const simulationRunSortFieldUpdatedAt = GenaiListSimulationRunsSortBy._('SIMULATION_RUN_SORT_FIELD_UPDATED_AT');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListSimulationRunsSortBy && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListSimulationRunsSortBy && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListSimulationRunsSortDirection {
+
   final String value;
 
   const GenaiListSimulationRunsSortDirection._(this.value);
 
-  factory GenaiListSimulationRunsSortDirection.fromJson(String value) =>
-      GenaiListSimulationRunsSortDirection._(value);
+  factory GenaiListSimulationRunsSortDirection.fromJson(String value) => GenaiListSimulationRunsSortDirection._(value);
 
-  static const sortDirectionUnspecified =
-      GenaiListSimulationRunsSortDirection._('SORT_DIRECTION_UNSPECIFIED');
-  static const sortDirectionAsc =
-      GenaiListSimulationRunsSortDirection._('SORT_DIRECTION_ASC');
-  static const sortDirectionDesc =
-      GenaiListSimulationRunsSortDirection._('SORT_DIRECTION_DESC');
+  static const sortDirectionUnspecified = GenaiListSimulationRunsSortDirection._('SORT_DIRECTION_UNSPECIFIED');
+  static const sortDirectionAsc = GenaiListSimulationRunsSortDirection._('SORT_DIRECTION_ASC');
+  static const sortDirectionDesc = GenaiListSimulationRunsSortDirection._('SORT_DIRECTION_DESC');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListSimulationRunsSortDirection && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListSimulationRunsSortDirection && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListSimulationEpisodesStatusesItem {
+
   final String value;
 
   const GenaiListSimulationEpisodesStatusesItem._(this.value);
 
-  factory GenaiListSimulationEpisodesStatusesItem.fromJson(String value) =>
-      GenaiListSimulationEpisodesStatusesItem._(value);
+  factory GenaiListSimulationEpisodesStatusesItem.fromJson(String value) => GenaiListSimulationEpisodesStatusesItem._(value);
 
-  static const simulationEpisodeStatusUnspecified =
-      GenaiListSimulationEpisodesStatusesItem._(
-          'SIMULATION_EPISODE_STATUS_UNSPECIFIED');
-  static const simulationEpisodeStatusRunning =
-      GenaiListSimulationEpisodesStatusesItem._(
-          'SIMULATION_EPISODE_STATUS_RUNNING');
-  static const simulationEpisodeStatusFinished =
-      GenaiListSimulationEpisodesStatusesItem._(
-          'SIMULATION_EPISODE_STATUS_FINISHED');
-  static const simulationEpisodeStatusFailed =
-      GenaiListSimulationEpisodesStatusesItem._(
-          'SIMULATION_EPISODE_STATUS_FAILED');
-  static const simulationEpisodeStatusPreparing =
-      GenaiListSimulationEpisodesStatusesItem._(
-          'SIMULATION_EPISODE_STATUS_PREPARING');
+  static const simulationEpisodeStatusUnspecified = GenaiListSimulationEpisodesStatusesItem._('SIMULATION_EPISODE_STATUS_UNSPECIFIED');
+  static const simulationEpisodeStatusRunning = GenaiListSimulationEpisodesStatusesItem._('SIMULATION_EPISODE_STATUS_RUNNING');
+  static const simulationEpisodeStatusFinished = GenaiListSimulationEpisodesStatusesItem._('SIMULATION_EPISODE_STATUS_FINISHED');
+  static const simulationEpisodeStatusFailed = GenaiListSimulationEpisodesStatusesItem._('SIMULATION_EPISODE_STATUS_FAILED');
+  static const simulationEpisodeStatusPreparing = GenaiListSimulationEpisodesStatusesItem._('SIMULATION_EPISODE_STATUS_PREPARING');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListSimulationEpisodesStatusesItem && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListSimulationEpisodesStatusesItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

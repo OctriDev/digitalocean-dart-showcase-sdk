@@ -8,71 +8,38 @@ part of 'harness_runtime_agent.dart';
 class AgentConfigCloneRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// New config name, unique among the team's active configs.
   final String name;
-
   /// Write-only map from tenantSecret logical slot to plaintext. Required when the source declares those slots; never copied from the source.
   final SdkOptional<Map<String, String>> secrets;
-
   /// Write-only map from oauth logical slot to an OAuth assignment UUID. Required when the source declares those slots; never copied from the source.
   final SdkOptional<Map<String, String>> oauthAssignments;
 
-  const AgentConfigCloneRequest(
-      {required this.name,
-      this.secrets = const SdkOmitted(),
-      this.oauthAssignments = const SdkOmitted()});
+  const AgentConfigCloneRequest({required this.name, this.secrets = const SdkOmitted(), this.oauthAssignments = const SdkOmitted()});
 
-  AgentConfigCloneRequest Function(
-          {String name,
-          SdkOptional<Map<String, String>> secrets,
-          SdkOptional<Map<String, String>> oauthAssignments})
-      get copyWith => _copyWith;
+  AgentConfigCloneRequest Function({String name, SdkOptional<Map<String, String>> secrets, SdkOptional<Map<String, String>> oauthAssignments}) get copyWith => _copyWith;
 
-  AgentConfigCloneRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? secrets = sdkOmittedValue,
-          Object? oauthAssignments = sdkOmittedValue}) =>
-      AgentConfigCloneRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        secrets: identical(secrets, sdkOmittedValue)
-            ? this.secrets
-            : secrets as SdkOptional<Map<String, String>>,
-        oauthAssignments: identical(oauthAssignments, sdkOmittedValue)
-            ? this.oauthAssignments
-            : oauthAssignments as SdkOptional<Map<String, String>>,
-      );
+  AgentConfigCloneRequest _copyWith({Object? name = sdkOmittedValue, Object? secrets = sdkOmittedValue, Object? oauthAssignments = sdkOmittedValue}) => AgentConfigCloneRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    secrets: identical(secrets, sdkOmittedValue) ? this.secrets : secrets as SdkOptional<Map<String, String>>,
+    oauthAssignments: identical(oauthAssignments, sdkOmittedValue) ? this.oauthAssignments : oauthAssignments as SdkOptional<Map<String, String>>,
+  );
 
-  factory AgentConfigCloneRequest.fromJson(Map<String, dynamic> json) =>
-      AgentConfigCloneRequest(
-        name: (json['name'] as String?)!,
-        secrets: json['secrets'] != null
-            ? SdkPresent((json['secrets'] == null
-                ? null
-                : Map<String, dynamic>.from(json['secrets'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-        oauthAssignments: json['oauth_assignments'] != null
-            ? SdkPresent((json['oauth_assignments'] == null
-                ? null
-                : Map<String, dynamic>.from(json['oauth_assignments'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-      );
+  factory AgentConfigCloneRequest.fromJson(Map<String, dynamic> json) => AgentConfigCloneRequest(
+    name: (json['name'] as String?)!,
+    secrets: json['secrets'] != null ? SdkPresent((json['secrets'] == null ? null : Map<String, dynamic>.from(json['secrets'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+    oauthAssignments: json['oauth_assignments'] != null ? SdkPresent((json['oauth_assignments'] == null ? null : Map<String, dynamic>.from(json['oauth_assignments'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (secrets) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'secrets': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (oauthAssignments) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'oauth_assignments': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (secrets) {
+      SdkPresent<Map<String, String>>(value: final value) => {'secrets': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (oauthAssignments) {
+      SdkPresent<Map<String, String>>(value: final value) => {'oauth_assignments': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

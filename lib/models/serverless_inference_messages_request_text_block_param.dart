@@ -8,39 +8,27 @@ part of 'serverless_inference_messages.dart';
 class MessagesRequestTextBlockParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Block type identifier.
   final MessagesRequestTextBlockParamType type_;
-
   /// Plain text for this block.
   final String text;
 
-  const MessagesRequestTextBlockParam(
-      {required this.type_, required this.text});
+  const MessagesRequestTextBlockParam({required this.type_, required this.text});
 
-  MessagesRequestTextBlockParam Function(
-      {MessagesRequestTextBlockParamType type_,
-      String text}) get copyWith => _copyWith;
+  MessagesRequestTextBlockParam Function({MessagesRequestTextBlockParamType type_, String text}) get copyWith => _copyWith;
 
-  MessagesRequestTextBlockParam _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
-      MessagesRequestTextBlockParam(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MessagesRequestTextBlockParamType,
-        text: identical(text, sdkOmittedValue) ? this.text : text as String,
-      );
+  MessagesRequestTextBlockParam _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => MessagesRequestTextBlockParam(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesRequestTextBlockParamType,
+    text: identical(text, sdkOmittedValue) ? this.text : text as String,
+  );
 
-  factory MessagesRequestTextBlockParam.fromJson(Map<String, dynamic> json) =>
-      MessagesRequestTextBlockParam(
-        type_: (json['type'] != null
-            ? MessagesRequestTextBlockParamType.fromJson(json['type'] as String)
-            : null)!,
-        text: (json['text'] as String?)!,
-      );
+  factory MessagesRequestTextBlockParam.fromJson(Map<String, dynamic> json) => MessagesRequestTextBlockParam(
+    type_: (json['type'] != null ? MessagesRequestTextBlockParamType.fromJson(json['type'] as String) : null)!,
+    text: (json['text'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'text': text,
-      };
+    'type': type_.toJson(),
+    'text': text,
+  };
 }

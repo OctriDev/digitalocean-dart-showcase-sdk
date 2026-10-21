@@ -11,33 +11,22 @@ class AllDropletActionsVariant0 {
 
   const AllDropletActionsVariant0({this.actions = const SdkOmitted()});
 
-  AllDropletActionsVariant0 Function({SdkOptional<List<Action>> actions})
-      get copyWith => _copyWith;
+  AllDropletActionsVariant0 Function({SdkOptional<List<Action>> actions}) get copyWith => _copyWith;
 
-  AllDropletActionsVariant0 _copyWith({Object? actions = sdkOmittedValue}) =>
-      AllDropletActionsVariant0(
-        actions: identical(actions, sdkOmittedValue)
-            ? this.actions
-            : actions as SdkOptional<List<Action>>,
-      );
+  AllDropletActionsVariant0 _copyWith({Object? actions = sdkOmittedValue}) => AllDropletActionsVariant0(
+    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<Action>>,
+  );
 
-  factory AllDropletActionsVariant0.fromJson(Map<String, dynamic> json) =>
-      AllDropletActionsVariant0(
-        actions: json['actions'] != null
-            ? SdkPresent(((json['actions'] as List?)
-                ?.map((e) => Action.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AllDropletActionsVariant0.fromJson(Map<String, dynamic> json) => AllDropletActionsVariant0(
+    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => Action.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (actions) {
-          SdkPresent<List<Action>>(value: final value) => {
-              'actions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (actions) {
+      SdkPresent<List<Action>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AllDropletActions` API schema.
@@ -45,69 +34,36 @@ class AllDropletActions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Action>> actions;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllDropletActions(
-      {this.actions = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllDropletActions({this.actions = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AllDropletActions Function(
-      {SdkOptional<List<Action>> actions,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllDropletActions Function({SdkOptional<List<Action>> actions, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllDropletActions _copyWith(
-          {Object? actions = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllDropletActions(
-        actions: identical(actions, sdkOmittedValue)
-            ? this.actions
-            : actions as SdkOptional<List<Action>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllDropletActions _copyWith({Object? actions = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllDropletActions(
+    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<Action>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory AllDropletActions.fromJson(Map<String, dynamic> json) =>
-      AllDropletActions(
-        actions: json['actions'] != null
-            ? SdkPresent(((json['actions'] as List?)
-                ?.map((e) => Action.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AllDropletActions.fromJson(Map<String, dynamic> json) => AllDropletActions(
+    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => Action.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (actions) {
-          SdkPresent<List<Action>>(value: final value) => {
-              'actions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (actions) {
+      SdkPresent<List<Action>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

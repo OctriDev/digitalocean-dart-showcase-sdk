@@ -6,35 +6,25 @@ part of 'agent_platform_api_api_simulation.dart';
 // agent_platform_api_api_simulation domain models
 /// Sortable fields for listing simulation episodes. - SIMULATION_EPISODE_SORT_FIELD_SCENARIO: Sort by scenario_uuid then episode_index. Default. - SIMULATION_EPISODE_SORT_FIELD_CREATED_AT: Sort by creation date. - SIMULATION_EPISODE_SORT_FIELD_STATUS: Sort by episode status using lifecycle order. - SIMULATION_EPISODE_SORT_FIELD_VERDICT: Sort by verdict (nulls last).
 final class ApiSimulationEpisodeSortField {
+
   final String value;
 
   const ApiSimulationEpisodeSortField._(this.value);
 
-  factory ApiSimulationEpisodeSortField.fromJson(String value) =>
-      ApiSimulationEpisodeSortField._(value);
+  factory ApiSimulationEpisodeSortField.fromJson(String value) => ApiSimulationEpisodeSortField._(value);
 
-  static const simulationEpisodeSortFieldUnspecified =
-      ApiSimulationEpisodeSortField._(
-          'SIMULATION_EPISODE_SORT_FIELD_UNSPECIFIED');
-  static const simulationEpisodeSortFieldScenario =
-      ApiSimulationEpisodeSortField._('SIMULATION_EPISODE_SORT_FIELD_SCENARIO');
-  static const simulationEpisodeSortFieldCreatedAt =
-      ApiSimulationEpisodeSortField._(
-          'SIMULATION_EPISODE_SORT_FIELD_CREATED_AT');
-  static const simulationEpisodeSortFieldStatus =
-      ApiSimulationEpisodeSortField._('SIMULATION_EPISODE_SORT_FIELD_STATUS');
-  static const simulationEpisodeSortFieldVerdict =
-      ApiSimulationEpisodeSortField._('SIMULATION_EPISODE_SORT_FIELD_VERDICT');
+  static const simulationEpisodeSortFieldUnspecified = ApiSimulationEpisodeSortField._('SIMULATION_EPISODE_SORT_FIELD_UNSPECIFIED');
+  static const simulationEpisodeSortFieldScenario = ApiSimulationEpisodeSortField._('SIMULATION_EPISODE_SORT_FIELD_SCENARIO');
+  static const simulationEpisodeSortFieldCreatedAt = ApiSimulationEpisodeSortField._('SIMULATION_EPISODE_SORT_FIELD_CREATED_AT');
+  static const simulationEpisodeSortFieldStatus = ApiSimulationEpisodeSortField._('SIMULATION_EPISODE_SORT_FIELD_STATUS');
+  static const simulationEpisodeSortFieldVerdict = ApiSimulationEpisodeSortField._('SIMULATION_EPISODE_SORT_FIELD_VERDICT');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiSimulationEpisodeSortField && other.value == value;
+  @override bool operator ==(Object other) => other is ApiSimulationEpisodeSortField && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

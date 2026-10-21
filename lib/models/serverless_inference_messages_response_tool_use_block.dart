@@ -8,64 +8,37 @@ part of 'serverless_inference_messages.dart';
 class MessagesResponseToolUseBlock {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `type` wire field.
   final MessagesResponseToolUseBlockType type_;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `string` value serialized in the `name` wire field.
   final String name;
-
   /// Arguments for the tool invocation.
   final Map<String, Object?> input;
 
-  const MessagesResponseToolUseBlock(
-      {required this.type_,
-      required this.id,
-      required this.name,
-      required this.input});
+  const MessagesResponseToolUseBlock({required this.type_, required this.id, required this.name, required this.input});
 
-  MessagesResponseToolUseBlock Function(
-      {MessagesResponseToolUseBlockType type_,
-      String id,
-      String name,
-      Map<String, Object?> input}) get copyWith => _copyWith;
+  MessagesResponseToolUseBlock Function({MessagesResponseToolUseBlockType type_, String id, String name, Map<String, Object?> input}) get copyWith => _copyWith;
 
-  MessagesResponseToolUseBlock _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? input = sdkOmittedValue}) =>
-      MessagesResponseToolUseBlock(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MessagesResponseToolUseBlockType,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as Map<String, Object?>,
-      );
+  MessagesResponseToolUseBlock _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? input = sdkOmittedValue}) => MessagesResponseToolUseBlock(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesResponseToolUseBlockType,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    input: identical(input, sdkOmittedValue) ? this.input : input as Map<String, Object?>,
+  );
 
-  factory MessagesResponseToolUseBlock.fromJson(Map<String, dynamic> json) =>
-      MessagesResponseToolUseBlock(
-        type_: (json['type'] != null
-            ? MessagesResponseToolUseBlockType.fromJson(json['type'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        input: (json['input'] == null
-            ? null
-            : Map<String, dynamic>.from(json['input'] as Map)
-                .map((key, value) => MapEntry(key, value)))!,
-      );
+  factory MessagesResponseToolUseBlock.fromJson(Map<String, dynamic> json) => MessagesResponseToolUseBlock(
+    type_: (json['type'] != null ? MessagesResponseToolUseBlockType.fromJson(json['type'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    input: (json['input'] == null ? null : Map<String, dynamic>.from(json['input'] as Map).map((key, value) => MapEntry(key, value)))!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'id': id,
-        'name': name,
-        'input': input,
-      };
+    'type': type_.toJson(),
+    'id': id,
+    'name': name,
+    'input': input,
+  };
 }

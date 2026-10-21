@@ -8,308 +8,172 @@ part of 'action_gateway_data_plane.dart';
 class InvokeToolsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The 0-based position of the call in the request.
   final SdkOptional<int> index;
-
   /// The canonical tool name.
   final SdkOptional<String> tool;
-
   /// The tool version that ran.
   final SdkOptional<String> version;
-
   /// The result of one tool call. Check `status` before reading `output`. A call that needs approval, authorization, or connection setup fails with a `_meta.status` that names the step to complete.
   final SdkOptional<ToolResult> result;
 
-  const InvokeToolsItem(
-      {this.index = const SdkOmitted(),
-      this.tool = const SdkOmitted(),
-      this.version = const SdkOmitted(),
-      this.result = const SdkOmitted()});
+  const InvokeToolsItem({this.index = const SdkOmitted(), this.tool = const SdkOmitted(), this.version = const SdkOmitted(), this.result = const SdkOmitted()});
 
-  InvokeToolsItem Function(
-      {SdkOptional<int> index,
-      SdkOptional<String> tool,
-      SdkOptional<String> version,
-      SdkOptional<ToolResult> result}) get copyWith => _copyWith;
+  InvokeToolsItem Function({SdkOptional<int> index, SdkOptional<String> tool, SdkOptional<String> version, SdkOptional<ToolResult> result}) get copyWith => _copyWith;
 
-  InvokeToolsItem _copyWith(
-          {Object? index = sdkOmittedValue,
-          Object? tool = sdkOmittedValue,
-          Object? version = sdkOmittedValue,
-          Object? result = sdkOmittedValue}) =>
-      InvokeToolsItem(
-        index: identical(index, sdkOmittedValue)
-            ? this.index
-            : index as SdkOptional<int>,
-        tool: identical(tool, sdkOmittedValue)
-            ? this.tool
-            : tool as SdkOptional<String>,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String>,
-        result: identical(result, sdkOmittedValue)
-            ? this.result
-            : result as SdkOptional<ToolResult>,
-      );
+  InvokeToolsItem _copyWith({Object? index = sdkOmittedValue, Object? tool = sdkOmittedValue, Object? version = sdkOmittedValue, Object? result = sdkOmittedValue}) => InvokeToolsItem(
+    index: identical(index, sdkOmittedValue) ? this.index : index as SdkOptional<int>,
+    tool: identical(tool, sdkOmittedValue) ? this.tool : tool as SdkOptional<String>,
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
+    result: identical(result, sdkOmittedValue) ? this.result : result as SdkOptional<ToolResult>,
+  );
 
-  factory InvokeToolsItem.fromJson(Map<String, dynamic> json) =>
-      InvokeToolsItem(
-        index: json['index'] != null
-            ? SdkPresent(((json['index'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        tool: json['tool'] != null
-            ? SdkPresent((json['tool'] as String?)!)
-            : const SdkOmitted(),
-        version: json['version'] != null
-            ? SdkPresent((json['version'] as String?)!)
-            : const SdkOmitted(),
-        result: json['result'] != null
-            ? SdkPresent((json['result'] != null
-                ? ToolResult.fromJson(json['result'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory InvokeToolsItem.fromJson(Map<String, dynamic> json) => InvokeToolsItem(
+    index: json['index'] != null ? SdkPresent(((json['index'] as num?)?.toInt())!) : const SdkOmitted(),
+    tool: json['tool'] != null ? SdkPresent((json['tool'] as String?)!) : const SdkOmitted(),
+    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
+    result: json['result'] != null ? SdkPresent((json['result'] != null ? ToolResult.fromJson(json['result'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (index) {
-          SdkPresent<int>(value: final value) => {
-              'index': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tool) {
-          SdkPresent<String>(value: final value) => {
-              'tool': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (version) {
-          SdkPresent<String>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (result) {
-          SdkPresent<ToolResult>(value: final value) => {
-              'result': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (index) {
+      SdkPresent<int>(value: final value) => {'index': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tool) {
+      SdkPresent<String>(value: final value) => {'tool': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (version) {
+      SdkPresent<String>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (result) {
+      SdkPresent<ToolResult>(value: final value) => {'result': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `InvokeToolsRequest` API schema.
 class InvokeToolsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// One sentence explaining why the tools are being called. Values longer than 512 characters are truncated.
   final SdkOptional<String> rationale;
-
   /// The tool calls to run in parallel.
   final List<ToolCall> tools;
 
-  const InvokeToolsRequest(
-      {this.rationale = const SdkOmitted(), required this.tools});
+  const InvokeToolsRequest({this.rationale = const SdkOmitted(), required this.tools});
 
-  InvokeToolsRequest Function(
-      {SdkOptional<String> rationale,
-      List<ToolCall> tools}) get copyWith => _copyWith;
+  InvokeToolsRequest Function({SdkOptional<String> rationale, List<ToolCall> tools}) get copyWith => _copyWith;
 
-  InvokeToolsRequest _copyWith(
-          {Object? rationale = sdkOmittedValue,
-          Object? tools = sdkOmittedValue}) =>
-      InvokeToolsRequest(
-        rationale: identical(rationale, sdkOmittedValue)
-            ? this.rationale
-            : rationale as SdkOptional<String>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as List<ToolCall>,
-      );
+  InvokeToolsRequest _copyWith({Object? rationale = sdkOmittedValue, Object? tools = sdkOmittedValue}) => InvokeToolsRequest(
+    rationale: identical(rationale, sdkOmittedValue) ? this.rationale : rationale as SdkOptional<String>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<ToolCall>,
+  );
 
-  factory InvokeToolsRequest.fromJson(Map<String, dynamic> json) =>
-      InvokeToolsRequest(
-        rationale: json['rationale'] != null
-            ? SdkPresent((json['rationale'] as String?)!)
-            : const SdkOmitted(),
-        tools: ((json['tools'] as List?)
-            ?.map((e) => ToolCall.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory InvokeToolsRequest.fromJson(Map<String, dynamic> json) => InvokeToolsRequest(
+    rationale: json['rationale'] != null ? SdkPresent((json['rationale'] as String?)!) : const SdkOmitted(),
+    tools: ((json['tools'] as List?)?.map((e) => ToolCall.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (rationale) {
-          SdkPresent<String>(value: final value) => {
-              'rationale': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'tools': tools.map((item) => item.toJson()).toList(),
-      };
+    ...switch (rationale) {
+      SdkPresent<String>(value: final value) => {'rationale': value,},
+      _ => const <String, dynamic>{},
+    },
+    'tools': tools.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Typed representation of the `InvokeToolsResponse` API schema.
 class InvokeToolsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `integer` value serialized in the `total_count` wire field.
   final SdkOptional<int> totalCount;
-
   /// Optional `integer` value serialized in the `success_count` wire field.
   final SdkOptional<int> successCount;
-
   /// Optional `integer` value serialized in the `error_count` wire field.
   final SdkOptional<int> errorCount;
-
   /// One result per call, in request order.
   final SdkOptional<List<InvokeToolsItem>> results;
 
-  const InvokeToolsResponse(
-      {this.totalCount = const SdkOmitted(),
-      this.successCount = const SdkOmitted(),
-      this.errorCount = const SdkOmitted(),
-      this.results = const SdkOmitted()});
+  const InvokeToolsResponse({this.totalCount = const SdkOmitted(), this.successCount = const SdkOmitted(), this.errorCount = const SdkOmitted(), this.results = const SdkOmitted()});
 
-  InvokeToolsResponse Function(
-      {SdkOptional<int> totalCount,
-      SdkOptional<int> successCount,
-      SdkOptional<int> errorCount,
-      SdkOptional<List<InvokeToolsItem>> results}) get copyWith => _copyWith;
+  InvokeToolsResponse Function({SdkOptional<int> totalCount, SdkOptional<int> successCount, SdkOptional<int> errorCount, SdkOptional<List<InvokeToolsItem>> results}) get copyWith => _copyWith;
 
-  InvokeToolsResponse _copyWith(
-          {Object? totalCount = sdkOmittedValue,
-          Object? successCount = sdkOmittedValue,
-          Object? errorCount = sdkOmittedValue,
-          Object? results = sdkOmittedValue}) =>
-      InvokeToolsResponse(
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as SdkOptional<int>,
-        successCount: identical(successCount, sdkOmittedValue)
-            ? this.successCount
-            : successCount as SdkOptional<int>,
-        errorCount: identical(errorCount, sdkOmittedValue)
-            ? this.errorCount
-            : errorCount as SdkOptional<int>,
-        results: identical(results, sdkOmittedValue)
-            ? this.results
-            : results as SdkOptional<List<InvokeToolsItem>>,
-      );
+  InvokeToolsResponse _copyWith({Object? totalCount = sdkOmittedValue, Object? successCount = sdkOmittedValue, Object? errorCount = sdkOmittedValue, Object? results = sdkOmittedValue}) => InvokeToolsResponse(
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as SdkOptional<int>,
+    successCount: identical(successCount, sdkOmittedValue) ? this.successCount : successCount as SdkOptional<int>,
+    errorCount: identical(errorCount, sdkOmittedValue) ? this.errorCount : errorCount as SdkOptional<int>,
+    results: identical(results, sdkOmittedValue) ? this.results : results as SdkOptional<List<InvokeToolsItem>>,
+  );
 
-  factory InvokeToolsResponse.fromJson(Map<String, dynamic> json) =>
-      InvokeToolsResponse(
-        totalCount: json['total_count'] != null
-            ? SdkPresent(((json['total_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        successCount: json['success_count'] != null
-            ? SdkPresent(((json['success_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        errorCount: json['error_count'] != null
-            ? SdkPresent(((json['error_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        results: json['results'] != null
-            ? SdkPresent(((json['results'] as List?)
-                ?.map(
-                    (e) => InvokeToolsItem.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory InvokeToolsResponse.fromJson(Map<String, dynamic> json) => InvokeToolsResponse(
+    totalCount: json['total_count'] != null ? SdkPresent(((json['total_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    successCount: json['success_count'] != null ? SdkPresent(((json['success_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    errorCount: json['error_count'] != null ? SdkPresent(((json['error_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    results: json['results'] != null ? SdkPresent(((json['results'] as List?)?.map((e) => InvokeToolsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (totalCount) {
-          SdkPresent<int>(value: final value) => {
-              'total_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (successCount) {
-          SdkPresent<int>(value: final value) => {
-              'success_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (errorCount) {
-          SdkPresent<int>(value: final value) => {
-              'error_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (results) {
-          SdkPresent<List<InvokeToolsItem>>(value: final value) => {
-              'results': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (totalCount) {
+      SdkPresent<int>(value: final value) => {'total_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (successCount) {
+      SdkPresent<int>(value: final value) => {'success_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (errorCount) {
+      SdkPresent<int>(value: final value) => {'error_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (results) {
+      SdkPresent<List<InvokeToolsItem>>(value: final value) => {'results': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ToolCall` API schema.
 class ToolCall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The tool name, as returned by `GET /tools` or `POST /tools/search`. Names are case-insensitive.
   final String tool;
-
   /// An immutable tool version. Omit to use the released version.
   final SdkOptional<String> version;
-
   /// The tool's arguments, matching its `inputSchema`.
   final SdkOptional<Map<String, Object?>> arguments;
 
-  const ToolCall(
-      {required this.tool,
-      this.version = const SdkOmitted(),
-      this.arguments = const SdkOmitted()});
+  const ToolCall({required this.tool, this.version = const SdkOmitted(), this.arguments = const SdkOmitted()});
 
-  ToolCall Function(
-      {String tool,
-      SdkOptional<String> version,
-      SdkOptional<Map<String, Object?>> arguments}) get copyWith => _copyWith;
+  ToolCall Function({String tool, SdkOptional<String> version, SdkOptional<Map<String, Object?>> arguments}) get copyWith => _copyWith;
 
-  ToolCall _copyWith(
-          {Object? tool = sdkOmittedValue,
-          Object? version = sdkOmittedValue,
-          Object? arguments = sdkOmittedValue}) =>
-      ToolCall(
-        tool: identical(tool, sdkOmittedValue) ? this.tool : tool as String,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String>,
-        arguments: identical(arguments, sdkOmittedValue)
-            ? this.arguments
-            : arguments as SdkOptional<Map<String, Object?>>,
-      );
+  ToolCall _copyWith({Object? tool = sdkOmittedValue, Object? version = sdkOmittedValue, Object? arguments = sdkOmittedValue}) => ToolCall(
+    tool: identical(tool, sdkOmittedValue) ? this.tool : tool as String,
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
+    arguments: identical(arguments, sdkOmittedValue) ? this.arguments : arguments as SdkOptional<Map<String, Object?>>,
+  );
 
   factory ToolCall.fromJson(Map<String, dynamic> json) => ToolCall(
-        tool: (json['tool'] as String?)!,
-        version: json['version'] != null
-            ? SdkPresent((json['version'] as String?)!)
-            : const SdkOmitted(),
-        arguments: json['arguments'] != null
-            ? SdkPresent((json['arguments'] == null
-                ? null
-                : Map<String, dynamic>.from(json['arguments'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-      );
+    tool: (json['tool'] as String?)!,
+    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
+    arguments: json['arguments'] != null ? SdkPresent((json['arguments'] == null ? null : Map<String, dynamic>.from(json['arguments'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'tool': tool,
-        ...switch (version) {
-          SdkPresent<String>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (arguments) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'arguments': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'tool': tool,
+    ...switch (version) {
+      SdkPresent<String>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (arguments) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'arguments': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

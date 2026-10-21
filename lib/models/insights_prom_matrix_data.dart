@@ -8,42 +8,27 @@ part of 'insights_prom.dart';
 class PromMatrixData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `resultType` wire field.
   final PromMatrixDataResultType resultType;
-
   /// One entry per matching series, each carrying the samples evaluated at every step across the requested range.
   final List<PromMatrixSample> result;
 
   const PromMatrixData({required this.resultType, required this.result});
 
-  PromMatrixData Function(
-      {PromMatrixDataResultType resultType,
-      List<PromMatrixSample> result}) get copyWith => _copyWith;
+  PromMatrixData Function({PromMatrixDataResultType resultType, List<PromMatrixSample> result}) get copyWith => _copyWith;
 
-  PromMatrixData _copyWith(
-          {Object? resultType = sdkOmittedValue,
-          Object? result = sdkOmittedValue}) =>
-      PromMatrixData(
-        resultType: identical(resultType, sdkOmittedValue)
-            ? this.resultType
-            : resultType as PromMatrixDataResultType,
-        result: identical(result, sdkOmittedValue)
-            ? this.result
-            : result as List<PromMatrixSample>,
-      );
+  PromMatrixData _copyWith({Object? resultType = sdkOmittedValue, Object? result = sdkOmittedValue}) => PromMatrixData(
+    resultType: identical(resultType, sdkOmittedValue) ? this.resultType : resultType as PromMatrixDataResultType,
+    result: identical(result, sdkOmittedValue) ? this.result : result as List<PromMatrixSample>,
+  );
 
   factory PromMatrixData.fromJson(Map<String, dynamic> json) => PromMatrixData(
-        resultType: (json['resultType'] != null
-            ? PromMatrixDataResultType.fromJson(json['resultType'] as String)
-            : null)!,
-        result: ((json['result'] as List?)
-            ?.map((e) => PromMatrixSample.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+    resultType: (json['resultType'] != null ? PromMatrixDataResultType.fromJson(json['resultType'] as String) : null)!,
+    result: ((json['result'] as List?)?.map((e) => PromMatrixSample.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'resultType': resultType.toJson(),
-        'result': result.map((item) => item.toJson()).toList(),
-      };
+    'resultType': resultType.toJson(),
+    'result': result.map((item) => item.toJson()).toList(),
+  };
 }

@@ -8,36 +8,25 @@ part of 'database.dart';
 class DatabaseRegionOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> regions;
 
   const DatabaseRegionOptions({this.regions = const SdkOmitted()});
 
-  DatabaseRegionOptions Function({SdkOptional<List<String>> regions})
-      get copyWith => _copyWith;
+  DatabaseRegionOptions Function({SdkOptional<List<String>> regions}) get copyWith => _copyWith;
 
-  DatabaseRegionOptions _copyWith({Object? regions = sdkOmittedValue}) =>
-      DatabaseRegionOptions(
-        regions: identical(regions, sdkOmittedValue)
-            ? this.regions
-            : regions as SdkOptional<List<String>>,
-      );
+  DatabaseRegionOptions _copyWith({Object? regions = sdkOmittedValue}) => DatabaseRegionOptions(
+    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
+  );
 
-  factory DatabaseRegionOptions.fromJson(Map<String, dynamic> json) =>
-      DatabaseRegionOptions(
-        regions: json['regions'] != null
-            ? SdkPresent(
-                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseRegionOptions.fromJson(Map<String, dynamic> json) => DatabaseRegionOptions(
+    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (regions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'regions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (regions) {
+      SdkPresent<List<String>>(value: final value) => {'regions': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

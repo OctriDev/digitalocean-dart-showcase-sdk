@@ -11,33 +11,22 @@ class AllCheckpointsVariant0 {
 
   const AllCheckpointsVariant0({this.checkpoints = const SdkOmitted()});
 
-  AllCheckpointsVariant0 Function({SdkOptional<List<Checkpoint2>> checkpoints})
-      get copyWith => _copyWith;
+  AllCheckpointsVariant0 Function({SdkOptional<List<Checkpoint2>> checkpoints}) get copyWith => _copyWith;
 
-  AllCheckpointsVariant0 _copyWith({Object? checkpoints = sdkOmittedValue}) =>
-      AllCheckpointsVariant0(
-        checkpoints: identical(checkpoints, sdkOmittedValue)
-            ? this.checkpoints
-            : checkpoints as SdkOptional<List<Checkpoint2>>,
-      );
+  AllCheckpointsVariant0 _copyWith({Object? checkpoints = sdkOmittedValue}) => AllCheckpointsVariant0(
+    checkpoints: identical(checkpoints, sdkOmittedValue) ? this.checkpoints : checkpoints as SdkOptional<List<Checkpoint2>>,
+  );
 
-  factory AllCheckpointsVariant0.fromJson(Map<String, dynamic> json) =>
-      AllCheckpointsVariant0(
-        checkpoints: json['checkpoints'] != null
-            ? SdkPresent(((json['checkpoints'] as List?)
-                ?.map((e) => Checkpoint2.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AllCheckpointsVariant0.fromJson(Map<String, dynamic> json) => AllCheckpointsVariant0(
+    checkpoints: json['checkpoints'] != null ? SdkPresent(((json['checkpoints'] as List?)?.map((e) => Checkpoint2.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (checkpoints) {
-          SdkPresent<List<Checkpoint2>>(value: final value) => {
-              'checkpoints': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (checkpoints) {
+      SdkPresent<List<Checkpoint2>>(value: final value) => {'checkpoints': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AllCheckpoints` API schema.
@@ -45,68 +34,36 @@ class AllCheckpoints {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Checkpoint2>> checkpoints;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllCheckpoints(
-      {this.checkpoints = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllCheckpoints({this.checkpoints = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AllCheckpoints Function(
-      {SdkOptional<List<Checkpoint2>> checkpoints,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllCheckpoints Function({SdkOptional<List<Checkpoint2>> checkpoints, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllCheckpoints _copyWith(
-          {Object? checkpoints = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllCheckpoints(
-        checkpoints: identical(checkpoints, sdkOmittedValue)
-            ? this.checkpoints
-            : checkpoints as SdkOptional<List<Checkpoint2>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllCheckpoints _copyWith({Object? checkpoints = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllCheckpoints(
+    checkpoints: identical(checkpoints, sdkOmittedValue) ? this.checkpoints : checkpoints as SdkOptional<List<Checkpoint2>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory AllCheckpoints.fromJson(Map<String, dynamic> json) => AllCheckpoints(
-        checkpoints: json['checkpoints'] != null
-            ? SdkPresent(((json['checkpoints'] as List?)
-                ?.map((e) => Checkpoint2.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    checkpoints: json['checkpoints'] != null ? SdkPresent(((json['checkpoints'] as List?)?.map((e) => Checkpoint2.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (checkpoints) {
-          SdkPresent<List<Checkpoint2>>(value: final value) => {
-              'checkpoints': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (checkpoints) {
+      SdkPresent<List<Checkpoint2>>(value: final value) => {'checkpoints': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

@@ -8,58 +8,33 @@ part of 'agent_platform_api_api.dart';
 class ApiWorkflowSpan {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Common optional fields shared by all span types
   final SdkOptional<ApiSpanCommon> common;
-
   /// Child spans - must contain between 1 and 999 spans Allowed types: agent, llm, tool, retriever (not workflow)
   final SdkOptional<List<ApiTraceSpan>> spans;
 
-  const ApiWorkflowSpan(
-      {this.common = const SdkOmitted(), this.spans = const SdkOmitted()});
+  const ApiWorkflowSpan({this.common = const SdkOmitted(), this.spans = const SdkOmitted()});
 
-  ApiWorkflowSpan Function(
-      {SdkOptional<ApiSpanCommon> common,
-      SdkOptional<List<ApiTraceSpan>> spans}) get copyWith => _copyWith;
+  ApiWorkflowSpan Function({SdkOptional<ApiSpanCommon> common, SdkOptional<List<ApiTraceSpan>> spans}) get copyWith => _copyWith;
 
-  ApiWorkflowSpan _copyWith(
-          {Object? common = sdkOmittedValue,
-          Object? spans = sdkOmittedValue}) =>
-      ApiWorkflowSpan(
-        common: identical(common, sdkOmittedValue)
-            ? this.common
-            : common as SdkOptional<ApiSpanCommon>,
-        spans: identical(spans, sdkOmittedValue)
-            ? this.spans
-            : spans as SdkOptional<List<ApiTraceSpan>>,
-      );
+  ApiWorkflowSpan _copyWith({Object? common = sdkOmittedValue, Object? spans = sdkOmittedValue}) => ApiWorkflowSpan(
+    common: identical(common, sdkOmittedValue) ? this.common : common as SdkOptional<ApiSpanCommon>,
+    spans: identical(spans, sdkOmittedValue) ? this.spans : spans as SdkOptional<List<ApiTraceSpan>>,
+  );
 
-  factory ApiWorkflowSpan.fromJson(Map<String, dynamic> json) =>
-      ApiWorkflowSpan(
-        common: json['common'] != null
-            ? SdkPresent((json['common'] != null
-                ? ApiSpanCommon.fromJson(json['common'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        spans: json['spans'] != null
-            ? SdkPresent(((json['spans'] as List?)
-                ?.map((e) => ApiTraceSpan.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ApiWorkflowSpan.fromJson(Map<String, dynamic> json) => ApiWorkflowSpan(
+    common: json['common'] != null ? SdkPresent((json['common'] != null ? ApiSpanCommon.fromJson(json['common'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    spans: json['spans'] != null ? SdkPresent(((json['spans'] as List?)?.map((e) => ApiTraceSpan.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (common) {
-          SdkPresent<ApiSpanCommon>(value: final value) => {
-              'common': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (spans) {
-          SdkPresent<List<ApiTraceSpan>>(value: final value) => {
-              'spans': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (common) {
+      SdkPresent<ApiSpanCommon>(value: final value) => {'common': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (spans) {
+      SdkPresent<List<ApiTraceSpan>>(value: final value) => {'spans': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

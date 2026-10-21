@@ -8,99 +8,62 @@ part of 'insights_slack.dart';
 class SlackNotificationConfigRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Slack incoming webhook URL. Write-only secret — send the full value on create or update. Omit on update to retain the existing value. Never returned in responses.
   final SdkOptional<String> webhookUrl;
-
   /// The Slack channel name to notify.
   final String channel;
 
-  const SlackNotificationConfigRequest(
-      {this.webhookUrl = const SdkOmitted(), required this.channel});
+  const SlackNotificationConfigRequest({this.webhookUrl = const SdkOmitted(), required this.channel});
 
-  SlackNotificationConfigRequest Function(
-      {SdkOptional<String> webhookUrl,
-      String channel}) get copyWith => _copyWith;
+  SlackNotificationConfigRequest Function({SdkOptional<String> webhookUrl, String channel}) get copyWith => _copyWith;
 
-  SlackNotificationConfigRequest _copyWith(
-          {Object? webhookUrl = sdkOmittedValue,
-          Object? channel = sdkOmittedValue}) =>
-      SlackNotificationConfigRequest(
-        webhookUrl: identical(webhookUrl, sdkOmittedValue)
-            ? this.webhookUrl
-            : webhookUrl as SdkOptional<String>,
-        channel: identical(channel, sdkOmittedValue)
-            ? this.channel
-            : channel as String,
-      );
+  SlackNotificationConfigRequest _copyWith({Object? webhookUrl = sdkOmittedValue, Object? channel = sdkOmittedValue}) => SlackNotificationConfigRequest(
+    webhookUrl: identical(webhookUrl, sdkOmittedValue) ? this.webhookUrl : webhookUrl as SdkOptional<String>,
+    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as String,
+  );
 
-  factory SlackNotificationConfigRequest.fromJson(Map<String, dynamic> json) =>
-      SlackNotificationConfigRequest(
-        webhookUrl: json['webhook_url'] != null
-            ? SdkPresent((json['webhook_url'] as String?)!)
-            : const SdkOmitted(),
-        channel: (json['channel'] as String?)!,
-      );
+  factory SlackNotificationConfigRequest.fromJson(Map<String, dynamic> json) => SlackNotificationConfigRequest(
+    webhookUrl: json['webhook_url'] != null ? SdkPresent((json['webhook_url'] as String?)!) : const SdkOmitted(),
+    channel: (json['channel'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (webhookUrl) {
-          SdkPresent<String>(value: final value) => {
-              'webhook_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'channel': channel,
-      };
+    ...switch (webhookUrl) {
+      SdkPresent<String>(value: final value) => {'webhook_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    'channel': channel,
+  };
 }
 
 /// Slack notification channel configuration as returned in API responses. The webhook URL is never returned; `webhook_url_status` indicates whether it is configured.
 class SlackNotificationConfigResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The Slack channel name to notify.
   final String channel;
-
   /// Present when a Slack webhook URL is configured. Omitted when not configured.
   final SdkOptional<SecretStatus> webhookUrlStatus;
 
-  const SlackNotificationConfigResponse(
-      {required this.channel, this.webhookUrlStatus = const SdkOmitted()});
+  const SlackNotificationConfigResponse({required this.channel, this.webhookUrlStatus = const SdkOmitted()});
 
-  SlackNotificationConfigResponse Function(
-      {String channel,
-      SdkOptional<SecretStatus> webhookUrlStatus}) get copyWith => _copyWith;
+  SlackNotificationConfigResponse Function({String channel, SdkOptional<SecretStatus> webhookUrlStatus}) get copyWith => _copyWith;
 
-  SlackNotificationConfigResponse _copyWith(
-          {Object? channel = sdkOmittedValue,
-          Object? webhookUrlStatus = sdkOmittedValue}) =>
-      SlackNotificationConfigResponse(
-        channel: identical(channel, sdkOmittedValue)
-            ? this.channel
-            : channel as String,
-        webhookUrlStatus: identical(webhookUrlStatus, sdkOmittedValue)
-            ? this.webhookUrlStatus
-            : webhookUrlStatus as SdkOptional<SecretStatus>,
-      );
+  SlackNotificationConfigResponse _copyWith({Object? channel = sdkOmittedValue, Object? webhookUrlStatus = sdkOmittedValue}) => SlackNotificationConfigResponse(
+    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as String,
+    webhookUrlStatus: identical(webhookUrlStatus, sdkOmittedValue) ? this.webhookUrlStatus : webhookUrlStatus as SdkOptional<SecretStatus>,
+  );
 
-  factory SlackNotificationConfigResponse.fromJson(Map<String, dynamic> json) =>
-      SlackNotificationConfigResponse(
-        channel: (json['channel'] as String?)!,
-        webhookUrlStatus: json['webhook_url_status'] != null
-            ? SdkPresent((json['webhook_url_status'] != null
-                ? SecretStatus.fromJson(
-                    json['webhook_url_status'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory SlackNotificationConfigResponse.fromJson(Map<String, dynamic> json) => SlackNotificationConfigResponse(
+    channel: (json['channel'] as String?)!,
+    webhookUrlStatus: json['webhook_url_status'] != null ? SdkPresent((json['webhook_url_status'] != null ? SecretStatus.fromJson(json['webhook_url_status'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'channel': channel,
-        ...switch (webhookUrlStatus) {
-          SdkPresent<SecretStatus>(value: final value) => {
-              'webhook_url_status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'channel': channel,
+    ...switch (webhookUrlStatus) {
+      SdkPresent<SecretStatus>(value: final value) => {'webhook_url_status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

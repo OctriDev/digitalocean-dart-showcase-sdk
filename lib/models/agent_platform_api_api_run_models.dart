@@ -8,137 +8,76 @@ part of 'agent_platform_api_api_run.dart';
 class ApiRunEvaluationTestCaseInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Agent deployment names to run the test case against.
   final SdkOptional<List<String>> agentDeploymentNames;
-
   /// Agent UUIDs to run the test case against (legacy agents).
   final SdkOptional<List<String>> agentUuids;
-
   /// The name of the run.
   final SdkOptional<String> runName;
-
   /// Test-case UUID to run
   final SdkOptional<String> testCaseUuid;
 
-  const ApiRunEvaluationTestCaseInputPublic(
-      {this.agentDeploymentNames = const SdkOmitted(),
-      this.agentUuids = const SdkOmitted(),
-      this.runName = const SdkOmitted(),
-      this.testCaseUuid = const SdkOmitted()});
+  const ApiRunEvaluationTestCaseInputPublic({this.agentDeploymentNames = const SdkOmitted(), this.agentUuids = const SdkOmitted(), this.runName = const SdkOmitted(), this.testCaseUuid = const SdkOmitted()});
 
-  ApiRunEvaluationTestCaseInputPublic Function(
-      {SdkOptional<List<String>> agentDeploymentNames,
-      SdkOptional<List<String>> agentUuids,
-      SdkOptional<String> runName,
-      SdkOptional<String> testCaseUuid}) get copyWith => _copyWith;
+  ApiRunEvaluationTestCaseInputPublic Function({SdkOptional<List<String>> agentDeploymentNames, SdkOptional<List<String>> agentUuids, SdkOptional<String> runName, SdkOptional<String> testCaseUuid}) get copyWith => _copyWith;
 
-  ApiRunEvaluationTestCaseInputPublic _copyWith(
-          {Object? agentDeploymentNames = sdkOmittedValue,
-          Object? agentUuids = sdkOmittedValue,
-          Object? runName = sdkOmittedValue,
-          Object? testCaseUuid = sdkOmittedValue}) =>
-      ApiRunEvaluationTestCaseInputPublic(
-        agentDeploymentNames: identical(agentDeploymentNames, sdkOmittedValue)
-            ? this.agentDeploymentNames
-            : agentDeploymentNames as SdkOptional<List<String>>,
-        agentUuids: identical(agentUuids, sdkOmittedValue)
-            ? this.agentUuids
-            : agentUuids as SdkOptional<List<String>>,
-        runName: identical(runName, sdkOmittedValue)
-            ? this.runName
-            : runName as SdkOptional<String>,
-        testCaseUuid: identical(testCaseUuid, sdkOmittedValue)
-            ? this.testCaseUuid
-            : testCaseUuid as SdkOptional<String>,
-      );
+  ApiRunEvaluationTestCaseInputPublic _copyWith({Object? agentDeploymentNames = sdkOmittedValue, Object? agentUuids = sdkOmittedValue, Object? runName = sdkOmittedValue, Object? testCaseUuid = sdkOmittedValue}) => ApiRunEvaluationTestCaseInputPublic(
+    agentDeploymentNames: identical(agentDeploymentNames, sdkOmittedValue) ? this.agentDeploymentNames : agentDeploymentNames as SdkOptional<List<String>>,
+    agentUuids: identical(agentUuids, sdkOmittedValue) ? this.agentUuids : agentUuids as SdkOptional<List<String>>,
+    runName: identical(runName, sdkOmittedValue) ? this.runName : runName as SdkOptional<String>,
+    testCaseUuid: identical(testCaseUuid, sdkOmittedValue) ? this.testCaseUuid : testCaseUuid as SdkOptional<String>,
+  );
 
-  factory ApiRunEvaluationTestCaseInputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiRunEvaluationTestCaseInputPublic(
-        agentDeploymentNames: json['agent_deployment_names'] != null
-            ? SdkPresent(((json['agent_deployment_names'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        agentUuids: json['agent_uuids'] != null
-            ? SdkPresent(((json['agent_uuids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        runName: json['run_name'] != null
-            ? SdkPresent((json['run_name'] as String?)!)
-            : const SdkOmitted(),
-        testCaseUuid: json['test_case_uuid'] != null
-            ? SdkPresent((json['test_case_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiRunEvaluationTestCaseInputPublic.fromJson(Map<String, dynamic> json) => ApiRunEvaluationTestCaseInputPublic(
+    agentDeploymentNames: json['agent_deployment_names'] != null ? SdkPresent(((json['agent_deployment_names'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    agentUuids: json['agent_uuids'] != null ? SdkPresent(((json['agent_uuids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    runName: json['run_name'] != null ? SdkPresent((json['run_name'] as String?)!) : const SdkOmitted(),
+    testCaseUuid: json['test_case_uuid'] != null ? SdkPresent((json['test_case_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agentDeploymentNames) {
-          SdkPresent<List<String>>(value: final value) => {
-              'agent_deployment_names': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (agentUuids) {
-          SdkPresent<List<String>>(value: final value) => {
-              'agent_uuids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (runName) {
-          SdkPresent<String>(value: final value) => {
-              'run_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (testCaseUuid) {
-          SdkPresent<String>(value: final value) => {
-              'test_case_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agentDeploymentNames) {
+      SdkPresent<List<String>>(value: final value) => {'agent_deployment_names': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (agentUuids) {
+      SdkPresent<List<String>>(value: final value) => {'agent_uuids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (runName) {
+      SdkPresent<String>(value: final value) => {'run_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (testCaseUuid) {
+      SdkPresent<String>(value: final value) => {'test_case_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiRunEvaluationTestCaseOutput` API schema.
 class ApiRunEvaluationTestCaseOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `evaluation_run_uuids` wire field.
   final SdkOptional<List<String>> evaluationRunUuids;
 
-  const ApiRunEvaluationTestCaseOutput(
-      {this.evaluationRunUuids = const SdkOmitted()});
+  const ApiRunEvaluationTestCaseOutput({this.evaluationRunUuids = const SdkOmitted()});
 
-  ApiRunEvaluationTestCaseOutput Function(
-      {SdkOptional<List<String>> evaluationRunUuids}) get copyWith => _copyWith;
+  ApiRunEvaluationTestCaseOutput Function({SdkOptional<List<String>> evaluationRunUuids}) get copyWith => _copyWith;
 
-  ApiRunEvaluationTestCaseOutput _copyWith(
-          {Object? evaluationRunUuids = sdkOmittedValue}) =>
-      ApiRunEvaluationTestCaseOutput(
-        evaluationRunUuids: identical(evaluationRunUuids, sdkOmittedValue)
-            ? this.evaluationRunUuids
-            : evaluationRunUuids as SdkOptional<List<String>>,
-      );
+  ApiRunEvaluationTestCaseOutput _copyWith({Object? evaluationRunUuids = sdkOmittedValue}) => ApiRunEvaluationTestCaseOutput(
+    evaluationRunUuids: identical(evaluationRunUuids, sdkOmittedValue) ? this.evaluationRunUuids : evaluationRunUuids as SdkOptional<List<String>>,
+  );
 
-  factory ApiRunEvaluationTestCaseOutput.fromJson(Map<String, dynamic> json) =>
-      ApiRunEvaluationTestCaseOutput(
-        evaluationRunUuids: json['evaluation_run_uuids'] != null
-            ? SdkPresent(((json['evaluation_run_uuids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ApiRunEvaluationTestCaseOutput.fromJson(Map<String, dynamic> json) => ApiRunEvaluationTestCaseOutput(
+    evaluationRunUuids: json['evaluation_run_uuids'] != null ? SdkPresent(((json['evaluation_run_uuids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (evaluationRunUuids) {
-          SdkPresent<List<String>>(value: final value) => {
-              'evaluation_run_uuids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (evaluationRunUuids) {
+      SdkPresent<List<String>>(value: final value) => {'evaluation_run_uuids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

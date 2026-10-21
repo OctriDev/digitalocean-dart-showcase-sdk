@@ -8,133 +8,62 @@ part of 'insights_spans.dart';
 class SpansFilterExpression {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The node kind.
   final SpansFilterExpressionType type_;
-
   /// A reference to a searchable span field.
   final SdkOptional<SpansFilterField> field;
-
   /// The comparison operator for a `condition` node.
   final SdkOptional<SpansFilterExpressionOperator> operator_;
-
   /// A filter comparison value. Provide either a bare JSON scalar or string array, or a typed wrapper of the form `{ "type": "string", "value": "..." }`.
   final SdkOptional<SpansFilterValue> value;
-
   /// Child expressions for `and`, `or`, and `not` nodes.
   final SdkOptional<List<SpansFilterExpression>> expressions;
-
   /// The substring to match for a `text_search` node.
   final SdkOptional<String> query;
 
-  const SpansFilterExpression(
-      {required this.type_,
-      this.field = const SdkOmitted(),
-      this.operator_ = const SdkOmitted(),
-      this.value = const SdkOmitted(),
-      this.expressions = const SdkOmitted(),
-      this.query = const SdkOmitted()});
+  const SpansFilterExpression({required this.type_, this.field = const SdkOmitted(), this.operator_ = const SdkOmitted(), this.value = const SdkOmitted(), this.expressions = const SdkOmitted(), this.query = const SdkOmitted()});
 
-  SpansFilterExpression Function(
-      {SpansFilterExpressionType type_,
-      SdkOptional<SpansFilterField> field,
-      SdkOptional<SpansFilterExpressionOperator> operator_,
-      SdkOptional<SpansFilterValue> value,
-      SdkOptional<List<SpansFilterExpression>> expressions,
-      SdkOptional<String> query}) get copyWith => _copyWith;
+  SpansFilterExpression Function({SpansFilterExpressionType type_, SdkOptional<SpansFilterField> field, SdkOptional<SpansFilterExpressionOperator> operator_, SdkOptional<SpansFilterValue> value, SdkOptional<List<SpansFilterExpression>> expressions, SdkOptional<String> query}) get copyWith => _copyWith;
 
-  SpansFilterExpression _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? field = sdkOmittedValue,
-          Object? operator_ = sdkOmittedValue,
-          Object? value = sdkOmittedValue,
-          Object? expressions = sdkOmittedValue,
-          Object? query = sdkOmittedValue}) =>
-      SpansFilterExpression(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SpansFilterExpressionType,
-        field: identical(field, sdkOmittedValue)
-            ? this.field
-            : field as SdkOptional<SpansFilterField>,
-        operator_: identical(operator_, sdkOmittedValue)
-            ? this.operator_
-            : operator_ as SdkOptional<SpansFilterExpressionOperator>,
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as SdkOptional<SpansFilterValue>,
-        expressions: identical(expressions, sdkOmittedValue)
-            ? this.expressions
-            : expressions as SdkOptional<List<SpansFilterExpression>>,
-        query: identical(query, sdkOmittedValue)
-            ? this.query
-            : query as SdkOptional<String>,
-      );
+  SpansFilterExpression _copyWith({Object? type_ = sdkOmittedValue, Object? field = sdkOmittedValue, Object? operator_ = sdkOmittedValue, Object? value = sdkOmittedValue, Object? expressions = sdkOmittedValue, Object? query = sdkOmittedValue}) => SpansFilterExpression(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SpansFilterExpressionType,
+    field: identical(field, sdkOmittedValue) ? this.field : field as SdkOptional<SpansFilterField>,
+    operator_: identical(operator_, sdkOmittedValue) ? this.operator_ : operator_ as SdkOptional<SpansFilterExpressionOperator>,
+    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<SpansFilterValue>,
+    expressions: identical(expressions, sdkOmittedValue) ? this.expressions : expressions as SdkOptional<List<SpansFilterExpression>>,
+    query: identical(query, sdkOmittedValue) ? this.query : query as SdkOptional<String>,
+  );
 
-  factory SpansFilterExpression.fromJson(Map<String, dynamic> json) =>
-      SpansFilterExpression(
-        type_: (json['type'] != null
-            ? SpansFilterExpressionType.fromJson(json['type'] as String)
-            : null)!,
-        field: json['field'] != null
-            ? SdkPresent((json['field'] != null
-                ? SpansFilterField.fromJson(
-                    json['field'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        operator_: json['operator'] != null
-            ? SdkPresent((json['operator'] != null
-                ? SpansFilterExpressionOperator.fromJson(
-                    json['operator'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        value: json['value'] != null
-            ? SdkPresent((json['value'] != null
-                ? SpansFilterValue.fromJson(json['value'])
-                : null)!)
-            : const SdkOmitted(),
-        expressions: json['expressions'] != null
-            ? SdkPresent(((json['expressions'] as List?)
-                ?.map((e) =>
-                    SpansFilterExpression.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        query: json['query'] != null
-            ? SdkPresent((json['query'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SpansFilterExpression.fromJson(Map<String, dynamic> json) => SpansFilterExpression(
+    type_: (json['type'] != null ? SpansFilterExpressionType.fromJson(json['type'] as String) : null)!,
+    field: json['field'] != null ? SdkPresent((json['field'] != null ? SpansFilterField.fromJson(json['field'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    operator_: json['operator'] != null ? SdkPresent((json['operator'] != null ? SpansFilterExpressionOperator.fromJson(json['operator'] as String) : null)!) : const SdkOmitted(),
+    value: json['value'] != null ? SdkPresent((json['value'] != null ? SpansFilterValue.fromJson(json['value']) : null)!) : const SdkOmitted(),
+    expressions: json['expressions'] != null ? SdkPresent(((json['expressions'] as List?)?.map((e) => SpansFilterExpression.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    query: json['query'] != null ? SdkPresent((json['query'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (field) {
-          SdkPresent<SpansFilterField>(value: final value) => {
-              'field': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (operator_) {
-          SdkPresent<SpansFilterExpressionOperator>(value: final value) => {
-              'operator': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (value) {
-          SdkPresent<SpansFilterValue>(value: final value) => {
-              'value': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expressions) {
-          SdkPresent<List<SpansFilterExpression>>(value: final value) => {
-              'expressions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (query) {
-          SdkPresent<String>(value: final value) => {
-              'query': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (field) {
+      SdkPresent<SpansFilterField>(value: final value) => {'field': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (operator_) {
+      SdkPresent<SpansFilterExpressionOperator>(value: final value) => {'operator': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (value) {
+      SdkPresent<SpansFilterValue>(value: final value) => {'value': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expressions) {
+      SdkPresent<List<SpansFilterExpression>>(value: final value) => {'expressions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (query) {
+      SdkPresent<String>(value: final value) => {'query': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

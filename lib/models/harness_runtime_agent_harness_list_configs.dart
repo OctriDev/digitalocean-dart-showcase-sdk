@@ -8,93 +8,52 @@ part of 'harness_runtime_agent.dart';
 class AgentConfigSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `uuid`-formatted value serialized in the `id` wire field.
   final String id;
-
   /// Required `string` value serialized in the `name` wire field.
   final String name;
-
   /// The manifest contract the server accepted at create time: the manifest's own apiVersion for legacy envelope parses (currently agents.digitalocean.com/v1alpha1), or agents.digitalocean.com/flat.v1 for flat-format parses.
   final String agentspecSchemaVersion;
-
   /// Lowercase SHA-256 hex digest of the canonical sanitized manifest JSON.
   final String contentHash;
-
   /// Authenticated user identity that created the config.
   final String createdBy;
-
   /// Required `date-time`-formatted value serialized in the `created_at` wire field.
   final String createdAt;
-
   /// Required `date-time`-formatted value serialized in the `updated_at` wire field.
   final String updatedAt;
 
-  const AgentConfigSummary(
-      {required this.id,
-      required this.name,
-      required this.agentspecSchemaVersion,
-      required this.contentHash,
-      required this.createdBy,
-      required this.createdAt,
-      required this.updatedAt});
+  const AgentConfigSummary({required this.id, required this.name, required this.agentspecSchemaVersion, required this.contentHash, required this.createdBy, required this.createdAt, required this.updatedAt});
 
-  AgentConfigSummary Function(
-      {String id,
-      String name,
-      String agentspecSchemaVersion,
-      String contentHash,
-      String createdBy,
-      String createdAt,
-      String updatedAt}) get copyWith => _copyWith;
+  AgentConfigSummary Function({String id, String name, String agentspecSchemaVersion, String contentHash, String createdBy, String createdAt, String updatedAt}) get copyWith => _copyWith;
 
-  AgentConfigSummary _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? agentspecSchemaVersion = sdkOmittedValue,
-          Object? contentHash = sdkOmittedValue,
-          Object? createdBy = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      AgentConfigSummary(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        agentspecSchemaVersion:
-            identical(agentspecSchemaVersion, sdkOmittedValue)
-                ? this.agentspecSchemaVersion
-                : agentspecSchemaVersion as String,
-        contentHash: identical(contentHash, sdkOmittedValue)
-            ? this.contentHash
-            : contentHash as String,
-        createdBy: identical(createdBy, sdkOmittedValue)
-            ? this.createdBy
-            : createdBy as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as String,
-      );
+  AgentConfigSummary _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? agentspecSchemaVersion = sdkOmittedValue, Object? contentHash = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => AgentConfigSummary(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    agentspecSchemaVersion: identical(agentspecSchemaVersion, sdkOmittedValue) ? this.agentspecSchemaVersion : agentspecSchemaVersion as String,
+    contentHash: identical(contentHash, sdkOmittedValue) ? this.contentHash : contentHash as String,
+    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
+  );
 
-  factory AgentConfigSummary.fromJson(Map<String, dynamic> json) =>
-      AgentConfigSummary(
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        agentspecSchemaVersion: (json['agentspec_schema_version'] as String?)!,
-        contentHash: (json['content_hash'] as String?)!,
-        createdBy: (json['created_by'] as String?)!,
-        createdAt: (json['created_at'] as String?)!,
-        updatedAt: (json['updated_at'] as String?)!,
-      );
+  factory AgentConfigSummary.fromJson(Map<String, dynamic> json) => AgentConfigSummary(
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    agentspecSchemaVersion: (json['agentspec_schema_version'] as String?)!,
+    contentHash: (json['content_hash'] as String?)!,
+    createdBy: (json['created_by'] as String?)!,
+    createdAt: (json['created_at'] as String?)!,
+    updatedAt: (json['updated_at'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'agentspec_schema_version': agentspecSchemaVersion,
-        'content_hash': contentHash,
-        'created_by': createdBy,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'id': id,
+    'name': name,
+    'agentspec_schema_version': agentspecSchemaVersion,
+    'content_hash': contentHash,
+    'created_by': createdBy,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }

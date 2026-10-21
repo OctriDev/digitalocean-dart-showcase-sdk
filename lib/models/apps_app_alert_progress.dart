@@ -8,38 +8,25 @@ part of 'apps_app_alert.dart';
 class AppAlertProgress {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `steps` wire field.
   final SdkOptional<List<AppAlertProgressStep>> steps;
 
   const AppAlertProgress({this.steps = const SdkOmitted()});
 
-  AppAlertProgress Function({SdkOptional<List<AppAlertProgressStep>> steps})
-      get copyWith => _copyWith;
+  AppAlertProgress Function({SdkOptional<List<AppAlertProgressStep>> steps}) get copyWith => _copyWith;
 
-  AppAlertProgress _copyWith({Object? steps = sdkOmittedValue}) =>
-      AppAlertProgress(
-        steps: identical(steps, sdkOmittedValue)
-            ? this.steps
-            : steps as SdkOptional<List<AppAlertProgressStep>>,
-      );
+  AppAlertProgress _copyWith({Object? steps = sdkOmittedValue}) => AppAlertProgress(
+    steps: identical(steps, sdkOmittedValue) ? this.steps : steps as SdkOptional<List<AppAlertProgressStep>>,
+  );
 
-  factory AppAlertProgress.fromJson(Map<String, dynamic> json) =>
-      AppAlertProgress(
-        steps: json['steps'] != null
-            ? SdkPresent(((json['steps'] as List?)
-                ?.map((e) =>
-                    AppAlertProgressStep.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AppAlertProgress.fromJson(Map<String, dynamic> json) => AppAlertProgress(
+    steps: json['steps'] != null ? SdkPresent(((json['steps'] as List?)?.map((e) => AppAlertProgressStep.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (steps) {
-          SdkPresent<List<AppAlertProgressStep>>(value: final value) => {
-              'steps': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (steps) {
+      SdkPresent<List<AppAlertProgressStep>>(value: final value) => {'steps': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

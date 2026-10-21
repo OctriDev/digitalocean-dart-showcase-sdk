@@ -14,17 +14,12 @@ Future<AllRegistriesInfo> registriesList(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesList',
-          fromJsonRaw: (value) =>
-              AllRegistriesInfo.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllRegistriesInfo.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create your container registry, send a POST request to `/v2/registries`. The `name` becomes part of the URL for images stored in the registry. For example, if your registry is called `example`, an image in it will have the URL `registry.digitalocean.com/example/image:tag`.
 ///
@@ -37,8 +32,7 @@ Future<AllRegistriesInfo> registriesList(ClientConfig config,
 ///   provided, a region will be selected.
 Future<MultiregistryInfo> registriesCreate(ClientConfig config,
     {required String name,
-    SdkOptional<MultiregistryCreateSubscriptionTierSlug> subscriptionTierSlug =
-        const SdkOmitted(),
+    SdkOptional<MultiregistryCreateSubscriptionTierSlug> subscriptionTierSlug = const SdkOmitted(),
     SdkOptional<MultiregistryCreateRegion> region = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   validateLength('name', name, max: 63);
@@ -48,24 +42,17 @@ Future<MultiregistryInfo> registriesCreate(ClientConfig config,
           config: config,
           body: {
             'name': name,
-            'subscription_tier_slug':
-                SdkUtils.unwrapOptional(subscriptionTierSlug),
+            'subscription_tier_slug': SdkUtils.unwrapOptional(subscriptionTierSlug),
             'region': SdkUtils.unwrapOptional(region)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesCreate',
-          fromJsonRaw: (value) =>
-              MultiregistryInfo.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MultiregistryInfo.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get information about any container registry in your account, send a GET request to `/v2/registries/{registry_name}`.
 ///
@@ -77,18 +64,12 @@ Future<MultiregistryInfo> registriesGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesGet',
-          fromJsonRaw: (value) =>
-              MultiregistryInfo.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MultiregistryInfo.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete your container registry, destroying all container image data stored in it, send a DELETE request to `/v2/registries/{registry_name}`.
 ///
@@ -101,15 +82,10 @@ Future<void> registriesDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'registriesDelete',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// In order to access your container registry with the Docker client or from a Kubernetes cluster, you will need to configure authentication. The necessary JSON configuration can be retrieved by sending a GET request to `/v2/registries/{registry_name}/docker-credentials`. The response will be in the format of a Docker `config.json` file. To use the config in your Kubernetes cluster, create a Secret with: kubectl create secret generic docr \ --from-file=.dockerconfigjson=config.json \ --type=kubernetes.io/dockerconfigjson By default, the returned credentials have read-only access to your registry and cannot be used to push images. This is appropriate for most Kubernetes clusters. To retrieve read/write credentials, suitable for use with the Docker client or in a CI system, read_write may be provided as query parameter. For example: `/v2/registries/{registry_name}/docker-credentials?read_write=true` By default, the returned credentials will not expire. To retrieve credentials with an expiry set, expiry_seconds may be provided as a query parameter. For example: `/v2/registries/{registry_name}/docker-credentials?expiry_seconds=3600` will return credentials that expire after one hour.
 ///
@@ -121,18 +97,12 @@ Future<DockerCredentials> registriesGetDockerCredentials(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesGetDockerCredentials',
-          fromJsonRaw: (value) =>
-              DockerCredentials.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DockerCredentials.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// A subscription is automatically created when you configure your container registry. To get information about your subscription, send a GET request to `/v2/registries/subscription`. It is similar to GET `/v2/registry/subscription`.
 Future<SubscriptionResponse> registriesGetSubscription(ClientConfig config,
@@ -142,24 +112,18 @@ Future<SubscriptionResponse> registriesGetSubscription(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesGetSubscription',
-          fromJsonRaw: (value) =>
-              SubscriptionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SubscriptionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// After creating your registry, you can switch to a different subscription tier to better suit your needs. To do this, send a POST request to `/v2/registries/subscription`. It is similar to POST `/v2/registry/subscription`.
 ///
 /// [tierSlug] The slug of the subscription tier to sign up for.
 Future<SubscriptionResponse> registriesUpdateSubscription(ClientConfig config,
-    {SdkOptional<RegistriesUpdateSubscriptionRequestBodyTierSlug> tierSlug =
-        const SdkOmitted(),
+    {SdkOptional<RegistriesUpdateSubscriptionRequestBodyTierSlug> tierSlug = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<SubscriptionResponse>(
           'POST', '/v2/registries/subscription',
@@ -167,17 +131,12 @@ Future<SubscriptionResponse> registriesUpdateSubscription(ClientConfig config,
           body: {'tier_slug': SdkUtils.unwrapOptional(tierSlug)},
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesUpdateSubscription',
-          fromJsonRaw: (value) =>
-              SubscriptionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SubscriptionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// This endpoint serves to provide additional information as to which option values are available when creating a container registry. There are multiple subscription tiers available for container registry. Each tier allows a different number of image repositories to be created in your registry, and has a different amount of storage and transfer included. There are multiple regions available for container registry and controls where your data is stored. To list the available options, send a GET request to `/v2/registries/options`. This is similar to GET `/v2/registry/options`.
 Future<RegistryOptionsResponse> registriesGetOptions(ClientConfig config,
@@ -187,67 +146,46 @@ Future<RegistryOptionsResponse> registriesGetOptions(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesGetOptions',
-          fromJsonRaw: (value) =>
-              RegistryOptionsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RegistryOptionsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get information about the currently-active garbage collection for a registry, send a GET request to `/v2/registry/$REGISTRY_NAME/garbage-collection`.
 ///
 /// [registryName] The name of a container registry.
-Future<GarbageCollectionResponse> registriesGetGarbageCollection(
-    ClientConfig config,
-    {required String registryName,
-    RequestOptions? requestOptions}) async {
+Future<GarbageCollectionResponse> registriesGetGarbageCollection(ClientConfig config,
+    {required String registryName, RequestOptions? requestOptions}) async {
   return (await sdkRequest<GarbageCollectionResponse>('GET',
           '/v2/registries/${Uri.encodeComponent(registryName.toString())}/garbage-collection',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesGetGarbageCollection',
-          fromJsonRaw: (value) =>
-              GarbageCollectionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GarbageCollectionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Garbage collection enables users to clear out unreferenced blobs (layer & manifest data) after deleting one or more manifests from a repository. If there are no unreferenced blobs resulting from the deletion of one or more manifests, garbage collection is effectively a noop. [See here for more information](https://docs.digitalocean.com/products/container-registry/how-to/clean-up-container-registry/) about how and why you should clean up your container registry periodically. To request a garbage collection run on your registry, send a POST request to `/v2/registries/$REGISTRY_NAME/garbage-collection`. This will initiate the following sequence of events on your registry. * Set the registry to read-only mode, meaning no further write-scoped JWTs will be issued to registry clients. Existing write-scoped JWTs will continue to work until they expire which can take up to 15 minutes. * Wait until all existing write-scoped JWTs have expired. * Scan all registry manifests to determine which blobs are unreferenced. * Delete all unreferenced blobs from the registry. * Record the number of blobs deleted and bytes freed, mark the garbage collection status as `success`. * Remove the read-only mode restriction from the registry, meaning write-scoped JWTs will once again be issued to registry clients.
 ///
 /// [registryName] The name of a container registry.
-Future<GarbageCollectionResponse> registriesRunGarbageCollection(
-    ClientConfig config,
-    {required String registryName,
-    RequestOptions? requestOptions}) async {
+Future<GarbageCollectionResponse> registriesRunGarbageCollection(ClientConfig config,
+    {required String registryName, RequestOptions? requestOptions}) async {
   return (await sdkRequest<GarbageCollectionResponse>('POST',
           '/v2/registries/${Uri.encodeComponent(registryName.toString())}/garbage-collection',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesRunGarbageCollection',
-          fromJsonRaw: (value) =>
-              GarbageCollectionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GarbageCollectionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get information about past garbage collections for a registry, send a GET request to `/v2/registry/$REGISTRY_NAME/garbage-collections`.
 ///
@@ -270,25 +208,17 @@ Future<GarbageCollections> registriesListGarbageCollections(ClientConfig config,
           '/v2/registries/${Uri.encodeComponent(registryName.toString())}/garbage-collections',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesListGarbageCollections',
-          fromJsonRaw: (value) =>
-              GarbageCollections.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GarbageCollections.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To cancel the currently-active garbage collection for a registry, send a PUT request to `/v2/registries/$REGISTRY_NAME/garbage-collection/$GC_UUID` and specify one or more of the attributes below. It is similar to PUT `/v2/registries/$REGISTRY_NAME/garbage-collection/$GC_UUID`.
 ///
@@ -296,30 +226,24 @@ Future<GarbageCollections> registriesListGarbageCollections(ClientConfig config,
 /// [garbageCollectionUuid] The UUID of a garbage collection run.
 /// [cancel] A boolean value indicating that the garbage collection should be
 ///   cancelled.
-Future<GarbageCollectionResponse> registriesUpdateGarbageCollection(
-    ClientConfig config,
-    {required String registryName,
-    required String garbageCollectionUuid,
-    SdkOptional<bool> cancel = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<GarbageCollectionResponse>
+    registriesUpdateGarbageCollection(ClientConfig config,
+        {required String registryName,
+        required String garbageCollectionUuid,
+        SdkOptional<bool> cancel = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<GarbageCollectionResponse>('PUT',
           '/v2/registries/${Uri.encodeComponent(registryName.toString())}/garbage-collection/${Uri.encodeComponent(garbageCollectionUuid.toString())}',
           config: config,
           body: {'cancel': SdkUtils.unwrapOptional(cancel)},
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesUpdateGarbageCollection',
-          fromJsonRaw: (value) =>
-              GarbageCollectionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GarbageCollectionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all repositories in your container registry, send a GET request to `/v2/registries/$REGISTRY_NAME/repositoriesV2`. It is similar to GET `/v2/registry/$REGISTRY_NAME/repositoriesV2`.
 ///
@@ -346,28 +270,18 @@ Future<AllRepositoriesV2> registriesListRepositoriesV2(ClientConfig config,
           '/v2/registries/${Uri.encodeComponent(registryName.toString())}/repositoriesV2',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesListRepositoriesV2',
-          fromJsonRaw: (value) =>
-              AllRepositoriesV2.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllRepositoriesV2.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a container repository including all of its tags, send a DELETE request to `/v2/registries/$REGISTRY_NAME/repositories/$REPOSITORY_NAME`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
 ///
@@ -384,15 +298,10 @@ Future<void> registriesDeleteRepository(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'registriesDeleteRepository',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all tags in one of your container registry's repository, send a GET request to `/v2/registries/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags`. Note that if your repository name contains `/` characters, it must be URL-encoded in the request URL. For example, to list tags for `registry.digitalocean.com/example/my/repo`, the path would be `/v2/registry/example/repositories/my%2Frepo/tags`. It is similar to GET `/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags`.
 ///
@@ -418,25 +327,17 @@ Future<RepositoryTags> registriesListRepositoryTags(ClientConfig config,
           '/v2/registries/${Uri.encodeComponent(registryName.toString())}/repositories/${Uri.encodeComponent(repositoryName.toString())}/tags',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesListRepositoryTags',
-          fromJsonRaw: (value) =>
-              RepositoryTags.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RepositoryTags.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a container repository tag in on of our container registries, send a DELETE request to `/v2/registries/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags/$TAG`. Note that if your repository name contains `/` characters, it must be URL-encoded in the request URL. For example, to delete `registry.digitalocean.com/example/my/repo:mytag`, the path would be `/v2/registry/example/repositories/my%2Frepo/tags/mytag`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully. It is similar to DELETE `/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/tags/$TAG`.
 ///
@@ -455,15 +356,10 @@ Future<void> registriesDeleteRepositoryTag(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'registriesDeleteRepositoryTag',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all manifests in your container registry repository, send a GET request to `/v2/registries/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests`. Note that if your repository name contains `/` characters, it must be URL-encoded in the request URL. For example, to list manifests for `registry.digitalocean.com/example/my/repo`, the path would be `/v2/registry/example/repositories/my%2Frepo/digests`. It is similar to `/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests`.
 ///
@@ -472,13 +368,13 @@ Future<void> registriesDeleteRepositoryTag(ClientConfig config,
 ///   contains `/` characters, they must be URL-encoded, e.g. `%2F`.
 /// [perPage] Number of items returned per page
 /// [page] Which 'page' of paginated results to return.
-Future<RepositoryManifests> registriesListRepositoryManifests(
-    ClientConfig config,
-    {required String registryName,
-    required String repositoryName,
-    SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<int> page = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<RepositoryManifests>
+    registriesListRepositoryManifests(ClientConfig config,
+        {required String registryName,
+        required String repositoryName,
+        SdkOptional<int> perPage = const SdkOmitted(),
+        SdkOptional<int> page = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (perPage is SdkPresent<int>) {
     validateRange('per_page', perPage.value, min: 1, max: 200);
   }
@@ -490,25 +386,17 @@ Future<RepositoryManifests> registriesListRepositoryManifests(
           '/v2/registries/${Uri.encodeComponent(registryName.toString())}/repositories/${Uri.encodeComponent(repositoryName.toString())}/digests',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'registriesListRepositoryManifests',
-          fromJsonRaw: (value) =>
-              RepositoryManifests.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RepositoryManifests.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a container repository manifest by digest in one of your registries, send a DELETE request to `/v2/registries/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests/$MANIFEST_DIGEST`. Note that if your repository name contains `/` characters, it must be URL-encoded in the request URL. For example, to delete `registry.digitalocean.com/example/my/repo@sha256:abcd`, the path would be `/v2/registry/example/repositories/my%2Frepo/digests/sha256:abcd`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully. It is similar to DELETE `/v2/registry/$REGISTRY_NAME/repositories/$REPOSITORY_NAME/digests/$MANIFEST_DIGEST`.
 ///
@@ -527,15 +415,10 @@ Future<void> registriesDeleteRepositoryManifest(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'registriesDeleteRepositoryManifest',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To validate that a container registry name is available for use, send a POST request to `/v2/registries/validate-name`. If the name is both formatted correctly and available, the response code will be 204 and contain no body. If the name is already in use, the response will be a 409 Conflict. It is similar to `/v2/registry/validate-name`.
 ///
@@ -553,12 +436,6 @@ Future<void> registriesValidateName(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'registriesValidateName',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

@@ -8,35 +8,25 @@ part of 'action_gateway_mcp.dart';
 class McpServerUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Replaces the stored description; empty clears it. At most 1024 characters.
   final SdkOptional<String> description;
 
   const McpServerUpdate({this.description = const SdkOmitted()});
 
-  McpServerUpdate Function({SdkOptional<String> description}) get copyWith =>
-      _copyWith;
+  McpServerUpdate Function({SdkOptional<String> description}) get copyWith => _copyWith;
 
-  McpServerUpdate _copyWith({Object? description = sdkOmittedValue}) =>
-      McpServerUpdate(
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-      );
+  McpServerUpdate _copyWith({Object? description = sdkOmittedValue}) => McpServerUpdate(
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+  );
 
-  factory McpServerUpdate.fromJson(Map<String, dynamic> json) =>
-      McpServerUpdate(
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory McpServerUpdate.fromJson(Map<String, dynamic> json) => McpServerUpdate(
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

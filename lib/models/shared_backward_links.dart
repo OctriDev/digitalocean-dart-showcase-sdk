@@ -8,51 +8,33 @@ part of 'shared.dart';
 class BackwardLinks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// URI of the first page of the results.
   final SdkOptional<String> first;
-
   /// URI of the previous page of the results.
   final SdkOptional<String> prev;
 
-  const BackwardLinks(
-      {this.first = const SdkOmitted(), this.prev = const SdkOmitted()});
+  const BackwardLinks({this.first = const SdkOmitted(), this.prev = const SdkOmitted()});
 
-  BackwardLinks Function({SdkOptional<String> first, SdkOptional<String> prev})
-      get copyWith => _copyWith;
+  BackwardLinks Function({SdkOptional<String> first, SdkOptional<String> prev}) get copyWith => _copyWith;
 
-  BackwardLinks _copyWith(
-          {Object? first = sdkOmittedValue, Object? prev = sdkOmittedValue}) =>
-      BackwardLinks(
-        first: identical(first, sdkOmittedValue)
-            ? this.first
-            : first as SdkOptional<String>,
-        prev: identical(prev, sdkOmittedValue)
-            ? this.prev
-            : prev as SdkOptional<String>,
-      );
+  BackwardLinks _copyWith({Object? first = sdkOmittedValue, Object? prev = sdkOmittedValue}) => BackwardLinks(
+    first: identical(first, sdkOmittedValue) ? this.first : first as SdkOptional<String>,
+    prev: identical(prev, sdkOmittedValue) ? this.prev : prev as SdkOptional<String>,
+  );
 
   factory BackwardLinks.fromJson(Map<String, dynamic> json) => BackwardLinks(
-        first: json['first'] != null
-            ? SdkPresent((json['first'] as String?)!)
-            : const SdkOmitted(),
-        prev: json['prev'] != null
-            ? SdkPresent((json['prev'] as String?)!)
-            : const SdkOmitted(),
-      );
+    first: json['first'] != null ? SdkPresent((json['first'] as String?)!) : const SdkOmitted(),
+    prev: json['prev'] != null ? SdkPresent((json['prev'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (first) {
-          SdkPresent<String>(value: final value) => {
-              'first': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (prev) {
-          SdkPresent<String>(value: final value) => {
-              'prev': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (first) {
+      SdkPresent<String>(value: final value) => {'first': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (prev) {
+      SdkPresent<String>(value: final value) => {'prev': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

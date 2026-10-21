@@ -8,55 +8,33 @@ part of 'vector_databases.dart';
 class VectordbGetVectorDBAdminCredentialsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// API token for that user.
   final SdkOptional<String> apiToken;
-
   /// Database user id from the cluster secret (opaque; matches what was provisioned).
   final SdkOptional<String> userId;
 
-  const VectordbGetVectorDBAdminCredentialsResponse(
-      {this.apiToken = const SdkOmitted(), this.userId = const SdkOmitted()});
+  const VectordbGetVectorDBAdminCredentialsResponse({this.apiToken = const SdkOmitted(), this.userId = const SdkOmitted()});
 
-  VectordbGetVectorDBAdminCredentialsResponse Function(
-      {SdkOptional<String> apiToken,
-      SdkOptional<String> userId}) get copyWith => _copyWith;
+  VectordbGetVectorDBAdminCredentialsResponse Function({SdkOptional<String> apiToken, SdkOptional<String> userId}) get copyWith => _copyWith;
 
-  VectordbGetVectorDBAdminCredentialsResponse _copyWith(
-          {Object? apiToken = sdkOmittedValue,
-          Object? userId = sdkOmittedValue}) =>
-      VectordbGetVectorDBAdminCredentialsResponse(
-        apiToken: identical(apiToken, sdkOmittedValue)
-            ? this.apiToken
-            : apiToken as SdkOptional<String>,
-        userId: identical(userId, sdkOmittedValue)
-            ? this.userId
-            : userId as SdkOptional<String>,
-      );
+  VectordbGetVectorDBAdminCredentialsResponse _copyWith({Object? apiToken = sdkOmittedValue, Object? userId = sdkOmittedValue}) => VectordbGetVectorDBAdminCredentialsResponse(
+    apiToken: identical(apiToken, sdkOmittedValue) ? this.apiToken : apiToken as SdkOptional<String>,
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
+  );
 
-  factory VectordbGetVectorDBAdminCredentialsResponse.fromJson(
-          Map<String, dynamic> json) =>
-      VectordbGetVectorDBAdminCredentialsResponse(
-        apiToken: json['api_token'] != null
-            ? SdkPresent((json['api_token'] as String?)!)
-            : const SdkOmitted(),
-        userId: json['user_id'] != null
-            ? SdkPresent((json['user_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VectordbGetVectorDBAdminCredentialsResponse.fromJson(Map<String, dynamic> json) => VectordbGetVectorDBAdminCredentialsResponse(
+    apiToken: json['api_token'] != null ? SdkPresent((json['api_token'] as String?)!) : const SdkOmitted(),
+    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (apiToken) {
-          SdkPresent<String>(value: final value) => {
-              'api_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (userId) {
-          SdkPresent<String>(value: final value) => {
-              'user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (apiToken) {
+      SdkPresent<String>(value: final value) => {'api_token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (userId) {
+      SdkPresent<String>(value: final value) => {'user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

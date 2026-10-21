@@ -8,7 +8,6 @@ part of 'insights.dart';
 class EmailNotificationConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// One or more recipient email addresses, separated by commas, semicolons, or spaces.
   final String to;
 
@@ -16,164 +15,105 @@ class EmailNotificationConfig {
 
   EmailNotificationConfig Function({String to}) get copyWith => _copyWith;
 
-  EmailNotificationConfig _copyWith({Object? to = sdkOmittedValue}) =>
-      EmailNotificationConfig(
-        to: identical(to, sdkOmittedValue) ? this.to : to as String,
-      );
+  EmailNotificationConfig _copyWith({Object? to = sdkOmittedValue}) => EmailNotificationConfig(
+    to: identical(to, sdkOmittedValue) ? this.to : to as String,
+  );
 
-  factory EmailNotificationConfig.fromJson(Map<String, dynamic> json) =>
-      EmailNotificationConfig(
-        to: (json['to'] as String?)!,
-      );
+  factory EmailNotificationConfig.fromJson(Map<String, dynamic> json) => EmailNotificationConfig(
+    to: (json['to'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'to': to,
-      };
+    'to': to,
+  };
 }
 
 /// Metrics query that the alert rule evaluates. `metric` must be a dotted OpenTelemetry name (for example `do.droplets.cpu_utilization`). Underscored Prometheus-style names are rejected. When `resource_urns` is omitted or empty, the rule is not scoped to specific resources.
 class MetricsQuery {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Dotted OpenTelemetry metric name to evaluate (for example `do.droplets.cpu_utilization`).
   final String metric;
-
   /// Optional label filters applied to the metric series.
   final SdkOptional<List<QueryFilter>> filters;
-
   /// Optional list of DigitalOcean resource URNs the rule applies to. Empty or omitted means the rule is not scoped to specific resources.
   final SdkOptional<List<String>> resourceUrns;
-
   /// Optional resource tags used to select matching resources.
   final SdkOptional<List<String>> tags;
 
-  const MetricsQuery(
-      {required this.metric,
-      this.filters = const SdkOmitted(),
-      this.resourceUrns = const SdkOmitted(),
-      this.tags = const SdkOmitted()});
+  const MetricsQuery({required this.metric, this.filters = const SdkOmitted(), this.resourceUrns = const SdkOmitted(), this.tags = const SdkOmitted()});
 
-  MetricsQuery Function(
-      {String metric,
-      SdkOptional<List<QueryFilter>> filters,
-      SdkOptional<List<String>> resourceUrns,
-      SdkOptional<List<String>> tags}) get copyWith => _copyWith;
+  MetricsQuery Function({String metric, SdkOptional<List<QueryFilter>> filters, SdkOptional<List<String>> resourceUrns, SdkOptional<List<String>> tags}) get copyWith => _copyWith;
 
-  MetricsQuery _copyWith(
-          {Object? metric = sdkOmittedValue,
-          Object? filters = sdkOmittedValue,
-          Object? resourceUrns = sdkOmittedValue,
-          Object? tags = sdkOmittedValue}) =>
-      MetricsQuery(
-        metric:
-            identical(metric, sdkOmittedValue) ? this.metric : metric as String,
-        filters: identical(filters, sdkOmittedValue)
-            ? this.filters
-            : filters as SdkOptional<List<QueryFilter>>,
-        resourceUrns: identical(resourceUrns, sdkOmittedValue)
-            ? this.resourceUrns
-            : resourceUrns as SdkOptional<List<String>>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>>,
-      );
+  MetricsQuery _copyWith({Object? metric = sdkOmittedValue, Object? filters = sdkOmittedValue, Object? resourceUrns = sdkOmittedValue, Object? tags = sdkOmittedValue}) => MetricsQuery(
+    metric: identical(metric, sdkOmittedValue) ? this.metric : metric as String,
+    filters: identical(filters, sdkOmittedValue) ? this.filters : filters as SdkOptional<List<QueryFilter>>,
+    resourceUrns: identical(resourceUrns, sdkOmittedValue) ? this.resourceUrns : resourceUrns as SdkOptional<List<String>>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
+  );
 
   factory MetricsQuery.fromJson(Map<String, dynamic> json) => MetricsQuery(
-        metric: (json['metric'] as String?)!,
-        filters: json['filters'] != null
-            ? SdkPresent(((json['filters'] as List?)
-                ?.map((e) => QueryFilter.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        resourceUrns: json['resource_urns'] != null
-            ? SdkPresent(((json['resource_urns'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        tags: json['tags'] != null
-            ? SdkPresent(
-                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+    metric: (json['metric'] as String?)!,
+    filters: json['filters'] != null ? SdkPresent(((json['filters'] as List?)?.map((e) => QueryFilter.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    resourceUrns: json['resource_urns'] != null ? SdkPresent(((json['resource_urns'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'metric': metric,
-        ...switch (filters) {
-          SdkPresent<List<QueryFilter>>(value: final value) => {
-              'filters': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceUrns) {
-          SdkPresent<List<String>>(value: final value) => {
-              'resource_urns': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<String>>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'metric': metric,
+    ...switch (filters) {
+      SdkPresent<List<QueryFilter>>(value: final value) => {'filters': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceUrns) {
+      SdkPresent<List<String>>(value: final value) => {'resource_urns': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<String>>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A filter applied to the metrics query.
 class QueryFilter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The metric label or field to filter on.
   final String field;
-
   /// Comparison operator for the filter. Allowed values: - `FILTER_OPERATOR_EQUAL` = equal - `FILTER_OPERATOR_NOT_EQUAL` = `not_equal` - `FILTER_OPERATOR_LESS_THAN` = `less_than` - `FILTER_OPERATOR_LESS_THAN_OR_EQUAL` = `less_than_or_equal` - `FILTER_OPERATOR_GREATER_THAN` = `greater_than` - `FILTER_OPERATOR_GREATER_THAN_OR_EQUAL` = `greater_than_or_equal`
   final QueryFilterOperator operator_;
-
   /// Value compared against the field.
   final String value;
 
-  const QueryFilter(
-      {required this.field, required this.operator_, required this.value});
+  const QueryFilter({required this.field, required this.operator_, required this.value});
 
-  QueryFilter Function(
-      {String field,
-      QueryFilterOperator operator_,
-      String value}) get copyWith => _copyWith;
+  QueryFilter Function({String field, QueryFilterOperator operator_, String value}) get copyWith => _copyWith;
 
-  QueryFilter _copyWith(
-          {Object? field = sdkOmittedValue,
-          Object? operator_ = sdkOmittedValue,
-          Object? value = sdkOmittedValue}) =>
-      QueryFilter(
-        field: identical(field, sdkOmittedValue) ? this.field : field as String,
-        operator_: identical(operator_, sdkOmittedValue)
-            ? this.operator_
-            : operator_ as QueryFilterOperator,
-        value: identical(value, sdkOmittedValue) ? this.value : value as String,
-      );
+  QueryFilter _copyWith({Object? field = sdkOmittedValue, Object? operator_ = sdkOmittedValue, Object? value = sdkOmittedValue}) => QueryFilter(
+    field: identical(field, sdkOmittedValue) ? this.field : field as String,
+    operator_: identical(operator_, sdkOmittedValue) ? this.operator_ : operator_ as QueryFilterOperator,
+    value: identical(value, sdkOmittedValue) ? this.value : value as String,
+  );
 
   factory QueryFilter.fromJson(Map<String, dynamic> json) => QueryFilter(
-        field: (json['field'] as String?)!,
-        operator_: (json['operator'] != null
-            ? QueryFilterOperator.fromJson(json['operator'] as String)
-            : null)!,
-        value: (json['value'] as String?)!,
-      );
+    field: (json['field'] as String?)!,
+    operator_: (json['operator'] != null ? QueryFilterOperator.fromJson(json['operator'] as String) : null)!,
+    value: (json['value'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'field': field,
-        'operator': operator_.toJson(),
-        'value': value,
-      };
+    'field': field,
+    'operator': operator_.toJson(),
+    'value': value,
+  };
 }
 
 /// Indicates whether a secret credential is configured without exposing its value. Status fields that use this schema are omitted from responses when the secret is not set.
 class SecretStatus {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether the secret is configured.
   final bool configured;
 
@@ -181,296 +121,146 @@ class SecretStatus {
 
   SecretStatus Function({bool configured}) get copyWith => _copyWith;
 
-  SecretStatus _copyWith({Object? configured = sdkOmittedValue}) =>
-      SecretStatus(
-        configured: identical(configured, sdkOmittedValue)
-            ? this.configured
-            : configured as bool,
-      );
+  SecretStatus _copyWith({Object? configured = sdkOmittedValue}) => SecretStatus(
+    configured: identical(configured, sdkOmittedValue) ? this.configured : configured as bool,
+  );
 
   factory SecretStatus.fromJson(Map<String, dynamic> json) => SecretStatus(
-        configured: (json['configured'] as bool?)!,
-      );
+    configured: (json['configured'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'configured': configured,
-      };
+    'configured': configured,
+  };
 }
 
 /// A single span returned by a spans search.
 class SpanRecord {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The trace identifier the span belongs to.
   final SdkOptional<String> traceId;
-
   /// The span identifier.
   final SdkOptional<String> spanId;
-
   /// The parent span identifier. Omitted for root spans.
   final SdkOptional<String> parentSpanId;
-
   /// The span start time.
   final SdkOptional<String> startTime;
-
   /// The span end time.
   final SdkOptional<String> endTime;
-
   /// The span duration in nanoseconds.
   final SdkOptional<int> durationNs;
-
   /// The span name.
   final SdkOptional<String> name;
-
   /// The span kind.
   final SdkOptional<String> kind;
-
   /// The span status code.
   final SdkOptional<String> statusCode;
-
   /// The span status message. Omitted when empty.
   final SdkOptional<String> statusMessage;
-
   /// The name of the service that emitted the span.
   final SdkOptional<String> serviceName;
-
   /// Resource attributes associated with the span.
   final SdkOptional<Map<String, String>> resource;
-
   /// Span attributes.
   final SdkOptional<Map<String, String>> attributes;
-
   /// The datacenter region slug the span was queried from.
   final SdkOptional<String> region;
 
-  const SpanRecord(
-      {this.traceId = const SdkOmitted(),
-      this.spanId = const SdkOmitted(),
-      this.parentSpanId = const SdkOmitted(),
-      this.startTime = const SdkOmitted(),
-      this.endTime = const SdkOmitted(),
-      this.durationNs = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.kind = const SdkOmitted(),
-      this.statusCode = const SdkOmitted(),
-      this.statusMessage = const SdkOmitted(),
-      this.serviceName = const SdkOmitted(),
-      this.resource = const SdkOmitted(),
-      this.attributes = const SdkOmitted(),
-      this.region = const SdkOmitted()});
+  const SpanRecord({this.traceId = const SdkOmitted(), this.spanId = const SdkOmitted(), this.parentSpanId = const SdkOmitted(), this.startTime = const SdkOmitted(), this.endTime = const SdkOmitted(), this.durationNs = const SdkOmitted(), this.name = const SdkOmitted(), this.kind = const SdkOmitted(), this.statusCode = const SdkOmitted(), this.statusMessage = const SdkOmitted(), this.serviceName = const SdkOmitted(), this.resource = const SdkOmitted(), this.attributes = const SdkOmitted(), this.region = const SdkOmitted()});
 
-  SpanRecord Function(
-      {SdkOptional<String> traceId,
-      SdkOptional<String> spanId,
-      SdkOptional<String> parentSpanId,
-      SdkOptional<String> startTime,
-      SdkOptional<String> endTime,
-      SdkOptional<int> durationNs,
-      SdkOptional<String> name,
-      SdkOptional<String> kind,
-      SdkOptional<String> statusCode,
-      SdkOptional<String> statusMessage,
-      SdkOptional<String> serviceName,
-      SdkOptional<Map<String, String>> resource,
-      SdkOptional<Map<String, String>> attributes,
-      SdkOptional<String> region}) get copyWith => _copyWith;
+  SpanRecord Function({SdkOptional<String> traceId, SdkOptional<String> spanId, SdkOptional<String> parentSpanId, SdkOptional<String> startTime, SdkOptional<String> endTime, SdkOptional<int> durationNs, SdkOptional<String> name, SdkOptional<String> kind, SdkOptional<String> statusCode, SdkOptional<String> statusMessage, SdkOptional<String> serviceName, SdkOptional<Map<String, String>> resource, SdkOptional<Map<String, String>> attributes, SdkOptional<String> region}) get copyWith => _copyWith;
 
-  SpanRecord _copyWith(
-          {Object? traceId = sdkOmittedValue,
-          Object? spanId = sdkOmittedValue,
-          Object? parentSpanId = sdkOmittedValue,
-          Object? startTime = sdkOmittedValue,
-          Object? endTime = sdkOmittedValue,
-          Object? durationNs = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? kind = sdkOmittedValue,
-          Object? statusCode = sdkOmittedValue,
-          Object? statusMessage = sdkOmittedValue,
-          Object? serviceName = sdkOmittedValue,
-          Object? resource = sdkOmittedValue,
-          Object? attributes = sdkOmittedValue,
-          Object? region = sdkOmittedValue}) =>
-      SpanRecord(
-        traceId: identical(traceId, sdkOmittedValue)
-            ? this.traceId
-            : traceId as SdkOptional<String>,
-        spanId: identical(spanId, sdkOmittedValue)
-            ? this.spanId
-            : spanId as SdkOptional<String>,
-        parentSpanId: identical(parentSpanId, sdkOmittedValue)
-            ? this.parentSpanId
-            : parentSpanId as SdkOptional<String>,
-        startTime: identical(startTime, sdkOmittedValue)
-            ? this.startTime
-            : startTime as SdkOptional<String>,
-        endTime: identical(endTime, sdkOmittedValue)
-            ? this.endTime
-            : endTime as SdkOptional<String>,
-        durationNs: identical(durationNs, sdkOmittedValue)
-            ? this.durationNs
-            : durationNs as SdkOptional<int>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        kind: identical(kind, sdkOmittedValue)
-            ? this.kind
-            : kind as SdkOptional<String>,
-        statusCode: identical(statusCode, sdkOmittedValue)
-            ? this.statusCode
-            : statusCode as SdkOptional<String>,
-        statusMessage: identical(statusMessage, sdkOmittedValue)
-            ? this.statusMessage
-            : statusMessage as SdkOptional<String>,
-        serviceName: identical(serviceName, sdkOmittedValue)
-            ? this.serviceName
-            : serviceName as SdkOptional<String>,
-        resource: identical(resource, sdkOmittedValue)
-            ? this.resource
-            : resource as SdkOptional<Map<String, String>>,
-        attributes: identical(attributes, sdkOmittedValue)
-            ? this.attributes
-            : attributes as SdkOptional<Map<String, String>>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-      );
+  SpanRecord _copyWith({Object? traceId = sdkOmittedValue, Object? spanId = sdkOmittedValue, Object? parentSpanId = sdkOmittedValue, Object? startTime = sdkOmittedValue, Object? endTime = sdkOmittedValue, Object? durationNs = sdkOmittedValue, Object? name = sdkOmittedValue, Object? kind = sdkOmittedValue, Object? statusCode = sdkOmittedValue, Object? statusMessage = sdkOmittedValue, Object? serviceName = sdkOmittedValue, Object? resource = sdkOmittedValue, Object? attributes = sdkOmittedValue, Object? region = sdkOmittedValue}) => SpanRecord(
+    traceId: identical(traceId, sdkOmittedValue) ? this.traceId : traceId as SdkOptional<String>,
+    spanId: identical(spanId, sdkOmittedValue) ? this.spanId : spanId as SdkOptional<String>,
+    parentSpanId: identical(parentSpanId, sdkOmittedValue) ? this.parentSpanId : parentSpanId as SdkOptional<String>,
+    startTime: identical(startTime, sdkOmittedValue) ? this.startTime : startTime as SdkOptional<String>,
+    endTime: identical(endTime, sdkOmittedValue) ? this.endTime : endTime as SdkOptional<String>,
+    durationNs: identical(durationNs, sdkOmittedValue) ? this.durationNs : durationNs as SdkOptional<int>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    kind: identical(kind, sdkOmittedValue) ? this.kind : kind as SdkOptional<String>,
+    statusCode: identical(statusCode, sdkOmittedValue) ? this.statusCode : statusCode as SdkOptional<String>,
+    statusMessage: identical(statusMessage, sdkOmittedValue) ? this.statusMessage : statusMessage as SdkOptional<String>,
+    serviceName: identical(serviceName, sdkOmittedValue) ? this.serviceName : serviceName as SdkOptional<String>,
+    resource: identical(resource, sdkOmittedValue) ? this.resource : resource as SdkOptional<Map<String, String>>,
+    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as SdkOptional<Map<String, String>>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+  );
 
   factory SpanRecord.fromJson(Map<String, dynamic> json) => SpanRecord(
-        traceId: json['traceId'] != null
-            ? SdkPresent((json['traceId'] as String?)!)
-            : const SdkOmitted(),
-        spanId: json['spanId'] != null
-            ? SdkPresent((json['spanId'] as String?)!)
-            : const SdkOmitted(),
-        parentSpanId: json['parentSpanId'] != null
-            ? SdkPresent((json['parentSpanId'] as String?)!)
-            : const SdkOmitted(),
-        startTime: json['startTime'] != null
-            ? SdkPresent((json['startTime'] as String?)!)
-            : const SdkOmitted(),
-        endTime: json['endTime'] != null
-            ? SdkPresent((json['endTime'] as String?)!)
-            : const SdkOmitted(),
-        durationNs: json['durationNs'] != null
-            ? SdkPresent(((json['durationNs'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        kind: json['kind'] != null
-            ? SdkPresent((json['kind'] as String?)!)
-            : const SdkOmitted(),
-        statusCode: json['statusCode'] != null
-            ? SdkPresent((json['statusCode'] as String?)!)
-            : const SdkOmitted(),
-        statusMessage: json['statusMessage'] != null
-            ? SdkPresent((json['statusMessage'] as String?)!)
-            : const SdkOmitted(),
-        serviceName: json['serviceName'] != null
-            ? SdkPresent((json['serviceName'] as String?)!)
-            : const SdkOmitted(),
-        resource: json['resource'] != null
-            ? SdkPresent((json['resource'] == null
-                ? null
-                : Map<String, dynamic>.from(json['resource'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-        attributes: json['attributes'] != null
-            ? SdkPresent((json['attributes'] == null
-                ? null
-                : Map<String, dynamic>.from(json['attributes'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-      );
+    traceId: json['traceId'] != null ? SdkPresent((json['traceId'] as String?)!) : const SdkOmitted(),
+    spanId: json['spanId'] != null ? SdkPresent((json['spanId'] as String?)!) : const SdkOmitted(),
+    parentSpanId: json['parentSpanId'] != null ? SdkPresent((json['parentSpanId'] as String?)!) : const SdkOmitted(),
+    startTime: json['startTime'] != null ? SdkPresent((json['startTime'] as String?)!) : const SdkOmitted(),
+    endTime: json['endTime'] != null ? SdkPresent((json['endTime'] as String?)!) : const SdkOmitted(),
+    durationNs: json['durationNs'] != null ? SdkPresent(((json['durationNs'] as num?)?.toInt())!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    kind: json['kind'] != null ? SdkPresent((json['kind'] as String?)!) : const SdkOmitted(),
+    statusCode: json['statusCode'] != null ? SdkPresent((json['statusCode'] as String?)!) : const SdkOmitted(),
+    statusMessage: json['statusMessage'] != null ? SdkPresent((json['statusMessage'] as String?)!) : const SdkOmitted(),
+    serviceName: json['serviceName'] != null ? SdkPresent((json['serviceName'] as String?)!) : const SdkOmitted(),
+    resource: json['resource'] != null ? SdkPresent((json['resource'] == null ? null : Map<String, dynamic>.from(json['resource'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+    attributes: json['attributes'] != null ? SdkPresent((json['attributes'] == null ? null : Map<String, dynamic>.from(json['attributes'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (traceId) {
-          SdkPresent<String>(value: final value) => {
-              'traceId': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (spanId) {
-          SdkPresent<String>(value: final value) => {
-              'spanId': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (parentSpanId) {
-          SdkPresent<String>(value: final value) => {
-              'parentSpanId': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startTime) {
-          SdkPresent<String>(value: final value) => {
-              'startTime': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (endTime) {
-          SdkPresent<String>(value: final value) => {
-              'endTime': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (durationNs) {
-          SdkPresent<int>(value: final value) => {
-              'durationNs': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (kind) {
-          SdkPresent<String>(value: final value) => {
-              'kind': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (statusCode) {
-          SdkPresent<String>(value: final value) => {
-              'statusCode': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (statusMessage) {
-          SdkPresent<String>(value: final value) => {
-              'statusMessage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (serviceName) {
-          SdkPresent<String>(value: final value) => {
-              'serviceName': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resource) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'resource': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attributes) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (traceId) {
+      SdkPresent<String>(value: final value) => {'traceId': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (spanId) {
+      SdkPresent<String>(value: final value) => {'spanId': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (parentSpanId) {
+      SdkPresent<String>(value: final value) => {'parentSpanId': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startTime) {
+      SdkPresent<String>(value: final value) => {'startTime': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (endTime) {
+      SdkPresent<String>(value: final value) => {'endTime': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (durationNs) {
+      SdkPresent<int>(value: final value) => {'durationNs': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (kind) {
+      SdkPresent<String>(value: final value) => {'kind': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (statusCode) {
+      SdkPresent<String>(value: final value) => {'statusCode': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (statusMessage) {
+      SdkPresent<String>(value: final value) => {'statusMessage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (serviceName) {
+      SdkPresent<String>(value: final value) => {'serviceName': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resource) {
+      SdkPresent<Map<String, String>>(value: final value) => {'resource': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attributes) {
+      SdkPresent<Map<String, String>>(value: final value) => {'attributes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

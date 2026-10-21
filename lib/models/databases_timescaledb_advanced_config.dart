@@ -8,37 +8,25 @@ part of 'databases.dart';
 class TimescaledbAdvancedConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of background workers for timescaledb operations. Set to the sum of your number of databases and the total number of concurrent background workers you want running at any given point in time.
   final SdkOptional<int> maxBackgroundWorkers;
 
-  const TimescaledbAdvancedConfig(
-      {this.maxBackgroundWorkers = const SdkOmitted()});
+  const TimescaledbAdvancedConfig({this.maxBackgroundWorkers = const SdkOmitted()});
 
-  TimescaledbAdvancedConfig Function({SdkOptional<int> maxBackgroundWorkers})
-      get copyWith => _copyWith;
+  TimescaledbAdvancedConfig Function({SdkOptional<int> maxBackgroundWorkers}) get copyWith => _copyWith;
 
-  TimescaledbAdvancedConfig _copyWith(
-          {Object? maxBackgroundWorkers = sdkOmittedValue}) =>
-      TimescaledbAdvancedConfig(
-        maxBackgroundWorkers: identical(maxBackgroundWorkers, sdkOmittedValue)
-            ? this.maxBackgroundWorkers
-            : maxBackgroundWorkers as SdkOptional<int>,
-      );
+  TimescaledbAdvancedConfig _copyWith({Object? maxBackgroundWorkers = sdkOmittedValue}) => TimescaledbAdvancedConfig(
+    maxBackgroundWorkers: identical(maxBackgroundWorkers, sdkOmittedValue) ? this.maxBackgroundWorkers : maxBackgroundWorkers as SdkOptional<int>,
+  );
 
-  factory TimescaledbAdvancedConfig.fromJson(Map<String, dynamic> json) =>
-      TimescaledbAdvancedConfig(
-        maxBackgroundWorkers: json['max_background_workers'] != null
-            ? SdkPresent(((json['max_background_workers'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory TimescaledbAdvancedConfig.fromJson(Map<String, dynamic> json) => TimescaledbAdvancedConfig(
+    maxBackgroundWorkers: json['max_background_workers'] != null ? SdkPresent(((json['max_background_workers'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (maxBackgroundWorkers) {
-          SdkPresent<int>(value: final value) => {
-              'max_background_workers': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (maxBackgroundWorkers) {
+      SdkPresent<int>(value: final value) => {'max_background_workers': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -11,31 +11,22 @@ class KeyGetVariant0 {
 
   const KeyGetVariant0({this.keys = const SdkOmitted()});
 
-  KeyGetVariant0 Function({SdkOptional<List<Key>> keys}) get copyWith =>
-      _copyWith;
+  KeyGetVariant0 Function({SdkOptional<List<Key>> keys}) get copyWith => _copyWith;
 
   KeyGetVariant0 _copyWith({Object? keys = sdkOmittedValue}) => KeyGetVariant0(
-        keys: identical(keys, sdkOmittedValue)
-            ? this.keys
-            : keys as SdkOptional<List<Key>>,
-      );
+    keys: identical(keys, sdkOmittedValue) ? this.keys : keys as SdkOptional<List<Key>>,
+  );
 
   factory KeyGetVariant0.fromJson(Map<String, dynamic> json) => KeyGetVariant0(
-        keys: json['keys'] != null
-            ? SdkPresent(((json['keys'] as List?)
-                ?.map((e) => Key.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    keys: json['keys'] != null ? SdkPresent(((json['keys'] as List?)?.map((e) => Key.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (keys) {
-          SdkPresent<List<Key>>(value: final value) => {
-              'keys': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (keys) {
+      SdkPresent<List<Key>>(value: final value) => {'keys': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `KeyGet` API schema.
@@ -49,25 +40,17 @@ class KeyGet {
   KeyGet Function({SdkOptional<List<Key>> keys}) get copyWith => _copyWith;
 
   KeyGet _copyWith({Object? keys = sdkOmittedValue}) => KeyGet(
-        keys: identical(keys, sdkOmittedValue)
-            ? this.keys
-            : keys as SdkOptional<List<Key>>,
-      );
+    keys: identical(keys, sdkOmittedValue) ? this.keys : keys as SdkOptional<List<Key>>,
+  );
 
   factory KeyGet.fromJson(Map<String, dynamic> json) => KeyGet(
-        keys: json['keys'] != null
-            ? SdkPresent(((json['keys'] as List?)
-                ?.map((e) => Key.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    keys: json['keys'] != null ? SdkPresent(((json['keys'] as List?)?.map((e) => Key.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (keys) {
-          SdkPresent<List<Key>>(value: final value) => {
-              'keys': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (keys) {
+      SdkPresent<List<Key>>(value: final value) => {'keys': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

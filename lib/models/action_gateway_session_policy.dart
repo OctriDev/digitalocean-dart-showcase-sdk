@@ -8,143 +8,76 @@ part of 'action_gateway_session.dart';
 class SessionPolicyRulesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required. A tool slug, optionally `&lt;tool_slug&gt;@&lt;version&gt;`, or a toolbelt as `toolbelt:&lt;name&gt;@&lt;version&gt;`. When the session selects tools, the rule must name one of them.
   final SdkOptional<String> tool;
-
   /// Optional argument conditions, keyed by argument name; the rule applies only to calls whose arguments match.
   final SdkOptional<Map<String, String>> match;
-
   /// Required: allow, ask, or deny.
   final SdkOptional<SessionPolicyRulesItemAction> action;
 
-  const SessionPolicyRulesItem(
-      {this.tool = const SdkOmitted(),
-      this.match = const SdkOmitted(),
-      this.action = const SdkOmitted()});
+  const SessionPolicyRulesItem({this.tool = const SdkOmitted(), this.match = const SdkOmitted(), this.action = const SdkOmitted()});
 
-  SessionPolicyRulesItem Function(
-          {SdkOptional<String> tool,
-          SdkOptional<Map<String, String>> match,
-          SdkOptional<SessionPolicyRulesItemAction> action})
-      get copyWith => _copyWith;
+  SessionPolicyRulesItem Function({SdkOptional<String> tool, SdkOptional<Map<String, String>> match, SdkOptional<SessionPolicyRulesItemAction> action}) get copyWith => _copyWith;
 
-  SessionPolicyRulesItem _copyWith(
-          {Object? tool = sdkOmittedValue,
-          Object? match = sdkOmittedValue,
-          Object? action = sdkOmittedValue}) =>
-      SessionPolicyRulesItem(
-        tool: identical(tool, sdkOmittedValue)
-            ? this.tool
-            : tool as SdkOptional<String>,
-        match: identical(match, sdkOmittedValue)
-            ? this.match
-            : match as SdkOptional<Map<String, String>>,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as SdkOptional<SessionPolicyRulesItemAction>,
-      );
+  SessionPolicyRulesItem _copyWith({Object? tool = sdkOmittedValue, Object? match = sdkOmittedValue, Object? action = sdkOmittedValue}) => SessionPolicyRulesItem(
+    tool: identical(tool, sdkOmittedValue) ? this.tool : tool as SdkOptional<String>,
+    match: identical(match, sdkOmittedValue) ? this.match : match as SdkOptional<Map<String, String>>,
+    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<SessionPolicyRulesItemAction>,
+  );
 
-  factory SessionPolicyRulesItem.fromJson(Map<String, dynamic> json) =>
-      SessionPolicyRulesItem(
-        tool: json['tool'] != null
-            ? SdkPresent((json['tool'] as String?)!)
-            : const SdkOmitted(),
-        match: json['match'] != null
-            ? SdkPresent((json['match'] == null
-                ? null
-                : Map<String, dynamic>.from(json['match'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-        action: json['action'] != null
-            ? SdkPresent((json['action'] != null
-                ? SessionPolicyRulesItemAction.fromJson(
-                    json['action'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory SessionPolicyRulesItem.fromJson(Map<String, dynamic> json) => SessionPolicyRulesItem(
+    tool: json['tool'] != null ? SdkPresent((json['tool'] as String?)!) : const SdkOmitted(),
+    match: json['match'] != null ? SdkPresent((json['match'] == null ? null : Map<String, dynamic>.from(json['match'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+    action: json['action'] != null ? SdkPresent((json['action'] != null ? SessionPolicyRulesItemAction.fromJson(json['action'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (tool) {
-          SdkPresent<String>(value: final value) => {
-              'tool': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (match) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'match': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (action) {
-          SdkPresent<SessionPolicyRulesItemAction>(value: final value) => {
-              'action': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (tool) {
+      SdkPresent<String>(value: final value) => {'tool': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (match) {
+      SdkPresent<Map<String, String>>(value: final value) => {'match': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (action) {
+      SdkPresent<SessionPolicyRulesItemAction>(value: final value) => {'action': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Tool-permission policy of a session.
 class SessionPolicy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Action for calls no rule matches. Empty means ask; otherwise this must be allow, ask, or deny.
   final SdkOptional<SessionPolicyDefaultAction> defaultAction;
-
   /// Rules for specific tools or toolbelts.
   final SdkOptional<List<SessionPolicyRulesItem>> rules;
 
-  const SessionPolicy(
-      {this.defaultAction = const SdkOmitted(),
-      this.rules = const SdkOmitted()});
+  const SessionPolicy({this.defaultAction = const SdkOmitted(), this.rules = const SdkOmitted()});
 
-  SessionPolicy Function(
-          {SdkOptional<SessionPolicyDefaultAction> defaultAction,
-          SdkOptional<List<SessionPolicyRulesItem>> rules})
-      get copyWith => _copyWith;
+  SessionPolicy Function({SdkOptional<SessionPolicyDefaultAction> defaultAction, SdkOptional<List<SessionPolicyRulesItem>> rules}) get copyWith => _copyWith;
 
-  SessionPolicy _copyWith(
-          {Object? defaultAction = sdkOmittedValue,
-          Object? rules = sdkOmittedValue}) =>
-      SessionPolicy(
-        defaultAction: identical(defaultAction, sdkOmittedValue)
-            ? this.defaultAction
-            : defaultAction as SdkOptional<SessionPolicyDefaultAction>,
-        rules: identical(rules, sdkOmittedValue)
-            ? this.rules
-            : rules as SdkOptional<List<SessionPolicyRulesItem>>,
-      );
+  SessionPolicy _copyWith({Object? defaultAction = sdkOmittedValue, Object? rules = sdkOmittedValue}) => SessionPolicy(
+    defaultAction: identical(defaultAction, sdkOmittedValue) ? this.defaultAction : defaultAction as SdkOptional<SessionPolicyDefaultAction>,
+    rules: identical(rules, sdkOmittedValue) ? this.rules : rules as SdkOptional<List<SessionPolicyRulesItem>>,
+  );
 
   factory SessionPolicy.fromJson(Map<String, dynamic> json) => SessionPolicy(
-        defaultAction: json['defaultAction'] != null
-            ? SdkPresent((json['defaultAction'] != null
-                ? SessionPolicyDefaultAction.fromJson(
-                    json['defaultAction'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        rules: json['rules'] != null
-            ? SdkPresent(((json['rules'] as List?)
-                ?.map((e) =>
-                    SessionPolicyRulesItem.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    defaultAction: json['defaultAction'] != null ? SdkPresent((json['defaultAction'] != null ? SessionPolicyDefaultAction.fromJson(json['defaultAction'] as String) : null)!) : const SdkOmitted(),
+    rules: json['rules'] != null ? SdkPresent(((json['rules'] as List?)?.map((e) => SessionPolicyRulesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (defaultAction) {
-          SdkPresent<SessionPolicyDefaultAction>(value: final value) => {
-              'defaultAction': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rules) {
-          SdkPresent<List<SessionPolicyRulesItem>>(value: final value) => {
-              'rules': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (defaultAction) {
+      SdkPresent<SessionPolicyDefaultAction>(value: final value) => {'defaultAction': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rules) {
+      SdkPresent<List<SessionPolicyRulesItem>>(value: final value) => {'rules': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

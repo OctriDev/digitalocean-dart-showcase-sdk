@@ -8,142 +8,76 @@ part of 'kubernetes_associated.dart';
 class AssociatedKubernetesResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of a resource associated with a Kubernetes cluster.
   final SdkOptional<String> id;
-
   /// The name of a resource associated with a Kubernetes cluster.
   final SdkOptional<String> name;
 
-  const AssociatedKubernetesResource(
-      {this.id = const SdkOmitted(), this.name = const SdkOmitted()});
+  const AssociatedKubernetesResource({this.id = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  AssociatedKubernetesResource Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> name}) get copyWith => _copyWith;
+  AssociatedKubernetesResource Function({SdkOptional<String> id, SdkOptional<String> name}) get copyWith => _copyWith;
 
-  AssociatedKubernetesResource _copyWith(
-          {Object? id = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
-      AssociatedKubernetesResource(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  AssociatedKubernetesResource _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue}) => AssociatedKubernetesResource(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory AssociatedKubernetesResource.fromJson(Map<String, dynamic> json) =>
-      AssociatedKubernetesResource(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AssociatedKubernetesResource.fromJson(Map<String, dynamic> json) => AssociatedKubernetesResource(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// An object containing the IDs of resources associated with a Kubernetes cluster.
 class AssociatedKubernetesResources {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A list of names and IDs for associated load balancers that can be destroyed along with the cluster.
   final SdkOptional<List<AssociatedKubernetesResource>> loadBalancers;
-
   /// A list of names and IDs for associated volumes that can be destroyed along with the cluster.
   final SdkOptional<List<AssociatedKubernetesResource>> volumes;
-
   /// A list of names and IDs for associated volume snapshots that can be destroyed along with the cluster.
   final SdkOptional<List<AssociatedKubernetesResource>> volumeSnapshots;
 
-  const AssociatedKubernetesResources(
-      {this.loadBalancers = const SdkOmitted(),
-      this.volumes = const SdkOmitted(),
-      this.volumeSnapshots = const SdkOmitted()});
+  const AssociatedKubernetesResources({this.loadBalancers = const SdkOmitted(), this.volumes = const SdkOmitted(), this.volumeSnapshots = const SdkOmitted()});
 
-  AssociatedKubernetesResources Function(
-          {SdkOptional<List<AssociatedKubernetesResource>> loadBalancers,
-          SdkOptional<List<AssociatedKubernetesResource>> volumes,
-          SdkOptional<List<AssociatedKubernetesResource>> volumeSnapshots})
-      get copyWith => _copyWith;
+  AssociatedKubernetesResources Function({SdkOptional<List<AssociatedKubernetesResource>> loadBalancers, SdkOptional<List<AssociatedKubernetesResource>> volumes, SdkOptional<List<AssociatedKubernetesResource>> volumeSnapshots}) get copyWith => _copyWith;
 
-  AssociatedKubernetesResources _copyWith(
-          {Object? loadBalancers = sdkOmittedValue,
-          Object? volumes = sdkOmittedValue,
-          Object? volumeSnapshots = sdkOmittedValue}) =>
-      AssociatedKubernetesResources(
-        loadBalancers: identical(loadBalancers, sdkOmittedValue)
-            ? this.loadBalancers
-            : loadBalancers as SdkOptional<List<AssociatedKubernetesResource>>,
-        volumes: identical(volumes, sdkOmittedValue)
-            ? this.volumes
-            : volumes as SdkOptional<List<AssociatedKubernetesResource>>,
-        volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue)
-            ? this.volumeSnapshots
-            : volumeSnapshots
-                as SdkOptional<List<AssociatedKubernetesResource>>,
-      );
+  AssociatedKubernetesResources _copyWith({Object? loadBalancers = sdkOmittedValue, Object? volumes = sdkOmittedValue, Object? volumeSnapshots = sdkOmittedValue}) => AssociatedKubernetesResources(
+    loadBalancers: identical(loadBalancers, sdkOmittedValue) ? this.loadBalancers : loadBalancers as SdkOptional<List<AssociatedKubernetesResource>>,
+    volumes: identical(volumes, sdkOmittedValue) ? this.volumes : volumes as SdkOptional<List<AssociatedKubernetesResource>>,
+    volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue) ? this.volumeSnapshots : volumeSnapshots as SdkOptional<List<AssociatedKubernetesResource>>,
+  );
 
-  factory AssociatedKubernetesResources.fromJson(Map<String, dynamic> json) =>
-      AssociatedKubernetesResources(
-        loadBalancers: json['load_balancers'] != null
-            ? SdkPresent(((json['load_balancers'] as List?)
-                ?.map((e) => AssociatedKubernetesResource.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        volumes: json['volumes'] != null
-            ? SdkPresent(((json['volumes'] as List?)
-                ?.map((e) => AssociatedKubernetesResource.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        volumeSnapshots: json['volume_snapshots'] != null
-            ? SdkPresent(((json['volume_snapshots'] as List?)
-                ?.map((e) => AssociatedKubernetesResource.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AssociatedKubernetesResources.fromJson(Map<String, dynamic> json) => AssociatedKubernetesResources(
+    loadBalancers: json['load_balancers'] != null ? SdkPresent(((json['load_balancers'] as List?)?.map((e) => AssociatedKubernetesResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    volumes: json['volumes'] != null ? SdkPresent(((json['volumes'] as List?)?.map((e) => AssociatedKubernetesResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    volumeSnapshots: json['volume_snapshots'] != null ? SdkPresent(((json['volume_snapshots'] as List?)?.map((e) => AssociatedKubernetesResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (loadBalancers) {
-          SdkPresent<List<AssociatedKubernetesResource>>(value: final value) =>
-            {
-              'load_balancers': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (volumes) {
-          SdkPresent<List<AssociatedKubernetesResource>>(value: final value) =>
-            {
-              'volumes': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (volumeSnapshots) {
-          SdkPresent<List<AssociatedKubernetesResource>>(value: final value) =>
-            {
-              'volume_snapshots': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (loadBalancers) {
+      SdkPresent<List<AssociatedKubernetesResource>>(value: final value) => {'load_balancers': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (volumes) {
+      SdkPresent<List<AssociatedKubernetesResource>>(value: final value) => {'volumes': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (volumeSnapshots) {
+      SdkPresent<List<AssociatedKubernetesResource>>(value: final value) => {'volume_snapshots': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

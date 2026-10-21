@@ -8,46 +8,30 @@ part of 'nfs_actions.dart';
 class NfsAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of action to initiate for the NFS share (such as resize or snapshot).
   final NfsActionType type_;
-
   /// The DigitalOcean region slug (e.g. atl1, nyc2) where the NFS snapshot resides.
   final SdkOptional<String> region;
 
   const NfsAction({required this.type_, this.region = const SdkOmitted()});
 
-  NfsAction Function({NfsActionType type_, SdkOptional<String> region})
-      get copyWith => _copyWith;
+  NfsAction Function({NfsActionType type_, SdkOptional<String> region}) get copyWith => _copyWith;
 
-  NfsAction _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? region = sdkOmittedValue}) =>
-      NfsAction(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as NfsActionType,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-      );
+  NfsAction _copyWith({Object? type_ = sdkOmittedValue, Object? region = sdkOmittedValue}) => NfsAction(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as NfsActionType,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+  );
 
   factory NfsAction.fromJson(Map<String, dynamic> json) => NfsAction(
-        type_: (json['type'] != null
-            ? NfsActionType.fromJson(json['type'] as String)
-            : null)!,
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-      );
+    type_: (json['type'] != null ? NfsActionType.fromJson(json['type'] as String) : null)!,
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

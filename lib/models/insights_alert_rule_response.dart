@@ -8,7 +8,6 @@ part of 'insights_alert.dart';
 class AlertRuleResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An Insights alert rule.
   final AlertRule alertRule;
 
@@ -16,21 +15,15 @@ class AlertRuleResponse {
 
   AlertRuleResponse Function({AlertRule alertRule}) get copyWith => _copyWith;
 
-  AlertRuleResponse _copyWith({Object? alertRule = sdkOmittedValue}) =>
-      AlertRuleResponse(
-        alertRule: identical(alertRule, sdkOmittedValue)
-            ? this.alertRule
-            : alertRule as AlertRule,
-      );
+  AlertRuleResponse _copyWith({Object? alertRule = sdkOmittedValue}) => AlertRuleResponse(
+    alertRule: identical(alertRule, sdkOmittedValue) ? this.alertRule : alertRule as AlertRule,
+  );
 
-  factory AlertRuleResponse.fromJson(Map<String, dynamic> json) =>
-      AlertRuleResponse(
-        alertRule: (json['alert_rule'] != null
-            ? AlertRule.fromJson(json['alert_rule'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AlertRuleResponse.fromJson(Map<String, dynamic> json) => AlertRuleResponse(
+    alertRule: (json['alert_rule'] != null ? AlertRule.fromJson(json['alert_rule'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'alert_rule': alertRule.toJson(),
-      };
+    'alert_rule': alertRule.toJson(),
+  };
 }

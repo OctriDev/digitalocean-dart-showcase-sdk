@@ -8,42 +8,27 @@ part of 'monitoring.dart';
 class MetricsData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Result of query.
   final List<MetricsResult> result;
-
   /// Required enumerated value serialized in the `resultType` wire field.
   final MetricsDataResultType resultType;
 
   const MetricsData({required this.result, required this.resultType});
 
-  MetricsData Function(
-      {List<MetricsResult> result,
-      MetricsDataResultType resultType}) get copyWith => _copyWith;
+  MetricsData Function({List<MetricsResult> result, MetricsDataResultType resultType}) get copyWith => _copyWith;
 
-  MetricsData _copyWith(
-          {Object? result = sdkOmittedValue,
-          Object? resultType = sdkOmittedValue}) =>
-      MetricsData(
-        result: identical(result, sdkOmittedValue)
-            ? this.result
-            : result as List<MetricsResult>,
-        resultType: identical(resultType, sdkOmittedValue)
-            ? this.resultType
-            : resultType as MetricsDataResultType,
-      );
+  MetricsData _copyWith({Object? result = sdkOmittedValue, Object? resultType = sdkOmittedValue}) => MetricsData(
+    result: identical(result, sdkOmittedValue) ? this.result : result as List<MetricsResult>,
+    resultType: identical(resultType, sdkOmittedValue) ? this.resultType : resultType as MetricsDataResultType,
+  );
 
   factory MetricsData.fromJson(Map<String, dynamic> json) => MetricsData(
-        result: ((json['result'] as List?)
-            ?.map((e) => MetricsResult.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        resultType: (json['resultType'] != null
-            ? MetricsDataResultType.fromJson(json['resultType'] as String)
-            : null)!,
-      );
+    result: ((json['result'] as List?)?.map((e) => MetricsResult.fromJson(e as Map<String, dynamic>)).toList())!,
+    resultType: (json['resultType'] != null ? MetricsDataResultType.fromJson(json['resultType'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'result': result.map((item) => item.toJson()).toList(),
-        'resultType': resultType.toJson(),
-      };
+    'result': result.map((item) => item.toJson()).toList(),
+    'resultType': resultType.toJson(),
+  };
 }

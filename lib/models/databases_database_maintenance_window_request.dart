@@ -8,35 +8,27 @@ part of 'databases_database.dart';
 class DatabaseMaintenanceWindowRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The day of the week on which to apply maintenance updates.
   final String day;
-
   /// The hour in UTC at which maintenance updates will be applied in 24 hour format.
   final String hour;
 
-  const DatabaseMaintenanceWindowRequest(
-      {required this.day, required this.hour});
+  const DatabaseMaintenanceWindowRequest({required this.day, required this.hour});
 
-  DatabaseMaintenanceWindowRequest Function({String day, String hour})
-      get copyWith => _copyWith;
+  DatabaseMaintenanceWindowRequest Function({String day, String hour}) get copyWith => _copyWith;
 
-  DatabaseMaintenanceWindowRequest _copyWith(
-          {Object? day = sdkOmittedValue, Object? hour = sdkOmittedValue}) =>
-      DatabaseMaintenanceWindowRequest(
-        day: identical(day, sdkOmittedValue) ? this.day : day as String,
-        hour: identical(hour, sdkOmittedValue) ? this.hour : hour as String,
-      );
+  DatabaseMaintenanceWindowRequest _copyWith({Object? day = sdkOmittedValue, Object? hour = sdkOmittedValue}) => DatabaseMaintenanceWindowRequest(
+    day: identical(day, sdkOmittedValue) ? this.day : day as String,
+    hour: identical(hour, sdkOmittedValue) ? this.hour : hour as String,
+  );
 
-  factory DatabaseMaintenanceWindowRequest.fromJson(
-          Map<String, dynamic> json) =>
-      DatabaseMaintenanceWindowRequest(
-        day: (json['day'] as String?)!,
-        hour: (json['hour'] as String?)!,
-      );
+  factory DatabaseMaintenanceWindowRequest.fromJson(Map<String, dynamic> json) => DatabaseMaintenanceWindowRequest(
+    day: (json['day'] as String?)!,
+    hour: (json['hour'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'day': day,
-        'hour': hour,
-      };
+    'day': day,
+    'hour': hour,
+  };
 }

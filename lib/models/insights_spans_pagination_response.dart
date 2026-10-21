@@ -8,35 +8,25 @@ part of 'insights_spans.dart';
 class SpansPaginationResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether more spans matched than were returned in this page. Cursor-based continuation is not yet supported.
   final SdkOptional<bool> hasMore;
 
   const SpansPaginationResponse({this.hasMore = const SdkOmitted()});
 
-  SpansPaginationResponse Function({SdkOptional<bool> hasMore}) get copyWith =>
-      _copyWith;
+  SpansPaginationResponse Function({SdkOptional<bool> hasMore}) get copyWith => _copyWith;
 
-  SpansPaginationResponse _copyWith({Object? hasMore = sdkOmittedValue}) =>
-      SpansPaginationResponse(
-        hasMore: identical(hasMore, sdkOmittedValue)
-            ? this.hasMore
-            : hasMore as SdkOptional<bool>,
-      );
+  SpansPaginationResponse _copyWith({Object? hasMore = sdkOmittedValue}) => SpansPaginationResponse(
+    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
+  );
 
-  factory SpansPaginationResponse.fromJson(Map<String, dynamic> json) =>
-      SpansPaginationResponse(
-        hasMore: json['hasMore'] != null
-            ? SdkPresent((json['hasMore'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory SpansPaginationResponse.fromJson(Map<String, dynamic> json) => SpansPaginationResponse(
+    hasMore: json['hasMore'] != null ? SdkPresent((json['hasMore'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (hasMore) {
-          SdkPresent<bool>(value: final value) => {
-              'hasMore': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (hasMore) {
+      SdkPresent<bool>(value: final value) => {'hasMore': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

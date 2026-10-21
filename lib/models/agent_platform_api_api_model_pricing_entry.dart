@@ -8,94 +8,49 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelPricingEntry {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Model name (for display purposes).
   final SdkOptional<String> modelName;
-
   /// Model UUID.
   final SdkOptional<String> modelUuid;
-
   /// Token pricing breakdown for a single model.
   final SdkOptional<ApiTokenPricing> pricing;
-
   /// Number of prompts/rows routed to this model.
   final SdkOptional<int> promptCount;
 
-  const ApiModelPricingEntry(
-      {this.modelName = const SdkOmitted(),
-      this.modelUuid = const SdkOmitted(),
-      this.pricing = const SdkOmitted(),
-      this.promptCount = const SdkOmitted()});
+  const ApiModelPricingEntry({this.modelName = const SdkOmitted(), this.modelUuid = const SdkOmitted(), this.pricing = const SdkOmitted(), this.promptCount = const SdkOmitted()});
 
-  ApiModelPricingEntry Function(
-      {SdkOptional<String> modelName,
-      SdkOptional<String> modelUuid,
-      SdkOptional<ApiTokenPricing> pricing,
-      SdkOptional<int> promptCount}) get copyWith => _copyWith;
+  ApiModelPricingEntry Function({SdkOptional<String> modelName, SdkOptional<String> modelUuid, SdkOptional<ApiTokenPricing> pricing, SdkOptional<int> promptCount}) get copyWith => _copyWith;
 
-  ApiModelPricingEntry _copyWith(
-          {Object? modelName = sdkOmittedValue,
-          Object? modelUuid = sdkOmittedValue,
-          Object? pricing = sdkOmittedValue,
-          Object? promptCount = sdkOmittedValue}) =>
-      ApiModelPricingEntry(
-        modelName: identical(modelName, sdkOmittedValue)
-            ? this.modelName
-            : modelName as SdkOptional<String>,
-        modelUuid: identical(modelUuid, sdkOmittedValue)
-            ? this.modelUuid
-            : modelUuid as SdkOptional<String>,
-        pricing: identical(pricing, sdkOmittedValue)
-            ? this.pricing
-            : pricing as SdkOptional<ApiTokenPricing>,
-        promptCount: identical(promptCount, sdkOmittedValue)
-            ? this.promptCount
-            : promptCount as SdkOptional<int>,
-      );
+  ApiModelPricingEntry _copyWith({Object? modelName = sdkOmittedValue, Object? modelUuid = sdkOmittedValue, Object? pricing = sdkOmittedValue, Object? promptCount = sdkOmittedValue}) => ApiModelPricingEntry(
+    modelName: identical(modelName, sdkOmittedValue) ? this.modelName : modelName as SdkOptional<String>,
+    modelUuid: identical(modelUuid, sdkOmittedValue) ? this.modelUuid : modelUuid as SdkOptional<String>,
+    pricing: identical(pricing, sdkOmittedValue) ? this.pricing : pricing as SdkOptional<ApiTokenPricing>,
+    promptCount: identical(promptCount, sdkOmittedValue) ? this.promptCount : promptCount as SdkOptional<int>,
+  );
 
-  factory ApiModelPricingEntry.fromJson(Map<String, dynamic> json) =>
-      ApiModelPricingEntry(
-        modelName: json['model_name'] != null
-            ? SdkPresent((json['model_name'] as String?)!)
-            : const SdkOmitted(),
-        modelUuid: json['model_uuid'] != null
-            ? SdkPresent((json['model_uuid'] as String?)!)
-            : const SdkOmitted(),
-        pricing: json['pricing'] != null
-            ? SdkPresent((json['pricing'] != null
-                ? ApiTokenPricing.fromJson(
-                    json['pricing'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        promptCount: json['prompt_count'] != null
-            ? SdkPresent(((json['prompt_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ApiModelPricingEntry.fromJson(Map<String, dynamic> json) => ApiModelPricingEntry(
+    modelName: json['model_name'] != null ? SdkPresent((json['model_name'] as String?)!) : const SdkOmitted(),
+    modelUuid: json['model_uuid'] != null ? SdkPresent((json['model_uuid'] as String?)!) : const SdkOmitted(),
+    pricing: json['pricing'] != null ? SdkPresent((json['pricing'] != null ? ApiTokenPricing.fromJson(json['pricing'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    promptCount: json['prompt_count'] != null ? SdkPresent(((json['prompt_count'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (modelName) {
-          SdkPresent<String>(value: final value) => {
-              'model_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (modelUuid) {
-          SdkPresent<String>(value: final value) => {
-              'model_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pricing) {
-          SdkPresent<ApiTokenPricing>(value: final value) => {
-              'pricing': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptCount) {
-          SdkPresent<int>(value: final value) => {
-              'prompt_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (modelName) {
+      SdkPresent<String>(value: final value) => {'model_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (modelUuid) {
+      SdkPresent<String>(value: final value) => {'model_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pricing) {
+      SdkPresent<ApiTokenPricing>(value: final value) => {'pricing': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptCount) {
+      SdkPresent<int>(value: final value) => {'prompt_count': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -7,130 +7,65 @@ part of 'droplets.dart';
 class AllDropletBackupPoliciesVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A map where the keys are the Droplet IDs and the values are objects containing the backup policy information for each Droplet.
   final SdkOptional<Map<String, DropletBackupPolicyRecord>> policies;
 
   const AllDropletBackupPoliciesVariant0({this.policies = const SdkOmitted()});
 
-  AllDropletBackupPoliciesVariant0 Function(
-          {SdkOptional<Map<String, DropletBackupPolicyRecord>> policies})
-      get copyWith => _copyWith;
+  AllDropletBackupPoliciesVariant0 Function({SdkOptional<Map<String, DropletBackupPolicyRecord>> policies}) get copyWith => _copyWith;
 
-  AllDropletBackupPoliciesVariant0 _copyWith(
-          {Object? policies = sdkOmittedValue}) =>
-      AllDropletBackupPoliciesVariant0(
-        policies: identical(policies, sdkOmittedValue)
-            ? this.policies
-            : policies as SdkOptional<Map<String, DropletBackupPolicyRecord>>,
-      );
+  AllDropletBackupPoliciesVariant0 _copyWith({Object? policies = sdkOmittedValue}) => AllDropletBackupPoliciesVariant0(
+    policies: identical(policies, sdkOmittedValue) ? this.policies : policies as SdkOptional<Map<String, DropletBackupPolicyRecord>>,
+  );
 
-  factory AllDropletBackupPoliciesVariant0.fromJson(
-          Map<String, dynamic> json) =>
-      AllDropletBackupPoliciesVariant0(
-        policies: json['policies'] != null
-            ? SdkPresent((json['policies'] == null
-                ? null
-                : Map<String, dynamic>.from(json['policies'] as Map).map(
-                    (key, value) => MapEntry(
-                        key,
-                        DropletBackupPolicyRecord.fromJson(
-                            value as Map<String, dynamic>))))!)
-            : const SdkOmitted(),
-      );
+  factory AllDropletBackupPoliciesVariant0.fromJson(Map<String, dynamic> json) => AllDropletBackupPoliciesVariant0(
+    policies: json['policies'] != null ? SdkPresent((json['policies'] == null ? null : Map<String, dynamic>.from(json['policies'] as Map).map((key, value) => MapEntry(key, DropletBackupPolicyRecord.fromJson(value as Map<String, dynamic>))))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (policies) {
-          SdkPresent<Map<String, DropletBackupPolicyRecord>>(
-            value: final value
-          ) =>
-            {
-              'policies':
-                  value.map((key, value) => MapEntry(key, value.toJson())),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (policies) {
+      SdkPresent<Map<String, DropletBackupPolicyRecord>>(value: final value) => {'policies': value.map((key, value) => MapEntry(key, value.toJson())),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AllDropletBackupPolicies` API schema.
 class AllDropletBackupPolicies {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A map where the keys are the Droplet IDs and the values are objects containing the backup policy information for each Droplet.
   final SdkOptional<Map<String, DropletBackupPolicyRecord>> policies;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllDropletBackupPolicies(
-      {this.policies = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllDropletBackupPolicies({this.policies = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AllDropletBackupPolicies Function(
-      {SdkOptional<Map<String, DropletBackupPolicyRecord>> policies,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllDropletBackupPolicies Function({SdkOptional<Map<String, DropletBackupPolicyRecord>> policies, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllDropletBackupPolicies _copyWith(
-          {Object? policies = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllDropletBackupPolicies(
-        policies: identical(policies, sdkOmittedValue)
-            ? this.policies
-            : policies as SdkOptional<Map<String, DropletBackupPolicyRecord>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllDropletBackupPolicies _copyWith({Object? policies = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllDropletBackupPolicies(
+    policies: identical(policies, sdkOmittedValue) ? this.policies : policies as SdkOptional<Map<String, DropletBackupPolicyRecord>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory AllDropletBackupPolicies.fromJson(Map<String, dynamic> json) =>
-      AllDropletBackupPolicies(
-        policies: json['policies'] != null
-            ? SdkPresent((json['policies'] == null
-                ? null
-                : Map<String, dynamic>.from(json['policies'] as Map).map(
-                    (key, value) => MapEntry(
-                        key,
-                        DropletBackupPolicyRecord.fromJson(
-                            value as Map<String, dynamic>))))!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AllDropletBackupPolicies.fromJson(Map<String, dynamic> json) => AllDropletBackupPolicies(
+    policies: json['policies'] != null ? SdkPresent((json['policies'] == null ? null : Map<String, dynamic>.from(json['policies'] as Map).map((key, value) => MapEntry(key, DropletBackupPolicyRecord.fromJson(value as Map<String, dynamic>))))!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (policies) {
-          SdkPresent<Map<String, DropletBackupPolicyRecord>>(
-            value: final value
-          ) =>
-            {
-              'policies':
-                  value.map((key, value) => MapEntry(key, value.toJson())),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (policies) {
+      SdkPresent<Map<String, DropletBackupPolicyRecord>>(value: final value) => {'policies': value.map((key, value) => MapEntry(key, value.toJson())),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

@@ -8,36 +8,25 @@ part of 'agent_platform_api_api_delete.dart';
 class ApiDeleteScenarioSetOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// UUID of the deleted scenario set.
   final SdkOptional<String> scenarioSetUuid;
 
   const ApiDeleteScenarioSetOutput({this.scenarioSetUuid = const SdkOmitted()});
 
-  ApiDeleteScenarioSetOutput Function({SdkOptional<String> scenarioSetUuid})
-      get copyWith => _copyWith;
+  ApiDeleteScenarioSetOutput Function({SdkOptional<String> scenarioSetUuid}) get copyWith => _copyWith;
 
-  ApiDeleteScenarioSetOutput _copyWith(
-          {Object? scenarioSetUuid = sdkOmittedValue}) =>
-      ApiDeleteScenarioSetOutput(
-        scenarioSetUuid: identical(scenarioSetUuid, sdkOmittedValue)
-            ? this.scenarioSetUuid
-            : scenarioSetUuid as SdkOptional<String>,
-      );
+  ApiDeleteScenarioSetOutput _copyWith({Object? scenarioSetUuid = sdkOmittedValue}) => ApiDeleteScenarioSetOutput(
+    scenarioSetUuid: identical(scenarioSetUuid, sdkOmittedValue) ? this.scenarioSetUuid : scenarioSetUuid as SdkOptional<String>,
+  );
 
-  factory ApiDeleteScenarioSetOutput.fromJson(Map<String, dynamic> json) =>
-      ApiDeleteScenarioSetOutput(
-        scenarioSetUuid: json['scenario_set_uuid'] != null
-            ? SdkPresent((json['scenario_set_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiDeleteScenarioSetOutput.fromJson(Map<String, dynamic> json) => ApiDeleteScenarioSetOutput(
+    scenarioSetUuid: json['scenario_set_uuid'] != null ? SdkPresent((json['scenario_set_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (scenarioSetUuid) {
-          SdkPresent<String>(value: final value) => {
-              'scenario_set_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (scenarioSetUuid) {
+      SdkPresent<String>(value: final value) => {'scenario_set_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

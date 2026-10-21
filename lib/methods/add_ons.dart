@@ -14,17 +14,12 @@ Future<AddonsGetApp> addonsGetApp(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'addonsGetApp',
-          fromJsonRaw: (value) =>
-              AddonsGetApp.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AddonsGetApp.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To find out what metadata is required for a specific add-on, send a GET request to `/v2/add-ons/apps/{app_slug}/metadata`. Metadata varies by application.
 ///
@@ -37,18 +32,12 @@ Future<AddonsGetAppMetadata> addonsGetAppMetadata(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'addonsGetAppMetadata',
-          fromJsonRaw: (value) =>
-              AddonsGetAppMetadata.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AddonsGetAppMetadata.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To fetch all Add-On Resources under your team, send a GET request to `/v2/add-ons/saas`.
 Future<AddonsList> addonsList(ClientConfig config,
@@ -57,17 +46,12 @@ Future<AddonsList> addonsList(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'addonsList',
-          fromJsonRaw: (value) =>
-              AddonsList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AddonsList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create an add-on resource, send a POST request to `/v2/add-ons/saas` with required parameters. Some add-ons require additional metadata to be provided in the request body. To find out what metadata is required for a specific add-on, send a GET request to `/v2/add-ons/apps/{app_slug}/metadata`.
 ///
@@ -101,17 +85,12 @@ Future<AddonsCreate> addonsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'addonsCreate',
-          fromJsonRaw: (value) =>
-              AddonsCreate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AddonsCreate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To fetch details of a specific Add-On Resource, send a GET request to `/v2/add-ons/saas/{resource_uuid}`. Replace `{resource_uuid}` with the UUID of the resource you want to retrieve.
 ///
@@ -123,18 +102,12 @@ Future<AddonsGet> addonsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'addonsGet',
-          fromJsonRaw: (value) =>
-              AddonsGet.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AddonsGet.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an add-on resource, send a DELETE request to `/v2/add-ons/saas/{resource_uuid}` with the UUID of the resource to delete. You cannot retrieve the resource after it has been deleted. The response indicates a request was sent to the 3rd party add-on provider to delete the resource. You will no longer be billed for this resource.
 ///
@@ -149,15 +122,10 @@ Future<void> addonsDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'addonsDelete',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To change the name of an Add-On Resource, send a PATCH request to `/v2/add-ons/saas/{resource_uuid}`. Replace `{resource_uuid}` with the UUID of the resource for which you want to change the name.
 ///
@@ -173,18 +141,12 @@ Future<AddonsUpdate> addonsPatch(ClientConfig config,
           body: {'name': name},
           decoder: SdkResponseDecoder.json,
           operationId: 'addonsPatch',
-          fromJsonRaw: (value) =>
-              AddonsUpdate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AddonsUpdate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To change the plan associated with an Add-On Resource, send a PATCH request to `/v2/add-ons/saas/{resource_uuid}/plan`. Replace `{resource_uuid}` with the UUID of the resource for which you want to change the plan.
 ///
@@ -201,15 +163,8 @@ Future<AddonsUpdate> addonsPatchPlan(ClientConfig config,
           body: {'plan_slug': planSlug},
           decoder: SdkResponseDecoder.json,
           operationId: 'addonsPatchPlan',
-          fromJsonRaw: (value) =>
-              AddonsUpdate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AddonsUpdate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

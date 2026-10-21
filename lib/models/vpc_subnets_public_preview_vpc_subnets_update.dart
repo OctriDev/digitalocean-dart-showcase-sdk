@@ -8,7 +8,6 @@ part of 'vpc_subnets_public_preview.dart';
 class VpcSubnetUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The new human-readable name of the VPC subnet.
   final String name;
 
@@ -16,17 +15,15 @@ class VpcSubnetUpdate {
 
   VpcSubnetUpdate Function({String name}) get copyWith => _copyWith;
 
-  VpcSubnetUpdate _copyWith({Object? name = sdkOmittedValue}) =>
-      VpcSubnetUpdate(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-      );
+  VpcSubnetUpdate _copyWith({Object? name = sdkOmittedValue}) => VpcSubnetUpdate(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+  );
 
-  factory VpcSubnetUpdate.fromJson(Map<String, dynamic> json) =>
-      VpcSubnetUpdate(
-        name: (json['name'] as String?)!,
-      );
+  factory VpcSubnetUpdate.fromJson(Map<String, dynamic> json) => VpcSubnetUpdate(
+    name: (json['name'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-      };
+    'name': name,
+  };
 }

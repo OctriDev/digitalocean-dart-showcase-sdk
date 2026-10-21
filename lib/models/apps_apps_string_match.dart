@@ -8,73 +8,41 @@ part of 'apps_apps.dart';
 class AppsStringMatch {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Exact string match. Only 1 of `exact`, `prefix`, or `regex` must be set. An empty string is a valid value and will be serialized explicitly rather than being omitted from the payload.
   final SdkOptional<String?> exact;
-
   /// Prefix-based match. Only 1 of `exact`, `prefix`, or `regex` must be set.
   final SdkOptional<String?> prefix;
-
   /// RE2 style regex-based match. Only 1 of `exact`, `prefix`, or `regex` must be set. For more information about RE2 syntax, see: https://github.com/google/re2/wiki/Syntax
   final SdkOptional<String> regex;
 
-  const AppsStringMatch(
-      {this.exact = const SdkOmitted(),
-      this.prefix = const SdkOmitted(),
-      this.regex = const SdkOmitted()});
+  const AppsStringMatch({this.exact = const SdkOmitted(), this.prefix = const SdkOmitted(), this.regex = const SdkOmitted()});
 
-  AppsStringMatch Function(
-      {SdkOptional<String?> exact,
-      SdkOptional<String?> prefix,
-      SdkOptional<String> regex}) get copyWith => _copyWith;
+  AppsStringMatch Function({SdkOptional<String?> exact, SdkOptional<String?> prefix, SdkOptional<String> regex}) get copyWith => _copyWith;
 
-  AppsStringMatch _copyWith(
-          {Object? exact = sdkOmittedValue,
-          Object? prefix = sdkOmittedValue,
-          Object? regex = sdkOmittedValue}) =>
-      AppsStringMatch(
-        exact: identical(exact, sdkOmittedValue)
-            ? this.exact
-            : exact as SdkOptional<String?>,
-        prefix: identical(prefix, sdkOmittedValue)
-            ? this.prefix
-            : prefix as SdkOptional<String?>,
-        regex: identical(regex, sdkOmittedValue)
-            ? this.regex
-            : regex as SdkOptional<String>,
-      );
+  AppsStringMatch _copyWith({Object? exact = sdkOmittedValue, Object? prefix = sdkOmittedValue, Object? regex = sdkOmittedValue}) => AppsStringMatch(
+    exact: identical(exact, sdkOmittedValue) ? this.exact : exact as SdkOptional<String?>,
+    prefix: identical(prefix, sdkOmittedValue) ? this.prefix : prefix as SdkOptional<String?>,
+    regex: identical(regex, sdkOmittedValue) ? this.regex : regex as SdkOptional<String>,
+  );
 
-  factory AppsStringMatch.fromJson(Map<String, dynamic> json) =>
-      AppsStringMatch(
-        exact: json.containsKey('exact')
-            ? SdkPresent(json['exact'] as String?)
-            : const SdkOmitted(),
-        prefix: json.containsKey('prefix')
-            ? SdkPresent(json['prefix'] as String?)
-            : const SdkOmitted(),
-        regex: json['regex'] != null
-            ? SdkPresent((json['regex'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AppsStringMatch.fromJson(Map<String, dynamic> json) => AppsStringMatch(
+    exact: json.containsKey('exact') ? SdkPresent(json['exact'] as String?) : const SdkOmitted(),
+    prefix: json.containsKey('prefix') ? SdkPresent(json['prefix'] as String?) : const SdkOmitted(),
+    regex: json['regex'] != null ? SdkPresent((json['regex'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (exact) {
-          SdkPresent<String?>(value: final value) => {
-              'exact': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (prefix) {
-          SdkPresent<String?>(value: final value) => {
-              'prefix': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (regex) {
-          SdkPresent<String>(value: final value) => {
-              'regex': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (exact) {
+      SdkPresent<String?>(value: final value) => {'exact': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (prefix) {
+      SdkPresent<String?>(value: final value) => {'prefix': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (regex) {
+      SdkPresent<String>(value: final value) => {'regex': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

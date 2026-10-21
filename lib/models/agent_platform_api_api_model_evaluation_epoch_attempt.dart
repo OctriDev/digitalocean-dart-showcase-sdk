@@ -8,76 +8,41 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelEvaluationEpochAttempt {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `candidate_routed_task` wire field.
   final SdkOptional<String> candidateRoutedTask;
-
   /// Per-metric scores and judge reasoning for this specific pass.
   final SdkOptional<List<ApiEvaluationMetricResult>> metricResults;
-
   /// The response from the candidate model for this specific pass.
   final SdkOptional<String> output;
 
-  const ApiModelEvaluationEpochAttempt(
-      {this.candidateRoutedTask = const SdkOmitted(),
-      this.metricResults = const SdkOmitted(),
-      this.output = const SdkOmitted()});
+  const ApiModelEvaluationEpochAttempt({this.candidateRoutedTask = const SdkOmitted(), this.metricResults = const SdkOmitted(), this.output = const SdkOmitted()});
 
-  ApiModelEvaluationEpochAttempt Function(
-      {SdkOptional<String> candidateRoutedTask,
-      SdkOptional<List<ApiEvaluationMetricResult>> metricResults,
-      SdkOptional<String> output}) get copyWith => _copyWith;
+  ApiModelEvaluationEpochAttempt Function({SdkOptional<String> candidateRoutedTask, SdkOptional<List<ApiEvaluationMetricResult>> metricResults, SdkOptional<String> output}) get copyWith => _copyWith;
 
-  ApiModelEvaluationEpochAttempt _copyWith(
-          {Object? candidateRoutedTask = sdkOmittedValue,
-          Object? metricResults = sdkOmittedValue,
-          Object? output = sdkOmittedValue}) =>
-      ApiModelEvaluationEpochAttempt(
-        candidateRoutedTask: identical(candidateRoutedTask, sdkOmittedValue)
-            ? this.candidateRoutedTask
-            : candidateRoutedTask as SdkOptional<String>,
-        metricResults: identical(metricResults, sdkOmittedValue)
-            ? this.metricResults
-            : metricResults as SdkOptional<List<ApiEvaluationMetricResult>>,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as SdkOptional<String>,
-      );
+  ApiModelEvaluationEpochAttempt _copyWith({Object? candidateRoutedTask = sdkOmittedValue, Object? metricResults = sdkOmittedValue, Object? output = sdkOmittedValue}) => ApiModelEvaluationEpochAttempt(
+    candidateRoutedTask: identical(candidateRoutedTask, sdkOmittedValue) ? this.candidateRoutedTask : candidateRoutedTask as SdkOptional<String>,
+    metricResults: identical(metricResults, sdkOmittedValue) ? this.metricResults : metricResults as SdkOptional<List<ApiEvaluationMetricResult>>,
+    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<String>,
+  );
 
-  factory ApiModelEvaluationEpochAttempt.fromJson(Map<String, dynamic> json) =>
-      ApiModelEvaluationEpochAttempt(
-        candidateRoutedTask: json['candidate_routed_task'] != null
-            ? SdkPresent((json['candidate_routed_task'] as String?)!)
-            : const SdkOmitted(),
-        metricResults: json['metric_results'] != null
-            ? SdkPresent(((json['metric_results'] as List?)
-                ?.map((e) => ApiEvaluationMetricResult.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        output: json['output'] != null
-            ? SdkPresent((json['output'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiModelEvaluationEpochAttempt.fromJson(Map<String, dynamic> json) => ApiModelEvaluationEpochAttempt(
+    candidateRoutedTask: json['candidate_routed_task'] != null ? SdkPresent((json['candidate_routed_task'] as String?)!) : const SdkOmitted(),
+    metricResults: json['metric_results'] != null ? SdkPresent(((json['metric_results'] as List?)?.map((e) => ApiEvaluationMetricResult.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    output: json['output'] != null ? SdkPresent((json['output'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (candidateRoutedTask) {
-          SdkPresent<String>(value: final value) => {
-              'candidate_routed_task': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metricResults) {
-          SdkPresent<List<ApiEvaluationMetricResult>>(value: final value) => {
-              'metric_results': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (output) {
-          SdkPresent<String>(value: final value) => {
-              'output': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (candidateRoutedTask) {
+      SdkPresent<String>(value: final value) => {'candidate_routed_task': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metricResults) {
+      SdkPresent<List<ApiEvaluationMetricResult>>(value: final value) => {'metric_results': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (output) {
+      SdkPresent<String>(value: final value) => {'output': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

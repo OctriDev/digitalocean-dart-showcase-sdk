@@ -8,238 +8,124 @@ part of 'block_storage_actions.dart';
 class VolumeActionVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// This is the type of action that the object represents. For example, this could be "attach_volume" to represent the state of a volume attach action.
   final SdkOptional<String> type_;
-
   /// Optional `integer` value serialized in the `resource_id` wire field.
   final SdkOptional<int?> resourceId;
 
-  const VolumeActionVariant0(
-      {this.type_ = const SdkOmitted(), this.resourceId = const SdkOmitted()});
+  const VolumeActionVariant0({this.type_ = const SdkOmitted(), this.resourceId = const SdkOmitted()});
 
-  VolumeActionVariant0 Function(
-      {SdkOptional<String> type_,
-      SdkOptional<int?> resourceId}) get copyWith => _copyWith;
+  VolumeActionVariant0 Function({SdkOptional<String> type_, SdkOptional<int?> resourceId}) get copyWith => _copyWith;
 
-  VolumeActionVariant0 _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? resourceId = sdkOmittedValue}) =>
-      VolumeActionVariant0(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        resourceId: identical(resourceId, sdkOmittedValue)
-            ? this.resourceId
-            : resourceId as SdkOptional<int?>,
-      );
+  VolumeActionVariant0 _copyWith({Object? type_ = sdkOmittedValue, Object? resourceId = sdkOmittedValue}) => VolumeActionVariant0(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    resourceId: identical(resourceId, sdkOmittedValue) ? this.resourceId : resourceId as SdkOptional<int?>,
+  );
 
-  factory VolumeActionVariant0.fromJson(Map<String, dynamic> json) =>
-      VolumeActionVariant0(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        resourceId: json.containsKey('resource_id')
-            ? SdkPresent((json['resource_id'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory VolumeActionVariant0.fromJson(Map<String, dynamic> json) => VolumeActionVariant0(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    resourceId: json.containsKey('resource_id') ? SdkPresent((json['resource_id'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceId) {
-          SdkPresent<int?>(value: final value) => {
-              'resource_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceId) {
+      SdkPresent<int?>(value: final value) => {'resource_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VolumeAction` API schema.
 class VolumeAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
   final SdkOptional<String> type_;
-
   /// A unique identifier for the resource that the action is associated with.
   final SdkOptional<int?> resourceId;
-
   /// A unique numeric ID that can be used to identify and reference an action.
   final SdkOptional<int> id;
-
   /// The current status of the action. This can be "in-progress", "completed", or "errored".
   final SdkOptional<ActionStatus> status;
-
   /// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
   final SdkOptional<String> startedAt;
-
   /// A time value given in ISO8601 combined date and time format that represents when the action was completed.
   final SdkOptional<String?> completedAt;
-
   /// The type of resource that the action is associated with.
   final SdkOptional<String> resourceType;
-
   /// Optional object value serialized in the `region` wire field.
   final SdkOptional<Region> region;
-
   /// A human-readable string that is used as a unique identifier for each region.
   final SdkOptional<String?> regionSlug;
 
-  const VolumeAction(
-      {this.type_ = const SdkOmitted(),
-      this.resourceId = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.startedAt = const SdkOmitted(),
-      this.completedAt = const SdkOmitted(),
-      this.resourceType = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.regionSlug = const SdkOmitted()});
+  const VolumeAction({this.type_ = const SdkOmitted(), this.resourceId = const SdkOmitted(), this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.completedAt = const SdkOmitted(), this.resourceType = const SdkOmitted(), this.region = const SdkOmitted(), this.regionSlug = const SdkOmitted()});
 
-  VolumeAction Function(
-      {SdkOptional<String> type_,
-      SdkOptional<int?> resourceId,
-      SdkOptional<int> id,
-      SdkOptional<ActionStatus> status,
-      SdkOptional<String> startedAt,
-      SdkOptional<String?> completedAt,
-      SdkOptional<String> resourceType,
-      SdkOptional<Region> region,
-      SdkOptional<String?> regionSlug}) get copyWith => _copyWith;
+  VolumeAction Function({SdkOptional<String> type_, SdkOptional<int?> resourceId, SdkOptional<int> id, SdkOptional<ActionStatus> status, SdkOptional<String> startedAt, SdkOptional<String?> completedAt, SdkOptional<String> resourceType, SdkOptional<Region> region, SdkOptional<String?> regionSlug}) get copyWith => _copyWith;
 
-  VolumeAction _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? resourceId = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? startedAt = sdkOmittedValue,
-          Object? completedAt = sdkOmittedValue,
-          Object? resourceType = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? regionSlug = sdkOmittedValue}) =>
-      VolumeAction(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        resourceId: identical(resourceId, sdkOmittedValue)
-            ? this.resourceId
-            : resourceId as SdkOptional<int?>,
-        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ActionStatus>,
-        startedAt: identical(startedAt, sdkOmittedValue)
-            ? this.startedAt
-            : startedAt as SdkOptional<String>,
-        completedAt: identical(completedAt, sdkOmittedValue)
-            ? this.completedAt
-            : completedAt as SdkOptional<String?>,
-        resourceType: identical(resourceType, sdkOmittedValue)
-            ? this.resourceType
-            : resourceType as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<Region>,
-        regionSlug: identical(regionSlug, sdkOmittedValue)
-            ? this.regionSlug
-            : regionSlug as SdkOptional<String?>,
-      );
+  VolumeAction _copyWith({Object? type_ = sdkOmittedValue, Object? resourceId = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? resourceType = sdkOmittedValue, Object? region = sdkOmittedValue, Object? regionSlug = sdkOmittedValue}) => VolumeAction(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    resourceId: identical(resourceId, sdkOmittedValue) ? this.resourceId : resourceId as SdkOptional<int?>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ActionStatus>,
+    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String>,
+    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<String?>,
+    resourceType: identical(resourceType, sdkOmittedValue) ? this.resourceType : resourceType as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<Region>,
+    regionSlug: identical(regionSlug, sdkOmittedValue) ? this.regionSlug : regionSlug as SdkOptional<String?>,
+  );
 
   factory VolumeAction.fromJson(Map<String, dynamic> json) => VolumeAction(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        resourceId: json.containsKey('resource_id')
-            ? SdkPresent((json['resource_id'] as num?)?.toInt())
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent(((json['id'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ActionStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        startedAt: json['started_at'] != null
-            ? SdkPresent((json['started_at'] as String?)!)
-            : const SdkOmitted(),
-        completedAt: json.containsKey('completed_at')
-            ? SdkPresent(json['completed_at'] as String?)
-            : const SdkOmitted(),
-        resourceType: json['resource_type'] != null
-            ? SdkPresent((json['resource_type'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? Region.fromJson(json['region'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        regionSlug: json.containsKey('region_slug')
-            ? SdkPresent(json['region_slug'] as String?)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    resourceId: json.containsKey('resource_id') ? SdkPresent((json['resource_id'] as num?)?.toInt()) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent(((json['id'] as num?)?.toInt())!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ActionStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    startedAt: json['started_at'] != null ? SdkPresent((json['started_at'] as String?)!) : const SdkOmitted(),
+    completedAt: json.containsKey('completed_at') ? SdkPresent(json['completed_at'] as String?) : const SdkOmitted(),
+    resourceType: json['resource_type'] != null ? SdkPresent((json['resource_type'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? Region.fromJson(json['region'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    regionSlug: json.containsKey('region_slug') ? SdkPresent(json['region_slug'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceId) {
-          SdkPresent<int?>(value: final value) => {
-              'resource_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<int>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<ActionStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startedAt) {
-          SdkPresent<String>(value: final value) => {
-              'started_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (completedAt) {
-          SdkPresent<String?>(value: final value) => {
-              'completed_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceType) {
-          SdkPresent<String>(value: final value) => {
-              'resource_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<Region>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (regionSlug) {
-          SdkPresent<String?>(value: final value) => {
-              'region_slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceId) {
+      SdkPresent<int?>(value: final value) => {'resource_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<int>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<ActionStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startedAt) {
+      SdkPresent<String>(value: final value) => {'started_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (completedAt) {
+      SdkPresent<String?>(value: final value) => {'completed_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceType) {
+      SdkPresent<String>(value: final value) => {'resource_type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<Region>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (regionSlug) {
+      SdkPresent<String?>(value: final value) => {'region_slug': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -11,34 +11,22 @@ class AllRepositoriesV2Variant0 {
 
   const AllRepositoriesV2Variant0({this.repositories = const SdkOmitted()});
 
-  AllRepositoriesV2Variant0 Function(
-      {SdkOptional<List<RepositoryV2>> repositories}) get copyWith => _copyWith;
+  AllRepositoriesV2Variant0 Function({SdkOptional<List<RepositoryV2>> repositories}) get copyWith => _copyWith;
 
-  AllRepositoriesV2Variant0 _copyWith(
-          {Object? repositories = sdkOmittedValue}) =>
-      AllRepositoriesV2Variant0(
-        repositories: identical(repositories, sdkOmittedValue)
-            ? this.repositories
-            : repositories as SdkOptional<List<RepositoryV2>>,
-      );
+  AllRepositoriesV2Variant0 _copyWith({Object? repositories = sdkOmittedValue}) => AllRepositoriesV2Variant0(
+    repositories: identical(repositories, sdkOmittedValue) ? this.repositories : repositories as SdkOptional<List<RepositoryV2>>,
+  );
 
-  factory AllRepositoriesV2Variant0.fromJson(Map<String, dynamic> json) =>
-      AllRepositoriesV2Variant0(
-        repositories: json['repositories'] != null
-            ? SdkPresent(((json['repositories'] as List?)
-                ?.map((e) => RepositoryV2.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AllRepositoriesV2Variant0.fromJson(Map<String, dynamic> json) => AllRepositoriesV2Variant0(
+    repositories: json['repositories'] != null ? SdkPresent(((json['repositories'] as List?)?.map((e) => RepositoryV2.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (repositories) {
-          SdkPresent<List<RepositoryV2>>(value: final value) => {
-              'repositories': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (repositories) {
+      SdkPresent<List<RepositoryV2>>(value: final value) => {'repositories': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AllRepositoriesV2` API schema.
@@ -46,69 +34,36 @@ class AllRepositoriesV2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<RepositoryV2>> repositories;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllRepositoriesV2(
-      {this.repositories = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllRepositoriesV2({this.repositories = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AllRepositoriesV2 Function(
-      {SdkOptional<List<RepositoryV2>> repositories,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllRepositoriesV2 Function({SdkOptional<List<RepositoryV2>> repositories, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllRepositoriesV2 _copyWith(
-          {Object? repositories = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllRepositoriesV2(
-        repositories: identical(repositories, sdkOmittedValue)
-            ? this.repositories
-            : repositories as SdkOptional<List<RepositoryV2>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllRepositoriesV2 _copyWith({Object? repositories = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllRepositoriesV2(
+    repositories: identical(repositories, sdkOmittedValue) ? this.repositories : repositories as SdkOptional<List<RepositoryV2>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory AllRepositoriesV2.fromJson(Map<String, dynamic> json) =>
-      AllRepositoriesV2(
-        repositories: json['repositories'] != null
-            ? SdkPresent(((json['repositories'] as List?)
-                ?.map((e) => RepositoryV2.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AllRepositoriesV2.fromJson(Map<String, dynamic> json) => AllRepositoriesV2(
+    repositories: json['repositories'] != null ? SdkPresent(((json['repositories'] as List?)?.map((e) => RepositoryV2.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (repositories) {
-          SdkPresent<List<RepositoryV2>>(value: final value) => {
-              'repositories': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (repositories) {
+      SdkPresent<List<RepositoryV2>>(value: final value) => {'repositories': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

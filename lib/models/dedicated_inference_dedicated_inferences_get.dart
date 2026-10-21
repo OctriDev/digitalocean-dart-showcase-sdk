@@ -8,41 +8,25 @@ part of 'dedicated_inference.dart';
 class DedicatedInferenceResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A Dedicated Inference instance.
   final SdkOptional<DedicatedInference> dedicatedInference;
 
-  const DedicatedInferenceResponse(
-      {this.dedicatedInference = const SdkOmitted()});
+  const DedicatedInferenceResponse({this.dedicatedInference = const SdkOmitted()});
 
-  DedicatedInferenceResponse Function(
-          {SdkOptional<DedicatedInference> dedicatedInference})
-      get copyWith => _copyWith;
+  DedicatedInferenceResponse Function({SdkOptional<DedicatedInference> dedicatedInference}) get copyWith => _copyWith;
 
-  DedicatedInferenceResponse _copyWith(
-          {Object? dedicatedInference = sdkOmittedValue}) =>
-      DedicatedInferenceResponse(
-        dedicatedInference: identical(dedicatedInference, sdkOmittedValue)
-            ? this.dedicatedInference
-            : dedicatedInference as SdkOptional<DedicatedInference>,
-      );
+  DedicatedInferenceResponse _copyWith({Object? dedicatedInference = sdkOmittedValue}) => DedicatedInferenceResponse(
+    dedicatedInference: identical(dedicatedInference, sdkOmittedValue) ? this.dedicatedInference : dedicatedInference as SdkOptional<DedicatedInference>,
+  );
 
-  factory DedicatedInferenceResponse.fromJson(Map<String, dynamic> json) =>
-      DedicatedInferenceResponse(
-        dedicatedInference: json['dedicated_inference'] != null
-            ? SdkPresent((json['dedicated_inference'] != null
-                ? DedicatedInference.fromJson(
-                    json['dedicated_inference'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DedicatedInferenceResponse.fromJson(Map<String, dynamic> json) => DedicatedInferenceResponse(
+    dedicatedInference: json['dedicated_inference'] != null ? SdkPresent((json['dedicated_inference'] != null ? DedicatedInference.fromJson(json['dedicated_inference'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (dedicatedInference) {
-          SdkPresent<DedicatedInference>(value: final value) => {
-              'dedicated_inference': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (dedicatedInference) {
+      SdkPresent<DedicatedInference>(value: final value) => {'dedicated_inference': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

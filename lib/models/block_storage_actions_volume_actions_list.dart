@@ -11,33 +11,22 @@ class VolumeActionsVariant0 {
 
   const VolumeActionsVariant0({this.actions = const SdkOmitted()});
 
-  VolumeActionsVariant0 Function({SdkOptional<List<VolumeAction>> actions})
-      get copyWith => _copyWith;
+  VolumeActionsVariant0 Function({SdkOptional<List<VolumeAction>> actions}) get copyWith => _copyWith;
 
-  VolumeActionsVariant0 _copyWith({Object? actions = sdkOmittedValue}) =>
-      VolumeActionsVariant0(
-        actions: identical(actions, sdkOmittedValue)
-            ? this.actions
-            : actions as SdkOptional<List<VolumeAction>>,
-      );
+  VolumeActionsVariant0 _copyWith({Object? actions = sdkOmittedValue}) => VolumeActionsVariant0(
+    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<VolumeAction>>,
+  );
 
-  factory VolumeActionsVariant0.fromJson(Map<String, dynamic> json) =>
-      VolumeActionsVariant0(
-        actions: json['actions'] != null
-            ? SdkPresent(((json['actions'] as List?)
-                ?.map((e) => VolumeAction.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory VolumeActionsVariant0.fromJson(Map<String, dynamic> json) => VolumeActionsVariant0(
+    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => VolumeAction.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (actions) {
-          SdkPresent<List<VolumeAction>>(value: final value) => {
-              'actions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (actions) {
+      SdkPresent<List<VolumeAction>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VolumeActions` API schema.
@@ -45,68 +34,36 @@ class VolumeActions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<VolumeAction>> actions;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const VolumeActions(
-      {this.actions = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const VolumeActions({this.actions = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  VolumeActions Function(
-      {SdkOptional<List<VolumeAction>> actions,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  VolumeActions Function({SdkOptional<List<VolumeAction>> actions, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  VolumeActions _copyWith(
-          {Object? actions = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      VolumeActions(
-        actions: identical(actions, sdkOmittedValue)
-            ? this.actions
-            : actions as SdkOptional<List<VolumeAction>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  VolumeActions _copyWith({Object? actions = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => VolumeActions(
+    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<VolumeAction>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory VolumeActions.fromJson(Map<String, dynamic> json) => VolumeActions(
-        actions: json['actions'] != null
-            ? SdkPresent(((json['actions'] as List?)
-                ?.map((e) => VolumeAction.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => VolumeAction.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (actions) {
-          SdkPresent<List<VolumeAction>>(value: final value) => {
-              'actions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (actions) {
+      SdkPresent<List<VolumeAction>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

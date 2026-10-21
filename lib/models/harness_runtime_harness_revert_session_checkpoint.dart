@@ -8,38 +8,25 @@ part of 'harness_runtime.dart';
 class RollbackToCheckpointResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Session is the user-facing record of a environment session + sandbox pair.
   final SdkOptional<DefinitionsSession> session;
 
   const RollbackToCheckpointResponse({this.session = const SdkOmitted()});
 
-  RollbackToCheckpointResponse Function(
-      {SdkOptional<DefinitionsSession> session}) get copyWith => _copyWith;
+  RollbackToCheckpointResponse Function({SdkOptional<DefinitionsSession> session}) get copyWith => _copyWith;
 
-  RollbackToCheckpointResponse _copyWith({Object? session = sdkOmittedValue}) =>
-      RollbackToCheckpointResponse(
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as SdkOptional<DefinitionsSession>,
-      );
+  RollbackToCheckpointResponse _copyWith({Object? session = sdkOmittedValue}) => RollbackToCheckpointResponse(
+    session: identical(session, sdkOmittedValue) ? this.session : session as SdkOptional<DefinitionsSession>,
+  );
 
-  factory RollbackToCheckpointResponse.fromJson(Map<String, dynamic> json) =>
-      RollbackToCheckpointResponse(
-        session: json['session'] != null
-            ? SdkPresent((json['session'] != null
-                ? DefinitionsSession.fromJson(
-                    json['session'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory RollbackToCheckpointResponse.fromJson(Map<String, dynamic> json) => RollbackToCheckpointResponse(
+    session: json['session'] != null ? SdkPresent((json['session'] != null ? DefinitionsSession.fromJson(json['session'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (session) {
-          SdkPresent<DefinitionsSession>(value: final value) => {
-              'session': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (session) {
+      SdkPresent<DefinitionsSession>(value: final value) => {'session': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

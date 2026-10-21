@@ -6,31 +6,24 @@ part of 'agent_platform_api_api_scenario.dart';
 // agent_platform_api_api_scenario domain models
 /// Sortable fields for listing scenarios. - SCENARIO_SORT_FIELD_FILE_ORDER: Preserve original file order. Default. - SCENARIO_SORT_FIELD_NAME: Sort by scenario name (case-insensitive). Empty names sort last. - SCENARIO_SORT_FIELD_DESCRIPTION: Sort by scenario description (case-insensitive).
 final class ApiScenarioSortField {
+
   final String value;
 
   const ApiScenarioSortField._(this.value);
 
-  factory ApiScenarioSortField.fromJson(String value) =>
-      ApiScenarioSortField._(value);
+  factory ApiScenarioSortField.fromJson(String value) => ApiScenarioSortField._(value);
 
-  static const scenarioSortFieldUnspecified =
-      ApiScenarioSortField._('SCENARIO_SORT_FIELD_UNSPECIFIED');
-  static const scenarioSortFieldFileOrder =
-      ApiScenarioSortField._('SCENARIO_SORT_FIELD_FILE_ORDER');
-  static const scenarioSortFieldName =
-      ApiScenarioSortField._('SCENARIO_SORT_FIELD_NAME');
-  static const scenarioSortFieldDescription =
-      ApiScenarioSortField._('SCENARIO_SORT_FIELD_DESCRIPTION');
+  static const scenarioSortFieldUnspecified = ApiScenarioSortField._('SCENARIO_SORT_FIELD_UNSPECIFIED');
+  static const scenarioSortFieldFileOrder = ApiScenarioSortField._('SCENARIO_SORT_FIELD_FILE_ORDER');
+  static const scenarioSortFieldName = ApiScenarioSortField._('SCENARIO_SORT_FIELD_NAME');
+  static const scenarioSortFieldDescription = ApiScenarioSortField._('SCENARIO_SORT_FIELD_DESCRIPTION');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiScenarioSortField && other.value == value;
+  @override bool operator ==(Object other) => other is ApiScenarioSortField && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

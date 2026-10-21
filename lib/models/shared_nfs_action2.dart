@@ -8,104 +8,55 @@ part of 'shared.dart';
 class NfsAction2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier of the action.
   final SdkOptional<String> id;
-
   /// The DigitalOcean region slug where the resource is located.
   final String regionSlug;
-
   /// The unique identifier of the resource on which the action is being performed.
   final String resourceId;
-
   /// The type of resource on which the action is being performed. Access point mutations return `SHARE` with `resource_id` set to the access point UUID.
   final NfsAction2ResourceType resourceType;
-
   /// The timestamp when the action was started.
   final String startedAt;
-
   /// The current status of the action.
   final NfsAction2Status status;
-
   /// The type of action being performed. Share actions use values such as `RESIZE_SHARE` and `CREATE_SHARE`. Access point mutations use `CREATE_ACCESS_POINT` and `DELETE_ACCESS_POINT`.
   final String type_;
 
-  const NfsAction2(
-      {this.id = const SdkOmitted(),
-      required this.regionSlug,
-      required this.resourceId,
-      required this.resourceType,
-      required this.startedAt,
-      required this.status,
-      required this.type_});
+  const NfsAction2({this.id = const SdkOmitted(), required this.regionSlug, required this.resourceId, required this.resourceType, required this.startedAt, required this.status, required this.type_});
 
-  NfsAction2 Function(
-      {SdkOptional<String> id,
-      String regionSlug,
-      String resourceId,
-      NfsAction2ResourceType resourceType,
-      String startedAt,
-      NfsAction2Status status,
-      String type_}) get copyWith => _copyWith;
+  NfsAction2 Function({SdkOptional<String> id, String regionSlug, String resourceId, NfsAction2ResourceType resourceType, String startedAt, NfsAction2Status status, String type_}) get copyWith => _copyWith;
 
-  NfsAction2 _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? regionSlug = sdkOmittedValue,
-          Object? resourceId = sdkOmittedValue,
-          Object? resourceType = sdkOmittedValue,
-          Object? startedAt = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      NfsAction2(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        regionSlug: identical(regionSlug, sdkOmittedValue)
-            ? this.regionSlug
-            : regionSlug as String,
-        resourceId: identical(resourceId, sdkOmittedValue)
-            ? this.resourceId
-            : resourceId as String,
-        resourceType: identical(resourceType, sdkOmittedValue)
-            ? this.resourceType
-            : resourceType as NfsAction2ResourceType,
-        startedAt: identical(startedAt, sdkOmittedValue)
-            ? this.startedAt
-            : startedAt as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as NfsAction2Status,
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-      );
+  NfsAction2 _copyWith({Object? id = sdkOmittedValue, Object? regionSlug = sdkOmittedValue, Object? resourceId = sdkOmittedValue, Object? resourceType = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? status = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => NfsAction2(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    regionSlug: identical(regionSlug, sdkOmittedValue) ? this.regionSlug : regionSlug as String,
+    resourceId: identical(resourceId, sdkOmittedValue) ? this.resourceId : resourceId as String,
+    resourceType: identical(resourceType, sdkOmittedValue) ? this.resourceType : resourceType as NfsAction2ResourceType,
+    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as NfsAction2Status,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+  );
 
   factory NfsAction2.fromJson(Map<String, dynamic> json) => NfsAction2(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        regionSlug: (json['region_slug'] as String?)!,
-        resourceId: (json['resource_id'] as String?)!,
-        resourceType: (json['resource_type'] != null
-            ? NfsAction2ResourceType.fromJson(json['resource_type'] as String)
-            : null)!,
-        startedAt: (json['started_at'] as String?)!,
-        status: (json['status'] != null
-            ? NfsAction2Status.fromJson(json['status'] as String)
-            : null)!,
-        type_: (json['type'] as String?)!,
-      );
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    regionSlug: (json['region_slug'] as String?)!,
+    resourceId: (json['resource_id'] as String?)!,
+    resourceType: (json['resource_type'] != null ? NfsAction2ResourceType.fromJson(json['resource_type'] as String) : null)!,
+    startedAt: (json['started_at'] as String?)!,
+    status: (json['status'] != null ? NfsAction2Status.fromJson(json['status'] as String) : null)!,
+    type_: (json['type'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'region_slug': regionSlug,
-        'resource_id': resourceId,
-        'resource_type': resourceType.toJson(),
-        'started_at': startedAt,
-        'status': status.toJson(),
-        'type': type_,
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'region_slug': regionSlug,
+    'resource_id': resourceId,
+    'resource_type': resourceType.toJson(),
+    'started_at': startedAt,
+    'status': status.toJson(),
+    'type': type_,
+  };
 }

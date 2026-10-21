@@ -8,73 +8,41 @@ part of 'billing.dart';
 class ProductChargeItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Amount of the charge
   final SdkOptional<String> amount;
-
   /// Description of the charge
   final SdkOptional<String> name;
-
   /// Number of times the charge was applied
   final SdkOptional<String> count;
 
-  const ProductChargeItem(
-      {this.amount = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.count = const SdkOmitted()});
+  const ProductChargeItem({this.amount = const SdkOmitted(), this.name = const SdkOmitted(), this.count = const SdkOmitted()});
 
-  ProductChargeItem Function(
-      {SdkOptional<String> amount,
-      SdkOptional<String> name,
-      SdkOptional<String> count}) get copyWith => _copyWith;
+  ProductChargeItem Function({SdkOptional<String> amount, SdkOptional<String> name, SdkOptional<String> count}) get copyWith => _copyWith;
 
-  ProductChargeItem _copyWith(
-          {Object? amount = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? count = sdkOmittedValue}) =>
-      ProductChargeItem(
-        amount: identical(amount, sdkOmittedValue)
-            ? this.amount
-            : amount as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        count: identical(count, sdkOmittedValue)
-            ? this.count
-            : count as SdkOptional<String>,
-      );
+  ProductChargeItem _copyWith({Object? amount = sdkOmittedValue, Object? name = sdkOmittedValue, Object? count = sdkOmittedValue}) => ProductChargeItem(
+    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    count: identical(count, sdkOmittedValue) ? this.count : count as SdkOptional<String>,
+  );
 
-  factory ProductChargeItem.fromJson(Map<String, dynamic> json) =>
-      ProductChargeItem(
-        amount: json['amount'] != null
-            ? SdkPresent((json['amount'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        count: json['count'] != null
-            ? SdkPresent((json['count'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ProductChargeItem.fromJson(Map<String, dynamic> json) => ProductChargeItem(
+    amount: json['amount'] != null ? SdkPresent((json['amount'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    count: json['count'] != null ? SdkPresent((json['count'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (amount) {
-          SdkPresent<String>(value: final value) => {
-              'amount': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (count) {
-          SdkPresent<String>(value: final value) => {
-              'count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (amount) {
+      SdkPresent<String>(value: final value) => {'amount': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (count) {
+      SdkPresent<String>(value: final value) => {'count': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

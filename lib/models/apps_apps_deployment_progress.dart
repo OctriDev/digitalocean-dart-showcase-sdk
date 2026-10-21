@@ -8,151 +8,73 @@ part of 'apps_apps_deployment.dart';
 class AppsDeploymentProgress {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `int32`-formatted value serialized in the `error_steps` wire field.
   final SdkOptional<int> errorSteps;
-
   /// Optional `int32`-formatted value serialized in the `pending_steps` wire field.
   final SdkOptional<int> pendingSteps;
-
   /// Optional `int32`-formatted value serialized in the `running_steps` wire field.
   final SdkOptional<int> runningSteps;
-
   /// Optional array value serialized in the `steps` wire field.
   final SdkOptional<List<AppsDeploymentProgressStep>> steps;
-
   /// Optional `int32`-formatted value serialized in the `success_steps` wire field.
   final SdkOptional<int> successSteps;
-
   /// Optional array value serialized in the `summary_steps` wire field.
   final SdkOptional<List<AppsDeploymentProgressStep>> summarySteps;
-
   /// Optional `int32`-formatted value serialized in the `total_steps` wire field.
   final SdkOptional<int> totalSteps;
 
-  const AppsDeploymentProgress(
-      {this.errorSteps = const SdkOmitted(),
-      this.pendingSteps = const SdkOmitted(),
-      this.runningSteps = const SdkOmitted(),
-      this.steps = const SdkOmitted(),
-      this.successSteps = const SdkOmitted(),
-      this.summarySteps = const SdkOmitted(),
-      this.totalSteps = const SdkOmitted()});
+  const AppsDeploymentProgress({this.errorSteps = const SdkOmitted(), this.pendingSteps = const SdkOmitted(), this.runningSteps = const SdkOmitted(), this.steps = const SdkOmitted(), this.successSteps = const SdkOmitted(), this.summarySteps = const SdkOmitted(), this.totalSteps = const SdkOmitted()});
 
-  AppsDeploymentProgress Function(
-      {SdkOptional<int> errorSteps,
-      SdkOptional<int> pendingSteps,
-      SdkOptional<int> runningSteps,
-      SdkOptional<List<AppsDeploymentProgressStep>> steps,
-      SdkOptional<int> successSteps,
-      SdkOptional<List<AppsDeploymentProgressStep>> summarySteps,
-      SdkOptional<int> totalSteps}) get copyWith => _copyWith;
+  AppsDeploymentProgress Function({SdkOptional<int> errorSteps, SdkOptional<int> pendingSteps, SdkOptional<int> runningSteps, SdkOptional<List<AppsDeploymentProgressStep>> steps, SdkOptional<int> successSteps, SdkOptional<List<AppsDeploymentProgressStep>> summarySteps, SdkOptional<int> totalSteps}) get copyWith => _copyWith;
 
-  AppsDeploymentProgress _copyWith(
-          {Object? errorSteps = sdkOmittedValue,
-          Object? pendingSteps = sdkOmittedValue,
-          Object? runningSteps = sdkOmittedValue,
-          Object? steps = sdkOmittedValue,
-          Object? successSteps = sdkOmittedValue,
-          Object? summarySteps = sdkOmittedValue,
-          Object? totalSteps = sdkOmittedValue}) =>
-      AppsDeploymentProgress(
-        errorSteps: identical(errorSteps, sdkOmittedValue)
-            ? this.errorSteps
-            : errorSteps as SdkOptional<int>,
-        pendingSteps: identical(pendingSteps, sdkOmittedValue)
-            ? this.pendingSteps
-            : pendingSteps as SdkOptional<int>,
-        runningSteps: identical(runningSteps, sdkOmittedValue)
-            ? this.runningSteps
-            : runningSteps as SdkOptional<int>,
-        steps: identical(steps, sdkOmittedValue)
-            ? this.steps
-            : steps as SdkOptional<List<AppsDeploymentProgressStep>>,
-        successSteps: identical(successSteps, sdkOmittedValue)
-            ? this.successSteps
-            : successSteps as SdkOptional<int>,
-        summarySteps: identical(summarySteps, sdkOmittedValue)
-            ? this.summarySteps
-            : summarySteps as SdkOptional<List<AppsDeploymentProgressStep>>,
-        totalSteps: identical(totalSteps, sdkOmittedValue)
-            ? this.totalSteps
-            : totalSteps as SdkOptional<int>,
-      );
+  AppsDeploymentProgress _copyWith({Object? errorSteps = sdkOmittedValue, Object? pendingSteps = sdkOmittedValue, Object? runningSteps = sdkOmittedValue, Object? steps = sdkOmittedValue, Object? successSteps = sdkOmittedValue, Object? summarySteps = sdkOmittedValue, Object? totalSteps = sdkOmittedValue}) => AppsDeploymentProgress(
+    errorSteps: identical(errorSteps, sdkOmittedValue) ? this.errorSteps : errorSteps as SdkOptional<int>,
+    pendingSteps: identical(pendingSteps, sdkOmittedValue) ? this.pendingSteps : pendingSteps as SdkOptional<int>,
+    runningSteps: identical(runningSteps, sdkOmittedValue) ? this.runningSteps : runningSteps as SdkOptional<int>,
+    steps: identical(steps, sdkOmittedValue) ? this.steps : steps as SdkOptional<List<AppsDeploymentProgressStep>>,
+    successSteps: identical(successSteps, sdkOmittedValue) ? this.successSteps : successSteps as SdkOptional<int>,
+    summarySteps: identical(summarySteps, sdkOmittedValue) ? this.summarySteps : summarySteps as SdkOptional<List<AppsDeploymentProgressStep>>,
+    totalSteps: identical(totalSteps, sdkOmittedValue) ? this.totalSteps : totalSteps as SdkOptional<int>,
+  );
 
-  factory AppsDeploymentProgress.fromJson(Map<String, dynamic> json) =>
-      AppsDeploymentProgress(
-        errorSteps: json['error_steps'] != null
-            ? SdkPresent(((json['error_steps'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        pendingSteps: json['pending_steps'] != null
-            ? SdkPresent(((json['pending_steps'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        runningSteps: json['running_steps'] != null
-            ? SdkPresent(((json['running_steps'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        steps: json['steps'] != null
-            ? SdkPresent(((json['steps'] as List?)
-                ?.map((e) => AppsDeploymentProgressStep.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        successSteps: json['success_steps'] != null
-            ? SdkPresent(((json['success_steps'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        summarySteps: json['summary_steps'] != null
-            ? SdkPresent(((json['summary_steps'] as List?)
-                ?.map((e) => AppsDeploymentProgressStep.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        totalSteps: json['total_steps'] != null
-            ? SdkPresent(((json['total_steps'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory AppsDeploymentProgress.fromJson(Map<String, dynamic> json) => AppsDeploymentProgress(
+    errorSteps: json['error_steps'] != null ? SdkPresent(((json['error_steps'] as num?)?.toInt())!) : const SdkOmitted(),
+    pendingSteps: json['pending_steps'] != null ? SdkPresent(((json['pending_steps'] as num?)?.toInt())!) : const SdkOmitted(),
+    runningSteps: json['running_steps'] != null ? SdkPresent(((json['running_steps'] as num?)?.toInt())!) : const SdkOmitted(),
+    steps: json['steps'] != null ? SdkPresent(((json['steps'] as List?)?.map((e) => AppsDeploymentProgressStep.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    successSteps: json['success_steps'] != null ? SdkPresent(((json['success_steps'] as num?)?.toInt())!) : const SdkOmitted(),
+    summarySteps: json['summary_steps'] != null ? SdkPresent(((json['summary_steps'] as List?)?.map((e) => AppsDeploymentProgressStep.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    totalSteps: json['total_steps'] != null ? SdkPresent(((json['total_steps'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (errorSteps) {
-          SdkPresent<int>(value: final value) => {
-              'error_steps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pendingSteps) {
-          SdkPresent<int>(value: final value) => {
-              'pending_steps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (runningSteps) {
-          SdkPresent<int>(value: final value) => {
-              'running_steps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (steps) {
-          SdkPresent<List<AppsDeploymentProgressStep>>(value: final value) => {
-              'steps': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (successSteps) {
-          SdkPresent<int>(value: final value) => {
-              'success_steps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (summarySteps) {
-          SdkPresent<List<AppsDeploymentProgressStep>>(value: final value) => {
-              'summary_steps': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalSteps) {
-          SdkPresent<int>(value: final value) => {
-              'total_steps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (errorSteps) {
+      SdkPresent<int>(value: final value) => {'error_steps': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pendingSteps) {
+      SdkPresent<int>(value: final value) => {'pending_steps': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (runningSteps) {
+      SdkPresent<int>(value: final value) => {'running_steps': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (steps) {
+      SdkPresent<List<AppsDeploymentProgressStep>>(value: final value) => {'steps': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (successSteps) {
+      SdkPresent<int>(value: final value) => {'success_steps': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (summarySteps) {
+      SdkPresent<List<AppsDeploymentProgressStep>>(value: final value) => {'summary_steps': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalSteps) {
+      SdkPresent<int>(value: final value) => {'total_steps': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

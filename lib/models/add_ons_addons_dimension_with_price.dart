@@ -8,82 +8,47 @@ part of 'add_ons.dart';
 class AddonsDimensionWithPrice {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique identifier for the dimension.
   final int id;
-
   /// Unique string identifier for the dimension, tied to a price.
   final String sku;
-
   /// Slug identifier for the dimension.
   final String slug;
-
   /// Display name for the dimension.
   final String displayName;
-
   /// Name of the feature associated with the dimension.
   final String featureName;
-
   /// A list of volumes associated with the dimension, each with its own price.
   final List<AddonsDimensionVolumeWithPrice> volumes;
 
-  const AddonsDimensionWithPrice(
-      {required this.id,
-      required this.sku,
-      required this.slug,
-      required this.displayName,
-      required this.featureName,
-      required this.volumes});
+  const AddonsDimensionWithPrice({required this.id, required this.sku, required this.slug, required this.displayName, required this.featureName, required this.volumes});
 
-  AddonsDimensionWithPrice Function(
-      {int id,
-      String sku,
-      String slug,
-      String displayName,
-      String featureName,
-      List<AddonsDimensionVolumeWithPrice> volumes}) get copyWith => _copyWith;
+  AddonsDimensionWithPrice Function({int id, String sku, String slug, String displayName, String featureName, List<AddonsDimensionVolumeWithPrice> volumes}) get copyWith => _copyWith;
 
-  AddonsDimensionWithPrice _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? sku = sdkOmittedValue,
-          Object? slug = sdkOmittedValue,
-          Object? displayName = sdkOmittedValue,
-          Object? featureName = sdkOmittedValue,
-          Object? volumes = sdkOmittedValue}) =>
-      AddonsDimensionWithPrice(
-        id: identical(id, sdkOmittedValue) ? this.id : id as int,
-        sku: identical(sku, sdkOmittedValue) ? this.sku : sku as String,
-        slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
-        displayName: identical(displayName, sdkOmittedValue)
-            ? this.displayName
-            : displayName as String,
-        featureName: identical(featureName, sdkOmittedValue)
-            ? this.featureName
-            : featureName as String,
-        volumes: identical(volumes, sdkOmittedValue)
-            ? this.volumes
-            : volumes as List<AddonsDimensionVolumeWithPrice>,
-      );
+  AddonsDimensionWithPrice _copyWith({Object? id = sdkOmittedValue, Object? sku = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? displayName = sdkOmittedValue, Object? featureName = sdkOmittedValue, Object? volumes = sdkOmittedValue}) => AddonsDimensionWithPrice(
+    id: identical(id, sdkOmittedValue) ? this.id : id as int,
+    sku: identical(sku, sdkOmittedValue) ? this.sku : sku as String,
+    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
+    displayName: identical(displayName, sdkOmittedValue) ? this.displayName : displayName as String,
+    featureName: identical(featureName, sdkOmittedValue) ? this.featureName : featureName as String,
+    volumes: identical(volumes, sdkOmittedValue) ? this.volumes : volumes as List<AddonsDimensionVolumeWithPrice>,
+  );
 
-  factory AddonsDimensionWithPrice.fromJson(Map<String, dynamic> json) =>
-      AddonsDimensionWithPrice(
-        id: ((json['id'] as num?)?.toInt())!,
-        sku: (json['sku'] as String?)!,
-        slug: (json['slug'] as String?)!,
-        displayName: (json['display_name'] as String?)!,
-        featureName: (json['feature_name'] as String?)!,
-        volumes: ((json['volumes'] as List?)
-            ?.map((e) => AddonsDimensionVolumeWithPrice.fromJson(
-                e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory AddonsDimensionWithPrice.fromJson(Map<String, dynamic> json) => AddonsDimensionWithPrice(
+    id: ((json['id'] as num?)?.toInt())!,
+    sku: (json['sku'] as String?)!,
+    slug: (json['slug'] as String?)!,
+    displayName: (json['display_name'] as String?)!,
+    featureName: (json['feature_name'] as String?)!,
+    volumes: ((json['volumes'] as List?)?.map((e) => AddonsDimensionVolumeWithPrice.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'sku': sku,
-        'slug': slug,
-        'display_name': displayName,
-        'feature_name': featureName,
-        'volumes': volumes.map((item) => item.toJson()).toList(),
-      };
+    'id': id,
+    'sku': sku,
+    'slug': slug,
+    'display_name': displayName,
+    'feature_name': featureName,
+    'volumes': volumes.map((item) => item.toJson()).toList(),
+  };
 }

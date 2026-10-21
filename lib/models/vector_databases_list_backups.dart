@@ -8,129 +8,76 @@ part of 'vector_databases.dart';
 class VectordbBackup {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique identifier for the backup (e.g., "vectordb-{uuid}-20240101-120000").
   final SdkOptional<String> backupId;
-
   /// Timestamp when the backup process completed.
   final SdkOptional<String> completedAt;
-
   /// Timestamp when the backup process started.
   final SdkOptional<String> startedAt;
-
   /// Status of the backup: SUCCESS.
   final SdkOptional<String> status;
 
-  const VectordbBackup(
-      {this.backupId = const SdkOmitted(),
-      this.completedAt = const SdkOmitted(),
-      this.startedAt = const SdkOmitted(),
-      this.status = const SdkOmitted()});
+  const VectordbBackup({this.backupId = const SdkOmitted(), this.completedAt = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.status = const SdkOmitted()});
 
-  VectordbBackup Function(
-      {SdkOptional<String> backupId,
-      SdkOptional<String> completedAt,
-      SdkOptional<String> startedAt,
-      SdkOptional<String> status}) get copyWith => _copyWith;
+  VectordbBackup Function({SdkOptional<String> backupId, SdkOptional<String> completedAt, SdkOptional<String> startedAt, SdkOptional<String> status}) get copyWith => _copyWith;
 
-  VectordbBackup _copyWith(
-          {Object? backupId = sdkOmittedValue,
-          Object? completedAt = sdkOmittedValue,
-          Object? startedAt = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      VectordbBackup(
-        backupId: identical(backupId, sdkOmittedValue)
-            ? this.backupId
-            : backupId as SdkOptional<String>,
-        completedAt: identical(completedAt, sdkOmittedValue)
-            ? this.completedAt
-            : completedAt as SdkOptional<String>,
-        startedAt: identical(startedAt, sdkOmittedValue)
-            ? this.startedAt
-            : startedAt as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-      );
+  VectordbBackup _copyWith({Object? backupId = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? status = sdkOmittedValue}) => VectordbBackup(
+    backupId: identical(backupId, sdkOmittedValue) ? this.backupId : backupId as SdkOptional<String>,
+    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<String>,
+    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+  );
 
   factory VectordbBackup.fromJson(Map<String, dynamic> json) => VectordbBackup(
-        backupId: json['backup_id'] != null
-            ? SdkPresent((json['backup_id'] as String?)!)
-            : const SdkOmitted(),
-        completedAt: json['completed_at'] != null
-            ? SdkPresent((json['completed_at'] as String?)!)
-            : const SdkOmitted(),
-        startedAt: json['started_at'] != null
-            ? SdkPresent((json['started_at'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-      );
+    backupId: json['backup_id'] != null ? SdkPresent((json['backup_id'] as String?)!) : const SdkOmitted(),
+    completedAt: json['completed_at'] != null ? SdkPresent((json['completed_at'] as String?)!) : const SdkOmitted(),
+    startedAt: json['started_at'] != null ? SdkPresent((json['started_at'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (backupId) {
-          SdkPresent<String>(value: final value) => {
-              'backup_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (completedAt) {
-          SdkPresent<String>(value: final value) => {
-              'completed_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startedAt) {
-          SdkPresent<String>(value: final value) => {
-              'started_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (backupId) {
+      SdkPresent<String>(value: final value) => {'backup_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (completedAt) {
+      SdkPresent<String>(value: final value) => {'completed_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startedAt) {
+      SdkPresent<String>(value: final value) => {'started_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VectordbListBackupsResponse` API schema.
 class VectordbListBackupsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// List of available backups.
   final SdkOptional<List<VectordbBackup>> backups;
 
   const VectordbListBackupsResponse({this.backups = const SdkOmitted()});
 
-  VectordbListBackupsResponse Function(
-      {SdkOptional<List<VectordbBackup>> backups}) get copyWith => _copyWith;
+  VectordbListBackupsResponse Function({SdkOptional<List<VectordbBackup>> backups}) get copyWith => _copyWith;
 
-  VectordbListBackupsResponse _copyWith({Object? backups = sdkOmittedValue}) =>
-      VectordbListBackupsResponse(
-        backups: identical(backups, sdkOmittedValue)
-            ? this.backups
-            : backups as SdkOptional<List<VectordbBackup>>,
-      );
+  VectordbListBackupsResponse _copyWith({Object? backups = sdkOmittedValue}) => VectordbListBackupsResponse(
+    backups: identical(backups, sdkOmittedValue) ? this.backups : backups as SdkOptional<List<VectordbBackup>>,
+  );
 
-  factory VectordbListBackupsResponse.fromJson(Map<String, dynamic> json) =>
-      VectordbListBackupsResponse(
-        backups: json['backups'] != null
-            ? SdkPresent(((json['backups'] as List?)
-                ?.map((e) => VectordbBackup.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory VectordbListBackupsResponse.fromJson(Map<String, dynamic> json) => VectordbListBackupsResponse(
+    backups: json['backups'] != null ? SdkPresent(((json['backups'] as List?)?.map((e) => VectordbBackup.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (backups) {
-          SdkPresent<List<VectordbBackup>>(value: final value) => {
-              'backups': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (backups) {
+      SdkPresent<List<VectordbBackup>>(value: final value) => {'backups': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

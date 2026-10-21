@@ -4,10 +4,8 @@
 part of 'load_balancer.dart';
 
 // load_balancer domain models
-final class LoadBalancerCreateLoadBalancerCreateVariant1
-    extends LoadBalancerCreate {
+final class LoadBalancerCreateLoadBalancerCreateVariant1 extends LoadBalancerCreate {
   final LoadBalancerCreateVariant1 value;
   const LoadBalancerCreateLoadBalancerCreateVariant1(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

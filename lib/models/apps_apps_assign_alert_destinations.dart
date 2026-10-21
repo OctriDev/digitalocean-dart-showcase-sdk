@@ -8,100 +8,60 @@ part of 'apps_apps.dart';
 class AppsAlertResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `alert` wire field.
   final SdkOptional<AppAlert> alert;
 
   const AppsAlertResponse({this.alert = const SdkOmitted()});
 
-  AppsAlertResponse Function({SdkOptional<AppAlert> alert}) get copyWith =>
-      _copyWith;
+  AppsAlertResponse Function({SdkOptional<AppAlert> alert}) get copyWith => _copyWith;
 
-  AppsAlertResponse _copyWith({Object? alert = sdkOmittedValue}) =>
-      AppsAlertResponse(
-        alert: identical(alert, sdkOmittedValue)
-            ? this.alert
-            : alert as SdkOptional<AppAlert>,
-      );
+  AppsAlertResponse _copyWith({Object? alert = sdkOmittedValue}) => AppsAlertResponse(
+    alert: identical(alert, sdkOmittedValue) ? this.alert : alert as SdkOptional<AppAlert>,
+  );
 
-  factory AppsAlertResponse.fromJson(Map<String, dynamic> json) =>
-      AppsAlertResponse(
-        alert: json['alert'] != null
-            ? SdkPresent((json['alert'] != null
-                ? AppAlert.fromJson(json['alert'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory AppsAlertResponse.fromJson(Map<String, dynamic> json) => AppsAlertResponse(
+    alert: json['alert'] != null ? SdkPresent((json['alert'] != null ? AppAlert.fromJson(json['alert'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (alert) {
-          SdkPresent<AppAlert>(value: final value) => {
-              'alert': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (alert) {
+      SdkPresent<AppAlert>(value: final value) => {'alert': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppsAssignAppAlertDestinationsRequest` API schema.
 class AppsAssignAppAlertDestinationsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `emails` wire field.
   final SdkOptional<List<String>> emails;
-
   /// Optional array value serialized in the `slack_webhooks` wire field.
   final SdkOptional<List<AppAlertSlackWebhook>> slackWebhooks;
 
-  const AppsAssignAppAlertDestinationsRequest(
-      {this.emails = const SdkOmitted(),
-      this.slackWebhooks = const SdkOmitted()});
+  const AppsAssignAppAlertDestinationsRequest({this.emails = const SdkOmitted(), this.slackWebhooks = const SdkOmitted()});
 
-  AppsAssignAppAlertDestinationsRequest Function(
-          {SdkOptional<List<String>> emails,
-          SdkOptional<List<AppAlertSlackWebhook>> slackWebhooks})
-      get copyWith => _copyWith;
+  AppsAssignAppAlertDestinationsRequest Function({SdkOptional<List<String>> emails, SdkOptional<List<AppAlertSlackWebhook>> slackWebhooks}) get copyWith => _copyWith;
 
-  AppsAssignAppAlertDestinationsRequest _copyWith(
-          {Object? emails = sdkOmittedValue,
-          Object? slackWebhooks = sdkOmittedValue}) =>
-      AppsAssignAppAlertDestinationsRequest(
-        emails: identical(emails, sdkOmittedValue)
-            ? this.emails
-            : emails as SdkOptional<List<String>>,
-        slackWebhooks: identical(slackWebhooks, sdkOmittedValue)
-            ? this.slackWebhooks
-            : slackWebhooks as SdkOptional<List<AppAlertSlackWebhook>>,
-      );
+  AppsAssignAppAlertDestinationsRequest _copyWith({Object? emails = sdkOmittedValue, Object? slackWebhooks = sdkOmittedValue}) => AppsAssignAppAlertDestinationsRequest(
+    emails: identical(emails, sdkOmittedValue) ? this.emails : emails as SdkOptional<List<String>>,
+    slackWebhooks: identical(slackWebhooks, sdkOmittedValue) ? this.slackWebhooks : slackWebhooks as SdkOptional<List<AppAlertSlackWebhook>>,
+  );
 
-  factory AppsAssignAppAlertDestinationsRequest.fromJson(
-          Map<String, dynamic> json) =>
-      AppsAssignAppAlertDestinationsRequest(
-        emails: json['emails'] != null
-            ? SdkPresent(
-                ((json['emails'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        slackWebhooks: json['slack_webhooks'] != null
-            ? SdkPresent(((json['slack_webhooks'] as List?)
-                ?.map((e) =>
-                    AppAlertSlackWebhook.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AppsAssignAppAlertDestinationsRequest.fromJson(Map<String, dynamic> json) => AppsAssignAppAlertDestinationsRequest(
+    emails: json['emails'] != null ? SdkPresent(((json['emails'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    slackWebhooks: json['slack_webhooks'] != null ? SdkPresent(((json['slack_webhooks'] as List?)?.map((e) => AppAlertSlackWebhook.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (emails) {
-          SdkPresent<List<String>>(value: final value) => {
-              'emails': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (slackWebhooks) {
-          SdkPresent<List<AppAlertSlackWebhook>>(value: final value) => {
-              'slack_webhooks': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (emails) {
+      SdkPresent<List<String>>(value: final value) => {'emails': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (slackWebhooks) {
+      SdkPresent<List<AppAlertSlackWebhook>>(value: final value) => {'slack_webhooks': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,61 +8,33 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetSimulationRunOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Per-scenario breakdown of episode outcomes, aggregated from episode rows.
   final SdkOptional<List<ApiSimulationScenarioResult>> scenarioResults;
-
   /// One execution of a scenario set against a candidate agent.
   final SdkOptional<ApiSimulationRun> simulationRun;
 
-  const ApiGetSimulationRunOutput(
-      {this.scenarioResults = const SdkOmitted(),
-      this.simulationRun = const SdkOmitted()});
+  const ApiGetSimulationRunOutput({this.scenarioResults = const SdkOmitted(), this.simulationRun = const SdkOmitted()});
 
-  ApiGetSimulationRunOutput Function(
-      {SdkOptional<List<ApiSimulationScenarioResult>> scenarioResults,
-      SdkOptional<ApiSimulationRun> simulationRun}) get copyWith => _copyWith;
+  ApiGetSimulationRunOutput Function({SdkOptional<List<ApiSimulationScenarioResult>> scenarioResults, SdkOptional<ApiSimulationRun> simulationRun}) get copyWith => _copyWith;
 
-  ApiGetSimulationRunOutput _copyWith(
-          {Object? scenarioResults = sdkOmittedValue,
-          Object? simulationRun = sdkOmittedValue}) =>
-      ApiGetSimulationRunOutput(
-        scenarioResults: identical(scenarioResults, sdkOmittedValue)
-            ? this.scenarioResults
-            : scenarioResults as SdkOptional<List<ApiSimulationScenarioResult>>,
-        simulationRun: identical(simulationRun, sdkOmittedValue)
-            ? this.simulationRun
-            : simulationRun as SdkOptional<ApiSimulationRun>,
-      );
+  ApiGetSimulationRunOutput _copyWith({Object? scenarioResults = sdkOmittedValue, Object? simulationRun = sdkOmittedValue}) => ApiGetSimulationRunOutput(
+    scenarioResults: identical(scenarioResults, sdkOmittedValue) ? this.scenarioResults : scenarioResults as SdkOptional<List<ApiSimulationScenarioResult>>,
+    simulationRun: identical(simulationRun, sdkOmittedValue) ? this.simulationRun : simulationRun as SdkOptional<ApiSimulationRun>,
+  );
 
-  factory ApiGetSimulationRunOutput.fromJson(Map<String, dynamic> json) =>
-      ApiGetSimulationRunOutput(
-        scenarioResults: json['scenario_results'] != null
-            ? SdkPresent(((json['scenario_results'] as List?)
-                ?.map((e) => ApiSimulationScenarioResult.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        simulationRun: json['simulation_run'] != null
-            ? SdkPresent((json['simulation_run'] != null
-                ? ApiSimulationRun.fromJson(
-                    json['simulation_run'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetSimulationRunOutput.fromJson(Map<String, dynamic> json) => ApiGetSimulationRunOutput(
+    scenarioResults: json['scenario_results'] != null ? SdkPresent(((json['scenario_results'] as List?)?.map((e) => ApiSimulationScenarioResult.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    simulationRun: json['simulation_run'] != null ? SdkPresent((json['simulation_run'] != null ? ApiSimulationRun.fromJson(json['simulation_run'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (scenarioResults) {
-          SdkPresent<List<ApiSimulationScenarioResult>>(value: final value) => {
-              'scenario_results': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (simulationRun) {
-          SdkPresent<ApiSimulationRun>(value: final value) => {
-              'simulation_run': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (scenarioResults) {
+      SdkPresent<List<ApiSimulationScenarioResult>>(value: final value) => {'scenario_results': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (simulationRun) {
+      SdkPresent<ApiSimulationRun>(value: final value) => {'simulation_run': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

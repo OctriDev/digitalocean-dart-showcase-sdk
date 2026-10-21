@@ -8,35 +8,25 @@ part of 'insights_spans.dart';
 class SpansPaginationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Maximum number of spans to return. Defaults to 100 and must be between 1 and 1000.
   final SdkOptional<int> limit;
 
   const SpansPaginationRequest({this.limit = const SdkOmitted()});
 
-  SpansPaginationRequest Function({SdkOptional<int> limit}) get copyWith =>
-      _copyWith;
+  SpansPaginationRequest Function({SdkOptional<int> limit}) get copyWith => _copyWith;
 
-  SpansPaginationRequest _copyWith({Object? limit = sdkOmittedValue}) =>
-      SpansPaginationRequest(
-        limit: identical(limit, sdkOmittedValue)
-            ? this.limit
-            : limit as SdkOptional<int>,
-      );
+  SpansPaginationRequest _copyWith({Object? limit = sdkOmittedValue}) => SpansPaginationRequest(
+    limit: identical(limit, sdkOmittedValue) ? this.limit : limit as SdkOptional<int>,
+  );
 
-  factory SpansPaginationRequest.fromJson(Map<String, dynamic> json) =>
-      SpansPaginationRequest(
-        limit: json['limit'] != null
-            ? SdkPresent(((json['limit'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory SpansPaginationRequest.fromJson(Map<String, dynamic> json) => SpansPaginationRequest(
+    limit: json['limit'] != null ? SdkPresent(((json['limit'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (limit) {
-          SdkPresent<int>(value: final value) => {
-              'limit': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (limit) {
+      SdkPresent<int>(value: final value) => {'limit': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

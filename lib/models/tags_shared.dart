@@ -8,367 +8,202 @@ part of 'tags.dart';
 class TagsResources {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of tagged objects for this type of resource.
   final SdkOptional<int> count;
-
   /// The URI for the last tagged object for this type of resource.
   final SdkOptional<String> lastTaggedUri;
-
   /// Droplets that are tagged with the specified tag.&lt;br&gt;Requires `droplet:read` scope.
   final SdkOptional<TagsMetadata> droplets;
-
   /// Images that are tagged with the specified tag.&lt;br&gt;Requires `image:read` scope.
   final SdkOptional<TagsMetadata> imgages;
-
   /// Volumes that are tagged with the specified tag.&lt;br&gt;Requires `block_storage:read` scope.
   final SdkOptional<TagsMetadata> volumes;
-
   /// Volume Snapshots that are tagged with the specified tag.&lt;br&gt;Requires `block_storage_snapshot:read` scope.
   final SdkOptional<TagsMetadata> volumeSnapshots;
-
   /// Databases that are tagged with the specified tag.&lt;br&gt;Requires `database:read` scope.
   final SdkOptional<TagsMetadata> databases;
 
-  const TagsResources(
-      {this.count = const SdkOmitted(),
-      this.lastTaggedUri = const SdkOmitted(),
-      this.droplets = const SdkOmitted(),
-      this.imgages = const SdkOmitted(),
-      this.volumes = const SdkOmitted(),
-      this.volumeSnapshots = const SdkOmitted(),
-      this.databases = const SdkOmitted()});
+  const TagsResources({this.count = const SdkOmitted(), this.lastTaggedUri = const SdkOmitted(), this.droplets = const SdkOmitted(), this.imgages = const SdkOmitted(), this.volumes = const SdkOmitted(), this.volumeSnapshots = const SdkOmitted(), this.databases = const SdkOmitted()});
 
-  TagsResources Function(
-      {SdkOptional<int> count,
-      SdkOptional<String> lastTaggedUri,
-      SdkOptional<TagsMetadata> droplets,
-      SdkOptional<TagsMetadata> imgages,
-      SdkOptional<TagsMetadata> volumes,
-      SdkOptional<TagsMetadata> volumeSnapshots,
-      SdkOptional<TagsMetadata> databases}) get copyWith => _copyWith;
+  TagsResources Function({SdkOptional<int> count, SdkOptional<String> lastTaggedUri, SdkOptional<TagsMetadata> droplets, SdkOptional<TagsMetadata> imgages, SdkOptional<TagsMetadata> volumes, SdkOptional<TagsMetadata> volumeSnapshots, SdkOptional<TagsMetadata> databases}) get copyWith => _copyWith;
 
-  TagsResources _copyWith(
-          {Object? count = sdkOmittedValue,
-          Object? lastTaggedUri = sdkOmittedValue,
-          Object? droplets = sdkOmittedValue,
-          Object? imgages = sdkOmittedValue,
-          Object? volumes = sdkOmittedValue,
-          Object? volumeSnapshots = sdkOmittedValue,
-          Object? databases = sdkOmittedValue}) =>
-      TagsResources(
-        count: identical(count, sdkOmittedValue)
-            ? this.count
-            : count as SdkOptional<int>,
-        lastTaggedUri: identical(lastTaggedUri, sdkOmittedValue)
-            ? this.lastTaggedUri
-            : lastTaggedUri as SdkOptional<String>,
-        droplets: identical(droplets, sdkOmittedValue)
-            ? this.droplets
-            : droplets as SdkOptional<TagsMetadata>,
-        imgages: identical(imgages, sdkOmittedValue)
-            ? this.imgages
-            : imgages as SdkOptional<TagsMetadata>,
-        volumes: identical(volumes, sdkOmittedValue)
-            ? this.volumes
-            : volumes as SdkOptional<TagsMetadata>,
-        volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue)
-            ? this.volumeSnapshots
-            : volumeSnapshots as SdkOptional<TagsMetadata>,
-        databases: identical(databases, sdkOmittedValue)
-            ? this.databases
-            : databases as SdkOptional<TagsMetadata>,
-      );
+  TagsResources _copyWith({Object? count = sdkOmittedValue, Object? lastTaggedUri = sdkOmittedValue, Object? droplets = sdkOmittedValue, Object? imgages = sdkOmittedValue, Object? volumes = sdkOmittedValue, Object? volumeSnapshots = sdkOmittedValue, Object? databases = sdkOmittedValue}) => TagsResources(
+    count: identical(count, sdkOmittedValue) ? this.count : count as SdkOptional<int>,
+    lastTaggedUri: identical(lastTaggedUri, sdkOmittedValue) ? this.lastTaggedUri : lastTaggedUri as SdkOptional<String>,
+    droplets: identical(droplets, sdkOmittedValue) ? this.droplets : droplets as SdkOptional<TagsMetadata>,
+    imgages: identical(imgages, sdkOmittedValue) ? this.imgages : imgages as SdkOptional<TagsMetadata>,
+    volumes: identical(volumes, sdkOmittedValue) ? this.volumes : volumes as SdkOptional<TagsMetadata>,
+    volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue) ? this.volumeSnapshots : volumeSnapshots as SdkOptional<TagsMetadata>,
+    databases: identical(databases, sdkOmittedValue) ? this.databases : databases as SdkOptional<TagsMetadata>,
+  );
 
   factory TagsResources.fromJson(Map<String, dynamic> json) => TagsResources(
-        count: json['count'] != null
-            ? SdkPresent(((json['count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        lastTaggedUri: json['last_tagged_uri'] != null
-            ? SdkPresent((json['last_tagged_uri'] as String?)!)
-            : const SdkOmitted(),
-        droplets: json['droplets'] != null
-            ? SdkPresent((json['droplets'] != null
-                ? TagsMetadata.fromJson(
-                    json['droplets'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        imgages: json['imgages'] != null
-            ? SdkPresent((json['imgages'] != null
-                ? TagsMetadata.fromJson(json['imgages'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        volumes: json['volumes'] != null
-            ? SdkPresent((json['volumes'] != null
-                ? TagsMetadata.fromJson(json['volumes'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        volumeSnapshots: json['volume_snapshots'] != null
-            ? SdkPresent((json['volume_snapshots'] != null
-                ? TagsMetadata.fromJson(
-                    json['volume_snapshots'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        databases: json['databases'] != null
-            ? SdkPresent((json['databases'] != null
-                ? TagsMetadata.fromJson(
-                    json['databases'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    count: json['count'] != null ? SdkPresent(((json['count'] as num?)?.toInt())!) : const SdkOmitted(),
+    lastTaggedUri: json['last_tagged_uri'] != null ? SdkPresent((json['last_tagged_uri'] as String?)!) : const SdkOmitted(),
+    droplets: json['droplets'] != null ? SdkPresent((json['droplets'] != null ? TagsMetadata.fromJson(json['droplets'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    imgages: json['imgages'] != null ? SdkPresent((json['imgages'] != null ? TagsMetadata.fromJson(json['imgages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    volumes: json['volumes'] != null ? SdkPresent((json['volumes'] != null ? TagsMetadata.fromJson(json['volumes'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    volumeSnapshots: json['volume_snapshots'] != null ? SdkPresent((json['volume_snapshots'] != null ? TagsMetadata.fromJson(json['volume_snapshots'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    databases: json['databases'] != null ? SdkPresent((json['databases'] != null ? TagsMetadata.fromJson(json['databases'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (count) {
-          SdkPresent<int>(value: final value) => {
-              'count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastTaggedUri) {
-          SdkPresent<String>(value: final value) => {
-              'last_tagged_uri': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (droplets) {
-          SdkPresent<TagsMetadata>(value: final value) => {
-              'droplets': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (imgages) {
-          SdkPresent<TagsMetadata>(value: final value) => {
-              'imgages': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (volumes) {
-          SdkPresent<TagsMetadata>(value: final value) => {
-              'volumes': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (volumeSnapshots) {
-          SdkPresent<TagsMetadata>(value: final value) => {
-              'volume_snapshots': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (databases) {
-          SdkPresent<TagsMetadata>(value: final value) => {
-              'databases': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (count) {
+      SdkPresent<int>(value: final value) => {'count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastTaggedUri) {
+      SdkPresent<String>(value: final value) => {'last_tagged_uri': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (droplets) {
+      SdkPresent<TagsMetadata>(value: final value) => {'droplets': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (imgages) {
+      SdkPresent<TagsMetadata>(value: final value) => {'imgages': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (volumes) {
+      SdkPresent<TagsMetadata>(value: final value) => {'volumes': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (volumeSnapshots) {
+      SdkPresent<TagsMetadata>(value: final value) => {'volume_snapshots': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (databases) {
+      SdkPresent<TagsMetadata>(value: final value) => {'databases': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it. Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
 class Tags {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the tag. Tags may contain letters, numbers, colons, dashes, and underscores. There is a limit of 255 characters per tag. **Note:** Tag names are case stable, which means the capitalization you use when you first create a tag is canonical. When working with tags in the API, you must use the tag's canonical capitalization. For example, if you create a tag named "PROD", the URL to add that tag to a resource would be `https://api.digitalocean.com/v2/tags/PROD/resources` (not `/v2/tags/prod/resources`). Tagged resources in the control panel will always display the canonical capitalization. For example, if you create a tag named "PROD", you can tag resources in the control panel by entering "prod". The tag will still display with its canonical capitalization, "PROD".
   final SdkOptional<String> name;
-
   /// An embedded object containing key value pairs of resource type and resource statistics. It also includes a count of the total number of resources tagged with the current tag as well as a `last_tagged_uri` attribute set to the last resource tagged with the current tag. This will only include resources that you are authorized to see. For example, to see tagged Droplets, include the `droplet:read` scope.
   final SdkOptional<TagsResources> resources;
 
-  const Tags(
-      {this.name = const SdkOmitted(), this.resources = const SdkOmitted()});
+  const Tags({this.name = const SdkOmitted(), this.resources = const SdkOmitted()});
 
-  Tags Function(
-      {SdkOptional<String> name,
-      SdkOptional<TagsResources> resources}) get copyWith => _copyWith;
+  Tags Function({SdkOptional<String> name, SdkOptional<TagsResources> resources}) get copyWith => _copyWith;
 
-  Tags _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? resources = sdkOmittedValue}) =>
-      Tags(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        resources: identical(resources, sdkOmittedValue)
-            ? this.resources
-            : resources as SdkOptional<TagsResources>,
-      );
+  Tags _copyWith({Object? name = sdkOmittedValue, Object? resources = sdkOmittedValue}) => Tags(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<TagsResources>,
+  );
 
   factory Tags.fromJson(Map<String, dynamic> json) => Tags(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        resources: json['resources'] != null
-            ? SdkPresent((json['resources'] != null
-                ? TagsResources.fromJson(
-                    json['resources'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    resources: json['resources'] != null ? SdkPresent((json['resources'] != null ? TagsResources.fromJson(json['resources'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resources) {
-          SdkPresent<TagsResources>(value: final value) => {
-              'resources': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resources) {
+      SdkPresent<TagsResources>(value: final value) => {'resources': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Tagged Resource Statistics include metadata regarding the resource type that has been tagged.
 class TagsMetadata {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of tagged objects for this type of resource.
   final SdkOptional<int> count;
-
   /// The URI for the last tagged object for this type of resource.
   final SdkOptional<String> lastTaggedUri;
 
-  const TagsMetadata(
-      {this.count = const SdkOmitted(),
-      this.lastTaggedUri = const SdkOmitted()});
+  const TagsMetadata({this.count = const SdkOmitted(), this.lastTaggedUri = const SdkOmitted()});
 
-  TagsMetadata Function(
-      {SdkOptional<int> count,
-      SdkOptional<String> lastTaggedUri}) get copyWith => _copyWith;
+  TagsMetadata Function({SdkOptional<int> count, SdkOptional<String> lastTaggedUri}) get copyWith => _copyWith;
 
-  TagsMetadata _copyWith(
-          {Object? count = sdkOmittedValue,
-          Object? lastTaggedUri = sdkOmittedValue}) =>
-      TagsMetadata(
-        count: identical(count, sdkOmittedValue)
-            ? this.count
-            : count as SdkOptional<int>,
-        lastTaggedUri: identical(lastTaggedUri, sdkOmittedValue)
-            ? this.lastTaggedUri
-            : lastTaggedUri as SdkOptional<String>,
-      );
+  TagsMetadata _copyWith({Object? count = sdkOmittedValue, Object? lastTaggedUri = sdkOmittedValue}) => TagsMetadata(
+    count: identical(count, sdkOmittedValue) ? this.count : count as SdkOptional<int>,
+    lastTaggedUri: identical(lastTaggedUri, sdkOmittedValue) ? this.lastTaggedUri : lastTaggedUri as SdkOptional<String>,
+  );
 
   factory TagsMetadata.fromJson(Map<String, dynamic> json) => TagsMetadata(
-        count: json['count'] != null
-            ? SdkPresent(((json['count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        lastTaggedUri: json['last_tagged_uri'] != null
-            ? SdkPresent((json['last_tagged_uri'] as String?)!)
-            : const SdkOmitted(),
-      );
+    count: json['count'] != null ? SdkPresent(((json['count'] as num?)?.toInt())!) : const SdkOmitted(),
+    lastTaggedUri: json['last_tagged_uri'] != null ? SdkPresent((json['last_tagged_uri'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (count) {
-          SdkPresent<int>(value: final value) => {
-              'count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastTaggedUri) {
-          SdkPresent<String>(value: final value) => {
-              'last_tagged_uri': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (count) {
+      SdkPresent<int>(value: final value) => {'count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastTaggedUri) {
+      SdkPresent<String>(value: final value) => {'last_tagged_uri': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `resources[]` wire field.
 class TagsResourceResourcesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The identifier of a resource.
   final SdkOptional<String> resourceId;
-
   /// The type of the resource.
   final SdkOptional<TagsResourceResourcesItemResourceType> resourceType;
 
-  const TagsResourceResourcesItem(
-      {this.resourceId = const SdkOmitted(),
-      this.resourceType = const SdkOmitted()});
+  const TagsResourceResourcesItem({this.resourceId = const SdkOmitted(), this.resourceType = const SdkOmitted()});
 
-  TagsResourceResourcesItem Function(
-          {SdkOptional<String> resourceId,
-          SdkOptional<TagsResourceResourcesItemResourceType> resourceType})
-      get copyWith => _copyWith;
+  TagsResourceResourcesItem Function({SdkOptional<String> resourceId, SdkOptional<TagsResourceResourcesItemResourceType> resourceType}) get copyWith => _copyWith;
 
-  TagsResourceResourcesItem _copyWith(
-          {Object? resourceId = sdkOmittedValue,
-          Object? resourceType = sdkOmittedValue}) =>
-      TagsResourceResourcesItem(
-        resourceId: identical(resourceId, sdkOmittedValue)
-            ? this.resourceId
-            : resourceId as SdkOptional<String>,
-        resourceType: identical(resourceType, sdkOmittedValue)
-            ? this.resourceType
-            : resourceType
-                as SdkOptional<TagsResourceResourcesItemResourceType>,
-      );
+  TagsResourceResourcesItem _copyWith({Object? resourceId = sdkOmittedValue, Object? resourceType = sdkOmittedValue}) => TagsResourceResourcesItem(
+    resourceId: identical(resourceId, sdkOmittedValue) ? this.resourceId : resourceId as SdkOptional<String>,
+    resourceType: identical(resourceType, sdkOmittedValue) ? this.resourceType : resourceType as SdkOptional<TagsResourceResourcesItemResourceType>,
+  );
 
-  factory TagsResourceResourcesItem.fromJson(Map<String, dynamic> json) =>
-      TagsResourceResourcesItem(
-        resourceId: json['resource_id'] != null
-            ? SdkPresent((json['resource_id'] as String?)!)
-            : const SdkOmitted(),
-        resourceType: json['resource_type'] != null
-            ? SdkPresent((json['resource_type'] != null
-                ? TagsResourceResourcesItemResourceType.fromJson(
-                    json['resource_type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory TagsResourceResourcesItem.fromJson(Map<String, dynamic> json) => TagsResourceResourcesItem(
+    resourceId: json['resource_id'] != null ? SdkPresent((json['resource_id'] as String?)!) : const SdkOmitted(),
+    resourceType: json['resource_type'] != null ? SdkPresent((json['resource_type'] != null ? TagsResourceResourcesItemResourceType.fromJson(json['resource_type'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (resourceId) {
-          SdkPresent<String>(value: final value) => {
-              'resource_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceType) {
-          SdkPresent<TagsResourceResourcesItemResourceType>(
-            value: final value
-          ) =>
-            {
-              'resource_type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (resourceId) {
+      SdkPresent<String>(value: final value) => {'resource_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceType) {
+      SdkPresent<TagsResourceResourcesItemResourceType>(value: final value) => {'resource_type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `TagsResource` API schema.
 class TagsResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of objects containing resource_id and resource_type attributes. This response will only include resources that you are authorized to see. For example, to see Droplets, include the `droplet:read` scope.
   final List<TagsResourceResourcesItem> resources;
 
   const TagsResource({required this.resources});
 
-  TagsResource Function({List<TagsResourceResourcesItem> resources})
-      get copyWith => _copyWith;
+  TagsResource Function({List<TagsResourceResourcesItem> resources}) get copyWith => _copyWith;
 
   TagsResource _copyWith({Object? resources = sdkOmittedValue}) => TagsResource(
-        resources: identical(resources, sdkOmittedValue)
-            ? this.resources
-            : resources as List<TagsResourceResourcesItem>,
-      );
+    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as List<TagsResourceResourcesItem>,
+  );
 
   factory TagsResource.fromJson(Map<String, dynamic> json) => TagsResource(
-        resources: ((json['resources'] as List?)
-            ?.map((e) =>
-                TagsResourceResourcesItem.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+    resources: ((json['resources'] as List?)?.map((e) => TagsResourceResourcesItem.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'resources': resources.map((item) => item.toJson()).toList(),
-      };
+    'resources': resources.map((item) => item.toJson()).toList(),
+  };
 }

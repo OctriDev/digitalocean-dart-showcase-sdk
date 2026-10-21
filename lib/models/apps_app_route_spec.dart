@@ -8,54 +8,33 @@ part of 'apps_app.dart';
 class AppRouteSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// (Deprecated - Use Ingress Rules instead). An HTTP path prefix. Paths must start with / and must be unique across all components within an app.
   final SdkOptional<String> path;
-
   /// An optional flag to preserve the path that is forwarded to the backend service. By default, the HTTP request path will be trimmed from the left when forwarded to the component. For example, a component with `path=/api` will have requests to `/api/list` trimmed to `/list`. If this value is `true`, the path will remain `/api/list`.
   final SdkOptional<bool> preservePathPrefix;
 
-  const AppRouteSpec(
-      {this.path = const SdkOmitted(),
-      this.preservePathPrefix = const SdkOmitted()});
+  const AppRouteSpec({this.path = const SdkOmitted(), this.preservePathPrefix = const SdkOmitted()});
 
-  AppRouteSpec Function(
-      {SdkOptional<String> path,
-      SdkOptional<bool> preservePathPrefix}) get copyWith => _copyWith;
+  AppRouteSpec Function({SdkOptional<String> path, SdkOptional<bool> preservePathPrefix}) get copyWith => _copyWith;
 
-  AppRouteSpec _copyWith(
-          {Object? path = sdkOmittedValue,
-          Object? preservePathPrefix = sdkOmittedValue}) =>
-      AppRouteSpec(
-        path: identical(path, sdkOmittedValue)
-            ? this.path
-            : path as SdkOptional<String>,
-        preservePathPrefix: identical(preservePathPrefix, sdkOmittedValue)
-            ? this.preservePathPrefix
-            : preservePathPrefix as SdkOptional<bool>,
-      );
+  AppRouteSpec _copyWith({Object? path = sdkOmittedValue, Object? preservePathPrefix = sdkOmittedValue}) => AppRouteSpec(
+    path: identical(path, sdkOmittedValue) ? this.path : path as SdkOptional<String>,
+    preservePathPrefix: identical(preservePathPrefix, sdkOmittedValue) ? this.preservePathPrefix : preservePathPrefix as SdkOptional<bool>,
+  );
 
   factory AppRouteSpec.fromJson(Map<String, dynamic> json) => AppRouteSpec(
-        path: json['path'] != null
-            ? SdkPresent((json['path'] as String?)!)
-            : const SdkOmitted(),
-        preservePathPrefix: json['preserve_path_prefix'] != null
-            ? SdkPresent((json['preserve_path_prefix'] as bool?)!)
-            : const SdkOmitted(),
-      );
+    path: json['path'] != null ? SdkPresent((json['path'] as String?)!) : const SdkOmitted(),
+    preservePathPrefix: json['preserve_path_prefix'] != null ? SdkPresent((json['preserve_path_prefix'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (path) {
-          SdkPresent<String>(value: final value) => {
-              'path': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (preservePathPrefix) {
-          SdkPresent<bool>(value: final value) => {
-              'preserve_path_prefix': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (path) {
+      SdkPresent<String>(value: final value) => {'path': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (preservePathPrefix) {
+      SdkPresent<bool>(value: final value) => {'preserve_path_prefix': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

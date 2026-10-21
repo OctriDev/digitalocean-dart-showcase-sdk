@@ -8,317 +8,178 @@ part of 'reserved_ip_actions.dart';
 class ReservedIpActionAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique numeric ID that can be used to identify and reference an action.
   final SdkOptional<int> id;
-
   /// The current status of the action. This can be "in-progress", "completed", or "errored".
   final SdkOptional<ReservedIpActionActionStatus> status;
-
   /// This is the type of action that the object represents. For example, this could be "transfer" to represent the state of an image transfer action.
   final SdkOptional<String> type_;
-
   /// A time value given in ISO8601 combined date and time format that represents when the action was initiated.
   final SdkOptional<String> startedAt;
-
   /// A time value given in ISO8601 combined date and time format that represents when the action was completed.
   final SdkOptional<String?> completedAt;
-
   /// A unique identifier for the resource that the action is associated with.
   final SdkOptional<int?> resourceId;
-
   /// The type of resource that the action is associated with.
   final SdkOptional<String> resourceType;
-
   /// Optional object value serialized in the `region` wire field.
   final SdkOptional<Region> region;
-
   /// A human-readable string that is used as a unique identifier for each region.
   final SdkOptional<String?> regionSlug;
-
   /// The UUID of the project to which the reserved IP currently belongs.
   final SdkOptional<String> projectId;
 
-  const ReservedIpActionAction(
-      {this.id = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.type_ = const SdkOmitted(),
-      this.startedAt = const SdkOmitted(),
-      this.completedAt = const SdkOmitted(),
-      this.resourceId = const SdkOmitted(),
-      this.resourceType = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.regionSlug = const SdkOmitted(),
-      this.projectId = const SdkOmitted()});
+  const ReservedIpActionAction({this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.type_ = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.completedAt = const SdkOmitted(), this.resourceId = const SdkOmitted(), this.resourceType = const SdkOmitted(), this.region = const SdkOmitted(), this.regionSlug = const SdkOmitted(), this.projectId = const SdkOmitted()});
 
-  ReservedIpActionAction Function(
-      {SdkOptional<int> id,
-      SdkOptional<ReservedIpActionActionStatus> status,
-      SdkOptional<String> type_,
-      SdkOptional<String> startedAt,
-      SdkOptional<String?> completedAt,
-      SdkOptional<int?> resourceId,
-      SdkOptional<String> resourceType,
-      SdkOptional<Region> region,
-      SdkOptional<String?> regionSlug,
-      SdkOptional<String> projectId}) get copyWith => _copyWith;
+  ReservedIpActionAction Function({SdkOptional<int> id, SdkOptional<ReservedIpActionActionStatus> status, SdkOptional<String> type_, SdkOptional<String> startedAt, SdkOptional<String?> completedAt, SdkOptional<int?> resourceId, SdkOptional<String> resourceType, SdkOptional<Region> region, SdkOptional<String?> regionSlug, SdkOptional<String> projectId}) get copyWith => _copyWith;
 
-  ReservedIpActionAction _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? startedAt = sdkOmittedValue,
-          Object? completedAt = sdkOmittedValue,
-          Object? resourceId = sdkOmittedValue,
-          Object? resourceType = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? regionSlug = sdkOmittedValue,
-          Object? projectId = sdkOmittedValue}) =>
-      ReservedIpActionAction(
-        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ReservedIpActionActionStatus>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        startedAt: identical(startedAt, sdkOmittedValue)
-            ? this.startedAt
-            : startedAt as SdkOptional<String>,
-        completedAt: identical(completedAt, sdkOmittedValue)
-            ? this.completedAt
-            : completedAt as SdkOptional<String?>,
-        resourceId: identical(resourceId, sdkOmittedValue)
-            ? this.resourceId
-            : resourceId as SdkOptional<int?>,
-        resourceType: identical(resourceType, sdkOmittedValue)
-            ? this.resourceType
-            : resourceType as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<Region>,
-        regionSlug: identical(regionSlug, sdkOmittedValue)
-            ? this.regionSlug
-            : regionSlug as SdkOptional<String?>,
-        projectId: identical(projectId, sdkOmittedValue)
-            ? this.projectId
-            : projectId as SdkOptional<String>,
-      );
+  ReservedIpActionAction _copyWith({Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? resourceId = sdkOmittedValue, Object? resourceType = sdkOmittedValue, Object? region = sdkOmittedValue, Object? regionSlug = sdkOmittedValue, Object? projectId = sdkOmittedValue}) => ReservedIpActionAction(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ReservedIpActionActionStatus>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String>,
+    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<String?>,
+    resourceId: identical(resourceId, sdkOmittedValue) ? this.resourceId : resourceId as SdkOptional<int?>,
+    resourceType: identical(resourceType, sdkOmittedValue) ? this.resourceType : resourceType as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<Region>,
+    regionSlug: identical(regionSlug, sdkOmittedValue) ? this.regionSlug : regionSlug as SdkOptional<String?>,
+    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
+  );
 
-  factory ReservedIpActionAction.fromJson(Map<String, dynamic> json) =>
-      ReservedIpActionAction(
-        id: json['id'] != null
-            ? SdkPresent(((json['id'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ReservedIpActionActionStatus.fromJson(
-                    json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        startedAt: json['started_at'] != null
-            ? SdkPresent((json['started_at'] as String?)!)
-            : const SdkOmitted(),
-        completedAt: json.containsKey('completed_at')
-            ? SdkPresent(json['completed_at'] as String?)
-            : const SdkOmitted(),
-        resourceId: json.containsKey('resource_id')
-            ? SdkPresent((json['resource_id'] as num?)?.toInt())
-            : const SdkOmitted(),
-        resourceType: json['resource_type'] != null
-            ? SdkPresent((json['resource_type'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? Region.fromJson(json['region'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        regionSlug: json.containsKey('region_slug')
-            ? SdkPresent(json['region_slug'] as String?)
-            : const SdkOmitted(),
-        projectId: json['project_id'] != null
-            ? SdkPresent((json['project_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ReservedIpActionAction.fromJson(Map<String, dynamic> json) => ReservedIpActionAction(
+    id: json['id'] != null ? SdkPresent(((json['id'] as num?)?.toInt())!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ReservedIpActionActionStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    startedAt: json['started_at'] != null ? SdkPresent((json['started_at'] as String?)!) : const SdkOmitted(),
+    completedAt: json.containsKey('completed_at') ? SdkPresent(json['completed_at'] as String?) : const SdkOmitted(),
+    resourceId: json.containsKey('resource_id') ? SdkPresent((json['resource_id'] as num?)?.toInt()) : const SdkOmitted(),
+    resourceType: json['resource_type'] != null ? SdkPresent((json['resource_type'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? Region.fromJson(json['region'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    regionSlug: json.containsKey('region_slug') ? SdkPresent(json['region_slug'] as String?) : const SdkOmitted(),
+    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<int>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<ReservedIpActionActionStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startedAt) {
-          SdkPresent<String>(value: final value) => {
-              'started_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (completedAt) {
-          SdkPresent<String?>(value: final value) => {
-              'completed_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceId) {
-          SdkPresent<int?>(value: final value) => {
-              'resource_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceType) {
-          SdkPresent<String>(value: final value) => {
-              'resource_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<Region>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (regionSlug) {
-          SdkPresent<String?>(value: final value) => {
-              'region_slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projectId) {
-          SdkPresent<String>(value: final value) => {
-              'project_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<int>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<ReservedIpActionActionStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startedAt) {
+      SdkPresent<String>(value: final value) => {'started_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (completedAt) {
+      SdkPresent<String?>(value: final value) => {'completed_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceId) {
+      SdkPresent<int?>(value: final value) => {'resource_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceType) {
+      SdkPresent<String>(value: final value) => {'resource_type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<Region>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (regionSlug) {
+      SdkPresent<String?>(value: final value) => {'region_slug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projectId) {
+      SdkPresent<String>(value: final value) => {'project_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ReservedIpAction` API schema.
 class ReservedIpAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `action` wire field.
   final SdkOptional<ReservedIpActionAction> action;
 
   const ReservedIpAction({this.action = const SdkOmitted()});
 
-  ReservedIpAction Function({SdkOptional<ReservedIpActionAction> action})
-      get copyWith => _copyWith;
+  ReservedIpAction Function({SdkOptional<ReservedIpActionAction> action}) get copyWith => _copyWith;
 
-  ReservedIpAction _copyWith({Object? action = sdkOmittedValue}) =>
-      ReservedIpAction(
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as SdkOptional<ReservedIpActionAction>,
-      );
+  ReservedIpAction _copyWith({Object? action = sdkOmittedValue}) => ReservedIpAction(
+    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<ReservedIpActionAction>,
+  );
 
-  factory ReservedIpAction.fromJson(Map<String, dynamic> json) =>
-      ReservedIpAction(
-        action: json['action'] != null
-            ? SdkPresent((json['action'] != null
-                ? ReservedIpActionAction.fromJson(
-                    json['action'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ReservedIpAction.fromJson(Map<String, dynamic> json) => ReservedIpAction(
+    action: json['action'] != null ? SdkPresent((json['action'] != null ? ReservedIpActionAction.fromJson(json['action'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (action) {
-          SdkPresent<ReservedIpActionAction>(value: final value) => {
-              'action': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (action) {
+      SdkPresent<ReservedIpActionAction>(value: final value) => {'action': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class ReservedIpActionAssignVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the Droplet that the reserved IP will be assigned to.
   final int dropletId;
 
   const ReservedIpActionAssignVariant1({required this.dropletId});
 
-  ReservedIpActionAssignVariant1 Function({int dropletId}) get copyWith =>
-      _copyWith;
+  ReservedIpActionAssignVariant1 Function({int dropletId}) get copyWith => _copyWith;
 
-  ReservedIpActionAssignVariant1 _copyWith(
-          {Object? dropletId = sdkOmittedValue}) =>
-      ReservedIpActionAssignVariant1(
-        dropletId: identical(dropletId, sdkOmittedValue)
-            ? this.dropletId
-            : dropletId as int,
-      );
+  ReservedIpActionAssignVariant1 _copyWith({Object? dropletId = sdkOmittedValue}) => ReservedIpActionAssignVariant1(
+    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as int,
+  );
 
-  factory ReservedIpActionAssignVariant1.fromJson(Map<String, dynamic> json) =>
-      ReservedIpActionAssignVariant1(
-        dropletId: ((json['droplet_id'] as num?)?.toInt())!,
-      );
+  factory ReservedIpActionAssignVariant1.fromJson(Map<String, dynamic> json) => ReservedIpActionAssignVariant1(
+    dropletId: ((json['droplet_id'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'droplet_id': dropletId,
-      };
+    'droplet_id': dropletId,
+  };
 }
 
 /// Typed representation of the `ReservedIpActionAssign` API schema.
 class ReservedIpActionAssign {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of action to initiate for the reserved IP.
   final ReservedIpActionTypeType type_;
-
   /// The ID of the Droplet that the reserved IP will be assigned to.
   final int dropletId;
 
   const ReservedIpActionAssign({required this.type_, required this.dropletId});
 
-  ReservedIpActionAssign Function(
-      {ReservedIpActionTypeType type_,
-      int dropletId}) get copyWith => _copyWith;
+  ReservedIpActionAssign Function({ReservedIpActionTypeType type_, int dropletId}) get copyWith => _copyWith;
 
-  ReservedIpActionAssign _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? dropletId = sdkOmittedValue}) =>
-      ReservedIpActionAssign(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ReservedIpActionTypeType,
-        dropletId: identical(dropletId, sdkOmittedValue)
-            ? this.dropletId
-            : dropletId as int,
-      );
+  ReservedIpActionAssign _copyWith({Object? type_ = sdkOmittedValue, Object? dropletId = sdkOmittedValue}) => ReservedIpActionAssign(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ReservedIpActionTypeType,
+    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as int,
+  );
 
-  factory ReservedIpActionAssign.fromJson(Map<String, dynamic> json) =>
-      ReservedIpActionAssign(
-        type_: (json['type'] != null
-            ? ReservedIpActionTypeType.fromJson(json['type'] as String)
-            : null)!,
-        dropletId: ((json['droplet_id'] as num?)?.toInt())!,
-      );
+  factory ReservedIpActionAssign.fromJson(Map<String, dynamic> json) => ReservedIpActionAssign(
+    type_: (json['type'] != null ? ReservedIpActionTypeType.fromJson(json['type'] as String) : null)!,
+    dropletId: ((json['droplet_id'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        'droplet_id': dropletId,
-      };
+    'type': type_.toJson(),
+    'droplet_id': dropletId,
+  };
 }
 
 class ReservedIpActionsVariant0 {
@@ -328,33 +189,22 @@ class ReservedIpActionsVariant0 {
 
   const ReservedIpActionsVariant0({this.actions = const SdkOmitted()});
 
-  ReservedIpActionsVariant0 Function({SdkOptional<List<Action>> actions})
-      get copyWith => _copyWith;
+  ReservedIpActionsVariant0 Function({SdkOptional<List<Action>> actions}) get copyWith => _copyWith;
 
-  ReservedIpActionsVariant0 _copyWith({Object? actions = sdkOmittedValue}) =>
-      ReservedIpActionsVariant0(
-        actions: identical(actions, sdkOmittedValue)
-            ? this.actions
-            : actions as SdkOptional<List<Action>>,
-      );
+  ReservedIpActionsVariant0 _copyWith({Object? actions = sdkOmittedValue}) => ReservedIpActionsVariant0(
+    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<Action>>,
+  );
 
-  factory ReservedIpActionsVariant0.fromJson(Map<String, dynamic> json) =>
-      ReservedIpActionsVariant0(
-        actions: json['actions'] != null
-            ? SdkPresent(((json['actions'] as List?)
-                ?.map((e) => Action.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ReservedIpActionsVariant0.fromJson(Map<String, dynamic> json) => ReservedIpActionsVariant0(
+    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => Action.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (actions) {
-          SdkPresent<List<Action>>(value: final value) => {
-              'actions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (actions) {
+      SdkPresent<List<Action>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ReservedIpActions` API schema.
@@ -362,140 +212,88 @@ class ReservedIpActions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Action>> actions;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const ReservedIpActions(
-      {this.actions = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const ReservedIpActions({this.actions = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  ReservedIpActions Function(
-      {SdkOptional<List<Action>> actions,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  ReservedIpActions Function({SdkOptional<List<Action>> actions, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  ReservedIpActions _copyWith(
-          {Object? actions = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      ReservedIpActions(
-        actions: identical(actions, sdkOmittedValue)
-            ? this.actions
-            : actions as SdkOptional<List<Action>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  ReservedIpActions _copyWith({Object? actions = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ReservedIpActions(
+    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<Action>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory ReservedIpActions.fromJson(Map<String, dynamic> json) =>
-      ReservedIpActions(
-        actions: json['actions'] != null
-            ? SdkPresent(((json['actions'] as List?)
-                ?.map((e) => Action.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory ReservedIpActions.fromJson(Map<String, dynamic> json) => ReservedIpActions(
+    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => Action.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (actions) {
-          SdkPresent<List<Action>>(value: final value) => {
-              'actions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (actions) {
+      SdkPresent<List<Action>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 /// Typed representation of the `ReservedIpActionType` API schema.
 class ReservedIpActionType {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of action to initiate for the reserved IP.
   final ReservedIpActionTypeType type_;
 
   const ReservedIpActionType({required this.type_});
 
-  ReservedIpActionType Function({ReservedIpActionTypeType type_})
-      get copyWith => _copyWith;
+  ReservedIpActionType Function({ReservedIpActionTypeType type_}) get copyWith => _copyWith;
 
-  ReservedIpActionType _copyWith({Object? type_ = sdkOmittedValue}) =>
-      ReservedIpActionType(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ReservedIpActionTypeType,
-      );
+  ReservedIpActionType _copyWith({Object? type_ = sdkOmittedValue}) => ReservedIpActionType(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ReservedIpActionTypeType,
+  );
 
-  factory ReservedIpActionType.fromJson(Map<String, dynamic> json) =>
-      ReservedIpActionType(
-        type_: (json['type'] != null
-            ? ReservedIpActionTypeType.fromJson(json['type'] as String)
-            : null)!,
-      );
+  factory ReservedIpActionType.fromJson(Map<String, dynamic> json) => ReservedIpActionType(
+    type_: (json['type'] != null ? ReservedIpActionTypeType.fromJson(json['type'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-      };
+    'type': type_.toJson(),
+  };
 }
 
 /// Typed representation of the `ReservedIpActionUnassign` API schema.
 class ReservedIpActionUnassign {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of action to initiate for the reserved IP.
   final ReservedIpActionTypeType type_;
   final Map<String, dynamic> additionalProperties;
 
-  const ReservedIpActionUnassign(
-      {required this.type_,
-      this.additionalProperties = const <String, dynamic>{}});
+  const ReservedIpActionUnassign({required this.type_, this.additionalProperties = const <String, dynamic>{}});
 
-  ReservedIpActionUnassign Function({ReservedIpActionTypeType type_})
-      get copyWith => _copyWith;
+  ReservedIpActionUnassign Function({ReservedIpActionTypeType type_}) get copyWith => _copyWith;
 
-  ReservedIpActionUnassign _copyWith({Object? type_ = sdkOmittedValue}) =>
-      ReservedIpActionUnassign(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as ReservedIpActionTypeType,
-        additionalProperties: additionalProperties,
-      );
+  ReservedIpActionUnassign _copyWith({Object? type_ = sdkOmittedValue}) => ReservedIpActionUnassign(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ReservedIpActionTypeType,
+    additionalProperties: additionalProperties,
+  );
 
-  factory ReservedIpActionUnassign.fromJson(Map<String, dynamic> json) =>
-      ReservedIpActionUnassign(
-        type_: (json['type'] != null
-            ? ReservedIpActionTypeType.fromJson(json['type'] as String)
-            : null)!,
-        additionalProperties: Map.of(json)
-          ..removeWhere((key, _) => const <String>{'type'}.contains(key)),
-      );
+  factory ReservedIpActionUnassign.fromJson(Map<String, dynamic> json) => ReservedIpActionUnassign(
+    type_: (json['type'] != null ? ReservedIpActionTypeType.fromJson(json['type'] as String) : null)!,
+    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{'type'}.contains(key)),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...additionalProperties,
-        'type': type_.toJson(),
-      };
+    ...additionalProperties,
+    'type': type_.toJson(),
+  };
 }

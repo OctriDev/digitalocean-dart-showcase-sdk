@@ -8,71 +8,38 @@ part of 'harness_runtime_trigger.dart';
 class TriggerOutputWrite {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// none = nothing pushed; the result stays in run history for self-serve. email = the collected run output is emailed to a configured address. slack = the collected run output is posted to a Slack incoming webhook URL (channel fixed by the webhook at install time).
   final TriggerOutputMode mode;
-
   /// Destination address; required iff mode=email.
   final SdkOptional<String> email;
-
   /// Slack destination on create/update. webhook_url is required when mode=slack; must be https://hooks.slack.com/services/...; stored encrypted and never returned.
   final SdkOptional<SlackOutputWrite> slack;
 
-  const TriggerOutputWrite(
-      {required this.mode,
-      this.email = const SdkOmitted(),
-      this.slack = const SdkOmitted()});
+  const TriggerOutputWrite({required this.mode, this.email = const SdkOmitted(), this.slack = const SdkOmitted()});
 
-  TriggerOutputWrite Function(
-      {TriggerOutputMode mode,
-      SdkOptional<String> email,
-      SdkOptional<SlackOutputWrite> slack}) get copyWith => _copyWith;
+  TriggerOutputWrite Function({TriggerOutputMode mode, SdkOptional<String> email, SdkOptional<SlackOutputWrite> slack}) get copyWith => _copyWith;
 
-  TriggerOutputWrite _copyWith(
-          {Object? mode = sdkOmittedValue,
-          Object? email = sdkOmittedValue,
-          Object? slack = sdkOmittedValue}) =>
-      TriggerOutputWrite(
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as TriggerOutputMode,
-        email: identical(email, sdkOmittedValue)
-            ? this.email
-            : email as SdkOptional<String>,
-        slack: identical(slack, sdkOmittedValue)
-            ? this.slack
-            : slack as SdkOptional<SlackOutputWrite>,
-      );
+  TriggerOutputWrite _copyWith({Object? mode = sdkOmittedValue, Object? email = sdkOmittedValue, Object? slack = sdkOmittedValue}) => TriggerOutputWrite(
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as TriggerOutputMode,
+    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String>,
+    slack: identical(slack, sdkOmittedValue) ? this.slack : slack as SdkOptional<SlackOutputWrite>,
+  );
 
-  factory TriggerOutputWrite.fromJson(Map<String, dynamic> json) =>
-      TriggerOutputWrite(
-        mode: (json['mode'] != null
-            ? TriggerOutputMode.fromJson(json['mode'] as String)
-            : null)!,
-        email: json['email'] != null
-            ? SdkPresent((json['email'] as String?)!)
-            : const SdkOmitted(),
-        slack: json['slack'] != null
-            ? SdkPresent((json['slack'] != null
-                ? SlackOutputWrite.fromJson(
-                    json['slack'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory TriggerOutputWrite.fromJson(Map<String, dynamic> json) => TriggerOutputWrite(
+    mode: (json['mode'] != null ? TriggerOutputMode.fromJson(json['mode'] as String) : null)!,
+    email: json['email'] != null ? SdkPresent((json['email'] as String?)!) : const SdkOmitted(),
+    slack: json['slack'] != null ? SdkPresent((json['slack'] != null ? SlackOutputWrite.fromJson(json['slack'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'mode': mode.toJson(),
-        ...switch (email) {
-          SdkPresent<String>(value: final value) => {
-              'email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (slack) {
-          SdkPresent<SlackOutputWrite>(value: final value) => {
-              'slack': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'mode': mode.toJson(),
+    ...switch (email) {
+      SdkPresent<String>(value: final value) => {'email': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (slack) {
+      SdkPresent<SlackOutputWrite>(value: final value) => {'slack': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

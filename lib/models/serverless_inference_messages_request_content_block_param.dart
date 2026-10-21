@@ -10,101 +10,48 @@ sealed class MessagesRequestContentBlockParam {
   const MessagesRequestContentBlockParam();
   factory MessagesRequestContentBlockParam.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = MessagesRequestTextBlockParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessagesRequestContentBlockParamMessagesRequestTextBlockParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = MessagesImageBlockParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessagesRequestContentBlockParamMessagesImageBlockParam(value);
-        }
-      } catch (_) {}
-      try {
-        final value = MessagesToolUseBlockParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessagesRequestContentBlockParamMessagesToolUseBlockParam(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = MessagesToolResultBlockParam.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return MessagesRequestContentBlockParamMessagesToolResultBlockParam(
-              value);
-        }
-      } catch (_) {}
+      try { final value = MessagesRequestTextBlockParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessagesRequestContentBlockParamMessagesRequestTextBlockParam(value); } } catch (_) {}
+      try { final value = MessagesImageBlockParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessagesRequestContentBlockParamMessagesImageBlockParam(value); } } catch (_) {}
+      try { final value = MessagesToolUseBlockParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessagesRequestContentBlockParamMessagesToolUseBlockParam(value); } } catch (_) {}
+      try { final value = MessagesToolResultBlockParam.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessagesRequestContentBlockParamMessagesToolResultBlockParam(value); } } catch (_) {}
     }
-    try {
-      return MessagesRequestContentBlockParamMessagesRequestTextBlockParam(
-          MessagesRequestTextBlockParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MessagesRequestContentBlockParamMessagesImageBlockParam(
-          MessagesImageBlockParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MessagesRequestContentBlockParamMessagesToolUseBlockParam(
-          MessagesToolUseBlockParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return MessagesRequestContentBlockParamMessagesToolResultBlockParam(
-          MessagesToolResultBlockParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["type"] is String &&
-        !const {"text", "image", "tool_use", "tool_result"}
-            .contains(json["type"])) {
-      return UnknownMessagesRequestContentBlockParam(json);
-    }
-    throw FormatException(
-        "No variant matched for MessagesRequestContentBlockParam");
+    try { return MessagesRequestContentBlockParamMessagesRequestTextBlockParam(MessagesRequestTextBlockParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MessagesRequestContentBlockParamMessagesImageBlockParam(MessagesImageBlockParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MessagesRequestContentBlockParamMessagesToolUseBlockParam(MessagesToolUseBlockParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return MessagesRequestContentBlockParamMessagesToolResultBlockParam(MessagesToolResultBlockParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "image", "tool_use", "tool_result"}.contains(json["type"])) { return UnknownMessagesRequestContentBlockParam(json); }
+    throw FormatException("No variant matched for MessagesRequestContentBlockParam");
   }
   Object? toJson();
 }
 
-final class MessagesRequestContentBlockParamMessagesRequestTextBlockParam
-    extends MessagesRequestContentBlockParam {
+final class MessagesRequestContentBlockParamMessagesRequestTextBlockParam extends MessagesRequestContentBlockParam {
   final MessagesRequestTextBlockParam value;
-  const MessagesRequestContentBlockParamMessagesRequestTextBlockParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const MessagesRequestContentBlockParamMessagesRequestTextBlockParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class MessagesRequestContentBlockParamMessagesImageBlockParam
-    extends MessagesRequestContentBlockParam {
+final class MessagesRequestContentBlockParamMessagesImageBlockParam extends MessagesRequestContentBlockParam {
   final MessagesImageBlockParam value;
   const MessagesRequestContentBlockParamMessagesImageBlockParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class MessagesRequestContentBlockParamMessagesToolUseBlockParam
-    extends MessagesRequestContentBlockParam {
+final class MessagesRequestContentBlockParamMessagesToolUseBlockParam extends MessagesRequestContentBlockParam {
   final MessagesToolUseBlockParam value;
   const MessagesRequestContentBlockParamMessagesToolUseBlockParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class MessagesRequestContentBlockParamMessagesToolResultBlockParam
-    extends MessagesRequestContentBlockParam {
+final class MessagesRequestContentBlockParamMessagesToolResultBlockParam extends MessagesRequestContentBlockParam {
   final MessagesToolResultBlockParam value;
-  const MessagesRequestContentBlockParamMessagesToolResultBlockParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const MessagesRequestContentBlockParamMessagesToolResultBlockParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [MessagesRequestContentBlockParam] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownMessagesRequestContentBlockParam
-    extends MessagesRequestContentBlockParam {
+final class UnknownMessagesRequestContentBlockParam extends MessagesRequestContentBlockParam {
   final Map<String, dynamic> raw;
   const UnknownMessagesRequestContentBlockParam(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

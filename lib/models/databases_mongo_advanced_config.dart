@@ -8,120 +8,57 @@ part of 'databases.dart';
 class MongoAdvancedConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Specifies the default consistency behavior of reads from the database. Data that is returned from the query with may or may not have been acknowledged by all nodes in the replicaset depending on this value. Learn more [here](https://www.mongodb.com/docs/manual/reference/read-concern/).
   final SdkOptional<MongoAdvancedConfigDefaultReadConcern> defaultReadConcern;
-
   /// Describes the level of acknowledgment requested from MongoDB for write operations clusters. This field can set to either `majority` or a number `0...n` which will describe the number of nodes that must acknowledge the write operation before it is fully accepted. Setting to `0` will request no acknowledgement of the write operation. Learn more [here](https://www.mongodb.com/docs/manual/reference/write-concern/).
   final SdkOptional<String> defaultWriteConcern;
-
   /// Specifies the lifetime of multi-document transactions. Transactions that exceed this limit are considered expired and will be aborted by a periodic cleanup process. The cleanup process runs every `transactionLifetimeLimitSeconds/2 seconds` or at least once every 60 seconds. *Changing this parameter will lead to a restart of the MongoDB service.* Learn more [here](https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.transactionLifetimeLimitSeconds).
   final SdkOptional<int> transactionLifetimeLimitSeconds;
-
   /// Operations that run for longer than this threshold are considered slow which are then recorded to the diagnostic logs. Higher log levels (verbosity) will record all operations regardless of this threshold on the primary node. *Changing this parameter will lead to a restart of the MongoDB service.* Learn more [here](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpThresholdMs).
   final SdkOptional<int> slowOpThresholdMs;
-
   /// The log message verbosity level. The verbosity level determines the amount of Informational and Debug messages MongoDB outputs. 0 includes informational messages while 1...5 increases the level to include debug messages. *Changing this parameter will lead to a restart of the MongoDB service.* Learn more [here](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-systemLog.verbosity).
   final SdkOptional<int> verbosity;
 
-  const MongoAdvancedConfig(
-      {this.defaultReadConcern = const SdkOmitted(),
-      this.defaultWriteConcern = const SdkOmitted(),
-      this.transactionLifetimeLimitSeconds = const SdkOmitted(),
-      this.slowOpThresholdMs = const SdkOmitted(),
-      this.verbosity = const SdkOmitted()});
+  const MongoAdvancedConfig({this.defaultReadConcern = const SdkOmitted(), this.defaultWriteConcern = const SdkOmitted(), this.transactionLifetimeLimitSeconds = const SdkOmitted(), this.slowOpThresholdMs = const SdkOmitted(), this.verbosity = const SdkOmitted()});
 
-  MongoAdvancedConfig Function(
-      {SdkOptional<MongoAdvancedConfigDefaultReadConcern> defaultReadConcern,
-      SdkOptional<String> defaultWriteConcern,
-      SdkOptional<int> transactionLifetimeLimitSeconds,
-      SdkOptional<int> slowOpThresholdMs,
-      SdkOptional<int> verbosity}) get copyWith => _copyWith;
+  MongoAdvancedConfig Function({SdkOptional<MongoAdvancedConfigDefaultReadConcern> defaultReadConcern, SdkOptional<String> defaultWriteConcern, SdkOptional<int> transactionLifetimeLimitSeconds, SdkOptional<int> slowOpThresholdMs, SdkOptional<int> verbosity}) get copyWith => _copyWith;
 
-  MongoAdvancedConfig _copyWith(
-          {Object? defaultReadConcern = sdkOmittedValue,
-          Object? defaultWriteConcern = sdkOmittedValue,
-          Object? transactionLifetimeLimitSeconds = sdkOmittedValue,
-          Object? slowOpThresholdMs = sdkOmittedValue,
-          Object? verbosity = sdkOmittedValue}) =>
-      MongoAdvancedConfig(
-        defaultReadConcern: identical(defaultReadConcern, sdkOmittedValue)
-            ? this.defaultReadConcern
-            : defaultReadConcern
-                as SdkOptional<MongoAdvancedConfigDefaultReadConcern>,
-        defaultWriteConcern: identical(defaultWriteConcern, sdkOmittedValue)
-            ? this.defaultWriteConcern
-            : defaultWriteConcern as SdkOptional<String>,
-        transactionLifetimeLimitSeconds:
-            identical(transactionLifetimeLimitSeconds, sdkOmittedValue)
-                ? this.transactionLifetimeLimitSeconds
-                : transactionLifetimeLimitSeconds as SdkOptional<int>,
-        slowOpThresholdMs: identical(slowOpThresholdMs, sdkOmittedValue)
-            ? this.slowOpThresholdMs
-            : slowOpThresholdMs as SdkOptional<int>,
-        verbosity: identical(verbosity, sdkOmittedValue)
-            ? this.verbosity
-            : verbosity as SdkOptional<int>,
-      );
+  MongoAdvancedConfig _copyWith({Object? defaultReadConcern = sdkOmittedValue, Object? defaultWriteConcern = sdkOmittedValue, Object? transactionLifetimeLimitSeconds = sdkOmittedValue, Object? slowOpThresholdMs = sdkOmittedValue, Object? verbosity = sdkOmittedValue}) => MongoAdvancedConfig(
+    defaultReadConcern: identical(defaultReadConcern, sdkOmittedValue) ? this.defaultReadConcern : defaultReadConcern as SdkOptional<MongoAdvancedConfigDefaultReadConcern>,
+    defaultWriteConcern: identical(defaultWriteConcern, sdkOmittedValue) ? this.defaultWriteConcern : defaultWriteConcern as SdkOptional<String>,
+    transactionLifetimeLimitSeconds: identical(transactionLifetimeLimitSeconds, sdkOmittedValue) ? this.transactionLifetimeLimitSeconds : transactionLifetimeLimitSeconds as SdkOptional<int>,
+    slowOpThresholdMs: identical(slowOpThresholdMs, sdkOmittedValue) ? this.slowOpThresholdMs : slowOpThresholdMs as SdkOptional<int>,
+    verbosity: identical(verbosity, sdkOmittedValue) ? this.verbosity : verbosity as SdkOptional<int>,
+  );
 
-  factory MongoAdvancedConfig.fromJson(Map<String, dynamic> json) =>
-      MongoAdvancedConfig(
-        defaultReadConcern: json['default_read_concern'] != null
-            ? SdkPresent((json['default_read_concern'] != null
-                ? MongoAdvancedConfigDefaultReadConcern.fromJson(
-                    json['default_read_concern'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        defaultWriteConcern: json['default_write_concern'] != null
-            ? SdkPresent((json['default_write_concern'] as String?)!)
-            : const SdkOmitted(),
-        transactionLifetimeLimitSeconds:
-            json['transaction_lifetime_limit_seconds'] != null
-                ? SdkPresent(
-                    ((json['transaction_lifetime_limit_seconds'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        slowOpThresholdMs: json['slow_op_threshold_ms'] != null
-            ? SdkPresent(((json['slow_op_threshold_ms'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        verbosity: json['verbosity'] != null
-            ? SdkPresent(((json['verbosity'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory MongoAdvancedConfig.fromJson(Map<String, dynamic> json) => MongoAdvancedConfig(
+    defaultReadConcern: json['default_read_concern'] != null ? SdkPresent((json['default_read_concern'] != null ? MongoAdvancedConfigDefaultReadConcern.fromJson(json['default_read_concern'] as String) : null)!) : const SdkOmitted(),
+    defaultWriteConcern: json['default_write_concern'] != null ? SdkPresent((json['default_write_concern'] as String?)!) : const SdkOmitted(),
+    transactionLifetimeLimitSeconds: json['transaction_lifetime_limit_seconds'] != null ? SdkPresent(((json['transaction_lifetime_limit_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+    slowOpThresholdMs: json['slow_op_threshold_ms'] != null ? SdkPresent(((json['slow_op_threshold_ms'] as num?)?.toInt())!) : const SdkOmitted(),
+    verbosity: json['verbosity'] != null ? SdkPresent(((json['verbosity'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (defaultReadConcern) {
-          SdkPresent<MongoAdvancedConfigDefaultReadConcern>(
-            value: final value
-          ) =>
-            {
-              'default_read_concern': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultWriteConcern) {
-          SdkPresent<String>(value: final value) => {
-              'default_write_concern': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (transactionLifetimeLimitSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'transaction_lifetime_limit_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (slowOpThresholdMs) {
-          SdkPresent<int>(value: final value) => {
-              'slow_op_threshold_ms': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (verbosity) {
-          SdkPresent<int>(value: final value) => {
-              'verbosity': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (defaultReadConcern) {
+      SdkPresent<MongoAdvancedConfigDefaultReadConcern>(value: final value) => {'default_read_concern': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultWriteConcern) {
+      SdkPresent<String>(value: final value) => {'default_write_concern': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (transactionLifetimeLimitSeconds) {
+      SdkPresent<int>(value: final value) => {'transaction_lifetime_limit_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (slowOpThresholdMs) {
+      SdkPresent<int>(value: final value) => {'slow_op_threshold_ms': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (verbosity) {
+      SdkPresent<int>(value: final value) => {'verbosity': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

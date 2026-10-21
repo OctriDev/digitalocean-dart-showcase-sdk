@@ -8,35 +8,25 @@ part of 'action_gateway_mcp.dart';
 class McpServerResync {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required for a server registered with `credentialRefSource` connection: discovery reaches the server as this user, through their connection, because such a server has no team-wide credential. Ignored otherwise.
   final SdkOptional<String> userId;
 
   const McpServerResync({this.userId = const SdkOmitted()});
 
-  McpServerResync Function({SdkOptional<String> userId}) get copyWith =>
-      _copyWith;
+  McpServerResync Function({SdkOptional<String> userId}) get copyWith => _copyWith;
 
-  McpServerResync _copyWith({Object? userId = sdkOmittedValue}) =>
-      McpServerResync(
-        userId: identical(userId, sdkOmittedValue)
-            ? this.userId
-            : userId as SdkOptional<String>,
-      );
+  McpServerResync _copyWith({Object? userId = sdkOmittedValue}) => McpServerResync(
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
+  );
 
-  factory McpServerResync.fromJson(Map<String, dynamic> json) =>
-      McpServerResync(
-        userId: json['user_id'] != null
-            ? SdkPresent((json['user_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory McpServerResync.fromJson(Map<String, dynamic> json) => McpServerResync(
+    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (userId) {
-          SdkPresent<String>(value: final value) => {
-              'user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (userId) {
+      SdkPresent<String>(value: final value) => {'user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

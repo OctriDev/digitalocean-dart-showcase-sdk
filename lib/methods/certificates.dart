@@ -27,26 +27,18 @@ Future<AllCertificates> certificatesList(ClientConfig config,
   return (await sdkRequest<AllCertificates>('GET', '/v2/certificates',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true),
-            'name': SdkQueryValue(SdkUtils.unwrapOptional(name),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
+            'name': SdkQueryValue(SdkUtils.unwrapOptional(name), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'certificatesList',
-          fromJsonRaw: (value) =>
-              AllCertificates.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllCertificates.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a certificate from a user-generated certificate and private key or requests one from Let's Encrypt. Set `type` to `custom` and provide `private_key` and `leaf_certificate`, or set it to `lets_encrypt` and provide `dns_names`; both request types require `name`. A Let's Encrypt certificate starts in the `pending` state and transitions to `verified` when it is ready to use.
 ///
@@ -58,17 +50,12 @@ Future<NewCertificate> certificatesCreate(ClientConfig config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'certificatesCreate',
-          fromJsonRaw: (value) =>
-              NewCertificate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => NewCertificate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To show information about an existing certificate, send a GET request to `/v2/certificates/$CERTIFICATE_ID`.
 ///
@@ -82,18 +69,12 @@ Future<ExistingCertificate> certificatesGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'certificatesGet',
-          fromJsonRaw: (value) =>
-              ExistingCertificate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExistingCertificate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a specific certificate, send a DELETE request to `/v2/certificates/$CERTIFICATE_ID`.
 ///
@@ -108,12 +89,6 @@ Future<void> certificatesDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'certificatesDelete',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

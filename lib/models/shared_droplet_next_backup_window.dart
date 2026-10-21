@@ -8,53 +8,33 @@ part of 'shared_droplet.dart';
 class DropletNextBackupWindow {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A time value given in ISO8601 combined date and time format specifying the start of the Droplet's backup window.
   final SdkOptional<String> start;
-
   /// A time value given in ISO8601 combined date and time format specifying the end of the Droplet's backup window.
   final SdkOptional<String> end;
 
-  const DropletNextBackupWindow(
-      {this.start = const SdkOmitted(), this.end = const SdkOmitted()});
+  const DropletNextBackupWindow({this.start = const SdkOmitted(), this.end = const SdkOmitted()});
 
-  DropletNextBackupWindow Function(
-      {SdkOptional<String> start,
-      SdkOptional<String> end}) get copyWith => _copyWith;
+  DropletNextBackupWindow Function({SdkOptional<String> start, SdkOptional<String> end}) get copyWith => _copyWith;
 
-  DropletNextBackupWindow _copyWith(
-          {Object? start = sdkOmittedValue, Object? end = sdkOmittedValue}) =>
-      DropletNextBackupWindow(
-        start: identical(start, sdkOmittedValue)
-            ? this.start
-            : start as SdkOptional<String>,
-        end: identical(end, sdkOmittedValue)
-            ? this.end
-            : end as SdkOptional<String>,
-      );
+  DropletNextBackupWindow _copyWith({Object? start = sdkOmittedValue, Object? end = sdkOmittedValue}) => DropletNextBackupWindow(
+    start: identical(start, sdkOmittedValue) ? this.start : start as SdkOptional<String>,
+    end: identical(end, sdkOmittedValue) ? this.end : end as SdkOptional<String>,
+  );
 
-  factory DropletNextBackupWindow.fromJson(Map<String, dynamic> json) =>
-      DropletNextBackupWindow(
-        start: json['start'] != null
-            ? SdkPresent((json['start'] as String?)!)
-            : const SdkOmitted(),
-        end: json['end'] != null
-            ? SdkPresent((json['end'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory DropletNextBackupWindow.fromJson(Map<String, dynamic> json) => DropletNextBackupWindow(
+    start: json['start'] != null ? SdkPresent((json['start'] as String?)!) : const SdkOmitted(),
+    end: json['end'] != null ? SdkPresent((json['end'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (start) {
-          SdkPresent<String>(value: final value) => {
-              'start': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (end) {
-          SdkPresent<String>(value: final value) => {
-              'end': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (start) {
+      SdkPresent<String>(value: final value) => {'start': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (end) {
+      SdkPresent<String>(value: final value) => {'end': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

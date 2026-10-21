@@ -8,50 +8,30 @@ part of 'insights_traces.dart';
 class TracesOrderBy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A reference to a span field, used in filters and `orderBy`.
   final TracesFieldRef field;
-
   /// The sort direction (case-insensitive). Defaults to `desc`.
   final SdkOptional<TracesOrderByDirection> direction;
 
-  const TracesOrderBy(
-      {required this.field, this.direction = const SdkOmitted()});
+  const TracesOrderBy({required this.field, this.direction = const SdkOmitted()});
 
-  TracesOrderBy Function(
-      {TracesFieldRef field,
-      SdkOptional<TracesOrderByDirection> direction}) get copyWith => _copyWith;
+  TracesOrderBy Function({TracesFieldRef field, SdkOptional<TracesOrderByDirection> direction}) get copyWith => _copyWith;
 
-  TracesOrderBy _copyWith(
-          {Object? field = sdkOmittedValue,
-          Object? direction = sdkOmittedValue}) =>
-      TracesOrderBy(
-        field: identical(field, sdkOmittedValue)
-            ? this.field
-            : field as TracesFieldRef,
-        direction: identical(direction, sdkOmittedValue)
-            ? this.direction
-            : direction as SdkOptional<TracesOrderByDirection>,
-      );
+  TracesOrderBy _copyWith({Object? field = sdkOmittedValue, Object? direction = sdkOmittedValue}) => TracesOrderBy(
+    field: identical(field, sdkOmittedValue) ? this.field : field as TracesFieldRef,
+    direction: identical(direction, sdkOmittedValue) ? this.direction : direction as SdkOptional<TracesOrderByDirection>,
+  );
 
   factory TracesOrderBy.fromJson(Map<String, dynamic> json) => TracesOrderBy(
-        field: (json['field'] != null
-            ? TracesFieldRef.fromJson(json['field'] as Map<String, dynamic>)
-            : null)!,
-        direction: json['direction'] != null
-            ? SdkPresent((json['direction'] != null
-                ? TracesOrderByDirection.fromJson(json['direction'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    field: (json['field'] != null ? TracesFieldRef.fromJson(json['field'] as Map<String, dynamic>) : null)!,
+    direction: json['direction'] != null ? SdkPresent((json['direction'] != null ? TracesOrderByDirection.fromJson(json['direction'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'field': field.toJson(),
-        ...switch (direction) {
-          SdkPresent<TracesOrderByDirection>(value: final value) => {
-              'direction': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'field': field.toJson(),
+    ...switch (direction) {
+      SdkPresent<TracesOrderByDirection>(value: final value) => {'direction': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

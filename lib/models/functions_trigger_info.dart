@@ -8,244 +8,124 @@ part of 'functions.dart';
 class TriggerInfoScheduledRuns {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Indicates last run time. null value indicates trigger not run yet.
   final SdkOptional<String?> lastRunAt;
-
   /// Indicates next run time. null value indicates trigger will not run.
   final SdkOptional<String?> nextRunAt;
 
-  const TriggerInfoScheduledRuns(
-      {this.lastRunAt = const SdkOmitted(),
-      this.nextRunAt = const SdkOmitted()});
+  const TriggerInfoScheduledRuns({this.lastRunAt = const SdkOmitted(), this.nextRunAt = const SdkOmitted()});
 
-  TriggerInfoScheduledRuns Function(
-      {SdkOptional<String?> lastRunAt,
-      SdkOptional<String?> nextRunAt}) get copyWith => _copyWith;
+  TriggerInfoScheduledRuns Function({SdkOptional<String?> lastRunAt, SdkOptional<String?> nextRunAt}) get copyWith => _copyWith;
 
-  TriggerInfoScheduledRuns _copyWith(
-          {Object? lastRunAt = sdkOmittedValue,
-          Object? nextRunAt = sdkOmittedValue}) =>
-      TriggerInfoScheduledRuns(
-        lastRunAt: identical(lastRunAt, sdkOmittedValue)
-            ? this.lastRunAt
-            : lastRunAt as SdkOptional<String?>,
-        nextRunAt: identical(nextRunAt, sdkOmittedValue)
-            ? this.nextRunAt
-            : nextRunAt as SdkOptional<String?>,
-      );
+  TriggerInfoScheduledRuns _copyWith({Object? lastRunAt = sdkOmittedValue, Object? nextRunAt = sdkOmittedValue}) => TriggerInfoScheduledRuns(
+    lastRunAt: identical(lastRunAt, sdkOmittedValue) ? this.lastRunAt : lastRunAt as SdkOptional<String?>,
+    nextRunAt: identical(nextRunAt, sdkOmittedValue) ? this.nextRunAt : nextRunAt as SdkOptional<String?>,
+  );
 
-  factory TriggerInfoScheduledRuns.fromJson(Map<String, dynamic> json) =>
-      TriggerInfoScheduledRuns(
-        lastRunAt: json.containsKey('last_run_at')
-            ? SdkPresent(json['last_run_at'] as String?)
-            : const SdkOmitted(),
-        nextRunAt: json.containsKey('next_run_at')
-            ? SdkPresent(json['next_run_at'] as String?)
-            : const SdkOmitted(),
-      );
+  factory TriggerInfoScheduledRuns.fromJson(Map<String, dynamic> json) => TriggerInfoScheduledRuns(
+    lastRunAt: json.containsKey('last_run_at') ? SdkPresent(json['last_run_at'] as String?) : const SdkOmitted(),
+    nextRunAt: json.containsKey('next_run_at') ? SdkPresent(json['next_run_at'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (lastRunAt) {
-          SdkPresent<String?>(value: final value) => {
-              'last_run_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (nextRunAt) {
-          SdkPresent<String?>(value: final value) => {
-              'next_run_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (lastRunAt) {
+      SdkPresent<String?>(value: final value) => {'last_run_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (nextRunAt) {
+      SdkPresent<String?>(value: final value) => {'next_run_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `TriggerInfo` API schema.
 class TriggerInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique string format of UUID with a prefix fn-.
   final SdkOptional<String> namespace;
-
   /// The trigger's unique name within the namespace.
   final SdkOptional<String> name;
-
   /// Name of function(action) that exists in the given namespace.
   final SdkOptional<String> function_;
-
   /// String which indicates the type of trigger source like SCHEDULED.
   final SdkOptional<String> type_;
-
   /// Indicates weather the trigger is paused or unpaused.
   final SdkOptional<bool> isEnabled;
-
   /// UTC time string.
   final SdkOptional<String> createdAt;
-
   /// UTC time string.
   final SdkOptional<String> updatedAt;
-
   /// Trigger details for SCHEDULED type, where body is optional.
   final SdkOptional<ScheduledDetails> scheduledDetails;
-
   /// Optional object value serialized in the `scheduled_runs` wire field.
   final SdkOptional<TriggerInfoScheduledRuns> scheduledRuns;
 
-  const TriggerInfo(
-      {this.namespace = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.function_ = const SdkOmitted(),
-      this.type_ = const SdkOmitted(),
-      this.isEnabled = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.scheduledDetails = const SdkOmitted(),
-      this.scheduledRuns = const SdkOmitted()});
+  const TriggerInfo({this.namespace = const SdkOmitted(), this.name = const SdkOmitted(), this.function_ = const SdkOmitted(), this.type_ = const SdkOmitted(), this.isEnabled = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.scheduledDetails = const SdkOmitted(), this.scheduledRuns = const SdkOmitted()});
 
-  TriggerInfo Function(
-          {SdkOptional<String> namespace,
-          SdkOptional<String> name,
-          SdkOptional<String> function_,
-          SdkOptional<String> type_,
-          SdkOptional<bool> isEnabled,
-          SdkOptional<String> createdAt,
-          SdkOptional<String> updatedAt,
-          SdkOptional<ScheduledDetails> scheduledDetails,
-          SdkOptional<TriggerInfoScheduledRuns> scheduledRuns})
-      get copyWith => _copyWith;
+  TriggerInfo Function({SdkOptional<String> namespace, SdkOptional<String> name, SdkOptional<String> function_, SdkOptional<String> type_, SdkOptional<bool> isEnabled, SdkOptional<String> createdAt, SdkOptional<String> updatedAt, SdkOptional<ScheduledDetails> scheduledDetails, SdkOptional<TriggerInfoScheduledRuns> scheduledRuns}) get copyWith => _copyWith;
 
-  TriggerInfo _copyWith(
-          {Object? namespace = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? function_ = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? isEnabled = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? scheduledDetails = sdkOmittedValue,
-          Object? scheduledRuns = sdkOmittedValue}) =>
-      TriggerInfo(
-        namespace: identical(namespace, sdkOmittedValue)
-            ? this.namespace
-            : namespace as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        function_: identical(function_, sdkOmittedValue)
-            ? this.function_
-            : function_ as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<String>,
-        isEnabled: identical(isEnabled, sdkOmittedValue)
-            ? this.isEnabled
-            : isEnabled as SdkOptional<bool>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-        scheduledDetails: identical(scheduledDetails, sdkOmittedValue)
-            ? this.scheduledDetails
-            : scheduledDetails as SdkOptional<ScheduledDetails>,
-        scheduledRuns: identical(scheduledRuns, sdkOmittedValue)
-            ? this.scheduledRuns
-            : scheduledRuns as SdkOptional<TriggerInfoScheduledRuns>,
-      );
+  TriggerInfo _copyWith({Object? namespace = sdkOmittedValue, Object? name = sdkOmittedValue, Object? function_ = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? isEnabled = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? scheduledDetails = sdkOmittedValue, Object? scheduledRuns = sdkOmittedValue}) => TriggerInfo(
+    namespace: identical(namespace, sdkOmittedValue) ? this.namespace : namespace as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    function_: identical(function_, sdkOmittedValue) ? this.function_ : function_ as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    isEnabled: identical(isEnabled, sdkOmittedValue) ? this.isEnabled : isEnabled as SdkOptional<bool>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+    scheduledDetails: identical(scheduledDetails, sdkOmittedValue) ? this.scheduledDetails : scheduledDetails as SdkOptional<ScheduledDetails>,
+    scheduledRuns: identical(scheduledRuns, sdkOmittedValue) ? this.scheduledRuns : scheduledRuns as SdkOptional<TriggerInfoScheduledRuns>,
+  );
 
   factory TriggerInfo.fromJson(Map<String, dynamic> json) => TriggerInfo(
-        namespace: json['namespace'] != null
-            ? SdkPresent((json['namespace'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        function_: json['function'] != null
-            ? SdkPresent((json['function'] as String?)!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] as String?)!)
-            : const SdkOmitted(),
-        isEnabled: json['is_enabled'] != null
-            ? SdkPresent((json['is_enabled'] as bool?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-        scheduledDetails: json['scheduled_details'] != null
-            ? SdkPresent((json['scheduled_details'] != null
-                ? ScheduledDetails.fromJson(
-                    json['scheduled_details'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        scheduledRuns: json['scheduled_runs'] != null
-            ? SdkPresent((json['scheduled_runs'] != null
-                ? TriggerInfoScheduledRuns.fromJson(
-                    json['scheduled_runs'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    namespace: json['namespace'] != null ? SdkPresent((json['namespace'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    function_: json['function'] != null ? SdkPresent((json['function'] as String?)!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    isEnabled: json['is_enabled'] != null ? SdkPresent((json['is_enabled'] as bool?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+    scheduledDetails: json['scheduled_details'] != null ? SdkPresent((json['scheduled_details'] != null ? ScheduledDetails.fromJson(json['scheduled_details'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    scheduledRuns: json['scheduled_runs'] != null ? SdkPresent((json['scheduled_runs'] != null ? TriggerInfoScheduledRuns.fromJson(json['scheduled_runs'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (namespace) {
-          SdkPresent<String>(value: final value) => {
-              'namespace': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (function_) {
-          SdkPresent<String>(value: final value) => {
-              'function': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<String>(value: final value) => {
-              'type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'is_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scheduledDetails) {
-          SdkPresent<ScheduledDetails>(value: final value) => {
-              'scheduled_details': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scheduledRuns) {
-          SdkPresent<TriggerInfoScheduledRuns>(value: final value) => {
-              'scheduled_runs': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (namespace) {
+      SdkPresent<String>(value: final value) => {'namespace': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (function_) {
+      SdkPresent<String>(value: final value) => {'function': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isEnabled) {
+      SdkPresent<bool>(value: final value) => {'is_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scheduledDetails) {
+      SdkPresent<ScheduledDetails>(value: final value) => {'scheduled_details': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scheduledRuns) {
+      SdkPresent<TriggerInfoScheduledRuns>(value: final value) => {'scheduled_runs': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,49 +8,30 @@ part of 'insights_logs.dart';
 class LogsOrderBy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A reference to a logical field for filters, ordering, grouping, or facets.
   final LogsFieldRef field;
-
   /// The sort direction. Omit to use the server default.
   final SdkOptional<LogsOrderByDirection> direction;
 
   const LogsOrderBy({required this.field, this.direction = const SdkOmitted()});
 
-  LogsOrderBy Function(
-      {LogsFieldRef field,
-      SdkOptional<LogsOrderByDirection> direction}) get copyWith => _copyWith;
+  LogsOrderBy Function({LogsFieldRef field, SdkOptional<LogsOrderByDirection> direction}) get copyWith => _copyWith;
 
-  LogsOrderBy _copyWith(
-          {Object? field = sdkOmittedValue,
-          Object? direction = sdkOmittedValue}) =>
-      LogsOrderBy(
-        field: identical(field, sdkOmittedValue)
-            ? this.field
-            : field as LogsFieldRef,
-        direction: identical(direction, sdkOmittedValue)
-            ? this.direction
-            : direction as SdkOptional<LogsOrderByDirection>,
-      );
+  LogsOrderBy _copyWith({Object? field = sdkOmittedValue, Object? direction = sdkOmittedValue}) => LogsOrderBy(
+    field: identical(field, sdkOmittedValue) ? this.field : field as LogsFieldRef,
+    direction: identical(direction, sdkOmittedValue) ? this.direction : direction as SdkOptional<LogsOrderByDirection>,
+  );
 
   factory LogsOrderBy.fromJson(Map<String, dynamic> json) => LogsOrderBy(
-        field: (json['field'] != null
-            ? LogsFieldRef.fromJson(json['field'] as Map<String, dynamic>)
-            : null)!,
-        direction: json['direction'] != null
-            ? SdkPresent((json['direction'] != null
-                ? LogsOrderByDirection.fromJson(json['direction'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    field: (json['field'] != null ? LogsFieldRef.fromJson(json['field'] as Map<String, dynamic>) : null)!,
+    direction: json['direction'] != null ? SdkPresent((json['direction'] != null ? LogsOrderByDirection.fromJson(json['direction'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'field': field.toJson(),
-        ...switch (direction) {
-          SdkPresent<LogsOrderByDirection>(value: final value) => {
-              'direction': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'field': field.toJson(),
+    ...switch (direction) {
+      SdkPresent<LogsOrderByDirection>(value: final value) => {'direction': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

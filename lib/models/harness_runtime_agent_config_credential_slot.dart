@@ -8,67 +8,38 @@ part of 'harness_runtime_agent.dart';
 class AgentConfigCredentialSlot {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `name` wire field.
   final String name;
-
   /// Optional enumerated value serialized in the `source` wire field.
   final SdkOptional<AgentConfigCredentialSlotSource> source;
-
   /// Optional `string` value serialized in the `provider` wire field.
   final SdkOptional<String> provider;
 
-  const AgentConfigCredentialSlot(
-      {required this.name,
-      this.source = const SdkOmitted(),
-      this.provider = const SdkOmitted()});
+  const AgentConfigCredentialSlot({required this.name, this.source = const SdkOmitted(), this.provider = const SdkOmitted()});
 
-  AgentConfigCredentialSlot Function(
-      {String name,
-      SdkOptional<AgentConfigCredentialSlotSource> source,
-      SdkOptional<String> provider}) get copyWith => _copyWith;
+  AgentConfigCredentialSlot Function({String name, SdkOptional<AgentConfigCredentialSlotSource> source, SdkOptional<String> provider}) get copyWith => _copyWith;
 
-  AgentConfigCredentialSlot _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? source = sdkOmittedValue,
-          Object? provider = sdkOmittedValue}) =>
-      AgentConfigCredentialSlot(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as SdkOptional<AgentConfigCredentialSlotSource>,
-        provider: identical(provider, sdkOmittedValue)
-            ? this.provider
-            : provider as SdkOptional<String>,
-      );
+  AgentConfigCredentialSlot _copyWith({Object? name = sdkOmittedValue, Object? source = sdkOmittedValue, Object? provider = sdkOmittedValue}) => AgentConfigCredentialSlot(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<AgentConfigCredentialSlotSource>,
+    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as SdkOptional<String>,
+  );
 
-  factory AgentConfigCredentialSlot.fromJson(Map<String, dynamic> json) =>
-      AgentConfigCredentialSlot(
-        name: (json['name'] as String?)!,
-        source: json['source'] != null
-            ? SdkPresent((json['source'] != null
-                ? AgentConfigCredentialSlotSource.fromJson(
-                    json['source'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        provider: json['provider'] != null
-            ? SdkPresent((json['provider'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AgentConfigCredentialSlot.fromJson(Map<String, dynamic> json) => AgentConfigCredentialSlot(
+    name: (json['name'] as String?)!,
+    source: json['source'] != null ? SdkPresent((json['source'] != null ? AgentConfigCredentialSlotSource.fromJson(json['source'] as String) : null)!) : const SdkOmitted(),
+    provider: json['provider'] != null ? SdkPresent((json['provider'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (source) {
-          SdkPresent<AgentConfigCredentialSlotSource>(value: final value) => {
-              'source': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (provider) {
-          SdkPresent<String>(value: final value) => {
-              'provider': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (source) {
+      SdkPresent<AgentConfigCredentialSlotSource>(value: final value) => {'source': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (provider) {
+      SdkPresent<String>(value: final value) => {'provider': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

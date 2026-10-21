@@ -8,73 +8,41 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelVersion {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Major version number
   final SdkOptional<int> major;
-
   /// Minor version number
   final SdkOptional<int> minor;
-
   /// Patch version number
   final SdkOptional<int> patch;
 
-  const ApiModelVersion(
-      {this.major = const SdkOmitted(),
-      this.minor = const SdkOmitted(),
-      this.patch = const SdkOmitted()});
+  const ApiModelVersion({this.major = const SdkOmitted(), this.minor = const SdkOmitted(), this.patch = const SdkOmitted()});
 
-  ApiModelVersion Function(
-      {SdkOptional<int> major,
-      SdkOptional<int> minor,
-      SdkOptional<int> patch}) get copyWith => _copyWith;
+  ApiModelVersion Function({SdkOptional<int> major, SdkOptional<int> minor, SdkOptional<int> patch}) get copyWith => _copyWith;
 
-  ApiModelVersion _copyWith(
-          {Object? major = sdkOmittedValue,
-          Object? minor = sdkOmittedValue,
-          Object? patch = sdkOmittedValue}) =>
-      ApiModelVersion(
-        major: identical(major, sdkOmittedValue)
-            ? this.major
-            : major as SdkOptional<int>,
-        minor: identical(minor, sdkOmittedValue)
-            ? this.minor
-            : minor as SdkOptional<int>,
-        patch: identical(patch, sdkOmittedValue)
-            ? this.patch
-            : patch as SdkOptional<int>,
-      );
+  ApiModelVersion _copyWith({Object? major = sdkOmittedValue, Object? minor = sdkOmittedValue, Object? patch = sdkOmittedValue}) => ApiModelVersion(
+    major: identical(major, sdkOmittedValue) ? this.major : major as SdkOptional<int>,
+    minor: identical(minor, sdkOmittedValue) ? this.minor : minor as SdkOptional<int>,
+    patch: identical(patch, sdkOmittedValue) ? this.patch : patch as SdkOptional<int>,
+  );
 
-  factory ApiModelVersion.fromJson(Map<String, dynamic> json) =>
-      ApiModelVersion(
-        major: json['major'] != null
-            ? SdkPresent(((json['major'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        minor: json['minor'] != null
-            ? SdkPresent(((json['minor'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        patch: json['patch'] != null
-            ? SdkPresent(((json['patch'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ApiModelVersion.fromJson(Map<String, dynamic> json) => ApiModelVersion(
+    major: json['major'] != null ? SdkPresent(((json['major'] as num?)?.toInt())!) : const SdkOmitted(),
+    minor: json['minor'] != null ? SdkPresent(((json['minor'] as num?)?.toInt())!) : const SdkOmitted(),
+    patch: json['patch'] != null ? SdkPresent(((json['patch'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (major) {
-          SdkPresent<int>(value: final value) => {
-              'major': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (minor) {
-          SdkPresent<int>(value: final value) => {
-              'minor': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (patch) {
-          SdkPresent<int>(value: final value) => {
-              'patch': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (major) {
+      SdkPresent<int>(value: final value) => {'major': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (minor) {
+      SdkPresent<int>(value: final value) => {'minor': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (patch) {
+      SdkPresent<int>(value: final value) => {'patch': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

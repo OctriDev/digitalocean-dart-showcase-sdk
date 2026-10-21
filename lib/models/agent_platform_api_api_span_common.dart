@@ -8,112 +8,57 @@ part of 'agent_platform_api_api.dart';
 class ApiSpanCommon {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
-
   /// Optional `int64`-formatted value serialized in the `duration_ns` wire field.
   final SdkOptional<String> durationNs;
-
   /// Arbitrary structured metadata
   final SdkOptional<Map<String, String>> metadata;
-
   /// Optional `int32`-formatted value serialized in the `status_code` wire field.
   final SdkOptional<int> statusCode;
-
   /// Free-form tags for filtering/grouping
   final SdkOptional<List<String>> tags;
 
-  const ApiSpanCommon(
-      {this.createdAt = const SdkOmitted(),
-      this.durationNs = const SdkOmitted(),
-      this.metadata = const SdkOmitted(),
-      this.statusCode = const SdkOmitted(),
-      this.tags = const SdkOmitted()});
+  const ApiSpanCommon({this.createdAt = const SdkOmitted(), this.durationNs = const SdkOmitted(), this.metadata = const SdkOmitted(), this.statusCode = const SdkOmitted(), this.tags = const SdkOmitted()});
 
-  ApiSpanCommon Function(
-      {SdkOptional<String> createdAt,
-      SdkOptional<String> durationNs,
-      SdkOptional<Map<String, String>> metadata,
-      SdkOptional<int> statusCode,
-      SdkOptional<List<String>> tags}) get copyWith => _copyWith;
+  ApiSpanCommon Function({SdkOptional<String> createdAt, SdkOptional<String> durationNs, SdkOptional<Map<String, String>> metadata, SdkOptional<int> statusCode, SdkOptional<List<String>> tags}) get copyWith => _copyWith;
 
-  ApiSpanCommon _copyWith(
-          {Object? createdAt = sdkOmittedValue,
-          Object? durationNs = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue,
-          Object? statusCode = sdkOmittedValue,
-          Object? tags = sdkOmittedValue}) =>
-      ApiSpanCommon(
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        durationNs: identical(durationNs, sdkOmittedValue)
-            ? this.durationNs
-            : durationNs as SdkOptional<String>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, String>>,
-        statusCode: identical(statusCode, sdkOmittedValue)
-            ? this.statusCode
-            : statusCode as SdkOptional<int>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>>,
-      );
+  ApiSpanCommon _copyWith({Object? createdAt = sdkOmittedValue, Object? durationNs = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? statusCode = sdkOmittedValue, Object? tags = sdkOmittedValue}) => ApiSpanCommon(
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    durationNs: identical(durationNs, sdkOmittedValue) ? this.durationNs : durationNs as SdkOptional<String>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, String>>,
+    statusCode: identical(statusCode, sdkOmittedValue) ? this.statusCode : statusCode as SdkOptional<int>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
+  );
 
   factory ApiSpanCommon.fromJson(Map<String, dynamic> json) => ApiSpanCommon(
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        durationNs: json['duration_ns'] != null
-            ? SdkPresent((json['duration_ns'] as String?)!)
-            : const SdkOmitted(),
-        metadata: json['metadata'] != null
-            ? SdkPresent((json['metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-        statusCode: json['status_code'] != null
-            ? SdkPresent(((json['status_code'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        tags: json['tags'] != null
-            ? SdkPresent(
-                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    durationNs: json['duration_ns'] != null ? SdkPresent((json['duration_ns'] as String?)!) : const SdkOmitted(),
+    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+    statusCode: json['status_code'] != null ? SdkPresent(((json['status_code'] as num?)?.toInt())!) : const SdkOmitted(),
+    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (durationNs) {
-          SdkPresent<String>(value: final value) => {
-              'duration_ns': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (statusCode) {
-          SdkPresent<int>(value: final value) => {
-              'status_code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<String>>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (durationNs) {
+      SdkPresent<String>(value: final value) => {'duration_ns': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, String>>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (statusCode) {
+      SdkPresent<int>(value: final value) => {'status_code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<String>>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,38 +8,27 @@ part of 'insights_spans.dart';
 class SpansTimeRange {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A single time bound. Exactly one of `relative` or `absolute` is set.
   final SpansTimeBound from;
-
   /// A single time bound. Exactly one of `relative` or `absolute` is set.
   final SpansTimeBound to;
 
   const SpansTimeRange({required this.from, required this.to});
 
-  SpansTimeRange Function({SpansTimeBound from, SpansTimeBound to})
-      get copyWith => _copyWith;
+  SpansTimeRange Function({SpansTimeBound from, SpansTimeBound to}) get copyWith => _copyWith;
 
-  SpansTimeRange _copyWith(
-          {Object? from = sdkOmittedValue, Object? to = sdkOmittedValue}) =>
-      SpansTimeRange(
-        from: identical(from, sdkOmittedValue)
-            ? this.from
-            : from as SpansTimeBound,
-        to: identical(to, sdkOmittedValue) ? this.to : to as SpansTimeBound,
-      );
+  SpansTimeRange _copyWith({Object? from = sdkOmittedValue, Object? to = sdkOmittedValue}) => SpansTimeRange(
+    from: identical(from, sdkOmittedValue) ? this.from : from as SpansTimeBound,
+    to: identical(to, sdkOmittedValue) ? this.to : to as SpansTimeBound,
+  );
 
   factory SpansTimeRange.fromJson(Map<String, dynamic> json) => SpansTimeRange(
-        from: (json['from'] != null
-            ? SpansTimeBound.fromJson(json['from'] as Map<String, dynamic>)
-            : null)!,
-        to: (json['to'] != null
-            ? SpansTimeBound.fromJson(json['to'] as Map<String, dynamic>)
-            : null)!,
-      );
+    from: (json['from'] != null ? SpansTimeBound.fromJson(json['from'] as Map<String, dynamic>) : null)!,
+    to: (json['to'] != null ? SpansTimeBound.fromJson(json['to'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'from': from.toJson(),
-        'to': to.toJson(),
-      };
+    'from': from.toJson(),
+    'to': to.toJson(),
+  };
 }

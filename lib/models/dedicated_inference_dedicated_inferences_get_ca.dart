@@ -8,7 +8,6 @@ part of 'dedicated_inference.dart';
 class CaCertificate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Base64-encoded CA certificate.
   final String cert;
 
@@ -17,14 +16,14 @@ class CaCertificate {
   CaCertificate Function({String cert}) get copyWith => _copyWith;
 
   CaCertificate _copyWith({Object? cert = sdkOmittedValue}) => CaCertificate(
-        cert: identical(cert, sdkOmittedValue) ? this.cert : cert as String,
-      );
+    cert: identical(cert, sdkOmittedValue) ? this.cert : cert as String,
+  );
 
   factory CaCertificate.fromJson(Map<String, dynamic> json) => CaCertificate(
-        cert: (json['cert'] as String?)!,
-      );
+    cert: (json['cert'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'cert': cert,
-      };
+    'cert': cert,
+  };
 }

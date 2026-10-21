@@ -11,33 +11,22 @@ class VpcMembersVariant0 {
 
   const VpcMembersVariant0({this.members = const SdkOmitted()});
 
-  VpcMembersVariant0 Function({SdkOptional<List<VpcMember>> members})
-      get copyWith => _copyWith;
+  VpcMembersVariant0 Function({SdkOptional<List<VpcMember>> members}) get copyWith => _copyWith;
 
-  VpcMembersVariant0 _copyWith({Object? members = sdkOmittedValue}) =>
-      VpcMembersVariant0(
-        members: identical(members, sdkOmittedValue)
-            ? this.members
-            : members as SdkOptional<List<VpcMember>>,
-      );
+  VpcMembersVariant0 _copyWith({Object? members = sdkOmittedValue}) => VpcMembersVariant0(
+    members: identical(members, sdkOmittedValue) ? this.members : members as SdkOptional<List<VpcMember>>,
+  );
 
-  factory VpcMembersVariant0.fromJson(Map<String, dynamic> json) =>
-      VpcMembersVariant0(
-        members: json['members'] != null
-            ? SdkPresent(((json['members'] as List?)
-                ?.map((e) => VpcMember.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory VpcMembersVariant0.fromJson(Map<String, dynamic> json) => VpcMembersVariant0(
+    members: json['members'] != null ? SdkPresent(((json['members'] as List?)?.map((e) => VpcMember.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (members) {
-          SdkPresent<List<VpcMember>>(value: final value) => {
-              'members': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (members) {
+      SdkPresent<List<VpcMember>>(value: final value) => {'members': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VpcMembers` API schema.
@@ -45,68 +34,36 @@ class VpcMembers {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<VpcMember>> members;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const VpcMembers(
-      {this.members = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const VpcMembers({this.members = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  VpcMembers Function(
-      {SdkOptional<List<VpcMember>> members,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  VpcMembers Function({SdkOptional<List<VpcMember>> members, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  VpcMembers _copyWith(
-          {Object? members = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      VpcMembers(
-        members: identical(members, sdkOmittedValue)
-            ? this.members
-            : members as SdkOptional<List<VpcMember>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  VpcMembers _copyWith({Object? members = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => VpcMembers(
+    members: identical(members, sdkOmittedValue) ? this.members : members as SdkOptional<List<VpcMember>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory VpcMembers.fromJson(Map<String, dynamic> json) => VpcMembers(
-        members: json['members'] != null
-            ? SdkPresent(((json['members'] as List?)
-                ?.map((e) => VpcMember.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    members: json['members'] != null ? SdkPresent(((json['members'] as List?)?.map((e) => VpcMember.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (members) {
-          SdkPresent<List<VpcMember>>(value: final value) => {
-              'members': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (members) {
+      SdkPresent<List<VpcMember>>(value: final value) => {'members': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

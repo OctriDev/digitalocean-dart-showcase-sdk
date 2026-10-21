@@ -8,83 +8,41 @@ part of 'shared_droplet.dart';
 class DropletBackupPolicyRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The backup plan used for the Droplet. The plan can be either `daily` or `weekly`.
   final SdkOptional<DropletBackupPolicyRequestPlan> plan;
-
   /// The day of the week on which the backup will occur.
   final SdkOptional<DropletBackupPolicyRequestWeekday> weekday;
-
   /// The hour of the day that the backup window will start.
   final SdkOptional<DropletBackupPolicyRequestHour> hour;
 
-  const DropletBackupPolicyRequest(
-      {this.plan = const SdkOmitted(),
-      this.weekday = const SdkOmitted(),
-      this.hour = const SdkOmitted()});
+  const DropletBackupPolicyRequest({this.plan = const SdkOmitted(), this.weekday = const SdkOmitted(), this.hour = const SdkOmitted()});
 
-  DropletBackupPolicyRequest Function(
-          {SdkOptional<DropletBackupPolicyRequestPlan> plan,
-          SdkOptional<DropletBackupPolicyRequestWeekday> weekday,
-          SdkOptional<DropletBackupPolicyRequestHour> hour})
-      get copyWith => _copyWith;
+  DropletBackupPolicyRequest Function({SdkOptional<DropletBackupPolicyRequestPlan> plan, SdkOptional<DropletBackupPolicyRequestWeekday> weekday, SdkOptional<DropletBackupPolicyRequestHour> hour}) get copyWith => _copyWith;
 
-  DropletBackupPolicyRequest _copyWith(
-          {Object? plan = sdkOmittedValue,
-          Object? weekday = sdkOmittedValue,
-          Object? hour = sdkOmittedValue}) =>
-      DropletBackupPolicyRequest(
-        plan: identical(plan, sdkOmittedValue)
-            ? this.plan
-            : plan as SdkOptional<DropletBackupPolicyRequestPlan>,
-        weekday: identical(weekday, sdkOmittedValue)
-            ? this.weekday
-            : weekday as SdkOptional<DropletBackupPolicyRequestWeekday>,
-        hour: identical(hour, sdkOmittedValue)
-            ? this.hour
-            : hour as SdkOptional<DropletBackupPolicyRequestHour>,
-      );
+  DropletBackupPolicyRequest _copyWith({Object? plan = sdkOmittedValue, Object? weekday = sdkOmittedValue, Object? hour = sdkOmittedValue}) => DropletBackupPolicyRequest(
+    plan: identical(plan, sdkOmittedValue) ? this.plan : plan as SdkOptional<DropletBackupPolicyRequestPlan>,
+    weekday: identical(weekday, sdkOmittedValue) ? this.weekday : weekday as SdkOptional<DropletBackupPolicyRequestWeekday>,
+    hour: identical(hour, sdkOmittedValue) ? this.hour : hour as SdkOptional<DropletBackupPolicyRequestHour>,
+  );
 
-  factory DropletBackupPolicyRequest.fromJson(Map<String, dynamic> json) =>
-      DropletBackupPolicyRequest(
-        plan: json['plan'] != null
-            ? SdkPresent((json['plan'] != null
-                ? DropletBackupPolicyRequestPlan.fromJson(
-                    json['plan'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        weekday: json['weekday'] != null
-            ? SdkPresent((json['weekday'] != null
-                ? DropletBackupPolicyRequestWeekday.fromJson(
-                    json['weekday'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        hour: json['hour'] != null
-            ? SdkPresent((json['hour'] != null
-                ? DropletBackupPolicyRequestHour.fromJson(
-                    (json['hour'] as num).toInt())
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DropletBackupPolicyRequest.fromJson(Map<String, dynamic> json) => DropletBackupPolicyRequest(
+    plan: json['plan'] != null ? SdkPresent((json['plan'] != null ? DropletBackupPolicyRequestPlan.fromJson(json['plan'] as String) : null)!) : const SdkOmitted(),
+    weekday: json['weekday'] != null ? SdkPresent((json['weekday'] != null ? DropletBackupPolicyRequestWeekday.fromJson(json['weekday'] as String) : null)!) : const SdkOmitted(),
+    hour: json['hour'] != null ? SdkPresent((json['hour'] != null ? DropletBackupPolicyRequestHour.fromJson((json['hour'] as num).toInt()) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (plan) {
-          SdkPresent<DropletBackupPolicyRequestPlan>(value: final value) => {
-              'plan': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (weekday) {
-          SdkPresent<DropletBackupPolicyRequestWeekday>(value: final value) => {
-              'weekday': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hour) {
-          SdkPresent<DropletBackupPolicyRequestHour>(value: final value) => {
-              'hour': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (plan) {
+      SdkPresent<DropletBackupPolicyRequestPlan>(value: final value) => {'plan': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (weekday) {
+      SdkPresent<DropletBackupPolicyRequestWeekday>(value: final value) => {'weekday': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hour) {
+      SdkPresent<DropletBackupPolicyRequestHour>(value: final value) => {'hour': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

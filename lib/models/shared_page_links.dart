@@ -10,27 +10,11 @@ sealed class PageLinksPages {
   const PageLinksPages();
   factory PageLinksPages.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = ForwardLinks.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return PageLinksPagesForwardLinks(value);
-        }
-      } catch (_) {}
-      try {
-        final value = BackwardLinks.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return PageLinksPagesBackwardLinks(value);
-        }
-      } catch (_) {}
+      try { final value = ForwardLinks.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PageLinksPagesForwardLinks(value); } } catch (_) {}
+      try { final value = BackwardLinks.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PageLinksPagesBackwardLinks(value); } } catch (_) {}
     }
-    try {
-      return PageLinksPagesForwardLinks(
-          ForwardLinks.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return PageLinksPagesBackwardLinks(
-          BackwardLinks.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return PageLinksPagesForwardLinks(ForwardLinks.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return PageLinksPagesBackwardLinks(BackwardLinks.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for PageLinksPages");
   }
   Object? toJson();
@@ -39,22 +23,19 @@ sealed class PageLinksPages {
 final class PageLinksPagesForwardLinks extends PageLinksPages {
   final ForwardLinks value;
   const PageLinksPagesForwardLinks(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class PageLinksPagesBackwardLinks extends PageLinksPages {
   final BackwardLinks value;
   const PageLinksPagesBackwardLinks(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `PageLinks` API schema.
 class PageLinks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional API value serialized in the `pages` wire field.
   final SdkOptional<dynamic> pages;
 
@@ -63,23 +44,17 @@ class PageLinks {
   PageLinks Function({SdkOptional<dynamic> pages}) get copyWith => _copyWith;
 
   PageLinks _copyWith({Object? pages = sdkOmittedValue}) => PageLinks(
-        pages: identical(pages, sdkOmittedValue)
-            ? this.pages
-            : pages as SdkOptional<dynamic>,
-      );
+    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<dynamic>,
+  );
 
   factory PageLinks.fromJson(Map<String, dynamic> json) => PageLinks(
-        pages: json.containsKey('pages')
-            ? SdkPresent(json['pages'])
-            : const SdkOmitted(),
-      );
+    pages: json.containsKey('pages') ? SdkPresent(json['pages']) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (pages) {
-          SdkPresent<dynamic>(value: final value) => {
-              'pages': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (pages) {
+      SdkPresent<dynamic>(value: final value) => {'pages': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

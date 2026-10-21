@@ -8,50 +8,30 @@ part of 'signals.dart';
 class ListConsents {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A list of consent records for the team. Includes per-environment records (`source: agent`) and, when set, the team-level inference record (`source: inference`).
   final List<ConsentRecord> consents;
-
   /// Echoes the `source` filter when the request was filtered by source. Omitted when the list was not filtered.
   final SdkOptional<ListConsentsSource> source;
 
-  const ListConsents(
-      {required this.consents, this.source = const SdkOmitted()});
+  const ListConsents({required this.consents, this.source = const SdkOmitted()});
 
-  ListConsents Function(
-      {List<ConsentRecord> consents,
-      SdkOptional<ListConsentsSource> source}) get copyWith => _copyWith;
+  ListConsents Function({List<ConsentRecord> consents, SdkOptional<ListConsentsSource> source}) get copyWith => _copyWith;
 
-  ListConsents _copyWith(
-          {Object? consents = sdkOmittedValue,
-          Object? source = sdkOmittedValue}) =>
-      ListConsents(
-        consents: identical(consents, sdkOmittedValue)
-            ? this.consents
-            : consents as List<ConsentRecord>,
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as SdkOptional<ListConsentsSource>,
-      );
+  ListConsents _copyWith({Object? consents = sdkOmittedValue, Object? source = sdkOmittedValue}) => ListConsents(
+    consents: identical(consents, sdkOmittedValue) ? this.consents : consents as List<ConsentRecord>,
+    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<ListConsentsSource>,
+  );
 
   factory ListConsents.fromJson(Map<String, dynamic> json) => ListConsents(
-        consents: ((json['consents'] as List?)
-            ?.map((e) => ConsentRecord.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        source: json['source'] != null
-            ? SdkPresent((json['source'] != null
-                ? ListConsentsSource.fromJson(json['source'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    consents: ((json['consents'] as List?)?.map((e) => ConsentRecord.fromJson(e as Map<String, dynamic>)).toList())!,
+    source: json['source'] != null ? SdkPresent((json['source'] != null ? ListConsentsSource.fromJson(json['source'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'consents': consents.map((item) => item.toJson()).toList(),
-        ...switch (source) {
-          SdkPresent<ListConsentsSource>(value: final value) => {
-              'source': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'consents': consents.map((item) => item.toJson()).toList(),
+    ...switch (source) {
+      SdkPresent<ListConsentsSource>(value: final value) => {'source': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

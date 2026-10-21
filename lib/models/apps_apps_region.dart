@@ -8,164 +8,81 @@ part of 'apps_apps.dart';
 class AppsRegion {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `continent` wire field.
   final SdkOptional<String> continent;
-
   /// Optional array value serialized in the `data_centers` wire field.
   final SdkOptional<List<String>> dataCenters;
-
   /// Whether or not the region is presented as the default.
   final SdkOptional<bool> default_;
-
   /// Optional `boolean` value serialized in the `disabled` wire field.
   final SdkOptional<bool> disabled;
-
   /// Optional `string` value serialized in the `flag` wire field.
   final SdkOptional<String> flag;
-
   /// Optional `string` value serialized in the `label` wire field.
   final SdkOptional<String> label;
-
   /// Optional `string` value serialized in the `reason` wire field.
   final SdkOptional<String> reason;
-
   /// Optional `string` value serialized in the `slug` wire field.
   final SdkOptional<String> slug;
 
-  const AppsRegion(
-      {this.continent = const SdkOmitted(),
-      this.dataCenters = const SdkOmitted(),
-      this.default_ = const SdkOmitted(),
-      this.disabled = const SdkOmitted(),
-      this.flag = const SdkOmitted(),
-      this.label = const SdkOmitted(),
-      this.reason = const SdkOmitted(),
-      this.slug = const SdkOmitted()});
+  const AppsRegion({this.continent = const SdkOmitted(), this.dataCenters = const SdkOmitted(), this.default_ = const SdkOmitted(), this.disabled = const SdkOmitted(), this.flag = const SdkOmitted(), this.label = const SdkOmitted(), this.reason = const SdkOmitted(), this.slug = const SdkOmitted()});
 
-  AppsRegion Function(
-      {SdkOptional<String> continent,
-      SdkOptional<List<String>> dataCenters,
-      SdkOptional<bool> default_,
-      SdkOptional<bool> disabled,
-      SdkOptional<String> flag,
-      SdkOptional<String> label,
-      SdkOptional<String> reason,
-      SdkOptional<String> slug}) get copyWith => _copyWith;
+  AppsRegion Function({SdkOptional<String> continent, SdkOptional<List<String>> dataCenters, SdkOptional<bool> default_, SdkOptional<bool> disabled, SdkOptional<String> flag, SdkOptional<String> label, SdkOptional<String> reason, SdkOptional<String> slug}) get copyWith => _copyWith;
 
-  AppsRegion _copyWith(
-          {Object? continent = sdkOmittedValue,
-          Object? dataCenters = sdkOmittedValue,
-          Object? default_ = sdkOmittedValue,
-          Object? disabled = sdkOmittedValue,
-          Object? flag = sdkOmittedValue,
-          Object? label = sdkOmittedValue,
-          Object? reason = sdkOmittedValue,
-          Object? slug = sdkOmittedValue}) =>
-      AppsRegion(
-        continent: identical(continent, sdkOmittedValue)
-            ? this.continent
-            : continent as SdkOptional<String>,
-        dataCenters: identical(dataCenters, sdkOmittedValue)
-            ? this.dataCenters
-            : dataCenters as SdkOptional<List<String>>,
-        default_: identical(default_, sdkOmittedValue)
-            ? this.default_
-            : default_ as SdkOptional<bool>,
-        disabled: identical(disabled, sdkOmittedValue)
-            ? this.disabled
-            : disabled as SdkOptional<bool>,
-        flag: identical(flag, sdkOmittedValue)
-            ? this.flag
-            : flag as SdkOptional<String>,
-        label: identical(label, sdkOmittedValue)
-            ? this.label
-            : label as SdkOptional<String>,
-        reason: identical(reason, sdkOmittedValue)
-            ? this.reason
-            : reason as SdkOptional<String>,
-        slug: identical(slug, sdkOmittedValue)
-            ? this.slug
-            : slug as SdkOptional<String>,
-      );
+  AppsRegion _copyWith({Object? continent = sdkOmittedValue, Object? dataCenters = sdkOmittedValue, Object? default_ = sdkOmittedValue, Object? disabled = sdkOmittedValue, Object? flag = sdkOmittedValue, Object? label = sdkOmittedValue, Object? reason = sdkOmittedValue, Object? slug = sdkOmittedValue}) => AppsRegion(
+    continent: identical(continent, sdkOmittedValue) ? this.continent : continent as SdkOptional<String>,
+    dataCenters: identical(dataCenters, sdkOmittedValue) ? this.dataCenters : dataCenters as SdkOptional<List<String>>,
+    default_: identical(default_, sdkOmittedValue) ? this.default_ : default_ as SdkOptional<bool>,
+    disabled: identical(disabled, sdkOmittedValue) ? this.disabled : disabled as SdkOptional<bool>,
+    flag: identical(flag, sdkOmittedValue) ? this.flag : flag as SdkOptional<String>,
+    label: identical(label, sdkOmittedValue) ? this.label : label as SdkOptional<String>,
+    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as SdkOptional<String>,
+    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as SdkOptional<String>,
+  );
 
   factory AppsRegion.fromJson(Map<String, dynamic> json) => AppsRegion(
-        continent: json['continent'] != null
-            ? SdkPresent((json['continent'] as String?)!)
-            : const SdkOmitted(),
-        dataCenters: json['data_centers'] != null
-            ? SdkPresent(((json['data_centers'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        default_: json['default'] != null
-            ? SdkPresent((json['default'] as bool?)!)
-            : const SdkOmitted(),
-        disabled: json['disabled'] != null
-            ? SdkPresent((json['disabled'] as bool?)!)
-            : const SdkOmitted(),
-        flag: json['flag'] != null
-            ? SdkPresent((json['flag'] as String?)!)
-            : const SdkOmitted(),
-        label: json['label'] != null
-            ? SdkPresent((json['label'] as String?)!)
-            : const SdkOmitted(),
-        reason: json['reason'] != null
-            ? SdkPresent((json['reason'] as String?)!)
-            : const SdkOmitted(),
-        slug: json['slug'] != null
-            ? SdkPresent((json['slug'] as String?)!)
-            : const SdkOmitted(),
-      );
+    continent: json['continent'] != null ? SdkPresent((json['continent'] as String?)!) : const SdkOmitted(),
+    dataCenters: json['data_centers'] != null ? SdkPresent(((json['data_centers'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    default_: json['default'] != null ? SdkPresent((json['default'] as bool?)!) : const SdkOmitted(),
+    disabled: json['disabled'] != null ? SdkPresent((json['disabled'] as bool?)!) : const SdkOmitted(),
+    flag: json['flag'] != null ? SdkPresent((json['flag'] as String?)!) : const SdkOmitted(),
+    label: json['label'] != null ? SdkPresent((json['label'] as String?)!) : const SdkOmitted(),
+    reason: json['reason'] != null ? SdkPresent((json['reason'] as String?)!) : const SdkOmitted(),
+    slug: json['slug'] != null ? SdkPresent((json['slug'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (continent) {
-          SdkPresent<String>(value: final value) => {
-              'continent': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (dataCenters) {
-          SdkPresent<List<String>>(value: final value) => {
-              'data_centers': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (default_) {
-          SdkPresent<bool>(value: final value) => {
-              'default': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (disabled) {
-          SdkPresent<bool>(value: final value) => {
-              'disabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (flag) {
-          SdkPresent<String>(value: final value) => {
-              'flag': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (label) {
-          SdkPresent<String>(value: final value) => {
-              'label': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reason) {
-          SdkPresent<String>(value: final value) => {
-              'reason': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (slug) {
-          SdkPresent<String>(value: final value) => {
-              'slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (continent) {
+      SdkPresent<String>(value: final value) => {'continent': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (dataCenters) {
+      SdkPresent<List<String>>(value: final value) => {'data_centers': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (default_) {
+      SdkPresent<bool>(value: final value) => {'default': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (disabled) {
+      SdkPresent<bool>(value: final value) => {'disabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (flag) {
+      SdkPresent<String>(value: final value) => {'flag': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (label) {
+      SdkPresent<String>(value: final value) => {'label': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reason) {
+      SdkPresent<String>(value: final value) => {'reason': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (slug) {
+      SdkPresent<String>(value: final value) => {'slug': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

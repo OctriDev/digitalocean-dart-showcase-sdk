@@ -8,87 +8,46 @@ part of 'monitoring.dart';
 class Destination {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique identifier for a destination.
   final SdkOptional<String> id;
-
   /// destination name
   final SdkOptional<String> name;
-
   /// The destination type. `opensearch_dbaas` for a DigitalOcean managed OpenSearch cluster or `opensearch_ext` for an externally managed one.
   final SdkOptional<DestinationType> type_;
-
   /// Required object value serialized in the `config` wire field.
   final OpensearchConfig config;
 
-  const Destination(
-      {this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.type_ = const SdkOmitted(),
-      required this.config});
+  const Destination({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.type_ = const SdkOmitted(), required this.config});
 
-  Destination Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> name,
-      SdkOptional<DestinationType> type_,
-      OpensearchConfig config}) get copyWith => _copyWith;
+  Destination Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<DestinationType> type_, OpensearchConfig config}) get copyWith => _copyWith;
 
-  Destination _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? config = sdkOmittedValue}) =>
-      Destination(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<DestinationType>,
-        config: identical(config, sdkOmittedValue)
-            ? this.config
-            : config as OpensearchConfig,
-      );
+  Destination _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? config = sdkOmittedValue}) => Destination(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DestinationType>,
+    config: identical(config, sdkOmittedValue) ? this.config : config as OpensearchConfig,
+  );
 
   factory Destination.fromJson(Map<String, dynamic> json) => Destination(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? DestinationType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        config: (json['config'] != null
-            ? OpensearchConfig.fromJson(json['config'] as Map<String, dynamic>)
-            : null)!,
-      );
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DestinationType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    config: (json['config'] != null ? OpensearchConfig.fromJson(json['config'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<DestinationType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'config': config.toJson(),
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<DestinationType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'config': config.toJson(),
+  };
 }

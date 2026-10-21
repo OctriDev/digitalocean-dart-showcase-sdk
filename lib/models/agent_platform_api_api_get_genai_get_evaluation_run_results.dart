@@ -8,101 +8,49 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetEvaluationRunResultsOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `evaluation_run` wire field.
   final SdkOptional<ApiEvaluationRun> evaluationRun;
-
   /// Links to other pages
   final SdkOptional<ApiLinks> links;
-
   /// Meta information about the data set
   final SdkOptional<ApiMeta> meta;
-
   /// The prompt level results.
   final SdkOptional<List<ApiPrompt>> prompts;
 
-  const ApiGetEvaluationRunResultsOutput(
-      {this.evaluationRun = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      this.meta = const SdkOmitted(),
-      this.prompts = const SdkOmitted()});
+  const ApiGetEvaluationRunResultsOutput({this.evaluationRun = const SdkOmitted(), this.links = const SdkOmitted(), this.meta = const SdkOmitted(), this.prompts = const SdkOmitted()});
 
-  ApiGetEvaluationRunResultsOutput Function(
-      {SdkOptional<ApiEvaluationRun> evaluationRun,
-      SdkOptional<ApiLinks> links,
-      SdkOptional<ApiMeta> meta,
-      SdkOptional<List<ApiPrompt>> prompts}) get copyWith => _copyWith;
+  ApiGetEvaluationRunResultsOutput Function({SdkOptional<ApiEvaluationRun> evaluationRun, SdkOptional<ApiLinks> links, SdkOptional<ApiMeta> meta, SdkOptional<List<ApiPrompt>> prompts}) get copyWith => _copyWith;
 
-  ApiGetEvaluationRunResultsOutput _copyWith(
-          {Object? evaluationRun = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue,
-          Object? prompts = sdkOmittedValue}) =>
-      ApiGetEvaluationRunResultsOutput(
-        evaluationRun: identical(evaluationRun, sdkOmittedValue)
-            ? this.evaluationRun
-            : evaluationRun as SdkOptional<ApiEvaluationRun>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<ApiLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as SdkOptional<ApiMeta>,
-        prompts: identical(prompts, sdkOmittedValue)
-            ? this.prompts
-            : prompts as SdkOptional<List<ApiPrompt>>,
-      );
+  ApiGetEvaluationRunResultsOutput _copyWith({Object? evaluationRun = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue, Object? prompts = sdkOmittedValue}) => ApiGetEvaluationRunResultsOutput(
+    evaluationRun: identical(evaluationRun, sdkOmittedValue) ? this.evaluationRun : evaluationRun as SdkOptional<ApiEvaluationRun>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<ApiLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<ApiMeta>,
+    prompts: identical(prompts, sdkOmittedValue) ? this.prompts : prompts as SdkOptional<List<ApiPrompt>>,
+  );
 
-  factory ApiGetEvaluationRunResultsOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiGetEvaluationRunResultsOutput(
-        evaluationRun: json['evaluation_run'] != null
-            ? SdkPresent((json['evaluation_run'] != null
-                ? ApiEvaluationRun.fromJson(
-                    json['evaluation_run'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: json['meta'] != null
-            ? SdkPresent((json['meta'] != null
-                ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        prompts: json['prompts'] != null
-            ? SdkPresent(((json['prompts'] as List?)
-                ?.map((e) => ApiPrompt.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetEvaluationRunResultsOutput.fromJson(Map<String, dynamic> json) => ApiGetEvaluationRunResultsOutput(
+    evaluationRun: json['evaluation_run'] != null ? SdkPresent((json['evaluation_run'] != null ? ApiEvaluationRun.fromJson(json['evaluation_run'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: json['meta'] != null ? SdkPresent((json['meta'] != null ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    prompts: json['prompts'] != null ? SdkPresent(((json['prompts'] as List?)?.map((e) => ApiPrompt.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (evaluationRun) {
-          SdkPresent<ApiEvaluationRun>(value: final value) => {
-              'evaluation_run': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<ApiLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (meta) {
-          SdkPresent<ApiMeta>(value: final value) => {
-              'meta': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (prompts) {
-          SdkPresent<List<ApiPrompt>>(value: final value) => {
-              'prompts': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (evaluationRun) {
+      SdkPresent<ApiEvaluationRun>(value: final value) => {'evaluation_run': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<ApiLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (meta) {
+      SdkPresent<ApiMeta>(value: final value) => {'meta': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (prompts) {
+      SdkPresent<List<ApiPrompt>>(value: final value) => {'prompts': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

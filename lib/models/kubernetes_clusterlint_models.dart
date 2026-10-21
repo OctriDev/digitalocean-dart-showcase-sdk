@@ -8,412 +8,221 @@ part of 'kubernetes_clusterlint.dart';
 class ClusterlintRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of check groups that will be run when clusterlint executes checks.
   final SdkOptional<List<String>> includeGroups;
-
   /// An array of checks that will be run when clusterlint executes checks.
   final SdkOptional<List<String>> includeChecks;
-
   /// An array of check groups that will be omitted when clusterlint executes checks.
   final SdkOptional<List<String>> excludeGroups;
-
   /// An array of checks that will be run when clusterlint executes checks.
   final SdkOptional<List<String>> excludeChecks;
 
-  const ClusterlintRequest(
-      {this.includeGroups = const SdkOmitted(),
-      this.includeChecks = const SdkOmitted(),
-      this.excludeGroups = const SdkOmitted(),
-      this.excludeChecks = const SdkOmitted()});
+  const ClusterlintRequest({this.includeGroups = const SdkOmitted(), this.includeChecks = const SdkOmitted(), this.excludeGroups = const SdkOmitted(), this.excludeChecks = const SdkOmitted()});
 
-  ClusterlintRequest Function(
-      {SdkOptional<List<String>> includeGroups,
-      SdkOptional<List<String>> includeChecks,
-      SdkOptional<List<String>> excludeGroups,
-      SdkOptional<List<String>> excludeChecks}) get copyWith => _copyWith;
+  ClusterlintRequest Function({SdkOptional<List<String>> includeGroups, SdkOptional<List<String>> includeChecks, SdkOptional<List<String>> excludeGroups, SdkOptional<List<String>> excludeChecks}) get copyWith => _copyWith;
 
-  ClusterlintRequest _copyWith(
-          {Object? includeGroups = sdkOmittedValue,
-          Object? includeChecks = sdkOmittedValue,
-          Object? excludeGroups = sdkOmittedValue,
-          Object? excludeChecks = sdkOmittedValue}) =>
-      ClusterlintRequest(
-        includeGroups: identical(includeGroups, sdkOmittedValue)
-            ? this.includeGroups
-            : includeGroups as SdkOptional<List<String>>,
-        includeChecks: identical(includeChecks, sdkOmittedValue)
-            ? this.includeChecks
-            : includeChecks as SdkOptional<List<String>>,
-        excludeGroups: identical(excludeGroups, sdkOmittedValue)
-            ? this.excludeGroups
-            : excludeGroups as SdkOptional<List<String>>,
-        excludeChecks: identical(excludeChecks, sdkOmittedValue)
-            ? this.excludeChecks
-            : excludeChecks as SdkOptional<List<String>>,
-      );
+  ClusterlintRequest _copyWith({Object? includeGroups = sdkOmittedValue, Object? includeChecks = sdkOmittedValue, Object? excludeGroups = sdkOmittedValue, Object? excludeChecks = sdkOmittedValue}) => ClusterlintRequest(
+    includeGroups: identical(includeGroups, sdkOmittedValue) ? this.includeGroups : includeGroups as SdkOptional<List<String>>,
+    includeChecks: identical(includeChecks, sdkOmittedValue) ? this.includeChecks : includeChecks as SdkOptional<List<String>>,
+    excludeGroups: identical(excludeGroups, sdkOmittedValue) ? this.excludeGroups : excludeGroups as SdkOptional<List<String>>,
+    excludeChecks: identical(excludeChecks, sdkOmittedValue) ? this.excludeChecks : excludeChecks as SdkOptional<List<String>>,
+  );
 
-  factory ClusterlintRequest.fromJson(Map<String, dynamic> json) =>
-      ClusterlintRequest(
-        includeGroups: json['include_groups'] != null
-            ? SdkPresent(((json['include_groups'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        includeChecks: json['include_checks'] != null
-            ? SdkPresent(((json['include_checks'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        excludeGroups: json['exclude_groups'] != null
-            ? SdkPresent(((json['exclude_groups'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        excludeChecks: json['exclude_checks'] != null
-            ? SdkPresent(((json['exclude_checks'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ClusterlintRequest.fromJson(Map<String, dynamic> json) => ClusterlintRequest(
+    includeGroups: json['include_groups'] != null ? SdkPresent(((json['include_groups'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    includeChecks: json['include_checks'] != null ? SdkPresent(((json['include_checks'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    excludeGroups: json['exclude_groups'] != null ? SdkPresent(((json['exclude_groups'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    excludeChecks: json['exclude_checks'] != null ? SdkPresent(((json['exclude_checks'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (includeGroups) {
-          SdkPresent<List<String>>(value: final value) => {
-              'include_groups': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (includeChecks) {
-          SdkPresent<List<String>>(value: final value) => {
-              'include_checks': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (excludeGroups) {
-          SdkPresent<List<String>>(value: final value) => {
-              'exclude_groups': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (excludeChecks) {
-          SdkPresent<List<String>>(value: final value) => {
-              'exclude_checks': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (includeGroups) {
+      SdkPresent<List<String>>(value: final value) => {'include_groups': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (includeChecks) {
+      SdkPresent<List<String>>(value: final value) => {'include_checks': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (excludeGroups) {
+      SdkPresent<List<String>>(value: final value) => {'exclude_groups': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (excludeChecks) {
+      SdkPresent<List<String>>(value: final value) => {'exclude_checks': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Metadata about the Kubernetes API object the diagnostic is reported on.
 class ClusterlintResultsDiagnosticsItemObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Name of the object
   final SdkOptional<String> name;
-
   /// The kind of Kubernetes API object
   final SdkOptional<String> kind;
-
   /// The namespace the object resides in the cluster.
   final SdkOptional<String> namespace;
 
-  const ClusterlintResultsDiagnosticsItemObject(
-      {this.name = const SdkOmitted(),
-      this.kind = const SdkOmitted(),
-      this.namespace = const SdkOmitted()});
+  const ClusterlintResultsDiagnosticsItemObject({this.name = const SdkOmitted(), this.kind = const SdkOmitted(), this.namespace = const SdkOmitted()});
 
-  ClusterlintResultsDiagnosticsItemObject Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> kind,
-      SdkOptional<String> namespace}) get copyWith => _copyWith;
+  ClusterlintResultsDiagnosticsItemObject Function({SdkOptional<String> name, SdkOptional<String> kind, SdkOptional<String> namespace}) get copyWith => _copyWith;
 
-  ClusterlintResultsDiagnosticsItemObject _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? kind = sdkOmittedValue,
-          Object? namespace = sdkOmittedValue}) =>
-      ClusterlintResultsDiagnosticsItemObject(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        kind: identical(kind, sdkOmittedValue)
-            ? this.kind
-            : kind as SdkOptional<String>,
-        namespace: identical(namespace, sdkOmittedValue)
-            ? this.namespace
-            : namespace as SdkOptional<String>,
-      );
+  ClusterlintResultsDiagnosticsItemObject _copyWith({Object? name = sdkOmittedValue, Object? kind = sdkOmittedValue, Object? namespace = sdkOmittedValue}) => ClusterlintResultsDiagnosticsItemObject(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    kind: identical(kind, sdkOmittedValue) ? this.kind : kind as SdkOptional<String>,
+    namespace: identical(namespace, sdkOmittedValue) ? this.namespace : namespace as SdkOptional<String>,
+  );
 
-  factory ClusterlintResultsDiagnosticsItemObject.fromJson(
-          Map<String, dynamic> json) =>
-      ClusterlintResultsDiagnosticsItemObject(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        kind: json['kind'] != null
-            ? SdkPresent((json['kind'] as String?)!)
-            : const SdkOmitted(),
-        namespace: json['namespace'] != null
-            ? SdkPresent((json['namespace'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ClusterlintResultsDiagnosticsItemObject.fromJson(Map<String, dynamic> json) => ClusterlintResultsDiagnosticsItemObject(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    kind: json['kind'] != null ? SdkPresent((json['kind'] as String?)!) : const SdkOmitted(),
+    namespace: json['namespace'] != null ? SdkPresent((json['namespace'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (kind) {
-          SdkPresent<String>(value: final value) => {
-              'kind': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (namespace) {
-          SdkPresent<String>(value: final value) => {
-              'namespace': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (kind) {
+      SdkPresent<String>(value: final value) => {'kind': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (namespace) {
+      SdkPresent<String>(value: final value) => {'namespace': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `diagnostics[]` wire field.
 class ClusterlintResultsDiagnosticsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The clusterlint check that resulted in the diagnostic.
   final SdkOptional<String> checkName;
-
   /// Can be one of error, warning or suggestion.
   final SdkOptional<String> severity;
-
   /// Feedback about the object for users to fix.
   final SdkOptional<String> message;
-
   /// Metadata about the Kubernetes API object the diagnostic is reported on.
   final SdkOptional<ClusterlintResultsDiagnosticsItemObject> object;
 
-  const ClusterlintResultsDiagnosticsItem(
-      {this.checkName = const SdkOmitted(),
-      this.severity = const SdkOmitted(),
-      this.message = const SdkOmitted(),
-      this.object = const SdkOmitted()});
+  const ClusterlintResultsDiagnosticsItem({this.checkName = const SdkOmitted(), this.severity = const SdkOmitted(), this.message = const SdkOmitted(), this.object = const SdkOmitted()});
 
-  ClusterlintResultsDiagnosticsItem Function(
-          {SdkOptional<String> checkName,
-          SdkOptional<String> severity,
-          SdkOptional<String> message,
-          SdkOptional<ClusterlintResultsDiagnosticsItemObject> object})
-      get copyWith => _copyWith;
+  ClusterlintResultsDiagnosticsItem Function({SdkOptional<String> checkName, SdkOptional<String> severity, SdkOptional<String> message, SdkOptional<ClusterlintResultsDiagnosticsItemObject> object}) get copyWith => _copyWith;
 
-  ClusterlintResultsDiagnosticsItem _copyWith(
-          {Object? checkName = sdkOmittedValue,
-          Object? severity = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? object = sdkOmittedValue}) =>
-      ClusterlintResultsDiagnosticsItem(
-        checkName: identical(checkName, sdkOmittedValue)
-            ? this.checkName
-            : checkName as SdkOptional<String>,
-        severity: identical(severity, sdkOmittedValue)
-            ? this.severity
-            : severity as SdkOptional<String>,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as SdkOptional<String>,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<ClusterlintResultsDiagnosticsItemObject>,
-      );
+  ClusterlintResultsDiagnosticsItem _copyWith({Object? checkName = sdkOmittedValue, Object? severity = sdkOmittedValue, Object? message = sdkOmittedValue, Object? object = sdkOmittedValue}) => ClusterlintResultsDiagnosticsItem(
+    checkName: identical(checkName, sdkOmittedValue) ? this.checkName : checkName as SdkOptional<String>,
+    severity: identical(severity, sdkOmittedValue) ? this.severity : severity as SdkOptional<String>,
+    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<ClusterlintResultsDiagnosticsItemObject>,
+  );
 
-  factory ClusterlintResultsDiagnosticsItem.fromJson(
-          Map<String, dynamic> json) =>
-      ClusterlintResultsDiagnosticsItem(
-        checkName: json['check_name'] != null
-            ? SdkPresent((json['check_name'] as String?)!)
-            : const SdkOmitted(),
-        severity: json['severity'] != null
-            ? SdkPresent((json['severity'] as String?)!)
-            : const SdkOmitted(),
-        message: json['message'] != null
-            ? SdkPresent((json['message'] as String?)!)
-            : const SdkOmitted(),
-        object: json['object'] != null
-            ? SdkPresent((json['object'] != null
-                ? ClusterlintResultsDiagnosticsItemObject.fromJson(
-                    json['object'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ClusterlintResultsDiagnosticsItem.fromJson(Map<String, dynamic> json) => ClusterlintResultsDiagnosticsItem(
+    checkName: json['check_name'] != null ? SdkPresent((json['check_name'] as String?)!) : const SdkOmitted(),
+    severity: json['severity'] != null ? SdkPresent((json['severity'] as String?)!) : const SdkOmitted(),
+    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
+    object: json['object'] != null ? SdkPresent((json['object'] != null ? ClusterlintResultsDiagnosticsItemObject.fromJson(json['object'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (checkName) {
-          SdkPresent<String>(value: final value) => {
-              'check_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (severity) {
-          SdkPresent<String>(value: final value) => {
-              'severity': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (message) {
-          SdkPresent<String>(value: final value) => {
-              'message': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (object) {
-          SdkPresent<ClusterlintResultsDiagnosticsItemObject>(
-            value: final value
-          ) =>
-            {
-              'object': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (checkName) {
+      SdkPresent<String>(value: final value) => {'check_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (severity) {
+      SdkPresent<String>(value: final value) => {'severity': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (message) {
+      SdkPresent<String>(value: final value) => {'message': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (object) {
+      SdkPresent<ClusterlintResultsDiagnosticsItemObject>(value: final value) => {'object': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ClusterlintResults` API schema.
 class ClusterlintResults {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Id of the clusterlint run that can be used later to fetch the diagnostics.
   final SdkOptional<String> runId;
-
   /// A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was made.
   final SdkOptional<String> requestedAt;
-
   /// A time value given in ISO8601 combined date and time format that represents when the schedule clusterlint run request was completed.
   final SdkOptional<String> completedAt;
-
   /// An array of diagnostics reporting potential problems for the given cluster.
   final SdkOptional<List<ClusterlintResultsDiagnosticsItem>> diagnostics;
 
-  const ClusterlintResults(
-      {this.runId = const SdkOmitted(),
-      this.requestedAt = const SdkOmitted(),
-      this.completedAt = const SdkOmitted(),
-      this.diagnostics = const SdkOmitted()});
+  const ClusterlintResults({this.runId = const SdkOmitted(), this.requestedAt = const SdkOmitted(), this.completedAt = const SdkOmitted(), this.diagnostics = const SdkOmitted()});
 
-  ClusterlintResults Function(
-          {SdkOptional<String> runId,
-          SdkOptional<String> requestedAt,
-          SdkOptional<String> completedAt,
-          SdkOptional<List<ClusterlintResultsDiagnosticsItem>> diagnostics})
-      get copyWith => _copyWith;
+  ClusterlintResults Function({SdkOptional<String> runId, SdkOptional<String> requestedAt, SdkOptional<String> completedAt, SdkOptional<List<ClusterlintResultsDiagnosticsItem>> diagnostics}) get copyWith => _copyWith;
 
-  ClusterlintResults _copyWith(
-          {Object? runId = sdkOmittedValue,
-          Object? requestedAt = sdkOmittedValue,
-          Object? completedAt = sdkOmittedValue,
-          Object? diagnostics = sdkOmittedValue}) =>
-      ClusterlintResults(
-        runId: identical(runId, sdkOmittedValue)
-            ? this.runId
-            : runId as SdkOptional<String>,
-        requestedAt: identical(requestedAt, sdkOmittedValue)
-            ? this.requestedAt
-            : requestedAt as SdkOptional<String>,
-        completedAt: identical(completedAt, sdkOmittedValue)
-            ? this.completedAt
-            : completedAt as SdkOptional<String>,
-        diagnostics: identical(diagnostics, sdkOmittedValue)
-            ? this.diagnostics
-            : diagnostics
-                as SdkOptional<List<ClusterlintResultsDiagnosticsItem>>,
-      );
+  ClusterlintResults _copyWith({Object? runId = sdkOmittedValue, Object? requestedAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? diagnostics = sdkOmittedValue}) => ClusterlintResults(
+    runId: identical(runId, sdkOmittedValue) ? this.runId : runId as SdkOptional<String>,
+    requestedAt: identical(requestedAt, sdkOmittedValue) ? this.requestedAt : requestedAt as SdkOptional<String>,
+    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<String>,
+    diagnostics: identical(diagnostics, sdkOmittedValue) ? this.diagnostics : diagnostics as SdkOptional<List<ClusterlintResultsDiagnosticsItem>>,
+  );
 
-  factory ClusterlintResults.fromJson(Map<String, dynamic> json) =>
-      ClusterlintResults(
-        runId: json['run_id'] != null
-            ? SdkPresent((json['run_id'] as String?)!)
-            : const SdkOmitted(),
-        requestedAt: json['requested_at'] != null
-            ? SdkPresent((json['requested_at'] as String?)!)
-            : const SdkOmitted(),
-        completedAt: json['completed_at'] != null
-            ? SdkPresent((json['completed_at'] as String?)!)
-            : const SdkOmitted(),
-        diagnostics: json['diagnostics'] != null
-            ? SdkPresent(((json['diagnostics'] as List?)
-                ?.map((e) => ClusterlintResultsDiagnosticsItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ClusterlintResults.fromJson(Map<String, dynamic> json) => ClusterlintResults(
+    runId: json['run_id'] != null ? SdkPresent((json['run_id'] as String?)!) : const SdkOmitted(),
+    requestedAt: json['requested_at'] != null ? SdkPresent((json['requested_at'] as String?)!) : const SdkOmitted(),
+    completedAt: json['completed_at'] != null ? SdkPresent((json['completed_at'] as String?)!) : const SdkOmitted(),
+    diagnostics: json['diagnostics'] != null ? SdkPresent(((json['diagnostics'] as List?)?.map((e) => ClusterlintResultsDiagnosticsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (runId) {
-          SdkPresent<String>(value: final value) => {
-              'run_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (requestedAt) {
-          SdkPresent<String>(value: final value) => {
-              'requested_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (completedAt) {
-          SdkPresent<String>(value: final value) => {
-              'completed_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (diagnostics) {
-          SdkPresent<List<ClusterlintResultsDiagnosticsItem>>(
-            value: final value
-          ) =>
-            {
-              'diagnostics': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (runId) {
+      SdkPresent<String>(value: final value) => {'run_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (requestedAt) {
+      SdkPresent<String>(value: final value) => {'requested_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (completedAt) {
+      SdkPresent<String>(value: final value) => {'completed_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (diagnostics) {
+      SdkPresent<List<ClusterlintResultsDiagnosticsItem>>(value: final value) => {'diagnostics': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ClusterlintRun` API schema.
 class ClusterlintRun {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// ID of the clusterlint run that can be used later to fetch the diagnostics.
   final SdkOptional<String> runId;
 
   const ClusterlintRun({this.runId = const SdkOmitted()});
 
-  ClusterlintRun Function({SdkOptional<String> runId}) get copyWith =>
-      _copyWith;
+  ClusterlintRun Function({SdkOptional<String> runId}) get copyWith => _copyWith;
 
   ClusterlintRun _copyWith({Object? runId = sdkOmittedValue}) => ClusterlintRun(
-        runId: identical(runId, sdkOmittedValue)
-            ? this.runId
-            : runId as SdkOptional<String>,
-      );
+    runId: identical(runId, sdkOmittedValue) ? this.runId : runId as SdkOptional<String>,
+  );
 
   factory ClusterlintRun.fromJson(Map<String, dynamic> json) => ClusterlintRun(
-        runId: json['run_id'] != null
-            ? SdkPresent((json['run_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    runId: json['run_id'] != null ? SdkPresent((json['run_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (runId) {
-          SdkPresent<String>(value: final value) => {
-              'run_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (runId) {
+      SdkPresent<String>(value: final value) => {'run_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

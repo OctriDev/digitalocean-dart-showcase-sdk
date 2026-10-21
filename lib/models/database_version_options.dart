@@ -8,37 +8,25 @@ part of 'database.dart';
 class DatabaseVersionOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of strings containing the names of available regions
   final SdkOptional<List<String>> versions;
 
   const DatabaseVersionOptions({this.versions = const SdkOmitted()});
 
-  DatabaseVersionOptions Function({SdkOptional<List<String>> versions})
-      get copyWith => _copyWith;
+  DatabaseVersionOptions Function({SdkOptional<List<String>> versions}) get copyWith => _copyWith;
 
-  DatabaseVersionOptions _copyWith({Object? versions = sdkOmittedValue}) =>
-      DatabaseVersionOptions(
-        versions: identical(versions, sdkOmittedValue)
-            ? this.versions
-            : versions as SdkOptional<List<String>>,
-      );
+  DatabaseVersionOptions _copyWith({Object? versions = sdkOmittedValue}) => DatabaseVersionOptions(
+    versions: identical(versions, sdkOmittedValue) ? this.versions : versions as SdkOptional<List<String>>,
+  );
 
-  factory DatabaseVersionOptions.fromJson(Map<String, dynamic> json) =>
-      DatabaseVersionOptions(
-        versions: json['versions'] != null
-            ? SdkPresent(((json['versions'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseVersionOptions.fromJson(Map<String, dynamic> json) => DatabaseVersionOptions(
+    versions: json['versions'] != null ? SdkPresent(((json['versions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (versions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'versions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (versions) {
+      SdkPresent<List<String>>(value: final value) => {'versions': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

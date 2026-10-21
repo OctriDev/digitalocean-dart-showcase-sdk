@@ -8,80 +8,41 @@ part of 'agent_platform_api_api_simulation.dart';
 class ApiSimulationRunResultSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Per-actor token accounting for a run or episode.
   final SdkOptional<ApiSimulationTokenUsage> tokenUsage;
-
   /// Total wall-clock duration across the run, in seconds.
   final SdkOptional<String> totalDurationSec;
-
   /// Breakdown of episode outcomes by judge verdict. Reused wherever a success / failure / inconclusive tally is reported (run row, result summary, per-scenario rollup).
   final SdkOptional<ApiSimulationEpisodeCounts> verdictCounts;
 
-  const ApiSimulationRunResultSummary(
-      {this.tokenUsage = const SdkOmitted(),
-      this.totalDurationSec = const SdkOmitted(),
-      this.verdictCounts = const SdkOmitted()});
+  const ApiSimulationRunResultSummary({this.tokenUsage = const SdkOmitted(), this.totalDurationSec = const SdkOmitted(), this.verdictCounts = const SdkOmitted()});
 
-  ApiSimulationRunResultSummary Function(
-          {SdkOptional<ApiSimulationTokenUsage> tokenUsage,
-          SdkOptional<String> totalDurationSec,
-          SdkOptional<ApiSimulationEpisodeCounts> verdictCounts})
-      get copyWith => _copyWith;
+  ApiSimulationRunResultSummary Function({SdkOptional<ApiSimulationTokenUsage> tokenUsage, SdkOptional<String> totalDurationSec, SdkOptional<ApiSimulationEpisodeCounts> verdictCounts}) get copyWith => _copyWith;
 
-  ApiSimulationRunResultSummary _copyWith(
-          {Object? tokenUsage = sdkOmittedValue,
-          Object? totalDurationSec = sdkOmittedValue,
-          Object? verdictCounts = sdkOmittedValue}) =>
-      ApiSimulationRunResultSummary(
-        tokenUsage: identical(tokenUsage, sdkOmittedValue)
-            ? this.tokenUsage
-            : tokenUsage as SdkOptional<ApiSimulationTokenUsage>,
-        totalDurationSec: identical(totalDurationSec, sdkOmittedValue)
-            ? this.totalDurationSec
-            : totalDurationSec as SdkOptional<String>,
-        verdictCounts: identical(verdictCounts, sdkOmittedValue)
-            ? this.verdictCounts
-            : verdictCounts as SdkOptional<ApiSimulationEpisodeCounts>,
-      );
+  ApiSimulationRunResultSummary _copyWith({Object? tokenUsage = sdkOmittedValue, Object? totalDurationSec = sdkOmittedValue, Object? verdictCounts = sdkOmittedValue}) => ApiSimulationRunResultSummary(
+    tokenUsage: identical(tokenUsage, sdkOmittedValue) ? this.tokenUsage : tokenUsage as SdkOptional<ApiSimulationTokenUsage>,
+    totalDurationSec: identical(totalDurationSec, sdkOmittedValue) ? this.totalDurationSec : totalDurationSec as SdkOptional<String>,
+    verdictCounts: identical(verdictCounts, sdkOmittedValue) ? this.verdictCounts : verdictCounts as SdkOptional<ApiSimulationEpisodeCounts>,
+  );
 
-  factory ApiSimulationRunResultSummary.fromJson(Map<String, dynamic> json) =>
-      ApiSimulationRunResultSummary(
-        tokenUsage: json['token_usage'] != null
-            ? SdkPresent((json['token_usage'] != null
-                ? ApiSimulationTokenUsage.fromJson(
-                    json['token_usage'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        totalDurationSec: json['total_duration_sec'] != null
-            ? SdkPresent((json['total_duration_sec'] as String?)!)
-            : const SdkOmitted(),
-        verdictCounts: json['verdict_counts'] != null
-            ? SdkPresent((json['verdict_counts'] != null
-                ? ApiSimulationEpisodeCounts.fromJson(
-                    json['verdict_counts'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiSimulationRunResultSummary.fromJson(Map<String, dynamic> json) => ApiSimulationRunResultSummary(
+    tokenUsage: json['token_usage'] != null ? SdkPresent((json['token_usage'] != null ? ApiSimulationTokenUsage.fromJson(json['token_usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    totalDurationSec: json['total_duration_sec'] != null ? SdkPresent((json['total_duration_sec'] as String?)!) : const SdkOmitted(),
+    verdictCounts: json['verdict_counts'] != null ? SdkPresent((json['verdict_counts'] != null ? ApiSimulationEpisodeCounts.fromJson(json['verdict_counts'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (tokenUsage) {
-          SdkPresent<ApiSimulationTokenUsage>(value: final value) => {
-              'token_usage': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalDurationSec) {
-          SdkPresent<String>(value: final value) => {
-              'total_duration_sec': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (verdictCounts) {
-          SdkPresent<ApiSimulationEpisodeCounts>(value: final value) => {
-              'verdict_counts': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (tokenUsage) {
+      SdkPresent<ApiSimulationTokenUsage>(value: final value) => {'token_usage': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalDurationSec) {
+      SdkPresent<String>(value: final value) => {'total_duration_sec': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (verdictCounts) {
+      SdkPresent<ApiSimulationEpisodeCounts>(value: final value) => {'verdict_counts': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

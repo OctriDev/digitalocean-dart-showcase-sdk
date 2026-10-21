@@ -8,149 +8,81 @@ part of 'databases_database.dart';
 class DatabaseBackupsScheduledBackupTime {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The hour of the day when the backup is scheduled (in UTC).
   final SdkOptional<int> backupHour;
-
   /// The minute of the hour when the backup is scheduled.
   final SdkOptional<int> backupMinute;
-
   /// The frequency, in hours, at which backups are taken.
   final SdkOptional<int> backupIntervalHours;
 
-  const DatabaseBackupsScheduledBackupTime(
-      {this.backupHour = const SdkOmitted(),
-      this.backupMinute = const SdkOmitted(),
-      this.backupIntervalHours = const SdkOmitted()});
+  const DatabaseBackupsScheduledBackupTime({this.backupHour = const SdkOmitted(), this.backupMinute = const SdkOmitted(), this.backupIntervalHours = const SdkOmitted()});
 
-  DatabaseBackupsScheduledBackupTime Function(
-      {SdkOptional<int> backupHour,
-      SdkOptional<int> backupMinute,
-      SdkOptional<int> backupIntervalHours}) get copyWith => _copyWith;
+  DatabaseBackupsScheduledBackupTime Function({SdkOptional<int> backupHour, SdkOptional<int> backupMinute, SdkOptional<int> backupIntervalHours}) get copyWith => _copyWith;
 
-  DatabaseBackupsScheduledBackupTime _copyWith(
-          {Object? backupHour = sdkOmittedValue,
-          Object? backupMinute = sdkOmittedValue,
-          Object? backupIntervalHours = sdkOmittedValue}) =>
-      DatabaseBackupsScheduledBackupTime(
-        backupHour: identical(backupHour, sdkOmittedValue)
-            ? this.backupHour
-            : backupHour as SdkOptional<int>,
-        backupMinute: identical(backupMinute, sdkOmittedValue)
-            ? this.backupMinute
-            : backupMinute as SdkOptional<int>,
-        backupIntervalHours: identical(backupIntervalHours, sdkOmittedValue)
-            ? this.backupIntervalHours
-            : backupIntervalHours as SdkOptional<int>,
-      );
+  DatabaseBackupsScheduledBackupTime _copyWith({Object? backupHour = sdkOmittedValue, Object? backupMinute = sdkOmittedValue, Object? backupIntervalHours = sdkOmittedValue}) => DatabaseBackupsScheduledBackupTime(
+    backupHour: identical(backupHour, sdkOmittedValue) ? this.backupHour : backupHour as SdkOptional<int>,
+    backupMinute: identical(backupMinute, sdkOmittedValue) ? this.backupMinute : backupMinute as SdkOptional<int>,
+    backupIntervalHours: identical(backupIntervalHours, sdkOmittedValue) ? this.backupIntervalHours : backupIntervalHours as SdkOptional<int>,
+  );
 
-  factory DatabaseBackupsScheduledBackupTime.fromJson(
-          Map<String, dynamic> json) =>
-      DatabaseBackupsScheduledBackupTime(
-        backupHour: json['backup_hour'] != null
-            ? SdkPresent(((json['backup_hour'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        backupMinute: json['backup_minute'] != null
-            ? SdkPresent(((json['backup_minute'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        backupIntervalHours: json['backup_interval_hours'] != null
-            ? SdkPresent(((json['backup_interval_hours'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseBackupsScheduledBackupTime.fromJson(Map<String, dynamic> json) => DatabaseBackupsScheduledBackupTime(
+    backupHour: json['backup_hour'] != null ? SdkPresent(((json['backup_hour'] as num?)?.toInt())!) : const SdkOmitted(),
+    backupMinute: json['backup_minute'] != null ? SdkPresent(((json['backup_minute'] as num?)?.toInt())!) : const SdkOmitted(),
+    backupIntervalHours: json['backup_interval_hours'] != null ? SdkPresent(((json['backup_interval_hours'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (backupHour) {
-          SdkPresent<int>(value: final value) => {
-              'backup_hour': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (backupMinute) {
-          SdkPresent<int>(value: final value) => {
-              'backup_minute': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (backupIntervalHours) {
-          SdkPresent<int>(value: final value) => {
-              'backup_interval_hours': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (backupHour) {
+      SdkPresent<int>(value: final value) => {'backup_hour': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (backupMinute) {
+      SdkPresent<int>(value: final value) => {'backup_minute': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (backupIntervalHours) {
+      SdkPresent<int>(value: final value) => {'backup_interval_hours': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DatabaseBackups` API schema.
 class DatabaseBackups {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `backups` wire field.
   final List<Backup> backups;
-
   /// Optional object value serialized in the `scheduled_backup_time` wire field.
   final SdkOptional<DatabaseBackupsScheduledBackupTime> scheduledBackupTime;
-
   /// If a backup is currently in progress, this attribute shows the percentage of completion. If no backup is in progress, this attribute will be hidden.
   final SdkOptional<String> backupProgress;
 
-  const DatabaseBackups(
-      {required this.backups,
-      this.scheduledBackupTime = const SdkOmitted(),
-      this.backupProgress = const SdkOmitted()});
+  const DatabaseBackups({required this.backups, this.scheduledBackupTime = const SdkOmitted(), this.backupProgress = const SdkOmitted()});
 
-  DatabaseBackups Function(
-      {List<Backup> backups,
-      SdkOptional<DatabaseBackupsScheduledBackupTime> scheduledBackupTime,
-      SdkOptional<String> backupProgress}) get copyWith => _copyWith;
+  DatabaseBackups Function({List<Backup> backups, SdkOptional<DatabaseBackupsScheduledBackupTime> scheduledBackupTime, SdkOptional<String> backupProgress}) get copyWith => _copyWith;
 
-  DatabaseBackups _copyWith(
-          {Object? backups = sdkOmittedValue,
-          Object? scheduledBackupTime = sdkOmittedValue,
-          Object? backupProgress = sdkOmittedValue}) =>
-      DatabaseBackups(
-        backups: identical(backups, sdkOmittedValue)
-            ? this.backups
-            : backups as List<Backup>,
-        scheduledBackupTime: identical(scheduledBackupTime, sdkOmittedValue)
-            ? this.scheduledBackupTime
-            : scheduledBackupTime
-                as SdkOptional<DatabaseBackupsScheduledBackupTime>,
-        backupProgress: identical(backupProgress, sdkOmittedValue)
-            ? this.backupProgress
-            : backupProgress as SdkOptional<String>,
-      );
+  DatabaseBackups _copyWith({Object? backups = sdkOmittedValue, Object? scheduledBackupTime = sdkOmittedValue, Object? backupProgress = sdkOmittedValue}) => DatabaseBackups(
+    backups: identical(backups, sdkOmittedValue) ? this.backups : backups as List<Backup>,
+    scheduledBackupTime: identical(scheduledBackupTime, sdkOmittedValue) ? this.scheduledBackupTime : scheduledBackupTime as SdkOptional<DatabaseBackupsScheduledBackupTime>,
+    backupProgress: identical(backupProgress, sdkOmittedValue) ? this.backupProgress : backupProgress as SdkOptional<String>,
+  );
 
-  factory DatabaseBackups.fromJson(Map<String, dynamic> json) =>
-      DatabaseBackups(
-        backups: ((json['backups'] as List?)
-            ?.map((e) => Backup.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        scheduledBackupTime: json['scheduled_backup_time'] != null
-            ? SdkPresent((json['scheduled_backup_time'] != null
-                ? DatabaseBackupsScheduledBackupTime.fromJson(
-                    json['scheduled_backup_time'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        backupProgress: json['backup_progress'] != null
-            ? SdkPresent((json['backup_progress'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseBackups.fromJson(Map<String, dynamic> json) => DatabaseBackups(
+    backups: ((json['backups'] as List?)?.map((e) => Backup.fromJson(e as Map<String, dynamic>)).toList())!,
+    scheduledBackupTime: json['scheduled_backup_time'] != null ? SdkPresent((json['scheduled_backup_time'] != null ? DatabaseBackupsScheduledBackupTime.fromJson(json['scheduled_backup_time'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    backupProgress: json['backup_progress'] != null ? SdkPresent((json['backup_progress'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'backups': backups.map((item) => item.toJson()).toList(),
-        ...switch (scheduledBackupTime) {
-          SdkPresent<DatabaseBackupsScheduledBackupTime>(value: final value) =>
-            {
-              'scheduled_backup_time': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (backupProgress) {
-          SdkPresent<String>(value: final value) => {
-              'backup_progress': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'backups': backups.map((item) => item.toJson()).toList(),
+    ...switch (scheduledBackupTime) {
+      SdkPresent<DatabaseBackupsScheduledBackupTime>(value: final value) => {'scheduled_backup_time': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (backupProgress) {
+      SdkPresent<String>(value: final value) => {'backup_progress': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

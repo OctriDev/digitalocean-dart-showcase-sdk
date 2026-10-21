@@ -8,44 +8,27 @@ part of 'insights_traces.dart';
 class TracesSearchResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Matching traces. Empty when no traces match.
   final List<TracesTraceSummary> data;
-
   /// Pagination response.
   final TracesPaginationResponse pagination;
 
   const TracesSearchResponse({required this.data, required this.pagination});
 
-  TracesSearchResponse Function(
-      {List<TracesTraceSummary> data,
-      TracesPaginationResponse pagination}) get copyWith => _copyWith;
+  TracesSearchResponse Function({List<TracesTraceSummary> data, TracesPaginationResponse pagination}) get copyWith => _copyWith;
 
-  TracesSearchResponse _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? pagination = sdkOmittedValue}) =>
-      TracesSearchResponse(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<TracesTraceSummary>,
-        pagination: identical(pagination, sdkOmittedValue)
-            ? this.pagination
-            : pagination as TracesPaginationResponse,
-      );
+  TracesSearchResponse _copyWith({Object? data = sdkOmittedValue, Object? pagination = sdkOmittedValue}) => TracesSearchResponse(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<TracesTraceSummary>,
+    pagination: identical(pagination, sdkOmittedValue) ? this.pagination : pagination as TracesPaginationResponse,
+  );
 
-  factory TracesSearchResponse.fromJson(Map<String, dynamic> json) =>
-      TracesSearchResponse(
-        data: ((json['data'] as List?)
-            ?.map((e) => TracesTraceSummary.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        pagination: (json['pagination'] != null
-            ? TracesPaginationResponse.fromJson(
-                json['pagination'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory TracesSearchResponse.fromJson(Map<String, dynamic> json) => TracesSearchResponse(
+    data: ((json['data'] as List?)?.map((e) => TracesTraceSummary.fromJson(e as Map<String, dynamic>)).toList())!,
+    pagination: (json['pagination'] != null ? TracesPaginationResponse.fromJson(json['pagination'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'pagination': pagination.toJson(),
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'pagination': pagination.toJson(),
+  };
 }

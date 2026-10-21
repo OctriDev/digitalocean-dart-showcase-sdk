@@ -8,40 +8,25 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListEvaluationMetricsOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `metrics` wire field.
   final SdkOptional<List<ApiEvaluationMetric>> metrics;
 
   const ApiListEvaluationMetricsOutput({this.metrics = const SdkOmitted()});
 
-  ApiListEvaluationMetricsOutput Function(
-          {SdkOptional<List<ApiEvaluationMetric>> metrics})
-      get copyWith => _copyWith;
+  ApiListEvaluationMetricsOutput Function({SdkOptional<List<ApiEvaluationMetric>> metrics}) get copyWith => _copyWith;
 
-  ApiListEvaluationMetricsOutput _copyWith(
-          {Object? metrics = sdkOmittedValue}) =>
-      ApiListEvaluationMetricsOutput(
-        metrics: identical(metrics, sdkOmittedValue)
-            ? this.metrics
-            : metrics as SdkOptional<List<ApiEvaluationMetric>>,
-      );
+  ApiListEvaluationMetricsOutput _copyWith({Object? metrics = sdkOmittedValue}) => ApiListEvaluationMetricsOutput(
+    metrics: identical(metrics, sdkOmittedValue) ? this.metrics : metrics as SdkOptional<List<ApiEvaluationMetric>>,
+  );
 
-  factory ApiListEvaluationMetricsOutput.fromJson(Map<String, dynamic> json) =>
-      ApiListEvaluationMetricsOutput(
-        metrics: json['metrics'] != null
-            ? SdkPresent(((json['metrics'] as List?)
-                ?.map((e) =>
-                    ApiEvaluationMetric.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ApiListEvaluationMetricsOutput.fromJson(Map<String, dynamic> json) => ApiListEvaluationMetricsOutput(
+    metrics: json['metrics'] != null ? SdkPresent(((json['metrics'] as List?)?.map((e) => ApiEvaluationMetric.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (metrics) {
-          SdkPresent<List<ApiEvaluationMetric>>(value: final value) => {
-              'metrics': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (metrics) {
+      SdkPresent<List<ApiEvaluationMetric>>(value: final value) => {'metrics': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

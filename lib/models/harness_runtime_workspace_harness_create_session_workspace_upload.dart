@@ -8,54 +8,33 @@ part of 'harness_runtime_workspace.dart';
 class WorkspaceUploadResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Absolute guest path the payload was written to.
   final SdkOptional<String> path;
-
   /// Number of bytes committed to the workspace.
   final SdkOptional<int> bytesWritten;
 
-  const WorkspaceUploadResponse(
-      {this.path = const SdkOmitted(), this.bytesWritten = const SdkOmitted()});
+  const WorkspaceUploadResponse({this.path = const SdkOmitted(), this.bytesWritten = const SdkOmitted()});
 
-  WorkspaceUploadResponse Function(
-      {SdkOptional<String> path,
-      SdkOptional<int> bytesWritten}) get copyWith => _copyWith;
+  WorkspaceUploadResponse Function({SdkOptional<String> path, SdkOptional<int> bytesWritten}) get copyWith => _copyWith;
 
-  WorkspaceUploadResponse _copyWith(
-          {Object? path = sdkOmittedValue,
-          Object? bytesWritten = sdkOmittedValue}) =>
-      WorkspaceUploadResponse(
-        path: identical(path, sdkOmittedValue)
-            ? this.path
-            : path as SdkOptional<String>,
-        bytesWritten: identical(bytesWritten, sdkOmittedValue)
-            ? this.bytesWritten
-            : bytesWritten as SdkOptional<int>,
-      );
+  WorkspaceUploadResponse _copyWith({Object? path = sdkOmittedValue, Object? bytesWritten = sdkOmittedValue}) => WorkspaceUploadResponse(
+    path: identical(path, sdkOmittedValue) ? this.path : path as SdkOptional<String>,
+    bytesWritten: identical(bytesWritten, sdkOmittedValue) ? this.bytesWritten : bytesWritten as SdkOptional<int>,
+  );
 
-  factory WorkspaceUploadResponse.fromJson(Map<String, dynamic> json) =>
-      WorkspaceUploadResponse(
-        path: json['path'] != null
-            ? SdkPresent((json['path'] as String?)!)
-            : const SdkOmitted(),
-        bytesWritten: json['bytes_written'] != null
-            ? SdkPresent(((json['bytes_written'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory WorkspaceUploadResponse.fromJson(Map<String, dynamic> json) => WorkspaceUploadResponse(
+    path: json['path'] != null ? SdkPresent((json['path'] as String?)!) : const SdkOmitted(),
+    bytesWritten: json['bytes_written'] != null ? SdkPresent(((json['bytes_written'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (path) {
-          SdkPresent<String>(value: final value) => {
-              'path': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (bytesWritten) {
-          SdkPresent<int>(value: final value) => {
-              'bytes_written': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (path) {
+      SdkPresent<String>(value: final value) => {'path': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (bytesWritten) {
+      SdkPresent<int>(value: final value) => {'bytes_written': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

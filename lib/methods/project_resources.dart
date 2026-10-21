@@ -29,25 +29,17 @@ Future<ResourcesList> projectsListResources(ClientConfig config,
           '/v2/projects/${Uri.encodeComponent(projectId.toString())}/resources',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'projectsListResources',
-          fromJsonRaw: (value) =>
-              ResourcesList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ResourcesList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To assign resources to a project, send a POST request to `/v2/projects/$PROJECT_ID/resources`. You must have both `project:assign_resource` and `&lt;resource&gt;:read` scopes to assign new resources. For example, to assign a Droplet to a project, include both the `project:assign_resource` and `droplet:read` scopes. The `project:update` scope also grants `project:assign_resource`.
 ///
@@ -66,18 +58,12 @@ Future<AssignedResourcesList> projectsAssignResources(ClientConfig config,
           body: {'resources': SdkUtils.unwrapOptional(resources)},
           decoder: SdkResponseDecoder.json,
           operationId: 'projectsAssignResources',
-          fromJsonRaw: (value) =>
-              AssignedResourcesList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AssignedResourcesList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all your resources in your default project, send a GET request to `/v2/projects/default/resources`. Only resources that you are authorized to see will be returned. For example, to see Droplets in a project, include the `droplet:read` scope.
 Future<ResourcesList> projectsListResourcesDefault(ClientConfig config,
@@ -87,42 +73,29 @@ Future<ResourcesList> projectsListResourcesDefault(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'projectsListResourcesDefault',
-          fromJsonRaw: (value) =>
-              ResourcesList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ResourcesList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To assign resources to your default project, send a POST request to `/v2/projects/default/resources`. You must have both `project:assign_resource` and `&lt;resource&gt;:read` scopes to assign new resources. For example, to assign a Droplet to the default project, include both the `project:assign_resource` and `droplet:read` scopes. The `project:update` scope also grants `project:assign_resource`.
 ///
 /// [resources] A list of uniform resource names (URNs) to be added to a
 ///   project. Only resources that you are authorized to see will be returned.
-Future<AssignedResourcesList> projectsAssignResourcesDefault(
-    ClientConfig config,
-    {SdkOptional<List<String>> resources = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<AssignedResourcesList>
+    projectsAssignResourcesDefault(ClientConfig config,
+        {SdkOptional<List<String>> resources = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<AssignedResourcesList>(
           'POST', '/v2/projects/default/resources',
           config: config,
           body: {'resources': SdkUtils.unwrapOptional(resources)},
           decoder: SdkResponseDecoder.json,
           operationId: 'projectsAssignResourcesDefault',
-          fromJsonRaw: (value) =>
-              AssignedResourcesList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AssignedResourcesList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

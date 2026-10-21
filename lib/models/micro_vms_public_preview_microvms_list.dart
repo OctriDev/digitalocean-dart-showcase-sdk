@@ -11,33 +11,22 @@ class AllMicrovmsVariant0 {
 
   const AllMicrovmsVariant0({this.microvms = const SdkOmitted()});
 
-  AllMicrovmsVariant0 Function({SdkOptional<List<Microvm>> microvms})
-      get copyWith => _copyWith;
+  AllMicrovmsVariant0 Function({SdkOptional<List<Microvm>> microvms}) get copyWith => _copyWith;
 
-  AllMicrovmsVariant0 _copyWith({Object? microvms = sdkOmittedValue}) =>
-      AllMicrovmsVariant0(
-        microvms: identical(microvms, sdkOmittedValue)
-            ? this.microvms
-            : microvms as SdkOptional<List<Microvm>>,
-      );
+  AllMicrovmsVariant0 _copyWith({Object? microvms = sdkOmittedValue}) => AllMicrovmsVariant0(
+    microvms: identical(microvms, sdkOmittedValue) ? this.microvms : microvms as SdkOptional<List<Microvm>>,
+  );
 
-  factory AllMicrovmsVariant0.fromJson(Map<String, dynamic> json) =>
-      AllMicrovmsVariant0(
-        microvms: json['microvms'] != null
-            ? SdkPresent(((json['microvms'] as List?)
-                ?.map((e) => Microvm.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AllMicrovmsVariant0.fromJson(Map<String, dynamic> json) => AllMicrovmsVariant0(
+    microvms: json['microvms'] != null ? SdkPresent(((json['microvms'] as List?)?.map((e) => Microvm.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (microvms) {
-          SdkPresent<List<Microvm>>(value: final value) => {
-              'microvms': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (microvms) {
+      SdkPresent<List<Microvm>>(value: final value) => {'microvms': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AllMicrovms` API schema.
@@ -45,68 +34,36 @@ class AllMicrovms {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Microvm>> microvms;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllMicrovms(
-      {this.microvms = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllMicrovms({this.microvms = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AllMicrovms Function(
-      {SdkOptional<List<Microvm>> microvms,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllMicrovms Function({SdkOptional<List<Microvm>> microvms, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllMicrovms _copyWith(
-          {Object? microvms = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllMicrovms(
-        microvms: identical(microvms, sdkOmittedValue)
-            ? this.microvms
-            : microvms as SdkOptional<List<Microvm>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllMicrovms _copyWith({Object? microvms = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllMicrovms(
+    microvms: identical(microvms, sdkOmittedValue) ? this.microvms : microvms as SdkOptional<List<Microvm>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory AllMicrovms.fromJson(Map<String, dynamic> json) => AllMicrovms(
-        microvms: json['microvms'] != null
-            ? SdkPresent(((json['microvms'] as List?)
-                ?.map((e) => Microvm.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    microvms: json['microvms'] != null ? SdkPresent(((json['microvms'] as List?)?.map((e) => Microvm.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (microvms) {
-          SdkPresent<List<Microvm>>(value: final value) => {
-              'microvms': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (microvms) {
+      SdkPresent<List<Microvm>>(value: final value) => {'microvms': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

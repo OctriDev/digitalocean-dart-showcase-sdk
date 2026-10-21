@@ -9,75 +9,50 @@ sealed class MessagesApiMessageParamContent {
   static const String constructionSurface = 'named';
   const MessagesApiMessageParamContent();
   factory MessagesApiMessageParamContent.fromJson(Object? json) {
-    if (json is String) {
-      return MessagesApiMessageParamContentString(json);
-    }
-    try {
-      return MessagesApiMessageParamContentMessagesRequestContentBlockParam(
-          MessagesRequestContentBlockParam.fromJson(json));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for MessagesApiMessageParamContent");
+    if (json is String) { return MessagesApiMessageParamContentString(json); }
+    try { return MessagesApiMessageParamContentMessagesRequestContentBlockParam(MessagesRequestContentBlockParam.fromJson(json)); } catch (_) {}
+    throw FormatException("No variant matched for MessagesApiMessageParamContent");
   }
   Object? toJson();
 }
 
-final class MessagesApiMessageParamContentString
-    extends MessagesApiMessageParamContent {
+final class MessagesApiMessageParamContentString extends MessagesApiMessageParamContent {
   final String value;
   const MessagesApiMessageParamContentString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class MessagesApiMessageParamContentMessagesRequestContentBlockParam
-    extends MessagesApiMessageParamContent {
+final class MessagesApiMessageParamContentMessagesRequestContentBlockParam extends MessagesApiMessageParamContent {
   final MessagesRequestContentBlockParam value;
-  const MessagesApiMessageParamContentMessagesRequestContentBlockParam(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const MessagesApiMessageParamContentMessagesRequestContentBlockParam(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// One turn in the conversation. Roles are `user` or `assistant` (no `system` role; use the top-level `system` field). Content may be a string (equivalent to a single text block) or an array of content blocks.
 class MessagesApiMessageParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Speaker role for this message.
   final MessagesApiMessageParamRole role;
-
   /// Message body as plain text or structured blocks.
   final dynamic content;
 
   const MessagesApiMessageParam({required this.role, required this.content});
 
-  MessagesApiMessageParam Function(
-      {MessagesApiMessageParamRole role,
-      dynamic content}) get copyWith => _copyWith;
+  MessagesApiMessageParam Function({MessagesApiMessageParamRole role, dynamic content}) get copyWith => _copyWith;
 
-  MessagesApiMessageParam _copyWith(
-          {Object? role = sdkOmittedValue,
-          Object? content = sdkOmittedValue}) =>
-      MessagesApiMessageParam(
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as MessagesApiMessageParamRole,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as dynamic,
-      );
+  MessagesApiMessageParam _copyWith({Object? role = sdkOmittedValue, Object? content = sdkOmittedValue}) => MessagesApiMessageParam(
+    role: identical(role, sdkOmittedValue) ? this.role : role as MessagesApiMessageParamRole,
+    content: identical(content, sdkOmittedValue) ? this.content : content as dynamic,
+  );
 
-  factory MessagesApiMessageParam.fromJson(Map<String, dynamic> json) =>
-      MessagesApiMessageParam(
-        role: (json['role'] != null
-            ? MessagesApiMessageParamRole.fromJson(json['role'] as String)
-            : null)!,
-        content: (json['content'])!,
-      );
+  factory MessagesApiMessageParam.fromJson(Map<String, dynamic> json) => MessagesApiMessageParam(
+    role: (json['role'] != null ? MessagesApiMessageParamRole.fromJson(json['role'] as String) : null)!,
+    content: (json['content'])!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'role': role.toJson(),
-        'content': content,
-      };
+    'role': role.toJson(),
+    'content': content,
+  };
 }

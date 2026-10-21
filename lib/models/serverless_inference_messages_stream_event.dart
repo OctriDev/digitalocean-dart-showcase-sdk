@@ -8,195 +8,97 @@ part of 'serverless_inference_messages.dart';
 class MessagesStreamEventUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `integer` value serialized in the `output_tokens` wire field.
   final SdkOptional<int> outputTokens;
-
   /// Optional enumerated value serialized in the `speed` wire field.
   final SdkOptional<MessagesStreamEventUsageSpeed?> speed;
 
-  const MessagesStreamEventUsage(
-      {this.outputTokens = const SdkOmitted(),
-      this.speed = const SdkOmitted()});
+  const MessagesStreamEventUsage({this.outputTokens = const SdkOmitted(), this.speed = const SdkOmitted()});
 
-  MessagesStreamEventUsage Function(
-          {SdkOptional<int> outputTokens,
-          SdkOptional<MessagesStreamEventUsageSpeed?> speed})
-      get copyWith => _copyWith;
+  MessagesStreamEventUsage Function({SdkOptional<int> outputTokens, SdkOptional<MessagesStreamEventUsageSpeed?> speed}) get copyWith => _copyWith;
 
-  MessagesStreamEventUsage _copyWith(
-          {Object? outputTokens = sdkOmittedValue,
-          Object? speed = sdkOmittedValue}) =>
-      MessagesStreamEventUsage(
-        outputTokens: identical(outputTokens, sdkOmittedValue)
-            ? this.outputTokens
-            : outputTokens as SdkOptional<int>,
-        speed: identical(speed, sdkOmittedValue)
-            ? this.speed
-            : speed as SdkOptional<MessagesStreamEventUsageSpeed?>,
-      );
+  MessagesStreamEventUsage _copyWith({Object? outputTokens = sdkOmittedValue, Object? speed = sdkOmittedValue}) => MessagesStreamEventUsage(
+    outputTokens: identical(outputTokens, sdkOmittedValue) ? this.outputTokens : outputTokens as SdkOptional<int>,
+    speed: identical(speed, sdkOmittedValue) ? this.speed : speed as SdkOptional<MessagesStreamEventUsageSpeed?>,
+  );
 
-  factory MessagesStreamEventUsage.fromJson(Map<String, dynamic> json) =>
-      MessagesStreamEventUsage(
-        outputTokens: json['output_tokens'] != null
-            ? SdkPresent(((json['output_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        speed: json.containsKey('speed')
-            ? SdkPresent(json['speed'] != null
-                ? MessagesStreamEventUsageSpeed.fromJson(
-                    json['speed'] as String)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory MessagesStreamEventUsage.fromJson(Map<String, dynamic> json) => MessagesStreamEventUsage(
+    outputTokens: json['output_tokens'] != null ? SdkPresent(((json['output_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    speed: json.containsKey('speed') ? SdkPresent(json['speed'] != null ? MessagesStreamEventUsageSpeed.fromJson(json['speed'] as String) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (outputTokens) {
-          SdkPresent<int>(value: final value) => {
-              'output_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (speed) {
-          SdkPresent<MessagesStreamEventUsageSpeed?>(value: final value) => {
-              'speed': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (outputTokens) {
+      SdkPresent<int>(value: final value) => {'output_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (speed) {
+      SdkPresent<MessagesStreamEventUsageSpeed?>(value: final value) => {'speed': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// One server-sent event (SSE) JSON payload when `stream` is true. Each event line contains a JSON object after the `data:` prefix.
 class MessagesStreamEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// SSE event type.
   final MessagesStreamEventType type_;
-
   /// Present on `message_start`; initial message metadata.
   final SdkOptional<Map<String, Object?>> message;
-
   /// Index of the content block this event refers to.
   final SdkOptional<int> index;
-
   /// Present on `content_block_start`.
   final SdkOptional<Map<String, Object?>> contentBlock;
-
   /// Present on `content_block_delta` and `message_delta`.
   final SdkOptional<Map<String, Object?>> delta;
-
   /// Streamed usage (for example on `message_delta`).
   final SdkOptional<MessagesStreamEventUsage> usage;
 
-  const MessagesStreamEvent(
-      {required this.type_,
-      this.message = const SdkOmitted(),
-      this.index = const SdkOmitted(),
-      this.contentBlock = const SdkOmitted(),
-      this.delta = const SdkOmitted(),
-      this.usage = const SdkOmitted()});
+  const MessagesStreamEvent({required this.type_, this.message = const SdkOmitted(), this.index = const SdkOmitted(), this.contentBlock = const SdkOmitted(), this.delta = const SdkOmitted(), this.usage = const SdkOmitted()});
 
-  MessagesStreamEvent Function(
-      {MessagesStreamEventType type_,
-      SdkOptional<Map<String, Object?>> message,
-      SdkOptional<int> index,
-      SdkOptional<Map<String, Object?>> contentBlock,
-      SdkOptional<Map<String, Object?>> delta,
-      SdkOptional<MessagesStreamEventUsage> usage}) get copyWith => _copyWith;
+  MessagesStreamEvent Function({MessagesStreamEventType type_, SdkOptional<Map<String, Object?>> message, SdkOptional<int> index, SdkOptional<Map<String, Object?>> contentBlock, SdkOptional<Map<String, Object?>> delta, SdkOptional<MessagesStreamEventUsage> usage}) get copyWith => _copyWith;
 
-  MessagesStreamEvent _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? message = sdkOmittedValue,
-          Object? index = sdkOmittedValue,
-          Object? contentBlock = sdkOmittedValue,
-          Object? delta = sdkOmittedValue,
-          Object? usage = sdkOmittedValue}) =>
-      MessagesStreamEvent(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as MessagesStreamEventType,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as SdkOptional<Map<String, Object?>>,
-        index: identical(index, sdkOmittedValue)
-            ? this.index
-            : index as SdkOptional<int>,
-        contentBlock: identical(contentBlock, sdkOmittedValue)
-            ? this.contentBlock
-            : contentBlock as SdkOptional<Map<String, Object?>>,
-        delta: identical(delta, sdkOmittedValue)
-            ? this.delta
-            : delta as SdkOptional<Map<String, Object?>>,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as SdkOptional<MessagesStreamEventUsage>,
-      );
+  MessagesStreamEvent _copyWith({Object? type_ = sdkOmittedValue, Object? message = sdkOmittedValue, Object? index = sdkOmittedValue, Object? contentBlock = sdkOmittedValue, Object? delta = sdkOmittedValue, Object? usage = sdkOmittedValue}) => MessagesStreamEvent(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesStreamEventType,
+    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<Map<String, Object?>>,
+    index: identical(index, sdkOmittedValue) ? this.index : index as SdkOptional<int>,
+    contentBlock: identical(contentBlock, sdkOmittedValue) ? this.contentBlock : contentBlock as SdkOptional<Map<String, Object?>>,
+    delta: identical(delta, sdkOmittedValue) ? this.delta : delta as SdkOptional<Map<String, Object?>>,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SdkOptional<MessagesStreamEventUsage>,
+  );
 
-  factory MessagesStreamEvent.fromJson(Map<String, dynamic> json) =>
-      MessagesStreamEvent(
-        type_: (json['type'] != null
-            ? MessagesStreamEventType.fromJson(json['type'] as String)
-            : null)!,
-        message: json['message'] != null
-            ? SdkPresent((json['message'] == null
-                ? null
-                : Map<String, dynamic>.from(json['message'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-        index: json['index'] != null
-            ? SdkPresent(((json['index'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        contentBlock: json['content_block'] != null
-            ? SdkPresent((json['content_block'] == null
-                ? null
-                : Map<String, dynamic>.from(json['content_block'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-        delta: json['delta'] != null
-            ? SdkPresent((json['delta'] == null
-                ? null
-                : Map<String, dynamic>.from(json['delta'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-        usage: json['usage'] != null
-            ? SdkPresent((json['usage'] != null
-                ? MessagesStreamEventUsage.fromJson(
-                    json['usage'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory MessagesStreamEvent.fromJson(Map<String, dynamic> json) => MessagesStreamEvent(
+    type_: (json['type'] != null ? MessagesStreamEventType.fromJson(json['type'] as String) : null)!,
+    message: json['message'] != null ? SdkPresent((json['message'] == null ? null : Map<String, dynamic>.from(json['message'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+    index: json['index'] != null ? SdkPresent(((json['index'] as num?)?.toInt())!) : const SdkOmitted(),
+    contentBlock: json['content_block'] != null ? SdkPresent((json['content_block'] == null ? null : Map<String, dynamic>.from(json['content_block'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+    delta: json['delta'] != null ? SdkPresent((json['delta'] == null ? null : Map<String, dynamic>.from(json['delta'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+    usage: json['usage'] != null ? SdkPresent((json['usage'] != null ? MessagesStreamEventUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (message) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'message': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (index) {
-          SdkPresent<int>(value: final value) => {
-              'index': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contentBlock) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'content_block': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (delta) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'delta': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (usage) {
-          SdkPresent<MessagesStreamEventUsage>(value: final value) => {
-              'usage': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (message) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'message': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (index) {
+      SdkPresent<int>(value: final value) => {'index': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contentBlock) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'content_block': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (delta) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'delta': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (usage) {
+      SdkPresent<MessagesStreamEventUsage>(value: final value) => {'usage': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

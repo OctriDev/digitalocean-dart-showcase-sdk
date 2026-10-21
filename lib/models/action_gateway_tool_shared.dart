@@ -8,74 +8,41 @@ part of 'action_gateway_tool.dart';
 class ToolHealth {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Catalog tool slug.
   final SdkOptional<String> toolSlug;
-
   /// ID of the provider that offers the tool.
   final SdkOptional<String> provider;
-
   /// Metrics over the window.
   final SdkOptional<HealthMetrics> health;
 
-  const ToolHealth(
-      {this.toolSlug = const SdkOmitted(),
-      this.provider = const SdkOmitted(),
-      this.health = const SdkOmitted()});
+  const ToolHealth({this.toolSlug = const SdkOmitted(), this.provider = const SdkOmitted(), this.health = const SdkOmitted()});
 
-  ToolHealth Function(
-      {SdkOptional<String> toolSlug,
-      SdkOptional<String> provider,
-      SdkOptional<HealthMetrics> health}) get copyWith => _copyWith;
+  ToolHealth Function({SdkOptional<String> toolSlug, SdkOptional<String> provider, SdkOptional<HealthMetrics> health}) get copyWith => _copyWith;
 
-  ToolHealth _copyWith(
-          {Object? toolSlug = sdkOmittedValue,
-          Object? provider = sdkOmittedValue,
-          Object? health = sdkOmittedValue}) =>
-      ToolHealth(
-        toolSlug: identical(toolSlug, sdkOmittedValue)
-            ? this.toolSlug
-            : toolSlug as SdkOptional<String>,
-        provider: identical(provider, sdkOmittedValue)
-            ? this.provider
-            : provider as SdkOptional<String>,
-        health: identical(health, sdkOmittedValue)
-            ? this.health
-            : health as SdkOptional<HealthMetrics>,
-      );
+  ToolHealth _copyWith({Object? toolSlug = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? health = sdkOmittedValue}) => ToolHealth(
+    toolSlug: identical(toolSlug, sdkOmittedValue) ? this.toolSlug : toolSlug as SdkOptional<String>,
+    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as SdkOptional<String>,
+    health: identical(health, sdkOmittedValue) ? this.health : health as SdkOptional<HealthMetrics>,
+  );
 
   factory ToolHealth.fromJson(Map<String, dynamic> json) => ToolHealth(
-        toolSlug: json['tool_slug'] != null
-            ? SdkPresent((json['tool_slug'] as String?)!)
-            : const SdkOmitted(),
-        provider: json['provider'] != null
-            ? SdkPresent((json['provider'] as String?)!)
-            : const SdkOmitted(),
-        health: json['health'] != null
-            ? SdkPresent((json['health'] != null
-                ? HealthMetrics.fromJson(json['health'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    toolSlug: json['tool_slug'] != null ? SdkPresent((json['tool_slug'] as String?)!) : const SdkOmitted(),
+    provider: json['provider'] != null ? SdkPresent((json['provider'] as String?)!) : const SdkOmitted(),
+    health: json['health'] != null ? SdkPresent((json['health'] != null ? HealthMetrics.fromJson(json['health'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (toolSlug) {
-          SdkPresent<String>(value: final value) => {
-              'tool_slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (provider) {
-          SdkPresent<String>(value: final value) => {
-              'provider': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (health) {
-          SdkPresent<HealthMetrics>(value: final value) => {
-              'health': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (toolSlug) {
+      SdkPresent<String>(value: final value) => {'tool_slug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (provider) {
+      SdkPresent<String>(value: final value) => {'provider': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (health) {
+      SdkPresent<HealthMetrics>(value: final value) => {'health': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

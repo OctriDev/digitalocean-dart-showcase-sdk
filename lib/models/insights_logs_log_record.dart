@@ -8,179 +8,86 @@ part of 'insights_logs.dart';
 class LogsLogRecord {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The log record timestamp.
   final String timestamp;
-
   /// The numeric severity level.
   final SdkOptional<int> severityNumber;
-
   /// The textual severity level.
   final SdkOptional<String> severityText;
-
   /// The log message body. Omitted when empty.
   final SdkOptional<String> body;
-
   /// The trace ID if present.
   final SdkOptional<String> traceId;
-
   /// The span ID if present.
   final SdkOptional<String> spanId;
-
   /// The service name that emitted the log.
   final SdkOptional<String> serviceName;
-
   /// Resource attributes associated with the log.
   final SdkOptional<Map<String, String>> resource;
-
   /// Log attributes.
   final SdkOptional<Map<String, String>> attributes;
 
-  const LogsLogRecord(
-      {required this.timestamp,
-      this.severityNumber = const SdkOmitted(),
-      this.severityText = const SdkOmitted(),
-      this.body = const SdkOmitted(),
-      this.traceId = const SdkOmitted(),
-      this.spanId = const SdkOmitted(),
-      this.serviceName = const SdkOmitted(),
-      this.resource = const SdkOmitted(),
-      this.attributes = const SdkOmitted()});
+  const LogsLogRecord({required this.timestamp, this.severityNumber = const SdkOmitted(), this.severityText = const SdkOmitted(), this.body = const SdkOmitted(), this.traceId = const SdkOmitted(), this.spanId = const SdkOmitted(), this.serviceName = const SdkOmitted(), this.resource = const SdkOmitted(), this.attributes = const SdkOmitted()});
 
-  LogsLogRecord Function(
-      {String timestamp,
-      SdkOptional<int> severityNumber,
-      SdkOptional<String> severityText,
-      SdkOptional<String> body,
-      SdkOptional<String> traceId,
-      SdkOptional<String> spanId,
-      SdkOptional<String> serviceName,
-      SdkOptional<Map<String, String>> resource,
-      SdkOptional<Map<String, String>> attributes}) get copyWith => _copyWith;
+  LogsLogRecord Function({String timestamp, SdkOptional<int> severityNumber, SdkOptional<String> severityText, SdkOptional<String> body, SdkOptional<String> traceId, SdkOptional<String> spanId, SdkOptional<String> serviceName, SdkOptional<Map<String, String>> resource, SdkOptional<Map<String, String>> attributes}) get copyWith => _copyWith;
 
-  LogsLogRecord _copyWith(
-          {Object? timestamp = sdkOmittedValue,
-          Object? severityNumber = sdkOmittedValue,
-          Object? severityText = sdkOmittedValue,
-          Object? body = sdkOmittedValue,
-          Object? traceId = sdkOmittedValue,
-          Object? spanId = sdkOmittedValue,
-          Object? serviceName = sdkOmittedValue,
-          Object? resource = sdkOmittedValue,
-          Object? attributes = sdkOmittedValue}) =>
-      LogsLogRecord(
-        timestamp: identical(timestamp, sdkOmittedValue)
-            ? this.timestamp
-            : timestamp as String,
-        severityNumber: identical(severityNumber, sdkOmittedValue)
-            ? this.severityNumber
-            : severityNumber as SdkOptional<int>,
-        severityText: identical(severityText, sdkOmittedValue)
-            ? this.severityText
-            : severityText as SdkOptional<String>,
-        body: identical(body, sdkOmittedValue)
-            ? this.body
-            : body as SdkOptional<String>,
-        traceId: identical(traceId, sdkOmittedValue)
-            ? this.traceId
-            : traceId as SdkOptional<String>,
-        spanId: identical(spanId, sdkOmittedValue)
-            ? this.spanId
-            : spanId as SdkOptional<String>,
-        serviceName: identical(serviceName, sdkOmittedValue)
-            ? this.serviceName
-            : serviceName as SdkOptional<String>,
-        resource: identical(resource, sdkOmittedValue)
-            ? this.resource
-            : resource as SdkOptional<Map<String, String>>,
-        attributes: identical(attributes, sdkOmittedValue)
-            ? this.attributes
-            : attributes as SdkOptional<Map<String, String>>,
-      );
+  LogsLogRecord _copyWith({Object? timestamp = sdkOmittedValue, Object? severityNumber = sdkOmittedValue, Object? severityText = sdkOmittedValue, Object? body = sdkOmittedValue, Object? traceId = sdkOmittedValue, Object? spanId = sdkOmittedValue, Object? serviceName = sdkOmittedValue, Object? resource = sdkOmittedValue, Object? attributes = sdkOmittedValue}) => LogsLogRecord(
+    timestamp: identical(timestamp, sdkOmittedValue) ? this.timestamp : timestamp as String,
+    severityNumber: identical(severityNumber, sdkOmittedValue) ? this.severityNumber : severityNumber as SdkOptional<int>,
+    severityText: identical(severityText, sdkOmittedValue) ? this.severityText : severityText as SdkOptional<String>,
+    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
+    traceId: identical(traceId, sdkOmittedValue) ? this.traceId : traceId as SdkOptional<String>,
+    spanId: identical(spanId, sdkOmittedValue) ? this.spanId : spanId as SdkOptional<String>,
+    serviceName: identical(serviceName, sdkOmittedValue) ? this.serviceName : serviceName as SdkOptional<String>,
+    resource: identical(resource, sdkOmittedValue) ? this.resource : resource as SdkOptional<Map<String, String>>,
+    attributes: identical(attributes, sdkOmittedValue) ? this.attributes : attributes as SdkOptional<Map<String, String>>,
+  );
 
   factory LogsLogRecord.fromJson(Map<String, dynamic> json) => LogsLogRecord(
-        timestamp: (json['timestamp'] as String?)!,
-        severityNumber: json['severity_number'] != null
-            ? SdkPresent(((json['severity_number'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        severityText: json['severity_text'] != null
-            ? SdkPresent((json['severity_text'] as String?)!)
-            : const SdkOmitted(),
-        body: json['body'] != null
-            ? SdkPresent((json['body'] as String?)!)
-            : const SdkOmitted(),
-        traceId: json['trace_id'] != null
-            ? SdkPresent((json['trace_id'] as String?)!)
-            : const SdkOmitted(),
-        spanId: json['span_id'] != null
-            ? SdkPresent((json['span_id'] as String?)!)
-            : const SdkOmitted(),
-        serviceName: json['service_name'] != null
-            ? SdkPresent((json['service_name'] as String?)!)
-            : const SdkOmitted(),
-        resource: json['resource'] != null
-            ? SdkPresent((json['resource'] == null
-                ? null
-                : Map<String, dynamic>.from(json['resource'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-        attributes: json['attributes'] != null
-            ? SdkPresent((json['attributes'] == null
-                ? null
-                : Map<String, dynamic>.from(json['attributes'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-      );
+    timestamp: (json['timestamp'] as String?)!,
+    severityNumber: json['severity_number'] != null ? SdkPresent(((json['severity_number'] as num?)?.toInt())!) : const SdkOmitted(),
+    severityText: json['severity_text'] != null ? SdkPresent((json['severity_text'] as String?)!) : const SdkOmitted(),
+    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
+    traceId: json['trace_id'] != null ? SdkPresent((json['trace_id'] as String?)!) : const SdkOmitted(),
+    spanId: json['span_id'] != null ? SdkPresent((json['span_id'] as String?)!) : const SdkOmitted(),
+    serviceName: json['service_name'] != null ? SdkPresent((json['service_name'] as String?)!) : const SdkOmitted(),
+    resource: json['resource'] != null ? SdkPresent((json['resource'] == null ? null : Map<String, dynamic>.from(json['resource'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+    attributes: json['attributes'] != null ? SdkPresent((json['attributes'] == null ? null : Map<String, dynamic>.from(json['attributes'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'timestamp': timestamp,
-        ...switch (severityNumber) {
-          SdkPresent<int>(value: final value) => {
-              'severity_number': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (severityText) {
-          SdkPresent<String>(value: final value) => {
-              'severity_text': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (body) {
-          SdkPresent<String>(value: final value) => {
-              'body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (traceId) {
-          SdkPresent<String>(value: final value) => {
-              'trace_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (spanId) {
-          SdkPresent<String>(value: final value) => {
-              'span_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (serviceName) {
-          SdkPresent<String>(value: final value) => {
-              'service_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resource) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'resource': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attributes) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'timestamp': timestamp,
+    ...switch (severityNumber) {
+      SdkPresent<int>(value: final value) => {'severity_number': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (severityText) {
+      SdkPresent<String>(value: final value) => {'severity_text': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (body) {
+      SdkPresent<String>(value: final value) => {'body': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (traceId) {
+      SdkPresent<String>(value: final value) => {'trace_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (spanId) {
+      SdkPresent<String>(value: final value) => {'span_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (serviceName) {
+      SdkPresent<String>(value: final value) => {'service_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resource) {
+      SdkPresent<Map<String, String>>(value: final value) => {'resource': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attributes) {
+      SdkPresent<Map<String, String>>(value: final value) => {'attributes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

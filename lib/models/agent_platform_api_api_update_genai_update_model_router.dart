@@ -8,174 +8,92 @@ part of 'agent_platform_api_api_update.dart';
 class ApiUpdateModelRouterInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Model router description
   final SdkOptional<String> description;
-
   /// Optional array value serialized in the `fallback_models` wire field.
   final SdkOptional<List<Map<String, dynamic>>> fallbackModels;
-
   /// Model router name: lowercase, at most 255 characters, only a-z, 0-9, and hyphens
   final SdkOptional<String> name;
-
   /// Router policies
   final SdkOptional<List<ApiModelRouterTaskPolicy>> policies;
-
   /// DEPRECATED: this field does not affect deployment and model routers are always deployed to all regions. Must be omitted or set to ["all"].
   final SdkOptional<List<String>> regions;
-
   /// Model router id
   final SdkOptional<String> uuid;
 
-  const ApiUpdateModelRouterInputPublic(
-      {this.description = const SdkOmitted(),
-      this.fallbackModels = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.policies = const SdkOmitted(),
-      this.regions = const SdkOmitted(),
-      this.uuid = const SdkOmitted()});
+  const ApiUpdateModelRouterInputPublic({this.description = const SdkOmitted(), this.fallbackModels = const SdkOmitted(), this.name = const SdkOmitted(), this.policies = const SdkOmitted(), this.regions = const SdkOmitted(), this.uuid = const SdkOmitted()});
 
-  ApiUpdateModelRouterInputPublic Function(
-      {SdkOptional<String> description,
-      SdkOptional<List<Map<String, dynamic>>> fallbackModels,
-      SdkOptional<String> name,
-      SdkOptional<List<ApiModelRouterTaskPolicy>> policies,
-      SdkOptional<List<String>> regions,
-      SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiUpdateModelRouterInputPublic Function({SdkOptional<String> description, SdkOptional<List<Map<String, dynamic>>> fallbackModels, SdkOptional<String> name, SdkOptional<List<ApiModelRouterTaskPolicy>> policies, SdkOptional<List<String>> regions, SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiUpdateModelRouterInputPublic _copyWith(
-          {Object? description = sdkOmittedValue,
-          Object? fallbackModels = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? policies = sdkOmittedValue,
-          Object? regions = sdkOmittedValue,
-          Object? uuid = sdkOmittedValue}) =>
-      ApiUpdateModelRouterInputPublic(
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        fallbackModels: identical(fallbackModels, sdkOmittedValue)
-            ? this.fallbackModels
-            : fallbackModels as SdkOptional<List<Map<String, dynamic>>>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        policies: identical(policies, sdkOmittedValue)
-            ? this.policies
-            : policies as SdkOptional<List<ApiModelRouterTaskPolicy>>,
-        regions: identical(regions, sdkOmittedValue)
-            ? this.regions
-            : regions as SdkOptional<List<String>>,
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-      );
+  ApiUpdateModelRouterInputPublic _copyWith({Object? description = sdkOmittedValue, Object? fallbackModels = sdkOmittedValue, Object? name = sdkOmittedValue, Object? policies = sdkOmittedValue, Object? regions = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiUpdateModelRouterInputPublic(
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    fallbackModels: identical(fallbackModels, sdkOmittedValue) ? this.fallbackModels : fallbackModels as SdkOptional<List<Map<String, dynamic>>>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    policies: identical(policies, sdkOmittedValue) ? this.policies : policies as SdkOptional<List<ApiModelRouterTaskPolicy>>,
+    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+  );
 
-  factory ApiUpdateModelRouterInputPublic.fromJson(Map<String, dynamic> json) =>
-      ApiUpdateModelRouterInputPublic(
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        fallbackModels: json['fallback_models'] != null
-            ? SdkPresent(((json['fallback_models'] as List?)
-                ?.map((e) => e as Map<String, dynamic>)
-                .toList())!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        policies: json['policies'] != null
-            ? SdkPresent(((json['policies'] as List?)
-                ?.map((e) => ApiModelRouterTaskPolicy.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        regions: json['regions'] != null
-            ? SdkPresent(
-                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateModelRouterInputPublic.fromJson(Map<String, dynamic> json) => ApiUpdateModelRouterInputPublic(
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    fallbackModels: json['fallback_models'] != null ? SdkPresent(((json['fallback_models'] as List?)?.map((e) => e as Map<String, dynamic>).toList())!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    policies: json['policies'] != null ? SdkPresent(((json['policies'] as List?)?.map((e) => ApiModelRouterTaskPolicy.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fallbackModels) {
-          SdkPresent<List<Map<String, dynamic>>>(value: final value) => {
-              'fallback_models': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (policies) {
-          SdkPresent<List<ApiModelRouterTaskPolicy>>(value: final value) => {
-              'policies': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (regions) {
-          SdkPresent<List<String>>(value: final value) => {
-              'regions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fallbackModels) {
+      SdkPresent<List<Map<String, dynamic>>>(value: final value) => {'fallback_models': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (policies) {
+      SdkPresent<List<ApiModelRouterTaskPolicy>>(value: final value) => {'policies': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (regions) {
+      SdkPresent<List<String>>(value: final value) => {'regions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Information about an updated model router
 class ApiUpdateModelRouterOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Model router
   final SdkOptional<ApiModelRouter> modelRouter;
 
   const ApiUpdateModelRouterOutput({this.modelRouter = const SdkOmitted()});
 
-  ApiUpdateModelRouterOutput Function({SdkOptional<ApiModelRouter> modelRouter})
-      get copyWith => _copyWith;
+  ApiUpdateModelRouterOutput Function({SdkOptional<ApiModelRouter> modelRouter}) get copyWith => _copyWith;
 
-  ApiUpdateModelRouterOutput _copyWith(
-          {Object? modelRouter = sdkOmittedValue}) =>
-      ApiUpdateModelRouterOutput(
-        modelRouter: identical(modelRouter, sdkOmittedValue)
-            ? this.modelRouter
-            : modelRouter as SdkOptional<ApiModelRouter>,
-      );
+  ApiUpdateModelRouterOutput _copyWith({Object? modelRouter = sdkOmittedValue}) => ApiUpdateModelRouterOutput(
+    modelRouter: identical(modelRouter, sdkOmittedValue) ? this.modelRouter : modelRouter as SdkOptional<ApiModelRouter>,
+  );
 
-  factory ApiUpdateModelRouterOutput.fromJson(Map<String, dynamic> json) =>
-      ApiUpdateModelRouterOutput(
-        modelRouter: json['model_router'] != null
-            ? SdkPresent((json['model_router'] != null
-                ? ApiModelRouter.fromJson(
-                    json['model_router'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateModelRouterOutput.fromJson(Map<String, dynamic> json) => ApiUpdateModelRouterOutput(
+    modelRouter: json['model_router'] != null ? SdkPresent((json['model_router'] != null ? ApiModelRouter.fromJson(json['model_router'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (modelRouter) {
-          SdkPresent<ApiModelRouter>(value: final value) => {
-              'model_router': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (modelRouter) {
+      SdkPresent<ApiModelRouter>(value: final value) => {'model_router': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

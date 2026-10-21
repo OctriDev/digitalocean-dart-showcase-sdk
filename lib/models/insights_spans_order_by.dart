@@ -8,50 +8,30 @@ part of 'insights_spans.dart';
 class SpansOrderBy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A reference to a searchable span field.
   final SpansFilterField field;
-
   /// The sort direction. Defaults to `desc` when omitted.
   final SdkOptional<SpansOrderByDirection> direction;
 
-  const SpansOrderBy(
-      {required this.field, this.direction = const SdkOmitted()});
+  const SpansOrderBy({required this.field, this.direction = const SdkOmitted()});
 
-  SpansOrderBy Function(
-      {SpansFilterField field,
-      SdkOptional<SpansOrderByDirection> direction}) get copyWith => _copyWith;
+  SpansOrderBy Function({SpansFilterField field, SdkOptional<SpansOrderByDirection> direction}) get copyWith => _copyWith;
 
-  SpansOrderBy _copyWith(
-          {Object? field = sdkOmittedValue,
-          Object? direction = sdkOmittedValue}) =>
-      SpansOrderBy(
-        field: identical(field, sdkOmittedValue)
-            ? this.field
-            : field as SpansFilterField,
-        direction: identical(direction, sdkOmittedValue)
-            ? this.direction
-            : direction as SdkOptional<SpansOrderByDirection>,
-      );
+  SpansOrderBy _copyWith({Object? field = sdkOmittedValue, Object? direction = sdkOmittedValue}) => SpansOrderBy(
+    field: identical(field, sdkOmittedValue) ? this.field : field as SpansFilterField,
+    direction: identical(direction, sdkOmittedValue) ? this.direction : direction as SdkOptional<SpansOrderByDirection>,
+  );
 
   factory SpansOrderBy.fromJson(Map<String, dynamic> json) => SpansOrderBy(
-        field: (json['field'] != null
-            ? SpansFilterField.fromJson(json['field'] as Map<String, dynamic>)
-            : null)!,
-        direction: json['direction'] != null
-            ? SdkPresent((json['direction'] != null
-                ? SpansOrderByDirection.fromJson(json['direction'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    field: (json['field'] != null ? SpansFilterField.fromJson(json['field'] as Map<String, dynamic>) : null)!,
+    direction: json['direction'] != null ? SdkPresent((json['direction'] != null ? SpansOrderByDirection.fromJson(json['direction'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'field': field.toJson(),
-        ...switch (direction) {
-          SdkPresent<SpansOrderByDirection>(value: final value) => {
-              'direction': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'field': field.toJson(),
+    ...switch (direction) {
+      SdkPresent<SpansOrderByDirection>(value: final value) => {'direction': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

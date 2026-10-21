@@ -11,33 +11,22 @@ class AllFirewallsVariant0 {
 
   const AllFirewallsVariant0({this.firewalls = const SdkOmitted()});
 
-  AllFirewallsVariant0 Function({SdkOptional<List<Firewall>> firewalls})
-      get copyWith => _copyWith;
+  AllFirewallsVariant0 Function({SdkOptional<List<Firewall>> firewalls}) get copyWith => _copyWith;
 
-  AllFirewallsVariant0 _copyWith({Object? firewalls = sdkOmittedValue}) =>
-      AllFirewallsVariant0(
-        firewalls: identical(firewalls, sdkOmittedValue)
-            ? this.firewalls
-            : firewalls as SdkOptional<List<Firewall>>,
-      );
+  AllFirewallsVariant0 _copyWith({Object? firewalls = sdkOmittedValue}) => AllFirewallsVariant0(
+    firewalls: identical(firewalls, sdkOmittedValue) ? this.firewalls : firewalls as SdkOptional<List<Firewall>>,
+  );
 
-  factory AllFirewallsVariant0.fromJson(Map<String, dynamic> json) =>
-      AllFirewallsVariant0(
-        firewalls: json['firewalls'] != null
-            ? SdkPresent(((json['firewalls'] as List?)
-                ?.map((e) => Firewall.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AllFirewallsVariant0.fromJson(Map<String, dynamic> json) => AllFirewallsVariant0(
+    firewalls: json['firewalls'] != null ? SdkPresent(((json['firewalls'] as List?)?.map((e) => Firewall.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (firewalls) {
-          SdkPresent<List<Firewall>>(value: final value) => {
-              'firewalls': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (firewalls) {
+      SdkPresent<List<Firewall>>(value: final value) => {'firewalls': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AllFirewalls` API schema.
@@ -45,68 +34,36 @@ class AllFirewalls {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Firewall>> firewalls;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllFirewalls(
-      {this.firewalls = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AllFirewalls({this.firewalls = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AllFirewalls Function(
-      {SdkOptional<List<Firewall>> firewalls,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AllFirewalls Function({SdkOptional<List<Firewall>> firewalls, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AllFirewalls _copyWith(
-          {Object? firewalls = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AllFirewalls(
-        firewalls: identical(firewalls, sdkOmittedValue)
-            ? this.firewalls
-            : firewalls as SdkOptional<List<Firewall>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AllFirewalls _copyWith({Object? firewalls = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllFirewalls(
+    firewalls: identical(firewalls, sdkOmittedValue) ? this.firewalls : firewalls as SdkOptional<List<Firewall>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory AllFirewalls.fromJson(Map<String, dynamic> json) => AllFirewalls(
-        firewalls: json['firewalls'] != null
-            ? SdkPresent(((json['firewalls'] as List?)
-                ?.map((e) => Firewall.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    firewalls: json['firewalls'] != null ? SdkPresent(((json['firewalls'] as List?)?.map((e) => Firewall.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (firewalls) {
-          SdkPresent<List<Firewall>>(value: final value) => {
-              'firewalls': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (firewalls) {
+      SdkPresent<List<Firewall>>(value: final value) => {'firewalls': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

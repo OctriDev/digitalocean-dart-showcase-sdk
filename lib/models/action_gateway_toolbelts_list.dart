@@ -8,61 +8,33 @@ part of 'action_gateway.dart';
 class ToolbeltsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Toolbelts sorted by name.
   final SdkOptional<List<ToolbeltSummary>> toolbelts;
-
   /// Paging applied to this response and the total number of toolbelts.
   final SdkOptional<Pagination> pagination;
 
-  const ToolbeltsResponse(
-      {this.toolbelts = const SdkOmitted(),
-      this.pagination = const SdkOmitted()});
+  const ToolbeltsResponse({this.toolbelts = const SdkOmitted(), this.pagination = const SdkOmitted()});
 
-  ToolbeltsResponse Function(
-      {SdkOptional<List<ToolbeltSummary>> toolbelts,
-      SdkOptional<Pagination> pagination}) get copyWith => _copyWith;
+  ToolbeltsResponse Function({SdkOptional<List<ToolbeltSummary>> toolbelts, SdkOptional<Pagination> pagination}) get copyWith => _copyWith;
 
-  ToolbeltsResponse _copyWith(
-          {Object? toolbelts = sdkOmittedValue,
-          Object? pagination = sdkOmittedValue}) =>
-      ToolbeltsResponse(
-        toolbelts: identical(toolbelts, sdkOmittedValue)
-            ? this.toolbelts
-            : toolbelts as SdkOptional<List<ToolbeltSummary>>,
-        pagination: identical(pagination, sdkOmittedValue)
-            ? this.pagination
-            : pagination as SdkOptional<Pagination>,
-      );
+  ToolbeltsResponse _copyWith({Object? toolbelts = sdkOmittedValue, Object? pagination = sdkOmittedValue}) => ToolbeltsResponse(
+    toolbelts: identical(toolbelts, sdkOmittedValue) ? this.toolbelts : toolbelts as SdkOptional<List<ToolbeltSummary>>,
+    pagination: identical(pagination, sdkOmittedValue) ? this.pagination : pagination as SdkOptional<Pagination>,
+  );
 
-  factory ToolbeltsResponse.fromJson(Map<String, dynamic> json) =>
-      ToolbeltsResponse(
-        toolbelts: json['toolbelts'] != null
-            ? SdkPresent(((json['toolbelts'] as List?)
-                ?.map(
-                    (e) => ToolbeltSummary.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        pagination: json['pagination'] != null
-            ? SdkPresent((json['pagination'] != null
-                ? Pagination.fromJson(
-                    json['pagination'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ToolbeltsResponse.fromJson(Map<String, dynamic> json) => ToolbeltsResponse(
+    toolbelts: json['toolbelts'] != null ? SdkPresent(((json['toolbelts'] as List?)?.map((e) => ToolbeltSummary.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    pagination: json['pagination'] != null ? SdkPresent((json['pagination'] != null ? Pagination.fromJson(json['pagination'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (toolbelts) {
-          SdkPresent<List<ToolbeltSummary>>(value: final value) => {
-              'toolbelts': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pagination) {
-          SdkPresent<Pagination>(value: final value) => {
-              'pagination': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (toolbelts) {
+      SdkPresent<List<ToolbeltSummary>>(value: final value) => {'toolbelts': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pagination) {
+      SdkPresent<Pagination>(value: final value) => {'pagination': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

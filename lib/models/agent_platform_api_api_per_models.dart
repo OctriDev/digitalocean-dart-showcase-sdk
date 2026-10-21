@@ -8,353 +8,197 @@ part of 'agent_platform_api_api_per.dart';
 class ApiPerEpochResultSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// 1-indexed epoch number (1 = first pass).
   final SdkOptional<int> epoch;
-
   /// Optional `double`-formatted value serialized in the `overall_score_percent` wire field.
   final SdkOptional<double> overallScorePercent;
-
   /// Optional `int64`-formatted value serialized in the `rows_scored` wire field.
   final SdkOptional<int> rowsScored;
 
-  const ApiPerEpochResultSummary(
-      {this.epoch = const SdkOmitted(),
-      this.overallScorePercent = const SdkOmitted(),
-      this.rowsScored = const SdkOmitted()});
+  const ApiPerEpochResultSummary({this.epoch = const SdkOmitted(), this.overallScorePercent = const SdkOmitted(), this.rowsScored = const SdkOmitted()});
 
-  ApiPerEpochResultSummary Function(
-      {SdkOptional<int> epoch,
-      SdkOptional<double> overallScorePercent,
-      SdkOptional<int> rowsScored}) get copyWith => _copyWith;
+  ApiPerEpochResultSummary Function({SdkOptional<int> epoch, SdkOptional<double> overallScorePercent, SdkOptional<int> rowsScored}) get copyWith => _copyWith;
 
-  ApiPerEpochResultSummary _copyWith(
-          {Object? epoch = sdkOmittedValue,
-          Object? overallScorePercent = sdkOmittedValue,
-          Object? rowsScored = sdkOmittedValue}) =>
-      ApiPerEpochResultSummary(
-        epoch: identical(epoch, sdkOmittedValue)
-            ? this.epoch
-            : epoch as SdkOptional<int>,
-        overallScorePercent: identical(overallScorePercent, sdkOmittedValue)
-            ? this.overallScorePercent
-            : overallScorePercent as SdkOptional<double>,
-        rowsScored: identical(rowsScored, sdkOmittedValue)
-            ? this.rowsScored
-            : rowsScored as SdkOptional<int>,
-      );
+  ApiPerEpochResultSummary _copyWith({Object? epoch = sdkOmittedValue, Object? overallScorePercent = sdkOmittedValue, Object? rowsScored = sdkOmittedValue}) => ApiPerEpochResultSummary(
+    epoch: identical(epoch, sdkOmittedValue) ? this.epoch : epoch as SdkOptional<int>,
+    overallScorePercent: identical(overallScorePercent, sdkOmittedValue) ? this.overallScorePercent : overallScorePercent as SdkOptional<double>,
+    rowsScored: identical(rowsScored, sdkOmittedValue) ? this.rowsScored : rowsScored as SdkOptional<int>,
+  );
 
-  factory ApiPerEpochResultSummary.fromJson(Map<String, dynamic> json) =>
-      ApiPerEpochResultSummary(
-        epoch: json['epoch'] != null
-            ? SdkPresent(((json['epoch'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        overallScorePercent: json['overall_score_percent'] != null
-            ? SdkPresent(((json['overall_score_percent'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        rowsScored: json['rows_scored'] != null
-            ? SdkPresent(((json['rows_scored'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ApiPerEpochResultSummary.fromJson(Map<String, dynamic> json) => ApiPerEpochResultSummary(
+    epoch: json['epoch'] != null ? SdkPresent(((json['epoch'] as num?)?.toInt())!) : const SdkOmitted(),
+    overallScorePercent: json['overall_score_percent'] != null ? SdkPresent(((json['overall_score_percent'] as num?)?.toDouble())!) : const SdkOmitted(),
+    rowsScored: json['rows_scored'] != null ? SdkPresent(((json['rows_scored'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (epoch) {
-          SdkPresent<int>(value: final value) => {
-              'epoch': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (overallScorePercent) {
-          SdkPresent<double>(value: final value) => {
-              'overall_score_percent': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rowsScored) {
-          SdkPresent<int>(value: final value) => {
-              'rows_scored': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (epoch) {
+      SdkPresent<int>(value: final value) => {'epoch': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (overallScorePercent) {
+      SdkPresent<double>(value: final value) => {'overall_score_percent': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rowsScored) {
+      SdkPresent<int>(value: final value) => {'rows_scored': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Per-model breakdown of an evaluation run. Set on router evaluations to show how each underlying model performed across the prompts that were routed to it.
 class ApiPerModelResultSummaries {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// One entry per underlying model that received at least one prompt during the evaluation run.
   final SdkOptional<List<ApiPerModelResultSummary>> summaries;
 
   const ApiPerModelResultSummaries({this.summaries = const SdkOmitted()});
 
-  ApiPerModelResultSummaries Function(
-          {SdkOptional<List<ApiPerModelResultSummary>> summaries})
-      get copyWith => _copyWith;
+  ApiPerModelResultSummaries Function({SdkOptional<List<ApiPerModelResultSummary>> summaries}) get copyWith => _copyWith;
 
-  ApiPerModelResultSummaries _copyWith({Object? summaries = sdkOmittedValue}) =>
-      ApiPerModelResultSummaries(
-        summaries: identical(summaries, sdkOmittedValue)
-            ? this.summaries
-            : summaries as SdkOptional<List<ApiPerModelResultSummary>>,
-      );
+  ApiPerModelResultSummaries _copyWith({Object? summaries = sdkOmittedValue}) => ApiPerModelResultSummaries(
+    summaries: identical(summaries, sdkOmittedValue) ? this.summaries : summaries as SdkOptional<List<ApiPerModelResultSummary>>,
+  );
 
-  factory ApiPerModelResultSummaries.fromJson(Map<String, dynamic> json) =>
-      ApiPerModelResultSummaries(
-        summaries: json['summaries'] != null
-            ? SdkPresent(((json['summaries'] as List?)
-                ?.map((e) => ApiPerModelResultSummary.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ApiPerModelResultSummaries.fromJson(Map<String, dynamic> json) => ApiPerModelResultSummaries(
+    summaries: json['summaries'] != null ? SdkPresent(((json['summaries'] as List?)?.map((e) => ApiPerModelResultSummary.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (summaries) {
-          SdkPresent<List<ApiPerModelResultSummary>>(value: final value) => {
-              'summaries': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (summaries) {
+      SdkPresent<List<ApiPerModelResultSummary>>(value: final value) => {'summaries': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Aggregated evaluation results for a single underlying model in a router evaluation run.
 class ApiPerModelResultSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Pass/fail rate for each metric, computed over only the prompts routed to this model.
   final SdkOptional<List<ApiMetricResultSummary>> metricSummaries;
-
   /// The underlying model these results are for, such as `Llama 3.3 Instruct (70B)`.
   final SdkOptional<String> modelName;
-
   /// All performance metrics are for the candidate model unless noted otherwise.
   final SdkOptional<ApiPerformanceMetrics> performanceMetrics;
-
   /// Number of prompts in the run that were routed to this model.
   final SdkOptional<int> promptCount;
 
-  const ApiPerModelResultSummary(
-      {this.metricSummaries = const SdkOmitted(),
-      this.modelName = const SdkOmitted(),
-      this.performanceMetrics = const SdkOmitted(),
-      this.promptCount = const SdkOmitted()});
+  const ApiPerModelResultSummary({this.metricSummaries = const SdkOmitted(), this.modelName = const SdkOmitted(), this.performanceMetrics = const SdkOmitted(), this.promptCount = const SdkOmitted()});
 
-  ApiPerModelResultSummary Function(
-      {SdkOptional<List<ApiMetricResultSummary>> metricSummaries,
-      SdkOptional<String> modelName,
-      SdkOptional<ApiPerformanceMetrics> performanceMetrics,
-      SdkOptional<int> promptCount}) get copyWith => _copyWith;
+  ApiPerModelResultSummary Function({SdkOptional<List<ApiMetricResultSummary>> metricSummaries, SdkOptional<String> modelName, SdkOptional<ApiPerformanceMetrics> performanceMetrics, SdkOptional<int> promptCount}) get copyWith => _copyWith;
 
-  ApiPerModelResultSummary _copyWith(
-          {Object? metricSummaries = sdkOmittedValue,
-          Object? modelName = sdkOmittedValue,
-          Object? performanceMetrics = sdkOmittedValue,
-          Object? promptCount = sdkOmittedValue}) =>
-      ApiPerModelResultSummary(
-        metricSummaries: identical(metricSummaries, sdkOmittedValue)
-            ? this.metricSummaries
-            : metricSummaries as SdkOptional<List<ApiMetricResultSummary>>,
-        modelName: identical(modelName, sdkOmittedValue)
-            ? this.modelName
-            : modelName as SdkOptional<String>,
-        performanceMetrics: identical(performanceMetrics, sdkOmittedValue)
-            ? this.performanceMetrics
-            : performanceMetrics as SdkOptional<ApiPerformanceMetrics>,
-        promptCount: identical(promptCount, sdkOmittedValue)
-            ? this.promptCount
-            : promptCount as SdkOptional<int>,
-      );
+  ApiPerModelResultSummary _copyWith({Object? metricSummaries = sdkOmittedValue, Object? modelName = sdkOmittedValue, Object? performanceMetrics = sdkOmittedValue, Object? promptCount = sdkOmittedValue}) => ApiPerModelResultSummary(
+    metricSummaries: identical(metricSummaries, sdkOmittedValue) ? this.metricSummaries : metricSummaries as SdkOptional<List<ApiMetricResultSummary>>,
+    modelName: identical(modelName, sdkOmittedValue) ? this.modelName : modelName as SdkOptional<String>,
+    performanceMetrics: identical(performanceMetrics, sdkOmittedValue) ? this.performanceMetrics : performanceMetrics as SdkOptional<ApiPerformanceMetrics>,
+    promptCount: identical(promptCount, sdkOmittedValue) ? this.promptCount : promptCount as SdkOptional<int>,
+  );
 
-  factory ApiPerModelResultSummary.fromJson(Map<String, dynamic> json) =>
-      ApiPerModelResultSummary(
-        metricSummaries: json['metric_summaries'] != null
-            ? SdkPresent(((json['metric_summaries'] as List?)
-                ?.map((e) =>
-                    ApiMetricResultSummary.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        modelName: json['model_name'] != null
-            ? SdkPresent((json['model_name'] as String?)!)
-            : const SdkOmitted(),
-        performanceMetrics: json['performance_metrics'] != null
-            ? SdkPresent((json['performance_metrics'] != null
-                ? ApiPerformanceMetrics.fromJson(
-                    json['performance_metrics'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        promptCount: json['prompt_count'] != null
-            ? SdkPresent(((json['prompt_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ApiPerModelResultSummary.fromJson(Map<String, dynamic> json) => ApiPerModelResultSummary(
+    metricSummaries: json['metric_summaries'] != null ? SdkPresent(((json['metric_summaries'] as List?)?.map((e) => ApiMetricResultSummary.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    modelName: json['model_name'] != null ? SdkPresent((json['model_name'] as String?)!) : const SdkOmitted(),
+    performanceMetrics: json['performance_metrics'] != null ? SdkPresent((json['performance_metrics'] != null ? ApiPerformanceMetrics.fromJson(json['performance_metrics'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    promptCount: json['prompt_count'] != null ? SdkPresent(((json['prompt_count'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (metricSummaries) {
-          SdkPresent<List<ApiMetricResultSummary>>(value: final value) => {
-              'metric_summaries': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (modelName) {
-          SdkPresent<String>(value: final value) => {
-              'model_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (performanceMetrics) {
-          SdkPresent<ApiPerformanceMetrics>(value: final value) => {
-              'performance_metrics': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptCount) {
-          SdkPresent<int>(value: final value) => {
-              'prompt_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (metricSummaries) {
+      SdkPresent<List<ApiMetricResultSummary>>(value: final value) => {'metric_summaries': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (modelName) {
+      SdkPresent<String>(value: final value) => {'model_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (performanceMetrics) {
+      SdkPresent<ApiPerformanceMetrics>(value: final value) => {'performance_metrics': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptCount) {
+      SdkPresent<int>(value: final value) => {'prompt_count': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Per-task breakdown of an evaluation run. Set on router evaluations to show how each routing task category performed across the prompts that were classified into it.
 class ApiPerTaskResultSummaries {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// One entry per routing task category that received at least one prompt during the evaluation run.
   final SdkOptional<List<ApiPerTaskResultSummary>> summaries;
 
   const ApiPerTaskResultSummaries({this.summaries = const SdkOmitted()});
 
-  ApiPerTaskResultSummaries Function(
-          {SdkOptional<List<ApiPerTaskResultSummary>> summaries})
-      get copyWith => _copyWith;
+  ApiPerTaskResultSummaries Function({SdkOptional<List<ApiPerTaskResultSummary>> summaries}) get copyWith => _copyWith;
 
-  ApiPerTaskResultSummaries _copyWith({Object? summaries = sdkOmittedValue}) =>
-      ApiPerTaskResultSummaries(
-        summaries: identical(summaries, sdkOmittedValue)
-            ? this.summaries
-            : summaries as SdkOptional<List<ApiPerTaskResultSummary>>,
-      );
+  ApiPerTaskResultSummaries _copyWith({Object? summaries = sdkOmittedValue}) => ApiPerTaskResultSummaries(
+    summaries: identical(summaries, sdkOmittedValue) ? this.summaries : summaries as SdkOptional<List<ApiPerTaskResultSummary>>,
+  );
 
-  factory ApiPerTaskResultSummaries.fromJson(Map<String, dynamic> json) =>
-      ApiPerTaskResultSummaries(
-        summaries: json['summaries'] != null
-            ? SdkPresent(((json['summaries'] as List?)
-                ?.map((e) =>
-                    ApiPerTaskResultSummary.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ApiPerTaskResultSummaries.fromJson(Map<String, dynamic> json) => ApiPerTaskResultSummaries(
+    summaries: json['summaries'] != null ? SdkPresent(((json['summaries'] as List?)?.map((e) => ApiPerTaskResultSummary.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (summaries) {
-          SdkPresent<List<ApiPerTaskResultSummary>>(value: final value) => {
-              'summaries': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (summaries) {
+      SdkPresent<List<ApiPerTaskResultSummary>>(value: final value) => {'summaries': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Aggregated evaluation results for a single routing task category in a router evaluation run.
 class ApiPerTaskResultSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Pass/fail rate for each metric, computed over only the prompts in this task category.
   final SdkOptional<List<ApiMetricResultSummary>> metricSummaries;
-
   /// All performance metrics are for the candidate model unless noted otherwise.
   final SdkOptional<ApiPerformanceMetrics> performanceMetrics;
-
   /// Number of prompts in the run that were classified into this task category.
   final SdkOptional<int> promptCount;
-
   /// The routing task category these results are for, such as `Coding & brainstorming` or `Summarization`.
   final SdkOptional<String> taskName;
 
-  const ApiPerTaskResultSummary(
-      {this.metricSummaries = const SdkOmitted(),
-      this.performanceMetrics = const SdkOmitted(),
-      this.promptCount = const SdkOmitted(),
-      this.taskName = const SdkOmitted()});
+  const ApiPerTaskResultSummary({this.metricSummaries = const SdkOmitted(), this.performanceMetrics = const SdkOmitted(), this.promptCount = const SdkOmitted(), this.taskName = const SdkOmitted()});
 
-  ApiPerTaskResultSummary Function(
-      {SdkOptional<List<ApiMetricResultSummary>> metricSummaries,
-      SdkOptional<ApiPerformanceMetrics> performanceMetrics,
-      SdkOptional<int> promptCount,
-      SdkOptional<String> taskName}) get copyWith => _copyWith;
+  ApiPerTaskResultSummary Function({SdkOptional<List<ApiMetricResultSummary>> metricSummaries, SdkOptional<ApiPerformanceMetrics> performanceMetrics, SdkOptional<int> promptCount, SdkOptional<String> taskName}) get copyWith => _copyWith;
 
-  ApiPerTaskResultSummary _copyWith(
-          {Object? metricSummaries = sdkOmittedValue,
-          Object? performanceMetrics = sdkOmittedValue,
-          Object? promptCount = sdkOmittedValue,
-          Object? taskName = sdkOmittedValue}) =>
-      ApiPerTaskResultSummary(
-        metricSummaries: identical(metricSummaries, sdkOmittedValue)
-            ? this.metricSummaries
-            : metricSummaries as SdkOptional<List<ApiMetricResultSummary>>,
-        performanceMetrics: identical(performanceMetrics, sdkOmittedValue)
-            ? this.performanceMetrics
-            : performanceMetrics as SdkOptional<ApiPerformanceMetrics>,
-        promptCount: identical(promptCount, sdkOmittedValue)
-            ? this.promptCount
-            : promptCount as SdkOptional<int>,
-        taskName: identical(taskName, sdkOmittedValue)
-            ? this.taskName
-            : taskName as SdkOptional<String>,
-      );
+  ApiPerTaskResultSummary _copyWith({Object? metricSummaries = sdkOmittedValue, Object? performanceMetrics = sdkOmittedValue, Object? promptCount = sdkOmittedValue, Object? taskName = sdkOmittedValue}) => ApiPerTaskResultSummary(
+    metricSummaries: identical(metricSummaries, sdkOmittedValue) ? this.metricSummaries : metricSummaries as SdkOptional<List<ApiMetricResultSummary>>,
+    performanceMetrics: identical(performanceMetrics, sdkOmittedValue) ? this.performanceMetrics : performanceMetrics as SdkOptional<ApiPerformanceMetrics>,
+    promptCount: identical(promptCount, sdkOmittedValue) ? this.promptCount : promptCount as SdkOptional<int>,
+    taskName: identical(taskName, sdkOmittedValue) ? this.taskName : taskName as SdkOptional<String>,
+  );
 
-  factory ApiPerTaskResultSummary.fromJson(Map<String, dynamic> json) =>
-      ApiPerTaskResultSummary(
-        metricSummaries: json['metric_summaries'] != null
-            ? SdkPresent(((json['metric_summaries'] as List?)
-                ?.map((e) =>
-                    ApiMetricResultSummary.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        performanceMetrics: json['performance_metrics'] != null
-            ? SdkPresent((json['performance_metrics'] != null
-                ? ApiPerformanceMetrics.fromJson(
-                    json['performance_metrics'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        promptCount: json['prompt_count'] != null
-            ? SdkPresent(((json['prompt_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        taskName: json['task_name'] != null
-            ? SdkPresent((json['task_name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiPerTaskResultSummary.fromJson(Map<String, dynamic> json) => ApiPerTaskResultSummary(
+    metricSummaries: json['metric_summaries'] != null ? SdkPresent(((json['metric_summaries'] as List?)?.map((e) => ApiMetricResultSummary.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    performanceMetrics: json['performance_metrics'] != null ? SdkPresent((json['performance_metrics'] != null ? ApiPerformanceMetrics.fromJson(json['performance_metrics'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    promptCount: json['prompt_count'] != null ? SdkPresent(((json['prompt_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    taskName: json['task_name'] != null ? SdkPresent((json['task_name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (metricSummaries) {
-          SdkPresent<List<ApiMetricResultSummary>>(value: final value) => {
-              'metric_summaries': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (performanceMetrics) {
-          SdkPresent<ApiPerformanceMetrics>(value: final value) => {
-              'performance_metrics': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (promptCount) {
-          SdkPresent<int>(value: final value) => {
-              'prompt_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (taskName) {
-          SdkPresent<String>(value: final value) => {
-              'task_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (metricSummaries) {
+      SdkPresent<List<ApiMetricResultSummary>>(value: final value) => {'metric_summaries': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (performanceMetrics) {
+      SdkPresent<ApiPerformanceMetrics>(value: final value) => {'performance_metrics': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (promptCount) {
+      SdkPresent<int>(value: final value) => {'prompt_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (taskName) {
+      SdkPresent<String>(value: final value) => {'task_name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

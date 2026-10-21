@@ -7,98 +7,57 @@ part of 'droplet_actions.dart';
 class DropletActionEnableBackupsRequestVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An object specifying the backup policy for the Droplet. If omitted, the backup plan will default to daily.
   final SdkOptional<DropletBackupPolicyRequest> backupPolicy;
 
-  const DropletActionEnableBackupsRequestVariant1(
-      {this.backupPolicy = const SdkOmitted()});
+  const DropletActionEnableBackupsRequestVariant1({this.backupPolicy = const SdkOmitted()});
 
-  DropletActionEnableBackupsRequestVariant1 Function(
-          {SdkOptional<DropletBackupPolicyRequest> backupPolicy})
-      get copyWith => _copyWith;
+  DropletActionEnableBackupsRequestVariant1 Function({SdkOptional<DropletBackupPolicyRequest> backupPolicy}) get copyWith => _copyWith;
 
-  DropletActionEnableBackupsRequestVariant1 _copyWith(
-          {Object? backupPolicy = sdkOmittedValue}) =>
-      DropletActionEnableBackupsRequestVariant1(
-        backupPolicy: identical(backupPolicy, sdkOmittedValue)
-            ? this.backupPolicy
-            : backupPolicy as SdkOptional<DropletBackupPolicyRequest>,
-      );
+  DropletActionEnableBackupsRequestVariant1 _copyWith({Object? backupPolicy = sdkOmittedValue}) => DropletActionEnableBackupsRequestVariant1(
+    backupPolicy: identical(backupPolicy, sdkOmittedValue) ? this.backupPolicy : backupPolicy as SdkOptional<DropletBackupPolicyRequest>,
+  );
 
-  factory DropletActionEnableBackupsRequestVariant1.fromJson(
-          Map<String, dynamic> json) =>
-      DropletActionEnableBackupsRequestVariant1(
-        backupPolicy: json['backup_policy'] != null
-            ? SdkPresent((json['backup_policy'] != null
-                ? DropletBackupPolicyRequest.fromJson(
-                    json['backup_policy'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DropletActionEnableBackupsRequestVariant1.fromJson(Map<String, dynamic> json) => DropletActionEnableBackupsRequestVariant1(
+    backupPolicy: json['backup_policy'] != null ? SdkPresent((json['backup_policy'] != null ? DropletBackupPolicyRequest.fromJson(json['backup_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (backupPolicy) {
-          SdkPresent<DropletBackupPolicyRequest>(value: final value) => {
-              'backup_policy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (backupPolicy) {
+      SdkPresent<DropletBackupPolicyRequest>(value: final value) => {'backup_policy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `DropletActionEnableBackupsRequest` API schema.
 class DropletActionEnableBackupsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
-
   /// An object specifying the backup policy for the Droplet. If omitted, the backup plan will default to daily.
   final SdkOptional<DropletBackupPolicyRequest> backupPolicy;
 
-  const DropletActionEnableBackupsRequest(
-      {required this.type_, this.backupPolicy = const SdkOmitted()});
+  const DropletActionEnableBackupsRequest({required this.type_, this.backupPolicy = const SdkOmitted()});
 
-  DropletActionEnableBackupsRequest Function(
-          {DropletActionType type_,
-          SdkOptional<DropletBackupPolicyRequest> backupPolicy})
-      get copyWith => _copyWith;
+  DropletActionEnableBackupsRequest Function({DropletActionType type_, SdkOptional<DropletBackupPolicyRequest> backupPolicy}) get copyWith => _copyWith;
 
-  DropletActionEnableBackupsRequest _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? backupPolicy = sdkOmittedValue}) =>
-      DropletActionEnableBackupsRequest(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as DropletActionType,
-        backupPolicy: identical(backupPolicy, sdkOmittedValue)
-            ? this.backupPolicy
-            : backupPolicy as SdkOptional<DropletBackupPolicyRequest>,
-      );
+  DropletActionEnableBackupsRequest _copyWith({Object? type_ = sdkOmittedValue, Object? backupPolicy = sdkOmittedValue}) => DropletActionEnableBackupsRequest(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
+    backupPolicy: identical(backupPolicy, sdkOmittedValue) ? this.backupPolicy : backupPolicy as SdkOptional<DropletBackupPolicyRequest>,
+  );
 
-  factory DropletActionEnableBackupsRequest.fromJson(
-          Map<String, dynamic> json) =>
-      DropletActionEnableBackupsRequest(
-        type_: (json['type'] != null
-            ? DropletActionType.fromJson(json['type'] as String)
-            : null)!,
-        backupPolicy: json['backup_policy'] != null
-            ? SdkPresent((json['backup_policy'] != null
-                ? DropletBackupPolicyRequest.fromJson(
-                    json['backup_policy'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DropletActionEnableBackupsRequest.fromJson(Map<String, dynamic> json) => DropletActionEnableBackupsRequest(
+    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
+    backupPolicy: json['backup_policy'] != null ? SdkPresent((json['backup_policy'] != null ? DropletBackupPolicyRequest.fromJson(json['backup_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (backupPolicy) {
-          SdkPresent<DropletBackupPolicyRequest>(value: final value) => {
-              'backup_policy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (backupPolicy) {
+      SdkPresent<DropletBackupPolicyRequest>(value: final value) => {'backup_policy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

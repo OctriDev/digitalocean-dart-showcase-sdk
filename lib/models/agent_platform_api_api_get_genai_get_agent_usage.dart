@@ -8,61 +8,33 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetAgentUsageOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Resource Usage Description
   final SdkOptional<ApiResourceUsage> logInsightsUsage;
-
   /// Resource Usage Description
   final SdkOptional<ApiResourceUsage> usage;
 
-  const ApiGetAgentUsageOutput(
-      {this.logInsightsUsage = const SdkOmitted(),
-      this.usage = const SdkOmitted()});
+  const ApiGetAgentUsageOutput({this.logInsightsUsage = const SdkOmitted(), this.usage = const SdkOmitted()});
 
-  ApiGetAgentUsageOutput Function(
-      {SdkOptional<ApiResourceUsage> logInsightsUsage,
-      SdkOptional<ApiResourceUsage> usage}) get copyWith => _copyWith;
+  ApiGetAgentUsageOutput Function({SdkOptional<ApiResourceUsage> logInsightsUsage, SdkOptional<ApiResourceUsage> usage}) get copyWith => _copyWith;
 
-  ApiGetAgentUsageOutput _copyWith(
-          {Object? logInsightsUsage = sdkOmittedValue,
-          Object? usage = sdkOmittedValue}) =>
-      ApiGetAgentUsageOutput(
-        logInsightsUsage: identical(logInsightsUsage, sdkOmittedValue)
-            ? this.logInsightsUsage
-            : logInsightsUsage as SdkOptional<ApiResourceUsage>,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as SdkOptional<ApiResourceUsage>,
-      );
+  ApiGetAgentUsageOutput _copyWith({Object? logInsightsUsage = sdkOmittedValue, Object? usage = sdkOmittedValue}) => ApiGetAgentUsageOutput(
+    logInsightsUsage: identical(logInsightsUsage, sdkOmittedValue) ? this.logInsightsUsage : logInsightsUsage as SdkOptional<ApiResourceUsage>,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SdkOptional<ApiResourceUsage>,
+  );
 
-  factory ApiGetAgentUsageOutput.fromJson(Map<String, dynamic> json) =>
-      ApiGetAgentUsageOutput(
-        logInsightsUsage: json['log_insights_usage'] != null
-            ? SdkPresent((json['log_insights_usage'] != null
-                ? ApiResourceUsage.fromJson(
-                    json['log_insights_usage'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        usage: json['usage'] != null
-            ? SdkPresent((json['usage'] != null
-                ? ApiResourceUsage.fromJson(
-                    json['usage'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetAgentUsageOutput.fromJson(Map<String, dynamic> json) => ApiGetAgentUsageOutput(
+    logInsightsUsage: json['log_insights_usage'] != null ? SdkPresent((json['log_insights_usage'] != null ? ApiResourceUsage.fromJson(json['log_insights_usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    usage: json['usage'] != null ? SdkPresent((json['usage'] != null ? ApiResourceUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (logInsightsUsage) {
-          SdkPresent<ApiResourceUsage>(value: final value) => {
-              'log_insights_usage': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (usage) {
-          SdkPresent<ApiResourceUsage>(value: final value) => {
-              'usage': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (logInsightsUsage) {
+      SdkPresent<ApiResourceUsage>(value: final value) => {'log_insights_usage': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (usage) {
+      SdkPresent<ApiResourceUsage>(value: final value) => {'usage': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

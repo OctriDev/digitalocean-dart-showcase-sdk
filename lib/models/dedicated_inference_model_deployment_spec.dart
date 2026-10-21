@@ -8,118 +8,57 @@ part of 'dedicated_inference.dart';
 class ModelDeploymentSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Used to identify an existing deployment when updating; empty means create new.
   final SdkOptional<String> modelId;
-
   /// Model identifier (e.g. Hugging Face slug).
   final SdkOptional<String> modelSlug;
-
   /// Model provider.
   final SdkOptional<ModelDeploymentSpecModelProvider> modelProvider;
-
   /// Workload-specific configuration (e.g. ISL/OSL in future).
   final SdkOptional<Map<String, dynamic>> workloadConfig;
-
   /// Accelerator configuration for this deployment.
   final SdkOptional<List<AcceleratorConfigSpec>> accelerators;
 
-  const ModelDeploymentSpec(
-      {this.modelId = const SdkOmitted(),
-      this.modelSlug = const SdkOmitted(),
-      this.modelProvider = const SdkOmitted(),
-      this.workloadConfig = const SdkOmitted(),
-      this.accelerators = const SdkOmitted()});
+  const ModelDeploymentSpec({this.modelId = const SdkOmitted(), this.modelSlug = const SdkOmitted(), this.modelProvider = const SdkOmitted(), this.workloadConfig = const SdkOmitted(), this.accelerators = const SdkOmitted()});
 
-  ModelDeploymentSpec Function(
-          {SdkOptional<String> modelId,
-          SdkOptional<String> modelSlug,
-          SdkOptional<ModelDeploymentSpecModelProvider> modelProvider,
-          SdkOptional<Map<String, dynamic>> workloadConfig,
-          SdkOptional<List<AcceleratorConfigSpec>> accelerators})
-      get copyWith => _copyWith;
+  ModelDeploymentSpec Function({SdkOptional<String> modelId, SdkOptional<String> modelSlug, SdkOptional<ModelDeploymentSpecModelProvider> modelProvider, SdkOptional<Map<String, dynamic>> workloadConfig, SdkOptional<List<AcceleratorConfigSpec>> accelerators}) get copyWith => _copyWith;
 
-  ModelDeploymentSpec _copyWith(
-          {Object? modelId = sdkOmittedValue,
-          Object? modelSlug = sdkOmittedValue,
-          Object? modelProvider = sdkOmittedValue,
-          Object? workloadConfig = sdkOmittedValue,
-          Object? accelerators = sdkOmittedValue}) =>
-      ModelDeploymentSpec(
-        modelId: identical(modelId, sdkOmittedValue)
-            ? this.modelId
-            : modelId as SdkOptional<String>,
-        modelSlug: identical(modelSlug, sdkOmittedValue)
-            ? this.modelSlug
-            : modelSlug as SdkOptional<String>,
-        modelProvider: identical(modelProvider, sdkOmittedValue)
-            ? this.modelProvider
-            : modelProvider as SdkOptional<ModelDeploymentSpecModelProvider>,
-        workloadConfig: identical(workloadConfig, sdkOmittedValue)
-            ? this.workloadConfig
-            : workloadConfig as SdkOptional<Map<String, dynamic>>,
-        accelerators: identical(accelerators, sdkOmittedValue)
-            ? this.accelerators
-            : accelerators as SdkOptional<List<AcceleratorConfigSpec>>,
-      );
+  ModelDeploymentSpec _copyWith({Object? modelId = sdkOmittedValue, Object? modelSlug = sdkOmittedValue, Object? modelProvider = sdkOmittedValue, Object? workloadConfig = sdkOmittedValue, Object? accelerators = sdkOmittedValue}) => ModelDeploymentSpec(
+    modelId: identical(modelId, sdkOmittedValue) ? this.modelId : modelId as SdkOptional<String>,
+    modelSlug: identical(modelSlug, sdkOmittedValue) ? this.modelSlug : modelSlug as SdkOptional<String>,
+    modelProvider: identical(modelProvider, sdkOmittedValue) ? this.modelProvider : modelProvider as SdkOptional<ModelDeploymentSpecModelProvider>,
+    workloadConfig: identical(workloadConfig, sdkOmittedValue) ? this.workloadConfig : workloadConfig as SdkOptional<Map<String, dynamic>>,
+    accelerators: identical(accelerators, sdkOmittedValue) ? this.accelerators : accelerators as SdkOptional<List<AcceleratorConfigSpec>>,
+  );
 
-  factory ModelDeploymentSpec.fromJson(Map<String, dynamic> json) =>
-      ModelDeploymentSpec(
-        modelId: json['model_id'] != null
-            ? SdkPresent((json['model_id'] as String?)!)
-            : const SdkOmitted(),
-        modelSlug: json['model_slug'] != null
-            ? SdkPresent((json['model_slug'] as String?)!)
-            : const SdkOmitted(),
-        modelProvider: json['model_provider'] != null
-            ? SdkPresent((json['model_provider'] != null
-                ? ModelDeploymentSpecModelProvider.fromJson(
-                    json['model_provider'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        workloadConfig: json['workload_config'] != null
-            ? SdkPresent((json['workload_config'] == null
-                ? null
-                : json['workload_config'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-        accelerators: json['accelerators'] != null
-            ? SdkPresent(((json['accelerators'] as List?)
-                ?.map((e) =>
-                    AcceleratorConfigSpec.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ModelDeploymentSpec.fromJson(Map<String, dynamic> json) => ModelDeploymentSpec(
+    modelId: json['model_id'] != null ? SdkPresent((json['model_id'] as String?)!) : const SdkOmitted(),
+    modelSlug: json['model_slug'] != null ? SdkPresent((json['model_slug'] as String?)!) : const SdkOmitted(),
+    modelProvider: json['model_provider'] != null ? SdkPresent((json['model_provider'] != null ? ModelDeploymentSpecModelProvider.fromJson(json['model_provider'] as String) : null)!) : const SdkOmitted(),
+    workloadConfig: json['workload_config'] != null ? SdkPresent((json['workload_config'] == null ? null : json['workload_config'] as Map<String, dynamic>)!) : const SdkOmitted(),
+    accelerators: json['accelerators'] != null ? SdkPresent(((json['accelerators'] as List?)?.map((e) => AcceleratorConfigSpec.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (modelId) {
-          SdkPresent<String>(value: final value) => {
-              'model_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (modelSlug) {
-          SdkPresent<String>(value: final value) => {
-              'model_slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (modelProvider) {
-          SdkPresent<ModelDeploymentSpecModelProvider>(value: final value) => {
-              'model_provider': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workloadConfig) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'workload_config': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (accelerators) {
-          SdkPresent<List<AcceleratorConfigSpec>>(value: final value) => {
-              'accelerators': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (modelId) {
+      SdkPresent<String>(value: final value) => {'model_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (modelSlug) {
+      SdkPresent<String>(value: final value) => {'model_slug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (modelProvider) {
+      SdkPresent<ModelDeploymentSpecModelProvider>(value: final value) => {'model_provider': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workloadConfig) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'workload_config': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (accelerators) {
+      SdkPresent<List<AcceleratorConfigSpec>>(value: final value) => {'accelerators': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

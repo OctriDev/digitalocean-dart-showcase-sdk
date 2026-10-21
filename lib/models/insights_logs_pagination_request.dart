@@ -8,54 +8,33 @@ part of 'insights_logs.dart';
 class LogsPaginationRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Maximum number of results to return. Defaults to 100 and is clamped to 1000.
   final SdkOptional<int> limit;
-
   /// Opaque cursor from a previous response.
   final SdkOptional<String> cursor;
 
-  const LogsPaginationRequest(
-      {this.limit = const SdkOmitted(), this.cursor = const SdkOmitted()});
+  const LogsPaginationRequest({this.limit = const SdkOmitted(), this.cursor = const SdkOmitted()});
 
-  LogsPaginationRequest Function(
-      {SdkOptional<int> limit,
-      SdkOptional<String> cursor}) get copyWith => _copyWith;
+  LogsPaginationRequest Function({SdkOptional<int> limit, SdkOptional<String> cursor}) get copyWith => _copyWith;
 
-  LogsPaginationRequest _copyWith(
-          {Object? limit = sdkOmittedValue,
-          Object? cursor = sdkOmittedValue}) =>
-      LogsPaginationRequest(
-        limit: identical(limit, sdkOmittedValue)
-            ? this.limit
-            : limit as SdkOptional<int>,
-        cursor: identical(cursor, sdkOmittedValue)
-            ? this.cursor
-            : cursor as SdkOptional<String>,
-      );
+  LogsPaginationRequest _copyWith({Object? limit = sdkOmittedValue, Object? cursor = sdkOmittedValue}) => LogsPaginationRequest(
+    limit: identical(limit, sdkOmittedValue) ? this.limit : limit as SdkOptional<int>,
+    cursor: identical(cursor, sdkOmittedValue) ? this.cursor : cursor as SdkOptional<String>,
+  );
 
-  factory LogsPaginationRequest.fromJson(Map<String, dynamic> json) =>
-      LogsPaginationRequest(
-        limit: json['limit'] != null
-            ? SdkPresent(((json['limit'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        cursor: json['cursor'] != null
-            ? SdkPresent((json['cursor'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory LogsPaginationRequest.fromJson(Map<String, dynamic> json) => LogsPaginationRequest(
+    limit: json['limit'] != null ? SdkPresent(((json['limit'] as num?)?.toInt())!) : const SdkOmitted(),
+    cursor: json['cursor'] != null ? SdkPresent((json['cursor'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (limit) {
-          SdkPresent<int>(value: final value) => {
-              'limit': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cursor) {
-          SdkPresent<String>(value: final value) => {
-              'cursor': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (limit) {
+      SdkPresent<int>(value: final value) => {'limit': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cursor) {
+      SdkPresent<String>(value: final value) => {'cursor': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

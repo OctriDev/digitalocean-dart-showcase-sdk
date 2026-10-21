@@ -6,6 +6,7 @@ part of 'apps_app_alert.dart';
 // apps_app_alert domain models
 /// Typed representation of the `AppAlertPhase` API schema.
 final class AppAlertPhase {
+
   final String value;
 
   const AppAlertPhase._(this.value);
@@ -20,13 +21,10 @@ final class AppAlertPhase {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppAlertPhase && other.value == value;
+  @override bool operator ==(Object other) => other is AppAlertPhase && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

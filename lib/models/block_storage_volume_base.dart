@@ -8,147 +8,73 @@ part of 'block_storage.dart';
 class VolumeBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier for the block storage volume.
   final SdkOptional<String> id;
-
   /// An array containing the IDs of the Droplets the volume is attached to. Note that at this time, a volume can only be attached to a single Droplet.
   final SdkOptional<List<int>?> dropletIds;
-
   /// A human-readable name for the block storage volume. Must be lowercase and be composed only of numbers, letters and "-", up to a limit of 64 characters. The name must begin with a letter.
   final SdkOptional<String> name;
-
   /// An optional free-form text field to describe a block storage volume.
   final SdkOptional<String> description;
-
   /// The size of the block storage volume in GiB (1024^3). This field does not apply when creating a volume from a snapshot.
   final SdkOptional<int> sizeGigabytes;
-
   /// A time value given in ISO8601 combined date and time format that represents when the block storage volume was created.
   final SdkOptional<String> createdAt;
-
   /// A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. &lt;br&gt;&lt;br&gt;Requires `tag:create` scope.
   final SdkOptional<List<String>?> tags;
 
-  const VolumeBase(
-      {this.id = const SdkOmitted(),
-      this.dropletIds = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.sizeGigabytes = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.tags = const SdkOmitted()});
+  const VolumeBase({this.id = const SdkOmitted(), this.dropletIds = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.sizeGigabytes = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.tags = const SdkOmitted()});
 
-  VolumeBase Function(
-      {SdkOptional<String> id,
-      SdkOptional<List<int>?> dropletIds,
-      SdkOptional<String> name,
-      SdkOptional<String> description,
-      SdkOptional<int> sizeGigabytes,
-      SdkOptional<String> createdAt,
-      SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
+  VolumeBase Function({SdkOptional<String> id, SdkOptional<List<int>?> dropletIds, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<int> sizeGigabytes, SdkOptional<String> createdAt, SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
 
-  VolumeBase _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? dropletIds = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? sizeGigabytes = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? tags = sdkOmittedValue}) =>
-      VolumeBase(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        dropletIds: identical(dropletIds, sdkOmittedValue)
-            ? this.dropletIds
-            : dropletIds as SdkOptional<List<int>?>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        sizeGigabytes: identical(sizeGigabytes, sdkOmittedValue)
-            ? this.sizeGigabytes
-            : sizeGigabytes as SdkOptional<int>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>?>,
-      );
+  VolumeBase _copyWith({Object? id = sdkOmittedValue, Object? dropletIds = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? sizeGigabytes = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? tags = sdkOmittedValue}) => VolumeBase(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    dropletIds: identical(dropletIds, sdkOmittedValue) ? this.dropletIds : dropletIds as SdkOptional<List<int>?>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    sizeGigabytes: identical(sizeGigabytes, sdkOmittedValue) ? this.sizeGigabytes : sizeGigabytes as SdkOptional<int>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>?>,
+  );
 
   factory VolumeBase.fromJson(Map<String, dynamic> json) => VolumeBase(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        dropletIds: json.containsKey('droplet_ids')
-            ? SdkPresent((json['droplet_ids'] as List?)
-                ?.map((e) => (e as num).toInt())
-                .toList())
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        sizeGigabytes: json['size_gigabytes'] != null
-            ? SdkPresent(((json['size_gigabytes'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        tags: json.containsKey('tags')
-            ? SdkPresent(
-                (json['tags'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-      );
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    dropletIds: json.containsKey('droplet_ids') ? SdkPresent((json['droplet_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    sizeGigabytes: json['size_gigabytes'] != null ? SdkPresent(((json['size_gigabytes'] as num?)?.toInt())!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    tags: json.containsKey('tags') ? SdkPresent((json['tags'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (dropletIds) {
-          SdkPresent<List<int>?>(value: final value) => {
-              'droplet_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sizeGigabytes) {
-          SdkPresent<int>(value: final value) => {
-              'size_gigabytes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (dropletIds) {
+      SdkPresent<List<int>?>(value: final value) => {'droplet_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sizeGigabytes) {
+      SdkPresent<int>(value: final value) => {'size_gigabytes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<String>?>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

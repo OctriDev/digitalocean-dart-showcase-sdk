@@ -8,36 +8,25 @@ part of 'add_ons.dart';
 class AddonsCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `resource` wire field.
   final SdkOptional<AddonsResource> resource;
 
   const AddonsCreate({this.resource = const SdkOmitted()});
 
-  AddonsCreate Function({SdkOptional<AddonsResource> resource}) get copyWith =>
-      _copyWith;
+  AddonsCreate Function({SdkOptional<AddonsResource> resource}) get copyWith => _copyWith;
 
   AddonsCreate _copyWith({Object? resource = sdkOmittedValue}) => AddonsCreate(
-        resource: identical(resource, sdkOmittedValue)
-            ? this.resource
-            : resource as SdkOptional<AddonsResource>,
-      );
+    resource: identical(resource, sdkOmittedValue) ? this.resource : resource as SdkOptional<AddonsResource>,
+  );
 
   factory AddonsCreate.fromJson(Map<String, dynamic> json) => AddonsCreate(
-        resource: json['resource'] != null
-            ? SdkPresent((json['resource'] != null
-                ? AddonsResource.fromJson(
-                    json['resource'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    resource: json['resource'] != null ? SdkPresent((json['resource'] != null ? AddonsResource.fromJson(json['resource'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (resource) {
-          SdkPresent<AddonsResource>(value: final value) => {
-              'resource': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (resource) {
+      SdkPresent<AddonsResource>(value: final value) => {'resource': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

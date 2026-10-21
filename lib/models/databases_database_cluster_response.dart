@@ -8,31 +8,22 @@ part of 'databases_database.dart';
 class DatabaseClusterResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required object value serialized in the `database` wire field.
   final DatabaseClusterRead database;
 
   const DatabaseClusterResponse({required this.database});
 
-  DatabaseClusterResponse Function({DatabaseClusterRead database})
-      get copyWith => _copyWith;
+  DatabaseClusterResponse Function({DatabaseClusterRead database}) get copyWith => _copyWith;
 
-  DatabaseClusterResponse _copyWith({Object? database = sdkOmittedValue}) =>
-      DatabaseClusterResponse(
-        database: identical(database, sdkOmittedValue)
-            ? this.database
-            : database as DatabaseClusterRead,
-      );
+  DatabaseClusterResponse _copyWith({Object? database = sdkOmittedValue}) => DatabaseClusterResponse(
+    database: identical(database, sdkOmittedValue) ? this.database : database as DatabaseClusterRead,
+  );
 
-  factory DatabaseClusterResponse.fromJson(Map<String, dynamic> json) =>
-      DatabaseClusterResponse(
-        database: (json['database'] != null
-            ? DatabaseClusterRead.fromJson(
-                json['database'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory DatabaseClusterResponse.fromJson(Map<String, dynamic> json) => DatabaseClusterResponse(
+    database: (json['database'] != null ? DatabaseClusterRead.fromJson(json['database'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'database': database.toJson(),
-      };
+    'database': database.toJson(),
+  };
 }

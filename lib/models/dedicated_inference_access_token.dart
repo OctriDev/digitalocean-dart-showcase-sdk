@@ -8,109 +8,57 @@ part of 'dedicated_inference.dart';
 class DedicatedInferenceAccessToken {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique ID of the token.
   final SdkOptional<String> id;
-
   /// Name of the token.
   final SdkOptional<String> name;
-
   /// Token value; only returned once on create. Store securely.
   final SdkOptional<String> value;
-
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
-
   /// When true, the token is managed by DigitalOcean (for example, system-provisioned). When false, the token was created by the user.
   final SdkOptional<bool> isManaged;
 
-  const DedicatedInferenceAccessToken(
-      {this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.value = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.isManaged = const SdkOmitted()});
+  const DedicatedInferenceAccessToken({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.value = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.isManaged = const SdkOmitted()});
 
-  DedicatedInferenceAccessToken Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> name,
-      SdkOptional<String> value,
-      SdkOptional<String> createdAt,
-      SdkOptional<bool> isManaged}) get copyWith => _copyWith;
+  DedicatedInferenceAccessToken Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> value, SdkOptional<String> createdAt, SdkOptional<bool> isManaged}) get copyWith => _copyWith;
 
-  DedicatedInferenceAccessToken _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? value = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? isManaged = sdkOmittedValue}) =>
-      DedicatedInferenceAccessToken(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        isManaged: identical(isManaged, sdkOmittedValue)
-            ? this.isManaged
-            : isManaged as SdkOptional<bool>,
-      );
+  DedicatedInferenceAccessToken _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? value = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? isManaged = sdkOmittedValue}) => DedicatedInferenceAccessToken(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    isManaged: identical(isManaged, sdkOmittedValue) ? this.isManaged : isManaged as SdkOptional<bool>,
+  );
 
-  factory DedicatedInferenceAccessToken.fromJson(Map<String, dynamic> json) =>
-      DedicatedInferenceAccessToken(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        value: json['value'] != null
-            ? SdkPresent((json['value'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        isManaged: json['is_managed'] != null
-            ? SdkPresent((json['is_managed'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory DedicatedInferenceAccessToken.fromJson(Map<String, dynamic> json) => DedicatedInferenceAccessToken(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    value: json['value'] != null ? SdkPresent((json['value'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    isManaged: json['is_managed'] != null ? SdkPresent((json['is_managed'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (value) {
-          SdkPresent<String>(value: final value) => {
-              'value': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isManaged) {
-          SdkPresent<bool>(value: final value) => {
-              'is_managed': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (value) {
+      SdkPresent<String>(value: final value) => {'value': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isManaged) {
+      SdkPresent<bool>(value: final value) => {'is_managed': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

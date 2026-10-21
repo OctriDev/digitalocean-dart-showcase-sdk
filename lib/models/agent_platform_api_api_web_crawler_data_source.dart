@@ -8,95 +8,49 @@ part of 'agent_platform_api_api.dart';
 class ApiWebCrawlerDataSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The base url to crawl.
   final SdkOptional<String> baseUrl;
-
   /// Options for specifying how URLs found on pages should be handled. - UNKNOWN: Default unknown value - SCOPED: Only include the base URL. - PATH: Crawl the base URL and linked pages within the URL path. - DOMAIN: Crawl the base URL and linked pages within the same domain. - SUBDOMAINS: Crawl the base URL and linked pages for any subdomain. - SITEMAP: Crawl URLs discovered in the sitemap.
   final SdkOptional<ApiCrawlingOption> crawlingOption;
-
   /// Whether to ingest and index media (images, etc.) on web pages.
   final SdkOptional<bool> embedMedia;
-
   /// Declaring which tags to exclude in web pages while webcrawling
   final SdkOptional<List<String>> excludeTags;
 
-  const ApiWebCrawlerDataSource(
-      {this.baseUrl = const SdkOmitted(),
-      this.crawlingOption = const SdkOmitted(),
-      this.embedMedia = const SdkOmitted(),
-      this.excludeTags = const SdkOmitted()});
+  const ApiWebCrawlerDataSource({this.baseUrl = const SdkOmitted(), this.crawlingOption = const SdkOmitted(), this.embedMedia = const SdkOmitted(), this.excludeTags = const SdkOmitted()});
 
-  ApiWebCrawlerDataSource Function(
-      {SdkOptional<String> baseUrl,
-      SdkOptional<ApiCrawlingOption> crawlingOption,
-      SdkOptional<bool> embedMedia,
-      SdkOptional<List<String>> excludeTags}) get copyWith => _copyWith;
+  ApiWebCrawlerDataSource Function({SdkOptional<String> baseUrl, SdkOptional<ApiCrawlingOption> crawlingOption, SdkOptional<bool> embedMedia, SdkOptional<List<String>> excludeTags}) get copyWith => _copyWith;
 
-  ApiWebCrawlerDataSource _copyWith(
-          {Object? baseUrl = sdkOmittedValue,
-          Object? crawlingOption = sdkOmittedValue,
-          Object? embedMedia = sdkOmittedValue,
-          Object? excludeTags = sdkOmittedValue}) =>
-      ApiWebCrawlerDataSource(
-        baseUrl: identical(baseUrl, sdkOmittedValue)
-            ? this.baseUrl
-            : baseUrl as SdkOptional<String>,
-        crawlingOption: identical(crawlingOption, sdkOmittedValue)
-            ? this.crawlingOption
-            : crawlingOption as SdkOptional<ApiCrawlingOption>,
-        embedMedia: identical(embedMedia, sdkOmittedValue)
-            ? this.embedMedia
-            : embedMedia as SdkOptional<bool>,
-        excludeTags: identical(excludeTags, sdkOmittedValue)
-            ? this.excludeTags
-            : excludeTags as SdkOptional<List<String>>,
-      );
+  ApiWebCrawlerDataSource _copyWith({Object? baseUrl = sdkOmittedValue, Object? crawlingOption = sdkOmittedValue, Object? embedMedia = sdkOmittedValue, Object? excludeTags = sdkOmittedValue}) => ApiWebCrawlerDataSource(
+    baseUrl: identical(baseUrl, sdkOmittedValue) ? this.baseUrl : baseUrl as SdkOptional<String>,
+    crawlingOption: identical(crawlingOption, sdkOmittedValue) ? this.crawlingOption : crawlingOption as SdkOptional<ApiCrawlingOption>,
+    embedMedia: identical(embedMedia, sdkOmittedValue) ? this.embedMedia : embedMedia as SdkOptional<bool>,
+    excludeTags: identical(excludeTags, sdkOmittedValue) ? this.excludeTags : excludeTags as SdkOptional<List<String>>,
+  );
 
-  factory ApiWebCrawlerDataSource.fromJson(Map<String, dynamic> json) =>
-      ApiWebCrawlerDataSource(
-        baseUrl: json['base_url'] != null
-            ? SdkPresent((json['base_url'] as String?)!)
-            : const SdkOmitted(),
-        crawlingOption: json['crawling_option'] != null
-            ? SdkPresent((json['crawling_option'] != null
-                ? ApiCrawlingOption.fromJson(json['crawling_option'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        embedMedia: json['embed_media'] != null
-            ? SdkPresent((json['embed_media'] as bool?)!)
-            : const SdkOmitted(),
-        excludeTags: json['exclude_tags'] != null
-            ? SdkPresent(((json['exclude_tags'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ApiWebCrawlerDataSource.fromJson(Map<String, dynamic> json) => ApiWebCrawlerDataSource(
+    baseUrl: json['base_url'] != null ? SdkPresent((json['base_url'] as String?)!) : const SdkOmitted(),
+    crawlingOption: json['crawling_option'] != null ? SdkPresent((json['crawling_option'] != null ? ApiCrawlingOption.fromJson(json['crawling_option'] as String) : null)!) : const SdkOmitted(),
+    embedMedia: json['embed_media'] != null ? SdkPresent((json['embed_media'] as bool?)!) : const SdkOmitted(),
+    excludeTags: json['exclude_tags'] != null ? SdkPresent(((json['exclude_tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (baseUrl) {
-          SdkPresent<String>(value: final value) => {
-              'base_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (crawlingOption) {
-          SdkPresent<ApiCrawlingOption>(value: final value) => {
-              'crawling_option': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (embedMedia) {
-          SdkPresent<bool>(value: final value) => {
-              'embed_media': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (excludeTags) {
-          SdkPresent<List<String>>(value: final value) => {
-              'exclude_tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (baseUrl) {
+      SdkPresent<String>(value: final value) => {'base_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (crawlingOption) {
+      SdkPresent<ApiCrawlingOption>(value: final value) => {'crawling_option': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (embedMedia) {
+      SdkPresent<bool>(value: final value) => {'embed_media': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (excludeTags) {
+      SdkPresent<List<String>>(value: final value) => {'exclude_tags': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

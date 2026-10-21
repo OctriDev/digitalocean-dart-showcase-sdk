@@ -8,55 +8,33 @@ part of 'agent_platform_api_api.dart';
 class ApiToolSpan {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Common optional fields shared by all span types
   final SdkOptional<ApiSpanCommon> common;
-
   /// Optional `string` value serialized in the `tool_call_id` wire field.
   final SdkOptional<String> toolCallId;
 
-  const ApiToolSpan(
-      {this.common = const SdkOmitted(), this.toolCallId = const SdkOmitted()});
+  const ApiToolSpan({this.common = const SdkOmitted(), this.toolCallId = const SdkOmitted()});
 
-  ApiToolSpan Function(
-      {SdkOptional<ApiSpanCommon> common,
-      SdkOptional<String> toolCallId}) get copyWith => _copyWith;
+  ApiToolSpan Function({SdkOptional<ApiSpanCommon> common, SdkOptional<String> toolCallId}) get copyWith => _copyWith;
 
-  ApiToolSpan _copyWith(
-          {Object? common = sdkOmittedValue,
-          Object? toolCallId = sdkOmittedValue}) =>
-      ApiToolSpan(
-        common: identical(common, sdkOmittedValue)
-            ? this.common
-            : common as SdkOptional<ApiSpanCommon>,
-        toolCallId: identical(toolCallId, sdkOmittedValue)
-            ? this.toolCallId
-            : toolCallId as SdkOptional<String>,
-      );
+  ApiToolSpan _copyWith({Object? common = sdkOmittedValue, Object? toolCallId = sdkOmittedValue}) => ApiToolSpan(
+    common: identical(common, sdkOmittedValue) ? this.common : common as SdkOptional<ApiSpanCommon>,
+    toolCallId: identical(toolCallId, sdkOmittedValue) ? this.toolCallId : toolCallId as SdkOptional<String>,
+  );
 
   factory ApiToolSpan.fromJson(Map<String, dynamic> json) => ApiToolSpan(
-        common: json['common'] != null
-            ? SdkPresent((json['common'] != null
-                ? ApiSpanCommon.fromJson(json['common'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        toolCallId: json['tool_call_id'] != null
-            ? SdkPresent((json['tool_call_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    common: json['common'] != null ? SdkPresent((json['common'] != null ? ApiSpanCommon.fromJson(json['common'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    toolCallId: json['tool_call_id'] != null ? SdkPresent((json['tool_call_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (common) {
-          SdkPresent<ApiSpanCommon>(value: final value) => {
-              'common': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolCallId) {
-          SdkPresent<String>(value: final value) => {
-              'tool_call_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (common) {
+      SdkPresent<ApiSpanCommon>(value: final value) => {'common': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolCallId) {
+      SdkPresent<String>(value: final value) => {'tool_call_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,190 +8,100 @@ part of 'agent_platform_api_api_create.dart';
 class ApiCreateEvaluationTestCaseInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `agent_workspace_name` wire field.
   final SdkOptional<String> agentWorkspaceName;
-
   /// Dataset against which the test‑case is executed.
   final SdkOptional<String> datasetUuid;
-
   /// Description of the test case.
   final SdkOptional<String> description;
-
   /// Full metric list to use for evaluation test case.
   final SdkOptional<List<String>> metrics;
-
   /// Name of the test case.
   final SdkOptional<String> name;
-
   /// Optional object value serialized in the `star_metric` wire field.
   final SdkOptional<ApiStarMetric> starMetric;
-
   /// The workspace uuid.
   final SdkOptional<String> workspaceUuid;
 
-  const ApiCreateEvaluationTestCaseInputPublic(
-      {this.agentWorkspaceName = const SdkOmitted(),
-      this.datasetUuid = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.metrics = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.starMetric = const SdkOmitted(),
-      this.workspaceUuid = const SdkOmitted()});
+  const ApiCreateEvaluationTestCaseInputPublic({this.agentWorkspaceName = const SdkOmitted(), this.datasetUuid = const SdkOmitted(), this.description = const SdkOmitted(), this.metrics = const SdkOmitted(), this.name = const SdkOmitted(), this.starMetric = const SdkOmitted(), this.workspaceUuid = const SdkOmitted()});
 
-  ApiCreateEvaluationTestCaseInputPublic Function(
-      {SdkOptional<String> agentWorkspaceName,
-      SdkOptional<String> datasetUuid,
-      SdkOptional<String> description,
-      SdkOptional<List<String>> metrics,
-      SdkOptional<String> name,
-      SdkOptional<ApiStarMetric> starMetric,
-      SdkOptional<String> workspaceUuid}) get copyWith => _copyWith;
+  ApiCreateEvaluationTestCaseInputPublic Function({SdkOptional<String> agentWorkspaceName, SdkOptional<String> datasetUuid, SdkOptional<String> description, SdkOptional<List<String>> metrics, SdkOptional<String> name, SdkOptional<ApiStarMetric> starMetric, SdkOptional<String> workspaceUuid}) get copyWith => _copyWith;
 
-  ApiCreateEvaluationTestCaseInputPublic _copyWith(
-          {Object? agentWorkspaceName = sdkOmittedValue,
-          Object? datasetUuid = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? metrics = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? starMetric = sdkOmittedValue,
-          Object? workspaceUuid = sdkOmittedValue}) =>
-      ApiCreateEvaluationTestCaseInputPublic(
-        agentWorkspaceName: identical(agentWorkspaceName, sdkOmittedValue)
-            ? this.agentWorkspaceName
-            : agentWorkspaceName as SdkOptional<String>,
-        datasetUuid: identical(datasetUuid, sdkOmittedValue)
-            ? this.datasetUuid
-            : datasetUuid as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        metrics: identical(metrics, sdkOmittedValue)
-            ? this.metrics
-            : metrics as SdkOptional<List<String>>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        starMetric: identical(starMetric, sdkOmittedValue)
-            ? this.starMetric
-            : starMetric as SdkOptional<ApiStarMetric>,
-        workspaceUuid: identical(workspaceUuid, sdkOmittedValue)
-            ? this.workspaceUuid
-            : workspaceUuid as SdkOptional<String>,
-      );
+  ApiCreateEvaluationTestCaseInputPublic _copyWith({Object? agentWorkspaceName = sdkOmittedValue, Object? datasetUuid = sdkOmittedValue, Object? description = sdkOmittedValue, Object? metrics = sdkOmittedValue, Object? name = sdkOmittedValue, Object? starMetric = sdkOmittedValue, Object? workspaceUuid = sdkOmittedValue}) => ApiCreateEvaluationTestCaseInputPublic(
+    agentWorkspaceName: identical(agentWorkspaceName, sdkOmittedValue) ? this.agentWorkspaceName : agentWorkspaceName as SdkOptional<String>,
+    datasetUuid: identical(datasetUuid, sdkOmittedValue) ? this.datasetUuid : datasetUuid as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    metrics: identical(metrics, sdkOmittedValue) ? this.metrics : metrics as SdkOptional<List<String>>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    starMetric: identical(starMetric, sdkOmittedValue) ? this.starMetric : starMetric as SdkOptional<ApiStarMetric>,
+    workspaceUuid: identical(workspaceUuid, sdkOmittedValue) ? this.workspaceUuid : workspaceUuid as SdkOptional<String>,
+  );
 
-  factory ApiCreateEvaluationTestCaseInputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiCreateEvaluationTestCaseInputPublic(
-        agentWorkspaceName: json['agent_workspace_name'] != null
-            ? SdkPresent((json['agent_workspace_name'] as String?)!)
-            : const SdkOmitted(),
-        datasetUuid: json['dataset_uuid'] != null
-            ? SdkPresent((json['dataset_uuid'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        metrics: json['metrics'] != null
-            ? SdkPresent(
-                ((json['metrics'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        starMetric: json['star_metric'] != null
-            ? SdkPresent((json['star_metric'] != null
-                ? ApiStarMetric.fromJson(
-                    json['star_metric'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        workspaceUuid: json['workspace_uuid'] != null
-            ? SdkPresent((json['workspace_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateEvaluationTestCaseInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateEvaluationTestCaseInputPublic(
+    agentWorkspaceName: json['agent_workspace_name'] != null ? SdkPresent((json['agent_workspace_name'] as String?)!) : const SdkOmitted(),
+    datasetUuid: json['dataset_uuid'] != null ? SdkPresent((json['dataset_uuid'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    metrics: json['metrics'] != null ? SdkPresent(((json['metrics'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    starMetric: json['star_metric'] != null ? SdkPresent((json['star_metric'] != null ? ApiStarMetric.fromJson(json['star_metric'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    workspaceUuid: json['workspace_uuid'] != null ? SdkPresent((json['workspace_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agentWorkspaceName) {
-          SdkPresent<String>(value: final value) => {
-              'agent_workspace_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (datasetUuid) {
-          SdkPresent<String>(value: final value) => {
-              'dataset_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metrics) {
-          SdkPresent<List<String>>(value: final value) => {
-              'metrics': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (starMetric) {
-          SdkPresent<ApiStarMetric>(value: final value) => {
-              'star_metric': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workspaceUuid) {
-          SdkPresent<String>(value: final value) => {
-              'workspace_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agentWorkspaceName) {
+      SdkPresent<String>(value: final value) => {'agent_workspace_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (datasetUuid) {
+      SdkPresent<String>(value: final value) => {'dataset_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metrics) {
+      SdkPresent<List<String>>(value: final value) => {'metrics': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (starMetric) {
+      SdkPresent<ApiStarMetric>(value: final value) => {'star_metric': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workspaceUuid) {
+      SdkPresent<String>(value: final value) => {'workspace_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiCreateEvaluationTestCaseOutput` API schema.
 class ApiCreateEvaluationTestCaseOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Test‑case UUID.
   final SdkOptional<String> testCaseUuid;
 
-  const ApiCreateEvaluationTestCaseOutput(
-      {this.testCaseUuid = const SdkOmitted()});
+  const ApiCreateEvaluationTestCaseOutput({this.testCaseUuid = const SdkOmitted()});
 
-  ApiCreateEvaluationTestCaseOutput Function({SdkOptional<String> testCaseUuid})
-      get copyWith => _copyWith;
+  ApiCreateEvaluationTestCaseOutput Function({SdkOptional<String> testCaseUuid}) get copyWith => _copyWith;
 
-  ApiCreateEvaluationTestCaseOutput _copyWith(
-          {Object? testCaseUuid = sdkOmittedValue}) =>
-      ApiCreateEvaluationTestCaseOutput(
-        testCaseUuid: identical(testCaseUuid, sdkOmittedValue)
-            ? this.testCaseUuid
-            : testCaseUuid as SdkOptional<String>,
-      );
+  ApiCreateEvaluationTestCaseOutput _copyWith({Object? testCaseUuid = sdkOmittedValue}) => ApiCreateEvaluationTestCaseOutput(
+    testCaseUuid: identical(testCaseUuid, sdkOmittedValue) ? this.testCaseUuid : testCaseUuid as SdkOptional<String>,
+  );
 
-  factory ApiCreateEvaluationTestCaseOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiCreateEvaluationTestCaseOutput(
-        testCaseUuid: json['test_case_uuid'] != null
-            ? SdkPresent((json['test_case_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateEvaluationTestCaseOutput.fromJson(Map<String, dynamic> json) => ApiCreateEvaluationTestCaseOutput(
+    testCaseUuid: json['test_case_uuid'] != null ? SdkPresent((json['test_case_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (testCaseUuid) {
-          SdkPresent<String>(value: final value) => {
-              'test_case_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (testCaseUuid) {
+      SdkPresent<String>(value: final value) => {'test_case_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

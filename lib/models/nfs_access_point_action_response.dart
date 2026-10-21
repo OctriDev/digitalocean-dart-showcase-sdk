@@ -8,45 +8,27 @@ part of 'nfs.dart';
 class AccessPointActionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Represents an NFS access point resource.
   final AccessPointResponse accessPoint;
-
   /// The action that was submitted.
   final NfsAction2 action;
 
-  const AccessPointActionResponse(
-      {required this.accessPoint, required this.action});
+  const AccessPointActionResponse({required this.accessPoint, required this.action});
 
-  AccessPointActionResponse Function(
-      {AccessPointResponse accessPoint,
-      NfsAction2 action}) get copyWith => _copyWith;
+  AccessPointActionResponse Function({AccessPointResponse accessPoint, NfsAction2 action}) get copyWith => _copyWith;
 
-  AccessPointActionResponse _copyWith(
-          {Object? accessPoint = sdkOmittedValue,
-          Object? action = sdkOmittedValue}) =>
-      AccessPointActionResponse(
-        accessPoint: identical(accessPoint, sdkOmittedValue)
-            ? this.accessPoint
-            : accessPoint as AccessPointResponse,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as NfsAction2,
-      );
+  AccessPointActionResponse _copyWith({Object? accessPoint = sdkOmittedValue, Object? action = sdkOmittedValue}) => AccessPointActionResponse(
+    accessPoint: identical(accessPoint, sdkOmittedValue) ? this.accessPoint : accessPoint as AccessPointResponse,
+    action: identical(action, sdkOmittedValue) ? this.action : action as NfsAction2,
+  );
 
-  factory AccessPointActionResponse.fromJson(Map<String, dynamic> json) =>
-      AccessPointActionResponse(
-        accessPoint: (json['access_point'] != null
-            ? AccessPointResponse.fromJson(
-                json['access_point'] as Map<String, dynamic>)
-            : null)!,
-        action: (json['action'] != null
-            ? NfsAction2.fromJson(json['action'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AccessPointActionResponse.fromJson(Map<String, dynamic> json) => AccessPointActionResponse(
+    accessPoint: (json['access_point'] != null ? AccessPointResponse.fromJson(json['access_point'] as Map<String, dynamic>) : null)!,
+    action: (json['action'] != null ? NfsAction2.fromJson(json['action'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'access_point': accessPoint.toJson(),
-        'action': action.toJson(),
-      };
+    'access_point': accessPoint.toJson(),
+    'action': action.toJson(),
+  };
 }

@@ -8,54 +8,33 @@ part of 'agent_platform_api_api_agent.dart';
 class ApiAgentTemplateGuardrail {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Priority of the guardrail
   final SdkOptional<int> priority;
-
   /// Uuid of the guardrail
   final SdkOptional<String> uuid;
 
-  const ApiAgentTemplateGuardrail(
-      {this.priority = const SdkOmitted(), this.uuid = const SdkOmitted()});
+  const ApiAgentTemplateGuardrail({this.priority = const SdkOmitted(), this.uuid = const SdkOmitted()});
 
-  ApiAgentTemplateGuardrail Function(
-      {SdkOptional<int> priority,
-      SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiAgentTemplateGuardrail Function({SdkOptional<int> priority, SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiAgentTemplateGuardrail _copyWith(
-          {Object? priority = sdkOmittedValue,
-          Object? uuid = sdkOmittedValue}) =>
-      ApiAgentTemplateGuardrail(
-        priority: identical(priority, sdkOmittedValue)
-            ? this.priority
-            : priority as SdkOptional<int>,
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-      );
+  ApiAgentTemplateGuardrail _copyWith({Object? priority = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiAgentTemplateGuardrail(
+    priority: identical(priority, sdkOmittedValue) ? this.priority : priority as SdkOptional<int>,
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+  );
 
-  factory ApiAgentTemplateGuardrail.fromJson(Map<String, dynamic> json) =>
-      ApiAgentTemplateGuardrail(
-        priority: json['priority'] != null
-            ? SdkPresent(((json['priority'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiAgentTemplateGuardrail.fromJson(Map<String, dynamic> json) => ApiAgentTemplateGuardrail(
+    priority: json['priority'] != null ? SdkPresent(((json['priority'] as num?)?.toInt())!) : const SdkOmitted(),
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (priority) {
-          SdkPresent<int>(value: final value) => {
-              'priority': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (priority) {
+      SdkPresent<int>(value: final value) => {'priority': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

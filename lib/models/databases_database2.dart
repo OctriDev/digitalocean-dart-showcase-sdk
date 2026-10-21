@@ -8,7 +8,6 @@ part of 'databases_database.dart';
 class Database {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the database.
   final String name;
 
@@ -17,14 +16,14 @@ class Database {
   Database Function({String name}) get copyWith => _copyWith;
 
   Database _copyWith({Object? name = sdkOmittedValue}) => Database(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-      );
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+  );
 
   factory Database.fromJson(Map<String, dynamic> json) => Database(
-        name: (json['name'] as String?)!,
-      );
+    name: (json['name'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-      };
+    'name': name,
+  };
 }

@@ -8,66 +8,49 @@ part of 'dedicated_inference.dart';
 class DedicatedInferenceTokenCreateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Name for the new token.
   final String name;
 
   const DedicatedInferenceTokenCreateRequest({required this.name});
 
-  DedicatedInferenceTokenCreateRequest Function({String name}) get copyWith =>
-      _copyWith;
+  DedicatedInferenceTokenCreateRequest Function({String name}) get copyWith => _copyWith;
 
-  DedicatedInferenceTokenCreateRequest _copyWith(
-          {Object? name = sdkOmittedValue}) =>
-      DedicatedInferenceTokenCreateRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-      );
+  DedicatedInferenceTokenCreateRequest _copyWith({Object? name = sdkOmittedValue}) => DedicatedInferenceTokenCreateRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+  );
 
-  factory DedicatedInferenceTokenCreateRequest.fromJson(
-          Map<String, dynamic> json) =>
-      DedicatedInferenceTokenCreateRequest(
-        name: (json['name'] as String?)!,
-      );
+  factory DedicatedInferenceTokenCreateRequest.fromJson(Map<String, dynamic> json) => DedicatedInferenceTokenCreateRequest(
+    name: (json['name'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-      };
+    'name': name,
+  };
 }
 
 /// Typed representation of the `TokenCreated` API schema.
 class TokenCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Access token for authenticating to Dedicated Inference endpoints.
   final SdkOptional<DedicatedInferenceAccessToken> token;
 
   const TokenCreated({this.token = const SdkOmitted()});
 
-  TokenCreated Function({SdkOptional<DedicatedInferenceAccessToken> token})
-      get copyWith => _copyWith;
+  TokenCreated Function({SdkOptional<DedicatedInferenceAccessToken> token}) get copyWith => _copyWith;
 
   TokenCreated _copyWith({Object? token = sdkOmittedValue}) => TokenCreated(
-        token: identical(token, sdkOmittedValue)
-            ? this.token
-            : token as SdkOptional<DedicatedInferenceAccessToken>,
-      );
+    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<DedicatedInferenceAccessToken>,
+  );
 
   factory TokenCreated.fromJson(Map<String, dynamic> json) => TokenCreated(
-        token: json['token'] != null
-            ? SdkPresent((json['token'] != null
-                ? DedicatedInferenceAccessToken.fromJson(
-                    json['token'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    token: json['token'] != null ? SdkPresent((json['token'] != null ? DedicatedInferenceAccessToken.fromJson(json['token'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (token) {
-          SdkPresent<DedicatedInferenceAccessToken>(value: final value) => {
-              'token': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (token) {
+      SdkPresent<DedicatedInferenceAccessToken>(value: final value) => {'token': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

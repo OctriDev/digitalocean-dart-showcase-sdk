@@ -8,117 +8,68 @@ part of 'vector_databases.dart';
 class VectordbUpdateVectorDBRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// VectorDBConfig holds optional, advanced cluster settings.
   final SdkOptional<VectordbVectorDBConfig> config;
-
   /// ID of the vector database.
   final SdkOptional<String> id;
-
   /// Optional. New project UUID to assign the database to.
   final SdkOptional<String> projectId;
 
-  const VectordbUpdateVectorDBRequest(
-      {this.config = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.projectId = const SdkOmitted()});
+  const VectordbUpdateVectorDBRequest({this.config = const SdkOmitted(), this.id = const SdkOmitted(), this.projectId = const SdkOmitted()});
 
-  VectordbUpdateVectorDBRequest Function(
-      {SdkOptional<VectordbVectorDBConfig> config,
-      SdkOptional<String> id,
-      SdkOptional<String> projectId}) get copyWith => _copyWith;
+  VectordbUpdateVectorDBRequest Function({SdkOptional<VectordbVectorDBConfig> config, SdkOptional<String> id, SdkOptional<String> projectId}) get copyWith => _copyWith;
 
-  VectordbUpdateVectorDBRequest _copyWith(
-          {Object? config = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? projectId = sdkOmittedValue}) =>
-      VectordbUpdateVectorDBRequest(
-        config: identical(config, sdkOmittedValue)
-            ? this.config
-            : config as SdkOptional<VectordbVectorDBConfig>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        projectId: identical(projectId, sdkOmittedValue)
-            ? this.projectId
-            : projectId as SdkOptional<String>,
-      );
+  VectordbUpdateVectorDBRequest _copyWith({Object? config = sdkOmittedValue, Object? id = sdkOmittedValue, Object? projectId = sdkOmittedValue}) => VectordbUpdateVectorDBRequest(
+    config: identical(config, sdkOmittedValue) ? this.config : config as SdkOptional<VectordbVectorDBConfig>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
+  );
 
-  factory VectordbUpdateVectorDBRequest.fromJson(Map<String, dynamic> json) =>
-      VectordbUpdateVectorDBRequest(
-        config: json['config'] != null
-            ? SdkPresent((json['config'] != null
-                ? VectordbVectorDBConfig.fromJson(
-                    json['config'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        projectId: json['project_id'] != null
-            ? SdkPresent((json['project_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VectordbUpdateVectorDBRequest.fromJson(Map<String, dynamic> json) => VectordbUpdateVectorDBRequest(
+    config: json['config'] != null ? SdkPresent((json['config'] != null ? VectordbVectorDBConfig.fromJson(json['config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (config) {
-          SdkPresent<VectordbVectorDBConfig>(value: final value) => {
-              'config': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projectId) {
-          SdkPresent<String>(value: final value) => {
-              'project_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (config) {
+      SdkPresent<VectordbVectorDBConfig>(value: final value) => {'config': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projectId) {
+      SdkPresent<String>(value: final value) => {'project_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VectordbUpdateVectorDBResponse` API schema.
 class VectordbUpdateVectorDBResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// VectorDB represents a provisioned vector database instance.
   final SdkOptional<VectordbVectorDB> vectorDb;
 
   const VectordbUpdateVectorDBResponse({this.vectorDb = const SdkOmitted()});
 
-  VectordbUpdateVectorDBResponse Function(
-      {SdkOptional<VectordbVectorDB> vectorDb}) get copyWith => _copyWith;
+  VectordbUpdateVectorDBResponse Function({SdkOptional<VectordbVectorDB> vectorDb}) get copyWith => _copyWith;
 
-  VectordbUpdateVectorDBResponse _copyWith(
-          {Object? vectorDb = sdkOmittedValue}) =>
-      VectordbUpdateVectorDBResponse(
-        vectorDb: identical(vectorDb, sdkOmittedValue)
-            ? this.vectorDb
-            : vectorDb as SdkOptional<VectordbVectorDB>,
-      );
+  VectordbUpdateVectorDBResponse _copyWith({Object? vectorDb = sdkOmittedValue}) => VectordbUpdateVectorDBResponse(
+    vectorDb: identical(vectorDb, sdkOmittedValue) ? this.vectorDb : vectorDb as SdkOptional<VectordbVectorDB>,
+  );
 
-  factory VectordbUpdateVectorDBResponse.fromJson(Map<String, dynamic> json) =>
-      VectordbUpdateVectorDBResponse(
-        vectorDb: json['vector_db'] != null
-            ? SdkPresent((json['vector_db'] != null
-                ? VectordbVectorDB.fromJson(
-                    json['vector_db'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory VectordbUpdateVectorDBResponse.fromJson(Map<String, dynamic> json) => VectordbUpdateVectorDBResponse(
+    vectorDb: json['vector_db'] != null ? SdkPresent((json['vector_db'] != null ? VectordbVectorDB.fromJson(json['vector_db'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (vectorDb) {
-          SdkPresent<VectordbVectorDB>(value: final value) => {
-              'vector_db': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (vectorDb) {
+      SdkPresent<VectordbVectorDB>(value: final value) => {'vector_db': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

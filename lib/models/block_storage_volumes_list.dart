@@ -7,96 +7,59 @@ part of 'block_storage.dart';
 class VolumesVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Array of volumes.
   final List<VolumeFull> volumes;
 
   const VolumesVariant0({required this.volumes});
 
-  VolumesVariant0 Function({List<VolumeFull> volumes}) get copyWith =>
-      _copyWith;
+  VolumesVariant0 Function({List<VolumeFull> volumes}) get copyWith => _copyWith;
 
-  VolumesVariant0 _copyWith({Object? volumes = sdkOmittedValue}) =>
-      VolumesVariant0(
-        volumes: identical(volumes, sdkOmittedValue)
-            ? this.volumes
-            : volumes as List<VolumeFull>,
-      );
+  VolumesVariant0 _copyWith({Object? volumes = sdkOmittedValue}) => VolumesVariant0(
+    volumes: identical(volumes, sdkOmittedValue) ? this.volumes : volumes as List<VolumeFull>,
+  );
 
-  factory VolumesVariant0.fromJson(Map<String, dynamic> json) =>
-      VolumesVariant0(
-        volumes: ((json['volumes'] as List?)
-            ?.map((e) => VolumeFull.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory VolumesVariant0.fromJson(Map<String, dynamic> json) => VolumesVariant0(
+    volumes: ((json['volumes'] as List?)?.map((e) => VolumeFull.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'volumes': volumes.map((item) => item.toJson()).toList(),
-      };
+    'volumes': volumes.map((item) => item.toJson()).toList(),
+  };
 }
 
 /// Typed representation of the `Volumes` API schema.
 class Volumes {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Array of volumes.
   final List<VolumeFull> volumes;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const Volumes(
-      {required this.volumes,
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const Volumes({required this.volumes, this.links = const SdkOmitted(), required this.meta});
 
-  Volumes Function(
-      {List<VolumeFull> volumes,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  Volumes Function({List<VolumeFull> volumes, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  Volumes _copyWith(
-          {Object? volumes = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      Volumes(
-        volumes: identical(volumes, sdkOmittedValue)
-            ? this.volumes
-            : volumes as List<VolumeFull>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  Volumes _copyWith({Object? volumes = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => Volumes(
+    volumes: identical(volumes, sdkOmittedValue) ? this.volumes : volumes as List<VolumeFull>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory Volumes.fromJson(Map<String, dynamic> json) => Volumes(
-        volumes: ((json['volumes'] as List?)
-            ?.map((e) => VolumeFull.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    volumes: ((json['volumes'] as List?)?.map((e) => VolumeFull.fromJson(e as Map<String, dynamic>)).toList())!,
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'volumes': volumes.map((item) => item.toJson()).toList(),
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    'volumes': volumes.map((item) => item.toJson()).toList(),
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

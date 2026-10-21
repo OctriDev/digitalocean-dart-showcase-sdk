@@ -8,57 +8,33 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelEndpoint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Capabilities supported by this endpoint (e.g. input_text, output_text, input_image)
   final SdkOptional<List<String>> capabilities;
-
   /// The endpoint path (e.g. /chat/responses)
   final SdkOptional<String> endpoint;
 
-  const ApiModelEndpoint(
-      {this.capabilities = const SdkOmitted(),
-      this.endpoint = const SdkOmitted()});
+  const ApiModelEndpoint({this.capabilities = const SdkOmitted(), this.endpoint = const SdkOmitted()});
 
-  ApiModelEndpoint Function(
-      {SdkOptional<List<String>> capabilities,
-      SdkOptional<String> endpoint}) get copyWith => _copyWith;
+  ApiModelEndpoint Function({SdkOptional<List<String>> capabilities, SdkOptional<String> endpoint}) get copyWith => _copyWith;
 
-  ApiModelEndpoint _copyWith(
-          {Object? capabilities = sdkOmittedValue,
-          Object? endpoint = sdkOmittedValue}) =>
-      ApiModelEndpoint(
-        capabilities: identical(capabilities, sdkOmittedValue)
-            ? this.capabilities
-            : capabilities as SdkOptional<List<String>>,
-        endpoint: identical(endpoint, sdkOmittedValue)
-            ? this.endpoint
-            : endpoint as SdkOptional<String>,
-      );
+  ApiModelEndpoint _copyWith({Object? capabilities = sdkOmittedValue, Object? endpoint = sdkOmittedValue}) => ApiModelEndpoint(
+    capabilities: identical(capabilities, sdkOmittedValue) ? this.capabilities : capabilities as SdkOptional<List<String>>,
+    endpoint: identical(endpoint, sdkOmittedValue) ? this.endpoint : endpoint as SdkOptional<String>,
+  );
 
-  factory ApiModelEndpoint.fromJson(Map<String, dynamic> json) =>
-      ApiModelEndpoint(
-        capabilities: json['capabilities'] != null
-            ? SdkPresent(((json['capabilities'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        endpoint: json['endpoint'] != null
-            ? SdkPresent((json['endpoint'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiModelEndpoint.fromJson(Map<String, dynamic> json) => ApiModelEndpoint(
+    capabilities: json['capabilities'] != null ? SdkPresent(((json['capabilities'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    endpoint: json['endpoint'] != null ? SdkPresent((json['endpoint'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (capabilities) {
-          SdkPresent<List<String>>(value: final value) => {
-              'capabilities': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (endpoint) {
-          SdkPresent<String>(value: final value) => {
-              'endpoint': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (capabilities) {
+      SdkPresent<List<String>>(value: final value) => {'capabilities': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (endpoint) {
+      SdkPresent<String>(value: final value) => {'endpoint': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

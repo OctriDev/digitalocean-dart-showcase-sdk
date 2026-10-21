@@ -8,37 +8,25 @@ part of 'droplet_actions.dart';
 class DropletActionsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `actions` wire field.
   final SdkOptional<List<Action>> actions;
 
   const DropletActionsResponse({this.actions = const SdkOmitted()});
 
-  DropletActionsResponse Function({SdkOptional<List<Action>> actions})
-      get copyWith => _copyWith;
+  DropletActionsResponse Function({SdkOptional<List<Action>> actions}) get copyWith => _copyWith;
 
-  DropletActionsResponse _copyWith({Object? actions = sdkOmittedValue}) =>
-      DropletActionsResponse(
-        actions: identical(actions, sdkOmittedValue)
-            ? this.actions
-            : actions as SdkOptional<List<Action>>,
-      );
+  DropletActionsResponse _copyWith({Object? actions = sdkOmittedValue}) => DropletActionsResponse(
+    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<Action>>,
+  );
 
-  factory DropletActionsResponse.fromJson(Map<String, dynamic> json) =>
-      DropletActionsResponse(
-        actions: json['actions'] != null
-            ? SdkPresent(((json['actions'] as List?)
-                ?.map((e) => Action.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory DropletActionsResponse.fromJson(Map<String, dynamic> json) => DropletActionsResponse(
+    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => Action.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (actions) {
-          SdkPresent<List<Action>>(value: final value) => {
-              'actions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (actions) {
+      SdkPresent<List<Action>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

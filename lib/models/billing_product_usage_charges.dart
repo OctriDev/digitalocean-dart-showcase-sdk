@@ -8,76 +8,41 @@ part of 'billing.dart';
 class ProductUsageCharges {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Description of usage charges
   final SdkOptional<String> name;
-
   /// Total amount charged
   final SdkOptional<String> amount;
-
   /// List of amount, and grouped aggregates by resource type.
   final SdkOptional<List<ProductChargeItem>> items;
 
-  const ProductUsageCharges(
-      {this.name = const SdkOmitted(),
-      this.amount = const SdkOmitted(),
-      this.items = const SdkOmitted()});
+  const ProductUsageCharges({this.name = const SdkOmitted(), this.amount = const SdkOmitted(), this.items = const SdkOmitted()});
 
-  ProductUsageCharges Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> amount,
-      SdkOptional<List<ProductChargeItem>> items}) get copyWith => _copyWith;
+  ProductUsageCharges Function({SdkOptional<String> name, SdkOptional<String> amount, SdkOptional<List<ProductChargeItem>> items}) get copyWith => _copyWith;
 
-  ProductUsageCharges _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? amount = sdkOmittedValue,
-          Object? items = sdkOmittedValue}) =>
-      ProductUsageCharges(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        amount: identical(amount, sdkOmittedValue)
-            ? this.amount
-            : amount as SdkOptional<String>,
-        items: identical(items, sdkOmittedValue)
-            ? this.items
-            : items as SdkOptional<List<ProductChargeItem>>,
-      );
+  ProductUsageCharges _copyWith({Object? name = sdkOmittedValue, Object? amount = sdkOmittedValue, Object? items = sdkOmittedValue}) => ProductUsageCharges(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<String>,
+    items: identical(items, sdkOmittedValue) ? this.items : items as SdkOptional<List<ProductChargeItem>>,
+  );
 
-  factory ProductUsageCharges.fromJson(Map<String, dynamic> json) =>
-      ProductUsageCharges(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        amount: json['amount'] != null
-            ? SdkPresent((json['amount'] as String?)!)
-            : const SdkOmitted(),
-        items: json['items'] != null
-            ? SdkPresent(((json['items'] as List?)
-                ?.map((e) =>
-                    ProductChargeItem.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ProductUsageCharges.fromJson(Map<String, dynamic> json) => ProductUsageCharges(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    amount: json['amount'] != null ? SdkPresent((json['amount'] as String?)!) : const SdkOmitted(),
+    items: json['items'] != null ? SdkPresent(((json['items'] as List?)?.map((e) => ProductChargeItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (amount) {
-          SdkPresent<String>(value: final value) => {
-              'amount': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (items) {
-          SdkPresent<List<ProductChargeItem>>(value: final value) => {
-              'items': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (amount) {
+      SdkPresent<String>(value: final value) => {'amount': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (items) {
+      SdkPresent<List<ProductChargeItem>>(value: final value) => {'items': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

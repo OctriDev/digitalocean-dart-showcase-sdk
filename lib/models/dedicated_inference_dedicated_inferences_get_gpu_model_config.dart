@@ -8,142 +8,76 @@ part of 'dedicated_inference.dart';
 class DedicatedInferenceGpuModelConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `gpu_slugs` wire field.
   final SdkOptional<List<String>> gpuSlugs;
-
   /// Optional `string` value serialized in the `model_slug` wire field.
   final SdkOptional<String> modelSlug;
-
   /// Optional `string` value serialized in the `model_name` wire field.
   final SdkOptional<String> modelName;
-
   /// Whether the model requires gated access (e.g. Hugging Face token).
   final SdkOptional<bool> isGatedModel;
 
-  const DedicatedInferenceGpuModelConfig(
-      {this.gpuSlugs = const SdkOmitted(),
-      this.modelSlug = const SdkOmitted(),
-      this.modelName = const SdkOmitted(),
-      this.isGatedModel = const SdkOmitted()});
+  const DedicatedInferenceGpuModelConfig({this.gpuSlugs = const SdkOmitted(), this.modelSlug = const SdkOmitted(), this.modelName = const SdkOmitted(), this.isGatedModel = const SdkOmitted()});
 
-  DedicatedInferenceGpuModelConfig Function(
-      {SdkOptional<List<String>> gpuSlugs,
-      SdkOptional<String> modelSlug,
-      SdkOptional<String> modelName,
-      SdkOptional<bool> isGatedModel}) get copyWith => _copyWith;
+  DedicatedInferenceGpuModelConfig Function({SdkOptional<List<String>> gpuSlugs, SdkOptional<String> modelSlug, SdkOptional<String> modelName, SdkOptional<bool> isGatedModel}) get copyWith => _copyWith;
 
-  DedicatedInferenceGpuModelConfig _copyWith(
-          {Object? gpuSlugs = sdkOmittedValue,
-          Object? modelSlug = sdkOmittedValue,
-          Object? modelName = sdkOmittedValue,
-          Object? isGatedModel = sdkOmittedValue}) =>
-      DedicatedInferenceGpuModelConfig(
-        gpuSlugs: identical(gpuSlugs, sdkOmittedValue)
-            ? this.gpuSlugs
-            : gpuSlugs as SdkOptional<List<String>>,
-        modelSlug: identical(modelSlug, sdkOmittedValue)
-            ? this.modelSlug
-            : modelSlug as SdkOptional<String>,
-        modelName: identical(modelName, sdkOmittedValue)
-            ? this.modelName
-            : modelName as SdkOptional<String>,
-        isGatedModel: identical(isGatedModel, sdkOmittedValue)
-            ? this.isGatedModel
-            : isGatedModel as SdkOptional<bool>,
-      );
+  DedicatedInferenceGpuModelConfig _copyWith({Object? gpuSlugs = sdkOmittedValue, Object? modelSlug = sdkOmittedValue, Object? modelName = sdkOmittedValue, Object? isGatedModel = sdkOmittedValue}) => DedicatedInferenceGpuModelConfig(
+    gpuSlugs: identical(gpuSlugs, sdkOmittedValue) ? this.gpuSlugs : gpuSlugs as SdkOptional<List<String>>,
+    modelSlug: identical(modelSlug, sdkOmittedValue) ? this.modelSlug : modelSlug as SdkOptional<String>,
+    modelName: identical(modelName, sdkOmittedValue) ? this.modelName : modelName as SdkOptional<String>,
+    isGatedModel: identical(isGatedModel, sdkOmittedValue) ? this.isGatedModel : isGatedModel as SdkOptional<bool>,
+  );
 
-  factory DedicatedInferenceGpuModelConfig.fromJson(
-          Map<String, dynamic> json) =>
-      DedicatedInferenceGpuModelConfig(
-        gpuSlugs: json['gpu_slugs'] != null
-            ? SdkPresent(((json['gpu_slugs'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        modelSlug: json['model_slug'] != null
-            ? SdkPresent((json['model_slug'] as String?)!)
-            : const SdkOmitted(),
-        modelName: json['model_name'] != null
-            ? SdkPresent((json['model_name'] as String?)!)
-            : const SdkOmitted(),
-        isGatedModel: json['is_gated_model'] != null
-            ? SdkPresent((json['is_gated_model'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory DedicatedInferenceGpuModelConfig.fromJson(Map<String, dynamic> json) => DedicatedInferenceGpuModelConfig(
+    gpuSlugs: json['gpu_slugs'] != null ? SdkPresent(((json['gpu_slugs'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    modelSlug: json['model_slug'] != null ? SdkPresent((json['model_slug'] as String?)!) : const SdkOmitted(),
+    modelName: json['model_name'] != null ? SdkPresent((json['model_name'] as String?)!) : const SdkOmitted(),
+    isGatedModel: json['is_gated_model'] != null ? SdkPresent((json['is_gated_model'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (gpuSlugs) {
-          SdkPresent<List<String>>(value: final value) => {
-              'gpu_slugs': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (modelSlug) {
-          SdkPresent<String>(value: final value) => {
-              'model_slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (modelName) {
-          SdkPresent<String>(value: final value) => {
-              'model_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isGatedModel) {
-          SdkPresent<bool>(value: final value) => {
-              'is_gated_model': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (gpuSlugs) {
+      SdkPresent<List<String>>(value: final value) => {'gpu_slugs': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (modelSlug) {
+      SdkPresent<String>(value: final value) => {'model_slug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (modelName) {
+      SdkPresent<String>(value: final value) => {'model_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isGatedModel) {
+      SdkPresent<bool>(value: final value) => {'is_gated_model': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Supported GPU and model configurations for Dedicated Inference.
 class DedicatedInferenceGpuModelConfigsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `gpu_model_configs` wire field.
   final SdkOptional<List<DedicatedInferenceGpuModelConfig>> gpuModelConfigs;
 
-  const DedicatedInferenceGpuModelConfigsResponse(
-      {this.gpuModelConfigs = const SdkOmitted()});
+  const DedicatedInferenceGpuModelConfigsResponse({this.gpuModelConfigs = const SdkOmitted()});
 
-  DedicatedInferenceGpuModelConfigsResponse Function(
-          {SdkOptional<List<DedicatedInferenceGpuModelConfig>> gpuModelConfigs})
-      get copyWith => _copyWith;
+  DedicatedInferenceGpuModelConfigsResponse Function({SdkOptional<List<DedicatedInferenceGpuModelConfig>> gpuModelConfigs}) get copyWith => _copyWith;
 
-  DedicatedInferenceGpuModelConfigsResponse _copyWith(
-          {Object? gpuModelConfigs = sdkOmittedValue}) =>
-      DedicatedInferenceGpuModelConfigsResponse(
-        gpuModelConfigs: identical(gpuModelConfigs, sdkOmittedValue)
-            ? this.gpuModelConfigs
-            : gpuModelConfigs
-                as SdkOptional<List<DedicatedInferenceGpuModelConfig>>,
-      );
+  DedicatedInferenceGpuModelConfigsResponse _copyWith({Object? gpuModelConfigs = sdkOmittedValue}) => DedicatedInferenceGpuModelConfigsResponse(
+    gpuModelConfigs: identical(gpuModelConfigs, sdkOmittedValue) ? this.gpuModelConfigs : gpuModelConfigs as SdkOptional<List<DedicatedInferenceGpuModelConfig>>,
+  );
 
-  factory DedicatedInferenceGpuModelConfigsResponse.fromJson(
-          Map<String, dynamic> json) =>
-      DedicatedInferenceGpuModelConfigsResponse(
-        gpuModelConfigs: json['gpu_model_configs'] != null
-            ? SdkPresent(((json['gpu_model_configs'] as List?)
-                ?.map((e) => DedicatedInferenceGpuModelConfig.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory DedicatedInferenceGpuModelConfigsResponse.fromJson(Map<String, dynamic> json) => DedicatedInferenceGpuModelConfigsResponse(
+    gpuModelConfigs: json['gpu_model_configs'] != null ? SdkPresent(((json['gpu_model_configs'] as List?)?.map((e) => DedicatedInferenceGpuModelConfig.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (gpuModelConfigs) {
-          SdkPresent<List<DedicatedInferenceGpuModelConfig>>(
-            value: final value
-          ) =>
-            {
-              'gpu_model_configs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (gpuModelConfigs) {
+      SdkPresent<List<DedicatedInferenceGpuModelConfig>>(value: final value) => {'gpu_model_configs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

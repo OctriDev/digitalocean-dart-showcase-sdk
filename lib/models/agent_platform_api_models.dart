@@ -6,12 +6,12 @@ part of 'agent_platform_api.dart';
 // agent_platform_api domain models
 /// Typed representation of the `DbaasClusterStatus` API schema.
 final class DbaasClusterStatus {
+
   final String value;
 
   const DbaasClusterStatus._(this.value);
 
-  factory DbaasClusterStatus.fromJson(String value) =>
-      DbaasClusterStatus._(value);
+  factory DbaasClusterStatus.fromJson(String value) => DbaasClusterStatus._(value);
 
   static const creating = DbaasClusterStatus._('CREATING');
   static const online = DbaasClusterStatus._('ONLINE');
@@ -29,151 +29,93 @@ final class DbaasClusterStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DbaasClusterStatus && other.value == value;
+  @override bool operator ==(Object other) => other is DbaasClusterStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Description for a specific Region
 class GenaiapiRegion {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Url for inference server
   final SdkOptional<String> inferenceUrl;
-
   /// Region code
   final SdkOptional<String> region;
-
   /// This datacenter is capable of running batch jobs
   final SdkOptional<bool> servesBatch;
-
   /// This datacenter is capable of serving inference
   final SdkOptional<bool> servesInference;
-
   /// The url for the inference streaming server
   final SdkOptional<String> streamInferenceUrl;
 
-  const GenaiapiRegion(
-      {this.inferenceUrl = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.servesBatch = const SdkOmitted(),
-      this.servesInference = const SdkOmitted(),
-      this.streamInferenceUrl = const SdkOmitted()});
+  const GenaiapiRegion({this.inferenceUrl = const SdkOmitted(), this.region = const SdkOmitted(), this.servesBatch = const SdkOmitted(), this.servesInference = const SdkOmitted(), this.streamInferenceUrl = const SdkOmitted()});
 
-  GenaiapiRegion Function(
-      {SdkOptional<String> inferenceUrl,
-      SdkOptional<String> region,
-      SdkOptional<bool> servesBatch,
-      SdkOptional<bool> servesInference,
-      SdkOptional<String> streamInferenceUrl}) get copyWith => _copyWith;
+  GenaiapiRegion Function({SdkOptional<String> inferenceUrl, SdkOptional<String> region, SdkOptional<bool> servesBatch, SdkOptional<bool> servesInference, SdkOptional<String> streamInferenceUrl}) get copyWith => _copyWith;
 
-  GenaiapiRegion _copyWith(
-          {Object? inferenceUrl = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? servesBatch = sdkOmittedValue,
-          Object? servesInference = sdkOmittedValue,
-          Object? streamInferenceUrl = sdkOmittedValue}) =>
-      GenaiapiRegion(
-        inferenceUrl: identical(inferenceUrl, sdkOmittedValue)
-            ? this.inferenceUrl
-            : inferenceUrl as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-        servesBatch: identical(servesBatch, sdkOmittedValue)
-            ? this.servesBatch
-            : servesBatch as SdkOptional<bool>,
-        servesInference: identical(servesInference, sdkOmittedValue)
-            ? this.servesInference
-            : servesInference as SdkOptional<bool>,
-        streamInferenceUrl: identical(streamInferenceUrl, sdkOmittedValue)
-            ? this.streamInferenceUrl
-            : streamInferenceUrl as SdkOptional<String>,
-      );
+  GenaiapiRegion _copyWith({Object? inferenceUrl = sdkOmittedValue, Object? region = sdkOmittedValue, Object? servesBatch = sdkOmittedValue, Object? servesInference = sdkOmittedValue, Object? streamInferenceUrl = sdkOmittedValue}) => GenaiapiRegion(
+    inferenceUrl: identical(inferenceUrl, sdkOmittedValue) ? this.inferenceUrl : inferenceUrl as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+    servesBatch: identical(servesBatch, sdkOmittedValue) ? this.servesBatch : servesBatch as SdkOptional<bool>,
+    servesInference: identical(servesInference, sdkOmittedValue) ? this.servesInference : servesInference as SdkOptional<bool>,
+    streamInferenceUrl: identical(streamInferenceUrl, sdkOmittedValue) ? this.streamInferenceUrl : streamInferenceUrl as SdkOptional<String>,
+  );
 
   factory GenaiapiRegion.fromJson(Map<String, dynamic> json) => GenaiapiRegion(
-        inferenceUrl: json['inference_url'] != null
-            ? SdkPresent((json['inference_url'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-        servesBatch: json['serves_batch'] != null
-            ? SdkPresent((json['serves_batch'] as bool?)!)
-            : const SdkOmitted(),
-        servesInference: json['serves_inference'] != null
-            ? SdkPresent((json['serves_inference'] as bool?)!)
-            : const SdkOmitted(),
-        streamInferenceUrl: json['stream_inference_url'] != null
-            ? SdkPresent((json['stream_inference_url'] as String?)!)
-            : const SdkOmitted(),
-      );
+    inferenceUrl: json['inference_url'] != null ? SdkPresent((json['inference_url'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+    servesBatch: json['serves_batch'] != null ? SdkPresent((json['serves_batch'] as bool?)!) : const SdkOmitted(),
+    servesInference: json['serves_inference'] != null ? SdkPresent((json['serves_inference'] as bool?)!) : const SdkOmitted(),
+    streamInferenceUrl: json['stream_inference_url'] != null ? SdkPresent((json['stream_inference_url'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (inferenceUrl) {
-          SdkPresent<String>(value: final value) => {
-              'inference_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (servesBatch) {
-          SdkPresent<bool>(value: final value) => {
-              'serves_batch': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (servesInference) {
-          SdkPresent<bool>(value: final value) => {
-              'serves_inference': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (streamInferenceUrl) {
-          SdkPresent<String>(value: final value) => {
-              'stream_inference_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (inferenceUrl) {
+      SdkPresent<String>(value: final value) => {'inference_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (servesBatch) {
+      SdkPresent<bool>(value: final value) => {'serves_batch': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (servesInference) {
+      SdkPresent<bool>(value: final value) => {'serves_inference': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (streamInferenceUrl) {
+      SdkPresent<String>(value: final value) => {'stream_inference_url': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Access level required for the model repository
 final class SourceRefAccessType {
+
   final String value;
 
   const SourceRefAccessType._(this.value);
 
-  factory SourceRefAccessType.fromJson(String value) =>
-      SourceRefAccessType._(value);
+  factory SourceRefAccessType.fromJson(String value) => SourceRefAccessType._(value);
 
-  static const accessTypeUnspecified =
-      SourceRefAccessType._('ACCESS_TYPE_UNSPECIFIED');
+  static const accessTypeUnspecified = SourceRefAccessType._('ACCESS_TYPE_UNSPECIFIED');
   static const accessTypePublic = SourceRefAccessType._('ACCESS_TYPE_PUBLIC');
   static const accessTypePrivate = SourceRefAccessType._('ACCESS_TYPE_PRIVATE');
   static const accessTypeGated = SourceRefAccessType._('ACCESS_TYPE_GATED');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SourceRefAccessType && other.value == value;
+  @override bool operator ==(Object other) => other is SourceRefAccessType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

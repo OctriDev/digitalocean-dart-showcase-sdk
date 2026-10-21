@@ -8,74 +8,41 @@ part of 'images.dart';
 class ImageUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The display name that has been given to an image. This is what is shown in the control panel and is generally a descriptive title for the image in question.
   final SdkOptional<String> name;
-
   /// The name of a custom image's distribution. Currently, the valid values are `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`, `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`. Any other value will be accepted but ignored, and `Unknown` will be used in its place.
   final SdkOptional<Distribution> distribution;
-
   /// An optional free-form text field to describe an image.
   final SdkOptional<String> description;
 
-  const ImageUpdate(
-      {this.name = const SdkOmitted(),
-      this.distribution = const SdkOmitted(),
-      this.description = const SdkOmitted()});
+  const ImageUpdate({this.name = const SdkOmitted(), this.distribution = const SdkOmitted(), this.description = const SdkOmitted()});
 
-  ImageUpdate Function(
-      {SdkOptional<String> name,
-      SdkOptional<Distribution> distribution,
-      SdkOptional<String> description}) get copyWith => _copyWith;
+  ImageUpdate Function({SdkOptional<String> name, SdkOptional<Distribution> distribution, SdkOptional<String> description}) get copyWith => _copyWith;
 
-  ImageUpdate _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? distribution = sdkOmittedValue,
-          Object? description = sdkOmittedValue}) =>
-      ImageUpdate(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        distribution: identical(distribution, sdkOmittedValue)
-            ? this.distribution
-            : distribution as SdkOptional<Distribution>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-      );
+  ImageUpdate _copyWith({Object? name = sdkOmittedValue, Object? distribution = sdkOmittedValue, Object? description = sdkOmittedValue}) => ImageUpdate(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    distribution: identical(distribution, sdkOmittedValue) ? this.distribution : distribution as SdkOptional<Distribution>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+  );
 
   factory ImageUpdate.fromJson(Map<String, dynamic> json) => ImageUpdate(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        distribution: json['distribution'] != null
-            ? SdkPresent((json['distribution'] != null
-                ? Distribution.fromJson(json['distribution'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-      );
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    distribution: json['distribution'] != null ? SdkPresent((json['distribution'] != null ? Distribution.fromJson(json['distribution'] as String) : null)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (distribution) {
-          SdkPresent<Distribution>(value: final value) => {
-              'distribution': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (distribution) {
+      SdkPresent<Distribution>(value: final value) => {'distribution': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

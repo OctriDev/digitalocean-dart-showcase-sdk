@@ -6,73 +6,53 @@ part of 'action_gateway_limit.dart';
 // action_gateway_limit domain models
 /// Typed representation of the `LimitCategory` API schema.
 final class LimitCategory {
+
   final String value;
 
   const LimitCategory._(this.value);
 
   factory LimitCategory.fromJson(String value) => LimitCategory._(value);
 
-  static const limitCategoryWebSearchRequestsPerMinute =
-      LimitCategory._('LIMIT_CATEGORY_WEB_SEARCH_REQUESTS_PER_MINUTE');
-  static const limitCategoryWebFetchRequestsPerMinute =
-      LimitCategory._('LIMIT_CATEGORY_WEB_FETCH_REQUESTS_PER_MINUTE');
-  static const limitCategoryNativeToolCallsRequestsPerMinute =
-      LimitCategory._('LIMIT_CATEGORY_NATIVE_TOOL_CALLS_REQUESTS_PER_MINUTE');
-  static const limitCategoryNonNativeToolCallsRequestsPerMinute =
-      LimitCategory._(
-          'LIMIT_CATEGORY_NON_NATIVE_TOOL_CALLS_REQUESTS_PER_MINUTE');
+  static const limitCategoryWebSearchRequestsPerMinute = LimitCategory._('LIMIT_CATEGORY_WEB_SEARCH_REQUESTS_PER_MINUTE');
+  static const limitCategoryWebFetchRequestsPerMinute = LimitCategory._('LIMIT_CATEGORY_WEB_FETCH_REQUESTS_PER_MINUTE');
+  static const limitCategoryNativeToolCallsRequestsPerMinute = LimitCategory._('LIMIT_CATEGORY_NATIVE_TOOL_CALLS_REQUESTS_PER_MINUTE');
+  static const limitCategoryNonNativeToolCallsRequestsPerMinute = LimitCategory._('LIMIT_CATEGORY_NON_NATIVE_TOOL_CALLS_REQUESTS_PER_MINUTE');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LimitCategory && other.value == value;
+  @override bool operator ==(Object other) => other is LimitCategory && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Actor's limit for one category.
 class LimitOverride {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The category the limit applies to.
   final LimitCategory category;
-
   /// Calls allowed per minute. 0 blocks every call in the category.
   final String requestsPerMinute;
 
-  const LimitOverride(
-      {required this.category, required this.requestsPerMinute});
+  const LimitOverride({required this.category, required this.requestsPerMinute});
 
-  LimitOverride Function({LimitCategory category, String requestsPerMinute})
-      get copyWith => _copyWith;
+  LimitOverride Function({LimitCategory category, String requestsPerMinute}) get copyWith => _copyWith;
 
-  LimitOverride _copyWith(
-          {Object? category = sdkOmittedValue,
-          Object? requestsPerMinute = sdkOmittedValue}) =>
-      LimitOverride(
-        category: identical(category, sdkOmittedValue)
-            ? this.category
-            : category as LimitCategory,
-        requestsPerMinute: identical(requestsPerMinute, sdkOmittedValue)
-            ? this.requestsPerMinute
-            : requestsPerMinute as String,
-      );
+  LimitOverride _copyWith({Object? category = sdkOmittedValue, Object? requestsPerMinute = sdkOmittedValue}) => LimitOverride(
+    category: identical(category, sdkOmittedValue) ? this.category : category as LimitCategory,
+    requestsPerMinute: identical(requestsPerMinute, sdkOmittedValue) ? this.requestsPerMinute : requestsPerMinute as String,
+  );
 
   factory LimitOverride.fromJson(Map<String, dynamic> json) => LimitOverride(
-        category: (json['category'] != null
-            ? LimitCategory.fromJson(json['category'] as String)
-            : null)!,
-        requestsPerMinute: (json['requests_per_minute'] as String?)!,
-      );
+    category: (json['category'] != null ? LimitCategory.fromJson(json['category'] as String) : null)!,
+    requestsPerMinute: (json['requests_per_minute'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'category': category.toJson(),
-        'requests_per_minute': requestsPerMinute,
-      };
+    'category': category.toJson(),
+    'requests_per_minute': requestsPerMinute,
+  };
 }

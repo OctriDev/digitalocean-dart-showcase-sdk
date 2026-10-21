@@ -8,76 +8,52 @@ part of 'byoip_prefixes.dart';
 class ByoipPrefixUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether the BYOIP prefix should be advertised
   final SdkOptional<bool> advertise;
 
   const ByoipPrefixUpdate({this.advertise = const SdkOmitted()});
 
-  ByoipPrefixUpdate Function({SdkOptional<bool> advertise}) get copyWith =>
-      _copyWith;
+  ByoipPrefixUpdate Function({SdkOptional<bool> advertise}) get copyWith => _copyWith;
 
-  ByoipPrefixUpdate _copyWith({Object? advertise = sdkOmittedValue}) =>
-      ByoipPrefixUpdate(
-        advertise: identical(advertise, sdkOmittedValue)
-            ? this.advertise
-            : advertise as SdkOptional<bool>,
-      );
+  ByoipPrefixUpdate _copyWith({Object? advertise = sdkOmittedValue}) => ByoipPrefixUpdate(
+    advertise: identical(advertise, sdkOmittedValue) ? this.advertise : advertise as SdkOptional<bool>,
+  );
 
-  factory ByoipPrefixUpdate.fromJson(Map<String, dynamic> json) =>
-      ByoipPrefixUpdate(
-        advertise: json['advertise'] != null
-            ? SdkPresent((json['advertise'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory ByoipPrefixUpdate.fromJson(Map<String, dynamic> json) => ByoipPrefixUpdate(
+    advertise: json['advertise'] != null ? SdkPresent((json['advertise'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (advertise) {
-          SdkPresent<bool>(value: final value) => {
-              'advertise': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (advertise) {
+      SdkPresent<bool>(value: final value) => {'advertise': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ByoipPrefixUpdateResponse` API schema.
 class ByoipPrefixUpdateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `byoip_prefix` wire field.
   final SdkOptional<ByoipPrefix> byoipPrefix;
 
   const ByoipPrefixUpdateResponse({this.byoipPrefix = const SdkOmitted()});
 
-  ByoipPrefixUpdateResponse Function({SdkOptional<ByoipPrefix> byoipPrefix})
-      get copyWith => _copyWith;
+  ByoipPrefixUpdateResponse Function({SdkOptional<ByoipPrefix> byoipPrefix}) get copyWith => _copyWith;
 
-  ByoipPrefixUpdateResponse _copyWith(
-          {Object? byoipPrefix = sdkOmittedValue}) =>
-      ByoipPrefixUpdateResponse(
-        byoipPrefix: identical(byoipPrefix, sdkOmittedValue)
-            ? this.byoipPrefix
-            : byoipPrefix as SdkOptional<ByoipPrefix>,
-      );
+  ByoipPrefixUpdateResponse _copyWith({Object? byoipPrefix = sdkOmittedValue}) => ByoipPrefixUpdateResponse(
+    byoipPrefix: identical(byoipPrefix, sdkOmittedValue) ? this.byoipPrefix : byoipPrefix as SdkOptional<ByoipPrefix>,
+  );
 
-  factory ByoipPrefixUpdateResponse.fromJson(Map<String, dynamic> json) =>
-      ByoipPrefixUpdateResponse(
-        byoipPrefix: json['byoip_prefix'] != null
-            ? SdkPresent((json['byoip_prefix'] != null
-                ? ByoipPrefix.fromJson(
-                    json['byoip_prefix'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ByoipPrefixUpdateResponse.fromJson(Map<String, dynamic> json) => ByoipPrefixUpdateResponse(
+    byoipPrefix: json['byoip_prefix'] != null ? SdkPresent((json['byoip_prefix'] != null ? ByoipPrefix.fromJson(json['byoip_prefix'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (byoipPrefix) {
-          SdkPresent<ByoipPrefix>(value: final value) => {
-              'byoip_prefix': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (byoipPrefix) {
+      SdkPresent<ByoipPrefix>(value: final value) => {'byoip_prefix': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

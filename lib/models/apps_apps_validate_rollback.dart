@@ -8,83 +8,41 @@ part of 'apps_apps.dart';
 class AppsValidateRollback {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Indicates whether the app can be rolled back to the specified deployment.
   final SdkOptional<bool> valid;
-
   /// Contains the failing condition that is causing the rollback to be invalid.
   final SdkOptional<AppRollbackValidationCondition> error;
-
   /// Contains a list of warnings that may cause the rollback to run under unideal circumstances.
   final SdkOptional<List<AppRollbackValidationCondition>> warnings;
 
-  const AppsValidateRollback(
-      {this.valid = const SdkOmitted(),
-      this.error = const SdkOmitted(),
-      this.warnings = const SdkOmitted()});
+  const AppsValidateRollback({this.valid = const SdkOmitted(), this.error = const SdkOmitted(), this.warnings = const SdkOmitted()});
 
-  AppsValidateRollback Function(
-          {SdkOptional<bool> valid,
-          SdkOptional<AppRollbackValidationCondition> error,
-          SdkOptional<List<AppRollbackValidationCondition>> warnings})
-      get copyWith => _copyWith;
+  AppsValidateRollback Function({SdkOptional<bool> valid, SdkOptional<AppRollbackValidationCondition> error, SdkOptional<List<AppRollbackValidationCondition>> warnings}) get copyWith => _copyWith;
 
-  AppsValidateRollback _copyWith(
-          {Object? valid = sdkOmittedValue,
-          Object? error = sdkOmittedValue,
-          Object? warnings = sdkOmittedValue}) =>
-      AppsValidateRollback(
-        valid: identical(valid, sdkOmittedValue)
-            ? this.valid
-            : valid as SdkOptional<bool>,
-        error: identical(error, sdkOmittedValue)
-            ? this.error
-            : error as SdkOptional<AppRollbackValidationCondition>,
-        warnings: identical(warnings, sdkOmittedValue)
-            ? this.warnings
-            : warnings as SdkOptional<List<AppRollbackValidationCondition>>,
-      );
+  AppsValidateRollback _copyWith({Object? valid = sdkOmittedValue, Object? error = sdkOmittedValue, Object? warnings = sdkOmittedValue}) => AppsValidateRollback(
+    valid: identical(valid, sdkOmittedValue) ? this.valid : valid as SdkOptional<bool>,
+    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<AppRollbackValidationCondition>,
+    warnings: identical(warnings, sdkOmittedValue) ? this.warnings : warnings as SdkOptional<List<AppRollbackValidationCondition>>,
+  );
 
-  factory AppsValidateRollback.fromJson(Map<String, dynamic> json) =>
-      AppsValidateRollback(
-        valid: json['valid'] != null
-            ? SdkPresent((json['valid'] as bool?)!)
-            : const SdkOmitted(),
-        error: json['error'] != null
-            ? SdkPresent((json['error'] != null
-                ? AppRollbackValidationCondition.fromJson(
-                    json['error'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        warnings: json['warnings'] != null
-            ? SdkPresent(((json['warnings'] as List?)
-                ?.map((e) => AppRollbackValidationCondition.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AppsValidateRollback.fromJson(Map<String, dynamic> json) => AppsValidateRollback(
+    valid: json['valid'] != null ? SdkPresent((json['valid'] as bool?)!) : const SdkOmitted(),
+    error: json['error'] != null ? SdkPresent((json['error'] != null ? AppRollbackValidationCondition.fromJson(json['error'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    warnings: json['warnings'] != null ? SdkPresent(((json['warnings'] as List?)?.map((e) => AppRollbackValidationCondition.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (valid) {
-          SdkPresent<bool>(value: final value) => {
-              'valid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (error) {
-          SdkPresent<AppRollbackValidationCondition>(value: final value) => {
-              'error': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (warnings) {
-          SdkPresent<List<AppRollbackValidationCondition>>(
-            value: final value
-          ) =>
-            {
-              'warnings': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (valid) {
+      SdkPresent<bool>(value: final value) => {'valid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (error) {
+      SdkPresent<AppRollbackValidationCondition>(value: final value) => {'error': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (warnings) {
+      SdkPresent<List<AppRollbackValidationCondition>>(value: final value) => {'warnings': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

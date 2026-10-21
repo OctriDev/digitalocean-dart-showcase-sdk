@@ -6,41 +6,29 @@ part of 'agent_platform_api_api_evaluation.dart';
 // agent_platform_api_api_evaluation domain models
 /// Evaluation Run Statuses
 final class ApiEvaluationRunStatus {
+
   final String value;
 
   const ApiEvaluationRunStatus._(this.value);
 
-  factory ApiEvaluationRunStatus.fromJson(String value) =>
-      ApiEvaluationRunStatus._(value);
+  factory ApiEvaluationRunStatus.fromJson(String value) => ApiEvaluationRunStatus._(value);
 
-  static const evaluationRunStatusUnspecified =
-      ApiEvaluationRunStatus._('EVALUATION_RUN_STATUS_UNSPECIFIED');
-  static const evaluationRunQueued =
-      ApiEvaluationRunStatus._('EVALUATION_RUN_QUEUED');
-  static const evaluationRunRunningDataset =
-      ApiEvaluationRunStatus._('EVALUATION_RUN_RUNNING_DATASET');
-  static const evaluationRunEvaluatingResults =
-      ApiEvaluationRunStatus._('EVALUATION_RUN_EVALUATING_RESULTS');
-  static const evaluationRunCancelling =
-      ApiEvaluationRunStatus._('EVALUATION_RUN_CANCELLING');
-  static const evaluationRunCancelled =
-      ApiEvaluationRunStatus._('EVALUATION_RUN_CANCELLED');
-  static const evaluationRunSuccessful =
-      ApiEvaluationRunStatus._('EVALUATION_RUN_SUCCESSFUL');
-  static const evaluationRunPartiallySuccessful =
-      ApiEvaluationRunStatus._('EVALUATION_RUN_PARTIALLY_SUCCESSFUL');
-  static const evaluationRunFailed =
-      ApiEvaluationRunStatus._('EVALUATION_RUN_FAILED');
+  static const evaluationRunStatusUnspecified = ApiEvaluationRunStatus._('EVALUATION_RUN_STATUS_UNSPECIFIED');
+  static const evaluationRunQueued = ApiEvaluationRunStatus._('EVALUATION_RUN_QUEUED');
+  static const evaluationRunRunningDataset = ApiEvaluationRunStatus._('EVALUATION_RUN_RUNNING_DATASET');
+  static const evaluationRunEvaluatingResults = ApiEvaluationRunStatus._('EVALUATION_RUN_EVALUATING_RESULTS');
+  static const evaluationRunCancelling = ApiEvaluationRunStatus._('EVALUATION_RUN_CANCELLING');
+  static const evaluationRunCancelled = ApiEvaluationRunStatus._('EVALUATION_RUN_CANCELLED');
+  static const evaluationRunSuccessful = ApiEvaluationRunStatus._('EVALUATION_RUN_SUCCESSFUL');
+  static const evaluationRunPartiallySuccessful = ApiEvaluationRunStatus._('EVALUATION_RUN_PARTIALLY_SUCCESSFUL');
+  static const evaluationRunFailed = ApiEvaluationRunStatus._('EVALUATION_RUN_FAILED');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiEvaluationRunStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ApiEvaluationRunStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

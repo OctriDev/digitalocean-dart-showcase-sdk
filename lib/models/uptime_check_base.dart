@@ -8,7 +8,6 @@ part of 'uptime.dart';
 class CheckBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique ID that can be used to identify and reference the check.
   final SdkOptional<String> id;
 
@@ -17,23 +16,17 @@ class CheckBase {
   CheckBase Function({SdkOptional<String> id}) get copyWith => _copyWith;
 
   CheckBase _copyWith({Object? id = sdkOmittedValue}) => CheckBase(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
   factory CheckBase.fromJson(Map<String, dynamic> json) => CheckBase(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

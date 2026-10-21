@@ -8,7 +8,6 @@ part of 'apps_app.dart';
 class AppResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An application's configuration and status.
   final SdkOptional<App> app;
 
@@ -17,25 +16,17 @@ class AppResponse {
   AppResponse Function({SdkOptional<App> app}) get copyWith => _copyWith;
 
   AppResponse _copyWith({Object? app = sdkOmittedValue}) => AppResponse(
-        app: identical(app, sdkOmittedValue)
-            ? this.app
-            : app as SdkOptional<App>,
-      );
+    app: identical(app, sdkOmittedValue) ? this.app : app as SdkOptional<App>,
+  );
 
   factory AppResponse.fromJson(Map<String, dynamic> json) => AppResponse(
-        app: json['app'] != null
-            ? SdkPresent((json['app'] != null
-                ? App.fromJson(json['app'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    app: json['app'] != null ? SdkPresent((json['app'] != null ? App.fromJson(json['app'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (app) {
-          SdkPresent<App>(value: final value) => {
-              'app': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (app) {
+      SdkPresent<App>(value: final value) => {'app': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

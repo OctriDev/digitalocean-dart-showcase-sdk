@@ -8,150 +8,73 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelRouterTaskPreset {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Higher-level grouping used by the UI
   final SdkOptional<String> category;
-
   /// Task description
   final SdkOptional<String> description;
-
   /// Default models assigned to this task
   final SdkOptional<List<String>> models;
-
   /// Display name
   final SdkOptional<String> name;
-
   /// Selection policy preference for choosing among assigned models.
   final SdkOptional<ApiModelRouterSelectionPolicy> selectionPolicy;
-
   /// Lightweight labels for filtering
   final SdkOptional<List<String>> tags;
-
   /// Task slug
   final SdkOptional<String> taskSlug;
 
-  const ApiModelRouterTaskPreset(
-      {this.category = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.models = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.selectionPolicy = const SdkOmitted(),
-      this.tags = const SdkOmitted(),
-      this.taskSlug = const SdkOmitted()});
+  const ApiModelRouterTaskPreset({this.category = const SdkOmitted(), this.description = const SdkOmitted(), this.models = const SdkOmitted(), this.name = const SdkOmitted(), this.selectionPolicy = const SdkOmitted(), this.tags = const SdkOmitted(), this.taskSlug = const SdkOmitted()});
 
-  ApiModelRouterTaskPreset Function(
-      {SdkOptional<String> category,
-      SdkOptional<String> description,
-      SdkOptional<List<String>> models,
-      SdkOptional<String> name,
-      SdkOptional<ApiModelRouterSelectionPolicy> selectionPolicy,
-      SdkOptional<List<String>> tags,
-      SdkOptional<String> taskSlug}) get copyWith => _copyWith;
+  ApiModelRouterTaskPreset Function({SdkOptional<String> category, SdkOptional<String> description, SdkOptional<List<String>> models, SdkOptional<String> name, SdkOptional<ApiModelRouterSelectionPolicy> selectionPolicy, SdkOptional<List<String>> tags, SdkOptional<String> taskSlug}) get copyWith => _copyWith;
 
-  ApiModelRouterTaskPreset _copyWith(
-          {Object? category = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? models = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? selectionPolicy = sdkOmittedValue,
-          Object? tags = sdkOmittedValue,
-          Object? taskSlug = sdkOmittedValue}) =>
-      ApiModelRouterTaskPreset(
-        category: identical(category, sdkOmittedValue)
-            ? this.category
-            : category as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        models: identical(models, sdkOmittedValue)
-            ? this.models
-            : models as SdkOptional<List<String>>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        selectionPolicy: identical(selectionPolicy, sdkOmittedValue)
-            ? this.selectionPolicy
-            : selectionPolicy as SdkOptional<ApiModelRouterSelectionPolicy>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>>,
-        taskSlug: identical(taskSlug, sdkOmittedValue)
-            ? this.taskSlug
-            : taskSlug as SdkOptional<String>,
-      );
+  ApiModelRouterTaskPreset _copyWith({Object? category = sdkOmittedValue, Object? description = sdkOmittedValue, Object? models = sdkOmittedValue, Object? name = sdkOmittedValue, Object? selectionPolicy = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? taskSlug = sdkOmittedValue}) => ApiModelRouterTaskPreset(
+    category: identical(category, sdkOmittedValue) ? this.category : category as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    models: identical(models, sdkOmittedValue) ? this.models : models as SdkOptional<List<String>>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    selectionPolicy: identical(selectionPolicy, sdkOmittedValue) ? this.selectionPolicy : selectionPolicy as SdkOptional<ApiModelRouterSelectionPolicy>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
+    taskSlug: identical(taskSlug, sdkOmittedValue) ? this.taskSlug : taskSlug as SdkOptional<String>,
+  );
 
-  factory ApiModelRouterTaskPreset.fromJson(Map<String, dynamic> json) =>
-      ApiModelRouterTaskPreset(
-        category: json['category'] != null
-            ? SdkPresent((json['category'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        models: json['models'] != null
-            ? SdkPresent(
-                ((json['models'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        selectionPolicy: json['selection_policy'] != null
-            ? SdkPresent((json['selection_policy'] != null
-                ? ApiModelRouterSelectionPolicy.fromJson(
-                    json['selection_policy'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        tags: json['tags'] != null
-            ? SdkPresent(
-                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        taskSlug: json['task_slug'] != null
-            ? SdkPresent((json['task_slug'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiModelRouterTaskPreset.fromJson(Map<String, dynamic> json) => ApiModelRouterTaskPreset(
+    category: json['category'] != null ? SdkPresent((json['category'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    models: json['models'] != null ? SdkPresent(((json['models'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    selectionPolicy: json['selection_policy'] != null ? SdkPresent((json['selection_policy'] != null ? ApiModelRouterSelectionPolicy.fromJson(json['selection_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    taskSlug: json['task_slug'] != null ? SdkPresent((json['task_slug'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (category) {
-          SdkPresent<String>(value: final value) => {
-              'category': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (models) {
-          SdkPresent<List<String>>(value: final value) => {
-              'models': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (selectionPolicy) {
-          SdkPresent<ApiModelRouterSelectionPolicy>(value: final value) => {
-              'selection_policy': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<String>>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (taskSlug) {
-          SdkPresent<String>(value: final value) => {
-              'task_slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (category) {
+      SdkPresent<String>(value: final value) => {'category': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (models) {
+      SdkPresent<List<String>>(value: final value) => {'models': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (selectionPolicy) {
+      SdkPresent<ApiModelRouterSelectionPolicy>(value: final value) => {'selection_policy': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<String>>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (taskSlug) {
+      SdkPresent<String>(value: final value) => {'task_slug': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

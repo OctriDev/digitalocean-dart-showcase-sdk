@@ -8,47 +8,27 @@ part of 'databases_database.dart';
 class DatabaseSchemaRegistrySubjectConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the schema subject.
   final String subjectName;
-
   /// The compatibility level of the schema registry.
-  final DatabaseSchemaRegistrySubjectConfigCompatibilityLevel
-      compatibilityLevel;
+  final DatabaseSchemaRegistrySubjectConfigCompatibilityLevel compatibilityLevel;
 
-  const DatabaseSchemaRegistrySubjectConfig(
-      {required this.subjectName, required this.compatibilityLevel});
+  const DatabaseSchemaRegistrySubjectConfig({required this.subjectName, required this.compatibilityLevel});
 
-  DatabaseSchemaRegistrySubjectConfig Function(
-      {String subjectName,
-      DatabaseSchemaRegistrySubjectConfigCompatibilityLevel
-          compatibilityLevel}) get copyWith => _copyWith;
+  DatabaseSchemaRegistrySubjectConfig Function({String subjectName, DatabaseSchemaRegistrySubjectConfigCompatibilityLevel compatibilityLevel}) get copyWith => _copyWith;
 
-  DatabaseSchemaRegistrySubjectConfig _copyWith(
-          {Object? subjectName = sdkOmittedValue,
-          Object? compatibilityLevel = sdkOmittedValue}) =>
-      DatabaseSchemaRegistrySubjectConfig(
-        subjectName: identical(subjectName, sdkOmittedValue)
-            ? this.subjectName
-            : subjectName as String,
-        compatibilityLevel: identical(compatibilityLevel, sdkOmittedValue)
-            ? this.compatibilityLevel
-            : compatibilityLevel
-                as DatabaseSchemaRegistrySubjectConfigCompatibilityLevel,
-      );
+  DatabaseSchemaRegistrySubjectConfig _copyWith({Object? subjectName = sdkOmittedValue, Object? compatibilityLevel = sdkOmittedValue}) => DatabaseSchemaRegistrySubjectConfig(
+    subjectName: identical(subjectName, sdkOmittedValue) ? this.subjectName : subjectName as String,
+    compatibilityLevel: identical(compatibilityLevel, sdkOmittedValue) ? this.compatibilityLevel : compatibilityLevel as DatabaseSchemaRegistrySubjectConfigCompatibilityLevel,
+  );
 
-  factory DatabaseSchemaRegistrySubjectConfig.fromJson(
-          Map<String, dynamic> json) =>
-      DatabaseSchemaRegistrySubjectConfig(
-        subjectName: (json['subject_name'] as String?)!,
-        compatibilityLevel: (json['compatibility_level'] != null
-            ? DatabaseSchemaRegistrySubjectConfigCompatibilityLevel.fromJson(
-                json['compatibility_level'] as String)
-            : null)!,
-      );
+  factory DatabaseSchemaRegistrySubjectConfig.fromJson(Map<String, dynamic> json) => DatabaseSchemaRegistrySubjectConfig(
+    subjectName: (json['subject_name'] as String?)!,
+    compatibilityLevel: (json['compatibility_level'] != null ? DatabaseSchemaRegistrySubjectConfigCompatibilityLevel.fromJson(json['compatibility_level'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'subject_name': subjectName,
-        'compatibility_level': compatibilityLevel.toJson(),
-      };
+    'subject_name': subjectName,
+    'compatibility_level': compatibilityLevel.toJson(),
+  };
 }

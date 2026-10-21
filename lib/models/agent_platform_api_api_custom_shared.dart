@@ -8,574 +8,272 @@ part of 'agent_platform_api_api_custom.dart';
 class ApiCustomEvaluationMetricConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
-
   /// When set, the custom metric is soft-deleted and must not appear in pickers.
   final SdkOptional<String> deletedAt;
-
   /// When true, each row must provide ground truth and it is included in the judge context. When false, ground truth is not required and is not sent to the judge.
   final SdkOptional<bool> requiresGroundTruth;
-
   /// Instructions for the judge model (multi-line).
   final SdkOptional<String> scoringPrompt;
-
   /// Optional `date-time`-formatted value serialized in the `updated_at` wire field.
   final SdkOptional<String> updatedAt;
 
-  const ApiCustomEvaluationMetricConfig(
-      {this.createdAt = const SdkOmitted(),
-      this.deletedAt = const SdkOmitted(),
-      this.requiresGroundTruth = const SdkOmitted(),
-      this.scoringPrompt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted()});
+  const ApiCustomEvaluationMetricConfig({this.createdAt = const SdkOmitted(), this.deletedAt = const SdkOmitted(), this.requiresGroundTruth = const SdkOmitted(), this.scoringPrompt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
 
-  ApiCustomEvaluationMetricConfig Function(
-      {SdkOptional<String> createdAt,
-      SdkOptional<String> deletedAt,
-      SdkOptional<bool> requiresGroundTruth,
-      SdkOptional<String> scoringPrompt,
-      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  ApiCustomEvaluationMetricConfig Function({SdkOptional<String> createdAt, SdkOptional<String> deletedAt, SdkOptional<bool> requiresGroundTruth, SdkOptional<String> scoringPrompt, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  ApiCustomEvaluationMetricConfig _copyWith(
-          {Object? createdAt = sdkOmittedValue,
-          Object? deletedAt = sdkOmittedValue,
-          Object? requiresGroundTruth = sdkOmittedValue,
-          Object? scoringPrompt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      ApiCustomEvaluationMetricConfig(
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        deletedAt: identical(deletedAt, sdkOmittedValue)
-            ? this.deletedAt
-            : deletedAt as SdkOptional<String>,
-        requiresGroundTruth: identical(requiresGroundTruth, sdkOmittedValue)
-            ? this.requiresGroundTruth
-            : requiresGroundTruth as SdkOptional<bool>,
-        scoringPrompt: identical(scoringPrompt, sdkOmittedValue)
-            ? this.scoringPrompt
-            : scoringPrompt as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-      );
+  ApiCustomEvaluationMetricConfig _copyWith({Object? createdAt = sdkOmittedValue, Object? deletedAt = sdkOmittedValue, Object? requiresGroundTruth = sdkOmittedValue, Object? scoringPrompt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => ApiCustomEvaluationMetricConfig(
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    deletedAt: identical(deletedAt, sdkOmittedValue) ? this.deletedAt : deletedAt as SdkOptional<String>,
+    requiresGroundTruth: identical(requiresGroundTruth, sdkOmittedValue) ? this.requiresGroundTruth : requiresGroundTruth as SdkOptional<bool>,
+    scoringPrompt: identical(scoringPrompt, sdkOmittedValue) ? this.scoringPrompt : scoringPrompt as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+  );
 
-  factory ApiCustomEvaluationMetricConfig.fromJson(Map<String, dynamic> json) =>
-      ApiCustomEvaluationMetricConfig(
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        deletedAt: json['deleted_at'] != null
-            ? SdkPresent((json['deleted_at'] as String?)!)
-            : const SdkOmitted(),
-        requiresGroundTruth: json['requires_ground_truth'] != null
-            ? SdkPresent((json['requires_ground_truth'] as bool?)!)
-            : const SdkOmitted(),
-        scoringPrompt: json['scoring_prompt'] != null
-            ? SdkPresent((json['scoring_prompt'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCustomEvaluationMetricConfig.fromJson(Map<String, dynamic> json) => ApiCustomEvaluationMetricConfig(
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    deletedAt: json['deleted_at'] != null ? SdkPresent((json['deleted_at'] as String?)!) : const SdkOmitted(),
+    requiresGroundTruth: json['requires_ground_truth'] != null ? SdkPresent((json['requires_ground_truth'] as bool?)!) : const SdkOmitted(),
+    scoringPrompt: json['scoring_prompt'] != null ? SdkPresent((json['scoring_prompt'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deletedAt) {
-          SdkPresent<String>(value: final value) => {
-              'deleted_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (requiresGroundTruth) {
-          SdkPresent<bool>(value: final value) => {
-              'requires_ground_truth': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scoringPrompt) {
-          SdkPresent<String>(value: final value) => {
-              'scoring_prompt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deletedAt) {
+      SdkPresent<String>(value: final value) => {'deleted_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (requiresGroundTruth) {
+      SdkPresent<bool>(value: final value) => {'requires_ground_truth': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scoringPrompt) {
+      SdkPresent<String>(value: final value) => {'scoring_prompt': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Custom model - user-imported model from HuggingFace, Spaces, etc.
 class ApiCustomModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// List of active deployments using this model
   final SdkOptional<List<CustomModelActiveDeployment>> activeDeployments;
-
   /// Model architecture type (free-form string from config.json)
   final SdkOptional<String> architecture;
-
   /// Raw config.json contents from the model repository
   final SdkOptional<Map<String, dynamic>> configJson;
-
   /// Maximum context length supported by the model
   final SdkOptional<int> contextLength;
-
   /// Estimated monthly cost in dollars for hosting
   final SdkOptional<int> costEstimatePerMonth;
-
   /// Timestamp when the model was created
   final SdkOptional<String> createdAt;
-
   /// Description of the custom model
   final SdkOptional<String> description;
-
   /// User-facing reason the most recent import failed; empty otherwise.
   final SdkOptional<String> errorMessage;
-
   /// Number of files in the model
   final SdkOptional<int> fileCount;
-
   /// Input modalities supported (e.g., text, image)
   final SdkOptional<List<String>> inputModalities;
-
   /// License under which the model is distributed
   final SdkOptional<String> license;
-
   /// Name of the custom model
   final SdkOptional<String> name;
-
   /// Output modalities supported (e.g., text, image)
   final SdkOptional<List<String>> outputModalities;
-
   /// Number of parameters in the model
   final SdkOptional<String> parameters;
-
   /// Reference to the original source of the model
   final SdkOptional<CustomModelSourceRef> sourceRef;
-
   /// Source from which the model was imported
   final SdkOptional<CustomModelSourceType> sourceType;
-
   /// Import and deployment status of the custom model
   final SdkOptional<ApiCustomModelStatus> status;
-
   /// Region of the Spaces bucket where model files are stored
   final SdkOptional<String> storageRegion;
-
   /// User-defined tags for organizing models
   final SdkOptional<CustomModelTags> tags;
-
   /// Team that owns the model
   final SdkOptional<String> teamId;
-
   /// Total size of model files in bytes
   final SdkOptional<String> totalSizeBytes;
-
   /// Timestamp when the model was last updated
   final SdkOptional<String> updatedAt;
-
   /// Unique identifier for the custom model
   final SdkOptional<String> uuid;
 
-  const ApiCustomModel(
-      {this.activeDeployments = const SdkOmitted(),
-      this.architecture = const SdkOmitted(),
-      this.configJson = const SdkOmitted(),
-      this.contextLength = const SdkOmitted(),
-      this.costEstimatePerMonth = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.errorMessage = const SdkOmitted(),
-      this.fileCount = const SdkOmitted(),
-      this.inputModalities = const SdkOmitted(),
-      this.license = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.outputModalities = const SdkOmitted(),
-      this.parameters = const SdkOmitted(),
-      this.sourceRef = const SdkOmitted(),
-      this.sourceType = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.storageRegion = const SdkOmitted(),
-      this.tags = const SdkOmitted(),
-      this.teamId = const SdkOmitted(),
-      this.totalSizeBytes = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.uuid = const SdkOmitted()});
+  const ApiCustomModel({this.activeDeployments = const SdkOmitted(), this.architecture = const SdkOmitted(), this.configJson = const SdkOmitted(), this.contextLength = const SdkOmitted(), this.costEstimatePerMonth = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.description = const SdkOmitted(), this.errorMessage = const SdkOmitted(), this.fileCount = const SdkOmitted(), this.inputModalities = const SdkOmitted(), this.license = const SdkOmitted(), this.name = const SdkOmitted(), this.outputModalities = const SdkOmitted(), this.parameters = const SdkOmitted(), this.sourceRef = const SdkOmitted(), this.sourceType = const SdkOmitted(), this.status = const SdkOmitted(), this.storageRegion = const SdkOmitted(), this.tags = const SdkOmitted(), this.teamId = const SdkOmitted(), this.totalSizeBytes = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.uuid = const SdkOmitted()});
 
-  ApiCustomModel Function(
-      {SdkOptional<List<CustomModelActiveDeployment>> activeDeployments,
-      SdkOptional<String> architecture,
-      SdkOptional<Map<String, dynamic>> configJson,
-      SdkOptional<int> contextLength,
-      SdkOptional<int> costEstimatePerMonth,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> description,
-      SdkOptional<String> errorMessage,
-      SdkOptional<int> fileCount,
-      SdkOptional<List<String>> inputModalities,
-      SdkOptional<String> license,
-      SdkOptional<String> name,
-      SdkOptional<List<String>> outputModalities,
-      SdkOptional<String> parameters,
-      SdkOptional<CustomModelSourceRef> sourceRef,
-      SdkOptional<CustomModelSourceType> sourceType,
-      SdkOptional<ApiCustomModelStatus> status,
-      SdkOptional<String> storageRegion,
-      SdkOptional<CustomModelTags> tags,
-      SdkOptional<String> teamId,
-      SdkOptional<String> totalSizeBytes,
-      SdkOptional<String> updatedAt,
-      SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiCustomModel Function({SdkOptional<List<CustomModelActiveDeployment>> activeDeployments, SdkOptional<String> architecture, SdkOptional<Map<String, dynamic>> configJson, SdkOptional<int> contextLength, SdkOptional<int> costEstimatePerMonth, SdkOptional<String> createdAt, SdkOptional<String> description, SdkOptional<String> errorMessage, SdkOptional<int> fileCount, SdkOptional<List<String>> inputModalities, SdkOptional<String> license, SdkOptional<String> name, SdkOptional<List<String>> outputModalities, SdkOptional<String> parameters, SdkOptional<CustomModelSourceRef> sourceRef, SdkOptional<CustomModelSourceType> sourceType, SdkOptional<ApiCustomModelStatus> status, SdkOptional<String> storageRegion, SdkOptional<CustomModelTags> tags, SdkOptional<String> teamId, SdkOptional<String> totalSizeBytes, SdkOptional<String> updatedAt, SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiCustomModel _copyWith(
-          {Object? activeDeployments = sdkOmittedValue,
-          Object? architecture = sdkOmittedValue,
-          Object? configJson = sdkOmittedValue,
-          Object? contextLength = sdkOmittedValue,
-          Object? costEstimatePerMonth = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? errorMessage = sdkOmittedValue,
-          Object? fileCount = sdkOmittedValue,
-          Object? inputModalities = sdkOmittedValue,
-          Object? license = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? outputModalities = sdkOmittedValue,
-          Object? parameters = sdkOmittedValue,
-          Object? sourceRef = sdkOmittedValue,
-          Object? sourceType = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? storageRegion = sdkOmittedValue,
-          Object? tags = sdkOmittedValue,
-          Object? teamId = sdkOmittedValue,
-          Object? totalSizeBytes = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? uuid = sdkOmittedValue}) =>
-      ApiCustomModel(
-        activeDeployments: identical(activeDeployments, sdkOmittedValue)
-            ? this.activeDeployments
-            : activeDeployments
-                as SdkOptional<List<CustomModelActiveDeployment>>,
-        architecture: identical(architecture, sdkOmittedValue)
-            ? this.architecture
-            : architecture as SdkOptional<String>,
-        configJson: identical(configJson, sdkOmittedValue)
-            ? this.configJson
-            : configJson as SdkOptional<Map<String, dynamic>>,
-        contextLength: identical(contextLength, sdkOmittedValue)
-            ? this.contextLength
-            : contextLength as SdkOptional<int>,
-        costEstimatePerMonth: identical(costEstimatePerMonth, sdkOmittedValue)
-            ? this.costEstimatePerMonth
-            : costEstimatePerMonth as SdkOptional<int>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        errorMessage: identical(errorMessage, sdkOmittedValue)
-            ? this.errorMessage
-            : errorMessage as SdkOptional<String>,
-        fileCount: identical(fileCount, sdkOmittedValue)
-            ? this.fileCount
-            : fileCount as SdkOptional<int>,
-        inputModalities: identical(inputModalities, sdkOmittedValue)
-            ? this.inputModalities
-            : inputModalities as SdkOptional<List<String>>,
-        license: identical(license, sdkOmittedValue)
-            ? this.license
-            : license as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        outputModalities: identical(outputModalities, sdkOmittedValue)
-            ? this.outputModalities
-            : outputModalities as SdkOptional<List<String>>,
-        parameters: identical(parameters, sdkOmittedValue)
-            ? this.parameters
-            : parameters as SdkOptional<String>,
-        sourceRef: identical(sourceRef, sdkOmittedValue)
-            ? this.sourceRef
-            : sourceRef as SdkOptional<CustomModelSourceRef>,
-        sourceType: identical(sourceType, sdkOmittedValue)
-            ? this.sourceType
-            : sourceType as SdkOptional<CustomModelSourceType>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ApiCustomModelStatus>,
-        storageRegion: identical(storageRegion, sdkOmittedValue)
-            ? this.storageRegion
-            : storageRegion as SdkOptional<String>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<CustomModelTags>,
-        teamId: identical(teamId, sdkOmittedValue)
-            ? this.teamId
-            : teamId as SdkOptional<String>,
-        totalSizeBytes: identical(totalSizeBytes, sdkOmittedValue)
-            ? this.totalSizeBytes
-            : totalSizeBytes as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-      );
+  ApiCustomModel _copyWith({Object? activeDeployments = sdkOmittedValue, Object? architecture = sdkOmittedValue, Object? configJson = sdkOmittedValue, Object? contextLength = sdkOmittedValue, Object? costEstimatePerMonth = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? description = sdkOmittedValue, Object? errorMessage = sdkOmittedValue, Object? fileCount = sdkOmittedValue, Object? inputModalities = sdkOmittedValue, Object? license = sdkOmittedValue, Object? name = sdkOmittedValue, Object? outputModalities = sdkOmittedValue, Object? parameters = sdkOmittedValue, Object? sourceRef = sdkOmittedValue, Object? sourceType = sdkOmittedValue, Object? status = sdkOmittedValue, Object? storageRegion = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? teamId = sdkOmittedValue, Object? totalSizeBytes = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiCustomModel(
+    activeDeployments: identical(activeDeployments, sdkOmittedValue) ? this.activeDeployments : activeDeployments as SdkOptional<List<CustomModelActiveDeployment>>,
+    architecture: identical(architecture, sdkOmittedValue) ? this.architecture : architecture as SdkOptional<String>,
+    configJson: identical(configJson, sdkOmittedValue) ? this.configJson : configJson as SdkOptional<Map<String, dynamic>>,
+    contextLength: identical(contextLength, sdkOmittedValue) ? this.contextLength : contextLength as SdkOptional<int>,
+    costEstimatePerMonth: identical(costEstimatePerMonth, sdkOmittedValue) ? this.costEstimatePerMonth : costEstimatePerMonth as SdkOptional<int>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    errorMessage: identical(errorMessage, sdkOmittedValue) ? this.errorMessage : errorMessage as SdkOptional<String>,
+    fileCount: identical(fileCount, sdkOmittedValue) ? this.fileCount : fileCount as SdkOptional<int>,
+    inputModalities: identical(inputModalities, sdkOmittedValue) ? this.inputModalities : inputModalities as SdkOptional<List<String>>,
+    license: identical(license, sdkOmittedValue) ? this.license : license as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    outputModalities: identical(outputModalities, sdkOmittedValue) ? this.outputModalities : outputModalities as SdkOptional<List<String>>,
+    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as SdkOptional<String>,
+    sourceRef: identical(sourceRef, sdkOmittedValue) ? this.sourceRef : sourceRef as SdkOptional<CustomModelSourceRef>,
+    sourceType: identical(sourceType, sdkOmittedValue) ? this.sourceType : sourceType as SdkOptional<CustomModelSourceType>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ApiCustomModelStatus>,
+    storageRegion: identical(storageRegion, sdkOmittedValue) ? this.storageRegion : storageRegion as SdkOptional<String>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<CustomModelTags>,
+    teamId: identical(teamId, sdkOmittedValue) ? this.teamId : teamId as SdkOptional<String>,
+    totalSizeBytes: identical(totalSizeBytes, sdkOmittedValue) ? this.totalSizeBytes : totalSizeBytes as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+  );
 
   factory ApiCustomModel.fromJson(Map<String, dynamic> json) => ApiCustomModel(
-        activeDeployments: json['active_deployments'] != null
-            ? SdkPresent(((json['active_deployments'] as List?)
-                ?.map((e) => CustomModelActiveDeployment.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        architecture: json['architecture'] != null
-            ? SdkPresent((json['architecture'] as String?)!)
-            : const SdkOmitted(),
-        configJson: json['config_json'] != null
-            ? SdkPresent((json['config_json'] == null
-                ? null
-                : json['config_json'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-        contextLength: json['context_length'] != null
-            ? SdkPresent(((json['context_length'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        costEstimatePerMonth: json['cost_estimate_per_month'] != null
-            ? SdkPresent(((json['cost_estimate_per_month'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        errorMessage: json['error_message'] != null
-            ? SdkPresent((json['error_message'] as String?)!)
-            : const SdkOmitted(),
-        fileCount: json['file_count'] != null
-            ? SdkPresent(((json['file_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        inputModalities: json['input_modalities'] != null
-            ? SdkPresent(((json['input_modalities'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        license: json['license'] != null
-            ? SdkPresent((json['license'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        outputModalities: json['output_modalities'] != null
-            ? SdkPresent(((json['output_modalities'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        parameters: json['parameters'] != null
-            ? SdkPresent((json['parameters'] as String?)!)
-            : const SdkOmitted(),
-        sourceRef: json['source_ref'] != null
-            ? SdkPresent((json['source_ref'] != null
-                ? CustomModelSourceRef.fromJson(
-                    json['source_ref'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        sourceType: json['source_type'] != null
-            ? SdkPresent((json['source_type'] != null
-                ? CustomModelSourceType.fromJson(json['source_type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ApiCustomModelStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        storageRegion: json['storage_region'] != null
-            ? SdkPresent((json['storage_region'] as String?)!)
-            : const SdkOmitted(),
-        tags: json['tags'] != null
-            ? SdkPresent((json['tags'] != null
-                ? CustomModelTags.fromJson(json['tags'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        teamId: json['team_id'] != null
-            ? SdkPresent((json['team_id'] as String?)!)
-            : const SdkOmitted(),
-        totalSizeBytes: json['total_size_bytes'] != null
-            ? SdkPresent((json['total_size_bytes'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+    activeDeployments: json['active_deployments'] != null ? SdkPresent(((json['active_deployments'] as List?)?.map((e) => CustomModelActiveDeployment.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    architecture: json['architecture'] != null ? SdkPresent((json['architecture'] as String?)!) : const SdkOmitted(),
+    configJson: json['config_json'] != null ? SdkPresent((json['config_json'] == null ? null : json['config_json'] as Map<String, dynamic>)!) : const SdkOmitted(),
+    contextLength: json['context_length'] != null ? SdkPresent(((json['context_length'] as num?)?.toInt())!) : const SdkOmitted(),
+    costEstimatePerMonth: json['cost_estimate_per_month'] != null ? SdkPresent(((json['cost_estimate_per_month'] as num?)?.toInt())!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    errorMessage: json['error_message'] != null ? SdkPresent((json['error_message'] as String?)!) : const SdkOmitted(),
+    fileCount: json['file_count'] != null ? SdkPresent(((json['file_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    inputModalities: json['input_modalities'] != null ? SdkPresent(((json['input_modalities'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    license: json['license'] != null ? SdkPresent((json['license'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    outputModalities: json['output_modalities'] != null ? SdkPresent(((json['output_modalities'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    parameters: json['parameters'] != null ? SdkPresent((json['parameters'] as String?)!) : const SdkOmitted(),
+    sourceRef: json['source_ref'] != null ? SdkPresent((json['source_ref'] != null ? CustomModelSourceRef.fromJson(json['source_ref'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    sourceType: json['source_type'] != null ? SdkPresent((json['source_type'] != null ? CustomModelSourceType.fromJson(json['source_type'] as String) : null)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ApiCustomModelStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    storageRegion: json['storage_region'] != null ? SdkPresent((json['storage_region'] as String?)!) : const SdkOmitted(),
+    tags: json['tags'] != null ? SdkPresent((json['tags'] != null ? CustomModelTags.fromJson(json['tags'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    teamId: json['team_id'] != null ? SdkPresent((json['team_id'] as String?)!) : const SdkOmitted(),
+    totalSizeBytes: json['total_size_bytes'] != null ? SdkPresent((json['total_size_bytes'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (activeDeployments) {
-          SdkPresent<List<CustomModelActiveDeployment>>(value: final value) => {
-              'active_deployments': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (architecture) {
-          SdkPresent<String>(value: final value) => {
-              'architecture': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (configJson) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'config_json': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (contextLength) {
-          SdkPresent<int>(value: final value) => {
-              'context_length': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (costEstimatePerMonth) {
-          SdkPresent<int>(value: final value) => {
-              'cost_estimate_per_month': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (errorMessage) {
-          SdkPresent<String>(value: final value) => {
-              'error_message': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fileCount) {
-          SdkPresent<int>(value: final value) => {
-              'file_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputModalities) {
-          SdkPresent<List<String>>(value: final value) => {
-              'input_modalities': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (license) {
-          SdkPresent<String>(value: final value) => {
-              'license': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputModalities) {
-          SdkPresent<List<String>>(value: final value) => {
-              'output_modalities': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (parameters) {
-          SdkPresent<String>(value: final value) => {
-              'parameters': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sourceRef) {
-          SdkPresent<CustomModelSourceRef>(value: final value) => {
-              'source_ref': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sourceType) {
-          SdkPresent<CustomModelSourceType>(value: final value) => {
-              'source_type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<ApiCustomModelStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (storageRegion) {
-          SdkPresent<String>(value: final value) => {
-              'storage_region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<CustomModelTags>(value: final value) => {
-              'tags': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (teamId) {
-          SdkPresent<String>(value: final value) => {
-              'team_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalSizeBytes) {
-          SdkPresent<String>(value: final value) => {
-              'total_size_bytes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (activeDeployments) {
+      SdkPresent<List<CustomModelActiveDeployment>>(value: final value) => {'active_deployments': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (architecture) {
+      SdkPresent<String>(value: final value) => {'architecture': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (configJson) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'config_json': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (contextLength) {
+      SdkPresent<int>(value: final value) => {'context_length': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (costEstimatePerMonth) {
+      SdkPresent<int>(value: final value) => {'cost_estimate_per_month': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (errorMessage) {
+      SdkPresent<String>(value: final value) => {'error_message': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fileCount) {
+      SdkPresent<int>(value: final value) => {'file_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputModalities) {
+      SdkPresent<List<String>>(value: final value) => {'input_modalities': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (license) {
+      SdkPresent<String>(value: final value) => {'license': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputModalities) {
+      SdkPresent<List<String>>(value: final value) => {'output_modalities': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (parameters) {
+      SdkPresent<String>(value: final value) => {'parameters': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sourceRef) {
+      SdkPresent<CustomModelSourceRef>(value: final value) => {'source_ref': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sourceType) {
+      SdkPresent<CustomModelSourceType>(value: final value) => {'source_type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<ApiCustomModelStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (storageRegion) {
+      SdkPresent<String>(value: final value) => {'storage_region': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<CustomModelTags>(value: final value) => {'tags': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (teamId) {
+      SdkPresent<String>(value: final value) => {'team_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalSizeBytes) {
+      SdkPresent<String>(value: final value) => {'total_size_bytes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Import and deployment status of the custom model
 final class ApiCustomModelStatus {
+
   final String value;
 
   const ApiCustomModelStatus._(this.value);
 
-  factory ApiCustomModelStatus.fromJson(String value) =>
-      ApiCustomModelStatus._(value);
+  factory ApiCustomModelStatus.fromJson(String value) => ApiCustomModelStatus._(value);
 
   static const statusUnspecified = ApiCustomModelStatus._('STATUS_UNSPECIFIED');
   static const statusImporting = ApiCustomModelStatus._('STATUS_IMPORTING');
@@ -585,13 +283,10 @@ final class ApiCustomModelStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiCustomModelStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ApiCustomModelStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

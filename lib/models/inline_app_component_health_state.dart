@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models
 /// Optional enumerated value serialized in the `state` wire field.
 final class AppComponentHealthState {
+
   final String value;
 
   const AppComponentHealthState._(this.value);
 
-  factory AppComponentHealthState.fromJson(String value) =>
-      AppComponentHealthState._(value);
+  factory AppComponentHealthState.fromJson(String value) => AppComponentHealthState._(value);
 
   static const unknown = AppComponentHealthState._('UNKNOWN');
   static const healthy = AppComponentHealthState._('HEALTHY');
@@ -19,124 +19,86 @@ final class AppComponentHealthState {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppComponentHealthState && other.value == value;
+  @override bool operator ==(Object other) => other is AppComponentHealthState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `instance_size_slug` wire field.
 final class AppComponentInstanceBaseInstanceSizeSlugVariant0 {
+
   final String value;
 
   const AppComponentInstanceBaseInstanceSizeSlugVariant0._(this.value);
 
-  factory AppComponentInstanceBaseInstanceSizeSlugVariant0.fromJson(
-          String value) =>
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._(value);
+  factory AppComponentInstanceBaseInstanceSizeSlugVariant0.fromJson(String value) => AppComponentInstanceBaseInstanceSizeSlugVariant0._(value);
 
-  static const appsS1vcpu05gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-s-1vcpu-0.5gb');
-  static const appsS1vcpu1gbFixed =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._(
-          'apps-s-1vcpu-1gb-fixed');
-  static const appsS1vcpu1gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-s-1vcpu-1gb');
-  static const appsS1vcpu2gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-s-1vcpu-2gb');
-  static const appsS2vcpu4gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-s-2vcpu-4gb');
-  static const appsD1vcpu05gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-1vcpu-0.5gb');
-  static const appsD1vcpu1gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-1vcpu-1gb');
-  static const appsD1vcpu2gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-1vcpu-2gb');
-  static const appsD1vcpu4gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-1vcpu-4gb');
-  static const appsD2vcpu4gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-2vcpu-4gb');
-  static const appsD2vcpu8gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-2vcpu-8gb');
-  static const appsD4vcpu8gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-4vcpu-8gb');
-  static const appsD4vcpu16gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-4vcpu-16gb');
-  static const appsD8vcpu32gb =
-      AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-8vcpu-32gb');
+  static const appsS1vcpu05gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-s-1vcpu-0.5gb');
+  static const appsS1vcpu1gbFixed = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-s-1vcpu-1gb-fixed');
+  static const appsS1vcpu1gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-s-1vcpu-1gb');
+  static const appsS1vcpu2gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-s-1vcpu-2gb');
+  static const appsS2vcpu4gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-s-2vcpu-4gb');
+  static const appsD1vcpu05gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-1vcpu-0.5gb');
+  static const appsD1vcpu1gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-1vcpu-1gb');
+  static const appsD1vcpu2gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-1vcpu-2gb');
+  static const appsD1vcpu4gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-1vcpu-4gb');
+  static const appsD2vcpu4gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-2vcpu-4gb');
+  static const appsD2vcpu8gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-2vcpu-8gb');
+  static const appsD4vcpu8gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-4vcpu-8gb');
+  static const appsD4vcpu16gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-4vcpu-16gb');
+  static const appsD8vcpu32gb = AppComponentInstanceBaseInstanceSizeSlugVariant0._('apps-d-8vcpu-32gb');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppComponentInstanceBaseInstanceSizeSlugVariant0 &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is AppComponentInstanceBaseInstanceSizeSlugVariant0 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Deprecated size slugs for legacy plans. We strongly encourage customers to use the new plans when creating or upgrading apps.
 final class AppComponentInstanceBaseInstanceSizeSlugVariant1 {
+
   final String value;
 
   const AppComponentInstanceBaseInstanceSizeSlugVariant1._(this.value);
 
-  factory AppComponentInstanceBaseInstanceSizeSlugVariant1.fromJson(
-          String value) =>
-      AppComponentInstanceBaseInstanceSizeSlugVariant1._(value);
+  factory AppComponentInstanceBaseInstanceSizeSlugVariant1.fromJson(String value) => AppComponentInstanceBaseInstanceSizeSlugVariant1._(value);
 
-  static const basicXxs =
-      AppComponentInstanceBaseInstanceSizeSlugVariant1._('basic-xxs');
-  static const basicXs =
-      AppComponentInstanceBaseInstanceSizeSlugVariant1._('basic-xs');
-  static const basicS =
-      AppComponentInstanceBaseInstanceSizeSlugVariant1._('basic-s');
-  static const basicM =
-      AppComponentInstanceBaseInstanceSizeSlugVariant1._('basic-m');
-  static const professionalXs =
-      AppComponentInstanceBaseInstanceSizeSlugVariant1._('professional-xs');
-  static const professionalS =
-      AppComponentInstanceBaseInstanceSizeSlugVariant1._('professional-s');
-  static const professionalM =
-      AppComponentInstanceBaseInstanceSizeSlugVariant1._('professional-m');
-  static const professional1l =
-      AppComponentInstanceBaseInstanceSizeSlugVariant1._('professional-1l');
-  static const professionalL =
-      AppComponentInstanceBaseInstanceSizeSlugVariant1._('professional-l');
-  static const professionalXl =
-      AppComponentInstanceBaseInstanceSizeSlugVariant1._('professional-xl');
+  static const basicXxs = AppComponentInstanceBaseInstanceSizeSlugVariant1._('basic-xxs');
+  static const basicXs = AppComponentInstanceBaseInstanceSizeSlugVariant1._('basic-xs');
+  static const basicS = AppComponentInstanceBaseInstanceSizeSlugVariant1._('basic-s');
+  static const basicM = AppComponentInstanceBaseInstanceSizeSlugVariant1._('basic-m');
+  static const professionalXs = AppComponentInstanceBaseInstanceSizeSlugVariant1._('professional-xs');
+  static const professionalS = AppComponentInstanceBaseInstanceSizeSlugVariant1._('professional-s');
+  static const professionalM = AppComponentInstanceBaseInstanceSizeSlugVariant1._('professional-m');
+  static const professional1l = AppComponentInstanceBaseInstanceSizeSlugVariant1._('professional-1l');
+  static const professionalL = AppComponentInstanceBaseInstanceSizeSlugVariant1._('professional-l');
+  static const professionalXl = AppComponentInstanceBaseInstanceSizeSlugVariant1._('professional-xl');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppComponentInstanceBaseInstanceSizeSlugVariant1 &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is AppComponentInstanceBaseInstanceSizeSlugVariant1 && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// - MYSQL: MySQL - PG: PostgreSQL - REDIS: Caching - MONGODB: MongoDB - KAFKA: Kafka - OPENSEARCH: OpenSearch - VALKEY: ValKey
 final class AppDatabaseSpecEngine {
+
   final String value;
 
   const AppDatabaseSpecEngine._(this.value);
 
-  factory AppDatabaseSpecEngine.fromJson(String value) =>
-      AppDatabaseSpecEngine._(value);
+  factory AppDatabaseSpecEngine.fromJson(String value) => AppDatabaseSpecEngine._(value);
 
   static const unset = AppDatabaseSpecEngine._('UNSET');
   static const mysql = AppDatabaseSpecEngine._('MYSQL');
@@ -149,50 +111,44 @@ final class AppDatabaseSpecEngine {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppDatabaseSpecEngine && other.value == value;
+  @override bool operator ==(Object other) => other is AppDatabaseSpecEngine && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The minimum version of TLS a client application can use to access resources for the domain. Must be one of the following values wrapped within quotations: `"1.2"` or `"1.3"`.
 final class AppDomainSpecMinimumTlsVersion {
+
   final String value;
 
   const AppDomainSpecMinimumTlsVersion._(this.value);
 
-  factory AppDomainSpecMinimumTlsVersion.fromJson(String value) =>
-      AppDomainSpecMinimumTlsVersion._(value);
+  factory AppDomainSpecMinimumTlsVersion.fromJson(String value) => AppDomainSpecMinimumTlsVersion._(value);
 
   static const v12 = AppDomainSpecMinimumTlsVersion._('1.2');
   static const v13 = AppDomainSpecMinimumTlsVersion._('1.3');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppDomainSpecMinimumTlsVersion && other.value == value;
+  @override bool operator ==(Object other) => other is AppDomainSpecMinimumTlsVersion && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// - DEFAULT: The default `.ondigitalocean.app` domain assigned to this app - PRIMARY: The primary domain for this app that is displayed as the default in the control panel, used in bindable environment variables, and any other places that reference an app's live URL. Only one domain may be set as primary. - ALIAS: A non-primary domain
 final class AppDomainSpecType {
+
   final String value;
 
   const AppDomainSpecType._(this.value);
 
-  factory AppDomainSpecType.fromJson(String value) =>
-      AppDomainSpecType._(value);
+  factory AppDomainSpecType.fromJson(String value) => AppDomainSpecType._(value);
 
   static const unspecified = AppDomainSpecType._('UNSPECIFIED');
   static const default_ = AppDomainSpecType._('DEFAULT');
@@ -201,25 +157,22 @@ final class AppDomainSpecType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppDomainSpecType && other.value == value;
+  @override bool operator ==(Object other) => other is AppDomainSpecType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The current phase of the autoscaling event
 final class AppEventAutoscalingPhase {
+
   final String value;
 
   const AppEventAutoscalingPhase._(this.value);
 
-  factory AppEventAutoscalingPhase.fromJson(String value) =>
-      AppEventAutoscalingPhase._(value);
+  factory AppEventAutoscalingPhase.fromJson(String value) => AppEventAutoscalingPhase._(value);
 
   static const unknown = AppEventAutoscalingPhase._('UNKNOWN');
   static const pending = AppEventAutoscalingPhase._('PENDING');
@@ -230,19 +183,17 @@ final class AppEventAutoscalingPhase {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppEventAutoscalingPhase && other.value == value;
+  @override bool operator ==(Object other) => other is AppEventAutoscalingPhase && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of event
 final class AppEventType {
+
   final String value;
 
   const AppEventType._(this.value);
@@ -255,25 +206,22 @@ final class AppEventType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppEventType && other.value == value;
+  @override bool operator ==(Object other) => other is AppEventType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Supported compute component by DigitalOcean App Platform.
 final class AppInstanceComponentType {
+
   final String value;
 
   const AppInstanceComponentType._(this.value);
 
-  factory AppInstanceComponentType.fromJson(String value) =>
-      AppInstanceComponentType._(value);
+  factory AppInstanceComponentType.fromJson(String value) => AppInstanceComponentType._(value);
 
   static const service = AppInstanceComponentType._('SERVICE');
   static const worker = AppInstanceComponentType._('WORKER');
@@ -281,25 +229,22 @@ final class AppInstanceComponentType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppInstanceComponentType && other.value == value;
+  @override bool operator ==(Object other) => other is AppInstanceComponentType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The phase of the job invocation
 final class AppJobInvocationPhase {
+
   final String value;
 
   const AppJobInvocationPhase._(this.value);
 
-  factory AppJobInvocationPhase.fromJson(String value) =>
-      AppJobInvocationPhase._(value);
+  factory AppJobInvocationPhase.fromJson(String value) => AppJobInvocationPhase._(value);
 
   static const unknown = AppJobInvocationPhase._('UNKNOWN');
   static const pending = AppJobInvocationPhase._('PENDING');
@@ -311,25 +256,22 @@ final class AppJobInvocationPhase {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppJobInvocationPhase && other.value == value;
+  @override bool operator ==(Object other) => other is AppJobInvocationPhase && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of trigger that initiated the job invocation.
 final class AppJobInvocationTriggerType {
+
   final String value;
 
   const AppJobInvocationTriggerType._(this.value);
 
-  factory AppJobInvocationTriggerType.fromJson(String value) =>
-      AppJobInvocationTriggerType._(value);
+  factory AppJobInvocationTriggerType.fromJson(String value) => AppJobInvocationTriggerType._(value);
 
   static const manual = AppJobInvocationTriggerType._('MANUAL');
   static const schedule = AppJobInvocationTriggerType._('SCHEDULE');
@@ -337,13 +279,10 @@ final class AppJobInvocationTriggerType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppJobInvocationTriggerType && other.value == value;
+  @override bool operator ==(Object other) => other is AppJobInvocationTriggerType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

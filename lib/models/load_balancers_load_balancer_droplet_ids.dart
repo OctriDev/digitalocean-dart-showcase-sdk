@@ -8,37 +8,25 @@ part of 'load_balancers.dart';
 class LoadBalancerDropletIds {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array containing the IDs of the Droplets assigned to the load balancer.
   final SdkOptional<List<int>> dropletIds;
 
   const LoadBalancerDropletIds({this.dropletIds = const SdkOmitted()});
 
-  LoadBalancerDropletIds Function({SdkOptional<List<int>> dropletIds})
-      get copyWith => _copyWith;
+  LoadBalancerDropletIds Function({SdkOptional<List<int>> dropletIds}) get copyWith => _copyWith;
 
-  LoadBalancerDropletIds _copyWith({Object? dropletIds = sdkOmittedValue}) =>
-      LoadBalancerDropletIds(
-        dropletIds: identical(dropletIds, sdkOmittedValue)
-            ? this.dropletIds
-            : dropletIds as SdkOptional<List<int>>,
-      );
+  LoadBalancerDropletIds _copyWith({Object? dropletIds = sdkOmittedValue}) => LoadBalancerDropletIds(
+    dropletIds: identical(dropletIds, sdkOmittedValue) ? this.dropletIds : dropletIds as SdkOptional<List<int>>,
+  );
 
-  factory LoadBalancerDropletIds.fromJson(Map<String, dynamic> json) =>
-      LoadBalancerDropletIds(
-        dropletIds: json['droplet_ids'] != null
-            ? SdkPresent(((json['droplet_ids'] as List?)
-                ?.map((e) => (e as num).toInt())
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory LoadBalancerDropletIds.fromJson(Map<String, dynamic> json) => LoadBalancerDropletIds(
+    dropletIds: json['droplet_ids'] != null ? SdkPresent(((json['droplet_ids'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (dropletIds) {
-          SdkPresent<List<int>>(value: final value) => {
-              'droplet_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (dropletIds) {
+      SdkPresent<List<int>>(value: final value) => {'droplet_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

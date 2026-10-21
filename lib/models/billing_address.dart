@@ -8,162 +8,81 @@ part of 'billing.dart';
 class BillingAddress {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Street address line 1
   final SdkOptional<String> addressLine1;
-
   /// Street address line 2
   final SdkOptional<String> addressLine2;
-
   /// City
   final SdkOptional<String> city;
-
   /// Region
   final SdkOptional<String> region;
-
   /// Postal code
   final SdkOptional<String> postalCode;
-
   /// Country (ISO2) code
   final SdkOptional<String> countryIso2Code;
-
   /// Timestamp billing address was created
   final SdkOptional<String> createdAt;
-
   /// Timestamp billing address was updated
   final SdkOptional<String> updatedAt;
 
-  const BillingAddress(
-      {this.addressLine1 = const SdkOmitted(),
-      this.addressLine2 = const SdkOmitted(),
-      this.city = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.postalCode = const SdkOmitted(),
-      this.countryIso2Code = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted()});
+  const BillingAddress({this.addressLine1 = const SdkOmitted(), this.addressLine2 = const SdkOmitted(), this.city = const SdkOmitted(), this.region = const SdkOmitted(), this.postalCode = const SdkOmitted(), this.countryIso2Code = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
 
-  BillingAddress Function(
-      {SdkOptional<String> addressLine1,
-      SdkOptional<String> addressLine2,
-      SdkOptional<String> city,
-      SdkOptional<String> region,
-      SdkOptional<String> postalCode,
-      SdkOptional<String> countryIso2Code,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  BillingAddress Function({SdkOptional<String> addressLine1, SdkOptional<String> addressLine2, SdkOptional<String> city, SdkOptional<String> region, SdkOptional<String> postalCode, SdkOptional<String> countryIso2Code, SdkOptional<String> createdAt, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  BillingAddress _copyWith(
-          {Object? addressLine1 = sdkOmittedValue,
-          Object? addressLine2 = sdkOmittedValue,
-          Object? city = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? postalCode = sdkOmittedValue,
-          Object? countryIso2Code = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      BillingAddress(
-        addressLine1: identical(addressLine1, sdkOmittedValue)
-            ? this.addressLine1
-            : addressLine1 as SdkOptional<String>,
-        addressLine2: identical(addressLine2, sdkOmittedValue)
-            ? this.addressLine2
-            : addressLine2 as SdkOptional<String>,
-        city: identical(city, sdkOmittedValue)
-            ? this.city
-            : city as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-        postalCode: identical(postalCode, sdkOmittedValue)
-            ? this.postalCode
-            : postalCode as SdkOptional<String>,
-        countryIso2Code: identical(countryIso2Code, sdkOmittedValue)
-            ? this.countryIso2Code
-            : countryIso2Code as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-      );
+  BillingAddress _copyWith({Object? addressLine1 = sdkOmittedValue, Object? addressLine2 = sdkOmittedValue, Object? city = sdkOmittedValue, Object? region = sdkOmittedValue, Object? postalCode = sdkOmittedValue, Object? countryIso2Code = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => BillingAddress(
+    addressLine1: identical(addressLine1, sdkOmittedValue) ? this.addressLine1 : addressLine1 as SdkOptional<String>,
+    addressLine2: identical(addressLine2, sdkOmittedValue) ? this.addressLine2 : addressLine2 as SdkOptional<String>,
+    city: identical(city, sdkOmittedValue) ? this.city : city as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+    postalCode: identical(postalCode, sdkOmittedValue) ? this.postalCode : postalCode as SdkOptional<String>,
+    countryIso2Code: identical(countryIso2Code, sdkOmittedValue) ? this.countryIso2Code : countryIso2Code as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+  );
 
   factory BillingAddress.fromJson(Map<String, dynamic> json) => BillingAddress(
-        addressLine1: json['address_line1'] != null
-            ? SdkPresent((json['address_line1'] as String?)!)
-            : const SdkOmitted(),
-        addressLine2: json['address_line2'] != null
-            ? SdkPresent((json['address_line2'] as String?)!)
-            : const SdkOmitted(),
-        city: json['city'] != null
-            ? SdkPresent((json['city'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-        postalCode: json['postal_code'] != null
-            ? SdkPresent((json['postal_code'] as String?)!)
-            : const SdkOmitted(),
-        countryIso2Code: json['country_iso2_code'] != null
-            ? SdkPresent((json['country_iso2_code'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+    addressLine1: json['address_line1'] != null ? SdkPresent((json['address_line1'] as String?)!) : const SdkOmitted(),
+    addressLine2: json['address_line2'] != null ? SdkPresent((json['address_line2'] as String?)!) : const SdkOmitted(),
+    city: json['city'] != null ? SdkPresent((json['city'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+    postalCode: json['postal_code'] != null ? SdkPresent((json['postal_code'] as String?)!) : const SdkOmitted(),
+    countryIso2Code: json['country_iso2_code'] != null ? SdkPresent((json['country_iso2_code'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (addressLine1) {
-          SdkPresent<String>(value: final value) => {
-              'address_line1': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (addressLine2) {
-          SdkPresent<String>(value: final value) => {
-              'address_line2': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (city) {
-          SdkPresent<String>(value: final value) => {
-              'city': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (postalCode) {
-          SdkPresent<String>(value: final value) => {
-              'postal_code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (countryIso2Code) {
-          SdkPresent<String>(value: final value) => {
-              'country_iso2_code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (addressLine1) {
+      SdkPresent<String>(value: final value) => {'address_line1': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (addressLine2) {
+      SdkPresent<String>(value: final value) => {'address_line2': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (city) {
+      SdkPresent<String>(value: final value) => {'city': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (postalCode) {
+      SdkPresent<String>(value: final value) => {'postal_code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (countryIso2Code) {
+      SdkPresent<String>(value: final value) => {'country_iso2_code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

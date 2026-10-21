@@ -8,190 +8,92 @@ part of 'agent_platform_api_api_create.dart';
 class ApiCreateKnowledgeBaseDataSourceInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// AWS S3 Data Source
   final SdkOptional<ApiAWSDataSource> awsDataSource;
-
   /// Optional enumerated value serialized in the `chunking_algorithm` wire field.
   final SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm;
-
   /// Optional object value serialized in the `chunking_options` wire field.
   final SdkOptional<ApiChunkingOptions> chunkingOptions;
-
   /// Knowledge base id
   final SdkOptional<String> knowledgeBaseUuid;
-
   /// Spaces Bucket Data Source
   final SdkOptional<ApiSpacesDataSource> spacesDataSource;
-
   /// WebCrawlerDataSource
   final SdkOptional<ApiWebCrawlerDataSource> webCrawlerDataSource;
 
-  const ApiCreateKnowledgeBaseDataSourceInputPublic(
-      {this.awsDataSource = const SdkOmitted(),
-      this.chunkingAlgorithm = const SdkOmitted(),
-      this.chunkingOptions = const SdkOmitted(),
-      this.knowledgeBaseUuid = const SdkOmitted(),
-      this.spacesDataSource = const SdkOmitted(),
-      this.webCrawlerDataSource = const SdkOmitted()});
+  const ApiCreateKnowledgeBaseDataSourceInputPublic({this.awsDataSource = const SdkOmitted(), this.chunkingAlgorithm = const SdkOmitted(), this.chunkingOptions = const SdkOmitted(), this.knowledgeBaseUuid = const SdkOmitted(), this.spacesDataSource = const SdkOmitted(), this.webCrawlerDataSource = const SdkOmitted()});
 
-  ApiCreateKnowledgeBaseDataSourceInputPublic Function(
-          {SdkOptional<ApiAWSDataSource> awsDataSource,
-          SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm,
-          SdkOptional<ApiChunkingOptions> chunkingOptions,
-          SdkOptional<String> knowledgeBaseUuid,
-          SdkOptional<ApiSpacesDataSource> spacesDataSource,
-          SdkOptional<ApiWebCrawlerDataSource> webCrawlerDataSource})
-      get copyWith => _copyWith;
+  ApiCreateKnowledgeBaseDataSourceInputPublic Function({SdkOptional<ApiAWSDataSource> awsDataSource, SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm, SdkOptional<ApiChunkingOptions> chunkingOptions, SdkOptional<String> knowledgeBaseUuid, SdkOptional<ApiSpacesDataSource> spacesDataSource, SdkOptional<ApiWebCrawlerDataSource> webCrawlerDataSource}) get copyWith => _copyWith;
 
-  ApiCreateKnowledgeBaseDataSourceInputPublic _copyWith(
-          {Object? awsDataSource = sdkOmittedValue,
-          Object? chunkingAlgorithm = sdkOmittedValue,
-          Object? chunkingOptions = sdkOmittedValue,
-          Object? knowledgeBaseUuid = sdkOmittedValue,
-          Object? spacesDataSource = sdkOmittedValue,
-          Object? webCrawlerDataSource = sdkOmittedValue}) =>
-      ApiCreateKnowledgeBaseDataSourceInputPublic(
-        awsDataSource: identical(awsDataSource, sdkOmittedValue)
-            ? this.awsDataSource
-            : awsDataSource as SdkOptional<ApiAWSDataSource>,
-        chunkingAlgorithm: identical(chunkingAlgorithm, sdkOmittedValue)
-            ? this.chunkingAlgorithm
-            : chunkingAlgorithm as SdkOptional<ApiChunkingAlgorithm>,
-        chunkingOptions: identical(chunkingOptions, sdkOmittedValue)
-            ? this.chunkingOptions
-            : chunkingOptions as SdkOptional<ApiChunkingOptions>,
-        knowledgeBaseUuid: identical(knowledgeBaseUuid, sdkOmittedValue)
-            ? this.knowledgeBaseUuid
-            : knowledgeBaseUuid as SdkOptional<String>,
-        spacesDataSource: identical(spacesDataSource, sdkOmittedValue)
-            ? this.spacesDataSource
-            : spacesDataSource as SdkOptional<ApiSpacesDataSource>,
-        webCrawlerDataSource: identical(webCrawlerDataSource, sdkOmittedValue)
-            ? this.webCrawlerDataSource
-            : webCrawlerDataSource as SdkOptional<ApiWebCrawlerDataSource>,
-      );
+  ApiCreateKnowledgeBaseDataSourceInputPublic _copyWith({Object? awsDataSource = sdkOmittedValue, Object? chunkingAlgorithm = sdkOmittedValue, Object? chunkingOptions = sdkOmittedValue, Object? knowledgeBaseUuid = sdkOmittedValue, Object? spacesDataSource = sdkOmittedValue, Object? webCrawlerDataSource = sdkOmittedValue}) => ApiCreateKnowledgeBaseDataSourceInputPublic(
+    awsDataSource: identical(awsDataSource, sdkOmittedValue) ? this.awsDataSource : awsDataSource as SdkOptional<ApiAWSDataSource>,
+    chunkingAlgorithm: identical(chunkingAlgorithm, sdkOmittedValue) ? this.chunkingAlgorithm : chunkingAlgorithm as SdkOptional<ApiChunkingAlgorithm>,
+    chunkingOptions: identical(chunkingOptions, sdkOmittedValue) ? this.chunkingOptions : chunkingOptions as SdkOptional<ApiChunkingOptions>,
+    knowledgeBaseUuid: identical(knowledgeBaseUuid, sdkOmittedValue) ? this.knowledgeBaseUuid : knowledgeBaseUuid as SdkOptional<String>,
+    spacesDataSource: identical(spacesDataSource, sdkOmittedValue) ? this.spacesDataSource : spacesDataSource as SdkOptional<ApiSpacesDataSource>,
+    webCrawlerDataSource: identical(webCrawlerDataSource, sdkOmittedValue) ? this.webCrawlerDataSource : webCrawlerDataSource as SdkOptional<ApiWebCrawlerDataSource>,
+  );
 
-  factory ApiCreateKnowledgeBaseDataSourceInputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiCreateKnowledgeBaseDataSourceInputPublic(
-        awsDataSource: json['aws_data_source'] != null
-            ? SdkPresent((json['aws_data_source'] != null
-                ? ApiAWSDataSource.fromJson(
-                    json['aws_data_source'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        chunkingAlgorithm: json['chunking_algorithm'] != null
-            ? SdkPresent((json['chunking_algorithm'] != null
-                ? ApiChunkingAlgorithm.fromJson(
-                    json['chunking_algorithm'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        chunkingOptions: json['chunking_options'] != null
-            ? SdkPresent((json['chunking_options'] != null
-                ? ApiChunkingOptions.fromJson(
-                    json['chunking_options'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        knowledgeBaseUuid: json['knowledge_base_uuid'] != null
-            ? SdkPresent((json['knowledge_base_uuid'] as String?)!)
-            : const SdkOmitted(),
-        spacesDataSource: json['spaces_data_source'] != null
-            ? SdkPresent((json['spaces_data_source'] != null
-                ? ApiSpacesDataSource.fromJson(
-                    json['spaces_data_source'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        webCrawlerDataSource: json['web_crawler_data_source'] != null
-            ? SdkPresent((json['web_crawler_data_source'] != null
-                ? ApiWebCrawlerDataSource.fromJson(
-                    json['web_crawler_data_source'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateKnowledgeBaseDataSourceInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateKnowledgeBaseDataSourceInputPublic(
+    awsDataSource: json['aws_data_source'] != null ? SdkPresent((json['aws_data_source'] != null ? ApiAWSDataSource.fromJson(json['aws_data_source'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    chunkingAlgorithm: json['chunking_algorithm'] != null ? SdkPresent((json['chunking_algorithm'] != null ? ApiChunkingAlgorithm.fromJson(json['chunking_algorithm'] as String) : null)!) : const SdkOmitted(),
+    chunkingOptions: json['chunking_options'] != null ? SdkPresent((json['chunking_options'] != null ? ApiChunkingOptions.fromJson(json['chunking_options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    knowledgeBaseUuid: json['knowledge_base_uuid'] != null ? SdkPresent((json['knowledge_base_uuid'] as String?)!) : const SdkOmitted(),
+    spacesDataSource: json['spaces_data_source'] != null ? SdkPresent((json['spaces_data_source'] != null ? ApiSpacesDataSource.fromJson(json['spaces_data_source'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    webCrawlerDataSource: json['web_crawler_data_source'] != null ? SdkPresent((json['web_crawler_data_source'] != null ? ApiWebCrawlerDataSource.fromJson(json['web_crawler_data_source'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (awsDataSource) {
-          SdkPresent<ApiAWSDataSource>(value: final value) => {
-              'aws_data_source': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (chunkingAlgorithm) {
-          SdkPresent<ApiChunkingAlgorithm>(value: final value) => {
-              'chunking_algorithm': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (chunkingOptions) {
-          SdkPresent<ApiChunkingOptions>(value: final value) => {
-              'chunking_options': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (knowledgeBaseUuid) {
-          SdkPresent<String>(value: final value) => {
-              'knowledge_base_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (spacesDataSource) {
-          SdkPresent<ApiSpacesDataSource>(value: final value) => {
-              'spaces_data_source': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (webCrawlerDataSource) {
-          SdkPresent<ApiWebCrawlerDataSource>(value: final value) => {
-              'web_crawler_data_source': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (awsDataSource) {
+      SdkPresent<ApiAWSDataSource>(value: final value) => {'aws_data_source': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (chunkingAlgorithm) {
+      SdkPresent<ApiChunkingAlgorithm>(value: final value) => {'chunking_algorithm': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (chunkingOptions) {
+      SdkPresent<ApiChunkingOptions>(value: final value) => {'chunking_options': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (knowledgeBaseUuid) {
+      SdkPresent<String>(value: final value) => {'knowledge_base_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (spacesDataSource) {
+      SdkPresent<ApiSpacesDataSource>(value: final value) => {'spaces_data_source': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (webCrawlerDataSource) {
+      SdkPresent<ApiWebCrawlerDataSource>(value: final value) => {'web_crawler_data_source': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Information about a newly created knowldege base data source
 class ApiCreateKnowledgeBaseDataSourceOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Data Source configuration for Knowledge Bases
   final SdkOptional<ApiKnowledgeBaseDataSource> knowledgeBaseDataSource;
 
-  const ApiCreateKnowledgeBaseDataSourceOutput(
-      {this.knowledgeBaseDataSource = const SdkOmitted()});
+  const ApiCreateKnowledgeBaseDataSourceOutput({this.knowledgeBaseDataSource = const SdkOmitted()});
 
-  ApiCreateKnowledgeBaseDataSourceOutput Function(
-          {SdkOptional<ApiKnowledgeBaseDataSource> knowledgeBaseDataSource})
-      get copyWith => _copyWith;
+  ApiCreateKnowledgeBaseDataSourceOutput Function({SdkOptional<ApiKnowledgeBaseDataSource> knowledgeBaseDataSource}) get copyWith => _copyWith;
 
-  ApiCreateKnowledgeBaseDataSourceOutput _copyWith(
-          {Object? knowledgeBaseDataSource = sdkOmittedValue}) =>
-      ApiCreateKnowledgeBaseDataSourceOutput(
-        knowledgeBaseDataSource:
-            identical(knowledgeBaseDataSource, sdkOmittedValue)
-                ? this.knowledgeBaseDataSource
-                : knowledgeBaseDataSource
-                    as SdkOptional<ApiKnowledgeBaseDataSource>,
-      );
+  ApiCreateKnowledgeBaseDataSourceOutput _copyWith({Object? knowledgeBaseDataSource = sdkOmittedValue}) => ApiCreateKnowledgeBaseDataSourceOutput(
+    knowledgeBaseDataSource: identical(knowledgeBaseDataSource, sdkOmittedValue) ? this.knowledgeBaseDataSource : knowledgeBaseDataSource as SdkOptional<ApiKnowledgeBaseDataSource>,
+  );
 
-  factory ApiCreateKnowledgeBaseDataSourceOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiCreateKnowledgeBaseDataSourceOutput(
-        knowledgeBaseDataSource: json['knowledge_base_data_source'] != null
-            ? SdkPresent((json['knowledge_base_data_source'] != null
-                ? ApiKnowledgeBaseDataSource.fromJson(
-                    json['knowledge_base_data_source'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateKnowledgeBaseDataSourceOutput.fromJson(Map<String, dynamic> json) => ApiCreateKnowledgeBaseDataSourceOutput(
+    knowledgeBaseDataSource: json['knowledge_base_data_source'] != null ? SdkPresent((json['knowledge_base_data_source'] != null ? ApiKnowledgeBaseDataSource.fromJson(json['knowledge_base_data_source'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (knowledgeBaseDataSource) {
-          SdkPresent<ApiKnowledgeBaseDataSource>(value: final value) => {
-              'knowledge_base_data_source': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (knowledgeBaseDataSource) {
+      SdkPresent<ApiKnowledgeBaseDataSource>(value: final value) => {'knowledge_base_data_source': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

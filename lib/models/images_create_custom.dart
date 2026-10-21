@@ -7,193 +7,107 @@ part of 'images.dart';
 class ImageNewCustomVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A URL from which the custom Linux virtual machine image may be retrieved. The image it points to must be in the raw, qcow2, vhdx, vdi, or vmdk format. It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed.
   final SdkOptional<String> url;
-
   /// The slug identifier for the region where the resource will initially be available.
   final SdkOptional<RegionSlug> region;
-
   /// A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. &lt;br&gt;&lt;br&gt;Requires `tag:create` scope.
   final SdkOptional<List<String>?> tags;
 
-  const ImageNewCustomVariant1(
-      {this.url = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.tags = const SdkOmitted()});
+  const ImageNewCustomVariant1({this.url = const SdkOmitted(), this.region = const SdkOmitted(), this.tags = const SdkOmitted()});
 
-  ImageNewCustomVariant1 Function(
-      {SdkOptional<String> url,
-      SdkOptional<RegionSlug> region,
-      SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
+  ImageNewCustomVariant1 Function({SdkOptional<String> url, SdkOptional<RegionSlug> region, SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
 
-  ImageNewCustomVariant1 _copyWith(
-          {Object? url = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? tags = sdkOmittedValue}) =>
-      ImageNewCustomVariant1(
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<RegionSlug>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>?>,
-      );
+  ImageNewCustomVariant1 _copyWith({Object? url = sdkOmittedValue, Object? region = sdkOmittedValue, Object? tags = sdkOmittedValue}) => ImageNewCustomVariant1(
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<RegionSlug>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>?>,
+  );
 
-  factory ImageNewCustomVariant1.fromJson(Map<String, dynamic> json) =>
-      ImageNewCustomVariant1(
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? RegionSlug.fromJson(json['region'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        tags: json.containsKey('tags')
-            ? SdkPresent(
-                (json['tags'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-      );
+  factory ImageNewCustomVariant1.fromJson(Map<String, dynamic> json) => ImageNewCustomVariant1(
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? RegionSlug.fromJson(json['region'] as String) : null)!) : const SdkOmitted(),
+    tags: json.containsKey('tags') ? SdkPresent((json['tags'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<RegionSlug>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<RegionSlug>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<String>?>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ImageNewCustom` API schema.
 class ImageNewCustom {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The display name that has been given to an image. This is what is shown in the control panel and is generally a descriptive title for the image in question.
   final String name;
-
   /// The name of a custom image's distribution. Currently, the valid values are `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`, `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`. Any other value will be accepted but ignored, and `Unknown` will be used in its place.
   final SdkOptional<Distribution> distribution;
-
   /// An optional free-form text field to describe an image.
   final SdkOptional<String> description;
-
   /// A URL from which the custom Linux virtual machine image may be retrieved. The image it points to must be in the raw, qcow2, vhdx, vdi, or vmdk format. It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed.
   final String url;
-
   /// The slug identifier for the region where the resource will initially be available.
   final RegionSlug region;
-
   /// A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. &lt;br&gt;&lt;br&gt;Requires `tag:create` scope.
   final SdkOptional<List<String>?> tags;
 
-  const ImageNewCustom(
-      {required this.name,
-      this.distribution = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      required this.url,
-      required this.region,
-      this.tags = const SdkOmitted()});
+  const ImageNewCustom({required this.name, this.distribution = const SdkOmitted(), this.description = const SdkOmitted(), required this.url, required this.region, this.tags = const SdkOmitted()});
 
-  ImageNewCustom Function(
-      {String name,
-      SdkOptional<Distribution> distribution,
-      SdkOptional<String> description,
-      String url,
-      RegionSlug region,
-      SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
+  ImageNewCustom Function({String name, SdkOptional<Distribution> distribution, SdkOptional<String> description, String url, RegionSlug region, SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
 
-  ImageNewCustom _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? distribution = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? tags = sdkOmittedValue}) =>
-      ImageNewCustom(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        distribution: identical(distribution, sdkOmittedValue)
-            ? this.distribution
-            : distribution as SdkOptional<Distribution>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        url: identical(url, sdkOmittedValue) ? this.url : url as String,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as RegionSlug,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>?>,
-      );
+  ImageNewCustom _copyWith({Object? name = sdkOmittedValue, Object? distribution = sdkOmittedValue, Object? description = sdkOmittedValue, Object? url = sdkOmittedValue, Object? region = sdkOmittedValue, Object? tags = sdkOmittedValue}) => ImageNewCustom(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    distribution: identical(distribution, sdkOmittedValue) ? this.distribution : distribution as SdkOptional<Distribution>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    url: identical(url, sdkOmittedValue) ? this.url : url as String,
+    region: identical(region, sdkOmittedValue) ? this.region : region as RegionSlug,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>?>,
+  );
 
   factory ImageNewCustom.fromJson(Map<String, dynamic> json) => ImageNewCustom(
-        name: (json['name'] as String?)!,
-        distribution: json['distribution'] != null
-            ? SdkPresent((json['distribution'] != null
-                ? Distribution.fromJson(json['distribution'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        url: (json['url'] as String?)!,
-        region: (json['region'] != null
-            ? RegionSlug.fromJson(json['region'] as String)
-            : null)!,
-        tags: json.containsKey('tags')
-            ? SdkPresent(
-                (json['tags'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-      );
+    name: (json['name'] as String?)!,
+    distribution: json['distribution'] != null ? SdkPresent((json['distribution'] != null ? Distribution.fromJson(json['distribution'] as String) : null)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    url: (json['url'] as String?)!,
+    region: (json['region'] != null ? RegionSlug.fromJson(json['region'] as String) : null)!,
+    tags: json.containsKey('tags') ? SdkPresent((json['tags'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (distribution) {
-          SdkPresent<Distribution>(value: final value) => {
-              'distribution': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'url': url,
-        'region': region.toJson(),
-        ...switch (tags) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (distribution) {
+      SdkPresent<Distribution>(value: final value) => {'distribution': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    'url': url,
+    'region': region.toJson(),
+    ...switch (tags) {
+      SdkPresent<List<String>?>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `NewCustomImage` API schema.
 class NewCustomImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `image` wire field.
   final SdkOptional<Image> image;
 
@@ -202,25 +116,17 @@ class NewCustomImage {
   NewCustomImage Function({SdkOptional<Image> image}) get copyWith => _copyWith;
 
   NewCustomImage _copyWith({Object? image = sdkOmittedValue}) => NewCustomImage(
-        image: identical(image, sdkOmittedValue)
-            ? this.image
-            : image as SdkOptional<Image>,
-      );
+    image: identical(image, sdkOmittedValue) ? this.image : image as SdkOptional<Image>,
+  );
 
   factory NewCustomImage.fromJson(Map<String, dynamic> json) => NewCustomImage(
-        image: json['image'] != null
-            ? SdkPresent((json['image'] != null
-                ? Image.fromJson(json['image'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    image: json['image'] != null ? SdkPresent((json['image'] != null ? Image.fromJson(json['image'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (image) {
-          SdkPresent<Image>(value: final value) => {
-              'image': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (image) {
+      SdkPresent<Image>(value: final value) => {'image': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,37 +8,25 @@ part of 'droplet_actions.dart';
 class DropletActionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `action` wire field.
   final SdkOptional<Action> action;
 
   const DropletActionResponse({this.action = const SdkOmitted()});
 
-  DropletActionResponse Function({SdkOptional<Action> action}) get copyWith =>
-      _copyWith;
+  DropletActionResponse Function({SdkOptional<Action> action}) get copyWith => _copyWith;
 
-  DropletActionResponse _copyWith({Object? action = sdkOmittedValue}) =>
-      DropletActionResponse(
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as SdkOptional<Action>,
-      );
+  DropletActionResponse _copyWith({Object? action = sdkOmittedValue}) => DropletActionResponse(
+    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<Action>,
+  );
 
-  factory DropletActionResponse.fromJson(Map<String, dynamic> json) =>
-      DropletActionResponse(
-        action: json['action'] != null
-            ? SdkPresent((json['action'] != null
-                ? Action.fromJson(json['action'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory DropletActionResponse.fromJson(Map<String, dynamic> json) => DropletActionResponse(
+    action: json['action'] != null ? SdkPresent((json['action'] != null ? Action.fromJson(json['action'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (action) {
-          SdkPresent<Action>(value: final value) => {
-              'action': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (action) {
+      SdkPresent<Action>(value: final value) => {'action': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

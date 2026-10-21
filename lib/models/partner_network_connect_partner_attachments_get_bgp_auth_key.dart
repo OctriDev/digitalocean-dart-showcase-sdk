@@ -9,38 +9,24 @@ class SinglePartnerAttachmentBgpAuthKeyVariant0 {
   static const String constructionSurface = 'named';
   final SdkOptional<Map<String, dynamic>> bgpAuthKey;
 
-  const SinglePartnerAttachmentBgpAuthKeyVariant0(
-      {this.bgpAuthKey = const SdkOmitted()});
+  const SinglePartnerAttachmentBgpAuthKeyVariant0({this.bgpAuthKey = const SdkOmitted()});
 
-  SinglePartnerAttachmentBgpAuthKeyVariant0 Function(
-      {SdkOptional<Map<String, dynamic>> bgpAuthKey}) get copyWith => _copyWith;
+  SinglePartnerAttachmentBgpAuthKeyVariant0 Function({SdkOptional<Map<String, dynamic>> bgpAuthKey}) get copyWith => _copyWith;
 
-  SinglePartnerAttachmentBgpAuthKeyVariant0 _copyWith(
-          {Object? bgpAuthKey = sdkOmittedValue}) =>
-      SinglePartnerAttachmentBgpAuthKeyVariant0(
-        bgpAuthKey: identical(bgpAuthKey, sdkOmittedValue)
-            ? this.bgpAuthKey
-            : bgpAuthKey as SdkOptional<Map<String, dynamic>>,
-      );
+  SinglePartnerAttachmentBgpAuthKeyVariant0 _copyWith({Object? bgpAuthKey = sdkOmittedValue}) => SinglePartnerAttachmentBgpAuthKeyVariant0(
+    bgpAuthKey: identical(bgpAuthKey, sdkOmittedValue) ? this.bgpAuthKey : bgpAuthKey as SdkOptional<Map<String, dynamic>>,
+  );
 
-  factory SinglePartnerAttachmentBgpAuthKeyVariant0.fromJson(
-          Map<String, dynamic> json) =>
-      SinglePartnerAttachmentBgpAuthKeyVariant0(
-        bgpAuthKey: json['bgp_auth_key'] != null
-            ? SdkPresent((json['bgp_auth_key'] == null
-                ? null
-                : json['bgp_auth_key'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-      );
+  factory SinglePartnerAttachmentBgpAuthKeyVariant0.fromJson(Map<String, dynamic> json) => SinglePartnerAttachmentBgpAuthKeyVariant0(
+    bgpAuthKey: json['bgp_auth_key'] != null ? SdkPresent((json['bgp_auth_key'] == null ? null : json['bgp_auth_key'] as Map<String, dynamic>)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (bgpAuthKey) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'bgp_auth_key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (bgpAuthKey) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'bgp_auth_key': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `SinglePartnerAttachmentBgpAuthKey` API schema.
@@ -49,36 +35,22 @@ class SinglePartnerAttachmentBgpAuthKey {
   static const String constructionSurface = 'named';
   final SdkOptional<Map<String, dynamic>> bgpAuthKey;
 
-  const SinglePartnerAttachmentBgpAuthKey(
-      {this.bgpAuthKey = const SdkOmitted()});
+  const SinglePartnerAttachmentBgpAuthKey({this.bgpAuthKey = const SdkOmitted()});
 
-  SinglePartnerAttachmentBgpAuthKey Function(
-      {SdkOptional<Map<String, dynamic>> bgpAuthKey}) get copyWith => _copyWith;
+  SinglePartnerAttachmentBgpAuthKey Function({SdkOptional<Map<String, dynamic>> bgpAuthKey}) get copyWith => _copyWith;
 
-  SinglePartnerAttachmentBgpAuthKey _copyWith(
-          {Object? bgpAuthKey = sdkOmittedValue}) =>
-      SinglePartnerAttachmentBgpAuthKey(
-        bgpAuthKey: identical(bgpAuthKey, sdkOmittedValue)
-            ? this.bgpAuthKey
-            : bgpAuthKey as SdkOptional<Map<String, dynamic>>,
-      );
+  SinglePartnerAttachmentBgpAuthKey _copyWith({Object? bgpAuthKey = sdkOmittedValue}) => SinglePartnerAttachmentBgpAuthKey(
+    bgpAuthKey: identical(bgpAuthKey, sdkOmittedValue) ? this.bgpAuthKey : bgpAuthKey as SdkOptional<Map<String, dynamic>>,
+  );
 
-  factory SinglePartnerAttachmentBgpAuthKey.fromJson(
-          Map<String, dynamic> json) =>
-      SinglePartnerAttachmentBgpAuthKey(
-        bgpAuthKey: json['bgp_auth_key'] != null
-            ? SdkPresent((json['bgp_auth_key'] == null
-                ? null
-                : json['bgp_auth_key'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-      );
+  factory SinglePartnerAttachmentBgpAuthKey.fromJson(Map<String, dynamic> json) => SinglePartnerAttachmentBgpAuthKey(
+    bgpAuthKey: json['bgp_auth_key'] != null ? SdkPresent((json['bgp_auth_key'] == null ? null : json['bgp_auth_key'] as Map<String, dynamic>)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (bgpAuthKey) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'bgp_auth_key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (bgpAuthKey) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'bgp_auth_key': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

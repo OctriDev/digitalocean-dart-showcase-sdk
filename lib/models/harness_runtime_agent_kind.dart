@@ -6,6 +6,7 @@ part of 'harness_runtime_agent.dart';
 // harness_runtime_agent domain models
 /// AgentKind identifies what runs inside the session sandbox. CreateSession accepts CLAUDE_CODE, OPENCODE, CODEX_CLI, CURSOR_CLI, OPENAI_CODEX, LANGGRAPH, and CREWAI (the supported set is overridable via HARNESS_SUPPORTED_AGENT_KINDS); other values are rejected with 400. AGENT_KIND_OPENAI_CODEX is the OpenAI sandbox-provider kind (DO runs codex exec-server; the agent loop lives at OpenAI). AGENT_KIND_LANGGRAPH is the LangGraph framework adapter. AGENT_KIND_CREWAI is the CrewAI Crew framework adapter: like LANGGRAPH the template bakes no agent code, so spec.env must supply FRAMEWORK_REPO and FRAMEWORK_REPO_SHA; a Crew kickoff is one-shot and exposes no HITL surface. CREWAI is additionally gated per team and returns 400 for teams it is not enabled for.
 final class AgentKind {
+
   final String value;
 
   const AgentKind._(this.value);
@@ -26,12 +27,10 @@ final class AgentKind {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) => other is AgentKind && other.value == value;
+  @override bool operator ==(Object other) => other is AgentKind && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

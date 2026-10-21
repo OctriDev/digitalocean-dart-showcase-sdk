@@ -8,53 +8,33 @@ part of 'droplet_autoscale_pools.dart';
 class CurrentUtilization {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The average memory utilization of the autoscale pool.
   final SdkOptional<double> memory;
-
   /// The average CPU utilization of the autoscale pool.
   final SdkOptional<double> cpu;
 
-  const CurrentUtilization(
-      {this.memory = const SdkOmitted(), this.cpu = const SdkOmitted()});
+  const CurrentUtilization({this.memory = const SdkOmitted(), this.cpu = const SdkOmitted()});
 
-  CurrentUtilization Function(
-      {SdkOptional<double> memory,
-      SdkOptional<double> cpu}) get copyWith => _copyWith;
+  CurrentUtilization Function({SdkOptional<double> memory, SdkOptional<double> cpu}) get copyWith => _copyWith;
 
-  CurrentUtilization _copyWith(
-          {Object? memory = sdkOmittedValue, Object? cpu = sdkOmittedValue}) =>
-      CurrentUtilization(
-        memory: identical(memory, sdkOmittedValue)
-            ? this.memory
-            : memory as SdkOptional<double>,
-        cpu: identical(cpu, sdkOmittedValue)
-            ? this.cpu
-            : cpu as SdkOptional<double>,
-      );
+  CurrentUtilization _copyWith({Object? memory = sdkOmittedValue, Object? cpu = sdkOmittedValue}) => CurrentUtilization(
+    memory: identical(memory, sdkOmittedValue) ? this.memory : memory as SdkOptional<double>,
+    cpu: identical(cpu, sdkOmittedValue) ? this.cpu : cpu as SdkOptional<double>,
+  );
 
-  factory CurrentUtilization.fromJson(Map<String, dynamic> json) =>
-      CurrentUtilization(
-        memory: json['memory'] != null
-            ? SdkPresent(((json['memory'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        cpu: json['cpu'] != null
-            ? SdkPresent(((json['cpu'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-      );
+  factory CurrentUtilization.fromJson(Map<String, dynamic> json) => CurrentUtilization(
+    memory: json['memory'] != null ? SdkPresent(((json['memory'] as num?)?.toDouble())!) : const SdkOmitted(),
+    cpu: json['cpu'] != null ? SdkPresent(((json['cpu'] as num?)?.toDouble())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (memory) {
-          SdkPresent<double>(value: final value) => {
-              'memory': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cpu) {
-          SdkPresent<double>(value: final value) => {
-              'cpu': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (memory) {
+      SdkPresent<double>(value: final value) => {'memory': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cpu) {
+      SdkPresent<double>(value: final value) => {'cpu': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,55 +8,33 @@ part of 'apps_apps_deployment.dart';
 class AppsDeploymentWorker {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
-
   /// Optional `string` value serialized in the `source_commit_hash` wire field.
   final SdkOptional<String> sourceCommitHash;
 
-  const AppsDeploymentWorker(
-      {this.name = const SdkOmitted(),
-      this.sourceCommitHash = const SdkOmitted()});
+  const AppsDeploymentWorker({this.name = const SdkOmitted(), this.sourceCommitHash = const SdkOmitted()});
 
-  AppsDeploymentWorker Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> sourceCommitHash}) get copyWith => _copyWith;
+  AppsDeploymentWorker Function({SdkOptional<String> name, SdkOptional<String> sourceCommitHash}) get copyWith => _copyWith;
 
-  AppsDeploymentWorker _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? sourceCommitHash = sdkOmittedValue}) =>
-      AppsDeploymentWorker(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        sourceCommitHash: identical(sourceCommitHash, sdkOmittedValue)
-            ? this.sourceCommitHash
-            : sourceCommitHash as SdkOptional<String>,
-      );
+  AppsDeploymentWorker _copyWith({Object? name = sdkOmittedValue, Object? sourceCommitHash = sdkOmittedValue}) => AppsDeploymentWorker(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    sourceCommitHash: identical(sourceCommitHash, sdkOmittedValue) ? this.sourceCommitHash : sourceCommitHash as SdkOptional<String>,
+  );
 
-  factory AppsDeploymentWorker.fromJson(Map<String, dynamic> json) =>
-      AppsDeploymentWorker(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        sourceCommitHash: json['source_commit_hash'] != null
-            ? SdkPresent((json['source_commit_hash'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AppsDeploymentWorker.fromJson(Map<String, dynamic> json) => AppsDeploymentWorker(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    sourceCommitHash: json['source_commit_hash'] != null ? SdkPresent((json['source_commit_hash'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sourceCommitHash) {
-          SdkPresent<String>(value: final value) => {
-              'source_commit_hash': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sourceCommitHash) {
+      SdkPresent<String>(value: final value) => {'source_commit_hash': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

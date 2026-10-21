@@ -8,189 +8,111 @@ part of 'serverless_inference_embeddings.dart';
 class EmbeddingsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Model id to use for embeddings. Must match a model your account can access.
   final String model;
-
   /// A single string or 1–2048 strings; each string produces one row in `data`, in order.
   final List<String> input;
-
   /// Optional end-user identifier to help with abuse monitoring.
   final SdkOptional<String> user;
-
   /// How embedding values are returned in each `data[].embedding` field.
   final SdkOptional<EmbeddingsRequestEncodingFormat> encodingFormat;
 
-  const EmbeddingsRequest(
-      {required this.model,
-      required this.input,
-      this.user = const SdkOmitted(),
-      this.encodingFormat = const SdkOmitted()});
+  const EmbeddingsRequest({required this.model, required this.input, this.user = const SdkOmitted(), this.encodingFormat = const SdkOmitted()});
 
-  EmbeddingsRequest Function(
-          {String model,
-          List<String> input,
-          SdkOptional<String> user,
-          SdkOptional<EmbeddingsRequestEncodingFormat> encodingFormat})
-      get copyWith => _copyWith;
+  EmbeddingsRequest Function({String model, List<String> input, SdkOptional<String> user, SdkOptional<EmbeddingsRequestEncodingFormat> encodingFormat}) get copyWith => _copyWith;
 
-  EmbeddingsRequest _copyWith(
-          {Object? model = sdkOmittedValue,
-          Object? input = sdkOmittedValue,
-          Object? user = sdkOmittedValue,
-          Object? encodingFormat = sdkOmittedValue}) =>
-      EmbeddingsRequest(
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as List<String>,
-        user: identical(user, sdkOmittedValue)
-            ? this.user
-            : user as SdkOptional<String>,
-        encodingFormat: identical(encodingFormat, sdkOmittedValue)
-            ? this.encodingFormat
-            : encodingFormat as SdkOptional<EmbeddingsRequestEncodingFormat>,
-      );
+  EmbeddingsRequest _copyWith({Object? model = sdkOmittedValue, Object? input = sdkOmittedValue, Object? user = sdkOmittedValue, Object? encodingFormat = sdkOmittedValue}) => EmbeddingsRequest(
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    input: identical(input, sdkOmittedValue) ? this.input : input as List<String>,
+    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String>,
+    encodingFormat: identical(encodingFormat, sdkOmittedValue) ? this.encodingFormat : encodingFormat as SdkOptional<EmbeddingsRequestEncodingFormat>,
+  );
 
-  factory EmbeddingsRequest.fromJson(Map<String, dynamic> json) =>
-      EmbeddingsRequest(
-        model: (json['model'] as String?)!,
-        input: ((json['input'] as List?)?.map((e) => e as String).toList())!,
-        user: json['user'] != null
-            ? SdkPresent((json['user'] as String?)!)
-            : const SdkOmitted(),
-        encodingFormat: json['encoding_format'] != null
-            ? SdkPresent((json['encoding_format'] != null
-                ? EmbeddingsRequestEncodingFormat.fromJson(
-                    json['encoding_format'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory EmbeddingsRequest.fromJson(Map<String, dynamic> json) => EmbeddingsRequest(
+    model: (json['model'] as String?)!,
+    input: ((json['input'] as List?)?.map((e) => e as String).toList())!,
+    user: json['user'] != null ? SdkPresent((json['user'] as String?)!) : const SdkOmitted(),
+    encodingFormat: json['encoding_format'] != null ? SdkPresent((json['encoding_format'] != null ? EmbeddingsRequestEncodingFormat.fromJson(json['encoding_format'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'model': model,
-        'input': input,
-        ...switch (user) {
-          SdkPresent<String>(value: final value) => {
-              'user': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (encodingFormat) {
-          SdkPresent<EmbeddingsRequestEncodingFormat>(value: final value) => {
-              'encoding_format': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'model': model,
+    'input': input,
+    ...switch (user) {
+      SdkPresent<String>(value: final value) => {'user': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (encodingFormat) {
+      SdkPresent<EmbeddingsRequestEncodingFormat>(value: final value) => {'encoding_format': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// OpenAI-style embeddings response.
 class EmbeddingsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The object type, which is always the string `list`.
   final EmbeddingsResponseObject object;
-
   /// The embedding model that produced the vectors.
   final String model;
-
   /// One entry for each `input` string, in the same order.
   final List<EmbeddingDataItem> data;
-
   /// Token usage for the embeddings request.
   final EmbeddingsUsage usage;
 
-  const EmbeddingsResponse(
-      {required this.object,
-      required this.model,
-      required this.data,
-      required this.usage});
+  const EmbeddingsResponse({required this.object, required this.model, required this.data, required this.usage});
 
-  EmbeddingsResponse Function(
-      {EmbeddingsResponseObject object,
-      String model,
-      List<EmbeddingDataItem> data,
-      EmbeddingsUsage usage}) get copyWith => _copyWith;
+  EmbeddingsResponse Function({EmbeddingsResponseObject object, String model, List<EmbeddingDataItem> data, EmbeddingsUsage usage}) get copyWith => _copyWith;
 
-  EmbeddingsResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? data = sdkOmittedValue,
-          Object? usage = sdkOmittedValue}) =>
-      EmbeddingsResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as EmbeddingsResponseObject,
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<EmbeddingDataItem>,
-        usage: identical(usage, sdkOmittedValue)
-            ? this.usage
-            : usage as EmbeddingsUsage,
-      );
+  EmbeddingsResponse _copyWith({Object? object = sdkOmittedValue, Object? model = sdkOmittedValue, Object? data = sdkOmittedValue, Object? usage = sdkOmittedValue}) => EmbeddingsResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as EmbeddingsResponseObject,
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<EmbeddingDataItem>,
+    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as EmbeddingsUsage,
+  );
 
-  factory EmbeddingsResponse.fromJson(Map<String, dynamic> json) =>
-      EmbeddingsResponse(
-        object: (json['object'] != null
-            ? EmbeddingsResponseObject.fromJson(json['object'] as String)
-            : null)!,
-        model: (json['model'] as String?)!,
-        data: ((json['data'] as List?)
-            ?.map((e) => EmbeddingDataItem.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        usage: (json['usage'] != null
-            ? EmbeddingsUsage.fromJson(json['usage'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory EmbeddingsResponse.fromJson(Map<String, dynamic> json) => EmbeddingsResponse(
+    object: (json['object'] != null ? EmbeddingsResponseObject.fromJson(json['object'] as String) : null)!,
+    model: (json['model'] as String?)!,
+    data: ((json['data'] as List?)?.map((e) => EmbeddingDataItem.fromJson(e as Map<String, dynamic>)).toList())!,
+    usage: (json['usage'] != null ? EmbeddingsUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'model': model,
-        'data': data.map((item) => item.toJson()).toList(),
-        'usage': usage.toJson(),
-      };
+    'object': object.toJson(),
+    'model': model,
+    'data': data.map((item) => item.toJson()).toList(),
+    'usage': usage.toJson(),
+  };
 }
 
 /// Token usage for the embeddings request.
 class EmbeddingsUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Number of input tokens used for the embedding.
   final int promptTokens;
-
   /// Total billable tokens for the request.
   final int totalTokens;
 
-  const EmbeddingsUsage(
-      {required this.promptTokens, required this.totalTokens});
+  const EmbeddingsUsage({required this.promptTokens, required this.totalTokens});
 
-  EmbeddingsUsage Function({int promptTokens, int totalTokens}) get copyWith =>
-      _copyWith;
+  EmbeddingsUsage Function({int promptTokens, int totalTokens}) get copyWith => _copyWith;
 
-  EmbeddingsUsage _copyWith(
-          {Object? promptTokens = sdkOmittedValue,
-          Object? totalTokens = sdkOmittedValue}) =>
-      EmbeddingsUsage(
-        promptTokens: identical(promptTokens, sdkOmittedValue)
-            ? this.promptTokens
-            : promptTokens as int,
-        totalTokens: identical(totalTokens, sdkOmittedValue)
-            ? this.totalTokens
-            : totalTokens as int,
-      );
+  EmbeddingsUsage _copyWith({Object? promptTokens = sdkOmittedValue, Object? totalTokens = sdkOmittedValue}) => EmbeddingsUsage(
+    promptTokens: identical(promptTokens, sdkOmittedValue) ? this.promptTokens : promptTokens as int,
+    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
+  );
 
-  factory EmbeddingsUsage.fromJson(Map<String, dynamic> json) =>
-      EmbeddingsUsage(
-        promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
-        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-      );
+  factory EmbeddingsUsage.fromJson(Map<String, dynamic> json) => EmbeddingsUsage(
+    promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
+    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'prompt_tokens': promptTokens,
-        'total_tokens': totalTokens,
-      };
+    'prompt_tokens': promptTokens,
+    'total_tokens': totalTokens,
+  };
 }

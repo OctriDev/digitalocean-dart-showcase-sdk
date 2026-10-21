@@ -15,22 +15,16 @@ Future<OneClicksAll> oneClicksList(ClientConfig config,
   return (await sdkRequest<OneClicksAll>('GET', '/v2/1-clicks',
           config: config,
           query: {
-            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_),
-                style: 'form', explode: true)
+            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'oneClicksList',
-          fromJsonRaw: (value) =>
-              OneClicksAll.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OneClicksAll.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To install a Kubernetes 1-Click application on a cluster, send a POST request to `/v2/1-clicks/kubernetes`. The `addon_slugs` and `cluster_uuid` must be provided as body parameter in order to specify which 1-Click application(s) to install. To list all available 1-Click Kubernetes applications, send a request to `/v2/1-clicks?type=kubernetes`.
 ///
@@ -48,14 +42,8 @@ Future<OneClicksCreateResponse> oneClicksInstallKubernetes(ClientConfig config,
           body: {'addon_slugs': addonSlugs, 'cluster_uuid': clusterUuid},
           decoder: SdkResponseDecoder.json,
           operationId: 'oneClicksInstallKubernetes',
-          fromJsonRaw: (value) =>
-              OneClicksCreateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OneClicksCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

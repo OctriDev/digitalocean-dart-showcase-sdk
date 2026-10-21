@@ -8,133 +8,76 @@ part of 'harness_runtime_workspace.dart';
 class WorkspacePartUploadUrl {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `int32`-formatted value serialized in the `part_number` wire field.
   final SdkOptional<int> partNumber;
-
   /// Presigned PUT URL for this part. PUT the part bytes here directly.
   final SdkOptional<String> uploadUrl;
 
-  const WorkspacePartUploadUrl(
-      {this.partNumber = const SdkOmitted(),
-      this.uploadUrl = const SdkOmitted()});
+  const WorkspacePartUploadUrl({this.partNumber = const SdkOmitted(), this.uploadUrl = const SdkOmitted()});
 
-  WorkspacePartUploadUrl Function(
-      {SdkOptional<int> partNumber,
-      SdkOptional<String> uploadUrl}) get copyWith => _copyWith;
+  WorkspacePartUploadUrl Function({SdkOptional<int> partNumber, SdkOptional<String> uploadUrl}) get copyWith => _copyWith;
 
-  WorkspacePartUploadUrl _copyWith(
-          {Object? partNumber = sdkOmittedValue,
-          Object? uploadUrl = sdkOmittedValue}) =>
-      WorkspacePartUploadUrl(
-        partNumber: identical(partNumber, sdkOmittedValue)
-            ? this.partNumber
-            : partNumber as SdkOptional<int>,
-        uploadUrl: identical(uploadUrl, sdkOmittedValue)
-            ? this.uploadUrl
-            : uploadUrl as SdkOptional<String>,
-      );
+  WorkspacePartUploadUrl _copyWith({Object? partNumber = sdkOmittedValue, Object? uploadUrl = sdkOmittedValue}) => WorkspacePartUploadUrl(
+    partNumber: identical(partNumber, sdkOmittedValue) ? this.partNumber : partNumber as SdkOptional<int>,
+    uploadUrl: identical(uploadUrl, sdkOmittedValue) ? this.uploadUrl : uploadUrl as SdkOptional<String>,
+  );
 
-  factory WorkspacePartUploadUrl.fromJson(Map<String, dynamic> json) =>
-      WorkspacePartUploadUrl(
-        partNumber: json['part_number'] != null
-            ? SdkPresent(((json['part_number'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        uploadUrl: json['upload_url'] != null
-            ? SdkPresent((json['upload_url'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory WorkspacePartUploadUrl.fromJson(Map<String, dynamic> json) => WorkspacePartUploadUrl(
+    partNumber: json['part_number'] != null ? SdkPresent(((json['part_number'] as num?)?.toInt())!) : const SdkOmitted(),
+    uploadUrl: json['upload_url'] != null ? SdkPresent((json['upload_url'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (partNumber) {
-          SdkPresent<int>(value: final value) => {
-              'part_number': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (uploadUrl) {
-          SdkPresent<String>(value: final value) => {
-              'upload_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (partNumber) {
+      SdkPresent<int>(value: final value) => {'part_number': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (uploadUrl) {
+      SdkPresent<String>(value: final value) => {'upload_url': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `WorkspacePartUploadUrls` API schema.
 class WorkspacePartUploadUrls {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `transfer_id` wire field.
   final SdkOptional<String> transferId;
-
   /// One presigned PUT URL per requested part number, in request order.
   final SdkOptional<List<WorkspacePartUploadUrl>> partUrls;
-
   /// Shared expiry for all URLs in this batch.
   final SdkOptional<String> expiresAt;
 
-  const WorkspacePartUploadUrls(
-      {this.transferId = const SdkOmitted(),
-      this.partUrls = const SdkOmitted(),
-      this.expiresAt = const SdkOmitted()});
+  const WorkspacePartUploadUrls({this.transferId = const SdkOmitted(), this.partUrls = const SdkOmitted(), this.expiresAt = const SdkOmitted()});
 
-  WorkspacePartUploadUrls Function(
-      {SdkOptional<String> transferId,
-      SdkOptional<List<WorkspacePartUploadUrl>> partUrls,
-      SdkOptional<String> expiresAt}) get copyWith => _copyWith;
+  WorkspacePartUploadUrls Function({SdkOptional<String> transferId, SdkOptional<List<WorkspacePartUploadUrl>> partUrls, SdkOptional<String> expiresAt}) get copyWith => _copyWith;
 
-  WorkspacePartUploadUrls _copyWith(
-          {Object? transferId = sdkOmittedValue,
-          Object? partUrls = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue}) =>
-      WorkspacePartUploadUrls(
-        transferId: identical(transferId, sdkOmittedValue)
-            ? this.transferId
-            : transferId as SdkOptional<String>,
-        partUrls: identical(partUrls, sdkOmittedValue)
-            ? this.partUrls
-            : partUrls as SdkOptional<List<WorkspacePartUploadUrl>>,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<String>,
-      );
+  WorkspacePartUploadUrls _copyWith({Object? transferId = sdkOmittedValue, Object? partUrls = sdkOmittedValue, Object? expiresAt = sdkOmittedValue}) => WorkspacePartUploadUrls(
+    transferId: identical(transferId, sdkOmittedValue) ? this.transferId : transferId as SdkOptional<String>,
+    partUrls: identical(partUrls, sdkOmittedValue) ? this.partUrls : partUrls as SdkOptional<List<WorkspacePartUploadUrl>>,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String>,
+  );
 
-  factory WorkspacePartUploadUrls.fromJson(Map<String, dynamic> json) =>
-      WorkspacePartUploadUrls(
-        transferId: json['transfer_id'] != null
-            ? SdkPresent((json['transfer_id'] as String?)!)
-            : const SdkOmitted(),
-        partUrls: json['part_urls'] != null
-            ? SdkPresent(((json['part_urls'] as List?)
-                ?.map((e) =>
-                    WorkspacePartUploadUrl.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        expiresAt: json['expires_at'] != null
-            ? SdkPresent((json['expires_at'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory WorkspacePartUploadUrls.fromJson(Map<String, dynamic> json) => WorkspacePartUploadUrls(
+    transferId: json['transfer_id'] != null ? SdkPresent((json['transfer_id'] as String?)!) : const SdkOmitted(),
+    partUrls: json['part_urls'] != null ? SdkPresent(((json['part_urls'] as List?)?.map((e) => WorkspacePartUploadUrl.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    expiresAt: json['expires_at'] != null ? SdkPresent((json['expires_at'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (transferId) {
-          SdkPresent<String>(value: final value) => {
-              'transfer_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (partUrls) {
-          SdkPresent<List<WorkspacePartUploadUrl>>(value: final value) => {
-              'part_urls': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAt) {
-          SdkPresent<String>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (transferId) {
+      SdkPresent<String>(value: final value) => {'transfer_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (partUrls) {
+      SdkPresent<List<WorkspacePartUploadUrl>>(value: final value) => {'part_urls': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiresAt) {
+      SdkPresent<String>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

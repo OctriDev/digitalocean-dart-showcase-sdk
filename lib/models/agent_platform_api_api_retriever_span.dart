@@ -8,37 +8,25 @@ part of 'agent_platform_api_api.dart';
 class ApiRetrieverSpan {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Common optional fields shared by all span types
   final SdkOptional<ApiSpanCommon> common;
 
   const ApiRetrieverSpan({this.common = const SdkOmitted()});
 
-  ApiRetrieverSpan Function({SdkOptional<ApiSpanCommon> common}) get copyWith =>
-      _copyWith;
+  ApiRetrieverSpan Function({SdkOptional<ApiSpanCommon> common}) get copyWith => _copyWith;
 
-  ApiRetrieverSpan _copyWith({Object? common = sdkOmittedValue}) =>
-      ApiRetrieverSpan(
-        common: identical(common, sdkOmittedValue)
-            ? this.common
-            : common as SdkOptional<ApiSpanCommon>,
-      );
+  ApiRetrieverSpan _copyWith({Object? common = sdkOmittedValue}) => ApiRetrieverSpan(
+    common: identical(common, sdkOmittedValue) ? this.common : common as SdkOptional<ApiSpanCommon>,
+  );
 
-  factory ApiRetrieverSpan.fromJson(Map<String, dynamic> json) =>
-      ApiRetrieverSpan(
-        common: json['common'] != null
-            ? SdkPresent((json['common'] != null
-                ? ApiSpanCommon.fromJson(json['common'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiRetrieverSpan.fromJson(Map<String, dynamic> json) => ApiRetrieverSpan(
+    common: json['common'] != null ? SdkPresent((json['common'] != null ? ApiSpanCommon.fromJson(json['common'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (common) {
-          SdkPresent<ApiSpanCommon>(value: final value) => {
-              'common': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (common) {
+      SdkPresent<ApiSpanCommon>(value: final value) => {'common': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

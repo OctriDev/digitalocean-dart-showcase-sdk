@@ -8,80 +8,41 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListModelRoutersOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Links to other pages
   final SdkOptional<ApiLinks> links;
-
   /// Meta information about the data set
   final SdkOptional<ApiMeta> meta;
-
   /// The model routers
   final SdkOptional<List<ApiModelRouter>> modelRouters;
 
-  const ApiListModelRoutersOutput(
-      {this.links = const SdkOmitted(),
-      this.meta = const SdkOmitted(),
-      this.modelRouters = const SdkOmitted()});
+  const ApiListModelRoutersOutput({this.links = const SdkOmitted(), this.meta = const SdkOmitted(), this.modelRouters = const SdkOmitted()});
 
-  ApiListModelRoutersOutput Function(
-          {SdkOptional<ApiLinks> links,
-          SdkOptional<ApiMeta> meta,
-          SdkOptional<List<ApiModelRouter>> modelRouters})
-      get copyWith => _copyWith;
+  ApiListModelRoutersOutput Function({SdkOptional<ApiLinks> links, SdkOptional<ApiMeta> meta, SdkOptional<List<ApiModelRouter>> modelRouters}) get copyWith => _copyWith;
 
-  ApiListModelRoutersOutput _copyWith(
-          {Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue,
-          Object? modelRouters = sdkOmittedValue}) =>
-      ApiListModelRoutersOutput(
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<ApiLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as SdkOptional<ApiMeta>,
-        modelRouters: identical(modelRouters, sdkOmittedValue)
-            ? this.modelRouters
-            : modelRouters as SdkOptional<List<ApiModelRouter>>,
-      );
+  ApiListModelRoutersOutput _copyWith({Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue, Object? modelRouters = sdkOmittedValue}) => ApiListModelRoutersOutput(
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<ApiLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<ApiMeta>,
+    modelRouters: identical(modelRouters, sdkOmittedValue) ? this.modelRouters : modelRouters as SdkOptional<List<ApiModelRouter>>,
+  );
 
-  factory ApiListModelRoutersOutput.fromJson(Map<String, dynamic> json) =>
-      ApiListModelRoutersOutput(
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: json['meta'] != null
-            ? SdkPresent((json['meta'] != null
-                ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        modelRouters: json['model_routers'] != null
-            ? SdkPresent(((json['model_routers'] as List?)
-                ?.map((e) => ApiModelRouter.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ApiListModelRoutersOutput.fromJson(Map<String, dynamic> json) => ApiListModelRoutersOutput(
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: json['meta'] != null ? SdkPresent((json['meta'] != null ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    modelRouters: json['model_routers'] != null ? SdkPresent(((json['model_routers'] as List?)?.map((e) => ApiModelRouter.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (links) {
-          SdkPresent<ApiLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (meta) {
-          SdkPresent<ApiMeta>(value: final value) => {
-              'meta': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (modelRouters) {
-          SdkPresent<List<ApiModelRouter>>(value: final value) => {
-              'model_routers': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (links) {
+      SdkPresent<ApiLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (meta) {
+      SdkPresent<ApiMeta>(value: final value) => {'meta': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (modelRouters) {
+      SdkPresent<List<ApiModelRouter>>(value: final value) => {'model_routers': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,36 +8,25 @@ part of 'block_storage.dart';
 class VolumeWriteFileSystemType {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the filesystem type to be used on the volume. When provided, the volume will automatically be formatted to the specified filesystem type. Currently, the available options are `ext4` and `xfs`. Pre-formatted volumes are automatically mounted when attached to Ubuntu, Debian, Fedora, Fedora Atomic, and CentOS Droplets created on or after April 26, 2018. Attaching pre-formatted volumes to other Droplets is not recommended.
   final SdkOptional<String> filesystemType;
 
   const VolumeWriteFileSystemType({this.filesystemType = const SdkOmitted()});
 
-  VolumeWriteFileSystemType Function({SdkOptional<String> filesystemType})
-      get copyWith => _copyWith;
+  VolumeWriteFileSystemType Function({SdkOptional<String> filesystemType}) get copyWith => _copyWith;
 
-  VolumeWriteFileSystemType _copyWith(
-          {Object? filesystemType = sdkOmittedValue}) =>
-      VolumeWriteFileSystemType(
-        filesystemType: identical(filesystemType, sdkOmittedValue)
-            ? this.filesystemType
-            : filesystemType as SdkOptional<String>,
-      );
+  VolumeWriteFileSystemType _copyWith({Object? filesystemType = sdkOmittedValue}) => VolumeWriteFileSystemType(
+    filesystemType: identical(filesystemType, sdkOmittedValue) ? this.filesystemType : filesystemType as SdkOptional<String>,
+  );
 
-  factory VolumeWriteFileSystemType.fromJson(Map<String, dynamic> json) =>
-      VolumeWriteFileSystemType(
-        filesystemType: json['filesystem_type'] != null
-            ? SdkPresent((json['filesystem_type'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VolumeWriteFileSystemType.fromJson(Map<String, dynamic> json) => VolumeWriteFileSystemType(
+    filesystemType: json['filesystem_type'] != null ? SdkPresent((json['filesystem_type'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (filesystemType) {
-          SdkPresent<String>(value: final value) => {
-              'filesystem_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (filesystemType) {
+      SdkPresent<String>(value: final value) => {'filesystem_type': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

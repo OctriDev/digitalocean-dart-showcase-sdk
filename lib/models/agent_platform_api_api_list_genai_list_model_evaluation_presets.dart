@@ -8,42 +8,25 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListModelEvaluationPresetsOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// List of explicitly saved evaluation presets (reusable configs).
   final SdkOptional<List<ApiModelEvaluationPreset>> presets;
 
-  const ApiListModelEvaluationPresetsOutput(
-      {this.presets = const SdkOmitted()});
+  const ApiListModelEvaluationPresetsOutput({this.presets = const SdkOmitted()});
 
-  ApiListModelEvaluationPresetsOutput Function(
-          {SdkOptional<List<ApiModelEvaluationPreset>> presets})
-      get copyWith => _copyWith;
+  ApiListModelEvaluationPresetsOutput Function({SdkOptional<List<ApiModelEvaluationPreset>> presets}) get copyWith => _copyWith;
 
-  ApiListModelEvaluationPresetsOutput _copyWith(
-          {Object? presets = sdkOmittedValue}) =>
-      ApiListModelEvaluationPresetsOutput(
-        presets: identical(presets, sdkOmittedValue)
-            ? this.presets
-            : presets as SdkOptional<List<ApiModelEvaluationPreset>>,
-      );
+  ApiListModelEvaluationPresetsOutput _copyWith({Object? presets = sdkOmittedValue}) => ApiListModelEvaluationPresetsOutput(
+    presets: identical(presets, sdkOmittedValue) ? this.presets : presets as SdkOptional<List<ApiModelEvaluationPreset>>,
+  );
 
-  factory ApiListModelEvaluationPresetsOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiListModelEvaluationPresetsOutput(
-        presets: json['presets'] != null
-            ? SdkPresent(((json['presets'] as List?)
-                ?.map((e) => ApiModelEvaluationPreset.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ApiListModelEvaluationPresetsOutput.fromJson(Map<String, dynamic> json) => ApiListModelEvaluationPresetsOutput(
+    presets: json['presets'] != null ? SdkPresent(((json['presets'] as List?)?.map((e) => ApiModelEvaluationPreset.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (presets) {
-          SdkPresent<List<ApiModelEvaluationPreset>>(value: final value) => {
-              'presets': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (presets) {
+      SdkPresent<List<ApiModelEvaluationPreset>>(value: final value) => {'presets': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

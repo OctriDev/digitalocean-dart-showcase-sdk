@@ -8,72 +8,41 @@ part of 'load_balancers.dart';
 class Domains {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// FQDN to associate with a Global load balancer.
   final SdkOptional<String> name;
-
   /// A boolean value indicating if the domain is already managed by DigitalOcean. If true, all A and AAAA records required to enable Global load balancers will be automatically added.
   final SdkOptional<bool> isManaged;
-
   /// The ID of the TLS certificate used for SSL termination.
   final SdkOptional<String> certificateId;
 
-  const Domains(
-      {this.name = const SdkOmitted(),
-      this.isManaged = const SdkOmitted(),
-      this.certificateId = const SdkOmitted()});
+  const Domains({this.name = const SdkOmitted(), this.isManaged = const SdkOmitted(), this.certificateId = const SdkOmitted()});
 
-  Domains Function(
-      {SdkOptional<String> name,
-      SdkOptional<bool> isManaged,
-      SdkOptional<String> certificateId}) get copyWith => _copyWith;
+  Domains Function({SdkOptional<String> name, SdkOptional<bool> isManaged, SdkOptional<String> certificateId}) get copyWith => _copyWith;
 
-  Domains _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? isManaged = sdkOmittedValue,
-          Object? certificateId = sdkOmittedValue}) =>
-      Domains(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        isManaged: identical(isManaged, sdkOmittedValue)
-            ? this.isManaged
-            : isManaged as SdkOptional<bool>,
-        certificateId: identical(certificateId, sdkOmittedValue)
-            ? this.certificateId
-            : certificateId as SdkOptional<String>,
-      );
+  Domains _copyWith({Object? name = sdkOmittedValue, Object? isManaged = sdkOmittedValue, Object? certificateId = sdkOmittedValue}) => Domains(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    isManaged: identical(isManaged, sdkOmittedValue) ? this.isManaged : isManaged as SdkOptional<bool>,
+    certificateId: identical(certificateId, sdkOmittedValue) ? this.certificateId : certificateId as SdkOptional<String>,
+  );
 
   factory Domains.fromJson(Map<String, dynamic> json) => Domains(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        isManaged: json['is_managed'] != null
-            ? SdkPresent((json['is_managed'] as bool?)!)
-            : const SdkOmitted(),
-        certificateId: json['certificate_id'] != null
-            ? SdkPresent((json['certificate_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    isManaged: json['is_managed'] != null ? SdkPresent((json['is_managed'] as bool?)!) : const SdkOmitted(),
+    certificateId: json['certificate_id'] != null ? SdkPresent((json['certificate_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isManaged) {
-          SdkPresent<bool>(value: final value) => {
-              'is_managed': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (certificateId) {
-          SdkPresent<String>(value: final value) => {
-              'certificate_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isManaged) {
+      SdkPresent<bool>(value: final value) => {'is_managed': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (certificateId) {
+      SdkPresent<String>(value: final value) => {'certificate_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

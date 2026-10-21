@@ -8,169 +8,81 @@ part of 'agent_platform_api_api_evaluation.dart';
 class ApiEvaluationDataset {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Time created at.
   final SdkOptional<String> createdAt;
-
   /// Name of the dataset.
   final SdkOptional<String> datasetName;
-
   /// EvaluationDatasetParadigm is the row/content shape of a dataset, orthogonal to the surface in EvaluationDatasetType (e.g. a model dataset can be single- or multi-turn).
   final SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm;
-
   /// Optional enumerated value serialized in the `dataset_type` wire field.
   final SdkOptional<ApiEvaluationDatasetType> datasetType;
-
   /// UUID of the dataset.
   final SdkOptional<String> datasetUuid;
-
   /// The size of the dataset uploaded file in bytes.
   final SdkOptional<String> fileSize;
-
   /// Does the dataset have a ground truth column?
   final SdkOptional<bool> hasGroundTruth;
-
   /// Number of rows in the dataset.
   final SdkOptional<int> rowCount;
 
-  const ApiEvaluationDataset(
-      {this.createdAt = const SdkOmitted(),
-      this.datasetName = const SdkOmitted(),
-      this.datasetParadigm = const SdkOmitted(),
-      this.datasetType = const SdkOmitted(),
-      this.datasetUuid = const SdkOmitted(),
-      this.fileSize = const SdkOmitted(),
-      this.hasGroundTruth = const SdkOmitted(),
-      this.rowCount = const SdkOmitted()});
+  const ApiEvaluationDataset({this.createdAt = const SdkOmitted(), this.datasetName = const SdkOmitted(), this.datasetParadigm = const SdkOmitted(), this.datasetType = const SdkOmitted(), this.datasetUuid = const SdkOmitted(), this.fileSize = const SdkOmitted(), this.hasGroundTruth = const SdkOmitted(), this.rowCount = const SdkOmitted()});
 
-  ApiEvaluationDataset Function(
-      {SdkOptional<String> createdAt,
-      SdkOptional<String> datasetName,
-      SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm,
-      SdkOptional<ApiEvaluationDatasetType> datasetType,
-      SdkOptional<String> datasetUuid,
-      SdkOptional<String> fileSize,
-      SdkOptional<bool> hasGroundTruth,
-      SdkOptional<int> rowCount}) get copyWith => _copyWith;
+  ApiEvaluationDataset Function({SdkOptional<String> createdAt, SdkOptional<String> datasetName, SdkOptional<ApiEvaluationDatasetParadigm> datasetParadigm, SdkOptional<ApiEvaluationDatasetType> datasetType, SdkOptional<String> datasetUuid, SdkOptional<String> fileSize, SdkOptional<bool> hasGroundTruth, SdkOptional<int> rowCount}) get copyWith => _copyWith;
 
-  ApiEvaluationDataset _copyWith(
-          {Object? createdAt = sdkOmittedValue,
-          Object? datasetName = sdkOmittedValue,
-          Object? datasetParadigm = sdkOmittedValue,
-          Object? datasetType = sdkOmittedValue,
-          Object? datasetUuid = sdkOmittedValue,
-          Object? fileSize = sdkOmittedValue,
-          Object? hasGroundTruth = sdkOmittedValue,
-          Object? rowCount = sdkOmittedValue}) =>
-      ApiEvaluationDataset(
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        datasetName: identical(datasetName, sdkOmittedValue)
-            ? this.datasetName
-            : datasetName as SdkOptional<String>,
-        datasetParadigm: identical(datasetParadigm, sdkOmittedValue)
-            ? this.datasetParadigm
-            : datasetParadigm as SdkOptional<ApiEvaluationDatasetParadigm>,
-        datasetType: identical(datasetType, sdkOmittedValue)
-            ? this.datasetType
-            : datasetType as SdkOptional<ApiEvaluationDatasetType>,
-        datasetUuid: identical(datasetUuid, sdkOmittedValue)
-            ? this.datasetUuid
-            : datasetUuid as SdkOptional<String>,
-        fileSize: identical(fileSize, sdkOmittedValue)
-            ? this.fileSize
-            : fileSize as SdkOptional<String>,
-        hasGroundTruth: identical(hasGroundTruth, sdkOmittedValue)
-            ? this.hasGroundTruth
-            : hasGroundTruth as SdkOptional<bool>,
-        rowCount: identical(rowCount, sdkOmittedValue)
-            ? this.rowCount
-            : rowCount as SdkOptional<int>,
-      );
+  ApiEvaluationDataset _copyWith({Object? createdAt = sdkOmittedValue, Object? datasetName = sdkOmittedValue, Object? datasetParadigm = sdkOmittedValue, Object? datasetType = sdkOmittedValue, Object? datasetUuid = sdkOmittedValue, Object? fileSize = sdkOmittedValue, Object? hasGroundTruth = sdkOmittedValue, Object? rowCount = sdkOmittedValue}) => ApiEvaluationDataset(
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    datasetName: identical(datasetName, sdkOmittedValue) ? this.datasetName : datasetName as SdkOptional<String>,
+    datasetParadigm: identical(datasetParadigm, sdkOmittedValue) ? this.datasetParadigm : datasetParadigm as SdkOptional<ApiEvaluationDatasetParadigm>,
+    datasetType: identical(datasetType, sdkOmittedValue) ? this.datasetType : datasetType as SdkOptional<ApiEvaluationDatasetType>,
+    datasetUuid: identical(datasetUuid, sdkOmittedValue) ? this.datasetUuid : datasetUuid as SdkOptional<String>,
+    fileSize: identical(fileSize, sdkOmittedValue) ? this.fileSize : fileSize as SdkOptional<String>,
+    hasGroundTruth: identical(hasGroundTruth, sdkOmittedValue) ? this.hasGroundTruth : hasGroundTruth as SdkOptional<bool>,
+    rowCount: identical(rowCount, sdkOmittedValue) ? this.rowCount : rowCount as SdkOptional<int>,
+  );
 
-  factory ApiEvaluationDataset.fromJson(Map<String, dynamic> json) =>
-      ApiEvaluationDataset(
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        datasetName: json['dataset_name'] != null
-            ? SdkPresent((json['dataset_name'] as String?)!)
-            : const SdkOmitted(),
-        datasetParadigm: json['dataset_paradigm'] != null
-            ? SdkPresent((json['dataset_paradigm'] != null
-                ? ApiEvaluationDatasetParadigm.fromJson(
-                    json['dataset_paradigm'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        datasetType: json['dataset_type'] != null
-            ? SdkPresent((json['dataset_type'] != null
-                ? ApiEvaluationDatasetType.fromJson(
-                    json['dataset_type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        datasetUuid: json['dataset_uuid'] != null
-            ? SdkPresent((json['dataset_uuid'] as String?)!)
-            : const SdkOmitted(),
-        fileSize: json['file_size'] != null
-            ? SdkPresent((json['file_size'] as String?)!)
-            : const SdkOmitted(),
-        hasGroundTruth: json['has_ground_truth'] != null
-            ? SdkPresent((json['has_ground_truth'] as bool?)!)
-            : const SdkOmitted(),
-        rowCount: json['row_count'] != null
-            ? SdkPresent(((json['row_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ApiEvaluationDataset.fromJson(Map<String, dynamic> json) => ApiEvaluationDataset(
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    datasetName: json['dataset_name'] != null ? SdkPresent((json['dataset_name'] as String?)!) : const SdkOmitted(),
+    datasetParadigm: json['dataset_paradigm'] != null ? SdkPresent((json['dataset_paradigm'] != null ? ApiEvaluationDatasetParadigm.fromJson(json['dataset_paradigm'] as String) : null)!) : const SdkOmitted(),
+    datasetType: json['dataset_type'] != null ? SdkPresent((json['dataset_type'] != null ? ApiEvaluationDatasetType.fromJson(json['dataset_type'] as String) : null)!) : const SdkOmitted(),
+    datasetUuid: json['dataset_uuid'] != null ? SdkPresent((json['dataset_uuid'] as String?)!) : const SdkOmitted(),
+    fileSize: json['file_size'] != null ? SdkPresent((json['file_size'] as String?)!) : const SdkOmitted(),
+    hasGroundTruth: json['has_ground_truth'] != null ? SdkPresent((json['has_ground_truth'] as bool?)!) : const SdkOmitted(),
+    rowCount: json['row_count'] != null ? SdkPresent(((json['row_count'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (datasetName) {
-          SdkPresent<String>(value: final value) => {
-              'dataset_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (datasetParadigm) {
-          SdkPresent<ApiEvaluationDatasetParadigm>(value: final value) => {
-              'dataset_paradigm': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (datasetType) {
-          SdkPresent<ApiEvaluationDatasetType>(value: final value) => {
-              'dataset_type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (datasetUuid) {
-          SdkPresent<String>(value: final value) => {
-              'dataset_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fileSize) {
-          SdkPresent<String>(value: final value) => {
-              'file_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hasGroundTruth) {
-          SdkPresent<bool>(value: final value) => {
-              'has_ground_truth': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rowCount) {
-          SdkPresent<int>(value: final value) => {
-              'row_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (datasetName) {
+      SdkPresent<String>(value: final value) => {'dataset_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (datasetParadigm) {
+      SdkPresent<ApiEvaluationDatasetParadigm>(value: final value) => {'dataset_paradigm': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (datasetType) {
+      SdkPresent<ApiEvaluationDatasetType>(value: final value) => {'dataset_type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (datasetUuid) {
+      SdkPresent<String>(value: final value) => {'dataset_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fileSize) {
+      SdkPresent<String>(value: final value) => {'file_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hasGroundTruth) {
+      SdkPresent<bool>(value: final value) => {'has_ground_truth': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rowCount) {
+      SdkPresent<int>(value: final value) => {'row_count': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,7 +8,6 @@ part of 'images.dart';
 class UpdatedImage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required object value serialized in the `image` wire field.
   final Image image;
 
@@ -17,16 +16,14 @@ class UpdatedImage {
   UpdatedImage Function({Image image}) get copyWith => _copyWith;
 
   UpdatedImage _copyWith({Object? image = sdkOmittedValue}) => UpdatedImage(
-        image: identical(image, sdkOmittedValue) ? this.image : image as Image,
-      );
+    image: identical(image, sdkOmittedValue) ? this.image : image as Image,
+  );
 
   factory UpdatedImage.fromJson(Map<String, dynamic> json) => UpdatedImage(
-        image: (json['image'] != null
-            ? Image.fromJson(json['image'] as Map<String, dynamic>)
-            : null)!,
-      );
+    image: (json['image'] != null ? Image.fromJson(json['image'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'image': image.toJson(),
-      };
+    'image': image.toJson(),
+  };
 }

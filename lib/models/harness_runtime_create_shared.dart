@@ -8,78 +8,54 @@ part of 'harness_runtime_create.dart';
 class CreateCronConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `cron_expr` wire field.
   final String cronExpr;
-
   /// IANA timezone.
   final String timezone;
 
   const CreateCronConfig({required this.cronExpr, required this.timezone});
 
-  CreateCronConfig Function({String cronExpr, String timezone}) get copyWith =>
-      _copyWith;
+  CreateCronConfig Function({String cronExpr, String timezone}) get copyWith => _copyWith;
 
-  CreateCronConfig _copyWith(
-          {Object? cronExpr = sdkOmittedValue,
-          Object? timezone = sdkOmittedValue}) =>
-      CreateCronConfig(
-        cronExpr: identical(cronExpr, sdkOmittedValue)
-            ? this.cronExpr
-            : cronExpr as String,
-        timezone: identical(timezone, sdkOmittedValue)
-            ? this.timezone
-            : timezone as String,
-      );
+  CreateCronConfig _copyWith({Object? cronExpr = sdkOmittedValue, Object? timezone = sdkOmittedValue}) => CreateCronConfig(
+    cronExpr: identical(cronExpr, sdkOmittedValue) ? this.cronExpr : cronExpr as String,
+    timezone: identical(timezone, sdkOmittedValue) ? this.timezone : timezone as String,
+  );
 
-  factory CreateCronConfig.fromJson(Map<String, dynamic> json) =>
-      CreateCronConfig(
-        cronExpr: (json['cron_expr'] as String?)!,
-        timezone: (json['timezone'] as String?)!,
-      );
+  factory CreateCronConfig.fromJson(Map<String, dynamic> json) => CreateCronConfig(
+    cronExpr: (json['cron_expr'] as String?)!,
+    timezone: (json['timezone'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'cron_expr': cronExpr,
-        'timezone': timezone,
-      };
+    'cron_expr': cronExpr,
+    'timezone': timezone,
+  };
 }
 
 /// Typed representation of the `CreateTemplateResponse` API schema.
 class CreateTemplateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `template` wire field.
   final SdkOptional<SandboxTemplate> template;
 
   const CreateTemplateResponse({this.template = const SdkOmitted()});
 
-  CreateTemplateResponse Function({SdkOptional<SandboxTemplate> template})
-      get copyWith => _copyWith;
+  CreateTemplateResponse Function({SdkOptional<SandboxTemplate> template}) get copyWith => _copyWith;
 
-  CreateTemplateResponse _copyWith({Object? template = sdkOmittedValue}) =>
-      CreateTemplateResponse(
-        template: identical(template, sdkOmittedValue)
-            ? this.template
-            : template as SdkOptional<SandboxTemplate>,
-      );
+  CreateTemplateResponse _copyWith({Object? template = sdkOmittedValue}) => CreateTemplateResponse(
+    template: identical(template, sdkOmittedValue) ? this.template : template as SdkOptional<SandboxTemplate>,
+  );
 
-  factory CreateTemplateResponse.fromJson(Map<String, dynamic> json) =>
-      CreateTemplateResponse(
-        template: json['template'] != null
-            ? SdkPresent((json['template'] != null
-                ? SandboxTemplate.fromJson(
-                    json['template'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory CreateTemplateResponse.fromJson(Map<String, dynamic> json) => CreateTemplateResponse(
+    template: json['template'] != null ? SdkPresent((json['template'] != null ? SandboxTemplate.fromJson(json['template'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (template) {
-          SdkPresent<SandboxTemplate>(value: final value) => {
-              'template': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (template) {
+      SdkPresent<SandboxTemplate>(value: final value) => {'template': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

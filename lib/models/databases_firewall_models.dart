@@ -8,230 +8,131 @@ part of 'databases_firewall.dart';
 class FirewallRule {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique ID for the firewall rule itself.
   final SdkOptional<String> uuid;
-
   /// A unique ID for the database cluster to which the rule is applied.
   final SdkOptional<String> clusterUuid;
-
   /// The type of resource that the firewall rule allows to access the database cluster.
   final FirewallRuleType type_;
-
   /// The ID of the specific resource, the name of a tag applied to a group of resources, or the IP address that the firewall rule allows to access the database cluster.
   final String value;
-
   /// A time value given in ISO8601 combined date and time format that represents when the firewall rule was created.
   final SdkOptional<String> createdAt;
-
   /// A human-readable description of the rule.
   final SdkOptional<String> description;
 
-  const FirewallRule(
-      {this.uuid = const SdkOmitted(),
-      this.clusterUuid = const SdkOmitted(),
-      required this.type_,
-      required this.value,
-      this.createdAt = const SdkOmitted(),
-      this.description = const SdkOmitted()});
+  const FirewallRule({this.uuid = const SdkOmitted(), this.clusterUuid = const SdkOmitted(), required this.type_, required this.value, this.createdAt = const SdkOmitted(), this.description = const SdkOmitted()});
 
-  FirewallRule Function(
-      {SdkOptional<String> uuid,
-      SdkOptional<String> clusterUuid,
-      FirewallRuleType type_,
-      String value,
-      SdkOptional<String> createdAt,
-      SdkOptional<String> description}) get copyWith => _copyWith;
+  FirewallRule Function({SdkOptional<String> uuid, SdkOptional<String> clusterUuid, FirewallRuleType type_, String value, SdkOptional<String> createdAt, SdkOptional<String> description}) get copyWith => _copyWith;
 
-  FirewallRule _copyWith(
-          {Object? uuid = sdkOmittedValue,
-          Object? clusterUuid = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? value = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? description = sdkOmittedValue}) =>
-      FirewallRule(
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-        clusterUuid: identical(clusterUuid, sdkOmittedValue)
-            ? this.clusterUuid
-            : clusterUuid as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as FirewallRuleType,
-        value: identical(value, sdkOmittedValue) ? this.value : value as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-      );
+  FirewallRule _copyWith({Object? uuid = sdkOmittedValue, Object? clusterUuid = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? value = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? description = sdkOmittedValue}) => FirewallRule(
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+    clusterUuid: identical(clusterUuid, sdkOmittedValue) ? this.clusterUuid : clusterUuid as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FirewallRuleType,
+    value: identical(value, sdkOmittedValue) ? this.value : value as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+  );
 
   factory FirewallRule.fromJson(Map<String, dynamic> json) => FirewallRule(
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-        clusterUuid: json['cluster_uuid'] != null
-            ? SdkPresent((json['cluster_uuid'] as String?)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? FirewallRuleType.fromJson(json['type'] as String)
-            : null)!,
-        value: (json['value'] as String?)!,
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-      );
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+    clusterUuid: json['cluster_uuid'] != null ? SdkPresent((json['cluster_uuid'] as String?)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? FirewallRuleType.fromJson(json['type'] as String) : null)!,
+    value: (json['value'] as String?)!,
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clusterUuid) {
-          SdkPresent<String>(value: final value) => {
-              'cluster_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'value': value,
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clusterUuid) {
+      SdkPresent<String>(value: final value) => {'cluster_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'value': value,
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `FirewallRuleRequest` API schema.
 class FirewallRuleRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique ID for the firewall rule itself.
   final SdkOptional<String> uuid;
-
   /// The type of resource that the firewall rule allows to access the database cluster.
   final FirewallRuleRequestType type_;
-
   /// The ID of the specific resource, the name of a tag applied to a group of resources, or the IP address that the firewall rule allows to access the database cluster.
   final String value;
-
   /// A human-readable description of the rule.
   final SdkOptional<String> description;
 
-  const FirewallRuleRequest(
-      {this.uuid = const SdkOmitted(),
-      required this.type_,
-      required this.value,
-      this.description = const SdkOmitted()});
+  const FirewallRuleRequest({this.uuid = const SdkOmitted(), required this.type_, required this.value, this.description = const SdkOmitted()});
 
-  FirewallRuleRequest Function(
-      {SdkOptional<String> uuid,
-      FirewallRuleRequestType type_,
-      String value,
-      SdkOptional<String> description}) get copyWith => _copyWith;
+  FirewallRuleRequest Function({SdkOptional<String> uuid, FirewallRuleRequestType type_, String value, SdkOptional<String> description}) get copyWith => _copyWith;
 
-  FirewallRuleRequest _copyWith(
-          {Object? uuid = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? value = sdkOmittedValue,
-          Object? description = sdkOmittedValue}) =>
-      FirewallRuleRequest(
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as FirewallRuleRequestType,
-        value: identical(value, sdkOmittedValue) ? this.value : value as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-      );
+  FirewallRuleRequest _copyWith({Object? uuid = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? value = sdkOmittedValue, Object? description = sdkOmittedValue}) => FirewallRuleRequest(
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as FirewallRuleRequestType,
+    value: identical(value, sdkOmittedValue) ? this.value : value as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+  );
 
-  factory FirewallRuleRequest.fromJson(Map<String, dynamic> json) =>
-      FirewallRuleRequest(
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-        type_: (json['type'] != null
-            ? FirewallRuleRequestType.fromJson(json['type'] as String)
-            : null)!,
-        value: (json['value'] as String?)!,
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory FirewallRuleRequest.fromJson(Map<String, dynamic> json) => FirewallRuleRequest(
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+    type_: (json['type'] != null ? FirewallRuleRequestType.fromJson(json['type'] as String) : null)!,
+    value: (json['value'] as String?)!,
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'type': type_.toJson(),
-        'value': value,
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    'value': value,
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `FirewallRulesResponse` API schema.
 class FirewallRulesResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `rules` wire field.
   final SdkOptional<List<FirewallRule>> rules;
 
   const FirewallRulesResponse({this.rules = const SdkOmitted()});
 
-  FirewallRulesResponse Function({SdkOptional<List<FirewallRule>> rules})
-      get copyWith => _copyWith;
+  FirewallRulesResponse Function({SdkOptional<List<FirewallRule>> rules}) get copyWith => _copyWith;
 
-  FirewallRulesResponse _copyWith({Object? rules = sdkOmittedValue}) =>
-      FirewallRulesResponse(
-        rules: identical(rules, sdkOmittedValue)
-            ? this.rules
-            : rules as SdkOptional<List<FirewallRule>>,
-      );
+  FirewallRulesResponse _copyWith({Object? rules = sdkOmittedValue}) => FirewallRulesResponse(
+    rules: identical(rules, sdkOmittedValue) ? this.rules : rules as SdkOptional<List<FirewallRule>>,
+  );
 
-  factory FirewallRulesResponse.fromJson(Map<String, dynamic> json) =>
-      FirewallRulesResponse(
-        rules: json['rules'] != null
-            ? SdkPresent(((json['rules'] as List?)
-                ?.map((e) => FirewallRule.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory FirewallRulesResponse.fromJson(Map<String, dynamic> json) => FirewallRulesResponse(
+    rules: json['rules'] != null ? SdkPresent(((json['rules'] as List?)?.map((e) => FirewallRule.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (rules) {
-          SdkPresent<List<FirewallRule>>(value: final value) => {
-              'rules': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (rules) {
+      SdkPresent<List<FirewallRule>>(value: final value) => {'rules': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

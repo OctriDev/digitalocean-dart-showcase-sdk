@@ -8,37 +8,25 @@ part of 'nfs.dart';
 class NfsListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `shares` wire field.
   final SdkOptional<List<NfsResponse>> shares;
 
   const NfsListResponse({this.shares = const SdkOmitted()});
 
-  NfsListResponse Function({SdkOptional<List<NfsResponse>> shares})
-      get copyWith => _copyWith;
+  NfsListResponse Function({SdkOptional<List<NfsResponse>> shares}) get copyWith => _copyWith;
 
-  NfsListResponse _copyWith({Object? shares = sdkOmittedValue}) =>
-      NfsListResponse(
-        shares: identical(shares, sdkOmittedValue)
-            ? this.shares
-            : shares as SdkOptional<List<NfsResponse>>,
-      );
+  NfsListResponse _copyWith({Object? shares = sdkOmittedValue}) => NfsListResponse(
+    shares: identical(shares, sdkOmittedValue) ? this.shares : shares as SdkOptional<List<NfsResponse>>,
+  );
 
-  factory NfsListResponse.fromJson(Map<String, dynamic> json) =>
-      NfsListResponse(
-        shares: json['shares'] != null
-            ? SdkPresent(((json['shares'] as List?)
-                ?.map((e) => NfsResponse.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory NfsListResponse.fromJson(Map<String, dynamic> json) => NfsListResponse(
+    shares: json['shares'] != null ? SdkPresent(((json['shares'] as List?)?.map((e) => NfsResponse.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (shares) {
-          SdkPresent<List<NfsResponse>>(value: final value) => {
-              'shares': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (shares) {
+      SdkPresent<List<NfsResponse>>(value: final value) => {'shares': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

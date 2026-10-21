@@ -8,72 +8,41 @@ part of 'agent_platform_api_api.dart';
 class ApiMeta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The current page
   final SdkOptional<int> page;
-
   /// Total number of pages
   final SdkOptional<int> pages;
-
   /// Total amount of items over all pages
   final SdkOptional<int> total;
 
-  const ApiMeta(
-      {this.page = const SdkOmitted(),
-      this.pages = const SdkOmitted(),
-      this.total = const SdkOmitted()});
+  const ApiMeta({this.page = const SdkOmitted(), this.pages = const SdkOmitted(), this.total = const SdkOmitted()});
 
-  ApiMeta Function(
-      {SdkOptional<int> page,
-      SdkOptional<int> pages,
-      SdkOptional<int> total}) get copyWith => _copyWith;
+  ApiMeta Function({SdkOptional<int> page, SdkOptional<int> pages, SdkOptional<int> total}) get copyWith => _copyWith;
 
-  ApiMeta _copyWith(
-          {Object? page = sdkOmittedValue,
-          Object? pages = sdkOmittedValue,
-          Object? total = sdkOmittedValue}) =>
-      ApiMeta(
-        page: identical(page, sdkOmittedValue)
-            ? this.page
-            : page as SdkOptional<int>,
-        pages: identical(pages, sdkOmittedValue)
-            ? this.pages
-            : pages as SdkOptional<int>,
-        total: identical(total, sdkOmittedValue)
-            ? this.total
-            : total as SdkOptional<int>,
-      );
+  ApiMeta _copyWith({Object? page = sdkOmittedValue, Object? pages = sdkOmittedValue, Object? total = sdkOmittedValue}) => ApiMeta(
+    page: identical(page, sdkOmittedValue) ? this.page : page as SdkOptional<int>,
+    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<int>,
+    total: identical(total, sdkOmittedValue) ? this.total : total as SdkOptional<int>,
+  );
 
   factory ApiMeta.fromJson(Map<String, dynamic> json) => ApiMeta(
-        page: json['page'] != null
-            ? SdkPresent(((json['page'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        pages: json['pages'] != null
-            ? SdkPresent(((json['pages'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        total: json['total'] != null
-            ? SdkPresent(((json['total'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+    page: json['page'] != null ? SdkPresent(((json['page'] as num?)?.toInt())!) : const SdkOmitted(),
+    pages: json['pages'] != null ? SdkPresent(((json['pages'] as num?)?.toInt())!) : const SdkOmitted(),
+    total: json['total'] != null ? SdkPresent(((json['total'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (page) {
-          SdkPresent<int>(value: final value) => {
-              'page': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pages) {
-          SdkPresent<int>(value: final value) => {
-              'pages': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (total) {
-          SdkPresent<int>(value: final value) => {
-              'total': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (page) {
+      SdkPresent<int>(value: final value) => {'page': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pages) {
+      SdkPresent<int>(value: final value) => {'pages': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (total) {
+      SdkPresent<int>(value: final value) => {'total': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

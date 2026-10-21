@@ -8,77 +8,41 @@ part of 'database.dart';
 class DatabaseKafkaSchemaCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the schema subject.
   final SdkOptional<String> subjectName;
-
   /// The type of the schema.
   final SdkOptional<DatabaseKafkaSchemaCreateSchemaType> schemaType;
-
   /// The schema definition in the specified format.
   final SdkOptional<String> schema;
 
-  const DatabaseKafkaSchemaCreate(
-      {this.subjectName = const SdkOmitted(),
-      this.schemaType = const SdkOmitted(),
-      this.schema = const SdkOmitted()});
+  const DatabaseKafkaSchemaCreate({this.subjectName = const SdkOmitted(), this.schemaType = const SdkOmitted(), this.schema = const SdkOmitted()});
 
-  DatabaseKafkaSchemaCreate Function(
-      {SdkOptional<String> subjectName,
-      SdkOptional<DatabaseKafkaSchemaCreateSchemaType> schemaType,
-      SdkOptional<String> schema}) get copyWith => _copyWith;
+  DatabaseKafkaSchemaCreate Function({SdkOptional<String> subjectName, SdkOptional<DatabaseKafkaSchemaCreateSchemaType> schemaType, SdkOptional<String> schema}) get copyWith => _copyWith;
 
-  DatabaseKafkaSchemaCreate _copyWith(
-          {Object? subjectName = sdkOmittedValue,
-          Object? schemaType = sdkOmittedValue,
-          Object? schema = sdkOmittedValue}) =>
-      DatabaseKafkaSchemaCreate(
-        subjectName: identical(subjectName, sdkOmittedValue)
-            ? this.subjectName
-            : subjectName as SdkOptional<String>,
-        schemaType: identical(schemaType, sdkOmittedValue)
-            ? this.schemaType
-            : schemaType as SdkOptional<DatabaseKafkaSchemaCreateSchemaType>,
-        schema: identical(schema, sdkOmittedValue)
-            ? this.schema
-            : schema as SdkOptional<String>,
-      );
+  DatabaseKafkaSchemaCreate _copyWith({Object? subjectName = sdkOmittedValue, Object? schemaType = sdkOmittedValue, Object? schema = sdkOmittedValue}) => DatabaseKafkaSchemaCreate(
+    subjectName: identical(subjectName, sdkOmittedValue) ? this.subjectName : subjectName as SdkOptional<String>,
+    schemaType: identical(schemaType, sdkOmittedValue) ? this.schemaType : schemaType as SdkOptional<DatabaseKafkaSchemaCreateSchemaType>,
+    schema: identical(schema, sdkOmittedValue) ? this.schema : schema as SdkOptional<String>,
+  );
 
-  factory DatabaseKafkaSchemaCreate.fromJson(Map<String, dynamic> json) =>
-      DatabaseKafkaSchemaCreate(
-        subjectName: json['subject_name'] != null
-            ? SdkPresent((json['subject_name'] as String?)!)
-            : const SdkOmitted(),
-        schemaType: json['schema_type'] != null
-            ? SdkPresent((json['schema_type'] != null
-                ? DatabaseKafkaSchemaCreateSchemaType.fromJson(
-                    json['schema_type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        schema: json['schema'] != null
-            ? SdkPresent((json['schema'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseKafkaSchemaCreate.fromJson(Map<String, dynamic> json) => DatabaseKafkaSchemaCreate(
+    subjectName: json['subject_name'] != null ? SdkPresent((json['subject_name'] as String?)!) : const SdkOmitted(),
+    schemaType: json['schema_type'] != null ? SdkPresent((json['schema_type'] != null ? DatabaseKafkaSchemaCreateSchemaType.fromJson(json['schema_type'] as String) : null)!) : const SdkOmitted(),
+    schema: json['schema'] != null ? SdkPresent((json['schema'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (subjectName) {
-          SdkPresent<String>(value: final value) => {
-              'subject_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (schemaType) {
-          SdkPresent<DatabaseKafkaSchemaCreateSchemaType>(value: final value) =>
-            {
-              'schema_type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (schema) {
-          SdkPresent<String>(value: final value) => {
-              'schema': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (subjectName) {
+      SdkPresent<String>(value: final value) => {'subject_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (schemaType) {
+      SdkPresent<DatabaseKafkaSchemaCreateSchemaType>(value: final value) => {'schema_type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (schema) {
+      SdkPresent<String>(value: final value) => {'schema': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

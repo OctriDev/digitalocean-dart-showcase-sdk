@@ -8,196 +8,105 @@ part of 'apps_app_propose.dart';
 class AppProposeRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The desired configuration of an application.
   final AppSpecRequest spec;
-
   /// An optional ID of an existing app. If set, the spec will be treated as a proposed update to the specified app. The existing app is not modified using this method.
   final SdkOptional<String> appId;
 
-  const AppProposeRequest(
-      {required this.spec, this.appId = const SdkOmitted()});
+  const AppProposeRequest({required this.spec, this.appId = const SdkOmitted()});
 
-  AppProposeRequest Function({AppSpecRequest spec, SdkOptional<String> appId})
-      get copyWith => _copyWith;
+  AppProposeRequest Function({AppSpecRequest spec, SdkOptional<String> appId}) get copyWith => _copyWith;
 
-  AppProposeRequest _copyWith(
-          {Object? spec = sdkOmittedValue, Object? appId = sdkOmittedValue}) =>
-      AppProposeRequest(
-        spec: identical(spec, sdkOmittedValue)
-            ? this.spec
-            : spec as AppSpecRequest,
-        appId: identical(appId, sdkOmittedValue)
-            ? this.appId
-            : appId as SdkOptional<String>,
-      );
+  AppProposeRequest _copyWith({Object? spec = sdkOmittedValue, Object? appId = sdkOmittedValue}) => AppProposeRequest(
+    spec: identical(spec, sdkOmittedValue) ? this.spec : spec as AppSpecRequest,
+    appId: identical(appId, sdkOmittedValue) ? this.appId : appId as SdkOptional<String>,
+  );
 
-  factory AppProposeRequest.fromJson(Map<String, dynamic> json) =>
-      AppProposeRequest(
-        spec: (json['spec'] != null
-            ? AppSpecRequest.fromJson(json['spec'] as Map<String, dynamic>)
-            : null)!,
-        appId: json['app_id'] != null
-            ? SdkPresent((json['app_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AppProposeRequest.fromJson(Map<String, dynamic> json) => AppProposeRequest(
+    spec: (json['spec'] != null ? AppSpecRequest.fromJson(json['spec'] as Map<String, dynamic>) : null)!,
+    appId: json['app_id'] != null ? SdkPresent((json['app_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'spec': spec.toJson(),
-        ...switch (appId) {
-          SdkPresent<String>(value: final value) => {
-              'app_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'spec': spec.toJson(),
+    ...switch (appId) {
+      SdkPresent<String>(value: final value) => {'app_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppProposeResponse` API schema.
 class AppProposeResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Indicates whether the app is a static app.
   final SdkOptional<bool> appIsStatic;
-
   /// Indicates whether the app name is available.
   final SdkOptional<bool> appNameAvailable;
-
   /// The suggested name if the proposed app name is unavailable.
   final SdkOptional<String> appNameSuggestion;
-
   /// The maximum number of free static apps the account can have. We will charge you for any additional static apps.
   final SdkOptional<String> existingStaticApps;
-
   /// The desired configuration of an application.
   final SdkOptional<AppSpec> spec;
-
   /// The monthly cost of the proposed app in USD.
   final SdkOptional<int> appCost;
-
   /// The monthly cost of the proposed app in USD using the previous pricing plan tier. For example, if you propose an app that uses the Professional tier, the `app_tier_downgrade_cost` field displays the monthly cost of the app if it were to use the Basic tier. If the proposed app already uses the lest expensive tier, the field is empty.
   final SdkOptional<int> appTierDowngradeCost;
 
-  const AppProposeResponse(
-      {this.appIsStatic = const SdkOmitted(),
-      this.appNameAvailable = const SdkOmitted(),
-      this.appNameSuggestion = const SdkOmitted(),
-      this.existingStaticApps = const SdkOmitted(),
-      this.spec = const SdkOmitted(),
-      this.appCost = const SdkOmitted(),
-      this.appTierDowngradeCost = const SdkOmitted()});
+  const AppProposeResponse({this.appIsStatic = const SdkOmitted(), this.appNameAvailable = const SdkOmitted(), this.appNameSuggestion = const SdkOmitted(), this.existingStaticApps = const SdkOmitted(), this.spec = const SdkOmitted(), this.appCost = const SdkOmitted(), this.appTierDowngradeCost = const SdkOmitted()});
 
-  AppProposeResponse Function(
-      {SdkOptional<bool> appIsStatic,
-      SdkOptional<bool> appNameAvailable,
-      SdkOptional<String> appNameSuggestion,
-      SdkOptional<String> existingStaticApps,
-      SdkOptional<AppSpec> spec,
-      SdkOptional<int> appCost,
-      SdkOptional<int> appTierDowngradeCost}) get copyWith => _copyWith;
+  AppProposeResponse Function({SdkOptional<bool> appIsStatic, SdkOptional<bool> appNameAvailable, SdkOptional<String> appNameSuggestion, SdkOptional<String> existingStaticApps, SdkOptional<AppSpec> spec, SdkOptional<int> appCost, SdkOptional<int> appTierDowngradeCost}) get copyWith => _copyWith;
 
-  AppProposeResponse _copyWith(
-          {Object? appIsStatic = sdkOmittedValue,
-          Object? appNameAvailable = sdkOmittedValue,
-          Object? appNameSuggestion = sdkOmittedValue,
-          Object? existingStaticApps = sdkOmittedValue,
-          Object? spec = sdkOmittedValue,
-          Object? appCost = sdkOmittedValue,
-          Object? appTierDowngradeCost = sdkOmittedValue}) =>
-      AppProposeResponse(
-        appIsStatic: identical(appIsStatic, sdkOmittedValue)
-            ? this.appIsStatic
-            : appIsStatic as SdkOptional<bool>,
-        appNameAvailable: identical(appNameAvailable, sdkOmittedValue)
-            ? this.appNameAvailable
-            : appNameAvailable as SdkOptional<bool>,
-        appNameSuggestion: identical(appNameSuggestion, sdkOmittedValue)
-            ? this.appNameSuggestion
-            : appNameSuggestion as SdkOptional<String>,
-        existingStaticApps: identical(existingStaticApps, sdkOmittedValue)
-            ? this.existingStaticApps
-            : existingStaticApps as SdkOptional<String>,
-        spec: identical(spec, sdkOmittedValue)
-            ? this.spec
-            : spec as SdkOptional<AppSpec>,
-        appCost: identical(appCost, sdkOmittedValue)
-            ? this.appCost
-            : appCost as SdkOptional<int>,
-        appTierDowngradeCost: identical(appTierDowngradeCost, sdkOmittedValue)
-            ? this.appTierDowngradeCost
-            : appTierDowngradeCost as SdkOptional<int>,
-      );
+  AppProposeResponse _copyWith({Object? appIsStatic = sdkOmittedValue, Object? appNameAvailable = sdkOmittedValue, Object? appNameSuggestion = sdkOmittedValue, Object? existingStaticApps = sdkOmittedValue, Object? spec = sdkOmittedValue, Object? appCost = sdkOmittedValue, Object? appTierDowngradeCost = sdkOmittedValue}) => AppProposeResponse(
+    appIsStatic: identical(appIsStatic, sdkOmittedValue) ? this.appIsStatic : appIsStatic as SdkOptional<bool>,
+    appNameAvailable: identical(appNameAvailable, sdkOmittedValue) ? this.appNameAvailable : appNameAvailable as SdkOptional<bool>,
+    appNameSuggestion: identical(appNameSuggestion, sdkOmittedValue) ? this.appNameSuggestion : appNameSuggestion as SdkOptional<String>,
+    existingStaticApps: identical(existingStaticApps, sdkOmittedValue) ? this.existingStaticApps : existingStaticApps as SdkOptional<String>,
+    spec: identical(spec, sdkOmittedValue) ? this.spec : spec as SdkOptional<AppSpec>,
+    appCost: identical(appCost, sdkOmittedValue) ? this.appCost : appCost as SdkOptional<int>,
+    appTierDowngradeCost: identical(appTierDowngradeCost, sdkOmittedValue) ? this.appTierDowngradeCost : appTierDowngradeCost as SdkOptional<int>,
+  );
 
-  factory AppProposeResponse.fromJson(Map<String, dynamic> json) =>
-      AppProposeResponse(
-        appIsStatic: json['app_is_static'] != null
-            ? SdkPresent((json['app_is_static'] as bool?)!)
-            : const SdkOmitted(),
-        appNameAvailable: json['app_name_available'] != null
-            ? SdkPresent((json['app_name_available'] as bool?)!)
-            : const SdkOmitted(),
-        appNameSuggestion: json['app_name_suggestion'] != null
-            ? SdkPresent((json['app_name_suggestion'] as String?)!)
-            : const SdkOmitted(),
-        existingStaticApps: json['existing_static_apps'] != null
-            ? SdkPresent((json['existing_static_apps'] as String?)!)
-            : const SdkOmitted(),
-        spec: json['spec'] != null
-            ? SdkPresent((json['spec'] != null
-                ? AppSpec.fromJson(json['spec'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        appCost: json['app_cost'] != null
-            ? SdkPresent(((json['app_cost'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        appTierDowngradeCost: json['app_tier_downgrade_cost'] != null
-            ? SdkPresent(((json['app_tier_downgrade_cost'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory AppProposeResponse.fromJson(Map<String, dynamic> json) => AppProposeResponse(
+    appIsStatic: json['app_is_static'] != null ? SdkPresent((json['app_is_static'] as bool?)!) : const SdkOmitted(),
+    appNameAvailable: json['app_name_available'] != null ? SdkPresent((json['app_name_available'] as bool?)!) : const SdkOmitted(),
+    appNameSuggestion: json['app_name_suggestion'] != null ? SdkPresent((json['app_name_suggestion'] as String?)!) : const SdkOmitted(),
+    existingStaticApps: json['existing_static_apps'] != null ? SdkPresent((json['existing_static_apps'] as String?)!) : const SdkOmitted(),
+    spec: json['spec'] != null ? SdkPresent((json['spec'] != null ? AppSpec.fromJson(json['spec'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    appCost: json['app_cost'] != null ? SdkPresent(((json['app_cost'] as num?)?.toInt())!) : const SdkOmitted(),
+    appTierDowngradeCost: json['app_tier_downgrade_cost'] != null ? SdkPresent(((json['app_tier_downgrade_cost'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (appIsStatic) {
-          SdkPresent<bool>(value: final value) => {
-              'app_is_static': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (appNameAvailable) {
-          SdkPresent<bool>(value: final value) => {
-              'app_name_available': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (appNameSuggestion) {
-          SdkPresent<String>(value: final value) => {
-              'app_name_suggestion': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (existingStaticApps) {
-          SdkPresent<String>(value: final value) => {
-              'existing_static_apps': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (spec) {
-          SdkPresent<AppSpec>(value: final value) => {
-              'spec': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (appCost) {
-          SdkPresent<int>(value: final value) => {
-              'app_cost': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (appTierDowngradeCost) {
-          SdkPresent<int>(value: final value) => {
-              'app_tier_downgrade_cost': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (appIsStatic) {
+      SdkPresent<bool>(value: final value) => {'app_is_static': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (appNameAvailable) {
+      SdkPresent<bool>(value: final value) => {'app_name_available': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (appNameSuggestion) {
+      SdkPresent<String>(value: final value) => {'app_name_suggestion': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (existingStaticApps) {
+      SdkPresent<String>(value: final value) => {'existing_static_apps': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (spec) {
+      SdkPresent<AppSpec>(value: final value) => {'spec': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (appCost) {
+      SdkPresent<int>(value: final value) => {'app_cost': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (appTierDowngradeCost) {
+      SdkPresent<int>(value: final value) => {'app_tier_downgrade_cost': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

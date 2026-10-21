@@ -6,47 +6,38 @@ part of 'inline.dart';
 // Inline operation models
 /// The comparison operator.
 final class LogsFilterConditionOperator {
+
   final String value;
 
   const LogsFilterConditionOperator._(this.value);
 
-  factory LogsFilterConditionOperator.fromJson(String value) =>
-      LogsFilterConditionOperator._(value);
+  factory LogsFilterConditionOperator.fromJson(String value) => LogsFilterConditionOperator._(value);
 
-  static const filterOperatorEq =
-      LogsFilterConditionOperator._('FILTER_OPERATOR_EQ');
-  static const filterOperatorNeq =
-      LogsFilterConditionOperator._('FILTER_OPERATOR_NEQ');
-  static const filterOperatorIn =
-      LogsFilterConditionOperator._('FILTER_OPERATOR_IN');
-  static const filterOperatorExists =
-      LogsFilterConditionOperator._('FILTER_OPERATOR_EXISTS');
-  static const filterOperatorGte =
-      LogsFilterConditionOperator._('FILTER_OPERATOR_GTE');
-  static const filterOperatorLte =
-      LogsFilterConditionOperator._('FILTER_OPERATOR_LTE');
+  static const filterOperatorEq = LogsFilterConditionOperator._('FILTER_OPERATOR_EQ');
+  static const filterOperatorNeq = LogsFilterConditionOperator._('FILTER_OPERATOR_NEQ');
+  static const filterOperatorIn = LogsFilterConditionOperator._('FILTER_OPERATOR_IN');
+  static const filterOperatorExists = LogsFilterConditionOperator._('FILTER_OPERATOR_EXISTS');
+  static const filterOperatorGte = LogsFilterConditionOperator._('FILTER_OPERATOR_GTE');
+  static const filterOperatorLte = LogsFilterConditionOperator._('FILTER_OPERATOR_LTE');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LogsFilterConditionOperator && other.value == value;
+  @override bool operator ==(Object other) => other is LogsFilterConditionOperator && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Type of logsink integration. - Use `datadog` for Datadog integration **only with MongoDB clusters**. - For non-MongoDB clusters, use `rsyslog` for general syslog forwarding. - Other supported types include `elasticsearch` and `opensearch`. More details about the configuration can be found in the `config` property.
 final class LogsinkBaseSinkType {
+
   final String value;
 
   const LogsinkBaseSinkType._(this.value);
 
-  factory LogsinkBaseSinkType.fromJson(String value) =>
-      LogsinkBaseSinkType._(value);
+  factory LogsinkBaseSinkType.fromJson(String value) => LogsinkBaseSinkType._(value);
 
   static const rsyslog = LogsinkBaseSinkType._('rsyslog');
   static const elasticsearch = LogsinkBaseSinkType._('elasticsearch');
@@ -55,25 +46,22 @@ final class LogsinkBaseSinkType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LogsinkBaseSinkType && other.value == value;
+  @override bool operator ==(Object other) => other is LogsinkBaseSinkType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `sink_type` wire field.
 final class LogsinkBaseVerboseSinkType {
+
   final String value;
 
   const LogsinkBaseVerboseSinkType._(this.value);
 
-  factory LogsinkBaseVerboseSinkType.fromJson(String value) =>
-      LogsinkBaseVerboseSinkType._(value);
+  factory LogsinkBaseVerboseSinkType.fromJson(String value) => LogsinkBaseVerboseSinkType._(value);
 
   static const rsyslog = LogsinkBaseVerboseSinkType._('rsyslog');
   static const elasticsearch = LogsinkBaseVerboseSinkType._('elasticsearch');
@@ -81,25 +69,22 @@ final class LogsinkBaseVerboseSinkType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LogsinkBaseVerboseSinkType && other.value == value;
+  @override bool operator ==(Object other) => other is LogsinkBaseVerboseSinkType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `sink_type` wire field.
 final class LogsinkSchemaSinkType {
+
   final String value;
 
   const LogsinkSchemaSinkType._(this.value);
 
-  factory LogsinkSchemaSinkType.fromJson(String value) =>
-      LogsinkSchemaSinkType._(value);
+  factory LogsinkSchemaSinkType.fromJson(String value) => LogsinkSchemaSinkType._(value);
 
   static const rsyslog = LogsinkSchemaSinkType._('rsyslog');
   static const elasticsearch = LogsinkSchemaSinkType._('elasticsearch');
@@ -107,51 +92,44 @@ final class LogsinkSchemaSinkType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LogsinkSchemaSinkType && other.value == value;
+  @override bool operator ==(Object other) => other is LogsinkSchemaSinkType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The sort direction. Omit to use the server default.
 final class LogsOrderByDirection {
+
   final String value;
 
   const LogsOrderByDirection._(this.value);
 
-  factory LogsOrderByDirection.fromJson(String value) =>
-      LogsOrderByDirection._(value);
+  factory LogsOrderByDirection.fromJson(String value) => LogsOrderByDirection._(value);
 
   static const sortDirectionAsc = LogsOrderByDirection._('SORT_DIRECTION_ASC');
-  static const sortDirectionDesc =
-      LogsOrderByDirection._('SORT_DIRECTION_DESC');
+  static const sortDirectionDesc = LogsOrderByDirection._('SORT_DIRECTION_DESC');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is LogsOrderByDirection && other.value == value;
+  @override bool operator ==(Object other) => other is LogsOrderByDirection && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The day of the maintenance window policy. May be one of `monday` through `sunday`, or `any` to indicate an arbitrary week day.
 final class MaintenancePolicyDay {
+
   final String value;
 
   const MaintenancePolicyDay._(this.value);
 
-  factory MaintenancePolicyDay.fromJson(String value) =>
-      MaintenancePolicyDay._(value);
+  factory MaintenancePolicyDay.fromJson(String value) => MaintenancePolicyDay._(value);
 
   static const any = MaintenancePolicyDay._('any');
   static const monday = MaintenancePolicyDay._('monday');
@@ -164,25 +142,22 @@ final class MaintenancePolicyDay {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MaintenancePolicyDay && other.value == value;
+  @override bool operator ==(Object other) => other is MaintenancePolicyDay && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The day of the maintenance window policy. May be one of `monday` through `sunday`, or `any` to indicate an arbitrary week day.
 final class MaintenancePolicyRequestDay {
+
   final String value;
 
   const MaintenancePolicyRequestDay._(this.value);
 
-  factory MaintenancePolicyRequestDay.fromJson(String value) =>
-      MaintenancePolicyRequestDay._(value);
+  factory MaintenancePolicyRequestDay.fromJson(String value) => MaintenancePolicyRequestDay._(value);
 
   static const any = MaintenancePolicyRequestDay._('any');
   static const monday = MaintenancePolicyRequestDay._('monday');
@@ -195,25 +170,22 @@ final class MaintenancePolicyRequestDay {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is MaintenancePolicyRequestDay && other.value == value;
+  @override bool operator ==(Object other) => other is MaintenancePolicyRequestDay && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// How requests to the server authenticate: none, secret (a key or token sent in the Authorization header), or connection (each user's own OAuth authorization).
 final class McpServerCredentialRefSource {
+
   final String value;
 
   const McpServerCredentialRefSource._(this.value);
 
-  factory McpServerCredentialRefSource.fromJson(String value) =>
-      McpServerCredentialRefSource._(value);
+  factory McpServerCredentialRefSource.fromJson(String value) => McpServerCredentialRefSource._(value);
 
   static const none = McpServerCredentialRefSource._('none');
   static const secret = McpServerCredentialRefSource._('secret');
@@ -221,77 +193,67 @@ final class McpServerCredentialRefSource {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is McpServerCredentialRefSource && other.value == value;
+  @override bool operator ==(Object other) => other is McpServerCredentialRefSource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Outcome of the latest discovery: pending (no discovery has finished yet), ok, failed, or `unsupported_protocol`. It is not reset while a resync runs.
 final class McpServerSyncStatus {
+
   final String value;
 
   const McpServerSyncStatus._(this.value);
 
-  factory McpServerSyncStatus.fromJson(String value) =>
-      McpServerSyncStatus._(value);
+  factory McpServerSyncStatus.fromJson(String value) => McpServerSyncStatus._(value);
 
   static const pending = McpServerSyncStatus._('pending');
   static const ok = McpServerSyncStatus._('ok');
   static const failed = McpServerSyncStatus._('failed');
-  static const unsupportedProtocol =
-      McpServerSyncStatus._('unsupported_protocol');
+  static const unsupportedProtocol = McpServerSyncStatus._('unsupported_protocol');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is McpServerSyncStatus && other.value == value;
+  @override bool operator ==(Object other) => other is McpServerSyncStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Always `streamable_http`.
 final class McpServerTransport {
+
   final String value;
 
   const McpServerTransport._(this.value);
 
-  factory McpServerTransport.fromJson(String value) =>
-      McpServerTransport._(value);
+  factory McpServerTransport.fromJson(String value) => McpServerTransport._(value);
 
   static const streamableHttp = McpServerTransport._('streamable_http');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is McpServerTransport && other.value == value;
+  @override bool operator ==(Object other) => other is McpServerTransport && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// How requests to the server authenticate: none (the default), secret, or connection. With secret, the value from `credentialRef` or `api_key` is sent in the Authorization header, prefixed with "Bearer " unless it already contains a space.
 final class McpServerCreateCredentialRefSource {
+
   final String value;
 
   const McpServerCreateCredentialRefSource._(this.value);
 
-  factory McpServerCreateCredentialRefSource.fromJson(String value) =>
-      McpServerCreateCredentialRefSource._(value);
+  factory McpServerCreateCredentialRefSource.fromJson(String value) => McpServerCreateCredentialRefSource._(value);
 
   static const none = McpServerCreateCredentialRefSource._('none');
   static const secret = McpServerCreateCredentialRefSource._('secret');
@@ -299,37 +261,31 @@ final class McpServerCreateCredentialRefSource {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is McpServerCreateCredentialRefSource && other.value == value;
+  @override bool operator ==(Object other) => other is McpServerCreateCredentialRefSource && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional. `streamable_http`, the default and only accepted value.
 final class McpServerCreateTransport {
+
   final String value;
 
   const McpServerCreateTransport._(this.value);
 
-  factory McpServerCreateTransport.fromJson(String value) =>
-      McpServerCreateTransport._(value);
+  factory McpServerCreateTransport.fromJson(String value) => McpServerCreateTransport._(value);
 
   static const streamableHttp = McpServerCreateTransport._('streamable_http');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is McpServerCreateTransport && other.value == value;
+  @override bool operator ==(Object other) => other is McpServerCreateTransport && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

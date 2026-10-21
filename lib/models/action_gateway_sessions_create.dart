@@ -8,76 +8,41 @@ part of 'action_gateway.dart';
 class CreateSessionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The created session.
   final SdkOptional<Session> session;
-
   /// URL of the session's MCP endpoint, for the agent to connect to.
   final SdkOptional<String> mcpUrl;
-
   /// Canonical, version-pinned selected tool references. Empty when the session exposes every tool.
   final SdkOptional<List<String>> tools;
 
-  const CreateSessionResponse(
-      {this.session = const SdkOmitted(),
-      this.mcpUrl = const SdkOmitted(),
-      this.tools = const SdkOmitted()});
+  const CreateSessionResponse({this.session = const SdkOmitted(), this.mcpUrl = const SdkOmitted(), this.tools = const SdkOmitted()});
 
-  CreateSessionResponse Function(
-      {SdkOptional<Session> session,
-      SdkOptional<String> mcpUrl,
-      SdkOptional<List<String>> tools}) get copyWith => _copyWith;
+  CreateSessionResponse Function({SdkOptional<Session> session, SdkOptional<String> mcpUrl, SdkOptional<List<String>> tools}) get copyWith => _copyWith;
 
-  CreateSessionResponse _copyWith(
-          {Object? session = sdkOmittedValue,
-          Object? mcpUrl = sdkOmittedValue,
-          Object? tools = sdkOmittedValue}) =>
-      CreateSessionResponse(
-        session: identical(session, sdkOmittedValue)
-            ? this.session
-            : session as SdkOptional<Session>,
-        mcpUrl: identical(mcpUrl, sdkOmittedValue)
-            ? this.mcpUrl
-            : mcpUrl as SdkOptional<String>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<String>>,
-      );
+  CreateSessionResponse _copyWith({Object? session = sdkOmittedValue, Object? mcpUrl = sdkOmittedValue, Object? tools = sdkOmittedValue}) => CreateSessionResponse(
+    session: identical(session, sdkOmittedValue) ? this.session : session as SdkOptional<Session>,
+    mcpUrl: identical(mcpUrl, sdkOmittedValue) ? this.mcpUrl : mcpUrl as SdkOptional<String>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<String>>,
+  );
 
-  factory CreateSessionResponse.fromJson(Map<String, dynamic> json) =>
-      CreateSessionResponse(
-        session: json['session'] != null
-            ? SdkPresent((json['session'] != null
-                ? Session.fromJson(json['session'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        mcpUrl: json['mcpUrl'] != null
-            ? SdkPresent((json['mcpUrl'] as String?)!)
-            : const SdkOmitted(),
-        tools: json['tools'] != null
-            ? SdkPresent(
-                ((json['tools'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+  factory CreateSessionResponse.fromJson(Map<String, dynamic> json) => CreateSessionResponse(
+    session: json['session'] != null ? SdkPresent((json['session'] != null ? Session.fromJson(json['session'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    mcpUrl: json['mcpUrl'] != null ? SdkPresent((json['mcpUrl'] as String?)!) : const SdkOmitted(),
+    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (session) {
-          SdkPresent<Session>(value: final value) => {
-              'session': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (mcpUrl) {
-          SdkPresent<String>(value: final value) => {
-              'mcpUrl': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tools) {
-          SdkPresent<List<String>>(value: final value) => {
-              'tools': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (session) {
+      SdkPresent<Session>(value: final value) => {'session': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (mcpUrl) {
+      SdkPresent<String>(value: final value) => {'mcpUrl': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tools) {
+      SdkPresent<List<String>>(value: final value) => {'tools': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

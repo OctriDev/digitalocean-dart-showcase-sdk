@@ -8,38 +8,25 @@ part of 'databases_database.dart';
 class DatabaseReplicas {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `replicas` wire field.
   final SdkOptional<List<DatabaseReplicaRead>> replicas;
 
   const DatabaseReplicas({this.replicas = const SdkOmitted()});
 
-  DatabaseReplicas Function({SdkOptional<List<DatabaseReplicaRead>> replicas})
-      get copyWith => _copyWith;
+  DatabaseReplicas Function({SdkOptional<List<DatabaseReplicaRead>> replicas}) get copyWith => _copyWith;
 
-  DatabaseReplicas _copyWith({Object? replicas = sdkOmittedValue}) =>
-      DatabaseReplicas(
-        replicas: identical(replicas, sdkOmittedValue)
-            ? this.replicas
-            : replicas as SdkOptional<List<DatabaseReplicaRead>>,
-      );
+  DatabaseReplicas _copyWith({Object? replicas = sdkOmittedValue}) => DatabaseReplicas(
+    replicas: identical(replicas, sdkOmittedValue) ? this.replicas : replicas as SdkOptional<List<DatabaseReplicaRead>>,
+  );
 
-  factory DatabaseReplicas.fromJson(Map<String, dynamic> json) =>
-      DatabaseReplicas(
-        replicas: json['replicas'] != null
-            ? SdkPresent(((json['replicas'] as List?)
-                ?.map((e) =>
-                    DatabaseReplicaRead.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseReplicas.fromJson(Map<String, dynamic> json) => DatabaseReplicas(
+    replicas: json['replicas'] != null ? SdkPresent(((json['replicas'] as List?)?.map((e) => DatabaseReplicaRead.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (replicas) {
-          SdkPresent<List<DatabaseReplicaRead>>(value: final value) => {
-              'replicas': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (replicas) {
+      SdkPresent<List<DatabaseReplicaRead>>(value: final value) => {'replicas': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

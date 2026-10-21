@@ -8,232 +8,116 @@ part of 'agent_platform_api_api_create.dart';
 class ApiCreateSimulationRunInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Configuration of the candidate agent under test for a simulation run.
   final SdkOptional<ApiCandidateAgentConfig> agentConfig;
-
   /// Optional configuration that opts a simulation run into an evaluation. When included on the create-run request, the platform reserves a model_evaluation_run linked to this simulation run and dispatches the evaluation automatically after the simulation finishes. The evaluation reuses the simulation run's judge_model_uuid.
   final SdkOptional<ApiSimulationEvaluationConfig> evaluationConfig;
-
   /// Optional run-level episodes-per-scenario override. When set, overrides each scenario's exploration_budget.
   final SdkOptional<int> explorationBudget;
-
   /// Optional model override for the judge. Platform default when unset.
   final SdkOptional<String> judgeModelUuid;
-
   /// Optional run-level turn budget. When set, overrides each scenario's max_turns.
   final SdkOptional<int> maxTurns;
-
   /// Optional run name.
   final SdkOptional<String> name;
-
   /// UUID of the existing scenario set to execute. The set must be ready.
   final SdkOptional<String> scenarioSetUuid;
-
   /// Optional user simulator model settings such as temperature and max_tokens.
   final SdkOptional<Map<String, dynamic>> userSimulatorConfig;
-
   /// Optional model override for the user simulator. Platform default when unset.
   final SdkOptional<String> userSimulatorModelUuid;
 
-  const ApiCreateSimulationRunInputPublic(
-      {this.agentConfig = const SdkOmitted(),
-      this.evaluationConfig = const SdkOmitted(),
-      this.explorationBudget = const SdkOmitted(),
-      this.judgeModelUuid = const SdkOmitted(),
-      this.maxTurns = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.scenarioSetUuid = const SdkOmitted(),
-      this.userSimulatorConfig = const SdkOmitted(),
-      this.userSimulatorModelUuid = const SdkOmitted()});
+  const ApiCreateSimulationRunInputPublic({this.agentConfig = const SdkOmitted(), this.evaluationConfig = const SdkOmitted(), this.explorationBudget = const SdkOmitted(), this.judgeModelUuid = const SdkOmitted(), this.maxTurns = const SdkOmitted(), this.name = const SdkOmitted(), this.scenarioSetUuid = const SdkOmitted(), this.userSimulatorConfig = const SdkOmitted(), this.userSimulatorModelUuid = const SdkOmitted()});
 
-  ApiCreateSimulationRunInputPublic Function(
-      {SdkOptional<ApiCandidateAgentConfig> agentConfig,
-      SdkOptional<ApiSimulationEvaluationConfig> evaluationConfig,
-      SdkOptional<int> explorationBudget,
-      SdkOptional<String> judgeModelUuid,
-      SdkOptional<int> maxTurns,
-      SdkOptional<String> name,
-      SdkOptional<String> scenarioSetUuid,
-      SdkOptional<Map<String, dynamic>> userSimulatorConfig,
-      SdkOptional<String> userSimulatorModelUuid}) get copyWith => _copyWith;
+  ApiCreateSimulationRunInputPublic Function({SdkOptional<ApiCandidateAgentConfig> agentConfig, SdkOptional<ApiSimulationEvaluationConfig> evaluationConfig, SdkOptional<int> explorationBudget, SdkOptional<String> judgeModelUuid, SdkOptional<int> maxTurns, SdkOptional<String> name, SdkOptional<String> scenarioSetUuid, SdkOptional<Map<String, dynamic>> userSimulatorConfig, SdkOptional<String> userSimulatorModelUuid}) get copyWith => _copyWith;
 
-  ApiCreateSimulationRunInputPublic _copyWith(
-          {Object? agentConfig = sdkOmittedValue,
-          Object? evaluationConfig = sdkOmittedValue,
-          Object? explorationBudget = sdkOmittedValue,
-          Object? judgeModelUuid = sdkOmittedValue,
-          Object? maxTurns = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? scenarioSetUuid = sdkOmittedValue,
-          Object? userSimulatorConfig = sdkOmittedValue,
-          Object? userSimulatorModelUuid = sdkOmittedValue}) =>
-      ApiCreateSimulationRunInputPublic(
-        agentConfig: identical(agentConfig, sdkOmittedValue)
-            ? this.agentConfig
-            : agentConfig as SdkOptional<ApiCandidateAgentConfig>,
-        evaluationConfig: identical(evaluationConfig, sdkOmittedValue)
-            ? this.evaluationConfig
-            : evaluationConfig as SdkOptional<ApiSimulationEvaluationConfig>,
-        explorationBudget: identical(explorationBudget, sdkOmittedValue)
-            ? this.explorationBudget
-            : explorationBudget as SdkOptional<int>,
-        judgeModelUuid: identical(judgeModelUuid, sdkOmittedValue)
-            ? this.judgeModelUuid
-            : judgeModelUuid as SdkOptional<String>,
-        maxTurns: identical(maxTurns, sdkOmittedValue)
-            ? this.maxTurns
-            : maxTurns as SdkOptional<int>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        scenarioSetUuid: identical(scenarioSetUuid, sdkOmittedValue)
-            ? this.scenarioSetUuid
-            : scenarioSetUuid as SdkOptional<String>,
-        userSimulatorConfig: identical(userSimulatorConfig, sdkOmittedValue)
-            ? this.userSimulatorConfig
-            : userSimulatorConfig as SdkOptional<Map<String, dynamic>>,
-        userSimulatorModelUuid:
-            identical(userSimulatorModelUuid, sdkOmittedValue)
-                ? this.userSimulatorModelUuid
-                : userSimulatorModelUuid as SdkOptional<String>,
-      );
+  ApiCreateSimulationRunInputPublic _copyWith({Object? agentConfig = sdkOmittedValue, Object? evaluationConfig = sdkOmittedValue, Object? explorationBudget = sdkOmittedValue, Object? judgeModelUuid = sdkOmittedValue, Object? maxTurns = sdkOmittedValue, Object? name = sdkOmittedValue, Object? scenarioSetUuid = sdkOmittedValue, Object? userSimulatorConfig = sdkOmittedValue, Object? userSimulatorModelUuid = sdkOmittedValue}) => ApiCreateSimulationRunInputPublic(
+    agentConfig: identical(agentConfig, sdkOmittedValue) ? this.agentConfig : agentConfig as SdkOptional<ApiCandidateAgentConfig>,
+    evaluationConfig: identical(evaluationConfig, sdkOmittedValue) ? this.evaluationConfig : evaluationConfig as SdkOptional<ApiSimulationEvaluationConfig>,
+    explorationBudget: identical(explorationBudget, sdkOmittedValue) ? this.explorationBudget : explorationBudget as SdkOptional<int>,
+    judgeModelUuid: identical(judgeModelUuid, sdkOmittedValue) ? this.judgeModelUuid : judgeModelUuid as SdkOptional<String>,
+    maxTurns: identical(maxTurns, sdkOmittedValue) ? this.maxTurns : maxTurns as SdkOptional<int>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    scenarioSetUuid: identical(scenarioSetUuid, sdkOmittedValue) ? this.scenarioSetUuid : scenarioSetUuid as SdkOptional<String>,
+    userSimulatorConfig: identical(userSimulatorConfig, sdkOmittedValue) ? this.userSimulatorConfig : userSimulatorConfig as SdkOptional<Map<String, dynamic>>,
+    userSimulatorModelUuid: identical(userSimulatorModelUuid, sdkOmittedValue) ? this.userSimulatorModelUuid : userSimulatorModelUuid as SdkOptional<String>,
+  );
 
-  factory ApiCreateSimulationRunInputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiCreateSimulationRunInputPublic(
-        agentConfig: json['agent_config'] != null
-            ? SdkPresent((json['agent_config'] != null
-                ? ApiCandidateAgentConfig.fromJson(
-                    json['agent_config'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        evaluationConfig: json['evaluation_config'] != null
-            ? SdkPresent((json['evaluation_config'] != null
-                ? ApiSimulationEvaluationConfig.fromJson(
-                    json['evaluation_config'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        explorationBudget: json['exploration_budget'] != null
-            ? SdkPresent(((json['exploration_budget'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        judgeModelUuid: json['judge_model_uuid'] != null
-            ? SdkPresent((json['judge_model_uuid'] as String?)!)
-            : const SdkOmitted(),
-        maxTurns: json['max_turns'] != null
-            ? SdkPresent(((json['max_turns'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        scenarioSetUuid: json['scenario_set_uuid'] != null
-            ? SdkPresent((json['scenario_set_uuid'] as String?)!)
-            : const SdkOmitted(),
-        userSimulatorConfig: json['user_simulator_config'] != null
-            ? SdkPresent((json['user_simulator_config'] == null
-                ? null
-                : json['user_simulator_config'] as Map<String, dynamic>)!)
-            : const SdkOmitted(),
-        userSimulatorModelUuid: json['user_simulator_model_uuid'] != null
-            ? SdkPresent((json['user_simulator_model_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateSimulationRunInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateSimulationRunInputPublic(
+    agentConfig: json['agent_config'] != null ? SdkPresent((json['agent_config'] != null ? ApiCandidateAgentConfig.fromJson(json['agent_config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    evaluationConfig: json['evaluation_config'] != null ? SdkPresent((json['evaluation_config'] != null ? ApiSimulationEvaluationConfig.fromJson(json['evaluation_config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    explorationBudget: json['exploration_budget'] != null ? SdkPresent(((json['exploration_budget'] as num?)?.toInt())!) : const SdkOmitted(),
+    judgeModelUuid: json['judge_model_uuid'] != null ? SdkPresent((json['judge_model_uuid'] as String?)!) : const SdkOmitted(),
+    maxTurns: json['max_turns'] != null ? SdkPresent(((json['max_turns'] as num?)?.toInt())!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    scenarioSetUuid: json['scenario_set_uuid'] != null ? SdkPresent((json['scenario_set_uuid'] as String?)!) : const SdkOmitted(),
+    userSimulatorConfig: json['user_simulator_config'] != null ? SdkPresent((json['user_simulator_config'] == null ? null : json['user_simulator_config'] as Map<String, dynamic>)!) : const SdkOmitted(),
+    userSimulatorModelUuid: json['user_simulator_model_uuid'] != null ? SdkPresent((json['user_simulator_model_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agentConfig) {
-          SdkPresent<ApiCandidateAgentConfig>(value: final value) => {
-              'agent_config': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (evaluationConfig) {
-          SdkPresent<ApiSimulationEvaluationConfig>(value: final value) => {
-              'evaluation_config': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (explorationBudget) {
-          SdkPresent<int>(value: final value) => {
-              'exploration_budget': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (judgeModelUuid) {
-          SdkPresent<String>(value: final value) => {
-              'judge_model_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxTurns) {
-          SdkPresent<int>(value: final value) => {
-              'max_turns': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scenarioSetUuid) {
-          SdkPresent<String>(value: final value) => {
-              'scenario_set_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (userSimulatorConfig) {
-          SdkPresent<Map<String, dynamic>>(value: final value) => {
-              'user_simulator_config': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (userSimulatorModelUuid) {
-          SdkPresent<String>(value: final value) => {
-              'user_simulator_model_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agentConfig) {
+      SdkPresent<ApiCandidateAgentConfig>(value: final value) => {'agent_config': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (evaluationConfig) {
+      SdkPresent<ApiSimulationEvaluationConfig>(value: final value) => {'evaluation_config': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (explorationBudget) {
+      SdkPresent<int>(value: final value) => {'exploration_budget': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (judgeModelUuid) {
+      SdkPresent<String>(value: final value) => {'judge_model_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxTurns) {
+      SdkPresent<int>(value: final value) => {'max_turns': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scenarioSetUuid) {
+      SdkPresent<String>(value: final value) => {'scenario_set_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (userSimulatorConfig) {
+      SdkPresent<Map<String, dynamic>>(value: final value) => {'user_simulator_config': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (userSimulatorModelUuid) {
+      SdkPresent<String>(value: final value) => {'user_simulator_model_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Output for creating a simulation run.
 class ApiCreateSimulationRunOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// One execution of a scenario set against a candidate agent.
   final SdkOptional<ApiSimulationRun> simulationRun;
 
   const ApiCreateSimulationRunOutput({this.simulationRun = const SdkOmitted()});
 
-  ApiCreateSimulationRunOutput Function(
-      {SdkOptional<ApiSimulationRun> simulationRun}) get copyWith => _copyWith;
+  ApiCreateSimulationRunOutput Function({SdkOptional<ApiSimulationRun> simulationRun}) get copyWith => _copyWith;
 
-  ApiCreateSimulationRunOutput _copyWith(
-          {Object? simulationRun = sdkOmittedValue}) =>
-      ApiCreateSimulationRunOutput(
-        simulationRun: identical(simulationRun, sdkOmittedValue)
-            ? this.simulationRun
-            : simulationRun as SdkOptional<ApiSimulationRun>,
-      );
+  ApiCreateSimulationRunOutput _copyWith({Object? simulationRun = sdkOmittedValue}) => ApiCreateSimulationRunOutput(
+    simulationRun: identical(simulationRun, sdkOmittedValue) ? this.simulationRun : simulationRun as SdkOptional<ApiSimulationRun>,
+  );
 
-  factory ApiCreateSimulationRunOutput.fromJson(Map<String, dynamic> json) =>
-      ApiCreateSimulationRunOutput(
-        simulationRun: json['simulation_run'] != null
-            ? SdkPresent((json['simulation_run'] != null
-                ? ApiSimulationRun.fromJson(
-                    json['simulation_run'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateSimulationRunOutput.fromJson(Map<String, dynamic> json) => ApiCreateSimulationRunOutput(
+    simulationRun: json['simulation_run'] != null ? SdkPresent((json['simulation_run'] != null ? ApiSimulationRun.fromJson(json['simulation_run'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (simulationRun) {
-          SdkPresent<ApiSimulationRun>(value: final value) => {
-              'simulation_run': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (simulationRun) {
+      SdkPresent<ApiSimulationRun>(value: final value) => {'simulation_run': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

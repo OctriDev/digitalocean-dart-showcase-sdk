@@ -8,7 +8,6 @@ part of 'misc.dart';
 class SlackNotificationConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The Slack channel name to notify.
   final String channel;
 
@@ -16,19 +15,15 @@ class SlackNotificationConfig {
 
   SlackNotificationConfig Function({String channel}) get copyWith => _copyWith;
 
-  SlackNotificationConfig _copyWith({Object? channel = sdkOmittedValue}) =>
-      SlackNotificationConfig(
-        channel: identical(channel, sdkOmittedValue)
-            ? this.channel
-            : channel as String,
-      );
+  SlackNotificationConfig _copyWith({Object? channel = sdkOmittedValue}) => SlackNotificationConfig(
+    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as String,
+  );
 
-  factory SlackNotificationConfig.fromJson(Map<String, dynamic> json) =>
-      SlackNotificationConfig(
-        channel: (json['channel'] as String?)!,
-      );
+  factory SlackNotificationConfig.fromJson(Map<String, dynamic> json) => SlackNotificationConfig(
+    channel: (json['channel'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'channel': channel,
-      };
+    'channel': channel,
+  };
 }

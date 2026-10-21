@@ -8,42 +8,27 @@ part of 'insights_prom.dart';
 class PromQueryResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `status` wire field.
   final PromQueryResponseStatus status;
-
   /// Required object value serialized in the `data` wire field.
   final PromQueryData data;
 
   const PromQueryResponse({required this.status, required this.data});
 
-  PromQueryResponse Function(
-      {PromQueryResponseStatus status,
-      PromQueryData data}) get copyWith => _copyWith;
+  PromQueryResponse Function({PromQueryResponseStatus status, PromQueryData data}) get copyWith => _copyWith;
 
-  PromQueryResponse _copyWith(
-          {Object? status = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
-      PromQueryResponse(
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as PromQueryResponseStatus,
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as PromQueryData,
-      );
+  PromQueryResponse _copyWith({Object? status = sdkOmittedValue, Object? data = sdkOmittedValue}) => PromQueryResponse(
+    status: identical(status, sdkOmittedValue) ? this.status : status as PromQueryResponseStatus,
+    data: identical(data, sdkOmittedValue) ? this.data : data as PromQueryData,
+  );
 
-  factory PromQueryResponse.fromJson(Map<String, dynamic> json) =>
-      PromQueryResponse(
-        status: (json['status'] != null
-            ? PromQueryResponseStatus.fromJson(json['status'] as String)
-            : null)!,
-        data: (json['data'] != null
-            ? PromQueryData.fromJson(json['data'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory PromQueryResponse.fromJson(Map<String, dynamic> json) => PromQueryResponse(
+    status: (json['status'] != null ? PromQueryResponseStatus.fromJson(json['status'] as String) : null)!,
+    data: (json['data'] != null ? PromQueryData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'status': status.toJson(),
-        'data': data.toJson(),
-      };
+    'status': status.toJson(),
+    'data': data.toJson(),
+  };
 }

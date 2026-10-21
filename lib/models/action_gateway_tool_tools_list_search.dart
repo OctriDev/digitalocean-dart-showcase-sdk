@@ -8,145 +8,73 @@ part of 'action_gateway_tool.dart';
 class ToolSearchResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The provider-qualified, stable tool identifier (`&lt;provider&gt;_&lt;name&gt;`). Treat it as opaque and pass it back verbatim.
   final SdkOptional<String> toolSlug;
-
   /// The unqualified tool name, without the provider prefix.
   final SdkOptional<String> name;
-
   /// Human-readable tool title.
   final SdkOptional<String> title;
-
   /// What the tool does.
   final SdkOptional<String> description;
-
   /// The owning toolkit ID, broken out so a client never has to split `tool_slug`. It is what a client groups results by.
   final SdkOptional<String> provider;
-
   /// Best-effort catalog metadata and is empty for a large share of the catalog. Do not rely on it being present.
   final SdkOptional<String> category;
-
   /// The released version number of the tool, for example 3.
   final SdkOptional<int> version;
 
-  const ToolSearchResult(
-      {this.toolSlug = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.title = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.provider = const SdkOmitted(),
-      this.category = const SdkOmitted(),
-      this.version = const SdkOmitted()});
+  const ToolSearchResult({this.toolSlug = const SdkOmitted(), this.name = const SdkOmitted(), this.title = const SdkOmitted(), this.description = const SdkOmitted(), this.provider = const SdkOmitted(), this.category = const SdkOmitted(), this.version = const SdkOmitted()});
 
-  ToolSearchResult Function(
-      {SdkOptional<String> toolSlug,
-      SdkOptional<String> name,
-      SdkOptional<String> title,
-      SdkOptional<String> description,
-      SdkOptional<String> provider,
-      SdkOptional<String> category,
-      SdkOptional<int> version}) get copyWith => _copyWith;
+  ToolSearchResult Function({SdkOptional<String> toolSlug, SdkOptional<String> name, SdkOptional<String> title, SdkOptional<String> description, SdkOptional<String> provider, SdkOptional<String> category, SdkOptional<int> version}) get copyWith => _copyWith;
 
-  ToolSearchResult _copyWith(
-          {Object? toolSlug = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? title = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? provider = sdkOmittedValue,
-          Object? category = sdkOmittedValue,
-          Object? version = sdkOmittedValue}) =>
-      ToolSearchResult(
-        toolSlug: identical(toolSlug, sdkOmittedValue)
-            ? this.toolSlug
-            : toolSlug as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        title: identical(title, sdkOmittedValue)
-            ? this.title
-            : title as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        provider: identical(provider, sdkOmittedValue)
-            ? this.provider
-            : provider as SdkOptional<String>,
-        category: identical(category, sdkOmittedValue)
-            ? this.category
-            : category as SdkOptional<String>,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<int>,
-      );
+  ToolSearchResult _copyWith({Object? toolSlug = sdkOmittedValue, Object? name = sdkOmittedValue, Object? title = sdkOmittedValue, Object? description = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? category = sdkOmittedValue, Object? version = sdkOmittedValue}) => ToolSearchResult(
+    toolSlug: identical(toolSlug, sdkOmittedValue) ? this.toolSlug : toolSlug as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as SdkOptional<String>,
+    category: identical(category, sdkOmittedValue) ? this.category : category as SdkOptional<String>,
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<int>,
+  );
 
-  factory ToolSearchResult.fromJson(Map<String, dynamic> json) =>
-      ToolSearchResult(
-        toolSlug: json['tool_slug'] != null
-            ? SdkPresent((json['tool_slug'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        title: json['title'] != null
-            ? SdkPresent((json['title'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        provider: json['provider'] != null
-            ? SdkPresent((json['provider'] as String?)!)
-            : const SdkOmitted(),
-        category: json['category'] != null
-            ? SdkPresent((json['category'] as String?)!)
-            : const SdkOmitted(),
-        version: json['version'] != null
-            ? SdkPresent(((json['version'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ToolSearchResult.fromJson(Map<String, dynamic> json) => ToolSearchResult(
+    toolSlug: json['tool_slug'] != null ? SdkPresent((json['tool_slug'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    provider: json['provider'] != null ? SdkPresent((json['provider'] as String?)!) : const SdkOmitted(),
+    category: json['category'] != null ? SdkPresent((json['category'] as String?)!) : const SdkOmitted(),
+    version: json['version'] != null ? SdkPresent(((json['version'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (toolSlug) {
-          SdkPresent<String>(value: final value) => {
-              'tool_slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (title) {
-          SdkPresent<String>(value: final value) => {
-              'title': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (provider) {
-          SdkPresent<String>(value: final value) => {
-              'provider': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (category) {
-          SdkPresent<String>(value: final value) => {
-              'category': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (version) {
-          SdkPresent<int>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (toolSlug) {
+      SdkPresent<String>(value: final value) => {'tool_slug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (title) {
+      SdkPresent<String>(value: final value) => {'title': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (provider) {
+      SdkPresent<String>(value: final value) => {'provider': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (category) {
+      SdkPresent<String>(value: final value) => {'category': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (version) {
+      SdkPresent<int>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

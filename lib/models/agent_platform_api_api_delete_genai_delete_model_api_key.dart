@@ -8,39 +8,25 @@ part of 'agent_platform_api_api_delete.dart';
 class ApiDeleteModelAPIKeyOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Model API Key Info
   final SdkOptional<ApiModelAPIKeyInfo> apiKeyInfo;
 
   const ApiDeleteModelAPIKeyOutput({this.apiKeyInfo = const SdkOmitted()});
 
-  ApiDeleteModelAPIKeyOutput Function(
-      {SdkOptional<ApiModelAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
+  ApiDeleteModelAPIKeyOutput Function({SdkOptional<ApiModelAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
 
-  ApiDeleteModelAPIKeyOutput _copyWith(
-          {Object? apiKeyInfo = sdkOmittedValue}) =>
-      ApiDeleteModelAPIKeyOutput(
-        apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue)
-            ? this.apiKeyInfo
-            : apiKeyInfo as SdkOptional<ApiModelAPIKeyInfo>,
-      );
+  ApiDeleteModelAPIKeyOutput _copyWith({Object? apiKeyInfo = sdkOmittedValue}) => ApiDeleteModelAPIKeyOutput(
+    apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue) ? this.apiKeyInfo : apiKeyInfo as SdkOptional<ApiModelAPIKeyInfo>,
+  );
 
-  factory ApiDeleteModelAPIKeyOutput.fromJson(Map<String, dynamic> json) =>
-      ApiDeleteModelAPIKeyOutput(
-        apiKeyInfo: json['api_key_info'] != null
-            ? SdkPresent((json['api_key_info'] != null
-                ? ApiModelAPIKeyInfo.fromJson(
-                    json['api_key_info'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiDeleteModelAPIKeyOutput.fromJson(Map<String, dynamic> json) => ApiDeleteModelAPIKeyOutput(
+    apiKeyInfo: json['api_key_info'] != null ? SdkPresent((json['api_key_info'] != null ? ApiModelAPIKeyInfo.fromJson(json['api_key_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (apiKeyInfo) {
-          SdkPresent<ApiModelAPIKeyInfo>(value: final value) => {
-              'api_key_info': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (apiKeyInfo) {
+      SdkPresent<ApiModelAPIKeyInfo>(value: final value) => {'api_key_info': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

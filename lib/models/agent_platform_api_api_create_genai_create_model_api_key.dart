@@ -8,35 +8,25 @@ part of 'agent_platform_api_api_create.dart';
 class ApiCreateModelAPIKeyInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A human friendly name to identify the key
   final SdkOptional<String> name;
 
   const ApiCreateModelAPIKeyInputPublic({this.name = const SdkOmitted()});
 
-  ApiCreateModelAPIKeyInputPublic Function({SdkOptional<String> name})
-      get copyWith => _copyWith;
+  ApiCreateModelAPIKeyInputPublic Function({SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ApiCreateModelAPIKeyInputPublic _copyWith({Object? name = sdkOmittedValue}) =>
-      ApiCreateModelAPIKeyInputPublic(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  ApiCreateModelAPIKeyInputPublic _copyWith({Object? name = sdkOmittedValue}) => ApiCreateModelAPIKeyInputPublic(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory ApiCreateModelAPIKeyInputPublic.fromJson(Map<String, dynamic> json) =>
-      ApiCreateModelAPIKeyInputPublic(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateModelAPIKeyInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateModelAPIKeyInputPublic(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

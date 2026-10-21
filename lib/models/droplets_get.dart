@@ -8,37 +8,25 @@ part of 'droplets.dart';
 class ExistingDroplet {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `droplet` wire field.
   final SdkOptional<Droplet> droplet;
 
   const ExistingDroplet({this.droplet = const SdkOmitted()});
 
-  ExistingDroplet Function({SdkOptional<Droplet> droplet}) get copyWith =>
-      _copyWith;
+  ExistingDroplet Function({SdkOptional<Droplet> droplet}) get copyWith => _copyWith;
 
-  ExistingDroplet _copyWith({Object? droplet = sdkOmittedValue}) =>
-      ExistingDroplet(
-        droplet: identical(droplet, sdkOmittedValue)
-            ? this.droplet
-            : droplet as SdkOptional<Droplet>,
-      );
+  ExistingDroplet _copyWith({Object? droplet = sdkOmittedValue}) => ExistingDroplet(
+    droplet: identical(droplet, sdkOmittedValue) ? this.droplet : droplet as SdkOptional<Droplet>,
+  );
 
-  factory ExistingDroplet.fromJson(Map<String, dynamic> json) =>
-      ExistingDroplet(
-        droplet: json['droplet'] != null
-            ? SdkPresent((json['droplet'] != null
-                ? Droplet.fromJson(json['droplet'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ExistingDroplet.fromJson(Map<String, dynamic> json) => ExistingDroplet(
+    droplet: json['droplet'] != null ? SdkPresent((json['droplet'] != null ? Droplet.fromJson(json['droplet'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (droplet) {
-          SdkPresent<Droplet>(value: final value) => {
-              'droplet': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (droplet) {
+      SdkPresent<Droplet>(value: final value) => {'droplet': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

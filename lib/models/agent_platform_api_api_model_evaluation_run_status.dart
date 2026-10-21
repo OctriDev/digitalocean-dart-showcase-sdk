@@ -6,42 +6,29 @@ part of 'agent_platform_api_api_model.dart';
 // agent_platform_api_api_model domain models
 /// Model Evaluation Run Statuses
 final class ApiModelEvaluationRunStatus {
+
   final String value;
 
   const ApiModelEvaluationRunStatus._(this.value);
 
-  factory ApiModelEvaluationRunStatus.fromJson(String value) =>
-      ApiModelEvaluationRunStatus._(value);
+  factory ApiModelEvaluationRunStatus.fromJson(String value) => ApiModelEvaluationRunStatus._(value);
 
-  static const modelEvaluationRunStatusUnspecified =
-      ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_STATUS_UNSPECIFIED');
-  static const modelEvaluationRunQueued =
-      ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_QUEUED');
-  static const modelEvaluationRunRunningDataset =
-      ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_RUNNING_DATASET');
-  static const modelEvaluationRunEvaluatingResults =
-      ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_EVALUATING_RESULTS');
-  static const modelEvaluationRunCancelling =
-      ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_CANCELLING');
-  static const modelEvaluationRunCancelled =
-      ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_CANCELLED');
-  static const modelEvaluationRunSuccessful =
-      ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_SUCCESSFUL');
-  static const modelEvaluationRunPartiallySuccessful =
-      ApiModelEvaluationRunStatus._(
-          'MODEL_EVALUATION_RUN_PARTIALLY_SUCCESSFUL');
-  static const modelEvaluationRunFailed =
-      ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_FAILED');
+  static const modelEvaluationRunStatusUnspecified = ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_STATUS_UNSPECIFIED');
+  static const modelEvaluationRunQueued = ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_QUEUED');
+  static const modelEvaluationRunRunningDataset = ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_RUNNING_DATASET');
+  static const modelEvaluationRunEvaluatingResults = ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_EVALUATING_RESULTS');
+  static const modelEvaluationRunCancelling = ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_CANCELLING');
+  static const modelEvaluationRunCancelled = ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_CANCELLED');
+  static const modelEvaluationRunSuccessful = ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_SUCCESSFUL');
+  static const modelEvaluationRunPartiallySuccessful = ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_PARTIALLY_SUCCESSFUL');
+  static const modelEvaluationRunFailed = ApiModelEvaluationRunStatus._('MODEL_EVALUATION_RUN_FAILED');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiModelEvaluationRunStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ApiModelEvaluationRunStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

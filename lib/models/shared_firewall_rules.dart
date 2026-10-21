@@ -8,230 +8,117 @@ part of 'shared_firewall.dart';
 class FirewallRulesInboundRulesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
   final FirewallRulesInboundRulesItemProtocol protocol;
-
   /// The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
   final String ports;
-
   /// The action to be taken when traffic matches the rule. This may be one of `allow` or `deny`. For backward compatibility, this field is optional. When not set, it defaults to `allow`.
   final SdkOptional<FirewallRulesInboundRulesItemAction> action;
-
   /// An object specifying locations from which inbound traffic will be accepted.
   final FirewallRuleTarget sources;
 
-  const FirewallRulesInboundRulesItem(
-      {required this.protocol,
-      required this.ports,
-      this.action = const SdkOmitted(),
-      required this.sources});
+  const FirewallRulesInboundRulesItem({required this.protocol, required this.ports, this.action = const SdkOmitted(), required this.sources});
 
-  FirewallRulesInboundRulesItem Function(
-      {FirewallRulesInboundRulesItemProtocol protocol,
-      String ports,
-      SdkOptional<FirewallRulesInboundRulesItemAction> action,
-      FirewallRuleTarget sources}) get copyWith => _copyWith;
+  FirewallRulesInboundRulesItem Function({FirewallRulesInboundRulesItemProtocol protocol, String ports, SdkOptional<FirewallRulesInboundRulesItemAction> action, FirewallRuleTarget sources}) get copyWith => _copyWith;
 
-  FirewallRulesInboundRulesItem _copyWith(
-          {Object? protocol = sdkOmittedValue,
-          Object? ports = sdkOmittedValue,
-          Object? action = sdkOmittedValue,
-          Object? sources = sdkOmittedValue}) =>
-      FirewallRulesInboundRulesItem(
-        protocol: identical(protocol, sdkOmittedValue)
-            ? this.protocol
-            : protocol as FirewallRulesInboundRulesItemProtocol,
-        ports: identical(ports, sdkOmittedValue) ? this.ports : ports as String,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as SdkOptional<FirewallRulesInboundRulesItemAction>,
-        sources: identical(sources, sdkOmittedValue)
-            ? this.sources
-            : sources as FirewallRuleTarget,
-      );
+  FirewallRulesInboundRulesItem _copyWith({Object? protocol = sdkOmittedValue, Object? ports = sdkOmittedValue, Object? action = sdkOmittedValue, Object? sources = sdkOmittedValue}) => FirewallRulesInboundRulesItem(
+    protocol: identical(protocol, sdkOmittedValue) ? this.protocol : protocol as FirewallRulesInboundRulesItemProtocol,
+    ports: identical(ports, sdkOmittedValue) ? this.ports : ports as String,
+    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<FirewallRulesInboundRulesItemAction>,
+    sources: identical(sources, sdkOmittedValue) ? this.sources : sources as FirewallRuleTarget,
+  );
 
-  factory FirewallRulesInboundRulesItem.fromJson(Map<String, dynamic> json) =>
-      FirewallRulesInboundRulesItem(
-        protocol: (json['protocol'] != null
-            ? FirewallRulesInboundRulesItemProtocol.fromJson(
-                json['protocol'] as String)
-            : null)!,
-        ports: (json['ports'] as String?)!,
-        action: json['action'] != null
-            ? SdkPresent((json['action'] != null
-                ? FirewallRulesInboundRulesItemAction.fromJson(
-                    json['action'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        sources: (json['sources'] != null
-            ? FirewallRuleTarget.fromJson(
-                json['sources'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory FirewallRulesInboundRulesItem.fromJson(Map<String, dynamic> json) => FirewallRulesInboundRulesItem(
+    protocol: (json['protocol'] != null ? FirewallRulesInboundRulesItemProtocol.fromJson(json['protocol'] as String) : null)!,
+    ports: (json['ports'] as String?)!,
+    action: json['action'] != null ? SdkPresent((json['action'] != null ? FirewallRulesInboundRulesItemAction.fromJson(json['action'] as String) : null)!) : const SdkOmitted(),
+    sources: (json['sources'] != null ? FirewallRuleTarget.fromJson(json['sources'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'protocol': protocol.toJson(),
-        'ports': ports,
-        ...switch (action) {
-          SdkPresent<FirewallRulesInboundRulesItemAction>(value: final value) =>
-            {
-              'action': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'sources': sources.toJson(),
-      };
+    'protocol': protocol.toJson(),
+    'ports': ports,
+    ...switch (action) {
+      SdkPresent<FirewallRulesInboundRulesItemAction>(value: final value) => {'action': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'sources': sources.toJson(),
+  };
 }
 
 /// Required object value serialized in the `outbound_rules[]` wire field.
 class FirewallRulesOutboundRulesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
   final FirewallRulesOutboundRulesItemProtocol protocol;
-
   /// The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
   final String ports;
-
   /// The action to be taken when traffic matches the rule. This may be one of `allow` or `deny`. For backward compatibility, this field is optional. When not set, it defaults to `allow`.
   final SdkOptional<FirewallRulesOutboundRulesItemAction> action;
-
   /// An object specifying locations to which outbound traffic that will be allowed.
   final FirewallRuleTarget destinations;
 
-  const FirewallRulesOutboundRulesItem(
-      {required this.protocol,
-      required this.ports,
-      this.action = const SdkOmitted(),
-      required this.destinations});
+  const FirewallRulesOutboundRulesItem({required this.protocol, required this.ports, this.action = const SdkOmitted(), required this.destinations});
 
-  FirewallRulesOutboundRulesItem Function(
-      {FirewallRulesOutboundRulesItemProtocol protocol,
-      String ports,
-      SdkOptional<FirewallRulesOutboundRulesItemAction> action,
-      FirewallRuleTarget destinations}) get copyWith => _copyWith;
+  FirewallRulesOutboundRulesItem Function({FirewallRulesOutboundRulesItemProtocol protocol, String ports, SdkOptional<FirewallRulesOutboundRulesItemAction> action, FirewallRuleTarget destinations}) get copyWith => _copyWith;
 
-  FirewallRulesOutboundRulesItem _copyWith(
-          {Object? protocol = sdkOmittedValue,
-          Object? ports = sdkOmittedValue,
-          Object? action = sdkOmittedValue,
-          Object? destinations = sdkOmittedValue}) =>
-      FirewallRulesOutboundRulesItem(
-        protocol: identical(protocol, sdkOmittedValue)
-            ? this.protocol
-            : protocol as FirewallRulesOutboundRulesItemProtocol,
-        ports: identical(ports, sdkOmittedValue) ? this.ports : ports as String,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as SdkOptional<FirewallRulesOutboundRulesItemAction>,
-        destinations: identical(destinations, sdkOmittedValue)
-            ? this.destinations
-            : destinations as FirewallRuleTarget,
-      );
+  FirewallRulesOutboundRulesItem _copyWith({Object? protocol = sdkOmittedValue, Object? ports = sdkOmittedValue, Object? action = sdkOmittedValue, Object? destinations = sdkOmittedValue}) => FirewallRulesOutboundRulesItem(
+    protocol: identical(protocol, sdkOmittedValue) ? this.protocol : protocol as FirewallRulesOutboundRulesItemProtocol,
+    ports: identical(ports, sdkOmittedValue) ? this.ports : ports as String,
+    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<FirewallRulesOutboundRulesItemAction>,
+    destinations: identical(destinations, sdkOmittedValue) ? this.destinations : destinations as FirewallRuleTarget,
+  );
 
-  factory FirewallRulesOutboundRulesItem.fromJson(Map<String, dynamic> json) =>
-      FirewallRulesOutboundRulesItem(
-        protocol: (json['protocol'] != null
-            ? FirewallRulesOutboundRulesItemProtocol.fromJson(
-                json['protocol'] as String)
-            : null)!,
-        ports: (json['ports'] as String?)!,
-        action: json['action'] != null
-            ? SdkPresent((json['action'] != null
-                ? FirewallRulesOutboundRulesItemAction.fromJson(
-                    json['action'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        destinations: (json['destinations'] != null
-            ? FirewallRuleTarget.fromJson(
-                json['destinations'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory FirewallRulesOutboundRulesItem.fromJson(Map<String, dynamic> json) => FirewallRulesOutboundRulesItem(
+    protocol: (json['protocol'] != null ? FirewallRulesOutboundRulesItemProtocol.fromJson(json['protocol'] as String) : null)!,
+    ports: (json['ports'] as String?)!,
+    action: json['action'] != null ? SdkPresent((json['action'] != null ? FirewallRulesOutboundRulesItemAction.fromJson(json['action'] as String) : null)!) : const SdkOmitted(),
+    destinations: (json['destinations'] != null ? FirewallRuleTarget.fromJson(json['destinations'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'protocol': protocol.toJson(),
-        'ports': ports,
-        ...switch (action) {
-          SdkPresent<FirewallRulesOutboundRulesItemAction>(
-            value: final value
-          ) =>
-            {
-              'action': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'destinations': destinations.toJson(),
-      };
+    'protocol': protocol.toJson(),
+    'ports': ports,
+    ...switch (action) {
+      SdkPresent<FirewallRulesOutboundRulesItemAction>(value: final value) => {'action': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'destinations': destinations.toJson(),
+  };
 }
 
 /// Typed representation of the `FirewallRules` API schema.
 class FirewallRules {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `inbound_rules` wire field.
   final SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules;
-
   /// Optional array value serialized in the `outbound_rules` wire field.
   final SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules;
 
-  const FirewallRules(
-      {this.inboundRules = const SdkOmitted(),
-      this.outboundRules = const SdkOmitted()});
+  const FirewallRules({this.inboundRules = const SdkOmitted(), this.outboundRules = const SdkOmitted()});
 
-  FirewallRules Function(
-          {SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules,
-          SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules})
-      get copyWith => _copyWith;
+  FirewallRules Function({SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules, SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules}) get copyWith => _copyWith;
 
-  FirewallRules _copyWith(
-          {Object? inboundRules = sdkOmittedValue,
-          Object? outboundRules = sdkOmittedValue}) =>
-      FirewallRules(
-        inboundRules: identical(inboundRules, sdkOmittedValue)
-            ? this.inboundRules
-            : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
-        outboundRules: identical(outboundRules, sdkOmittedValue)
-            ? this.outboundRules
-            : outboundRules
-                as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
-      );
+  FirewallRules _copyWith({Object? inboundRules = sdkOmittedValue, Object? outboundRules = sdkOmittedValue}) => FirewallRules(
+    inboundRules: identical(inboundRules, sdkOmittedValue) ? this.inboundRules : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
+    outboundRules: identical(outboundRules, sdkOmittedValue) ? this.outboundRules : outboundRules as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
+  );
 
   factory FirewallRules.fromJson(Map<String, dynamic> json) => FirewallRules(
-        inboundRules: json.containsKey('inbound_rules')
-            ? SdkPresent((json['inbound_rules'] as List?)
-                ?.map((e) => FirewallRulesInboundRulesItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        outboundRules: json.containsKey('outbound_rules')
-            ? SdkPresent((json['outbound_rules'] as List?)
-                ?.map((e) => FirewallRulesOutboundRulesItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-      );
+    inboundRules: json.containsKey('inbound_rules') ? SdkPresent((json['inbound_rules'] as List?)?.map((e) => FirewallRulesInboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    outboundRules: json.containsKey('outbound_rules') ? SdkPresent((json['outbound_rules'] as List?)?.map((e) => FirewallRulesOutboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (inboundRules) {
-          SdkPresent<List<FirewallRulesInboundRulesItem>?>(
-            value: final value
-          ) =>
-            {
-              'inbound_rules': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outboundRules) {
-          SdkPresent<List<FirewallRulesOutboundRulesItem>?>(
-            value: final value
-          ) =>
-            {
-              'outbound_rules': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (inboundRules) {
+      SdkPresent<List<FirewallRulesInboundRulesItem>?>(value: final value) => {'inbound_rules': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outboundRules) {
+      SdkPresent<List<FirewallRulesOutboundRulesItem>?>(value: final value) => {'outbound_rules': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

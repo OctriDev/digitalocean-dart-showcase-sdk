@@ -8,485 +8,239 @@ part of 'action_gateway_mcp.dart';
 class McpServer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Server identifier, unique within your team. The server's tool slugs are `&lt;server_ref&gt;_&lt;name&gt;`.
   final SdkOptional<String> serverRef;
-
   /// HTTPS URL of the server's MCP endpoint.
   final SdkOptional<String> endpoint;
-
   /// Always `streamable_http`.
   final SdkOptional<McpServerTransport> transport;
-
   /// How requests to the server authenticate: none, secret (a key or token sent in the Authorization header), or connection (each user's own OAuth authorization).
   final SdkOptional<McpServerCredentialRefSource> credentialRefSource;
-
   /// The secret reference supplied at registration when source=secret, or the team's OAuth credential ID when source=connection. Empty when the server was registered with an `api_key`, whose storage DigitalOcean manages.
   final SdkOptional<String> credentialRef;
-
   /// Outcome of the latest discovery: pending (no discovery has finished yet), ok, failed, or `unsupported_protocol`. It is not reset while a resync runs.
   final SdkOptional<McpServerSyncStatus> syncStatus;
-
   /// Why the latest discovery failed; empty after a successful one.
   final SdkOptional<String> syncError;
-
   /// When discovery last succeeded, in RFC 3339 format; empty until the first success.
   final SdkOptional<String> lastSyncedAt;
-
   /// MCP protocol revision negotiated with the server.
   final SdkOptional<String> protocolVersion;
-
   /// Number of tools discovered on the server, whether enabled or not.
   final SdkOptional<int> toolCount;
-
   /// When the server was registered, in RFC 3339 format.
   final SdkOptional<String> createdAt;
-
   /// When the server was last modified, in RFC 3339 format.
   final SdkOptional<String> updatedAt;
-
   /// Team-authored description, shown on the server's catalog card. A resync does not replace it.
   final SdkOptional<String> description;
-
   /// OAuth authorization endpoint. Set only when `credentialRefSource` is connection; the client secret is never returned.
   final SdkOptional<String> oauthAuthorizeUrl;
-
   /// OAuth scopes requested from each user. Set only when `credentialRefSource` is connection.
   final SdkOptional<List<String>> oauthScopes;
-
   /// How long a user's authorization is reused before re-consent. Echoed so a team can read the window without re-registering to discover it.
   final SdkOptional<String> oauthAuthorizationTtlSeconds;
 
-  const McpServer(
-      {this.serverRef = const SdkOmitted(),
-      this.endpoint = const SdkOmitted(),
-      this.transport = const SdkOmitted(),
-      this.credentialRefSource = const SdkOmitted(),
-      this.credentialRef = const SdkOmitted(),
-      this.syncStatus = const SdkOmitted(),
-      this.syncError = const SdkOmitted(),
-      this.lastSyncedAt = const SdkOmitted(),
-      this.protocolVersion = const SdkOmitted(),
-      this.toolCount = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.oauthAuthorizeUrl = const SdkOmitted(),
-      this.oauthScopes = const SdkOmitted(),
-      this.oauthAuthorizationTtlSeconds = const SdkOmitted()});
+  const McpServer({this.serverRef = const SdkOmitted(), this.endpoint = const SdkOmitted(), this.transport = const SdkOmitted(), this.credentialRefSource = const SdkOmitted(), this.credentialRef = const SdkOmitted(), this.syncStatus = const SdkOmitted(), this.syncError = const SdkOmitted(), this.lastSyncedAt = const SdkOmitted(), this.protocolVersion = const SdkOmitted(), this.toolCount = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.description = const SdkOmitted(), this.oauthAuthorizeUrl = const SdkOmitted(), this.oauthScopes = const SdkOmitted(), this.oauthAuthorizationTtlSeconds = const SdkOmitted()});
 
-  McpServer Function(
-          {SdkOptional<String> serverRef,
-          SdkOptional<String> endpoint,
-          SdkOptional<McpServerTransport> transport,
-          SdkOptional<McpServerCredentialRefSource> credentialRefSource,
-          SdkOptional<String> credentialRef,
-          SdkOptional<McpServerSyncStatus> syncStatus,
-          SdkOptional<String> syncError,
-          SdkOptional<String> lastSyncedAt,
-          SdkOptional<String> protocolVersion,
-          SdkOptional<int> toolCount,
-          SdkOptional<String> createdAt,
-          SdkOptional<String> updatedAt,
-          SdkOptional<String> description,
-          SdkOptional<String> oauthAuthorizeUrl,
-          SdkOptional<List<String>> oauthScopes,
-          SdkOptional<String> oauthAuthorizationTtlSeconds})
-      get copyWith => _copyWith;
+  McpServer Function({SdkOptional<String> serverRef, SdkOptional<String> endpoint, SdkOptional<McpServerTransport> transport, SdkOptional<McpServerCredentialRefSource> credentialRefSource, SdkOptional<String> credentialRef, SdkOptional<McpServerSyncStatus> syncStatus, SdkOptional<String> syncError, SdkOptional<String> lastSyncedAt, SdkOptional<String> protocolVersion, SdkOptional<int> toolCount, SdkOptional<String> createdAt, SdkOptional<String> updatedAt, SdkOptional<String> description, SdkOptional<String> oauthAuthorizeUrl, SdkOptional<List<String>> oauthScopes, SdkOptional<String> oauthAuthorizationTtlSeconds}) get copyWith => _copyWith;
 
-  McpServer _copyWith(
-          {Object? serverRef = sdkOmittedValue,
-          Object? endpoint = sdkOmittedValue,
-          Object? transport = sdkOmittedValue,
-          Object? credentialRefSource = sdkOmittedValue,
-          Object? credentialRef = sdkOmittedValue,
-          Object? syncStatus = sdkOmittedValue,
-          Object? syncError = sdkOmittedValue,
-          Object? lastSyncedAt = sdkOmittedValue,
-          Object? protocolVersion = sdkOmittedValue,
-          Object? toolCount = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? oauthAuthorizeUrl = sdkOmittedValue,
-          Object? oauthScopes = sdkOmittedValue,
-          Object? oauthAuthorizationTtlSeconds = sdkOmittedValue}) =>
-      McpServer(
-        serverRef: identical(serverRef, sdkOmittedValue)
-            ? this.serverRef
-            : serverRef as SdkOptional<String>,
-        endpoint: identical(endpoint, sdkOmittedValue)
-            ? this.endpoint
-            : endpoint as SdkOptional<String>,
-        transport: identical(transport, sdkOmittedValue)
-            ? this.transport
-            : transport as SdkOptional<McpServerTransport>,
-        credentialRefSource: identical(credentialRefSource, sdkOmittedValue)
-            ? this.credentialRefSource
-            : credentialRefSource as SdkOptional<McpServerCredentialRefSource>,
-        credentialRef: identical(credentialRef, sdkOmittedValue)
-            ? this.credentialRef
-            : credentialRef as SdkOptional<String>,
-        syncStatus: identical(syncStatus, sdkOmittedValue)
-            ? this.syncStatus
-            : syncStatus as SdkOptional<McpServerSyncStatus>,
-        syncError: identical(syncError, sdkOmittedValue)
-            ? this.syncError
-            : syncError as SdkOptional<String>,
-        lastSyncedAt: identical(lastSyncedAt, sdkOmittedValue)
-            ? this.lastSyncedAt
-            : lastSyncedAt as SdkOptional<String>,
-        protocolVersion: identical(protocolVersion, sdkOmittedValue)
-            ? this.protocolVersion
-            : protocolVersion as SdkOptional<String>,
-        toolCount: identical(toolCount, sdkOmittedValue)
-            ? this.toolCount
-            : toolCount as SdkOptional<int>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        oauthAuthorizeUrl: identical(oauthAuthorizeUrl, sdkOmittedValue)
-            ? this.oauthAuthorizeUrl
-            : oauthAuthorizeUrl as SdkOptional<String>,
-        oauthScopes: identical(oauthScopes, sdkOmittedValue)
-            ? this.oauthScopes
-            : oauthScopes as SdkOptional<List<String>>,
-        oauthAuthorizationTtlSeconds:
-            identical(oauthAuthorizationTtlSeconds, sdkOmittedValue)
-                ? this.oauthAuthorizationTtlSeconds
-                : oauthAuthorizationTtlSeconds as SdkOptional<String>,
-      );
+  McpServer _copyWith({Object? serverRef = sdkOmittedValue, Object? endpoint = sdkOmittedValue, Object? transport = sdkOmittedValue, Object? credentialRefSource = sdkOmittedValue, Object? credentialRef = sdkOmittedValue, Object? syncStatus = sdkOmittedValue, Object? syncError = sdkOmittedValue, Object? lastSyncedAt = sdkOmittedValue, Object? protocolVersion = sdkOmittedValue, Object? toolCount = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? description = sdkOmittedValue, Object? oauthAuthorizeUrl = sdkOmittedValue, Object? oauthScopes = sdkOmittedValue, Object? oauthAuthorizationTtlSeconds = sdkOmittedValue}) => McpServer(
+    serverRef: identical(serverRef, sdkOmittedValue) ? this.serverRef : serverRef as SdkOptional<String>,
+    endpoint: identical(endpoint, sdkOmittedValue) ? this.endpoint : endpoint as SdkOptional<String>,
+    transport: identical(transport, sdkOmittedValue) ? this.transport : transport as SdkOptional<McpServerTransport>,
+    credentialRefSource: identical(credentialRefSource, sdkOmittedValue) ? this.credentialRefSource : credentialRefSource as SdkOptional<McpServerCredentialRefSource>,
+    credentialRef: identical(credentialRef, sdkOmittedValue) ? this.credentialRef : credentialRef as SdkOptional<String>,
+    syncStatus: identical(syncStatus, sdkOmittedValue) ? this.syncStatus : syncStatus as SdkOptional<McpServerSyncStatus>,
+    syncError: identical(syncError, sdkOmittedValue) ? this.syncError : syncError as SdkOptional<String>,
+    lastSyncedAt: identical(lastSyncedAt, sdkOmittedValue) ? this.lastSyncedAt : lastSyncedAt as SdkOptional<String>,
+    protocolVersion: identical(protocolVersion, sdkOmittedValue) ? this.protocolVersion : protocolVersion as SdkOptional<String>,
+    toolCount: identical(toolCount, sdkOmittedValue) ? this.toolCount : toolCount as SdkOptional<int>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    oauthAuthorizeUrl: identical(oauthAuthorizeUrl, sdkOmittedValue) ? this.oauthAuthorizeUrl : oauthAuthorizeUrl as SdkOptional<String>,
+    oauthScopes: identical(oauthScopes, sdkOmittedValue) ? this.oauthScopes : oauthScopes as SdkOptional<List<String>>,
+    oauthAuthorizationTtlSeconds: identical(oauthAuthorizationTtlSeconds, sdkOmittedValue) ? this.oauthAuthorizationTtlSeconds : oauthAuthorizationTtlSeconds as SdkOptional<String>,
+  );
 
   factory McpServer.fromJson(Map<String, dynamic> json) => McpServer(
-        serverRef: json['serverRef'] != null
-            ? SdkPresent((json['serverRef'] as String?)!)
-            : const SdkOmitted(),
-        endpoint: json['endpoint'] != null
-            ? SdkPresent((json['endpoint'] as String?)!)
-            : const SdkOmitted(),
-        transport: json['transport'] != null
-            ? SdkPresent((json['transport'] != null
-                ? McpServerTransport.fromJson(json['transport'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        credentialRefSource: json['credentialRefSource'] != null
-            ? SdkPresent((json['credentialRefSource'] != null
-                ? McpServerCredentialRefSource.fromJson(
-                    json['credentialRefSource'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        credentialRef: json['credentialRef'] != null
-            ? SdkPresent((json['credentialRef'] as String?)!)
-            : const SdkOmitted(),
-        syncStatus: json['syncStatus'] != null
-            ? SdkPresent((json['syncStatus'] != null
-                ? McpServerSyncStatus.fromJson(json['syncStatus'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        syncError: json['syncError'] != null
-            ? SdkPresent((json['syncError'] as String?)!)
-            : const SdkOmitted(),
-        lastSyncedAt: json['lastSyncedAt'] != null
-            ? SdkPresent((json['lastSyncedAt'] as String?)!)
-            : const SdkOmitted(),
-        protocolVersion: json['protocolVersion'] != null
-            ? SdkPresent((json['protocolVersion'] as String?)!)
-            : const SdkOmitted(),
-        toolCount: json['toolCount'] != null
-            ? SdkPresent(((json['toolCount'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        createdAt: json['createdAt'] != null
-            ? SdkPresent((json['createdAt'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updatedAt'] != null
-            ? SdkPresent((json['updatedAt'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        oauthAuthorizeUrl: json['oauth_authorize_url'] != null
-            ? SdkPresent((json['oauth_authorize_url'] as String?)!)
-            : const SdkOmitted(),
-        oauthScopes: json['oauth_scopes'] != null
-            ? SdkPresent(((json['oauth_scopes'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        oauthAuthorizationTtlSeconds: json['oauth_authorization_ttl_seconds'] !=
-                null
-            ? SdkPresent((json['oauth_authorization_ttl_seconds'] as String?)!)
-            : const SdkOmitted(),
-      );
+    serverRef: json['serverRef'] != null ? SdkPresent((json['serverRef'] as String?)!) : const SdkOmitted(),
+    endpoint: json['endpoint'] != null ? SdkPresent((json['endpoint'] as String?)!) : const SdkOmitted(),
+    transport: json['transport'] != null ? SdkPresent((json['transport'] != null ? McpServerTransport.fromJson(json['transport'] as String) : null)!) : const SdkOmitted(),
+    credentialRefSource: json['credentialRefSource'] != null ? SdkPresent((json['credentialRefSource'] != null ? McpServerCredentialRefSource.fromJson(json['credentialRefSource'] as String) : null)!) : const SdkOmitted(),
+    credentialRef: json['credentialRef'] != null ? SdkPresent((json['credentialRef'] as String?)!) : const SdkOmitted(),
+    syncStatus: json['syncStatus'] != null ? SdkPresent((json['syncStatus'] != null ? McpServerSyncStatus.fromJson(json['syncStatus'] as String) : null)!) : const SdkOmitted(),
+    syncError: json['syncError'] != null ? SdkPresent((json['syncError'] as String?)!) : const SdkOmitted(),
+    lastSyncedAt: json['lastSyncedAt'] != null ? SdkPresent((json['lastSyncedAt'] as String?)!) : const SdkOmitted(),
+    protocolVersion: json['protocolVersion'] != null ? SdkPresent((json['protocolVersion'] as String?)!) : const SdkOmitted(),
+    toolCount: json['toolCount'] != null ? SdkPresent(((json['toolCount'] as num?)?.toInt())!) : const SdkOmitted(),
+    createdAt: json['createdAt'] != null ? SdkPresent((json['createdAt'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updatedAt'] != null ? SdkPresent((json['updatedAt'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    oauthAuthorizeUrl: json['oauth_authorize_url'] != null ? SdkPresent((json['oauth_authorize_url'] as String?)!) : const SdkOmitted(),
+    oauthScopes: json['oauth_scopes'] != null ? SdkPresent(((json['oauth_scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    oauthAuthorizationTtlSeconds: json['oauth_authorization_ttl_seconds'] != null ? SdkPresent((json['oauth_authorization_ttl_seconds'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (serverRef) {
-          SdkPresent<String>(value: final value) => {
-              'serverRef': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (endpoint) {
-          SdkPresent<String>(value: final value) => {
-              'endpoint': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (transport) {
-          SdkPresent<McpServerTransport>(value: final value) => {
-              'transport': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (credentialRefSource) {
-          SdkPresent<McpServerCredentialRefSource>(value: final value) => {
-              'credentialRefSource': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (credentialRef) {
-          SdkPresent<String>(value: final value) => {
-              'credentialRef': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (syncStatus) {
-          SdkPresent<McpServerSyncStatus>(value: final value) => {
-              'syncStatus': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (syncError) {
-          SdkPresent<String>(value: final value) => {
-              'syncError': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastSyncedAt) {
-          SdkPresent<String>(value: final value) => {
-              'lastSyncedAt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (protocolVersion) {
-          SdkPresent<String>(value: final value) => {
-              'protocolVersion': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolCount) {
-          SdkPresent<int>(value: final value) => {
-              'toolCount': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'createdAt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updatedAt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (oauthAuthorizeUrl) {
-          SdkPresent<String>(value: final value) => {
-              'oauth_authorize_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (oauthScopes) {
-          SdkPresent<List<String>>(value: final value) => {
-              'oauth_scopes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (oauthAuthorizationTtlSeconds) {
-          SdkPresent<String>(value: final value) => {
-              'oauth_authorization_ttl_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (serverRef) {
+      SdkPresent<String>(value: final value) => {'serverRef': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (endpoint) {
+      SdkPresent<String>(value: final value) => {'endpoint': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (transport) {
+      SdkPresent<McpServerTransport>(value: final value) => {'transport': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (credentialRefSource) {
+      SdkPresent<McpServerCredentialRefSource>(value: final value) => {'credentialRefSource': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (credentialRef) {
+      SdkPresent<String>(value: final value) => {'credentialRef': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (syncStatus) {
+      SdkPresent<McpServerSyncStatus>(value: final value) => {'syncStatus': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (syncError) {
+      SdkPresent<String>(value: final value) => {'syncError': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastSyncedAt) {
+      SdkPresent<String>(value: final value) => {'lastSyncedAt': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (protocolVersion) {
+      SdkPresent<String>(value: final value) => {'protocolVersion': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolCount) {
+      SdkPresent<int>(value: final value) => {'toolCount': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'createdAt': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updatedAt': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (oauthAuthorizeUrl) {
+      SdkPresent<String>(value: final value) => {'oauth_authorize_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (oauthScopes) {
+      SdkPresent<List<String>>(value: final value) => {'oauth_scopes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (oauthAuthorizationTtlSeconds) {
+      SdkPresent<String>(value: final value) => {'oauth_authorization_ttl_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Returns one MCP server.
 class McpServerResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The MCP server.
   final SdkOptional<McpServer> mcpServer;
 
   const McpServerResponse({this.mcpServer = const SdkOmitted()});
 
-  McpServerResponse Function({SdkOptional<McpServer> mcpServer}) get copyWith =>
-      _copyWith;
+  McpServerResponse Function({SdkOptional<McpServer> mcpServer}) get copyWith => _copyWith;
 
-  McpServerResponse _copyWith({Object? mcpServer = sdkOmittedValue}) =>
-      McpServerResponse(
-        mcpServer: identical(mcpServer, sdkOmittedValue)
-            ? this.mcpServer
-            : mcpServer as SdkOptional<McpServer>,
-      );
+  McpServerResponse _copyWith({Object? mcpServer = sdkOmittedValue}) => McpServerResponse(
+    mcpServer: identical(mcpServer, sdkOmittedValue) ? this.mcpServer : mcpServer as SdkOptional<McpServer>,
+  );
 
-  factory McpServerResponse.fromJson(Map<String, dynamic> json) =>
-      McpServerResponse(
-        mcpServer: json['mcpServer'] != null
-            ? SdkPresent((json['mcpServer'] != null
-                ? McpServer.fromJson(json['mcpServer'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory McpServerResponse.fromJson(Map<String, dynamic> json) => McpServerResponse(
+    mcpServer: json['mcpServer'] != null ? SdkPresent((json['mcpServer'] != null ? McpServer.fromJson(json['mcpServer'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (mcpServer) {
-          SdkPresent<McpServer>(value: final value) => {
-              'mcpServer': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (mcpServer) {
+      SdkPresent<McpServer>(value: final value) => {'mcpServer': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// One tool discovered on an MCP server.
 class McpServerTool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Tool name as the server reports it, normalized to the catalog's naming rules.
   final SdkOptional<String> name;
-
   /// `&lt;server_ref&gt;_&lt;name&gt;`: the tool's catalog slug, and the value to list in `enabledToolSlugs`.
   final SdkOptional<String> toolSlug;
-
   /// Tool description as the server reports it.
   final SdkOptional<String> description;
-
   /// Whether the tool is enabled in your team's catalog.
   final SdkOptional<bool> enabled;
-
   /// True when the enabled tool was suspended because it disappeared from the server or its input schema changed incompatibly. Calls to it fail until it is enabled again.
   final SdkOptional<bool> quarantined;
-
   /// Why the tool was quarantined; empty otherwise.
   final SdkOptional<String> quarantineReason;
 
-  const McpServerTool(
-      {this.name = const SdkOmitted(),
-      this.toolSlug = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.enabled = const SdkOmitted(),
-      this.quarantined = const SdkOmitted(),
-      this.quarantineReason = const SdkOmitted()});
+  const McpServerTool({this.name = const SdkOmitted(), this.toolSlug = const SdkOmitted(), this.description = const SdkOmitted(), this.enabled = const SdkOmitted(), this.quarantined = const SdkOmitted(), this.quarantineReason = const SdkOmitted()});
 
-  McpServerTool Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> toolSlug,
-      SdkOptional<String> description,
-      SdkOptional<bool> enabled,
-      SdkOptional<bool> quarantined,
-      SdkOptional<String> quarantineReason}) get copyWith => _copyWith;
+  McpServerTool Function({SdkOptional<String> name, SdkOptional<String> toolSlug, SdkOptional<String> description, SdkOptional<bool> enabled, SdkOptional<bool> quarantined, SdkOptional<String> quarantineReason}) get copyWith => _copyWith;
 
-  McpServerTool _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? toolSlug = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? enabled = sdkOmittedValue,
-          Object? quarantined = sdkOmittedValue,
-          Object? quarantineReason = sdkOmittedValue}) =>
-      McpServerTool(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        toolSlug: identical(toolSlug, sdkOmittedValue)
-            ? this.toolSlug
-            : toolSlug as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as SdkOptional<bool>,
-        quarantined: identical(quarantined, sdkOmittedValue)
-            ? this.quarantined
-            : quarantined as SdkOptional<bool>,
-        quarantineReason: identical(quarantineReason, sdkOmittedValue)
-            ? this.quarantineReason
-            : quarantineReason as SdkOptional<String>,
-      );
+  McpServerTool _copyWith({Object? name = sdkOmittedValue, Object? toolSlug = sdkOmittedValue, Object? description = sdkOmittedValue, Object? enabled = sdkOmittedValue, Object? quarantined = sdkOmittedValue, Object? quarantineReason = sdkOmittedValue}) => McpServerTool(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    toolSlug: identical(toolSlug, sdkOmittedValue) ? this.toolSlug : toolSlug as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
+    quarantined: identical(quarantined, sdkOmittedValue) ? this.quarantined : quarantined as SdkOptional<bool>,
+    quarantineReason: identical(quarantineReason, sdkOmittedValue) ? this.quarantineReason : quarantineReason as SdkOptional<String>,
+  );
 
   factory McpServerTool.fromJson(Map<String, dynamic> json) => McpServerTool(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        toolSlug: json['toolSlug'] != null
-            ? SdkPresent((json['toolSlug'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        enabled: json['enabled'] != null
-            ? SdkPresent((json['enabled'] as bool?)!)
-            : const SdkOmitted(),
-        quarantined: json['quarantined'] != null
-            ? SdkPresent((json['quarantined'] as bool?)!)
-            : const SdkOmitted(),
-        quarantineReason: json['quarantineReason'] != null
-            ? SdkPresent((json['quarantineReason'] as String?)!)
-            : const SdkOmitted(),
-      );
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    toolSlug: json['toolSlug'] != null ? SdkPresent((json['toolSlug'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
+    quarantined: json['quarantined'] != null ? SdkPresent((json['quarantined'] as bool?)!) : const SdkOmitted(),
+    quarantineReason: json['quarantineReason'] != null ? SdkPresent((json['quarantineReason'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolSlug) {
-          SdkPresent<String>(value: final value) => {
-              'toolSlug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (enabled) {
-          SdkPresent<bool>(value: final value) => {
-              'enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (quarantined) {
-          SdkPresent<bool>(value: final value) => {
-              'quarantined': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (quarantineReason) {
-          SdkPresent<String>(value: final value) => {
-              'quarantineReason': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolSlug) {
+      SdkPresent<String>(value: final value) => {'toolSlug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (enabled) {
+      SdkPresent<bool>(value: final value) => {'enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (quarantined) {
+      SdkPresent<bool>(value: final value) => {'quarantined': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (quarantineReason) {
+      SdkPresent<String>(value: final value) => {'quarantineReason': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

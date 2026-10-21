@@ -8,405 +8,196 @@ part of 'agent_platform_api_api_create.dart';
 class ApiCreateAgentInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional Anthropic API key ID to use with Anthropic models
   final SdkOptional<String> anthropicKeyUuid;
-
   /// A text description of the agent, not used in inference
   final SdkOptional<String> description;
-
   /// Agent instruction. Instructions help your agent to perform its job effectively. See [Write Effective Agent Instructions](https://docs.digitalocean.com/products/genai-platform/concepts/best-practices/#agent-instructions) for best practices.
   final SdkOptional<String> instruction;
-
   /// Ids of the knowledge base(s) to attach to the agent
   final SdkOptional<List<String>> knowledgeBaseUuid;
-
   /// MCP (Model Context Protocol) servers to attach to the agent
   final SdkOptional<List<ApiMcpServer>> mcpServers;
-
   /// Optional `string` value serialized in the `model_provider_key_uuid` wire field.
   final SdkOptional<String> modelProviderKeyUuid;
-
   /// Optional `string` value serialized in the `model_router_uuid` wire field.
   final SdkOptional<String> modelRouterUuid;
-
   /// Identifier for the foundation model.
   final SdkOptional<String> modelUuid;
-
   /// Agent name
   final SdkOptional<String> name;
-
   /// Optional OpenAI API key ID to use with OpenAI models
   final SdkOptional<String> openAiKeyUuid;
-
   /// The id of the DigitalOcean project this agent will belong to
   final SdkOptional<String> projectId;
-
   /// Optional `string` value serialized in the `reasoning_effort` wire field.
   final SdkOptional<String> reasoningEffort;
-
   /// The DigitalOcean region to deploy your agent in
   final SdkOptional<String> region;
-
   /// Optional `string` value serialized in the `router_preset_slug` wire field.
   final SdkOptional<String> routerPresetSlug;
-
   /// Agent tag to organize related resources
   final SdkOptional<List<String>> tags;
-
   /// Optional `int64`-formatted value serialized in the `thinking_token_budget` wire field.
   final SdkOptional<int> thinkingTokenBudget;
-
   /// Whether the agent can use the built-in web_fetch tool to retrieve content from public web pages.
   final SdkOptional<bool> webFetchEnabled;
-
   /// Whether the agent can use the built-in web_search tool to search the public web for current information.
   final SdkOptional<bool> webSearchEnabled;
-
   /// Identifier for the workspace
   final SdkOptional<String> workspaceUuid;
 
-  const ApiCreateAgentInputPublic(
-      {this.anthropicKeyUuid = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.instruction = const SdkOmitted(),
-      this.knowledgeBaseUuid = const SdkOmitted(),
-      this.mcpServers = const SdkOmitted(),
-      this.modelProviderKeyUuid = const SdkOmitted(),
-      this.modelRouterUuid = const SdkOmitted(),
-      this.modelUuid = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.openAiKeyUuid = const SdkOmitted(),
-      this.projectId = const SdkOmitted(),
-      this.reasoningEffort = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.routerPresetSlug = const SdkOmitted(),
-      this.tags = const SdkOmitted(),
-      this.thinkingTokenBudget = const SdkOmitted(),
-      this.webFetchEnabled = const SdkOmitted(),
-      this.webSearchEnabled = const SdkOmitted(),
-      this.workspaceUuid = const SdkOmitted()});
+  const ApiCreateAgentInputPublic({this.anthropicKeyUuid = const SdkOmitted(), this.description = const SdkOmitted(), this.instruction = const SdkOmitted(), this.knowledgeBaseUuid = const SdkOmitted(), this.mcpServers = const SdkOmitted(), this.modelProviderKeyUuid = const SdkOmitted(), this.modelRouterUuid = const SdkOmitted(), this.modelUuid = const SdkOmitted(), this.name = const SdkOmitted(), this.openAiKeyUuid = const SdkOmitted(), this.projectId = const SdkOmitted(), this.reasoningEffort = const SdkOmitted(), this.region = const SdkOmitted(), this.routerPresetSlug = const SdkOmitted(), this.tags = const SdkOmitted(), this.thinkingTokenBudget = const SdkOmitted(), this.webFetchEnabled = const SdkOmitted(), this.webSearchEnabled = const SdkOmitted(), this.workspaceUuid = const SdkOmitted()});
 
-  ApiCreateAgentInputPublic Function(
-      {SdkOptional<String> anthropicKeyUuid,
-      SdkOptional<String> description,
-      SdkOptional<String> instruction,
-      SdkOptional<List<String>> knowledgeBaseUuid,
-      SdkOptional<List<ApiMcpServer>> mcpServers,
-      SdkOptional<String> modelProviderKeyUuid,
-      SdkOptional<String> modelRouterUuid,
-      SdkOptional<String> modelUuid,
-      SdkOptional<String> name,
-      SdkOptional<String> openAiKeyUuid,
-      SdkOptional<String> projectId,
-      SdkOptional<String> reasoningEffort,
-      SdkOptional<String> region,
-      SdkOptional<String> routerPresetSlug,
-      SdkOptional<List<String>> tags,
-      SdkOptional<int> thinkingTokenBudget,
-      SdkOptional<bool> webFetchEnabled,
-      SdkOptional<bool> webSearchEnabled,
-      SdkOptional<String> workspaceUuid}) get copyWith => _copyWith;
+  ApiCreateAgentInputPublic Function({SdkOptional<String> anthropicKeyUuid, SdkOptional<String> description, SdkOptional<String> instruction, SdkOptional<List<String>> knowledgeBaseUuid, SdkOptional<List<ApiMcpServer>> mcpServers, SdkOptional<String> modelProviderKeyUuid, SdkOptional<String> modelRouterUuid, SdkOptional<String> modelUuid, SdkOptional<String> name, SdkOptional<String> openAiKeyUuid, SdkOptional<String> projectId, SdkOptional<String> reasoningEffort, SdkOptional<String> region, SdkOptional<String> routerPresetSlug, SdkOptional<List<String>> tags, SdkOptional<int> thinkingTokenBudget, SdkOptional<bool> webFetchEnabled, SdkOptional<bool> webSearchEnabled, SdkOptional<String> workspaceUuid}) get copyWith => _copyWith;
 
-  ApiCreateAgentInputPublic _copyWith(
-          {Object? anthropicKeyUuid = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? instruction = sdkOmittedValue,
-          Object? knowledgeBaseUuid = sdkOmittedValue,
-          Object? mcpServers = sdkOmittedValue,
-          Object? modelProviderKeyUuid = sdkOmittedValue,
-          Object? modelRouterUuid = sdkOmittedValue,
-          Object? modelUuid = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? openAiKeyUuid = sdkOmittedValue,
-          Object? projectId = sdkOmittedValue,
-          Object? reasoningEffort = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? routerPresetSlug = sdkOmittedValue,
-          Object? tags = sdkOmittedValue,
-          Object? thinkingTokenBudget = sdkOmittedValue,
-          Object? webFetchEnabled = sdkOmittedValue,
-          Object? webSearchEnabled = sdkOmittedValue,
-          Object? workspaceUuid = sdkOmittedValue}) =>
-      ApiCreateAgentInputPublic(
-        anthropicKeyUuid: identical(anthropicKeyUuid, sdkOmittedValue)
-            ? this.anthropicKeyUuid
-            : anthropicKeyUuid as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        instruction: identical(instruction, sdkOmittedValue)
-            ? this.instruction
-            : instruction as SdkOptional<String>,
-        knowledgeBaseUuid: identical(knowledgeBaseUuid, sdkOmittedValue)
-            ? this.knowledgeBaseUuid
-            : knowledgeBaseUuid as SdkOptional<List<String>>,
-        mcpServers: identical(mcpServers, sdkOmittedValue)
-            ? this.mcpServers
-            : mcpServers as SdkOptional<List<ApiMcpServer>>,
-        modelProviderKeyUuid: identical(modelProviderKeyUuid, sdkOmittedValue)
-            ? this.modelProviderKeyUuid
-            : modelProviderKeyUuid as SdkOptional<String>,
-        modelRouterUuid: identical(modelRouterUuid, sdkOmittedValue)
-            ? this.modelRouterUuid
-            : modelRouterUuid as SdkOptional<String>,
-        modelUuid: identical(modelUuid, sdkOmittedValue)
-            ? this.modelUuid
-            : modelUuid as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        openAiKeyUuid: identical(openAiKeyUuid, sdkOmittedValue)
-            ? this.openAiKeyUuid
-            : openAiKeyUuid as SdkOptional<String>,
-        projectId: identical(projectId, sdkOmittedValue)
-            ? this.projectId
-            : projectId as SdkOptional<String>,
-        reasoningEffort: identical(reasoningEffort, sdkOmittedValue)
-            ? this.reasoningEffort
-            : reasoningEffort as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<String>,
-        routerPresetSlug: identical(routerPresetSlug, sdkOmittedValue)
-            ? this.routerPresetSlug
-            : routerPresetSlug as SdkOptional<String>,
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<String>>,
-        thinkingTokenBudget: identical(thinkingTokenBudget, sdkOmittedValue)
-            ? this.thinkingTokenBudget
-            : thinkingTokenBudget as SdkOptional<int>,
-        webFetchEnabled: identical(webFetchEnabled, sdkOmittedValue)
-            ? this.webFetchEnabled
-            : webFetchEnabled as SdkOptional<bool>,
-        webSearchEnabled: identical(webSearchEnabled, sdkOmittedValue)
-            ? this.webSearchEnabled
-            : webSearchEnabled as SdkOptional<bool>,
-        workspaceUuid: identical(workspaceUuid, sdkOmittedValue)
-            ? this.workspaceUuid
-            : workspaceUuid as SdkOptional<String>,
-      );
+  ApiCreateAgentInputPublic _copyWith({Object? anthropicKeyUuid = sdkOmittedValue, Object? description = sdkOmittedValue, Object? instruction = sdkOmittedValue, Object? knowledgeBaseUuid = sdkOmittedValue, Object? mcpServers = sdkOmittedValue, Object? modelProviderKeyUuid = sdkOmittedValue, Object? modelRouterUuid = sdkOmittedValue, Object? modelUuid = sdkOmittedValue, Object? name = sdkOmittedValue, Object? openAiKeyUuid = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? reasoningEffort = sdkOmittedValue, Object? region = sdkOmittedValue, Object? routerPresetSlug = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? thinkingTokenBudget = sdkOmittedValue, Object? webFetchEnabled = sdkOmittedValue, Object? webSearchEnabled = sdkOmittedValue, Object? workspaceUuid = sdkOmittedValue}) => ApiCreateAgentInputPublic(
+    anthropicKeyUuid: identical(anthropicKeyUuid, sdkOmittedValue) ? this.anthropicKeyUuid : anthropicKeyUuid as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    instruction: identical(instruction, sdkOmittedValue) ? this.instruction : instruction as SdkOptional<String>,
+    knowledgeBaseUuid: identical(knowledgeBaseUuid, sdkOmittedValue) ? this.knowledgeBaseUuid : knowledgeBaseUuid as SdkOptional<List<String>>,
+    mcpServers: identical(mcpServers, sdkOmittedValue) ? this.mcpServers : mcpServers as SdkOptional<List<ApiMcpServer>>,
+    modelProviderKeyUuid: identical(modelProviderKeyUuid, sdkOmittedValue) ? this.modelProviderKeyUuid : modelProviderKeyUuid as SdkOptional<String>,
+    modelRouterUuid: identical(modelRouterUuid, sdkOmittedValue) ? this.modelRouterUuid : modelRouterUuid as SdkOptional<String>,
+    modelUuid: identical(modelUuid, sdkOmittedValue) ? this.modelUuid : modelUuid as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    openAiKeyUuid: identical(openAiKeyUuid, sdkOmittedValue) ? this.openAiKeyUuid : openAiKeyUuid as SdkOptional<String>,
+    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
+    reasoningEffort: identical(reasoningEffort, sdkOmittedValue) ? this.reasoningEffort : reasoningEffort as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
+    routerPresetSlug: identical(routerPresetSlug, sdkOmittedValue) ? this.routerPresetSlug : routerPresetSlug as SdkOptional<String>,
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
+    thinkingTokenBudget: identical(thinkingTokenBudget, sdkOmittedValue) ? this.thinkingTokenBudget : thinkingTokenBudget as SdkOptional<int>,
+    webFetchEnabled: identical(webFetchEnabled, sdkOmittedValue) ? this.webFetchEnabled : webFetchEnabled as SdkOptional<bool>,
+    webSearchEnabled: identical(webSearchEnabled, sdkOmittedValue) ? this.webSearchEnabled : webSearchEnabled as SdkOptional<bool>,
+    workspaceUuid: identical(workspaceUuid, sdkOmittedValue) ? this.workspaceUuid : workspaceUuid as SdkOptional<String>,
+  );
 
-  factory ApiCreateAgentInputPublic.fromJson(Map<String, dynamic> json) =>
-      ApiCreateAgentInputPublic(
-        anthropicKeyUuid: json['anthropic_key_uuid'] != null
-            ? SdkPresent((json['anthropic_key_uuid'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        instruction: json['instruction'] != null
-            ? SdkPresent((json['instruction'] as String?)!)
-            : const SdkOmitted(),
-        knowledgeBaseUuid: json['knowledge_base_uuid'] != null
-            ? SdkPresent(((json['knowledge_base_uuid'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        mcpServers: json['mcp_servers'] != null
-            ? SdkPresent(((json['mcp_servers'] as List?)
-                ?.map((e) => ApiMcpServer.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        modelProviderKeyUuid: json['model_provider_key_uuid'] != null
-            ? SdkPresent((json['model_provider_key_uuid'] as String?)!)
-            : const SdkOmitted(),
-        modelRouterUuid: json['model_router_uuid'] != null
-            ? SdkPresent((json['model_router_uuid'] as String?)!)
-            : const SdkOmitted(),
-        modelUuid: json['model_uuid'] != null
-            ? SdkPresent((json['model_uuid'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        openAiKeyUuid: json['open_ai_key_uuid'] != null
-            ? SdkPresent((json['open_ai_key_uuid'] as String?)!)
-            : const SdkOmitted(),
-        projectId: json['project_id'] != null
-            ? SdkPresent((json['project_id'] as String?)!)
-            : const SdkOmitted(),
-        reasoningEffort: json['reasoning_effort'] != null
-            ? SdkPresent((json['reasoning_effort'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] as String?)!)
-            : const SdkOmitted(),
-        routerPresetSlug: json['router_preset_slug'] != null
-            ? SdkPresent((json['router_preset_slug'] as String?)!)
-            : const SdkOmitted(),
-        tags: json['tags'] != null
-            ? SdkPresent(
-                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        thinkingTokenBudget: json['thinking_token_budget'] != null
-            ? SdkPresent(((json['thinking_token_budget'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        webFetchEnabled: json['web_fetch_enabled'] != null
-            ? SdkPresent((json['web_fetch_enabled'] as bool?)!)
-            : const SdkOmitted(),
-        webSearchEnabled: json['web_search_enabled'] != null
-            ? SdkPresent((json['web_search_enabled'] as bool?)!)
-            : const SdkOmitted(),
-        workspaceUuid: json['workspace_uuid'] != null
-            ? SdkPresent((json['workspace_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateAgentInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateAgentInputPublic(
+    anthropicKeyUuid: json['anthropic_key_uuid'] != null ? SdkPresent((json['anthropic_key_uuid'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    instruction: json['instruction'] != null ? SdkPresent((json['instruction'] as String?)!) : const SdkOmitted(),
+    knowledgeBaseUuid: json['knowledge_base_uuid'] != null ? SdkPresent(((json['knowledge_base_uuid'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    mcpServers: json['mcp_servers'] != null ? SdkPresent(((json['mcp_servers'] as List?)?.map((e) => ApiMcpServer.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    modelProviderKeyUuid: json['model_provider_key_uuid'] != null ? SdkPresent((json['model_provider_key_uuid'] as String?)!) : const SdkOmitted(),
+    modelRouterUuid: json['model_router_uuid'] != null ? SdkPresent((json['model_router_uuid'] as String?)!) : const SdkOmitted(),
+    modelUuid: json['model_uuid'] != null ? SdkPresent((json['model_uuid'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    openAiKeyUuid: json['open_ai_key_uuid'] != null ? SdkPresent((json['open_ai_key_uuid'] as String?)!) : const SdkOmitted(),
+    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
+    reasoningEffort: json['reasoning_effort'] != null ? SdkPresent((json['reasoning_effort'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
+    routerPresetSlug: json['router_preset_slug'] != null ? SdkPresent((json['router_preset_slug'] as String?)!) : const SdkOmitted(),
+    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    thinkingTokenBudget: json['thinking_token_budget'] != null ? SdkPresent(((json['thinking_token_budget'] as num?)?.toInt())!) : const SdkOmitted(),
+    webFetchEnabled: json['web_fetch_enabled'] != null ? SdkPresent((json['web_fetch_enabled'] as bool?)!) : const SdkOmitted(),
+    webSearchEnabled: json['web_search_enabled'] != null ? SdkPresent((json['web_search_enabled'] as bool?)!) : const SdkOmitted(),
+    workspaceUuid: json['workspace_uuid'] != null ? SdkPresent((json['workspace_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (anthropicKeyUuid) {
-          SdkPresent<String>(value: final value) => {
-              'anthropic_key_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (instruction) {
-          SdkPresent<String>(value: final value) => {
-              'instruction': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (knowledgeBaseUuid) {
-          SdkPresent<List<String>>(value: final value) => {
-              'knowledge_base_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (mcpServers) {
-          SdkPresent<List<ApiMcpServer>>(value: final value) => {
-              'mcp_servers': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (modelProviderKeyUuid) {
-          SdkPresent<String>(value: final value) => {
-              'model_provider_key_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (modelRouterUuid) {
-          SdkPresent<String>(value: final value) => {
-              'model_router_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (modelUuid) {
-          SdkPresent<String>(value: final value) => {
-              'model_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (openAiKeyUuid) {
-          SdkPresent<String>(value: final value) => {
-              'open_ai_key_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projectId) {
-          SdkPresent<String>(value: final value) => {
-              'project_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reasoningEffort) {
-          SdkPresent<String>(value: final value) => {
-              'reasoning_effort': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<String>(value: final value) => {
-              'region': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (routerPresetSlug) {
-          SdkPresent<String>(value: final value) => {
-              'router_preset_slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tags) {
-          SdkPresent<List<String>>(value: final value) => {
-              'tags': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (thinkingTokenBudget) {
-          SdkPresent<int>(value: final value) => {
-              'thinking_token_budget': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (webFetchEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'web_fetch_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (webSearchEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'web_search_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workspaceUuid) {
-          SdkPresent<String>(value: final value) => {
-              'workspace_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (anthropicKeyUuid) {
+      SdkPresent<String>(value: final value) => {'anthropic_key_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (instruction) {
+      SdkPresent<String>(value: final value) => {'instruction': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (knowledgeBaseUuid) {
+      SdkPresent<List<String>>(value: final value) => {'knowledge_base_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (mcpServers) {
+      SdkPresent<List<ApiMcpServer>>(value: final value) => {'mcp_servers': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (modelProviderKeyUuid) {
+      SdkPresent<String>(value: final value) => {'model_provider_key_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (modelRouterUuid) {
+      SdkPresent<String>(value: final value) => {'model_router_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (modelUuid) {
+      SdkPresent<String>(value: final value) => {'model_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (openAiKeyUuid) {
+      SdkPresent<String>(value: final value) => {'open_ai_key_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projectId) {
+      SdkPresent<String>(value: final value) => {'project_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reasoningEffort) {
+      SdkPresent<String>(value: final value) => {'reasoning_effort': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<String>(value: final value) => {'region': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (routerPresetSlug) {
+      SdkPresent<String>(value: final value) => {'router_preset_slug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tags) {
+      SdkPresent<List<String>>(value: final value) => {'tags': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (thinkingTokenBudget) {
+      SdkPresent<int>(value: final value) => {'thinking_token_budget': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (webFetchEnabled) {
+      SdkPresent<bool>(value: final value) => {'web_fetch_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (webSearchEnabled) {
+      SdkPresent<bool>(value: final value) => {'web_search_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workspaceUuid) {
+      SdkPresent<String>(value: final value) => {'workspace_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Information about a newly created Agent
 class ApiCreateAgentOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An Agent
   final SdkOptional<ApiAgent> agent;
 
   const ApiCreateAgentOutput({this.agent = const SdkOmitted()});
 
-  ApiCreateAgentOutput Function({SdkOptional<ApiAgent> agent}) get copyWith =>
-      _copyWith;
+  ApiCreateAgentOutput Function({SdkOptional<ApiAgent> agent}) get copyWith => _copyWith;
 
-  ApiCreateAgentOutput _copyWith({Object? agent = sdkOmittedValue}) =>
-      ApiCreateAgentOutput(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<ApiAgent>,
-      );
+  ApiCreateAgentOutput _copyWith({Object? agent = sdkOmittedValue}) => ApiCreateAgentOutput(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<ApiAgent>,
+  );
 
-  factory ApiCreateAgentOutput.fromJson(Map<String, dynamic> json) =>
-      ApiCreateAgentOutput(
-        agent: json['agent'] != null
-            ? SdkPresent((json['agent'] != null
-                ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateAgentOutput.fromJson(Map<String, dynamic> json) => ApiCreateAgentOutput(
+    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<ApiAgent>(value: final value) => {
-              'agent': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<ApiAgent>(value: final value) => {'agent': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

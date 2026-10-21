@@ -8,59 +8,33 @@ part of 'monitoring.dart';
 class SinksResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `destination` wire field.
   final SdkOptional<Destination> destination;
-
   /// List of resources identified by their URNs.
   final SdkOptional<List<SinkResource>> resources;
 
-  const SinksResponse(
-      {this.destination = const SdkOmitted(),
-      this.resources = const SdkOmitted()});
+  const SinksResponse({this.destination = const SdkOmitted(), this.resources = const SdkOmitted()});
 
-  SinksResponse Function(
-      {SdkOptional<Destination> destination,
-      SdkOptional<List<SinkResource>> resources}) get copyWith => _copyWith;
+  SinksResponse Function({SdkOptional<Destination> destination, SdkOptional<List<SinkResource>> resources}) get copyWith => _copyWith;
 
-  SinksResponse _copyWith(
-          {Object? destination = sdkOmittedValue,
-          Object? resources = sdkOmittedValue}) =>
-      SinksResponse(
-        destination: identical(destination, sdkOmittedValue)
-            ? this.destination
-            : destination as SdkOptional<Destination>,
-        resources: identical(resources, sdkOmittedValue)
-            ? this.resources
-            : resources as SdkOptional<List<SinkResource>>,
-      );
+  SinksResponse _copyWith({Object? destination = sdkOmittedValue, Object? resources = sdkOmittedValue}) => SinksResponse(
+    destination: identical(destination, sdkOmittedValue) ? this.destination : destination as SdkOptional<Destination>,
+    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<List<SinkResource>>,
+  );
 
   factory SinksResponse.fromJson(Map<String, dynamic> json) => SinksResponse(
-        destination: json['destination'] != null
-            ? SdkPresent((json['destination'] != null
-                ? Destination.fromJson(
-                    json['destination'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        resources: json['resources'] != null
-            ? SdkPresent(((json['resources'] as List?)
-                ?.map((e) => SinkResource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    destination: json['destination'] != null ? SdkPresent((json['destination'] != null ? Destination.fromJson(json['destination'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    resources: json['resources'] != null ? SdkPresent(((json['resources'] as List?)?.map((e) => SinkResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (destination) {
-          SdkPresent<Destination>(value: final value) => {
-              'destination': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resources) {
-          SdkPresent<List<SinkResource>>(value: final value) => {
-              'resources': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (destination) {
+      SdkPresent<Destination>(value: final value) => {'destination': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resources) {
+      SdkPresent<List<SinkResource>>(value: final value) => {'resources': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

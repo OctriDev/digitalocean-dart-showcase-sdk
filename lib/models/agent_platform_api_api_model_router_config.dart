@@ -8,61 +8,33 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelRouterConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Router-level fallback models
   final SdkOptional<List<String>> fallbackModels;
-
   /// Task routing policies
   final SdkOptional<List<ApiModelRouterTaskPolicy>> policies;
 
-  const ApiModelRouterConfig(
-      {this.fallbackModels = const SdkOmitted(),
-      this.policies = const SdkOmitted()});
+  const ApiModelRouterConfig({this.fallbackModels = const SdkOmitted(), this.policies = const SdkOmitted()});
 
-  ApiModelRouterConfig Function(
-          {SdkOptional<List<String>> fallbackModels,
-          SdkOptional<List<ApiModelRouterTaskPolicy>> policies})
-      get copyWith => _copyWith;
+  ApiModelRouterConfig Function({SdkOptional<List<String>> fallbackModels, SdkOptional<List<ApiModelRouterTaskPolicy>> policies}) get copyWith => _copyWith;
 
-  ApiModelRouterConfig _copyWith(
-          {Object? fallbackModels = sdkOmittedValue,
-          Object? policies = sdkOmittedValue}) =>
-      ApiModelRouterConfig(
-        fallbackModels: identical(fallbackModels, sdkOmittedValue)
-            ? this.fallbackModels
-            : fallbackModels as SdkOptional<List<String>>,
-        policies: identical(policies, sdkOmittedValue)
-            ? this.policies
-            : policies as SdkOptional<List<ApiModelRouterTaskPolicy>>,
-      );
+  ApiModelRouterConfig _copyWith({Object? fallbackModels = sdkOmittedValue, Object? policies = sdkOmittedValue}) => ApiModelRouterConfig(
+    fallbackModels: identical(fallbackModels, sdkOmittedValue) ? this.fallbackModels : fallbackModels as SdkOptional<List<String>>,
+    policies: identical(policies, sdkOmittedValue) ? this.policies : policies as SdkOptional<List<ApiModelRouterTaskPolicy>>,
+  );
 
-  factory ApiModelRouterConfig.fromJson(Map<String, dynamic> json) =>
-      ApiModelRouterConfig(
-        fallbackModels: json['fallback_models'] != null
-            ? SdkPresent(((json['fallback_models'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        policies: json['policies'] != null
-            ? SdkPresent(((json['policies'] as List?)
-                ?.map((e) => ApiModelRouterTaskPolicy.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ApiModelRouterConfig.fromJson(Map<String, dynamic> json) => ApiModelRouterConfig(
+    fallbackModels: json['fallback_models'] != null ? SdkPresent(((json['fallback_models'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    policies: json['policies'] != null ? SdkPresent(((json['policies'] as List?)?.map((e) => ApiModelRouterTaskPolicy.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (fallbackModels) {
-          SdkPresent<List<String>>(value: final value) => {
-              'fallback_models': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (policies) {
-          SdkPresent<List<ApiModelRouterTaskPolicy>>(value: final value) => {
-              'policies': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (fallbackModels) {
+      SdkPresent<List<String>>(value: final value) => {'fallback_models': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (policies) {
+      SdkPresent<List<ApiModelRouterTaskPolicy>>(value: final value) => {'policies': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

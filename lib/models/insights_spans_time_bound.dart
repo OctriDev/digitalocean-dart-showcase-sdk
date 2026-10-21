@@ -8,53 +8,33 @@ part of 'insights_spans.dart';
 class SpansTimeBound {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A relative time. Use `now` for the current time, a bare duration such as `1h` or `7d` to look back from now, or an offset such as `now-15m` or `now+30m`. Supported units are `s`, `m`, `h`, `d`, and `w`.
   final SdkOptional<String> relative;
-
   /// An absolute timestamp. Accepts an RFC3339/RFC3339Nano string or a Unix timestamp (seconds, milliseconds, microseconds, or nanoseconds) encoded as a decimal string.
   final SdkOptional<String> absolute;
 
-  const SpansTimeBound(
-      {this.relative = const SdkOmitted(), this.absolute = const SdkOmitted()});
+  const SpansTimeBound({this.relative = const SdkOmitted(), this.absolute = const SdkOmitted()});
 
-  SpansTimeBound Function(
-      {SdkOptional<String> relative,
-      SdkOptional<String> absolute}) get copyWith => _copyWith;
+  SpansTimeBound Function({SdkOptional<String> relative, SdkOptional<String> absolute}) get copyWith => _copyWith;
 
-  SpansTimeBound _copyWith(
-          {Object? relative = sdkOmittedValue,
-          Object? absolute = sdkOmittedValue}) =>
-      SpansTimeBound(
-        relative: identical(relative, sdkOmittedValue)
-            ? this.relative
-            : relative as SdkOptional<String>,
-        absolute: identical(absolute, sdkOmittedValue)
-            ? this.absolute
-            : absolute as SdkOptional<String>,
-      );
+  SpansTimeBound _copyWith({Object? relative = sdkOmittedValue, Object? absolute = sdkOmittedValue}) => SpansTimeBound(
+    relative: identical(relative, sdkOmittedValue) ? this.relative : relative as SdkOptional<String>,
+    absolute: identical(absolute, sdkOmittedValue) ? this.absolute : absolute as SdkOptional<String>,
+  );
 
   factory SpansTimeBound.fromJson(Map<String, dynamic> json) => SpansTimeBound(
-        relative: json['relative'] != null
-            ? SdkPresent((json['relative'] as String?)!)
-            : const SdkOmitted(),
-        absolute: json['absolute'] != null
-            ? SdkPresent((json['absolute'] as String?)!)
-            : const SdkOmitted(),
-      );
+    relative: json['relative'] != null ? SdkPresent((json['relative'] as String?)!) : const SdkOmitted(),
+    absolute: json['absolute'] != null ? SdkPresent((json['absolute'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (relative) {
-          SdkPresent<String>(value: final value) => {
-              'relative': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (absolute) {
-          SdkPresent<String>(value: final value) => {
-              'absolute': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (relative) {
+      SdkPresent<String>(value: final value) => {'relative': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (absolute) {
+      SdkPresent<String>(value: final value) => {'absolute': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,60 +8,46 @@ part of 'signals.dart';
 class ExportOptionsFilters {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The list of valid signal type values that can be used when creating an export.
   final List<String> signalType;
 
   const ExportOptionsFilters({required this.signalType});
 
-  ExportOptionsFilters Function({List<String> signalType}) get copyWith =>
-      _copyWith;
+  ExportOptionsFilters Function({List<String> signalType}) get copyWith => _copyWith;
 
-  ExportOptionsFilters _copyWith({Object? signalType = sdkOmittedValue}) =>
-      ExportOptionsFilters(
-        signalType: identical(signalType, sdkOmittedValue)
-            ? this.signalType
-            : signalType as List<String>,
-      );
+  ExportOptionsFilters _copyWith({Object? signalType = sdkOmittedValue}) => ExportOptionsFilters(
+    signalType: identical(signalType, sdkOmittedValue) ? this.signalType : signalType as List<String>,
+  );
 
-  factory ExportOptionsFilters.fromJson(Map<String, dynamic> json) =>
-      ExportOptionsFilters(
-        signalType:
-            ((json['signal_type'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory ExportOptionsFilters.fromJson(Map<String, dynamic> json) => ExportOptionsFilters(
+    signalType: ((json['signal_type'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'signal_type': signalType,
-      };
+    'signal_type': signalType,
+  };
 }
 
 /// Available filter options for creating exports.
 class ExportOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required object value serialized in the `filters` wire field.
   final ExportOptionsFilters filters;
 
   const ExportOptions({required this.filters});
 
-  ExportOptions Function({ExportOptionsFilters filters}) get copyWith =>
-      _copyWith;
+  ExportOptions Function({ExportOptionsFilters filters}) get copyWith => _copyWith;
 
   ExportOptions _copyWith({Object? filters = sdkOmittedValue}) => ExportOptions(
-        filters: identical(filters, sdkOmittedValue)
-            ? this.filters
-            : filters as ExportOptionsFilters,
-      );
+    filters: identical(filters, sdkOmittedValue) ? this.filters : filters as ExportOptionsFilters,
+  );
 
   factory ExportOptions.fromJson(Map<String, dynamic> json) => ExportOptions(
-        filters: (json['filters'] != null
-            ? ExportOptionsFilters.fromJson(
-                json['filters'] as Map<String, dynamic>)
-            : null)!,
-      );
+    filters: (json['filters'] != null ? ExportOptionsFilters.fromJson(json['filters'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'filters': filters.toJson(),
-      };
+    'filters': filters.toJson(),
+  };
 }

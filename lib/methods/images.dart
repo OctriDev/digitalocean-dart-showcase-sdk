@@ -32,30 +32,20 @@ Future<AllImages> imagesList(ClientConfig config,
   return (await sdkRequest<AllImages>('GET', '/v2/images',
           config: config,
           query: {
-            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_),
-                style: 'form', explode: true),
-            'private': SdkQueryValue(SdkUtils.unwrapOptional(private),
-                style: 'form', explode: true),
-            'tag_name': SdkQueryValue(SdkUtils.unwrapOptional(tagName),
-                style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_), style: 'form', explode: true),
+            'private': SdkQueryValue(SdkUtils.unwrapOptional(private), style: 'form', explode: true),
+            'tag_name': SdkQueryValue(SdkUtils.unwrapOptional(tagName), style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'imagesList',
-          fromJsonRaw: (value) =>
-              AllImages.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllImages.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a new custom image, send a POST request to /v2/images. The body must contain a url attribute pointing to a Linux virtual machine image to be imported into DigitalOcean. The image must be in the raw, qcow2, vhdx, vdi, or vmdk format. It may be compressed using gzip or bzip2 and must be smaller than 100 GB after being decompressed.
 Future<NewCustomImage> imagesCreateCustom(ClientConfig config,
@@ -65,17 +55,12 @@ Future<NewCustomImage> imagesCreateCustom(ClientConfig config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'imagesCreateCustom',
-          fromJsonRaw: (value) =>
-              NewCustomImage.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => NewCustomImage.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve information about an image, send a `GET` request to `/v2/images/$IDENTIFIER`.
 ///
@@ -89,18 +74,12 @@ Future<ExistingImage> imagesGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'imagesGet',
-          fromJsonRaw: (value) =>
-              ExistingImage.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExistingImage.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update an image, send a `PUT` request to `/v2/images/$IMAGE_ID`. Set the `name` attribute to the new value you would like to use. For custom images, the `description` and `distribution` attributes may also be updated.
 ///
@@ -131,18 +110,12 @@ Future<UpdatedImage> imagesUpdate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'imagesUpdate',
-          fromJsonRaw: (value) =>
-              UpdatedImage.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdatedImage.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a snapshot or custom image, send a `DELETE` request to `/v2/images/$IMAGE_ID`.
 ///
@@ -156,15 +129,10 @@ Future<void> imagesDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'imagesDelete',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates an account transfer for a snapshot image to a DigitalOcean account or team. Supply either `recipient_email` or `recipient_uuid` to identify the recipient; the transfer must have exactly one recipient. A `transfer_id` of 0 indicates that the transfer was accepted, while any other value indicates that it is pending recipient acceptance.
 ///
@@ -172,30 +140,23 @@ Future<void> imagesDelete(ClientConfig config,
 ///
 /// [imageId] A unique number that can be used to identify and reference a
 ///   specific image.
-Future<ImagesPostAccountTransferCreated> imagesPostAccountTransferCreate(
-    ClientConfig config,
-    {required int imageId,
-    required ImagesPostAccountTransferCreate body,
-    RequestOptions? requestOptions}) async {
+Future<ImagesPostAccountTransferCreated>
+    imagesPostAccountTransferCreate(ClientConfig config,
+        {required int imageId,
+        required ImagesPostAccountTransferCreate body,
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<ImagesPostAccountTransferCreated>('POST',
           '/v2/images/${Uri.encodeComponent(imageId.toString())}/account_transfer',
           config: config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'imagesPostAccountTransferCreate',
-          fromJsonRaw: (value) => ImagesPostAccountTransferCreated.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ImagesPostAccountTransferCreated.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To accept an account transfer for an image, send a POST request to `/v2/images/$IMAGE_ID/account_transfer/accept`.
 ///
@@ -212,16 +173,10 @@ Future<void> imagesPostAccountTransferAccept(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'imagesPostAccountTransferAccept',
           options: requestOptions,
-          errors: {
-        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To cancel an account transfer for an image, send a POST request to `/v2/images/$IMAGE_ID/account_transfer/cancel`. Only the sender of an image account transfer can cancel the transfer. If the transfer is canceled, the image will remain in the sender's account and will not be transferred to the recipient.
 ///
@@ -240,16 +195,10 @@ Future<void> imagesPostAccountTransferCancel(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'imagesPostAccountTransferCancel',
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To decline an account transfer for an image, send a POST request to `/v2/images/$IMAGE_ID/account_transfer/decline`. Only the recipient of an image account transfer can decline the transfer. If the transfer is declined, the image will remain in the sender's account and will not be transferred to the recipient.
 ///
@@ -268,13 +217,6 @@ Future<void> imagesPostAccountTransferDecline(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'imagesPostAccountTransferDecline',
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

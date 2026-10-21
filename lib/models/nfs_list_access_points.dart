@@ -8,31 +8,22 @@ part of 'nfs.dart';
 class AccessPointListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Array of access point objects.
   final List<AccessPointResponse> accessPoints;
 
   const AccessPointListResponse({required this.accessPoints});
 
-  AccessPointListResponse Function({List<AccessPointResponse> accessPoints})
-      get copyWith => _copyWith;
+  AccessPointListResponse Function({List<AccessPointResponse> accessPoints}) get copyWith => _copyWith;
 
-  AccessPointListResponse _copyWith({Object? accessPoints = sdkOmittedValue}) =>
-      AccessPointListResponse(
-        accessPoints: identical(accessPoints, sdkOmittedValue)
-            ? this.accessPoints
-            : accessPoints as List<AccessPointResponse>,
-      );
+  AccessPointListResponse _copyWith({Object? accessPoints = sdkOmittedValue}) => AccessPointListResponse(
+    accessPoints: identical(accessPoints, sdkOmittedValue) ? this.accessPoints : accessPoints as List<AccessPointResponse>,
+  );
 
-  factory AccessPointListResponse.fromJson(Map<String, dynamic> json) =>
-      AccessPointListResponse(
-        accessPoints: ((json['access_points'] as List?)
-            ?.map(
-                (e) => AccessPointResponse.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory AccessPointListResponse.fromJson(Map<String, dynamic> json) => AccessPointListResponse(
+    accessPoints: ((json['access_points'] as List?)?.map((e) => AccessPointResponse.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'access_points': accessPoints.map((item) => item.toJson()).toList(),
-      };
+    'access_points': accessPoints.map((item) => item.toJson()).toList(),
+  };
 }

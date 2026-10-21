@@ -8,38 +8,25 @@ part of 'floating_ips.dart';
 class FloatingIpResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `floating_ip` wire field.
   final SdkOptional<FloatingIp> floatingIp;
 
   const FloatingIpResponse({this.floatingIp = const SdkOmitted()});
 
-  FloatingIpResponse Function({SdkOptional<FloatingIp> floatingIp})
-      get copyWith => _copyWith;
+  FloatingIpResponse Function({SdkOptional<FloatingIp> floatingIp}) get copyWith => _copyWith;
 
-  FloatingIpResponse _copyWith({Object? floatingIp = sdkOmittedValue}) =>
-      FloatingIpResponse(
-        floatingIp: identical(floatingIp, sdkOmittedValue)
-            ? this.floatingIp
-            : floatingIp as SdkOptional<FloatingIp>,
-      );
+  FloatingIpResponse _copyWith({Object? floatingIp = sdkOmittedValue}) => FloatingIpResponse(
+    floatingIp: identical(floatingIp, sdkOmittedValue) ? this.floatingIp : floatingIp as SdkOptional<FloatingIp>,
+  );
 
-  factory FloatingIpResponse.fromJson(Map<String, dynamic> json) =>
-      FloatingIpResponse(
-        floatingIp: json['floating_ip'] != null
-            ? SdkPresent((json['floating_ip'] != null
-                ? FloatingIp.fromJson(
-                    json['floating_ip'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory FloatingIpResponse.fromJson(Map<String, dynamic> json) => FloatingIpResponse(
+    floatingIp: json['floating_ip'] != null ? SdkPresent((json['floating_ip'] != null ? FloatingIp.fromJson(json['floating_ip'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (floatingIp) {
-          SdkPresent<FloatingIp>(value: final value) => {
-              'floating_ip': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (floatingIp) {
+      SdkPresent<FloatingIp>(value: final value) => {'floating_ip': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

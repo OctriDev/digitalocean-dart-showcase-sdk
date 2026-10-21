@@ -8,7 +8,6 @@ part of 'shared.dart';
 class ValidateRegistry {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
   final String name;
 
@@ -16,17 +15,15 @@ class ValidateRegistry {
 
   ValidateRegistry Function({String name}) get copyWith => _copyWith;
 
-  ValidateRegistry _copyWith({Object? name = sdkOmittedValue}) =>
-      ValidateRegistry(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-      );
+  ValidateRegistry _copyWith({Object? name = sdkOmittedValue}) => ValidateRegistry(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+  );
 
-  factory ValidateRegistry.fromJson(Map<String, dynamic> json) =>
-      ValidateRegistry(
-        name: (json['name'] as String?)!,
-      );
+  factory ValidateRegistry.fromJson(Map<String, dynamic> json) => ValidateRegistry(
+    name: (json['name'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-      };
+    'name': name,
+  };
 }

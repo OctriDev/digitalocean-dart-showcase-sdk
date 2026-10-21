@@ -8,73 +8,41 @@ part of 'apps_app.dart';
 class AppMaintenanceSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Indicates whether maintenance mode should be enabled for the app.
   final SdkOptional<bool> enabled;
-
   /// Indicates whether the app should be archived. Setting this to true implies that enabled is set to true.
   final SdkOptional<bool> archive;
-
   /// A custom offline page to display when maintenance mode is enabled or the app is archived.
   final SdkOptional<String> offlinePageUrl;
 
-  const AppMaintenanceSpec(
-      {this.enabled = const SdkOmitted(),
-      this.archive = const SdkOmitted(),
-      this.offlinePageUrl = const SdkOmitted()});
+  const AppMaintenanceSpec({this.enabled = const SdkOmitted(), this.archive = const SdkOmitted(), this.offlinePageUrl = const SdkOmitted()});
 
-  AppMaintenanceSpec Function(
-      {SdkOptional<bool> enabled,
-      SdkOptional<bool> archive,
-      SdkOptional<String> offlinePageUrl}) get copyWith => _copyWith;
+  AppMaintenanceSpec Function({SdkOptional<bool> enabled, SdkOptional<bool> archive, SdkOptional<String> offlinePageUrl}) get copyWith => _copyWith;
 
-  AppMaintenanceSpec _copyWith(
-          {Object? enabled = sdkOmittedValue,
-          Object? archive = sdkOmittedValue,
-          Object? offlinePageUrl = sdkOmittedValue}) =>
-      AppMaintenanceSpec(
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as SdkOptional<bool>,
-        archive: identical(archive, sdkOmittedValue)
-            ? this.archive
-            : archive as SdkOptional<bool>,
-        offlinePageUrl: identical(offlinePageUrl, sdkOmittedValue)
-            ? this.offlinePageUrl
-            : offlinePageUrl as SdkOptional<String>,
-      );
+  AppMaintenanceSpec _copyWith({Object? enabled = sdkOmittedValue, Object? archive = sdkOmittedValue, Object? offlinePageUrl = sdkOmittedValue}) => AppMaintenanceSpec(
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
+    archive: identical(archive, sdkOmittedValue) ? this.archive : archive as SdkOptional<bool>,
+    offlinePageUrl: identical(offlinePageUrl, sdkOmittedValue) ? this.offlinePageUrl : offlinePageUrl as SdkOptional<String>,
+  );
 
-  factory AppMaintenanceSpec.fromJson(Map<String, dynamic> json) =>
-      AppMaintenanceSpec(
-        enabled: json['enabled'] != null
-            ? SdkPresent((json['enabled'] as bool?)!)
-            : const SdkOmitted(),
-        archive: json['archive'] != null
-            ? SdkPresent((json['archive'] as bool?)!)
-            : const SdkOmitted(),
-        offlinePageUrl: json['offline_page_url'] != null
-            ? SdkPresent((json['offline_page_url'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AppMaintenanceSpec.fromJson(Map<String, dynamic> json) => AppMaintenanceSpec(
+    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
+    archive: json['archive'] != null ? SdkPresent((json['archive'] as bool?)!) : const SdkOmitted(),
+    offlinePageUrl: json['offline_page_url'] != null ? SdkPresent((json['offline_page_url'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (enabled) {
-          SdkPresent<bool>(value: final value) => {
-              'enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (archive) {
-          SdkPresent<bool>(value: final value) => {
-              'archive': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (offlinePageUrl) {
-          SdkPresent<String>(value: final value) => {
-              'offline_page_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (enabled) {
+      SdkPresent<bool>(value: final value) => {'enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (archive) {
+      SdkPresent<bool>(value: final value) => {'archive': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (offlinePageUrl) {
+      SdkPresent<String>(value: final value) => {'offline_page_url': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -11,33 +11,22 @@ class ProjectsListVariant0 {
 
   const ProjectsListVariant0({this.projects = const SdkOmitted()});
 
-  ProjectsListVariant0 Function({SdkOptional<List<Project>> projects})
-      get copyWith => _copyWith;
+  ProjectsListVariant0 Function({SdkOptional<List<Project>> projects}) get copyWith => _copyWith;
 
-  ProjectsListVariant0 _copyWith({Object? projects = sdkOmittedValue}) =>
-      ProjectsListVariant0(
-        projects: identical(projects, sdkOmittedValue)
-            ? this.projects
-            : projects as SdkOptional<List<Project>>,
-      );
+  ProjectsListVariant0 _copyWith({Object? projects = sdkOmittedValue}) => ProjectsListVariant0(
+    projects: identical(projects, sdkOmittedValue) ? this.projects : projects as SdkOptional<List<Project>>,
+  );
 
-  factory ProjectsListVariant0.fromJson(Map<String, dynamic> json) =>
-      ProjectsListVariant0(
-        projects: json['projects'] != null
-            ? SdkPresent(((json['projects'] as List?)
-                ?.map((e) => Project.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ProjectsListVariant0.fromJson(Map<String, dynamic> json) => ProjectsListVariant0(
+    projects: json['projects'] != null ? SdkPresent(((json['projects'] as List?)?.map((e) => Project.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (projects) {
-          SdkPresent<List<Project>>(value: final value) => {
-              'projects': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (projects) {
+      SdkPresent<List<Project>>(value: final value) => {'projects': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ProjectsList` API schema.
@@ -45,68 +34,36 @@ class ProjectsList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Project>> projects;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const ProjectsList(
-      {this.projects = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const ProjectsList({this.projects = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  ProjectsList Function(
-      {SdkOptional<List<Project>> projects,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  ProjectsList Function({SdkOptional<List<Project>> projects, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  ProjectsList _copyWith(
-          {Object? projects = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      ProjectsList(
-        projects: identical(projects, sdkOmittedValue)
-            ? this.projects
-            : projects as SdkOptional<List<Project>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  ProjectsList _copyWith({Object? projects = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ProjectsList(
+    projects: identical(projects, sdkOmittedValue) ? this.projects : projects as SdkOptional<List<Project>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory ProjectsList.fromJson(Map<String, dynamic> json) => ProjectsList(
-        projects: json['projects'] != null
-            ? SdkPresent(((json['projects'] as List?)
-                ?.map((e) => Project.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    projects: json['projects'] != null ? SdkPresent(((json['projects'] as List?)?.map((e) => Project.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (projects) {
-          SdkPresent<List<Project>>(value: final value) => {
-              'projects': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (projects) {
+      SdkPresent<List<Project>>(value: final value) => {'projects': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

@@ -8,70 +8,41 @@ part of 'shared.dart';
 class Kernel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique number used to identify and reference a specific kernel.
   final SdkOptional<int> id;
-
   /// The display name of the kernel. This is shown in the web UI and is generally a descriptive title for the kernel in question.
   final SdkOptional<String> name;
-
   /// A standard kernel version string representing the version, patch, and release information.
   final SdkOptional<String> version;
 
-  const Kernel(
-      {this.id = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.version = const SdkOmitted()});
+  const Kernel({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.version = const SdkOmitted()});
 
-  Kernel Function(
-      {SdkOptional<int> id,
-      SdkOptional<String> name,
-      SdkOptional<String> version}) get copyWith => _copyWith;
+  Kernel Function({SdkOptional<int> id, SdkOptional<String> name, SdkOptional<String> version}) get copyWith => _copyWith;
 
-  Kernel _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? version = sdkOmittedValue}) =>
-      Kernel(
-        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String>,
-      );
+  Kernel _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? version = sdkOmittedValue}) => Kernel(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
+  );
 
   factory Kernel.fromJson(Map<String, dynamic> json) => Kernel(
-        id: json['id'] != null
-            ? SdkPresent(((json['id'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        version: json['version'] != null
-            ? SdkPresent((json['version'] as String?)!)
-            : const SdkOmitted(),
-      );
+    id: json['id'] != null ? SdkPresent(((json['id'] as num?)?.toInt())!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<int>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (version) {
-          SdkPresent<String>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<int>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (version) {
+      SdkPresent<String>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,74 +8,41 @@ part of 'harness_runtime.dart';
 class RotateSecretResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The new webhook secret, shown once.
   final SdkOptional<String> webhookSecret;
-
   /// The instant the outgoing secret stops verifying deliveries. Omitted when grace_period_seconds=0.
   final SdkOptional<String> previousSecretExpiresAt;
-
   /// True when grace_period_seconds=0 retired the old secret on this call. Exactly one of this and previous_secret_expires_at is present.
   final SdkOptional<bool> previousSecretRevoked;
 
-  const RotateSecretResponse(
-      {this.webhookSecret = const SdkOmitted(),
-      this.previousSecretExpiresAt = const SdkOmitted(),
-      this.previousSecretRevoked = const SdkOmitted()});
+  const RotateSecretResponse({this.webhookSecret = const SdkOmitted(), this.previousSecretExpiresAt = const SdkOmitted(), this.previousSecretRevoked = const SdkOmitted()});
 
-  RotateSecretResponse Function(
-      {SdkOptional<String> webhookSecret,
-      SdkOptional<String> previousSecretExpiresAt,
-      SdkOptional<bool> previousSecretRevoked}) get copyWith => _copyWith;
+  RotateSecretResponse Function({SdkOptional<String> webhookSecret, SdkOptional<String> previousSecretExpiresAt, SdkOptional<bool> previousSecretRevoked}) get copyWith => _copyWith;
 
-  RotateSecretResponse _copyWith(
-          {Object? webhookSecret = sdkOmittedValue,
-          Object? previousSecretExpiresAt = sdkOmittedValue,
-          Object? previousSecretRevoked = sdkOmittedValue}) =>
-      RotateSecretResponse(
-        webhookSecret: identical(webhookSecret, sdkOmittedValue)
-            ? this.webhookSecret
-            : webhookSecret as SdkOptional<String>,
-        previousSecretExpiresAt:
-            identical(previousSecretExpiresAt, sdkOmittedValue)
-                ? this.previousSecretExpiresAt
-                : previousSecretExpiresAt as SdkOptional<String>,
-        previousSecretRevoked: identical(previousSecretRevoked, sdkOmittedValue)
-            ? this.previousSecretRevoked
-            : previousSecretRevoked as SdkOptional<bool>,
-      );
+  RotateSecretResponse _copyWith({Object? webhookSecret = sdkOmittedValue, Object? previousSecretExpiresAt = sdkOmittedValue, Object? previousSecretRevoked = sdkOmittedValue}) => RotateSecretResponse(
+    webhookSecret: identical(webhookSecret, sdkOmittedValue) ? this.webhookSecret : webhookSecret as SdkOptional<String>,
+    previousSecretExpiresAt: identical(previousSecretExpiresAt, sdkOmittedValue) ? this.previousSecretExpiresAt : previousSecretExpiresAt as SdkOptional<String>,
+    previousSecretRevoked: identical(previousSecretRevoked, sdkOmittedValue) ? this.previousSecretRevoked : previousSecretRevoked as SdkOptional<bool>,
+  );
 
-  factory RotateSecretResponse.fromJson(Map<String, dynamic> json) =>
-      RotateSecretResponse(
-        webhookSecret: json['webhook_secret'] != null
-            ? SdkPresent((json['webhook_secret'] as String?)!)
-            : const SdkOmitted(),
-        previousSecretExpiresAt: json['previous_secret_expires_at'] != null
-            ? SdkPresent((json['previous_secret_expires_at'] as String?)!)
-            : const SdkOmitted(),
-        previousSecretRevoked: json['previous_secret_revoked'] != null
-            ? SdkPresent((json['previous_secret_revoked'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory RotateSecretResponse.fromJson(Map<String, dynamic> json) => RotateSecretResponse(
+    webhookSecret: json['webhook_secret'] != null ? SdkPresent((json['webhook_secret'] as String?)!) : const SdkOmitted(),
+    previousSecretExpiresAt: json['previous_secret_expires_at'] != null ? SdkPresent((json['previous_secret_expires_at'] as String?)!) : const SdkOmitted(),
+    previousSecretRevoked: json['previous_secret_revoked'] != null ? SdkPresent((json['previous_secret_revoked'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (webhookSecret) {
-          SdkPresent<String>(value: final value) => {
-              'webhook_secret': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (previousSecretExpiresAt) {
-          SdkPresent<String>(value: final value) => {
-              'previous_secret_expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (previousSecretRevoked) {
-          SdkPresent<bool>(value: final value) => {
-              'previous_secret_revoked': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (webhookSecret) {
+      SdkPresent<String>(value: final value) => {'webhook_secret': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (previousSecretExpiresAt) {
+      SdkPresent<String>(value: final value) => {'previous_secret_expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (previousSecretRevoked) {
+      SdkPresent<bool>(value: final value) => {'previous_secret_revoked': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,61 +8,35 @@ part of 'misc.dart';
 class FirewallRuleBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
   final FirewallRuleBaseProtocol protocol;
-
   /// The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
   final String ports;
-
   /// The action to be taken when traffic matches the rule. This may be one of `allow` or `deny`. For backward compatibility, this field is optional. When not set, it defaults to `allow`.
   final SdkOptional<FirewallRuleBaseAction> action;
 
-  const FirewallRuleBase(
-      {required this.protocol,
-      required this.ports,
-      this.action = const SdkOmitted()});
+  const FirewallRuleBase({required this.protocol, required this.ports, this.action = const SdkOmitted()});
 
-  FirewallRuleBase Function(
-      {FirewallRuleBaseProtocol protocol,
-      String ports,
-      SdkOptional<FirewallRuleBaseAction> action}) get copyWith => _copyWith;
+  FirewallRuleBase Function({FirewallRuleBaseProtocol protocol, String ports, SdkOptional<FirewallRuleBaseAction> action}) get copyWith => _copyWith;
 
-  FirewallRuleBase _copyWith(
-          {Object? protocol = sdkOmittedValue,
-          Object? ports = sdkOmittedValue,
-          Object? action = sdkOmittedValue}) =>
-      FirewallRuleBase(
-        protocol: identical(protocol, sdkOmittedValue)
-            ? this.protocol
-            : protocol as FirewallRuleBaseProtocol,
-        ports: identical(ports, sdkOmittedValue) ? this.ports : ports as String,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as SdkOptional<FirewallRuleBaseAction>,
-      );
+  FirewallRuleBase _copyWith({Object? protocol = sdkOmittedValue, Object? ports = sdkOmittedValue, Object? action = sdkOmittedValue}) => FirewallRuleBase(
+    protocol: identical(protocol, sdkOmittedValue) ? this.protocol : protocol as FirewallRuleBaseProtocol,
+    ports: identical(ports, sdkOmittedValue) ? this.ports : ports as String,
+    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<FirewallRuleBaseAction>,
+  );
 
-  factory FirewallRuleBase.fromJson(Map<String, dynamic> json) =>
-      FirewallRuleBase(
-        protocol: (json['protocol'] != null
-            ? FirewallRuleBaseProtocol.fromJson(json['protocol'] as String)
-            : null)!,
-        ports: (json['ports'] as String?)!,
-        action: json['action'] != null
-            ? SdkPresent((json['action'] != null
-                ? FirewallRuleBaseAction.fromJson(json['action'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory FirewallRuleBase.fromJson(Map<String, dynamic> json) => FirewallRuleBase(
+    protocol: (json['protocol'] != null ? FirewallRuleBaseProtocol.fromJson(json['protocol'] as String) : null)!,
+    ports: (json['ports'] as String?)!,
+    action: json['action'] != null ? SdkPresent((json['action'] != null ? FirewallRuleBaseAction.fromJson(json['action'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'protocol': protocol.toJson(),
-        'ports': ports,
-        ...switch (action) {
-          SdkPresent<FirewallRuleBaseAction>(value: final value) => {
-              'action': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'protocol': protocol.toJson(),
+    'ports': ports,
+    ...switch (action) {
+      SdkPresent<FirewallRuleBaseAction>(value: final value) => {'action': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

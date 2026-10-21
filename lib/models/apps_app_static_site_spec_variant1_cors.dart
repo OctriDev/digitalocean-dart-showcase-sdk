@@ -8,269 +8,132 @@ part of 'apps_app.dart';
 class AppStaticSiteSpecVariant1Cors {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The set of allowed CORS origins.
   final SdkOptional<List<AppsStringMatch>> allowOrigins;
-
   /// The set of allowed HTTP methods. This configures the `Access-Control-Allow-Methods` header.
   final SdkOptional<List<String>> allowMethods;
-
   /// The set of allowed HTTP request headers. This configures the `Access-Control-Allow-Headers` header.
   final SdkOptional<List<String>> allowHeaders;
-
   /// The set of HTTP response headers that browsers are allowed to access. This configures the `Access-Control-Expose-Headers` header.
   final SdkOptional<List<String>> exposeHeaders;
-
   /// An optional duration specifying how long browsers can cache the results of a preflight request. This configures the `Access-Control-Max-Age` header.
   final SdkOptional<String> maxAge;
-
   /// Whether browsers should expose the response to the client-side JavaScript code when the request’s credentials mode is include. This configures the `Access-Control-Allow-Credentials` header.
   final SdkOptional<bool> allowCredentials;
 
-  const AppStaticSiteSpecVariant1Cors(
-      {this.allowOrigins = const SdkOmitted(),
-      this.allowMethods = const SdkOmitted(),
-      this.allowHeaders = const SdkOmitted(),
-      this.exposeHeaders = const SdkOmitted(),
-      this.maxAge = const SdkOmitted(),
-      this.allowCredentials = const SdkOmitted()});
+  const AppStaticSiteSpecVariant1Cors({this.allowOrigins = const SdkOmitted(), this.allowMethods = const SdkOmitted(), this.allowHeaders = const SdkOmitted(), this.exposeHeaders = const SdkOmitted(), this.maxAge = const SdkOmitted(), this.allowCredentials = const SdkOmitted()});
 
-  AppStaticSiteSpecVariant1Cors Function(
-      {SdkOptional<List<AppsStringMatch>> allowOrigins,
-      SdkOptional<List<String>> allowMethods,
-      SdkOptional<List<String>> allowHeaders,
-      SdkOptional<List<String>> exposeHeaders,
-      SdkOptional<String> maxAge,
-      SdkOptional<bool> allowCredentials}) get copyWith => _copyWith;
+  AppStaticSiteSpecVariant1Cors Function({SdkOptional<List<AppsStringMatch>> allowOrigins, SdkOptional<List<String>> allowMethods, SdkOptional<List<String>> allowHeaders, SdkOptional<List<String>> exposeHeaders, SdkOptional<String> maxAge, SdkOptional<bool> allowCredentials}) get copyWith => _copyWith;
 
-  AppStaticSiteSpecVariant1Cors _copyWith(
-          {Object? allowOrigins = sdkOmittedValue,
-          Object? allowMethods = sdkOmittedValue,
-          Object? allowHeaders = sdkOmittedValue,
-          Object? exposeHeaders = sdkOmittedValue,
-          Object? maxAge = sdkOmittedValue,
-          Object? allowCredentials = sdkOmittedValue}) =>
-      AppStaticSiteSpecVariant1Cors(
-        allowOrigins: identical(allowOrigins, sdkOmittedValue)
-            ? this.allowOrigins
-            : allowOrigins as SdkOptional<List<AppsStringMatch>>,
-        allowMethods: identical(allowMethods, sdkOmittedValue)
-            ? this.allowMethods
-            : allowMethods as SdkOptional<List<String>>,
-        allowHeaders: identical(allowHeaders, sdkOmittedValue)
-            ? this.allowHeaders
-            : allowHeaders as SdkOptional<List<String>>,
-        exposeHeaders: identical(exposeHeaders, sdkOmittedValue)
-            ? this.exposeHeaders
-            : exposeHeaders as SdkOptional<List<String>>,
-        maxAge: identical(maxAge, sdkOmittedValue)
-            ? this.maxAge
-            : maxAge as SdkOptional<String>,
-        allowCredentials: identical(allowCredentials, sdkOmittedValue)
-            ? this.allowCredentials
-            : allowCredentials as SdkOptional<bool>,
-      );
+  AppStaticSiteSpecVariant1Cors _copyWith({Object? allowOrigins = sdkOmittedValue, Object? allowMethods = sdkOmittedValue, Object? allowHeaders = sdkOmittedValue, Object? exposeHeaders = sdkOmittedValue, Object? maxAge = sdkOmittedValue, Object? allowCredentials = sdkOmittedValue}) => AppStaticSiteSpecVariant1Cors(
+    allowOrigins: identical(allowOrigins, sdkOmittedValue) ? this.allowOrigins : allowOrigins as SdkOptional<List<AppsStringMatch>>,
+    allowMethods: identical(allowMethods, sdkOmittedValue) ? this.allowMethods : allowMethods as SdkOptional<List<String>>,
+    allowHeaders: identical(allowHeaders, sdkOmittedValue) ? this.allowHeaders : allowHeaders as SdkOptional<List<String>>,
+    exposeHeaders: identical(exposeHeaders, sdkOmittedValue) ? this.exposeHeaders : exposeHeaders as SdkOptional<List<String>>,
+    maxAge: identical(maxAge, sdkOmittedValue) ? this.maxAge : maxAge as SdkOptional<String>,
+    allowCredentials: identical(allowCredentials, sdkOmittedValue) ? this.allowCredentials : allowCredentials as SdkOptional<bool>,
+  );
 
-  factory AppStaticSiteSpecVariant1Cors.fromJson(Map<String, dynamic> json) =>
-      AppStaticSiteSpecVariant1Cors(
-        allowOrigins: json['allow_origins'] != null
-            ? SdkPresent(((json['allow_origins'] as List?)
-                ?.map(
-                    (e) => AppsStringMatch.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        allowMethods: json['allow_methods'] != null
-            ? SdkPresent(((json['allow_methods'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        allowHeaders: json['allow_headers'] != null
-            ? SdkPresent(((json['allow_headers'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        exposeHeaders: json['expose_headers'] != null
-            ? SdkPresent(((json['expose_headers'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        maxAge: json['max_age'] != null
-            ? SdkPresent((json['max_age'] as String?)!)
-            : const SdkOmitted(),
-        allowCredentials: json['allow_credentials'] != null
-            ? SdkPresent((json['allow_credentials'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory AppStaticSiteSpecVariant1Cors.fromJson(Map<String, dynamic> json) => AppStaticSiteSpecVariant1Cors(
+    allowOrigins: json['allow_origins'] != null ? SdkPresent(((json['allow_origins'] as List?)?.map((e) => AppsStringMatch.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    allowMethods: json['allow_methods'] != null ? SdkPresent(((json['allow_methods'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    allowHeaders: json['allow_headers'] != null ? SdkPresent(((json['allow_headers'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    exposeHeaders: json['expose_headers'] != null ? SdkPresent(((json['expose_headers'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    maxAge: json['max_age'] != null ? SdkPresent((json['max_age'] as String?)!) : const SdkOmitted(),
+    allowCredentials: json['allow_credentials'] != null ? SdkPresent((json['allow_credentials'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (allowOrigins) {
-          SdkPresent<List<AppsStringMatch>>(value: final value) => {
-              'allow_origins': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowMethods) {
-          SdkPresent<List<String>>(value: final value) => {
-              'allow_methods': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowHeaders) {
-          SdkPresent<List<String>>(value: final value) => {
-              'allow_headers': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (exposeHeaders) {
-          SdkPresent<List<String>>(value: final value) => {
-              'expose_headers': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxAge) {
-          SdkPresent<String>(value: final value) => {
-              'max_age': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowCredentials) {
-          SdkPresent<bool>(value: final value) => {
-              'allow_credentials': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (allowOrigins) {
+      SdkPresent<List<AppsStringMatch>>(value: final value) => {'allow_origins': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowMethods) {
+      SdkPresent<List<String>>(value: final value) => {'allow_methods': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowHeaders) {
+      SdkPresent<List<String>>(value: final value) => {'allow_headers': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (exposeHeaders) {
+      SdkPresent<List<String>>(value: final value) => {'expose_headers': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxAge) {
+      SdkPresent<String>(value: final value) => {'max_age': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowCredentials) {
+      SdkPresent<bool>(value: final value) => {'allow_credentials': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `static_sites[]` wire field.
 class AppStaticSiteSpecVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the index document to use when serving this static site. Default: index.html
   final SdkOptional<String> indexDocument;
-
   /// The name of the error document to use when serving this static site. Default: 404.html. If no such file exists within the built assets, App Platform will supply one.
   final SdkOptional<String> errorDocument;
-
   /// The name of the document to use as the fallback for any requests to documents that are not found when serving this static site. Only 1 of `catchall_document` or `error_document` can be set.
   final SdkOptional<String> catchallDocument;
-
   /// An optional path to where the built assets will be located, relative to the build context. If not set, App Platform will automatically scan for these directory names: `_static`, `dist`, `public`, `build`.
   final SdkOptional<String> outputDir;
-
   /// Optional API value serialized in the `cors` wire field.
   final SdkOptional<AppsCorsPolicy> cors;
-
   /// (Deprecated - Use Ingress Rules instead). A list of HTTP routes that should be routed to this component.
   final SdkOptional<List<AppRouteSpec>> routes;
 
-  const AppStaticSiteSpecVariant1(
-      {this.indexDocument = const SdkOmitted(),
-      this.errorDocument = const SdkOmitted(),
-      this.catchallDocument = const SdkOmitted(),
-      this.outputDir = const SdkOmitted(),
-      this.cors = const SdkOmitted(),
-      this.routes = const SdkOmitted()});
+  const AppStaticSiteSpecVariant1({this.indexDocument = const SdkOmitted(), this.errorDocument = const SdkOmitted(), this.catchallDocument = const SdkOmitted(), this.outputDir = const SdkOmitted(), this.cors = const SdkOmitted(), this.routes = const SdkOmitted()});
 
-  AppStaticSiteSpecVariant1 Function(
-      {SdkOptional<String> indexDocument,
-      SdkOptional<String> errorDocument,
-      SdkOptional<String> catchallDocument,
-      SdkOptional<String> outputDir,
-      SdkOptional<AppsCorsPolicy> cors,
-      SdkOptional<List<AppRouteSpec>> routes}) get copyWith => _copyWith;
+  AppStaticSiteSpecVariant1 Function({SdkOptional<String> indexDocument, SdkOptional<String> errorDocument, SdkOptional<String> catchallDocument, SdkOptional<String> outputDir, SdkOptional<AppsCorsPolicy> cors, SdkOptional<List<AppRouteSpec>> routes}) get copyWith => _copyWith;
 
-  AppStaticSiteSpecVariant1 _copyWith(
-          {Object? indexDocument = sdkOmittedValue,
-          Object? errorDocument = sdkOmittedValue,
-          Object? catchallDocument = sdkOmittedValue,
-          Object? outputDir = sdkOmittedValue,
-          Object? cors = sdkOmittedValue,
-          Object? routes = sdkOmittedValue}) =>
-      AppStaticSiteSpecVariant1(
-        indexDocument: identical(indexDocument, sdkOmittedValue)
-            ? this.indexDocument
-            : indexDocument as SdkOptional<String>,
-        errorDocument: identical(errorDocument, sdkOmittedValue)
-            ? this.errorDocument
-            : errorDocument as SdkOptional<String>,
-        catchallDocument: identical(catchallDocument, sdkOmittedValue)
-            ? this.catchallDocument
-            : catchallDocument as SdkOptional<String>,
-        outputDir: identical(outputDir, sdkOmittedValue)
-            ? this.outputDir
-            : outputDir as SdkOptional<String>,
-        cors: identical(cors, sdkOmittedValue)
-            ? this.cors
-            : cors as SdkOptional<AppsCorsPolicy>,
-        routes: identical(routes, sdkOmittedValue)
-            ? this.routes
-            : routes as SdkOptional<List<AppRouteSpec>>,
-      );
+  AppStaticSiteSpecVariant1 _copyWith({Object? indexDocument = sdkOmittedValue, Object? errorDocument = sdkOmittedValue, Object? catchallDocument = sdkOmittedValue, Object? outputDir = sdkOmittedValue, Object? cors = sdkOmittedValue, Object? routes = sdkOmittedValue}) => AppStaticSiteSpecVariant1(
+    indexDocument: identical(indexDocument, sdkOmittedValue) ? this.indexDocument : indexDocument as SdkOptional<String>,
+    errorDocument: identical(errorDocument, sdkOmittedValue) ? this.errorDocument : errorDocument as SdkOptional<String>,
+    catchallDocument: identical(catchallDocument, sdkOmittedValue) ? this.catchallDocument : catchallDocument as SdkOptional<String>,
+    outputDir: identical(outputDir, sdkOmittedValue) ? this.outputDir : outputDir as SdkOptional<String>,
+    cors: identical(cors, sdkOmittedValue) ? this.cors : cors as SdkOptional<AppsCorsPolicy>,
+    routes: identical(routes, sdkOmittedValue) ? this.routes : routes as SdkOptional<List<AppRouteSpec>>,
+  );
 
-  factory AppStaticSiteSpecVariant1.fromJson(Map<String, dynamic> json) =>
-      AppStaticSiteSpecVariant1(
-        indexDocument: json['index_document'] != null
-            ? SdkPresent((json['index_document'] as String?)!)
-            : const SdkOmitted(),
-        errorDocument: json['error_document'] != null
-            ? SdkPresent((json['error_document'] as String?)!)
-            : const SdkOmitted(),
-        catchallDocument: json['catchall_document'] != null
-            ? SdkPresent((json['catchall_document'] as String?)!)
-            : const SdkOmitted(),
-        outputDir: json['output_dir'] != null
-            ? SdkPresent((json['output_dir'] as String?)!)
-            : const SdkOmitted(),
-        cors: json['cors'] != null
-            ? SdkPresent((json['cors'] != null
-                ? AppsCorsPolicy.fromJson(json['cors'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        routes: json['routes'] != null
-            ? SdkPresent(((json['routes'] as List?)
-                ?.map((e) => AppRouteSpec.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AppStaticSiteSpecVariant1.fromJson(Map<String, dynamic> json) => AppStaticSiteSpecVariant1(
+    indexDocument: json['index_document'] != null ? SdkPresent((json['index_document'] as String?)!) : const SdkOmitted(),
+    errorDocument: json['error_document'] != null ? SdkPresent((json['error_document'] as String?)!) : const SdkOmitted(),
+    catchallDocument: json['catchall_document'] != null ? SdkPresent((json['catchall_document'] as String?)!) : const SdkOmitted(),
+    outputDir: json['output_dir'] != null ? SdkPresent((json['output_dir'] as String?)!) : const SdkOmitted(),
+    cors: json['cors'] != null ? SdkPresent((json['cors'] != null ? AppsCorsPolicy.fromJson(json['cors'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    routes: json['routes'] != null ? SdkPresent(((json['routes'] as List?)?.map((e) => AppRouteSpec.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (indexDocument) {
-          SdkPresent<String>(value: final value) => {
-              'index_document': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (errorDocument) {
-          SdkPresent<String>(value: final value) => {
-              'error_document': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (catchallDocument) {
-          SdkPresent<String>(value: final value) => {
-              'catchall_document': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outputDir) {
-          SdkPresent<String>(value: final value) => {
-              'output_dir': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cors) {
-          SdkPresent<AppsCorsPolicy>(value: final value) => {
-              'cors': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (routes) {
-          SdkPresent<List<AppRouteSpec>>(value: final value) => {
-              'routes': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (indexDocument) {
+      SdkPresent<String>(value: final value) => {'index_document': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (errorDocument) {
+      SdkPresent<String>(value: final value) => {'error_document': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (catchallDocument) {
+      SdkPresent<String>(value: final value) => {'catchall_document': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outputDir) {
+      SdkPresent<String>(value: final value) => {'output_dir': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cors) {
+      SdkPresent<AppsCorsPolicy>(value: final value) => {'cors': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (routes) {
+      SdkPresent<List<AppRouteSpec>>(value: final value) => {'routes': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

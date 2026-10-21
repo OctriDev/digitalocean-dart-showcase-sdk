@@ -8,311 +8,137 @@ part of 'apps_apps_deployment.dart';
 class AppsDeployment {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `cause` wire field.
   final SdkOptional<String> cause;
-
   /// Optional `string` value serialized in the `cloned_from` wire field.
   final SdkOptional<String> clonedFrom;
-
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
-
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String> id;
-
   /// Optional array value serialized in the `jobs` wire field.
   final SdkOptional<List<AppsDeploymentJob>> jobs;
-
   /// Optional array value serialized in the `functions` wire field.
   final SdkOptional<List<AppsDeploymentFunctions>> functions;
-
   /// Optional enumerated value serialized in the `phase` wire field.
   final SdkOptional<AppsDeploymentPhase> phase;
-
   /// Optional `date-time`-formatted value serialized in the `phase_last_updated_at` wire field.
   final SdkOptional<String> phaseLastUpdatedAt;
-
   /// Optional object value serialized in the `progress` wire field.
   final SdkOptional<AppsDeploymentProgress> progress;
-
   /// Optional array value serialized in the `services` wire field.
   final SdkOptional<List<AppsDeploymentService>> services;
-
   /// The desired configuration of an application.
   final SdkOptional<AppSpec> spec;
-
   /// Optional array value serialized in the `static_sites` wire field.
   final SdkOptional<List<AppsDeploymentStaticSite>> staticSites;
-
   /// Optional `string` value serialized in the `tier_slug` wire field.
   final SdkOptional<String> tierSlug;
-
   /// Optional `date-time`-formatted value serialized in the `updated_at` wire field.
   final SdkOptional<String> updatedAt;
-
   /// Optional array value serialized in the `workers` wire field.
   final SdkOptional<List<AppsDeploymentWorker>> workers;
 
-  const AppsDeployment(
-      {this.cause = const SdkOmitted(),
-      this.clonedFrom = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.jobs = const SdkOmitted(),
-      this.functions = const SdkOmitted(),
-      this.phase = const SdkOmitted(),
-      this.phaseLastUpdatedAt = const SdkOmitted(),
-      this.progress = const SdkOmitted(),
-      this.services = const SdkOmitted(),
-      this.spec = const SdkOmitted(),
-      this.staticSites = const SdkOmitted(),
-      this.tierSlug = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.workers = const SdkOmitted()});
+  const AppsDeployment({this.cause = const SdkOmitted(), this.clonedFrom = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.id = const SdkOmitted(), this.jobs = const SdkOmitted(), this.functions = const SdkOmitted(), this.phase = const SdkOmitted(), this.phaseLastUpdatedAt = const SdkOmitted(), this.progress = const SdkOmitted(), this.services = const SdkOmitted(), this.spec = const SdkOmitted(), this.staticSites = const SdkOmitted(), this.tierSlug = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.workers = const SdkOmitted()});
 
-  AppsDeployment Function(
-          {SdkOptional<String> cause,
-          SdkOptional<String> clonedFrom,
-          SdkOptional<String> createdAt,
-          SdkOptional<String> id,
-          SdkOptional<List<AppsDeploymentJob>> jobs,
-          SdkOptional<List<AppsDeploymentFunctions>> functions,
-          SdkOptional<AppsDeploymentPhase> phase,
-          SdkOptional<String> phaseLastUpdatedAt,
-          SdkOptional<AppsDeploymentProgress> progress,
-          SdkOptional<List<AppsDeploymentService>> services,
-          SdkOptional<AppSpec> spec,
-          SdkOptional<List<AppsDeploymentStaticSite>> staticSites,
-          SdkOptional<String> tierSlug,
-          SdkOptional<String> updatedAt,
-          SdkOptional<List<AppsDeploymentWorker>> workers})
-      get copyWith => _copyWith;
+  AppsDeployment Function({SdkOptional<String> cause, SdkOptional<String> clonedFrom, SdkOptional<String> createdAt, SdkOptional<String> id, SdkOptional<List<AppsDeploymentJob>> jobs, SdkOptional<List<AppsDeploymentFunctions>> functions, SdkOptional<AppsDeploymentPhase> phase, SdkOptional<String> phaseLastUpdatedAt, SdkOptional<AppsDeploymentProgress> progress, SdkOptional<List<AppsDeploymentService>> services, SdkOptional<AppSpec> spec, SdkOptional<List<AppsDeploymentStaticSite>> staticSites, SdkOptional<String> tierSlug, SdkOptional<String> updatedAt, SdkOptional<List<AppsDeploymentWorker>> workers}) get copyWith => _copyWith;
 
-  AppsDeployment _copyWith(
-          {Object? cause = sdkOmittedValue,
-          Object? clonedFrom = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? jobs = sdkOmittedValue,
-          Object? functions = sdkOmittedValue,
-          Object? phase = sdkOmittedValue,
-          Object? phaseLastUpdatedAt = sdkOmittedValue,
-          Object? progress = sdkOmittedValue,
-          Object? services = sdkOmittedValue,
-          Object? spec = sdkOmittedValue,
-          Object? staticSites = sdkOmittedValue,
-          Object? tierSlug = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? workers = sdkOmittedValue}) =>
-      AppsDeployment(
-        cause: identical(cause, sdkOmittedValue)
-            ? this.cause
-            : cause as SdkOptional<String>,
-        clonedFrom: identical(clonedFrom, sdkOmittedValue)
-            ? this.clonedFrom
-            : clonedFrom as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        jobs: identical(jobs, sdkOmittedValue)
-            ? this.jobs
-            : jobs as SdkOptional<List<AppsDeploymentJob>>,
-        functions: identical(functions, sdkOmittedValue)
-            ? this.functions
-            : functions as SdkOptional<List<AppsDeploymentFunctions>>,
-        phase: identical(phase, sdkOmittedValue)
-            ? this.phase
-            : phase as SdkOptional<AppsDeploymentPhase>,
-        phaseLastUpdatedAt: identical(phaseLastUpdatedAt, sdkOmittedValue)
-            ? this.phaseLastUpdatedAt
-            : phaseLastUpdatedAt as SdkOptional<String>,
-        progress: identical(progress, sdkOmittedValue)
-            ? this.progress
-            : progress as SdkOptional<AppsDeploymentProgress>,
-        services: identical(services, sdkOmittedValue)
-            ? this.services
-            : services as SdkOptional<List<AppsDeploymentService>>,
-        spec: identical(spec, sdkOmittedValue)
-            ? this.spec
-            : spec as SdkOptional<AppSpec>,
-        staticSites: identical(staticSites, sdkOmittedValue)
-            ? this.staticSites
-            : staticSites as SdkOptional<List<AppsDeploymentStaticSite>>,
-        tierSlug: identical(tierSlug, sdkOmittedValue)
-            ? this.tierSlug
-            : tierSlug as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-        workers: identical(workers, sdkOmittedValue)
-            ? this.workers
-            : workers as SdkOptional<List<AppsDeploymentWorker>>,
-      );
+  AppsDeployment _copyWith({Object? cause = sdkOmittedValue, Object? clonedFrom = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? id = sdkOmittedValue, Object? jobs = sdkOmittedValue, Object? functions = sdkOmittedValue, Object? phase = sdkOmittedValue, Object? phaseLastUpdatedAt = sdkOmittedValue, Object? progress = sdkOmittedValue, Object? services = sdkOmittedValue, Object? spec = sdkOmittedValue, Object? staticSites = sdkOmittedValue, Object? tierSlug = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? workers = sdkOmittedValue}) => AppsDeployment(
+    cause: identical(cause, sdkOmittedValue) ? this.cause : cause as SdkOptional<String>,
+    clonedFrom: identical(clonedFrom, sdkOmittedValue) ? this.clonedFrom : clonedFrom as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    jobs: identical(jobs, sdkOmittedValue) ? this.jobs : jobs as SdkOptional<List<AppsDeploymentJob>>,
+    functions: identical(functions, sdkOmittedValue) ? this.functions : functions as SdkOptional<List<AppsDeploymentFunctions>>,
+    phase: identical(phase, sdkOmittedValue) ? this.phase : phase as SdkOptional<AppsDeploymentPhase>,
+    phaseLastUpdatedAt: identical(phaseLastUpdatedAt, sdkOmittedValue) ? this.phaseLastUpdatedAt : phaseLastUpdatedAt as SdkOptional<String>,
+    progress: identical(progress, sdkOmittedValue) ? this.progress : progress as SdkOptional<AppsDeploymentProgress>,
+    services: identical(services, sdkOmittedValue) ? this.services : services as SdkOptional<List<AppsDeploymentService>>,
+    spec: identical(spec, sdkOmittedValue) ? this.spec : spec as SdkOptional<AppSpec>,
+    staticSites: identical(staticSites, sdkOmittedValue) ? this.staticSites : staticSites as SdkOptional<List<AppsDeploymentStaticSite>>,
+    tierSlug: identical(tierSlug, sdkOmittedValue) ? this.tierSlug : tierSlug as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+    workers: identical(workers, sdkOmittedValue) ? this.workers : workers as SdkOptional<List<AppsDeploymentWorker>>,
+  );
 
   factory AppsDeployment.fromJson(Map<String, dynamic> json) => AppsDeployment(
-        cause: json['cause'] != null
-            ? SdkPresent((json['cause'] as String?)!)
-            : const SdkOmitted(),
-        clonedFrom: json['cloned_from'] != null
-            ? SdkPresent((json['cloned_from'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        jobs: json['jobs'] != null
-            ? SdkPresent(((json['jobs'] as List?)
-                ?.map((e) =>
-                    AppsDeploymentJob.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        functions: json['functions'] != null
-            ? SdkPresent(((json['functions'] as List?)
-                ?.map((e) =>
-                    AppsDeploymentFunctions.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        phase: json['phase'] != null
-            ? SdkPresent((json['phase'] != null
-                ? AppsDeploymentPhase.fromJson(json['phase'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        phaseLastUpdatedAt: json['phase_last_updated_at'] != null
-            ? SdkPresent((json['phase_last_updated_at'] as String?)!)
-            : const SdkOmitted(),
-        progress: json['progress'] != null
-            ? SdkPresent((json['progress'] != null
-                ? AppsDeploymentProgress.fromJson(
-                    json['progress'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        services: json['services'] != null
-            ? SdkPresent(((json['services'] as List?)
-                ?.map((e) =>
-                    AppsDeploymentService.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        spec: json['spec'] != null
-            ? SdkPresent((json['spec'] != null
-                ? AppSpec.fromJson(json['spec'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        staticSites: json['static_sites'] != null
-            ? SdkPresent(((json['static_sites'] as List?)
-                ?.map((e) => AppsDeploymentStaticSite.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        tierSlug: json['tier_slug'] != null
-            ? SdkPresent((json['tier_slug'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-        workers: json['workers'] != null
-            ? SdkPresent(((json['workers'] as List?)
-                ?.map((e) =>
-                    AppsDeploymentWorker.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    cause: json['cause'] != null ? SdkPresent((json['cause'] as String?)!) : const SdkOmitted(),
+    clonedFrom: json['cloned_from'] != null ? SdkPresent((json['cloned_from'] as String?)!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    jobs: json['jobs'] != null ? SdkPresent(((json['jobs'] as List?)?.map((e) => AppsDeploymentJob.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    functions: json['functions'] != null ? SdkPresent(((json['functions'] as List?)?.map((e) => AppsDeploymentFunctions.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    phase: json['phase'] != null ? SdkPresent((json['phase'] != null ? AppsDeploymentPhase.fromJson(json['phase'] as String) : null)!) : const SdkOmitted(),
+    phaseLastUpdatedAt: json['phase_last_updated_at'] != null ? SdkPresent((json['phase_last_updated_at'] as String?)!) : const SdkOmitted(),
+    progress: json['progress'] != null ? SdkPresent((json['progress'] != null ? AppsDeploymentProgress.fromJson(json['progress'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    services: json['services'] != null ? SdkPresent(((json['services'] as List?)?.map((e) => AppsDeploymentService.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    spec: json['spec'] != null ? SdkPresent((json['spec'] != null ? AppSpec.fromJson(json['spec'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    staticSites: json['static_sites'] != null ? SdkPresent(((json['static_sites'] as List?)?.map((e) => AppsDeploymentStaticSite.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    tierSlug: json['tier_slug'] != null ? SdkPresent((json['tier_slug'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+    workers: json['workers'] != null ? SdkPresent(((json['workers'] as List?)?.map((e) => AppsDeploymentWorker.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (cause) {
-          SdkPresent<String>(value: final value) => {
-              'cause': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clonedFrom) {
-          SdkPresent<String>(value: final value) => {
-              'cloned_from': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (jobs) {
-          SdkPresent<List<AppsDeploymentJob>>(value: final value) => {
-              'jobs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (functions) {
-          SdkPresent<List<AppsDeploymentFunctions>>(value: final value) => {
-              'functions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (phase) {
-          SdkPresent<AppsDeploymentPhase>(value: final value) => {
-              'phase': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (phaseLastUpdatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'phase_last_updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (progress) {
-          SdkPresent<AppsDeploymentProgress>(value: final value) => {
-              'progress': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (services) {
-          SdkPresent<List<AppsDeploymentService>>(value: final value) => {
-              'services': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (spec) {
-          SdkPresent<AppSpec>(value: final value) => {
-              'spec': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (staticSites) {
-          SdkPresent<List<AppsDeploymentStaticSite>>(value: final value) => {
-              'static_sites': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tierSlug) {
-          SdkPresent<String>(value: final value) => {
-              'tier_slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workers) {
-          SdkPresent<List<AppsDeploymentWorker>>(value: final value) => {
-              'workers': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (cause) {
+      SdkPresent<String>(value: final value) => {'cause': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clonedFrom) {
+      SdkPresent<String>(value: final value) => {'cloned_from': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (jobs) {
+      SdkPresent<List<AppsDeploymentJob>>(value: final value) => {'jobs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (functions) {
+      SdkPresent<List<AppsDeploymentFunctions>>(value: final value) => {'functions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (phase) {
+      SdkPresent<AppsDeploymentPhase>(value: final value) => {'phase': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (phaseLastUpdatedAt) {
+      SdkPresent<String>(value: final value) => {'phase_last_updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (progress) {
+      SdkPresent<AppsDeploymentProgress>(value: final value) => {'progress': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (services) {
+      SdkPresent<List<AppsDeploymentService>>(value: final value) => {'services': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (spec) {
+      SdkPresent<AppSpec>(value: final value) => {'spec': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (staticSites) {
+      SdkPresent<List<AppsDeploymentStaticSite>>(value: final value) => {'static_sites': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tierSlug) {
+      SdkPresent<String>(value: final value) => {'tier_slug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workers) {
+      SdkPresent<List<AppsDeploymentWorker>>(value: final value) => {'workers': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

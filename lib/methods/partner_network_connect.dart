@@ -26,25 +26,17 @@ Future<AllPartnerAttachments> partnerAttachmentsList(ClientConfig config,
           'GET', '/v2/partner_network_connect/attachments',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'partnerAttachmentsList',
-          fromJsonRaw: (value) =>
-              AllPartnerAttachments.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllPartnerAttachments.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a partner attachment that connects VPCs through a partner network provider. Supply `name`, `connection_bandwidth_in_mbps`, `region`, `naas_provider`, and `vpc_ids`; the name must use alphanumeric characters, dashes, or periods, and the bandwidth and region must be supported values. A 202 response returns attachment details, including attached VPC network IDs and BGP configuration information.
 ///
@@ -62,15 +54,13 @@ Future<AllPartnerAttachments> partnerAttachmentsList(ClientConfig config,
 /// [redundancyZone] Optional redundancy zone for the partner attachment.
 Future<SinglePartnerAttachment> partnerAttachmentsCreate(ClientConfig config,
     {required String name,
-    required PartnerAttachmentWritableConnectionBandwidthInMbps
-        connectionBandwidthInMbps,
+    required PartnerAttachmentWritableConnectionBandwidthInMbps connectionBandwidthInMbps,
     required PartnerAttachmentWritableRegion region,
     required String naasProvider,
     required List<String> vpcIds,
     SdkOptional<String> parentUuid = const SdkOmitted(),
     SdkOptional<PartnerAttachmentWritableBgp> bgp = const SdkOmitted(),
-    SdkOptional<PartnerAttachmentWritableRedundancyZone> redundancyZone =
-        const SdkOmitted(),
+    SdkOptional<PartnerAttachmentWritableRedundancyZone> redundancyZone = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   sdkValidatePattern('name', name, '^[a-zA-Z0-9\\-\\.]+\$');
   validateItems('vpc_ids', vpcIds, min: 1);
@@ -90,19 +80,12 @@ Future<SinglePartnerAttachment> partnerAttachmentsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'partnerAttachmentsCreate',
-          fromJsonRaw: (value) =>
-              SinglePartnerAttachment.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SinglePartnerAttachment.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get the details of a partner attachment, send a `GET` request to `/v2/partner_network_connect/attachments/{pa_id}`.
 ///
@@ -114,18 +97,12 @@ Future<SinglePartnerAttachment> partnerAttachmentsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'partnerAttachmentsGet',
-          fromJsonRaw: (value) =>
-              SinglePartnerAttachment.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SinglePartnerAttachment.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates an existing partner attachment's name, attached VPC IDs, or BGP configuration. Supply the fields you want to change; attachment names may contain only letters, numbers, dashes, and periods, and `vpc_ids` must contain at least one ID. A 202 response returns attachment details, including attached VPC network IDs and BGP configuration information.
 ///
@@ -142,80 +119,58 @@ Future<SinglePartnerAttachment> partnerAttachmentsPatch(ClientConfig config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
           operationId: 'partnerAttachmentsPatch',
-          fromJsonRaw: (value) =>
-              SinglePartnerAttachment.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SinglePartnerAttachment.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete an existing partner attachment, send a `DELETE` request to `/v2/partner_network_connect/attachments/{pa_id}`.
 ///
 /// [paId] A unique identifier for a partner attachment.
-Future<SinglePartnerAttachmentDeleting> partnerAttachmentsDelete(
-    ClientConfig config,
-    {required String paId,
-    RequestOptions? requestOptions}) async {
+Future<SinglePartnerAttachmentDeleting> partnerAttachmentsDelete(ClientConfig config,
+    {required String paId, RequestOptions? requestOptions}) async {
   return (await sdkRequest<SinglePartnerAttachmentDeleting>('DELETE',
           '/v2/partner_network_connect/attachments/${Uri.encodeComponent(paId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'partnerAttachmentsDelete',
-          fromJsonRaw: (value) => SinglePartnerAttachmentDeleting.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SinglePartnerAttachmentDeleting.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get the current BGP auth key for a partner attachment, send a `GET` request to `/v2/partner_network_connect/attachments/{pa_id}/bgp_auth_key`.
 ///
 /// [paId] A unique identifier for a partner attachment.
-Future<SinglePartnerAttachmentBgpAuthKey> partnerAttachmentsGetBgpAuthKey(
-    ClientConfig config,
-    {required String paId,
-    RequestOptions? requestOptions}) async {
+Future<SinglePartnerAttachmentBgpAuthKey> partnerAttachmentsGetBgpAuthKey(ClientConfig config,
+    {required String paId, RequestOptions? requestOptions}) async {
   return (await sdkRequest<SinglePartnerAttachmentBgpAuthKey>('GET',
           '/v2/partner_network_connect/attachments/${Uri.encodeComponent(paId.toString())}/bgp_auth_key',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'partnerAttachmentsGetBgpAuthKey',
-          fromJsonRaw: (value) => SinglePartnerAttachmentBgpAuthKey.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SinglePartnerAttachmentBgpAuthKey.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all remote routes associated with a partner attachment, send a `GET` request to `/v2/partner_network_connect/attachments/{pa_id}/remote_routes`.
 ///
 /// [paId] A unique identifier for a partner attachment.
 /// [perPage] Number of items returned per page
 /// [page] Which 'page' of paginated results to return.
-Future<AllPartnerAttachmentRemoteRoutes> partnerAttachmentsListRemoteRoutes(
-    ClientConfig config,
-    {required String paId,
-    SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<int> page = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<AllPartnerAttachmentRemoteRoutes>
+    partnerAttachmentsListRemoteRoutes(ClientConfig config,
+        {required String paId,
+        SdkOptional<int> perPage = const SdkOmitted(),
+        SdkOptional<int> page = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (perPage is SdkPresent<int>) {
     validateRange('per_page', perPage.value, min: 1, max: 200);
   }
@@ -227,58 +182,40 @@ Future<AllPartnerAttachmentRemoteRoutes> partnerAttachmentsListRemoteRoutes(
           '/v2/partner_network_connect/attachments/${Uri.encodeComponent(paId.toString())}/remote_routes',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'partnerAttachmentsListRemoteRoutes',
-          fromJsonRaw: (value) => AllPartnerAttachmentRemoteRoutes.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllPartnerAttachmentRemoteRoutes.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To get the current service key for a partner attachment, send a `GET` request to `/v2/partner_network_connect/attachments/{pa_id}/service_key`.
 ///
 /// [paId] A unique identifier for a partner attachment.
-Future<SinglePartnerAttachmentServiceKey> partnerAttachmentsGetServiceKey(
-    ClientConfig config,
-    {required String paId,
-    RequestOptions? requestOptions}) async {
+Future<SinglePartnerAttachmentServiceKey> partnerAttachmentsGetServiceKey(ClientConfig config,
+    {required String paId, RequestOptions? requestOptions}) async {
   return (await sdkRequest<SinglePartnerAttachmentServiceKey>('GET',
           '/v2/partner_network_connect/attachments/${Uri.encodeComponent(paId.toString())}/service_key',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'partnerAttachmentsGetServiceKey',
-          fromJsonRaw: (value) => SinglePartnerAttachmentServiceKey.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SinglePartnerAttachmentServiceKey.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// This operation generates a new service key for the specified partner attachment. The operation is asynchronous, and the response is an empty JSON object returned with a 202 status code. To poll for the new service key, send a `GET` request to `/v2/partner_network_connect/attachments/{pa_id}/service_key`.
 ///
 /// [paId] A unique identifier for a partner attachment.
-Future<Map<String, dynamic>> partnerAttachmentsCreateServiceKey(
-    ClientConfig config,
-    {required String paId,
-    RequestOptions? requestOptions}) async {
+Future<Map<String, dynamic>> partnerAttachmentsCreateServiceKey(ClientConfig config,
+    {required String paId, RequestOptions? requestOptions}) async {
   return (await sdkRequest<Map<String, dynamic>>('POST',
           '/v2/partner_network_connect/attachments/${Uri.encodeComponent(paId.toString())}/service_key',
           config: config,
@@ -286,12 +223,6 @@ Future<Map<String, dynamic>> partnerAttachmentsCreateServiceKey(
           operationId: 'partnerAttachmentsCreateServiceKey',
           fromJsonRaw: (value) => value as Map<String, dynamic>,
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

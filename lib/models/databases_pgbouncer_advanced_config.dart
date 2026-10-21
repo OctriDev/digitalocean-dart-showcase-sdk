@@ -8,203 +8,89 @@ part of 'databases.dart';
 class PgbouncerAdvancedConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Run server_reset_query (DISCARD ALL) in all pooling modes.
   final SdkOptional<bool> serverResetQueryAlways;
-
   /// List of parameters to ignore when given in startup packet.
-  final SdkOptional<List<PgbouncerAdvancedConfigIgnoreStartupParametersItem>>
-      ignoreStartupParameters;
-
+  final SdkOptional<List<PgbouncerAdvancedConfigIgnoreStartupParametersItem>> ignoreStartupParameters;
   /// If current server connections are below this number, adds more. Improves behavior when usual load comes suddenly back after period of total inactivity. The value is effectively capped at the pool size.
   final SdkOptional<int> minPoolSize;
-
   /// The pooler closes any unused server connection that has been connected longer than this amount of seconds.
   final SdkOptional<int> serverLifetime;
-
   /// Drops server connections if they have been idle more than this many seconds. If 0, timeout is disabled.
   final SdkOptional<int> serverIdleTimeout;
-
   /// If non-zero, automatically creates a pool of that size per user when a pool doesn't exist.
   final SdkOptional<int> autodbPoolSize;
-
   /// PGBouncer pool mode
   final SdkOptional<PgbouncerAdvancedConfigAutodbPoolMode> autodbPoolMode;
-
   /// Only allows a maximum this many server connections per database (regardless of user). If 0, allows unlimited connections.
   final SdkOptional<int> autodbMaxDbConnections;
-
   /// If the automatically-created database pools have been unused this many seconds, they are freed. If 0, timeout is disabled.
   final SdkOptional<int> autodbIdleTimeout;
 
-  const PgbouncerAdvancedConfig(
-      {this.serverResetQueryAlways = const SdkOmitted(),
-      this.ignoreStartupParameters = const SdkOmitted(),
-      this.minPoolSize = const SdkOmitted(),
-      this.serverLifetime = const SdkOmitted(),
-      this.serverIdleTimeout = const SdkOmitted(),
-      this.autodbPoolSize = const SdkOmitted(),
-      this.autodbPoolMode = const SdkOmitted(),
-      this.autodbMaxDbConnections = const SdkOmitted(),
-      this.autodbIdleTimeout = const SdkOmitted()});
+  const PgbouncerAdvancedConfig({this.serverResetQueryAlways = const SdkOmitted(), this.ignoreStartupParameters = const SdkOmitted(), this.minPoolSize = const SdkOmitted(), this.serverLifetime = const SdkOmitted(), this.serverIdleTimeout = const SdkOmitted(), this.autodbPoolSize = const SdkOmitted(), this.autodbPoolMode = const SdkOmitted(), this.autodbMaxDbConnections = const SdkOmitted(), this.autodbIdleTimeout = const SdkOmitted()});
 
-  PgbouncerAdvancedConfig Function(
-      {SdkOptional<bool> serverResetQueryAlways,
-      SdkOptional<List<PgbouncerAdvancedConfigIgnoreStartupParametersItem>>
-          ignoreStartupParameters,
-      SdkOptional<int> minPoolSize,
-      SdkOptional<int> serverLifetime,
-      SdkOptional<int> serverIdleTimeout,
-      SdkOptional<int> autodbPoolSize,
-      SdkOptional<PgbouncerAdvancedConfigAutodbPoolMode> autodbPoolMode,
-      SdkOptional<int> autodbMaxDbConnections,
-      SdkOptional<int> autodbIdleTimeout}) get copyWith => _copyWith;
+  PgbouncerAdvancedConfig Function({SdkOptional<bool> serverResetQueryAlways, SdkOptional<List<PgbouncerAdvancedConfigIgnoreStartupParametersItem>> ignoreStartupParameters, SdkOptional<int> minPoolSize, SdkOptional<int> serverLifetime, SdkOptional<int> serverIdleTimeout, SdkOptional<int> autodbPoolSize, SdkOptional<PgbouncerAdvancedConfigAutodbPoolMode> autodbPoolMode, SdkOptional<int> autodbMaxDbConnections, SdkOptional<int> autodbIdleTimeout}) get copyWith => _copyWith;
 
-  PgbouncerAdvancedConfig _copyWith(
-          {Object? serverResetQueryAlways = sdkOmittedValue,
-          Object? ignoreStartupParameters = sdkOmittedValue,
-          Object? minPoolSize = sdkOmittedValue,
-          Object? serverLifetime = sdkOmittedValue,
-          Object? serverIdleTimeout = sdkOmittedValue,
-          Object? autodbPoolSize = sdkOmittedValue,
-          Object? autodbPoolMode = sdkOmittedValue,
-          Object? autodbMaxDbConnections = sdkOmittedValue,
-          Object? autodbIdleTimeout = sdkOmittedValue}) =>
-      PgbouncerAdvancedConfig(
-        serverResetQueryAlways:
-            identical(serverResetQueryAlways, sdkOmittedValue)
-                ? this.serverResetQueryAlways
-                : serverResetQueryAlways as SdkOptional<bool>,
-        ignoreStartupParameters:
-            identical(ignoreStartupParameters, sdkOmittedValue)
-                ? this.ignoreStartupParameters
-                : ignoreStartupParameters as SdkOptional<
-                    List<PgbouncerAdvancedConfigIgnoreStartupParametersItem>>,
-        minPoolSize: identical(minPoolSize, sdkOmittedValue)
-            ? this.minPoolSize
-            : minPoolSize as SdkOptional<int>,
-        serverLifetime: identical(serverLifetime, sdkOmittedValue)
-            ? this.serverLifetime
-            : serverLifetime as SdkOptional<int>,
-        serverIdleTimeout: identical(serverIdleTimeout, sdkOmittedValue)
-            ? this.serverIdleTimeout
-            : serverIdleTimeout as SdkOptional<int>,
-        autodbPoolSize: identical(autodbPoolSize, sdkOmittedValue)
-            ? this.autodbPoolSize
-            : autodbPoolSize as SdkOptional<int>,
-        autodbPoolMode: identical(autodbPoolMode, sdkOmittedValue)
-            ? this.autodbPoolMode
-            : autodbPoolMode
-                as SdkOptional<PgbouncerAdvancedConfigAutodbPoolMode>,
-        autodbMaxDbConnections:
-            identical(autodbMaxDbConnections, sdkOmittedValue)
-                ? this.autodbMaxDbConnections
-                : autodbMaxDbConnections as SdkOptional<int>,
-        autodbIdleTimeout: identical(autodbIdleTimeout, sdkOmittedValue)
-            ? this.autodbIdleTimeout
-            : autodbIdleTimeout as SdkOptional<int>,
-      );
+  PgbouncerAdvancedConfig _copyWith({Object? serverResetQueryAlways = sdkOmittedValue, Object? ignoreStartupParameters = sdkOmittedValue, Object? minPoolSize = sdkOmittedValue, Object? serverLifetime = sdkOmittedValue, Object? serverIdleTimeout = sdkOmittedValue, Object? autodbPoolSize = sdkOmittedValue, Object? autodbPoolMode = sdkOmittedValue, Object? autodbMaxDbConnections = sdkOmittedValue, Object? autodbIdleTimeout = sdkOmittedValue}) => PgbouncerAdvancedConfig(
+    serverResetQueryAlways: identical(serverResetQueryAlways, sdkOmittedValue) ? this.serverResetQueryAlways : serverResetQueryAlways as SdkOptional<bool>,
+    ignoreStartupParameters: identical(ignoreStartupParameters, sdkOmittedValue) ? this.ignoreStartupParameters : ignoreStartupParameters as SdkOptional<List<PgbouncerAdvancedConfigIgnoreStartupParametersItem>>,
+    minPoolSize: identical(minPoolSize, sdkOmittedValue) ? this.minPoolSize : minPoolSize as SdkOptional<int>,
+    serverLifetime: identical(serverLifetime, sdkOmittedValue) ? this.serverLifetime : serverLifetime as SdkOptional<int>,
+    serverIdleTimeout: identical(serverIdleTimeout, sdkOmittedValue) ? this.serverIdleTimeout : serverIdleTimeout as SdkOptional<int>,
+    autodbPoolSize: identical(autodbPoolSize, sdkOmittedValue) ? this.autodbPoolSize : autodbPoolSize as SdkOptional<int>,
+    autodbPoolMode: identical(autodbPoolMode, sdkOmittedValue) ? this.autodbPoolMode : autodbPoolMode as SdkOptional<PgbouncerAdvancedConfigAutodbPoolMode>,
+    autodbMaxDbConnections: identical(autodbMaxDbConnections, sdkOmittedValue) ? this.autodbMaxDbConnections : autodbMaxDbConnections as SdkOptional<int>,
+    autodbIdleTimeout: identical(autodbIdleTimeout, sdkOmittedValue) ? this.autodbIdleTimeout : autodbIdleTimeout as SdkOptional<int>,
+  );
 
-  factory PgbouncerAdvancedConfig.fromJson(Map<String, dynamic> json) =>
-      PgbouncerAdvancedConfig(
-        serverResetQueryAlways: json['server_reset_query_always'] != null
-            ? SdkPresent((json['server_reset_query_always'] as bool?)!)
-            : const SdkOmitted(),
-        ignoreStartupParameters: json['ignore_startup_parameters'] != null
-            ? SdkPresent(((json['ignore_startup_parameters'] as List?)
-                ?.map((e) =>
-                    PgbouncerAdvancedConfigIgnoreStartupParametersItem.fromJson(
-                        e as String))
-                .toList())!)
-            : const SdkOmitted(),
-        minPoolSize: json['min_pool_size'] != null
-            ? SdkPresent(((json['min_pool_size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        serverLifetime: json['server_lifetime'] != null
-            ? SdkPresent(((json['server_lifetime'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        serverIdleTimeout: json['server_idle_timeout'] != null
-            ? SdkPresent(((json['server_idle_timeout'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        autodbPoolSize: json['autodb_pool_size'] != null
-            ? SdkPresent(((json['autodb_pool_size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        autodbPoolMode: json['autodb_pool_mode'] != null
-            ? SdkPresent((json['autodb_pool_mode'] != null
-                ? PgbouncerAdvancedConfigAutodbPoolMode.fromJson(
-                    json['autodb_pool_mode'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        autodbMaxDbConnections: json['autodb_max_db_connections'] != null
-            ? SdkPresent(
-                ((json['autodb_max_db_connections'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        autodbIdleTimeout: json['autodb_idle_timeout'] != null
-            ? SdkPresent(((json['autodb_idle_timeout'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory PgbouncerAdvancedConfig.fromJson(Map<String, dynamic> json) => PgbouncerAdvancedConfig(
+    serverResetQueryAlways: json['server_reset_query_always'] != null ? SdkPresent((json['server_reset_query_always'] as bool?)!) : const SdkOmitted(),
+    ignoreStartupParameters: json['ignore_startup_parameters'] != null ? SdkPresent(((json['ignore_startup_parameters'] as List?)?.map((e) => PgbouncerAdvancedConfigIgnoreStartupParametersItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
+    minPoolSize: json['min_pool_size'] != null ? SdkPresent(((json['min_pool_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    serverLifetime: json['server_lifetime'] != null ? SdkPresent(((json['server_lifetime'] as num?)?.toInt())!) : const SdkOmitted(),
+    serverIdleTimeout: json['server_idle_timeout'] != null ? SdkPresent(((json['server_idle_timeout'] as num?)?.toInt())!) : const SdkOmitted(),
+    autodbPoolSize: json['autodb_pool_size'] != null ? SdkPresent(((json['autodb_pool_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    autodbPoolMode: json['autodb_pool_mode'] != null ? SdkPresent((json['autodb_pool_mode'] != null ? PgbouncerAdvancedConfigAutodbPoolMode.fromJson(json['autodb_pool_mode'] as String) : null)!) : const SdkOmitted(),
+    autodbMaxDbConnections: json['autodb_max_db_connections'] != null ? SdkPresent(((json['autodb_max_db_connections'] as num?)?.toInt())!) : const SdkOmitted(),
+    autodbIdleTimeout: json['autodb_idle_timeout'] != null ? SdkPresent(((json['autodb_idle_timeout'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (serverResetQueryAlways) {
-          SdkPresent<bool>(value: final value) => {
-              'server_reset_query_always': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ignoreStartupParameters) {
-          SdkPresent<List<PgbouncerAdvancedConfigIgnoreStartupParametersItem>>(
-            value: final value
-          ) =>
-            {
-              'ignore_startup_parameters':
-                  value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (minPoolSize) {
-          SdkPresent<int>(value: final value) => {
-              'min_pool_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (serverLifetime) {
-          SdkPresent<int>(value: final value) => {
-              'server_lifetime': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (serverIdleTimeout) {
-          SdkPresent<int>(value: final value) => {
-              'server_idle_timeout': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (autodbPoolSize) {
-          SdkPresent<int>(value: final value) => {
-              'autodb_pool_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (autodbPoolMode) {
-          SdkPresent<PgbouncerAdvancedConfigAutodbPoolMode>(
-            value: final value
-          ) =>
-            {
-              'autodb_pool_mode': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (autodbMaxDbConnections) {
-          SdkPresent<int>(value: final value) => {
-              'autodb_max_db_connections': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (autodbIdleTimeout) {
-          SdkPresent<int>(value: final value) => {
-              'autodb_idle_timeout': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (serverResetQueryAlways) {
+      SdkPresent<bool>(value: final value) => {'server_reset_query_always': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ignoreStartupParameters) {
+      SdkPresent<List<PgbouncerAdvancedConfigIgnoreStartupParametersItem>>(value: final value) => {'ignore_startup_parameters': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (minPoolSize) {
+      SdkPresent<int>(value: final value) => {'min_pool_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (serverLifetime) {
+      SdkPresent<int>(value: final value) => {'server_lifetime': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (serverIdleTimeout) {
+      SdkPresent<int>(value: final value) => {'server_idle_timeout': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (autodbPoolSize) {
+      SdkPresent<int>(value: final value) => {'autodb_pool_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (autodbPoolMode) {
+      SdkPresent<PgbouncerAdvancedConfigAutodbPoolMode>(value: final value) => {'autodb_pool_mode': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (autodbMaxDbConnections) {
+      SdkPresent<int>(value: final value) => {'autodb_max_db_connections': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (autodbIdleTimeout) {
+      SdkPresent<int>(value: final value) => {'autodb_idle_timeout': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

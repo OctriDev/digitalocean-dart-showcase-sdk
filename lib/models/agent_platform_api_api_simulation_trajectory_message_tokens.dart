@@ -8,55 +8,33 @@ part of 'agent_platform_api_api_simulation.dart';
 class ApiSimulationTrajectoryMessageTokens {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `int64`-formatted value serialized in the `input` wire field.
   final SdkOptional<int> input;
-
   /// Optional `int64`-formatted value serialized in the `output` wire field.
   final SdkOptional<int> output;
 
-  const ApiSimulationTrajectoryMessageTokens(
-      {this.input = const SdkOmitted(), this.output = const SdkOmitted()});
+  const ApiSimulationTrajectoryMessageTokens({this.input = const SdkOmitted(), this.output = const SdkOmitted()});
 
-  ApiSimulationTrajectoryMessageTokens Function(
-      {SdkOptional<int> input,
-      SdkOptional<int> output}) get copyWith => _copyWith;
+  ApiSimulationTrajectoryMessageTokens Function({SdkOptional<int> input, SdkOptional<int> output}) get copyWith => _copyWith;
 
-  ApiSimulationTrajectoryMessageTokens _copyWith(
-          {Object? input = sdkOmittedValue,
-          Object? output = sdkOmittedValue}) =>
-      ApiSimulationTrajectoryMessageTokens(
-        input: identical(input, sdkOmittedValue)
-            ? this.input
-            : input as SdkOptional<int>,
-        output: identical(output, sdkOmittedValue)
-            ? this.output
-            : output as SdkOptional<int>,
-      );
+  ApiSimulationTrajectoryMessageTokens _copyWith({Object? input = sdkOmittedValue, Object? output = sdkOmittedValue}) => ApiSimulationTrajectoryMessageTokens(
+    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<int>,
+    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<int>,
+  );
 
-  factory ApiSimulationTrajectoryMessageTokens.fromJson(
-          Map<String, dynamic> json) =>
-      ApiSimulationTrajectoryMessageTokens(
-        input: json['input'] != null
-            ? SdkPresent(((json['input'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        output: json['output'] != null
-            ? SdkPresent(((json['output'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory ApiSimulationTrajectoryMessageTokens.fromJson(Map<String, dynamic> json) => ApiSimulationTrajectoryMessageTokens(
+    input: json['input'] != null ? SdkPresent(((json['input'] as num?)?.toInt())!) : const SdkOmitted(),
+    output: json['output'] != null ? SdkPresent(((json['output'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (input) {
-          SdkPresent<int>(value: final value) => {
-              'input': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (output) {
-          SdkPresent<int>(value: final value) => {
-              'output': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (input) {
+      SdkPresent<int>(value: final value) => {'input': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (output) {
+      SdkPresent<int>(value: final value) => {'output': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

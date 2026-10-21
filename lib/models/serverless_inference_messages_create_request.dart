@@ -9,361 +9,178 @@ sealed class MessagesCreateRequestSystem {
   static const String constructionSurface = 'named';
   const MessagesCreateRequestSystem();
   factory MessagesCreateRequestSystem.fromJson(Object? json) {
-    if (json is String) {
-      return MessagesCreateRequestSystemString(json);
-    }
-    try {
-      return MessagesCreateRequestSystemMessagesRequestTextBlockParam(
-          MessagesRequestTextBlockParam.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    if (json is String) { return MessagesCreateRequestSystemString(json); }
+    try { return MessagesCreateRequestSystemMessagesRequestTextBlockParam(MessagesRequestTextBlockParam.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for MessagesCreateRequestSystem");
   }
   Object? toJson();
 }
 
-final class MessagesCreateRequestSystemString
-    extends MessagesCreateRequestSystem {
+final class MessagesCreateRequestSystemString extends MessagesCreateRequestSystem {
   final String value;
   const MessagesCreateRequestSystemString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class MessagesCreateRequestSystemMessagesRequestTextBlockParam
-    extends MessagesCreateRequestSystem {
+final class MessagesCreateRequestSystemMessagesRequestTextBlockParam extends MessagesCreateRequestSystem {
   final MessagesRequestTextBlockParam value;
   const MessagesCreateRequestSystemMessagesRequestTextBlockParam(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// Optional request metadata.
 class MessagesCreateRequestMetadata {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Opaque identifier for the end user (for example a UUID or hash). Do not include PII.
   final SdkOptional<String> userId;
 
   const MessagesCreateRequestMetadata({this.userId = const SdkOmitted()});
 
-  MessagesCreateRequestMetadata Function({SdkOptional<String> userId})
-      get copyWith => _copyWith;
+  MessagesCreateRequestMetadata Function({SdkOptional<String> userId}) get copyWith => _copyWith;
 
-  MessagesCreateRequestMetadata _copyWith({Object? userId = sdkOmittedValue}) =>
-      MessagesCreateRequestMetadata(
-        userId: identical(userId, sdkOmittedValue)
-            ? this.userId
-            : userId as SdkOptional<String>,
-      );
+  MessagesCreateRequestMetadata _copyWith({Object? userId = sdkOmittedValue}) => MessagesCreateRequestMetadata(
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
+  );
 
-  factory MessagesCreateRequestMetadata.fromJson(Map<String, dynamic> json) =>
-      MessagesCreateRequestMetadata(
-        userId: json['user_id'] != null
-            ? SdkPresent((json['user_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory MessagesCreateRequestMetadata.fromJson(Map<String, dynamic> json) => MessagesCreateRequestMetadata(
+    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (userId) {
-          SdkPresent<String>(value: final value) => {
-              'user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (userId) {
+      SdkPresent<String>(value: final value) => {'user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Request body for `POST /v1/messages`. Required fields are `model`, `messages`, and `max_tokens`.
 class MessagesCreateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Model ID (for example `claude-opus-4-6` or a serverless model id).
   final String model;
-
   /// Maximum tokens to generate before stopping.
   final int maxTokens;
-
   /// Conversation turns. Each item has `role` `user` or `assistant` and `content` as a string or an array of content blocks.
   final List<MessagesApiMessageParam> messages;
-
   /// System prompt as plain text or as an array of text blocks.
   final SdkOptional<dynamic> system;
-
   /// Custom strings that stop generation when produced.
   final SdkOptional<List<String>> stopSequences;
-
   /// When true, the response is streamed using server-sent events (SSE).
   final SdkOptional<bool> stream;
-
   /// Sampling temperature between 0.0 and 1.0.
   final SdkOptional<double?> temperature;
-
   /// Nucleus sampling; use either `temperature` or `top_p`, not both.
   final SdkOptional<double?> topP;
-
   /// Top-K sampling cutoff.
   final SdkOptional<int?> topK;
-
   /// Tool definitions the model may invoke.
   final SdkOptional<List<MessagesToolDefinitionParam>> tools;
-
   /// Controls how the model uses tools: automatic selection, require any tool, force a specific tool, or a string form accepted by the service.
   final SdkOptional<MessagesToolChoiceParam> toolChoice;
-
   /// Optional request metadata.
   final SdkOptional<MessagesCreateRequestMetadata> metadata;
-
   /// DigitalOcean extension for reasoning-capable models. Ignored by executors that do not support it.
   final SdkOptional<MessagesCreateRequestReasoningEffort?> reasoningEffort;
-
   /// DigitalOcean extension for preferred inference speed. Ignored when not supported.
   final SdkOptional<MessagesCreateRequestSpeed?> speed;
-
   /// Extended thinking configuration. Executors that do not support thinking may ignore this field.
   final SdkOptional<MessagesThinkingConfigParam?> thinking;
 
-  const MessagesCreateRequest(
-      {required this.model,
-      required this.maxTokens,
-      required this.messages,
-      this.system = const SdkOmitted(),
-      this.stopSequences = const SdkOmitted(),
-      this.stream = const SdkOmitted(),
-      this.temperature = const SdkOmitted(),
-      this.topP = const SdkOmitted(),
-      this.topK = const SdkOmitted(),
-      this.tools = const SdkOmitted(),
-      this.toolChoice = const SdkOmitted(),
-      this.metadata = const SdkOmitted(),
-      this.reasoningEffort = const SdkOmitted(),
-      this.speed = const SdkOmitted(),
-      this.thinking = const SdkOmitted()});
+  const MessagesCreateRequest({required this.model, required this.maxTokens, required this.messages, this.system = const SdkOmitted(), this.stopSequences = const SdkOmitted(), this.stream = const SdkOmitted(), this.temperature = const SdkOmitted(), this.topP = const SdkOmitted(), this.topK = const SdkOmitted(), this.tools = const SdkOmitted(), this.toolChoice = const SdkOmitted(), this.metadata = const SdkOmitted(), this.reasoningEffort = const SdkOmitted(), this.speed = const SdkOmitted(), this.thinking = const SdkOmitted()});
 
-  MessagesCreateRequest Function(
-          {String model,
-          int maxTokens,
-          List<MessagesApiMessageParam> messages,
-          SdkOptional<dynamic> system,
-          SdkOptional<List<String>> stopSequences,
-          SdkOptional<bool> stream,
-          SdkOptional<double?> temperature,
-          SdkOptional<double?> topP,
-          SdkOptional<int?> topK,
-          SdkOptional<List<MessagesToolDefinitionParam>> tools,
-          SdkOptional<MessagesToolChoiceParam> toolChoice,
-          SdkOptional<MessagesCreateRequestMetadata> metadata,
-          SdkOptional<MessagesCreateRequestReasoningEffort?> reasoningEffort,
-          SdkOptional<MessagesCreateRequestSpeed?> speed,
-          SdkOptional<MessagesThinkingConfigParam?> thinking})
-      get copyWith => _copyWith;
+  MessagesCreateRequest Function({String model, int maxTokens, List<MessagesApiMessageParam> messages, SdkOptional<dynamic> system, SdkOptional<List<String>> stopSequences, SdkOptional<bool> stream, SdkOptional<double?> temperature, SdkOptional<double?> topP, SdkOptional<int?> topK, SdkOptional<List<MessagesToolDefinitionParam>> tools, SdkOptional<MessagesToolChoiceParam> toolChoice, SdkOptional<MessagesCreateRequestMetadata> metadata, SdkOptional<MessagesCreateRequestReasoningEffort?> reasoningEffort, SdkOptional<MessagesCreateRequestSpeed?> speed, SdkOptional<MessagesThinkingConfigParam?> thinking}) get copyWith => _copyWith;
 
-  MessagesCreateRequest _copyWith(
-          {Object? model = sdkOmittedValue,
-          Object? maxTokens = sdkOmittedValue,
-          Object? messages = sdkOmittedValue,
-          Object? system = sdkOmittedValue,
-          Object? stopSequences = sdkOmittedValue,
-          Object? stream = sdkOmittedValue,
-          Object? temperature = sdkOmittedValue,
-          Object? topP = sdkOmittedValue,
-          Object? topK = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? toolChoice = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue,
-          Object? reasoningEffort = sdkOmittedValue,
-          Object? speed = sdkOmittedValue,
-          Object? thinking = sdkOmittedValue}) =>
-      MessagesCreateRequest(
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        maxTokens: identical(maxTokens, sdkOmittedValue)
-            ? this.maxTokens
-            : maxTokens as int,
-        messages: identical(messages, sdkOmittedValue)
-            ? this.messages
-            : messages as List<MessagesApiMessageParam>,
-        system: identical(system, sdkOmittedValue)
-            ? this.system
-            : system as SdkOptional<dynamic>,
-        stopSequences: identical(stopSequences, sdkOmittedValue)
-            ? this.stopSequences
-            : stopSequences as SdkOptional<List<String>>,
-        stream: identical(stream, sdkOmittedValue)
-            ? this.stream
-            : stream as SdkOptional<bool>,
-        temperature: identical(temperature, sdkOmittedValue)
-            ? this.temperature
-            : temperature as SdkOptional<double?>,
-        topP: identical(topP, sdkOmittedValue)
-            ? this.topP
-            : topP as SdkOptional<double?>,
-        topK: identical(topK, sdkOmittedValue)
-            ? this.topK
-            : topK as SdkOptional<int?>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<MessagesToolDefinitionParam>>,
-        toolChoice: identical(toolChoice, sdkOmittedValue)
-            ? this.toolChoice
-            : toolChoice as SdkOptional<MessagesToolChoiceParam>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<MessagesCreateRequestMetadata>,
-        reasoningEffort: identical(reasoningEffort, sdkOmittedValue)
-            ? this.reasoningEffort
-            : reasoningEffort
-                as SdkOptional<MessagesCreateRequestReasoningEffort?>,
-        speed: identical(speed, sdkOmittedValue)
-            ? this.speed
-            : speed as SdkOptional<MessagesCreateRequestSpeed?>,
-        thinking: identical(thinking, sdkOmittedValue)
-            ? this.thinking
-            : thinking as SdkOptional<MessagesThinkingConfigParam?>,
-      );
+  MessagesCreateRequest _copyWith({Object? model = sdkOmittedValue, Object? maxTokens = sdkOmittedValue, Object? messages = sdkOmittedValue, Object? system = sdkOmittedValue, Object? stopSequences = sdkOmittedValue, Object? stream = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? topP = sdkOmittedValue, Object? topK = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? reasoningEffort = sdkOmittedValue, Object? speed = sdkOmittedValue, Object? thinking = sdkOmittedValue}) => MessagesCreateRequest(
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    maxTokens: identical(maxTokens, sdkOmittedValue) ? this.maxTokens : maxTokens as int,
+    messages: identical(messages, sdkOmittedValue) ? this.messages : messages as List<MessagesApiMessageParam>,
+    system: identical(system, sdkOmittedValue) ? this.system : system as SdkOptional<dynamic>,
+    stopSequences: identical(stopSequences, sdkOmittedValue) ? this.stopSequences : stopSequences as SdkOptional<List<String>>,
+    stream: identical(stream, sdkOmittedValue) ? this.stream : stream as SdkOptional<bool>,
+    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as SdkOptional<double?>,
+    topP: identical(topP, sdkOmittedValue) ? this.topP : topP as SdkOptional<double?>,
+    topK: identical(topK, sdkOmittedValue) ? this.topK : topK as SdkOptional<int?>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<MessagesToolDefinitionParam>>,
+    toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as SdkOptional<MessagesToolChoiceParam>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<MessagesCreateRequestMetadata>,
+    reasoningEffort: identical(reasoningEffort, sdkOmittedValue) ? this.reasoningEffort : reasoningEffort as SdkOptional<MessagesCreateRequestReasoningEffort?>,
+    speed: identical(speed, sdkOmittedValue) ? this.speed : speed as SdkOptional<MessagesCreateRequestSpeed?>,
+    thinking: identical(thinking, sdkOmittedValue) ? this.thinking : thinking as SdkOptional<MessagesThinkingConfigParam?>,
+  );
 
-  factory MessagesCreateRequest.fromJson(Map<String, dynamic> json) =>
-      MessagesCreateRequest(
-        model: (json['model'] as String?)!,
-        maxTokens: ((json['max_tokens'] as num?)?.toInt())!,
-        messages: ((json['messages'] as List?)
-            ?.map((e) =>
-                MessagesApiMessageParam.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        system: json['system'] != null
-            ? SdkPresent((json['system'])!)
-            : const SdkOmitted(),
-        stopSequences: json['stop_sequences'] != null
-            ? SdkPresent(((json['stop_sequences'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        stream: json['stream'] != null
-            ? SdkPresent((json['stream'] as bool?)!)
-            : const SdkOmitted(),
-        temperature: json.containsKey('temperature')
-            ? SdkPresent((json['temperature'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        topP: json.containsKey('top_p')
-            ? SdkPresent((json['top_p'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        topK: json.containsKey('top_k')
-            ? SdkPresent((json['top_k'] as num?)?.toInt())
-            : const SdkOmitted(),
-        tools: json['tools'] != null
-            ? SdkPresent(((json['tools'] as List?)
-                ?.map((e) => MessagesToolDefinitionParam.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        toolChoice: json['tool_choice'] != null
-            ? SdkPresent((json['tool_choice'] != null
-                ? MessagesToolChoiceParam.fromJson(json['tool_choice'])
-                : null)!)
-            : const SdkOmitted(),
-        metadata: json['metadata'] != null
-            ? SdkPresent((json['metadata'] != null
-                ? MessagesCreateRequestMetadata.fromJson(
-                    json['metadata'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        reasoningEffort: json.containsKey('reasoning_effort')
-            ? SdkPresent(json['reasoning_effort'] != null
-                ? MessagesCreateRequestReasoningEffort.fromJson(
-                    json['reasoning_effort'] as String)
-                : null)
-            : const SdkOmitted(),
-        speed: json.containsKey('speed')
-            ? SdkPresent(json['speed'] != null
-                ? MessagesCreateRequestSpeed.fromJson(json['speed'] as String)
-                : null)
-            : const SdkOmitted(),
-        thinking: json.containsKey('thinking')
-            ? SdkPresent(json['thinking'] != null
-                ? MessagesThinkingConfigParam.fromJson(
-                    json['thinking'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory MessagesCreateRequest.fromJson(Map<String, dynamic> json) => MessagesCreateRequest(
+    model: (json['model'] as String?)!,
+    maxTokens: ((json['max_tokens'] as num?)?.toInt())!,
+    messages: ((json['messages'] as List?)?.map((e) => MessagesApiMessageParam.fromJson(e as Map<String, dynamic>)).toList())!,
+    system: json['system'] != null ? SdkPresent((json['system'])!) : const SdkOmitted(),
+    stopSequences: json['stop_sequences'] != null ? SdkPresent(((json['stop_sequences'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    stream: json['stream'] != null ? SdkPresent((json['stream'] as bool?)!) : const SdkOmitted(),
+    temperature: json.containsKey('temperature') ? SdkPresent((json['temperature'] as num?)?.toDouble()) : const SdkOmitted(),
+    topP: json.containsKey('top_p') ? SdkPresent((json['top_p'] as num?)?.toDouble()) : const SdkOmitted(),
+    topK: json.containsKey('top_k') ? SdkPresent((json['top_k'] as num?)?.toInt()) : const SdkOmitted(),
+    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => MessagesToolDefinitionParam.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    toolChoice: json['tool_choice'] != null ? SdkPresent((json['tool_choice'] != null ? MessagesToolChoiceParam.fromJson(json['tool_choice']) : null)!) : const SdkOmitted(),
+    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] != null ? MessagesCreateRequestMetadata.fromJson(json['metadata'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    reasoningEffort: json.containsKey('reasoning_effort') ? SdkPresent(json['reasoning_effort'] != null ? MessagesCreateRequestReasoningEffort.fromJson(json['reasoning_effort'] as String) : null) : const SdkOmitted(),
+    speed: json.containsKey('speed') ? SdkPresent(json['speed'] != null ? MessagesCreateRequestSpeed.fromJson(json['speed'] as String) : null) : const SdkOmitted(),
+    thinking: json.containsKey('thinking') ? SdkPresent(json['thinking'] != null ? MessagesThinkingConfigParam.fromJson(json['thinking'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'model': model,
-        'max_tokens': maxTokens,
-        'messages': messages.map((item) => item.toJson()).toList(),
-        ...switch (system) {
-          SdkPresent<dynamic>(value: final value) => {
-              'system': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (stopSequences) {
-          SdkPresent<List<String>>(value: final value) => {
-              'stop_sequences': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (stream) {
-          SdkPresent<bool>(value: final value) => {
-              'stream': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (temperature) {
-          SdkPresent<double?>(value: final value) => {
-              'temperature': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (topP) {
-          SdkPresent<double?>(value: final value) => {
-              'top_p': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (topK) {
-          SdkPresent<int?>(value: final value) => {
-              'top_k': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tools) {
-          SdkPresent<List<MessagesToolDefinitionParam>>(value: final value) => {
-              'tools': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolChoice) {
-          SdkPresent<MessagesToolChoiceParam>(value: final value) => {
-              'tool_choice': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<MessagesCreateRequestMetadata>(value: final value) => {
-              'metadata': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reasoningEffort) {
-          SdkPresent<MessagesCreateRequestReasoningEffort?>(
-            value: final value
-          ) =>
-            {
-              'reasoning_effort': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (speed) {
-          SdkPresent<MessagesCreateRequestSpeed?>(value: final value) => {
-              'speed': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (thinking) {
-          SdkPresent<MessagesThinkingConfigParam?>(value: final value) => {
-              'thinking': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'model': model,
+    'max_tokens': maxTokens,
+    'messages': messages.map((item) => item.toJson()).toList(),
+    ...switch (system) {
+      SdkPresent<dynamic>(value: final value) => {'system': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (stopSequences) {
+      SdkPresent<List<String>>(value: final value) => {'stop_sequences': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (stream) {
+      SdkPresent<bool>(value: final value) => {'stream': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (temperature) {
+      SdkPresent<double?>(value: final value) => {'temperature': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (topP) {
+      SdkPresent<double?>(value: final value) => {'top_p': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (topK) {
+      SdkPresent<int?>(value: final value) => {'top_k': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tools) {
+      SdkPresent<List<MessagesToolDefinitionParam>>(value: final value) => {'tools': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolChoice) {
+      SdkPresent<MessagesToolChoiceParam>(value: final value) => {'tool_choice': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<MessagesCreateRequestMetadata>(value: final value) => {'metadata': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reasoningEffort) {
+      SdkPresent<MessagesCreateRequestReasoningEffort?>(value: final value) => {'reasoning_effort': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (speed) {
+      SdkPresent<MessagesCreateRequestSpeed?>(value: final value) => {'speed': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (thinking) {
+      SdkPresent<MessagesThinkingConfigParam?>(value: final value) => {'thinking': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

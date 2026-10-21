@@ -8,68 +8,38 @@ part of 'insights_alert.dart';
 class AlertThresholds {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Warning threshold value.
   final SdkOptional<double> warning;
-
   /// Critical threshold value.
   final SdkOptional<double> critical;
-
   /// Comparison operator applied to the aggregated metric value. Allowed values: - `THRESHOLD_OPERATOR_EQUAL` = equal - `THRESHOLD_OPERATOR_LESS_THAN_OR_EQUAL` = `less_than_or_equal` - `THRESHOLD_OPERATOR_LESS_THAN` = `less_than` - `THRESHOLD_OPERATOR_GREATER_THAN` = `greater_than` - `THRESHOLD_OPERATOR_GREATER_THAN_OR_EQUAL` = `greater_than_or_equal` - `THRESHOLD_OPERATOR_NOT_EQUAL` = `not_equal`
   final AlertThresholdsOperator operator_;
 
-  const AlertThresholds(
-      {this.warning = const SdkOmitted(),
-      this.critical = const SdkOmitted(),
-      required this.operator_});
+  const AlertThresholds({this.warning = const SdkOmitted(), this.critical = const SdkOmitted(), required this.operator_});
 
-  AlertThresholds Function(
-      {SdkOptional<double> warning,
-      SdkOptional<double> critical,
-      AlertThresholdsOperator operator_}) get copyWith => _copyWith;
+  AlertThresholds Function({SdkOptional<double> warning, SdkOptional<double> critical, AlertThresholdsOperator operator_}) get copyWith => _copyWith;
 
-  AlertThresholds _copyWith(
-          {Object? warning = sdkOmittedValue,
-          Object? critical = sdkOmittedValue,
-          Object? operator_ = sdkOmittedValue}) =>
-      AlertThresholds(
-        warning: identical(warning, sdkOmittedValue)
-            ? this.warning
-            : warning as SdkOptional<double>,
-        critical: identical(critical, sdkOmittedValue)
-            ? this.critical
-            : critical as SdkOptional<double>,
-        operator_: identical(operator_, sdkOmittedValue)
-            ? this.operator_
-            : operator_ as AlertThresholdsOperator,
-      );
+  AlertThresholds _copyWith({Object? warning = sdkOmittedValue, Object? critical = sdkOmittedValue, Object? operator_ = sdkOmittedValue}) => AlertThresholds(
+    warning: identical(warning, sdkOmittedValue) ? this.warning : warning as SdkOptional<double>,
+    critical: identical(critical, sdkOmittedValue) ? this.critical : critical as SdkOptional<double>,
+    operator_: identical(operator_, sdkOmittedValue) ? this.operator_ : operator_ as AlertThresholdsOperator,
+  );
 
-  factory AlertThresholds.fromJson(Map<String, dynamic> json) =>
-      AlertThresholds(
-        warning: json['warning'] != null
-            ? SdkPresent(((json['warning'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        critical: json['critical'] != null
-            ? SdkPresent(((json['critical'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        operator_: (json['operator'] != null
-            ? AlertThresholdsOperator.fromJson(json['operator'] as String)
-            : null)!,
-      );
+  factory AlertThresholds.fromJson(Map<String, dynamic> json) => AlertThresholds(
+    warning: json['warning'] != null ? SdkPresent(((json['warning'] as num?)?.toDouble())!) : const SdkOmitted(),
+    critical: json['critical'] != null ? SdkPresent(((json['critical'] as num?)?.toDouble())!) : const SdkOmitted(),
+    operator_: (json['operator'] != null ? AlertThresholdsOperator.fromJson(json['operator'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (warning) {
-          SdkPresent<double>(value: final value) => {
-              'warning': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (critical) {
-          SdkPresent<double>(value: final value) => {
-              'critical': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'operator': operator_.toJson(),
-      };
+    ...switch (warning) {
+      SdkPresent<double>(value: final value) => {'warning': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (critical) {
+      SdkPresent<double>(value: final value) => {'critical': value,},
+      _ => const <String, dynamic>{},
+    },
+    'operator': operator_.toJson(),
+  };
 }

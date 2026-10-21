@@ -8,416 +8,199 @@ part of 'harness_runtime.dart';
 class ResolvedRule {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Stable rule id assigned during resolution; correlates with the PolicyDenied event's matched rule.
   final SdkOptional<String> id;
-
   /// Optional `string` value serialized in the `tool` wire field.
   final SdkOptional<String> tool;
-
   /// Optional object value serialized in the `match` wire field.
   final SdkOptional<Map<String, String>> match;
-
   /// Optional enumerated value serialized in the `action` wire field.
   final SdkOptional<ResolvedRuleAction> action;
-
   /// Optional enumerated value serialized in the `enforcement` wire field.
   final SdkOptional<ResolvedRuleEnforcement> enforcement;
 
-  const ResolvedRule(
-      {this.id = const SdkOmitted(),
-      this.tool = const SdkOmitted(),
-      this.match = const SdkOmitted(),
-      this.action = const SdkOmitted(),
-      this.enforcement = const SdkOmitted()});
+  const ResolvedRule({this.id = const SdkOmitted(), this.tool = const SdkOmitted(), this.match = const SdkOmitted(), this.action = const SdkOmitted(), this.enforcement = const SdkOmitted()});
 
-  ResolvedRule Function(
-          {SdkOptional<String> id,
-          SdkOptional<String> tool,
-          SdkOptional<Map<String, String>> match,
-          SdkOptional<ResolvedRuleAction> action,
-          SdkOptional<ResolvedRuleEnforcement> enforcement})
-      get copyWith => _copyWith;
+  ResolvedRule Function({SdkOptional<String> id, SdkOptional<String> tool, SdkOptional<Map<String, String>> match, SdkOptional<ResolvedRuleAction> action, SdkOptional<ResolvedRuleEnforcement> enforcement}) get copyWith => _copyWith;
 
-  ResolvedRule _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? tool = sdkOmittedValue,
-          Object? match = sdkOmittedValue,
-          Object? action = sdkOmittedValue,
-          Object? enforcement = sdkOmittedValue}) =>
-      ResolvedRule(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        tool: identical(tool, sdkOmittedValue)
-            ? this.tool
-            : tool as SdkOptional<String>,
-        match: identical(match, sdkOmittedValue)
-            ? this.match
-            : match as SdkOptional<Map<String, String>>,
-        action: identical(action, sdkOmittedValue)
-            ? this.action
-            : action as SdkOptional<ResolvedRuleAction>,
-        enforcement: identical(enforcement, sdkOmittedValue)
-            ? this.enforcement
-            : enforcement as SdkOptional<ResolvedRuleEnforcement>,
-      );
+  ResolvedRule _copyWith({Object? id = sdkOmittedValue, Object? tool = sdkOmittedValue, Object? match = sdkOmittedValue, Object? action = sdkOmittedValue, Object? enforcement = sdkOmittedValue}) => ResolvedRule(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    tool: identical(tool, sdkOmittedValue) ? this.tool : tool as SdkOptional<String>,
+    match: identical(match, sdkOmittedValue) ? this.match : match as SdkOptional<Map<String, String>>,
+    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<ResolvedRuleAction>,
+    enforcement: identical(enforcement, sdkOmittedValue) ? this.enforcement : enforcement as SdkOptional<ResolvedRuleEnforcement>,
+  );
 
   factory ResolvedRule.fromJson(Map<String, dynamic> json) => ResolvedRule(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        tool: json['tool'] != null
-            ? SdkPresent((json['tool'] as String?)!)
-            : const SdkOmitted(),
-        match: json['match'] != null
-            ? SdkPresent((json['match'] == null
-                ? null
-                : Map<String, dynamic>.from(json['match'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-        action: json['action'] != null
-            ? SdkPresent((json['action'] != null
-                ? ResolvedRuleAction.fromJson(json['action'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        enforcement: json['enforcement'] != null
-            ? SdkPresent((json['enforcement'] != null
-                ? ResolvedRuleEnforcement.fromJson(
-                    json['enforcement'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    tool: json['tool'] != null ? SdkPresent((json['tool'] as String?)!) : const SdkOmitted(),
+    match: json['match'] != null ? SdkPresent((json['match'] == null ? null : Map<String, dynamic>.from(json['match'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+    action: json['action'] != null ? SdkPresent((json['action'] != null ? ResolvedRuleAction.fromJson(json['action'] as String) : null)!) : const SdkOmitted(),
+    enforcement: json['enforcement'] != null ? SdkPresent((json['enforcement'] != null ? ResolvedRuleEnforcement.fromJson(json['enforcement'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tool) {
-          SdkPresent<String>(value: final value) => {
-              'tool': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (match) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'match': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (action) {
-          SdkPresent<ResolvedRuleAction>(value: final value) => {
-              'action': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (enforcement) {
-          SdkPresent<ResolvedRuleEnforcement>(value: final value) => {
-              'enforcement': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tool) {
+      SdkPresent<String>(value: final value) => {'tool': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (match) {
+      SdkPresent<Map<String, String>>(value: final value) => {'match': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (action) {
+      SdkPresent<ResolvedRuleAction>(value: final value) => {'action': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (enforcement) {
+      SdkPresent<ResolvedRuleEnforcement>(value: final value) => {'enforcement': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Validation outcome for one resolved rule.
 class RuleVerdict {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A rule after resolution (∩ tenant ∩ platform), carrying a stable id for audit correlation.
   final SdkOptional<ResolvedRule> rule;
-
   /// exact — enforced precisely as written; degraded — renderable only in a more-restrictive form (deny→ask), warned; unsupported — cannot be enforced (strict ⇒ session reject); unverified — no descriptor available, rendered conservatively but unproven.
   final SdkOptional<RuleVerdictVerdict> verdict;
-
   /// The disposition the agent will actually enforce: the requested action when exact/unverified, the more-restrictive target when degraded, omitted when unsupported (cannot render).
   final SdkOptional<RuleVerdictRendered> rendered;
-
   /// Human-readable explanation of the verdict.
   final SdkOptional<String> reason;
-
   /// Optional actionable hint (e.g. "set enforcement: best-effort, or target a capable agent").
   final SdkOptional<String> suggestion;
 
-  const RuleVerdict(
-      {this.rule = const SdkOmitted(),
-      this.verdict = const SdkOmitted(),
-      this.rendered = const SdkOmitted(),
-      this.reason = const SdkOmitted(),
-      this.suggestion = const SdkOmitted()});
+  const RuleVerdict({this.rule = const SdkOmitted(), this.verdict = const SdkOmitted(), this.rendered = const SdkOmitted(), this.reason = const SdkOmitted(), this.suggestion = const SdkOmitted()});
 
-  RuleVerdict Function(
-      {SdkOptional<ResolvedRule> rule,
-      SdkOptional<RuleVerdictVerdict> verdict,
-      SdkOptional<RuleVerdictRendered> rendered,
-      SdkOptional<String> reason,
-      SdkOptional<String> suggestion}) get copyWith => _copyWith;
+  RuleVerdict Function({SdkOptional<ResolvedRule> rule, SdkOptional<RuleVerdictVerdict> verdict, SdkOptional<RuleVerdictRendered> rendered, SdkOptional<String> reason, SdkOptional<String> suggestion}) get copyWith => _copyWith;
 
-  RuleVerdict _copyWith(
-          {Object? rule = sdkOmittedValue,
-          Object? verdict = sdkOmittedValue,
-          Object? rendered = sdkOmittedValue,
-          Object? reason = sdkOmittedValue,
-          Object? suggestion = sdkOmittedValue}) =>
-      RuleVerdict(
-        rule: identical(rule, sdkOmittedValue)
-            ? this.rule
-            : rule as SdkOptional<ResolvedRule>,
-        verdict: identical(verdict, sdkOmittedValue)
-            ? this.verdict
-            : verdict as SdkOptional<RuleVerdictVerdict>,
-        rendered: identical(rendered, sdkOmittedValue)
-            ? this.rendered
-            : rendered as SdkOptional<RuleVerdictRendered>,
-        reason: identical(reason, sdkOmittedValue)
-            ? this.reason
-            : reason as SdkOptional<String>,
-        suggestion: identical(suggestion, sdkOmittedValue)
-            ? this.suggestion
-            : suggestion as SdkOptional<String>,
-      );
+  RuleVerdict _copyWith({Object? rule = sdkOmittedValue, Object? verdict = sdkOmittedValue, Object? rendered = sdkOmittedValue, Object? reason = sdkOmittedValue, Object? suggestion = sdkOmittedValue}) => RuleVerdict(
+    rule: identical(rule, sdkOmittedValue) ? this.rule : rule as SdkOptional<ResolvedRule>,
+    verdict: identical(verdict, sdkOmittedValue) ? this.verdict : verdict as SdkOptional<RuleVerdictVerdict>,
+    rendered: identical(rendered, sdkOmittedValue) ? this.rendered : rendered as SdkOptional<RuleVerdictRendered>,
+    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as SdkOptional<String>,
+    suggestion: identical(suggestion, sdkOmittedValue) ? this.suggestion : suggestion as SdkOptional<String>,
+  );
 
   factory RuleVerdict.fromJson(Map<String, dynamic> json) => RuleVerdict(
-        rule: json['rule'] != null
-            ? SdkPresent((json['rule'] != null
-                ? ResolvedRule.fromJson(json['rule'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        verdict: json['verdict'] != null
-            ? SdkPresent((json['verdict'] != null
-                ? RuleVerdictVerdict.fromJson(json['verdict'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        rendered: json['rendered'] != null
-            ? SdkPresent((json['rendered'] != null
-                ? RuleVerdictRendered.fromJson(json['rendered'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        reason: json['reason'] != null
-            ? SdkPresent((json['reason'] as String?)!)
-            : const SdkOmitted(),
-        suggestion: json['suggestion'] != null
-            ? SdkPresent((json['suggestion'] as String?)!)
-            : const SdkOmitted(),
-      );
+    rule: json['rule'] != null ? SdkPresent((json['rule'] != null ? ResolvedRule.fromJson(json['rule'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    verdict: json['verdict'] != null ? SdkPresent((json['verdict'] != null ? RuleVerdictVerdict.fromJson(json['verdict'] as String) : null)!) : const SdkOmitted(),
+    rendered: json['rendered'] != null ? SdkPresent((json['rendered'] != null ? RuleVerdictRendered.fromJson(json['rendered'] as String) : null)!) : const SdkOmitted(),
+    reason: json['reason'] != null ? SdkPresent((json['reason'] as String?)!) : const SdkOmitted(),
+    suggestion: json['suggestion'] != null ? SdkPresent((json['suggestion'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (rule) {
-          SdkPresent<ResolvedRule>(value: final value) => {
-              'rule': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (verdict) {
-          SdkPresent<RuleVerdictVerdict>(value: final value) => {
-              'verdict': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (rendered) {
-          SdkPresent<RuleVerdictRendered>(value: final value) => {
-              'rendered': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reason) {
-          SdkPresent<String>(value: final value) => {
-              'reason': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (suggestion) {
-          SdkPresent<String>(value: final value) => {
-              'suggestion': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (rule) {
+      SdkPresent<ResolvedRule>(value: final value) => {'rule': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (verdict) {
+      SdkPresent<RuleVerdictVerdict>(value: final value) => {'verdict': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (rendered) {
+      SdkPresent<RuleVerdictRendered>(value: final value) => {'rendered': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reason) {
+      SdkPresent<String>(value: final value) => {'reason': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (suggestion) {
+      SdkPresent<String>(value: final value) => {'suggestion': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Response of POST /v2/agents/sessions/policy/validate: per-rule verdicts for the (agent, version). The same shape is persisted per session in session_policies.verdicts.
 class ValidationResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `agent` wire field.
   final SdkOptional<String> agent;
-
   /// Optional `string` value serialized in the `version` wire field.
   final SdkOptional<String> version;
-
   /// False when any strict rule is unsupported or unverified — i.e. CreateSession would reject this policy for this (agent, version).
   final SdkOptional<bool> ok;
-
   /// Catch-all disposition AS SHIPPED (after unverified allow→ask downgrade). When defaultActionVerdict is degraded, this remains the shipped value; see defaultActionRendered for what the agent will actually enforce.
   final SdkOptional<ValidationResultDefaultAction> defaultAction;
-
   /// exact — agent can enforce the catch-all as written; degraded — agent cannot enforce the requested defaultAction (warn-only; shipped value unchanged); omitted when no descriptor was available to classify against.
   final SdkOptional<ValidationResultDefaultActionVerdict> defaultActionVerdict;
-
   /// Disposition the agent will actually enforce as the catch-all: equals defaultAction when exact; the more-restrictive degrade target (usually ask) when degraded.
-  final SdkOptional<ValidationResultDefaultActionRendered>
-      defaultActionRendered;
-
+  final SdkOptional<ValidationResultDefaultActionRendered> defaultActionRendered;
   /// Human-readable explanation when defaultActionVerdict is degraded.
   final SdkOptional<String> defaultActionReason;
-
   /// Optional array value serialized in the `verdicts` wire field.
   final SdkOptional<List<RuleVerdict>> verdicts;
 
-  const ValidationResult(
-      {this.agent = const SdkOmitted(),
-      this.version = const SdkOmitted(),
-      this.ok = const SdkOmitted(),
-      this.defaultAction = const SdkOmitted(),
-      this.defaultActionVerdict = const SdkOmitted(),
-      this.defaultActionRendered = const SdkOmitted(),
-      this.defaultActionReason = const SdkOmitted(),
-      this.verdicts = const SdkOmitted()});
+  const ValidationResult({this.agent = const SdkOmitted(), this.version = const SdkOmitted(), this.ok = const SdkOmitted(), this.defaultAction = const SdkOmitted(), this.defaultActionVerdict = const SdkOmitted(), this.defaultActionRendered = const SdkOmitted(), this.defaultActionReason = const SdkOmitted(), this.verdicts = const SdkOmitted()});
 
-  ValidationResult Function(
-      {SdkOptional<String> agent,
-      SdkOptional<String> version,
-      SdkOptional<bool> ok,
-      SdkOptional<ValidationResultDefaultAction> defaultAction,
-      SdkOptional<ValidationResultDefaultActionVerdict> defaultActionVerdict,
-      SdkOptional<ValidationResultDefaultActionRendered> defaultActionRendered,
-      SdkOptional<String> defaultActionReason,
-      SdkOptional<List<RuleVerdict>> verdicts}) get copyWith => _copyWith;
+  ValidationResult Function({SdkOptional<String> agent, SdkOptional<String> version, SdkOptional<bool> ok, SdkOptional<ValidationResultDefaultAction> defaultAction, SdkOptional<ValidationResultDefaultActionVerdict> defaultActionVerdict, SdkOptional<ValidationResultDefaultActionRendered> defaultActionRendered, SdkOptional<String> defaultActionReason, SdkOptional<List<RuleVerdict>> verdicts}) get copyWith => _copyWith;
 
-  ValidationResult _copyWith(
-          {Object? agent = sdkOmittedValue,
-          Object? version = sdkOmittedValue,
-          Object? ok = sdkOmittedValue,
-          Object? defaultAction = sdkOmittedValue,
-          Object? defaultActionVerdict = sdkOmittedValue,
-          Object? defaultActionRendered = sdkOmittedValue,
-          Object? defaultActionReason = sdkOmittedValue,
-          Object? verdicts = sdkOmittedValue}) =>
-      ValidationResult(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<String>,
-        version: identical(version, sdkOmittedValue)
-            ? this.version
-            : version as SdkOptional<String>,
-        ok: identical(ok, sdkOmittedValue) ? this.ok : ok as SdkOptional<bool>,
-        defaultAction: identical(defaultAction, sdkOmittedValue)
-            ? this.defaultAction
-            : defaultAction as SdkOptional<ValidationResultDefaultAction>,
-        defaultActionVerdict: identical(defaultActionVerdict, sdkOmittedValue)
-            ? this.defaultActionVerdict
-            : defaultActionVerdict
-                as SdkOptional<ValidationResultDefaultActionVerdict>,
-        defaultActionRendered: identical(defaultActionRendered, sdkOmittedValue)
-            ? this.defaultActionRendered
-            : defaultActionRendered
-                as SdkOptional<ValidationResultDefaultActionRendered>,
-        defaultActionReason: identical(defaultActionReason, sdkOmittedValue)
-            ? this.defaultActionReason
-            : defaultActionReason as SdkOptional<String>,
-        verdicts: identical(verdicts, sdkOmittedValue)
-            ? this.verdicts
-            : verdicts as SdkOptional<List<RuleVerdict>>,
-      );
+  ValidationResult _copyWith({Object? agent = sdkOmittedValue, Object? version = sdkOmittedValue, Object? ok = sdkOmittedValue, Object? defaultAction = sdkOmittedValue, Object? defaultActionVerdict = sdkOmittedValue, Object? defaultActionRendered = sdkOmittedValue, Object? defaultActionReason = sdkOmittedValue, Object? verdicts = sdkOmittedValue}) => ValidationResult(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<String>,
+    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
+    ok: identical(ok, sdkOmittedValue) ? this.ok : ok as SdkOptional<bool>,
+    defaultAction: identical(defaultAction, sdkOmittedValue) ? this.defaultAction : defaultAction as SdkOptional<ValidationResultDefaultAction>,
+    defaultActionVerdict: identical(defaultActionVerdict, sdkOmittedValue) ? this.defaultActionVerdict : defaultActionVerdict as SdkOptional<ValidationResultDefaultActionVerdict>,
+    defaultActionRendered: identical(defaultActionRendered, sdkOmittedValue) ? this.defaultActionRendered : defaultActionRendered as SdkOptional<ValidationResultDefaultActionRendered>,
+    defaultActionReason: identical(defaultActionReason, sdkOmittedValue) ? this.defaultActionReason : defaultActionReason as SdkOptional<String>,
+    verdicts: identical(verdicts, sdkOmittedValue) ? this.verdicts : verdicts as SdkOptional<List<RuleVerdict>>,
+  );
 
-  factory ValidationResult.fromJson(Map<String, dynamic> json) =>
-      ValidationResult(
-        agent: json['agent'] != null
-            ? SdkPresent((json['agent'] as String?)!)
-            : const SdkOmitted(),
-        version: json['version'] != null
-            ? SdkPresent((json['version'] as String?)!)
-            : const SdkOmitted(),
-        ok: json['ok'] != null
-            ? SdkPresent((json['ok'] as bool?)!)
-            : const SdkOmitted(),
-        defaultAction: json['defaultAction'] != null
-            ? SdkPresent((json['defaultAction'] != null
-                ? ValidationResultDefaultAction.fromJson(
-                    json['defaultAction'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        defaultActionVerdict: json['defaultActionVerdict'] != null
-            ? SdkPresent((json['defaultActionVerdict'] != null
-                ? ValidationResultDefaultActionVerdict.fromJson(
-                    json['defaultActionVerdict'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        defaultActionRendered: json['defaultActionRendered'] != null
-            ? SdkPresent((json['defaultActionRendered'] != null
-                ? ValidationResultDefaultActionRendered.fromJson(
-                    json['defaultActionRendered'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        defaultActionReason: json['defaultActionReason'] != null
-            ? SdkPresent((json['defaultActionReason'] as String?)!)
-            : const SdkOmitted(),
-        verdicts: json['verdicts'] != null
-            ? SdkPresent(((json['verdicts'] as List?)
-                ?.map((e) => RuleVerdict.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ValidationResult.fromJson(Map<String, dynamic> json) => ValidationResult(
+    agent: json['agent'] != null ? SdkPresent((json['agent'] as String?)!) : const SdkOmitted(),
+    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
+    ok: json['ok'] != null ? SdkPresent((json['ok'] as bool?)!) : const SdkOmitted(),
+    defaultAction: json['defaultAction'] != null ? SdkPresent((json['defaultAction'] != null ? ValidationResultDefaultAction.fromJson(json['defaultAction'] as String) : null)!) : const SdkOmitted(),
+    defaultActionVerdict: json['defaultActionVerdict'] != null ? SdkPresent((json['defaultActionVerdict'] != null ? ValidationResultDefaultActionVerdict.fromJson(json['defaultActionVerdict'] as String) : null)!) : const SdkOmitted(),
+    defaultActionRendered: json['defaultActionRendered'] != null ? SdkPresent((json['defaultActionRendered'] != null ? ValidationResultDefaultActionRendered.fromJson(json['defaultActionRendered'] as String) : null)!) : const SdkOmitted(),
+    defaultActionReason: json['defaultActionReason'] != null ? SdkPresent((json['defaultActionReason'] as String?)!) : const SdkOmitted(),
+    verdicts: json['verdicts'] != null ? SdkPresent(((json['verdicts'] as List?)?.map((e) => RuleVerdict.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<String>(value: final value) => {
-              'agent': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (version) {
-          SdkPresent<String>(value: final value) => {
-              'version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ok) {
-          SdkPresent<bool>(value: final value) => {
-              'ok': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultAction) {
-          SdkPresent<ValidationResultDefaultAction>(value: final value) => {
-              'defaultAction': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultActionVerdict) {
-          SdkPresent<ValidationResultDefaultActionVerdict>(
-            value: final value
-          ) =>
-            {
-              'defaultActionVerdict': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultActionRendered) {
-          SdkPresent<ValidationResultDefaultActionRendered>(
-            value: final value
-          ) =>
-            {
-              'defaultActionRendered': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultActionReason) {
-          SdkPresent<String>(value: final value) => {
-              'defaultActionReason': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (verdicts) {
-          SdkPresent<List<RuleVerdict>>(value: final value) => {
-              'verdicts': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<String>(value: final value) => {'agent': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (version) {
+      SdkPresent<String>(value: final value) => {'version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ok) {
+      SdkPresent<bool>(value: final value) => {'ok': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultAction) {
+      SdkPresent<ValidationResultDefaultAction>(value: final value) => {'defaultAction': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultActionVerdict) {
+      SdkPresent<ValidationResultDefaultActionVerdict>(value: final value) => {'defaultActionVerdict': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultActionRendered) {
+      SdkPresent<ValidationResultDefaultActionRendered>(value: final value) => {'defaultActionRendered': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultActionReason) {
+      SdkPresent<String>(value: final value) => {'defaultActionReason': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (verdicts) {
+      SdkPresent<List<RuleVerdict>>(value: final value) => {'verdicts': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

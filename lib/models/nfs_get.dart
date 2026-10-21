@@ -8,35 +8,25 @@ part of 'nfs.dart';
 class NfsGetResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `share` wire field.
   final SdkOptional<NfsResponse> share;
 
   const NfsGetResponse({this.share = const SdkOmitted()});
 
-  NfsGetResponse Function({SdkOptional<NfsResponse> share}) get copyWith =>
-      _copyWith;
+  NfsGetResponse Function({SdkOptional<NfsResponse> share}) get copyWith => _copyWith;
 
   NfsGetResponse _copyWith({Object? share = sdkOmittedValue}) => NfsGetResponse(
-        share: identical(share, sdkOmittedValue)
-            ? this.share
-            : share as SdkOptional<NfsResponse>,
-      );
+    share: identical(share, sdkOmittedValue) ? this.share : share as SdkOptional<NfsResponse>,
+  );
 
   factory NfsGetResponse.fromJson(Map<String, dynamic> json) => NfsGetResponse(
-        share: json['share'] != null
-            ? SdkPresent((json['share'] != null
-                ? NfsResponse.fromJson(json['share'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    share: json['share'] != null ? SdkPresent((json['share'] != null ? NfsResponse.fromJson(json['share'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (share) {
-          SdkPresent<NfsResponse>(value: final value) => {
-              'share': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (share) {
+      SdkPresent<NfsResponse>(value: final value) => {'share': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

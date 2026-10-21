@@ -9,472 +9,245 @@ sealed class CreateResponseRequestInput {
   static const String constructionSurface = 'named';
   const CreateResponseRequestInput();
   factory CreateResponseRequestInput.fromJson(Object? json) {
-    if (json is String) {
-      return CreateResponseRequestInputString(json);
-    }
-    if (json is List) {
-      return CreateResponseRequestInputListMapStringdynamic(
-          json.map((e) => e).toList().cast<Map<String, dynamic>>());
-    }
+    if (json is String) { return CreateResponseRequestInputString(json); }
+    if (json is List) { return CreateResponseRequestInputListMapStringdynamic(json.map((e) => e).toList().cast<Map<String, dynamic>>()); }
     throw FormatException("No variant matched for CreateResponseRequestInput");
   }
   Object? toJson();
 }
 
-final class CreateResponseRequestInputString
-    extends CreateResponseRequestInput {
+final class CreateResponseRequestInputString extends CreateResponseRequestInput {
   final String value;
   const CreateResponseRequestInputString(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
-final class CreateResponseRequestInputListMapStringdynamic
-    extends CreateResponseRequestInput {
+final class CreateResponseRequestInputListMapStringdynamic extends CreateResponseRequestInput {
   final List<Map<String, dynamic>> value;
   const CreateResponseRequestInputListMapStringdynamic(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 /// Options for streaming response. Only set this when you set stream to true.
 class CreateResponseRequestStreamOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// If set, an additional chunk will be streamed before the data: [DONE] message with token usage statistics for the entire request.
   final SdkOptional<bool> includeUsage;
 
-  const CreateResponseRequestStreamOptions(
-      {this.includeUsage = const SdkOmitted()});
+  const CreateResponseRequestStreamOptions({this.includeUsage = const SdkOmitted()});
 
-  CreateResponseRequestStreamOptions Function({SdkOptional<bool> includeUsage})
-      get copyWith => _copyWith;
+  CreateResponseRequestStreamOptions Function({SdkOptional<bool> includeUsage}) get copyWith => _copyWith;
 
-  CreateResponseRequestStreamOptions _copyWith(
-          {Object? includeUsage = sdkOmittedValue}) =>
-      CreateResponseRequestStreamOptions(
-        includeUsage: identical(includeUsage, sdkOmittedValue)
-            ? this.includeUsage
-            : includeUsage as SdkOptional<bool>,
-      );
+  CreateResponseRequestStreamOptions _copyWith({Object? includeUsage = sdkOmittedValue}) => CreateResponseRequestStreamOptions(
+    includeUsage: identical(includeUsage, sdkOmittedValue) ? this.includeUsage : includeUsage as SdkOptional<bool>,
+  );
 
-  factory CreateResponseRequestStreamOptions.fromJson(
-          Map<String, dynamic> json) =>
-      CreateResponseRequestStreamOptions(
-        includeUsage: json['include_usage'] != null
-            ? SdkPresent((json['include_usage'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateResponseRequestStreamOptions.fromJson(Map<String, dynamic> json) => CreateResponseRequestStreamOptions(
+    includeUsage: json['include_usage'] != null ? SdkPresent((json['include_usage'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (includeUsage) {
-          SdkPresent<bool>(value: final value) => {
-              'include_usage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (includeUsage) {
+      SdkPresent<bool>(value: final value) => {'include_usage': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `input[]` wire field.
 class CreateResponseRequestInputVariant1Item {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The role of the message author.
   final SdkOptional<CreateResponseRequestInputVariant1ItemRole> role;
-
   /// The content of the message.
   final String content;
 
-  const CreateResponseRequestInputVariant1Item(
-      {this.role = const SdkOmitted(), required this.content});
+  const CreateResponseRequestInputVariant1Item({this.role = const SdkOmitted(), required this.content});
 
-  CreateResponseRequestInputVariant1Item Function(
-      {SdkOptional<CreateResponseRequestInputVariant1ItemRole> role,
-      String content}) get copyWith => _copyWith;
+  CreateResponseRequestInputVariant1Item Function({SdkOptional<CreateResponseRequestInputVariant1ItemRole> role, String content}) get copyWith => _copyWith;
 
-  CreateResponseRequestInputVariant1Item _copyWith(
-          {Object? role = sdkOmittedValue,
-          Object? content = sdkOmittedValue}) =>
-      CreateResponseRequestInputVariant1Item(
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as SdkOptional<CreateResponseRequestInputVariant1ItemRole>,
-        content: identical(content, sdkOmittedValue)
-            ? this.content
-            : content as String,
-      );
+  CreateResponseRequestInputVariant1Item _copyWith({Object? role = sdkOmittedValue, Object? content = sdkOmittedValue}) => CreateResponseRequestInputVariant1Item(
+    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<CreateResponseRequestInputVariant1ItemRole>,
+    content: identical(content, sdkOmittedValue) ? this.content : content as String,
+  );
 
-  factory CreateResponseRequestInputVariant1Item.fromJson(
-          Map<String, dynamic> json) =>
-      CreateResponseRequestInputVariant1Item(
-        role: json['role'] != null
-            ? SdkPresent((json['role'] != null
-                ? CreateResponseRequestInputVariant1ItemRole.fromJson(
-                    json['role'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        content: (json['content'] as String?)!,
-      );
+  factory CreateResponseRequestInputVariant1Item.fromJson(Map<String, dynamic> json) => CreateResponseRequestInputVariant1Item(
+    role: json['role'] != null ? SdkPresent((json['role'] != null ? CreateResponseRequestInputVariant1ItemRole.fromJson(json['role'] as String) : null)!) : const SdkOmitted(),
+    content: (json['content'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (role) {
-          SdkPresent<CreateResponseRequestInputVariant1ItemRole>(
-            value: final value
-          ) =>
-            {
-              'role': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'content': content,
-      };
+    ...switch (role) {
+      SdkPresent<CreateResponseRequestInputVariant1ItemRole>(value: final value) => {'role': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'content': content,
+  };
 }
 
 /// Required object value serialized in the `tools[]` wire field.
 class CreateResponseRequestToolsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the tool.
   final CreateResponseRequestToolsItemType type_;
-
   /// The name of the function to be called.
   final SdkOptional<String> name;
-
   /// A description of what the function does.
   final SdkOptional<String> description;
-
   /// The parameters the function accepts, described as a JSON Schema object.
   final SdkOptional<Map<String, Object?>> parameters;
 
-  const CreateResponseRequestToolsItem(
-      {required this.type_,
-      this.name = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.parameters = const SdkOmitted()});
+  const CreateResponseRequestToolsItem({required this.type_, this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.parameters = const SdkOmitted()});
 
-  CreateResponseRequestToolsItem Function(
-      {CreateResponseRequestToolsItemType type_,
-      SdkOptional<String> name,
-      SdkOptional<String> description,
-      SdkOptional<Map<String, Object?>> parameters}) get copyWith => _copyWith;
+  CreateResponseRequestToolsItem Function({CreateResponseRequestToolsItemType type_, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<Map<String, Object?>> parameters}) get copyWith => _copyWith;
 
-  CreateResponseRequestToolsItem _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? parameters = sdkOmittedValue}) =>
-      CreateResponseRequestToolsItem(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as CreateResponseRequestToolsItemType,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        parameters: identical(parameters, sdkOmittedValue)
-            ? this.parameters
-            : parameters as SdkOptional<Map<String, Object?>>,
-      );
+  CreateResponseRequestToolsItem _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? parameters = sdkOmittedValue}) => CreateResponseRequestToolsItem(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateResponseRequestToolsItemType,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as SdkOptional<Map<String, Object?>>,
+  );
 
-  factory CreateResponseRequestToolsItem.fromJson(Map<String, dynamic> json) =>
-      CreateResponseRequestToolsItem(
-        type_: (json['type'] != null
-            ? CreateResponseRequestToolsItemType.fromJson(
-                json['type'] as String)
-            : null)!,
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        parameters: json['parameters'] != null
-            ? SdkPresent((json['parameters'] == null
-                ? null
-                : Map<String, dynamic>.from(json['parameters'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-      );
+  factory CreateResponseRequestToolsItem.fromJson(Map<String, dynamic> json) => CreateResponseRequestToolsItem(
+    type_: (json['type'] != null ? CreateResponseRequestToolsItemType.fromJson(json['type'] as String) : null)!,
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    parameters: json['parameters'] != null ? SdkPresent((json['parameters'] == null ? null : Map<String, dynamic>.from(json['parameters'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_.toJson(),
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (parameters) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'parameters': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'type': type_.toJson(),
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (parameters) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'parameters': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Request body for sending a prompt to a model using the Responses API.
 class CreateResponseRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The model ID of the model you want to use. Get the model ID using `/v1/models` or on the available models page.
   final String model;
-
   /// The prompt or input content you want the model to respond to. Can be a simple text string or an array of message objects for conversation context.
   final dynamic input;
-
   /// The maximum number of tokens to generate in the response.
   final SdkOptional<int?> maxOutputTokens;
-
   /// A value between 0.0 and 2.0 to control randomness and creativity. Lower values like 0.2 make the output more focused and deterministic, while higher values like 0.8 make it more random.
   final SdkOptional<double?> temperature;
-
   /// Set to true to stream partial responses as Server-Sent Events.
   final SdkOptional<bool?> stream;
-
   /// System-level instructions for the model. This sets the behavior and context for the response generation.
   final SdkOptional<String?> instructions;
-
   /// An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass.
   final SdkOptional<double?> topP;
-
   /// Options for streaming response. Only set this when you set stream to true.
   final SdkOptional<CreateResponseRequestStreamOptions?> streamOptions;
-
   /// A list of tools the model may call.
   final SdkOptional<List<CreateResponseRequestToolsItem>?> tools;
-
   /// Controls which (if any) tool is called by the model.
   final SdkOptional<CreateResponseRequestToolChoice> toolChoice;
-
   /// Up to 4 sequences where the API will stop generating further tokens.
   final SdkOptional<List<String>?> stop;
-
   /// Set of key-value pairs that can be attached to the request.
   final SdkOptional<Map<String, String>?> metadata;
-
   /// A unique identifier representing your end-user.
   final SdkOptional<String?> user;
 
-  const CreateResponseRequest(
-      {required this.model,
-      required this.input,
-      this.maxOutputTokens = const SdkOmitted(),
-      this.temperature = const SdkOmitted(),
-      this.stream = const SdkOmitted(),
-      this.instructions = const SdkOmitted(),
-      this.topP = const SdkOmitted(),
-      this.streamOptions = const SdkOmitted(),
-      this.tools = const SdkOmitted(),
-      this.toolChoice = const SdkOmitted(),
-      this.stop = const SdkOmitted(),
-      this.metadata = const SdkOmitted(),
-      this.user = const SdkOmitted()});
+  const CreateResponseRequest({required this.model, required this.input, this.maxOutputTokens = const SdkOmitted(), this.temperature = const SdkOmitted(), this.stream = const SdkOmitted(), this.instructions = const SdkOmitted(), this.topP = const SdkOmitted(), this.streamOptions = const SdkOmitted(), this.tools = const SdkOmitted(), this.toolChoice = const SdkOmitted(), this.stop = const SdkOmitted(), this.metadata = const SdkOmitted(), this.user = const SdkOmitted()});
 
-  CreateResponseRequest Function(
-      {String model,
-      dynamic input,
-      SdkOptional<int?> maxOutputTokens,
-      SdkOptional<double?> temperature,
-      SdkOptional<bool?> stream,
-      SdkOptional<String?> instructions,
-      SdkOptional<double?> topP,
-      SdkOptional<CreateResponseRequestStreamOptions?> streamOptions,
-      SdkOptional<List<CreateResponseRequestToolsItem>?> tools,
-      SdkOptional<CreateResponseRequestToolChoice> toolChoice,
-      SdkOptional<List<String>?> stop,
-      SdkOptional<Map<String, String>?> metadata,
-      SdkOptional<String?> user}) get copyWith => _copyWith;
+  CreateResponseRequest Function({String model, dynamic input, SdkOptional<int?> maxOutputTokens, SdkOptional<double?> temperature, SdkOptional<bool?> stream, SdkOptional<String?> instructions, SdkOptional<double?> topP, SdkOptional<CreateResponseRequestStreamOptions?> streamOptions, SdkOptional<List<CreateResponseRequestToolsItem>?> tools, SdkOptional<CreateResponseRequestToolChoice> toolChoice, SdkOptional<List<String>?> stop, SdkOptional<Map<String, String>?> metadata, SdkOptional<String?> user}) get copyWith => _copyWith;
 
-  CreateResponseRequest _copyWith(
-          {Object? model = sdkOmittedValue,
-          Object? input = sdkOmittedValue,
-          Object? maxOutputTokens = sdkOmittedValue,
-          Object? temperature = sdkOmittedValue,
-          Object? stream = sdkOmittedValue,
-          Object? instructions = sdkOmittedValue,
-          Object? topP = sdkOmittedValue,
-          Object? streamOptions = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? toolChoice = sdkOmittedValue,
-          Object? stop = sdkOmittedValue,
-          Object? metadata = sdkOmittedValue,
-          Object? user = sdkOmittedValue}) =>
-      CreateResponseRequest(
-        model: identical(model, sdkOmittedValue) ? this.model : model as String,
-        input:
-            identical(input, sdkOmittedValue) ? this.input : input as dynamic,
-        maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue)
-            ? this.maxOutputTokens
-            : maxOutputTokens as SdkOptional<int?>,
-        temperature: identical(temperature, sdkOmittedValue)
-            ? this.temperature
-            : temperature as SdkOptional<double?>,
-        stream: identical(stream, sdkOmittedValue)
-            ? this.stream
-            : stream as SdkOptional<bool?>,
-        instructions: identical(instructions, sdkOmittedValue)
-            ? this.instructions
-            : instructions as SdkOptional<String?>,
-        topP: identical(topP, sdkOmittedValue)
-            ? this.topP
-            : topP as SdkOptional<double?>,
-        streamOptions: identical(streamOptions, sdkOmittedValue)
-            ? this.streamOptions
-            : streamOptions as SdkOptional<CreateResponseRequestStreamOptions?>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<CreateResponseRequestToolsItem>?>,
-        toolChoice: identical(toolChoice, sdkOmittedValue)
-            ? this.toolChoice
-            : toolChoice as SdkOptional<CreateResponseRequestToolChoice>,
-        stop: identical(stop, sdkOmittedValue)
-            ? this.stop
-            : stop as SdkOptional<List<String>?>,
-        metadata: identical(metadata, sdkOmittedValue)
-            ? this.metadata
-            : metadata as SdkOptional<Map<String, String>?>,
-        user: identical(user, sdkOmittedValue)
-            ? this.user
-            : user as SdkOptional<String?>,
-      );
+  CreateResponseRequest _copyWith({Object? model = sdkOmittedValue, Object? input = sdkOmittedValue, Object? maxOutputTokens = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? stream = sdkOmittedValue, Object? instructions = sdkOmittedValue, Object? topP = sdkOmittedValue, Object? streamOptions = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? toolChoice = sdkOmittedValue, Object? stop = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? user = sdkOmittedValue}) => CreateResponseRequest(
+    model: identical(model, sdkOmittedValue) ? this.model : model as String,
+    input: identical(input, sdkOmittedValue) ? this.input : input as dynamic,
+    maxOutputTokens: identical(maxOutputTokens, sdkOmittedValue) ? this.maxOutputTokens : maxOutputTokens as SdkOptional<int?>,
+    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as SdkOptional<double?>,
+    stream: identical(stream, sdkOmittedValue) ? this.stream : stream as SdkOptional<bool?>,
+    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String?>,
+    topP: identical(topP, sdkOmittedValue) ? this.topP : topP as SdkOptional<double?>,
+    streamOptions: identical(streamOptions, sdkOmittedValue) ? this.streamOptions : streamOptions as SdkOptional<CreateResponseRequestStreamOptions?>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<CreateResponseRequestToolsItem>?>,
+    toolChoice: identical(toolChoice, sdkOmittedValue) ? this.toolChoice : toolChoice as SdkOptional<CreateResponseRequestToolChoice>,
+    stop: identical(stop, sdkOmittedValue) ? this.stop : stop as SdkOptional<List<String>?>,
+    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, String>?>,
+    user: identical(user, sdkOmittedValue) ? this.user : user as SdkOptional<String?>,
+  );
 
-  factory CreateResponseRequest.fromJson(Map<String, dynamic> json) =>
-      CreateResponseRequest(
-        model: (json['model'] as String?)!,
-        input: (json['input'])!,
-        maxOutputTokens: json.containsKey('max_output_tokens')
-            ? SdkPresent((json['max_output_tokens'] as num?)?.toInt())
-            : const SdkOmitted(),
-        temperature: json.containsKey('temperature')
-            ? SdkPresent((json['temperature'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        stream: json.containsKey('stream')
-            ? SdkPresent(json['stream'] as bool?)
-            : const SdkOmitted(),
-        instructions: json.containsKey('instructions')
-            ? SdkPresent(json['instructions'] as String?)
-            : const SdkOmitted(),
-        topP: json.containsKey('top_p')
-            ? SdkPresent((json['top_p'] as num?)?.toDouble())
-            : const SdkOmitted(),
-        streamOptions: json.containsKey('stream_options')
-            ? SdkPresent(json['stream_options'] != null
-                ? CreateResponseRequestStreamOptions.fromJson(
-                    json['stream_options'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        tools: json.containsKey('tools')
-            ? SdkPresent((json['tools'] as List?)
-                ?.map((e) => CreateResponseRequestToolsItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        toolChoice: json['tool_choice'] != null
-            ? SdkPresent((json['tool_choice'] != null
-                ? CreateResponseRequestToolChoice.fromJson(json['tool_choice'])
-                : null)!)
-            : const SdkOmitted(),
-        stop: json.containsKey('stop')
-            ? SdkPresent(
-                (json['stop'] as List?)?.map((e) => e as String).toList())
-            : const SdkOmitted(),
-        metadata: json.containsKey('metadata')
-            ? SdkPresent(json['metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))
-            : const SdkOmitted(),
-        user: json.containsKey('user')
-            ? SdkPresent(json['user'] as String?)
-            : const SdkOmitted(),
-      );
+  factory CreateResponseRequest.fromJson(Map<String, dynamic> json) => CreateResponseRequest(
+    model: (json['model'] as String?)!,
+    input: (json['input'])!,
+    maxOutputTokens: json.containsKey('max_output_tokens') ? SdkPresent((json['max_output_tokens'] as num?)?.toInt()) : const SdkOmitted(),
+    temperature: json.containsKey('temperature') ? SdkPresent((json['temperature'] as num?)?.toDouble()) : const SdkOmitted(),
+    stream: json.containsKey('stream') ? SdkPresent(json['stream'] as bool?) : const SdkOmitted(),
+    instructions: json.containsKey('instructions') ? SdkPresent(json['instructions'] as String?) : const SdkOmitted(),
+    topP: json.containsKey('top_p') ? SdkPresent((json['top_p'] as num?)?.toDouble()) : const SdkOmitted(),
+    streamOptions: json.containsKey('stream_options') ? SdkPresent(json['stream_options'] != null ? CreateResponseRequestStreamOptions.fromJson(json['stream_options'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    tools: json.containsKey('tools') ? SdkPresent((json['tools'] as List?)?.map((e) => CreateResponseRequestToolsItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    toolChoice: json['tool_choice'] != null ? SdkPresent((json['tool_choice'] != null ? CreateResponseRequestToolChoice.fromJson(json['tool_choice']) : null)!) : const SdkOmitted(),
+    stop: json.containsKey('stop') ? SdkPresent((json['stop'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String))) : const SdkOmitted(),
+    user: json.containsKey('user') ? SdkPresent(json['user'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'model': model,
-        'input': input,
-        ...switch (maxOutputTokens) {
-          SdkPresent<int?>(value: final value) => {
-              'max_output_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (temperature) {
-          SdkPresent<double?>(value: final value) => {
-              'temperature': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (stream) {
-          SdkPresent<bool?>(value: final value) => {
-              'stream': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (instructions) {
-          SdkPresent<String?>(value: final value) => {
-              'instructions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (topP) {
-          SdkPresent<double?>(value: final value) => {
-              'top_p': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (streamOptions) {
-          SdkPresent<CreateResponseRequestStreamOptions?>(value: final value) =>
-            {
-              'stream_options': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tools) {
-          SdkPresent<List<CreateResponseRequestToolsItem>?>(
-            value: final value
-          ) =>
-            {
-              'tools': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (toolChoice) {
-          SdkPresent<CreateResponseRequestToolChoice>(value: final value) => {
-              'tool_choice': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (stop) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'stop': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metadata) {
-          SdkPresent<Map<String, String>?>(value: final value) => {
-              'metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (user) {
-          SdkPresent<String?>(value: final value) => {
-              'user': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'model': model,
+    'input': input,
+    ...switch (maxOutputTokens) {
+      SdkPresent<int?>(value: final value) => {'max_output_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (temperature) {
+      SdkPresent<double?>(value: final value) => {'temperature': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (stream) {
+      SdkPresent<bool?>(value: final value) => {'stream': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (instructions) {
+      SdkPresent<String?>(value: final value) => {'instructions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (topP) {
+      SdkPresent<double?>(value: final value) => {'top_p': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (streamOptions) {
+      SdkPresent<CreateResponseRequestStreamOptions?>(value: final value) => {'stream_options': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tools) {
+      SdkPresent<List<CreateResponseRequestToolsItem>?>(value: final value) => {'tools': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (toolChoice) {
+      SdkPresent<CreateResponseRequestToolChoice>(value: final value) => {'tool_choice': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (stop) {
+      SdkPresent<List<String>?>(value: final value) => {'stop': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metadata) {
+      SdkPresent<Map<String, String>?>(value: final value) => {'metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (user) {
+      SdkPresent<String?>(value: final value) => {'user': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

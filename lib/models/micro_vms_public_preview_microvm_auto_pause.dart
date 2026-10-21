@@ -8,55 +8,33 @@ part of 'micro_vms_public_preview.dart';
 class MicrovmAutoPause {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether auto-pause is on. Always `true`.
   final SdkOptional<bool> enabled;
-
   /// How long the MicroVM is idle before it pauses, as a duration such as `30s`, `5m`, or `1h`. Defaults to `5m`. The maximum is `4h`. Responses show the duration in the form `5m0s`.
   final SdkOptional<String> idleTimeout;
 
-  const MicrovmAutoPause(
-      {this.enabled = const SdkOmitted(),
-      this.idleTimeout = const SdkOmitted()});
+  const MicrovmAutoPause({this.enabled = const SdkOmitted(), this.idleTimeout = const SdkOmitted()});
 
-  MicrovmAutoPause Function(
-      {SdkOptional<bool> enabled,
-      SdkOptional<String> idleTimeout}) get copyWith => _copyWith;
+  MicrovmAutoPause Function({SdkOptional<bool> enabled, SdkOptional<String> idleTimeout}) get copyWith => _copyWith;
 
-  MicrovmAutoPause _copyWith(
-          {Object? enabled = sdkOmittedValue,
-          Object? idleTimeout = sdkOmittedValue}) =>
-      MicrovmAutoPause(
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as SdkOptional<bool>,
-        idleTimeout: identical(idleTimeout, sdkOmittedValue)
-            ? this.idleTimeout
-            : idleTimeout as SdkOptional<String>,
-      );
+  MicrovmAutoPause _copyWith({Object? enabled = sdkOmittedValue, Object? idleTimeout = sdkOmittedValue}) => MicrovmAutoPause(
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
+    idleTimeout: identical(idleTimeout, sdkOmittedValue) ? this.idleTimeout : idleTimeout as SdkOptional<String>,
+  );
 
-  factory MicrovmAutoPause.fromJson(Map<String, dynamic> json) =>
-      MicrovmAutoPause(
-        enabled: json['enabled'] != null
-            ? SdkPresent((json['enabled'] as bool?)!)
-            : const SdkOmitted(),
-        idleTimeout: json['idle_timeout'] != null
-            ? SdkPresent((json['idle_timeout'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory MicrovmAutoPause.fromJson(Map<String, dynamic> json) => MicrovmAutoPause(
+    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
+    idleTimeout: json['idle_timeout'] != null ? SdkPresent((json['idle_timeout'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (enabled) {
-          SdkPresent<bool>(value: final value) => {
-              'enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (idleTimeout) {
-          SdkPresent<String>(value: final value) => {
-              'idle_timeout': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (enabled) {
+      SdkPresent<bool>(value: final value) => {'enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (idleTimeout) {
+      SdkPresent<String>(value: final value) => {'idle_timeout': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

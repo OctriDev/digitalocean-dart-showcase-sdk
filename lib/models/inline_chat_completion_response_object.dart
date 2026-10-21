@@ -6,37 +6,33 @@ part of 'inline.dart';
 // Inline operation models
 /// The object type, which is always chat.completion.
 final class ChatCompletionResponseObject {
+
   final String value;
 
   const ChatCompletionResponseObject._(this.value);
 
-  factory ChatCompletionResponseObject.fromJson(String value) =>
-      ChatCompletionResponseObject._(value);
+  factory ChatCompletionResponseObject.fromJson(String value) => ChatCompletionResponseObject._(value);
 
-  static const chatCompletion =
-      ChatCompletionResponseObject._('chat.completion');
+  static const chatCompletion = ChatCompletionResponseObject._('chat.completion');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ChatCompletionResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is ChatCompletionResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The role of the author of this message.
 final class ChatCompletionStreamResponseDeltaRole {
+
   final String value;
 
   const ChatCompletionStreamResponseDeltaRole._(this.value);
 
-  factory ChatCompletionStreamResponseDeltaRole.fromJson(String value) =>
-      ChatCompletionStreamResponseDeltaRole._(value);
+  factory ChatCompletionStreamResponseDeltaRole.fromJson(String value) => ChatCompletionStreamResponseDeltaRole._(value);
 
   static const developer = ChatCompletionStreamResponseDeltaRole._('developer');
   static const user = ChatCompletionStreamResponseDeltaRole._('user');
@@ -44,91 +40,80 @@ final class ChatCompletionStreamResponseDeltaRole {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ChatCompletionStreamResponseDeltaRole && other.value == value;
+  @override bool operator ==(Object other) => other is ChatCompletionStreamResponseDeltaRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the tool. Currently, only function is supported.
 final class ChatCompletionToolType {
+
   final String value;
 
   const ChatCompletionToolType._(this.value);
 
-  factory ChatCompletionToolType.fromJson(String value) =>
-      ChatCompletionToolType._(value);
+  factory ChatCompletionToolType.fromJson(String value) => ChatCompletionToolType._(value);
 
   static const function_ = ChatCompletionToolType._('function');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ChatCompletionToolType && other.value == value;
+  @override bool operator ==(Object other) => other is ChatCompletionToolType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of the tool. Currently, only function is supported.
 final class ChatCompletionToolCallType {
+
   final String value;
 
   const ChatCompletionToolCallType._(this.value);
 
-  factory ChatCompletionToolCallType.fromJson(String value) =>
-      ChatCompletionToolCallType._(value);
+  factory ChatCompletionToolCallType.fromJson(String value) => ChatCompletionToolCallType._(value);
 
   static const function_ = ChatCompletionToolCallType._('function');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ChatCompletionToolCallType && other.value == value;
+  @override bool operator ==(Object other) => other is ChatCompletionToolCallType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `type` wire field.
 final class ChatCompletionToolCallChunkType {
+
   final String value;
 
   const ChatCompletionToolCallChunkType._(this.value);
 
-  factory ChatCompletionToolCallChunkType.fromJson(String value) =>
-      ChatCompletionToolCallChunkType._(value);
+  factory ChatCompletionToolCallChunkType.fromJson(String value) => ChatCompletionToolCallChunkType._(value);
 
   static const function_ = ChatCompletionToolCallChunkType._('function');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ChatCompletionToolCallChunkType && other.value == value;
+  @override bool operator ==(Object other) => other is ChatCompletionToolCallChunkType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The role of the message author.
 final class ChatMessageRole {
+
   final String value;
 
   const ChatMessageRole._(this.value);
@@ -143,54 +128,47 @@ final class ChatMessageRole {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ChatMessageRole && other.value == value;
+  @override bool operator ==(Object other) => other is ChatMessageRole && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The checkpoint's status. You can create MicroVMs from the checkpoint when it is `CHECKPOINT_AVAILABLE`.
 final class Checkpoint2Status {
+
   final String value;
 
   const Checkpoint2Status._(this.value);
 
-  factory Checkpoint2Status.fromJson(String value) =>
-      Checkpoint2Status._(value);
+  factory Checkpoint2Status.fromJson(String value) => Checkpoint2Status._(value);
 
   static const checkpointCreating = Checkpoint2Status._('CHECKPOINT_CREATING');
-  static const checkpointAvailable =
-      Checkpoint2Status._('CHECKPOINT_AVAILABLE');
+  static const checkpointAvailable = Checkpoint2Status._('CHECKPOINT_AVAILABLE');
   static const checkpointFailed = Checkpoint2Status._('CHECKPOINT_FAILED');
   static const checkpointDeleting = Checkpoint2Status._('CHECKPOINT_DELETING');
   static const checkpointDeleted = Checkpoint2Status._('CHECKPOINT_DELETED');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is Checkpoint2Status && other.value == value;
+  @override bool operator ==(Object other) => other is Checkpoint2Status && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `regions[]` wire field.
 final class CheckUpdatableRegionsItem {
+
   final String value;
 
   const CheckUpdatableRegionsItem._(this.value);
 
-  factory CheckUpdatableRegionsItem.fromJson(String value) =>
-      CheckUpdatableRegionsItem._(value);
+  factory CheckUpdatableRegionsItem.fromJson(String value) => CheckUpdatableRegionsItem._(value);
 
   static const usEast = CheckUpdatableRegionsItem._('us_east');
   static const usWest = CheckUpdatableRegionsItem._('us_west');
@@ -199,25 +177,22 @@ final class CheckUpdatableRegionsItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CheckUpdatableRegionsItem && other.value == value;
+  @override bool operator ==(Object other) => other is CheckUpdatableRegionsItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of health check to perform.
 final class CheckUpdatableType {
+
   final String value;
 
   const CheckUpdatableType._(this.value);
 
-  factory CheckUpdatableType.fromJson(String value) =>
-      CheckUpdatableType._(value);
+  factory CheckUpdatableType.fromJson(String value) => CheckUpdatableType._(value);
 
   static const ping = CheckUpdatableType._('ping');
   static const http = CheckUpdatableType._('http');
@@ -225,25 +200,22 @@ final class CheckUpdatableType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CheckUpdatableType && other.value == value;
+  @override bool operator ==(Object other) => other is CheckUpdatableType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A string indicating the current status of the cluster.
 final class ClusterStatusState {
+
   final String value;
 
   const ClusterStatusState._(this.value);
 
-  factory ClusterStatusState.fromJson(String value) =>
-      ClusterStatusState._(value);
+  factory ClusterStatusState.fromJson(String value) => ClusterStatusState._(value);
 
   static const running = ClusterStatusState._('running');
   static const provisioning = ClusterStatusState._('provisioning');
@@ -255,54 +227,45 @@ final class ClusterStatusState {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ClusterStatusState && other.value == value;
+  @override bool operator ==(Object other) => other is ClusterStatusState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `expanders[]` wire field.
 final class ClusterAutoscalerConfigurationExpandersItem {
+
   final String value;
 
   const ClusterAutoscalerConfigurationExpandersItem._(this.value);
 
-  factory ClusterAutoscalerConfigurationExpandersItem.fromJson(String value) =>
-      ClusterAutoscalerConfigurationExpandersItem._(value);
+  factory ClusterAutoscalerConfigurationExpandersItem.fromJson(String value) => ClusterAutoscalerConfigurationExpandersItem._(value);
 
   static const random = ClusterAutoscalerConfigurationExpandersItem._('random');
-  static const priority =
-      ClusterAutoscalerConfigurationExpandersItem._('priority');
-  static const leastWaste =
-      ClusterAutoscalerConfigurationExpandersItem._('least_waste');
+  static const priority = ClusterAutoscalerConfigurationExpandersItem._('priority');
+  static const leastWaste = ClusterAutoscalerConfigurationExpandersItem._('least_waste');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ClusterAutoscalerConfigurationExpandersItem &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ClusterAutoscalerConfigurationExpandersItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// A string indicating the current status of the cluster.
 final class ClusterReadStatusState {
+
   final String value;
 
   const ClusterReadStatusState._(this.value);
 
-  factory ClusterReadStatusState.fromJson(String value) =>
-      ClusterReadStatusState._(value);
+  factory ClusterReadStatusState.fromJson(String value) => ClusterReadStatusState._(value);
 
   static const running = ClusterReadStatusState._('running');
   static const provisioning = ClusterReadStatusState._('provisioning');
@@ -314,13 +277,10 @@ final class ClusterReadStatusState {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ClusterReadStatusState && other.value == value;
+  @override bool operator ==(Object other) => other is ClusterReadStatusState && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

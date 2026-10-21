@@ -8,7 +8,6 @@ part of 'databases_logsink.dart';
 class Logsink {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `sink` wire field.
   final SdkOptional<LogsinkSchema> sink;
 
@@ -17,27 +16,19 @@ class Logsink {
   Logsink Function({SdkOptional<LogsinkSchema> sink}) get copyWith => _copyWith;
 
   Logsink _copyWith({Object? sink = sdkOmittedValue}) => Logsink(
-        sink: identical(sink, sdkOmittedValue)
-            ? this.sink
-            : sink as SdkOptional<LogsinkSchema>,
-      );
+    sink: identical(sink, sdkOmittedValue) ? this.sink : sink as SdkOptional<LogsinkSchema>,
+  );
 
   factory Logsink.fromJson(Map<String, dynamic> json) => Logsink(
-        sink: json['sink'] != null
-            ? SdkPresent((json['sink'] != null
-                ? LogsinkSchema.fromJson(json['sink'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    sink: json['sink'] != null ? SdkPresent((json['sink'] != null ? LogsinkSchema.fromJson(json['sink'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (sink) {
-          SdkPresent<LogsinkSchema>(value: final value) => {
-              'sink': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (sink) {
+      SdkPresent<LogsinkSchema>(value: final value) => {'sink': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class LogsinkSchemaConfig {
@@ -46,47 +37,15 @@ sealed class LogsinkSchemaConfig {
   const LogsinkSchemaConfig();
   factory LogsinkSchemaConfig.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = RsyslogLogsink.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LogsinkSchemaConfigRsyslogLogsink(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ElasticsearchLogsink.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LogsinkSchemaConfigElasticsearchLogsink(value);
-        }
-      } catch (_) {}
-      try {
-        final value = OpensearchLogsink.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LogsinkSchemaConfigOpensearchLogsink(value);
-        }
-      } catch (_) {}
-      try {
-        final value = DatadogLogsink.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LogsinkSchemaConfigDatadogLogsink(value);
-        }
-      } catch (_) {}
+      try { final value = RsyslogLogsink.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LogsinkSchemaConfigRsyslogLogsink(value); } } catch (_) {}
+      try { final value = ElasticsearchLogsink.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LogsinkSchemaConfigElasticsearchLogsink(value); } } catch (_) {}
+      try { final value = OpensearchLogsink.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LogsinkSchemaConfigOpensearchLogsink(value); } } catch (_) {}
+      try { final value = DatadogLogsink.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LogsinkSchemaConfigDatadogLogsink(value); } } catch (_) {}
     }
-    try {
-      return LogsinkSchemaConfigRsyslogLogsink(
-          RsyslogLogsink.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LogsinkSchemaConfigElasticsearchLogsink(
-          ElasticsearchLogsink.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LogsinkSchemaConfigOpensearchLogsink(
-          OpensearchLogsink.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LogsinkSchemaConfigDatadogLogsink(
-          DatadogLogsink.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return LogsinkSchemaConfigRsyslogLogsink(RsyslogLogsink.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LogsinkSchemaConfigElasticsearchLogsink(ElasticsearchLogsink.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LogsinkSchemaConfigOpensearchLogsink(OpensearchLogsink.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LogsinkSchemaConfigDatadogLogsink(DatadogLogsink.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for LogsinkSchemaConfig");
   }
   Object? toJson();
@@ -95,130 +54,88 @@ sealed class LogsinkSchemaConfig {
 final class LogsinkSchemaConfigRsyslogLogsink extends LogsinkSchemaConfig {
   final RsyslogLogsink value;
   const LogsinkSchemaConfigRsyslogLogsink(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class LogsinkSchemaConfigElasticsearchLogsink
-    extends LogsinkSchemaConfig {
+final class LogsinkSchemaConfigElasticsearchLogsink extends LogsinkSchemaConfig {
   final ElasticsearchLogsink value;
   const LogsinkSchemaConfigElasticsearchLogsink(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LogsinkSchemaConfigOpensearchLogsink extends LogsinkSchemaConfig {
   final OpensearchLogsink value;
   const LogsinkSchemaConfigOpensearchLogsink(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LogsinkSchemaConfigDatadogLogsink extends LogsinkSchemaConfig {
   final DatadogLogsink value;
   const LogsinkSchemaConfigDatadogLogsink(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `LogsinkSchema` API schema.
 class LogsinkSchema {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A unique identifier for Logsink
   final String sinkId;
-
   /// The name of the Logsink
   final String sinkName;
-
   /// Optional enumerated value serialized in the `sink_type` wire field.
   final LogsinkSchemaSinkType sinkType;
-
   /// Required API value serialized in the `config` wire field.
   final dynamic config;
 
-  const LogsinkSchema(
-      {required this.sinkId,
-      required this.sinkName,
-      required this.sinkType,
-      required this.config});
+  const LogsinkSchema({required this.sinkId, required this.sinkName, required this.sinkType, required this.config});
 
-  LogsinkSchema Function(
-      {String sinkId,
-      String sinkName,
-      LogsinkSchemaSinkType sinkType,
-      dynamic config}) get copyWith => _copyWith;
+  LogsinkSchema Function({String sinkId, String sinkName, LogsinkSchemaSinkType sinkType, dynamic config}) get copyWith => _copyWith;
 
-  LogsinkSchema _copyWith(
-          {Object? sinkId = sdkOmittedValue,
-          Object? sinkName = sdkOmittedValue,
-          Object? sinkType = sdkOmittedValue,
-          Object? config = sdkOmittedValue}) =>
-      LogsinkSchema(
-        sinkId:
-            identical(sinkId, sdkOmittedValue) ? this.sinkId : sinkId as String,
-        sinkName: identical(sinkName, sdkOmittedValue)
-            ? this.sinkName
-            : sinkName as String,
-        sinkType: identical(sinkType, sdkOmittedValue)
-            ? this.sinkType
-            : sinkType as LogsinkSchemaSinkType,
-        config: identical(config, sdkOmittedValue)
-            ? this.config
-            : config as dynamic,
-      );
+  LogsinkSchema _copyWith({Object? sinkId = sdkOmittedValue, Object? sinkName = sdkOmittedValue, Object? sinkType = sdkOmittedValue, Object? config = sdkOmittedValue}) => LogsinkSchema(
+    sinkId: identical(sinkId, sdkOmittedValue) ? this.sinkId : sinkId as String,
+    sinkName: identical(sinkName, sdkOmittedValue) ? this.sinkName : sinkName as String,
+    sinkType: identical(sinkType, sdkOmittedValue) ? this.sinkType : sinkType as LogsinkSchemaSinkType,
+    config: identical(config, sdkOmittedValue) ? this.config : config as dynamic,
+  );
 
   factory LogsinkSchema.fromJson(Map<String, dynamic> json) => LogsinkSchema(
-        sinkId: (json['sink_id'] as String?)!,
-        sinkName: (json['sink_name'] as String?)!,
-        sinkType: (json['sink_type'] != null
-            ? LogsinkSchemaSinkType.fromJson(json['sink_type'] as String)
-            : null)!,
-        config: (SdkUtils.unionBranch(json['config'], [
-          RsyslogLogsink.fromJson,
-          ElasticsearchLogsink.fromJson,
-          OpensearchLogsink.fromJson,
-          DatadogLogsink.fromJson
-        ]))!,
-      );
+    sinkId: (json['sink_id'] as String?)!,
+    sinkName: (json['sink_name'] as String?)!,
+    sinkType: (json['sink_type'] != null ? LogsinkSchemaSinkType.fromJson(json['sink_type'] as String) : null)!,
+    config: (SdkUtils.unionBranch(json['config'], [RsyslogLogsink.fromJson, ElasticsearchLogsink.fromJson, OpensearchLogsink.fromJson, DatadogLogsink.fromJson]))!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'sink_id': sinkId,
-        'sink_name': sinkName,
-        'sink_type': sinkType.toJson(),
-        'config': config,
-      };
+    'sink_id': sinkId,
+    'sink_name': sinkName,
+    'sink_type': sinkType.toJson(),
+    'config': config,
+  };
 }
 
 /// Typed representation of the `LogsinkUpdate` API schema.
 class LogsinkUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required API value serialized in the `config` wire field.
   final LogsinkUpdateConfig config;
 
   const LogsinkUpdate({required this.config});
 
-  LogsinkUpdate Function({LogsinkUpdateConfig config}) get copyWith =>
-      _copyWith;
+  LogsinkUpdate Function({LogsinkUpdateConfig config}) get copyWith => _copyWith;
 
   LogsinkUpdate _copyWith({Object? config = sdkOmittedValue}) => LogsinkUpdate(
-        config: identical(config, sdkOmittedValue)
-            ? this.config
-            : config as LogsinkUpdateConfig,
-      );
+    config: identical(config, sdkOmittedValue) ? this.config : config as LogsinkUpdateConfig,
+  );
 
   factory LogsinkUpdate.fromJson(Map<String, dynamic> json) => LogsinkUpdate(
-        config: (json['config'] != null
-            ? LogsinkUpdateConfig.fromJson(json['config'])
-            : null)!,
-      );
+    config: (json['config'] != null ? LogsinkUpdateConfig.fromJson(json['config']) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'config': config.toJson(),
-      };
+    'config': config.toJson(),
+  };
 }
 
 sealed class LogsinkUpdateConfig {
@@ -227,47 +144,15 @@ sealed class LogsinkUpdateConfig {
   const LogsinkUpdateConfig();
   factory LogsinkUpdateConfig.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = RsyslogLogsink.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LogsinkUpdateConfigRsyslogLogsink(value);
-        }
-      } catch (_) {}
-      try {
-        final value = ElasticsearchLogsink.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LogsinkUpdateConfigElasticsearchLogsink(value);
-        }
-      } catch (_) {}
-      try {
-        final value = OpensearchLogsink.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LogsinkUpdateConfigOpensearchLogsink(value);
-        }
-      } catch (_) {}
-      try {
-        final value = DatadogLogsink.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return LogsinkUpdateConfigDatadogLogsink(value);
-        }
-      } catch (_) {}
+      try { final value = RsyslogLogsink.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LogsinkUpdateConfigRsyslogLogsink(value); } } catch (_) {}
+      try { final value = ElasticsearchLogsink.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LogsinkUpdateConfigElasticsearchLogsink(value); } } catch (_) {}
+      try { final value = OpensearchLogsink.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LogsinkUpdateConfigOpensearchLogsink(value); } } catch (_) {}
+      try { final value = DatadogLogsink.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return LogsinkUpdateConfigDatadogLogsink(value); } } catch (_) {}
     }
-    try {
-      return LogsinkUpdateConfigRsyslogLogsink(
-          RsyslogLogsink.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LogsinkUpdateConfigElasticsearchLogsink(
-          ElasticsearchLogsink.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LogsinkUpdateConfigOpensearchLogsink(
-          OpensearchLogsink.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return LogsinkUpdateConfigDatadogLogsink(
-          DatadogLogsink.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    try { return LogsinkUpdateConfigRsyslogLogsink(RsyslogLogsink.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LogsinkUpdateConfigElasticsearchLogsink(ElasticsearchLogsink.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LogsinkUpdateConfigOpensearchLogsink(OpensearchLogsink.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return LogsinkUpdateConfigDatadogLogsink(DatadogLogsink.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for LogsinkUpdateConfig");
   }
   Object? toJson();
@@ -276,28 +161,23 @@ sealed class LogsinkUpdateConfig {
 final class LogsinkUpdateConfigRsyslogLogsink extends LogsinkUpdateConfig {
   final RsyslogLogsink value;
   const LogsinkUpdateConfigRsyslogLogsink(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
-final class LogsinkUpdateConfigElasticsearchLogsink
-    extends LogsinkUpdateConfig {
+final class LogsinkUpdateConfigElasticsearchLogsink extends LogsinkUpdateConfig {
   final ElasticsearchLogsink value;
   const LogsinkUpdateConfigElasticsearchLogsink(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LogsinkUpdateConfigOpensearchLogsink extends LogsinkUpdateConfig {
   final OpensearchLogsink value;
   const LogsinkUpdateConfigOpensearchLogsink(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }
 
 final class LogsinkUpdateConfigDatadogLogsink extends LogsinkUpdateConfig {
   final DatadogLogsink value;
   const LogsinkUpdateConfigDatadogLogsink(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

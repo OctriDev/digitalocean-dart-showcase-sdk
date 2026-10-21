@@ -8,74 +8,41 @@ part of 'load_balancers.dart';
 class StickySessions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An attribute indicating how and if requests from a client will be persistently served by the same backend Droplet. The possible values are `cookies` or `none`.
   final SdkOptional<StickySessionsType> type_;
-
   /// The name of the cookie sent to the client. This attribute is only returned when using `cookies` for the sticky sessions type.
   final SdkOptional<String> cookieName;
-
   /// The number of seconds until the cookie set by the load balancer expires. This attribute is only returned when using `cookies` for the sticky sessions type.
   final SdkOptional<int> cookieTtlSeconds;
 
-  const StickySessions(
-      {this.type_ = const SdkOmitted(),
-      this.cookieName = const SdkOmitted(),
-      this.cookieTtlSeconds = const SdkOmitted()});
+  const StickySessions({this.type_ = const SdkOmitted(), this.cookieName = const SdkOmitted(), this.cookieTtlSeconds = const SdkOmitted()});
 
-  StickySessions Function(
-      {SdkOptional<StickySessionsType> type_,
-      SdkOptional<String> cookieName,
-      SdkOptional<int> cookieTtlSeconds}) get copyWith => _copyWith;
+  StickySessions Function({SdkOptional<StickySessionsType> type_, SdkOptional<String> cookieName, SdkOptional<int> cookieTtlSeconds}) get copyWith => _copyWith;
 
-  StickySessions _copyWith(
-          {Object? type_ = sdkOmittedValue,
-          Object? cookieName = sdkOmittedValue,
-          Object? cookieTtlSeconds = sdkOmittedValue}) =>
-      StickySessions(
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<StickySessionsType>,
-        cookieName: identical(cookieName, sdkOmittedValue)
-            ? this.cookieName
-            : cookieName as SdkOptional<String>,
-        cookieTtlSeconds: identical(cookieTtlSeconds, sdkOmittedValue)
-            ? this.cookieTtlSeconds
-            : cookieTtlSeconds as SdkOptional<int>,
-      );
+  StickySessions _copyWith({Object? type_ = sdkOmittedValue, Object? cookieName = sdkOmittedValue, Object? cookieTtlSeconds = sdkOmittedValue}) => StickySessions(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<StickySessionsType>,
+    cookieName: identical(cookieName, sdkOmittedValue) ? this.cookieName : cookieName as SdkOptional<String>,
+    cookieTtlSeconds: identical(cookieTtlSeconds, sdkOmittedValue) ? this.cookieTtlSeconds : cookieTtlSeconds as SdkOptional<int>,
+  );
 
   factory StickySessions.fromJson(Map<String, dynamic> json) => StickySessions(
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? StickySessionsType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        cookieName: json['cookie_name'] != null
-            ? SdkPresent((json['cookie_name'] as String?)!)
-            : const SdkOmitted(),
-        cookieTtlSeconds: json['cookie_ttl_seconds'] != null
-            ? SdkPresent(((json['cookie_ttl_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? StickySessionsType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    cookieName: json['cookie_name'] != null ? SdkPresent((json['cookie_name'] as String?)!) : const SdkOmitted(),
+    cookieTtlSeconds: json['cookie_ttl_seconds'] != null ? SdkPresent(((json['cookie_ttl_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (type_) {
-          SdkPresent<StickySessionsType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cookieName) {
-          SdkPresent<String>(value: final value) => {
-              'cookie_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cookieTtlSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'cookie_ttl_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (type_) {
+      SdkPresent<StickySessionsType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cookieName) {
+      SdkPresent<String>(value: final value) => {'cookie_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cookieTtlSeconds) {
+      SdkPresent<int>(value: final value) => {'cookie_ttl_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

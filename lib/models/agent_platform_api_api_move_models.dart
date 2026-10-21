@@ -8,99 +8,60 @@ part of 'agent_platform_api_api_move.dart';
 class ApiMoveAgentsToWorkspaceInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Agent uuids
   final SdkOptional<List<String>> agentUuids;
-
   /// Workspace uuid to move agents to
   final SdkOptional<String> workspaceUuid;
 
-  const ApiMoveAgentsToWorkspaceInputPublic(
-      {this.agentUuids = const SdkOmitted(),
-      this.workspaceUuid = const SdkOmitted()});
+  const ApiMoveAgentsToWorkspaceInputPublic({this.agentUuids = const SdkOmitted(), this.workspaceUuid = const SdkOmitted()});
 
-  ApiMoveAgentsToWorkspaceInputPublic Function(
-      {SdkOptional<List<String>> agentUuids,
-      SdkOptional<String> workspaceUuid}) get copyWith => _copyWith;
+  ApiMoveAgentsToWorkspaceInputPublic Function({SdkOptional<List<String>> agentUuids, SdkOptional<String> workspaceUuid}) get copyWith => _copyWith;
 
-  ApiMoveAgentsToWorkspaceInputPublic _copyWith(
-          {Object? agentUuids = sdkOmittedValue,
-          Object? workspaceUuid = sdkOmittedValue}) =>
-      ApiMoveAgentsToWorkspaceInputPublic(
-        agentUuids: identical(agentUuids, sdkOmittedValue)
-            ? this.agentUuids
-            : agentUuids as SdkOptional<List<String>>,
-        workspaceUuid: identical(workspaceUuid, sdkOmittedValue)
-            ? this.workspaceUuid
-            : workspaceUuid as SdkOptional<String>,
-      );
+  ApiMoveAgentsToWorkspaceInputPublic _copyWith({Object? agentUuids = sdkOmittedValue, Object? workspaceUuid = sdkOmittedValue}) => ApiMoveAgentsToWorkspaceInputPublic(
+    agentUuids: identical(agentUuids, sdkOmittedValue) ? this.agentUuids : agentUuids as SdkOptional<List<String>>,
+    workspaceUuid: identical(workspaceUuid, sdkOmittedValue) ? this.workspaceUuid : workspaceUuid as SdkOptional<String>,
+  );
 
-  factory ApiMoveAgentsToWorkspaceInputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiMoveAgentsToWorkspaceInputPublic(
-        agentUuids: json['agent_uuids'] != null
-            ? SdkPresent(((json['agent_uuids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        workspaceUuid: json['workspace_uuid'] != null
-            ? SdkPresent((json['workspace_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiMoveAgentsToWorkspaceInputPublic.fromJson(Map<String, dynamic> json) => ApiMoveAgentsToWorkspaceInputPublic(
+    agentUuids: json['agent_uuids'] != null ? SdkPresent(((json['agent_uuids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    workspaceUuid: json['workspace_uuid'] != null ? SdkPresent((json['workspace_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agentUuids) {
-          SdkPresent<List<String>>(value: final value) => {
-              'agent_uuids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (workspaceUuid) {
-          SdkPresent<String>(value: final value) => {
-              'workspace_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agentUuids) {
+      SdkPresent<List<String>>(value: final value) => {'agent_uuids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (workspaceUuid) {
+      SdkPresent<String>(value: final value) => {'workspace_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiMoveAgentsToWorkspaceOutput` API schema.
 class ApiMoveAgentsToWorkspaceOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `workspace` wire field.
   final SdkOptional<ApiWorkspace> workspace;
 
   const ApiMoveAgentsToWorkspaceOutput({this.workspace = const SdkOmitted()});
 
-  ApiMoveAgentsToWorkspaceOutput Function({SdkOptional<ApiWorkspace> workspace})
-      get copyWith => _copyWith;
+  ApiMoveAgentsToWorkspaceOutput Function({SdkOptional<ApiWorkspace> workspace}) get copyWith => _copyWith;
 
-  ApiMoveAgentsToWorkspaceOutput _copyWith(
-          {Object? workspace = sdkOmittedValue}) =>
-      ApiMoveAgentsToWorkspaceOutput(
-        workspace: identical(workspace, sdkOmittedValue)
-            ? this.workspace
-            : workspace as SdkOptional<ApiWorkspace>,
-      );
+  ApiMoveAgentsToWorkspaceOutput _copyWith({Object? workspace = sdkOmittedValue}) => ApiMoveAgentsToWorkspaceOutput(
+    workspace: identical(workspace, sdkOmittedValue) ? this.workspace : workspace as SdkOptional<ApiWorkspace>,
+  );
 
-  factory ApiMoveAgentsToWorkspaceOutput.fromJson(Map<String, dynamic> json) =>
-      ApiMoveAgentsToWorkspaceOutput(
-        workspace: json['workspace'] != null
-            ? SdkPresent((json['workspace'] != null
-                ? ApiWorkspace.fromJson(
-                    json['workspace'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiMoveAgentsToWorkspaceOutput.fromJson(Map<String, dynamic> json) => ApiMoveAgentsToWorkspaceOutput(
+    workspace: json['workspace'] != null ? SdkPresent((json['workspace'] != null ? ApiWorkspace.fromJson(json['workspace'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (workspace) {
-          SdkPresent<ApiWorkspace>(value: final value) => {
-              'workspace': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (workspace) {
+      SdkPresent<ApiWorkspace>(value: final value) => {'workspace': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,95 +8,60 @@ part of 'agent_platform_api_api_update.dart';
 class ApiUpdateModelAPIKeyInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// API key ID
   final SdkOptional<String> apiKeyUuid;
-
   /// Name
   final SdkOptional<String> name;
 
-  const ApiUpdateModelAPIKeyInputPublic(
-      {this.apiKeyUuid = const SdkOmitted(), this.name = const SdkOmitted()});
+  const ApiUpdateModelAPIKeyInputPublic({this.apiKeyUuid = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  ApiUpdateModelAPIKeyInputPublic Function(
-      {SdkOptional<String> apiKeyUuid,
-      SdkOptional<String> name}) get copyWith => _copyWith;
+  ApiUpdateModelAPIKeyInputPublic Function({SdkOptional<String> apiKeyUuid, SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ApiUpdateModelAPIKeyInputPublic _copyWith(
-          {Object? apiKeyUuid = sdkOmittedValue,
-          Object? name = sdkOmittedValue}) =>
-      ApiUpdateModelAPIKeyInputPublic(
-        apiKeyUuid: identical(apiKeyUuid, sdkOmittedValue)
-            ? this.apiKeyUuid
-            : apiKeyUuid as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  ApiUpdateModelAPIKeyInputPublic _copyWith({Object? apiKeyUuid = sdkOmittedValue, Object? name = sdkOmittedValue}) => ApiUpdateModelAPIKeyInputPublic(
+    apiKeyUuid: identical(apiKeyUuid, sdkOmittedValue) ? this.apiKeyUuid : apiKeyUuid as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory ApiUpdateModelAPIKeyInputPublic.fromJson(Map<String, dynamic> json) =>
-      ApiUpdateModelAPIKeyInputPublic(
-        apiKeyUuid: json['api_key_uuid'] != null
-            ? SdkPresent((json['api_key_uuid'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateModelAPIKeyInputPublic.fromJson(Map<String, dynamic> json) => ApiUpdateModelAPIKeyInputPublic(
+    apiKeyUuid: json['api_key_uuid'] != null ? SdkPresent((json['api_key_uuid'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (apiKeyUuid) {
-          SdkPresent<String>(value: final value) => {
-              'api_key_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (apiKeyUuid) {
+      SdkPresent<String>(value: final value) => {'api_key_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiUpdateModelAPIKeyOutput` API schema.
 class ApiUpdateModelAPIKeyOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Model API Key Info
   final SdkOptional<ApiModelAPIKeyInfo> apiKeyInfo;
 
   const ApiUpdateModelAPIKeyOutput({this.apiKeyInfo = const SdkOmitted()});
 
-  ApiUpdateModelAPIKeyOutput Function(
-      {SdkOptional<ApiModelAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
+  ApiUpdateModelAPIKeyOutput Function({SdkOptional<ApiModelAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
 
-  ApiUpdateModelAPIKeyOutput _copyWith(
-          {Object? apiKeyInfo = sdkOmittedValue}) =>
-      ApiUpdateModelAPIKeyOutput(
-        apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue)
-            ? this.apiKeyInfo
-            : apiKeyInfo as SdkOptional<ApiModelAPIKeyInfo>,
-      );
+  ApiUpdateModelAPIKeyOutput _copyWith({Object? apiKeyInfo = sdkOmittedValue}) => ApiUpdateModelAPIKeyOutput(
+    apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue) ? this.apiKeyInfo : apiKeyInfo as SdkOptional<ApiModelAPIKeyInfo>,
+  );
 
-  factory ApiUpdateModelAPIKeyOutput.fromJson(Map<String, dynamic> json) =>
-      ApiUpdateModelAPIKeyOutput(
-        apiKeyInfo: json['api_key_info'] != null
-            ? SdkPresent((json['api_key_info'] != null
-                ? ApiModelAPIKeyInfo.fromJson(
-                    json['api_key_info'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateModelAPIKeyOutput.fromJson(Map<String, dynamic> json) => ApiUpdateModelAPIKeyOutput(
+    apiKeyInfo: json['api_key_info'] != null ? SdkPresent((json['api_key_info'] != null ? ApiModelAPIKeyInfo.fromJson(json['api_key_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (apiKeyInfo) {
-          SdkPresent<ApiModelAPIKeyInfo>(value: final value) => {
-              'api_key_info': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (apiKeyInfo) {
+      SdkPresent<ApiModelAPIKeyInfo>(value: final value) => {'api_key_info': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

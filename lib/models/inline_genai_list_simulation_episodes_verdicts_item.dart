@@ -5,289 +5,220 @@ part of 'inline.dart';
 
 // Inline operation models
 final class GenaiListSimulationEpisodesVerdictsItem {
+
   final String value;
 
   const GenaiListSimulationEpisodesVerdictsItem._(this.value);
 
-  factory GenaiListSimulationEpisodesVerdictsItem.fromJson(String value) =>
-      GenaiListSimulationEpisodesVerdictsItem._(value);
+  factory GenaiListSimulationEpisodesVerdictsItem.fromJson(String value) => GenaiListSimulationEpisodesVerdictsItem._(value);
 
-  static const simulationEpisodeVerdictUnspecified =
-      GenaiListSimulationEpisodesVerdictsItem._(
-          'SIMULATION_EPISODE_VERDICT_UNSPECIFIED');
-  static const simulationEpisodeVerdictSuccess =
-      GenaiListSimulationEpisodesVerdictsItem._(
-          'SIMULATION_EPISODE_VERDICT_SUCCESS');
-  static const simulationEpisodeVerdictFailure =
-      GenaiListSimulationEpisodesVerdictsItem._(
-          'SIMULATION_EPISODE_VERDICT_FAILURE');
-  static const simulationEpisodeVerdictInconclusive =
-      GenaiListSimulationEpisodesVerdictsItem._(
-          'SIMULATION_EPISODE_VERDICT_INCONCLUSIVE');
+  static const simulationEpisodeVerdictUnspecified = GenaiListSimulationEpisodesVerdictsItem._('SIMULATION_EPISODE_VERDICT_UNSPECIFIED');
+  static const simulationEpisodeVerdictSuccess = GenaiListSimulationEpisodesVerdictsItem._('SIMULATION_EPISODE_VERDICT_SUCCESS');
+  static const simulationEpisodeVerdictFailure = GenaiListSimulationEpisodesVerdictsItem._('SIMULATION_EPISODE_VERDICT_FAILURE');
+  static const simulationEpisodeVerdictInconclusive = GenaiListSimulationEpisodesVerdictsItem._('SIMULATION_EPISODE_VERDICT_INCONCLUSIVE');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListSimulationEpisodesVerdictsItem && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListSimulationEpisodesVerdictsItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListSimulationEpisodesSortBy {
+
   final String value;
 
   const GenaiListSimulationEpisodesSortBy._(this.value);
 
-  factory GenaiListSimulationEpisodesSortBy.fromJson(String value) =>
-      GenaiListSimulationEpisodesSortBy._(value);
+  factory GenaiListSimulationEpisodesSortBy.fromJson(String value) => GenaiListSimulationEpisodesSortBy._(value);
 
-  static const simulationEpisodeSortFieldUnspecified =
-      GenaiListSimulationEpisodesSortBy._(
-          'SIMULATION_EPISODE_SORT_FIELD_UNSPECIFIED');
-  static const simulationEpisodeSortFieldScenario =
-      GenaiListSimulationEpisodesSortBy._(
-          'SIMULATION_EPISODE_SORT_FIELD_SCENARIO');
-  static const simulationEpisodeSortFieldCreatedAt =
-      GenaiListSimulationEpisodesSortBy._(
-          'SIMULATION_EPISODE_SORT_FIELD_CREATED_AT');
-  static const simulationEpisodeSortFieldStatus =
-      GenaiListSimulationEpisodesSortBy._(
-          'SIMULATION_EPISODE_SORT_FIELD_STATUS');
-  static const simulationEpisodeSortFieldVerdict =
-      GenaiListSimulationEpisodesSortBy._(
-          'SIMULATION_EPISODE_SORT_FIELD_VERDICT');
+  static const simulationEpisodeSortFieldUnspecified = GenaiListSimulationEpisodesSortBy._('SIMULATION_EPISODE_SORT_FIELD_UNSPECIFIED');
+  static const simulationEpisodeSortFieldScenario = GenaiListSimulationEpisodesSortBy._('SIMULATION_EPISODE_SORT_FIELD_SCENARIO');
+  static const simulationEpisodeSortFieldCreatedAt = GenaiListSimulationEpisodesSortBy._('SIMULATION_EPISODE_SORT_FIELD_CREATED_AT');
+  static const simulationEpisodeSortFieldStatus = GenaiListSimulationEpisodesSortBy._('SIMULATION_EPISODE_SORT_FIELD_STATUS');
+  static const simulationEpisodeSortFieldVerdict = GenaiListSimulationEpisodesSortBy._('SIMULATION_EPISODE_SORT_FIELD_VERDICT');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListSimulationEpisodesSortBy && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListSimulationEpisodesSortBy && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class GenaiListSimulationEpisodesSortDirection {
+
   final String value;
 
   const GenaiListSimulationEpisodesSortDirection._(this.value);
 
-  factory GenaiListSimulationEpisodesSortDirection.fromJson(String value) =>
-      GenaiListSimulationEpisodesSortDirection._(value);
+  factory GenaiListSimulationEpisodesSortDirection.fromJson(String value) => GenaiListSimulationEpisodesSortDirection._(value);
 
-  static const sortDirectionUnspecified =
-      GenaiListSimulationEpisodesSortDirection._('SORT_DIRECTION_UNSPECIFIED');
-  static const sortDirectionAsc =
-      GenaiListSimulationEpisodesSortDirection._('SORT_DIRECTION_ASC');
-  static const sortDirectionDesc =
-      GenaiListSimulationEpisodesSortDirection._('SORT_DIRECTION_DESC');
+  static const sortDirectionUnspecified = GenaiListSimulationEpisodesSortDirection._('SORT_DIRECTION_UNSPECIFIED');
+  static const sortDirectionAsc = GenaiListSimulationEpisodesSortDirection._('SORT_DIRECTION_ASC');
+  static const sortDirectionDesc = GenaiListSimulationEpisodesSortDirection._('SORT_DIRECTION_DESC');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is GenaiListSimulationEpisodesSortDirection && other.value == value;
+  @override bool operator ==(Object other) => other is GenaiListSimulationEpisodesSortDirection && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class NfsListAccessPointsStatus {
+
   final String value;
 
   const NfsListAccessPointsStatus._(this.value);
 
-  factory NfsListAccessPointsStatus.fromJson(String value) =>
-      NfsListAccessPointsStatus._(value);
+  factory NfsListAccessPointsStatus.fromJson(String value) => NfsListAccessPointsStatus._(value);
 
-  static const accessPointCreating =
-      NfsListAccessPointsStatus._('ACCESS_POINT_CREATING');
-  static const accessPointActive =
-      NfsListAccessPointsStatus._('ACCESS_POINT_ACTIVE');
-  static const accessPointFailed =
-      NfsListAccessPointsStatus._('ACCESS_POINT_FAILED');
-  static const accessPointDeleted =
-      NfsListAccessPointsStatus._('ACCESS_POINT_DELETED');
+  static const accessPointCreating = NfsListAccessPointsStatus._('ACCESS_POINT_CREATING');
+  static const accessPointActive = NfsListAccessPointsStatus._('ACCESS_POINT_ACTIVE');
+  static const accessPointFailed = NfsListAccessPointsStatus._('ACCESS_POINT_FAILED');
+  static const accessPointDeleted = NfsListAccessPointsStatus._('ACCESS_POINT_DELETED');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is NfsListAccessPointsStatus && other.value == value;
+  @override bool operator ==(Object other) => other is NfsListAccessPointsStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The environment of the project's resources.
 final class ProjectsCreateRequestBodyEnvironment {
+
   final String value;
 
   const ProjectsCreateRequestBodyEnvironment._(this.value);
 
-  factory ProjectsCreateRequestBodyEnvironment.fromJson(String value) =>
-      ProjectsCreateRequestBodyEnvironment._(value);
+  factory ProjectsCreateRequestBodyEnvironment.fromJson(String value) => ProjectsCreateRequestBodyEnvironment._(value);
 
-  static const development =
-      ProjectsCreateRequestBodyEnvironment._('Development');
+  static const development = ProjectsCreateRequestBodyEnvironment._('Development');
   static const staging = ProjectsCreateRequestBodyEnvironment._('Staging');
-  static const production =
-      ProjectsCreateRequestBodyEnvironment._('Production');
+  static const production = ProjectsCreateRequestBodyEnvironment._('Production');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectsCreateRequestBodyEnvironment && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectsCreateRequestBodyEnvironment && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The environment of the project's resources.
 final class ProjectsUpdateRequestBodyEnvironment {
+
   final String value;
 
   const ProjectsUpdateRequestBodyEnvironment._(this.value);
 
-  factory ProjectsUpdateRequestBodyEnvironment.fromJson(String value) =>
-      ProjectsUpdateRequestBodyEnvironment._(value);
+  factory ProjectsUpdateRequestBodyEnvironment.fromJson(String value) => ProjectsUpdateRequestBodyEnvironment._(value);
 
-  static const development =
-      ProjectsUpdateRequestBodyEnvironment._('Development');
+  static const development = ProjectsUpdateRequestBodyEnvironment._('Development');
   static const staging = ProjectsUpdateRequestBodyEnvironment._('Staging');
-  static const production =
-      ProjectsUpdateRequestBodyEnvironment._('Production');
+  static const production = ProjectsUpdateRequestBodyEnvironment._('Production');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectsUpdateRequestBodyEnvironment && other.value == value;
+  @override bool operator ==(Object other) => other is ProjectsUpdateRequestBodyEnvironment && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The environment of the project's resources.
 final class ProjectsUpdateDefaultRequestBodyEnvironment {
+
   final String value;
 
   const ProjectsUpdateDefaultRequestBodyEnvironment._(this.value);
 
-  factory ProjectsUpdateDefaultRequestBodyEnvironment.fromJson(String value) =>
-      ProjectsUpdateDefaultRequestBodyEnvironment._(value);
+  factory ProjectsUpdateDefaultRequestBodyEnvironment.fromJson(String value) => ProjectsUpdateDefaultRequestBodyEnvironment._(value);
 
-  static const development =
-      ProjectsUpdateDefaultRequestBodyEnvironment._('Development');
-  static const staging =
-      ProjectsUpdateDefaultRequestBodyEnvironment._('Staging');
-  static const production =
-      ProjectsUpdateDefaultRequestBodyEnvironment._('Production');
+  static const development = ProjectsUpdateDefaultRequestBodyEnvironment._('Development');
+  static const staging = ProjectsUpdateDefaultRequestBodyEnvironment._('Staging');
+  static const production = ProjectsUpdateDefaultRequestBodyEnvironment._('Production');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ProjectsUpdateDefaultRequestBodyEnvironment &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is ProjectsUpdateDefaultRequestBodyEnvironment && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The slug of the subscription tier to sign up for.
 final class RegistriesUpdateSubscriptionRequestBodyTierSlug {
+
   final String value;
 
   const RegistriesUpdateSubscriptionRequestBodyTierSlug._(this.value);
 
-  factory RegistriesUpdateSubscriptionRequestBodyTierSlug.fromJson(
-          String value) =>
-      RegistriesUpdateSubscriptionRequestBodyTierSlug._(value);
+  factory RegistriesUpdateSubscriptionRequestBodyTierSlug.fromJson(String value) => RegistriesUpdateSubscriptionRequestBodyTierSlug._(value);
 
-  static const starter =
-      RegistriesUpdateSubscriptionRequestBodyTierSlug._('starter');
-  static const basic =
-      RegistriesUpdateSubscriptionRequestBodyTierSlug._('basic');
-  static const professional =
-      RegistriesUpdateSubscriptionRequestBodyTierSlug._('professional');
+  static const starter = RegistriesUpdateSubscriptionRequestBodyTierSlug._('starter');
+  static const basic = RegistriesUpdateSubscriptionRequestBodyTierSlug._('basic');
+  static const professional = RegistriesUpdateSubscriptionRequestBodyTierSlug._('professional');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RegistriesUpdateSubscriptionRequestBodyTierSlug &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RegistriesUpdateSubscriptionRequestBodyTierSlug && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The slug of the subscription tier to sign up for.
 final class RegistryUpdateSubscriptionRequestBodyTierSlug {
+
   final String value;
 
   const RegistryUpdateSubscriptionRequestBodyTierSlug._(this.value);
 
-  factory RegistryUpdateSubscriptionRequestBodyTierSlug.fromJson(
-          String value) =>
-      RegistryUpdateSubscriptionRequestBodyTierSlug._(value);
+  factory RegistryUpdateSubscriptionRequestBodyTierSlug.fromJson(String value) => RegistryUpdateSubscriptionRequestBodyTierSlug._(value);
 
-  static const starter =
-      RegistryUpdateSubscriptionRequestBodyTierSlug._('starter');
+  static const starter = RegistryUpdateSubscriptionRequestBodyTierSlug._('starter');
   static const basic = RegistryUpdateSubscriptionRequestBodyTierSlug._('basic');
-  static const professional =
-      RegistryUpdateSubscriptionRequestBodyTierSlug._('professional');
+  static const professional = RegistryUpdateSubscriptionRequestBodyTierSlug._('professional');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RegistryUpdateSubscriptionRequestBodyTierSlug &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is RegistryUpdateSubscriptionRequestBodyTierSlug && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `regions[]` wire field.
 final class UptimeCreateCheckRequestBodyRegionsItem {
+
   final String value;
 
   const UptimeCreateCheckRequestBodyRegionsItem._(this.value);
 
-  factory UptimeCreateCheckRequestBodyRegionsItem.fromJson(String value) =>
-      UptimeCreateCheckRequestBodyRegionsItem._(value);
+  factory UptimeCreateCheckRequestBodyRegionsItem.fromJson(String value) => UptimeCreateCheckRequestBodyRegionsItem._(value);
 
   static const usEast = UptimeCreateCheckRequestBodyRegionsItem._('us_east');
   static const usWest = UptimeCreateCheckRequestBodyRegionsItem._('us_west');
@@ -296,25 +227,22 @@ final class UptimeCreateCheckRequestBodyRegionsItem {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UptimeCreateCheckRequestBodyRegionsItem && other.value == value;
+  @override bool operator ==(Object other) => other is UptimeCreateCheckRequestBodyRegionsItem && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The type of health check to perform.
 final class UptimeCreateCheckRequestBodyType {
+
   final String value;
 
   const UptimeCreateCheckRequestBodyType._(this.value);
 
-  factory UptimeCreateCheckRequestBodyType.fromJson(String value) =>
-      UptimeCreateCheckRequestBodyType._(value);
+  factory UptimeCreateCheckRequestBodyType.fromJson(String value) => UptimeCreateCheckRequestBodyType._(value);
 
   static const ping = UptimeCreateCheckRequestBodyType._('ping');
   static const http = UptimeCreateCheckRequestBodyType._('http');
@@ -322,39 +250,32 @@ final class UptimeCreateCheckRequestBodyType {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UptimeCreateCheckRequestBodyType && other.value == value;
+  @override bool operator ==(Object other) => other is UptimeCreateCheckRequestBodyType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The comparison operator used against the alert's threshold.
 final class UptimeCreateAlertRequestBodyComparison {
+
   final String value;
 
   const UptimeCreateAlertRequestBodyComparison._(this.value);
 
-  factory UptimeCreateAlertRequestBodyComparison.fromJson(String value) =>
-      UptimeCreateAlertRequestBodyComparison._(value);
+  factory UptimeCreateAlertRequestBodyComparison.fromJson(String value) => UptimeCreateAlertRequestBodyComparison._(value);
 
-  static const greaterThan =
-      UptimeCreateAlertRequestBodyComparison._('greater_than');
+  static const greaterThan = UptimeCreateAlertRequestBodyComparison._('greater_than');
   static const lessThan = UptimeCreateAlertRequestBodyComparison._('less_than');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is UptimeCreateAlertRequestBodyComparison && other.value == value;
+  @override bool operator ==(Object other) => other is UptimeCreateAlertRequestBodyComparison && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

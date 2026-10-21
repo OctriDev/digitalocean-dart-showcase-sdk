@@ -8,138 +8,76 @@ part of 'agent_platform_api_api_update.dart';
 class ApiUpdateCustomEvaluationMetricInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Configuration for a custom model-evaluation metric scored by an LLM judge. Prompt and model response are always included in the judge context.
   final SdkOptional<ApiCustomEvaluationMetricConfig> config;
-
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
-
   /// Optional `string` value serialized in the `metric_name` wire field.
   final SdkOptional<String> metricName;
-
   /// Optional `string` value serialized in the `metric_uuid` wire field.
   final SdkOptional<String> metricUuid;
 
-  const ApiUpdateCustomEvaluationMetricInputPublic(
-      {this.config = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.metricName = const SdkOmitted(),
-      this.metricUuid = const SdkOmitted()});
+  const ApiUpdateCustomEvaluationMetricInputPublic({this.config = const SdkOmitted(), this.description = const SdkOmitted(), this.metricName = const SdkOmitted(), this.metricUuid = const SdkOmitted()});
 
-  ApiUpdateCustomEvaluationMetricInputPublic Function(
-      {SdkOptional<ApiCustomEvaluationMetricConfig> config,
-      SdkOptional<String> description,
-      SdkOptional<String> metricName,
-      SdkOptional<String> metricUuid}) get copyWith => _copyWith;
+  ApiUpdateCustomEvaluationMetricInputPublic Function({SdkOptional<ApiCustomEvaluationMetricConfig> config, SdkOptional<String> description, SdkOptional<String> metricName, SdkOptional<String> metricUuid}) get copyWith => _copyWith;
 
-  ApiUpdateCustomEvaluationMetricInputPublic _copyWith(
-          {Object? config = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? metricName = sdkOmittedValue,
-          Object? metricUuid = sdkOmittedValue}) =>
-      ApiUpdateCustomEvaluationMetricInputPublic(
-        config: identical(config, sdkOmittedValue)
-            ? this.config
-            : config as SdkOptional<ApiCustomEvaluationMetricConfig>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        metricName: identical(metricName, sdkOmittedValue)
-            ? this.metricName
-            : metricName as SdkOptional<String>,
-        metricUuid: identical(metricUuid, sdkOmittedValue)
-            ? this.metricUuid
-            : metricUuid as SdkOptional<String>,
-      );
+  ApiUpdateCustomEvaluationMetricInputPublic _copyWith({Object? config = sdkOmittedValue, Object? description = sdkOmittedValue, Object? metricName = sdkOmittedValue, Object? metricUuid = sdkOmittedValue}) => ApiUpdateCustomEvaluationMetricInputPublic(
+    config: identical(config, sdkOmittedValue) ? this.config : config as SdkOptional<ApiCustomEvaluationMetricConfig>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    metricName: identical(metricName, sdkOmittedValue) ? this.metricName : metricName as SdkOptional<String>,
+    metricUuid: identical(metricUuid, sdkOmittedValue) ? this.metricUuid : metricUuid as SdkOptional<String>,
+  );
 
-  factory ApiUpdateCustomEvaluationMetricInputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiUpdateCustomEvaluationMetricInputPublic(
-        config: json['config'] != null
-            ? SdkPresent((json['config'] != null
-                ? ApiCustomEvaluationMetricConfig.fromJson(
-                    json['config'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        metricName: json['metric_name'] != null
-            ? SdkPresent((json['metric_name'] as String?)!)
-            : const SdkOmitted(),
-        metricUuid: json['metric_uuid'] != null
-            ? SdkPresent((json['metric_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateCustomEvaluationMetricInputPublic.fromJson(Map<String, dynamic> json) => ApiUpdateCustomEvaluationMetricInputPublic(
+    config: json['config'] != null ? SdkPresent((json['config'] != null ? ApiCustomEvaluationMetricConfig.fromJson(json['config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    metricName: json['metric_name'] != null ? SdkPresent((json['metric_name'] as String?)!) : const SdkOmitted(),
+    metricUuid: json['metric_uuid'] != null ? SdkPresent((json['metric_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (config) {
-          SdkPresent<ApiCustomEvaluationMetricConfig>(value: final value) => {
-              'config': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metricName) {
-          SdkPresent<String>(value: final value) => {
-              'metric_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metricUuid) {
-          SdkPresent<String>(value: final value) => {
-              'metric_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (config) {
+      SdkPresent<ApiCustomEvaluationMetricConfig>(value: final value) => {'config': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metricName) {
+      SdkPresent<String>(value: final value) => {'metric_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metricUuid) {
+      SdkPresent<String>(value: final value) => {'metric_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiUpdateCustomEvaluationMetricOutput` API schema.
 class ApiUpdateCustomEvaluationMetricOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `metric` wire field.
   final SdkOptional<ApiEvaluationMetric> metric;
 
-  const ApiUpdateCustomEvaluationMetricOutput(
-      {this.metric = const SdkOmitted()});
+  const ApiUpdateCustomEvaluationMetricOutput({this.metric = const SdkOmitted()});
 
-  ApiUpdateCustomEvaluationMetricOutput Function(
-      {SdkOptional<ApiEvaluationMetric> metric}) get copyWith => _copyWith;
+  ApiUpdateCustomEvaluationMetricOutput Function({SdkOptional<ApiEvaluationMetric> metric}) get copyWith => _copyWith;
 
-  ApiUpdateCustomEvaluationMetricOutput _copyWith(
-          {Object? metric = sdkOmittedValue}) =>
-      ApiUpdateCustomEvaluationMetricOutput(
-        metric: identical(metric, sdkOmittedValue)
-            ? this.metric
-            : metric as SdkOptional<ApiEvaluationMetric>,
-      );
+  ApiUpdateCustomEvaluationMetricOutput _copyWith({Object? metric = sdkOmittedValue}) => ApiUpdateCustomEvaluationMetricOutput(
+    metric: identical(metric, sdkOmittedValue) ? this.metric : metric as SdkOptional<ApiEvaluationMetric>,
+  );
 
-  factory ApiUpdateCustomEvaluationMetricOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiUpdateCustomEvaluationMetricOutput(
-        metric: json['metric'] != null
-            ? SdkPresent((json['metric'] != null
-                ? ApiEvaluationMetric.fromJson(
-                    json['metric'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiUpdateCustomEvaluationMetricOutput.fromJson(Map<String, dynamic> json) => ApiUpdateCustomEvaluationMetricOutput(
+    metric: json['metric'] != null ? SdkPresent((json['metric'] != null ? ApiEvaluationMetric.fromJson(json['metric'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (metric) {
-          SdkPresent<ApiEvaluationMetric>(value: final value) => {
-              'metric': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (metric) {
+      SdkPresent<ApiEvaluationMetric>(value: final value) => {'metric': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

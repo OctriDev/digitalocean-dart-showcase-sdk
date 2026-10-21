@@ -8,37 +8,25 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetAgentOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An Agent
   final SdkOptional<ApiAgent> agent;
 
   const ApiGetAgentOutput({this.agent = const SdkOmitted()});
 
-  ApiGetAgentOutput Function({SdkOptional<ApiAgent> agent}) get copyWith =>
-      _copyWith;
+  ApiGetAgentOutput Function({SdkOptional<ApiAgent> agent}) get copyWith => _copyWith;
 
-  ApiGetAgentOutput _copyWith({Object? agent = sdkOmittedValue}) =>
-      ApiGetAgentOutput(
-        agent: identical(agent, sdkOmittedValue)
-            ? this.agent
-            : agent as SdkOptional<ApiAgent>,
-      );
+  ApiGetAgentOutput _copyWith({Object? agent = sdkOmittedValue}) => ApiGetAgentOutput(
+    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<ApiAgent>,
+  );
 
-  factory ApiGetAgentOutput.fromJson(Map<String, dynamic> json) =>
-      ApiGetAgentOutput(
-        agent: json['agent'] != null
-            ? SdkPresent((json['agent'] != null
-                ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiGetAgentOutput.fromJson(Map<String, dynamic> json) => ApiGetAgentOutput(
+    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agent) {
-          SdkPresent<ApiAgent>(value: final value) => {
-              'agent': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agent) {
+      SdkPresent<ApiAgent>(value: final value) => {'agent': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

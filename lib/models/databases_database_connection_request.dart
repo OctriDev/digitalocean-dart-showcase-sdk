@@ -11,8 +11,9 @@ class DatabaseConnectionRequest {
 
   const DatabaseConnectionRequest();
 
-  factory DatabaseConnectionRequest.fromJson(Map<String, dynamic> json) =>
-      DatabaseConnectionRequest();
+  factory DatabaseConnectionRequest.fromJson(Map<String, dynamic> json) => DatabaseConnectionRequest(
+  );
 
-  Map<String, dynamic> toJson() => {};
+  Map<String, dynamic> toJson() => {
+  };
 }

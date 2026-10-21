@@ -8,37 +8,25 @@ part of 'byoip_prefixes.dart';
 class ByoipPrefixGet {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `byoip_prefix` wire field.
   final SdkOptional<ByoipPrefix> byoipPrefix;
 
   const ByoipPrefixGet({this.byoipPrefix = const SdkOmitted()});
 
-  ByoipPrefixGet Function({SdkOptional<ByoipPrefix> byoipPrefix})
-      get copyWith => _copyWith;
+  ByoipPrefixGet Function({SdkOptional<ByoipPrefix> byoipPrefix}) get copyWith => _copyWith;
 
-  ByoipPrefixGet _copyWith({Object? byoipPrefix = sdkOmittedValue}) =>
-      ByoipPrefixGet(
-        byoipPrefix: identical(byoipPrefix, sdkOmittedValue)
-            ? this.byoipPrefix
-            : byoipPrefix as SdkOptional<ByoipPrefix>,
-      );
+  ByoipPrefixGet _copyWith({Object? byoipPrefix = sdkOmittedValue}) => ByoipPrefixGet(
+    byoipPrefix: identical(byoipPrefix, sdkOmittedValue) ? this.byoipPrefix : byoipPrefix as SdkOptional<ByoipPrefix>,
+  );
 
   factory ByoipPrefixGet.fromJson(Map<String, dynamic> json) => ByoipPrefixGet(
-        byoipPrefix: json['byoip_prefix'] != null
-            ? SdkPresent((json['byoip_prefix'] != null
-                ? ByoipPrefix.fromJson(
-                    json['byoip_prefix'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    byoipPrefix: json['byoip_prefix'] != null ? SdkPresent((json['byoip_prefix'] != null ? ByoipPrefix.fromJson(json['byoip_prefix'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (byoipPrefix) {
-          SdkPresent<ByoipPrefix>(value: final value) => {
-              'byoip_prefix': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (byoipPrefix) {
+      SdkPresent<ByoipPrefix>(value: final value) => {'byoip_prefix': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

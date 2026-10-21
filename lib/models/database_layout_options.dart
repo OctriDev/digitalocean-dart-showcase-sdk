@@ -8,39 +8,25 @@ part of 'database.dart';
 class DatabaseLayoutOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of objects, each indicating the node sizes (otherwise referred to as slugs) that are available with various numbers of nodes in the database cluster. Each slugs denotes the node's identifier, CPU, and RAM (in that order).
   final SdkOptional<List<DatabaseLayoutOption>> layouts;
 
   const DatabaseLayoutOptions({this.layouts = const SdkOmitted()});
 
-  DatabaseLayoutOptions Function(
-          {SdkOptional<List<DatabaseLayoutOption>> layouts})
-      get copyWith => _copyWith;
+  DatabaseLayoutOptions Function({SdkOptional<List<DatabaseLayoutOption>> layouts}) get copyWith => _copyWith;
 
-  DatabaseLayoutOptions _copyWith({Object? layouts = sdkOmittedValue}) =>
-      DatabaseLayoutOptions(
-        layouts: identical(layouts, sdkOmittedValue)
-            ? this.layouts
-            : layouts as SdkOptional<List<DatabaseLayoutOption>>,
-      );
+  DatabaseLayoutOptions _copyWith({Object? layouts = sdkOmittedValue}) => DatabaseLayoutOptions(
+    layouts: identical(layouts, sdkOmittedValue) ? this.layouts : layouts as SdkOptional<List<DatabaseLayoutOption>>,
+  );
 
-  factory DatabaseLayoutOptions.fromJson(Map<String, dynamic> json) =>
-      DatabaseLayoutOptions(
-        layouts: json['layouts'] != null
-            ? SdkPresent(((json['layouts'] as List?)
-                ?.map((e) =>
-                    DatabaseLayoutOption.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseLayoutOptions.fromJson(Map<String, dynamic> json) => DatabaseLayoutOptions(
+    layouts: json['layouts'] != null ? SdkPresent(((json['layouts'] as List?)?.map((e) => DatabaseLayoutOption.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (layouts) {
-          SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {
-              'layouts': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (layouts) {
+      SdkPresent<List<DatabaseLayoutOption>>(value: final value) => {'layouts': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

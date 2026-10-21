@@ -8,103 +8,54 @@ part of 'droplet_autoscale_pools.dart';
 class History {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The unique identifier of the history event.
   final String historyEventId;
-
   /// The current number of Droplets in the autoscale pool.
   final int currentInstanceCount;
-
   /// The target number of Droplets for the autoscale pool after the scaling event.
   final int desiredInstanceCount;
-
   /// The reason for the scaling event.
   final HistoryReason reason;
-
   /// The status of the scaling event.
   final HistoryStatus status;
-
   /// The creation time of the history event in ISO8601 combined date and time format.
   final String createdAt;
-
   /// The last updated time of the history event in ISO8601 combined date and time format.
   final String updatedAt;
 
-  const History(
-      {required this.historyEventId,
-      required this.currentInstanceCount,
-      required this.desiredInstanceCount,
-      required this.reason,
-      required this.status,
-      required this.createdAt,
-      required this.updatedAt});
+  const History({required this.historyEventId, required this.currentInstanceCount, required this.desiredInstanceCount, required this.reason, required this.status, required this.createdAt, required this.updatedAt});
 
-  History Function(
-      {String historyEventId,
-      int currentInstanceCount,
-      int desiredInstanceCount,
-      HistoryReason reason,
-      HistoryStatus status,
-      String createdAt,
-      String updatedAt}) get copyWith => _copyWith;
+  History Function({String historyEventId, int currentInstanceCount, int desiredInstanceCount, HistoryReason reason, HistoryStatus status, String createdAt, String updatedAt}) get copyWith => _copyWith;
 
-  History _copyWith(
-          {Object? historyEventId = sdkOmittedValue,
-          Object? currentInstanceCount = sdkOmittedValue,
-          Object? desiredInstanceCount = sdkOmittedValue,
-          Object? reason = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      History(
-        historyEventId: identical(historyEventId, sdkOmittedValue)
-            ? this.historyEventId
-            : historyEventId as String,
-        currentInstanceCount: identical(currentInstanceCount, sdkOmittedValue)
-            ? this.currentInstanceCount
-            : currentInstanceCount as int,
-        desiredInstanceCount: identical(desiredInstanceCount, sdkOmittedValue)
-            ? this.desiredInstanceCount
-            : desiredInstanceCount as int,
-        reason: identical(reason, sdkOmittedValue)
-            ? this.reason
-            : reason as HistoryReason,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as HistoryStatus,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as String,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as String,
-      );
+  History _copyWith({Object? historyEventId = sdkOmittedValue, Object? currentInstanceCount = sdkOmittedValue, Object? desiredInstanceCount = sdkOmittedValue, Object? reason = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => History(
+    historyEventId: identical(historyEventId, sdkOmittedValue) ? this.historyEventId : historyEventId as String,
+    currentInstanceCount: identical(currentInstanceCount, sdkOmittedValue) ? this.currentInstanceCount : currentInstanceCount as int,
+    desiredInstanceCount: identical(desiredInstanceCount, sdkOmittedValue) ? this.desiredInstanceCount : desiredInstanceCount as int,
+    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as HistoryReason,
+    status: identical(status, sdkOmittedValue) ? this.status : status as HistoryStatus,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
+  );
 
   factory History.fromJson(Map<String, dynamic> json) => History(
-        historyEventId: (json['history_event_id'] as String?)!,
-        currentInstanceCount:
-            ((json['current_instance_count'] as num?)?.toInt())!,
-        desiredInstanceCount:
-            ((json['desired_instance_count'] as num?)?.toInt())!,
-        reason: (json['reason'] != null
-            ? HistoryReason.fromJson(json['reason'] as String)
-            : null)!,
-        status: (json['status'] != null
-            ? HistoryStatus.fromJson(json['status'] as String)
-            : null)!,
-        createdAt: (json['created_at'] as String?)!,
-        updatedAt: (json['updated_at'] as String?)!,
-      );
+    historyEventId: (json['history_event_id'] as String?)!,
+    currentInstanceCount: ((json['current_instance_count'] as num?)?.toInt())!,
+    desiredInstanceCount: ((json['desired_instance_count'] as num?)?.toInt())!,
+    reason: (json['reason'] != null ? HistoryReason.fromJson(json['reason'] as String) : null)!,
+    status: (json['status'] != null ? HistoryStatus.fromJson(json['status'] as String) : null)!,
+    createdAt: (json['created_at'] as String?)!,
+    updatedAt: (json['updated_at'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'history_event_id': historyEventId,
-        'current_instance_count': currentInstanceCount,
-        'desired_instance_count': desiredInstanceCount,
-        'reason': reason.toJson(),
-        'status': status.toJson(),
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'history_event_id': historyEventId,
+    'current_instance_count': currentInstanceCount,
+    'desired_instance_count': desiredInstanceCount,
+    'reason': reason.toJson(),
+    'status': status.toJson(),
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }
 
 class HistoryEventsVariant0 {
@@ -114,33 +65,22 @@ class HistoryEventsVariant0 {
 
   const HistoryEventsVariant0({this.history = const SdkOmitted()});
 
-  HistoryEventsVariant0 Function({SdkOptional<List<History>> history})
-      get copyWith => _copyWith;
+  HistoryEventsVariant0 Function({SdkOptional<List<History>> history}) get copyWith => _copyWith;
 
-  HistoryEventsVariant0 _copyWith({Object? history = sdkOmittedValue}) =>
-      HistoryEventsVariant0(
-        history: identical(history, sdkOmittedValue)
-            ? this.history
-            : history as SdkOptional<List<History>>,
-      );
+  HistoryEventsVariant0 _copyWith({Object? history = sdkOmittedValue}) => HistoryEventsVariant0(
+    history: identical(history, sdkOmittedValue) ? this.history : history as SdkOptional<List<History>>,
+  );
 
-  factory HistoryEventsVariant0.fromJson(Map<String, dynamic> json) =>
-      HistoryEventsVariant0(
-        history: json['history'] != null
-            ? SdkPresent(((json['history'] as List?)
-                ?.map((e) => History.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory HistoryEventsVariant0.fromJson(Map<String, dynamic> json) => HistoryEventsVariant0(
+    history: json['history'] != null ? SdkPresent(((json['history'] as List?)?.map((e) => History.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (history) {
-          SdkPresent<List<History>>(value: final value) => {
-              'history': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (history) {
+      SdkPresent<List<History>>(value: final value) => {'history': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `HistoryEvents` API schema.
@@ -148,68 +88,36 @@ class HistoryEvents {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<History>> history;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const HistoryEvents(
-      {this.history = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const HistoryEvents({this.history = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  HistoryEvents Function(
-      {SdkOptional<List<History>> history,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  HistoryEvents Function({SdkOptional<List<History>> history, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  HistoryEvents _copyWith(
-          {Object? history = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      HistoryEvents(
-        history: identical(history, sdkOmittedValue)
-            ? this.history
-            : history as SdkOptional<List<History>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  HistoryEvents _copyWith({Object? history = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => HistoryEvents(
+    history: identical(history, sdkOmittedValue) ? this.history : history as SdkOptional<List<History>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory HistoryEvents.fromJson(Map<String, dynamic> json) => HistoryEvents(
-        history: json['history'] != null
-            ? SdkPresent(((json['history'] as List?)
-                ?.map((e) => History.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    history: json['history'] != null ? SdkPresent(((json['history'] as List?)?.map((e) => History.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (history) {
-          SdkPresent<List<History>>(value: final value) => {
-              'history': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (history) {
+      SdkPresent<List<History>>(value: final value) => {'history': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

@@ -8,109 +8,68 @@ part of 'vector_databases.dart';
 class VectordbRestoreBackupRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required. ID of the backup to restore from.
   final SdkOptional<String> backupId;
-
   /// Required. ID of the vector database.
   final SdkOptional<String> id;
 
-  const VectordbRestoreBackupRequest(
-      {this.backupId = const SdkOmitted(), this.id = const SdkOmitted()});
+  const VectordbRestoreBackupRequest({this.backupId = const SdkOmitted(), this.id = const SdkOmitted()});
 
-  VectordbRestoreBackupRequest Function(
-      {SdkOptional<String> backupId,
-      SdkOptional<String> id}) get copyWith => _copyWith;
+  VectordbRestoreBackupRequest Function({SdkOptional<String> backupId, SdkOptional<String> id}) get copyWith => _copyWith;
 
-  VectordbRestoreBackupRequest _copyWith(
-          {Object? backupId = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      VectordbRestoreBackupRequest(
-        backupId: identical(backupId, sdkOmittedValue)
-            ? this.backupId
-            : backupId as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-      );
+  VectordbRestoreBackupRequest _copyWith({Object? backupId = sdkOmittedValue, Object? id = sdkOmittedValue}) => VectordbRestoreBackupRequest(
+    backupId: identical(backupId, sdkOmittedValue) ? this.backupId : backupId as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+  );
 
-  factory VectordbRestoreBackupRequest.fromJson(Map<String, dynamic> json) =>
-      VectordbRestoreBackupRequest(
-        backupId: json['backup_id'] != null
-            ? SdkPresent((json['backup_id'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VectordbRestoreBackupRequest.fromJson(Map<String, dynamic> json) => VectordbRestoreBackupRequest(
+    backupId: json['backup_id'] != null ? SdkPresent((json['backup_id'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (backupId) {
-          SdkPresent<String>(value: final value) => {
-              'backup_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (backupId) {
+      SdkPresent<String>(value: final value) => {'backup_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VectordbRestoreBackupResponse` API schema.
 class VectordbRestoreBackupResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The backup ID being restored.
   final SdkOptional<String> backupId;
-
   /// Initial status of the restore operation (e.g., "STARTED").
   final SdkOptional<String> status;
 
-  const VectordbRestoreBackupResponse(
-      {this.backupId = const SdkOmitted(), this.status = const SdkOmitted()});
+  const VectordbRestoreBackupResponse({this.backupId = const SdkOmitted(), this.status = const SdkOmitted()});
 
-  VectordbRestoreBackupResponse Function(
-      {SdkOptional<String> backupId,
-      SdkOptional<String> status}) get copyWith => _copyWith;
+  VectordbRestoreBackupResponse Function({SdkOptional<String> backupId, SdkOptional<String> status}) get copyWith => _copyWith;
 
-  VectordbRestoreBackupResponse _copyWith(
-          {Object? backupId = sdkOmittedValue,
-          Object? status = sdkOmittedValue}) =>
-      VectordbRestoreBackupResponse(
-        backupId: identical(backupId, sdkOmittedValue)
-            ? this.backupId
-            : backupId as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-      );
+  VectordbRestoreBackupResponse _copyWith({Object? backupId = sdkOmittedValue, Object? status = sdkOmittedValue}) => VectordbRestoreBackupResponse(
+    backupId: identical(backupId, sdkOmittedValue) ? this.backupId : backupId as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+  );
 
-  factory VectordbRestoreBackupResponse.fromJson(Map<String, dynamic> json) =>
-      VectordbRestoreBackupResponse(
-        backupId: json['backup_id'] != null
-            ? SdkPresent((json['backup_id'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory VectordbRestoreBackupResponse.fromJson(Map<String, dynamic> json) => VectordbRestoreBackupResponse(
+    backupId: json['backup_id'] != null ? SdkPresent((json['backup_id'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (backupId) {
-          SdkPresent<String>(value: final value) => {
-              'backup_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (backupId) {
+      SdkPresent<String>(value: final value) => {'backup_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

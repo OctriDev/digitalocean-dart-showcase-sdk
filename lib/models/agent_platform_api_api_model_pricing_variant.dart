@@ -8,137 +8,65 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelPricingVariant {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Currency code for this variant's rates (e.g. `USD`).
   final SdkOptional<String> currency;
-
   /// Display name for the variant (e.g. `Standard`, `Fast Mode`, `1M Context`).
   final SdkOptional<String> label;
-
   /// Whether rates apply to real-time or batch requests. - MODEL_BILLING_MODE_INTERACTIVE: Real-time request pricing. - MODEL_BILLING_MODE_BATCH: Discounted pricing for asynchronous batch requests.
   final SdkOptional<ApiModelBillingMode> mode;
-
   /// Pricing per million tokens (aligns with existing ModelPrice pattern)
   final SdkOptional<ApiModelPricing> prices;
-
   /// Pricing that varies over time. When present, the rates move between the low and high bounds below across the intervals in the schedule.
   final SdkOptional<ApiModelScaledPricing> scaledPricing;
-
   /// A pricing variant of a model, such as a faster serving option or a larger context window. - MODEL_PRICING_TIER_STANDARD: Default pricing. - MODEL_PRICING_TIER_FAST_MODE: Faster, higher-priority serving at a premium price. - MODEL_PRICING_TIER_EXTENDED_1M: Pricing for the 1M-token context window. - MODEL_PRICING_TIER_EXTENDED_272K: Pricing for the 272K-token context window. - MODEL_PRICING_TIER_BYOK: Pricing when using your own model API key.
   final SdkOptional<ApiModelPricingTier> tier;
 
-  const ApiModelPricingVariant(
-      {this.currency = const SdkOmitted(),
-      this.label = const SdkOmitted(),
-      this.mode = const SdkOmitted(),
-      this.prices = const SdkOmitted(),
-      this.scaledPricing = const SdkOmitted(),
-      this.tier = const SdkOmitted()});
+  const ApiModelPricingVariant({this.currency = const SdkOmitted(), this.label = const SdkOmitted(), this.mode = const SdkOmitted(), this.prices = const SdkOmitted(), this.scaledPricing = const SdkOmitted(), this.tier = const SdkOmitted()});
 
-  ApiModelPricingVariant Function(
-      {SdkOptional<String> currency,
-      SdkOptional<String> label,
-      SdkOptional<ApiModelBillingMode> mode,
-      SdkOptional<ApiModelPricing> prices,
-      SdkOptional<ApiModelScaledPricing> scaledPricing,
-      SdkOptional<ApiModelPricingTier> tier}) get copyWith => _copyWith;
+  ApiModelPricingVariant Function({SdkOptional<String> currency, SdkOptional<String> label, SdkOptional<ApiModelBillingMode> mode, SdkOptional<ApiModelPricing> prices, SdkOptional<ApiModelScaledPricing> scaledPricing, SdkOptional<ApiModelPricingTier> tier}) get copyWith => _copyWith;
 
-  ApiModelPricingVariant _copyWith(
-          {Object? currency = sdkOmittedValue,
-          Object? label = sdkOmittedValue,
-          Object? mode = sdkOmittedValue,
-          Object? prices = sdkOmittedValue,
-          Object? scaledPricing = sdkOmittedValue,
-          Object? tier = sdkOmittedValue}) =>
-      ApiModelPricingVariant(
-        currency: identical(currency, sdkOmittedValue)
-            ? this.currency
-            : currency as SdkOptional<String>,
-        label: identical(label, sdkOmittedValue)
-            ? this.label
-            : label as SdkOptional<String>,
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as SdkOptional<ApiModelBillingMode>,
-        prices: identical(prices, sdkOmittedValue)
-            ? this.prices
-            : prices as SdkOptional<ApiModelPricing>,
-        scaledPricing: identical(scaledPricing, sdkOmittedValue)
-            ? this.scaledPricing
-            : scaledPricing as SdkOptional<ApiModelScaledPricing>,
-        tier: identical(tier, sdkOmittedValue)
-            ? this.tier
-            : tier as SdkOptional<ApiModelPricingTier>,
-      );
+  ApiModelPricingVariant _copyWith({Object? currency = sdkOmittedValue, Object? label = sdkOmittedValue, Object? mode = sdkOmittedValue, Object? prices = sdkOmittedValue, Object? scaledPricing = sdkOmittedValue, Object? tier = sdkOmittedValue}) => ApiModelPricingVariant(
+    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as SdkOptional<String>,
+    label: identical(label, sdkOmittedValue) ? this.label : label as SdkOptional<String>,
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as SdkOptional<ApiModelBillingMode>,
+    prices: identical(prices, sdkOmittedValue) ? this.prices : prices as SdkOptional<ApiModelPricing>,
+    scaledPricing: identical(scaledPricing, sdkOmittedValue) ? this.scaledPricing : scaledPricing as SdkOptional<ApiModelScaledPricing>,
+    tier: identical(tier, sdkOmittedValue) ? this.tier : tier as SdkOptional<ApiModelPricingTier>,
+  );
 
-  factory ApiModelPricingVariant.fromJson(Map<String, dynamic> json) =>
-      ApiModelPricingVariant(
-        currency: json['currency'] != null
-            ? SdkPresent((json['currency'] as String?)!)
-            : const SdkOmitted(),
-        label: json['label'] != null
-            ? SdkPresent((json['label'] as String?)!)
-            : const SdkOmitted(),
-        mode: json['mode'] != null
-            ? SdkPresent((json['mode'] != null
-                ? ApiModelBillingMode.fromJson(json['mode'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        prices: json['prices'] != null
-            ? SdkPresent((json['prices'] != null
-                ? ApiModelPricing.fromJson(
-                    json['prices'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        scaledPricing: json['scaled_pricing'] != null
-            ? SdkPresent((json['scaled_pricing'] != null
-                ? ApiModelScaledPricing.fromJson(
-                    json['scaled_pricing'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        tier: json['tier'] != null
-            ? SdkPresent((json['tier'] != null
-                ? ApiModelPricingTier.fromJson(json['tier'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiModelPricingVariant.fromJson(Map<String, dynamic> json) => ApiModelPricingVariant(
+    currency: json['currency'] != null ? SdkPresent((json['currency'] as String?)!) : const SdkOmitted(),
+    label: json['label'] != null ? SdkPresent((json['label'] as String?)!) : const SdkOmitted(),
+    mode: json['mode'] != null ? SdkPresent((json['mode'] != null ? ApiModelBillingMode.fromJson(json['mode'] as String) : null)!) : const SdkOmitted(),
+    prices: json['prices'] != null ? SdkPresent((json['prices'] != null ? ApiModelPricing.fromJson(json['prices'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    scaledPricing: json['scaled_pricing'] != null ? SdkPresent((json['scaled_pricing'] != null ? ApiModelScaledPricing.fromJson(json['scaled_pricing'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    tier: json['tier'] != null ? SdkPresent((json['tier'] != null ? ApiModelPricingTier.fromJson(json['tier'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (currency) {
-          SdkPresent<String>(value: final value) => {
-              'currency': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (label) {
-          SdkPresent<String>(value: final value) => {
-              'label': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (mode) {
-          SdkPresent<ApiModelBillingMode>(value: final value) => {
-              'mode': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (prices) {
-          SdkPresent<ApiModelPricing>(value: final value) => {
-              'prices': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scaledPricing) {
-          SdkPresent<ApiModelScaledPricing>(value: final value) => {
-              'scaled_pricing': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tier) {
-          SdkPresent<ApiModelPricingTier>(value: final value) => {
-              'tier': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (currency) {
+      SdkPresent<String>(value: final value) => {'currency': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (label) {
+      SdkPresent<String>(value: final value) => {'label': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (mode) {
+      SdkPresent<ApiModelBillingMode>(value: final value) => {'mode': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (prices) {
+      SdkPresent<ApiModelPricing>(value: final value) => {'prices': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scaledPricing) {
+      SdkPresent<ApiModelScaledPricing>(value: final value) => {'scaled_pricing': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tier) {
+      SdkPresent<ApiModelPricingTier>(value: final value) => {'tier': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

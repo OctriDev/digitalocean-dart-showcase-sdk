@@ -8,36 +8,25 @@ part of 'droplets.dart';
 class NeighborIds {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of arrays. Each array will contain a set of Droplet IDs for Droplets that share a physical server.
   final SdkOptional<List<List<int>>> neighborIds;
 
   const NeighborIds({this.neighborIds = const SdkOmitted()});
 
-  NeighborIds Function({SdkOptional<List<List<int>>> neighborIds})
-      get copyWith => _copyWith;
+  NeighborIds Function({SdkOptional<List<List<int>>> neighborIds}) get copyWith => _copyWith;
 
   NeighborIds _copyWith({Object? neighborIds = sdkOmittedValue}) => NeighborIds(
-        neighborIds: identical(neighborIds, sdkOmittedValue)
-            ? this.neighborIds
-            : neighborIds as SdkOptional<List<List<int>>>,
-      );
+    neighborIds: identical(neighborIds, sdkOmittedValue) ? this.neighborIds : neighborIds as SdkOptional<List<List<int>>>,
+  );
 
   factory NeighborIds.fromJson(Map<String, dynamic> json) => NeighborIds(
-        neighborIds: json['neighbor_ids'] != null
-            ? SdkPresent(((json['neighbor_ids'] as List?)
-                ?.map((e) =>
-                    (e as List).map((item) => (item as num).toInt()).toList())
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    neighborIds: json['neighbor_ids'] != null ? SdkPresent(((json['neighbor_ids'] as List?)?.map((e) => (e as List).map((item) => (item as num).toInt()).toList()).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (neighborIds) {
-          SdkPresent<List<List<int>>>(value: final value) => {
-              'neighbor_ids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (neighborIds) {
+      SdkPresent<List<List<int>>>(value: final value) => {'neighbor_ids': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -6,27 +6,23 @@ part of 'apps_app_alert.dart';
 // apps_app_alert domain models
 /// Typed representation of the `AppAlertSpecOperator` API schema.
 final class AppAlertSpecOperator {
+
   final String value;
 
   const AppAlertSpecOperator._(this.value);
 
-  factory AppAlertSpecOperator.fromJson(String value) =>
-      AppAlertSpecOperator._(value);
+  factory AppAlertSpecOperator.fromJson(String value) => AppAlertSpecOperator._(value);
 
-  static const unspecifiedOperator =
-      AppAlertSpecOperator._('UNSPECIFIED_OPERATOR');
+  static const unspecifiedOperator = AppAlertSpecOperator._('UNSPECIFIED_OPERATOR');
   static const greaterThan = AppAlertSpecOperator._('GREATER_THAN');
   static const lessThan = AppAlertSpecOperator._('LESS_THAN');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AppAlertSpecOperator && other.value == value;
+  @override bool operator ==(Object other) => other is AppAlertSpecOperator && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

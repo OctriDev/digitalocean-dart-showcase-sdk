@@ -8,43 +8,30 @@ part of 'misc.dart';
 class AppPropose {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The desired configuration of an application.
   final AppSpec spec;
-
   /// An optional ID of an existing app. If set, the spec will be treated as a proposed update to the specified app. The existing app is not modified using this method.
   final SdkOptional<String> appId;
 
   const AppPropose({required this.spec, this.appId = const SdkOmitted()});
 
-  AppPropose Function({AppSpec spec, SdkOptional<String> appId}) get copyWith =>
-      _copyWith;
+  AppPropose Function({AppSpec spec, SdkOptional<String> appId}) get copyWith => _copyWith;
 
-  AppPropose _copyWith(
-          {Object? spec = sdkOmittedValue, Object? appId = sdkOmittedValue}) =>
-      AppPropose(
-        spec: identical(spec, sdkOmittedValue) ? this.spec : spec as AppSpec,
-        appId: identical(appId, sdkOmittedValue)
-            ? this.appId
-            : appId as SdkOptional<String>,
-      );
+  AppPropose _copyWith({Object? spec = sdkOmittedValue, Object? appId = sdkOmittedValue}) => AppPropose(
+    spec: identical(spec, sdkOmittedValue) ? this.spec : spec as AppSpec,
+    appId: identical(appId, sdkOmittedValue) ? this.appId : appId as SdkOptional<String>,
+  );
 
   factory AppPropose.fromJson(Map<String, dynamic> json) => AppPropose(
-        spec: (json['spec'] != null
-            ? AppSpec.fromJson(json['spec'] as Map<String, dynamic>)
-            : null)!,
-        appId: json['app_id'] != null
-            ? SdkPresent((json['app_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    spec: (json['spec'] != null ? AppSpec.fromJson(json['spec'] as Map<String, dynamic>) : null)!,
+    appId: json['app_id'] != null ? SdkPresent((json['app_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'spec': spec.toJson(),
-        ...switch (appId) {
-          SdkPresent<String>(value: final value) => {
-              'app_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'spec': spec.toJson(),
+    ...switch (appId) {
+      SdkPresent<String>(value: final value) => {'app_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

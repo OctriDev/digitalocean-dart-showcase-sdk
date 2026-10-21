@@ -6,6 +6,7 @@ part of 'harness_runtime_trigger.dart';
 // harness_runtime_trigger domain models
 /// Trigger lifecycle state. Soft-deleted triggers are never returned (404).
 final class TriggerStatus {
+
   final String value;
 
   const TriggerStatus._(this.value);
@@ -17,13 +18,10 @@ final class TriggerStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is TriggerStatus && other.value == value;
+  @override bool operator ==(Object other) => other is TriggerStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

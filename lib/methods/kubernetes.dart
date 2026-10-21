@@ -25,24 +25,17 @@ Future<AllClusters> kubernetesListClusters(ClientConfig config,
   return (await sdkRequest<AllClusters>('GET', '/v2/kubernetes/clusters',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
-                style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
-                style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesListClusters',
-          fromJsonRaw: (value) =>
-              AllClusters.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllClusters.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To create a new Kubernetes cluster, send a POST request to `/v2/kubernetes/clusters`. The request must contain at least one node pool with at least one worker. The request may contain a maintenance window policy describing a time period when disruptive maintenance tasks may be carried out. Omitting the policy implies that a window will be chosen automatically. See [here](https://docs.digitalocean.com/products/kubernetes/how-to/upgrade-cluster/) for details.
 ///
@@ -134,27 +127,21 @@ Future<ClusterCreate> kubernetesCreateCluster(ClientConfig config,
     SdkOptional<String> vpcUuid = const SdkOmitted(),
     SdkOptional<String> workerSubnetUuid = const SdkOmitted(),
     SdkOptional<List<String>> tags = const SdkOmitted(),
-    SdkOptional<MaintenancePolicyRequest?> maintenancePolicy =
-        const SdkOmitted(),
+    SdkOptional<MaintenancePolicyRequest?> maintenancePolicy = const SdkOmitted(),
     SdkOptional<bool> autoUpgrade = const SdkOmitted(),
     SdkOptional<bool> isolatedWorkers = const SdkOmitted(),
     SdkOptional<bool> gpuOperatorReady = const SdkOmitted(),
     SdkOptional<bool> surgeUpgrade = const SdkOmitted(),
     SdkOptional<bool> ha = const SdkOmitted(),
-    SdkOptional<ControlPlaneFirewall?> controlPlaneFirewall =
-        const SdkOmitted(),
-    SdkOptional<ClusterAutoscalerConfiguration?>
-        clusterAutoscalerConfiguration = const SdkOmitted(),
+    SdkOptional<ControlPlaneFirewall?> controlPlaneFirewall = const SdkOmitted(),
+    SdkOptional<ClusterAutoscalerConfiguration?> clusterAutoscalerConfiguration = const SdkOmitted(),
     SdkOptional<Sso?> sso = const SdkOmitted(),
     SdkOptional<RoutingAgent?> routingAgent = const SdkOmitted(),
-    SdkOptional<P2pOciRegistryPlugin?> p2pOciRegistryPlugin =
-        const SdkOmitted(),
+    SdkOptional<P2pOciRegistryPlugin?> p2pOciRegistryPlugin = const SdkOmitted(),
     SdkOptional<NfsCsiPlugin?> nfsCsiPlugin = const SdkOmitted(),
     SdkOptional<AmdGpuDevicePlugin?> amdGpuDevicePlugin = const SdkOmitted(),
-    SdkOptional<AmdGpuDeviceMetricsExporterPlugin?>
-        amdGpuDeviceMetricsExporterPlugin = const SdkOmitted(),
-    SdkOptional<NvidiaGpuDevicePlugin?> nvidiaGpuDevicePlugin =
-        const SdkOmitted(),
+    SdkOptional<AmdGpuDeviceMetricsExporterPlugin?> amdGpuDeviceMetricsExporterPlugin = const SdkOmitted(),
+    SdkOptional<NvidiaGpuDevicePlugin?> nvidiaGpuDevicePlugin = const SdkOmitted(),
     SdkOptional<NvidiaGpuDraDriver?> nvidiaGpuDraDriver = const SdkOmitted(),
     SdkOptional<AmdGpuDraDriver?> amdGpuDraDriver = const SdkOmitted(),
     SdkOptional<RdmaSharedDevPlugin?> rdmaSharedDevPlugin = const SdkOmitted(),
@@ -185,41 +172,28 @@ Future<ClusterCreate> kubernetesCreateCluster(ClientConfig config,
             'gpu_operator_ready': SdkUtils.unwrapOptional(gpuOperatorReady),
             'surge_upgrade': SdkUtils.unwrapOptional(surgeUpgrade),
             'ha': SdkUtils.unwrapOptional(ha),
-            'control_plane_firewall':
-                SdkUtils.unwrapOptional(controlPlaneFirewall),
-            'cluster_autoscaler_configuration':
-                SdkUtils.unwrapOptional(clusterAutoscalerConfiguration),
+            'control_plane_firewall': SdkUtils.unwrapOptional(controlPlaneFirewall),
+            'cluster_autoscaler_configuration': SdkUtils.unwrapOptional(clusterAutoscalerConfiguration),
             'sso': SdkUtils.unwrapOptional(sso),
             'routing_agent': SdkUtils.unwrapOptional(routingAgent),
-            'p2p_oci_registry_plugin':
-                SdkUtils.unwrapOptional(p2pOciRegistryPlugin),
+            'p2p_oci_registry_plugin': SdkUtils.unwrapOptional(p2pOciRegistryPlugin),
             'nfs_csi_plugin': SdkUtils.unwrapOptional(nfsCsiPlugin),
-            'amd_gpu_device_plugin':
-                SdkUtils.unwrapOptional(amdGpuDevicePlugin),
-            'amd_gpu_device_metrics_exporter_plugin':
-                SdkUtils.unwrapOptional(amdGpuDeviceMetricsExporterPlugin),
-            'nvidia_gpu_device_plugin':
-                SdkUtils.unwrapOptional(nvidiaGpuDevicePlugin),
-            'nvidia_gpu_dra_driver':
-                SdkUtils.unwrapOptional(nvidiaGpuDraDriver),
+            'amd_gpu_device_plugin': SdkUtils.unwrapOptional(amdGpuDevicePlugin),
+            'amd_gpu_device_metrics_exporter_plugin': SdkUtils.unwrapOptional(amdGpuDeviceMetricsExporterPlugin),
+            'nvidia_gpu_device_plugin': SdkUtils.unwrapOptional(nvidiaGpuDevicePlugin),
+            'nvidia_gpu_dra_driver': SdkUtils.unwrapOptional(nvidiaGpuDraDriver),
             'amd_gpu_dra_driver': SdkUtils.unwrapOptional(amdGpuDraDriver),
-            'rdma_shared_dev_plugin':
-                SdkUtils.unwrapOptional(rdmaSharedDevPlugin),
+            'rdma_shared_dev_plugin': SdkUtils.unwrapOptional(rdmaSharedDevPlugin),
             'coredns_autoscaler': SdkUtils.unwrapOptional(corednsAutoscaler)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesCreateCluster',
-          fromJsonRaw: (value) =>
-              ClusterCreate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ClusterCreate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To show information about an existing Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID`.
 ///
@@ -233,18 +207,12 @@ Future<ExistingCluster> kubernetesGetCluster(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesGetCluster',
-          fromJsonRaw: (value) =>
-              ExistingCluster.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExistingCluster.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update a Kubernetes cluster, send a PUT request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID` and specify one or more of the attributes below.
 ///
@@ -306,26 +274,20 @@ Future<UpdatedCluster> kubernetesUpdateCluster(ClientConfig config,
     {required String clusterId,
     required String name,
     SdkOptional<List<String>> tags = const SdkOmitted(),
-    SdkOptional<MaintenancePolicyRequest?> maintenancePolicy =
-        const SdkOmitted(),
+    SdkOptional<MaintenancePolicyRequest?> maintenancePolicy = const SdkOmitted(),
     SdkOptional<bool> autoUpgrade = const SdkOmitted(),
     SdkOptional<bool> surgeUpgrade = const SdkOmitted(),
     SdkOptional<bool> ha = const SdkOmitted(),
     SdkOptional<bool> gpuOperatorReady = const SdkOmitted(),
-    SdkOptional<ControlPlaneFirewall?> controlPlaneFirewall =
-        const SdkOmitted(),
-    SdkOptional<ClusterAutoscalerConfiguration?>
-        clusterAutoscalerConfiguration = const SdkOmitted(),
+    SdkOptional<ControlPlaneFirewall?> controlPlaneFirewall = const SdkOmitted(),
+    SdkOptional<ClusterAutoscalerConfiguration?> clusterAutoscalerConfiguration = const SdkOmitted(),
     SdkOptional<Sso?> sso = const SdkOmitted(),
     SdkOptional<RoutingAgent?> routingAgent = const SdkOmitted(),
-    SdkOptional<P2pOciRegistryPlugin?> p2pOciRegistryPlugin =
-        const SdkOmitted(),
+    SdkOptional<P2pOciRegistryPlugin?> p2pOciRegistryPlugin = const SdkOmitted(),
     SdkOptional<NfsCsiPlugin?> nfsCsiPlugin = const SdkOmitted(),
     SdkOptional<AmdGpuDevicePlugin?> amdGpuDevicePlugin = const SdkOmitted(),
-    SdkOptional<AmdGpuDeviceMetricsExporterPlugin?>
-        amdGpuDeviceMetricsExporterPlugin = const SdkOmitted(),
-    SdkOptional<NvidiaGpuDevicePlugin?> nvidiaGpuDevicePlugin =
-        const SdkOmitted(),
+    SdkOptional<AmdGpuDeviceMetricsExporterPlugin?> amdGpuDeviceMetricsExporterPlugin = const SdkOmitted(),
+    SdkOptional<NvidiaGpuDevicePlugin?> nvidiaGpuDevicePlugin = const SdkOmitted(),
     SdkOptional<NvidiaGpuDraDriver?> nvidiaGpuDraDriver = const SdkOmitted(),
     SdkOptional<AmdGpuDraDriver?> amdGpuDraDriver = const SdkOmitted(),
     SdkOptional<RdmaSharedDevPlugin?> rdmaSharedDevPlugin = const SdkOmitted(),
@@ -344,42 +306,28 @@ Future<UpdatedCluster> kubernetesUpdateCluster(ClientConfig config,
             'surge_upgrade': SdkUtils.unwrapOptional(surgeUpgrade),
             'ha': SdkUtils.unwrapOptional(ha),
             'gpu_operator_ready': SdkUtils.unwrapOptional(gpuOperatorReady),
-            'control_plane_firewall':
-                SdkUtils.unwrapOptional(controlPlaneFirewall),
-            'cluster_autoscaler_configuration':
-                SdkUtils.unwrapOptional(clusterAutoscalerConfiguration),
+            'control_plane_firewall': SdkUtils.unwrapOptional(controlPlaneFirewall),
+            'cluster_autoscaler_configuration': SdkUtils.unwrapOptional(clusterAutoscalerConfiguration),
             'sso': SdkUtils.unwrapOptional(sso),
             'routing_agent': SdkUtils.unwrapOptional(routingAgent),
-            'p2p_oci_registry_plugin':
-                SdkUtils.unwrapOptional(p2pOciRegistryPlugin),
+            'p2p_oci_registry_plugin': SdkUtils.unwrapOptional(p2pOciRegistryPlugin),
             'nfs_csi_plugin': SdkUtils.unwrapOptional(nfsCsiPlugin),
-            'amd_gpu_device_plugin':
-                SdkUtils.unwrapOptional(amdGpuDevicePlugin),
-            'amd_gpu_device_metrics_exporter_plugin':
-                SdkUtils.unwrapOptional(amdGpuDeviceMetricsExporterPlugin),
-            'nvidia_gpu_device_plugin':
-                SdkUtils.unwrapOptional(nvidiaGpuDevicePlugin),
-            'nvidia_gpu_dra_driver':
-                SdkUtils.unwrapOptional(nvidiaGpuDraDriver),
+            'amd_gpu_device_plugin': SdkUtils.unwrapOptional(amdGpuDevicePlugin),
+            'amd_gpu_device_metrics_exporter_plugin': SdkUtils.unwrapOptional(amdGpuDeviceMetricsExporterPlugin),
+            'nvidia_gpu_device_plugin': SdkUtils.unwrapOptional(nvidiaGpuDevicePlugin),
+            'nvidia_gpu_dra_driver': SdkUtils.unwrapOptional(nvidiaGpuDraDriver),
             'amd_gpu_dra_driver': SdkUtils.unwrapOptional(amdGpuDraDriver),
-            'rdma_shared_dev_plugin':
-                SdkUtils.unwrapOptional(rdmaSharedDevPlugin),
+            'rdma_shared_dev_plugin': SdkUtils.unwrapOptional(rdmaSharedDevPlugin),
             'coredns_autoscaler': SdkUtils.unwrapOptional(corednsAutoscaler)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesUpdateCluster',
-          fromJsonRaw: (value) =>
-              UpdatedCluster.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => UpdatedCluster.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a Kubernetes cluster and all services deployed to it, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID`. A 204 status code with no body will be returned in response to a successful request.
 ///
@@ -394,23 +342,16 @@ Future<void> kubernetesDeleteCluster(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'kubernetesDeleteCluster',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list the associated billable resources that can be destroyed along with a cluster, send a GET request to the `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources` endpoint.
 ///
 /// [clusterId] A unique ID that can be used to reference a Kubernetes cluster.
-Future<AssociatedKubernetesResources> kubernetesListAssociatedResources(
-    ClientConfig config,
-    {required String clusterId,
-    RequestOptions? requestOptions}) async {
+Future<AssociatedKubernetesResources> kubernetesListAssociatedResources(ClientConfig config,
+    {required String clusterId, RequestOptions? requestOptions}) async {
   sdkValidateUuid('cluster_id', clusterId);
 
   return (await sdkRequest<AssociatedKubernetesResources>('GET',
@@ -418,18 +359,12 @@ Future<AssociatedKubernetesResources> kubernetesListAssociatedResources(
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesListAssociatedResources',
-          fromJsonRaw: (value) => AssociatedKubernetesResources.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AssociatedKubernetesResources.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a Kubernetes cluster along with a subset of its associated resources, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/selective`. The JSON body of the request should include `load_balancers`, `volumes`, or `volume_snapshots` keys each set to an array of IDs for the associated resources to be destroyed. The IDs can be found by querying the cluster's associated resources endpoint. Any associated resource not included in the request will remain and continue to accrue changes on your account.
 ///
@@ -459,15 +394,10 @@ Future<void> kubernetesDestroyAssociatedResourcesSelective(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'kubernetesDestroyAssociatedResourcesSelective',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a Kubernetes cluster with all of its associated resources, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/destroy_with_associated_resources/dangerous`. A 204 status code with no body will be returned in response to a successful request.
 ///
@@ -482,15 +412,10 @@ Future<void> kubernetesDestroyAssociatedResourcesDangerous(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'kubernetesDestroyAssociatedResourcesDangerous',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// This endpoint returns a kubeconfig file in YAML format. It can be used to connect to and administer the cluster using the Kubernetes command line tool, `kubectl`, or other programs supporting kubeconfig files (e.g., client libraries). The resulting kubeconfig file uses token-based authentication for clusters supporting it, and certificate-based authentication otherwise. For a list of supported versions and more information, see "[How to Connect to a DigitalOcean Kubernetes Cluster](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/)". To retrieve a kubeconfig file for use with a Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig`. Clusters supporting token-based authentication may define an expiration by passing a duration in seconds as a query parameter to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/kubeconfig?expiry_seconds=$DURATION_IN_SECONDS`. If not set or 0, then the token will have a 7 day expiry. The query parameter has no impact for other kubeconfig types. Using an `sso` kubeconfig type requires `doctl` to be installed to handle the client side of the OAuth2 flow. Kubernetes Roles granted to a user are derived from that user's DigitalOcean role. Predefined roles (Owner, Member, Modifier etc.) have an automatic mapping to Kubernetes roles. Custom roles are not automatically mapped to any Kubernetes roles, and require [additional configuration](https://docs.digitalocean.com/products/kubernetes/how-to/set-up-custom-rolebindings/) by a cluster administrator.
 ///
@@ -515,25 +440,16 @@ Future<List<int>> kubernetesGetKubeconfig(ClientConfig config,
           '/v2/kubernetes/clusters/${Uri.encodeComponent(clusterId.toString())}/kubeconfig',
           config: config,
           query: {
-            'expiry_seconds': SdkQueryValue(
-                SdkUtils.unwrapOptional(expirySeconds),
-                style: 'form',
-                explode: true),
-            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_),
-                style: 'form', explode: true)
+            'expiry_seconds': SdkQueryValue(SdkUtils.unwrapOptional(expirySeconds), style: 'form', explode: true),
+            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.bytes,
           operationId: 'kubernetesGetKubeconfig',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// This endpoint returns a JSON object . It can be used to programmatically construct Kubernetes clients which cannot parse kubeconfig files. The resulting JSON object contains token-based authentication for clusters supporting it, and certificate-based authentication otherwise. For a list of supported versions and more information, see "[How to Connect to a DigitalOcean Kubernetes Cluster](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/)". To retrieve credentials for accessing a Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/credentials`. Clusters supporting token-based authentication may define an expiration by passing a duration in seconds as a query parameter to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/credentials?expiry_seconds=$DURATION_IN_SECONDS`. If not set or 0, then the token will have a 7 day expiry. The query parameter has no impact in certificate-based authentication.
 ///
@@ -554,25 +470,16 @@ Future<Credentials> kubernetesGetCredentials(ClientConfig config,
           '/v2/kubernetes/clusters/${Uri.encodeComponent(clusterId.toString())}/credentials',
           config: config,
           query: {
-            'expiry_seconds': SdkQueryValue(
-                SdkUtils.unwrapOptional(expirySeconds),
-                style: 'form',
-                explode: true)
+            'expiry_seconds': SdkQueryValue(SdkUtils.unwrapOptional(expirySeconds), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesGetCredentials',
-          fromJsonRaw: (value) =>
-              Credentials.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Credentials.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To determine whether a cluster can be upgraded, and the versions to which it can be upgraded, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrades`.
 ///
@@ -586,18 +493,12 @@ Future<AvailableUpgrades> kubernetesGetAvailableUpgrades(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesGetAvailableUpgrades',
-          fromJsonRaw: (value) =>
-              AvailableUpgrades.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AvailableUpgrades.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To immediately upgrade a Kubernetes cluster to a newer patch release of Kubernetes, send a POST request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrade`. The body of the request must specify a version attribute. Available upgrade versions for a cluster can be fetched from `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/upgrades`.
 ///
@@ -617,15 +518,10 @@ Future<void> kubernetesUpgradeCluster(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'kubernetesUpgradeCluster',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list all of the node pools in a Kubernetes clusters, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools`.
 ///
@@ -639,18 +535,12 @@ Future<AllNodePools> kubernetesListNodePools(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesListNodePools',
-          fromJsonRaw: (value) =>
-              AllNodePools.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AllNodePools.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To add an additional node pool to a Kubernetes clusters, send a POST request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools` with the following attributes.
 ///
@@ -667,18 +557,12 @@ Future<NodePoolCreate> kubernetesAddNodePool(ClientConfig config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesAddNodePool',
-          fromJsonRaw: (value) =>
-              NodePoolCreate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => NodePoolCreate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To show information about a specific node pool in a Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID`.
 ///
@@ -697,18 +581,12 @@ Future<ExistingNodePool> kubernetesGetNodePool(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesGetNodePool',
-          fromJsonRaw: (value) =>
-              ExistingNodePool.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ExistingNodePool.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To update the name of a node pool, edit the tags applied to it, or adjust its number of nodes, send a PUT request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID` with the following attributes.
 ///
@@ -764,18 +642,12 @@ Future<NodePoolUpdate> kubernetesUpdateNodePool(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesUpdateNodePool',
-          fromJsonRaw: (value) =>
-              NodePoolUpdate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => NodePoolUpdate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a node pool, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID`. A 204 status code with no body will be returned in response to a successful request. Nodes in the pool will subsequently be drained and deleted.
 ///
@@ -795,15 +667,10 @@ Future<void> kubernetesDeleteNodePool(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'kubernetesDeleteNodePool',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To delete a single node in a pool, send a DELETE request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/node_pools/$NODE_POOL_ID/nodes/$NODE_ID`. Appending the `skip_drain=1` query parameter to the request causes node draining to be skipped. Omitting the query parameter or setting its value to `0` carries out draining prior to deletion. Appending the `replace=1` query parameter to the request causes the node to be replaced by a new one after deletion. Omitting the query parameter or setting its value to `0` deletes without replacement.
 ///
@@ -841,23 +708,16 @@ Future<void> kubernetesDeleteNode(ClientConfig config,
           '/v2/kubernetes/clusters/${Uri.encodeComponent(clusterId.toString())}/node_pools/${Uri.encodeComponent(nodePoolId.toString())}/nodes/${Uri.encodeComponent(nodeId.toString())}',
           config: config,
           query: {
-            'skip_drain': SdkQueryValue(SdkUtils.unwrapOptional(skipDrain),
-                style: 'form', explode: true),
-            'replace': SdkQueryValue(SdkUtils.unwrapOptional(replace),
-                style: 'form', explode: true)
+            'skip_drain': SdkQueryValue(SdkUtils.unwrapOptional(skipDrain), style: 'form', explode: true),
+            'replace': SdkQueryValue(SdkUtils.unwrapOptional(replace), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.empty,
           operationId: 'kubernetesDeleteNode',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Submits a request to recycle nodes in a Kubernetes node pool. This operation is closing down and will be removed on an unspecified date; use DELETE /v2/kubernetes/clusters/{cluster_id}/node_pools/{node_pool_id}/nodes/{node_id} to remove an individual node instead.
 ///
@@ -883,15 +743,10 @@ Future<void> kubernetesRecycleNodePool(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'kubernetesRecycleNodePool',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To show information the user associated with a Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/user`.
 ///
@@ -907,15 +762,10 @@ Future<User2> kubernetesGetClusterUser(ClientConfig config,
           operationId: 'kubernetesGetClusterUser',
           fromJsonRaw: (value) => User2.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To list the versions of Kubernetes available for use, the regions that support Kubernetes, and the available node sizes, send a GET request to `/v2/kubernetes/options`.
 Future<KubernetesOptions> kubernetesListOptions(ClientConfig config,
@@ -924,18 +774,12 @@ Future<KubernetesOptions> kubernetesListOptions(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesListOptions',
-          fromJsonRaw: (value) =>
-              KubernetesOptions.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => KubernetesOptions.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Clusterlint helps operators conform to Kubernetes best practices around resources, security and reliability to avoid common problems while operating or upgrading the clusters. To request a clusterlint run on your cluster, send a POST request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/clusterlint`. This will run all checks present in the `doks` group by default, if a request body is not specified. Optionally specify the below attributes. For information about the available checks, please refer to [the clusterlint check documentation](https://github.com/digitalocean/clusterlint/blob/master/checks.md).
 ///
@@ -968,18 +812,12 @@ Future<ClusterlintRun> kubernetesRunClusterLint(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesRunClusterLint',
-          fromJsonRaw: (value) =>
-              ClusterlintRun.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ClusterlintRun.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To request clusterlint diagnostics for your cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/clusterlint`. If the `run_id` query parameter is provided, then the diagnostics for the specific run is fetched. By default, the latest results are shown. To find out how to address clusterlint feedback, please refer to [the clusterlint check documentation](https://github.com/digitalocean/clusterlint/blob/master/checks.md).
 ///
@@ -998,23 +836,16 @@ Future<ClusterlintResults> kubernetesGetClusterLintResults(ClientConfig config,
           '/v2/kubernetes/clusters/${Uri.encodeComponent(clusterId.toString())}/clusterlint',
           config: config,
           query: {
-            'run_id': SdkQueryValue(SdkUtils.unwrapOptional(runId),
-                style: 'form', explode: true)
+            'run_id': SdkQueryValue(SdkUtils.unwrapOptional(runId), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesGetClusterLintResults',
-          fromJsonRaw: (value) =>
-              ClusterlintResults.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ClusterlintResults.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To integrate the container registry with Kubernetes clusters, send a POST request to `/v2/kubernetes/registry`.
 ///
@@ -1028,14 +859,10 @@ Future<void> kubernetesAddRegistry(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'kubernetesAddRegistry',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To remove the container registry from Kubernetes clusters, send a DELETE request to `/v2/kubernetes/registry`.
 ///
@@ -1049,14 +876,10 @@ Future<void> kubernetesRemoveRegistry(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'kubernetesRemoveRegistry',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To integrate the container registries with Kubernetes clusters, send a POST request to `/v2/kubernetes/registries`.
 ///
@@ -1075,14 +898,10 @@ Future<void> kubernetesAddRegistries(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'kubernetesAddRegistries',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To remove the container registries from Kubernetes clusters, send a DELETE request to `/v2/kubernetes/registries`.
 ///
@@ -1101,14 +920,10 @@ Future<void> kubernetesRemoveRegistries(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'kubernetesRemoveRegistries',
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// To retrieve status messages for a Kubernetes cluster, send a GET request to `/v2/kubernetes/clusters/$K8S_CLUSTER_ID/status_messages`. Status messages inform users of any issues that come up during the cluster lifecycle.
 ///
@@ -1128,20 +943,12 @@ Future<StatusMessagesResponse> kubernetesGetStatusMessages(ClientConfig config,
           '/v2/kubernetes/clusters/${Uri.encodeComponent(clusterId.toString())}/status_messages',
           config: config,
           query: {
-            'since': SdkQueryValue(SdkUtils.unwrapOptional(since),
-                style: 'form', explode: true)
+            'since': SdkQueryValue(SdkUtils.unwrapOptional(since), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'kubernetesGetStatusMessages',
-          fromJsonRaw: (value) =>
-              StatusMessagesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => StatusMessagesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

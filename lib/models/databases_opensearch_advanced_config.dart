@@ -8,862 +8,345 @@ part of 'databases_opensearch.dart';
 class OpensearchAdvancedConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Maximum content length for HTTP requests to the OpenSearch HTTP API, in bytes.
   final SdkOptional<int> httpMaxContentLengthBytes;
-
   /// Maximum size of allowed headers, in bytes.
   final SdkOptional<int> httpMaxHeaderSizeBytes;
-
   /// Maximum length of an HTTP URL, in bytes.
   final SdkOptional<int> httpMaxInitialLineLengthBytes;
-
   /// Maximum number of clauses Lucene BooleanQuery can have. Only increase it if necessary, as it may cause performance issues.
   final SdkOptional<int> indicesQueryBoolMaxClauseCount;
-
   /// Maximum amount of heap memory used for field data cache, expressed as a percentage. Decreasing the value too much will increase overhead of loading field data. Increasing the value too much will decrease amount of heap available for other operations.
   final SdkOptional<int> indicesFielddataCacheSizePercentage;
-
   /// Total amount of heap used for indexing buffer before writing segments to disk, expressed as a percentage. Too low value will slow down indexing; too high value will increase indexing performance but causes performance issues for query performance.
   final SdkOptional<int> indicesMemoryIndexBufferSizePercentage;
-
   /// Minimum amount of heap used for indexing buffer before writing segments to disk, in mb. Works in conjunction with indices_memory_index_buffer_size_percentage, each being enforced.
   final SdkOptional<int> indicesMemoryMinIndexBufferSizeMb;
-
   /// Maximum amount of heap used for indexing buffer before writing segments to disk, in mb. Works in conjunction with indices_memory_index_buffer_size_percentage, each being enforced. The default is unbounded.
   final SdkOptional<int> indicesMemoryMaxIndexBufferSizeMb;
-
   /// Maximum amount of heap used for query cache. Too low value will decrease query performance and increase performance for other operations; too high value will cause issues with other functionality.
   final SdkOptional<int> indicesQueriesCacheSizePercentage;
-
   /// Limits total inbound and outbound recovery traffic for each node, expressed in mb per second. Applies to both peer recoveries as well as snapshot recoveries (i.e., restores from a snapshot).
   final SdkOptional<int> indicesRecoveryMaxMbPerSec;
-
   /// Maximum number of file chunks sent in parallel for each recovery.
   final SdkOptional<int> indicesRecoveryMaxConcurrentFileChunks;
-
   /// Number of workers in the search operation thread pool. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.
   final SdkOptional<int> threadPoolSearchSize;
-
   /// Number of workers in the search throttled operation thread pool. This pool is used for searching frozen indices. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.
   final SdkOptional<int> threadPoolSearchThrottledSize;
-
   /// Number of workers in the get operation thread pool. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.
   final SdkOptional<int> threadPoolGetSize;
-
   /// Number of workers in the analyze operation thread pool. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.
   final SdkOptional<int> threadPoolAnalyzeSize;
-
   /// Number of workers in the write operation thread pool. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.
   final SdkOptional<int> threadPoolWriteSize;
-
   /// Number of workers in the force merge operation thread pool. This pool is used for forcing a merge between shards of one or more indices. Do note this may have maximum value depending on CPU count - value is automatically lowered if set to higher than maximum value.
   final SdkOptional<int> threadPoolForceMergeSize;
-
   /// Size of queue for operations in the search thread pool.
   final SdkOptional<int> threadPoolSearchQueueSize;
-
   /// Size of queue for operations in the search throttled thread pool.
   final SdkOptional<int> threadPoolSearchThrottledQueueSize;
-
   /// Size of queue for operations in the get thread pool.
   final SdkOptional<int> threadPoolGetQueueSize;
-
   /// Size of queue for operations in the analyze thread pool.
   final SdkOptional<int> threadPoolAnalyzeQueueSize;
-
   /// Size of queue for operations in the write thread pool.
   final SdkOptional<int> threadPoolWriteQueueSize;
-
   /// Specifies whether ISM is enabled or not.
   final SdkOptional<bool> ismEnabled;
-
   /// Specifies whether audit history is enabled or not. The logs from ISM are automatically indexed to a logs document.
   final SdkOptional<bool> ismHistoryEnabled;
-
   /// Maximum age before rolling over the audit history index, in hours.
   final SdkOptional<int> ismHistoryMaxAgeHours;
-
   /// Maximum number of documents before rolling over the audit history index.
   final SdkOptional<int> ismHistoryMaxDocs;
-
   /// The time between rollover checks for the audit history index, in hours.
   final SdkOptional<int> ismHistoryRolloverCheckPeriodHours;
-
   /// Length of time long audit history indices are kept, in days.
   final SdkOptional<int> ismHistoryRolloverRetentionPeriodDays;
-
   /// Maximum number of aggregation buckets allowed in a single response.
   final SdkOptional<int> searchMaxBuckets;
-
   /// Specifices whether to allow automatic creation of indices.
   final SdkOptional<bool> actionAutoCreateIndexEnabled;
-
   /// Specifies whether to allow security audit logging.
   final SdkOptional<bool> enableSecurityAudit;
-
   /// Specifies whether to require explicit index names when deleting indices.
   final SdkOptional<bool> actionDestructiveRequiresName;
-
   /// Maximum number of shards allowed per data node.
   final SdkOptional<int> clusterMaxShardsPerNode;
-
   /// Compatibility mode sets OpenSearch to report its version as 7.10 so clients continue to work.
   final SdkOptional<bool> overrideMainResponseVersion;
-
   /// Limits the number of inline script compilations within a period of time. Default is use-context
   final SdkOptional<String> scriptMaxCompilationsRate;
-
   /// Maximum concurrent incoming/outgoing shard recoveries (normally replicas) are allowed to happen per node .
   final SdkOptional<int> clusterRoutingAllocationNodeConcurrentRecoveries;
-
   /// Allowlist of remote IP addresses for reindexing. Changing this value will cause all OpenSearch instances to restart.
   final SdkOptional<List<String>> reindexRemoteWhitelist;
-
   /// Enable or disable filtering of alerting by backend roles.
   final SdkOptional<bool> pluginsAlertingFilterByBackendRolesEnabled;
-
   /// Enable or disable KNN memory circuit breaker.
   final SdkOptional<bool> knnMemoryCircuitBreakerEnabled;
-
   /// Maximum amount of memory in percentage that can be used for the KNN index. Defaults to 50% of the JVM heap size. 0 is used to set it to null which can be used to invalidate caches.
   final SdkOptional<int> knnMemoryCircuitBreakerLimit;
-
   /// DigitalOcean automatically resets the `index.refresh_interval` to the default value (once per second) to ensure that new documents are quickly available for search queries. If you are setting your own refresh intervals, you can disable this by setting this field to true.
   final SdkOptional<bool> keepIndexRefreshInterval;
 
-  const OpensearchAdvancedConfig(
-      {this.httpMaxContentLengthBytes = const SdkOmitted(),
-      this.httpMaxHeaderSizeBytes = const SdkOmitted(),
-      this.httpMaxInitialLineLengthBytes = const SdkOmitted(),
-      this.indicesQueryBoolMaxClauseCount = const SdkOmitted(),
-      this.indicesFielddataCacheSizePercentage = const SdkOmitted(),
-      this.indicesMemoryIndexBufferSizePercentage = const SdkOmitted(),
-      this.indicesMemoryMinIndexBufferSizeMb = const SdkOmitted(),
-      this.indicesMemoryMaxIndexBufferSizeMb = const SdkOmitted(),
-      this.indicesQueriesCacheSizePercentage = const SdkOmitted(),
-      this.indicesRecoveryMaxMbPerSec = const SdkOmitted(),
-      this.indicesRecoveryMaxConcurrentFileChunks = const SdkOmitted(),
-      this.threadPoolSearchSize = const SdkOmitted(),
-      this.threadPoolSearchThrottledSize = const SdkOmitted(),
-      this.threadPoolGetSize = const SdkOmitted(),
-      this.threadPoolAnalyzeSize = const SdkOmitted(),
-      this.threadPoolWriteSize = const SdkOmitted(),
-      this.threadPoolForceMergeSize = const SdkOmitted(),
-      this.threadPoolSearchQueueSize = const SdkOmitted(),
-      this.threadPoolSearchThrottledQueueSize = const SdkOmitted(),
-      this.threadPoolGetQueueSize = const SdkOmitted(),
-      this.threadPoolAnalyzeQueueSize = const SdkOmitted(),
-      this.threadPoolWriteQueueSize = const SdkOmitted(),
-      this.ismEnabled = const SdkOmitted(),
-      this.ismHistoryEnabled = const SdkOmitted(),
-      this.ismHistoryMaxAgeHours = const SdkOmitted(),
-      this.ismHistoryMaxDocs = const SdkOmitted(),
-      this.ismHistoryRolloverCheckPeriodHours = const SdkOmitted(),
-      this.ismHistoryRolloverRetentionPeriodDays = const SdkOmitted(),
-      this.searchMaxBuckets = const SdkOmitted(),
-      this.actionAutoCreateIndexEnabled = const SdkOmitted(),
-      this.enableSecurityAudit = const SdkOmitted(),
-      this.actionDestructiveRequiresName = const SdkOmitted(),
-      this.clusterMaxShardsPerNode = const SdkOmitted(),
-      this.overrideMainResponseVersion = const SdkOmitted(),
-      this.scriptMaxCompilationsRate = const SdkOmitted(),
-      this.clusterRoutingAllocationNodeConcurrentRecoveries =
-          const SdkOmitted(),
-      this.reindexRemoteWhitelist = const SdkOmitted(),
-      this.pluginsAlertingFilterByBackendRolesEnabled = const SdkOmitted(),
-      this.knnMemoryCircuitBreakerEnabled = const SdkOmitted(),
-      this.knnMemoryCircuitBreakerLimit = const SdkOmitted(),
-      this.keepIndexRefreshInterval = const SdkOmitted()});
+  const OpensearchAdvancedConfig({this.httpMaxContentLengthBytes = const SdkOmitted(), this.httpMaxHeaderSizeBytes = const SdkOmitted(), this.httpMaxInitialLineLengthBytes = const SdkOmitted(), this.indicesQueryBoolMaxClauseCount = const SdkOmitted(), this.indicesFielddataCacheSizePercentage = const SdkOmitted(), this.indicesMemoryIndexBufferSizePercentage = const SdkOmitted(), this.indicesMemoryMinIndexBufferSizeMb = const SdkOmitted(), this.indicesMemoryMaxIndexBufferSizeMb = const SdkOmitted(), this.indicesQueriesCacheSizePercentage = const SdkOmitted(), this.indicesRecoveryMaxMbPerSec = const SdkOmitted(), this.indicesRecoveryMaxConcurrentFileChunks = const SdkOmitted(), this.threadPoolSearchSize = const SdkOmitted(), this.threadPoolSearchThrottledSize = const SdkOmitted(), this.threadPoolGetSize = const SdkOmitted(), this.threadPoolAnalyzeSize = const SdkOmitted(), this.threadPoolWriteSize = const SdkOmitted(), this.threadPoolForceMergeSize = const SdkOmitted(), this.threadPoolSearchQueueSize = const SdkOmitted(), this.threadPoolSearchThrottledQueueSize = const SdkOmitted(), this.threadPoolGetQueueSize = const SdkOmitted(), this.threadPoolAnalyzeQueueSize = const SdkOmitted(), this.threadPoolWriteQueueSize = const SdkOmitted(), this.ismEnabled = const SdkOmitted(), this.ismHistoryEnabled = const SdkOmitted(), this.ismHistoryMaxAgeHours = const SdkOmitted(), this.ismHistoryMaxDocs = const SdkOmitted(), this.ismHistoryRolloverCheckPeriodHours = const SdkOmitted(), this.ismHistoryRolloverRetentionPeriodDays = const SdkOmitted(), this.searchMaxBuckets = const SdkOmitted(), this.actionAutoCreateIndexEnabled = const SdkOmitted(), this.enableSecurityAudit = const SdkOmitted(), this.actionDestructiveRequiresName = const SdkOmitted(), this.clusterMaxShardsPerNode = const SdkOmitted(), this.overrideMainResponseVersion = const SdkOmitted(), this.scriptMaxCompilationsRate = const SdkOmitted(), this.clusterRoutingAllocationNodeConcurrentRecoveries = const SdkOmitted(), this.reindexRemoteWhitelist = const SdkOmitted(), this.pluginsAlertingFilterByBackendRolesEnabled = const SdkOmitted(), this.knnMemoryCircuitBreakerEnabled = const SdkOmitted(), this.knnMemoryCircuitBreakerLimit = const SdkOmitted(), this.keepIndexRefreshInterval = const SdkOmitted()});
 
-  OpensearchAdvancedConfig Function(
-      {SdkOptional<int> httpMaxContentLengthBytes,
-      SdkOptional<int> httpMaxHeaderSizeBytes,
-      SdkOptional<int> httpMaxInitialLineLengthBytes,
-      SdkOptional<int> indicesQueryBoolMaxClauseCount,
-      SdkOptional<int> indicesFielddataCacheSizePercentage,
-      SdkOptional<int> indicesMemoryIndexBufferSizePercentage,
-      SdkOptional<int> indicesMemoryMinIndexBufferSizeMb,
-      SdkOptional<int> indicesMemoryMaxIndexBufferSizeMb,
-      SdkOptional<int> indicesQueriesCacheSizePercentage,
-      SdkOptional<int> indicesRecoveryMaxMbPerSec,
-      SdkOptional<int> indicesRecoveryMaxConcurrentFileChunks,
-      SdkOptional<int> threadPoolSearchSize,
-      SdkOptional<int> threadPoolSearchThrottledSize,
-      SdkOptional<int> threadPoolGetSize,
-      SdkOptional<int> threadPoolAnalyzeSize,
-      SdkOptional<int> threadPoolWriteSize,
-      SdkOptional<int> threadPoolForceMergeSize,
-      SdkOptional<int> threadPoolSearchQueueSize,
-      SdkOptional<int> threadPoolSearchThrottledQueueSize,
-      SdkOptional<int> threadPoolGetQueueSize,
-      SdkOptional<int> threadPoolAnalyzeQueueSize,
-      SdkOptional<int> threadPoolWriteQueueSize,
-      SdkOptional<bool> ismEnabled,
-      SdkOptional<bool> ismHistoryEnabled,
-      SdkOptional<int> ismHistoryMaxAgeHours,
-      SdkOptional<int> ismHistoryMaxDocs,
-      SdkOptional<int> ismHistoryRolloverCheckPeriodHours,
-      SdkOptional<int> ismHistoryRolloverRetentionPeriodDays,
-      SdkOptional<int> searchMaxBuckets,
-      SdkOptional<bool> actionAutoCreateIndexEnabled,
-      SdkOptional<bool> enableSecurityAudit,
-      SdkOptional<bool> actionDestructiveRequiresName,
-      SdkOptional<int> clusterMaxShardsPerNode,
-      SdkOptional<bool> overrideMainResponseVersion,
-      SdkOptional<String> scriptMaxCompilationsRate,
-      SdkOptional<int> clusterRoutingAllocationNodeConcurrentRecoveries,
-      SdkOptional<List<String>> reindexRemoteWhitelist,
-      SdkOptional<bool> pluginsAlertingFilterByBackendRolesEnabled,
-      SdkOptional<bool> knnMemoryCircuitBreakerEnabled,
-      SdkOptional<int> knnMemoryCircuitBreakerLimit,
-      SdkOptional<bool> keepIndexRefreshInterval}) get copyWith => _copyWith;
+  OpensearchAdvancedConfig Function({SdkOptional<int> httpMaxContentLengthBytes, SdkOptional<int> httpMaxHeaderSizeBytes, SdkOptional<int> httpMaxInitialLineLengthBytes, SdkOptional<int> indicesQueryBoolMaxClauseCount, SdkOptional<int> indicesFielddataCacheSizePercentage, SdkOptional<int> indicesMemoryIndexBufferSizePercentage, SdkOptional<int> indicesMemoryMinIndexBufferSizeMb, SdkOptional<int> indicesMemoryMaxIndexBufferSizeMb, SdkOptional<int> indicesQueriesCacheSizePercentage, SdkOptional<int> indicesRecoveryMaxMbPerSec, SdkOptional<int> indicesRecoveryMaxConcurrentFileChunks, SdkOptional<int> threadPoolSearchSize, SdkOptional<int> threadPoolSearchThrottledSize, SdkOptional<int> threadPoolGetSize, SdkOptional<int> threadPoolAnalyzeSize, SdkOptional<int> threadPoolWriteSize, SdkOptional<int> threadPoolForceMergeSize, SdkOptional<int> threadPoolSearchQueueSize, SdkOptional<int> threadPoolSearchThrottledQueueSize, SdkOptional<int> threadPoolGetQueueSize, SdkOptional<int> threadPoolAnalyzeQueueSize, SdkOptional<int> threadPoolWriteQueueSize, SdkOptional<bool> ismEnabled, SdkOptional<bool> ismHistoryEnabled, SdkOptional<int> ismHistoryMaxAgeHours, SdkOptional<int> ismHistoryMaxDocs, SdkOptional<int> ismHistoryRolloverCheckPeriodHours, SdkOptional<int> ismHistoryRolloverRetentionPeriodDays, SdkOptional<int> searchMaxBuckets, SdkOptional<bool> actionAutoCreateIndexEnabled, SdkOptional<bool> enableSecurityAudit, SdkOptional<bool> actionDestructiveRequiresName, SdkOptional<int> clusterMaxShardsPerNode, SdkOptional<bool> overrideMainResponseVersion, SdkOptional<String> scriptMaxCompilationsRate, SdkOptional<int> clusterRoutingAllocationNodeConcurrentRecoveries, SdkOptional<List<String>> reindexRemoteWhitelist, SdkOptional<bool> pluginsAlertingFilterByBackendRolesEnabled, SdkOptional<bool> knnMemoryCircuitBreakerEnabled, SdkOptional<int> knnMemoryCircuitBreakerLimit, SdkOptional<bool> keepIndexRefreshInterval}) get copyWith => _copyWith;
 
-  OpensearchAdvancedConfig _copyWith(
-          {Object? httpMaxContentLengthBytes = sdkOmittedValue,
-          Object? httpMaxHeaderSizeBytes = sdkOmittedValue,
-          Object? httpMaxInitialLineLengthBytes = sdkOmittedValue,
-          Object? indicesQueryBoolMaxClauseCount = sdkOmittedValue,
-          Object? indicesFielddataCacheSizePercentage = sdkOmittedValue,
-          Object? indicesMemoryIndexBufferSizePercentage = sdkOmittedValue,
-          Object? indicesMemoryMinIndexBufferSizeMb = sdkOmittedValue,
-          Object? indicesMemoryMaxIndexBufferSizeMb = sdkOmittedValue,
-          Object? indicesQueriesCacheSizePercentage = sdkOmittedValue,
-          Object? indicesRecoveryMaxMbPerSec = sdkOmittedValue,
-          Object? indicesRecoveryMaxConcurrentFileChunks = sdkOmittedValue,
-          Object? threadPoolSearchSize = sdkOmittedValue,
-          Object? threadPoolSearchThrottledSize = sdkOmittedValue,
-          Object? threadPoolGetSize = sdkOmittedValue,
-          Object? threadPoolAnalyzeSize = sdkOmittedValue,
-          Object? threadPoolWriteSize = sdkOmittedValue,
-          Object? threadPoolForceMergeSize = sdkOmittedValue,
-          Object? threadPoolSearchQueueSize = sdkOmittedValue,
-          Object? threadPoolSearchThrottledQueueSize = sdkOmittedValue,
-          Object? threadPoolGetQueueSize = sdkOmittedValue,
-          Object? threadPoolAnalyzeQueueSize = sdkOmittedValue,
-          Object? threadPoolWriteQueueSize = sdkOmittedValue,
-          Object? ismEnabled = sdkOmittedValue,
-          Object? ismHistoryEnabled = sdkOmittedValue,
-          Object? ismHistoryMaxAgeHours = sdkOmittedValue,
-          Object? ismHistoryMaxDocs = sdkOmittedValue,
-          Object? ismHistoryRolloverCheckPeriodHours = sdkOmittedValue,
-          Object? ismHistoryRolloverRetentionPeriodDays = sdkOmittedValue,
-          Object? searchMaxBuckets = sdkOmittedValue,
-          Object? actionAutoCreateIndexEnabled = sdkOmittedValue,
-          Object? enableSecurityAudit = sdkOmittedValue,
-          Object? actionDestructiveRequiresName = sdkOmittedValue,
-          Object? clusterMaxShardsPerNode = sdkOmittedValue,
-          Object? overrideMainResponseVersion = sdkOmittedValue,
-          Object? scriptMaxCompilationsRate = sdkOmittedValue,
-          Object? clusterRoutingAllocationNodeConcurrentRecoveries =
-              sdkOmittedValue,
-          Object? reindexRemoteWhitelist = sdkOmittedValue,
-          Object? pluginsAlertingFilterByBackendRolesEnabled = sdkOmittedValue,
-          Object? knnMemoryCircuitBreakerEnabled = sdkOmittedValue,
-          Object? knnMemoryCircuitBreakerLimit = sdkOmittedValue,
-          Object? keepIndexRefreshInterval = sdkOmittedValue}) =>
-      OpensearchAdvancedConfig(
-        httpMaxContentLengthBytes:
-            identical(httpMaxContentLengthBytes, sdkOmittedValue)
-                ? this.httpMaxContentLengthBytes
-                : httpMaxContentLengthBytes as SdkOptional<int>,
-        httpMaxHeaderSizeBytes:
-            identical(httpMaxHeaderSizeBytes, sdkOmittedValue)
-                ? this.httpMaxHeaderSizeBytes
-                : httpMaxHeaderSizeBytes as SdkOptional<int>,
-        httpMaxInitialLineLengthBytes:
-            identical(httpMaxInitialLineLengthBytes, sdkOmittedValue)
-                ? this.httpMaxInitialLineLengthBytes
-                : httpMaxInitialLineLengthBytes as SdkOptional<int>,
-        indicesQueryBoolMaxClauseCount:
-            identical(indicesQueryBoolMaxClauseCount, sdkOmittedValue)
-                ? this.indicesQueryBoolMaxClauseCount
-                : indicesQueryBoolMaxClauseCount as SdkOptional<int>,
-        indicesFielddataCacheSizePercentage:
-            identical(indicesFielddataCacheSizePercentage, sdkOmittedValue)
-                ? this.indicesFielddataCacheSizePercentage
-                : indicesFielddataCacheSizePercentage as SdkOptional<int>,
-        indicesMemoryIndexBufferSizePercentage:
-            identical(indicesMemoryIndexBufferSizePercentage, sdkOmittedValue)
-                ? this.indicesMemoryIndexBufferSizePercentage
-                : indicesMemoryIndexBufferSizePercentage as SdkOptional<int>,
-        indicesMemoryMinIndexBufferSizeMb:
-            identical(indicesMemoryMinIndexBufferSizeMb, sdkOmittedValue)
-                ? this.indicesMemoryMinIndexBufferSizeMb
-                : indicesMemoryMinIndexBufferSizeMb as SdkOptional<int>,
-        indicesMemoryMaxIndexBufferSizeMb:
-            identical(indicesMemoryMaxIndexBufferSizeMb, sdkOmittedValue)
-                ? this.indicesMemoryMaxIndexBufferSizeMb
-                : indicesMemoryMaxIndexBufferSizeMb as SdkOptional<int>,
-        indicesQueriesCacheSizePercentage:
-            identical(indicesQueriesCacheSizePercentage, sdkOmittedValue)
-                ? this.indicesQueriesCacheSizePercentage
-                : indicesQueriesCacheSizePercentage as SdkOptional<int>,
-        indicesRecoveryMaxMbPerSec:
-            identical(indicesRecoveryMaxMbPerSec, sdkOmittedValue)
-                ? this.indicesRecoveryMaxMbPerSec
-                : indicesRecoveryMaxMbPerSec as SdkOptional<int>,
-        indicesRecoveryMaxConcurrentFileChunks:
-            identical(indicesRecoveryMaxConcurrentFileChunks, sdkOmittedValue)
-                ? this.indicesRecoveryMaxConcurrentFileChunks
-                : indicesRecoveryMaxConcurrentFileChunks as SdkOptional<int>,
-        threadPoolSearchSize: identical(threadPoolSearchSize, sdkOmittedValue)
-            ? this.threadPoolSearchSize
-            : threadPoolSearchSize as SdkOptional<int>,
-        threadPoolSearchThrottledSize:
-            identical(threadPoolSearchThrottledSize, sdkOmittedValue)
-                ? this.threadPoolSearchThrottledSize
-                : threadPoolSearchThrottledSize as SdkOptional<int>,
-        threadPoolGetSize: identical(threadPoolGetSize, sdkOmittedValue)
-            ? this.threadPoolGetSize
-            : threadPoolGetSize as SdkOptional<int>,
-        threadPoolAnalyzeSize: identical(threadPoolAnalyzeSize, sdkOmittedValue)
-            ? this.threadPoolAnalyzeSize
-            : threadPoolAnalyzeSize as SdkOptional<int>,
-        threadPoolWriteSize: identical(threadPoolWriteSize, sdkOmittedValue)
-            ? this.threadPoolWriteSize
-            : threadPoolWriteSize as SdkOptional<int>,
-        threadPoolForceMergeSize:
-            identical(threadPoolForceMergeSize, sdkOmittedValue)
-                ? this.threadPoolForceMergeSize
-                : threadPoolForceMergeSize as SdkOptional<int>,
-        threadPoolSearchQueueSize:
-            identical(threadPoolSearchQueueSize, sdkOmittedValue)
-                ? this.threadPoolSearchQueueSize
-                : threadPoolSearchQueueSize as SdkOptional<int>,
-        threadPoolSearchThrottledQueueSize:
-            identical(threadPoolSearchThrottledQueueSize, sdkOmittedValue)
-                ? this.threadPoolSearchThrottledQueueSize
-                : threadPoolSearchThrottledQueueSize as SdkOptional<int>,
-        threadPoolGetQueueSize:
-            identical(threadPoolGetQueueSize, sdkOmittedValue)
-                ? this.threadPoolGetQueueSize
-                : threadPoolGetQueueSize as SdkOptional<int>,
-        threadPoolAnalyzeQueueSize:
-            identical(threadPoolAnalyzeQueueSize, sdkOmittedValue)
-                ? this.threadPoolAnalyzeQueueSize
-                : threadPoolAnalyzeQueueSize as SdkOptional<int>,
-        threadPoolWriteQueueSize:
-            identical(threadPoolWriteQueueSize, sdkOmittedValue)
-                ? this.threadPoolWriteQueueSize
-                : threadPoolWriteQueueSize as SdkOptional<int>,
-        ismEnabled: identical(ismEnabled, sdkOmittedValue)
-            ? this.ismEnabled
-            : ismEnabled as SdkOptional<bool>,
-        ismHistoryEnabled: identical(ismHistoryEnabled, sdkOmittedValue)
-            ? this.ismHistoryEnabled
-            : ismHistoryEnabled as SdkOptional<bool>,
-        ismHistoryMaxAgeHours: identical(ismHistoryMaxAgeHours, sdkOmittedValue)
-            ? this.ismHistoryMaxAgeHours
-            : ismHistoryMaxAgeHours as SdkOptional<int>,
-        ismHistoryMaxDocs: identical(ismHistoryMaxDocs, sdkOmittedValue)
-            ? this.ismHistoryMaxDocs
-            : ismHistoryMaxDocs as SdkOptional<int>,
-        ismHistoryRolloverCheckPeriodHours:
-            identical(ismHistoryRolloverCheckPeriodHours, sdkOmittedValue)
-                ? this.ismHistoryRolloverCheckPeriodHours
-                : ismHistoryRolloverCheckPeriodHours as SdkOptional<int>,
-        ismHistoryRolloverRetentionPeriodDays:
-            identical(ismHistoryRolloverRetentionPeriodDays, sdkOmittedValue)
-                ? this.ismHistoryRolloverRetentionPeriodDays
-                : ismHistoryRolloverRetentionPeriodDays as SdkOptional<int>,
-        searchMaxBuckets: identical(searchMaxBuckets, sdkOmittedValue)
-            ? this.searchMaxBuckets
-            : searchMaxBuckets as SdkOptional<int>,
-        actionAutoCreateIndexEnabled:
-            identical(actionAutoCreateIndexEnabled, sdkOmittedValue)
-                ? this.actionAutoCreateIndexEnabled
-                : actionAutoCreateIndexEnabled as SdkOptional<bool>,
-        enableSecurityAudit: identical(enableSecurityAudit, sdkOmittedValue)
-            ? this.enableSecurityAudit
-            : enableSecurityAudit as SdkOptional<bool>,
-        actionDestructiveRequiresName:
-            identical(actionDestructiveRequiresName, sdkOmittedValue)
-                ? this.actionDestructiveRequiresName
-                : actionDestructiveRequiresName as SdkOptional<bool>,
-        clusterMaxShardsPerNode:
-            identical(clusterMaxShardsPerNode, sdkOmittedValue)
-                ? this.clusterMaxShardsPerNode
-                : clusterMaxShardsPerNode as SdkOptional<int>,
-        overrideMainResponseVersion:
-            identical(overrideMainResponseVersion, sdkOmittedValue)
-                ? this.overrideMainResponseVersion
-                : overrideMainResponseVersion as SdkOptional<bool>,
-        scriptMaxCompilationsRate:
-            identical(scriptMaxCompilationsRate, sdkOmittedValue)
-                ? this.scriptMaxCompilationsRate
-                : scriptMaxCompilationsRate as SdkOptional<String>,
-        clusterRoutingAllocationNodeConcurrentRecoveries: identical(
-                clusterRoutingAllocationNodeConcurrentRecoveries,
-                sdkOmittedValue)
-            ? this.clusterRoutingAllocationNodeConcurrentRecoveries
-            : clusterRoutingAllocationNodeConcurrentRecoveries
-                as SdkOptional<int>,
-        reindexRemoteWhitelist:
-            identical(reindexRemoteWhitelist, sdkOmittedValue)
-                ? this.reindexRemoteWhitelist
-                : reindexRemoteWhitelist as SdkOptional<List<String>>,
-        pluginsAlertingFilterByBackendRolesEnabled: identical(
-                pluginsAlertingFilterByBackendRolesEnabled, sdkOmittedValue)
-            ? this.pluginsAlertingFilterByBackendRolesEnabled
-            : pluginsAlertingFilterByBackendRolesEnabled as SdkOptional<bool>,
-        knnMemoryCircuitBreakerEnabled:
-            identical(knnMemoryCircuitBreakerEnabled, sdkOmittedValue)
-                ? this.knnMemoryCircuitBreakerEnabled
-                : knnMemoryCircuitBreakerEnabled as SdkOptional<bool>,
-        knnMemoryCircuitBreakerLimit:
-            identical(knnMemoryCircuitBreakerLimit, sdkOmittedValue)
-                ? this.knnMemoryCircuitBreakerLimit
-                : knnMemoryCircuitBreakerLimit as SdkOptional<int>,
-        keepIndexRefreshInterval:
-            identical(keepIndexRefreshInterval, sdkOmittedValue)
-                ? this.keepIndexRefreshInterval
-                : keepIndexRefreshInterval as SdkOptional<bool>,
-      );
+  OpensearchAdvancedConfig _copyWith({Object? httpMaxContentLengthBytes = sdkOmittedValue, Object? httpMaxHeaderSizeBytes = sdkOmittedValue, Object? httpMaxInitialLineLengthBytes = sdkOmittedValue, Object? indicesQueryBoolMaxClauseCount = sdkOmittedValue, Object? indicesFielddataCacheSizePercentage = sdkOmittedValue, Object? indicesMemoryIndexBufferSizePercentage = sdkOmittedValue, Object? indicesMemoryMinIndexBufferSizeMb = sdkOmittedValue, Object? indicesMemoryMaxIndexBufferSizeMb = sdkOmittedValue, Object? indicesQueriesCacheSizePercentage = sdkOmittedValue, Object? indicesRecoveryMaxMbPerSec = sdkOmittedValue, Object? indicesRecoveryMaxConcurrentFileChunks = sdkOmittedValue, Object? threadPoolSearchSize = sdkOmittedValue, Object? threadPoolSearchThrottledSize = sdkOmittedValue, Object? threadPoolGetSize = sdkOmittedValue, Object? threadPoolAnalyzeSize = sdkOmittedValue, Object? threadPoolWriteSize = sdkOmittedValue, Object? threadPoolForceMergeSize = sdkOmittedValue, Object? threadPoolSearchQueueSize = sdkOmittedValue, Object? threadPoolSearchThrottledQueueSize = sdkOmittedValue, Object? threadPoolGetQueueSize = sdkOmittedValue, Object? threadPoolAnalyzeQueueSize = sdkOmittedValue, Object? threadPoolWriteQueueSize = sdkOmittedValue, Object? ismEnabled = sdkOmittedValue, Object? ismHistoryEnabled = sdkOmittedValue, Object? ismHistoryMaxAgeHours = sdkOmittedValue, Object? ismHistoryMaxDocs = sdkOmittedValue, Object? ismHistoryRolloverCheckPeriodHours = sdkOmittedValue, Object? ismHistoryRolloverRetentionPeriodDays = sdkOmittedValue, Object? searchMaxBuckets = sdkOmittedValue, Object? actionAutoCreateIndexEnabled = sdkOmittedValue, Object? enableSecurityAudit = sdkOmittedValue, Object? actionDestructiveRequiresName = sdkOmittedValue, Object? clusterMaxShardsPerNode = sdkOmittedValue, Object? overrideMainResponseVersion = sdkOmittedValue, Object? scriptMaxCompilationsRate = sdkOmittedValue, Object? clusterRoutingAllocationNodeConcurrentRecoveries = sdkOmittedValue, Object? reindexRemoteWhitelist = sdkOmittedValue, Object? pluginsAlertingFilterByBackendRolesEnabled = sdkOmittedValue, Object? knnMemoryCircuitBreakerEnabled = sdkOmittedValue, Object? knnMemoryCircuitBreakerLimit = sdkOmittedValue, Object? keepIndexRefreshInterval = sdkOmittedValue}) => OpensearchAdvancedConfig(
+    httpMaxContentLengthBytes: identical(httpMaxContentLengthBytes, sdkOmittedValue) ? this.httpMaxContentLengthBytes : httpMaxContentLengthBytes as SdkOptional<int>,
+    httpMaxHeaderSizeBytes: identical(httpMaxHeaderSizeBytes, sdkOmittedValue) ? this.httpMaxHeaderSizeBytes : httpMaxHeaderSizeBytes as SdkOptional<int>,
+    httpMaxInitialLineLengthBytes: identical(httpMaxInitialLineLengthBytes, sdkOmittedValue) ? this.httpMaxInitialLineLengthBytes : httpMaxInitialLineLengthBytes as SdkOptional<int>,
+    indicesQueryBoolMaxClauseCount: identical(indicesQueryBoolMaxClauseCount, sdkOmittedValue) ? this.indicesQueryBoolMaxClauseCount : indicesQueryBoolMaxClauseCount as SdkOptional<int>,
+    indicesFielddataCacheSizePercentage: identical(indicesFielddataCacheSizePercentage, sdkOmittedValue) ? this.indicesFielddataCacheSizePercentage : indicesFielddataCacheSizePercentage as SdkOptional<int>,
+    indicesMemoryIndexBufferSizePercentage: identical(indicesMemoryIndexBufferSizePercentage, sdkOmittedValue) ? this.indicesMemoryIndexBufferSizePercentage : indicesMemoryIndexBufferSizePercentage as SdkOptional<int>,
+    indicesMemoryMinIndexBufferSizeMb: identical(indicesMemoryMinIndexBufferSizeMb, sdkOmittedValue) ? this.indicesMemoryMinIndexBufferSizeMb : indicesMemoryMinIndexBufferSizeMb as SdkOptional<int>,
+    indicesMemoryMaxIndexBufferSizeMb: identical(indicesMemoryMaxIndexBufferSizeMb, sdkOmittedValue) ? this.indicesMemoryMaxIndexBufferSizeMb : indicesMemoryMaxIndexBufferSizeMb as SdkOptional<int>,
+    indicesQueriesCacheSizePercentage: identical(indicesQueriesCacheSizePercentage, sdkOmittedValue) ? this.indicesQueriesCacheSizePercentage : indicesQueriesCacheSizePercentage as SdkOptional<int>,
+    indicesRecoveryMaxMbPerSec: identical(indicesRecoveryMaxMbPerSec, sdkOmittedValue) ? this.indicesRecoveryMaxMbPerSec : indicesRecoveryMaxMbPerSec as SdkOptional<int>,
+    indicesRecoveryMaxConcurrentFileChunks: identical(indicesRecoveryMaxConcurrentFileChunks, sdkOmittedValue) ? this.indicesRecoveryMaxConcurrentFileChunks : indicesRecoveryMaxConcurrentFileChunks as SdkOptional<int>,
+    threadPoolSearchSize: identical(threadPoolSearchSize, sdkOmittedValue) ? this.threadPoolSearchSize : threadPoolSearchSize as SdkOptional<int>,
+    threadPoolSearchThrottledSize: identical(threadPoolSearchThrottledSize, sdkOmittedValue) ? this.threadPoolSearchThrottledSize : threadPoolSearchThrottledSize as SdkOptional<int>,
+    threadPoolGetSize: identical(threadPoolGetSize, sdkOmittedValue) ? this.threadPoolGetSize : threadPoolGetSize as SdkOptional<int>,
+    threadPoolAnalyzeSize: identical(threadPoolAnalyzeSize, sdkOmittedValue) ? this.threadPoolAnalyzeSize : threadPoolAnalyzeSize as SdkOptional<int>,
+    threadPoolWriteSize: identical(threadPoolWriteSize, sdkOmittedValue) ? this.threadPoolWriteSize : threadPoolWriteSize as SdkOptional<int>,
+    threadPoolForceMergeSize: identical(threadPoolForceMergeSize, sdkOmittedValue) ? this.threadPoolForceMergeSize : threadPoolForceMergeSize as SdkOptional<int>,
+    threadPoolSearchQueueSize: identical(threadPoolSearchQueueSize, sdkOmittedValue) ? this.threadPoolSearchQueueSize : threadPoolSearchQueueSize as SdkOptional<int>,
+    threadPoolSearchThrottledQueueSize: identical(threadPoolSearchThrottledQueueSize, sdkOmittedValue) ? this.threadPoolSearchThrottledQueueSize : threadPoolSearchThrottledQueueSize as SdkOptional<int>,
+    threadPoolGetQueueSize: identical(threadPoolGetQueueSize, sdkOmittedValue) ? this.threadPoolGetQueueSize : threadPoolGetQueueSize as SdkOptional<int>,
+    threadPoolAnalyzeQueueSize: identical(threadPoolAnalyzeQueueSize, sdkOmittedValue) ? this.threadPoolAnalyzeQueueSize : threadPoolAnalyzeQueueSize as SdkOptional<int>,
+    threadPoolWriteQueueSize: identical(threadPoolWriteQueueSize, sdkOmittedValue) ? this.threadPoolWriteQueueSize : threadPoolWriteQueueSize as SdkOptional<int>,
+    ismEnabled: identical(ismEnabled, sdkOmittedValue) ? this.ismEnabled : ismEnabled as SdkOptional<bool>,
+    ismHistoryEnabled: identical(ismHistoryEnabled, sdkOmittedValue) ? this.ismHistoryEnabled : ismHistoryEnabled as SdkOptional<bool>,
+    ismHistoryMaxAgeHours: identical(ismHistoryMaxAgeHours, sdkOmittedValue) ? this.ismHistoryMaxAgeHours : ismHistoryMaxAgeHours as SdkOptional<int>,
+    ismHistoryMaxDocs: identical(ismHistoryMaxDocs, sdkOmittedValue) ? this.ismHistoryMaxDocs : ismHistoryMaxDocs as SdkOptional<int>,
+    ismHistoryRolloverCheckPeriodHours: identical(ismHistoryRolloverCheckPeriodHours, sdkOmittedValue) ? this.ismHistoryRolloverCheckPeriodHours : ismHistoryRolloverCheckPeriodHours as SdkOptional<int>,
+    ismHistoryRolloverRetentionPeriodDays: identical(ismHistoryRolloverRetentionPeriodDays, sdkOmittedValue) ? this.ismHistoryRolloverRetentionPeriodDays : ismHistoryRolloverRetentionPeriodDays as SdkOptional<int>,
+    searchMaxBuckets: identical(searchMaxBuckets, sdkOmittedValue) ? this.searchMaxBuckets : searchMaxBuckets as SdkOptional<int>,
+    actionAutoCreateIndexEnabled: identical(actionAutoCreateIndexEnabled, sdkOmittedValue) ? this.actionAutoCreateIndexEnabled : actionAutoCreateIndexEnabled as SdkOptional<bool>,
+    enableSecurityAudit: identical(enableSecurityAudit, sdkOmittedValue) ? this.enableSecurityAudit : enableSecurityAudit as SdkOptional<bool>,
+    actionDestructiveRequiresName: identical(actionDestructiveRequiresName, sdkOmittedValue) ? this.actionDestructiveRequiresName : actionDestructiveRequiresName as SdkOptional<bool>,
+    clusterMaxShardsPerNode: identical(clusterMaxShardsPerNode, sdkOmittedValue) ? this.clusterMaxShardsPerNode : clusterMaxShardsPerNode as SdkOptional<int>,
+    overrideMainResponseVersion: identical(overrideMainResponseVersion, sdkOmittedValue) ? this.overrideMainResponseVersion : overrideMainResponseVersion as SdkOptional<bool>,
+    scriptMaxCompilationsRate: identical(scriptMaxCompilationsRate, sdkOmittedValue) ? this.scriptMaxCompilationsRate : scriptMaxCompilationsRate as SdkOptional<String>,
+    clusterRoutingAllocationNodeConcurrentRecoveries: identical(clusterRoutingAllocationNodeConcurrentRecoveries, sdkOmittedValue) ? this.clusterRoutingAllocationNodeConcurrentRecoveries : clusterRoutingAllocationNodeConcurrentRecoveries as SdkOptional<int>,
+    reindexRemoteWhitelist: identical(reindexRemoteWhitelist, sdkOmittedValue) ? this.reindexRemoteWhitelist : reindexRemoteWhitelist as SdkOptional<List<String>>,
+    pluginsAlertingFilterByBackendRolesEnabled: identical(pluginsAlertingFilterByBackendRolesEnabled, sdkOmittedValue) ? this.pluginsAlertingFilterByBackendRolesEnabled : pluginsAlertingFilterByBackendRolesEnabled as SdkOptional<bool>,
+    knnMemoryCircuitBreakerEnabled: identical(knnMemoryCircuitBreakerEnabled, sdkOmittedValue) ? this.knnMemoryCircuitBreakerEnabled : knnMemoryCircuitBreakerEnabled as SdkOptional<bool>,
+    knnMemoryCircuitBreakerLimit: identical(knnMemoryCircuitBreakerLimit, sdkOmittedValue) ? this.knnMemoryCircuitBreakerLimit : knnMemoryCircuitBreakerLimit as SdkOptional<int>,
+    keepIndexRefreshInterval: identical(keepIndexRefreshInterval, sdkOmittedValue) ? this.keepIndexRefreshInterval : keepIndexRefreshInterval as SdkOptional<bool>,
+  );
 
-  factory OpensearchAdvancedConfig.fromJson(Map<String, dynamic> json) =>
-      OpensearchAdvancedConfig(
-        httpMaxContentLengthBytes: json['http_max_content_length_bytes'] != null
-            ? SdkPresent(
-                ((json['http_max_content_length_bytes'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        httpMaxHeaderSizeBytes: json['http_max_header_size_bytes'] != null
-            ? SdkPresent(
-                ((json['http_max_header_size_bytes'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        httpMaxInitialLineLengthBytes:
-            json['http_max_initial_line_length_bytes'] != null
-                ? SdkPresent(
-                    ((json['http_max_initial_line_length_bytes'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        indicesQueryBoolMaxClauseCount:
-            json['indices_query_bool_max_clause_count'] != null
-                ? SdkPresent(
-                    ((json['indices_query_bool_max_clause_count'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        indicesFielddataCacheSizePercentage:
-            json['indices_fielddata_cache_size_percentage'] != null
-                ? SdkPresent(
-                    ((json['indices_fielddata_cache_size_percentage'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        indicesMemoryIndexBufferSizePercentage:
-            json['indices_memory_index_buffer_size_percentage'] != null
-                ? SdkPresent(
-                    ((json['indices_memory_index_buffer_size_percentage']
-                            as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        indicesMemoryMinIndexBufferSizeMb:
-            json['indices_memory_min_index_buffer_size_mb'] != null
-                ? SdkPresent(
-                    ((json['indices_memory_min_index_buffer_size_mb'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        indicesMemoryMaxIndexBufferSizeMb:
-            json['indices_memory_max_index_buffer_size_mb'] != null
-                ? SdkPresent(
-                    ((json['indices_memory_max_index_buffer_size_mb'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        indicesQueriesCacheSizePercentage:
-            json['indices_queries_cache_size_percentage'] != null
-                ? SdkPresent(
-                    ((json['indices_queries_cache_size_percentage'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        indicesRecoveryMaxMbPerSec: json['indices_recovery_max_mb_per_sec'] !=
-                null
-            ? SdkPresent(
-                ((json['indices_recovery_max_mb_per_sec'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        indicesRecoveryMaxConcurrentFileChunks:
-            json['indices_recovery_max_concurrent_file_chunks'] != null
-                ? SdkPresent(
-                    ((json['indices_recovery_max_concurrent_file_chunks']
-                            as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        threadPoolSearchSize: json['thread_pool_search_size'] != null
-            ? SdkPresent(((json['thread_pool_search_size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        threadPoolSearchThrottledSize:
-            json['thread_pool_search_throttled_size'] != null
-                ? SdkPresent(
-                    ((json['thread_pool_search_throttled_size'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        threadPoolGetSize: json['thread_pool_get_size'] != null
-            ? SdkPresent(((json['thread_pool_get_size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        threadPoolAnalyzeSize: json['thread_pool_analyze_size'] != null
-            ? SdkPresent(((json['thread_pool_analyze_size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        threadPoolWriteSize: json['thread_pool_write_size'] != null
-            ? SdkPresent(((json['thread_pool_write_size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        threadPoolForceMergeSize: json['thread_pool_force_merge_size'] != null
-            ? SdkPresent(
-                ((json['thread_pool_force_merge_size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        threadPoolSearchQueueSize: json['thread_pool_search_queue_size'] != null
-            ? SdkPresent(
-                ((json['thread_pool_search_queue_size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        threadPoolSearchThrottledQueueSize:
-            json['thread_pool_search_throttled_queue_size'] != null
-                ? SdkPresent(
-                    ((json['thread_pool_search_throttled_queue_size'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        threadPoolGetQueueSize: json['thread_pool_get_queue_size'] != null
-            ? SdkPresent(
-                ((json['thread_pool_get_queue_size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        threadPoolAnalyzeQueueSize: json['thread_pool_analyze_queue_size'] !=
-                null
-            ? SdkPresent(
-                ((json['thread_pool_analyze_queue_size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        threadPoolWriteQueueSize: json['thread_pool_write_queue_size'] != null
-            ? SdkPresent(
-                ((json['thread_pool_write_queue_size'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        ismEnabled: json['ism_enabled'] != null
-            ? SdkPresent((json['ism_enabled'] as bool?)!)
-            : const SdkOmitted(),
-        ismHistoryEnabled: json['ism_history_enabled'] != null
-            ? SdkPresent((json['ism_history_enabled'] as bool?)!)
-            : const SdkOmitted(),
-        ismHistoryMaxAgeHours: json['ism_history_max_age_hours'] != null
-            ? SdkPresent(
-                ((json['ism_history_max_age_hours'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        ismHistoryMaxDocs: json['ism_history_max_docs'] != null
-            ? SdkPresent(((json['ism_history_max_docs'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        ismHistoryRolloverCheckPeriodHours:
-            json['ism_history_rollover_check_period_hours'] != null
-                ? SdkPresent(
-                    ((json['ism_history_rollover_check_period_hours'] as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        ismHistoryRolloverRetentionPeriodDays:
-            json['ism_history_rollover_retention_period_days'] != null
-                ? SdkPresent(
-                    ((json['ism_history_rollover_retention_period_days']
-                            as num?)
-                        ?.toInt())!)
-                : const SdkOmitted(),
-        searchMaxBuckets: json['search_max_buckets'] != null
-            ? SdkPresent(((json['search_max_buckets'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        actionAutoCreateIndexEnabled:
-            json['action_auto_create_index_enabled'] != null
-                ? SdkPresent(
-                    (json['action_auto_create_index_enabled'] as bool?)!)
-                : const SdkOmitted(),
-        enableSecurityAudit: json['enable_security_audit'] != null
-            ? SdkPresent((json['enable_security_audit'] as bool?)!)
-            : const SdkOmitted(),
-        actionDestructiveRequiresName:
-            json['action_destructive_requires_name'] != null
-                ? SdkPresent(
-                    (json['action_destructive_requires_name'] as bool?)!)
-                : const SdkOmitted(),
-        clusterMaxShardsPerNode: json['cluster_max_shards_per_node'] != null
-            ? SdkPresent(
-                ((json['cluster_max_shards_per_node'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        overrideMainResponseVersion:
-            json['override_main_response_version'] != null
-                ? SdkPresent((json['override_main_response_version'] as bool?)!)
-                : const SdkOmitted(),
-        scriptMaxCompilationsRate: json['script_max_compilations_rate'] != null
-            ? SdkPresent((json['script_max_compilations_rate'] as String?)!)
-            : const SdkOmitted(),
-        clusterRoutingAllocationNodeConcurrentRecoveries: json[
-                    'cluster_routing_allocation_node_concurrent_recoveries'] !=
-                null
-            ? SdkPresent(
-                ((json['cluster_routing_allocation_node_concurrent_recoveries']
-                        as num?)
-                    ?.toInt())!)
-            : const SdkOmitted(),
-        reindexRemoteWhitelist: json['reindex_remote_whitelist'] != null
-            ? SdkPresent(((json['reindex_remote_whitelist'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        pluginsAlertingFilterByBackendRolesEnabled:
-            json['plugins_alerting_filter_by_backend_roles_enabled'] != null
-                ? SdkPresent(
-                    (json['plugins_alerting_filter_by_backend_roles_enabled']
-                        as bool?)!)
-                : const SdkOmitted(),
-        knnMemoryCircuitBreakerEnabled:
-            json['knn_memory_circuit_breaker_enabled'] != null
-                ? SdkPresent(
-                    (json['knn_memory_circuit_breaker_enabled'] as bool?)!)
-                : const SdkOmitted(),
-        knnMemoryCircuitBreakerLimit:
-            json['knn_memory_circuit_breaker_limit'] != null
-                ? SdkPresent(((json['knn_memory_circuit_breaker_limit'] as num?)
-                    ?.toInt())!)
-                : const SdkOmitted(),
-        keepIndexRefreshInterval: json['keep_index_refresh_interval'] != null
-            ? SdkPresent((json['keep_index_refresh_interval'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory OpensearchAdvancedConfig.fromJson(Map<String, dynamic> json) => OpensearchAdvancedConfig(
+    httpMaxContentLengthBytes: json['http_max_content_length_bytes'] != null ? SdkPresent(((json['http_max_content_length_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
+    httpMaxHeaderSizeBytes: json['http_max_header_size_bytes'] != null ? SdkPresent(((json['http_max_header_size_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
+    httpMaxInitialLineLengthBytes: json['http_max_initial_line_length_bytes'] != null ? SdkPresent(((json['http_max_initial_line_length_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
+    indicesQueryBoolMaxClauseCount: json['indices_query_bool_max_clause_count'] != null ? SdkPresent(((json['indices_query_bool_max_clause_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    indicesFielddataCacheSizePercentage: json['indices_fielddata_cache_size_percentage'] != null ? SdkPresent(((json['indices_fielddata_cache_size_percentage'] as num?)?.toInt())!) : const SdkOmitted(),
+    indicesMemoryIndexBufferSizePercentage: json['indices_memory_index_buffer_size_percentage'] != null ? SdkPresent(((json['indices_memory_index_buffer_size_percentage'] as num?)?.toInt())!) : const SdkOmitted(),
+    indicesMemoryMinIndexBufferSizeMb: json['indices_memory_min_index_buffer_size_mb'] != null ? SdkPresent(((json['indices_memory_min_index_buffer_size_mb'] as num?)?.toInt())!) : const SdkOmitted(),
+    indicesMemoryMaxIndexBufferSizeMb: json['indices_memory_max_index_buffer_size_mb'] != null ? SdkPresent(((json['indices_memory_max_index_buffer_size_mb'] as num?)?.toInt())!) : const SdkOmitted(),
+    indicesQueriesCacheSizePercentage: json['indices_queries_cache_size_percentage'] != null ? SdkPresent(((json['indices_queries_cache_size_percentage'] as num?)?.toInt())!) : const SdkOmitted(),
+    indicesRecoveryMaxMbPerSec: json['indices_recovery_max_mb_per_sec'] != null ? SdkPresent(((json['indices_recovery_max_mb_per_sec'] as num?)?.toInt())!) : const SdkOmitted(),
+    indicesRecoveryMaxConcurrentFileChunks: json['indices_recovery_max_concurrent_file_chunks'] != null ? SdkPresent(((json['indices_recovery_max_concurrent_file_chunks'] as num?)?.toInt())!) : const SdkOmitted(),
+    threadPoolSearchSize: json['thread_pool_search_size'] != null ? SdkPresent(((json['thread_pool_search_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    threadPoolSearchThrottledSize: json['thread_pool_search_throttled_size'] != null ? SdkPresent(((json['thread_pool_search_throttled_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    threadPoolGetSize: json['thread_pool_get_size'] != null ? SdkPresent(((json['thread_pool_get_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    threadPoolAnalyzeSize: json['thread_pool_analyze_size'] != null ? SdkPresent(((json['thread_pool_analyze_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    threadPoolWriteSize: json['thread_pool_write_size'] != null ? SdkPresent(((json['thread_pool_write_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    threadPoolForceMergeSize: json['thread_pool_force_merge_size'] != null ? SdkPresent(((json['thread_pool_force_merge_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    threadPoolSearchQueueSize: json['thread_pool_search_queue_size'] != null ? SdkPresent(((json['thread_pool_search_queue_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    threadPoolSearchThrottledQueueSize: json['thread_pool_search_throttled_queue_size'] != null ? SdkPresent(((json['thread_pool_search_throttled_queue_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    threadPoolGetQueueSize: json['thread_pool_get_queue_size'] != null ? SdkPresent(((json['thread_pool_get_queue_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    threadPoolAnalyzeQueueSize: json['thread_pool_analyze_queue_size'] != null ? SdkPresent(((json['thread_pool_analyze_queue_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    threadPoolWriteQueueSize: json['thread_pool_write_queue_size'] != null ? SdkPresent(((json['thread_pool_write_queue_size'] as num?)?.toInt())!) : const SdkOmitted(),
+    ismEnabled: json['ism_enabled'] != null ? SdkPresent((json['ism_enabled'] as bool?)!) : const SdkOmitted(),
+    ismHistoryEnabled: json['ism_history_enabled'] != null ? SdkPresent((json['ism_history_enabled'] as bool?)!) : const SdkOmitted(),
+    ismHistoryMaxAgeHours: json['ism_history_max_age_hours'] != null ? SdkPresent(((json['ism_history_max_age_hours'] as num?)?.toInt())!) : const SdkOmitted(),
+    ismHistoryMaxDocs: json['ism_history_max_docs'] != null ? SdkPresent(((json['ism_history_max_docs'] as num?)?.toInt())!) : const SdkOmitted(),
+    ismHistoryRolloverCheckPeriodHours: json['ism_history_rollover_check_period_hours'] != null ? SdkPresent(((json['ism_history_rollover_check_period_hours'] as num?)?.toInt())!) : const SdkOmitted(),
+    ismHistoryRolloverRetentionPeriodDays: json['ism_history_rollover_retention_period_days'] != null ? SdkPresent(((json['ism_history_rollover_retention_period_days'] as num?)?.toInt())!) : const SdkOmitted(),
+    searchMaxBuckets: json['search_max_buckets'] != null ? SdkPresent(((json['search_max_buckets'] as num?)?.toInt())!) : const SdkOmitted(),
+    actionAutoCreateIndexEnabled: json['action_auto_create_index_enabled'] != null ? SdkPresent((json['action_auto_create_index_enabled'] as bool?)!) : const SdkOmitted(),
+    enableSecurityAudit: json['enable_security_audit'] != null ? SdkPresent((json['enable_security_audit'] as bool?)!) : const SdkOmitted(),
+    actionDestructiveRequiresName: json['action_destructive_requires_name'] != null ? SdkPresent((json['action_destructive_requires_name'] as bool?)!) : const SdkOmitted(),
+    clusterMaxShardsPerNode: json['cluster_max_shards_per_node'] != null ? SdkPresent(((json['cluster_max_shards_per_node'] as num?)?.toInt())!) : const SdkOmitted(),
+    overrideMainResponseVersion: json['override_main_response_version'] != null ? SdkPresent((json['override_main_response_version'] as bool?)!) : const SdkOmitted(),
+    scriptMaxCompilationsRate: json['script_max_compilations_rate'] != null ? SdkPresent((json['script_max_compilations_rate'] as String?)!) : const SdkOmitted(),
+    clusterRoutingAllocationNodeConcurrentRecoveries: json['cluster_routing_allocation_node_concurrent_recoveries'] != null ? SdkPresent(((json['cluster_routing_allocation_node_concurrent_recoveries'] as num?)?.toInt())!) : const SdkOmitted(),
+    reindexRemoteWhitelist: json['reindex_remote_whitelist'] != null ? SdkPresent(((json['reindex_remote_whitelist'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    pluginsAlertingFilterByBackendRolesEnabled: json['plugins_alerting_filter_by_backend_roles_enabled'] != null ? SdkPresent((json['plugins_alerting_filter_by_backend_roles_enabled'] as bool?)!) : const SdkOmitted(),
+    knnMemoryCircuitBreakerEnabled: json['knn_memory_circuit_breaker_enabled'] != null ? SdkPresent((json['knn_memory_circuit_breaker_enabled'] as bool?)!) : const SdkOmitted(),
+    knnMemoryCircuitBreakerLimit: json['knn_memory_circuit_breaker_limit'] != null ? SdkPresent(((json['knn_memory_circuit_breaker_limit'] as num?)?.toInt())!) : const SdkOmitted(),
+    keepIndexRefreshInterval: json['keep_index_refresh_interval'] != null ? SdkPresent((json['keep_index_refresh_interval'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (httpMaxContentLengthBytes) {
-          SdkPresent<int>(value: final value) => {
-              'http_max_content_length_bytes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (httpMaxHeaderSizeBytes) {
-          SdkPresent<int>(value: final value) => {
-              'http_max_header_size_bytes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (httpMaxInitialLineLengthBytes) {
-          SdkPresent<int>(value: final value) => {
-              'http_max_initial_line_length_bytes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (indicesQueryBoolMaxClauseCount) {
-          SdkPresent<int>(value: final value) => {
-              'indices_query_bool_max_clause_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (indicesFielddataCacheSizePercentage) {
-          SdkPresent<int>(value: final value) => {
-              'indices_fielddata_cache_size_percentage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (indicesMemoryIndexBufferSizePercentage) {
-          SdkPresent<int>(value: final value) => {
-              'indices_memory_index_buffer_size_percentage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (indicesMemoryMinIndexBufferSizeMb) {
-          SdkPresent<int>(value: final value) => {
-              'indices_memory_min_index_buffer_size_mb': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (indicesMemoryMaxIndexBufferSizeMb) {
-          SdkPresent<int>(value: final value) => {
-              'indices_memory_max_index_buffer_size_mb': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (indicesQueriesCacheSizePercentage) {
-          SdkPresent<int>(value: final value) => {
-              'indices_queries_cache_size_percentage': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (indicesRecoveryMaxMbPerSec) {
-          SdkPresent<int>(value: final value) => {
-              'indices_recovery_max_mb_per_sec': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (indicesRecoveryMaxConcurrentFileChunks) {
-          SdkPresent<int>(value: final value) => {
-              'indices_recovery_max_concurrent_file_chunks': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (threadPoolSearchSize) {
-          SdkPresent<int>(value: final value) => {
-              'thread_pool_search_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (threadPoolSearchThrottledSize) {
-          SdkPresent<int>(value: final value) => {
-              'thread_pool_search_throttled_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (threadPoolGetSize) {
-          SdkPresent<int>(value: final value) => {
-              'thread_pool_get_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (threadPoolAnalyzeSize) {
-          SdkPresent<int>(value: final value) => {
-              'thread_pool_analyze_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (threadPoolWriteSize) {
-          SdkPresent<int>(value: final value) => {
-              'thread_pool_write_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (threadPoolForceMergeSize) {
-          SdkPresent<int>(value: final value) => {
-              'thread_pool_force_merge_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (threadPoolSearchQueueSize) {
-          SdkPresent<int>(value: final value) => {
-              'thread_pool_search_queue_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (threadPoolSearchThrottledQueueSize) {
-          SdkPresent<int>(value: final value) => {
-              'thread_pool_search_throttled_queue_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (threadPoolGetQueueSize) {
-          SdkPresent<int>(value: final value) => {
-              'thread_pool_get_queue_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (threadPoolAnalyzeQueueSize) {
-          SdkPresent<int>(value: final value) => {
-              'thread_pool_analyze_queue_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (threadPoolWriteQueueSize) {
-          SdkPresent<int>(value: final value) => {
-              'thread_pool_write_queue_size': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ismEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'ism_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ismHistoryEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'ism_history_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ismHistoryMaxAgeHours) {
-          SdkPresent<int>(value: final value) => {
-              'ism_history_max_age_hours': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ismHistoryMaxDocs) {
-          SdkPresent<int>(value: final value) => {
-              'ism_history_max_docs': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ismHistoryRolloverCheckPeriodHours) {
-          SdkPresent<int>(value: final value) => {
-              'ism_history_rollover_check_period_hours': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ismHistoryRolloverRetentionPeriodDays) {
-          SdkPresent<int>(value: final value) => {
-              'ism_history_rollover_retention_period_days': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (searchMaxBuckets) {
-          SdkPresent<int>(value: final value) => {
-              'search_max_buckets': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (actionAutoCreateIndexEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'action_auto_create_index_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (enableSecurityAudit) {
-          SdkPresent<bool>(value: final value) => {
-              'enable_security_audit': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (actionDestructiveRequiresName) {
-          SdkPresent<bool>(value: final value) => {
-              'action_destructive_requires_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clusterMaxShardsPerNode) {
-          SdkPresent<int>(value: final value) => {
-              'cluster_max_shards_per_node': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (overrideMainResponseVersion) {
-          SdkPresent<bool>(value: final value) => {
-              'override_main_response_version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scriptMaxCompilationsRate) {
-          SdkPresent<String>(value: final value) => {
-              'script_max_compilations_rate': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clusterRoutingAllocationNodeConcurrentRecoveries) {
-          SdkPresent<int>(value: final value) => {
-              'cluster_routing_allocation_node_concurrent_recoveries': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reindexRemoteWhitelist) {
-          SdkPresent<List<String>>(value: final value) => {
-              'reindex_remote_whitelist': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pluginsAlertingFilterByBackendRolesEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'plugins_alerting_filter_by_backend_roles_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (knnMemoryCircuitBreakerEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'knn_memory_circuit_breaker_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (knnMemoryCircuitBreakerLimit) {
-          SdkPresent<int>(value: final value) => {
-              'knn_memory_circuit_breaker_limit': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (keepIndexRefreshInterval) {
-          SdkPresent<bool>(value: final value) => {
-              'keep_index_refresh_interval': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (httpMaxContentLengthBytes) {
+      SdkPresent<int>(value: final value) => {'http_max_content_length_bytes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (httpMaxHeaderSizeBytes) {
+      SdkPresent<int>(value: final value) => {'http_max_header_size_bytes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (httpMaxInitialLineLengthBytes) {
+      SdkPresent<int>(value: final value) => {'http_max_initial_line_length_bytes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (indicesQueryBoolMaxClauseCount) {
+      SdkPresent<int>(value: final value) => {'indices_query_bool_max_clause_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (indicesFielddataCacheSizePercentage) {
+      SdkPresent<int>(value: final value) => {'indices_fielddata_cache_size_percentage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (indicesMemoryIndexBufferSizePercentage) {
+      SdkPresent<int>(value: final value) => {'indices_memory_index_buffer_size_percentage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (indicesMemoryMinIndexBufferSizeMb) {
+      SdkPresent<int>(value: final value) => {'indices_memory_min_index_buffer_size_mb': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (indicesMemoryMaxIndexBufferSizeMb) {
+      SdkPresent<int>(value: final value) => {'indices_memory_max_index_buffer_size_mb': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (indicesQueriesCacheSizePercentage) {
+      SdkPresent<int>(value: final value) => {'indices_queries_cache_size_percentage': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (indicesRecoveryMaxMbPerSec) {
+      SdkPresent<int>(value: final value) => {'indices_recovery_max_mb_per_sec': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (indicesRecoveryMaxConcurrentFileChunks) {
+      SdkPresent<int>(value: final value) => {'indices_recovery_max_concurrent_file_chunks': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (threadPoolSearchSize) {
+      SdkPresent<int>(value: final value) => {'thread_pool_search_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (threadPoolSearchThrottledSize) {
+      SdkPresent<int>(value: final value) => {'thread_pool_search_throttled_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (threadPoolGetSize) {
+      SdkPresent<int>(value: final value) => {'thread_pool_get_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (threadPoolAnalyzeSize) {
+      SdkPresent<int>(value: final value) => {'thread_pool_analyze_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (threadPoolWriteSize) {
+      SdkPresent<int>(value: final value) => {'thread_pool_write_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (threadPoolForceMergeSize) {
+      SdkPresent<int>(value: final value) => {'thread_pool_force_merge_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (threadPoolSearchQueueSize) {
+      SdkPresent<int>(value: final value) => {'thread_pool_search_queue_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (threadPoolSearchThrottledQueueSize) {
+      SdkPresent<int>(value: final value) => {'thread_pool_search_throttled_queue_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (threadPoolGetQueueSize) {
+      SdkPresent<int>(value: final value) => {'thread_pool_get_queue_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (threadPoolAnalyzeQueueSize) {
+      SdkPresent<int>(value: final value) => {'thread_pool_analyze_queue_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (threadPoolWriteQueueSize) {
+      SdkPresent<int>(value: final value) => {'thread_pool_write_queue_size': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ismEnabled) {
+      SdkPresent<bool>(value: final value) => {'ism_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ismHistoryEnabled) {
+      SdkPresent<bool>(value: final value) => {'ism_history_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ismHistoryMaxAgeHours) {
+      SdkPresent<int>(value: final value) => {'ism_history_max_age_hours': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ismHistoryMaxDocs) {
+      SdkPresent<int>(value: final value) => {'ism_history_max_docs': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ismHistoryRolloverCheckPeriodHours) {
+      SdkPresent<int>(value: final value) => {'ism_history_rollover_check_period_hours': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ismHistoryRolloverRetentionPeriodDays) {
+      SdkPresent<int>(value: final value) => {'ism_history_rollover_retention_period_days': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (searchMaxBuckets) {
+      SdkPresent<int>(value: final value) => {'search_max_buckets': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (actionAutoCreateIndexEnabled) {
+      SdkPresent<bool>(value: final value) => {'action_auto_create_index_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (enableSecurityAudit) {
+      SdkPresent<bool>(value: final value) => {'enable_security_audit': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (actionDestructiveRequiresName) {
+      SdkPresent<bool>(value: final value) => {'action_destructive_requires_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clusterMaxShardsPerNode) {
+      SdkPresent<int>(value: final value) => {'cluster_max_shards_per_node': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (overrideMainResponseVersion) {
+      SdkPresent<bool>(value: final value) => {'override_main_response_version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scriptMaxCompilationsRate) {
+      SdkPresent<String>(value: final value) => {'script_max_compilations_rate': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clusterRoutingAllocationNodeConcurrentRecoveries) {
+      SdkPresent<int>(value: final value) => {'cluster_routing_allocation_node_concurrent_recoveries': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reindexRemoteWhitelist) {
+      SdkPresent<List<String>>(value: final value) => {'reindex_remote_whitelist': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pluginsAlertingFilterByBackendRolesEnabled) {
+      SdkPresent<bool>(value: final value) => {'plugins_alerting_filter_by_backend_roles_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (knnMemoryCircuitBreakerEnabled) {
+      SdkPresent<bool>(value: final value) => {'knn_memory_circuit_breaker_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (knnMemoryCircuitBreakerLimit) {
+      SdkPresent<int>(value: final value) => {'knn_memory_circuit_breaker_limit': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (keepIndexRefreshInterval) {
+      SdkPresent<bool>(value: final value) => {'keep_index_refresh_interval': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,99 +8,60 @@ part of 'agent_platform_api_api_create.dart';
 class ApiCreateScenarioSetFromLibraryInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// UUID of the library entry to copy.
   final SdkOptional<String> libraryScenarioUuid;
-
   /// Optional name for the new scenario set. Defaults to the library entry's name when unset.
   final SdkOptional<String> name;
 
-  const ApiCreateScenarioSetFromLibraryInputPublic(
-      {this.libraryScenarioUuid = const SdkOmitted(),
-      this.name = const SdkOmitted()});
+  const ApiCreateScenarioSetFromLibraryInputPublic({this.libraryScenarioUuid = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  ApiCreateScenarioSetFromLibraryInputPublic Function(
-      {SdkOptional<String> libraryScenarioUuid,
-      SdkOptional<String> name}) get copyWith => _copyWith;
+  ApiCreateScenarioSetFromLibraryInputPublic Function({SdkOptional<String> libraryScenarioUuid, SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ApiCreateScenarioSetFromLibraryInputPublic _copyWith(
-          {Object? libraryScenarioUuid = sdkOmittedValue,
-          Object? name = sdkOmittedValue}) =>
-      ApiCreateScenarioSetFromLibraryInputPublic(
-        libraryScenarioUuid: identical(libraryScenarioUuid, sdkOmittedValue)
-            ? this.libraryScenarioUuid
-            : libraryScenarioUuid as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-      );
+  ApiCreateScenarioSetFromLibraryInputPublic _copyWith({Object? libraryScenarioUuid = sdkOmittedValue, Object? name = sdkOmittedValue}) => ApiCreateScenarioSetFromLibraryInputPublic(
+    libraryScenarioUuid: identical(libraryScenarioUuid, sdkOmittedValue) ? this.libraryScenarioUuid : libraryScenarioUuid as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+  );
 
-  factory ApiCreateScenarioSetFromLibraryInputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiCreateScenarioSetFromLibraryInputPublic(
-        libraryScenarioUuid: json['library_scenario_uuid'] != null
-            ? SdkPresent((json['library_scenario_uuid'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateScenarioSetFromLibraryInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateScenarioSetFromLibraryInputPublic(
+    libraryScenarioUuid: json['library_scenario_uuid'] != null ? SdkPresent((json['library_scenario_uuid'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (libraryScenarioUuid) {
-          SdkPresent<String>(value: final value) => {
-              'library_scenario_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (libraryScenarioUuid) {
+      SdkPresent<String>(value: final value) => {'library_scenario_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Output for creating a scenario set from a Common Scenario & Goal Library entry.
 class ApiCreateScenarioSetFromLibraryOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A team-owned collection of scenarios.
   final SdkOptional<ApiScenarioSet> scenarioSet;
 
-  const ApiCreateScenarioSetFromLibraryOutput(
-      {this.scenarioSet = const SdkOmitted()});
+  const ApiCreateScenarioSetFromLibraryOutput({this.scenarioSet = const SdkOmitted()});
 
-  ApiCreateScenarioSetFromLibraryOutput Function(
-      {SdkOptional<ApiScenarioSet> scenarioSet}) get copyWith => _copyWith;
+  ApiCreateScenarioSetFromLibraryOutput Function({SdkOptional<ApiScenarioSet> scenarioSet}) get copyWith => _copyWith;
 
-  ApiCreateScenarioSetFromLibraryOutput _copyWith(
-          {Object? scenarioSet = sdkOmittedValue}) =>
-      ApiCreateScenarioSetFromLibraryOutput(
-        scenarioSet: identical(scenarioSet, sdkOmittedValue)
-            ? this.scenarioSet
-            : scenarioSet as SdkOptional<ApiScenarioSet>,
-      );
+  ApiCreateScenarioSetFromLibraryOutput _copyWith({Object? scenarioSet = sdkOmittedValue}) => ApiCreateScenarioSetFromLibraryOutput(
+    scenarioSet: identical(scenarioSet, sdkOmittedValue) ? this.scenarioSet : scenarioSet as SdkOptional<ApiScenarioSet>,
+  );
 
-  factory ApiCreateScenarioSetFromLibraryOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiCreateScenarioSetFromLibraryOutput(
-        scenarioSet: json['scenario_set'] != null
-            ? SdkPresent((json['scenario_set'] != null
-                ? ApiScenarioSet.fromJson(
-                    json['scenario_set'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateScenarioSetFromLibraryOutput.fromJson(Map<String, dynamic> json) => ApiCreateScenarioSetFromLibraryOutput(
+    scenarioSet: json['scenario_set'] != null ? SdkPresent((json['scenario_set'] != null ? ApiScenarioSet.fromJson(json['scenario_set'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (scenarioSet) {
-          SdkPresent<ApiScenarioSet>(value: final value) => {
-              'scenario_set': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (scenarioSet) {
+      SdkPresent<ApiScenarioSet>(value: final value) => {'scenario_set': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

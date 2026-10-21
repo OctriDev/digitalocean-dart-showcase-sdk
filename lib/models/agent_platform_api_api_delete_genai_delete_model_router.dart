@@ -8,35 +8,25 @@ part of 'agent_platform_api_api_delete.dart';
 class ApiDeleteModelRouterOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The id of the deleted model router
   final SdkOptional<String> uuid;
 
   const ApiDeleteModelRouterOutput({this.uuid = const SdkOmitted()});
 
-  ApiDeleteModelRouterOutput Function({SdkOptional<String> uuid})
-      get copyWith => _copyWith;
+  ApiDeleteModelRouterOutput Function({SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiDeleteModelRouterOutput _copyWith({Object? uuid = sdkOmittedValue}) =>
-      ApiDeleteModelRouterOutput(
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-      );
+  ApiDeleteModelRouterOutput _copyWith({Object? uuid = sdkOmittedValue}) => ApiDeleteModelRouterOutput(
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+  );
 
-  factory ApiDeleteModelRouterOutput.fromJson(Map<String, dynamic> json) =>
-      ApiDeleteModelRouterOutput(
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiDeleteModelRouterOutput.fromJson(Map<String, dynamic> json) => ApiDeleteModelRouterOutput(
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

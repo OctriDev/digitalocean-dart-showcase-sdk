@@ -10,17 +10,13 @@ class ApiDeleteCustomEvaluationMetricOutput {
   static const String constructionSurface = 'named';
   final Map<String, dynamic> additionalProperties;
 
-  const ApiDeleteCustomEvaluationMetricOutput(
-      {this.additionalProperties = const <String, dynamic>{}});
+  const ApiDeleteCustomEvaluationMetricOutput({this.additionalProperties = const <String, dynamic>{}});
 
-  factory ApiDeleteCustomEvaluationMetricOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiDeleteCustomEvaluationMetricOutput(
-        additionalProperties: Map.of(json)
-          ..removeWhere((key, _) => const <String>{}.contains(key)),
-      );
+  factory ApiDeleteCustomEvaluationMetricOutput.fromJson(Map<String, dynamic> json) => ApiDeleteCustomEvaluationMetricOutput(
+    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{}.contains(key)),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...additionalProperties,
-      };
+    ...additionalProperties,
+  };
 }

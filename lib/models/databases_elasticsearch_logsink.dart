@@ -8,93 +8,51 @@ part of 'databases.dart';
 class ElasticsearchLogsink {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Elasticsearch connection URL
   final String url;
-
   /// Elasticsearch index prefix
   final String indexPrefix;
-
   /// Maximum number of days of logs to keep
   final SdkOptional<int> indexDaysMax;
-
   /// Elasticsearch request timeout limit
   final SdkOptional<double> timeout;
-
   /// PEM encoded CA certificate
   final SdkOptional<String> ca;
 
-  const ElasticsearchLogsink(
-      {required this.url,
-      required this.indexPrefix,
-      this.indexDaysMax = const SdkOmitted(),
-      this.timeout = const SdkOmitted(),
-      this.ca = const SdkOmitted()});
+  const ElasticsearchLogsink({required this.url, required this.indexPrefix, this.indexDaysMax = const SdkOmitted(), this.timeout = const SdkOmitted(), this.ca = const SdkOmitted()});
 
-  ElasticsearchLogsink Function(
-      {String url,
-      String indexPrefix,
-      SdkOptional<int> indexDaysMax,
-      SdkOptional<double> timeout,
-      SdkOptional<String> ca}) get copyWith => _copyWith;
+  ElasticsearchLogsink Function({String url, String indexPrefix, SdkOptional<int> indexDaysMax, SdkOptional<double> timeout, SdkOptional<String> ca}) get copyWith => _copyWith;
 
-  ElasticsearchLogsink _copyWith(
-          {Object? url = sdkOmittedValue,
-          Object? indexPrefix = sdkOmittedValue,
-          Object? indexDaysMax = sdkOmittedValue,
-          Object? timeout = sdkOmittedValue,
-          Object? ca = sdkOmittedValue}) =>
-      ElasticsearchLogsink(
-        url: identical(url, sdkOmittedValue) ? this.url : url as String,
-        indexPrefix: identical(indexPrefix, sdkOmittedValue)
-            ? this.indexPrefix
-            : indexPrefix as String,
-        indexDaysMax: identical(indexDaysMax, sdkOmittedValue)
-            ? this.indexDaysMax
-            : indexDaysMax as SdkOptional<int>,
-        timeout: identical(timeout, sdkOmittedValue)
-            ? this.timeout
-            : timeout as SdkOptional<double>,
-        ca: identical(ca, sdkOmittedValue)
-            ? this.ca
-            : ca as SdkOptional<String>,
-      );
+  ElasticsearchLogsink _copyWith({Object? url = sdkOmittedValue, Object? indexPrefix = sdkOmittedValue, Object? indexDaysMax = sdkOmittedValue, Object? timeout = sdkOmittedValue, Object? ca = sdkOmittedValue}) => ElasticsearchLogsink(
+    url: identical(url, sdkOmittedValue) ? this.url : url as String,
+    indexPrefix: identical(indexPrefix, sdkOmittedValue) ? this.indexPrefix : indexPrefix as String,
+    indexDaysMax: identical(indexDaysMax, sdkOmittedValue) ? this.indexDaysMax : indexDaysMax as SdkOptional<int>,
+    timeout: identical(timeout, sdkOmittedValue) ? this.timeout : timeout as SdkOptional<double>,
+    ca: identical(ca, sdkOmittedValue) ? this.ca : ca as SdkOptional<String>,
+  );
 
-  factory ElasticsearchLogsink.fromJson(Map<String, dynamic> json) =>
-      ElasticsearchLogsink(
-        url: (json['url'] as String?)!,
-        indexPrefix: (json['index_prefix'] as String?)!,
-        indexDaysMax: json['index_days_max'] != null
-            ? SdkPresent(((json['index_days_max'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        timeout: json['timeout'] != null
-            ? SdkPresent(((json['timeout'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        ca: json['ca'] != null
-            ? SdkPresent((json['ca'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ElasticsearchLogsink.fromJson(Map<String, dynamic> json) => ElasticsearchLogsink(
+    url: (json['url'] as String?)!,
+    indexPrefix: (json['index_prefix'] as String?)!,
+    indexDaysMax: json['index_days_max'] != null ? SdkPresent(((json['index_days_max'] as num?)?.toInt())!) : const SdkOmitted(),
+    timeout: json['timeout'] != null ? SdkPresent(((json['timeout'] as num?)?.toDouble())!) : const SdkOmitted(),
+    ca: json['ca'] != null ? SdkPresent((json['ca'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'url': url,
-        'index_prefix': indexPrefix,
-        ...switch (indexDaysMax) {
-          SdkPresent<int>(value: final value) => {
-              'index_days_max': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timeout) {
-          SdkPresent<double>(value: final value) => {
-              'timeout': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ca) {
-          SdkPresent<String>(value: final value) => {
-              'ca': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'url': url,
+    'index_prefix': indexPrefix,
+    ...switch (indexDaysMax) {
+      SdkPresent<int>(value: final value) => {'index_days_max': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timeout) {
+      SdkPresent<double>(value: final value) => {'timeout': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ca) {
+      SdkPresent<String>(value: final value) => {'ca': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,57 +8,35 @@ part of 'harness_runtime_create.dart';
 class CreateSessionConfigRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Session name, independent of the config name. Must satisfy the existing environment-spec metadata.name rules and must not be UUID-shaped.
   final String name;
-
   /// Required `uuid`-formatted value serialized in the `config_id` wire field.
   final String configId;
-
   /// Opt the new session in to automatic resumption when the team's prepayment balance is restored. Defaults to false. Session-scoped, not config-scoped: the referenced config never confers this, so one shared config cannot enrol every session created from it. Omit to leave the default (or to let the ?resume_on_topoff= query parameter supply it).
   final SdkOptional<bool> resumeOnTopoff;
 
-  const CreateSessionConfigRequest(
-      {required this.name,
-      required this.configId,
-      this.resumeOnTopoff = const SdkOmitted()});
+  const CreateSessionConfigRequest({required this.name, required this.configId, this.resumeOnTopoff = const SdkOmitted()});
 
-  CreateSessionConfigRequest Function(
-      {String name,
-      String configId,
-      SdkOptional<bool> resumeOnTopoff}) get copyWith => _copyWith;
+  CreateSessionConfigRequest Function({String name, String configId, SdkOptional<bool> resumeOnTopoff}) get copyWith => _copyWith;
 
-  CreateSessionConfigRequest _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? configId = sdkOmittedValue,
-          Object? resumeOnTopoff = sdkOmittedValue}) =>
-      CreateSessionConfigRequest(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        configId: identical(configId, sdkOmittedValue)
-            ? this.configId
-            : configId as String,
-        resumeOnTopoff: identical(resumeOnTopoff, sdkOmittedValue)
-            ? this.resumeOnTopoff
-            : resumeOnTopoff as SdkOptional<bool>,
-      );
+  CreateSessionConfigRequest _copyWith({Object? name = sdkOmittedValue, Object? configId = sdkOmittedValue, Object? resumeOnTopoff = sdkOmittedValue}) => CreateSessionConfigRequest(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    configId: identical(configId, sdkOmittedValue) ? this.configId : configId as String,
+    resumeOnTopoff: identical(resumeOnTopoff, sdkOmittedValue) ? this.resumeOnTopoff : resumeOnTopoff as SdkOptional<bool>,
+  );
 
-  factory CreateSessionConfigRequest.fromJson(Map<String, dynamic> json) =>
-      CreateSessionConfigRequest(
-        name: (json['name'] as String?)!,
-        configId: (json['config_id'] as String?)!,
-        resumeOnTopoff: json['resume_on_topoff'] != null
-            ? SdkPresent((json['resume_on_topoff'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateSessionConfigRequest.fromJson(Map<String, dynamic> json) => CreateSessionConfigRequest(
+    name: (json['name'] as String?)!,
+    configId: (json['config_id'] as String?)!,
+    resumeOnTopoff: json['resume_on_topoff'] != null ? SdkPresent((json['resume_on_topoff'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'config_id': configId,
-        ...switch (resumeOnTopoff) {
-          SdkPresent<bool>(value: final value) => {
-              'resume_on_topoff': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    'config_id': configId,
+    ...switch (resumeOnTopoff) {
+      SdkPresent<bool>(value: final value) => {'resume_on_topoff': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

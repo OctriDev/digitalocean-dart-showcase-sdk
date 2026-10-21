@@ -8,346 +8,164 @@ part of 'agent_platform_api_api_create.dart';
 class ApiCreateModelEvaluationRunInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Inference configuration for the candidate model during evaluation.
   final SdkOptional<ApiCandidateInferenceConfig> candidateInferenceConfig;
-
   /// Model slug used to call the candidate model API. For dedicated inference, this is the model slug from the deployment. For serverless, this should match the model's internal name.
   final SdkOptional<String> candidateModelName;
-
   /// Whether the candidate is a served model (serverless platform, a dedicated deployment, or a model router) or an OHS-hosted agent config.
   final SdkOptional<ApiCandidateModelSource> candidateModelSource;
-
   /// UUID of the candidate model to evaluate.
   final SdkOptional<String> candidateModelUuid;
-
   /// UUID of the dataset to use for evaluation.
   final SdkOptional<String> datasetUuid;
-
   /// Number of times to evaluate each dataset row (n-pass/epochs), so the result reports avg@k/pass@k/cons@k instead of a single score. Defaults to 1 when unset. Capped at 3 until throughput/sharding work lands, since each extra epoch roughly multiplies wall-clock run time. Not persisted on presets.
   final SdkOptional<int> epochs;
-
   /// Optional `string` value serialized in the `eval_preset_uuid` wire field.
   final SdkOptional<String> evalPresetUuid;
-
   /// UUID of the judge model used to score responses.
   final SdkOptional<String> judgeModelUuid;
-
   /// UUIDs of metrics to evaluate (selected from ListModelEvaluationMetrics).
   final SdkOptional<List<String>> metricUuids;
-
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
-
   /// Optional `string` value serialized in the `preset_name` wire field.
   final SdkOptional<String> presetName;
-
   /// Which sections of this run's resolved configuration to persist as a reusable preset. Each selected section saves only its own fields; the remaining sections stay empty on the preset and must be supplied inline on future runs that reference it. Empty means do not save a preset (unless the deprecated `save_as_preset` boolean is true, in which case all sections are saved). Ignored when `eval_preset_uuid` is set. Use `preset_name` to label the saved preset.
   final SdkOptional<List<ApiPresetSaveSection>> presetSaveSections;
-
   /// Deprecated: use `preset_save_sections`. When `true` and `preset_save_sections` is empty, all five sections of the resolved configuration are saved as a reusable preset (legacy behavior). Ignored when `eval_preset_uuid` is set.
   final SdkOptional<bool> saveAsPreset;
-
   /// Source of the run creation (api, sdk, cli).
   final SdkOptional<String> source;
-
   /// Optional object value serialized in the `star_metric` wire field.
   final SdkOptional<ApiStarMetric> starMetric;
 
-  const ApiCreateModelEvaluationRunInputPublic(
-      {this.candidateInferenceConfig = const SdkOmitted(),
-      this.candidateModelName = const SdkOmitted(),
-      this.candidateModelSource = const SdkOmitted(),
-      this.candidateModelUuid = const SdkOmitted(),
-      this.datasetUuid = const SdkOmitted(),
-      this.epochs = const SdkOmitted(),
-      this.evalPresetUuid = const SdkOmitted(),
-      this.judgeModelUuid = const SdkOmitted(),
-      this.metricUuids = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.presetName = const SdkOmitted(),
-      this.presetSaveSections = const SdkOmitted(),
-      this.saveAsPreset = const SdkOmitted(),
-      this.source = const SdkOmitted(),
-      this.starMetric = const SdkOmitted()});
+  const ApiCreateModelEvaluationRunInputPublic({this.candidateInferenceConfig = const SdkOmitted(), this.candidateModelName = const SdkOmitted(), this.candidateModelSource = const SdkOmitted(), this.candidateModelUuid = const SdkOmitted(), this.datasetUuid = const SdkOmitted(), this.epochs = const SdkOmitted(), this.evalPresetUuid = const SdkOmitted(), this.judgeModelUuid = const SdkOmitted(), this.metricUuids = const SdkOmitted(), this.name = const SdkOmitted(), this.presetName = const SdkOmitted(), this.presetSaveSections = const SdkOmitted(), this.saveAsPreset = const SdkOmitted(), this.source = const SdkOmitted(), this.starMetric = const SdkOmitted()});
 
-  ApiCreateModelEvaluationRunInputPublic Function(
-      {SdkOptional<ApiCandidateInferenceConfig> candidateInferenceConfig,
-      SdkOptional<String> candidateModelName,
-      SdkOptional<ApiCandidateModelSource> candidateModelSource,
-      SdkOptional<String> candidateModelUuid,
-      SdkOptional<String> datasetUuid,
-      SdkOptional<int> epochs,
-      SdkOptional<String> evalPresetUuid,
-      SdkOptional<String> judgeModelUuid,
-      SdkOptional<List<String>> metricUuids,
-      SdkOptional<String> name,
-      SdkOptional<String> presetName,
-      SdkOptional<List<ApiPresetSaveSection>> presetSaveSections,
-      SdkOptional<bool> saveAsPreset,
-      SdkOptional<String> source,
-      SdkOptional<ApiStarMetric> starMetric}) get copyWith => _copyWith;
+  ApiCreateModelEvaluationRunInputPublic Function({SdkOptional<ApiCandidateInferenceConfig> candidateInferenceConfig, SdkOptional<String> candidateModelName, SdkOptional<ApiCandidateModelSource> candidateModelSource, SdkOptional<String> candidateModelUuid, SdkOptional<String> datasetUuid, SdkOptional<int> epochs, SdkOptional<String> evalPresetUuid, SdkOptional<String> judgeModelUuid, SdkOptional<List<String>> metricUuids, SdkOptional<String> name, SdkOptional<String> presetName, SdkOptional<List<ApiPresetSaveSection>> presetSaveSections, SdkOptional<bool> saveAsPreset, SdkOptional<String> source, SdkOptional<ApiStarMetric> starMetric}) get copyWith => _copyWith;
 
-  ApiCreateModelEvaluationRunInputPublic _copyWith(
-          {Object? candidateInferenceConfig = sdkOmittedValue,
-          Object? candidateModelName = sdkOmittedValue,
-          Object? candidateModelSource = sdkOmittedValue,
-          Object? candidateModelUuid = sdkOmittedValue,
-          Object? datasetUuid = sdkOmittedValue,
-          Object? epochs = sdkOmittedValue,
-          Object? evalPresetUuid = sdkOmittedValue,
-          Object? judgeModelUuid = sdkOmittedValue,
-          Object? metricUuids = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? presetName = sdkOmittedValue,
-          Object? presetSaveSections = sdkOmittedValue,
-          Object? saveAsPreset = sdkOmittedValue,
-          Object? source = sdkOmittedValue,
-          Object? starMetric = sdkOmittedValue}) =>
-      ApiCreateModelEvaluationRunInputPublic(
-        candidateInferenceConfig:
-            identical(candidateInferenceConfig, sdkOmittedValue)
-                ? this.candidateInferenceConfig
-                : candidateInferenceConfig
-                    as SdkOptional<ApiCandidateInferenceConfig>,
-        candidateModelName: identical(candidateModelName, sdkOmittedValue)
-            ? this.candidateModelName
-            : candidateModelName as SdkOptional<String>,
-        candidateModelSource: identical(candidateModelSource, sdkOmittedValue)
-            ? this.candidateModelSource
-            : candidateModelSource as SdkOptional<ApiCandidateModelSource>,
-        candidateModelUuid: identical(candidateModelUuid, sdkOmittedValue)
-            ? this.candidateModelUuid
-            : candidateModelUuid as SdkOptional<String>,
-        datasetUuid: identical(datasetUuid, sdkOmittedValue)
-            ? this.datasetUuid
-            : datasetUuid as SdkOptional<String>,
-        epochs: identical(epochs, sdkOmittedValue)
-            ? this.epochs
-            : epochs as SdkOptional<int>,
-        evalPresetUuid: identical(evalPresetUuid, sdkOmittedValue)
-            ? this.evalPresetUuid
-            : evalPresetUuid as SdkOptional<String>,
-        judgeModelUuid: identical(judgeModelUuid, sdkOmittedValue)
-            ? this.judgeModelUuid
-            : judgeModelUuid as SdkOptional<String>,
-        metricUuids: identical(metricUuids, sdkOmittedValue)
-            ? this.metricUuids
-            : metricUuids as SdkOptional<List<String>>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        presetName: identical(presetName, sdkOmittedValue)
-            ? this.presetName
-            : presetName as SdkOptional<String>,
-        presetSaveSections: identical(presetSaveSections, sdkOmittedValue)
-            ? this.presetSaveSections
-            : presetSaveSections as SdkOptional<List<ApiPresetSaveSection>>,
-        saveAsPreset: identical(saveAsPreset, sdkOmittedValue)
-            ? this.saveAsPreset
-            : saveAsPreset as SdkOptional<bool>,
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as SdkOptional<String>,
-        starMetric: identical(starMetric, sdkOmittedValue)
-            ? this.starMetric
-            : starMetric as SdkOptional<ApiStarMetric>,
-      );
+  ApiCreateModelEvaluationRunInputPublic _copyWith({Object? candidateInferenceConfig = sdkOmittedValue, Object? candidateModelName = sdkOmittedValue, Object? candidateModelSource = sdkOmittedValue, Object? candidateModelUuid = sdkOmittedValue, Object? datasetUuid = sdkOmittedValue, Object? epochs = sdkOmittedValue, Object? evalPresetUuid = sdkOmittedValue, Object? judgeModelUuid = sdkOmittedValue, Object? metricUuids = sdkOmittedValue, Object? name = sdkOmittedValue, Object? presetName = sdkOmittedValue, Object? presetSaveSections = sdkOmittedValue, Object? saveAsPreset = sdkOmittedValue, Object? source = sdkOmittedValue, Object? starMetric = sdkOmittedValue}) => ApiCreateModelEvaluationRunInputPublic(
+    candidateInferenceConfig: identical(candidateInferenceConfig, sdkOmittedValue) ? this.candidateInferenceConfig : candidateInferenceConfig as SdkOptional<ApiCandidateInferenceConfig>,
+    candidateModelName: identical(candidateModelName, sdkOmittedValue) ? this.candidateModelName : candidateModelName as SdkOptional<String>,
+    candidateModelSource: identical(candidateModelSource, sdkOmittedValue) ? this.candidateModelSource : candidateModelSource as SdkOptional<ApiCandidateModelSource>,
+    candidateModelUuid: identical(candidateModelUuid, sdkOmittedValue) ? this.candidateModelUuid : candidateModelUuid as SdkOptional<String>,
+    datasetUuid: identical(datasetUuid, sdkOmittedValue) ? this.datasetUuid : datasetUuid as SdkOptional<String>,
+    epochs: identical(epochs, sdkOmittedValue) ? this.epochs : epochs as SdkOptional<int>,
+    evalPresetUuid: identical(evalPresetUuid, sdkOmittedValue) ? this.evalPresetUuid : evalPresetUuid as SdkOptional<String>,
+    judgeModelUuid: identical(judgeModelUuid, sdkOmittedValue) ? this.judgeModelUuid : judgeModelUuid as SdkOptional<String>,
+    metricUuids: identical(metricUuids, sdkOmittedValue) ? this.metricUuids : metricUuids as SdkOptional<List<String>>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    presetName: identical(presetName, sdkOmittedValue) ? this.presetName : presetName as SdkOptional<String>,
+    presetSaveSections: identical(presetSaveSections, sdkOmittedValue) ? this.presetSaveSections : presetSaveSections as SdkOptional<List<ApiPresetSaveSection>>,
+    saveAsPreset: identical(saveAsPreset, sdkOmittedValue) ? this.saveAsPreset : saveAsPreset as SdkOptional<bool>,
+    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<String>,
+    starMetric: identical(starMetric, sdkOmittedValue) ? this.starMetric : starMetric as SdkOptional<ApiStarMetric>,
+  );
 
-  factory ApiCreateModelEvaluationRunInputPublic.fromJson(
-          Map<String, dynamic> json) =>
-      ApiCreateModelEvaluationRunInputPublic(
-        candidateInferenceConfig: json['candidate_inference_config'] != null
-            ? SdkPresent((json['candidate_inference_config'] != null
-                ? ApiCandidateInferenceConfig.fromJson(
-                    json['candidate_inference_config'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        candidateModelName: json['candidate_model_name'] != null
-            ? SdkPresent((json['candidate_model_name'] as String?)!)
-            : const SdkOmitted(),
-        candidateModelSource: json['candidate_model_source'] != null
-            ? SdkPresent((json['candidate_model_source'] != null
-                ? ApiCandidateModelSource.fromJson(
-                    json['candidate_model_source'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        candidateModelUuid: json['candidate_model_uuid'] != null
-            ? SdkPresent((json['candidate_model_uuid'] as String?)!)
-            : const SdkOmitted(),
-        datasetUuid: json['dataset_uuid'] != null
-            ? SdkPresent((json['dataset_uuid'] as String?)!)
-            : const SdkOmitted(),
-        epochs: json['epochs'] != null
-            ? SdkPresent(((json['epochs'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        evalPresetUuid: json['eval_preset_uuid'] != null
-            ? SdkPresent((json['eval_preset_uuid'] as String?)!)
-            : const SdkOmitted(),
-        judgeModelUuid: json['judge_model_uuid'] != null
-            ? SdkPresent((json['judge_model_uuid'] as String?)!)
-            : const SdkOmitted(),
-        metricUuids: json['metric_uuids'] != null
-            ? SdkPresent(((json['metric_uuids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        presetName: json['preset_name'] != null
-            ? SdkPresent((json['preset_name'] as String?)!)
-            : const SdkOmitted(),
-        presetSaveSections: json['preset_save_sections'] != null
-            ? SdkPresent(((json['preset_save_sections'] as List?)
-                ?.map((e) => ApiPresetSaveSection.fromJson(e as String))
-                .toList())!)
-            : const SdkOmitted(),
-        saveAsPreset: json['save_as_preset'] != null
-            ? SdkPresent((json['save_as_preset'] as bool?)!)
-            : const SdkOmitted(),
-        source: json['source'] != null
-            ? SdkPresent((json['source'] as String?)!)
-            : const SdkOmitted(),
-        starMetric: json['star_metric'] != null
-            ? SdkPresent((json['star_metric'] != null
-                ? ApiStarMetric.fromJson(
-                    json['star_metric'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateModelEvaluationRunInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateModelEvaluationRunInputPublic(
+    candidateInferenceConfig: json['candidate_inference_config'] != null ? SdkPresent((json['candidate_inference_config'] != null ? ApiCandidateInferenceConfig.fromJson(json['candidate_inference_config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    candidateModelName: json['candidate_model_name'] != null ? SdkPresent((json['candidate_model_name'] as String?)!) : const SdkOmitted(),
+    candidateModelSource: json['candidate_model_source'] != null ? SdkPresent((json['candidate_model_source'] != null ? ApiCandidateModelSource.fromJson(json['candidate_model_source'] as String) : null)!) : const SdkOmitted(),
+    candidateModelUuid: json['candidate_model_uuid'] != null ? SdkPresent((json['candidate_model_uuid'] as String?)!) : const SdkOmitted(),
+    datasetUuid: json['dataset_uuid'] != null ? SdkPresent((json['dataset_uuid'] as String?)!) : const SdkOmitted(),
+    epochs: json['epochs'] != null ? SdkPresent(((json['epochs'] as num?)?.toInt())!) : const SdkOmitted(),
+    evalPresetUuid: json['eval_preset_uuid'] != null ? SdkPresent((json['eval_preset_uuid'] as String?)!) : const SdkOmitted(),
+    judgeModelUuid: json['judge_model_uuid'] != null ? SdkPresent((json['judge_model_uuid'] as String?)!) : const SdkOmitted(),
+    metricUuids: json['metric_uuids'] != null ? SdkPresent(((json['metric_uuids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    presetName: json['preset_name'] != null ? SdkPresent((json['preset_name'] as String?)!) : const SdkOmitted(),
+    presetSaveSections: json['preset_save_sections'] != null ? SdkPresent(((json['preset_save_sections'] as List?)?.map((e) => ApiPresetSaveSection.fromJson(e as String)).toList())!) : const SdkOmitted(),
+    saveAsPreset: json['save_as_preset'] != null ? SdkPresent((json['save_as_preset'] as bool?)!) : const SdkOmitted(),
+    source: json['source'] != null ? SdkPresent((json['source'] as String?)!) : const SdkOmitted(),
+    starMetric: json['star_metric'] != null ? SdkPresent((json['star_metric'] != null ? ApiStarMetric.fromJson(json['star_metric'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (candidateInferenceConfig) {
-          SdkPresent<ApiCandidateInferenceConfig>(value: final value) => {
-              'candidate_inference_config': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (candidateModelName) {
-          SdkPresent<String>(value: final value) => {
-              'candidate_model_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (candidateModelSource) {
-          SdkPresent<ApiCandidateModelSource>(value: final value) => {
-              'candidate_model_source': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (candidateModelUuid) {
-          SdkPresent<String>(value: final value) => {
-              'candidate_model_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (datasetUuid) {
-          SdkPresent<String>(value: final value) => {
-              'dataset_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (epochs) {
-          SdkPresent<int>(value: final value) => {
-              'epochs': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (evalPresetUuid) {
-          SdkPresent<String>(value: final value) => {
-              'eval_preset_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (judgeModelUuid) {
-          SdkPresent<String>(value: final value) => {
-              'judge_model_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (metricUuids) {
-          SdkPresent<List<String>>(value: final value) => {
-              'metric_uuids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (presetName) {
-          SdkPresent<String>(value: final value) => {
-              'preset_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (presetSaveSections) {
-          SdkPresent<List<ApiPresetSaveSection>>(value: final value) => {
-              'preset_save_sections':
-                  value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (saveAsPreset) {
-          SdkPresent<bool>(value: final value) => {
-              'save_as_preset': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (source) {
-          SdkPresent<String>(value: final value) => {
-              'source': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (starMetric) {
-          SdkPresent<ApiStarMetric>(value: final value) => {
-              'star_metric': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (candidateInferenceConfig) {
+      SdkPresent<ApiCandidateInferenceConfig>(value: final value) => {'candidate_inference_config': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (candidateModelName) {
+      SdkPresent<String>(value: final value) => {'candidate_model_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (candidateModelSource) {
+      SdkPresent<ApiCandidateModelSource>(value: final value) => {'candidate_model_source': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (candidateModelUuid) {
+      SdkPresent<String>(value: final value) => {'candidate_model_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (datasetUuid) {
+      SdkPresent<String>(value: final value) => {'dataset_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (epochs) {
+      SdkPresent<int>(value: final value) => {'epochs': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (evalPresetUuid) {
+      SdkPresent<String>(value: final value) => {'eval_preset_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (judgeModelUuid) {
+      SdkPresent<String>(value: final value) => {'judge_model_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (metricUuids) {
+      SdkPresent<List<String>>(value: final value) => {'metric_uuids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (presetName) {
+      SdkPresent<String>(value: final value) => {'preset_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (presetSaveSections) {
+      SdkPresent<List<ApiPresetSaveSection>>(value: final value) => {'preset_save_sections': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (saveAsPreset) {
+      SdkPresent<bool>(value: final value) => {'save_as_preset': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (source) {
+      SdkPresent<String>(value: final value) => {'source': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (starMetric) {
+      SdkPresent<ApiStarMetric>(value: final value) => {'star_metric': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ApiCreateModelEvaluationRunOutput` API schema.
 class ApiCreateModelEvaluationRunOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// UUID of the created evaluation run.
   final SdkOptional<String> evalRunUuid;
 
-  const ApiCreateModelEvaluationRunOutput(
-      {this.evalRunUuid = const SdkOmitted()});
+  const ApiCreateModelEvaluationRunOutput({this.evalRunUuid = const SdkOmitted()});
 
-  ApiCreateModelEvaluationRunOutput Function({SdkOptional<String> evalRunUuid})
-      get copyWith => _copyWith;
+  ApiCreateModelEvaluationRunOutput Function({SdkOptional<String> evalRunUuid}) get copyWith => _copyWith;
 
-  ApiCreateModelEvaluationRunOutput _copyWith(
-          {Object? evalRunUuid = sdkOmittedValue}) =>
-      ApiCreateModelEvaluationRunOutput(
-        evalRunUuid: identical(evalRunUuid, sdkOmittedValue)
-            ? this.evalRunUuid
-            : evalRunUuid as SdkOptional<String>,
-      );
+  ApiCreateModelEvaluationRunOutput _copyWith({Object? evalRunUuid = sdkOmittedValue}) => ApiCreateModelEvaluationRunOutput(
+    evalRunUuid: identical(evalRunUuid, sdkOmittedValue) ? this.evalRunUuid : evalRunUuid as SdkOptional<String>,
+  );
 
-  factory ApiCreateModelEvaluationRunOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiCreateModelEvaluationRunOutput(
-        evalRunUuid: json['eval_run_uuid'] != null
-            ? SdkPresent((json['eval_run_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiCreateModelEvaluationRunOutput.fromJson(Map<String, dynamic> json) => ApiCreateModelEvaluationRunOutput(
+    evalRunUuid: json['eval_run_uuid'] != null ? SdkPresent((json['eval_run_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (evalRunUuid) {
-          SdkPresent<String>(value: final value) => {
-              'eval_run_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (evalRunUuid) {
+      SdkPresent<String>(value: final value) => {'eval_run_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

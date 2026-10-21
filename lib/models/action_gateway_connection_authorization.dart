@@ -8,94 +8,49 @@ part of 'action_gateway_connection.dart';
 class ConnectionAuthorization {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Currently always `requires_authorization`.
   final SdkOptional<ConnectionAuthorizationStatus> status;
-
   /// Browser URL, on a DigitalOcean Cloud origin, where the user authorizes the connection.
   final SdkOptional<String> connectUrl;
-
   /// Verification code issued with `connect_url`.
   final SdkOptional<String> verificationCode;
-
   /// When the authorization expires. The link can stop working earlier; if the connection becomes expired, create it again for a new link.
   final SdkOptional<String?> expiresAt;
 
-  const ConnectionAuthorization(
-      {this.status = const SdkOmitted(),
-      this.connectUrl = const SdkOmitted(),
-      this.verificationCode = const SdkOmitted(),
-      this.expiresAt = const SdkOmitted()});
+  const ConnectionAuthorization({this.status = const SdkOmitted(), this.connectUrl = const SdkOmitted(), this.verificationCode = const SdkOmitted(), this.expiresAt = const SdkOmitted()});
 
-  ConnectionAuthorization Function(
-      {SdkOptional<ConnectionAuthorizationStatus> status,
-      SdkOptional<String> connectUrl,
-      SdkOptional<String> verificationCode,
-      SdkOptional<String?> expiresAt}) get copyWith => _copyWith;
+  ConnectionAuthorization Function({SdkOptional<ConnectionAuthorizationStatus> status, SdkOptional<String> connectUrl, SdkOptional<String> verificationCode, SdkOptional<String?> expiresAt}) get copyWith => _copyWith;
 
-  ConnectionAuthorization _copyWith(
-          {Object? status = sdkOmittedValue,
-          Object? connectUrl = sdkOmittedValue,
-          Object? verificationCode = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue}) =>
-      ConnectionAuthorization(
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ConnectionAuthorizationStatus>,
-        connectUrl: identical(connectUrl, sdkOmittedValue)
-            ? this.connectUrl
-            : connectUrl as SdkOptional<String>,
-        verificationCode: identical(verificationCode, sdkOmittedValue)
-            ? this.verificationCode
-            : verificationCode as SdkOptional<String>,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<String?>,
-      );
+  ConnectionAuthorization _copyWith({Object? status = sdkOmittedValue, Object? connectUrl = sdkOmittedValue, Object? verificationCode = sdkOmittedValue, Object? expiresAt = sdkOmittedValue}) => ConnectionAuthorization(
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ConnectionAuthorizationStatus>,
+    connectUrl: identical(connectUrl, sdkOmittedValue) ? this.connectUrl : connectUrl as SdkOptional<String>,
+    verificationCode: identical(verificationCode, sdkOmittedValue) ? this.verificationCode : verificationCode as SdkOptional<String>,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String?>,
+  );
 
-  factory ConnectionAuthorization.fromJson(Map<String, dynamic> json) =>
-      ConnectionAuthorization(
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ConnectionAuthorizationStatus.fromJson(
-                    json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        connectUrl: json['connect_url'] != null
-            ? SdkPresent((json['connect_url'] as String?)!)
-            : const SdkOmitted(),
-        verificationCode: json['verification_code'] != null
-            ? SdkPresent((json['verification_code'] as String?)!)
-            : const SdkOmitted(),
-        expiresAt: json.containsKey('expires_at')
-            ? SdkPresent(json['expires_at'] as String?)
-            : const SdkOmitted(),
-      );
+  factory ConnectionAuthorization.fromJson(Map<String, dynamic> json) => ConnectionAuthorization(
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ConnectionAuthorizationStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    connectUrl: json['connect_url'] != null ? SdkPresent((json['connect_url'] as String?)!) : const SdkOmitted(),
+    verificationCode: json['verification_code'] != null ? SdkPresent((json['verification_code'] as String?)!) : const SdkOmitted(),
+    expiresAt: json.containsKey('expires_at') ? SdkPresent(json['expires_at'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (status) {
-          SdkPresent<ConnectionAuthorizationStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (connectUrl) {
-          SdkPresent<String>(value: final value) => {
-              'connect_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (verificationCode) {
-          SdkPresent<String>(value: final value) => {
-              'verification_code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAt) {
-          SdkPresent<String?>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (status) {
+      SdkPresent<ConnectionAuthorizationStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (connectUrl) {
+      SdkPresent<String>(value: final value) => {'connect_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (verificationCode) {
+      SdkPresent<String>(value: final value) => {'verification_code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiresAt) {
+      SdkPresent<String?>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

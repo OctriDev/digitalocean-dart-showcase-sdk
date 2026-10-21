@@ -8,166 +8,81 @@ part of 'agent_platform_api_api.dart';
 class ApiLLMSpan {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Common optional fields shared by all span types
   final SdkOptional<ApiSpanCommon> common;
-
   /// Optional `string` value serialized in the `model` wire field.
   final SdkOptional<String> model;
-
   /// Optional `int32`-formatted value serialized in the `num_input_tokens` wire field.
   final SdkOptional<int> numInputTokens;
-
   /// Optional `int32`-formatted value serialized in the `num_output_tokens` wire field.
   final SdkOptional<int> numOutputTokens;
-
   /// Optional `float`-formatted value serialized in the `temperature` wire field.
   final SdkOptional<double> temperature;
-
   /// Optional `int64`-formatted value serialized in the `time_to_first_token_ns` wire field.
   final SdkOptional<String> timeToFirstTokenNs;
-
   /// Tool definitions passed to the model
   final SdkOptional<List<Map<String, dynamic>>> tools;
-
   /// Optional `int32`-formatted value serialized in the `total_tokens` wire field.
   final SdkOptional<int> totalTokens;
 
-  const ApiLLMSpan(
-      {this.common = const SdkOmitted(),
-      this.model = const SdkOmitted(),
-      this.numInputTokens = const SdkOmitted(),
-      this.numOutputTokens = const SdkOmitted(),
-      this.temperature = const SdkOmitted(),
-      this.timeToFirstTokenNs = const SdkOmitted(),
-      this.tools = const SdkOmitted(),
-      this.totalTokens = const SdkOmitted()});
+  const ApiLLMSpan({this.common = const SdkOmitted(), this.model = const SdkOmitted(), this.numInputTokens = const SdkOmitted(), this.numOutputTokens = const SdkOmitted(), this.temperature = const SdkOmitted(), this.timeToFirstTokenNs = const SdkOmitted(), this.tools = const SdkOmitted(), this.totalTokens = const SdkOmitted()});
 
-  ApiLLMSpan Function(
-      {SdkOptional<ApiSpanCommon> common,
-      SdkOptional<String> model,
-      SdkOptional<int> numInputTokens,
-      SdkOptional<int> numOutputTokens,
-      SdkOptional<double> temperature,
-      SdkOptional<String> timeToFirstTokenNs,
-      SdkOptional<List<Map<String, dynamic>>> tools,
-      SdkOptional<int> totalTokens}) get copyWith => _copyWith;
+  ApiLLMSpan Function({SdkOptional<ApiSpanCommon> common, SdkOptional<String> model, SdkOptional<int> numInputTokens, SdkOptional<int> numOutputTokens, SdkOptional<double> temperature, SdkOptional<String> timeToFirstTokenNs, SdkOptional<List<Map<String, dynamic>>> tools, SdkOptional<int> totalTokens}) get copyWith => _copyWith;
 
-  ApiLLMSpan _copyWith(
-          {Object? common = sdkOmittedValue,
-          Object? model = sdkOmittedValue,
-          Object? numInputTokens = sdkOmittedValue,
-          Object? numOutputTokens = sdkOmittedValue,
-          Object? temperature = sdkOmittedValue,
-          Object? timeToFirstTokenNs = sdkOmittedValue,
-          Object? tools = sdkOmittedValue,
-          Object? totalTokens = sdkOmittedValue}) =>
-      ApiLLMSpan(
-        common: identical(common, sdkOmittedValue)
-            ? this.common
-            : common as SdkOptional<ApiSpanCommon>,
-        model: identical(model, sdkOmittedValue)
-            ? this.model
-            : model as SdkOptional<String>,
-        numInputTokens: identical(numInputTokens, sdkOmittedValue)
-            ? this.numInputTokens
-            : numInputTokens as SdkOptional<int>,
-        numOutputTokens: identical(numOutputTokens, sdkOmittedValue)
-            ? this.numOutputTokens
-            : numOutputTokens as SdkOptional<int>,
-        temperature: identical(temperature, sdkOmittedValue)
-            ? this.temperature
-            : temperature as SdkOptional<double>,
-        timeToFirstTokenNs: identical(timeToFirstTokenNs, sdkOmittedValue)
-            ? this.timeToFirstTokenNs
-            : timeToFirstTokenNs as SdkOptional<String>,
-        tools: identical(tools, sdkOmittedValue)
-            ? this.tools
-            : tools as SdkOptional<List<Map<String, dynamic>>>,
-        totalTokens: identical(totalTokens, sdkOmittedValue)
-            ? this.totalTokens
-            : totalTokens as SdkOptional<int>,
-      );
+  ApiLLMSpan _copyWith({Object? common = sdkOmittedValue, Object? model = sdkOmittedValue, Object? numInputTokens = sdkOmittedValue, Object? numOutputTokens = sdkOmittedValue, Object? temperature = sdkOmittedValue, Object? timeToFirstTokenNs = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? totalTokens = sdkOmittedValue}) => ApiLLMSpan(
+    common: identical(common, sdkOmittedValue) ? this.common : common as SdkOptional<ApiSpanCommon>,
+    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
+    numInputTokens: identical(numInputTokens, sdkOmittedValue) ? this.numInputTokens : numInputTokens as SdkOptional<int>,
+    numOutputTokens: identical(numOutputTokens, sdkOmittedValue) ? this.numOutputTokens : numOutputTokens as SdkOptional<int>,
+    temperature: identical(temperature, sdkOmittedValue) ? this.temperature : temperature as SdkOptional<double>,
+    timeToFirstTokenNs: identical(timeToFirstTokenNs, sdkOmittedValue) ? this.timeToFirstTokenNs : timeToFirstTokenNs as SdkOptional<String>,
+    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<Map<String, dynamic>>>,
+    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as SdkOptional<int>,
+  );
 
   factory ApiLLMSpan.fromJson(Map<String, dynamic> json) => ApiLLMSpan(
-        common: json['common'] != null
-            ? SdkPresent((json['common'] != null
-                ? ApiSpanCommon.fromJson(json['common'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        model: json['model'] != null
-            ? SdkPresent((json['model'] as String?)!)
-            : const SdkOmitted(),
-        numInputTokens: json['num_input_tokens'] != null
-            ? SdkPresent(((json['num_input_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        numOutputTokens: json['num_output_tokens'] != null
-            ? SdkPresent(((json['num_output_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        temperature: json['temperature'] != null
-            ? SdkPresent(((json['temperature'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-        timeToFirstTokenNs: json['time_to_first_token_ns'] != null
-            ? SdkPresent((json['time_to_first_token_ns'] as String?)!)
-            : const SdkOmitted(),
-        tools: json['tools'] != null
-            ? SdkPresent(((json['tools'] as List?)
-                ?.map((e) => e as Map<String, dynamic>)
-                .toList())!)
-            : const SdkOmitted(),
-        totalTokens: json['total_tokens'] != null
-            ? SdkPresent(((json['total_tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+    common: json['common'] != null ? SdkPresent((json['common'] != null ? ApiSpanCommon.fromJson(json['common'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
+    numInputTokens: json['num_input_tokens'] != null ? SdkPresent(((json['num_input_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    numOutputTokens: json['num_output_tokens'] != null ? SdkPresent(((json['num_output_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    temperature: json['temperature'] != null ? SdkPresent(((json['temperature'] as num?)?.toDouble())!) : const SdkOmitted(),
+    timeToFirstTokenNs: json['time_to_first_token_ns'] != null ? SdkPresent((json['time_to_first_token_ns'] as String?)!) : const SdkOmitted(),
+    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => e as Map<String, dynamic>).toList())!) : const SdkOmitted(),
+    totalTokens: json['total_tokens'] != null ? SdkPresent(((json['total_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (common) {
-          SdkPresent<ApiSpanCommon>(value: final value) => {
-              'common': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (model) {
-          SdkPresent<String>(value: final value) => {
-              'model': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (numInputTokens) {
-          SdkPresent<int>(value: final value) => {
-              'num_input_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (numOutputTokens) {
-          SdkPresent<int>(value: final value) => {
-              'num_output_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (temperature) {
-          SdkPresent<double>(value: final value) => {
-              'temperature': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timeToFirstTokenNs) {
-          SdkPresent<String>(value: final value) => {
-              'time_to_first_token_ns': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tools) {
-          SdkPresent<List<Map<String, dynamic>>>(value: final value) => {
-              'tools': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalTokens) {
-          SdkPresent<int>(value: final value) => {
-              'total_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (common) {
+      SdkPresent<ApiSpanCommon>(value: final value) => {'common': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (model) {
+      SdkPresent<String>(value: final value) => {'model': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (numInputTokens) {
+      SdkPresent<int>(value: final value) => {'num_input_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (numOutputTokens) {
+      SdkPresent<int>(value: final value) => {'num_output_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (temperature) {
+      SdkPresent<double>(value: final value) => {'temperature': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timeToFirstTokenNs) {
+      SdkPresent<String>(value: final value) => {'time_to_first_token_ns': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tools) {
+      SdkPresent<List<Map<String, dynamic>>>(value: final value) => {'tools': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalTokens) {
+      SdkPresent<int>(value: final value) => {'total_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

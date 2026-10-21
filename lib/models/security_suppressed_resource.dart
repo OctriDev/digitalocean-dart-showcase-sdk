@@ -8,109 +8,57 @@ part of 'security.dart';
 class SuppressedResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Unique identifier for the suppressed resource.
   final SdkOptional<String> id;
-
   /// Unique identifier for the suppressed rule.
   final SdkOptional<String> ruleUuid;
-
   /// Human-readable rule name for the suppressed rule.
   final SdkOptional<String> ruleName;
-
   /// Unique identifier for the resource suppressed.
   final SdkOptional<String> resourceId;
-
   /// Resource type for the resource suppressed.
   final SdkOptional<String> resourceType;
 
-  const SuppressedResource(
-      {this.id = const SdkOmitted(),
-      this.ruleUuid = const SdkOmitted(),
-      this.ruleName = const SdkOmitted(),
-      this.resourceId = const SdkOmitted(),
-      this.resourceType = const SdkOmitted()});
+  const SuppressedResource({this.id = const SdkOmitted(), this.ruleUuid = const SdkOmitted(), this.ruleName = const SdkOmitted(), this.resourceId = const SdkOmitted(), this.resourceType = const SdkOmitted()});
 
-  SuppressedResource Function(
-      {SdkOptional<String> id,
-      SdkOptional<String> ruleUuid,
-      SdkOptional<String> ruleName,
-      SdkOptional<String> resourceId,
-      SdkOptional<String> resourceType}) get copyWith => _copyWith;
+  SuppressedResource Function({SdkOptional<String> id, SdkOptional<String> ruleUuid, SdkOptional<String> ruleName, SdkOptional<String> resourceId, SdkOptional<String> resourceType}) get copyWith => _copyWith;
 
-  SuppressedResource _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? ruleUuid = sdkOmittedValue,
-          Object? ruleName = sdkOmittedValue,
-          Object? resourceId = sdkOmittedValue,
-          Object? resourceType = sdkOmittedValue}) =>
-      SuppressedResource(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        ruleUuid: identical(ruleUuid, sdkOmittedValue)
-            ? this.ruleUuid
-            : ruleUuid as SdkOptional<String>,
-        ruleName: identical(ruleName, sdkOmittedValue)
-            ? this.ruleName
-            : ruleName as SdkOptional<String>,
-        resourceId: identical(resourceId, sdkOmittedValue)
-            ? this.resourceId
-            : resourceId as SdkOptional<String>,
-        resourceType: identical(resourceType, sdkOmittedValue)
-            ? this.resourceType
-            : resourceType as SdkOptional<String>,
-      );
+  SuppressedResource _copyWith({Object? id = sdkOmittedValue, Object? ruleUuid = sdkOmittedValue, Object? ruleName = sdkOmittedValue, Object? resourceId = sdkOmittedValue, Object? resourceType = sdkOmittedValue}) => SuppressedResource(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    ruleUuid: identical(ruleUuid, sdkOmittedValue) ? this.ruleUuid : ruleUuid as SdkOptional<String>,
+    ruleName: identical(ruleName, sdkOmittedValue) ? this.ruleName : ruleName as SdkOptional<String>,
+    resourceId: identical(resourceId, sdkOmittedValue) ? this.resourceId : resourceId as SdkOptional<String>,
+    resourceType: identical(resourceType, sdkOmittedValue) ? this.resourceType : resourceType as SdkOptional<String>,
+  );
 
-  factory SuppressedResource.fromJson(Map<String, dynamic> json) =>
-      SuppressedResource(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        ruleUuid: json['rule_uuid'] != null
-            ? SdkPresent((json['rule_uuid'] as String?)!)
-            : const SdkOmitted(),
-        ruleName: json['rule_name'] != null
-            ? SdkPresent((json['rule_name'] as String?)!)
-            : const SdkOmitted(),
-        resourceId: json['resource_id'] != null
-            ? SdkPresent((json['resource_id'] as String?)!)
-            : const SdkOmitted(),
-        resourceType: json['resource_type'] != null
-            ? SdkPresent((json['resource_type'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory SuppressedResource.fromJson(Map<String, dynamic> json) => SuppressedResource(
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    ruleUuid: json['rule_uuid'] != null ? SdkPresent((json['rule_uuid'] as String?)!) : const SdkOmitted(),
+    ruleName: json['rule_name'] != null ? SdkPresent((json['rule_name'] as String?)!) : const SdkOmitted(),
+    resourceId: json['resource_id'] != null ? SdkPresent((json['resource_id'] as String?)!) : const SdkOmitted(),
+    resourceType: json['resource_type'] != null ? SdkPresent((json['resource_type'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ruleUuid) {
-          SdkPresent<String>(value: final value) => {
-              'rule_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ruleName) {
-          SdkPresent<String>(value: final value) => {
-              'rule_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceId) {
-          SdkPresent<String>(value: final value) => {
-              'resource_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceType) {
-          SdkPresent<String>(value: final value) => {
-              'resource_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ruleUuid) {
+      SdkPresent<String>(value: final value) => {'rule_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ruleName) {
+      SdkPresent<String>(value: final value) => {'rule_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceId) {
+      SdkPresent<String>(value: final value) => {'resource_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceType) {
+      SdkPresent<String>(value: final value) => {'resource_type': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

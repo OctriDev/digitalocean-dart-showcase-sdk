@@ -8,38 +8,25 @@ part of 'functions.dart';
 class NamespaceCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `namespace` wire field.
   final SdkOptional<NamespaceInfo> namespace;
 
   const NamespaceCreated({this.namespace = const SdkOmitted()});
 
-  NamespaceCreated Function({SdkOptional<NamespaceInfo> namespace})
-      get copyWith => _copyWith;
+  NamespaceCreated Function({SdkOptional<NamespaceInfo> namespace}) get copyWith => _copyWith;
 
-  NamespaceCreated _copyWith({Object? namespace = sdkOmittedValue}) =>
-      NamespaceCreated(
-        namespace: identical(namespace, sdkOmittedValue)
-            ? this.namespace
-            : namespace as SdkOptional<NamespaceInfo>,
-      );
+  NamespaceCreated _copyWith({Object? namespace = sdkOmittedValue}) => NamespaceCreated(
+    namespace: identical(namespace, sdkOmittedValue) ? this.namespace : namespace as SdkOptional<NamespaceInfo>,
+  );
 
-  factory NamespaceCreated.fromJson(Map<String, dynamic> json) =>
-      NamespaceCreated(
-        namespace: json['namespace'] != null
-            ? SdkPresent((json['namespace'] != null
-                ? NamespaceInfo.fromJson(
-                    json['namespace'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory NamespaceCreated.fromJson(Map<String, dynamic> json) => NamespaceCreated(
+    namespace: json['namespace'] != null ? SdkPresent((json['namespace'] != null ? NamespaceInfo.fromJson(json['namespace'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (namespace) {
-          SdkPresent<NamespaceInfo>(value: final value) => {
-              'namespace': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (namespace) {
+      SdkPresent<NamespaceInfo>(value: final value) => {'namespace': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

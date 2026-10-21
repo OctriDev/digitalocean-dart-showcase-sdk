@@ -11,33 +11,22 @@ class TagsAllVariant0 {
 
   const TagsAllVariant0({this.tags = const SdkOmitted()});
 
-  TagsAllVariant0 Function({SdkOptional<List<Tags>> tags}) get copyWith =>
-      _copyWith;
+  TagsAllVariant0 Function({SdkOptional<List<Tags>> tags}) get copyWith => _copyWith;
 
-  TagsAllVariant0 _copyWith({Object? tags = sdkOmittedValue}) =>
-      TagsAllVariant0(
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<Tags>>,
-      );
+  TagsAllVariant0 _copyWith({Object? tags = sdkOmittedValue}) => TagsAllVariant0(
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<Tags>>,
+  );
 
-  factory TagsAllVariant0.fromJson(Map<String, dynamic> json) =>
-      TagsAllVariant0(
-        tags: json['tags'] != null
-            ? SdkPresent(((json['tags'] as List?)
-                ?.map((e) => Tags.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory TagsAllVariant0.fromJson(Map<String, dynamic> json) => TagsAllVariant0(
+    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => Tags.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (tags) {
-          SdkPresent<List<Tags>>(value: final value) => {
-              'tags': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (tags) {
+      SdkPresent<List<Tags>>(value: final value) => {'tags': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `TagsAll` API schema.
@@ -45,68 +34,36 @@ class TagsAll {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Tags>> tags;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const TagsAll(
-      {this.tags = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const TagsAll({this.tags = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  TagsAll Function(
-      {SdkOptional<List<Tags>> tags,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  TagsAll Function({SdkOptional<List<Tags>> tags, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  TagsAll _copyWith(
-          {Object? tags = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      TagsAll(
-        tags: identical(tags, sdkOmittedValue)
-            ? this.tags
-            : tags as SdkOptional<List<Tags>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  TagsAll _copyWith({Object? tags = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => TagsAll(
+    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<Tags>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory TagsAll.fromJson(Map<String, dynamic> json) => TagsAll(
-        tags: json['tags'] != null
-            ? SdkPresent(((json['tags'] as List?)
-                ?.map((e) => Tags.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => Tags.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (tags) {
-          SdkPresent<List<Tags>>(value: final value) => {
-              'tags': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (tags) {
+      SdkPresent<List<Tags>>(value: final value) => {'tags': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

@@ -6,29 +6,23 @@ part of 'agent_platform_api_api_model.dart';
 // agent_platform_api_api_model domain models
 /// Whether rates apply to real-time or batch requests. - MODEL_BILLING_MODE_INTERACTIVE: Real-time request pricing. - MODEL_BILLING_MODE_BATCH: Discounted pricing for asynchronous batch requests.
 final class ApiModelBillingMode {
+
   final String value;
 
   const ApiModelBillingMode._(this.value);
 
-  factory ApiModelBillingMode.fromJson(String value) =>
-      ApiModelBillingMode._(value);
+  factory ApiModelBillingMode.fromJson(String value) => ApiModelBillingMode._(value);
 
-  static const modelBillingModeUnspecified =
-      ApiModelBillingMode._('MODEL_BILLING_MODE_UNSPECIFIED');
-  static const modelBillingModeInteractive =
-      ApiModelBillingMode._('MODEL_BILLING_MODE_INTERACTIVE');
-  static const modelBillingModeBatch =
-      ApiModelBillingMode._('MODEL_BILLING_MODE_BATCH');
+  static const modelBillingModeUnspecified = ApiModelBillingMode._('MODEL_BILLING_MODE_UNSPECIFIED');
+  static const modelBillingModeInteractive = ApiModelBillingMode._('MODEL_BILLING_MODE_INTERACTIVE');
+  static const modelBillingModeBatch = ApiModelBillingMode._('MODEL_BILLING_MODE_BATCH');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiModelBillingMode && other.value == value;
+  @override bool operator ==(Object other) => other is ApiModelBillingMode && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

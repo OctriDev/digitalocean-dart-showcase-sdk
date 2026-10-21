@@ -8,10 +8,8 @@ part of 'sdk_1_click_applications.dart';
 class OneClicks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The slug identifier for the 1-Click application.
   final String slug;
-
   /// The type of the 1-Click application.
   final String type_;
 
@@ -19,135 +17,101 @@ class OneClicks {
 
   OneClicks Function({String slug, String type_}) get copyWith => _copyWith;
 
-  OneClicks _copyWith(
-          {Object? slug = sdkOmittedValue, Object? type_ = sdkOmittedValue}) =>
-      OneClicks(
-        slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-      );
+  OneClicks _copyWith({Object? slug = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => OneClicks(
+    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+  );
 
   factory OneClicks.fromJson(Map<String, dynamic> json) => OneClicks(
-        slug: (json['slug'] as String?)!,
-        type_: (json['type'] as String?)!,
-      );
+    slug: (json['slug'] as String?)!,
+    type_: (json['type'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'slug': slug,
-        'type': type_,
-      };
+    'slug': slug,
+    'type': type_,
+  };
 }
 
 /// Typed representation of the `OneClicksAll` API schema.
 class OneClicksAll {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `1_clicks` wire field.
   final SdkOptional<List<OneClicks>> v1Clicks;
 
   const OneClicksAll({this.v1Clicks = const SdkOmitted()});
 
-  OneClicksAll Function({SdkOptional<List<OneClicks>> v1Clicks}) get copyWith =>
-      _copyWith;
+  OneClicksAll Function({SdkOptional<List<OneClicks>> v1Clicks}) get copyWith => _copyWith;
 
   OneClicksAll _copyWith({Object? v1Clicks = sdkOmittedValue}) => OneClicksAll(
-        v1Clicks: identical(v1Clicks, sdkOmittedValue)
-            ? this.v1Clicks
-            : v1Clicks as SdkOptional<List<OneClicks>>,
-      );
+    v1Clicks: identical(v1Clicks, sdkOmittedValue) ? this.v1Clicks : v1Clicks as SdkOptional<List<OneClicks>>,
+  );
 
   factory OneClicksAll.fromJson(Map<String, dynamic> json) => OneClicksAll(
-        v1Clicks: json['1_clicks'] != null
-            ? SdkPresent(((json['1_clicks'] as List?)
-                ?.map((e) => OneClicks.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    v1Clicks: json['1_clicks'] != null ? SdkPresent(((json['1_clicks'] as List?)?.map((e) => OneClicks.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (v1Clicks) {
-          SdkPresent<List<OneClicks>>(value: final value) => {
-              '1_clicks': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (v1Clicks) {
+      SdkPresent<List<OneClicks>>(value: final value) => {'1_clicks': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `OneClicksCreate` API schema.
 class OneClicksCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of 1-Click Application slugs to be installed to the Kubernetes cluster.
   final List<String> addonSlugs;
-
   /// A unique ID for the Kubernetes cluster to which the 1-Click Applications will be installed.
   final String clusterUuid;
 
   const OneClicksCreate({required this.addonSlugs, required this.clusterUuid});
 
-  OneClicksCreate Function({List<String> addonSlugs, String clusterUuid})
-      get copyWith => _copyWith;
+  OneClicksCreate Function({List<String> addonSlugs, String clusterUuid}) get copyWith => _copyWith;
 
-  OneClicksCreate _copyWith(
-          {Object? addonSlugs = sdkOmittedValue,
-          Object? clusterUuid = sdkOmittedValue}) =>
-      OneClicksCreate(
-        addonSlugs: identical(addonSlugs, sdkOmittedValue)
-            ? this.addonSlugs
-            : addonSlugs as List<String>,
-        clusterUuid: identical(clusterUuid, sdkOmittedValue)
-            ? this.clusterUuid
-            : clusterUuid as String,
-      );
+  OneClicksCreate _copyWith({Object? addonSlugs = sdkOmittedValue, Object? clusterUuid = sdkOmittedValue}) => OneClicksCreate(
+    addonSlugs: identical(addonSlugs, sdkOmittedValue) ? this.addonSlugs : addonSlugs as List<String>,
+    clusterUuid: identical(clusterUuid, sdkOmittedValue) ? this.clusterUuid : clusterUuid as String,
+  );
 
-  factory OneClicksCreate.fromJson(Map<String, dynamic> json) =>
-      OneClicksCreate(
-        addonSlugs:
-            ((json['addon_slugs'] as List?)?.map((e) => e as String).toList())!,
-        clusterUuid: (json['cluster_uuid'] as String?)!,
-      );
+  factory OneClicksCreate.fromJson(Map<String, dynamic> json) => OneClicksCreate(
+    addonSlugs: ((json['addon_slugs'] as List?)?.map((e) => e as String).toList())!,
+    clusterUuid: (json['cluster_uuid'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'addon_slugs': addonSlugs,
-        'cluster_uuid': clusterUuid,
-      };
+    'addon_slugs': addonSlugs,
+    'cluster_uuid': clusterUuid,
+  };
 }
 
 /// Typed representation of the `OneClicksCreateResponse` API schema.
 class OneClicksCreateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A message about the result of the request.
   final SdkOptional<String> message;
 
   const OneClicksCreateResponse({this.message = const SdkOmitted()});
 
-  OneClicksCreateResponse Function({SdkOptional<String> message})
-      get copyWith => _copyWith;
+  OneClicksCreateResponse Function({SdkOptional<String> message}) get copyWith => _copyWith;
 
-  OneClicksCreateResponse _copyWith({Object? message = sdkOmittedValue}) =>
-      OneClicksCreateResponse(
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as SdkOptional<String>,
-      );
+  OneClicksCreateResponse _copyWith({Object? message = sdkOmittedValue}) => OneClicksCreateResponse(
+    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
+  );
 
-  factory OneClicksCreateResponse.fromJson(Map<String, dynamic> json) =>
-      OneClicksCreateResponse(
-        message: json['message'] != null
-            ? SdkPresent((json['message'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory OneClicksCreateResponse.fromJson(Map<String, dynamic> json) => OneClicksCreateResponse(
+    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (message) {
-          SdkPresent<String>(value: final value) => {
-              'message': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (message) {
+      SdkPresent<String>(value: final value) => {'message': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

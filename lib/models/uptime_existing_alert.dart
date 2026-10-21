@@ -8,7 +8,6 @@ part of 'uptime.dart';
 class ExistingAlert {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `alert` wire field.
   final SdkOptional<Alert> alert;
 
@@ -17,25 +16,17 @@ class ExistingAlert {
   ExistingAlert Function({SdkOptional<Alert> alert}) get copyWith => _copyWith;
 
   ExistingAlert _copyWith({Object? alert = sdkOmittedValue}) => ExistingAlert(
-        alert: identical(alert, sdkOmittedValue)
-            ? this.alert
-            : alert as SdkOptional<Alert>,
-      );
+    alert: identical(alert, sdkOmittedValue) ? this.alert : alert as SdkOptional<Alert>,
+  );
 
   factory ExistingAlert.fromJson(Map<String, dynamic> json) => ExistingAlert(
-        alert: json['alert'] != null
-            ? SdkPresent((json['alert'] != null
-                ? Alert.fromJson(json['alert'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    alert: json['alert'] != null ? SdkPresent((json['alert'] != null ? Alert.fromJson(json['alert'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (alert) {
-          SdkPresent<Alert>(value: final value) => {
-              'alert': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (alert) {
+      SdkPresent<Alert>(value: final value) => {'alert': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

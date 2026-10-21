@@ -8,36 +8,25 @@ part of 'databases.dart';
 class Autoscale {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Contains all autoscaling configuration for a database cluster
   final SdkOptional<DatabaseAutoscaleParams> autoscale;
 
   const Autoscale({this.autoscale = const SdkOmitted()});
 
-  Autoscale Function({SdkOptional<DatabaseAutoscaleParams> autoscale})
-      get copyWith => _copyWith;
+  Autoscale Function({SdkOptional<DatabaseAutoscaleParams> autoscale}) get copyWith => _copyWith;
 
   Autoscale _copyWith({Object? autoscale = sdkOmittedValue}) => Autoscale(
-        autoscale: identical(autoscale, sdkOmittedValue)
-            ? this.autoscale
-            : autoscale as SdkOptional<DatabaseAutoscaleParams>,
-      );
+    autoscale: identical(autoscale, sdkOmittedValue) ? this.autoscale : autoscale as SdkOptional<DatabaseAutoscaleParams>,
+  );
 
   factory Autoscale.fromJson(Map<String, dynamic> json) => Autoscale(
-        autoscale: json['autoscale'] != null
-            ? SdkPresent((json['autoscale'] != null
-                ? DatabaseAutoscaleParams.fromJson(
-                    json['autoscale'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    autoscale: json['autoscale'] != null ? SdkPresent((json['autoscale'] != null ? DatabaseAutoscaleParams.fromJson(json['autoscale'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (autoscale) {
-          SdkPresent<DatabaseAutoscaleParams>(value: final value) => {
-              'autoscale': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (autoscale) {
+      SdkPresent<DatabaseAutoscaleParams>(value: final value) => {'autoscale': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

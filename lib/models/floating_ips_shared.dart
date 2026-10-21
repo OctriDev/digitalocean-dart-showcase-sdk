@@ -8,200 +8,107 @@ part of 'floating_ips.dart';
 class FloatingIpRegion {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The display name of the region. This will be a full name that is used in the control panel and other interfaces.
   final String name;
-
   /// A human-readable string that is used as a unique identifier for each region.
   final String slug;
-
   /// This attribute is set to an array which contains features available in this region
   final List<String> features;
-
   /// This is a boolean value that represents whether new Droplets can be created in this region.
   final bool available;
-
   /// This attribute is set to an array which contains the identifying slugs for the sizes available in this region. sizes:read is required to view.
   final List<String> sizes;
   final Map<String, dynamic> additionalProperties;
 
-  const FloatingIpRegion(
-      {required this.name,
-      required this.slug,
-      required this.features,
-      required this.available,
-      required this.sizes,
-      this.additionalProperties = const <String, dynamic>{}});
+  const FloatingIpRegion({required this.name, required this.slug, required this.features, required this.available, required this.sizes, this.additionalProperties = const <String, dynamic>{}});
 
-  FloatingIpRegion Function(
-      {String name,
-      String slug,
-      List<String> features,
-      bool available,
-      List<String> sizes}) get copyWith => _copyWith;
+  FloatingIpRegion Function({String name, String slug, List<String> features, bool available, List<String> sizes}) get copyWith => _copyWith;
 
-  FloatingIpRegion _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? slug = sdkOmittedValue,
-          Object? features = sdkOmittedValue,
-          Object? available = sdkOmittedValue,
-          Object? sizes = sdkOmittedValue}) =>
-      FloatingIpRegion(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
-        features: identical(features, sdkOmittedValue)
-            ? this.features
-            : features as List<String>,
-        available: identical(available, sdkOmittedValue)
-            ? this.available
-            : available as bool,
-        sizes: identical(sizes, sdkOmittedValue)
-            ? this.sizes
-            : sizes as List<String>,
-        additionalProperties: additionalProperties,
-      );
+  FloatingIpRegion _copyWith({Object? name = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? features = sdkOmittedValue, Object? available = sdkOmittedValue, Object? sizes = sdkOmittedValue}) => FloatingIpRegion(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
+    features: identical(features, sdkOmittedValue) ? this.features : features as List<String>,
+    available: identical(available, sdkOmittedValue) ? this.available : available as bool,
+    sizes: identical(sizes, sdkOmittedValue) ? this.sizes : sizes as List<String>,
+    additionalProperties: additionalProperties,
+  );
 
-  factory FloatingIpRegion.fromJson(Map<String, dynamic> json) =>
-      FloatingIpRegion(
-        name: (json['name'] as String?)!,
-        slug: (json['slug'] as String?)!,
-        features:
-            ((json['features'] as List?)?.map((e) => e as String).toList())!,
-        available: (json['available'] as bool?)!,
-        sizes: ((json['sizes'] as List?)?.map((e) => e as String).toList())!,
-        additionalProperties: Map.of(json)
-          ..removeWhere((key, _) => const <String>{
-                'name',
-                'slug',
-                'features',
-                'available',
-                'sizes'
-              }.contains(key)),
-      );
+  factory FloatingIpRegion.fromJson(Map<String, dynamic> json) => FloatingIpRegion(
+    name: (json['name'] as String?)!,
+    slug: (json['slug'] as String?)!,
+    features: ((json['features'] as List?)?.map((e) => e as String).toList())!,
+    available: (json['available'] as bool?)!,
+    sizes: ((json['sizes'] as List?)?.map((e) => e as String).toList())!,
+    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{'name', 'slug', 'features', 'available', 'sizes'}.contains(key)),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...additionalProperties,
-        'name': name,
-        'slug': slug,
-        'features': features,
-        'available': available,
-        'sizes': sizes,
-      };
+    ...additionalProperties,
+    'name': name,
+    'slug': slug,
+    'features': features,
+    'available': available,
+    'sizes': sizes,
+  };
 }
 
 /// Typed representation of the `FloatingIp` API schema.
 class FloatingIp {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The public IP address of the floating IP. It also serves as its identifier.
   final SdkOptional<String> ip;
-
   /// Optional API value serialized in the `region` wire field.
   final SdkOptional<FloatingIpRegion> region;
-
   /// The Droplet that the floating IP has been assigned to. When you query a floating IP, if it is assigned to a Droplet, the entire Droplet object will be returned. If it is not assigned, the value will be null. &lt;br&gt;&lt;br&gt;Requires `droplet:read` scope.
   final SdkOptional<FloatingIpDroplet?> droplet;
-
   /// A boolean value indicating whether or not the floating IP has pending actions preventing new ones from being submitted.
   final SdkOptional<bool> locked;
-
   /// The UUID of the project to which the reserved IP currently belongs.&lt;br&gt;&lt;br&gt;Requires `project:read` scope.
   final SdkOptional<String> projectId;
 
-  const FloatingIp(
-      {this.ip = const SdkOmitted(),
-      this.region = const SdkOmitted(),
-      this.droplet = const SdkOmitted(),
-      this.locked = const SdkOmitted(),
-      this.projectId = const SdkOmitted()});
+  const FloatingIp({this.ip = const SdkOmitted(), this.region = const SdkOmitted(), this.droplet = const SdkOmitted(), this.locked = const SdkOmitted(), this.projectId = const SdkOmitted()});
 
-  FloatingIp Function(
-      {SdkOptional<String> ip,
-      SdkOptional<FloatingIpRegion> region,
-      SdkOptional<FloatingIpDroplet?> droplet,
-      SdkOptional<bool> locked,
-      SdkOptional<String> projectId}) get copyWith => _copyWith;
+  FloatingIp Function({SdkOptional<String> ip, SdkOptional<FloatingIpRegion> region, SdkOptional<FloatingIpDroplet?> droplet, SdkOptional<bool> locked, SdkOptional<String> projectId}) get copyWith => _copyWith;
 
-  FloatingIp _copyWith(
-          {Object? ip = sdkOmittedValue,
-          Object? region = sdkOmittedValue,
-          Object? droplet = sdkOmittedValue,
-          Object? locked = sdkOmittedValue,
-          Object? projectId = sdkOmittedValue}) =>
-      FloatingIp(
-        ip: identical(ip, sdkOmittedValue)
-            ? this.ip
-            : ip as SdkOptional<String>,
-        region: identical(region, sdkOmittedValue)
-            ? this.region
-            : region as SdkOptional<FloatingIpRegion>,
-        droplet: identical(droplet, sdkOmittedValue)
-            ? this.droplet
-            : droplet as SdkOptional<FloatingIpDroplet?>,
-        locked: identical(locked, sdkOmittedValue)
-            ? this.locked
-            : locked as SdkOptional<bool>,
-        projectId: identical(projectId, sdkOmittedValue)
-            ? this.projectId
-            : projectId as SdkOptional<String>,
-      );
+  FloatingIp _copyWith({Object? ip = sdkOmittedValue, Object? region = sdkOmittedValue, Object? droplet = sdkOmittedValue, Object? locked = sdkOmittedValue, Object? projectId = sdkOmittedValue}) => FloatingIp(
+    ip: identical(ip, sdkOmittedValue) ? this.ip : ip as SdkOptional<String>,
+    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<FloatingIpRegion>,
+    droplet: identical(droplet, sdkOmittedValue) ? this.droplet : droplet as SdkOptional<FloatingIpDroplet?>,
+    locked: identical(locked, sdkOmittedValue) ? this.locked : locked as SdkOptional<bool>,
+    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
+  );
 
   factory FloatingIp.fromJson(Map<String, dynamic> json) => FloatingIp(
-        ip: json['ip'] != null
-            ? SdkPresent((json['ip'] as String?)!)
-            : const SdkOmitted(),
-        region: json['region'] != null
-            ? SdkPresent((json['region'] != null
-                ? FloatingIpRegion.fromJson(
-                    json['region'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        droplet: json.containsKey('droplet')
-            ? SdkPresent(json['droplet'] != null
-                ? FloatingIpDroplet.fromJson(json['droplet'])
-                : null)
-            : const SdkOmitted(),
-        locked: json['locked'] != null
-            ? SdkPresent((json['locked'] as bool?)!)
-            : const SdkOmitted(),
-        projectId: json['project_id'] != null
-            ? SdkPresent((json['project_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+    ip: json['ip'] != null ? SdkPresent((json['ip'] as String?)!) : const SdkOmitted(),
+    region: json['region'] != null ? SdkPresent((json['region'] != null ? FloatingIpRegion.fromJson(json['region'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    droplet: json.containsKey('droplet') ? SdkPresent(json['droplet'] != null ? FloatingIpDroplet.fromJson(json['droplet']) : null) : const SdkOmitted(),
+    locked: json['locked'] != null ? SdkPresent((json['locked'] as bool?)!) : const SdkOmitted(),
+    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (ip) {
-          SdkPresent<String>(value: final value) => {
-              'ip': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (region) {
-          SdkPresent<FloatingIpRegion>(value: final value) => {
-              'region': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (droplet) {
-          SdkPresent<FloatingIpDroplet?>(value: final value) => {
-              'droplet': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (locked) {
-          SdkPresent<bool>(value: final value) => {
-              'locked': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (projectId) {
-          SdkPresent<String>(value: final value) => {
-              'project_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (ip) {
+      SdkPresent<String>(value: final value) => {'ip': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (region) {
+      SdkPresent<FloatingIpRegion>(value: final value) => {'region': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (droplet) {
+      SdkPresent<FloatingIpDroplet?>(value: final value) => {'droplet': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (locked) {
+      SdkPresent<bool>(value: final value) => {'locked': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (projectId) {
+      SdkPresent<String>(value: final value) => {'project_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 sealed class FloatingIpDroplet {
@@ -209,13 +116,8 @@ sealed class FloatingIpDroplet {
   static const String constructionSurface = 'named';
   const FloatingIpDroplet();
   factory FloatingIpDroplet.fromJson(Object? json) {
-    if (json is Map) {
-      return FloatingIpDropletMap(Map<String, dynamic>.from(json));
-    }
-    try {
-      return FloatingIpDropletDroplet(
-          Droplet.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
+    if (json is Map) { return FloatingIpDropletMap(Map<String, dynamic>.from(json)); }
+    try { return FloatingIpDropletDroplet(Droplet.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     throw FormatException("No variant matched for FloatingIpDroplet");
   }
   Object? toJson();
@@ -224,13 +126,11 @@ sealed class FloatingIpDroplet {
 final class FloatingIpDropletMap extends FloatingIpDroplet {
   final Map<String, dynamic> value;
   const FloatingIpDropletMap(this.value);
-  @override
-  Object? toJson() => value;
+  @override Object? toJson() => value;
 }
 
 final class FloatingIpDropletDroplet extends FloatingIpDroplet {
   final Droplet value;
   const FloatingIpDropletDroplet(this.value);
-  @override
-  Object? toJson() => value.toJson();
+  @override Object? toJson() => value.toJson();
 }

@@ -8,130 +8,67 @@ part of 'billing.dart';
 class BillingHistory {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Description of the billing history entry.
   final SdkOptional<String> description;
-
   /// Amount of the billing history entry.
   final SdkOptional<String> amount;
-
   /// ID of the invoice associated with the billing history entry, if applicable.
   final SdkOptional<String> invoiceId;
-
   /// UUID of the invoice associated with the billing history entry, if applicable.
   final SdkOptional<String> invoiceUuid;
-
   /// Time the billing history entry occurred.
   final SdkOptional<String> date;
-
   /// Type of billing history entry.
   final SdkOptional<BillingHistoryType> type_;
 
-  const BillingHistory(
-      {this.description = const SdkOmitted(),
-      this.amount = const SdkOmitted(),
-      this.invoiceId = const SdkOmitted(),
-      this.invoiceUuid = const SdkOmitted(),
-      this.date = const SdkOmitted(),
-      this.type_ = const SdkOmitted()});
+  const BillingHistory({this.description = const SdkOmitted(), this.amount = const SdkOmitted(), this.invoiceId = const SdkOmitted(), this.invoiceUuid = const SdkOmitted(), this.date = const SdkOmitted(), this.type_ = const SdkOmitted()});
 
-  BillingHistory Function(
-      {SdkOptional<String> description,
-      SdkOptional<String> amount,
-      SdkOptional<String> invoiceId,
-      SdkOptional<String> invoiceUuid,
-      SdkOptional<String> date,
-      SdkOptional<BillingHistoryType> type_}) get copyWith => _copyWith;
+  BillingHistory Function({SdkOptional<String> description, SdkOptional<String> amount, SdkOptional<String> invoiceId, SdkOptional<String> invoiceUuid, SdkOptional<String> date, SdkOptional<BillingHistoryType> type_}) get copyWith => _copyWith;
 
-  BillingHistory _copyWith(
-          {Object? description = sdkOmittedValue,
-          Object? amount = sdkOmittedValue,
-          Object? invoiceId = sdkOmittedValue,
-          Object? invoiceUuid = sdkOmittedValue,
-          Object? date = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue}) =>
-      BillingHistory(
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        amount: identical(amount, sdkOmittedValue)
-            ? this.amount
-            : amount as SdkOptional<String>,
-        invoiceId: identical(invoiceId, sdkOmittedValue)
-            ? this.invoiceId
-            : invoiceId as SdkOptional<String>,
-        invoiceUuid: identical(invoiceUuid, sdkOmittedValue)
-            ? this.invoiceUuid
-            : invoiceUuid as SdkOptional<String>,
-        date: identical(date, sdkOmittedValue)
-            ? this.date
-            : date as SdkOptional<String>,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<BillingHistoryType>,
-      );
+  BillingHistory _copyWith({Object? description = sdkOmittedValue, Object? amount = sdkOmittedValue, Object? invoiceId = sdkOmittedValue, Object? invoiceUuid = sdkOmittedValue, Object? date = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => BillingHistory(
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<String>,
+    invoiceId: identical(invoiceId, sdkOmittedValue) ? this.invoiceId : invoiceId as SdkOptional<String>,
+    invoiceUuid: identical(invoiceUuid, sdkOmittedValue) ? this.invoiceUuid : invoiceUuid as SdkOptional<String>,
+    date: identical(date, sdkOmittedValue) ? this.date : date as SdkOptional<String>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<BillingHistoryType>,
+  );
 
   factory BillingHistory.fromJson(Map<String, dynamic> json) => BillingHistory(
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        amount: json['amount'] != null
-            ? SdkPresent((json['amount'] as String?)!)
-            : const SdkOmitted(),
-        invoiceId: json['invoice_id'] != null
-            ? SdkPresent((json['invoice_id'] as String?)!)
-            : const SdkOmitted(),
-        invoiceUuid: json['invoice_uuid'] != null
-            ? SdkPresent((json['invoice_uuid'] as String?)!)
-            : const SdkOmitted(),
-        date: json['date'] != null
-            ? SdkPresent((json['date'] as String?)!)
-            : const SdkOmitted(),
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? BillingHistoryType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    amount: json['amount'] != null ? SdkPresent((json['amount'] as String?)!) : const SdkOmitted(),
+    invoiceId: json['invoice_id'] != null ? SdkPresent((json['invoice_id'] as String?)!) : const SdkOmitted(),
+    invoiceUuid: json['invoice_uuid'] != null ? SdkPresent((json['invoice_uuid'] as String?)!) : const SdkOmitted(),
+    date: json['date'] != null ? SdkPresent((json['date'] as String?)!) : const SdkOmitted(),
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? BillingHistoryType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (amount) {
-          SdkPresent<String>(value: final value) => {
-              'amount': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (invoiceId) {
-          SdkPresent<String>(value: final value) => {
-              'invoice_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (invoiceUuid) {
-          SdkPresent<String>(value: final value) => {
-              'invoice_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (date) {
-          SdkPresent<String>(value: final value) => {
-              'date': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (type_) {
-          SdkPresent<BillingHistoryType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (amount) {
+      SdkPresent<String>(value: final value) => {'amount': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (invoiceId) {
+      SdkPresent<String>(value: final value) => {'invoice_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (invoiceUuid) {
+      SdkPresent<String>(value: final value) => {'invoice_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (date) {
+      SdkPresent<String>(value: final value) => {'date': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (type_) {
+      SdkPresent<BillingHistoryType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class BillingHistoryResponseVariant0 {
@@ -139,38 +76,24 @@ class BillingHistoryResponseVariant0 {
   static const String constructionSurface = 'named';
   final SdkOptional<List<BillingHistory>> billingHistory;
 
-  const BillingHistoryResponseVariant0(
-      {this.billingHistory = const SdkOmitted()});
+  const BillingHistoryResponseVariant0({this.billingHistory = const SdkOmitted()});
 
-  BillingHistoryResponseVariant0 Function(
-          {SdkOptional<List<BillingHistory>> billingHistory})
-      get copyWith => _copyWith;
+  BillingHistoryResponseVariant0 Function({SdkOptional<List<BillingHistory>> billingHistory}) get copyWith => _copyWith;
 
-  BillingHistoryResponseVariant0 _copyWith(
-          {Object? billingHistory = sdkOmittedValue}) =>
-      BillingHistoryResponseVariant0(
-        billingHistory: identical(billingHistory, sdkOmittedValue)
-            ? this.billingHistory
-            : billingHistory as SdkOptional<List<BillingHistory>>,
-      );
+  BillingHistoryResponseVariant0 _copyWith({Object? billingHistory = sdkOmittedValue}) => BillingHistoryResponseVariant0(
+    billingHistory: identical(billingHistory, sdkOmittedValue) ? this.billingHistory : billingHistory as SdkOptional<List<BillingHistory>>,
+  );
 
-  factory BillingHistoryResponseVariant0.fromJson(Map<String, dynamic> json) =>
-      BillingHistoryResponseVariant0(
-        billingHistory: json['billing_history'] != null
-            ? SdkPresent(((json['billing_history'] as List?)
-                ?.map((e) => BillingHistory.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory BillingHistoryResponseVariant0.fromJson(Map<String, dynamic> json) => BillingHistoryResponseVariant0(
+    billingHistory: json['billing_history'] != null ? SdkPresent(((json['billing_history'] as List?)?.map((e) => BillingHistory.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (billingHistory) {
-          SdkPresent<List<BillingHistory>>(value: final value) => {
-              'billing_history': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (billingHistory) {
+      SdkPresent<List<BillingHistory>>(value: final value) => {'billing_history': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `BillingHistoryResponse` API schema.
@@ -178,78 +101,44 @@ class BillingHistoryResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<BillingHistory>> billingHistory;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Information about the response itself.
   final MetaProperties meta;
 
-  const BillingHistoryResponse(
-      {this.billingHistory = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const BillingHistoryResponse({this.billingHistory = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  BillingHistoryResponse Function(
-      {SdkOptional<List<BillingHistory>> billingHistory,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  BillingHistoryResponse Function({SdkOptional<List<BillingHistory>> billingHistory, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  BillingHistoryResponse _copyWith(
-          {Object? billingHistory = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      BillingHistoryResponse(
-        billingHistory: identical(billingHistory, sdkOmittedValue)
-            ? this.billingHistory
-            : billingHistory as SdkOptional<List<BillingHistory>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  BillingHistoryResponse _copyWith({Object? billingHistory = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => BillingHistoryResponse(
+    billingHistory: identical(billingHistory, sdkOmittedValue) ? this.billingHistory : billingHistory as SdkOptional<List<BillingHistory>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory BillingHistoryResponse.fromJson(Map<String, dynamic> json) =>
-      BillingHistoryResponse(
-        billingHistory: json['billing_history'] != null
-            ? SdkPresent(((json['billing_history'] as List?)
-                ?.map((e) => BillingHistory.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory BillingHistoryResponse.fromJson(Map<String, dynamic> json) => BillingHistoryResponse(
+    billingHistory: json['billing_history'] != null ? SdkPresent(((json['billing_history'] as List?)?.map((e) => BillingHistory.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (billingHistory) {
-          SdkPresent<List<BillingHistory>>(value: final value) => {
-              'billing_history': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (billingHistory) {
+      SdkPresent<List<BillingHistory>>(value: final value) => {'billing_history': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }
 
 /// Typed representation of the `MetaOptionalTotal` API schema.
 class MetaOptionalTotal {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Information about the response itself.
   final MetaProperties meta;
 
@@ -257,21 +146,15 @@ class MetaOptionalTotal {
 
   MetaOptionalTotal Function({MetaProperties meta}) get copyWith => _copyWith;
 
-  MetaOptionalTotal _copyWith({Object? meta = sdkOmittedValue}) =>
-      MetaOptionalTotal(
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  MetaOptionalTotal _copyWith({Object? meta = sdkOmittedValue}) => MetaOptionalTotal(
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory MetaOptionalTotal.fromJson(Map<String, dynamic> json) =>
-      MetaOptionalTotal(
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory MetaOptionalTotal.fromJson(Map<String, dynamic> json) => MetaOptionalTotal(
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'meta': meta.toJson(),
-      };
+    'meta': meta.toJson(),
+  };
 }

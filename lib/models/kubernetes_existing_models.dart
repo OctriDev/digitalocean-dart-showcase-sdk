@@ -8,78 +8,52 @@ part of 'kubernetes_existing.dart';
 class ExistingCluster {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `kubernetes_cluster` wire field.
   final SdkOptional<ClusterRead> kubernetesCluster;
 
   const ExistingCluster({this.kubernetesCluster = const SdkOmitted()});
 
-  ExistingCluster Function({SdkOptional<ClusterRead> kubernetesCluster})
-      get copyWith => _copyWith;
+  ExistingCluster Function({SdkOptional<ClusterRead> kubernetesCluster}) get copyWith => _copyWith;
 
-  ExistingCluster _copyWith({Object? kubernetesCluster = sdkOmittedValue}) =>
-      ExistingCluster(
-        kubernetesCluster: identical(kubernetesCluster, sdkOmittedValue)
-            ? this.kubernetesCluster
-            : kubernetesCluster as SdkOptional<ClusterRead>,
-      );
+  ExistingCluster _copyWith({Object? kubernetesCluster = sdkOmittedValue}) => ExistingCluster(
+    kubernetesCluster: identical(kubernetesCluster, sdkOmittedValue) ? this.kubernetesCluster : kubernetesCluster as SdkOptional<ClusterRead>,
+  );
 
-  factory ExistingCluster.fromJson(Map<String, dynamic> json) =>
-      ExistingCluster(
-        kubernetesCluster: json['kubernetes_cluster'] != null
-            ? SdkPresent((json['kubernetes_cluster'] != null
-                ? ClusterRead.fromJson(
-                    json['kubernetes_cluster'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ExistingCluster.fromJson(Map<String, dynamic> json) => ExistingCluster(
+    kubernetesCluster: json['kubernetes_cluster'] != null ? SdkPresent((json['kubernetes_cluster'] != null ? ClusterRead.fromJson(json['kubernetes_cluster'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (kubernetesCluster) {
-          SdkPresent<ClusterRead>(value: final value) => {
-              'kubernetes_cluster': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (kubernetesCluster) {
+      SdkPresent<ClusterRead>(value: final value) => {'kubernetes_cluster': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `ExistingNodePool` API schema.
 class ExistingNodePool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `node_pool` wire field.
   final SdkOptional<KubernetesNodePool> nodePool;
 
   const ExistingNodePool({this.nodePool = const SdkOmitted()});
 
-  ExistingNodePool Function({SdkOptional<KubernetesNodePool> nodePool})
-      get copyWith => _copyWith;
+  ExistingNodePool Function({SdkOptional<KubernetesNodePool> nodePool}) get copyWith => _copyWith;
 
-  ExistingNodePool _copyWith({Object? nodePool = sdkOmittedValue}) =>
-      ExistingNodePool(
-        nodePool: identical(nodePool, sdkOmittedValue)
-            ? this.nodePool
-            : nodePool as SdkOptional<KubernetesNodePool>,
-      );
+  ExistingNodePool _copyWith({Object? nodePool = sdkOmittedValue}) => ExistingNodePool(
+    nodePool: identical(nodePool, sdkOmittedValue) ? this.nodePool : nodePool as SdkOptional<KubernetesNodePool>,
+  );
 
-  factory ExistingNodePool.fromJson(Map<String, dynamic> json) =>
-      ExistingNodePool(
-        nodePool: json['node_pool'] != null
-            ? SdkPresent((json['node_pool'] != null
-                ? KubernetesNodePool.fromJson(
-                    json['node_pool'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ExistingNodePool.fromJson(Map<String, dynamic> json) => ExistingNodePool(
+    nodePool: json['node_pool'] != null ? SdkPresent((json['node_pool'] != null ? KubernetesNodePool.fromJson(json['node_pool'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (nodePool) {
-          SdkPresent<KubernetesNodePool>(value: final value) => {
-              'node_pool': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (nodePool) {
+      SdkPresent<KubernetesNodePool>(value: final value) => {'node_pool': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

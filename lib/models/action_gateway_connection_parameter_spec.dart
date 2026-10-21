@@ -8,206 +8,97 @@ part of 'action_gateway_connection.dart';
 class ConnectionParameterSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Key of the value in `connection_parameters` or `credential_parameters`.
   final SdkOptional<String> key;
-
   /// Display label.
   final SdkOptional<String> label;
-
   /// Help text.
   final SdkOptional<String> description;
-
   /// How the value is entered: string, `https_origin`, or enum.
   final SdkOptional<ConnectionParameterSpecInputKind> inputKind;
-
   /// Whether the value must be supplied.
   final SdkOptional<bool> required_;
-
   /// How the value is normalized before it is validated and stored: trim, lowercase, uppercase, or `https_origin`.
   final SdkOptional<String> normalization;
-
   /// For enum inputs, the accepted values.
   final SdkOptional<List<String>> allowedValues;
-
   /// For `https_origin` inputs, the host suffixes the origin's host must match.
   final SdkOptional<List<String>> allowedHostSuffixes;
-
   /// Maximum length of the value. 0 means the default maximum of 4096.
   final SdkOptional<int> maxLength;
-
   /// Optional RE2 expression matched against the whole normalized value.
   final SdkOptional<String> pattern;
 
-  const ConnectionParameterSpec(
-      {this.key = const SdkOmitted(),
-      this.label = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.inputKind = const SdkOmitted(),
-      this.required_ = const SdkOmitted(),
-      this.normalization = const SdkOmitted(),
-      this.allowedValues = const SdkOmitted(),
-      this.allowedHostSuffixes = const SdkOmitted(),
-      this.maxLength = const SdkOmitted(),
-      this.pattern = const SdkOmitted()});
+  const ConnectionParameterSpec({this.key = const SdkOmitted(), this.label = const SdkOmitted(), this.description = const SdkOmitted(), this.inputKind = const SdkOmitted(), this.required_ = const SdkOmitted(), this.normalization = const SdkOmitted(), this.allowedValues = const SdkOmitted(), this.allowedHostSuffixes = const SdkOmitted(), this.maxLength = const SdkOmitted(), this.pattern = const SdkOmitted()});
 
-  ConnectionParameterSpec Function(
-      {SdkOptional<String> key,
-      SdkOptional<String> label,
-      SdkOptional<String> description,
-      SdkOptional<ConnectionParameterSpecInputKind> inputKind,
-      SdkOptional<bool> required_,
-      SdkOptional<String> normalization,
-      SdkOptional<List<String>> allowedValues,
-      SdkOptional<List<String>> allowedHostSuffixes,
-      SdkOptional<int> maxLength,
-      SdkOptional<String> pattern}) get copyWith => _copyWith;
+  ConnectionParameterSpec Function({SdkOptional<String> key, SdkOptional<String> label, SdkOptional<String> description, SdkOptional<ConnectionParameterSpecInputKind> inputKind, SdkOptional<bool> required_, SdkOptional<String> normalization, SdkOptional<List<String>> allowedValues, SdkOptional<List<String>> allowedHostSuffixes, SdkOptional<int> maxLength, SdkOptional<String> pattern}) get copyWith => _copyWith;
 
-  ConnectionParameterSpec _copyWith(
-          {Object? key = sdkOmittedValue,
-          Object? label = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? inputKind = sdkOmittedValue,
-          Object? required_ = sdkOmittedValue,
-          Object? normalization = sdkOmittedValue,
-          Object? allowedValues = sdkOmittedValue,
-          Object? allowedHostSuffixes = sdkOmittedValue,
-          Object? maxLength = sdkOmittedValue,
-          Object? pattern = sdkOmittedValue}) =>
-      ConnectionParameterSpec(
-        key: identical(key, sdkOmittedValue)
-            ? this.key
-            : key as SdkOptional<String>,
-        label: identical(label, sdkOmittedValue)
-            ? this.label
-            : label as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-        inputKind: identical(inputKind, sdkOmittedValue)
-            ? this.inputKind
-            : inputKind as SdkOptional<ConnectionParameterSpecInputKind>,
-        required_: identical(required_, sdkOmittedValue)
-            ? this.required_
-            : required_ as SdkOptional<bool>,
-        normalization: identical(normalization, sdkOmittedValue)
-            ? this.normalization
-            : normalization as SdkOptional<String>,
-        allowedValues: identical(allowedValues, sdkOmittedValue)
-            ? this.allowedValues
-            : allowedValues as SdkOptional<List<String>>,
-        allowedHostSuffixes: identical(allowedHostSuffixes, sdkOmittedValue)
-            ? this.allowedHostSuffixes
-            : allowedHostSuffixes as SdkOptional<List<String>>,
-        maxLength: identical(maxLength, sdkOmittedValue)
-            ? this.maxLength
-            : maxLength as SdkOptional<int>,
-        pattern: identical(pattern, sdkOmittedValue)
-            ? this.pattern
-            : pattern as SdkOptional<String>,
-      );
+  ConnectionParameterSpec _copyWith({Object? key = sdkOmittedValue, Object? label = sdkOmittedValue, Object? description = sdkOmittedValue, Object? inputKind = sdkOmittedValue, Object? required_ = sdkOmittedValue, Object? normalization = sdkOmittedValue, Object? allowedValues = sdkOmittedValue, Object? allowedHostSuffixes = sdkOmittedValue, Object? maxLength = sdkOmittedValue, Object? pattern = sdkOmittedValue}) => ConnectionParameterSpec(
+    key: identical(key, sdkOmittedValue) ? this.key : key as SdkOptional<String>,
+    label: identical(label, sdkOmittedValue) ? this.label : label as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+    inputKind: identical(inputKind, sdkOmittedValue) ? this.inputKind : inputKind as SdkOptional<ConnectionParameterSpecInputKind>,
+    required_: identical(required_, sdkOmittedValue) ? this.required_ : required_ as SdkOptional<bool>,
+    normalization: identical(normalization, sdkOmittedValue) ? this.normalization : normalization as SdkOptional<String>,
+    allowedValues: identical(allowedValues, sdkOmittedValue) ? this.allowedValues : allowedValues as SdkOptional<List<String>>,
+    allowedHostSuffixes: identical(allowedHostSuffixes, sdkOmittedValue) ? this.allowedHostSuffixes : allowedHostSuffixes as SdkOptional<List<String>>,
+    maxLength: identical(maxLength, sdkOmittedValue) ? this.maxLength : maxLength as SdkOptional<int>,
+    pattern: identical(pattern, sdkOmittedValue) ? this.pattern : pattern as SdkOptional<String>,
+  );
 
-  factory ConnectionParameterSpec.fromJson(Map<String, dynamic> json) =>
-      ConnectionParameterSpec(
-        key: json['key'] != null
-            ? SdkPresent((json['key'] as String?)!)
-            : const SdkOmitted(),
-        label: json['label'] != null
-            ? SdkPresent((json['label'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-        inputKind: json['input_kind'] != null
-            ? SdkPresent((json['input_kind'] != null
-                ? ConnectionParameterSpecInputKind.fromJson(
-                    json['input_kind'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        required_: json['required'] != null
-            ? SdkPresent((json['required'] as bool?)!)
-            : const SdkOmitted(),
-        normalization: json['normalization'] != null
-            ? SdkPresent((json['normalization'] as String?)!)
-            : const SdkOmitted(),
-        allowedValues: json['allowed_values'] != null
-            ? SdkPresent(((json['allowed_values'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        allowedHostSuffixes: json['allowed_host_suffixes'] != null
-            ? SdkPresent(((json['allowed_host_suffixes'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        maxLength: json['max_length'] != null
-            ? SdkPresent(((json['max_length'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        pattern: json['pattern'] != null
-            ? SdkPresent((json['pattern'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ConnectionParameterSpec.fromJson(Map<String, dynamic> json) => ConnectionParameterSpec(
+    key: json['key'] != null ? SdkPresent((json['key'] as String?)!) : const SdkOmitted(),
+    label: json['label'] != null ? SdkPresent((json['label'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+    inputKind: json['input_kind'] != null ? SdkPresent((json['input_kind'] != null ? ConnectionParameterSpecInputKind.fromJson(json['input_kind'] as String) : null)!) : const SdkOmitted(),
+    required_: json['required'] != null ? SdkPresent((json['required'] as bool?)!) : const SdkOmitted(),
+    normalization: json['normalization'] != null ? SdkPresent((json['normalization'] as String?)!) : const SdkOmitted(),
+    allowedValues: json['allowed_values'] != null ? SdkPresent(((json['allowed_values'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    allowedHostSuffixes: json['allowed_host_suffixes'] != null ? SdkPresent(((json['allowed_host_suffixes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    maxLength: json['max_length'] != null ? SdkPresent(((json['max_length'] as num?)?.toInt())!) : const SdkOmitted(),
+    pattern: json['pattern'] != null ? SdkPresent((json['pattern'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (key) {
-          SdkPresent<String>(value: final value) => {
-              'key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (label) {
-          SdkPresent<String>(value: final value) => {
-              'label': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (inputKind) {
-          SdkPresent<ConnectionParameterSpecInputKind>(value: final value) => {
-              'input_kind': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (required_) {
-          SdkPresent<bool>(value: final value) => {
-              'required': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (normalization) {
-          SdkPresent<String>(value: final value) => {
-              'normalization': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedValues) {
-          SdkPresent<List<String>>(value: final value) => {
-              'allowed_values': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedHostSuffixes) {
-          SdkPresent<List<String>>(value: final value) => {
-              'allowed_host_suffixes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxLength) {
-          SdkPresent<int>(value: final value) => {
-              'max_length': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pattern) {
-          SdkPresent<String>(value: final value) => {
-              'pattern': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (key) {
+      SdkPresent<String>(value: final value) => {'key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (label) {
+      SdkPresent<String>(value: final value) => {'label': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (inputKind) {
+      SdkPresent<ConnectionParameterSpecInputKind>(value: final value) => {'input_kind': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (required_) {
+      SdkPresent<bool>(value: final value) => {'required': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (normalization) {
+      SdkPresent<String>(value: final value) => {'normalization': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedValues) {
+      SdkPresent<List<String>>(value: final value) => {'allowed_values': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedHostSuffixes) {
+      SdkPresent<List<String>>(value: final value) => {'allowed_host_suffixes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxLength) {
+      SdkPresent<int>(value: final value) => {'max_length': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pattern) {
+      SdkPresent<String>(value: final value) => {'pattern': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

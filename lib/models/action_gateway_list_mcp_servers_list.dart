@@ -8,37 +8,25 @@ part of 'action_gateway_list.dart';
 class ListMcpServersResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Servers sorted by `serverRef`.
   final SdkOptional<List<McpServer>> mcpServers;
 
   const ListMcpServersResponse({this.mcpServers = const SdkOmitted()});
 
-  ListMcpServersResponse Function({SdkOptional<List<McpServer>> mcpServers})
-      get copyWith => _copyWith;
+  ListMcpServersResponse Function({SdkOptional<List<McpServer>> mcpServers}) get copyWith => _copyWith;
 
-  ListMcpServersResponse _copyWith({Object? mcpServers = sdkOmittedValue}) =>
-      ListMcpServersResponse(
-        mcpServers: identical(mcpServers, sdkOmittedValue)
-            ? this.mcpServers
-            : mcpServers as SdkOptional<List<McpServer>>,
-      );
+  ListMcpServersResponse _copyWith({Object? mcpServers = sdkOmittedValue}) => ListMcpServersResponse(
+    mcpServers: identical(mcpServers, sdkOmittedValue) ? this.mcpServers : mcpServers as SdkOptional<List<McpServer>>,
+  );
 
-  factory ListMcpServersResponse.fromJson(Map<String, dynamic> json) =>
-      ListMcpServersResponse(
-        mcpServers: json['mcpServers'] != null
-            ? SdkPresent(((json['mcpServers'] as List?)
-                ?.map((e) => McpServer.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory ListMcpServersResponse.fromJson(Map<String, dynamic> json) => ListMcpServersResponse(
+    mcpServers: json['mcpServers'] != null ? SdkPresent(((json['mcpServers'] as List?)?.map((e) => McpServer.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (mcpServers) {
-          SdkPresent<List<McpServer>>(value: final value) => {
-              'mcpServers': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (mcpServers) {
+      SdkPresent<List<McpServer>>(value: final value) => {'mcpServers': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

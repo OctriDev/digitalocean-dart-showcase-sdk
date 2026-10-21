@@ -8,109 +8,57 @@ part of 'billing.dart';
 class PrepaymentStatus {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Current prepayment balance. Decimal dollars, e.g. `"25.00"`.
   final SdkOptional<String> balance;
-
   /// Whether automatic prepayment top-up is enabled.
   final SdkOptional<bool> isAutoPrepayEnabled;
-
   /// Whether the prepayment gate is currently blocking usage.
   final SdkOptional<bool> blocked;
-
   /// Whether the account is eligible for the prepayment gate experience.
   final SdkOptional<bool> eligible;
-
   /// Current account balance including month-to-date usage. Decimal dollars, e.g. `"75.00"`.
   final SdkOptional<String> monthToDateBalance;
 
-  const PrepaymentStatus(
-      {this.balance = const SdkOmitted(),
-      this.isAutoPrepayEnabled = const SdkOmitted(),
-      this.blocked = const SdkOmitted(),
-      this.eligible = const SdkOmitted(),
-      this.monthToDateBalance = const SdkOmitted()});
+  const PrepaymentStatus({this.balance = const SdkOmitted(), this.isAutoPrepayEnabled = const SdkOmitted(), this.blocked = const SdkOmitted(), this.eligible = const SdkOmitted(), this.monthToDateBalance = const SdkOmitted()});
 
-  PrepaymentStatus Function(
-      {SdkOptional<String> balance,
-      SdkOptional<bool> isAutoPrepayEnabled,
-      SdkOptional<bool> blocked,
-      SdkOptional<bool> eligible,
-      SdkOptional<String> monthToDateBalance}) get copyWith => _copyWith;
+  PrepaymentStatus Function({SdkOptional<String> balance, SdkOptional<bool> isAutoPrepayEnabled, SdkOptional<bool> blocked, SdkOptional<bool> eligible, SdkOptional<String> monthToDateBalance}) get copyWith => _copyWith;
 
-  PrepaymentStatus _copyWith(
-          {Object? balance = sdkOmittedValue,
-          Object? isAutoPrepayEnabled = sdkOmittedValue,
-          Object? blocked = sdkOmittedValue,
-          Object? eligible = sdkOmittedValue,
-          Object? monthToDateBalance = sdkOmittedValue}) =>
-      PrepaymentStatus(
-        balance: identical(balance, sdkOmittedValue)
-            ? this.balance
-            : balance as SdkOptional<String>,
-        isAutoPrepayEnabled: identical(isAutoPrepayEnabled, sdkOmittedValue)
-            ? this.isAutoPrepayEnabled
-            : isAutoPrepayEnabled as SdkOptional<bool>,
-        blocked: identical(blocked, sdkOmittedValue)
-            ? this.blocked
-            : blocked as SdkOptional<bool>,
-        eligible: identical(eligible, sdkOmittedValue)
-            ? this.eligible
-            : eligible as SdkOptional<bool>,
-        monthToDateBalance: identical(monthToDateBalance, sdkOmittedValue)
-            ? this.monthToDateBalance
-            : monthToDateBalance as SdkOptional<String>,
-      );
+  PrepaymentStatus _copyWith({Object? balance = sdkOmittedValue, Object? isAutoPrepayEnabled = sdkOmittedValue, Object? blocked = sdkOmittedValue, Object? eligible = sdkOmittedValue, Object? monthToDateBalance = sdkOmittedValue}) => PrepaymentStatus(
+    balance: identical(balance, sdkOmittedValue) ? this.balance : balance as SdkOptional<String>,
+    isAutoPrepayEnabled: identical(isAutoPrepayEnabled, sdkOmittedValue) ? this.isAutoPrepayEnabled : isAutoPrepayEnabled as SdkOptional<bool>,
+    blocked: identical(blocked, sdkOmittedValue) ? this.blocked : blocked as SdkOptional<bool>,
+    eligible: identical(eligible, sdkOmittedValue) ? this.eligible : eligible as SdkOptional<bool>,
+    monthToDateBalance: identical(monthToDateBalance, sdkOmittedValue) ? this.monthToDateBalance : monthToDateBalance as SdkOptional<String>,
+  );
 
-  factory PrepaymentStatus.fromJson(Map<String, dynamic> json) =>
-      PrepaymentStatus(
-        balance: json['balance'] != null
-            ? SdkPresent((json['balance'] as String?)!)
-            : const SdkOmitted(),
-        isAutoPrepayEnabled: json['is_auto_prepay_enabled'] != null
-            ? SdkPresent((json['is_auto_prepay_enabled'] as bool?)!)
-            : const SdkOmitted(),
-        blocked: json['blocked'] != null
-            ? SdkPresent((json['blocked'] as bool?)!)
-            : const SdkOmitted(),
-        eligible: json['eligible'] != null
-            ? SdkPresent((json['eligible'] as bool?)!)
-            : const SdkOmitted(),
-        monthToDateBalance: json['month_to_date_balance'] != null
-            ? SdkPresent((json['month_to_date_balance'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory PrepaymentStatus.fromJson(Map<String, dynamic> json) => PrepaymentStatus(
+    balance: json['balance'] != null ? SdkPresent((json['balance'] as String?)!) : const SdkOmitted(),
+    isAutoPrepayEnabled: json['is_auto_prepay_enabled'] != null ? SdkPresent((json['is_auto_prepay_enabled'] as bool?)!) : const SdkOmitted(),
+    blocked: json['blocked'] != null ? SdkPresent((json['blocked'] as bool?)!) : const SdkOmitted(),
+    eligible: json['eligible'] != null ? SdkPresent((json['eligible'] as bool?)!) : const SdkOmitted(),
+    monthToDateBalance: json['month_to_date_balance'] != null ? SdkPresent((json['month_to_date_balance'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (balance) {
-          SdkPresent<String>(value: final value) => {
-              'balance': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isAutoPrepayEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'is_auto_prepay_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (blocked) {
-          SdkPresent<bool>(value: final value) => {
-              'blocked': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (eligible) {
-          SdkPresent<bool>(value: final value) => {
-              'eligible': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (monthToDateBalance) {
-          SdkPresent<String>(value: final value) => {
-              'month_to_date_balance': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (balance) {
+      SdkPresent<String>(value: final value) => {'balance': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isAutoPrepayEnabled) {
+      SdkPresent<bool>(value: final value) => {'is_auto_prepay_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (blocked) {
+      SdkPresent<bool>(value: final value) => {'blocked': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (eligible) {
+      SdkPresent<bool>(value: final value) => {'eligible': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (monthToDateBalance) {
+      SdkPresent<String>(value: final value) => {'month_to_date_balance': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

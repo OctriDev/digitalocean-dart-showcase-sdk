@@ -8,56 +8,33 @@ part of 'agent_platform_api_api_delete.dart';
 class ApiDeleteKnowledgeBaseDataSourceOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Data source id
   final SdkOptional<String> dataSourceUuid;
-
   /// Knowledge base id
   final SdkOptional<String> knowledgeBaseUuid;
 
-  const ApiDeleteKnowledgeBaseDataSourceOutput(
-      {this.dataSourceUuid = const SdkOmitted(),
-      this.knowledgeBaseUuid = const SdkOmitted()});
+  const ApiDeleteKnowledgeBaseDataSourceOutput({this.dataSourceUuid = const SdkOmitted(), this.knowledgeBaseUuid = const SdkOmitted()});
 
-  ApiDeleteKnowledgeBaseDataSourceOutput Function(
-      {SdkOptional<String> dataSourceUuid,
-      SdkOptional<String> knowledgeBaseUuid}) get copyWith => _copyWith;
+  ApiDeleteKnowledgeBaseDataSourceOutput Function({SdkOptional<String> dataSourceUuid, SdkOptional<String> knowledgeBaseUuid}) get copyWith => _copyWith;
 
-  ApiDeleteKnowledgeBaseDataSourceOutput _copyWith(
-          {Object? dataSourceUuid = sdkOmittedValue,
-          Object? knowledgeBaseUuid = sdkOmittedValue}) =>
-      ApiDeleteKnowledgeBaseDataSourceOutput(
-        dataSourceUuid: identical(dataSourceUuid, sdkOmittedValue)
-            ? this.dataSourceUuid
-            : dataSourceUuid as SdkOptional<String>,
-        knowledgeBaseUuid: identical(knowledgeBaseUuid, sdkOmittedValue)
-            ? this.knowledgeBaseUuid
-            : knowledgeBaseUuid as SdkOptional<String>,
-      );
+  ApiDeleteKnowledgeBaseDataSourceOutput _copyWith({Object? dataSourceUuid = sdkOmittedValue, Object? knowledgeBaseUuid = sdkOmittedValue}) => ApiDeleteKnowledgeBaseDataSourceOutput(
+    dataSourceUuid: identical(dataSourceUuid, sdkOmittedValue) ? this.dataSourceUuid : dataSourceUuid as SdkOptional<String>,
+    knowledgeBaseUuid: identical(knowledgeBaseUuid, sdkOmittedValue) ? this.knowledgeBaseUuid : knowledgeBaseUuid as SdkOptional<String>,
+  );
 
-  factory ApiDeleteKnowledgeBaseDataSourceOutput.fromJson(
-          Map<String, dynamic> json) =>
-      ApiDeleteKnowledgeBaseDataSourceOutput(
-        dataSourceUuid: json['data_source_uuid'] != null
-            ? SdkPresent((json['data_source_uuid'] as String?)!)
-            : const SdkOmitted(),
-        knowledgeBaseUuid: json['knowledge_base_uuid'] != null
-            ? SdkPresent((json['knowledge_base_uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory ApiDeleteKnowledgeBaseDataSourceOutput.fromJson(Map<String, dynamic> json) => ApiDeleteKnowledgeBaseDataSourceOutput(
+    dataSourceUuid: json['data_source_uuid'] != null ? SdkPresent((json['data_source_uuid'] as String?)!) : const SdkOmitted(),
+    knowledgeBaseUuid: json['knowledge_base_uuid'] != null ? SdkPresent((json['knowledge_base_uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (dataSourceUuid) {
-          SdkPresent<String>(value: final value) => {
-              'data_source_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (knowledgeBaseUuid) {
-          SdkPresent<String>(value: final value) => {
-              'knowledge_base_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (dataSourceUuid) {
+      SdkPresent<String>(value: final value) => {'data_source_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (knowledgeBaseUuid) {
+      SdkPresent<String>(value: final value) => {'knowledge_base_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

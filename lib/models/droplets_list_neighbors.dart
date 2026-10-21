@@ -11,33 +11,22 @@ class NeighborDropletsVariant0 {
 
   const NeighborDropletsVariant0({this.droplets = const SdkOmitted()});
 
-  NeighborDropletsVariant0 Function({SdkOptional<List<Droplet>> droplets})
-      get copyWith => _copyWith;
+  NeighborDropletsVariant0 Function({SdkOptional<List<Droplet>> droplets}) get copyWith => _copyWith;
 
-  NeighborDropletsVariant0 _copyWith({Object? droplets = sdkOmittedValue}) =>
-      NeighborDropletsVariant0(
-        droplets: identical(droplets, sdkOmittedValue)
-            ? this.droplets
-            : droplets as SdkOptional<List<Droplet>>,
-      );
+  NeighborDropletsVariant0 _copyWith({Object? droplets = sdkOmittedValue}) => NeighborDropletsVariant0(
+    droplets: identical(droplets, sdkOmittedValue) ? this.droplets : droplets as SdkOptional<List<Droplet>>,
+  );
 
-  factory NeighborDropletsVariant0.fromJson(Map<String, dynamic> json) =>
-      NeighborDropletsVariant0(
-        droplets: json['droplets'] != null
-            ? SdkPresent(((json['droplets'] as List?)
-                ?.map((e) => Droplet.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory NeighborDropletsVariant0.fromJson(Map<String, dynamic> json) => NeighborDropletsVariant0(
+    droplets: json['droplets'] != null ? SdkPresent(((json['droplets'] as List?)?.map((e) => Droplet.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (droplets) {
-          SdkPresent<List<Droplet>>(value: final value) => {
-              'droplets': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (droplets) {
+      SdkPresent<List<Droplet>>(value: final value) => {'droplets': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `NeighborDroplets` API schema.
@@ -48,31 +37,20 @@ class NeighborDroplets {
 
   const NeighborDroplets({this.droplets = const SdkOmitted()});
 
-  NeighborDroplets Function({SdkOptional<List<Droplet>> droplets})
-      get copyWith => _copyWith;
+  NeighborDroplets Function({SdkOptional<List<Droplet>> droplets}) get copyWith => _copyWith;
 
-  NeighborDroplets _copyWith({Object? droplets = sdkOmittedValue}) =>
-      NeighborDroplets(
-        droplets: identical(droplets, sdkOmittedValue)
-            ? this.droplets
-            : droplets as SdkOptional<List<Droplet>>,
-      );
+  NeighborDroplets _copyWith({Object? droplets = sdkOmittedValue}) => NeighborDroplets(
+    droplets: identical(droplets, sdkOmittedValue) ? this.droplets : droplets as SdkOptional<List<Droplet>>,
+  );
 
-  factory NeighborDroplets.fromJson(Map<String, dynamic> json) =>
-      NeighborDroplets(
-        droplets: json['droplets'] != null
-            ? SdkPresent(((json['droplets'] as List?)
-                ?.map((e) => Droplet.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory NeighborDroplets.fromJson(Map<String, dynamic> json) => NeighborDroplets(
+    droplets: json['droplets'] != null ? SdkPresent(((json['droplets'] as List?)?.map((e) => Droplet.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (droplets) {
-          SdkPresent<List<Droplet>>(value: final value) => {
-              'droplets': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (droplets) {
+      SdkPresent<List<Droplet>>(value: final value) => {'droplets': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

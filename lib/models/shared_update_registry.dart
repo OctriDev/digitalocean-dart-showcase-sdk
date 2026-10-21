@@ -8,7 +8,6 @@ part of 'shared.dart';
 class UpdateRegistry {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A boolean value indicating that the garbage collection should be cancelled.
   final SdkOptional<bool> cancel;
 
@@ -16,25 +15,18 @@ class UpdateRegistry {
 
   UpdateRegistry Function({SdkOptional<bool> cancel}) get copyWith => _copyWith;
 
-  UpdateRegistry _copyWith({Object? cancel = sdkOmittedValue}) =>
-      UpdateRegistry(
-        cancel: identical(cancel, sdkOmittedValue)
-            ? this.cancel
-            : cancel as SdkOptional<bool>,
-      );
+  UpdateRegistry _copyWith({Object? cancel = sdkOmittedValue}) => UpdateRegistry(
+    cancel: identical(cancel, sdkOmittedValue) ? this.cancel : cancel as SdkOptional<bool>,
+  );
 
   factory UpdateRegistry.fromJson(Map<String, dynamic> json) => UpdateRegistry(
-        cancel: json['cancel'] != null
-            ? SdkPresent((json['cancel'] as bool?)!)
-            : const SdkOmitted(),
-      );
+    cancel: json['cancel'] != null ? SdkPresent((json['cancel'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (cancel) {
-          SdkPresent<bool>(value: final value) => {
-              'cancel': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (cancel) {
+      SdkPresent<bool>(value: final value) => {'cancel': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,73 +8,41 @@ part of 'apps_apps.dart';
 class AppsBitbucketSourceSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the branch to use
   final SdkOptional<String> branch;
-
   /// Whether to automatically deploy new commits made to the repo
   final SdkOptional<bool> deployOnPush;
-
   /// The name of the repo in the format owner/repo. Example: `digitalocean/sample-golang`
   final SdkOptional<String> repo;
 
-  const AppsBitbucketSourceSpec(
-      {this.branch = const SdkOmitted(),
-      this.deployOnPush = const SdkOmitted(),
-      this.repo = const SdkOmitted()});
+  const AppsBitbucketSourceSpec({this.branch = const SdkOmitted(), this.deployOnPush = const SdkOmitted(), this.repo = const SdkOmitted()});
 
-  AppsBitbucketSourceSpec Function(
-      {SdkOptional<String> branch,
-      SdkOptional<bool> deployOnPush,
-      SdkOptional<String> repo}) get copyWith => _copyWith;
+  AppsBitbucketSourceSpec Function({SdkOptional<String> branch, SdkOptional<bool> deployOnPush, SdkOptional<String> repo}) get copyWith => _copyWith;
 
-  AppsBitbucketSourceSpec _copyWith(
-          {Object? branch = sdkOmittedValue,
-          Object? deployOnPush = sdkOmittedValue,
-          Object? repo = sdkOmittedValue}) =>
-      AppsBitbucketSourceSpec(
-        branch: identical(branch, sdkOmittedValue)
-            ? this.branch
-            : branch as SdkOptional<String>,
-        deployOnPush: identical(deployOnPush, sdkOmittedValue)
-            ? this.deployOnPush
-            : deployOnPush as SdkOptional<bool>,
-        repo: identical(repo, sdkOmittedValue)
-            ? this.repo
-            : repo as SdkOptional<String>,
-      );
+  AppsBitbucketSourceSpec _copyWith({Object? branch = sdkOmittedValue, Object? deployOnPush = sdkOmittedValue, Object? repo = sdkOmittedValue}) => AppsBitbucketSourceSpec(
+    branch: identical(branch, sdkOmittedValue) ? this.branch : branch as SdkOptional<String>,
+    deployOnPush: identical(deployOnPush, sdkOmittedValue) ? this.deployOnPush : deployOnPush as SdkOptional<bool>,
+    repo: identical(repo, sdkOmittedValue) ? this.repo : repo as SdkOptional<String>,
+  );
 
-  factory AppsBitbucketSourceSpec.fromJson(Map<String, dynamic> json) =>
-      AppsBitbucketSourceSpec(
-        branch: json['branch'] != null
-            ? SdkPresent((json['branch'] as String?)!)
-            : const SdkOmitted(),
-        deployOnPush: json['deploy_on_push'] != null
-            ? SdkPresent((json['deploy_on_push'] as bool?)!)
-            : const SdkOmitted(),
-        repo: json['repo'] != null
-            ? SdkPresent((json['repo'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory AppsBitbucketSourceSpec.fromJson(Map<String, dynamic> json) => AppsBitbucketSourceSpec(
+    branch: json['branch'] != null ? SdkPresent((json['branch'] as String?)!) : const SdkOmitted(),
+    deployOnPush: json['deploy_on_push'] != null ? SdkPresent((json['deploy_on_push'] as bool?)!) : const SdkOmitted(),
+    repo: json['repo'] != null ? SdkPresent((json['repo'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (branch) {
-          SdkPresent<String>(value: final value) => {
-              'branch': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deployOnPush) {
-          SdkPresent<bool>(value: final value) => {
-              'deploy_on_push': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (repo) {
-          SdkPresent<String>(value: final value) => {
-              'repo': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (branch) {
+      SdkPresent<String>(value: final value) => {'branch': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deployOnPush) {
+      SdkPresent<bool>(value: final value) => {'deploy_on_push': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (repo) {
+      SdkPresent<String>(value: final value) => {'repo': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

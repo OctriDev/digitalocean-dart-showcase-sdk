@@ -11,33 +11,22 @@ class VolumeSnapshotsVariant0 {
 
   const VolumeSnapshotsVariant0({this.snapshots = const SdkOmitted()});
 
-  VolumeSnapshotsVariant0 Function({SdkOptional<List<Snapshots>> snapshots})
-      get copyWith => _copyWith;
+  VolumeSnapshotsVariant0 Function({SdkOptional<List<Snapshots>> snapshots}) get copyWith => _copyWith;
 
-  VolumeSnapshotsVariant0 _copyWith({Object? snapshots = sdkOmittedValue}) =>
-      VolumeSnapshotsVariant0(
-        snapshots: identical(snapshots, sdkOmittedValue)
-            ? this.snapshots
-            : snapshots as SdkOptional<List<Snapshots>>,
-      );
+  VolumeSnapshotsVariant0 _copyWith({Object? snapshots = sdkOmittedValue}) => VolumeSnapshotsVariant0(
+    snapshots: identical(snapshots, sdkOmittedValue) ? this.snapshots : snapshots as SdkOptional<List<Snapshots>>,
+  );
 
-  factory VolumeSnapshotsVariant0.fromJson(Map<String, dynamic> json) =>
-      VolumeSnapshotsVariant0(
-        snapshots: json['snapshots'] != null
-            ? SdkPresent(((json['snapshots'] as List?)
-                ?.map((e) => Snapshots.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory VolumeSnapshotsVariant0.fromJson(Map<String, dynamic> json) => VolumeSnapshotsVariant0(
+    snapshots: json['snapshots'] != null ? SdkPresent(((json['snapshots'] as List?)?.map((e) => Snapshots.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (snapshots) {
-          SdkPresent<List<Snapshots>>(value: final value) => {
-              'snapshots': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (snapshots) {
+      SdkPresent<List<Snapshots>>(value: final value) => {'snapshots': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VolumeSnapshots` API schema.
@@ -45,69 +34,36 @@ class VolumeSnapshots {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Snapshots>> snapshots;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const VolumeSnapshots(
-      {this.snapshots = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const VolumeSnapshots({this.snapshots = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  VolumeSnapshots Function(
-      {SdkOptional<List<Snapshots>> snapshots,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  VolumeSnapshots Function({SdkOptional<List<Snapshots>> snapshots, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  VolumeSnapshots _copyWith(
-          {Object? snapshots = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      VolumeSnapshots(
-        snapshots: identical(snapshots, sdkOmittedValue)
-            ? this.snapshots
-            : snapshots as SdkOptional<List<Snapshots>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  VolumeSnapshots _copyWith({Object? snapshots = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => VolumeSnapshots(
+    snapshots: identical(snapshots, sdkOmittedValue) ? this.snapshots : snapshots as SdkOptional<List<Snapshots>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory VolumeSnapshots.fromJson(Map<String, dynamic> json) =>
-      VolumeSnapshots(
-        snapshots: json['snapshots'] != null
-            ? SdkPresent(((json['snapshots'] as List?)
-                ?.map((e) => Snapshots.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory VolumeSnapshots.fromJson(Map<String, dynamic> json) => VolumeSnapshots(
+    snapshots: json['snapshots'] != null ? SdkPresent(((json['snapshots'] as List?)?.map((e) => Snapshots.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (snapshots) {
-          SdkPresent<List<Snapshots>>(value: final value) => {
-              'snapshots': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (snapshots) {
+      SdkPresent<List<Snapshots>>(value: final value) => {'snapshots': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

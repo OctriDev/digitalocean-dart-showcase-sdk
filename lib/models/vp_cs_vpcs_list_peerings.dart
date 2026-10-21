@@ -11,33 +11,22 @@ class VpcPeeringsVariant0 {
 
   const VpcPeeringsVariant0({this.peerings = const SdkOmitted()});
 
-  VpcPeeringsVariant0 Function({SdkOptional<List<VpcPeering>> peerings})
-      get copyWith => _copyWith;
+  VpcPeeringsVariant0 Function({SdkOptional<List<VpcPeering>> peerings}) get copyWith => _copyWith;
 
-  VpcPeeringsVariant0 _copyWith({Object? peerings = sdkOmittedValue}) =>
-      VpcPeeringsVariant0(
-        peerings: identical(peerings, sdkOmittedValue)
-            ? this.peerings
-            : peerings as SdkOptional<List<VpcPeering>>,
-      );
+  VpcPeeringsVariant0 _copyWith({Object? peerings = sdkOmittedValue}) => VpcPeeringsVariant0(
+    peerings: identical(peerings, sdkOmittedValue) ? this.peerings : peerings as SdkOptional<List<VpcPeering>>,
+  );
 
-  factory VpcPeeringsVariant0.fromJson(Map<String, dynamic> json) =>
-      VpcPeeringsVariant0(
-        peerings: json['peerings'] != null
-            ? SdkPresent(((json['peerings'] as List?)
-                ?.map((e) => VpcPeering.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory VpcPeeringsVariant0.fromJson(Map<String, dynamic> json) => VpcPeeringsVariant0(
+    peerings: json['peerings'] != null ? SdkPresent(((json['peerings'] as List?)?.map((e) => VpcPeering.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (peerings) {
-          SdkPresent<List<VpcPeering>>(value: final value) => {
-              'peerings': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (peerings) {
+      SdkPresent<List<VpcPeering>>(value: final value) => {'peerings': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `VpcPeerings` API schema.
@@ -45,68 +34,36 @@ class VpcPeerings {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<VpcPeering>> peerings;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const VpcPeerings(
-      {this.peerings = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const VpcPeerings({this.peerings = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  VpcPeerings Function(
-      {SdkOptional<List<VpcPeering>> peerings,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  VpcPeerings Function({SdkOptional<List<VpcPeering>> peerings, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  VpcPeerings _copyWith(
-          {Object? peerings = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      VpcPeerings(
-        peerings: identical(peerings, sdkOmittedValue)
-            ? this.peerings
-            : peerings as SdkOptional<List<VpcPeering>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  VpcPeerings _copyWith({Object? peerings = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => VpcPeerings(
+    peerings: identical(peerings, sdkOmittedValue) ? this.peerings : peerings as SdkOptional<List<VpcPeering>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
   factory VpcPeerings.fromJson(Map<String, dynamic> json) => VpcPeerings(
-        peerings: json['peerings'] != null
-            ? SdkPresent(((json['peerings'] as List?)
-                ?.map((e) => VpcPeering.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+    peerings: json['peerings'] != null ? SdkPresent(((json['peerings'] as List?)?.map((e) => VpcPeering.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (peerings) {
-          SdkPresent<List<VpcPeering>>(value: final value) => {
-              'peerings': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (peerings) {
+      SdkPresent<List<VpcPeering>>(value: final value) => {'peerings': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

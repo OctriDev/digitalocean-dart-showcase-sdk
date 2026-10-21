@@ -8,80 +8,41 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListAgentVersionsOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Agents
   final SdkOptional<List<ApiAgentVersion>> agentVersions;
-
   /// Links to other pages
   final SdkOptional<ApiLinks> links;
-
   /// Meta information about the data set
   final SdkOptional<ApiMeta> meta;
 
-  const ApiListAgentVersionsOutput(
-      {this.agentVersions = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      this.meta = const SdkOmitted()});
+  const ApiListAgentVersionsOutput({this.agentVersions = const SdkOmitted(), this.links = const SdkOmitted(), this.meta = const SdkOmitted()});
 
-  ApiListAgentVersionsOutput Function(
-      {SdkOptional<List<ApiAgentVersion>> agentVersions,
-      SdkOptional<ApiLinks> links,
-      SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
+  ApiListAgentVersionsOutput Function({SdkOptional<List<ApiAgentVersion>> agentVersions, SdkOptional<ApiLinks> links, SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
 
-  ApiListAgentVersionsOutput _copyWith(
-          {Object? agentVersions = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      ApiListAgentVersionsOutput(
-        agentVersions: identical(agentVersions, sdkOmittedValue)
-            ? this.agentVersions
-            : agentVersions as SdkOptional<List<ApiAgentVersion>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<ApiLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as SdkOptional<ApiMeta>,
-      );
+  ApiListAgentVersionsOutput _copyWith({Object? agentVersions = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ApiListAgentVersionsOutput(
+    agentVersions: identical(agentVersions, sdkOmittedValue) ? this.agentVersions : agentVersions as SdkOptional<List<ApiAgentVersion>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<ApiLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<ApiMeta>,
+  );
 
-  factory ApiListAgentVersionsOutput.fromJson(Map<String, dynamic> json) =>
-      ApiListAgentVersionsOutput(
-        agentVersions: json['agent_versions'] != null
-            ? SdkPresent(((json['agent_versions'] as List?)
-                ?.map(
-                    (e) => ApiAgentVersion.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: json['meta'] != null
-            ? SdkPresent((json['meta'] != null
-                ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory ApiListAgentVersionsOutput.fromJson(Map<String, dynamic> json) => ApiListAgentVersionsOutput(
+    agentVersions: json['agent_versions'] != null ? SdkPresent(((json['agent_versions'] as List?)?.map((e) => ApiAgentVersion.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: json['meta'] != null ? SdkPresent((json['meta'] != null ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (agentVersions) {
-          SdkPresent<List<ApiAgentVersion>>(value: final value) => {
-              'agent_versions': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<ApiLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (meta) {
-          SdkPresent<ApiMeta>(value: final value) => {
-              'meta': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (agentVersions) {
+      SdkPresent<List<ApiAgentVersion>>(value: final value) => {'agent_versions': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<ApiLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (meta) {
+      SdkPresent<ApiMeta>(value: final value) => {'meta': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

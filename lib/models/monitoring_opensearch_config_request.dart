@@ -8,181 +8,97 @@ part of 'monitoring.dart';
 class OpensearchConfigRequestCredentials {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `username` wire field.
   final SdkOptional<String> username;
-
   /// Optional `string` value serialized in the `password` wire field.
   final SdkOptional<String> password;
 
-  const OpensearchConfigRequestCredentials(
-      {this.username = const SdkOmitted(), this.password = const SdkOmitted()});
+  const OpensearchConfigRequestCredentials({this.username = const SdkOmitted(), this.password = const SdkOmitted()});
 
-  OpensearchConfigRequestCredentials Function(
-      {SdkOptional<String> username,
-      SdkOptional<String> password}) get copyWith => _copyWith;
+  OpensearchConfigRequestCredentials Function({SdkOptional<String> username, SdkOptional<String> password}) get copyWith => _copyWith;
 
-  OpensearchConfigRequestCredentials _copyWith(
-          {Object? username = sdkOmittedValue,
-          Object? password = sdkOmittedValue}) =>
-      OpensearchConfigRequestCredentials(
-        username: identical(username, sdkOmittedValue)
-            ? this.username
-            : username as SdkOptional<String>,
-        password: identical(password, sdkOmittedValue)
-            ? this.password
-            : password as SdkOptional<String>,
-      );
+  OpensearchConfigRequestCredentials _copyWith({Object? username = sdkOmittedValue, Object? password = sdkOmittedValue}) => OpensearchConfigRequestCredentials(
+    username: identical(username, sdkOmittedValue) ? this.username : username as SdkOptional<String>,
+    password: identical(password, sdkOmittedValue) ? this.password : password as SdkOptional<String>,
+  );
 
-  factory OpensearchConfigRequestCredentials.fromJson(
-          Map<String, dynamic> json) =>
-      OpensearchConfigRequestCredentials(
-        username: json['username'] != null
-            ? SdkPresent((json['username'] as String?)!)
-            : const SdkOmitted(),
-        password: json['password'] != null
-            ? SdkPresent((json['password'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory OpensearchConfigRequestCredentials.fromJson(Map<String, dynamic> json) => OpensearchConfigRequestCredentials(
+    username: json['username'] != null ? SdkPresent((json['username'] as String?)!) : const SdkOmitted(),
+    password: json['password'] != null ? SdkPresent((json['password'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (username) {
-          SdkPresent<String>(value: final value) => {
-              'username': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (password) {
-          SdkPresent<String>(value: final value) => {
-              'password': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (username) {
+      SdkPresent<String>(value: final value) => {'username': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (password) {
+      SdkPresent<String>(value: final value) => {'password': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `OpensearchConfigRequest` API schema.
 class OpensearchConfigRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Credentials for an OpenSearch cluster user. Optional if `cluster_uuid` is passed.
   final SdkOptional<OpensearchConfigRequestCredentials> credentials;
-
   /// host of the OpenSearch cluster
   final String endpoint;
-
   /// A unique identifier for a managed OpenSearch cluster.
   final SdkOptional<String> clusterUuid;
-
   /// Name of a managed OpenSearch cluster.
   final SdkOptional<String> clusterName;
-
   /// OpenSearch index to send logs to.
   final SdkOptional<String> indexName;
-
   /// Number of days to retain logs in an OpenSearch cluster.
   final SdkOptional<int> retentionDays;
 
-  const OpensearchConfigRequest(
-      {this.credentials = const SdkOmitted(),
-      required this.endpoint,
-      this.clusterUuid = const SdkOmitted(),
-      this.clusterName = const SdkOmitted(),
-      this.indexName = const SdkOmitted(),
-      this.retentionDays = const SdkOmitted()});
+  const OpensearchConfigRequest({this.credentials = const SdkOmitted(), required this.endpoint, this.clusterUuid = const SdkOmitted(), this.clusterName = const SdkOmitted(), this.indexName = const SdkOmitted(), this.retentionDays = const SdkOmitted()});
 
-  OpensearchConfigRequest Function(
-      {SdkOptional<OpensearchConfigRequestCredentials> credentials,
-      String endpoint,
-      SdkOptional<String> clusterUuid,
-      SdkOptional<String> clusterName,
-      SdkOptional<String> indexName,
-      SdkOptional<int> retentionDays}) get copyWith => _copyWith;
+  OpensearchConfigRequest Function({SdkOptional<OpensearchConfigRequestCredentials> credentials, String endpoint, SdkOptional<String> clusterUuid, SdkOptional<String> clusterName, SdkOptional<String> indexName, SdkOptional<int> retentionDays}) get copyWith => _copyWith;
 
-  OpensearchConfigRequest _copyWith(
-          {Object? credentials = sdkOmittedValue,
-          Object? endpoint = sdkOmittedValue,
-          Object? clusterUuid = sdkOmittedValue,
-          Object? clusterName = sdkOmittedValue,
-          Object? indexName = sdkOmittedValue,
-          Object? retentionDays = sdkOmittedValue}) =>
-      OpensearchConfigRequest(
-        credentials: identical(credentials, sdkOmittedValue)
-            ? this.credentials
-            : credentials as SdkOptional<OpensearchConfigRequestCredentials>,
-        endpoint: identical(endpoint, sdkOmittedValue)
-            ? this.endpoint
-            : endpoint as String,
-        clusterUuid: identical(clusterUuid, sdkOmittedValue)
-            ? this.clusterUuid
-            : clusterUuid as SdkOptional<String>,
-        clusterName: identical(clusterName, sdkOmittedValue)
-            ? this.clusterName
-            : clusterName as SdkOptional<String>,
-        indexName: identical(indexName, sdkOmittedValue)
-            ? this.indexName
-            : indexName as SdkOptional<String>,
-        retentionDays: identical(retentionDays, sdkOmittedValue)
-            ? this.retentionDays
-            : retentionDays as SdkOptional<int>,
-      );
+  OpensearchConfigRequest _copyWith({Object? credentials = sdkOmittedValue, Object? endpoint = sdkOmittedValue, Object? clusterUuid = sdkOmittedValue, Object? clusterName = sdkOmittedValue, Object? indexName = sdkOmittedValue, Object? retentionDays = sdkOmittedValue}) => OpensearchConfigRequest(
+    credentials: identical(credentials, sdkOmittedValue) ? this.credentials : credentials as SdkOptional<OpensearchConfigRequestCredentials>,
+    endpoint: identical(endpoint, sdkOmittedValue) ? this.endpoint : endpoint as String,
+    clusterUuid: identical(clusterUuid, sdkOmittedValue) ? this.clusterUuid : clusterUuid as SdkOptional<String>,
+    clusterName: identical(clusterName, sdkOmittedValue) ? this.clusterName : clusterName as SdkOptional<String>,
+    indexName: identical(indexName, sdkOmittedValue) ? this.indexName : indexName as SdkOptional<String>,
+    retentionDays: identical(retentionDays, sdkOmittedValue) ? this.retentionDays : retentionDays as SdkOptional<int>,
+  );
 
-  factory OpensearchConfigRequest.fromJson(Map<String, dynamic> json) =>
-      OpensearchConfigRequest(
-        credentials: json['credentials'] != null
-            ? SdkPresent((json['credentials'] != null
-                ? OpensearchConfigRequestCredentials.fromJson(
-                    json['credentials'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        endpoint: (json['endpoint'] as String?)!,
-        clusterUuid: json['cluster_uuid'] != null
-            ? SdkPresent((json['cluster_uuid'] as String?)!)
-            : const SdkOmitted(),
-        clusterName: json['cluster_name'] != null
-            ? SdkPresent((json['cluster_name'] as String?)!)
-            : const SdkOmitted(),
-        indexName: json['index_name'] != null
-            ? SdkPresent((json['index_name'] as String?)!)
-            : const SdkOmitted(),
-        retentionDays: json['retention_days'] != null
-            ? SdkPresent(((json['retention_days'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory OpensearchConfigRequest.fromJson(Map<String, dynamic> json) => OpensearchConfigRequest(
+    credentials: json['credentials'] != null ? SdkPresent((json['credentials'] != null ? OpensearchConfigRequestCredentials.fromJson(json['credentials'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    endpoint: (json['endpoint'] as String?)!,
+    clusterUuid: json['cluster_uuid'] != null ? SdkPresent((json['cluster_uuid'] as String?)!) : const SdkOmitted(),
+    clusterName: json['cluster_name'] != null ? SdkPresent((json['cluster_name'] as String?)!) : const SdkOmitted(),
+    indexName: json['index_name'] != null ? SdkPresent((json['index_name'] as String?)!) : const SdkOmitted(),
+    retentionDays: json['retention_days'] != null ? SdkPresent(((json['retention_days'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (credentials) {
-          SdkPresent<OpensearchConfigRequestCredentials>(value: final value) =>
-            {
-              'credentials': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'endpoint': endpoint,
-        ...switch (clusterUuid) {
-          SdkPresent<String>(value: final value) => {
-              'cluster_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clusterName) {
-          SdkPresent<String>(value: final value) => {
-              'cluster_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (indexName) {
-          SdkPresent<String>(value: final value) => {
-              'index_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (retentionDays) {
-          SdkPresent<int>(value: final value) => {
-              'retention_days': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (credentials) {
+      SdkPresent<OpensearchConfigRequestCredentials>(value: final value) => {'credentials': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'endpoint': endpoint,
+    ...switch (clusterUuid) {
+      SdkPresent<String>(value: final value) => {'cluster_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clusterName) {
+      SdkPresent<String>(value: final value) => {'cluster_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (indexName) {
+      SdkPresent<String>(value: final value) => {'index_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (retentionDays) {
+      SdkPresent<int>(value: final value) => {'retention_days': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

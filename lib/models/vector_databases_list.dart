@@ -8,57 +8,33 @@ part of 'vector_databases.dart';
 class VectordbListVectorDBsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `int64`-formatted value serialized in the `total` wire field.
   final SdkOptional<int> total;
-
   /// Optional array value serialized in the `vector_dbs` wire field.
   final SdkOptional<List<VectordbVectorDB>> vectorDbs;
 
-  const VectordbListVectorDBsResponse(
-      {this.total = const SdkOmitted(), this.vectorDbs = const SdkOmitted()});
+  const VectordbListVectorDBsResponse({this.total = const SdkOmitted(), this.vectorDbs = const SdkOmitted()});
 
-  VectordbListVectorDBsResponse Function(
-      {SdkOptional<int> total,
-      SdkOptional<List<VectordbVectorDB>> vectorDbs}) get copyWith => _copyWith;
+  VectordbListVectorDBsResponse Function({SdkOptional<int> total, SdkOptional<List<VectordbVectorDB>> vectorDbs}) get copyWith => _copyWith;
 
-  VectordbListVectorDBsResponse _copyWith(
-          {Object? total = sdkOmittedValue,
-          Object? vectorDbs = sdkOmittedValue}) =>
-      VectordbListVectorDBsResponse(
-        total: identical(total, sdkOmittedValue)
-            ? this.total
-            : total as SdkOptional<int>,
-        vectorDbs: identical(vectorDbs, sdkOmittedValue)
-            ? this.vectorDbs
-            : vectorDbs as SdkOptional<List<VectordbVectorDB>>,
-      );
+  VectordbListVectorDBsResponse _copyWith({Object? total = sdkOmittedValue, Object? vectorDbs = sdkOmittedValue}) => VectordbListVectorDBsResponse(
+    total: identical(total, sdkOmittedValue) ? this.total : total as SdkOptional<int>,
+    vectorDbs: identical(vectorDbs, sdkOmittedValue) ? this.vectorDbs : vectorDbs as SdkOptional<List<VectordbVectorDB>>,
+  );
 
-  factory VectordbListVectorDBsResponse.fromJson(Map<String, dynamic> json) =>
-      VectordbListVectorDBsResponse(
-        total: json['total'] != null
-            ? SdkPresent(((json['total'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        vectorDbs: json['vector_dbs'] != null
-            ? SdkPresent(((json['vector_dbs'] as List?)
-                ?.map(
-                    (e) => VectordbVectorDB.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory VectordbListVectorDBsResponse.fromJson(Map<String, dynamic> json) => VectordbListVectorDBsResponse(
+    total: json['total'] != null ? SdkPresent(((json['total'] as num?)?.toInt())!) : const SdkOmitted(),
+    vectorDbs: json['vector_dbs'] != null ? SdkPresent(((json['vector_dbs'] as List?)?.map((e) => VectordbVectorDB.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (total) {
-          SdkPresent<int>(value: final value) => {
-              'total': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (vectorDbs) {
-          SdkPresent<List<VectordbVectorDB>>(value: final value) => {
-              'vector_dbs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (total) {
+      SdkPresent<int>(value: final value) => {'total': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (vectorDbs) {
+      SdkPresent<List<VectordbVectorDB>>(value: final value) => {'vector_dbs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

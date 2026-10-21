@@ -9,38 +9,24 @@ class AppsDeploymentsResponseVariant0 {
   static const String constructionSurface = 'named';
   final SdkOptional<List<AppsDeployment>> deployments;
 
-  const AppsDeploymentsResponseVariant0(
-      {this.deployments = const SdkOmitted()});
+  const AppsDeploymentsResponseVariant0({this.deployments = const SdkOmitted()});
 
-  AppsDeploymentsResponseVariant0 Function(
-          {SdkOptional<List<AppsDeployment>> deployments})
-      get copyWith => _copyWith;
+  AppsDeploymentsResponseVariant0 Function({SdkOptional<List<AppsDeployment>> deployments}) get copyWith => _copyWith;
 
-  AppsDeploymentsResponseVariant0 _copyWith(
-          {Object? deployments = sdkOmittedValue}) =>
-      AppsDeploymentsResponseVariant0(
-        deployments: identical(deployments, sdkOmittedValue)
-            ? this.deployments
-            : deployments as SdkOptional<List<AppsDeployment>>,
-      );
+  AppsDeploymentsResponseVariant0 _copyWith({Object? deployments = sdkOmittedValue}) => AppsDeploymentsResponseVariant0(
+    deployments: identical(deployments, sdkOmittedValue) ? this.deployments : deployments as SdkOptional<List<AppsDeployment>>,
+  );
 
-  factory AppsDeploymentsResponseVariant0.fromJson(Map<String, dynamic> json) =>
-      AppsDeploymentsResponseVariant0(
-        deployments: json['deployments'] != null
-            ? SdkPresent(((json['deployments'] as List?)
-                ?.map((e) => AppsDeployment.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory AppsDeploymentsResponseVariant0.fromJson(Map<String, dynamic> json) => AppsDeploymentsResponseVariant0(
+    deployments: json['deployments'] != null ? SdkPresent(((json['deployments'] as List?)?.map((e) => AppsDeployment.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (deployments) {
-          SdkPresent<List<AppsDeployment>>(value: final value) => {
-              'deployments': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (deployments) {
+      SdkPresent<List<AppsDeployment>>(value: final value) => {'deployments': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `AppsDeploymentsResponse` API schema.
@@ -48,69 +34,36 @@ class AppsDeploymentsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<AppsDeployment>> deployments;
-
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
-
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AppsDeploymentsResponse(
-      {this.deployments = const SdkOmitted(),
-      this.links = const SdkOmitted(),
-      required this.meta});
+  const AppsDeploymentsResponse({this.deployments = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
 
-  AppsDeploymentsResponse Function(
-      {SdkOptional<List<AppsDeployment>> deployments,
-      SdkOptional<PageLinks> links,
-      MetaProperties meta}) get copyWith => _copyWith;
+  AppsDeploymentsResponse Function({SdkOptional<List<AppsDeployment>> deployments, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
 
-  AppsDeploymentsResponse _copyWith(
-          {Object? deployments = sdkOmittedValue,
-          Object? links = sdkOmittedValue,
-          Object? meta = sdkOmittedValue}) =>
-      AppsDeploymentsResponse(
-        deployments: identical(deployments, sdkOmittedValue)
-            ? this.deployments
-            : deployments as SdkOptional<List<AppsDeployment>>,
-        links: identical(links, sdkOmittedValue)
-            ? this.links
-            : links as SdkOptional<PageLinks>,
-        meta: identical(meta, sdkOmittedValue)
-            ? this.meta
-            : meta as MetaProperties,
-      );
+  AppsDeploymentsResponse _copyWith({Object? deployments = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AppsDeploymentsResponse(
+    deployments: identical(deployments, sdkOmittedValue) ? this.deployments : deployments as SdkOptional<List<AppsDeployment>>,
+    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
+    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
+  );
 
-  factory AppsDeploymentsResponse.fromJson(Map<String, dynamic> json) =>
-      AppsDeploymentsResponse(
-        deployments: json['deployments'] != null
-            ? SdkPresent(((json['deployments'] as List?)
-                ?.map((e) => AppsDeployment.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        links: json['links'] != null
-            ? SdkPresent((json['links'] != null
-                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        meta: (json['meta'] != null
-            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory AppsDeploymentsResponse.fromJson(Map<String, dynamic> json) => AppsDeploymentsResponse(
+    deployments: json['deployments'] != null ? SdkPresent(((json['deployments'] as List?)?.map((e) => AppsDeployment.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (deployments) {
-          SdkPresent<List<AppsDeployment>>(value: final value) => {
-              'deployments': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (links) {
-          SdkPresent<PageLinks>(value: final value) => {
-              'links': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'meta': meta.toJson(),
-      };
+    ...switch (deployments) {
+      SdkPresent<List<AppsDeployment>>(value: final value) => {'deployments': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (links) {
+      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'meta': meta.toJson(),
+  };
 }

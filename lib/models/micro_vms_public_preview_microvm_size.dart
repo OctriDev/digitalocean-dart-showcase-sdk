@@ -8,53 +8,35 @@ part of 'micro_vms_public_preview.dart';
 class MicrovmSize {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The number of vCPUs.
   final int cpu;
-
   /// The amount of memory, in MiB.
   final int memory;
-
   /// The size of the disk, in GB. Set by the size.
   final SdkOptional<int> disk;
 
-  const MicrovmSize(
-      {required this.cpu,
-      required this.memory,
-      this.disk = const SdkOmitted()});
+  const MicrovmSize({required this.cpu, required this.memory, this.disk = const SdkOmitted()});
 
-  MicrovmSize Function({int cpu, int memory, SdkOptional<int> disk})
-      get copyWith => _copyWith;
+  MicrovmSize Function({int cpu, int memory, SdkOptional<int> disk}) get copyWith => _copyWith;
 
-  MicrovmSize _copyWith(
-          {Object? cpu = sdkOmittedValue,
-          Object? memory = sdkOmittedValue,
-          Object? disk = sdkOmittedValue}) =>
-      MicrovmSize(
-        cpu: identical(cpu, sdkOmittedValue) ? this.cpu : cpu as int,
-        memory:
-            identical(memory, sdkOmittedValue) ? this.memory : memory as int,
-        disk: identical(disk, sdkOmittedValue)
-            ? this.disk
-            : disk as SdkOptional<int>,
-      );
+  MicrovmSize _copyWith({Object? cpu = sdkOmittedValue, Object? memory = sdkOmittedValue, Object? disk = sdkOmittedValue}) => MicrovmSize(
+    cpu: identical(cpu, sdkOmittedValue) ? this.cpu : cpu as int,
+    memory: identical(memory, sdkOmittedValue) ? this.memory : memory as int,
+    disk: identical(disk, sdkOmittedValue) ? this.disk : disk as SdkOptional<int>,
+  );
 
   factory MicrovmSize.fromJson(Map<String, dynamic> json) => MicrovmSize(
-        cpu: ((json['cpu'] as num?)?.toInt())!,
-        memory: ((json['memory'] as num?)?.toInt())!,
-        disk: json['disk'] != null
-            ? SdkPresent(((json['disk'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+    cpu: ((json['cpu'] as num?)?.toInt())!,
+    memory: ((json['memory'] as num?)?.toInt())!,
+    disk: json['disk'] != null ? SdkPresent(((json['disk'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'cpu': cpu,
-        'memory': memory,
-        ...switch (disk) {
-          SdkPresent<int>(value: final value) => {
-              'disk': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'cpu': cpu,
+    'memory': memory,
+    ...switch (disk) {
+      SdkPresent<int>(value: final value) => {'disk': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

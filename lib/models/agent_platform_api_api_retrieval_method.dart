@@ -6,33 +6,25 @@ part of 'agent_platform_api_api.dart';
 // agent_platform_api_api domain models
 /// - RETRIEVAL_METHOD_UNKNOWN: The retrieval method is unknown - RETRIEVAL_METHOD_REWRITE: The retrieval method is rewrite - RETRIEVAL_METHOD_STEP_BACK: The retrieval method is step back - RETRIEVAL_METHOD_SUB_QUERIES: The retrieval method is sub queries - RETRIEVAL_METHOD_NONE: The retrieval method is none
 final class ApiRetrievalMethod {
+
   final String value;
 
   const ApiRetrievalMethod._(this.value);
 
-  factory ApiRetrievalMethod.fromJson(String value) =>
-      ApiRetrievalMethod._(value);
+  factory ApiRetrievalMethod.fromJson(String value) => ApiRetrievalMethod._(value);
 
-  static const retrievalMethodUnknown =
-      ApiRetrievalMethod._('RETRIEVAL_METHOD_UNKNOWN');
-  static const retrievalMethodRewrite =
-      ApiRetrievalMethod._('RETRIEVAL_METHOD_REWRITE');
-  static const retrievalMethodStepBack =
-      ApiRetrievalMethod._('RETRIEVAL_METHOD_STEP_BACK');
-  static const retrievalMethodSubQueries =
-      ApiRetrievalMethod._('RETRIEVAL_METHOD_SUB_QUERIES');
-  static const retrievalMethodNone =
-      ApiRetrievalMethod._('RETRIEVAL_METHOD_NONE');
+  static const retrievalMethodUnknown = ApiRetrievalMethod._('RETRIEVAL_METHOD_UNKNOWN');
+  static const retrievalMethodRewrite = ApiRetrievalMethod._('RETRIEVAL_METHOD_REWRITE');
+  static const retrievalMethodStepBack = ApiRetrievalMethod._('RETRIEVAL_METHOD_STEP_BACK');
+  static const retrievalMethodSubQueries = ApiRetrievalMethod._('RETRIEVAL_METHOD_SUB_QUERIES');
+  static const retrievalMethodNone = ApiRetrievalMethod._('RETRIEVAL_METHOD_NONE');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiRetrievalMethod && other.value == value;
+  @override bool operator ==(Object other) => other is ApiRetrievalMethod && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

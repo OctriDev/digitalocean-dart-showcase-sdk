@@ -8,43 +8,30 @@ part of 'insights_logs.dart';
 class LogsFieldRef {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The field name. Intrinsic columns include `timestamp`, `severity_text`, `severity_number`, `body`, `trace_id`, `span_id`, and `trace_flags`. The dotted shorthands `service.name`, `resource.type`, and `resource.urn` are also supported. Arbitrary resource or log attributes can be accessed with `ResourceAttributes['key']` or `LogAttributes['key']`.
   final String name;
-
   /// The attribute scope to resolve the field against. Omit to let the server apply its default mapping for the field name.
   final SdkOptional<LogsFieldRefScope> scope;
 
   const LogsFieldRef({required this.name, this.scope = const SdkOmitted()});
 
-  LogsFieldRef Function({String name, SdkOptional<LogsFieldRefScope> scope})
-      get copyWith => _copyWith;
+  LogsFieldRef Function({String name, SdkOptional<LogsFieldRefScope> scope}) get copyWith => _copyWith;
 
-  LogsFieldRef _copyWith(
-          {Object? name = sdkOmittedValue, Object? scope = sdkOmittedValue}) =>
-      LogsFieldRef(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        scope: identical(scope, sdkOmittedValue)
-            ? this.scope
-            : scope as SdkOptional<LogsFieldRefScope>,
-      );
+  LogsFieldRef _copyWith({Object? name = sdkOmittedValue, Object? scope = sdkOmittedValue}) => LogsFieldRef(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    scope: identical(scope, sdkOmittedValue) ? this.scope : scope as SdkOptional<LogsFieldRefScope>,
+  );
 
   factory LogsFieldRef.fromJson(Map<String, dynamic> json) => LogsFieldRef(
-        name: (json['name'] as String?)!,
-        scope: json['scope'] != null
-            ? SdkPresent((json['scope'] != null
-                ? LogsFieldRefScope.fromJson(json['scope'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    name: (json['name'] as String?)!,
+    scope: json['scope'] != null ? SdkPresent((json['scope'] != null ? LogsFieldRefScope.fromJson(json['scope'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (scope) {
-          SdkPresent<LogsFieldRefScope>(value: final value) => {
-              'scope': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (scope) {
+      SdkPresent<LogsFieldRefScope>(value: final value) => {'scope': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

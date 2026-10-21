@@ -8,297 +8,137 @@ part of 'agent_platform_api_api.dart';
 class ApiIndexingJob {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Number of datasources indexed completed
   final SdkOptional<int> completedDatasources;
-
   /// Creation date / time
   final SdkOptional<String> createdAt;
-
   /// Details on Data Sources included in the Indexing Job
   final SdkOptional<List<ApiIndexedDataSource>> dataSourceJobs;
-
   /// Optional array value serialized in the `data_source_uuids` wire field.
   final SdkOptional<List<String>> dataSourceUuids;
-
   /// Optional `date-time`-formatted value serialized in the `finished_at` wire field.
   final SdkOptional<String> finishedAt;
-
   /// Boolean value to determine if the indexing job details are available
   final SdkOptional<bool> isReportAvailable;
-
   /// Knowledge base id
   final SdkOptional<String> knowledgeBaseUuid;
-
   /// Optional enumerated value serialized in the `phase` wire field.
   final SdkOptional<ApiBatchJobPhase> phase;
-
   /// Optional `date-time`-formatted value serialized in the `started_at` wire field.
   final SdkOptional<String> startedAt;
-
   /// Optional enumerated value serialized in the `status` wire field.
   final SdkOptional<ApiIndexJobStatus> status;
-
   /// Number of tokens [This field is deprecated]
   final SdkOptional<int> tokens;
-
   /// Number of datasources being indexed
   final SdkOptional<int> totalDatasources;
-
   /// Total Tokens Consumed By the Indexing Job
   final SdkOptional<String> totalTokens;
-
   /// Last modified
   final SdkOptional<String> updatedAt;
-
   /// Unique id
   final SdkOptional<String> uuid;
 
-  const ApiIndexingJob(
-      {this.completedDatasources = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.dataSourceJobs = const SdkOmitted(),
-      this.dataSourceUuids = const SdkOmitted(),
-      this.finishedAt = const SdkOmitted(),
-      this.isReportAvailable = const SdkOmitted(),
-      this.knowledgeBaseUuid = const SdkOmitted(),
-      this.phase = const SdkOmitted(),
-      this.startedAt = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.tokens = const SdkOmitted(),
-      this.totalDatasources = const SdkOmitted(),
-      this.totalTokens = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.uuid = const SdkOmitted()});
+  const ApiIndexingJob({this.completedDatasources = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.dataSourceJobs = const SdkOmitted(), this.dataSourceUuids = const SdkOmitted(), this.finishedAt = const SdkOmitted(), this.isReportAvailable = const SdkOmitted(), this.knowledgeBaseUuid = const SdkOmitted(), this.phase = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.status = const SdkOmitted(), this.tokens = const SdkOmitted(), this.totalDatasources = const SdkOmitted(), this.totalTokens = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.uuid = const SdkOmitted()});
 
-  ApiIndexingJob Function(
-      {SdkOptional<int> completedDatasources,
-      SdkOptional<String> createdAt,
-      SdkOptional<List<ApiIndexedDataSource>> dataSourceJobs,
-      SdkOptional<List<String>> dataSourceUuids,
-      SdkOptional<String> finishedAt,
-      SdkOptional<bool> isReportAvailable,
-      SdkOptional<String> knowledgeBaseUuid,
-      SdkOptional<ApiBatchJobPhase> phase,
-      SdkOptional<String> startedAt,
-      SdkOptional<ApiIndexJobStatus> status,
-      SdkOptional<int> tokens,
-      SdkOptional<int> totalDatasources,
-      SdkOptional<String> totalTokens,
-      SdkOptional<String> updatedAt,
-      SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiIndexingJob Function({SdkOptional<int> completedDatasources, SdkOptional<String> createdAt, SdkOptional<List<ApiIndexedDataSource>> dataSourceJobs, SdkOptional<List<String>> dataSourceUuids, SdkOptional<String> finishedAt, SdkOptional<bool> isReportAvailable, SdkOptional<String> knowledgeBaseUuid, SdkOptional<ApiBatchJobPhase> phase, SdkOptional<String> startedAt, SdkOptional<ApiIndexJobStatus> status, SdkOptional<int> tokens, SdkOptional<int> totalDatasources, SdkOptional<String> totalTokens, SdkOptional<String> updatedAt, SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiIndexingJob _copyWith(
-          {Object? completedDatasources = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? dataSourceJobs = sdkOmittedValue,
-          Object? dataSourceUuids = sdkOmittedValue,
-          Object? finishedAt = sdkOmittedValue,
-          Object? isReportAvailable = sdkOmittedValue,
-          Object? knowledgeBaseUuid = sdkOmittedValue,
-          Object? phase = sdkOmittedValue,
-          Object? startedAt = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? tokens = sdkOmittedValue,
-          Object? totalDatasources = sdkOmittedValue,
-          Object? totalTokens = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? uuid = sdkOmittedValue}) =>
-      ApiIndexingJob(
-        completedDatasources: identical(completedDatasources, sdkOmittedValue)
-            ? this.completedDatasources
-            : completedDatasources as SdkOptional<int>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String>,
-        dataSourceJobs: identical(dataSourceJobs, sdkOmittedValue)
-            ? this.dataSourceJobs
-            : dataSourceJobs as SdkOptional<List<ApiIndexedDataSource>>,
-        dataSourceUuids: identical(dataSourceUuids, sdkOmittedValue)
-            ? this.dataSourceUuids
-            : dataSourceUuids as SdkOptional<List<String>>,
-        finishedAt: identical(finishedAt, sdkOmittedValue)
-            ? this.finishedAt
-            : finishedAt as SdkOptional<String>,
-        isReportAvailable: identical(isReportAvailable, sdkOmittedValue)
-            ? this.isReportAvailable
-            : isReportAvailable as SdkOptional<bool>,
-        knowledgeBaseUuid: identical(knowledgeBaseUuid, sdkOmittedValue)
-            ? this.knowledgeBaseUuid
-            : knowledgeBaseUuid as SdkOptional<String>,
-        phase: identical(phase, sdkOmittedValue)
-            ? this.phase
-            : phase as SdkOptional<ApiBatchJobPhase>,
-        startedAt: identical(startedAt, sdkOmittedValue)
-            ? this.startedAt
-            : startedAt as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<ApiIndexJobStatus>,
-        tokens: identical(tokens, sdkOmittedValue)
-            ? this.tokens
-            : tokens as SdkOptional<int>,
-        totalDatasources: identical(totalDatasources, sdkOmittedValue)
-            ? this.totalDatasources
-            : totalDatasources as SdkOptional<int>,
-        totalTokens: identical(totalTokens, sdkOmittedValue)
-            ? this.totalTokens
-            : totalTokens as SdkOptional<String>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<String>,
-        uuid: identical(uuid, sdkOmittedValue)
-            ? this.uuid
-            : uuid as SdkOptional<String>,
-      );
+  ApiIndexingJob _copyWith({Object? completedDatasources = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? dataSourceJobs = sdkOmittedValue, Object? dataSourceUuids = sdkOmittedValue, Object? finishedAt = sdkOmittedValue, Object? isReportAvailable = sdkOmittedValue, Object? knowledgeBaseUuid = sdkOmittedValue, Object? phase = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? status = sdkOmittedValue, Object? tokens = sdkOmittedValue, Object? totalDatasources = sdkOmittedValue, Object? totalTokens = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiIndexingJob(
+    completedDatasources: identical(completedDatasources, sdkOmittedValue) ? this.completedDatasources : completedDatasources as SdkOptional<int>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
+    dataSourceJobs: identical(dataSourceJobs, sdkOmittedValue) ? this.dataSourceJobs : dataSourceJobs as SdkOptional<List<ApiIndexedDataSource>>,
+    dataSourceUuids: identical(dataSourceUuids, sdkOmittedValue) ? this.dataSourceUuids : dataSourceUuids as SdkOptional<List<String>>,
+    finishedAt: identical(finishedAt, sdkOmittedValue) ? this.finishedAt : finishedAt as SdkOptional<String>,
+    isReportAvailable: identical(isReportAvailable, sdkOmittedValue) ? this.isReportAvailable : isReportAvailable as SdkOptional<bool>,
+    knowledgeBaseUuid: identical(knowledgeBaseUuid, sdkOmittedValue) ? this.knowledgeBaseUuid : knowledgeBaseUuid as SdkOptional<String>,
+    phase: identical(phase, sdkOmittedValue) ? this.phase : phase as SdkOptional<ApiBatchJobPhase>,
+    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ApiIndexJobStatus>,
+    tokens: identical(tokens, sdkOmittedValue) ? this.tokens : tokens as SdkOptional<int>,
+    totalDatasources: identical(totalDatasources, sdkOmittedValue) ? this.totalDatasources : totalDatasources as SdkOptional<int>,
+    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as SdkOptional<String>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
+    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
+  );
 
   factory ApiIndexingJob.fromJson(Map<String, dynamic> json) => ApiIndexingJob(
-        completedDatasources: json['completed_datasources'] != null
-            ? SdkPresent(((json['completed_datasources'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent((json['created_at'] as String?)!)
-            : const SdkOmitted(),
-        dataSourceJobs: json['data_source_jobs'] != null
-            ? SdkPresent(((json['data_source_jobs'] as List?)
-                ?.map((e) =>
-                    ApiIndexedDataSource.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        dataSourceUuids: json['data_source_uuids'] != null
-            ? SdkPresent(((json['data_source_uuids'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        finishedAt: json['finished_at'] != null
-            ? SdkPresent((json['finished_at'] as String?)!)
-            : const SdkOmitted(),
-        isReportAvailable: json['is_report_available'] != null
-            ? SdkPresent((json['is_report_available'] as bool?)!)
-            : const SdkOmitted(),
-        knowledgeBaseUuid: json['knowledge_base_uuid'] != null
-            ? SdkPresent((json['knowledge_base_uuid'] as String?)!)
-            : const SdkOmitted(),
-        phase: json['phase'] != null
-            ? SdkPresent((json['phase'] != null
-                ? ApiBatchJobPhase.fromJson(json['phase'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        startedAt: json['started_at'] != null
-            ? SdkPresent((json['started_at'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] != null
-                ? ApiIndexJobStatus.fromJson(json['status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        tokens: json['tokens'] != null
-            ? SdkPresent(((json['tokens'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        totalDatasources: json['total_datasources'] != null
-            ? SdkPresent(((json['total_datasources'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        totalTokens: json['total_tokens'] != null
-            ? SdkPresent((json['total_tokens'] as String?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent((json['updated_at'] as String?)!)
-            : const SdkOmitted(),
-        uuid: json['uuid'] != null
-            ? SdkPresent((json['uuid'] as String?)!)
-            : const SdkOmitted(),
-      );
+    completedDatasources: json['completed_datasources'] != null ? SdkPresent(((json['completed_datasources'] as num?)?.toInt())!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
+    dataSourceJobs: json['data_source_jobs'] != null ? SdkPresent(((json['data_source_jobs'] as List?)?.map((e) => ApiIndexedDataSource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    dataSourceUuids: json['data_source_uuids'] != null ? SdkPresent(((json['data_source_uuids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    finishedAt: json['finished_at'] != null ? SdkPresent((json['finished_at'] as String?)!) : const SdkOmitted(),
+    isReportAvailable: json['is_report_available'] != null ? SdkPresent((json['is_report_available'] as bool?)!) : const SdkOmitted(),
+    knowledgeBaseUuid: json['knowledge_base_uuid'] != null ? SdkPresent((json['knowledge_base_uuid'] as String?)!) : const SdkOmitted(),
+    phase: json['phase'] != null ? SdkPresent((json['phase'] != null ? ApiBatchJobPhase.fromJson(json['phase'] as String) : null)!) : const SdkOmitted(),
+    startedAt: json['started_at'] != null ? SdkPresent((json['started_at'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] != null ? ApiIndexJobStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
+    tokens: json['tokens'] != null ? SdkPresent(((json['tokens'] as num?)?.toInt())!) : const SdkOmitted(),
+    totalDatasources: json['total_datasources'] != null ? SdkPresent(((json['total_datasources'] as num?)?.toInt())!) : const SdkOmitted(),
+    totalTokens: json['total_tokens'] != null ? SdkPresent((json['total_tokens'] as String?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
+    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (completedDatasources) {
-          SdkPresent<int>(value: final value) => {
-              'completed_datasources': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (dataSourceJobs) {
-          SdkPresent<List<ApiIndexedDataSource>>(value: final value) => {
-              'data_source_jobs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (dataSourceUuids) {
-          SdkPresent<List<String>>(value: final value) => {
-              'data_source_uuids': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (finishedAt) {
-          SdkPresent<String>(value: final value) => {
-              'finished_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isReportAvailable) {
-          SdkPresent<bool>(value: final value) => {
-              'is_report_available': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (knowledgeBaseUuid) {
-          SdkPresent<String>(value: final value) => {
-              'knowledge_base_uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (phase) {
-          SdkPresent<ApiBatchJobPhase>(value: final value) => {
-              'phase': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (startedAt) {
-          SdkPresent<String>(value: final value) => {
-              'started_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<ApiIndexJobStatus>(value: final value) => {
-              'status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (tokens) {
-          SdkPresent<int>(value: final value) => {
-              'tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalDatasources) {
-          SdkPresent<int>(value: final value) => {
-              'total_datasources': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (totalTokens) {
-          SdkPresent<String>(value: final value) => {
-              'total_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<String>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (uuid) {
-          SdkPresent<String>(value: final value) => {
-              'uuid': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (completedDatasources) {
+      SdkPresent<int>(value: final value) => {'completed_datasources': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (dataSourceJobs) {
+      SdkPresent<List<ApiIndexedDataSource>>(value: final value) => {'data_source_jobs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (dataSourceUuids) {
+      SdkPresent<List<String>>(value: final value) => {'data_source_uuids': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (finishedAt) {
+      SdkPresent<String>(value: final value) => {'finished_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isReportAvailable) {
+      SdkPresent<bool>(value: final value) => {'is_report_available': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (knowledgeBaseUuid) {
+      SdkPresent<String>(value: final value) => {'knowledge_base_uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (phase) {
+      SdkPresent<ApiBatchJobPhase>(value: final value) => {'phase': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (startedAt) {
+      SdkPresent<String>(value: final value) => {'started_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<ApiIndexJobStatus>(value: final value) => {'status': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tokens) {
+      SdkPresent<int>(value: final value) => {'tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalDatasources) {
+      SdkPresent<int>(value: final value) => {'total_datasources': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (totalTokens) {
+      SdkPresent<String>(value: final value) => {'total_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<String>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (uuid) {
+      SdkPresent<String>(value: final value) => {'uuid': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

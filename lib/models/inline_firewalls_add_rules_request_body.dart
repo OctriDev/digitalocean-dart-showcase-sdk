@@ -7,484 +7,279 @@ part of 'inline.dart';
 class FirewallsAddRulesRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `inbound_rules` wire field.
   final SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules;
-
   /// Optional array value serialized in the `outbound_rules` wire field.
   final SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules;
 
-  const FirewallsAddRulesRequestBody(
-      {this.inboundRules = const SdkOmitted(),
-      this.outboundRules = const SdkOmitted()});
+  const FirewallsAddRulesRequestBody({this.inboundRules = const SdkOmitted(), this.outboundRules = const SdkOmitted()});
 
-  FirewallsAddRulesRequestBody Function(
-          {SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules,
-          SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules})
-      get copyWith => _copyWith;
+  FirewallsAddRulesRequestBody Function({SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules, SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules}) get copyWith => _copyWith;
 
-  FirewallsAddRulesRequestBody _copyWith(
-          {Object? inboundRules = sdkOmittedValue,
-          Object? outboundRules = sdkOmittedValue}) =>
-      FirewallsAddRulesRequestBody(
-        inboundRules: identical(inboundRules, sdkOmittedValue)
-            ? this.inboundRules
-            : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
-        outboundRules: identical(outboundRules, sdkOmittedValue)
-            ? this.outboundRules
-            : outboundRules
-                as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
-      );
+  FirewallsAddRulesRequestBody _copyWith({Object? inboundRules = sdkOmittedValue, Object? outboundRules = sdkOmittedValue}) => FirewallsAddRulesRequestBody(
+    inboundRules: identical(inboundRules, sdkOmittedValue) ? this.inboundRules : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
+    outboundRules: identical(outboundRules, sdkOmittedValue) ? this.outboundRules : outboundRules as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
+  );
 
-  factory FirewallsAddRulesRequestBody.fromJson(Map<String, dynamic> json) =>
-      FirewallsAddRulesRequestBody(
-        inboundRules: json.containsKey('inbound_rules')
-            ? SdkPresent((json['inbound_rules'] as List?)
-                ?.map((e) => FirewallRulesInboundRulesItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        outboundRules: json.containsKey('outbound_rules')
-            ? SdkPresent((json['outbound_rules'] as List?)
-                ?.map((e) => FirewallRulesOutboundRulesItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-      );
+  factory FirewallsAddRulesRequestBody.fromJson(Map<String, dynamic> json) => FirewallsAddRulesRequestBody(
+    inboundRules: json.containsKey('inbound_rules') ? SdkPresent((json['inbound_rules'] as List?)?.map((e) => FirewallRulesInboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    outboundRules: json.containsKey('outbound_rules') ? SdkPresent((json['outbound_rules'] as List?)?.map((e) => FirewallRulesOutboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (inboundRules) {
-          SdkPresent<List<FirewallRulesInboundRulesItem>?>(
-            value: final value
-          ) =>
-            {
-              'inbound_rules': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outboundRules) {
-          SdkPresent<List<FirewallRulesOutboundRulesItem>?>(
-            value: final value
-          ) =>
-            {
-              'outbound_rules': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (inboundRules) {
+      SdkPresent<List<FirewallRulesInboundRulesItem>?>(value: final value) => {'inbound_rules': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outboundRules) {
+      SdkPresent<List<FirewallRulesOutboundRulesItem>?>(value: final value) => {'outbound_rules': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class FirewallsDeleteRulesRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `inbound_rules` wire field.
   final SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules;
-
   /// Optional array value serialized in the `outbound_rules` wire field.
   final SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules;
 
-  const FirewallsDeleteRulesRequestBody(
-      {this.inboundRules = const SdkOmitted(),
-      this.outboundRules = const SdkOmitted()});
+  const FirewallsDeleteRulesRequestBody({this.inboundRules = const SdkOmitted(), this.outboundRules = const SdkOmitted()});
 
-  FirewallsDeleteRulesRequestBody Function(
-          {SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules,
-          SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules})
-      get copyWith => _copyWith;
+  FirewallsDeleteRulesRequestBody Function({SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules, SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules}) get copyWith => _copyWith;
 
-  FirewallsDeleteRulesRequestBody _copyWith(
-          {Object? inboundRules = sdkOmittedValue,
-          Object? outboundRules = sdkOmittedValue}) =>
-      FirewallsDeleteRulesRequestBody(
-        inboundRules: identical(inboundRules, sdkOmittedValue)
-            ? this.inboundRules
-            : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
-        outboundRules: identical(outboundRules, sdkOmittedValue)
-            ? this.outboundRules
-            : outboundRules
-                as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
-      );
+  FirewallsDeleteRulesRequestBody _copyWith({Object? inboundRules = sdkOmittedValue, Object? outboundRules = sdkOmittedValue}) => FirewallsDeleteRulesRequestBody(
+    inboundRules: identical(inboundRules, sdkOmittedValue) ? this.inboundRules : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
+    outboundRules: identical(outboundRules, sdkOmittedValue) ? this.outboundRules : outboundRules as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
+  );
 
-  factory FirewallsDeleteRulesRequestBody.fromJson(Map<String, dynamic> json) =>
-      FirewallsDeleteRulesRequestBody(
-        inboundRules: json.containsKey('inbound_rules')
-            ? SdkPresent((json['inbound_rules'] as List?)
-                ?.map((e) => FirewallRulesInboundRulesItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-        outboundRules: json.containsKey('outbound_rules')
-            ? SdkPresent((json['outbound_rules'] as List?)
-                ?.map((e) => FirewallRulesOutboundRulesItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())
-            : const SdkOmitted(),
-      );
+  factory FirewallsDeleteRulesRequestBody.fromJson(Map<String, dynamic> json) => FirewallsDeleteRulesRequestBody(
+    inboundRules: json.containsKey('inbound_rules') ? SdkPresent((json['inbound_rules'] as List?)?.map((e) => FirewallRulesInboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+    outboundRules: json.containsKey('outbound_rules') ? SdkPresent((json['outbound_rules'] as List?)?.map((e) => FirewallRulesOutboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (inboundRules) {
-          SdkPresent<List<FirewallRulesInboundRulesItem>?>(
-            value: final value
-          ) =>
-            {
-              'inbound_rules': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (outboundRules) {
-          SdkPresent<List<FirewallRulesOutboundRulesItem>?>(
-            value: final value
-          ) =>
-            {
-              'outbound_rules': value?.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (inboundRules) {
+      SdkPresent<List<FirewallRulesInboundRulesItem>?>(value: final value) => {'inbound_rules': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (outboundRules) {
+      SdkPresent<List<FirewallRulesOutboundRulesItem>?>(value: final value) => {'outbound_rules': value?.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class FunctionsAccessKeyUpdateRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The new name for the access key.
   final String name;
 
   const FunctionsAccessKeyUpdateRequestBody({required this.name});
 
-  FunctionsAccessKeyUpdateRequestBody Function({String name}) get copyWith =>
-      _copyWith;
+  FunctionsAccessKeyUpdateRequestBody Function({String name}) get copyWith => _copyWith;
 
-  FunctionsAccessKeyUpdateRequestBody _copyWith(
-          {Object? name = sdkOmittedValue}) =>
-      FunctionsAccessKeyUpdateRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-      );
+  FunctionsAccessKeyUpdateRequestBody _copyWith({Object? name = sdkOmittedValue}) => FunctionsAccessKeyUpdateRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+  );
 
-  factory FunctionsAccessKeyUpdateRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      FunctionsAccessKeyUpdateRequestBody(
-        name: (json['name'] as String?)!,
-      );
+  factory FunctionsAccessKeyUpdateRequestBody.fromJson(Map<String, dynamic> json) => FunctionsAccessKeyUpdateRequestBody(
+    name: (json['name'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-      };
+    'name': name,
+  };
 }
 
 class InsightsPostPromQueryRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A PromQL expression to evaluate.
   final String query;
-
   /// Evaluation timestamp. RFC3339 or UNIX timestamp.
   final SdkOptional<String> time;
-
   /// Optional evaluation timeout duration.
   final SdkOptional<String> timeout;
 
-  const InsightsPostPromQueryRequestBody(
-      {required this.query,
-      this.time = const SdkOmitted(),
-      this.timeout = const SdkOmitted()});
+  const InsightsPostPromQueryRequestBody({required this.query, this.time = const SdkOmitted(), this.timeout = const SdkOmitted()});
 
-  InsightsPostPromQueryRequestBody Function(
-      {String query,
-      SdkOptional<String> time,
-      SdkOptional<String> timeout}) get copyWith => _copyWith;
+  InsightsPostPromQueryRequestBody Function({String query, SdkOptional<String> time, SdkOptional<String> timeout}) get copyWith => _copyWith;
 
-  InsightsPostPromQueryRequestBody _copyWith(
-          {Object? query = sdkOmittedValue,
-          Object? time = sdkOmittedValue,
-          Object? timeout = sdkOmittedValue}) =>
-      InsightsPostPromQueryRequestBody(
-        query: identical(query, sdkOmittedValue) ? this.query : query as String,
-        time: identical(time, sdkOmittedValue)
-            ? this.time
-            : time as SdkOptional<String>,
-        timeout: identical(timeout, sdkOmittedValue)
-            ? this.timeout
-            : timeout as SdkOptional<String>,
-      );
+  InsightsPostPromQueryRequestBody _copyWith({Object? query = sdkOmittedValue, Object? time = sdkOmittedValue, Object? timeout = sdkOmittedValue}) => InsightsPostPromQueryRequestBody(
+    query: identical(query, sdkOmittedValue) ? this.query : query as String,
+    time: identical(time, sdkOmittedValue) ? this.time : time as SdkOptional<String>,
+    timeout: identical(timeout, sdkOmittedValue) ? this.timeout : timeout as SdkOptional<String>,
+  );
 
-  factory InsightsPostPromQueryRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      InsightsPostPromQueryRequestBody(
-        query: (json['query'] as String?)!,
-        time: json['time'] != null
-            ? SdkPresent((json['time'] as String?)!)
-            : const SdkOmitted(),
-        timeout: json['timeout'] != null
-            ? SdkPresent((json['timeout'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory InsightsPostPromQueryRequestBody.fromJson(Map<String, dynamic> json) => InsightsPostPromQueryRequestBody(
+    query: (json['query'] as String?)!,
+    time: json['time'] != null ? SdkPresent((json['time'] as String?)!) : const SdkOmitted(),
+    timeout: json['timeout'] != null ? SdkPresent((json['timeout'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'query': query,
-        ...switch (time) {
-          SdkPresent<String>(value: final value) => {
-              'time': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (timeout) {
-          SdkPresent<String>(value: final value) => {
-              'timeout': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'query': query,
+    ...switch (time) {
+      SdkPresent<String>(value: final value) => {'time': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (timeout) {
+      SdkPresent<String>(value: final value) => {'timeout': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class InsightsPostPromQueryRangeRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A PromQL expression to evaluate.
   final String query;
-
   /// Start timestamp. RFC3339 or UNIX timestamp.
   final String start;
-
   /// End timestamp. RFC3339 or UNIX timestamp.
   final String end;
-
   /// Query resolution step width.
   final String step;
-
   /// Optional evaluation timeout duration.
   final SdkOptional<String> timeout;
 
-  const InsightsPostPromQueryRangeRequestBody(
-      {required this.query,
-      required this.start,
-      required this.end,
-      required this.step,
-      this.timeout = const SdkOmitted()});
+  const InsightsPostPromQueryRangeRequestBody({required this.query, required this.start, required this.end, required this.step, this.timeout = const SdkOmitted()});
 
-  InsightsPostPromQueryRangeRequestBody Function(
-      {String query,
-      String start,
-      String end,
-      String step,
-      SdkOptional<String> timeout}) get copyWith => _copyWith;
+  InsightsPostPromQueryRangeRequestBody Function({String query, String start, String end, String step, SdkOptional<String> timeout}) get copyWith => _copyWith;
 
-  InsightsPostPromQueryRangeRequestBody _copyWith(
-          {Object? query = sdkOmittedValue,
-          Object? start = sdkOmittedValue,
-          Object? end = sdkOmittedValue,
-          Object? step = sdkOmittedValue,
-          Object? timeout = sdkOmittedValue}) =>
-      InsightsPostPromQueryRangeRequestBody(
-        query: identical(query, sdkOmittedValue) ? this.query : query as String,
-        start: identical(start, sdkOmittedValue) ? this.start : start as String,
-        end: identical(end, sdkOmittedValue) ? this.end : end as String,
-        step: identical(step, sdkOmittedValue) ? this.step : step as String,
-        timeout: identical(timeout, sdkOmittedValue)
-            ? this.timeout
-            : timeout as SdkOptional<String>,
-      );
+  InsightsPostPromQueryRangeRequestBody _copyWith({Object? query = sdkOmittedValue, Object? start = sdkOmittedValue, Object? end = sdkOmittedValue, Object? step = sdkOmittedValue, Object? timeout = sdkOmittedValue}) => InsightsPostPromQueryRangeRequestBody(
+    query: identical(query, sdkOmittedValue) ? this.query : query as String,
+    start: identical(start, sdkOmittedValue) ? this.start : start as String,
+    end: identical(end, sdkOmittedValue) ? this.end : end as String,
+    step: identical(step, sdkOmittedValue) ? this.step : step as String,
+    timeout: identical(timeout, sdkOmittedValue) ? this.timeout : timeout as SdkOptional<String>,
+  );
 
-  factory InsightsPostPromQueryRangeRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      InsightsPostPromQueryRangeRequestBody(
-        query: (json['query'] as String?)!,
-        start: (json['start'] as String?)!,
-        end: (json['end'] as String?)!,
-        step: (json['step'] as String?)!,
-        timeout: json['timeout'] != null
-            ? SdkPresent((json['timeout'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory InsightsPostPromQueryRangeRequestBody.fromJson(Map<String, dynamic> json) => InsightsPostPromQueryRangeRequestBody(
+    query: (json['query'] as String?)!,
+    start: (json['start'] as String?)!,
+    end: (json['end'] as String?)!,
+    step: (json['step'] as String?)!,
+    timeout: json['timeout'] != null ? SdkPresent((json['timeout'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'query': query,
-        'start': start,
-        'end': end,
-        'step': step,
-        ...switch (timeout) {
-          SdkPresent<String>(value: final value) => {
-              'timeout': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'query': query,
+    'start': start,
+    'end': end,
+    'step': step,
+    ...switch (timeout) {
+      SdkPresent<String>(value: final value) => {'timeout': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class InsightsPostPromLabelsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional start timestamp.
   final SdkOptional<String> start;
-
   /// Optional end timestamp.
   final SdkOptional<String> end;
-
   /// Optional series selectors.
   final SdkOptional<List<String>> match;
 
-  const InsightsPostPromLabelsRequestBody(
-      {this.start = const SdkOmitted(),
-      this.end = const SdkOmitted(),
-      this.match = const SdkOmitted()});
+  const InsightsPostPromLabelsRequestBody({this.start = const SdkOmitted(), this.end = const SdkOmitted(), this.match = const SdkOmitted()});
 
-  InsightsPostPromLabelsRequestBody Function(
-      {SdkOptional<String> start,
-      SdkOptional<String> end,
-      SdkOptional<List<String>> match}) get copyWith => _copyWith;
+  InsightsPostPromLabelsRequestBody Function({SdkOptional<String> start, SdkOptional<String> end, SdkOptional<List<String>> match}) get copyWith => _copyWith;
 
-  InsightsPostPromLabelsRequestBody _copyWith(
-          {Object? start = sdkOmittedValue,
-          Object? end = sdkOmittedValue,
-          Object? match = sdkOmittedValue}) =>
-      InsightsPostPromLabelsRequestBody(
-        start: identical(start, sdkOmittedValue)
-            ? this.start
-            : start as SdkOptional<String>,
-        end: identical(end, sdkOmittedValue)
-            ? this.end
-            : end as SdkOptional<String>,
-        match: identical(match, sdkOmittedValue)
-            ? this.match
-            : match as SdkOptional<List<String>>,
-      );
+  InsightsPostPromLabelsRequestBody _copyWith({Object? start = sdkOmittedValue, Object? end = sdkOmittedValue, Object? match = sdkOmittedValue}) => InsightsPostPromLabelsRequestBody(
+    start: identical(start, sdkOmittedValue) ? this.start : start as SdkOptional<String>,
+    end: identical(end, sdkOmittedValue) ? this.end : end as SdkOptional<String>,
+    match: identical(match, sdkOmittedValue) ? this.match : match as SdkOptional<List<String>>,
+  );
 
-  factory InsightsPostPromLabelsRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      InsightsPostPromLabelsRequestBody(
-        start: json['start'] != null
-            ? SdkPresent((json['start'] as String?)!)
-            : const SdkOmitted(),
-        end: json['end'] != null
-            ? SdkPresent((json['end'] as String?)!)
-            : const SdkOmitted(),
-        match: json['match[]'] != null
-            ? SdkPresent(
-                ((json['match[]'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-      );
+  factory InsightsPostPromLabelsRequestBody.fromJson(Map<String, dynamic> json) => InsightsPostPromLabelsRequestBody(
+    start: json['start'] != null ? SdkPresent((json['start'] as String?)!) : const SdkOmitted(),
+    end: json['end'] != null ? SdkPresent((json['end'] as String?)!) : const SdkOmitted(),
+    match: json['match[]'] != null ? SdkPresent(((json['match[]'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (start) {
-          SdkPresent<String>(value: final value) => {
-              'start': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (end) {
-          SdkPresent<String>(value: final value) => {
-              'end': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (match) {
-          SdkPresent<List<String>>(value: final value) => {
-              'match[]': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (start) {
+      SdkPresent<String>(value: final value) => {'start': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (end) {
+      SdkPresent<String>(value: final value) => {'end': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (match) {
+      SdkPresent<List<String>>(value: final value) => {'match[]': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class InsightsPostPromSeriesRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// One or more series selectors.
   final List<String> match;
-
   /// Optional start timestamp.
   final SdkOptional<String> start;
-
   /// Optional end timestamp.
   final SdkOptional<String> end;
 
-  const InsightsPostPromSeriesRequestBody(
-      {required this.match,
-      this.start = const SdkOmitted(),
-      this.end = const SdkOmitted()});
+  const InsightsPostPromSeriesRequestBody({required this.match, this.start = const SdkOmitted(), this.end = const SdkOmitted()});
 
-  InsightsPostPromSeriesRequestBody Function(
-      {List<String> match,
-      SdkOptional<String> start,
-      SdkOptional<String> end}) get copyWith => _copyWith;
+  InsightsPostPromSeriesRequestBody Function({List<String> match, SdkOptional<String> start, SdkOptional<String> end}) get copyWith => _copyWith;
 
-  InsightsPostPromSeriesRequestBody _copyWith(
-          {Object? match = sdkOmittedValue,
-          Object? start = sdkOmittedValue,
-          Object? end = sdkOmittedValue}) =>
-      InsightsPostPromSeriesRequestBody(
-        match: identical(match, sdkOmittedValue)
-            ? this.match
-            : match as List<String>,
-        start: identical(start, sdkOmittedValue)
-            ? this.start
-            : start as SdkOptional<String>,
-        end: identical(end, sdkOmittedValue)
-            ? this.end
-            : end as SdkOptional<String>,
-      );
+  InsightsPostPromSeriesRequestBody _copyWith({Object? match = sdkOmittedValue, Object? start = sdkOmittedValue, Object? end = sdkOmittedValue}) => InsightsPostPromSeriesRequestBody(
+    match: identical(match, sdkOmittedValue) ? this.match : match as List<String>,
+    start: identical(start, sdkOmittedValue) ? this.start : start as SdkOptional<String>,
+    end: identical(end, sdkOmittedValue) ? this.end : end as SdkOptional<String>,
+  );
 
-  factory InsightsPostPromSeriesRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      InsightsPostPromSeriesRequestBody(
-        match: ((json['match[]'] as List?)?.map((e) => e as String).toList())!,
-        start: json['start'] != null
-            ? SdkPresent((json['start'] as String?)!)
-            : const SdkOmitted(),
-        end: json['end'] != null
-            ? SdkPresent((json['end'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory InsightsPostPromSeriesRequestBody.fromJson(Map<String, dynamic> json) => InsightsPostPromSeriesRequestBody(
+    match: ((json['match[]'] as List?)?.map((e) => e as String).toList())!,
+    start: json['start'] != null ? SdkPresent((json['start'] as String?)!) : const SdkOmitted(),
+    end: json['end'] != null ? SdkPresent((json['end'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'match[]': match,
-        ...switch (start) {
-          SdkPresent<String>(value: final value) => {
-              'start': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (end) {
-          SdkPresent<String>(value: final value) => {
-              'end': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'match[]': match,
+    ...switch (start) {
+      SdkPresent<String>(value: final value) => {'start': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (end) {
+      SdkPresent<String>(value: final value) => {'end': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class SignalsUpdateTeamConsentRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether to enable signals collection for this source.
   final bool enabled;
 
   const SignalsUpdateTeamConsentRequestBody({required this.enabled});
 
-  SignalsUpdateTeamConsentRequestBody Function({bool enabled}) get copyWith =>
-      _copyWith;
+  SignalsUpdateTeamConsentRequestBody Function({bool enabled}) get copyWith => _copyWith;
 
-  SignalsUpdateTeamConsentRequestBody _copyWith(
-          {Object? enabled = sdkOmittedValue}) =>
-      SignalsUpdateTeamConsentRequestBody(
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as bool,
-      );
+  SignalsUpdateTeamConsentRequestBody _copyWith({Object? enabled = sdkOmittedValue}) => SignalsUpdateTeamConsentRequestBody(
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
+  );
 
-  factory SignalsUpdateTeamConsentRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      SignalsUpdateTeamConsentRequestBody(
-        enabled: (json['enabled'] as bool?)!,
-      );
+  factory SignalsUpdateTeamConsentRequestBody.fromJson(Map<String, dynamic> json) => SignalsUpdateTeamConsentRequestBody(
+    enabled: (json['enabled'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'enabled': enabled,
-      };
+    'enabled': enabled,
+  };
 }

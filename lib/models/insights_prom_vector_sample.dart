@@ -8,43 +8,27 @@ part of 'insights_prom.dart';
 class PromVectorSample {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Metric labels as key/value pairs. By default, metric names in responses use Prometheus underscored spelling (for example `do_droplets_cpu_time`), even when the request used a dotted selector (for example `do.droplets.cpu_time`).
   final Map<String, dynamic> metric;
-
   /// A Prometheus sample as `[timestamp_seconds, value]`. The timestamp is a UNIX epoch float; the value is a string.
   final List<PromSampleItem> value;
 
   const PromVectorSample({required this.metric, required this.value});
 
-  PromVectorSample Function(
-      {Map<String, dynamic> metric,
-      List<PromSampleItem> value}) get copyWith => _copyWith;
+  PromVectorSample Function({Map<String, dynamic> metric, List<PromSampleItem> value}) get copyWith => _copyWith;
 
-  PromVectorSample _copyWith(
-          {Object? metric = sdkOmittedValue,
-          Object? value = sdkOmittedValue}) =>
-      PromVectorSample(
-        metric: identical(metric, sdkOmittedValue)
-            ? this.metric
-            : metric as Map<String, dynamic>,
-        value: identical(value, sdkOmittedValue)
-            ? this.value
-            : value as List<PromSampleItem>,
-      );
+  PromVectorSample _copyWith({Object? metric = sdkOmittedValue, Object? value = sdkOmittedValue}) => PromVectorSample(
+    metric: identical(metric, sdkOmittedValue) ? this.metric : metric as Map<String, dynamic>,
+    value: identical(value, sdkOmittedValue) ? this.value : value as List<PromSampleItem>,
+  );
 
-  factory PromVectorSample.fromJson(Map<String, dynamic> json) =>
-      PromVectorSample(
-        metric: (json['metric'] == null
-            ? null
-            : json['metric'] as Map<String, dynamic>)!,
-        value: ((json['value'] as List?)
-            ?.map((e) => PromSampleItem.fromJson(e))
-            .toList())!,
-      );
+  factory PromVectorSample.fromJson(Map<String, dynamic> json) => PromVectorSample(
+    metric: (json['metric'] == null ? null : json['metric'] as Map<String, dynamic>)!,
+    value: ((json['value'] as List?)?.map((e) => PromSampleItem.fromJson(e)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'metric': metric,
-        'value': value.map((item) => item.toJson()).toList(),
-      };
+    'metric': metric,
+    'value': value.map((item) => item.toJson()).toList(),
+  };
 }

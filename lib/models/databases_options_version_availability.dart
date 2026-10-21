@@ -8,272 +8,124 @@ part of 'databases.dart';
 class OptionsVersionAvailability {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// An array of objects, each indicating the version end-of-life, end-of-availability for various database engines
   final SdkOptional<List<DatabaseVersionAvailability>> kafka;
-
   /// An array of objects, each indicating the version end-of-life, end-of-availability for various database engines
   final SdkOptional<List<DatabaseVersionAvailability>> pg;
-
   /// An array of objects, each indicating the version end-of-life, end-of-availability for various database engines
   final SdkOptional<List<DatabaseVersionAvailability>> mysql;
-
   /// An array of objects, each indicating the version end-of-life, end-of-availability for various database engines
   final SdkOptional<List<DatabaseVersionAvailability>> redis;
-
   /// An array of objects, each indicating the version end-of-life, end-of-availability for various database engines
   final SdkOptional<List<DatabaseVersionAvailability>> valkey;
-
   /// An array of objects, each indicating the version end-of-life, end-of-availability for various database engines
   final SdkOptional<List<DatabaseVersionAvailability>> mongodb;
-
   /// An array of objects, each indicating the version end-of-life, end-of-availability for various database engines
   final SdkOptional<List<DatabaseVersionAvailability>> opensearch;
-
   /// An array of objects, each indicating the version end-of-life, end-of-availability for various database engines
   final SdkOptional<List<DatabaseVersionAvailability>> advancedPg;
-
   /// An array of objects, each indicating the version end-of-life, end-of-availability for various database engines
   final SdkOptional<List<DatabaseVersionAvailability>> advancedMysql;
 
-  const OptionsVersionAvailability(
-      {this.kafka = const SdkOmitted(),
-      this.pg = const SdkOmitted(),
-      this.mysql = const SdkOmitted(),
-      this.redis = const SdkOmitted(),
-      this.valkey = const SdkOmitted(),
-      this.mongodb = const SdkOmitted(),
-      this.opensearch = const SdkOmitted(),
-      this.advancedPg = const SdkOmitted(),
-      this.advancedMysql = const SdkOmitted()});
+  const OptionsVersionAvailability({this.kafka = const SdkOmitted(), this.pg = const SdkOmitted(), this.mysql = const SdkOmitted(), this.redis = const SdkOmitted(), this.valkey = const SdkOmitted(), this.mongodb = const SdkOmitted(), this.opensearch = const SdkOmitted(), this.advancedPg = const SdkOmitted(), this.advancedMysql = const SdkOmitted()});
 
-  OptionsVersionAvailability Function(
-          {SdkOptional<List<DatabaseVersionAvailability>> kafka,
-          SdkOptional<List<DatabaseVersionAvailability>> pg,
-          SdkOptional<List<DatabaseVersionAvailability>> mysql,
-          SdkOptional<List<DatabaseVersionAvailability>> redis,
-          SdkOptional<List<DatabaseVersionAvailability>> valkey,
-          SdkOptional<List<DatabaseVersionAvailability>> mongodb,
-          SdkOptional<List<DatabaseVersionAvailability>> opensearch,
-          SdkOptional<List<DatabaseVersionAvailability>> advancedPg,
-          SdkOptional<List<DatabaseVersionAvailability>> advancedMysql})
-      get copyWith => _copyWith;
+  OptionsVersionAvailability Function({SdkOptional<List<DatabaseVersionAvailability>> kafka, SdkOptional<List<DatabaseVersionAvailability>> pg, SdkOptional<List<DatabaseVersionAvailability>> mysql, SdkOptional<List<DatabaseVersionAvailability>> redis, SdkOptional<List<DatabaseVersionAvailability>> valkey, SdkOptional<List<DatabaseVersionAvailability>> mongodb, SdkOptional<List<DatabaseVersionAvailability>> opensearch, SdkOptional<List<DatabaseVersionAvailability>> advancedPg, SdkOptional<List<DatabaseVersionAvailability>> advancedMysql}) get copyWith => _copyWith;
 
-  OptionsVersionAvailability _copyWith(
-          {Object? kafka = sdkOmittedValue,
-          Object? pg = sdkOmittedValue,
-          Object? mysql = sdkOmittedValue,
-          Object? redis = sdkOmittedValue,
-          Object? valkey = sdkOmittedValue,
-          Object? mongodb = sdkOmittedValue,
-          Object? opensearch = sdkOmittedValue,
-          Object? advancedPg = sdkOmittedValue,
-          Object? advancedMysql = sdkOmittedValue}) =>
-      OptionsVersionAvailability(
-        kafka: identical(kafka, sdkOmittedValue)
-            ? this.kafka
-            : kafka as SdkOptional<List<DatabaseVersionAvailability>>,
-        pg: identical(pg, sdkOmittedValue)
-            ? this.pg
-            : pg as SdkOptional<List<DatabaseVersionAvailability>>,
-        mysql: identical(mysql, sdkOmittedValue)
-            ? this.mysql
-            : mysql as SdkOptional<List<DatabaseVersionAvailability>>,
-        redis: identical(redis, sdkOmittedValue)
-            ? this.redis
-            : redis as SdkOptional<List<DatabaseVersionAvailability>>,
-        valkey: identical(valkey, sdkOmittedValue)
-            ? this.valkey
-            : valkey as SdkOptional<List<DatabaseVersionAvailability>>,
-        mongodb: identical(mongodb, sdkOmittedValue)
-            ? this.mongodb
-            : mongodb as SdkOptional<List<DatabaseVersionAvailability>>,
-        opensearch: identical(opensearch, sdkOmittedValue)
-            ? this.opensearch
-            : opensearch as SdkOptional<List<DatabaseVersionAvailability>>,
-        advancedPg: identical(advancedPg, sdkOmittedValue)
-            ? this.advancedPg
-            : advancedPg as SdkOptional<List<DatabaseVersionAvailability>>,
-        advancedMysql: identical(advancedMysql, sdkOmittedValue)
-            ? this.advancedMysql
-            : advancedMysql as SdkOptional<List<DatabaseVersionAvailability>>,
-      );
+  OptionsVersionAvailability _copyWith({Object? kafka = sdkOmittedValue, Object? pg = sdkOmittedValue, Object? mysql = sdkOmittedValue, Object? redis = sdkOmittedValue, Object? valkey = sdkOmittedValue, Object? mongodb = sdkOmittedValue, Object? opensearch = sdkOmittedValue, Object? advancedPg = sdkOmittedValue, Object? advancedMysql = sdkOmittedValue}) => OptionsVersionAvailability(
+    kafka: identical(kafka, sdkOmittedValue) ? this.kafka : kafka as SdkOptional<List<DatabaseVersionAvailability>>,
+    pg: identical(pg, sdkOmittedValue) ? this.pg : pg as SdkOptional<List<DatabaseVersionAvailability>>,
+    mysql: identical(mysql, sdkOmittedValue) ? this.mysql : mysql as SdkOptional<List<DatabaseVersionAvailability>>,
+    redis: identical(redis, sdkOmittedValue) ? this.redis : redis as SdkOptional<List<DatabaseVersionAvailability>>,
+    valkey: identical(valkey, sdkOmittedValue) ? this.valkey : valkey as SdkOptional<List<DatabaseVersionAvailability>>,
+    mongodb: identical(mongodb, sdkOmittedValue) ? this.mongodb : mongodb as SdkOptional<List<DatabaseVersionAvailability>>,
+    opensearch: identical(opensearch, sdkOmittedValue) ? this.opensearch : opensearch as SdkOptional<List<DatabaseVersionAvailability>>,
+    advancedPg: identical(advancedPg, sdkOmittedValue) ? this.advancedPg : advancedPg as SdkOptional<List<DatabaseVersionAvailability>>,
+    advancedMysql: identical(advancedMysql, sdkOmittedValue) ? this.advancedMysql : advancedMysql as SdkOptional<List<DatabaseVersionAvailability>>,
+  );
 
-  factory OptionsVersionAvailability.fromJson(Map<String, dynamic> json) =>
-      OptionsVersionAvailability(
-        kafka: json['kafka'] != null
-            ? SdkPresent(((json['kafka'] as List?)
-                ?.map((e) => DatabaseVersionAvailability.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        pg: json['pg'] != null
-            ? SdkPresent(((json['pg'] as List?)
-                ?.map((e) => DatabaseVersionAvailability.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        mysql: json['mysql'] != null
-            ? SdkPresent(((json['mysql'] as List?)
-                ?.map((e) => DatabaseVersionAvailability.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        redis: json['redis'] != null
-            ? SdkPresent(((json['redis'] as List?)
-                ?.map((e) => DatabaseVersionAvailability.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        valkey: json['valkey'] != null
-            ? SdkPresent(((json['valkey'] as List?)
-                ?.map((e) => DatabaseVersionAvailability.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        mongodb: json['mongodb'] != null
-            ? SdkPresent(((json['mongodb'] as List?)
-                ?.map((e) => DatabaseVersionAvailability.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        opensearch: json['opensearch'] != null
-            ? SdkPresent(((json['opensearch'] as List?)
-                ?.map((e) => DatabaseVersionAvailability.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        advancedPg: json['advanced_pg'] != null
-            ? SdkPresent(((json['advanced_pg'] as List?)
-                ?.map((e) => DatabaseVersionAvailability.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        advancedMysql: json['advanced_mysql'] != null
-            ? SdkPresent(((json['advanced_mysql'] as List?)
-                ?.map((e) => DatabaseVersionAvailability.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+  factory OptionsVersionAvailability.fromJson(Map<String, dynamic> json) => OptionsVersionAvailability(
+    kafka: json['kafka'] != null ? SdkPresent(((json['kafka'] as List?)?.map((e) => DatabaseVersionAvailability.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    pg: json['pg'] != null ? SdkPresent(((json['pg'] as List?)?.map((e) => DatabaseVersionAvailability.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    mysql: json['mysql'] != null ? SdkPresent(((json['mysql'] as List?)?.map((e) => DatabaseVersionAvailability.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    redis: json['redis'] != null ? SdkPresent(((json['redis'] as List?)?.map((e) => DatabaseVersionAvailability.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    valkey: json['valkey'] != null ? SdkPresent(((json['valkey'] as List?)?.map((e) => DatabaseVersionAvailability.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    mongodb: json['mongodb'] != null ? SdkPresent(((json['mongodb'] as List?)?.map((e) => DatabaseVersionAvailability.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    opensearch: json['opensearch'] != null ? SdkPresent(((json['opensearch'] as List?)?.map((e) => DatabaseVersionAvailability.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    advancedPg: json['advanced_pg'] != null ? SdkPresent(((json['advanced_pg'] as List?)?.map((e) => DatabaseVersionAvailability.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    advancedMysql: json['advanced_mysql'] != null ? SdkPresent(((json['advanced_mysql'] as List?)?.map((e) => DatabaseVersionAvailability.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (kafka) {
-          SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {
-              'kafka': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pg) {
-          SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {
-              'pg': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (mysql) {
-          SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {
-              'mysql': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redis) {
-          SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {
-              'redis': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (valkey) {
-          SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {
-              'valkey': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (mongodb) {
-          SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {
-              'mongodb': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (opensearch) {
-          SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {
-              'opensearch': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (advancedPg) {
-          SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {
-              'advanced_pg': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (advancedMysql) {
-          SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {
-              'advanced_mysql': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (kafka) {
+      SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {'kafka': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pg) {
+      SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {'pg': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (mysql) {
+      SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {'mysql': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redis) {
+      SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {'redis': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (valkey) {
+      SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {'valkey': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (mongodb) {
+      SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {'mongodb': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (opensearch) {
+      SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {'opensearch': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (advancedPg) {
+      SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {'advanced_pg': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (advancedMysql) {
+      SdkPresent<List<DatabaseVersionAvailability>>(value: final value) => {'advanced_mysql': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `Options` API schema.
 class Options {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional object value serialized in the `options` wire field.
   final SdkOptional<OptionsOptions> options;
-
   /// Optional object value serialized in the `version_availability` wire field.
   final SdkOptional<OptionsVersionAvailability> versionAvailability;
 
-  const Options(
-      {this.options = const SdkOmitted(),
-      this.versionAvailability = const SdkOmitted()});
+  const Options({this.options = const SdkOmitted(), this.versionAvailability = const SdkOmitted()});
 
-  Options Function(
-          {SdkOptional<OptionsOptions> options,
-          SdkOptional<OptionsVersionAvailability> versionAvailability})
-      get copyWith => _copyWith;
+  Options Function({SdkOptional<OptionsOptions> options, SdkOptional<OptionsVersionAvailability> versionAvailability}) get copyWith => _copyWith;
 
-  Options _copyWith(
-          {Object? options = sdkOmittedValue,
-          Object? versionAvailability = sdkOmittedValue}) =>
-      Options(
-        options: identical(options, sdkOmittedValue)
-            ? this.options
-            : options as SdkOptional<OptionsOptions>,
-        versionAvailability: identical(versionAvailability, sdkOmittedValue)
-            ? this.versionAvailability
-            : versionAvailability as SdkOptional<OptionsVersionAvailability>,
-      );
+  Options _copyWith({Object? options = sdkOmittedValue, Object? versionAvailability = sdkOmittedValue}) => Options(
+    options: identical(options, sdkOmittedValue) ? this.options : options as SdkOptional<OptionsOptions>,
+    versionAvailability: identical(versionAvailability, sdkOmittedValue) ? this.versionAvailability : versionAvailability as SdkOptional<OptionsVersionAvailability>,
+  );
 
   factory Options.fromJson(Map<String, dynamic> json) => Options(
-        options: json['options'] != null
-            ? SdkPresent((json['options'] != null
-                ? OptionsOptions.fromJson(
-                    json['options'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        versionAvailability: json['version_availability'] != null
-            ? SdkPresent((json['version_availability'] != null
-                ? OptionsVersionAvailability.fromJson(
-                    json['version_availability'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    options: json['options'] != null ? SdkPresent((json['options'] != null ? OptionsOptions.fromJson(json['options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    versionAvailability: json['version_availability'] != null ? SdkPresent((json['version_availability'] != null ? OptionsVersionAvailability.fromJson(json['version_availability'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (options) {
-          SdkPresent<OptionsOptions>(value: final value) => {
-              'options': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (versionAvailability) {
-          SdkPresent<OptionsVersionAvailability>(value: final value) => {
-              'version_availability': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (options) {
+      SdkPresent<OptionsOptions>(value: final value) => {'options': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (versionAvailability) {
+      SdkPresent<OptionsVersionAvailability>(value: final value) => {'version_availability': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

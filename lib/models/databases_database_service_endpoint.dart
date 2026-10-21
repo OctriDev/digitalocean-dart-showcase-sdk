@@ -8,53 +8,33 @@ part of 'databases_database.dart';
 class DatabaseServiceEndpoint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A FQDN pointing to the database cluster's node(s).
   final SdkOptional<String> host;
-
   /// The port on which a service is listening.
   final SdkOptional<int> port;
 
-  const DatabaseServiceEndpoint(
-      {this.host = const SdkOmitted(), this.port = const SdkOmitted()});
+  const DatabaseServiceEndpoint({this.host = const SdkOmitted(), this.port = const SdkOmitted()});
 
-  DatabaseServiceEndpoint Function(
-      {SdkOptional<String> host,
-      SdkOptional<int> port}) get copyWith => _copyWith;
+  DatabaseServiceEndpoint Function({SdkOptional<String> host, SdkOptional<int> port}) get copyWith => _copyWith;
 
-  DatabaseServiceEndpoint _copyWith(
-          {Object? host = sdkOmittedValue, Object? port = sdkOmittedValue}) =>
-      DatabaseServiceEndpoint(
-        host: identical(host, sdkOmittedValue)
-            ? this.host
-            : host as SdkOptional<String>,
-        port: identical(port, sdkOmittedValue)
-            ? this.port
-            : port as SdkOptional<int>,
-      );
+  DatabaseServiceEndpoint _copyWith({Object? host = sdkOmittedValue, Object? port = sdkOmittedValue}) => DatabaseServiceEndpoint(
+    host: identical(host, sdkOmittedValue) ? this.host : host as SdkOptional<String>,
+    port: identical(port, sdkOmittedValue) ? this.port : port as SdkOptional<int>,
+  );
 
-  factory DatabaseServiceEndpoint.fromJson(Map<String, dynamic> json) =>
-      DatabaseServiceEndpoint(
-        host: json['host'] != null
-            ? SdkPresent((json['host'] as String?)!)
-            : const SdkOmitted(),
-        port: json['port'] != null
-            ? SdkPresent(((json['port'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory DatabaseServiceEndpoint.fromJson(Map<String, dynamic> json) => DatabaseServiceEndpoint(
+    host: json['host'] != null ? SdkPresent((json['host'] as String?)!) : const SdkOmitted(),
+    port: json['port'] != null ? SdkPresent(((json['port'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (host) {
-          SdkPresent<String>(value: final value) => {
-              'host': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (port) {
-          SdkPresent<int>(value: final value) => {
-              'port': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (host) {
+      SdkPresent<String>(value: final value) => {'host': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (port) {
+      SdkPresent<int>(value: final value) => {'port': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

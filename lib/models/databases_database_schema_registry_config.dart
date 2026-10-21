@@ -8,34 +8,22 @@ part of 'databases_database.dart';
 class DatabaseSchemaRegistryConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The compatibility level of the schema registry.
   final DatabaseSchemaRegistryConfigCompatibilityLevel compatibilityLevel;
 
   const DatabaseSchemaRegistryConfig({required this.compatibilityLevel});
 
-  DatabaseSchemaRegistryConfig Function(
-          {DatabaseSchemaRegistryConfigCompatibilityLevel compatibilityLevel})
-      get copyWith => _copyWith;
+  DatabaseSchemaRegistryConfig Function({DatabaseSchemaRegistryConfigCompatibilityLevel compatibilityLevel}) get copyWith => _copyWith;
 
-  DatabaseSchemaRegistryConfig _copyWith(
-          {Object? compatibilityLevel = sdkOmittedValue}) =>
-      DatabaseSchemaRegistryConfig(
-        compatibilityLevel: identical(compatibilityLevel, sdkOmittedValue)
-            ? this.compatibilityLevel
-            : compatibilityLevel
-                as DatabaseSchemaRegistryConfigCompatibilityLevel,
-      );
+  DatabaseSchemaRegistryConfig _copyWith({Object? compatibilityLevel = sdkOmittedValue}) => DatabaseSchemaRegistryConfig(
+    compatibilityLevel: identical(compatibilityLevel, sdkOmittedValue) ? this.compatibilityLevel : compatibilityLevel as DatabaseSchemaRegistryConfigCompatibilityLevel,
+  );
 
-  factory DatabaseSchemaRegistryConfig.fromJson(Map<String, dynamic> json) =>
-      DatabaseSchemaRegistryConfig(
-        compatibilityLevel: (json['compatibility_level'] != null
-            ? DatabaseSchemaRegistryConfigCompatibilityLevel.fromJson(
-                json['compatibility_level'] as String)
-            : null)!,
-      );
+  factory DatabaseSchemaRegistryConfig.fromJson(Map<String, dynamic> json) => DatabaseSchemaRegistryConfig(
+    compatibilityLevel: (json['compatibility_level'] != null ? DatabaseSchemaRegistryConfigCompatibilityLevel.fromJson(json['compatibility_level'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'compatibility_level': compatibilityLevel.toJson(),
-      };
+    'compatibility_level': compatibilityLevel.toJson(),
+  };
 }

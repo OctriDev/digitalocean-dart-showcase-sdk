@@ -22,20 +22,12 @@ Future<BatchFileCreateResponse> inferenceCreateBatchFile(ClientConfig config,
           body: {'file_name': fileName},
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceCreateBatchFile',
-          fromJsonRaw: (value) =>
-              BatchFileCreateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BatchFileCreateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Uploads raw JSONL bytes to the presigned URL returned by `POST /v1/batches/files`. Use the returned `upload_url` verbatim and send the bytes as `application/octet-stream` or omit `Content-Type` to avoid signature mismatches. The upload must complete before `POST /v1/batches` checks the object with a `HEAD` request.
 ///
@@ -49,14 +41,10 @@ Future<void> inferenceUploadBatchFile(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'inferenceUploadBatchFile',
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Submits a batch job against a previously uploaded JSONL input file. The upload must have completed before this call; otherwise the request is rejected. Supply a unique `request_id` to make the submission idempotent — retries with the same value return the existing job. When `provider` is `openai`, the `url` on each JSONL line must match `endpoint`.
 ///
@@ -97,19 +85,10 @@ Future<Batch> inferenceCreateBatch(ClientConfig config,
           operationId: 'inferenceCreateBatch',
           fromJsonRaw: (value) => Batch.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Returns a cursor-paginated list of batch jobs, ordered newest first. Use `limit` to control page size and `after` to page forward using the `last_id` from the previous response.
 ///
@@ -133,27 +112,19 @@ Future<BatchListResponse> inferenceListBatches(ClientConfig config,
   return (await sdkRequest<BatchListResponse>('GET', '/v1/batches',
           config: config,
           query: {
-            'after': SdkQueryValue(SdkUtils.unwrapOptional(after),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
-                style: 'form', explode: true)
+            'after': SdkQueryValue(SdkUtils.unwrapOptional(after), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceListBatches',
-          fromJsonRaw: (value) =>
-              BatchListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BatchListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
+
 
 /// Returns a cursor-paginated list of batch jobs, ordered newest first. Use `limit` to control page size and `after` to page forward using the `last_id` from the previous response.
 ///
@@ -162,27 +133,13 @@ Future<BatchListResponse> inferenceListBatches(ClientConfig config,
 /// [limit] Maximum number of batches to return per page.
 /// [status] Optional filter restricting results to batches in the given
 ///   lifecycle state.
-Stream<Batch> inferenceListBatchesPaginated(ClientConfig config,
-    {String? after,
-    int? limit,
-    InferenceListBatchesStatus? status,
-    RequestOptions? requestOptions}) async* {
+Stream<Batch> inferenceListBatchesPaginated(ClientConfig config, {String? after, int? limit, InferenceListBatchesStatus? status, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await inferenceListBatches(config,
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        status: status == null
-            ? const SdkOmitted<InferenceListBatchesStatus>()
-            : SdkPresent<InferenceListBatchesStatus>(status),
-        requestOptions: requestOptions);
+    final sdkPage = await inferenceListBatches(config, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), status: status == null ? const SdkOmitted<InferenceListBatchesStatus>() : SdkPresent<InferenceListBatchesStatus>(status), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) {
-      yield sdkItem;
-    }
+    for (final sdkItem in sdkItems) { yield sdkItem; }
     if (sdkPage.hasMore != true) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
     if (sdkNext == null) return;
@@ -190,23 +147,10 @@ Stream<Batch> inferenceListBatchesPaginated(ClientConfig config,
   }
 }
 
-Stream<SdkPage<BatchListResponse, Batch>> inferenceListBatchesPages(
-    ClientConfig config,
-    {String? after,
-    int? limit,
-    InferenceListBatchesStatus? status,
-    RequestOptions? requestOptions}) async* {
+Stream<SdkPage<BatchListResponse, Batch>> inferenceListBatchesPages(ClientConfig config, {String? after, int? limit, InferenceListBatchesStatus? status, RequestOptions? requestOptions}) async* {
   var sdkCursor = after;
   while (true) {
-    final sdkPage = await inferenceListBatches(config,
-        after: sdkCursor == null
-            ? const SdkOmitted<String>()
-            : SdkPresent<String>(sdkCursor),
-        limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit),
-        status: status == null
-            ? const SdkOmitted<InferenceListBatchesStatus>()
-            : SdkPresent<InferenceListBatchesStatus>(status),
-        requestOptions: requestOptions);
+    final sdkPage = await inferenceListBatches(config, after: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), limit: limit == null ? const SdkOmitted<int>() : SdkPresent<int>(limit), status: status == null ? const SdkOmitted<InferenceListBatchesStatus>() : SdkPresent<InferenceListBatchesStatus>(status), requestOptions: requestOptions);
     final sdkItems = sdkPage.data;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.lastId.valueOrNull;
@@ -216,6 +160,7 @@ Stream<SdkPage<BatchListResponse, Batch>> inferenceListBatchesPages(
     sdkCursor = sdkNext;
   }
 }
+
 
 /// Returns the current state of a batch job. Poll until `status` reaches a terminal value (`completed`, `failed`, `expired`, or `cancelled`).
 ///
@@ -231,16 +176,10 @@ Future<Batch> inferenceGetBatch(ClientConfig config,
           operationId: 'inferenceGetBatch',
           fromJsonRaw: (value) => Batch.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Returns short-lived presigned download URLs for the output (and optional error sidecar) of a completed batch job. If results are not yet ready, the response sets `result_available: false` or returns `412 Precondition Failed`; in both cases, keep polling batch status and retry. Download the artifacts soon after fetching — the URLs are short-lived. Result files themselves are retained for up to 30 days after the job completes, after which they are deleted.
 ///
@@ -254,20 +193,12 @@ Future<BatchResultsResponse> inferenceGetBatchResults(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'inferenceGetBatchResults',
-          fromJsonRaw: (value) =>
-              BatchResultsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BatchResultsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '412': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '412': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Requests cancellation of a batch job. The job transitions to `cancelling` and, once in-flight requests drain, to `cancelled`. Jobs already in a terminal state (`completed`, `failed`, `expired`, `cancelled`) cannot be cancelled and return `409 Conflict`. Cancellation is also rejected with `409 Conflict` while the job has not yet been submitted to the upstream provider — there is nothing to cancel until the provider batch id is assigned. Partial results produced before cancellation remain available via `GET /v1/batches/{batch_id}/results`.
 ///
@@ -283,14 +214,6 @@ Future<Batch> inferenceCancelBatch(ClientConfig config,
           operationId: 'inferenceCancelBatch',
           fromJsonRaw: (value) => Batch.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
-        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

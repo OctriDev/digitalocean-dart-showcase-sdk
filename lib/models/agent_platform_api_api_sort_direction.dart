@@ -6,26 +6,23 @@ part of 'agent_platform_api_api.dart';
 // agent_platform_api_api domain models
 /// Sort direction shared by list endpoints that support sorting.
 final class ApiSortDirection {
+
   final String value;
 
   const ApiSortDirection._(this.value);
 
   factory ApiSortDirection.fromJson(String value) => ApiSortDirection._(value);
 
-  static const sortDirectionUnspecified =
-      ApiSortDirection._('SORT_DIRECTION_UNSPECIFIED');
+  static const sortDirectionUnspecified = ApiSortDirection._('SORT_DIRECTION_UNSPECIFIED');
   static const sortDirectionAsc = ApiSortDirection._('SORT_DIRECTION_ASC');
   static const sortDirectionDesc = ApiSortDirection._('SORT_DIRECTION_DESC');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ApiSortDirection && other.value == value;
+  @override bool operator ==(Object other) => other is ApiSortDirection && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

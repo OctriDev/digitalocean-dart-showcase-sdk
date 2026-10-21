@@ -8,242 +8,146 @@ part of 'databases_kafka.dart';
 class KafkaTopicVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The state of the Kafka topic.
   final SdkOptional<KafkaTopicVariant1State> state;
 
   const KafkaTopicVariant1({this.state = const SdkOmitted()});
 
-  KafkaTopicVariant1 Function({SdkOptional<KafkaTopicVariant1State> state})
-      get copyWith => _copyWith;
+  KafkaTopicVariant1 Function({SdkOptional<KafkaTopicVariant1State> state}) get copyWith => _copyWith;
 
-  KafkaTopicVariant1 _copyWith({Object? state = sdkOmittedValue}) =>
-      KafkaTopicVariant1(
-        state: identical(state, sdkOmittedValue)
-            ? this.state
-            : state as SdkOptional<KafkaTopicVariant1State>,
-      );
+  KafkaTopicVariant1 _copyWith({Object? state = sdkOmittedValue}) => KafkaTopicVariant1(
+    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<KafkaTopicVariant1State>,
+  );
 
-  factory KafkaTopicVariant1.fromJson(Map<String, dynamic> json) =>
-      KafkaTopicVariant1(
-        state: json['state'] != null
-            ? SdkPresent((json['state'] != null
-                ? KafkaTopicVariant1State.fromJson(json['state'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+  factory KafkaTopicVariant1.fromJson(Map<String, dynamic> json) => KafkaTopicVariant1(
+    state: json['state'] != null ? SdkPresent((json['state'] != null ? KafkaTopicVariant1State.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (state) {
-          SdkPresent<KafkaTopicVariant1State>(value: final value) => {
-              'state': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (state) {
+      SdkPresent<KafkaTopicVariant1State>(value: final value) => {'state': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `KafkaTopic` API schema.
 class KafkaTopic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the Kafka topic.
   final SdkOptional<String> name;
-
   /// The number of nodes to replicate data across the cluster.
   final SdkOptional<int> replicationFactor;
-
   /// The number of partitions available for the topic. On update, this value can only be increased.
   final SdkOptional<int> partitionCount;
-
   /// The state of the Kafka topic.
   final SdkOptional<KafkaTopicVariant1State> state;
 
-  const KafkaTopic(
-      {this.name = const SdkOmitted(),
-      this.replicationFactor = const SdkOmitted(),
-      this.partitionCount = const SdkOmitted(),
-      this.state = const SdkOmitted()});
+  const KafkaTopic({this.name = const SdkOmitted(), this.replicationFactor = const SdkOmitted(), this.partitionCount = const SdkOmitted(), this.state = const SdkOmitted()});
 
-  KafkaTopic Function(
-      {SdkOptional<String> name,
-      SdkOptional<int> replicationFactor,
-      SdkOptional<int> partitionCount,
-      SdkOptional<KafkaTopicVariant1State> state}) get copyWith => _copyWith;
+  KafkaTopic Function({SdkOptional<String> name, SdkOptional<int> replicationFactor, SdkOptional<int> partitionCount, SdkOptional<KafkaTopicVariant1State> state}) get copyWith => _copyWith;
 
-  KafkaTopic _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? replicationFactor = sdkOmittedValue,
-          Object? partitionCount = sdkOmittedValue,
-          Object? state = sdkOmittedValue}) =>
-      KafkaTopic(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        replicationFactor: identical(replicationFactor, sdkOmittedValue)
-            ? this.replicationFactor
-            : replicationFactor as SdkOptional<int>,
-        partitionCount: identical(partitionCount, sdkOmittedValue)
-            ? this.partitionCount
-            : partitionCount as SdkOptional<int>,
-        state: identical(state, sdkOmittedValue)
-            ? this.state
-            : state as SdkOptional<KafkaTopicVariant1State>,
-      );
+  KafkaTopic _copyWith({Object? name = sdkOmittedValue, Object? replicationFactor = sdkOmittedValue, Object? partitionCount = sdkOmittedValue, Object? state = sdkOmittedValue}) => KafkaTopic(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    replicationFactor: identical(replicationFactor, sdkOmittedValue) ? this.replicationFactor : replicationFactor as SdkOptional<int>,
+    partitionCount: identical(partitionCount, sdkOmittedValue) ? this.partitionCount : partitionCount as SdkOptional<int>,
+    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<KafkaTopicVariant1State>,
+  );
 
   factory KafkaTopic.fromJson(Map<String, dynamic> json) => KafkaTopic(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        replicationFactor: json['replication_factor'] != null
-            ? SdkPresent(((json['replication_factor'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        partitionCount: json['partition_count'] != null
-            ? SdkPresent(((json['partition_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        state: json['state'] != null
-            ? SdkPresent((json['state'] != null
-                ? KafkaTopicVariant1State.fromJson(json['state'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    replicationFactor: json['replication_factor'] != null ? SdkPresent(((json['replication_factor'] as num?)?.toInt())!) : const SdkOmitted(),
+    partitionCount: json['partition_count'] != null ? SdkPresent(((json['partition_count'] as num?)?.toInt())!) : const SdkOmitted(),
+    state: json['state'] != null ? SdkPresent((json['state'] != null ? KafkaTopicVariant1State.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (replicationFactor) {
-          SdkPresent<int>(value: final value) => {
-              'replication_factor': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (partitionCount) {
-          SdkPresent<int>(value: final value) => {
-              'partition_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (state) {
-          SdkPresent<KafkaTopicVariant1State>(value: final value) => {
-              'state': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (replicationFactor) {
+      SdkPresent<int>(value: final value) => {'replication_factor': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (partitionCount) {
+      SdkPresent<int>(value: final value) => {'partition_count': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (state) {
+      SdkPresent<KafkaTopicVariant1State>(value: final value) => {'state': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `KafkaTopicBase` API schema.
 class KafkaTopicBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the Kafka topic.
   final SdkOptional<String> name;
-
   /// The number of nodes to replicate data across the cluster.
   final SdkOptional<int> replicationFactor;
-
   /// The number of partitions available for the topic. On update, this value can only be increased.
   final SdkOptional<int> partitionCount;
 
-  const KafkaTopicBase(
-      {this.name = const SdkOmitted(),
-      this.replicationFactor = const SdkOmitted(),
-      this.partitionCount = const SdkOmitted()});
+  const KafkaTopicBase({this.name = const SdkOmitted(), this.replicationFactor = const SdkOmitted(), this.partitionCount = const SdkOmitted()});
 
-  KafkaTopicBase Function(
-      {SdkOptional<String> name,
-      SdkOptional<int> replicationFactor,
-      SdkOptional<int> partitionCount}) get copyWith => _copyWith;
+  KafkaTopicBase Function({SdkOptional<String> name, SdkOptional<int> replicationFactor, SdkOptional<int> partitionCount}) get copyWith => _copyWith;
 
-  KafkaTopicBase _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? replicationFactor = sdkOmittedValue,
-          Object? partitionCount = sdkOmittedValue}) =>
-      KafkaTopicBase(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        replicationFactor: identical(replicationFactor, sdkOmittedValue)
-            ? this.replicationFactor
-            : replicationFactor as SdkOptional<int>,
-        partitionCount: identical(partitionCount, sdkOmittedValue)
-            ? this.partitionCount
-            : partitionCount as SdkOptional<int>,
-      );
+  KafkaTopicBase _copyWith({Object? name = sdkOmittedValue, Object? replicationFactor = sdkOmittedValue, Object? partitionCount = sdkOmittedValue}) => KafkaTopicBase(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    replicationFactor: identical(replicationFactor, sdkOmittedValue) ? this.replicationFactor : replicationFactor as SdkOptional<int>,
+    partitionCount: identical(partitionCount, sdkOmittedValue) ? this.partitionCount : partitionCount as SdkOptional<int>,
+  );
 
   factory KafkaTopicBase.fromJson(Map<String, dynamic> json) => KafkaTopicBase(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        replicationFactor: json['replication_factor'] != null
-            ? SdkPresent(((json['replication_factor'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        partitionCount: json['partition_count'] != null
-            ? SdkPresent(((json['partition_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    replicationFactor: json['replication_factor'] != null ? SdkPresent(((json['replication_factor'] as num?)?.toInt())!) : const SdkOmitted(),
+    partitionCount: json['partition_count'] != null ? SdkPresent(((json['partition_count'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (replicationFactor) {
-          SdkPresent<int>(value: final value) => {
-              'replication_factor': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (partitionCount) {
-          SdkPresent<int>(value: final value) => {
-              'partition_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (replicationFactor) {
+      SdkPresent<int>(value: final value) => {'replication_factor': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (partitionCount) {
+      SdkPresent<int>(value: final value) => {'partition_count': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `KafkaTopics` API schema.
 class KafkaTopics {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional array value serialized in the `topics` wire field.
   final SdkOptional<List<KafkaTopic>> topics;
 
   const KafkaTopics({this.topics = const SdkOmitted()});
 
-  KafkaTopics Function({SdkOptional<List<KafkaTopic>> topics}) get copyWith =>
-      _copyWith;
+  KafkaTopics Function({SdkOptional<List<KafkaTopic>> topics}) get copyWith => _copyWith;
 
   KafkaTopics _copyWith({Object? topics = sdkOmittedValue}) => KafkaTopics(
-        topics: identical(topics, sdkOmittedValue)
-            ? this.topics
-            : topics as SdkOptional<List<KafkaTopic>>,
-      );
+    topics: identical(topics, sdkOmittedValue) ? this.topics : topics as SdkOptional<List<KafkaTopic>>,
+  );
 
   factory KafkaTopics.fromJson(Map<String, dynamic> json) => KafkaTopics(
-        topics: json['topics'] != null
-            ? SdkPresent(((json['topics'] as List?)
-                ?.map((e) => KafkaTopic.fromJson(e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-      );
+    topics: json['topics'] != null ? SdkPresent(((json['topics'] as List?)?.map((e) => KafkaTopic.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (topics) {
-          SdkPresent<List<KafkaTopic>>(value: final value) => {
-              'topics': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (topics) {
+      SdkPresent<List<KafkaTopic>>(value: final value) => {'topics': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
