@@ -8,4 +8,4 @@ import 'insights.dart';
 import 'insights_slack.dart';
 import 'insights_webhook.dart';
 
-part 'insights_notification_part1.dart';
+part 'insights_notification_models.dart';

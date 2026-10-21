@@ -7,5 +7,7 @@ import 'shared.dart';
 import 'shared_meta.dart';
 import 'shared_vpc.dart';
 
-part 'vp_cs_part1.dart';
-part 'vp_cs_part2.dart';
+part 'vp_cs_vpcs_list.dart';
+part 'vp_cs_shared.dart';
+part 'vp_cs_vpcs_list_members.dart';
+part 'vp_cs_vpcs_list_peerings.dart';

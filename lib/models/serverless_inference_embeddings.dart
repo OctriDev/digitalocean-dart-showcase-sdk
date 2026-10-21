@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'serverless_inference.dart';
 
-part 'serverless_inference_embeddings_part1.dart';
+part 'serverless_inference_embeddings_models.dart';

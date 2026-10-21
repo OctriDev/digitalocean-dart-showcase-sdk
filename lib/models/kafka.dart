@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'databases_kafka.dart';
 import 'inline.dart';
 
-part 'kafka_part1.dart';
+part 'kafka_models.dart';

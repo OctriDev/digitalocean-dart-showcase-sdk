@@ -4,4 +4,4 @@
 // action_gateway_limit domain model library.
 import '../sdk_utils.dart';
 
-part 'action_gateway_limit_part1.dart';
+part 'action_gateway_limit_models.dart';

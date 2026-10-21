@@ -4,5 +4,15 @@
 // apps_app_alert domain model library.
 import '../sdk_utils.dart';
 
-part 'apps_app_alert_part1.dart';
-part 'apps_app_alert_part2.dart';
+part 'apps_app_alert2.dart';
+part 'apps_app_alert_email.dart';
+part 'apps_app_alert_phase.dart';
+part 'apps_app_alert_progress.dart';
+part 'apps_app_alert_progress_step.dart';
+part 'apps_app_alert_progress_step_reason.dart';
+part 'apps_app_alert_progress_step_status.dart';
+part 'apps_app_alert_slack_webhook.dart';
+part 'apps_app_alert_spec.dart';
+part 'apps_app_alert_spec_operator.dart';
+part 'apps_app_alert_spec_rule.dart';
+part 'apps_app_alert_spec_window.dart';

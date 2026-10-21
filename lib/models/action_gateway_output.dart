@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'action_gateway_output_part1.dart';
+part 'action_gateway_output_models.dart';

@@ -5,6 +5,14 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'add_ons_part1.dart';
-part 'add_ons_part2.dart';
-part 'add_ons_part3.dart';
+part 'add_ons_addons_app_info.dart';
+part 'add_ons_addons_dimension_volume_with_price.dart';
+part 'add_ons_addons_dimension_with_price.dart';
+part 'add_ons_addons_feature.dart';
+part 'add_ons_addons_get_app.dart';
+part 'add_ons_addons_plan.dart';
+part 'add_ons_addons_get_app_metadata.dart';
+part 'add_ons_addons_create.dart';
+part 'add_ons_addons_get.dart';
+part 'add_ons_addons_list.dart';
+part 'add_ons_shared.dart';

@@ -4,4 +4,4 @@
 // apps_app_metrics domain model library.
 import '../sdk_utils.dart';
 
-part 'apps_app_metrics_part1.dart';
+part 'apps_app_metrics_models.dart';

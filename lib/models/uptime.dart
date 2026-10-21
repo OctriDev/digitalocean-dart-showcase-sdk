@@ -7,6 +7,15 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'uptime_part1.dart';
-part 'uptime_part2.dart';
-part 'uptime_part3.dart';
+part 'uptime_alert.dart';
+part 'uptime_alert_base.dart';
+part 'uptime_alert_updatable.dart';
+part 'uptime_check.dart';
+part 'uptime_check_base.dart';
+part 'uptime_check_updatable.dart';
+part 'uptime_existing_alert.dart';
+part 'uptime_existing_check.dart';
+part 'uptime_notification.dart';
+part 'uptime_list_alerts.dart';
+part 'uptime_list_checks.dart';
+part 'uptime_get_check_state.dart';

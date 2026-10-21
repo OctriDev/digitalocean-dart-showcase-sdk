@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_region.dart';
 
-part 'reserved_ipv6_actions_part1.dart';
+part 'reserved_ipv6_actions_models.dart';

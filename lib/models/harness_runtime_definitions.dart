@@ -6,5 +6,4 @@ import '../sdk_utils.dart';
 import 'harness_runtime_agent.dart';
 import 'harness_runtime_session.dart';
 
-part 'harness_runtime_definitions_part1.dart';
-part 'harness_runtime_definitions_part2.dart';
+part 'harness_runtime_definitions_models.dart';

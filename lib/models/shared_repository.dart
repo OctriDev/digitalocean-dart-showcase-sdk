@@ -6,5 +6,9 @@ import '../sdk_utils.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'shared_repository_part1.dart';
-part 'shared_repository_part2.dart';
+part 'shared_repository_blob.dart';
+part 'shared_repository_manifest.dart';
+part 'shared_repository_manifests.dart';
+part 'shared_repository_tag.dart';
+part 'shared_repository_tags.dart';
+part 'shared_repository_v2.dart';

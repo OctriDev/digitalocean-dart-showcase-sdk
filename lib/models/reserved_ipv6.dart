@@ -7,5 +7,6 @@ import 'shared.dart';
 import 'shared_droplet.dart';
 import 'shared_meta.dart';
 
-part 'reserved_ipv6_part1.dart';
-part 'reserved_ipv6_part2.dart';
+part 'reserved_ipv6_get.dart';
+part 'reserved_ipv6_create.dart';
+part 'reserved_ipv6_list.dart';

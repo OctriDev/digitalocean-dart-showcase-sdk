@@ -7,5 +7,7 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'tags_part1.dart';
-part 'tags_part2.dart';
+part 'tags_create.dart';
+part 'tags_shared.dart';
+part 'tags_list.dart';
+part 'tags_get.dart';

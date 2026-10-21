@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_droplet.dart';
 
-part 'droplet_part1.dart';
+part 'droplet_models.dart';

@@ -9,4 +9,4 @@ import 'shared_meta.dart';
 import 'shared_registry.dart';
 import 'shared_repository.dart';
 
-part 'container_registry_part1.dart';
+part 'container_registry_models.dart';

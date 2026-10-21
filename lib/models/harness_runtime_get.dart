@@ -9,4 +9,4 @@ import 'harness_runtime_sandbox.dart';
 import 'harness_runtime_session.dart';
 import 'harness_runtime_trigger.dart';
 
-part 'harness_runtime_get_part1.dart';
+part 'harness_runtime_get_models.dart';

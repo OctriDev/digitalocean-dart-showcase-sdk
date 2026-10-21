@@ -2645,11 +2645,11 @@ class DropletsNamespace {
   }
 
   /// To list information about the backup policies for all Droplets in the account, send a GET request to `/v2/droplets/backups/policies`.
-  Future<AllDropletBackupPolicies> listBackupPolicies(
+  Future<AllDropletBackupPolicies> listAllBackupPolicies(
       {SdkOptional<int> perPage = const SdkOmitted(),
       SdkOptional<int> page = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return droplets_methods.dropletsListBackupPolicies(_config, perPage: perPage, page: page, requestOptions: requestOptions);
+    return droplets_methods.listAllBackupPolicies(_config, perPage: perPage, page: page, requestOptions: requestOptions);
   }
 
   /// To retrieve a list of all supported Droplet backup policies, send a GET request to `/v2/droplets/backups/supported_policies`.

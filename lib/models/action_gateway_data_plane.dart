@@ -6,7 +6,12 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'action_gateway_data_plane_part1.dart';
-part 'action_gateway_data_plane_part2.dart';
-part 'action_gateway_data_plane_part3.dart';
-part 'action_gateway_data_plane_part4.dart';
+part 'action_gateway_data_plane_shared.dart';
+part 'action_gateway_data_plane_search_tools_response.dart';
+part 'action_gateway_data_plane_search_query.dart';
+part 'action_gateway_data_plane_search_tools_group.dart';
+part 'action_gateway_data_plane_search_tools_request.dart';
+part 'action_gateway_data_plane_search_tools_result.dart';
+part 'action_gateway_data_plane_gateway_code_run.dart';
+part 'action_gateway_data_plane_gateway_tools_run.dart';
+part 'action_gateway_data_plane_gateway_tools_list.dart';

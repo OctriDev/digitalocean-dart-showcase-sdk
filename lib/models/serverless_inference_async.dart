@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'serverless_inference_async_part1.dart';
+part 'serverless_inference_async_models.dart';

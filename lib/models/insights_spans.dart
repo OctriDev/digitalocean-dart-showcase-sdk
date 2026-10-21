@@ -6,5 +6,13 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'insights.dart';
 
-part 'insights_spans_part1.dart';
-part 'insights_spans_part2.dart';
+part 'insights_spans_filter_expression.dart';
+part 'insights_spans_filter_field.dart';
+part 'insights_spans_filter_value.dart';
+part 'insights_spans_order_by.dart';
+part 'insights_spans_pagination_request.dart';
+part 'insights_spans_pagination_response.dart';
+part 'insights_spans_search_request.dart';
+part 'insights_spans_search_response.dart';
+part 'insights_spans_time_bound.dart';
+part 'insights_spans_time_range.dart';

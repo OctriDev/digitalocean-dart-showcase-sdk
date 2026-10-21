@@ -4,4 +4,4 @@
 // databases_schema domain model library.
 import '../sdk_utils.dart';
 
-part 'databases_schema_part1.dart';
+part 'databases_schema_models.dart';

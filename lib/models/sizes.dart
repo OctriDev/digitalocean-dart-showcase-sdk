@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'sizes_part1.dart';
+part 'sizes_models.dart';

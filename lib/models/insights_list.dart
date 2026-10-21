@@ -8,4 +8,4 @@ import 'insights_notification.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'insights_list_part1.dart';
+part 'insights_list_models.dart';

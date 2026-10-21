@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_region.dart';
 
-part 'shared_image_part1.dart';
+part 'shared_image_models.dart';

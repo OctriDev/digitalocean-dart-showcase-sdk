@@ -6,5 +6,7 @@ import '../sdk_utils.dart';
 import 'action_gateway_health.dart';
 import 'shared.dart';
 
-part 'action_gateway_tool_part1.dart';
-part 'action_gateway_tool_part2.dart';
+part 'action_gateway_tool_tools_list.dart';
+part 'action_gateway_tool_shared.dart';
+part 'action_gateway_tool_actor_limits_get.dart';
+part 'action_gateway_tool_tools_list_search.dart';

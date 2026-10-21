@@ -8,5 +8,12 @@ import 'shared_image.dart';
 import 'shared_meta.dart';
 import 'shared_region.dart';
 
-part 'images_part1.dart';
-part 'images_part2.dart';
+part 'images_list.dart';
+part 'images_get.dart';
+part 'images_create_custom.dart';
+part 'images_post_account_transfer_accept.dart';
+part 'images_post_account_transfer_cancel.dart';
+part 'images_post_account_transfer_create.dart';
+part 'images_post_account_transfer_decline.dart';
+part 'images_shared.dart';
+part 'images_update.dart';

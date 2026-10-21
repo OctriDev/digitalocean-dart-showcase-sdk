@@ -4,4 +4,4 @@
 // serverless_inference_speech domain model library.
 import '../sdk_utils.dart';
 
-part 'serverless_inference_speech_part1.dart';
+part 'serverless_inference_speech_models.dart';

@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'agent_platform_api_api.dart';
 import 'agent_platform_api_api_agent.dart';
 
-part 'agent_platform_api_api_link_part1.dart';
+part 'agent_platform_api_api_link_models.dart';

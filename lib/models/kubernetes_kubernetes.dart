@@ -6,6 +6,14 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'kubernetes_node.dart';
 
-part 'kubernetes_kubernetes_part1.dart';
-part 'kubernetes_kubernetes_part2.dart';
-part 'kubernetes_kubernetes_part3.dart';
+part 'kubernetes_kubernetes_node_pool.dart';
+part 'kubernetes_kubernetes_node_pool_base.dart';
+part 'kubernetes_kubernetes_node_pool_base_request.dart';
+part 'kubernetes_kubernetes_node_pool_gpu_partition.dart';
+part 'kubernetes_kubernetes_node_pool_request.dart';
+part 'kubernetes_kubernetes_node_pool_size.dart';
+part 'kubernetes_kubernetes_node_pool_taint.dart';
+part 'kubernetes_kubernetes_node_pool_update.dart';
+part 'kubernetes_kubernetes_version.dart';
+part 'kubernetes_kubernetes_update_node_pool.dart';
+part 'kubernetes_kubernetes_list_options.dart';

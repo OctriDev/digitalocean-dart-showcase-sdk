@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'apps_app_spec.dart';
 
-part 'apps_apps_update_part1.dart';
+part 'apps_apps_update_models.dart';

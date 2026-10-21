@@ -5,5 +5,9 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'harness_runtime_workspace_part1.dart';
-part 'harness_runtime_workspace_part2.dart';
+part 'harness_runtime_workspace_harness_create_session_workspace_part_upload_urls.dart';
+part 'harness_runtime_workspace_harness_cancel_session_workspace_transfer.dart';
+part 'harness_runtime_workspace_harness_create_session_workspace_transfer.dart';
+part 'harness_runtime_workspace_harness_get_session_workspace_transfer.dart';
+part 'harness_runtime_workspace_harness_commit_session_workspace_transfer.dart';
+part 'harness_runtime_workspace_harness_create_session_workspace_upload.dart';

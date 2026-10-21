@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_registry.dart';
 
-part 'container_registries_part1.dart';
+part 'container_registries_models.dart';

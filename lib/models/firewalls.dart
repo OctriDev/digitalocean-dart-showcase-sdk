@@ -7,4 +7,4 @@ import 'shared.dart';
 import 'shared_firewall.dart';
 import 'shared_meta.dart';
 
-part 'firewalls_part1.dart';
+part 'firewalls_models.dart';

@@ -7,4 +7,4 @@ import 'agent_platform_api_api.dart';
 import 'agent_platform_api_api_model.dart';
 import 'agent_platform_api_api_simulation.dart';
 
-part 'agent_platform_api_api_cancel_part1.dart';
+part 'agent_platform_api_api_cancel_models.dart';

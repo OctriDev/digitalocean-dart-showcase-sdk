@@ -13,5 +13,16 @@ import 'action_gateway_session.dart';
 import 'action_gateway_tool.dart';
 import 'action_gateway_toolbelt.dart';
 
-part 'action_gateway_list_part1.dart';
-part 'action_gateway_list_part2.dart';
+part 'action_gateway_list_connections_list.dart';
+part 'action_gateway_list_mcp_servers_list.dart';
+part 'action_gateway_list_shared.dart';
+part 'action_gateway_list_output_views_list.dart';
+part 'action_gateway_list_tools_list_health_providers.dart';
+part 'action_gateway_list_tools_list_providers.dart';
+part 'action_gateway_list_sessions_list.dart';
+part 'action_gateway_list_toolbelts_list_providers.dart';
+part 'action_gateway_list_toolbelts_list_provider_tools.dart';
+part 'action_gateway_list_tools_list_health.dart';
+part 'action_gateway_list_tools_list_toolkits.dart';
+part 'action_gateway_list_tools_list.dart';
+part 'action_gateway_list_users_list.dart';

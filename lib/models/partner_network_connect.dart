@@ -7,6 +7,11 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'partner_network_connect_part1.dart';
-part 'partner_network_connect_part2.dart';
-part 'partner_network_connect_part3.dart';
+part 'partner_network_connect_partner_attachments_list_remote_routes.dart';
+part 'partner_network_connect_partner_attachments_list.dart';
+part 'partner_network_connect_shared.dart';
+part 'partner_network_connect_partner_attachments_patch.dart';
+part 'partner_network_connect_partner_attachments_create.dart';
+part 'partner_network_connect_partner_attachments_get_bgp_auth_key.dart';
+part 'partner_network_connect_partner_attachments_delete.dart';
+part 'partner_network_connect_partner_attachments_get_service_key.dart';

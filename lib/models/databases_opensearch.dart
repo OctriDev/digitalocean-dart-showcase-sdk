@@ -5,6 +5,8 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'databases_opensearch_part1.dart';
-part 'databases_opensearch_part2.dart';
-part 'databases_opensearch_part3.dart';
+part 'databases_opensearch_advanced_config.dart';
+part 'databases_opensearch_connection.dart';
+part 'databases_opensearch_logsink.dart';
+part 'databases_opensearch_databases_create_cluster.dart';
+part 'databases_opensearch_databases_list_opeasearch_indexes.dart';

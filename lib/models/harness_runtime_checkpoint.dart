@@ -4,4 +4,4 @@
 // harness_runtime_checkpoint domain model library.
 import '../sdk_utils.dart';
 
-part 'harness_runtime_checkpoint_part1.dart';
+part 'harness_runtime_checkpoint_models.dart';

@@ -5,5 +5,6 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'shared_firewall_part1.dart';
-part 'shared_firewall_part2.dart';
+part 'shared_firewall2.dart';
+part 'shared_firewall_rules.dart';
+part 'shared_firewall_rule_target.dart';

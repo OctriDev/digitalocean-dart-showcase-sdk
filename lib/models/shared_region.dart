@@ -4,4 +4,4 @@
 // shared_region domain model library.
 import '../sdk_utils.dart';
 
-part 'shared_region_part1.dart';
+part 'shared_region_models.dart';

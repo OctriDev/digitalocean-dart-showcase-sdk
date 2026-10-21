@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'kubernetes_kubernetes.dart';
 
-part 'kubernetes_node_part1.dart';
+part 'kubernetes_node_models.dart';

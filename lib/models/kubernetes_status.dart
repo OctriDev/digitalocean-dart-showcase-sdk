@@ -4,4 +4,4 @@
 // kubernetes_status domain model library.
 import '../sdk_utils.dart';
 
-part 'kubernetes_status_part1.dart';
+part 'kubernetes_status_models.dart';

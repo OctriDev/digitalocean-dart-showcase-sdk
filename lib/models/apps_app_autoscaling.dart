@@ -4,4 +4,4 @@
 // apps_app_autoscaling domain model library.
 import '../sdk_utils.dart';
 
-part 'apps_app_autoscaling_part1.dart';
+part 'apps_app_autoscaling_models.dart';

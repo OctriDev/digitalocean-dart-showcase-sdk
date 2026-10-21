@@ -4,4 +4,4 @@
 // kubernetes_nvidia domain model library.
 import '../sdk_utils.dart';
 
-part 'kubernetes_nvidia_part1.dart';
+part 'kubernetes_nvidia_models.dart';

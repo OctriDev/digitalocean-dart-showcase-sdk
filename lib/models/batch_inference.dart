@@ -5,6 +5,8 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'batch_inference_part1.dart';
-part 'batch_inference_part2.dart';
-part 'batch_inference_part3.dart';
+part 'batch_inference_shared.dart';
+part 'batch_inference_create_batch.dart';
+part 'batch_inference_create_batch_file.dart';
+part 'batch_inference_list_batches.dart';
+part 'batch_inference_get_batch_results.dart';

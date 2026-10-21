@@ -14,4 +14,4 @@ import 'apps_app_worker.dart';
 import 'apps_apps_vpc.dart';
 import 'inline.dart';
 
-part 'apps_app_spec_part1.dart';
+part 'apps_app_spec_models.dart';

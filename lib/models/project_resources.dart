@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'project_resources_part1.dart';
+part 'project_resources_models.dart';

@@ -10,4 +10,4 @@ import 'action_gateway_limit.dart';
 import 'action_gateway_tool.dart';
 import 'action_gateway_toolbelt.dart';
 
-part 'action_gateway_get_part1.dart';
+part 'action_gateway_get_models.dart';

@@ -2,4 +2,4 @@
 // This file is machine-generated from your OpenAPI spec.
 
 // webhook_signature_config domain model library.
-part 'webhook_signature_config_part1.dart';
+part 'webhook_signature_config_models.dart';

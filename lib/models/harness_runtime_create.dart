@@ -8,5 +8,8 @@ import 'harness_runtime_sandbox.dart';
 import 'harness_runtime_trigger.dart';
 import 'harness_runtime_webhook.dart';
 
-part 'harness_runtime_create_part1.dart';
-part 'harness_runtime_create_part2.dart';
+part 'harness_runtime_create_harness_create_session_checkpoint.dart';
+part 'harness_runtime_create_shared.dart';
+part 'harness_runtime_create_harness_create_session.dart';
+part 'harness_runtime_create_harness_create_template.dart';
+part 'harness_runtime_create_harness_create_trigger.dart';

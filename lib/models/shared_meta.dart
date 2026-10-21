@@ -4,4 +4,4 @@
 // shared_meta domain model library.
 import '../sdk_utils.dart';
 
-part 'shared_meta_part1.dart';
+part 'shared_meta_models.dart';

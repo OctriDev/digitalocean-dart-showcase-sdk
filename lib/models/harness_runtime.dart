@@ -9,6 +9,12 @@ import 'harness_runtime_permission.dart';
 import 'harness_runtime_session.dart';
 import 'inline.dart';
 
-part 'harness_runtime_part1.dart';
-part 'harness_runtime_part2.dart';
-part 'harness_runtime_part3.dart';
+part 'harness_runtime_shared.dart';
+part 'harness_runtime_harness_post_session_hitl.dart';
+part 'harness_runtime_harness_get_session_ingress.dart';
+part 'harness_runtime_harness_update_session.dart';
+part 'harness_runtime_harness_validate_session_policy.dart';
+part 'harness_runtime_harness_list_reusable_sessions.dart';
+part 'harness_runtime_harness_revert_session_checkpoint.dart';
+part 'harness_runtime_harness_post_trigger_rotate_secret.dart';
+part 'harness_runtime_harness_get_session_events.dart';

@@ -9,4 +9,4 @@ import 'shared_action.dart';
 import 'shared_meta.dart';
 import 'shared_region.dart';
 
-part 'image_actions_part1.dart';
+part 'image_actions_models.dart';

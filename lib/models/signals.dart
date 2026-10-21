@@ -5,7 +5,16 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'signals_part1.dart';
-part 'signals_part2.dart';
-part 'signals_part3.dart';
-part 'signals_part4.dart';
+part 'signals_get_consent.dart';
+part 'signals_shared.dart';
+part 'signals_create_deletion.dart';
+part 'signals_create_export.dart';
+part 'signals_get_export_download.dart';
+part 'signals_get_export_options.dart';
+part 'signals_list_consents.dart';
+part 'signals_list_deletions.dart';
+part 'signals_list_session_dialogues.dart';
+part 'signals_list_exports.dart';
+part 'signals_list_agent_sessions.dart';
+part 'signals_update_consent.dart';
+part 'signals_update_team_consent.dart';

@@ -2,4 +2,4 @@
 // This file is machine-generated from your OpenAPI spec.
 
 // agent_platform_api_api_trace domain model library.
-part 'agent_platform_api_api_trace_part1.dart';
+part 'agent_platform_api_api_trace_models.dart';

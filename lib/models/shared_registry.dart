@@ -6,5 +6,6 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_subscription.dart';
 
-part 'shared_registry_part1.dart';
-part 'shared_registry_part2.dart';
+part 'shared_registry2.dart';
+part 'shared_registry_base.dart';
+part 'shared_registry_options_response.dart';

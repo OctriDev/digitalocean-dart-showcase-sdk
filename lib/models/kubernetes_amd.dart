@@ -4,4 +4,4 @@
 // kubernetes_amd domain model library.
 import '../sdk_utils.dart';
 
-part 'kubernetes_amd_part1.dart';
+part 'kubernetes_amd_models.dart';

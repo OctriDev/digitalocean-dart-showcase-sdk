@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'kubernetes_maintenance_part1.dart';
+part 'kubernetes_maintenance_models.dart';

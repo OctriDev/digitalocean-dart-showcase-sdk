@@ -4,4 +4,4 @@
 // apps_app_log domain model library.
 import '../sdk_utils.dart';
 
-part 'apps_app_log_part1.dart';
+part 'apps_app_log_models.dart';

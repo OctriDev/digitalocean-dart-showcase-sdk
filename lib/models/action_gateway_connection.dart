@@ -5,7 +5,8 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'action_gateway_connection_part1.dart';
-part 'action_gateway_connection_part2.dart';
-part 'action_gateway_connection_part3.dart';
-part 'action_gateway_connection_part4.dart';
+part 'action_gateway_connection2.dart';
+part 'action_gateway_connection_authorization.dart';
+part 'action_gateway_connection_network.dart';
+part 'action_gateway_connection_parameter_spec.dart';
+part 'action_gateway_connection_connections_create.dart';

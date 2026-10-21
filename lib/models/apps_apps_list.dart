@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'apps_app_alert.dart';
 import 'apps_apps.dart';
 
-part 'apps_apps_list_part1.dart';
+part 'apps_apps_list_models.dart';

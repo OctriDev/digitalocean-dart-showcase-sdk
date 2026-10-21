@@ -180,7 +180,7 @@ Future<DropletBackupPolicyResponse> dropletsGetBackupPolicy(ClientConfig config,
 ///
 /// [perPage] Number of items returned per page
 /// [page] Which 'page' of paginated results to return.
-Future<AllDropletBackupPolicies> dropletsListBackupPolicies(ClientConfig config,
+Future<AllDropletBackupPolicies> listAllBackupPolicies(ClientConfig config,
     {SdkOptional<int> perPage = const SdkOmitted(),
     SdkOptional<int> page = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -199,7 +199,7 @@ Future<AllDropletBackupPolicies> dropletsListBackupPolicies(ClientConfig config,
             'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          operationId: 'dropletsListBackupPolicies',
+          operationId: 'listAllBackupPolicies',
           fromJsonRaw: (value) => AllDropletBackupPolicies.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))

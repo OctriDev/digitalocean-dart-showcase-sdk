@@ -4,4 +4,4 @@
 // webhook_basic_auth domain model library.
 import '../sdk_utils.dart';
 
-part 'webhook_basic_auth_part1.dart';
+part 'webhook_basic_auth_models.dart';

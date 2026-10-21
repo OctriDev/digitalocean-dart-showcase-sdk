@@ -7,6 +7,8 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'vpc_nat_gateways_part1.dart';
-part 'vpc_nat_gateways_part2.dart';
-part 'vpc_nat_gateways_part3.dart';
+part 'vpc_nat_gateways_vpcnatgateways_get.dart';
+part 'vpc_nat_gateways_vpcnatgateways_create.dart';
+part 'vpc_nat_gateways_shared.dart';
+part 'vpc_nat_gateways_vpcnatgateways_list.dart';
+part 'vpc_nat_gateways_vpcnatgateways_update.dart';

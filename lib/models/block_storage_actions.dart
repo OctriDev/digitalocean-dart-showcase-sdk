@@ -8,5 +8,11 @@ import 'shared.dart';
 import 'shared_meta.dart';
 import 'shared_region.dart';
 
-part 'block_storage_actions_part1.dart';
-part 'block_storage_actions_part2.dart';
+part 'block_storage_actions_volume_action.dart';
+part 'block_storage_actions_volume_action_droplet_id.dart';
+part 'block_storage_actions_volume_action_post_attach.dart';
+part 'block_storage_actions_volume_action_post_base.dart';
+part 'block_storage_actions_volume_action_post_detach.dart';
+part 'block_storage_actions_volume_action_response.dart';
+part 'block_storage_actions_volume_actions_post_by_id.dart';
+part 'block_storage_actions_volume_actions_list.dart';

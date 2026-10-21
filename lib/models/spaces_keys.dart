@@ -6,5 +6,7 @@ import '../sdk_utils.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'spaces_keys_part1.dart';
-part 'spaces_keys_part2.dart';
+part 'spaces_keys_shared.dart';
+part 'spaces_keys_spaces_key_create.dart';
+part 'spaces_keys_spaces_key_get.dart';
+part 'spaces_keys_spaces_key_list.dart';

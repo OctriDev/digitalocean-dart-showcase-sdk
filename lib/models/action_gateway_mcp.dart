@@ -5,5 +5,8 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'action_gateway_mcp_part1.dart';
-part 'action_gateway_mcp_part2.dart';
+part 'action_gateway_mcp_shared.dart';
+part 'action_gateway_mcp_servers_create.dart';
+part 'action_gateway_mcp_servers_run_resync2.dart';
+part 'action_gateway_mcp_servers_update_tools.dart';
+part 'action_gateway_mcp_servers_patch.dart';

@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'cdn_endpoints_part1.dart';
+part 'cdn_endpoints_models.dart';

@@ -5,5 +5,7 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'serverless_inference_part1.dart';
-part 'serverless_inference_part2.dart';
+part 'serverless_inference_create_embedding.dart';
+part 'serverless_inference_create_image.dart';
+part 'serverless_inference_list_models.dart';
+part 'serverless_inference_create_response.dart';

@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'harness_runtime_definitions.dart';
 
-part 'harness_runtime_fork_part1.dart';
+part 'harness_runtime_fork_models.dart';

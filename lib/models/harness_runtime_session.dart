@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'harness_runtime.dart';
 
-part 'harness_runtime_session_part1.dart';
+part 'harness_runtime_session_models.dart';

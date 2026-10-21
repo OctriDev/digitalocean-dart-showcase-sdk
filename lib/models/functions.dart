@@ -4,6 +4,17 @@
 // functions domain model library.
 import '../sdk_utils.dart';
 
-part 'functions_part1.dart';
-part 'functions_part2.dart';
-part 'functions_part3.dart';
+part 'functions_access_key.dart';
+part 'functions_namespace_created.dart';
+part 'functions_namespace_info.dart';
+part 'functions_scheduled_details.dart';
+part 'functions_trigger_info.dart';
+part 'functions_trigger_response.dart';
+part 'functions_access_key_create.dart';
+part 'functions_access_key_list.dart';
+part 'functions_access_key_update.dart';
+part 'functions_create_namespace.dart';
+part 'functions_create_trigger.dart';
+part 'functions_list_namespaces.dart';
+part 'functions_list_triggers.dart';
+part 'functions_update_trigger.dart';

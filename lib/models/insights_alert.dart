@@ -7,5 +7,12 @@ import 'inline.dart';
 import 'insights.dart';
 import 'insights_notification.dart';
 
-part 'insights_alert_part1.dart';
-part 'insights_alert_part2.dart';
+part 'insights_alert_condition.dart';
+part 'insights_alert_instance.dart';
+part 'insights_alert_rule.dart';
+part 'insights_alert_rule_request.dart';
+part 'insights_alert_rule_response.dart';
+part 'insights_alert_rule_spec.dart';
+part 'insights_alert_thresholds.dart';
+part 'insights_alert_insights_get_alert_instance.dart';
+part 'insights_alert_insights_create_alert_rule.dart';
