@@ -7,4 +7,4 @@ import 'databases.dart';
 import 'databases_opensearch.dart';
 import 'inline.dart';
 
-part 'logsink_part1.dart';
+part 'logsink_models.dart';

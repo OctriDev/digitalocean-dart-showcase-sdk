@@ -4,4 +4,4 @@
 // harness_runtime_webhook domain model library.
 import '../sdk_utils.dart';
 
-part 'harness_runtime_webhook_part1.dart';
+part 'harness_runtime_webhook_models.dart';

@@ -6,6 +6,11 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'nfs_actions_part1.dart';
-part 'nfs_actions_part2.dart';
-part 'nfs_actions_part3.dart';
+part 'nfs_actions_nfs_action.dart';
+part 'nfs_actions_nfs_action_attach.dart';
+part 'nfs_actions_nfs_action_detach.dart';
+part 'nfs_actions_nfs_action_reassign.dart';
+part 'nfs_actions_nfs_action_resize.dart';
+part 'nfs_actions_nfs_action_snapshot.dart';
+part 'nfs_actions_response.dart';
+part 'nfs_actions_nfs_action_switch_performance_tier.dart';

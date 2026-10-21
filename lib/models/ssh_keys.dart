@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'ssh_keys_part1.dart';
+part 'ssh_keys_models.dart';

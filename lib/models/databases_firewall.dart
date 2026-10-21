@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'databases_firewall_part1.dart';
+part 'databases_firewall_models.dart';

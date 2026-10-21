@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'vpc_routes_public_preview_part1.dart';
+part 'vpc_routes_public_preview_models.dart';

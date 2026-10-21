@@ -5,5 +5,6 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'databases_mysql_part1.dart';
-part 'databases_mysql_part2.dart';
+part 'databases_mysql_advanced_config.dart';
+part 'databases_mysql_incremental_backup.dart';
+part 'databases_mysql_settings.dart';

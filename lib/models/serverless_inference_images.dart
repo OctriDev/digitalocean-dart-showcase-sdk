@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'serverless_inference.dart';
 
-part 'serverless_inference_images_part1.dart';
+part 'serverless_inference_images_models.dart';

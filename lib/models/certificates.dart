@@ -7,5 +7,7 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'certificates_part1.dart';
-part 'certificates_part2.dart';
+part 'certificates_list.dart';
+part 'certificates_shared.dart';
+part 'certificates_create.dart';
+part 'certificates_get.dart';

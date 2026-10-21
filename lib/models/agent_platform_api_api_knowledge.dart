@@ -11,4 +11,4 @@ import 'agent_platform_api_api_file.dart';
 import 'agent_platform_api_api_google.dart';
 import 'agent_platform_api_api_indexed.dart';
 
-part 'agent_platform_api_api_knowledge_part1.dart';
+part 'agent_platform_api_api_knowledge_models.dart';

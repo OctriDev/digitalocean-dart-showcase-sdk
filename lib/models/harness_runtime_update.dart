@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'harness_runtime_create.dart';
 import 'harness_runtime_trigger.dart';
 
-part 'harness_runtime_update_part1.dart';
+part 'harness_runtime_update_models.dart';

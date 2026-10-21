@@ -2,4 +2,4 @@
 // This file is machine-generated from your OpenAPI spec.
 
 // webhook_bearer_token domain model library.
-part 'webhook_bearer_token_part1.dart';
+part 'webhook_bearer_token_models.dart';

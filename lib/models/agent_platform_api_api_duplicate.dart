@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'agent_platform_api_api_scenario.dart';
 
-part 'agent_platform_api_api_duplicate_part1.dart';
+part 'agent_platform_api_api_duplicate_models.dart';

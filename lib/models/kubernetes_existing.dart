@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'kubernetes_cluster.dart';
 import 'kubernetes_kubernetes.dart';
 
-part 'kubernetes_existing_part1.dart';
+part 'kubernetes_existing_models.dart';

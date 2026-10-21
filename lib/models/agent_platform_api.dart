@@ -4,4 +4,4 @@
 // agent_platform_api domain model library.
 import '../sdk_utils.dart';
 
-part 'agent_platform_api_part1.dart';
+part 'agent_platform_api_models.dart';

@@ -10,8 +10,11 @@ import 'databases_opensearch.dart';
 import 'databases_schema.dart';
 import 'inline.dart';
 
-part 'database_part1.dart';
-part 'database_part2.dart';
-part 'database_part3.dart';
-part 'database_part4.dart';
-part 'database_part5.dart';
+part 'database_cluster_ui_connection.dart';
+part 'database_cluster_standby_connection.dart';
+part 'database_cluster.dart';
+part 'database_kafka_schema_create.dart';
+part 'database_layout_options.dart';
+part 'database_region_options.dart';
+part 'database_replica.dart';
+part 'database_version_options.dart';

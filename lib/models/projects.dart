@@ -7,5 +7,10 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'projects_part1.dart';
-part 'projects_part2.dart';
+part 'projects_get_default.dart';
+part 'projects_existing_project.dart';
+part 'projects_project.dart';
+part 'projects_project_base.dart';
+part 'projects_project_base_request.dart';
+part 'projects_project_request.dart';
+part 'projects_list.dart';

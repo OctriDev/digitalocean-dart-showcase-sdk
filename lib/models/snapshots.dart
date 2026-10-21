@@ -7,4 +7,4 @@ import 'shared.dart';
 import 'shared_meta.dart';
 import 'shared_snapshots.dart';
 
-part 'snapshots_part1.dart';
+part 'snapshots_models.dart';

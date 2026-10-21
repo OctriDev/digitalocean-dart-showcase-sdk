@@ -4,4 +4,4 @@
 // apps_apps_vpc domain model library.
 import '../sdk_utils.dart';
 
-part 'apps_apps_vpc_part1.dart';
+part 'apps_apps_vpc_models.dart';

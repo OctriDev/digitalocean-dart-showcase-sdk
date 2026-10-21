@@ -5,7 +5,13 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'databases_kafka_part1.dart';
-part 'databases_kafka_part2.dart';
-part 'databases_kafka_part3.dart';
-part 'databases_kafka_part4.dart';
+part 'databases_kafka_advanced_config.dart';
+part 'databases_kafka_schema_version.dart';
+part 'databases_kafka_topic_config.dart';
+part 'databases_kafka_topic_partition.dart';
+part 'databases_kafka_topic_response.dart';
+part 'databases_kafka_topic_verbose.dart';
+part 'databases_kafka_databases_create_kafka_schema.dart';
+part 'databases_kafka_databases_list_kafka_schemas.dart';
+part 'databases_kafka_databases_list_kafka_topics.dart';
+part 'databases_kafka_databases_update_kafka_topic.dart';

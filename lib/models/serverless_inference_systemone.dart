@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'serverless_inference_systemone_part1.dart';
+part 'serverless_inference_systemone_models.dart';

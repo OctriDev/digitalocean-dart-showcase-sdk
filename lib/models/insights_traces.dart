@@ -5,6 +5,15 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'insights_traces_part1.dart';
-part 'insights_traces_part2.dart';
-part 'insights_traces_part3.dart';
+part 'insights_traces_field_ref.dart';
+part 'insights_traces_filter_expression.dart';
+part 'insights_traces_filter_value.dart';
+part 'insights_traces_order_by.dart';
+part 'insights_traces_pagination_request.dart';
+part 'insights_traces_pagination_response.dart';
+part 'insights_traces_search_request.dart';
+part 'insights_traces_search_response.dart';
+part 'insights_traces_time_instant.dart';
+part 'insights_traces_time_range.dart';
+part 'insights_traces_trace_summary.dart';
+part 'insights_traces_insights_get_trace.dart';

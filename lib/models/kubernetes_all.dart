@@ -8,4 +8,4 @@ import 'kubernetes_kubernetes.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'kubernetes_all_part1.dart';
+part 'kubernetes_all_models.dart';

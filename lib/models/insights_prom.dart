@@ -5,5 +5,14 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'insights_prom_part1.dart';
-part 'insights_prom_part2.dart';
+part 'insights_prom_error.dart';
+part 'insights_prom_matrix_data.dart';
+part 'insights_prom_matrix_sample.dart';
+part 'insights_prom_metric_labels.dart';
+part 'insights_prom_query_data.dart';
+part 'insights_prom_query_range_response.dart';
+part 'insights_prom_query_response.dart';
+part 'insights_prom_sample.dart';
+part 'insights_prom_series_response.dart';
+part 'insights_prom_string_list_response.dart';
+part 'insights_prom_vector_sample.dart';

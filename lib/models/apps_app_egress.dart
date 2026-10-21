@@ -4,4 +4,4 @@
 // apps_app_egress domain model library.
 import '../sdk_utils.dart';
 
-part 'apps_app_egress_part1.dart';
+part 'apps_app_egress_models.dart';

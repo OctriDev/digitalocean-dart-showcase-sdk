@@ -6,5 +6,5 @@ import '../sdk_utils.dart';
 import 'databases_database.dart';
 import 'inline.dart';
 
-part 'databases_user_part1.dart';
-part 'databases_user_part2.dart';
+part 'databases_user_shared.dart';
+part 'databases_user_databases_update_user.dart';

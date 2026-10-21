@@ -8970,48 +8970,6 @@ void main() {
       );
     });
 
-    test("dropletsListBackupPolicies reaches the mock and decodes its response",
-        () async {
-      final actual = await sdk_methods_16.dropletsListBackupPolicies(
-        config,
-        perPage: SdkPresent<int>((jsonDecode("2") as num).toInt()),
-        page: SdkPresent<int>((jsonDecode("1") as num).toInt()),
-      );
-      expect(
-        mismatch(
-          normal(actual),
-          SdkUtils.decodeJson(
-              "{\"policies\":{\"436444618\":{\"droplet_id\":436444618,\"backup_enabled\":false},\"444909314\":{\"droplet_id\":444909314,\"backup_enabled\":true,\"backup_policy\":{\"plan\":\"daily\",\"hour\":20,\"window_length_hours\":4,\"retention_period_days\":7},\"next_backup_window\":{\"start\":\"2024-09-13T20:00:00Z\",\"end\":\"2024-09-14T00:00:00Z\"}},\"444909706\":{\"droplet_id\":444909706,\"backup_enabled\":true,\"backup_policy\":{\"plan\":\"weekly\",\"weekday\":\"SUN\",\"hour\":20,\"window_length_hours\":4,\"retention_period_days\":28},\"next_backup_window\":{\"start\":\"2024-09-15T20:00:00Z\",\"end\":\"2024-09-16T00:00:00Z\"}}},\"links\":{},\"meta\":{\"total\":3}}"),
-        ),
-        isNull,
-      );
-    });
-
-    test("dropletsListBackupPolicies answers 401 with its declared error body",
-        () async {
-      SdkConfig.getConfig().baseUrl = '$baseUrl/__mockStatus/401';
-      addTearDown(() => SdkConfig.getConfig().baseUrl = baseUrl);
-      final SdkHttpError error;
-      try {
-        await sdk_methods_16.dropletsListBackupPolicies(
-          config,
-          perPage: SdkPresent<int>((jsonDecode("2") as num).toInt()),
-          page: SdkPresent<int>((jsonDecode("1") as num).toInt()),
-        );
-        fail('did not raise its declared error');
-      } on SdkHttpError catch (caught) {
-        error = caught;
-      }
-      expect(error.statusCode, 401);
-      expect(
-        mismatch(
-            normal(error.data),
-            SdkUtils.decodeJson(
-                "{\"id\":\"unauthorized\",\"message\":\"Unable to authenticate you.\"}")),
-        isNull,
-      );
-    });
-
     test("dropletsListBackups reaches the mock and decodes its response",
         () async {
       final actual = await sdk_methods_16.dropletsListBackups(
@@ -26133,6 +26091,48 @@ void main() {
               as String),
           version:
               SdkPresent<String>((jsonDecode("\"1.16.13-do.0\"") as String)),
+        );
+        fail('did not raise its declared error');
+      } on SdkHttpError catch (caught) {
+        error = caught;
+      }
+      expect(error.statusCode, 401);
+      expect(
+        mismatch(
+            normal(error.data),
+            SdkUtils.decodeJson(
+                "{\"id\":\"unauthorized\",\"message\":\"Unable to authenticate you.\"}")),
+        isNull,
+      );
+    });
+
+    test("listAllBackupPolicies reaches the mock and decodes its response",
+        () async {
+      final actual = await sdk_methods_16.listAllBackupPolicies(
+        config,
+        perPage: SdkPresent<int>((jsonDecode("2") as num).toInt()),
+        page: SdkPresent<int>((jsonDecode("1") as num).toInt()),
+      );
+      expect(
+        mismatch(
+          normal(actual),
+          SdkUtils.decodeJson(
+              "{\"policies\":{\"436444618\":{\"droplet_id\":436444618,\"backup_enabled\":false},\"444909314\":{\"droplet_id\":444909314,\"backup_enabled\":true,\"backup_policy\":{\"plan\":\"daily\",\"hour\":20,\"window_length_hours\":4,\"retention_period_days\":7},\"next_backup_window\":{\"start\":\"2024-09-13T20:00:00Z\",\"end\":\"2024-09-14T00:00:00Z\"}},\"444909706\":{\"droplet_id\":444909706,\"backup_enabled\":true,\"backup_policy\":{\"plan\":\"weekly\",\"weekday\":\"SUN\",\"hour\":20,\"window_length_hours\":4,\"retention_period_days\":28},\"next_backup_window\":{\"start\":\"2024-09-15T20:00:00Z\",\"end\":\"2024-09-16T00:00:00Z\"}}},\"links\":{},\"meta\":{\"total\":3}}"),
+        ),
+        isNull,
+      );
+    });
+
+    test("listAllBackupPolicies answers 401 with its declared error body",
+        () async {
+      SdkConfig.getConfig().baseUrl = '$baseUrl/__mockStatus/401';
+      addTearDown(() => SdkConfig.getConfig().baseUrl = baseUrl);
+      final SdkHttpError error;
+      try {
+        await sdk_methods_16.listAllBackupPolicies(
+          config,
+          perPage: SdkPresent<int>((jsonDecode("2") as num).toInt()),
+          page: SdkPresent<int>((jsonDecode("1") as num).toInt()),
         );
         fail('did not raise its declared error');
       } on SdkHttpError catch (caught) {

@@ -9,6 +9,7 @@ import 'shared_image.dart';
 import 'shared_network.dart';
 import 'shared_region.dart';
 
-part 'shared_droplet_part1.dart';
-part 'shared_droplet_part2.dart';
-part 'shared_droplet_part3.dart';
+part 'shared_droplet2.dart';
+part 'shared_droplet_backup_policy.dart';
+part 'shared_droplet_backup_policy_request.dart';
+part 'shared_droplet_next_backup_window.dart';

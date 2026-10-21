@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'harness_runtime_permission_part1.dart';
+part 'harness_runtime_permission_models.dart';

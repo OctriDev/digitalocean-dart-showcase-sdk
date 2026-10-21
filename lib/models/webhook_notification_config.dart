@@ -7,4 +7,4 @@ import 'webhook_basic_auth.dart';
 import 'webhook_bearer_token.dart';
 import 'webhook_signature_config.dart';
 
-part 'webhook_notification_config_part1.dart';
+part 'webhook_notification_config_models.dart';

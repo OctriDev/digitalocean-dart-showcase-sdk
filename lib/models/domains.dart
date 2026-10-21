@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'domains_part1.dart';
+part 'domains_models.dart';

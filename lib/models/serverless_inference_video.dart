@@ -4,4 +4,4 @@
 // serverless_inference_video domain model library.
 import '../sdk_utils.dart';
 
-part 'serverless_inference_video_part1.dart';
+part 'serverless_inference_video_models.dart';

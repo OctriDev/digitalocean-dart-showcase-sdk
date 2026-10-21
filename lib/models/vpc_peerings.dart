@@ -7,4 +7,4 @@ import 'shared.dart';
 import 'shared_meta.dart';
 import 'shared_vpc.dart';
 
-part 'vpc_peerings_part1.dart';
+part 'vpc_peerings_models.dart';

@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'apps_apps.dart';
 
-part 'apps_app_ingress_part1.dart';
+part 'apps_app_ingress_models.dart';

@@ -6,5 +6,9 @@ import '../sdk_utils.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'byoip_prefixes_part1.dart';
-part 'byoip_prefixes_part2.dart';
+part 'byoip_prefixes_shared.dart';
+part 'byoip_prefixes_create.dart';
+part 'byoip_prefixes_get.dart';
+part 'byoip_prefixes_list.dart';
+part 'byoip_prefixes_list_resources.dart';
+part 'byoip_prefixes_patch.dart';

@@ -9,4 +9,4 @@ import 'shared_action.dart';
 import 'shared_meta.dart';
 import 'shared_region.dart';
 
-part 'floating_ip_actions_part1.dart';
+part 'floating_ip_actions_models.dart';

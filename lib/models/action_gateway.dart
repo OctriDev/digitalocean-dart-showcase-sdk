@@ -10,6 +10,12 @@ import 'action_gateway_session.dart';
 import 'action_gateway_toolbelt.dart';
 import 'inline.dart';
 
-part 'action_gateway_part1.dart';
-part 'action_gateway_part2.dart';
-part 'action_gateway_part3.dart';
+part 'action_gateway_actor_limits_delete.dart';
+part 'action_gateway_sessions_create.dart';
+part 'action_gateway_connections_delete.dart';
+part 'action_gateway_shared.dart';
+part 'action_gateway_mcp_servers_run_resync.dart';
+part 'action_gateway_actor_limits_update.dart';
+part 'action_gateway_toolbelts_list.dart';
+part 'action_gateway_tools_list_toolkits.dart';
+part 'action_gateway_users_get.dart';

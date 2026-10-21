@@ -7,8 +7,10 @@ import 'inline.dart';
 import 'serverless_inference.dart';
 import 'shared_chat.dart';
 
-part 'serverless_inference_create_part1.dart';
-part 'serverless_inference_create_part2.dart';
-part 'serverless_inference_create_part3.dart';
-part 'serverless_inference_create_part4.dart';
-part 'serverless_inference_create_part5.dart';
+part 'serverless_inference_create_image2.dart';
+part 'serverless_inference_create_response_request.dart';
+part 'serverless_inference_create_response_request_tool_choice.dart';
+part 'serverless_inference_create_response_response.dart';
+part 'serverless_inference_create_response_stream_response.dart';
+part 'serverless_inference_create_speech.dart';
+part 'serverless_inference_create_video.dart';

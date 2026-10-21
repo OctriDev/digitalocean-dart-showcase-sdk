@@ -4,4 +4,4 @@
 // databases_eviction domain model library.
 import '../sdk_utils.dart';
 
-part 'databases_eviction_part1.dart';
+part 'databases_eviction_models.dart';

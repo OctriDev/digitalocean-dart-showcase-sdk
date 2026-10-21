@@ -4,4 +4,4 @@
 // kubernetes_clusterlint domain model library.
 import '../sdk_utils.dart';
 
-part 'kubernetes_clusterlint_part1.dart';
+part 'kubernetes_clusterlint_models.dart';

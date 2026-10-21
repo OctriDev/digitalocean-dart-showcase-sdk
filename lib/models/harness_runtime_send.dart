@@ -4,4 +4,4 @@
 // harness_runtime_send domain model library.
 import '../sdk_utils.dart';
 
-part 'harness_runtime_send_part1.dart';
+part 'harness_runtime_send_models.dart';

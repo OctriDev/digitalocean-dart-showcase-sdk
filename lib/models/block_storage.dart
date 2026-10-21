@@ -8,6 +8,13 @@ import 'shared_meta.dart';
 import 'shared_region.dart';
 import 'shared_snapshots.dart';
 
-part 'block_storage_part1.dart';
-part 'block_storage_part2.dart';
-part 'block_storage_part3.dart';
+part 'block_storage_shared.dart';
+part 'block_storage_volume_base.dart';
+part 'block_storage_volume_base_request.dart';
+part 'block_storage_volumes_ext4_request.dart';
+part 'block_storage_volume_snapshot_id.dart';
+part 'block_storage_volumes_xfs.dart';
+part 'block_storage_volume_write_file_system_label.dart';
+part 'block_storage_volume_write_file_system_type.dart';
+part 'block_storage_volumes_list.dart';
+part 'block_storage_volume_snapshots_list.dart';

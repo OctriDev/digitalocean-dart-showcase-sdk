@@ -5,5 +5,10 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'action_gateway_toolbelt_part1.dart';
-part 'action_gateway_toolbelt_part2.dart';
+part 'action_gateway_toolbelt2.dart';
+part 'action_gateway_toolbelt_summary.dart';
+part 'action_gateway_toolbelt_tool_detail.dart';
+part 'action_gateway_toolbelt_tools.dart';
+part 'action_gateway_toolbelt_update_response.dart';
+part 'action_gateway_toolbelt_toolbelts_create.dart';
+part 'action_gateway_toolbelt_toolbelts_list_providers.dart';

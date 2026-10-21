@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'apps_app_component.dart';
 import 'apps_app_functions.dart';
 
-part 'apps_app_health_part1.dart';
+part 'apps_app_health_models.dart';

@@ -5,7 +5,10 @@
 import '../sdk_utils.dart';
 import 'databases_database.dart';
 
-part 'databases_connection_part1.dart';
-part 'databases_connection_part2.dart';
-part 'databases_connection_part3.dart';
-part 'databases_connection_part4.dart';
+part 'databases_connection_pool.dart';
+part 'databases_connection_pool_standby_private_connection.dart';
+part 'databases_connection_pool_response.dart';
+part 'databases_connection_pool_request_private_connection.dart';
+part 'databases_connection_pool_request.dart';
+part 'databases_connection_databases_list_connection_pools.dart';
+part 'databases_connection_databases_update_connection_pool.dart';

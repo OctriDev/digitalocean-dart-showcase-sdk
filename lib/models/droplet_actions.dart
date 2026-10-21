@@ -9,6 +9,14 @@ import 'shared_action.dart';
 import 'shared_droplet.dart';
 import 'shared_meta.dart';
 
-part 'droplet_actions_part1.dart';
-part 'droplet_actions_part2.dart';
-part 'droplet_actions_part3.dart';
+part 'droplet_actions_list.dart';
+part 'droplet_actions_shared.dart';
+part 'droplet_actions_droplet_action_change_backup_policy.dart';
+part 'droplet_actions_droplet_action_change_kernel.dart';
+part 'droplet_actions_droplet_action_enable_backups_request.dart';
+part 'droplet_actions_droplet_action_rebuild.dart';
+part 'droplet_actions_droplet_action_rename.dart';
+part 'droplet_actions_droplet_action_resize.dart';
+part 'droplet_actions_droplet_action_response.dart';
+part 'droplet_actions_droplet_action_restore.dart';
+part 'droplet_actions_post_by_tag.dart';

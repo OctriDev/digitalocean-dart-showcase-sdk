@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'action_gateway_connection.dart';
 import 'action_gateway_health.dart';
 
-part 'action_gateway_provider_part1.dart';
+part 'action_gateway_provider_models.dart';

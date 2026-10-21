@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'insights.dart';
 
-part 'insights_webhook_part1.dart';
+part 'insights_webhook_models.dart';

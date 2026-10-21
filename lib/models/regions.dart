@@ -7,4 +7,4 @@ import 'shared.dart';
 import 'shared_meta.dart';
 import 'shared_region.dart';
 
-part 'regions_part1.dart';
+part 'regions_models.dart';

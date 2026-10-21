@@ -7,5 +7,9 @@ import '../sdk_utils.dart';
 import 'kubernetes_cluster.dart';
 import 'kubernetes_kubernetes.dart';
 
-part 'kubernetes_part1.dart';
-part 'kubernetes_part2.dart';
+part 'kubernetes_get_available_upgrades.dart';
+part 'kubernetes_shared.dart';
+part 'kubernetes_get_credentials.dart';
+part 'kubernetes_destroy_associated_resources_selective.dart';
+part 'kubernetes_update_cluster.dart';
+part 'kubernetes_get_cluster_user.dart';

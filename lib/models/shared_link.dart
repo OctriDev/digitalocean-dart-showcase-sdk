@@ -4,4 +4,4 @@
 // shared_link domain model library.
 import '../sdk_utils.dart';
 
-part 'shared_link_part1.dart';
+part 'shared_link_models.dart';

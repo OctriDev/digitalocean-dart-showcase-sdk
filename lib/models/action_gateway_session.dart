@@ -5,5 +5,8 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'action_gateway_session_part1.dart';
-part 'action_gateway_session_part2.dart';
+part 'action_gateway_session2.dart';
+part 'action_gateway_session_insights.dart';
+part 'action_gateway_session_network.dart';
+part 'action_gateway_session_policy.dart';
+part 'action_gateway_session_sessions_create.dart';

@@ -5,7 +5,21 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'serverless_inference_messages_part1.dart';
-part 'serverless_inference_messages_part2.dart';
-part 'serverless_inference_messages_part3.dart';
-part 'serverless_inference_messages_part4.dart';
+part 'serverless_inference_messages_api_message_param.dart';
+part 'serverless_inference_messages_create_error_response.dart';
+part 'serverless_inference_messages_create_request.dart';
+part 'serverless_inference_messages_create_response.dart';
+part 'serverless_inference_messages_image_block_param.dart';
+part 'serverless_inference_messages_image_source_param.dart';
+part 'serverless_inference_messages_request_content_block_param.dart';
+part 'serverless_inference_messages_request_text_block_param.dart';
+part 'serverless_inference_messages_response_content_block.dart';
+part 'serverless_inference_messages_response_text_block.dart';
+part 'serverless_inference_messages_response_tool_use_block.dart';
+part 'serverless_inference_messages_stream_event.dart';
+part 'serverless_inference_messages_thinking_config_param.dart';
+part 'serverless_inference_messages_tool_choice_param.dart';
+part 'serverless_inference_messages_tool_definition_param.dart';
+part 'serverless_inference_messages_tool_result_block_param.dart';
+part 'serverless_inference_messages_tool_use_block_param.dart';
+part 'serverless_inference_messages_usage.dart';

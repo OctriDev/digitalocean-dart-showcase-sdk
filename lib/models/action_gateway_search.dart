@@ -8,4 +8,4 @@ import 'action_gateway_session.dart';
 import 'action_gateway_tool.dart';
 import 'action_gateway_toolbelt.dart';
 
-part 'action_gateway_search_part1.dart';
+part 'action_gateway_search_models.dart';

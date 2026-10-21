@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'logsink_base_part1.dart';
+part 'logsink_base_models.dart';

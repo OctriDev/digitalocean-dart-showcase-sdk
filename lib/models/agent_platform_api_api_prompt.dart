@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'agent_platform_api_api_evaluation.dart';
 
-part 'agent_platform_api_api_prompt_part1.dart';
+part 'agent_platform_api_api_prompt_models.dart';

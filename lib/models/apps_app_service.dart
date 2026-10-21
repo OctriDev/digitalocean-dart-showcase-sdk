@@ -10,6 +10,7 @@ import 'apps_app_log.dart';
 import 'apps_apps.dart';
 import 'inline.dart';
 
-part 'apps_app_service_part1.dart';
-part 'apps_app_service_part2.dart';
-part 'apps_app_service_part3.dart';
+part 'apps_app_service_spec_variant2_cors.dart';
+part 'apps_app_service_spec.dart';
+part 'apps_app_service_spec_health_check.dart';
+part 'apps_app_service_spec_termination.dart';

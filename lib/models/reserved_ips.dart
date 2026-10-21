@@ -8,5 +8,7 @@ import 'shared_action.dart';
 import 'shared_droplet.dart';
 import 'shared_meta.dart';
 
-part 'reserved_ips_part1.dart';
-part 'reserved_ips_part2.dart';
+part 'reserved_ips_shared.dart';
+part 'reserved_ips_create.dart';
+part 'reserved_ips_list.dart';
+part 'reserved_ips_get.dart';

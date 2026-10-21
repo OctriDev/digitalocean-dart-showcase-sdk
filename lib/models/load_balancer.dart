@@ -7,12 +7,8 @@ import 'inline.dart';
 import 'load_balancers.dart';
 import 'shared_region.dart';
 
-part 'load_balancer_part1.dart';
-part 'load_balancer_part2.dart';
-part 'load_balancer_part3.dart';
-part 'load_balancer_part4.dart';
-part 'load_balancer_part5.dart';
-part 'load_balancer_part6.dart';
-part 'load_balancer_part7.dart';
-part 'load_balancer_part8.dart';
-part 'load_balancer_part9.dart';
+part 'load_balancer_create.dart';
+part 'load_balancer_create_variant1_variant2.dart';
+part 'load_balancer_create_load_balancer_create_variant1.dart';
+part 'load_balancer_update.dart';
+part 'load_balancer_update_variant1.dart';

@@ -224,7 +224,7 @@ Future<DropletBackupPolicyResponse> dropletsGetBackupPolicy(ClientConfig config,
 ///
 /// [perPage] Number of items returned per page
 /// [page] Which 'page' of paginated results to return.
-Future<AllDropletBackupPolicies> dropletsListBackupPolicies(ClientConfig config,
+Future<AllDropletBackupPolicies> listAllBackupPolicies(ClientConfig config,
     {SdkOptional<int> perPage = const SdkOmitted(),
     SdkOptional<int> page = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -245,7 +245,7 @@ Future<AllDropletBackupPolicies> dropletsListBackupPolicies(ClientConfig config,
                 style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          operationId: 'dropletsListBackupPolicies',
+          operationId: 'listAllBackupPolicies',
           fromJsonRaw: (value) =>
               AllDropletBackupPolicies.fromJson(value as Map<String, dynamic>),
           options: requestOptions,

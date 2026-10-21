@@ -8,5 +8,7 @@ import 'shared_action.dart';
 import 'shared_droplet.dart';
 import 'shared_meta.dart';
 
-part 'floating_ips_part1.dart';
-part 'floating_ips_part2.dart';
+part 'floating_ips_shared.dart';
+part 'floating_ips_create.dart';
+part 'floating_ips_list.dart';
+part 'floating_ips_get.dart';

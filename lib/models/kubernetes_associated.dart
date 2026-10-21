@@ -4,4 +4,4 @@
 // kubernetes_associated domain model library.
 import '../sdk_utils.dart';
 
-part 'kubernetes_associated_part1.dart';
+part 'kubernetes_associated_models.dart';

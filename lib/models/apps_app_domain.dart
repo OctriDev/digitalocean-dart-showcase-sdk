@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'apps_app_domain_part1.dart';
+part 'apps_app_domain_models.dart';

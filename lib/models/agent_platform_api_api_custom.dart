@@ -5,6 +5,5 @@
 import '../sdk_utils.dart';
 import 'agent_platform_api_custom.dart';
 
-part 'agent_platform_api_api_custom_part1.dart';
-part 'agent_platform_api_api_custom_part2.dart';
-part 'agent_platform_api_api_custom_part3.dart';
+part 'agent_platform_api_api_custom_shared.dart';
+part 'agent_platform_api_api_custom_genai_import_custom_model.dart';

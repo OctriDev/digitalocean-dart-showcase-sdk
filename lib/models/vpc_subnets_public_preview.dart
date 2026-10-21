@@ -8,5 +8,8 @@ import 'shared.dart';
 import 'shared_meta.dart';
 import 'shared_vpc.dart';
 
-part 'vpc_subnets_public_preview_part1.dart';
-part 'vpc_subnets_public_preview_part2.dart';
+part 'vpc_subnets_public_preview_vpc_subnets_list.dart';
+part 'vpc_subnets_public_preview_shared.dart';
+part 'vpc_subnets_public_preview_vpc_subnets_create.dart';
+part 'vpc_subnets_public_preview_vpc_subnets_list_members.dart';
+part 'vpc_subnets_public_preview_vpc_subnets_update.dart';

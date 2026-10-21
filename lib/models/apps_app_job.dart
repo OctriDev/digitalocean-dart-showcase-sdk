@@ -9,7 +9,7 @@ import 'apps_apps.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'apps_app_job_part1.dart';
-part 'apps_app_job_part2.dart';
-part 'apps_app_job_part3.dart';
-part 'apps_app_job_part4.dart';
+part 'apps_app_job_invocation.dart';
+part 'apps_app_job_spec.dart';
+part 'apps_app_job_spec_termination.dart';
+part 'apps_app_job_apps_list_job_invocations.dart';

@@ -4,6 +4,14 @@
 // vector_databases domain model library.
 import '../sdk_utils.dart';
 
-part 'vector_databases_part1.dart';
-part 'vector_databases_part2.dart';
-part 'vector_databases_part3.dart';
+part 'vector_databases_list_backups.dart';
+part 'vector_databases_create.dart';
+part 'vector_databases_get_restore_status.dart';
+part 'vector_databases_get_credentials.dart';
+part 'vector_databases_get.dart';
+part 'vector_databases_list.dart';
+part 'vector_databases_post_resize.dart';
+part 'vector_databases_post_restore_backup.dart';
+part 'vector_databases_update.dart';
+part 'vector_databases_update_tags.dart';
+part 'vector_databases_shared.dart';

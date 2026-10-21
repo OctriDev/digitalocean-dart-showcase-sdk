@@ -7,5 +7,12 @@ import 'harness_runtime.dart';
 import 'harness_runtime_agent.dart';
 import 'harness_runtime_webhook.dart';
 
-part 'harness_runtime_trigger_part1.dart';
-part 'harness_runtime_trigger_part2.dart';
+part 'harness_runtime_trigger2.dart';
+part 'harness_runtime_trigger_execution.dart';
+part 'harness_runtime_trigger_execution_status.dart';
+part 'harness_runtime_trigger_kind.dart';
+part 'harness_runtime_trigger_output_mode.dart';
+part 'harness_runtime_trigger_output_read.dart';
+part 'harness_runtime_trigger_output_write.dart';
+part 'harness_runtime_trigger_session_mode.dart';
+part 'harness_runtime_trigger_status.dart';

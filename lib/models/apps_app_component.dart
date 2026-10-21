@@ -8,4 +8,4 @@ import 'apps_app_log.dart';
 import 'apps_apps.dart';
 import 'inline.dart';
 
-part 'apps_app_component_part1.dart';
+part 'apps_app_component_models.dart';

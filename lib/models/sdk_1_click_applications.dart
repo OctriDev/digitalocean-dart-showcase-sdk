@@ -4,4 +4,4 @@
 // 1_click_applications domain model library.
 import '../sdk_utils.dart';
 
-part 'sdk_1_click_applications_part1.dart';
+part 'sdk_1_click_applications_models.dart';

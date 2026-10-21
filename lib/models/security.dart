@@ -7,6 +7,11 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_meta.dart';
 
-part 'security_part1.dart';
-part 'security_part2.dart';
-part 'security_part3.dart';
+part 'security_list_scan_finding_affected_resources.dart';
+part 'security_list_settings.dart';
+part 'security_scan.dart';
+part 'security_scan_response.dart';
+part 'security_suppressed_resource.dart';
+part 'security_suppressed_resource_root.dart';
+part 'security_list_scans.dart';
+part 'security_update_settings_plan.dart';

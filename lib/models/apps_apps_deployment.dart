@@ -5,6 +5,15 @@
 import '../sdk_utils.dart';
 import 'apps_app_spec.dart';
 
-part 'apps_apps_deployment_part1.dart';
-part 'apps_apps_deployment_part2.dart';
-part 'apps_apps_deployment_part3.dart';
+part 'apps_apps_deployment2.dart';
+part 'apps_apps_deployment_functions.dart';
+part 'apps_apps_deployment_job.dart';
+part 'apps_apps_deployment_phase.dart';
+part 'apps_apps_deployment_progress.dart';
+part 'apps_apps_deployment_progress_step.dart';
+part 'apps_apps_deployment_progress_step_reason.dart';
+part 'apps_apps_deployment_progress_step_status.dart';
+part 'apps_apps_deployment_response.dart';
+part 'apps_apps_deployment_service.dart';
+part 'apps_apps_deployment_static_site.dart';
+part 'apps_apps_deployment_worker.dart';

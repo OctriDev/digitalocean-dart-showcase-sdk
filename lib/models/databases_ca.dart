@@ -4,4 +4,4 @@
 // databases_ca domain model library.
 import '../sdk_utils.dart';
 
-part 'databases_ca_part1.dart';
+part 'databases_ca_models.dart';

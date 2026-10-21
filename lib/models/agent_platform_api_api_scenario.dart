@@ -4,6 +4,10 @@
 // agent_platform_api_api_scenario domain model library.
 import '../sdk_utils.dart';
 
-part 'agent_platform_api_api_scenario_part1.dart';
-part 'agent_platform_api_api_scenario_part2.dart';
-part 'agent_platform_api_api_scenario_part3.dart';
+part 'agent_platform_api_api_scenario2.dart';
+part 'agent_platform_api_api_scenario_set.dart';
+part 'agent_platform_api_api_scenario_set_source_kind.dart';
+part 'agent_platform_api_api_scenario_set_status.dart';
+part 'agent_platform_api_api_scenario_sort_field.dart';
+part 'agent_platform_api_api_scenario_genai_list_scenario_library.dart';
+part 'agent_platform_api_api_scenario_genai_list_scenario_sets.dart';
