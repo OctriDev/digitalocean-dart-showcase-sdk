@@ -8,22 +8,29 @@ part of 'action_gateway.dart';
 class SetActorLimits {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required. Limits to set, at most one per category.
   final List<LimitOverride> overrides;
 
   const SetActorLimits({required this.overrides});
 
-  SetActorLimits Function({List<LimitOverride> overrides}) get copyWith => _copyWith;
+  SetActorLimits Function({List<LimitOverride> overrides}) get copyWith =>
+      _copyWith;
 
-  SetActorLimits _copyWith({Object? overrides = sdkOmittedValue}) => SetActorLimits(
-    overrides: identical(overrides, sdkOmittedValue) ? this.overrides : overrides as List<LimitOverride>,
-  );
+  SetActorLimits _copyWith({Object? overrides = sdkOmittedValue}) =>
+      SetActorLimits(
+        overrides: identical(overrides, sdkOmittedValue)
+            ? this.overrides
+            : overrides as List<LimitOverride>,
+      );
 
   factory SetActorLimits.fromJson(Map<String, dynamic> json) => SetActorLimits(
-    overrides: ((json['overrides'] as List?)?.map((e) => LimitOverride.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+        overrides: ((json['overrides'] as List?)
+            ?.map((e) => LimitOverride.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'overrides': overrides.map((item) => item.toJson()).toList(),
-  };
+        'overrides': overrides.map((item) => item.toJson()).toList(),
+      };
 }

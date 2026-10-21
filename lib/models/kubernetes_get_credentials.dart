@@ -8,65 +8,134 @@ part of 'kubernetes.dart';
 class Credentials {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The URL used to access the cluster API server.
   final SdkOptional<String> server;
+
   /// A base64 encoding of bytes representing the certificate authority data for accessing the cluster.
   final SdkOptional<List<int>> certificateAuthorityData;
+
   /// A base64 encoding of bytes representing the x509 client certificate data for access the cluster. This is only returned for clusters without support for token-based authentication. Newly created Kubernetes clusters do not return credentials using certificate-based authentication. For additional information, [see here](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/#authenticate).
   final SdkOptional<List<int>?> clientCertificateData;
+
   /// A base64 encoding of bytes representing the x509 client key data for access the cluster. This is only returned for clusters without support for token-based authentication. Newly created Kubernetes clusters do not return credentials using certificate-based authentication. For additional information, [see here](https://docs.digitalocean.com/products/kubernetes/how-to/connect-to-cluster/#authenticate).
   final SdkOptional<List<int>?> clientKeyData;
+
   /// An access token used to authenticate with the cluster. This is only returned for clusters with support for token-based authentication.
   final SdkOptional<String> token;
+
   /// A time value given in ISO8601 combined date and time format that represents when the access token expires.
   final SdkOptional<String> expiresAt;
 
-  const Credentials({this.server = const SdkOmitted(), this.certificateAuthorityData = const SdkOmitted(), this.clientCertificateData = const SdkOmitted(), this.clientKeyData = const SdkOmitted(), this.token = const SdkOmitted(), this.expiresAt = const SdkOmitted()});
+  const Credentials(
+      {this.server = const SdkOmitted(),
+      this.certificateAuthorityData = const SdkOmitted(),
+      this.clientCertificateData = const SdkOmitted(),
+      this.clientKeyData = const SdkOmitted(),
+      this.token = const SdkOmitted(),
+      this.expiresAt = const SdkOmitted()});
 
-  Credentials Function({SdkOptional<String> server, SdkOptional<List<int>> certificateAuthorityData, SdkOptional<List<int>?> clientCertificateData, SdkOptional<List<int>?> clientKeyData, SdkOptional<String> token, SdkOptional<String> expiresAt}) get copyWith => _copyWith;
+  Credentials Function(
+      {SdkOptional<String> server,
+      SdkOptional<List<int>> certificateAuthorityData,
+      SdkOptional<List<int>?> clientCertificateData,
+      SdkOptional<List<int>?> clientKeyData,
+      SdkOptional<String> token,
+      SdkOptional<String> expiresAt}) get copyWith => _copyWith;
 
-  Credentials _copyWith({Object? server = sdkOmittedValue, Object? certificateAuthorityData = sdkOmittedValue, Object? clientCertificateData = sdkOmittedValue, Object? clientKeyData = sdkOmittedValue, Object? token = sdkOmittedValue, Object? expiresAt = sdkOmittedValue}) => Credentials(
-    server: identical(server, sdkOmittedValue) ? this.server : server as SdkOptional<String>,
-    certificateAuthorityData: identical(certificateAuthorityData, sdkOmittedValue) ? this.certificateAuthorityData : certificateAuthorityData as SdkOptional<List<int>>,
-    clientCertificateData: identical(clientCertificateData, sdkOmittedValue) ? this.clientCertificateData : clientCertificateData as SdkOptional<List<int>?>,
-    clientKeyData: identical(clientKeyData, sdkOmittedValue) ? this.clientKeyData : clientKeyData as SdkOptional<List<int>?>,
-    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<String>,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String>,
-  );
+  Credentials _copyWith(
+          {Object? server = sdkOmittedValue,
+          Object? certificateAuthorityData = sdkOmittedValue,
+          Object? clientCertificateData = sdkOmittedValue,
+          Object? clientKeyData = sdkOmittedValue,
+          Object? token = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue}) =>
+      Credentials(
+        server: identical(server, sdkOmittedValue)
+            ? this.server
+            : server as SdkOptional<String>,
+        certificateAuthorityData:
+            identical(certificateAuthorityData, sdkOmittedValue)
+                ? this.certificateAuthorityData
+                : certificateAuthorityData as SdkOptional<List<int>>,
+        clientCertificateData: identical(clientCertificateData, sdkOmittedValue)
+            ? this.clientCertificateData
+            : clientCertificateData as SdkOptional<List<int>?>,
+        clientKeyData: identical(clientKeyData, sdkOmittedValue)
+            ? this.clientKeyData
+            : clientKeyData as SdkOptional<List<int>?>,
+        token: identical(token, sdkOmittedValue)
+            ? this.token
+            : token as SdkOptional<String>,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<String>,
+      );
 
   factory Credentials.fromJson(Map<String, dynamic> json) => Credentials(
-    server: json['server'] != null ? SdkPresent((json['server'] as String?)!) : const SdkOmitted(),
-    certificateAuthorityData: json['certificate_authority_data'] != null ? SdkPresent((json['certificate_authority_data'] != null ? base64Decode(json['certificate_authority_data'] as String) : null)!) : const SdkOmitted(),
-    clientCertificateData: json.containsKey('client_certificate_data') ? SdkPresent(json['client_certificate_data'] != null ? base64Decode(json['client_certificate_data'] as String) : null) : const SdkOmitted(),
-    clientKeyData: json.containsKey('client_key_data') ? SdkPresent(json['client_key_data'] != null ? base64Decode(json['client_key_data'] as String) : null) : const SdkOmitted(),
-    token: json['token'] != null ? SdkPresent((json['token'] as String?)!) : const SdkOmitted(),
-    expiresAt: json['expires_at'] != null ? SdkPresent((json['expires_at'] as String?)!) : const SdkOmitted(),
-  );
+        server: json['server'] != null
+            ? SdkPresent((json['server'] as String?)!)
+            : const SdkOmitted(),
+        certificateAuthorityData: json['certificate_authority_data'] != null
+            ? SdkPresent((json['certificate_authority_data'] != null
+                ? base64Decode(json['certificate_authority_data'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        clientCertificateData: json.containsKey('client_certificate_data')
+            ? SdkPresent(json['client_certificate_data'] != null
+                ? base64Decode(json['client_certificate_data'] as String)
+                : null)
+            : const SdkOmitted(),
+        clientKeyData: json.containsKey('client_key_data')
+            ? SdkPresent(json['client_key_data'] != null
+                ? base64Decode(json['client_key_data'] as String)
+                : null)
+            : const SdkOmitted(),
+        token: json['token'] != null
+            ? SdkPresent((json['token'] as String?)!)
+            : const SdkOmitted(),
+        expiresAt: json['expires_at'] != null
+            ? SdkPresent((json['expires_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (server) {
-      SdkPresent<String>(value: final value) => {'server': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (certificateAuthorityData) {
-      SdkPresent<List<int>>(value: final value) => {'certificate_authority_data': base64Encode(value),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (clientCertificateData) {
-      SdkPresent<List<int>?>(value: final value) => {'client_certificate_data': value == null ? null : base64Encode(value),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (clientKeyData) {
-      SdkPresent<List<int>?>(value: final value) => {'client_key_data': value == null ? null : base64Encode(value),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (token) {
-      SdkPresent<String>(value: final value) => {'token': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresAt) {
-      SdkPresent<String>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (server) {
+          SdkPresent<String>(value: final value) => {
+              'server': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (certificateAuthorityData) {
+          SdkPresent<List<int>>(value: final value) => {
+              'certificate_authority_data': base64Encode(value),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (clientCertificateData) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'client_certificate_data':
+                  value == null ? null : base64Encode(value),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (clientKeyData) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'client_key_data': value == null ? null : base64Encode(value),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (token) {
+          SdkPresent<String>(value: final value) => {
+              'token': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresAt) {
+          SdkPresent<String>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

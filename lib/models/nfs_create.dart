@@ -8,72 +8,115 @@ part of 'nfs.dart';
 class NfsCreateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `share` wire field.
   final SdkOptional<NfsResponse> share;
 
   const NfsCreateResponse({this.share = const SdkOmitted()});
 
-  NfsCreateResponse Function({SdkOptional<NfsResponse> share}) get copyWith => _copyWith;
+  NfsCreateResponse Function({SdkOptional<NfsResponse> share}) get copyWith =>
+      _copyWith;
 
-  NfsCreateResponse _copyWith({Object? share = sdkOmittedValue}) => NfsCreateResponse(
-    share: identical(share, sdkOmittedValue) ? this.share : share as SdkOptional<NfsResponse>,
-  );
+  NfsCreateResponse _copyWith({Object? share = sdkOmittedValue}) =>
+      NfsCreateResponse(
+        share: identical(share, sdkOmittedValue)
+            ? this.share
+            : share as SdkOptional<NfsResponse>,
+      );
 
-  factory NfsCreateResponse.fromJson(Map<String, dynamic> json) => NfsCreateResponse(
-    share: json['share'] != null ? SdkPresent((json['share'] != null ? NfsResponse.fromJson(json['share'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory NfsCreateResponse.fromJson(Map<String, dynamic> json) =>
+      NfsCreateResponse(
+        share: json['share'] != null
+            ? SdkPresent((json['share'] != null
+                ? NfsResponse.fromJson(json['share'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (share) {
-      SdkPresent<NfsResponse>(value: final value) => {'share': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (share) {
+          SdkPresent<NfsResponse>(value: final value) => {
+              'share': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `NfsRequest` API schema.
 class NfsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The human-readable name of the share.
   final String name;
+
   /// The desired/provisioned size of the share in GiB (Gibibytes). Must be &gt;= 50.
   final int sizeGib;
+
   /// The DigitalOcean region slug (e.g., nyc2, atl1) where the NFS share resides.
   final String region;
+
   /// List of VPC IDs that should be able to access the share.
   final List<String> vpcIds;
+
   /// The performance tier of the share.
   final SdkOptional<String> performanceTier;
 
-  const NfsRequest({required this.name, required this.sizeGib, required this.region, required this.vpcIds, this.performanceTier = const SdkOmitted()});
+  const NfsRequest(
+      {required this.name,
+      required this.sizeGib,
+      required this.region,
+      required this.vpcIds,
+      this.performanceTier = const SdkOmitted()});
 
-  NfsRequest Function({String name, int sizeGib, String region, List<String> vpcIds, SdkOptional<String> performanceTier}) get copyWith => _copyWith;
+  NfsRequest Function(
+      {String name,
+      int sizeGib,
+      String region,
+      List<String> vpcIds,
+      SdkOptional<String> performanceTier}) get copyWith => _copyWith;
 
-  NfsRequest _copyWith({Object? name = sdkOmittedValue, Object? sizeGib = sdkOmittedValue, Object? region = sdkOmittedValue, Object? vpcIds = sdkOmittedValue, Object? performanceTier = sdkOmittedValue}) => NfsRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    sizeGib: identical(sizeGib, sdkOmittedValue) ? this.sizeGib : sizeGib as int,
-    region: identical(region, sdkOmittedValue) ? this.region : region as String,
-    vpcIds: identical(vpcIds, sdkOmittedValue) ? this.vpcIds : vpcIds as List<String>,
-    performanceTier: identical(performanceTier, sdkOmittedValue) ? this.performanceTier : performanceTier as SdkOptional<String>,
-  );
+  NfsRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? sizeGib = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? vpcIds = sdkOmittedValue,
+          Object? performanceTier = sdkOmittedValue}) =>
+      NfsRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        sizeGib:
+            identical(sizeGib, sdkOmittedValue) ? this.sizeGib : sizeGib as int,
+        region:
+            identical(region, sdkOmittedValue) ? this.region : region as String,
+        vpcIds: identical(vpcIds, sdkOmittedValue)
+            ? this.vpcIds
+            : vpcIds as List<String>,
+        performanceTier: identical(performanceTier, sdkOmittedValue)
+            ? this.performanceTier
+            : performanceTier as SdkOptional<String>,
+      );
 
   factory NfsRequest.fromJson(Map<String, dynamic> json) => NfsRequest(
-    name: (json['name'] as String?)!,
-    sizeGib: ((json['size_gib'] as num?)?.toInt())!,
-    region: (json['region'] as String?)!,
-    vpcIds: ((json['vpc_ids'] as List?)?.map((e) => e as String).toList())!,
-    performanceTier: json['performance_tier'] != null ? SdkPresent((json['performance_tier'] as String?)!) : const SdkOmitted(),
-  );
+        name: (json['name'] as String?)!,
+        sizeGib: ((json['size_gib'] as num?)?.toInt())!,
+        region: (json['region'] as String?)!,
+        vpcIds: ((json['vpc_ids'] as List?)?.map((e) => e as String).toList())!,
+        performanceTier: json['performance_tier'] != null
+            ? SdkPresent((json['performance_tier'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'size_gib': sizeGib,
-    'region': region,
-    'vpc_ids': vpcIds,
-    ...switch (performanceTier) {
-      SdkPresent<String>(value: final value) => {'performance_tier': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        'size_gib': sizeGib,
+        'region': region,
+        'vpc_ids': vpcIds,
+        ...switch (performanceTier) {
+          SdkPresent<String>(value: final value) => {
+              'performance_tier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

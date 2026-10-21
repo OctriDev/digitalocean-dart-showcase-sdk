@@ -7,84 +7,148 @@ part of 'projects.dart';
 class ProjectRequestVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// If true, all resources will be added to this project if no project is specified.
   final SdkOptional<bool> isDefault;
 
   const ProjectRequestVariant1({this.isDefault = const SdkOmitted()});
 
-  ProjectRequestVariant1 Function({SdkOptional<bool> isDefault}) get copyWith => _copyWith;
+  ProjectRequestVariant1 Function({SdkOptional<bool> isDefault}) get copyWith =>
+      _copyWith;
 
-  ProjectRequestVariant1 _copyWith({Object? isDefault = sdkOmittedValue}) => ProjectRequestVariant1(
-    isDefault: identical(isDefault, sdkOmittedValue) ? this.isDefault : isDefault as SdkOptional<bool>,
-  );
+  ProjectRequestVariant1 _copyWith({Object? isDefault = sdkOmittedValue}) =>
+      ProjectRequestVariant1(
+        isDefault: identical(isDefault, sdkOmittedValue)
+            ? this.isDefault
+            : isDefault as SdkOptional<bool>,
+      );
 
-  factory ProjectRequestVariant1.fromJson(Map<String, dynamic> json) => ProjectRequestVariant1(
-    isDefault: json['is_default'] != null ? SdkPresent((json['is_default'] as bool?)!) : const SdkOmitted(),
-  );
+  factory ProjectRequestVariant1.fromJson(Map<String, dynamic> json) =>
+      ProjectRequestVariant1(
+        isDefault: json['is_default'] != null
+            ? SdkPresent((json['is_default'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (isDefault) {
-      SdkPresent<bool>(value: final value) => {'is_default': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (isDefault) {
+          SdkPresent<bool>(value: final value) => {
+              'is_default': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ProjectRequest` API schema.
 class ProjectRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The human-readable name for the project. The maximum length is 175 characters and the name must be unique.
   final SdkOptional<String> name;
+
   /// The description of the project. The maximum length is 255 characters.
   final SdkOptional<String> description;
+
   /// The purpose of the project. The maximum length is 255 characters. It can have one of the following values: - Just trying out DigitalOcean - Class project / Educational purposes - Website or blog - Web Application - Service or API - Mobile Application - Machine learning / AI / Data processing - IoT - Operational / Developer tooling If another value for purpose is specified, for example, "your custom purpose", your purpose will be stored as `Other: your custom purpose`.
   final SdkOptional<String> purpose;
+
   /// The environment of the project's resources.
   final SdkOptional<ProjectBaseRequestEnvironment> environment;
+
   /// If true, all resources will be added to this project if no project is specified.
   final SdkOptional<bool> isDefault;
 
-  const ProjectRequest({this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.purpose = const SdkOmitted(), this.environment = const SdkOmitted(), this.isDefault = const SdkOmitted()});
+  const ProjectRequest(
+      {this.name = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.purpose = const SdkOmitted(),
+      this.environment = const SdkOmitted(),
+      this.isDefault = const SdkOmitted()});
 
-  ProjectRequest Function({SdkOptional<String> name, SdkOptional<String> description, SdkOptional<String> purpose, SdkOptional<ProjectBaseRequestEnvironment> environment, SdkOptional<bool> isDefault}) get copyWith => _copyWith;
+  ProjectRequest Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> description,
+      SdkOptional<String> purpose,
+      SdkOptional<ProjectBaseRequestEnvironment> environment,
+      SdkOptional<bool> isDefault}) get copyWith => _copyWith;
 
-  ProjectRequest _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? purpose = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? isDefault = sdkOmittedValue}) => ProjectRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    purpose: identical(purpose, sdkOmittedValue) ? this.purpose : purpose as SdkOptional<String>,
-    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as SdkOptional<ProjectBaseRequestEnvironment>,
-    isDefault: identical(isDefault, sdkOmittedValue) ? this.isDefault : isDefault as SdkOptional<bool>,
-  );
+  ProjectRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? purpose = sdkOmittedValue,
+          Object? environment = sdkOmittedValue,
+          Object? isDefault = sdkOmittedValue}) =>
+      ProjectRequest(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        purpose: identical(purpose, sdkOmittedValue)
+            ? this.purpose
+            : purpose as SdkOptional<String>,
+        environment: identical(environment, sdkOmittedValue)
+            ? this.environment
+            : environment as SdkOptional<ProjectBaseRequestEnvironment>,
+        isDefault: identical(isDefault, sdkOmittedValue)
+            ? this.isDefault
+            : isDefault as SdkOptional<bool>,
+      );
 
   factory ProjectRequest.fromJson(Map<String, dynamic> json) => ProjectRequest(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    purpose: json['purpose'] != null ? SdkPresent((json['purpose'] as String?)!) : const SdkOmitted(),
-    environment: json['environment'] != null ? SdkPresent((json['environment'] != null ? ProjectBaseRequestEnvironment.fromJson(json['environment'] as String) : null)!) : const SdkOmitted(),
-    isDefault: json['is_default'] != null ? SdkPresent((json['is_default'] as bool?)!) : const SdkOmitted(),
-  );
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        purpose: json['purpose'] != null
+            ? SdkPresent((json['purpose'] as String?)!)
+            : const SdkOmitted(),
+        environment: json['environment'] != null
+            ? SdkPresent((json['environment'] != null
+                ? ProjectBaseRequestEnvironment.fromJson(
+                    json['environment'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        isDefault: json['is_default'] != null
+            ? SdkPresent((json['is_default'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (purpose) {
-      SdkPresent<String>(value: final value) => {'purpose': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (environment) {
-      SdkPresent<ProjectBaseRequestEnvironment>(value: final value) => {'environment': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (isDefault) {
-      SdkPresent<bool>(value: final value) => {'is_default': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (purpose) {
+          SdkPresent<String>(value: final value) => {
+              'purpose': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (environment) {
+          SdkPresent<ProjectBaseRequestEnvironment>(value: final value) => {
+              'environment': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (isDefault) {
+          SdkPresent<bool>(value: final value) => {
+              'is_default': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

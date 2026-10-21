@@ -8,25 +8,41 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetEvaluationTestCaseOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `evaluation_test_case` wire field.
   final SdkOptional<ApiEvaluationTestCase> evaluationTestCase;
 
-  const ApiGetEvaluationTestCaseOutput({this.evaluationTestCase = const SdkOmitted()});
+  const ApiGetEvaluationTestCaseOutput(
+      {this.evaluationTestCase = const SdkOmitted()});
 
-  ApiGetEvaluationTestCaseOutput Function({SdkOptional<ApiEvaluationTestCase> evaluationTestCase}) get copyWith => _copyWith;
+  ApiGetEvaluationTestCaseOutput Function(
+          {SdkOptional<ApiEvaluationTestCase> evaluationTestCase})
+      get copyWith => _copyWith;
 
-  ApiGetEvaluationTestCaseOutput _copyWith({Object? evaluationTestCase = sdkOmittedValue}) => ApiGetEvaluationTestCaseOutput(
-    evaluationTestCase: identical(evaluationTestCase, sdkOmittedValue) ? this.evaluationTestCase : evaluationTestCase as SdkOptional<ApiEvaluationTestCase>,
-  );
+  ApiGetEvaluationTestCaseOutput _copyWith(
+          {Object? evaluationTestCase = sdkOmittedValue}) =>
+      ApiGetEvaluationTestCaseOutput(
+        evaluationTestCase: identical(evaluationTestCase, sdkOmittedValue)
+            ? this.evaluationTestCase
+            : evaluationTestCase as SdkOptional<ApiEvaluationTestCase>,
+      );
 
-  factory ApiGetEvaluationTestCaseOutput.fromJson(Map<String, dynamic> json) => ApiGetEvaluationTestCaseOutput(
-    evaluationTestCase: json['evaluation_test_case'] != null ? SdkPresent((json['evaluation_test_case'] != null ? ApiEvaluationTestCase.fromJson(json['evaluation_test_case'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiGetEvaluationTestCaseOutput.fromJson(Map<String, dynamic> json) =>
+      ApiGetEvaluationTestCaseOutput(
+        evaluationTestCase: json['evaluation_test_case'] != null
+            ? SdkPresent((json['evaluation_test_case'] != null
+                ? ApiEvaluationTestCase.fromJson(
+                    json['evaluation_test_case'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (evaluationTestCase) {
-      SdkPresent<ApiEvaluationTestCase>(value: final value) => {'evaluation_test_case': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (evaluationTestCase) {
+          SdkPresent<ApiEvaluationTestCase>(value: final value) => {
+              'evaluation_test_case': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

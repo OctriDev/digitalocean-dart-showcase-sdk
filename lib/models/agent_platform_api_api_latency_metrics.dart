@@ -8,65 +8,127 @@ part of 'agent_platform_api_api.dart';
 class ApiLatencyMetrics {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Average end-to-end latency across all invocations.
   final SdkOptional<double> avgE2eLatencyMs;
+
   /// Maximum end-to-end latency observed.
   final SdkOptional<double> maxE2eLatencyMs;
+
   /// Minimum end-to-end latency observed.
   final SdkOptional<double> minE2eLatencyMs;
+
   /// P50 (median) latency.
   final SdkOptional<double> p50LatencyMs;
+
   /// P90 latency.
   final SdkOptional<double> p90LatencyMs;
+
   /// P95 latency.
   final SdkOptional<double> p95LatencyMs;
 
-  const ApiLatencyMetrics({this.avgE2eLatencyMs = const SdkOmitted(), this.maxE2eLatencyMs = const SdkOmitted(), this.minE2eLatencyMs = const SdkOmitted(), this.p50LatencyMs = const SdkOmitted(), this.p90LatencyMs = const SdkOmitted(), this.p95LatencyMs = const SdkOmitted()});
+  const ApiLatencyMetrics(
+      {this.avgE2eLatencyMs = const SdkOmitted(),
+      this.maxE2eLatencyMs = const SdkOmitted(),
+      this.minE2eLatencyMs = const SdkOmitted(),
+      this.p50LatencyMs = const SdkOmitted(),
+      this.p90LatencyMs = const SdkOmitted(),
+      this.p95LatencyMs = const SdkOmitted()});
 
-  ApiLatencyMetrics Function({SdkOptional<double> avgE2eLatencyMs, SdkOptional<double> maxE2eLatencyMs, SdkOptional<double> minE2eLatencyMs, SdkOptional<double> p50LatencyMs, SdkOptional<double> p90LatencyMs, SdkOptional<double> p95LatencyMs}) get copyWith => _copyWith;
+  ApiLatencyMetrics Function(
+      {SdkOptional<double> avgE2eLatencyMs,
+      SdkOptional<double> maxE2eLatencyMs,
+      SdkOptional<double> minE2eLatencyMs,
+      SdkOptional<double> p50LatencyMs,
+      SdkOptional<double> p90LatencyMs,
+      SdkOptional<double> p95LatencyMs}) get copyWith => _copyWith;
 
-  ApiLatencyMetrics _copyWith({Object? avgE2eLatencyMs = sdkOmittedValue, Object? maxE2eLatencyMs = sdkOmittedValue, Object? minE2eLatencyMs = sdkOmittedValue, Object? p50LatencyMs = sdkOmittedValue, Object? p90LatencyMs = sdkOmittedValue, Object? p95LatencyMs = sdkOmittedValue}) => ApiLatencyMetrics(
-    avgE2eLatencyMs: identical(avgE2eLatencyMs, sdkOmittedValue) ? this.avgE2eLatencyMs : avgE2eLatencyMs as SdkOptional<double>,
-    maxE2eLatencyMs: identical(maxE2eLatencyMs, sdkOmittedValue) ? this.maxE2eLatencyMs : maxE2eLatencyMs as SdkOptional<double>,
-    minE2eLatencyMs: identical(minE2eLatencyMs, sdkOmittedValue) ? this.minE2eLatencyMs : minE2eLatencyMs as SdkOptional<double>,
-    p50LatencyMs: identical(p50LatencyMs, sdkOmittedValue) ? this.p50LatencyMs : p50LatencyMs as SdkOptional<double>,
-    p90LatencyMs: identical(p90LatencyMs, sdkOmittedValue) ? this.p90LatencyMs : p90LatencyMs as SdkOptional<double>,
-    p95LatencyMs: identical(p95LatencyMs, sdkOmittedValue) ? this.p95LatencyMs : p95LatencyMs as SdkOptional<double>,
-  );
+  ApiLatencyMetrics _copyWith(
+          {Object? avgE2eLatencyMs = sdkOmittedValue,
+          Object? maxE2eLatencyMs = sdkOmittedValue,
+          Object? minE2eLatencyMs = sdkOmittedValue,
+          Object? p50LatencyMs = sdkOmittedValue,
+          Object? p90LatencyMs = sdkOmittedValue,
+          Object? p95LatencyMs = sdkOmittedValue}) =>
+      ApiLatencyMetrics(
+        avgE2eLatencyMs: identical(avgE2eLatencyMs, sdkOmittedValue)
+            ? this.avgE2eLatencyMs
+            : avgE2eLatencyMs as SdkOptional<double>,
+        maxE2eLatencyMs: identical(maxE2eLatencyMs, sdkOmittedValue)
+            ? this.maxE2eLatencyMs
+            : maxE2eLatencyMs as SdkOptional<double>,
+        minE2eLatencyMs: identical(minE2eLatencyMs, sdkOmittedValue)
+            ? this.minE2eLatencyMs
+            : minE2eLatencyMs as SdkOptional<double>,
+        p50LatencyMs: identical(p50LatencyMs, sdkOmittedValue)
+            ? this.p50LatencyMs
+            : p50LatencyMs as SdkOptional<double>,
+        p90LatencyMs: identical(p90LatencyMs, sdkOmittedValue)
+            ? this.p90LatencyMs
+            : p90LatencyMs as SdkOptional<double>,
+        p95LatencyMs: identical(p95LatencyMs, sdkOmittedValue)
+            ? this.p95LatencyMs
+            : p95LatencyMs as SdkOptional<double>,
+      );
 
-  factory ApiLatencyMetrics.fromJson(Map<String, dynamic> json) => ApiLatencyMetrics(
-    avgE2eLatencyMs: json['avg_e2e_latency_ms'] != null ? SdkPresent(((json['avg_e2e_latency_ms'] as num?)?.toDouble())!) : const SdkOmitted(),
-    maxE2eLatencyMs: json['max_e2e_latency_ms'] != null ? SdkPresent(((json['max_e2e_latency_ms'] as num?)?.toDouble())!) : const SdkOmitted(),
-    minE2eLatencyMs: json['min_e2e_latency_ms'] != null ? SdkPresent(((json['min_e2e_latency_ms'] as num?)?.toDouble())!) : const SdkOmitted(),
-    p50LatencyMs: json['p50_latency_ms'] != null ? SdkPresent(((json['p50_latency_ms'] as num?)?.toDouble())!) : const SdkOmitted(),
-    p90LatencyMs: json['p90_latency_ms'] != null ? SdkPresent(((json['p90_latency_ms'] as num?)?.toDouble())!) : const SdkOmitted(),
-    p95LatencyMs: json['p95_latency_ms'] != null ? SdkPresent(((json['p95_latency_ms'] as num?)?.toDouble())!) : const SdkOmitted(),
-  );
+  factory ApiLatencyMetrics.fromJson(Map<String, dynamic> json) =>
+      ApiLatencyMetrics(
+        avgE2eLatencyMs: json['avg_e2e_latency_ms'] != null
+            ? SdkPresent(((json['avg_e2e_latency_ms'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        maxE2eLatencyMs: json['max_e2e_latency_ms'] != null
+            ? SdkPresent(((json['max_e2e_latency_ms'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        minE2eLatencyMs: json['min_e2e_latency_ms'] != null
+            ? SdkPresent(((json['min_e2e_latency_ms'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        p50LatencyMs: json['p50_latency_ms'] != null
+            ? SdkPresent(((json['p50_latency_ms'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        p90LatencyMs: json['p90_latency_ms'] != null
+            ? SdkPresent(((json['p90_latency_ms'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        p95LatencyMs: json['p95_latency_ms'] != null
+            ? SdkPresent(((json['p95_latency_ms'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (avgE2eLatencyMs) {
-      SdkPresent<double>(value: final value) => {'avg_e2e_latency_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxE2eLatencyMs) {
-      SdkPresent<double>(value: final value) => {'max_e2e_latency_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (minE2eLatencyMs) {
-      SdkPresent<double>(value: final value) => {'min_e2e_latency_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (p50LatencyMs) {
-      SdkPresent<double>(value: final value) => {'p50_latency_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (p90LatencyMs) {
-      SdkPresent<double>(value: final value) => {'p90_latency_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (p95LatencyMs) {
-      SdkPresent<double>(value: final value) => {'p95_latency_ms': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (avgE2eLatencyMs) {
+          SdkPresent<double>(value: final value) => {
+              'avg_e2e_latency_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxE2eLatencyMs) {
+          SdkPresent<double>(value: final value) => {
+              'max_e2e_latency_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (minE2eLatencyMs) {
+          SdkPresent<double>(value: final value) => {
+              'min_e2e_latency_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (p50LatencyMs) {
+          SdkPresent<double>(value: final value) => {
+              'p50_latency_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (p90LatencyMs) {
+          SdkPresent<double>(value: final value) => {
+              'p90_latency_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (p95LatencyMs) {
+          SdkPresent<double>(value: final value) => {
+              'p95_latency_ms': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

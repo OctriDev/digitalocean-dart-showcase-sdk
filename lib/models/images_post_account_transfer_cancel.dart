@@ -8,22 +8,29 @@ part of 'images.dart';
 class ImagesPostAccountTransferCancel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique number that used to identify and reference an image account transfer.
   final int transferId;
 
   const ImagesPostAccountTransferCancel({required this.transferId});
 
-  ImagesPostAccountTransferCancel Function({int transferId}) get copyWith => _copyWith;
+  ImagesPostAccountTransferCancel Function({int transferId}) get copyWith =>
+      _copyWith;
 
-  ImagesPostAccountTransferCancel _copyWith({Object? transferId = sdkOmittedValue}) => ImagesPostAccountTransferCancel(
-    transferId: identical(transferId, sdkOmittedValue) ? this.transferId : transferId as int,
-  );
+  ImagesPostAccountTransferCancel _copyWith(
+          {Object? transferId = sdkOmittedValue}) =>
+      ImagesPostAccountTransferCancel(
+        transferId: identical(transferId, sdkOmittedValue)
+            ? this.transferId
+            : transferId as int,
+      );
 
-  factory ImagesPostAccountTransferCancel.fromJson(Map<String, dynamic> json) => ImagesPostAccountTransferCancel(
-    transferId: ((json['transfer_id'] as num?)?.toInt())!,
-  );
+  factory ImagesPostAccountTransferCancel.fromJson(Map<String, dynamic> json) =>
+      ImagesPostAccountTransferCancel(
+        transferId: ((json['transfer_id'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'transfer_id': transferId,
-  };
+        'transfer_id': transferId,
+      };
 }

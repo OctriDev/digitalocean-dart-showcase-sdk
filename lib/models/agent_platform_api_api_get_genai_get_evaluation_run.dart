@@ -8,25 +8,39 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetEvaluationRunOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `evaluation_run` wire field.
   final SdkOptional<ApiEvaluationRun> evaluationRun;
 
   const ApiGetEvaluationRunOutput({this.evaluationRun = const SdkOmitted()});
 
-  ApiGetEvaluationRunOutput Function({SdkOptional<ApiEvaluationRun> evaluationRun}) get copyWith => _copyWith;
+  ApiGetEvaluationRunOutput Function(
+      {SdkOptional<ApiEvaluationRun> evaluationRun}) get copyWith => _copyWith;
 
-  ApiGetEvaluationRunOutput _copyWith({Object? evaluationRun = sdkOmittedValue}) => ApiGetEvaluationRunOutput(
-    evaluationRun: identical(evaluationRun, sdkOmittedValue) ? this.evaluationRun : evaluationRun as SdkOptional<ApiEvaluationRun>,
-  );
+  ApiGetEvaluationRunOutput _copyWith(
+          {Object? evaluationRun = sdkOmittedValue}) =>
+      ApiGetEvaluationRunOutput(
+        evaluationRun: identical(evaluationRun, sdkOmittedValue)
+            ? this.evaluationRun
+            : evaluationRun as SdkOptional<ApiEvaluationRun>,
+      );
 
-  factory ApiGetEvaluationRunOutput.fromJson(Map<String, dynamic> json) => ApiGetEvaluationRunOutput(
-    evaluationRun: json['evaluation_run'] != null ? SdkPresent((json['evaluation_run'] != null ? ApiEvaluationRun.fromJson(json['evaluation_run'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiGetEvaluationRunOutput.fromJson(Map<String, dynamic> json) =>
+      ApiGetEvaluationRunOutput(
+        evaluationRun: json['evaluation_run'] != null
+            ? SdkPresent((json['evaluation_run'] != null
+                ? ApiEvaluationRun.fromJson(
+                    json['evaluation_run'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (evaluationRun) {
-      SdkPresent<ApiEvaluationRun>(value: final value) => {'evaluation_run': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (evaluationRun) {
+          SdkPresent<ApiEvaluationRun>(value: final value) => {
+              'evaluation_run': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

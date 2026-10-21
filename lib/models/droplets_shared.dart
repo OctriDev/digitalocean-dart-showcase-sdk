@@ -8,56 +8,106 @@ part of 'droplets.dart';
 class DropletBackupPolicyRecord {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the Droplet.
   final SdkOptional<int> dropletId;
+
   /// A boolean value indicating whether backups are enabled for the Droplet.
   final SdkOptional<bool> backupEnabled;
+
   /// An object specifying the backup policy for the Droplet.
   final SdkOptional<DropletBackupPolicy> backupPolicy;
+
   /// An object containing keys with the start and end times of the window during which the backup will occur.
   final SdkOptional<DropletNextBackupWindow?> nextBackupWindow;
 
-  const DropletBackupPolicyRecord({this.dropletId = const SdkOmitted(), this.backupEnabled = const SdkOmitted(), this.backupPolicy = const SdkOmitted(), this.nextBackupWindow = const SdkOmitted()});
+  const DropletBackupPolicyRecord(
+      {this.dropletId = const SdkOmitted(),
+      this.backupEnabled = const SdkOmitted(),
+      this.backupPolicy = const SdkOmitted(),
+      this.nextBackupWindow = const SdkOmitted()});
 
-  DropletBackupPolicyRecord Function({SdkOptional<int> dropletId, SdkOptional<bool> backupEnabled, SdkOptional<DropletBackupPolicy> backupPolicy, SdkOptional<DropletNextBackupWindow?> nextBackupWindow}) get copyWith => _copyWith;
+  DropletBackupPolicyRecord Function(
+          {SdkOptional<int> dropletId,
+          SdkOptional<bool> backupEnabled,
+          SdkOptional<DropletBackupPolicy> backupPolicy,
+          SdkOptional<DropletNextBackupWindow?> nextBackupWindow})
+      get copyWith => _copyWith;
 
-  DropletBackupPolicyRecord _copyWith({Object? dropletId = sdkOmittedValue, Object? backupEnabled = sdkOmittedValue, Object? backupPolicy = sdkOmittedValue, Object? nextBackupWindow = sdkOmittedValue}) => DropletBackupPolicyRecord(
-    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as SdkOptional<int>,
-    backupEnabled: identical(backupEnabled, sdkOmittedValue) ? this.backupEnabled : backupEnabled as SdkOptional<bool>,
-    backupPolicy: identical(backupPolicy, sdkOmittedValue) ? this.backupPolicy : backupPolicy as SdkOptional<DropletBackupPolicy>,
-    nextBackupWindow: identical(nextBackupWindow, sdkOmittedValue) ? this.nextBackupWindow : nextBackupWindow as SdkOptional<DropletNextBackupWindow?>,
-  );
+  DropletBackupPolicyRecord _copyWith(
+          {Object? dropletId = sdkOmittedValue,
+          Object? backupEnabled = sdkOmittedValue,
+          Object? backupPolicy = sdkOmittedValue,
+          Object? nextBackupWindow = sdkOmittedValue}) =>
+      DropletBackupPolicyRecord(
+        dropletId: identical(dropletId, sdkOmittedValue)
+            ? this.dropletId
+            : dropletId as SdkOptional<int>,
+        backupEnabled: identical(backupEnabled, sdkOmittedValue)
+            ? this.backupEnabled
+            : backupEnabled as SdkOptional<bool>,
+        backupPolicy: identical(backupPolicy, sdkOmittedValue)
+            ? this.backupPolicy
+            : backupPolicy as SdkOptional<DropletBackupPolicy>,
+        nextBackupWindow: identical(nextBackupWindow, sdkOmittedValue)
+            ? this.nextBackupWindow
+            : nextBackupWindow as SdkOptional<DropletNextBackupWindow?>,
+      );
 
-  factory DropletBackupPolicyRecord.fromJson(Map<String, dynamic> json) => DropletBackupPolicyRecord(
-    dropletId: json['droplet_id'] != null ? SdkPresent(((json['droplet_id'] as num?)?.toInt())!) : const SdkOmitted(),
-    backupEnabled: json['backup_enabled'] != null ? SdkPresent((json['backup_enabled'] as bool?)!) : const SdkOmitted(),
-    backupPolicy: json['backup_policy'] != null ? SdkPresent((json['backup_policy'] != null ? DropletBackupPolicy.fromJson(json['backup_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    nextBackupWindow: json.containsKey('next_backup_window') ? SdkPresent(json['next_backup_window'] != null ? DropletNextBackupWindow.fromJson(json['next_backup_window'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory DropletBackupPolicyRecord.fromJson(Map<String, dynamic> json) =>
+      DropletBackupPolicyRecord(
+        dropletId: json['droplet_id'] != null
+            ? SdkPresent(((json['droplet_id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        backupEnabled: json['backup_enabled'] != null
+            ? SdkPresent((json['backup_enabled'] as bool?)!)
+            : const SdkOmitted(),
+        backupPolicy: json['backup_policy'] != null
+            ? SdkPresent((json['backup_policy'] != null
+                ? DropletBackupPolicy.fromJson(
+                    json['backup_policy'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        nextBackupWindow: json.containsKey('next_backup_window')
+            ? SdkPresent(json['next_backup_window'] != null
+                ? DropletNextBackupWindow.fromJson(
+                    json['next_backup_window'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (dropletId) {
-      SdkPresent<int>(value: final value) => {'droplet_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (backupEnabled) {
-      SdkPresent<bool>(value: final value) => {'backup_enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (backupPolicy) {
-      SdkPresent<DropletBackupPolicy>(value: final value) => {'backup_policy': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nextBackupWindow) {
-      SdkPresent<DropletNextBackupWindow?>(value: final value) => {'next_backup_window': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (dropletId) {
+          SdkPresent<int>(value: final value) => {
+              'droplet_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (backupEnabled) {
+          SdkPresent<bool>(value: final value) => {
+              'backup_enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (backupPolicy) {
+          SdkPresent<DropletBackupPolicy>(value: final value) => {
+              'backup_policy': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nextBackupWindow) {
+          SdkPresent<DropletNextBackupWindow?>(value: final value) => {
+              'next_backup_window': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DropletSnapshotVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the snapshot or backup.
   final int id;
 
@@ -65,92 +115,145 @@ class DropletSnapshotVariant0 {
 
   DropletSnapshotVariant0 Function({int id}) get copyWith => _copyWith;
 
-  DropletSnapshotVariant0 _copyWith({Object? id = sdkOmittedValue}) => DropletSnapshotVariant0(
-    id: identical(id, sdkOmittedValue) ? this.id : id as int,
-  );
+  DropletSnapshotVariant0 _copyWith({Object? id = sdkOmittedValue}) =>
+      DropletSnapshotVariant0(
+        id: identical(id, sdkOmittedValue) ? this.id : id as int,
+      );
 
-  factory DropletSnapshotVariant0.fromJson(Map<String, dynamic> json) => DropletSnapshotVariant0(
-    id: ((json['id'] as num?)?.toInt())!,
-  );
+  factory DropletSnapshotVariant0.fromJson(Map<String, dynamic> json) =>
+      DropletSnapshotVariant0(
+        id: ((json['id'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-  };
+        'id': id,
+      };
 }
 
 class DropletSnapshotVariant2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Describes the kind of image. It may be one of `snapshot` or `backup`. This specifies whether an image is a user-generated Droplet snapshot or automatically created Droplet backup.
   final DropletSnapshotVariant2Type type_;
 
   const DropletSnapshotVariant2({required this.type_});
 
-  DropletSnapshotVariant2 Function({DropletSnapshotVariant2Type type_}) get copyWith => _copyWith;
+  DropletSnapshotVariant2 Function({DropletSnapshotVariant2Type type_})
+      get copyWith => _copyWith;
 
-  DropletSnapshotVariant2 _copyWith({Object? type_ = sdkOmittedValue}) => DropletSnapshotVariant2(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletSnapshotVariant2Type,
-  );
+  DropletSnapshotVariant2 _copyWith({Object? type_ = sdkOmittedValue}) =>
+      DropletSnapshotVariant2(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DropletSnapshotVariant2Type,
+      );
 
-  factory DropletSnapshotVariant2.fromJson(Map<String, dynamic> json) => DropletSnapshotVariant2(
-    type_: (json['type'] != null ? DropletSnapshotVariant2Type.fromJson(json['type'] as String) : null)!,
-  );
+  factory DropletSnapshotVariant2.fromJson(Map<String, dynamic> json) =>
+      DropletSnapshotVariant2(
+        type_: (json['type'] != null
+            ? DropletSnapshotVariant2Type.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 /// Typed representation of the `DropletSnapshot` API schema.
 class DropletSnapshot {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the snapshot or backup.
   final int id;
+
   /// A human-readable name for the snapshot.
   final String name;
+
   /// A time value given in ISO8601 combined date and time format that represents when the snapshot was created.
   final String createdAt;
+
   /// An array of the regions that the snapshot is available in. The regions are represented by their identifying slug values.
   final List<String> regions;
+
   /// The minimum size in GB required for a volume or Droplet to use this snapshot.
   final int minDiskSize;
+
   /// The billable size of the snapshot in gigabytes.
   final double sizeGigabytes;
+
   /// Describes the kind of image. It may be one of `snapshot` or `backup`. This specifies whether an image is a user-generated Droplet snapshot or automatically created Droplet backup.
   final DropletSnapshotVariant2Type type_;
 
-  const DropletSnapshot({required this.id, required this.name, required this.createdAt, required this.regions, required this.minDiskSize, required this.sizeGigabytes, required this.type_});
+  const DropletSnapshot(
+      {required this.id,
+      required this.name,
+      required this.createdAt,
+      required this.regions,
+      required this.minDiskSize,
+      required this.sizeGigabytes,
+      required this.type_});
 
-  DropletSnapshot Function({int id, String name, String createdAt, List<String> regions, int minDiskSize, double sizeGigabytes, DropletSnapshotVariant2Type type_}) get copyWith => _copyWith;
+  DropletSnapshot Function(
+      {int id,
+      String name,
+      String createdAt,
+      List<String> regions,
+      int minDiskSize,
+      double sizeGigabytes,
+      DropletSnapshotVariant2Type type_}) get copyWith => _copyWith;
 
-  DropletSnapshot _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? regions = sdkOmittedValue, Object? minDiskSize = sdkOmittedValue, Object? sizeGigabytes = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => DropletSnapshot(
-    id: identical(id, sdkOmittedValue) ? this.id : id as int,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as List<String>,
-    minDiskSize: identical(minDiskSize, sdkOmittedValue) ? this.minDiskSize : minDiskSize as int,
-    sizeGigabytes: identical(sizeGigabytes, sdkOmittedValue) ? this.sizeGigabytes : sizeGigabytes as double,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletSnapshotVariant2Type,
-  );
+  DropletSnapshot _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? regions = sdkOmittedValue,
+          Object? minDiskSize = sdkOmittedValue,
+          Object? sizeGigabytes = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      DropletSnapshot(
+        id: identical(id, sdkOmittedValue) ? this.id : id as int,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as List<String>,
+        minDiskSize: identical(minDiskSize, sdkOmittedValue)
+            ? this.minDiskSize
+            : minDiskSize as int,
+        sizeGigabytes: identical(sizeGigabytes, sdkOmittedValue)
+            ? this.sizeGigabytes
+            : sizeGigabytes as double,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DropletSnapshotVariant2Type,
+      );
 
-  factory DropletSnapshot.fromJson(Map<String, dynamic> json) => DropletSnapshot(
-    id: ((json['id'] as num?)?.toInt())!,
-    name: (json['name'] as String?)!,
-    createdAt: (json['created_at'] as String?)!,
-    regions: ((json['regions'] as List?)?.map((e) => e as String).toList())!,
-    minDiskSize: ((json['min_disk_size'] as num?)?.toInt())!,
-    sizeGigabytes: ((json['size_gigabytes'] as num?)?.toDouble())!,
-    type_: (json['type'] != null ? DropletSnapshotVariant2Type.fromJson(json['type'] as String) : null)!,
-  );
+  factory DropletSnapshot.fromJson(Map<String, dynamic> json) =>
+      DropletSnapshot(
+        id: ((json['id'] as num?)?.toInt())!,
+        name: (json['name'] as String?)!,
+        createdAt: (json['created_at'] as String?)!,
+        regions:
+            ((json['regions'] as List?)?.map((e) => e as String).toList())!,
+        minDiskSize: ((json['min_disk_size'] as num?)?.toInt())!,
+        sizeGigabytes: ((json['size_gigabytes'] as num?)?.toDouble())!,
+        type_: (json['type'] != null
+            ? DropletSnapshotVariant2Type.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'created_at': createdAt,
-    'regions': regions,
-    'min_disk_size': minDiskSize,
-    'size_gigabytes': sizeGigabytes,
-    'type': type_.toJson(),
-  };
+        'id': id,
+        'name': name,
+        'created_at': createdAt,
+        'regions': regions,
+        'min_disk_size': minDiskSize,
+        'size_gigabytes': sizeGigabytes,
+        'type': type_.toJson(),
+      };
 }

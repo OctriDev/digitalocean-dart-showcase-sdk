@@ -8,27 +8,35 @@ part of 'databases.dart';
 class DatadogLogsink {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Datadog connection URL
   final String site;
+
   /// Datadog API key
   final String datadogApiKey;
 
   const DatadogLogsink({required this.site, required this.datadogApiKey});
 
-  DatadogLogsink Function({String site, String datadogApiKey}) get copyWith => _copyWith;
+  DatadogLogsink Function({String site, String datadogApiKey}) get copyWith =>
+      _copyWith;
 
-  DatadogLogsink _copyWith({Object? site = sdkOmittedValue, Object? datadogApiKey = sdkOmittedValue}) => DatadogLogsink(
-    site: identical(site, sdkOmittedValue) ? this.site : site as String,
-    datadogApiKey: identical(datadogApiKey, sdkOmittedValue) ? this.datadogApiKey : datadogApiKey as String,
-  );
+  DatadogLogsink _copyWith(
+          {Object? site = sdkOmittedValue,
+          Object? datadogApiKey = sdkOmittedValue}) =>
+      DatadogLogsink(
+        site: identical(site, sdkOmittedValue) ? this.site : site as String,
+        datadogApiKey: identical(datadogApiKey, sdkOmittedValue)
+            ? this.datadogApiKey
+            : datadogApiKey as String,
+      );
 
   factory DatadogLogsink.fromJson(Map<String, dynamic> json) => DatadogLogsink(
-    site: (json['site'] as String?)!,
-    datadogApiKey: (json['datadog_api_key'] as String?)!,
-  );
+        site: (json['site'] as String?)!,
+        datadogApiKey: (json['datadog_api_key'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'site': site,
-    'datadog_api_key': datadogApiKey,
-  };
+        'site': site,
+        'datadog_api_key': datadogApiKey,
+      };
 }

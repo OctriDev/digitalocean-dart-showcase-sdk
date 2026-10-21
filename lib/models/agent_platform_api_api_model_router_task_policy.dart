@@ -8,49 +8,98 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelRouterTaskPolicy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Task definition embedded in a model router config.
   final SdkOptional<ApiModelRouterTaskDetails> customTask;
+
   /// Models assigned to the task
   final SdkOptional<List<String>> models;
+
   /// Selection policy preference for choosing among assigned models.
   final SdkOptional<ApiModelRouterSelectionPolicy> selectionPolicy;
+
   /// Task slug
   final SdkOptional<String> taskSlug;
 
-  const ApiModelRouterTaskPolicy({this.customTask = const SdkOmitted(), this.models = const SdkOmitted(), this.selectionPolicy = const SdkOmitted(), this.taskSlug = const SdkOmitted()});
+  const ApiModelRouterTaskPolicy(
+      {this.customTask = const SdkOmitted(),
+      this.models = const SdkOmitted(),
+      this.selectionPolicy = const SdkOmitted(),
+      this.taskSlug = const SdkOmitted()});
 
-  ApiModelRouterTaskPolicy Function({SdkOptional<ApiModelRouterTaskDetails> customTask, SdkOptional<List<String>> models, SdkOptional<ApiModelRouterSelectionPolicy> selectionPolicy, SdkOptional<String> taskSlug}) get copyWith => _copyWith;
+  ApiModelRouterTaskPolicy Function(
+      {SdkOptional<ApiModelRouterTaskDetails> customTask,
+      SdkOptional<List<String>> models,
+      SdkOptional<ApiModelRouterSelectionPolicy> selectionPolicy,
+      SdkOptional<String> taskSlug}) get copyWith => _copyWith;
 
-  ApiModelRouterTaskPolicy _copyWith({Object? customTask = sdkOmittedValue, Object? models = sdkOmittedValue, Object? selectionPolicy = sdkOmittedValue, Object? taskSlug = sdkOmittedValue}) => ApiModelRouterTaskPolicy(
-    customTask: identical(customTask, sdkOmittedValue) ? this.customTask : customTask as SdkOptional<ApiModelRouterTaskDetails>,
-    models: identical(models, sdkOmittedValue) ? this.models : models as SdkOptional<List<String>>,
-    selectionPolicy: identical(selectionPolicy, sdkOmittedValue) ? this.selectionPolicy : selectionPolicy as SdkOptional<ApiModelRouterSelectionPolicy>,
-    taskSlug: identical(taskSlug, sdkOmittedValue) ? this.taskSlug : taskSlug as SdkOptional<String>,
-  );
+  ApiModelRouterTaskPolicy _copyWith(
+          {Object? customTask = sdkOmittedValue,
+          Object? models = sdkOmittedValue,
+          Object? selectionPolicy = sdkOmittedValue,
+          Object? taskSlug = sdkOmittedValue}) =>
+      ApiModelRouterTaskPolicy(
+        customTask: identical(customTask, sdkOmittedValue)
+            ? this.customTask
+            : customTask as SdkOptional<ApiModelRouterTaskDetails>,
+        models: identical(models, sdkOmittedValue)
+            ? this.models
+            : models as SdkOptional<List<String>>,
+        selectionPolicy: identical(selectionPolicy, sdkOmittedValue)
+            ? this.selectionPolicy
+            : selectionPolicy as SdkOptional<ApiModelRouterSelectionPolicy>,
+        taskSlug: identical(taskSlug, sdkOmittedValue)
+            ? this.taskSlug
+            : taskSlug as SdkOptional<String>,
+      );
 
-  factory ApiModelRouterTaskPolicy.fromJson(Map<String, dynamic> json) => ApiModelRouterTaskPolicy(
-    customTask: json['custom_task'] != null ? SdkPresent((json['custom_task'] != null ? ApiModelRouterTaskDetails.fromJson(json['custom_task'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    models: json['models'] != null ? SdkPresent(((json['models'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    selectionPolicy: json['selection_policy'] != null ? SdkPresent((json['selection_policy'] != null ? ApiModelRouterSelectionPolicy.fromJson(json['selection_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    taskSlug: json['task_slug'] != null ? SdkPresent((json['task_slug'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiModelRouterTaskPolicy.fromJson(Map<String, dynamic> json) =>
+      ApiModelRouterTaskPolicy(
+        customTask: json['custom_task'] != null
+            ? SdkPresent((json['custom_task'] != null
+                ? ApiModelRouterTaskDetails.fromJson(
+                    json['custom_task'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        models: json['models'] != null
+            ? SdkPresent(
+                ((json['models'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        selectionPolicy: json['selection_policy'] != null
+            ? SdkPresent((json['selection_policy'] != null
+                ? ApiModelRouterSelectionPolicy.fromJson(
+                    json['selection_policy'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        taskSlug: json['task_slug'] != null
+            ? SdkPresent((json['task_slug'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (customTask) {
-      SdkPresent<ApiModelRouterTaskDetails>(value: final value) => {'custom_task': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (models) {
-      SdkPresent<List<String>>(value: final value) => {'models': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (selectionPolicy) {
-      SdkPresent<ApiModelRouterSelectionPolicy>(value: final value) => {'selection_policy': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (taskSlug) {
-      SdkPresent<String>(value: final value) => {'task_slug': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (customTask) {
+          SdkPresent<ApiModelRouterTaskDetails>(value: final value) => {
+              'custom_task': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (models) {
+          SdkPresent<List<String>>(value: final value) => {
+              'models': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (selectionPolicy) {
+          SdkPresent<ApiModelRouterSelectionPolicy>(value: final value) => {
+              'selection_policy': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (taskSlug) {
+          SdkPresent<String>(value: final value) => {
+              'task_slug': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

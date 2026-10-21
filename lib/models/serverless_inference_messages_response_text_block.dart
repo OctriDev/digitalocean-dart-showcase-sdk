@@ -8,27 +8,38 @@ part of 'serverless_inference_messages.dart';
 class MessagesResponseTextBlock {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final MessagesResponseTextBlockType type_;
+
   /// Generated text for this block.
   final String text;
 
   const MessagesResponseTextBlock({required this.type_, required this.text});
 
-  MessagesResponseTextBlock Function({MessagesResponseTextBlockType type_, String text}) get copyWith => _copyWith;
+  MessagesResponseTextBlock Function(
+      {MessagesResponseTextBlockType type_,
+      String text}) get copyWith => _copyWith;
 
-  MessagesResponseTextBlock _copyWith({Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) => MessagesResponseTextBlock(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesResponseTextBlockType,
-    text: identical(text, sdkOmittedValue) ? this.text : text as String,
-  );
+  MessagesResponseTextBlock _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? text = sdkOmittedValue}) =>
+      MessagesResponseTextBlock(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessagesResponseTextBlockType,
+        text: identical(text, sdkOmittedValue) ? this.text : text as String,
+      );
 
-  factory MessagesResponseTextBlock.fromJson(Map<String, dynamic> json) => MessagesResponseTextBlock(
-    type_: (json['type'] != null ? MessagesResponseTextBlockType.fromJson(json['type'] as String) : null)!,
-    text: (json['text'] as String?)!,
-  );
+  factory MessagesResponseTextBlock.fromJson(Map<String, dynamic> json) =>
+      MessagesResponseTextBlock(
+        type_: (json['type'] != null
+            ? MessagesResponseTextBlockType.fromJson(json['type'] as String)
+            : null)!,
+        text: (json['text'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'text': text,
-  };
+        'type': type_.toJson(),
+        'text': text,
+      };
 }

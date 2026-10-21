@@ -8,57 +8,115 @@ part of 'apps_app_alert.dart';
 class AppAlertProgressStep {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
+
   /// Optional enumerated value serialized in the `status` wire field.
   final SdkOptional<AppAlertProgressStepStatus> status;
+
   /// Optional `date-time`-formatted value serialized in the `started_at` wire field.
   final SdkOptional<String> startedAt;
+
   /// Optional `date-time`-formatted value serialized in the `ended_at` wire field.
   final SdkOptional<String> endedAt;
+
   /// Optional object value serialized in the `reason` wire field.
   final SdkOptional<AppAlertProgressStepReason> reason;
 
-  const AppAlertProgressStep({this.name = const SdkOmitted(), this.status = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.endedAt = const SdkOmitted(), this.reason = const SdkOmitted()});
+  const AppAlertProgressStep(
+      {this.name = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.startedAt = const SdkOmitted(),
+      this.endedAt = const SdkOmitted(),
+      this.reason = const SdkOmitted()});
 
-  AppAlertProgressStep Function({SdkOptional<String> name, SdkOptional<AppAlertProgressStepStatus> status, SdkOptional<String> startedAt, SdkOptional<String> endedAt, SdkOptional<AppAlertProgressStepReason> reason}) get copyWith => _copyWith;
+  AppAlertProgressStep Function(
+          {SdkOptional<String> name,
+          SdkOptional<AppAlertProgressStepStatus> status,
+          SdkOptional<String> startedAt,
+          SdkOptional<String> endedAt,
+          SdkOptional<AppAlertProgressStepReason> reason})
+      get copyWith => _copyWith;
 
-  AppAlertProgressStep _copyWith({Object? name = sdkOmittedValue, Object? status = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? endedAt = sdkOmittedValue, Object? reason = sdkOmittedValue}) => AppAlertProgressStep(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<AppAlertProgressStepStatus>,
-    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String>,
-    endedAt: identical(endedAt, sdkOmittedValue) ? this.endedAt : endedAt as SdkOptional<String>,
-    reason: identical(reason, sdkOmittedValue) ? this.reason : reason as SdkOptional<AppAlertProgressStepReason>,
-  );
+  AppAlertProgressStep _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? startedAt = sdkOmittedValue,
+          Object? endedAt = sdkOmittedValue,
+          Object? reason = sdkOmittedValue}) =>
+      AppAlertProgressStep(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<AppAlertProgressStepStatus>,
+        startedAt: identical(startedAt, sdkOmittedValue)
+            ? this.startedAt
+            : startedAt as SdkOptional<String>,
+        endedAt: identical(endedAt, sdkOmittedValue)
+            ? this.endedAt
+            : endedAt as SdkOptional<String>,
+        reason: identical(reason, sdkOmittedValue)
+            ? this.reason
+            : reason as SdkOptional<AppAlertProgressStepReason>,
+      );
 
-  factory AppAlertProgressStep.fromJson(Map<String, dynamic> json) => AppAlertProgressStep(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? AppAlertProgressStepStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    startedAt: json['started_at'] != null ? SdkPresent((json['started_at'] as String?)!) : const SdkOmitted(),
-    endedAt: json['ended_at'] != null ? SdkPresent((json['ended_at'] as String?)!) : const SdkOmitted(),
-    reason: json['reason'] != null ? SdkPresent((json['reason'] != null ? AppAlertProgressStepReason.fromJson(json['reason'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AppAlertProgressStep.fromJson(Map<String, dynamic> json) =>
+      AppAlertProgressStep(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? AppAlertProgressStepStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        startedAt: json['started_at'] != null
+            ? SdkPresent((json['started_at'] as String?)!)
+            : const SdkOmitted(),
+        endedAt: json['ended_at'] != null
+            ? SdkPresent((json['ended_at'] as String?)!)
+            : const SdkOmitted(),
+        reason: json['reason'] != null
+            ? SdkPresent((json['reason'] != null
+                ? AppAlertProgressStepReason.fromJson(
+                    json['reason'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<AppAlertProgressStepStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (startedAt) {
-      SdkPresent<String>(value: final value) => {'started_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (endedAt) {
-      SdkPresent<String>(value: final value) => {'ended_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reason) {
-      SdkPresent<AppAlertProgressStepReason>(value: final value) => {'reason': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<AppAlertProgressStepStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (startedAt) {
+          SdkPresent<String>(value: final value) => {
+              'started_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (endedAt) {
+          SdkPresent<String>(value: final value) => {
+              'ended_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reason) {
+          SdkPresent<AppAlertProgressStepReason>(value: final value) => {
+              'reason': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

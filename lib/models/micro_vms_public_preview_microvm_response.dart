@@ -8,25 +8,37 @@ part of 'micro_vms_public_preview.dart';
 class MicrovmResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A MicroVM. All fields are set at creation. There is no update endpoint.
   final SdkOptional<Microvm> microvm;
 
   const MicrovmResponse({this.microvm = const SdkOmitted()});
 
-  MicrovmResponse Function({SdkOptional<Microvm> microvm}) get copyWith => _copyWith;
+  MicrovmResponse Function({SdkOptional<Microvm> microvm}) get copyWith =>
+      _copyWith;
 
-  MicrovmResponse _copyWith({Object? microvm = sdkOmittedValue}) => MicrovmResponse(
-    microvm: identical(microvm, sdkOmittedValue) ? this.microvm : microvm as SdkOptional<Microvm>,
-  );
+  MicrovmResponse _copyWith({Object? microvm = sdkOmittedValue}) =>
+      MicrovmResponse(
+        microvm: identical(microvm, sdkOmittedValue)
+            ? this.microvm
+            : microvm as SdkOptional<Microvm>,
+      );
 
-  factory MicrovmResponse.fromJson(Map<String, dynamic> json) => MicrovmResponse(
-    microvm: json['microvm'] != null ? SdkPresent((json['microvm'] != null ? Microvm.fromJson(json['microvm'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory MicrovmResponse.fromJson(Map<String, dynamic> json) =>
+      MicrovmResponse(
+        microvm: json['microvm'] != null
+            ? SdkPresent((json['microvm'] != null
+                ? Microvm.fromJson(json['microvm'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (microvm) {
-      SdkPresent<Microvm>(value: final value) => {'microvm': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (microvm) {
+          SdkPresent<Microvm>(value: final value) => {
+              'microvm': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,37 +8,61 @@ part of 'add_ons.dart';
 class AddonsDimensionVolumeWithPrice {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the addon.
   final int id;
+
   /// The minimum volume for the volume pricing tier.
   final int lowVolume;
+
   /// The maximum volume for the volume pricing tier.
   final int maxVolume;
+
   /// The price per unit for the volume tier in US dollars.
   final String pricePerUnit;
 
-  const AddonsDimensionVolumeWithPrice({required this.id, required this.lowVolume, required this.maxVolume, required this.pricePerUnit});
+  const AddonsDimensionVolumeWithPrice(
+      {required this.id,
+      required this.lowVolume,
+      required this.maxVolume,
+      required this.pricePerUnit});
 
-  AddonsDimensionVolumeWithPrice Function({int id, int lowVolume, int maxVolume, String pricePerUnit}) get copyWith => _copyWith;
+  AddonsDimensionVolumeWithPrice Function(
+      {int id,
+      int lowVolume,
+      int maxVolume,
+      String pricePerUnit}) get copyWith => _copyWith;
 
-  AddonsDimensionVolumeWithPrice _copyWith({Object? id = sdkOmittedValue, Object? lowVolume = sdkOmittedValue, Object? maxVolume = sdkOmittedValue, Object? pricePerUnit = sdkOmittedValue}) => AddonsDimensionVolumeWithPrice(
-    id: identical(id, sdkOmittedValue) ? this.id : id as int,
-    lowVolume: identical(lowVolume, sdkOmittedValue) ? this.lowVolume : lowVolume as int,
-    maxVolume: identical(maxVolume, sdkOmittedValue) ? this.maxVolume : maxVolume as int,
-    pricePerUnit: identical(pricePerUnit, sdkOmittedValue) ? this.pricePerUnit : pricePerUnit as String,
-  );
+  AddonsDimensionVolumeWithPrice _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? lowVolume = sdkOmittedValue,
+          Object? maxVolume = sdkOmittedValue,
+          Object? pricePerUnit = sdkOmittedValue}) =>
+      AddonsDimensionVolumeWithPrice(
+        id: identical(id, sdkOmittedValue) ? this.id : id as int,
+        lowVolume: identical(lowVolume, sdkOmittedValue)
+            ? this.lowVolume
+            : lowVolume as int,
+        maxVolume: identical(maxVolume, sdkOmittedValue)
+            ? this.maxVolume
+            : maxVolume as int,
+        pricePerUnit: identical(pricePerUnit, sdkOmittedValue)
+            ? this.pricePerUnit
+            : pricePerUnit as String,
+      );
 
-  factory AddonsDimensionVolumeWithPrice.fromJson(Map<String, dynamic> json) => AddonsDimensionVolumeWithPrice(
-    id: ((json['id'] as num?)?.toInt())!,
-    lowVolume: ((json['low_volume'] as num?)?.toInt())!,
-    maxVolume: ((json['max_volume'] as num?)?.toInt())!,
-    pricePerUnit: (json['price_per_unit'] as String?)!,
-  );
+  factory AddonsDimensionVolumeWithPrice.fromJson(Map<String, dynamic> json) =>
+      AddonsDimensionVolumeWithPrice(
+        id: ((json['id'] as num?)?.toInt())!,
+        lowVolume: ((json['low_volume'] as num?)?.toInt())!,
+        maxVolume: ((json['max_volume'] as num?)?.toInt())!,
+        pricePerUnit: (json['price_per_unit'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'low_volume': lowVolume,
-    'max_volume': maxVolume,
-    'price_per_unit': pricePerUnit,
-  };
+        'id': id,
+        'low_volume': lowVolume,
+        'max_volume': maxVolume,
+        'price_per_unit': pricePerUnit,
+      };
 }

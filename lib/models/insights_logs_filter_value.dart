@@ -8,105 +8,180 @@ part of 'insights_logs.dart';
 class LogsFilterValueStringArrayValue {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `values` wire field.
   final List<String> values;
 
   const LogsFilterValueStringArrayValue({required this.values});
 
-  LogsFilterValueStringArrayValue Function({List<String> values}) get copyWith => _copyWith;
+  LogsFilterValueStringArrayValue Function({List<String> values})
+      get copyWith => _copyWith;
 
-  LogsFilterValueStringArrayValue _copyWith({Object? values = sdkOmittedValue}) => LogsFilterValueStringArrayValue(
-    values: identical(values, sdkOmittedValue) ? this.values : values as List<String>,
-  );
+  LogsFilterValueStringArrayValue _copyWith(
+          {Object? values = sdkOmittedValue}) =>
+      LogsFilterValueStringArrayValue(
+        values: identical(values, sdkOmittedValue)
+            ? this.values
+            : values as List<String>,
+      );
 
-  factory LogsFilterValueStringArrayValue.fromJson(Map<String, dynamic> json) => LogsFilterValueStringArrayValue(
-    values: ((json['values'] as List?)?.map((e) => e as String).toList())!,
-  );
+  factory LogsFilterValueStringArrayValue.fromJson(Map<String, dynamic> json) =>
+      LogsFilterValueStringArrayValue(
+        values: ((json['values'] as List?)?.map((e) => e as String).toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'values': values,
-  };
+        'values': values,
+      };
 }
 
 /// Optional object value serialized in the `number_array_value` wire field.
 class LogsFilterValueNumberArrayValue {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `values` wire field.
   final List<double> values;
 
   const LogsFilterValueNumberArrayValue({required this.values});
 
-  LogsFilterValueNumberArrayValue Function({List<double> values}) get copyWith => _copyWith;
+  LogsFilterValueNumberArrayValue Function({List<double> values})
+      get copyWith => _copyWith;
 
-  LogsFilterValueNumberArrayValue _copyWith({Object? values = sdkOmittedValue}) => LogsFilterValueNumberArrayValue(
-    values: identical(values, sdkOmittedValue) ? this.values : values as List<double>,
-  );
+  LogsFilterValueNumberArrayValue _copyWith(
+          {Object? values = sdkOmittedValue}) =>
+      LogsFilterValueNumberArrayValue(
+        values: identical(values, sdkOmittedValue)
+            ? this.values
+            : values as List<double>,
+      );
 
-  factory LogsFilterValueNumberArrayValue.fromJson(Map<String, dynamic> json) => LogsFilterValueNumberArrayValue(
-    values: ((json['values'] as List?)?.map((e) => (e as num).toDouble()).toList())!,
-  );
+  factory LogsFilterValueNumberArrayValue.fromJson(Map<String, dynamic> json) =>
+      LogsFilterValueNumberArrayValue(
+        values: ((json['values'] as List?)
+            ?.map((e) => (e as num).toDouble())
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'values': values,
-  };
+        'values': values,
+      };
 }
 
 /// A typed literal or list value for a filter condition. Exactly one kind is set per message.
 class LogsFilterValue {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `string_value` wire field.
   final SdkOptional<String> stringValue;
+
   /// Optional `number` value serialized in the `number_value` wire field.
   final SdkOptional<double> numberValue;
+
   /// Optional `boolean` value serialized in the `bool_value` wire field.
   final SdkOptional<bool> boolValue;
+
   /// Optional object value serialized in the `string_array_value` wire field.
   final SdkOptional<LogsFilterValueStringArrayValue> stringArrayValue;
+
   /// Optional object value serialized in the `number_array_value` wire field.
   final SdkOptional<LogsFilterValueNumberArrayValue> numberArrayValue;
 
-  const LogsFilterValue({this.stringValue = const SdkOmitted(), this.numberValue = const SdkOmitted(), this.boolValue = const SdkOmitted(), this.stringArrayValue = const SdkOmitted(), this.numberArrayValue = const SdkOmitted()});
+  const LogsFilterValue(
+      {this.stringValue = const SdkOmitted(),
+      this.numberValue = const SdkOmitted(),
+      this.boolValue = const SdkOmitted(),
+      this.stringArrayValue = const SdkOmitted(),
+      this.numberArrayValue = const SdkOmitted()});
 
-  LogsFilterValue Function({SdkOptional<String> stringValue, SdkOptional<double> numberValue, SdkOptional<bool> boolValue, SdkOptional<LogsFilterValueStringArrayValue> stringArrayValue, SdkOptional<LogsFilterValueNumberArrayValue> numberArrayValue}) get copyWith => _copyWith;
+  LogsFilterValue Function(
+          {SdkOptional<String> stringValue,
+          SdkOptional<double> numberValue,
+          SdkOptional<bool> boolValue,
+          SdkOptional<LogsFilterValueStringArrayValue> stringArrayValue,
+          SdkOptional<LogsFilterValueNumberArrayValue> numberArrayValue})
+      get copyWith => _copyWith;
 
-  LogsFilterValue _copyWith({Object? stringValue = sdkOmittedValue, Object? numberValue = sdkOmittedValue, Object? boolValue = sdkOmittedValue, Object? stringArrayValue = sdkOmittedValue, Object? numberArrayValue = sdkOmittedValue}) => LogsFilterValue(
-    stringValue: identical(stringValue, sdkOmittedValue) ? this.stringValue : stringValue as SdkOptional<String>,
-    numberValue: identical(numberValue, sdkOmittedValue) ? this.numberValue : numberValue as SdkOptional<double>,
-    boolValue: identical(boolValue, sdkOmittedValue) ? this.boolValue : boolValue as SdkOptional<bool>,
-    stringArrayValue: identical(stringArrayValue, sdkOmittedValue) ? this.stringArrayValue : stringArrayValue as SdkOptional<LogsFilterValueStringArrayValue>,
-    numberArrayValue: identical(numberArrayValue, sdkOmittedValue) ? this.numberArrayValue : numberArrayValue as SdkOptional<LogsFilterValueNumberArrayValue>,
-  );
+  LogsFilterValue _copyWith(
+          {Object? stringValue = sdkOmittedValue,
+          Object? numberValue = sdkOmittedValue,
+          Object? boolValue = sdkOmittedValue,
+          Object? stringArrayValue = sdkOmittedValue,
+          Object? numberArrayValue = sdkOmittedValue}) =>
+      LogsFilterValue(
+        stringValue: identical(stringValue, sdkOmittedValue)
+            ? this.stringValue
+            : stringValue as SdkOptional<String>,
+        numberValue: identical(numberValue, sdkOmittedValue)
+            ? this.numberValue
+            : numberValue as SdkOptional<double>,
+        boolValue: identical(boolValue, sdkOmittedValue)
+            ? this.boolValue
+            : boolValue as SdkOptional<bool>,
+        stringArrayValue: identical(stringArrayValue, sdkOmittedValue)
+            ? this.stringArrayValue
+            : stringArrayValue as SdkOptional<LogsFilterValueStringArrayValue>,
+        numberArrayValue: identical(numberArrayValue, sdkOmittedValue)
+            ? this.numberArrayValue
+            : numberArrayValue as SdkOptional<LogsFilterValueNumberArrayValue>,
+      );
 
-  factory LogsFilterValue.fromJson(Map<String, dynamic> json) => LogsFilterValue(
-    stringValue: json['string_value'] != null ? SdkPresent((json['string_value'] as String?)!) : const SdkOmitted(),
-    numberValue: json['number_value'] != null ? SdkPresent(((json['number_value'] as num?)?.toDouble())!) : const SdkOmitted(),
-    boolValue: json['bool_value'] != null ? SdkPresent((json['bool_value'] as bool?)!) : const SdkOmitted(),
-    stringArrayValue: json['string_array_value'] != null ? SdkPresent((json['string_array_value'] != null ? LogsFilterValueStringArrayValue.fromJson(json['string_array_value'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    numberArrayValue: json['number_array_value'] != null ? SdkPresent((json['number_array_value'] != null ? LogsFilterValueNumberArrayValue.fromJson(json['number_array_value'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory LogsFilterValue.fromJson(Map<String, dynamic> json) =>
+      LogsFilterValue(
+        stringValue: json['string_value'] != null
+            ? SdkPresent((json['string_value'] as String?)!)
+            : const SdkOmitted(),
+        numberValue: json['number_value'] != null
+            ? SdkPresent(((json['number_value'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        boolValue: json['bool_value'] != null
+            ? SdkPresent((json['bool_value'] as bool?)!)
+            : const SdkOmitted(),
+        stringArrayValue: json['string_array_value'] != null
+            ? SdkPresent((json['string_array_value'] != null
+                ? LogsFilterValueStringArrayValue.fromJson(
+                    json['string_array_value'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        numberArrayValue: json['number_array_value'] != null
+            ? SdkPresent((json['number_array_value'] != null
+                ? LogsFilterValueNumberArrayValue.fromJson(
+                    json['number_array_value'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (stringValue) {
-      SdkPresent<String>(value: final value) => {'string_value': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (numberValue) {
-      SdkPresent<double>(value: final value) => {'number_value': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (boolValue) {
-      SdkPresent<bool>(value: final value) => {'bool_value': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (stringArrayValue) {
-      SdkPresent<LogsFilterValueStringArrayValue>(value: final value) => {'string_array_value': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (numberArrayValue) {
-      SdkPresent<LogsFilterValueNumberArrayValue>(value: final value) => {'number_array_value': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (stringValue) {
+          SdkPresent<String>(value: final value) => {
+              'string_value': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (numberValue) {
+          SdkPresent<double>(value: final value) => {
+              'number_value': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (boolValue) {
+          SdkPresent<bool>(value: final value) => {
+              'bool_value': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (stringArrayValue) {
+          SdkPresent<LogsFilterValueStringArrayValue>(value: final value) => {
+              'string_array_value': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (numberArrayValue) {
+          SdkPresent<LogsFilterValueNumberArrayValue>(value: final value) => {
+              'number_array_value': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

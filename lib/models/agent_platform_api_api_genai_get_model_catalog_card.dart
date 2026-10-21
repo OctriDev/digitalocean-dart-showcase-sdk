@@ -8,49 +8,91 @@ part of 'agent_platform_api_api.dart';
 class ApiCodeSnippets {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `curl` wire field.
   final SdkOptional<String> curl;
+
   /// Optional `string` value serialized in the `javascript` wire field.
   final SdkOptional<String> javascript;
+
   /// Optional `string` value serialized in the `python` wire field.
   final SdkOptional<String> python;
+
   /// Optional `string` value serialized in the `sdk` wire field.
   final SdkOptional<String> sdk;
 
-  const ApiCodeSnippets({this.curl = const SdkOmitted(), this.javascript = const SdkOmitted(), this.python = const SdkOmitted(), this.sdk = const SdkOmitted()});
+  const ApiCodeSnippets(
+      {this.curl = const SdkOmitted(),
+      this.javascript = const SdkOmitted(),
+      this.python = const SdkOmitted(),
+      this.sdk = const SdkOmitted()});
 
-  ApiCodeSnippets Function({SdkOptional<String> curl, SdkOptional<String> javascript, SdkOptional<String> python, SdkOptional<String> sdk}) get copyWith => _copyWith;
+  ApiCodeSnippets Function(
+      {SdkOptional<String> curl,
+      SdkOptional<String> javascript,
+      SdkOptional<String> python,
+      SdkOptional<String> sdk}) get copyWith => _copyWith;
 
-  ApiCodeSnippets _copyWith({Object? curl = sdkOmittedValue, Object? javascript = sdkOmittedValue, Object? python = sdkOmittedValue, Object? sdk = sdkOmittedValue}) => ApiCodeSnippets(
-    curl: identical(curl, sdkOmittedValue) ? this.curl : curl as SdkOptional<String>,
-    javascript: identical(javascript, sdkOmittedValue) ? this.javascript : javascript as SdkOptional<String>,
-    python: identical(python, sdkOmittedValue) ? this.python : python as SdkOptional<String>,
-    sdk: identical(sdk, sdkOmittedValue) ? this.sdk : sdk as SdkOptional<String>,
-  );
+  ApiCodeSnippets _copyWith(
+          {Object? curl = sdkOmittedValue,
+          Object? javascript = sdkOmittedValue,
+          Object? python = sdkOmittedValue,
+          Object? sdk = sdkOmittedValue}) =>
+      ApiCodeSnippets(
+        curl: identical(curl, sdkOmittedValue)
+            ? this.curl
+            : curl as SdkOptional<String>,
+        javascript: identical(javascript, sdkOmittedValue)
+            ? this.javascript
+            : javascript as SdkOptional<String>,
+        python: identical(python, sdkOmittedValue)
+            ? this.python
+            : python as SdkOptional<String>,
+        sdk: identical(sdk, sdkOmittedValue)
+            ? this.sdk
+            : sdk as SdkOptional<String>,
+      );
 
-  factory ApiCodeSnippets.fromJson(Map<String, dynamic> json) => ApiCodeSnippets(
-    curl: json['curl'] != null ? SdkPresent((json['curl'] as String?)!) : const SdkOmitted(),
-    javascript: json['javascript'] != null ? SdkPresent((json['javascript'] as String?)!) : const SdkOmitted(),
-    python: json['python'] != null ? SdkPresent((json['python'] as String?)!) : const SdkOmitted(),
-    sdk: json['sdk'] != null ? SdkPresent((json['sdk'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiCodeSnippets.fromJson(Map<String, dynamic> json) =>
+      ApiCodeSnippets(
+        curl: json['curl'] != null
+            ? SdkPresent((json['curl'] as String?)!)
+            : const SdkOmitted(),
+        javascript: json['javascript'] != null
+            ? SdkPresent((json['javascript'] as String?)!)
+            : const SdkOmitted(),
+        python: json['python'] != null
+            ? SdkPresent((json['python'] as String?)!)
+            : const SdkOmitted(),
+        sdk: json['sdk'] != null
+            ? SdkPresent((json['sdk'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (curl) {
-      SdkPresent<String>(value: final value) => {'curl': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (javascript) {
-      SdkPresent<String>(value: final value) => {'javascript': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (python) {
-      SdkPresent<String>(value: final value) => {'python': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sdk) {
-      SdkPresent<String>(value: final value) => {'sdk': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (curl) {
+          SdkPresent<String>(value: final value) => {
+              'curl': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (javascript) {
+          SdkPresent<String>(value: final value) => {
+              'javascript': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (python) {
+          SdkPresent<String>(value: final value) => {
+              'python': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sdk) {
+          SdkPresent<String>(value: final value) => {
+              'sdk': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

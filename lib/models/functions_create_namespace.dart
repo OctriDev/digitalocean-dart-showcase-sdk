@@ -8,27 +8,35 @@ part of 'functions.dart';
 class CreateNamespace {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The [datacenter region](https://docs.digitalocean.com/products/platform/availability-matrix/#available-datacenters) in which to create the namespace.
   final String region;
+
   /// The namespace's unique name.
   final String label;
 
   const CreateNamespace({required this.region, required this.label});
 
-  CreateNamespace Function({String region, String label}) get copyWith => _copyWith;
+  CreateNamespace Function({String region, String label}) get copyWith =>
+      _copyWith;
 
-  CreateNamespace _copyWith({Object? region = sdkOmittedValue, Object? label = sdkOmittedValue}) => CreateNamespace(
-    region: identical(region, sdkOmittedValue) ? this.region : region as String,
-    label: identical(label, sdkOmittedValue) ? this.label : label as String,
-  );
+  CreateNamespace _copyWith(
+          {Object? region = sdkOmittedValue,
+          Object? label = sdkOmittedValue}) =>
+      CreateNamespace(
+        region:
+            identical(region, sdkOmittedValue) ? this.region : region as String,
+        label: identical(label, sdkOmittedValue) ? this.label : label as String,
+      );
 
-  factory CreateNamespace.fromJson(Map<String, dynamic> json) => CreateNamespace(
-    region: (json['region'] as String?)!,
-    label: (json['label'] as String?)!,
-  );
+  factory CreateNamespace.fromJson(Map<String, dynamic> json) =>
+      CreateNamespace(
+        region: (json['region'] as String?)!,
+        label: (json['label'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'region': region,
-    'label': label,
-  };
+        'region': region,
+        'label': label,
+      };
 }

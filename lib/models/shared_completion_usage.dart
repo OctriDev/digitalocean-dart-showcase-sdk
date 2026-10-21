@@ -8,76 +8,138 @@ part of 'shared.dart';
 class CompletionUsageCacheCreation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Number of prompt tokens written to 5m cache.
   final int ephemeral5mInputTokens;
+
   /// Number of prompt tokens written to 1h cache.
   final int ephemeral1hInputTokens;
 
-  const CompletionUsageCacheCreation({required this.ephemeral5mInputTokens, required this.ephemeral1hInputTokens});
+  const CompletionUsageCacheCreation(
+      {required this.ephemeral5mInputTokens,
+      required this.ephemeral1hInputTokens});
 
-  CompletionUsageCacheCreation Function({int ephemeral5mInputTokens, int ephemeral1hInputTokens}) get copyWith => _copyWith;
+  CompletionUsageCacheCreation Function(
+      {int ephemeral5mInputTokens,
+      int ephemeral1hInputTokens}) get copyWith => _copyWith;
 
-  CompletionUsageCacheCreation _copyWith({Object? ephemeral5mInputTokens = sdkOmittedValue, Object? ephemeral1hInputTokens = sdkOmittedValue}) => CompletionUsageCacheCreation(
-    ephemeral5mInputTokens: identical(ephemeral5mInputTokens, sdkOmittedValue) ? this.ephemeral5mInputTokens : ephemeral5mInputTokens as int,
-    ephemeral1hInputTokens: identical(ephemeral1hInputTokens, sdkOmittedValue) ? this.ephemeral1hInputTokens : ephemeral1hInputTokens as int,
-  );
+  CompletionUsageCacheCreation _copyWith(
+          {Object? ephemeral5mInputTokens = sdkOmittedValue,
+          Object? ephemeral1hInputTokens = sdkOmittedValue}) =>
+      CompletionUsageCacheCreation(
+        ephemeral5mInputTokens:
+            identical(ephemeral5mInputTokens, sdkOmittedValue)
+                ? this.ephemeral5mInputTokens
+                : ephemeral5mInputTokens as int,
+        ephemeral1hInputTokens:
+            identical(ephemeral1hInputTokens, sdkOmittedValue)
+                ? this.ephemeral1hInputTokens
+                : ephemeral1hInputTokens as int,
+      );
 
-  factory CompletionUsageCacheCreation.fromJson(Map<String, dynamic> json) => CompletionUsageCacheCreation(
-    ephemeral5mInputTokens: ((json['ephemeral_5m_input_tokens'] as num?)?.toInt())!,
-    ephemeral1hInputTokens: ((json['ephemeral_1h_input_tokens'] as num?)?.toInt())!,
-  );
+  factory CompletionUsageCacheCreation.fromJson(Map<String, dynamic> json) =>
+      CompletionUsageCacheCreation(
+        ephemeral5mInputTokens:
+            ((json['ephemeral_5m_input_tokens'] as num?)?.toInt())!,
+        ephemeral1hInputTokens:
+            ((json['ephemeral_1h_input_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'ephemeral_5m_input_tokens': ephemeral5mInputTokens,
-    'ephemeral_1h_input_tokens': ephemeral1hInputTokens,
-  };
+        'ephemeral_5m_input_tokens': ephemeral5mInputTokens,
+        'ephemeral_1h_input_tokens': ephemeral1hInputTokens,
+      };
 }
 
 /// Usage statistics for the completion request.
 class CompletionUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Number of tokens in the generated completion.
   final int completionTokens;
+
   /// Number of tokens in the prompt.
   final int promptTokens;
+
   /// Number of prompt tokens written to cache.
   final int cacheCreatedInputTokens;
+
   /// Breakdown of prompt tokens written to cache.
   final CompletionUsageCacheCreation cacheCreation;
+
   /// Number of prompt tokens read from cache.
   final int cacheReadInputTokens;
+
   /// Total number of tokens used in the request (prompt + completion).
   final int totalTokens;
 
-  const CompletionUsage({required this.completionTokens, required this.promptTokens, required this.cacheCreatedInputTokens, required this.cacheCreation, required this.cacheReadInputTokens, required this.totalTokens});
+  const CompletionUsage(
+      {required this.completionTokens,
+      required this.promptTokens,
+      required this.cacheCreatedInputTokens,
+      required this.cacheCreation,
+      required this.cacheReadInputTokens,
+      required this.totalTokens});
 
-  CompletionUsage Function({int completionTokens, int promptTokens, int cacheCreatedInputTokens, CompletionUsageCacheCreation cacheCreation, int cacheReadInputTokens, int totalTokens}) get copyWith => _copyWith;
+  CompletionUsage Function(
+      {int completionTokens,
+      int promptTokens,
+      int cacheCreatedInputTokens,
+      CompletionUsageCacheCreation cacheCreation,
+      int cacheReadInputTokens,
+      int totalTokens}) get copyWith => _copyWith;
 
-  CompletionUsage _copyWith({Object? completionTokens = sdkOmittedValue, Object? promptTokens = sdkOmittedValue, Object? cacheCreatedInputTokens = sdkOmittedValue, Object? cacheCreation = sdkOmittedValue, Object? cacheReadInputTokens = sdkOmittedValue, Object? totalTokens = sdkOmittedValue}) => CompletionUsage(
-    completionTokens: identical(completionTokens, sdkOmittedValue) ? this.completionTokens : completionTokens as int,
-    promptTokens: identical(promptTokens, sdkOmittedValue) ? this.promptTokens : promptTokens as int,
-    cacheCreatedInputTokens: identical(cacheCreatedInputTokens, sdkOmittedValue) ? this.cacheCreatedInputTokens : cacheCreatedInputTokens as int,
-    cacheCreation: identical(cacheCreation, sdkOmittedValue) ? this.cacheCreation : cacheCreation as CompletionUsageCacheCreation,
-    cacheReadInputTokens: identical(cacheReadInputTokens, sdkOmittedValue) ? this.cacheReadInputTokens : cacheReadInputTokens as int,
-    totalTokens: identical(totalTokens, sdkOmittedValue) ? this.totalTokens : totalTokens as int,
-  );
+  CompletionUsage _copyWith(
+          {Object? completionTokens = sdkOmittedValue,
+          Object? promptTokens = sdkOmittedValue,
+          Object? cacheCreatedInputTokens = sdkOmittedValue,
+          Object? cacheCreation = sdkOmittedValue,
+          Object? cacheReadInputTokens = sdkOmittedValue,
+          Object? totalTokens = sdkOmittedValue}) =>
+      CompletionUsage(
+        completionTokens: identical(completionTokens, sdkOmittedValue)
+            ? this.completionTokens
+            : completionTokens as int,
+        promptTokens: identical(promptTokens, sdkOmittedValue)
+            ? this.promptTokens
+            : promptTokens as int,
+        cacheCreatedInputTokens:
+            identical(cacheCreatedInputTokens, sdkOmittedValue)
+                ? this.cacheCreatedInputTokens
+                : cacheCreatedInputTokens as int,
+        cacheCreation: identical(cacheCreation, sdkOmittedValue)
+            ? this.cacheCreation
+            : cacheCreation as CompletionUsageCacheCreation,
+        cacheReadInputTokens: identical(cacheReadInputTokens, sdkOmittedValue)
+            ? this.cacheReadInputTokens
+            : cacheReadInputTokens as int,
+        totalTokens: identical(totalTokens, sdkOmittedValue)
+            ? this.totalTokens
+            : totalTokens as int,
+      );
 
-  factory CompletionUsage.fromJson(Map<String, dynamic> json) => CompletionUsage(
-    completionTokens: ((json['completion_tokens'] as num?)?.toInt())!,
-    promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
-    cacheCreatedInputTokens: ((json['cache_created_input_tokens'] as num?)?.toInt())!,
-    cacheCreation: (json['cache_creation'] != null ? CompletionUsageCacheCreation.fromJson(json['cache_creation'] as Map<String, dynamic>) : null)!,
-    cacheReadInputTokens: ((json['cache_read_input_tokens'] as num?)?.toInt())!,
-    totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
-  );
+  factory CompletionUsage.fromJson(Map<String, dynamic> json) =>
+      CompletionUsage(
+        completionTokens: ((json['completion_tokens'] as num?)?.toInt())!,
+        promptTokens: ((json['prompt_tokens'] as num?)?.toInt())!,
+        cacheCreatedInputTokens:
+            ((json['cache_created_input_tokens'] as num?)?.toInt())!,
+        cacheCreation: (json['cache_creation'] != null
+            ? CompletionUsageCacheCreation.fromJson(
+                json['cache_creation'] as Map<String, dynamic>)
+            : null)!,
+        cacheReadInputTokens:
+            ((json['cache_read_input_tokens'] as num?)?.toInt())!,
+        totalTokens: ((json['total_tokens'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'completion_tokens': completionTokens,
-    'prompt_tokens': promptTokens,
-    'cache_created_input_tokens': cacheCreatedInputTokens,
-    'cache_creation': cacheCreation.toJson(),
-    'cache_read_input_tokens': cacheReadInputTokens,
-    'total_tokens': totalTokens,
-  };
+        'completion_tokens': completionTokens,
+        'prompt_tokens': promptTokens,
+        'cache_created_input_tokens': cacheCreatedInputTokens,
+        'cache_creation': cacheCreation.toJson(),
+        'cache_read_input_tokens': cacheReadInputTokens,
+        'total_tokens': totalTokens,
+      };
 }

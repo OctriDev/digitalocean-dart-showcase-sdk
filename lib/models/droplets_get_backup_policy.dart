@@ -8,25 +8,39 @@ part of 'droplets.dart';
 class DropletBackupPolicyResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `policy` wire field.
   final SdkOptional<DropletBackupPolicyRecord> policy;
 
   const DropletBackupPolicyResponse({this.policy = const SdkOmitted()});
 
-  DropletBackupPolicyResponse Function({SdkOptional<DropletBackupPolicyRecord> policy}) get copyWith => _copyWith;
+  DropletBackupPolicyResponse Function(
+          {SdkOptional<DropletBackupPolicyRecord> policy})
+      get copyWith => _copyWith;
 
-  DropletBackupPolicyResponse _copyWith({Object? policy = sdkOmittedValue}) => DropletBackupPolicyResponse(
-    policy: identical(policy, sdkOmittedValue) ? this.policy : policy as SdkOptional<DropletBackupPolicyRecord>,
-  );
+  DropletBackupPolicyResponse _copyWith({Object? policy = sdkOmittedValue}) =>
+      DropletBackupPolicyResponse(
+        policy: identical(policy, sdkOmittedValue)
+            ? this.policy
+            : policy as SdkOptional<DropletBackupPolicyRecord>,
+      );
 
-  factory DropletBackupPolicyResponse.fromJson(Map<String, dynamic> json) => DropletBackupPolicyResponse(
-    policy: json['policy'] != null ? SdkPresent((json['policy'] != null ? DropletBackupPolicyRecord.fromJson(json['policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DropletBackupPolicyResponse.fromJson(Map<String, dynamic> json) =>
+      DropletBackupPolicyResponse(
+        policy: json['policy'] != null
+            ? SdkPresent((json['policy'] != null
+                ? DropletBackupPolicyRecord.fromJson(
+                    json['policy'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (policy) {
-      SdkPresent<DropletBackupPolicyRecord>(value: final value) => {'policy': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (policy) {
+          SdkPresent<DropletBackupPolicyRecord>(value: final value) => {
+              'policy': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

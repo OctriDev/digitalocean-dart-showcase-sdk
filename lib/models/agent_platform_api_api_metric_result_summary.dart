@@ -8,113 +8,235 @@ part of 'agent_platform_api_api.dart';
 class ApiMetricResultSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Row-level (not attempt-level) aggregation across epochs for this metric, mirroring EpochResultSummary but scoped to one metric. Only set when the run's epochs &gt; 1; pass_percent/pass_count/etc. above stay attempt-level (over row x epoch pairs) so they don't desynchronize from the counts sitting next to them.
   final SdkOptional<double> avgAtKPercent;
+
   /// Optional `double`-formatted value serialized in the `cons_at_k_percent` wire field.
   final SdkOptional<double> consAtKPercent;
+
   /// Optional `string` value serialized in the `description` wire field.
   final SdkOptional<String> description;
+
   /// Rows where the metric failed to score or completed below the threshold.
   final SdkOptional<int> failCount;
+
   /// Optional `double`-formatted value serialized in the `fail_percent` wire field.
   final SdkOptional<double> failPercent;
+
   /// Optional `string` value serialized in the `metric_name` wire field.
   final SdkOptional<String> metricName;
+
   /// Optional `string` value serialized in the `metric_uuid` wire field.
   final SdkOptional<String> metricUuid;
+
   /// Optional `double`-formatted value serialized in the `pass_at_k_percent` wire field.
   final SdkOptional<double> passAtKPercent;
+
   /// Rows where the metric completed and passed the configured threshold.
   final SdkOptional<int> passCount;
+
   /// Optional `double`-formatted value serialized in the `pass_percent` wire field.
   final SdkOptional<double> passPercent;
+
   /// Percentage of rows that were skipped for this metric, computed as skipped_count divided by the total rows the metric saw (pass_count + fail_count + skipped_count).
   final SdkOptional<double> skipPercent;
+
   /// Rows where the metric was not evaluated for this prompt.
   final SdkOptional<int> skippedCount;
 
-  const ApiMetricResultSummary({this.avgAtKPercent = const SdkOmitted(), this.consAtKPercent = const SdkOmitted(), this.description = const SdkOmitted(), this.failCount = const SdkOmitted(), this.failPercent = const SdkOmitted(), this.metricName = const SdkOmitted(), this.metricUuid = const SdkOmitted(), this.passAtKPercent = const SdkOmitted(), this.passCount = const SdkOmitted(), this.passPercent = const SdkOmitted(), this.skipPercent = const SdkOmitted(), this.skippedCount = const SdkOmitted()});
+  const ApiMetricResultSummary(
+      {this.avgAtKPercent = const SdkOmitted(),
+      this.consAtKPercent = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.failCount = const SdkOmitted(),
+      this.failPercent = const SdkOmitted(),
+      this.metricName = const SdkOmitted(),
+      this.metricUuid = const SdkOmitted(),
+      this.passAtKPercent = const SdkOmitted(),
+      this.passCount = const SdkOmitted(),
+      this.passPercent = const SdkOmitted(),
+      this.skipPercent = const SdkOmitted(),
+      this.skippedCount = const SdkOmitted()});
 
-  ApiMetricResultSummary Function({SdkOptional<double> avgAtKPercent, SdkOptional<double> consAtKPercent, SdkOptional<String> description, SdkOptional<int> failCount, SdkOptional<double> failPercent, SdkOptional<String> metricName, SdkOptional<String> metricUuid, SdkOptional<double> passAtKPercent, SdkOptional<int> passCount, SdkOptional<double> passPercent, SdkOptional<double> skipPercent, SdkOptional<int> skippedCount}) get copyWith => _copyWith;
+  ApiMetricResultSummary Function(
+      {SdkOptional<double> avgAtKPercent,
+      SdkOptional<double> consAtKPercent,
+      SdkOptional<String> description,
+      SdkOptional<int> failCount,
+      SdkOptional<double> failPercent,
+      SdkOptional<String> metricName,
+      SdkOptional<String> metricUuid,
+      SdkOptional<double> passAtKPercent,
+      SdkOptional<int> passCount,
+      SdkOptional<double> passPercent,
+      SdkOptional<double> skipPercent,
+      SdkOptional<int> skippedCount}) get copyWith => _copyWith;
 
-  ApiMetricResultSummary _copyWith({Object? avgAtKPercent = sdkOmittedValue, Object? consAtKPercent = sdkOmittedValue, Object? description = sdkOmittedValue, Object? failCount = sdkOmittedValue, Object? failPercent = sdkOmittedValue, Object? metricName = sdkOmittedValue, Object? metricUuid = sdkOmittedValue, Object? passAtKPercent = sdkOmittedValue, Object? passCount = sdkOmittedValue, Object? passPercent = sdkOmittedValue, Object? skipPercent = sdkOmittedValue, Object? skippedCount = sdkOmittedValue}) => ApiMetricResultSummary(
-    avgAtKPercent: identical(avgAtKPercent, sdkOmittedValue) ? this.avgAtKPercent : avgAtKPercent as SdkOptional<double>,
-    consAtKPercent: identical(consAtKPercent, sdkOmittedValue) ? this.consAtKPercent : consAtKPercent as SdkOptional<double>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    failCount: identical(failCount, sdkOmittedValue) ? this.failCount : failCount as SdkOptional<int>,
-    failPercent: identical(failPercent, sdkOmittedValue) ? this.failPercent : failPercent as SdkOptional<double>,
-    metricName: identical(metricName, sdkOmittedValue) ? this.metricName : metricName as SdkOptional<String>,
-    metricUuid: identical(metricUuid, sdkOmittedValue) ? this.metricUuid : metricUuid as SdkOptional<String>,
-    passAtKPercent: identical(passAtKPercent, sdkOmittedValue) ? this.passAtKPercent : passAtKPercent as SdkOptional<double>,
-    passCount: identical(passCount, sdkOmittedValue) ? this.passCount : passCount as SdkOptional<int>,
-    passPercent: identical(passPercent, sdkOmittedValue) ? this.passPercent : passPercent as SdkOptional<double>,
-    skipPercent: identical(skipPercent, sdkOmittedValue) ? this.skipPercent : skipPercent as SdkOptional<double>,
-    skippedCount: identical(skippedCount, sdkOmittedValue) ? this.skippedCount : skippedCount as SdkOptional<int>,
-  );
+  ApiMetricResultSummary _copyWith(
+          {Object? avgAtKPercent = sdkOmittedValue,
+          Object? consAtKPercent = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? failCount = sdkOmittedValue,
+          Object? failPercent = sdkOmittedValue,
+          Object? metricName = sdkOmittedValue,
+          Object? metricUuid = sdkOmittedValue,
+          Object? passAtKPercent = sdkOmittedValue,
+          Object? passCount = sdkOmittedValue,
+          Object? passPercent = sdkOmittedValue,
+          Object? skipPercent = sdkOmittedValue,
+          Object? skippedCount = sdkOmittedValue}) =>
+      ApiMetricResultSummary(
+        avgAtKPercent: identical(avgAtKPercent, sdkOmittedValue)
+            ? this.avgAtKPercent
+            : avgAtKPercent as SdkOptional<double>,
+        consAtKPercent: identical(consAtKPercent, sdkOmittedValue)
+            ? this.consAtKPercent
+            : consAtKPercent as SdkOptional<double>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        failCount: identical(failCount, sdkOmittedValue)
+            ? this.failCount
+            : failCount as SdkOptional<int>,
+        failPercent: identical(failPercent, sdkOmittedValue)
+            ? this.failPercent
+            : failPercent as SdkOptional<double>,
+        metricName: identical(metricName, sdkOmittedValue)
+            ? this.metricName
+            : metricName as SdkOptional<String>,
+        metricUuid: identical(metricUuid, sdkOmittedValue)
+            ? this.metricUuid
+            : metricUuid as SdkOptional<String>,
+        passAtKPercent: identical(passAtKPercent, sdkOmittedValue)
+            ? this.passAtKPercent
+            : passAtKPercent as SdkOptional<double>,
+        passCount: identical(passCount, sdkOmittedValue)
+            ? this.passCount
+            : passCount as SdkOptional<int>,
+        passPercent: identical(passPercent, sdkOmittedValue)
+            ? this.passPercent
+            : passPercent as SdkOptional<double>,
+        skipPercent: identical(skipPercent, sdkOmittedValue)
+            ? this.skipPercent
+            : skipPercent as SdkOptional<double>,
+        skippedCount: identical(skippedCount, sdkOmittedValue)
+            ? this.skippedCount
+            : skippedCount as SdkOptional<int>,
+      );
 
-  factory ApiMetricResultSummary.fromJson(Map<String, dynamic> json) => ApiMetricResultSummary(
-    avgAtKPercent: json['avg_at_k_percent'] != null ? SdkPresent(((json['avg_at_k_percent'] as num?)?.toDouble())!) : const SdkOmitted(),
-    consAtKPercent: json['cons_at_k_percent'] != null ? SdkPresent(((json['cons_at_k_percent'] as num?)?.toDouble())!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    failCount: json['fail_count'] != null ? SdkPresent(((json['fail_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    failPercent: json['fail_percent'] != null ? SdkPresent(((json['fail_percent'] as num?)?.toDouble())!) : const SdkOmitted(),
-    metricName: json['metric_name'] != null ? SdkPresent((json['metric_name'] as String?)!) : const SdkOmitted(),
-    metricUuid: json['metric_uuid'] != null ? SdkPresent((json['metric_uuid'] as String?)!) : const SdkOmitted(),
-    passAtKPercent: json['pass_at_k_percent'] != null ? SdkPresent(((json['pass_at_k_percent'] as num?)?.toDouble())!) : const SdkOmitted(),
-    passCount: json['pass_count'] != null ? SdkPresent(((json['pass_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    passPercent: json['pass_percent'] != null ? SdkPresent(((json['pass_percent'] as num?)?.toDouble())!) : const SdkOmitted(),
-    skipPercent: json['skip_percent'] != null ? SdkPresent(((json['skip_percent'] as num?)?.toDouble())!) : const SdkOmitted(),
-    skippedCount: json['skipped_count'] != null ? SdkPresent(((json['skipped_count'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory ApiMetricResultSummary.fromJson(Map<String, dynamic> json) =>
+      ApiMetricResultSummary(
+        avgAtKPercent: json['avg_at_k_percent'] != null
+            ? SdkPresent(((json['avg_at_k_percent'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        consAtKPercent: json['cons_at_k_percent'] != null
+            ? SdkPresent(((json['cons_at_k_percent'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        failCount: json['fail_count'] != null
+            ? SdkPresent(((json['fail_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        failPercent: json['fail_percent'] != null
+            ? SdkPresent(((json['fail_percent'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        metricName: json['metric_name'] != null
+            ? SdkPresent((json['metric_name'] as String?)!)
+            : const SdkOmitted(),
+        metricUuid: json['metric_uuid'] != null
+            ? SdkPresent((json['metric_uuid'] as String?)!)
+            : const SdkOmitted(),
+        passAtKPercent: json['pass_at_k_percent'] != null
+            ? SdkPresent(((json['pass_at_k_percent'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        passCount: json['pass_count'] != null
+            ? SdkPresent(((json['pass_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        passPercent: json['pass_percent'] != null
+            ? SdkPresent(((json['pass_percent'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        skipPercent: json['skip_percent'] != null
+            ? SdkPresent(((json['skip_percent'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        skippedCount: json['skipped_count'] != null
+            ? SdkPresent(((json['skipped_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (avgAtKPercent) {
-      SdkPresent<double>(value: final value) => {'avg_at_k_percent': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (consAtKPercent) {
-      SdkPresent<double>(value: final value) => {'cons_at_k_percent': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (failCount) {
-      SdkPresent<int>(value: final value) => {'fail_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (failPercent) {
-      SdkPresent<double>(value: final value) => {'fail_percent': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metricName) {
-      SdkPresent<String>(value: final value) => {'metric_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metricUuid) {
-      SdkPresent<String>(value: final value) => {'metric_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (passAtKPercent) {
-      SdkPresent<double>(value: final value) => {'pass_at_k_percent': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (passCount) {
-      SdkPresent<int>(value: final value) => {'pass_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (passPercent) {
-      SdkPresent<double>(value: final value) => {'pass_percent': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (skipPercent) {
-      SdkPresent<double>(value: final value) => {'skip_percent': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (skippedCount) {
-      SdkPresent<int>(value: final value) => {'skipped_count': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (avgAtKPercent) {
+          SdkPresent<double>(value: final value) => {
+              'avg_at_k_percent': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (consAtKPercent) {
+          SdkPresent<double>(value: final value) => {
+              'cons_at_k_percent': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (failCount) {
+          SdkPresent<int>(value: final value) => {
+              'fail_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (failPercent) {
+          SdkPresent<double>(value: final value) => {
+              'fail_percent': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metricName) {
+          SdkPresent<String>(value: final value) => {
+              'metric_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metricUuid) {
+          SdkPresent<String>(value: final value) => {
+              'metric_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (passAtKPercent) {
+          SdkPresent<double>(value: final value) => {
+              'pass_at_k_percent': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (passCount) {
+          SdkPresent<int>(value: final value) => {
+              'pass_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (passPercent) {
+          SdkPresent<double>(value: final value) => {
+              'pass_percent': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (skipPercent) {
+          SdkPresent<double>(value: final value) => {
+              'skip_percent': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (skippedCount) {
+          SdkPresent<int>(value: final value) => {
+              'skipped_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

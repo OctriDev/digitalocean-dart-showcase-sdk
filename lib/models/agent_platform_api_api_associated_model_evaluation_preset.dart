@@ -8,33 +8,56 @@ part of 'agent_platform_api_api.dart';
 class ApiAssociatedModelEvaluationPreset {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier of the saved model evaluation preset that references the metric.
   final SdkOptional<String> evalPresetUuid;
+
   /// Display name of the saved model evaluation preset.
   final SdkOptional<String> name;
 
-  const ApiAssociatedModelEvaluationPreset({this.evalPresetUuid = const SdkOmitted(), this.name = const SdkOmitted()});
+  const ApiAssociatedModelEvaluationPreset(
+      {this.evalPresetUuid = const SdkOmitted(),
+      this.name = const SdkOmitted()});
 
-  ApiAssociatedModelEvaluationPreset Function({SdkOptional<String> evalPresetUuid, SdkOptional<String> name}) get copyWith => _copyWith;
+  ApiAssociatedModelEvaluationPreset Function(
+      {SdkOptional<String> evalPresetUuid,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ApiAssociatedModelEvaluationPreset _copyWith({Object? evalPresetUuid = sdkOmittedValue, Object? name = sdkOmittedValue}) => ApiAssociatedModelEvaluationPreset(
-    evalPresetUuid: identical(evalPresetUuid, sdkOmittedValue) ? this.evalPresetUuid : evalPresetUuid as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  ApiAssociatedModelEvaluationPreset _copyWith(
+          {Object? evalPresetUuid = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      ApiAssociatedModelEvaluationPreset(
+        evalPresetUuid: identical(evalPresetUuid, sdkOmittedValue)
+            ? this.evalPresetUuid
+            : evalPresetUuid as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory ApiAssociatedModelEvaluationPreset.fromJson(Map<String, dynamic> json) => ApiAssociatedModelEvaluationPreset(
-    evalPresetUuid: json['eval_preset_uuid'] != null ? SdkPresent((json['eval_preset_uuid'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiAssociatedModelEvaluationPreset.fromJson(
+          Map<String, dynamic> json) =>
+      ApiAssociatedModelEvaluationPreset(
+        evalPresetUuid: json['eval_preset_uuid'] != null
+            ? SdkPresent((json['eval_preset_uuid'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (evalPresetUuid) {
-      SdkPresent<String>(value: final value) => {'eval_preset_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (evalPresetUuid) {
+          SdkPresent<String>(value: final value) => {
+              'eval_preset_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

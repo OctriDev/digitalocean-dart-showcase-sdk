@@ -8,100 +8,190 @@ part of 'apps_apps.dart';
 class AppsImageSourceSpecDeployOnPush {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether to automatically deploy new images. Can only be used for images hosted in DOCR and can only be used with an image tag, not a specific digest.
   final SdkOptional<bool> enabled;
 
   const AppsImageSourceSpecDeployOnPush({this.enabled = const SdkOmitted()});
 
-  AppsImageSourceSpecDeployOnPush Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  AppsImageSourceSpecDeployOnPush Function({SdkOptional<bool> enabled})
+      get copyWith => _copyWith;
 
-  AppsImageSourceSpecDeployOnPush _copyWith({Object? enabled = sdkOmittedValue}) => AppsImageSourceSpecDeployOnPush(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  AppsImageSourceSpecDeployOnPush _copyWith(
+          {Object? enabled = sdkOmittedValue}) =>
+      AppsImageSourceSpecDeployOnPush(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
-  factory AppsImageSourceSpecDeployOnPush.fromJson(Map<String, dynamic> json) => AppsImageSourceSpecDeployOnPush(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+  factory AppsImageSourceSpecDeployOnPush.fromJson(Map<String, dynamic> json) =>
+      AppsImageSourceSpecDeployOnPush(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AppsImageSourceSpec` API schema.
 class AppsImageSourceSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The registry name. Must be left empty for the `DOCR` registry type.
   final SdkOptional<String> registry;
+
   /// - DOCKER_HUB: The DockerHub container registry type. - DOCR: The DigitalOcean container registry type. - GHCR: The Github container registry type.
   final SdkOptional<AppsImageSourceSpecRegistryType> registryType;
+
   /// The credentials to be able to pull the image. The value will be encrypted on first submission. On following submissions, the encrypted value should be used. - "$username:$access_token" for registries of type `DOCKER_HUB`. - "$username:$access_token" for registries of type `GHCR`.
   final SdkOptional<String> registryCredentials;
+
   /// The repository name.
   final SdkOptional<String> repository;
+
   /// The repository tag. Defaults to `latest` if not provided and no digest is provided. Cannot be specified if digest is provided.
   final SdkOptional<String> tag;
+
   /// The image digest. Cannot be specified if tag is provided.
   final SdkOptional<String> digest;
+
   /// Optional object value serialized in the `deploy_on_push` wire field.
   final SdkOptional<AppsImageSourceSpecDeployOnPush> deployOnPush;
 
-  const AppsImageSourceSpec({this.registry = const SdkOmitted(), this.registryType = const SdkOmitted(), this.registryCredentials = const SdkOmitted(), this.repository = const SdkOmitted(), this.tag = const SdkOmitted(), this.digest = const SdkOmitted(), this.deployOnPush = const SdkOmitted()});
+  const AppsImageSourceSpec(
+      {this.registry = const SdkOmitted(),
+      this.registryType = const SdkOmitted(),
+      this.registryCredentials = const SdkOmitted(),
+      this.repository = const SdkOmitted(),
+      this.tag = const SdkOmitted(),
+      this.digest = const SdkOmitted(),
+      this.deployOnPush = const SdkOmitted()});
 
-  AppsImageSourceSpec Function({SdkOptional<String> registry, SdkOptional<AppsImageSourceSpecRegistryType> registryType, SdkOptional<String> registryCredentials, SdkOptional<String> repository, SdkOptional<String> tag, SdkOptional<String> digest, SdkOptional<AppsImageSourceSpecDeployOnPush> deployOnPush}) get copyWith => _copyWith;
+  AppsImageSourceSpec Function(
+          {SdkOptional<String> registry,
+          SdkOptional<AppsImageSourceSpecRegistryType> registryType,
+          SdkOptional<String> registryCredentials,
+          SdkOptional<String> repository,
+          SdkOptional<String> tag,
+          SdkOptional<String> digest,
+          SdkOptional<AppsImageSourceSpecDeployOnPush> deployOnPush})
+      get copyWith => _copyWith;
 
-  AppsImageSourceSpec _copyWith({Object? registry = sdkOmittedValue, Object? registryType = sdkOmittedValue, Object? registryCredentials = sdkOmittedValue, Object? repository = sdkOmittedValue, Object? tag = sdkOmittedValue, Object? digest = sdkOmittedValue, Object? deployOnPush = sdkOmittedValue}) => AppsImageSourceSpec(
-    registry: identical(registry, sdkOmittedValue) ? this.registry : registry as SdkOptional<String>,
-    registryType: identical(registryType, sdkOmittedValue) ? this.registryType : registryType as SdkOptional<AppsImageSourceSpecRegistryType>,
-    registryCredentials: identical(registryCredentials, sdkOmittedValue) ? this.registryCredentials : registryCredentials as SdkOptional<String>,
-    repository: identical(repository, sdkOmittedValue) ? this.repository : repository as SdkOptional<String>,
-    tag: identical(tag, sdkOmittedValue) ? this.tag : tag as SdkOptional<String>,
-    digest: identical(digest, sdkOmittedValue) ? this.digest : digest as SdkOptional<String>,
-    deployOnPush: identical(deployOnPush, sdkOmittedValue) ? this.deployOnPush : deployOnPush as SdkOptional<AppsImageSourceSpecDeployOnPush>,
-  );
+  AppsImageSourceSpec _copyWith(
+          {Object? registry = sdkOmittedValue,
+          Object? registryType = sdkOmittedValue,
+          Object? registryCredentials = sdkOmittedValue,
+          Object? repository = sdkOmittedValue,
+          Object? tag = sdkOmittedValue,
+          Object? digest = sdkOmittedValue,
+          Object? deployOnPush = sdkOmittedValue}) =>
+      AppsImageSourceSpec(
+        registry: identical(registry, sdkOmittedValue)
+            ? this.registry
+            : registry as SdkOptional<String>,
+        registryType: identical(registryType, sdkOmittedValue)
+            ? this.registryType
+            : registryType as SdkOptional<AppsImageSourceSpecRegistryType>,
+        registryCredentials: identical(registryCredentials, sdkOmittedValue)
+            ? this.registryCredentials
+            : registryCredentials as SdkOptional<String>,
+        repository: identical(repository, sdkOmittedValue)
+            ? this.repository
+            : repository as SdkOptional<String>,
+        tag: identical(tag, sdkOmittedValue)
+            ? this.tag
+            : tag as SdkOptional<String>,
+        digest: identical(digest, sdkOmittedValue)
+            ? this.digest
+            : digest as SdkOptional<String>,
+        deployOnPush: identical(deployOnPush, sdkOmittedValue)
+            ? this.deployOnPush
+            : deployOnPush as SdkOptional<AppsImageSourceSpecDeployOnPush>,
+      );
 
-  factory AppsImageSourceSpec.fromJson(Map<String, dynamic> json) => AppsImageSourceSpec(
-    registry: json['registry'] != null ? SdkPresent((json['registry'] as String?)!) : const SdkOmitted(),
-    registryType: json['registry_type'] != null ? SdkPresent((json['registry_type'] != null ? AppsImageSourceSpecRegistryType.fromJson(json['registry_type'] as String) : null)!) : const SdkOmitted(),
-    registryCredentials: json['registry_credentials'] != null ? SdkPresent((json['registry_credentials'] as String?)!) : const SdkOmitted(),
-    repository: json['repository'] != null ? SdkPresent((json['repository'] as String?)!) : const SdkOmitted(),
-    tag: json['tag'] != null ? SdkPresent((json['tag'] as String?)!) : const SdkOmitted(),
-    digest: json['digest'] != null ? SdkPresent((json['digest'] as String?)!) : const SdkOmitted(),
-    deployOnPush: json['deploy_on_push'] != null ? SdkPresent((json['deploy_on_push'] != null ? AppsImageSourceSpecDeployOnPush.fromJson(json['deploy_on_push'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AppsImageSourceSpec.fromJson(Map<String, dynamic> json) =>
+      AppsImageSourceSpec(
+        registry: json['registry'] != null
+            ? SdkPresent((json['registry'] as String?)!)
+            : const SdkOmitted(),
+        registryType: json['registry_type'] != null
+            ? SdkPresent((json['registry_type'] != null
+                ? AppsImageSourceSpecRegistryType.fromJson(
+                    json['registry_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        registryCredentials: json['registry_credentials'] != null
+            ? SdkPresent((json['registry_credentials'] as String?)!)
+            : const SdkOmitted(),
+        repository: json['repository'] != null
+            ? SdkPresent((json['repository'] as String?)!)
+            : const SdkOmitted(),
+        tag: json['tag'] != null
+            ? SdkPresent((json['tag'] as String?)!)
+            : const SdkOmitted(),
+        digest: json['digest'] != null
+            ? SdkPresent((json['digest'] as String?)!)
+            : const SdkOmitted(),
+        deployOnPush: json['deploy_on_push'] != null
+            ? SdkPresent((json['deploy_on_push'] != null
+                ? AppsImageSourceSpecDeployOnPush.fromJson(
+                    json['deploy_on_push'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (registry) {
-      SdkPresent<String>(value: final value) => {'registry': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (registryType) {
-      SdkPresent<AppsImageSourceSpecRegistryType>(value: final value) => {'registry_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (registryCredentials) {
-      SdkPresent<String>(value: final value) => {'registry_credentials': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (repository) {
-      SdkPresent<String>(value: final value) => {'repository': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tag) {
-      SdkPresent<String>(value: final value) => {'tag': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (digest) {
-      SdkPresent<String>(value: final value) => {'digest': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deployOnPush) {
-      SdkPresent<AppsImageSourceSpecDeployOnPush>(value: final value) => {'deploy_on_push': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (registry) {
+          SdkPresent<String>(value: final value) => {
+              'registry': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (registryType) {
+          SdkPresent<AppsImageSourceSpecRegistryType>(value: final value) => {
+              'registry_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (registryCredentials) {
+          SdkPresent<String>(value: final value) => {
+              'registry_credentials': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (repository) {
+          SdkPresent<String>(value: final value) => {
+              'repository': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tag) {
+          SdkPresent<String>(value: final value) => {
+              'tag': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (digest) {
+          SdkPresent<String>(value: final value) => {
+              'digest': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deployOnPush) {
+          SdkPresent<AppsImageSourceSpecDeployOnPush>(value: final value) => {
+              'deploy_on_push': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

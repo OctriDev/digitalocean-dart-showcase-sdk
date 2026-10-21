@@ -6,24 +6,30 @@ part of 'agent_platform_api_api.dart';
 // agent_platform_api_api domain models
 /// Typed representation of the `ApiGuardrailType` API schema.
 final class ApiGuardrailType {
-
   final String value;
 
   const ApiGuardrailType._(this.value);
 
   factory ApiGuardrailType.fromJson(String value) => ApiGuardrailType._(value);
 
-  static const guardrailTypeUnknown = ApiGuardrailType._('GUARDRAIL_TYPE_UNKNOWN');
-  static const guardrailTypeJailbreak = ApiGuardrailType._('GUARDRAIL_TYPE_JAILBREAK');
-  static const guardrailTypeSensitiveData = ApiGuardrailType._('GUARDRAIL_TYPE_SENSITIVE_DATA');
-  static const guardrailTypeContentModeration = ApiGuardrailType._('GUARDRAIL_TYPE_CONTENT_MODERATION');
+  static const guardrailTypeUnknown =
+      ApiGuardrailType._('GUARDRAIL_TYPE_UNKNOWN');
+  static const guardrailTypeJailbreak =
+      ApiGuardrailType._('GUARDRAIL_TYPE_JAILBREAK');
+  static const guardrailTypeSensitiveData =
+      ApiGuardrailType._('GUARDRAIL_TYPE_SENSITIVE_DATA');
+  static const guardrailTypeContentModeration =
+      ApiGuardrailType._('GUARDRAIL_TYPE_CONTENT_MODERATION');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiGuardrailType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiGuardrailType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

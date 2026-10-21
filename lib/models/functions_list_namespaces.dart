@@ -11,22 +11,33 @@ class ListNamespacesVariant0 {
 
   const ListNamespacesVariant0({this.namespaces = const SdkOmitted()});
 
-  ListNamespacesVariant0 Function({SdkOptional<List<NamespaceInfo>> namespaces}) get copyWith => _copyWith;
+  ListNamespacesVariant0 Function({SdkOptional<List<NamespaceInfo>> namespaces})
+      get copyWith => _copyWith;
 
-  ListNamespacesVariant0 _copyWith({Object? namespaces = sdkOmittedValue}) => ListNamespacesVariant0(
-    namespaces: identical(namespaces, sdkOmittedValue) ? this.namespaces : namespaces as SdkOptional<List<NamespaceInfo>>,
-  );
+  ListNamespacesVariant0 _copyWith({Object? namespaces = sdkOmittedValue}) =>
+      ListNamespacesVariant0(
+        namespaces: identical(namespaces, sdkOmittedValue)
+            ? this.namespaces
+            : namespaces as SdkOptional<List<NamespaceInfo>>,
+      );
 
-  factory ListNamespacesVariant0.fromJson(Map<String, dynamic> json) => ListNamespacesVariant0(
-    namespaces: json['namespaces'] != null ? SdkPresent(((json['namespaces'] as List?)?.map((e) => NamespaceInfo.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ListNamespacesVariant0.fromJson(Map<String, dynamic> json) =>
+      ListNamespacesVariant0(
+        namespaces: json['namespaces'] != null
+            ? SdkPresent(((json['namespaces'] as List?)
+                ?.map((e) => NamespaceInfo.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (namespaces) {
-      SdkPresent<List<NamespaceInfo>>(value: final value) => {'namespaces': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (namespaces) {
+          SdkPresent<List<NamespaceInfo>>(value: final value) => {
+              'namespaces': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ListNamespaces` API schema.
@@ -37,20 +48,30 @@ class ListNamespaces {
 
   const ListNamespaces({this.namespaces = const SdkOmitted()});
 
-  ListNamespaces Function({SdkOptional<List<NamespaceInfo>> namespaces}) get copyWith => _copyWith;
+  ListNamespaces Function({SdkOptional<List<NamespaceInfo>> namespaces})
+      get copyWith => _copyWith;
 
-  ListNamespaces _copyWith({Object? namespaces = sdkOmittedValue}) => ListNamespaces(
-    namespaces: identical(namespaces, sdkOmittedValue) ? this.namespaces : namespaces as SdkOptional<List<NamespaceInfo>>,
-  );
+  ListNamespaces _copyWith({Object? namespaces = sdkOmittedValue}) =>
+      ListNamespaces(
+        namespaces: identical(namespaces, sdkOmittedValue)
+            ? this.namespaces
+            : namespaces as SdkOptional<List<NamespaceInfo>>,
+      );
 
   factory ListNamespaces.fromJson(Map<String, dynamic> json) => ListNamespaces(
-    namespaces: json['namespaces'] != null ? SdkPresent(((json['namespaces'] as List?)?.map((e) => NamespaceInfo.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        namespaces: json['namespaces'] != null
+            ? SdkPresent(((json['namespaces'] as List?)
+                ?.map((e) => NamespaceInfo.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (namespaces) {
-      SdkPresent<List<NamespaceInfo>>(value: final value) => {'namespaces': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (namespaces) {
+          SdkPresent<List<NamespaceInfo>>(value: final value) => {
+              'namespaces': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,33 +8,54 @@ part of 'load_balancers.dart';
 class LbFirewall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// the rules for denying traffic to the load balancer (in the form 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
   final SdkOptional<List<String>> deny;
+
   /// the rules for allowing traffic to the load balancer (in the form 'ip:1.2.3.4' or 'cidr:1.2.0.0/16')
   final SdkOptional<List<String>> allow;
 
-  const LbFirewall({this.deny = const SdkOmitted(), this.allow = const SdkOmitted()});
+  const LbFirewall(
+      {this.deny = const SdkOmitted(), this.allow = const SdkOmitted()});
 
-  LbFirewall Function({SdkOptional<List<String>> deny, SdkOptional<List<String>> allow}) get copyWith => _copyWith;
+  LbFirewall Function(
+      {SdkOptional<List<String>> deny,
+      SdkOptional<List<String>> allow}) get copyWith => _copyWith;
 
-  LbFirewall _copyWith({Object? deny = sdkOmittedValue, Object? allow = sdkOmittedValue}) => LbFirewall(
-    deny: identical(deny, sdkOmittedValue) ? this.deny : deny as SdkOptional<List<String>>,
-    allow: identical(allow, sdkOmittedValue) ? this.allow : allow as SdkOptional<List<String>>,
-  );
+  LbFirewall _copyWith(
+          {Object? deny = sdkOmittedValue, Object? allow = sdkOmittedValue}) =>
+      LbFirewall(
+        deny: identical(deny, sdkOmittedValue)
+            ? this.deny
+            : deny as SdkOptional<List<String>>,
+        allow: identical(allow, sdkOmittedValue)
+            ? this.allow
+            : allow as SdkOptional<List<String>>,
+      );
 
   factory LbFirewall.fromJson(Map<String, dynamic> json) => LbFirewall(
-    deny: json['deny'] != null ? SdkPresent(((json['deny'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    allow: json['allow'] != null ? SdkPresent(((json['allow'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+        deny: json['deny'] != null
+            ? SdkPresent(
+                ((json['deny'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        allow: json['allow'] != null
+            ? SdkPresent(
+                ((json['allow'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (deny) {
-      SdkPresent<List<String>>(value: final value) => {'deny': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allow) {
-      SdkPresent<List<String>>(value: final value) => {'allow': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (deny) {
+          SdkPresent<List<String>>(value: final value) => {
+              'deny': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allow) {
+          SdkPresent<List<String>>(value: final value) => {
+              'allow': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

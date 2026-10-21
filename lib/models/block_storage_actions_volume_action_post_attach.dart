@@ -7,75 +7,132 @@ part of 'block_storage_actions.dart';
 class VolumeActionPostAttachVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the Droplet the volume will be attached or detached from.
   final int dropletId;
+
   /// A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. &lt;br&gt;&lt;br&gt;Requires `tag:create` scope.
   final SdkOptional<List<String>?> tags;
 
-  const VolumeActionPostAttachVariant1({required this.dropletId, this.tags = const SdkOmitted()});
+  const VolumeActionPostAttachVariant1(
+      {required this.dropletId, this.tags = const SdkOmitted()});
 
-  VolumeActionPostAttachVariant1 Function({int dropletId, SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
+  VolumeActionPostAttachVariant1 Function(
+      {int dropletId,
+      SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
 
-  VolumeActionPostAttachVariant1 _copyWith({Object? dropletId = sdkOmittedValue, Object? tags = sdkOmittedValue}) => VolumeActionPostAttachVariant1(
-    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as int,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>?>,
-  );
+  VolumeActionPostAttachVariant1 _copyWith(
+          {Object? dropletId = sdkOmittedValue,
+          Object? tags = sdkOmittedValue}) =>
+      VolumeActionPostAttachVariant1(
+        dropletId: identical(dropletId, sdkOmittedValue)
+            ? this.dropletId
+            : dropletId as int,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>?>,
+      );
 
-  factory VolumeActionPostAttachVariant1.fromJson(Map<String, dynamic> json) => VolumeActionPostAttachVariant1(
-    dropletId: ((json['droplet_id'] as num?)?.toInt())!,
-    tags: json.containsKey('tags') ? SdkPresent((json['tags'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-  );
+  factory VolumeActionPostAttachVariant1.fromJson(Map<String, dynamic> json) =>
+      VolumeActionPostAttachVariant1(
+        dropletId: ((json['droplet_id'] as num?)?.toInt())!,
+        tags: json.containsKey('tags')
+            ? SdkPresent(
+                (json['tags'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'droplet_id': dropletId,
-    ...switch (tags) {
-      SdkPresent<List<String>?>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'droplet_id': dropletId,
+        ...switch (tags) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `VolumeActionPostAttach` API schema.
 class VolumeActionPostAttach {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The volume action to initiate.
   final VolumeActionPostBaseType type_;
+
   /// The slug identifier for the region where the resource will initially be available.
   final SdkOptional<RegionSlug> region;
+
   /// The unique identifier for the Droplet the volume will be attached or detached from.
   final int dropletId;
+
   /// A flat array of tag names as strings to be applied to the resource. Tag names may be for either existing or new tags. &lt;br&gt;&lt;br&gt;Requires `tag:create` scope.
   final SdkOptional<List<String>?> tags;
 
-  const VolumeActionPostAttach({required this.type_, this.region = const SdkOmitted(), required this.dropletId, this.tags = const SdkOmitted()});
+  const VolumeActionPostAttach(
+      {required this.type_,
+      this.region = const SdkOmitted(),
+      required this.dropletId,
+      this.tags = const SdkOmitted()});
 
-  VolumeActionPostAttach Function({VolumeActionPostBaseType type_, SdkOptional<RegionSlug> region, int dropletId, SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
+  VolumeActionPostAttach Function(
+      {VolumeActionPostBaseType type_,
+      SdkOptional<RegionSlug> region,
+      int dropletId,
+      SdkOptional<List<String>?> tags}) get copyWith => _copyWith;
 
-  VolumeActionPostAttach _copyWith({Object? type_ = sdkOmittedValue, Object? region = sdkOmittedValue, Object? dropletId = sdkOmittedValue, Object? tags = sdkOmittedValue}) => VolumeActionPostAttach(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as VolumeActionPostBaseType,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<RegionSlug>,
-    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as int,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>?>,
-  );
+  VolumeActionPostAttach _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? dropletId = sdkOmittedValue,
+          Object? tags = sdkOmittedValue}) =>
+      VolumeActionPostAttach(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as VolumeActionPostBaseType,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<RegionSlug>,
+        dropletId: identical(dropletId, sdkOmittedValue)
+            ? this.dropletId
+            : dropletId as int,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>?>,
+      );
 
-  factory VolumeActionPostAttach.fromJson(Map<String, dynamic> json) => VolumeActionPostAttach(
-    type_: (json['type'] != null ? VolumeActionPostBaseType.fromJson(json['type'] as String) : null)!,
-    region: json['region'] != null ? SdkPresent((json['region'] != null ? RegionSlug.fromJson(json['region'] as String) : null)!) : const SdkOmitted(),
-    dropletId: ((json['droplet_id'] as num?)?.toInt())!,
-    tags: json.containsKey('tags') ? SdkPresent((json['tags'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-  );
+  factory VolumeActionPostAttach.fromJson(Map<String, dynamic> json) =>
+      VolumeActionPostAttach(
+        type_: (json['type'] != null
+            ? VolumeActionPostBaseType.fromJson(json['type'] as String)
+            : null)!,
+        region: json['region'] != null
+            ? SdkPresent((json['region'] != null
+                ? RegionSlug.fromJson(json['region'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        dropletId: ((json['droplet_id'] as num?)?.toInt())!,
+        tags: json.containsKey('tags')
+            ? SdkPresent(
+                (json['tags'] as List?)?.map((e) => e as String).toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (region) {
-      SdkPresent<RegionSlug>(value: final value) => {'region': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'droplet_id': dropletId,
-    ...switch (tags) {
-      SdkPresent<List<String>?>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (region) {
+          SdkPresent<RegionSlug>(value: final value) => {
+              'region': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'droplet_id': dropletId,
+        ...switch (tags) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

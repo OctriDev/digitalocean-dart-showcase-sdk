@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models
 /// - UNSPECIFIED: Default job type, will auto-complete to POST_DEPLOY kind. - PRE_DEPLOY: Indicates a job that runs before an app deployment. - POST_DEPLOY: Indicates a job that runs after an app deployment. - FAILED_DEPLOY: Indicates a job that runs after a component fails to deploy.
 final class AppJobSpecVariant2Kind {
-
   final String value;
 
   const AppJobSpecVariant2Kind._(this.value);
 
-  factory AppJobSpecVariant2Kind.fromJson(String value) => AppJobSpecVariant2Kind._(value);
+  factory AppJobSpecVariant2Kind.fromJson(String value) =>
+      AppJobSpecVariant2Kind._(value);
 
   static const unspecified = AppJobSpecVariant2Kind._('UNSPECIFIED');
   static const preDeploy = AppJobSpecVariant2Kind._('PRE_DEPLOY');
@@ -20,116 +20,138 @@ final class AppJobSpecVariant2Kind {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AppJobSpecVariant2Kind && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AppJobSpecVariant2Kind && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// A code identifier that represents the failing condition. Failing conditions: - `incompatible_phase` - indicates that the deployment's phase is not suitable for rollback. - `incompatible_result` - indicates that the deployment's result is not suitable for rollback. - `exceeded_revision_limit` - indicates that the app has exceeded the rollback revision limits for its tier. - `app_pinned` - indicates that there is already a rollback in progress and the app is pinned. - `database_config_conflict` - indicates that the deployment's database config is different than the current config. - `region_conflict` - indicates that the deployment's region differs from the current app region. Warning conditions: - `static_site_requires_rebuild` - indicates that the deployment contains at least one static site that will require a rebuild. - `image_source_missing_digest` - indicates that the deployment contains at least one component with an image source that is missing a digest.
 final class AppRollbackValidationConditionCode {
-
   final String value;
 
   const AppRollbackValidationConditionCode._(this.value);
 
-  factory AppRollbackValidationConditionCode.fromJson(String value) => AppRollbackValidationConditionCode._(value);
+  factory AppRollbackValidationConditionCode.fromJson(String value) =>
+      AppRollbackValidationConditionCode._(value);
 
-  static const incompatiblePhase = AppRollbackValidationConditionCode._('incompatible_phase');
-  static const incompatibleResult = AppRollbackValidationConditionCode._('incompatible_result');
-  static const exceededRevisionLimit = AppRollbackValidationConditionCode._('exceeded_revision_limit');
+  static const incompatiblePhase =
+      AppRollbackValidationConditionCode._('incompatible_phase');
+  static const incompatibleResult =
+      AppRollbackValidationConditionCode._('incompatible_result');
+  static const exceededRevisionLimit =
+      AppRollbackValidationConditionCode._('exceeded_revision_limit');
   static const appPinned = AppRollbackValidationConditionCode._('app_pinned');
-  static const databaseConfigConflict = AppRollbackValidationConditionCode._('database_config_conflict');
-  static const regionConflict = AppRollbackValidationConditionCode._('region_conflict');
-  static const staticSiteRequiresRebuild = AppRollbackValidationConditionCode._('static_site_requires_rebuild');
-  static const imageSourceMissingDigest = AppRollbackValidationConditionCode._('image_source_missing_digest');
+  static const databaseConfigConflict =
+      AppRollbackValidationConditionCode._('database_config_conflict');
+  static const regionConflict =
+      AppRollbackValidationConditionCode._('region_conflict');
+  static const staticSiteRequiresRebuild =
+      AppRollbackValidationConditionCode._('static_site_requires_rebuild');
+  static const imageSourceMissingDigest =
+      AppRollbackValidationConditionCode._('image_source_missing_digest');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AppRollbackValidationConditionCode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AppRollbackValidationConditionCode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Whether to let the pending call run.
 final class ApprovalDecisionDecision {
-
   final String value;
 
   const ApprovalDecisionDecision._(this.value);
 
-  factory ApprovalDecisionDecision.fromJson(String value) => ApprovalDecisionDecision._(value);
+  factory ApprovalDecisionDecision.fromJson(String value) =>
+      ApprovalDecisionDecision._(value);
 
   static const approve = ApprovalDecisionDecision._('approve');
   static const deny = ApprovalDecisionDecision._('deny');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApprovalDecisionDecision && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApprovalDecisionDecision && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `status` wire field.
 final class ApprovalDecisionResponseStatus {
-
   final String value;
 
   const ApprovalDecisionResponseStatus._(this.value);
 
-  factory ApprovalDecisionResponseStatus.fromJson(String value) => ApprovalDecisionResponseStatus._(value);
+  factory ApprovalDecisionResponseStatus.fromJson(String value) =>
+      ApprovalDecisionResponseStatus._(value);
 
   static const approved = ApprovalDecisionResponseStatus._('approved');
   static const denied = ApprovalDecisionResponseStatus._('denied');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApprovalDecisionResponseStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApprovalDecisionResponseStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The protocol which the service uses to serve traffic on the http_port. - `HTTP`: The app is serving the HTTP protocol. Default. - `HTTP2`: The app is serving the HTTP/2 protocol. Currently, this needs to be implemented in the service by serving HTTP/2 cleartext (h2c).
 final class AppServiceSpecVariant2Protocol {
-
   final String value;
 
   const AppServiceSpecVariant2Protocol._(this.value);
 
-  factory AppServiceSpecVariant2Protocol.fromJson(String value) => AppServiceSpecVariant2Protocol._(value);
+  factory AppServiceSpecVariant2Protocol.fromJson(String value) =>
+      AppServiceSpecVariant2Protocol._(value);
 
   static const http = AppServiceSpecVariant2Protocol._('HTTP');
   static const http2 = AppServiceSpecVariant2Protocol._('HTTP2');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AppServiceSpecVariant2Protocol && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AppServiceSpecVariant2Protocol && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// - DOCKER_HUB: The DockerHub container registry type. - DOCR: The DigitalOcean container registry type. - GHCR: The Github container registry type.
 final class AppsImageSourceSpecRegistryType {
-
   final String value;
 
   const AppsImageSourceSpecRegistryType._(this.value);
 
-  factory AppsImageSourceSpecRegistryType.fromJson(String value) => AppsImageSourceSpecRegistryType._(value);
+  factory AppsImageSourceSpecRegistryType.fromJson(String value) =>
+      AppsImageSourceSpecRegistryType._(value);
 
   static const dockerHub = AppsImageSourceSpecRegistryType._('DOCKER_HUB');
   static const docr = AppsImageSourceSpecRegistryType._('DOCR');
@@ -137,17 +159,19 @@ final class AppsImageSourceSpecRegistryType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AppsImageSourceSpecRegistryType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AppsImageSourceSpecRegistryType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The slug form of the geographical origin of the app. Default: `nearest available`
 final class AppSpecRegion {
-
   final String value;
 
   const AppSpecRegion._(this.value);
@@ -167,22 +191,25 @@ final class AppSpecRegion {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AppSpecRegion && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AppSpecRegion && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The slug form of the geographical origin of the app. Default: `nearest available`
 final class AppSpecRequestRegion {
-
   final String value;
 
   const AppSpecRequestRegion._(this.value);
 
-  factory AppSpecRequestRegion.fromJson(String value) => AppSpecRequestRegion._(value);
+  factory AppSpecRequestRegion.fromJson(String value) =>
+      AppSpecRequestRegion._(value);
 
   static const atl = AppSpecRequestRegion._('atl');
   static const nyc = AppSpecRequestRegion._('nyc');
@@ -197,68 +224,78 @@ final class AppSpecRequestRegion {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AppSpecRequestRegion && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AppSpecRequestRegion && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// - RUN_TIME: Made available only at run-time - BUILD_TIME: Made available only at build-time - RUN_AND_BUILD_TIME: Made available at both build and run-time
 final class AppVariableDefinitionScope {
-
   final String value;
 
   const AppVariableDefinitionScope._(this.value);
 
-  factory AppVariableDefinitionScope.fromJson(String value) => AppVariableDefinitionScope._(value);
+  factory AppVariableDefinitionScope.fromJson(String value) =>
+      AppVariableDefinitionScope._(value);
 
   static const unset = AppVariableDefinitionScope._('UNSET');
   static const runTime = AppVariableDefinitionScope._('RUN_TIME');
   static const buildTime = AppVariableDefinitionScope._('BUILD_TIME');
-  static const runAndBuildTime = AppVariableDefinitionScope._('RUN_AND_BUILD_TIME');
+  static const runAndBuildTime =
+      AppVariableDefinitionScope._('RUN_AND_BUILD_TIME');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AppVariableDefinitionScope && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AppVariableDefinitionScope && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// - GENERAL: A plain-text environment variable - SECRET: A secret encrypted environment variable
 final class AppVariableDefinitionType {
-
   final String value;
 
   const AppVariableDefinitionType._(this.value);
 
-  factory AppVariableDefinitionType.fromJson(String value) => AppVariableDefinitionType._(value);
+  factory AppVariableDefinitionType.fromJson(String value) =>
+      AppVariableDefinitionType._(value);
 
   static const general = AppVariableDefinitionType._('GENERAL');
   static const secret = AppVariableDefinitionType._('SECRET');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AppVariableDefinitionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AppVariableDefinitionType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The current status of the async invocation.
 final class AsyncInvokeResponseStatus {
-
   final String value;
 
   const AsyncInvokeResponseStatus._(this.value);
 
-  factory AsyncInvokeResponseStatus.fromJson(String value) => AsyncInvokeResponseStatus._(value);
+  factory AsyncInvokeResponseStatus.fromJson(String value) =>
+      AsyncInvokeResponseStatus._(value);
 
   static const queued = AsyncInvokeResponseStatus._('QUEUED');
   static const inProgress = AsyncInvokeResponseStatus._('IN_PROGRESS');
@@ -267,10 +304,13 @@ final class AsyncInvokeResponseStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AsyncInvokeResponseStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AsyncInvokeResponseStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

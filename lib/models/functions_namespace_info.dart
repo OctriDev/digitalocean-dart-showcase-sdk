@@ -8,81 +8,162 @@ part of 'functions.dart';
 class NamespaceInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The namespace's API hostname. Each function in a namespace is provided an endpoint at the namespace's hostname.
   final SdkOptional<String> apiHost;
+
   /// A unique string format of UUID with a prefix fn-.
   final SdkOptional<String> namespace;
+
   /// UTC time string.
   final SdkOptional<String> createdAt;
+
   /// UTC time string.
   final SdkOptional<String> updatedAt;
+
   /// The namespace's unique name.
   final SdkOptional<String> label;
+
   /// The namespace's datacenter region.
   final SdkOptional<String> region;
+
   /// The namespace's Universally Unique Identifier.
   final SdkOptional<String> uuid;
+
   /// A random alpha numeric string. This key is used in conjunction with the namespace's UUID to authenticate a user to use the namespace via `doctl`, DigitalOcean's official CLI.
   final SdkOptional<String> key;
 
-  const NamespaceInfo({this.apiHost = const SdkOmitted(), this.namespace = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.label = const SdkOmitted(), this.region = const SdkOmitted(), this.uuid = const SdkOmitted(), this.key = const SdkOmitted()});
+  const NamespaceInfo(
+      {this.apiHost = const SdkOmitted(),
+      this.namespace = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.label = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      this.uuid = const SdkOmitted(),
+      this.key = const SdkOmitted()});
 
-  NamespaceInfo Function({SdkOptional<String> apiHost, SdkOptional<String> namespace, SdkOptional<String> createdAt, SdkOptional<String> updatedAt, SdkOptional<String> label, SdkOptional<String> region, SdkOptional<String> uuid, SdkOptional<String> key}) get copyWith => _copyWith;
+  NamespaceInfo Function(
+      {SdkOptional<String> apiHost,
+      SdkOptional<String> namespace,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> updatedAt,
+      SdkOptional<String> label,
+      SdkOptional<String> region,
+      SdkOptional<String> uuid,
+      SdkOptional<String> key}) get copyWith => _copyWith;
 
-  NamespaceInfo _copyWith({Object? apiHost = sdkOmittedValue, Object? namespace = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? label = sdkOmittedValue, Object? region = sdkOmittedValue, Object? uuid = sdkOmittedValue, Object? key = sdkOmittedValue}) => NamespaceInfo(
-    apiHost: identical(apiHost, sdkOmittedValue) ? this.apiHost : apiHost as SdkOptional<String>,
-    namespace: identical(namespace, sdkOmittedValue) ? this.namespace : namespace as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-    label: identical(label, sdkOmittedValue) ? this.label : label as SdkOptional<String>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
-    key: identical(key, sdkOmittedValue) ? this.key : key as SdkOptional<String>,
-  );
+  NamespaceInfo _copyWith(
+          {Object? apiHost = sdkOmittedValue,
+          Object? namespace = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? label = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? uuid = sdkOmittedValue,
+          Object? key = sdkOmittedValue}) =>
+      NamespaceInfo(
+        apiHost: identical(apiHost, sdkOmittedValue)
+            ? this.apiHost
+            : apiHost as SdkOptional<String>,
+        namespace: identical(namespace, sdkOmittedValue)
+            ? this.namespace
+            : namespace as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+        label: identical(label, sdkOmittedValue)
+            ? this.label
+            : label as SdkOptional<String>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        uuid: identical(uuid, sdkOmittedValue)
+            ? this.uuid
+            : uuid as SdkOptional<String>,
+        key: identical(key, sdkOmittedValue)
+            ? this.key
+            : key as SdkOptional<String>,
+      );
 
   factory NamespaceInfo.fromJson(Map<String, dynamic> json) => NamespaceInfo(
-    apiHost: json['api_host'] != null ? SdkPresent((json['api_host'] as String?)!) : const SdkOmitted(),
-    namespace: json['namespace'] != null ? SdkPresent((json['namespace'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-    label: json['label'] != null ? SdkPresent((json['label'] as String?)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
-    key: json['key'] != null ? SdkPresent((json['key'] as String?)!) : const SdkOmitted(),
-  );
+        apiHost: json['api_host'] != null
+            ? SdkPresent((json['api_host'] as String?)!)
+            : const SdkOmitted(),
+        namespace: json['namespace'] != null
+            ? SdkPresent((json['namespace'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+        label: json['label'] != null
+            ? SdkPresent((json['label'] as String?)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        uuid: json['uuid'] != null
+            ? SdkPresent((json['uuid'] as String?)!)
+            : const SdkOmitted(),
+        key: json['key'] != null
+            ? SdkPresent((json['key'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (apiHost) {
-      SdkPresent<String>(value: final value) => {'api_host': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (namespace) {
-      SdkPresent<String>(value: final value) => {'namespace': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (label) {
-      SdkPresent<String>(value: final value) => {'label': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (uuid) {
-      SdkPresent<String>(value: final value) => {'uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (key) {
-      SdkPresent<String>(value: final value) => {'key': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (apiHost) {
+          SdkPresent<String>(value: final value) => {
+              'api_host': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (namespace) {
+          SdkPresent<String>(value: final value) => {
+              'namespace': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (label) {
+          SdkPresent<String>(value: final value) => {
+              'label': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (uuid) {
+          SdkPresent<String>(value: final value) => {
+              'uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (key) {
+          SdkPresent<String>(value: final value) => {
+              'key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

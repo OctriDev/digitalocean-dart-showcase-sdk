@@ -8,27 +8,35 @@ part of 'micro_vms_public_preview.dart';
 class MicrovmError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A service-defined error code.
   final String code;
+
   /// A human-readable description of the error.
   final String message;
 
   const MicrovmError({required this.code, required this.message});
 
-  MicrovmError Function({String code, String message}) get copyWith => _copyWith;
+  MicrovmError Function({String code, String message}) get copyWith =>
+      _copyWith;
 
-  MicrovmError _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => MicrovmError(
-    code: identical(code, sdkOmittedValue) ? this.code : code as String,
-    message: identical(message, sdkOmittedValue) ? this.message : message as String,
-  );
+  MicrovmError _copyWith(
+          {Object? code = sdkOmittedValue,
+          Object? message = sdkOmittedValue}) =>
+      MicrovmError(
+        code: identical(code, sdkOmittedValue) ? this.code : code as String,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as String,
+      );
 
   factory MicrovmError.fromJson(Map<String, dynamic> json) => MicrovmError(
-    code: (json['code'] as String?)!,
-    message: (json['message'] as String?)!,
-  );
+        code: (json['code'] as String?)!,
+        message: (json['message'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'code': code,
-    'message': message,
-  };
+        'code': code,
+        'message': message,
+      };
 }

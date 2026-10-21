@@ -8,25 +8,40 @@ part of 'monitoring.dart';
 class MonitoringListDestinations {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `destinations` wire field.
   final SdkOptional<List<DestinationOmitCredentials>> destinations;
 
   const MonitoringListDestinations({this.destinations = const SdkOmitted()});
 
-  MonitoringListDestinations Function({SdkOptional<List<DestinationOmitCredentials>> destinations}) get copyWith => _copyWith;
+  MonitoringListDestinations Function(
+          {SdkOptional<List<DestinationOmitCredentials>> destinations})
+      get copyWith => _copyWith;
 
-  MonitoringListDestinations _copyWith({Object? destinations = sdkOmittedValue}) => MonitoringListDestinations(
-    destinations: identical(destinations, sdkOmittedValue) ? this.destinations : destinations as SdkOptional<List<DestinationOmitCredentials>>,
-  );
+  MonitoringListDestinations _copyWith(
+          {Object? destinations = sdkOmittedValue}) =>
+      MonitoringListDestinations(
+        destinations: identical(destinations, sdkOmittedValue)
+            ? this.destinations
+            : destinations as SdkOptional<List<DestinationOmitCredentials>>,
+      );
 
-  factory MonitoringListDestinations.fromJson(Map<String, dynamic> json) => MonitoringListDestinations(
-    destinations: json['destinations'] != null ? SdkPresent(((json['destinations'] as List?)?.map((e) => DestinationOmitCredentials.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory MonitoringListDestinations.fromJson(Map<String, dynamic> json) =>
+      MonitoringListDestinations(
+        destinations: json['destinations'] != null
+            ? SdkPresent(((json['destinations'] as List?)
+                ?.map((e) => DestinationOmitCredentials.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (destinations) {
-      SdkPresent<List<DestinationOmitCredentials>>(value: final value) => {'destinations': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (destinations) {
+          SdkPresent<List<DestinationOmitCredentials>>(value: final value) => {
+              'destinations': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,42 +8,77 @@ part of 'nfs.dart';
 class AccessPolicy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// UID used for squashed users. Currently only 65534 is supported.
   final int anonuid;
+
   /// GID used for squashed users. Currently only 65534 is supported.
   final int anongid;
+
   /// Allowed NFS protocols for this export.
   final List<AccessPolicyProtocolsItem> protocols;
+
   /// The squash mode applied to the access point export.
   final AccessPolicySquashConfig squashConfig;
+
   /// Whether identity enforcement is enabled for this export.
   final bool identityEnforcementEnabled;
 
-  const AccessPolicy({required this.anonuid, required this.anongid, required this.protocols, required this.squashConfig, required this.identityEnforcementEnabled});
+  const AccessPolicy(
+      {required this.anonuid,
+      required this.anongid,
+      required this.protocols,
+      required this.squashConfig,
+      required this.identityEnforcementEnabled});
 
-  AccessPolicy Function({int anonuid, int anongid, List<AccessPolicyProtocolsItem> protocols, AccessPolicySquashConfig squashConfig, bool identityEnforcementEnabled}) get copyWith => _copyWith;
+  AccessPolicy Function(
+      {int anonuid,
+      int anongid,
+      List<AccessPolicyProtocolsItem> protocols,
+      AccessPolicySquashConfig squashConfig,
+      bool identityEnforcementEnabled}) get copyWith => _copyWith;
 
-  AccessPolicy _copyWith({Object? anonuid = sdkOmittedValue, Object? anongid = sdkOmittedValue, Object? protocols = sdkOmittedValue, Object? squashConfig = sdkOmittedValue, Object? identityEnforcementEnabled = sdkOmittedValue}) => AccessPolicy(
-    anonuid: identical(anonuid, sdkOmittedValue) ? this.anonuid : anonuid as int,
-    anongid: identical(anongid, sdkOmittedValue) ? this.anongid : anongid as int,
-    protocols: identical(protocols, sdkOmittedValue) ? this.protocols : protocols as List<AccessPolicyProtocolsItem>,
-    squashConfig: identical(squashConfig, sdkOmittedValue) ? this.squashConfig : squashConfig as AccessPolicySquashConfig,
-    identityEnforcementEnabled: identical(identityEnforcementEnabled, sdkOmittedValue) ? this.identityEnforcementEnabled : identityEnforcementEnabled as bool,
-  );
+  AccessPolicy _copyWith(
+          {Object? anonuid = sdkOmittedValue,
+          Object? anongid = sdkOmittedValue,
+          Object? protocols = sdkOmittedValue,
+          Object? squashConfig = sdkOmittedValue,
+          Object? identityEnforcementEnabled = sdkOmittedValue}) =>
+      AccessPolicy(
+        anonuid:
+            identical(anonuid, sdkOmittedValue) ? this.anonuid : anonuid as int,
+        anongid:
+            identical(anongid, sdkOmittedValue) ? this.anongid : anongid as int,
+        protocols: identical(protocols, sdkOmittedValue)
+            ? this.protocols
+            : protocols as List<AccessPolicyProtocolsItem>,
+        squashConfig: identical(squashConfig, sdkOmittedValue)
+            ? this.squashConfig
+            : squashConfig as AccessPolicySquashConfig,
+        identityEnforcementEnabled:
+            identical(identityEnforcementEnabled, sdkOmittedValue)
+                ? this.identityEnforcementEnabled
+                : identityEnforcementEnabled as bool,
+      );
 
   factory AccessPolicy.fromJson(Map<String, dynamic> json) => AccessPolicy(
-    anonuid: ((json['anonuid'] as num?)?.toInt())!,
-    anongid: ((json['anongid'] as num?)?.toInt())!,
-    protocols: ((json['protocols'] as List?)?.map((e) => AccessPolicyProtocolsItem.fromJson(e as String)).toList())!,
-    squashConfig: (json['squash_config'] != null ? AccessPolicySquashConfig.fromJson(json['squash_config'] as String) : null)!,
-    identityEnforcementEnabled: (json['identity_enforcement_enabled'] as bool?)!,
-  );
+        anonuid: ((json['anonuid'] as num?)?.toInt())!,
+        anongid: ((json['anongid'] as num?)?.toInt())!,
+        protocols: ((json['protocols'] as List?)
+            ?.map((e) => AccessPolicyProtocolsItem.fromJson(e as String))
+            .toList())!,
+        squashConfig: (json['squash_config'] != null
+            ? AccessPolicySquashConfig.fromJson(json['squash_config'] as String)
+            : null)!,
+        identityEnforcementEnabled:
+            (json['identity_enforcement_enabled'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'anonuid': anonuid,
-    'anongid': anongid,
-    'protocols': protocols.map((item) => item.toJson()).toList(),
-    'squash_config': squashConfig.toJson(),
-    'identity_enforcement_enabled': identityEnforcementEnabled,
-  };
+        'anonuid': anonuid,
+        'anongid': anongid,
+        'protocols': protocols.map((item) => item.toJson()).toList(),
+        'squash_config': squashConfig.toJson(),
+        'identity_enforcement_enabled': identityEnforcementEnabled,
+      };
 }

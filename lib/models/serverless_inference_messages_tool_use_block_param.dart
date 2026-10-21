@@ -8,37 +8,64 @@ part of 'serverless_inference_messages.dart';
 class MessagesToolUseBlockParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final MessagesToolUseBlockParamType type_;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// Required `string` value serialized in the `name` wire field.
   final String name;
+
   /// JSON object matching the tool's `input_schema`.
   final Map<String, Object?> input;
 
-  const MessagesToolUseBlockParam({required this.type_, required this.id, required this.name, required this.input});
+  const MessagesToolUseBlockParam(
+      {required this.type_,
+      required this.id,
+      required this.name,
+      required this.input});
 
-  MessagesToolUseBlockParam Function({MessagesToolUseBlockParamType type_, String id, String name, Map<String, Object?> input}) get copyWith => _copyWith;
+  MessagesToolUseBlockParam Function(
+      {MessagesToolUseBlockParamType type_,
+      String id,
+      String name,
+      Map<String, Object?> input}) get copyWith => _copyWith;
 
-  MessagesToolUseBlockParam _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? input = sdkOmittedValue}) => MessagesToolUseBlockParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesToolUseBlockParamType,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    input: identical(input, sdkOmittedValue) ? this.input : input as Map<String, Object?>,
-  );
+  MessagesToolUseBlockParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? input = sdkOmittedValue}) =>
+      MessagesToolUseBlockParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessagesToolUseBlockParamType,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as Map<String, Object?>,
+      );
 
-  factory MessagesToolUseBlockParam.fromJson(Map<String, dynamic> json) => MessagesToolUseBlockParam(
-    type_: (json['type'] != null ? MessagesToolUseBlockParamType.fromJson(json['type'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    input: (json['input'] == null ? null : Map<String, dynamic>.from(json['input'] as Map).map((key, value) => MapEntry(key, value)))!,
-  );
+  factory MessagesToolUseBlockParam.fromJson(Map<String, dynamic> json) =>
+      MessagesToolUseBlockParam(
+        type_: (json['type'] != null
+            ? MessagesToolUseBlockParamType.fromJson(json['type'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        input: (json['input'] == null
+            ? null
+            : Map<String, dynamic>.from(json['input'] as Map)
+                .map((key, value) => MapEntry(key, value)))!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'id': id,
-    'name': name,
-    'input': input,
-  };
+        'type': type_.toJson(),
+        'id': id,
+        'name': name,
+        'input': input,
+      };
 }

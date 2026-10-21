@@ -8,35 +8,66 @@ part of 'insights_logs.dart';
 class LogsFilterCondition {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A reference to a logical field for filters, ordering, grouping, or facets.
   final LogsFieldRef field;
+
   /// The comparison operator.
   final LogsFilterConditionOperator operator_;
+
   /// A typed literal or list value for a filter condition. Exactly one kind is set per message.
   final SdkOptional<LogsFilterValue> value;
 
-  const LogsFilterCondition({required this.field, required this.operator_, this.value = const SdkOmitted()});
+  const LogsFilterCondition(
+      {required this.field,
+      required this.operator_,
+      this.value = const SdkOmitted()});
 
-  LogsFilterCondition Function({LogsFieldRef field, LogsFilterConditionOperator operator_, SdkOptional<LogsFilterValue> value}) get copyWith => _copyWith;
+  LogsFilterCondition Function(
+      {LogsFieldRef field,
+      LogsFilterConditionOperator operator_,
+      SdkOptional<LogsFilterValue> value}) get copyWith => _copyWith;
 
-  LogsFilterCondition _copyWith({Object? field = sdkOmittedValue, Object? operator_ = sdkOmittedValue, Object? value = sdkOmittedValue}) => LogsFilterCondition(
-    field: identical(field, sdkOmittedValue) ? this.field : field as LogsFieldRef,
-    operator_: identical(operator_, sdkOmittedValue) ? this.operator_ : operator_ as LogsFilterConditionOperator,
-    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<LogsFilterValue>,
-  );
+  LogsFilterCondition _copyWith(
+          {Object? field = sdkOmittedValue,
+          Object? operator_ = sdkOmittedValue,
+          Object? value = sdkOmittedValue}) =>
+      LogsFilterCondition(
+        field: identical(field, sdkOmittedValue)
+            ? this.field
+            : field as LogsFieldRef,
+        operator_: identical(operator_, sdkOmittedValue)
+            ? this.operator_
+            : operator_ as LogsFilterConditionOperator,
+        value: identical(value, sdkOmittedValue)
+            ? this.value
+            : value as SdkOptional<LogsFilterValue>,
+      );
 
-  factory LogsFilterCondition.fromJson(Map<String, dynamic> json) => LogsFilterCondition(
-    field: (json['field'] != null ? LogsFieldRef.fromJson(json['field'] as Map<String, dynamic>) : null)!,
-    operator_: (json['operator'] != null ? LogsFilterConditionOperator.fromJson(json['operator'] as String) : null)!,
-    value: json['value'] != null ? SdkPresent((json['value'] != null ? LogsFilterValue.fromJson(json['value'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory LogsFilterCondition.fromJson(Map<String, dynamic> json) =>
+      LogsFilterCondition(
+        field: (json['field'] != null
+            ? LogsFieldRef.fromJson(json['field'] as Map<String, dynamic>)
+            : null)!,
+        operator_: (json['operator'] != null
+            ? LogsFilterConditionOperator.fromJson(json['operator'] as String)
+            : null)!,
+        value: json['value'] != null
+            ? SdkPresent((json['value'] != null
+                ? LogsFilterValue.fromJson(
+                    json['value'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'field': field.toJson(),
-    'operator': operator_.toJson(),
-    ...switch (value) {
-      SdkPresent<LogsFilterValue>(value: final value) => {'value': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'field': field.toJson(),
+        'operator': operator_.toJson(),
+        ...switch (value) {
+          SdkPresent<LogsFilterValue>(value: final value) => {
+              'value': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

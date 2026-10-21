@@ -6,7 +6,6 @@ part of 'apps_app_alert.dart';
 // apps_app_alert domain models
 /// Typed representation of the `AppAlertSpecRule` API schema.
 final class AppAlertSpecRule {
-
   final String value;
 
   const AppAlertSpecRule._(this.value);
@@ -23,21 +22,31 @@ final class AppAlertSpecRule {
   static const domainLive = AppAlertSpecRule._('DOMAIN_LIVE');
   static const autoscaleFailed = AppAlertSpecRule._('AUTOSCALE_FAILED');
   static const autoscaleSucceeded = AppAlertSpecRule._('AUTOSCALE_SUCCEEDED');
-  static const functionsActivationCount = AppAlertSpecRule._('FUNCTIONS_ACTIVATION_COUNT');
-  static const functionsAverageDurationMs = AppAlertSpecRule._('FUNCTIONS_AVERAGE_DURATION_MS');
-  static const functionsErrorRatePerMinute = AppAlertSpecRule._('FUNCTIONS_ERROR_RATE_PER_MINUTE');
-  static const functionsAverageWaitTimeMs = AppAlertSpecRule._('FUNCTIONS_AVERAGE_WAIT_TIME_MS');
-  static const functionsErrorCount = AppAlertSpecRule._('FUNCTIONS_ERROR_COUNT');
-  static const functionsGbRatePerSecond = AppAlertSpecRule._('FUNCTIONS_GB_RATE_PER_SECOND');
+  static const functionsActivationCount =
+      AppAlertSpecRule._('FUNCTIONS_ACTIVATION_COUNT');
+  static const functionsAverageDurationMs =
+      AppAlertSpecRule._('FUNCTIONS_AVERAGE_DURATION_MS');
+  static const functionsErrorRatePerMinute =
+      AppAlertSpecRule._('FUNCTIONS_ERROR_RATE_PER_MINUTE');
+  static const functionsAverageWaitTimeMs =
+      AppAlertSpecRule._('FUNCTIONS_AVERAGE_WAIT_TIME_MS');
+  static const functionsErrorCount =
+      AppAlertSpecRule._('FUNCTIONS_ERROR_COUNT');
+  static const functionsGbRatePerSecond =
+      AppAlertSpecRule._('FUNCTIONS_GB_RATE_PER_SECOND');
   static const requestsPerSecond = AppAlertSpecRule._('REQUESTS_PER_SECOND');
-  static const requestDurationP95Ms = AppAlertSpecRule._('REQUEST_DURATION_P95_MS');
+  static const requestDurationP95Ms =
+      AppAlertSpecRule._('REQUEST_DURATION_P95_MS');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AppAlertSpecRule && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AppAlertSpecRule && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

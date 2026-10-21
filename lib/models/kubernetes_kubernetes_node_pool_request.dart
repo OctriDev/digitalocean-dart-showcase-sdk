@@ -8,88 +8,187 @@ part of 'kubernetes_kubernetes.dart';
 class KubernetesNodePoolRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The slug identifier for the type of Droplet used as workers in the node pool.
   final String size;
+
   /// A human-readable name for the node pool.
   final String name;
+
   /// The number of Droplet instances in the node pool.
   final int count;
+
   /// An array containing the tags applied to the node pool. All node pools are automatically tagged `k8s`, `k8s-worker`, and `k8s:$K8S_CLUSTER_ID`. &lt;br&gt;&lt;br&gt;Requires `tag:read` scope.
   final SdkOptional<List<String>> tags;
+
   /// An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool.
   final SdkOptional<Map<String, dynamic>?> labels;
+
   /// An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool.
   final SdkOptional<List<KubernetesNodePoolTaint>> taints;
+
   /// A boolean value indicating whether auto-scaling is enabled for this node pool.
   final SdkOptional<bool> autoScale;
+
   /// The minimum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`.
   final SdkOptional<int> minNodes;
+
   /// The maximum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`.
   final SdkOptional<int> maxNodes;
+
   /// The AMD GPU partition mode for this node pool. Only applicable to AMD GPU sizes that support partitioning. Immutable after the node pool is created. When omitted, the GPUs in the pool are left unpartitioned.
-  final SdkOptional<KubernetesNodePoolGpuPartitionGpuPartitionMode> gpuPartitionMode;
+  final SdkOptional<KubernetesNodePoolGpuPartitionGpuPartitionMode>
+      gpuPartitionMode;
 
-  const KubernetesNodePoolRequest({required this.size, required this.name, required this.count, this.tags = const SdkOmitted(), this.labels = const SdkOmitted(), this.taints = const SdkOmitted(), this.autoScale = const SdkOmitted(), this.minNodes = const SdkOmitted(), this.maxNodes = const SdkOmitted(), this.gpuPartitionMode = const SdkOmitted()});
+  const KubernetesNodePoolRequest(
+      {required this.size,
+      required this.name,
+      required this.count,
+      this.tags = const SdkOmitted(),
+      this.labels = const SdkOmitted(),
+      this.taints = const SdkOmitted(),
+      this.autoScale = const SdkOmitted(),
+      this.minNodes = const SdkOmitted(),
+      this.maxNodes = const SdkOmitted(),
+      this.gpuPartitionMode = const SdkOmitted()});
 
-  KubernetesNodePoolRequest Function({String size, String name, int count, SdkOptional<List<String>> tags, SdkOptional<Map<String, dynamic>?> labels, SdkOptional<List<KubernetesNodePoolTaint>> taints, SdkOptional<bool> autoScale, SdkOptional<int> minNodes, SdkOptional<int> maxNodes, SdkOptional<KubernetesNodePoolGpuPartitionGpuPartitionMode> gpuPartitionMode}) get copyWith => _copyWith;
+  KubernetesNodePoolRequest Function(
+      {String size,
+      String name,
+      int count,
+      SdkOptional<List<String>> tags,
+      SdkOptional<Map<String, dynamic>?> labels,
+      SdkOptional<List<KubernetesNodePoolTaint>> taints,
+      SdkOptional<bool> autoScale,
+      SdkOptional<int> minNodes,
+      SdkOptional<int> maxNodes,
+      SdkOptional<KubernetesNodePoolGpuPartitionGpuPartitionMode>
+          gpuPartitionMode}) get copyWith => _copyWith;
 
-  KubernetesNodePoolRequest _copyWith({Object? size = sdkOmittedValue, Object? name = sdkOmittedValue, Object? count = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? labels = sdkOmittedValue, Object? taints = sdkOmittedValue, Object? autoScale = sdkOmittedValue, Object? minNodes = sdkOmittedValue, Object? maxNodes = sdkOmittedValue, Object? gpuPartitionMode = sdkOmittedValue}) => KubernetesNodePoolRequest(
-    size: identical(size, sdkOmittedValue) ? this.size : size as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    count: identical(count, sdkOmittedValue) ? this.count : count as int,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    labels: identical(labels, sdkOmittedValue) ? this.labels : labels as SdkOptional<Map<String, dynamic>?>,
-    taints: identical(taints, sdkOmittedValue) ? this.taints : taints as SdkOptional<List<KubernetesNodePoolTaint>>,
-    autoScale: identical(autoScale, sdkOmittedValue) ? this.autoScale : autoScale as SdkOptional<bool>,
-    minNodes: identical(minNodes, sdkOmittedValue) ? this.minNodes : minNodes as SdkOptional<int>,
-    maxNodes: identical(maxNodes, sdkOmittedValue) ? this.maxNodes : maxNodes as SdkOptional<int>,
-    gpuPartitionMode: identical(gpuPartitionMode, sdkOmittedValue) ? this.gpuPartitionMode : gpuPartitionMode as SdkOptional<KubernetesNodePoolGpuPartitionGpuPartitionMode>,
-  );
+  KubernetesNodePoolRequest _copyWith(
+          {Object? size = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? count = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? labels = sdkOmittedValue,
+          Object? taints = sdkOmittedValue,
+          Object? autoScale = sdkOmittedValue,
+          Object? minNodes = sdkOmittedValue,
+          Object? maxNodes = sdkOmittedValue,
+          Object? gpuPartitionMode = sdkOmittedValue}) =>
+      KubernetesNodePoolRequest(
+        size: identical(size, sdkOmittedValue) ? this.size : size as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        count: identical(count, sdkOmittedValue) ? this.count : count as int,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        labels: identical(labels, sdkOmittedValue)
+            ? this.labels
+            : labels as SdkOptional<Map<String, dynamic>?>,
+        taints: identical(taints, sdkOmittedValue)
+            ? this.taints
+            : taints as SdkOptional<List<KubernetesNodePoolTaint>>,
+        autoScale: identical(autoScale, sdkOmittedValue)
+            ? this.autoScale
+            : autoScale as SdkOptional<bool>,
+        minNodes: identical(minNodes, sdkOmittedValue)
+            ? this.minNodes
+            : minNodes as SdkOptional<int>,
+        maxNodes: identical(maxNodes, sdkOmittedValue)
+            ? this.maxNodes
+            : maxNodes as SdkOptional<int>,
+        gpuPartitionMode: identical(gpuPartitionMode, sdkOmittedValue)
+            ? this.gpuPartitionMode
+            : gpuPartitionMode
+                as SdkOptional<KubernetesNodePoolGpuPartitionGpuPartitionMode>,
+      );
 
-  factory KubernetesNodePoolRequest.fromJson(Map<String, dynamic> json) => KubernetesNodePoolRequest(
-    size: (json['size'] as String?)!,
-    name: (json['name'] as String?)!,
-    count: ((json['count'] as num?)?.toInt())!,
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    labels: json.containsKey('labels') ? SdkPresent(json['labels'] == null ? null : json['labels'] as Map<String, dynamic>) : const SdkOmitted(),
-    taints: json['taints'] != null ? SdkPresent(((json['taints'] as List?)?.map((e) => KubernetesNodePoolTaint.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    autoScale: json['auto_scale'] != null ? SdkPresent((json['auto_scale'] as bool?)!) : const SdkOmitted(),
-    minNodes: json['min_nodes'] != null ? SdkPresent(((json['min_nodes'] as num?)?.toInt())!) : const SdkOmitted(),
-    maxNodes: json['max_nodes'] != null ? SdkPresent(((json['max_nodes'] as num?)?.toInt())!) : const SdkOmitted(),
-    gpuPartitionMode: json['gpu_partition_mode'] != null ? SdkPresent((json['gpu_partition_mode'] != null ? KubernetesNodePoolGpuPartitionGpuPartitionMode.fromJson(json['gpu_partition_mode'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory KubernetesNodePoolRequest.fromJson(Map<String, dynamic> json) =>
+      KubernetesNodePoolRequest(
+        size: (json['size'] as String?)!,
+        name: (json['name'] as String?)!,
+        count: ((json['count'] as num?)?.toInt())!,
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        labels: json.containsKey('labels')
+            ? SdkPresent(json['labels'] == null
+                ? null
+                : json['labels'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        taints: json['taints'] != null
+            ? SdkPresent(((json['taints'] as List?)
+                ?.map((e) =>
+                    KubernetesNodePoolTaint.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        autoScale: json['auto_scale'] != null
+            ? SdkPresent((json['auto_scale'] as bool?)!)
+            : const SdkOmitted(),
+        minNodes: json['min_nodes'] != null
+            ? SdkPresent(((json['min_nodes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        maxNodes: json['max_nodes'] != null
+            ? SdkPresent(((json['max_nodes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        gpuPartitionMode: json['gpu_partition_mode'] != null
+            ? SdkPresent((json['gpu_partition_mode'] != null
+                ? KubernetesNodePoolGpuPartitionGpuPartitionMode.fromJson(
+                    json['gpu_partition_mode'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'size': size,
-    'name': name,
-    'count': count,
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (labels) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'labels': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (taints) {
-      SdkPresent<List<KubernetesNodePoolTaint>>(value: final value) => {'taints': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (autoScale) {
-      SdkPresent<bool>(value: final value) => {'auto_scale': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (minNodes) {
-      SdkPresent<int>(value: final value) => {'min_nodes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxNodes) {
-      SdkPresent<int>(value: final value) => {'max_nodes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (gpuPartitionMode) {
-      SdkPresent<KubernetesNodePoolGpuPartitionGpuPartitionMode>(value: final value) => {'gpu_partition_mode': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'size': size,
+        'name': name,
+        'count': count,
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (labels) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'labels': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (taints) {
+          SdkPresent<List<KubernetesNodePoolTaint>>(value: final value) => {
+              'taints': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (autoScale) {
+          SdkPresent<bool>(value: final value) => {
+              'auto_scale': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (minNodes) {
+          SdkPresent<int>(value: final value) => {
+              'min_nodes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxNodes) {
+          SdkPresent<int>(value: final value) => {
+              'max_nodes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (gpuPartitionMode) {
+          SdkPresent<KubernetesNodePoolGpuPartitionGpuPartitionMode>(
+            value: final value
+          ) =>
+            {
+              'gpu_partition_mode': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,25 +8,39 @@ part of 'databases_database.dart';
 class DatabaseAutoscaleParams {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Storage autoscaling configuration
   final SdkOptional<DatabaseStorageAutoscaleParams> storage;
 
   const DatabaseAutoscaleParams({this.storage = const SdkOmitted()});
 
-  DatabaseAutoscaleParams Function({SdkOptional<DatabaseStorageAutoscaleParams> storage}) get copyWith => _copyWith;
+  DatabaseAutoscaleParams Function(
+          {SdkOptional<DatabaseStorageAutoscaleParams> storage})
+      get copyWith => _copyWith;
 
-  DatabaseAutoscaleParams _copyWith({Object? storage = sdkOmittedValue}) => DatabaseAutoscaleParams(
-    storage: identical(storage, sdkOmittedValue) ? this.storage : storage as SdkOptional<DatabaseStorageAutoscaleParams>,
-  );
+  DatabaseAutoscaleParams _copyWith({Object? storage = sdkOmittedValue}) =>
+      DatabaseAutoscaleParams(
+        storage: identical(storage, sdkOmittedValue)
+            ? this.storage
+            : storage as SdkOptional<DatabaseStorageAutoscaleParams>,
+      );
 
-  factory DatabaseAutoscaleParams.fromJson(Map<String, dynamic> json) => DatabaseAutoscaleParams(
-    storage: json['storage'] != null ? SdkPresent((json['storage'] != null ? DatabaseStorageAutoscaleParams.fromJson(json['storage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DatabaseAutoscaleParams.fromJson(Map<String, dynamic> json) =>
+      DatabaseAutoscaleParams(
+        storage: json['storage'] != null
+            ? SdkPresent((json['storage'] != null
+                ? DatabaseStorageAutoscaleParams.fromJson(
+                    json['storage'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (storage) {
-      SdkPresent<DatabaseStorageAutoscaleParams>(value: final value) => {'storage': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (storage) {
+          SdkPresent<DatabaseStorageAutoscaleParams>(value: final value) => {
+              'storage': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

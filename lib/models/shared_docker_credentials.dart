@@ -8,79 +8,127 @@ part of 'shared.dart';
 class DockerCredentialsAuthsRegistryDigitaloceanCom {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A base64 encoded string containing credentials for the container registry.
   final SdkOptional<String> auth;
 
-  const DockerCredentialsAuthsRegistryDigitaloceanCom({this.auth = const SdkOmitted()});
+  const DockerCredentialsAuthsRegistryDigitaloceanCom(
+      {this.auth = const SdkOmitted()});
 
-  DockerCredentialsAuthsRegistryDigitaloceanCom Function({SdkOptional<String> auth}) get copyWith => _copyWith;
+  DockerCredentialsAuthsRegistryDigitaloceanCom Function(
+      {SdkOptional<String> auth}) get copyWith => _copyWith;
 
-  DockerCredentialsAuthsRegistryDigitaloceanCom _copyWith({Object? auth = sdkOmittedValue}) => DockerCredentialsAuthsRegistryDigitaloceanCom(
-    auth: identical(auth, sdkOmittedValue) ? this.auth : auth as SdkOptional<String>,
-  );
+  DockerCredentialsAuthsRegistryDigitaloceanCom _copyWith(
+          {Object? auth = sdkOmittedValue}) =>
+      DockerCredentialsAuthsRegistryDigitaloceanCom(
+        auth: identical(auth, sdkOmittedValue)
+            ? this.auth
+            : auth as SdkOptional<String>,
+      );
 
-  factory DockerCredentialsAuthsRegistryDigitaloceanCom.fromJson(Map<String, dynamic> json) => DockerCredentialsAuthsRegistryDigitaloceanCom(
-    auth: json['auth'] != null ? SdkPresent((json['auth'] as String?)!) : const SdkOmitted(),
-  );
+  factory DockerCredentialsAuthsRegistryDigitaloceanCom.fromJson(
+          Map<String, dynamic> json) =>
+      DockerCredentialsAuthsRegistryDigitaloceanCom(
+        auth: json['auth'] != null
+            ? SdkPresent((json['auth'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (auth) {
-      SdkPresent<String>(value: final value) => {'auth': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (auth) {
+          SdkPresent<String>(value: final value) => {
+              'auth': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `auths` wire field.
 class DockerCredentialsAuths {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `registry.digitalocean.com` wire field.
-  final SdkOptional<DockerCredentialsAuthsRegistryDigitaloceanCom> registryDigitaloceanCom;
+  final SdkOptional<DockerCredentialsAuthsRegistryDigitaloceanCom>
+      registryDigitaloceanCom;
 
-  const DockerCredentialsAuths({this.registryDigitaloceanCom = const SdkOmitted()});
+  const DockerCredentialsAuths(
+      {this.registryDigitaloceanCom = const SdkOmitted()});
 
-  DockerCredentialsAuths Function({SdkOptional<DockerCredentialsAuthsRegistryDigitaloceanCom> registryDigitaloceanCom}) get copyWith => _copyWith;
+  DockerCredentialsAuths Function(
+      {SdkOptional<DockerCredentialsAuthsRegistryDigitaloceanCom>
+          registryDigitaloceanCom}) get copyWith => _copyWith;
 
-  DockerCredentialsAuths _copyWith({Object? registryDigitaloceanCom = sdkOmittedValue}) => DockerCredentialsAuths(
-    registryDigitaloceanCom: identical(registryDigitaloceanCom, sdkOmittedValue) ? this.registryDigitaloceanCom : registryDigitaloceanCom as SdkOptional<DockerCredentialsAuthsRegistryDigitaloceanCom>,
-  );
+  DockerCredentialsAuths _copyWith(
+          {Object? registryDigitaloceanCom = sdkOmittedValue}) =>
+      DockerCredentialsAuths(
+        registryDigitaloceanCom: identical(
+                registryDigitaloceanCom, sdkOmittedValue)
+            ? this.registryDigitaloceanCom
+            : registryDigitaloceanCom
+                as SdkOptional<DockerCredentialsAuthsRegistryDigitaloceanCom>,
+      );
 
-  factory DockerCredentialsAuths.fromJson(Map<String, dynamic> json) => DockerCredentialsAuths(
-    registryDigitaloceanCom: json['registry.digitalocean.com'] != null ? SdkPresent((json['registry.digitalocean.com'] != null ? DockerCredentialsAuthsRegistryDigitaloceanCom.fromJson(json['registry.digitalocean.com'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DockerCredentialsAuths.fromJson(Map<String, dynamic> json) =>
+      DockerCredentialsAuths(
+        registryDigitaloceanCom: json['registry.digitalocean.com'] != null
+            ? SdkPresent((json['registry.digitalocean.com'] != null
+                ? DockerCredentialsAuthsRegistryDigitaloceanCom.fromJson(
+                    json['registry.digitalocean.com'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (registryDigitaloceanCom) {
-      SdkPresent<DockerCredentialsAuthsRegistryDigitaloceanCom>(value: final value) => {'registry.digitalocean.com': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (registryDigitaloceanCom) {
+          SdkPresent<DockerCredentialsAuthsRegistryDigitaloceanCom>(
+            value: final value
+          ) =>
+            {
+              'registry.digitalocean.com': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DockerCredentials` API schema.
 class DockerCredentials {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `auths` wire field.
   final SdkOptional<DockerCredentialsAuths> auths;
 
   const DockerCredentials({this.auths = const SdkOmitted()});
 
-  DockerCredentials Function({SdkOptional<DockerCredentialsAuths> auths}) get copyWith => _copyWith;
+  DockerCredentials Function({SdkOptional<DockerCredentialsAuths> auths})
+      get copyWith => _copyWith;
 
-  DockerCredentials _copyWith({Object? auths = sdkOmittedValue}) => DockerCredentials(
-    auths: identical(auths, sdkOmittedValue) ? this.auths : auths as SdkOptional<DockerCredentialsAuths>,
-  );
+  DockerCredentials _copyWith({Object? auths = sdkOmittedValue}) =>
+      DockerCredentials(
+        auths: identical(auths, sdkOmittedValue)
+            ? this.auths
+            : auths as SdkOptional<DockerCredentialsAuths>,
+      );
 
-  factory DockerCredentials.fromJson(Map<String, dynamic> json) => DockerCredentials(
-    auths: json['auths'] != null ? SdkPresent((json['auths'] != null ? DockerCredentialsAuths.fromJson(json['auths'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DockerCredentials.fromJson(Map<String, dynamic> json) =>
+      DockerCredentials(
+        auths: json['auths'] != null
+            ? SdkPresent((json['auths'] != null
+                ? DockerCredentialsAuths.fromJson(
+                    json['auths'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (auths) {
-      SdkPresent<DockerCredentialsAuths>(value: final value) => {'auths': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (auths) {
+          SdkPresent<DockerCredentialsAuths>(value: final value) => {
+              'auths': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

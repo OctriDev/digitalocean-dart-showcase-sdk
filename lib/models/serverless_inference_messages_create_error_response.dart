@@ -8,56 +8,83 @@ part of 'serverless_inference_messages.dart';
 class MessagesCreateErrorResponseError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Machine-readable error code.
   final String type_;
+
   /// Human-readable error message.
   final String message;
 
-  const MessagesCreateErrorResponseError({required this.type_, required this.message});
+  const MessagesCreateErrorResponseError(
+      {required this.type_, required this.message});
 
-  MessagesCreateErrorResponseError Function({String type_, String message}) get copyWith => _copyWith;
+  MessagesCreateErrorResponseError Function({String type_, String message})
+      get copyWith => _copyWith;
 
-  MessagesCreateErrorResponseError _copyWith({Object? type_ = sdkOmittedValue, Object? message = sdkOmittedValue}) => MessagesCreateErrorResponseError(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-    message: identical(message, sdkOmittedValue) ? this.message : message as String,
-  );
+  MessagesCreateErrorResponseError _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? message = sdkOmittedValue}) =>
+      MessagesCreateErrorResponseError(
+        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as String,
+      );
 
-  factory MessagesCreateErrorResponseError.fromJson(Map<String, dynamic> json) => MessagesCreateErrorResponseError(
-    type_: (json['type'] as String?)!,
-    message: (json['message'] as String?)!,
-  );
+  factory MessagesCreateErrorResponseError.fromJson(
+          Map<String, dynamic> json) =>
+      MessagesCreateErrorResponseError(
+        type_: (json['type'] as String?)!,
+        message: (json['message'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_,
-    'message': message,
-  };
+        'type': type_,
+        'message': message,
+      };
 }
 
 /// Error envelope for some failures from this endpoint.
 class MessagesCreateErrorResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final MessagesCreateErrorResponseType type_;
+
   /// Required object value serialized in the `error` wire field.
   final MessagesCreateErrorResponseError error;
 
   const MessagesCreateErrorResponse({required this.type_, required this.error});
 
-  MessagesCreateErrorResponse Function({MessagesCreateErrorResponseType type_, MessagesCreateErrorResponseError error}) get copyWith => _copyWith;
+  MessagesCreateErrorResponse Function(
+      {MessagesCreateErrorResponseType type_,
+      MessagesCreateErrorResponseError error}) get copyWith => _copyWith;
 
-  MessagesCreateErrorResponse _copyWith({Object? type_ = sdkOmittedValue, Object? error = sdkOmittedValue}) => MessagesCreateErrorResponse(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesCreateErrorResponseType,
-    error: identical(error, sdkOmittedValue) ? this.error : error as MessagesCreateErrorResponseError,
-  );
+  MessagesCreateErrorResponse _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? error = sdkOmittedValue}) =>
+      MessagesCreateErrorResponse(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessagesCreateErrorResponseType,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as MessagesCreateErrorResponseError,
+      );
 
-  factory MessagesCreateErrorResponse.fromJson(Map<String, dynamic> json) => MessagesCreateErrorResponse(
-    type_: (json['type'] != null ? MessagesCreateErrorResponseType.fromJson(json['type'] as String) : null)!,
-    error: (json['error'] != null ? MessagesCreateErrorResponseError.fromJson(json['error'] as Map<String, dynamic>) : null)!,
-  );
+  factory MessagesCreateErrorResponse.fromJson(Map<String, dynamic> json) =>
+      MessagesCreateErrorResponse(
+        type_: (json['type'] != null
+            ? MessagesCreateErrorResponseType.fromJson(json['type'] as String)
+            : null)!,
+        error: (json['error'] != null
+            ? MessagesCreateErrorResponseError.fromJson(
+                json['error'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'error': error.toJson(),
-  };
+        'type': type_.toJson(),
+        'error': error.toJson(),
+      };
 }

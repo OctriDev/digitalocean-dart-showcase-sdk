@@ -8,92 +8,173 @@ part of 'agent_platform_api_api_update.dart';
 class ApiUpdateKnowledgeBaseInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The id of the DigitalOcean database this knowledge base will use, optional.
   final SdkOptional<String> databaseId;
+
   /// Knowledge base name
   final SdkOptional<String> name;
+
   /// The id of the DigitalOcean project this knowledge base will belong to
   final SdkOptional<String> projectId;
+
   /// Configuration for cross-encoder reranking during retrieval.
   final SdkOptional<ApiRerankingConfiguration> rerankingConfig;
+
   /// Tags to organize your knowledge base.
   final SdkOptional<List<String>> tags;
+
   /// Knowledge base id
   final SdkOptional<String> uuid;
 
-  const ApiUpdateKnowledgeBaseInputPublic({this.databaseId = const SdkOmitted(), this.name = const SdkOmitted(), this.projectId = const SdkOmitted(), this.rerankingConfig = const SdkOmitted(), this.tags = const SdkOmitted(), this.uuid = const SdkOmitted()});
+  const ApiUpdateKnowledgeBaseInputPublic(
+      {this.databaseId = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.projectId = const SdkOmitted(),
+      this.rerankingConfig = const SdkOmitted(),
+      this.tags = const SdkOmitted(),
+      this.uuid = const SdkOmitted()});
 
-  ApiUpdateKnowledgeBaseInputPublic Function({SdkOptional<String> databaseId, SdkOptional<String> name, SdkOptional<String> projectId, SdkOptional<ApiRerankingConfiguration> rerankingConfig, SdkOptional<List<String>> tags, SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiUpdateKnowledgeBaseInputPublic Function(
+      {SdkOptional<String> databaseId,
+      SdkOptional<String> name,
+      SdkOptional<String> projectId,
+      SdkOptional<ApiRerankingConfiguration> rerankingConfig,
+      SdkOptional<List<String>> tags,
+      SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiUpdateKnowledgeBaseInputPublic _copyWith({Object? databaseId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? rerankingConfig = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiUpdateKnowledgeBaseInputPublic(
-    databaseId: identical(databaseId, sdkOmittedValue) ? this.databaseId : databaseId as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
-    rerankingConfig: identical(rerankingConfig, sdkOmittedValue) ? this.rerankingConfig : rerankingConfig as SdkOptional<ApiRerankingConfiguration>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
-  );
+  ApiUpdateKnowledgeBaseInputPublic _copyWith(
+          {Object? databaseId = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? projectId = sdkOmittedValue,
+          Object? rerankingConfig = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? uuid = sdkOmittedValue}) =>
+      ApiUpdateKnowledgeBaseInputPublic(
+        databaseId: identical(databaseId, sdkOmittedValue)
+            ? this.databaseId
+            : databaseId as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as SdkOptional<String>,
+        rerankingConfig: identical(rerankingConfig, sdkOmittedValue)
+            ? this.rerankingConfig
+            : rerankingConfig as SdkOptional<ApiRerankingConfiguration>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        uuid: identical(uuid, sdkOmittedValue)
+            ? this.uuid
+            : uuid as SdkOptional<String>,
+      );
 
-  factory ApiUpdateKnowledgeBaseInputPublic.fromJson(Map<String, dynamic> json) => ApiUpdateKnowledgeBaseInputPublic(
-    databaseId: json['database_id'] != null ? SdkPresent((json['database_id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
-    rerankingConfig: json['reranking_config'] != null ? SdkPresent((json['reranking_config'] != null ? ApiRerankingConfiguration.fromJson(json['reranking_config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiUpdateKnowledgeBaseInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiUpdateKnowledgeBaseInputPublic(
+        databaseId: json['database_id'] != null
+            ? SdkPresent((json['database_id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        projectId: json['project_id'] != null
+            ? SdkPresent((json['project_id'] as String?)!)
+            : const SdkOmitted(),
+        rerankingConfig: json['reranking_config'] != null
+            ? SdkPresent((json['reranking_config'] != null
+                ? ApiRerankingConfiguration.fromJson(
+                    json['reranking_config'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        uuid: json['uuid'] != null
+            ? SdkPresent((json['uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (databaseId) {
-      SdkPresent<String>(value: final value) => {'database_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (projectId) {
-      SdkPresent<String>(value: final value) => {'project_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (rerankingConfig) {
-      SdkPresent<ApiRerankingConfiguration>(value: final value) => {'reranking_config': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (uuid) {
-      SdkPresent<String>(value: final value) => {'uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (databaseId) {
+          SdkPresent<String>(value: final value) => {
+              'database_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (projectId) {
+          SdkPresent<String>(value: final value) => {
+              'project_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (rerankingConfig) {
+          SdkPresent<ApiRerankingConfiguration>(value: final value) => {
+              'reranking_config': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (uuid) {
+          SdkPresent<String>(value: final value) => {
+              'uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Information about an updated knowledge base
 class ApiUpdateKnowledgeBaseOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Knowledgebase Description
   final SdkOptional<ApiKnowledgeBase> knowledgeBase;
 
   const ApiUpdateKnowledgeBaseOutput({this.knowledgeBase = const SdkOmitted()});
 
-  ApiUpdateKnowledgeBaseOutput Function({SdkOptional<ApiKnowledgeBase> knowledgeBase}) get copyWith => _copyWith;
+  ApiUpdateKnowledgeBaseOutput Function(
+      {SdkOptional<ApiKnowledgeBase> knowledgeBase}) get copyWith => _copyWith;
 
-  ApiUpdateKnowledgeBaseOutput _copyWith({Object? knowledgeBase = sdkOmittedValue}) => ApiUpdateKnowledgeBaseOutput(
-    knowledgeBase: identical(knowledgeBase, sdkOmittedValue) ? this.knowledgeBase : knowledgeBase as SdkOptional<ApiKnowledgeBase>,
-  );
+  ApiUpdateKnowledgeBaseOutput _copyWith(
+          {Object? knowledgeBase = sdkOmittedValue}) =>
+      ApiUpdateKnowledgeBaseOutput(
+        knowledgeBase: identical(knowledgeBase, sdkOmittedValue)
+            ? this.knowledgeBase
+            : knowledgeBase as SdkOptional<ApiKnowledgeBase>,
+      );
 
-  factory ApiUpdateKnowledgeBaseOutput.fromJson(Map<String, dynamic> json) => ApiUpdateKnowledgeBaseOutput(
-    knowledgeBase: json['knowledge_base'] != null ? SdkPresent((json['knowledge_base'] != null ? ApiKnowledgeBase.fromJson(json['knowledge_base'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiUpdateKnowledgeBaseOutput.fromJson(Map<String, dynamic> json) =>
+      ApiUpdateKnowledgeBaseOutput(
+        knowledgeBase: json['knowledge_base'] != null
+            ? SdkPresent((json['knowledge_base'] != null
+                ? ApiKnowledgeBase.fromJson(
+                    json['knowledge_base'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (knowledgeBase) {
-      SdkPresent<ApiKnowledgeBase>(value: final value) => {'knowledge_base': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (knowledgeBase) {
+          SdkPresent<ApiKnowledgeBase>(value: final value) => {
+              'knowledge_base': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

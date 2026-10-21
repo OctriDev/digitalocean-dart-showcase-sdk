@@ -8,41 +8,82 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelScaledPricing {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The pricing schedule as a series of consecutive time intervals, ordered by start time. Neighboring hours with the same rates are combined, so each interval represents a distinct price.
   final SdkOptional<List<ApiModelPricingInterval>> intervals;
+
   /// Pricing per million tokens (aligns with existing ModelPrice pattern)
   final SdkOptional<ApiModelPricing> maxPrices;
+
   /// Pricing per million tokens (aligns with existing ModelPrice pattern)
   final SdkOptional<ApiModelPricing> minPrices;
 
-  const ApiModelScaledPricing({this.intervals = const SdkOmitted(), this.maxPrices = const SdkOmitted(), this.minPrices = const SdkOmitted()});
+  const ApiModelScaledPricing(
+      {this.intervals = const SdkOmitted(),
+      this.maxPrices = const SdkOmitted(),
+      this.minPrices = const SdkOmitted()});
 
-  ApiModelScaledPricing Function({SdkOptional<List<ApiModelPricingInterval>> intervals, SdkOptional<ApiModelPricing> maxPrices, SdkOptional<ApiModelPricing> minPrices}) get copyWith => _copyWith;
+  ApiModelScaledPricing Function(
+      {SdkOptional<List<ApiModelPricingInterval>> intervals,
+      SdkOptional<ApiModelPricing> maxPrices,
+      SdkOptional<ApiModelPricing> minPrices}) get copyWith => _copyWith;
 
-  ApiModelScaledPricing _copyWith({Object? intervals = sdkOmittedValue, Object? maxPrices = sdkOmittedValue, Object? minPrices = sdkOmittedValue}) => ApiModelScaledPricing(
-    intervals: identical(intervals, sdkOmittedValue) ? this.intervals : intervals as SdkOptional<List<ApiModelPricingInterval>>,
-    maxPrices: identical(maxPrices, sdkOmittedValue) ? this.maxPrices : maxPrices as SdkOptional<ApiModelPricing>,
-    minPrices: identical(minPrices, sdkOmittedValue) ? this.minPrices : minPrices as SdkOptional<ApiModelPricing>,
-  );
+  ApiModelScaledPricing _copyWith(
+          {Object? intervals = sdkOmittedValue,
+          Object? maxPrices = sdkOmittedValue,
+          Object? minPrices = sdkOmittedValue}) =>
+      ApiModelScaledPricing(
+        intervals: identical(intervals, sdkOmittedValue)
+            ? this.intervals
+            : intervals as SdkOptional<List<ApiModelPricingInterval>>,
+        maxPrices: identical(maxPrices, sdkOmittedValue)
+            ? this.maxPrices
+            : maxPrices as SdkOptional<ApiModelPricing>,
+        minPrices: identical(minPrices, sdkOmittedValue)
+            ? this.minPrices
+            : minPrices as SdkOptional<ApiModelPricing>,
+      );
 
-  factory ApiModelScaledPricing.fromJson(Map<String, dynamic> json) => ApiModelScaledPricing(
-    intervals: json['intervals'] != null ? SdkPresent(((json['intervals'] as List?)?.map((e) => ApiModelPricingInterval.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    maxPrices: json['max_prices'] != null ? SdkPresent((json['max_prices'] != null ? ApiModelPricing.fromJson(json['max_prices'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    minPrices: json['min_prices'] != null ? SdkPresent((json['min_prices'] != null ? ApiModelPricing.fromJson(json['min_prices'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiModelScaledPricing.fromJson(Map<String, dynamic> json) =>
+      ApiModelScaledPricing(
+        intervals: json['intervals'] != null
+            ? SdkPresent(((json['intervals'] as List?)
+                ?.map((e) =>
+                    ApiModelPricingInterval.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        maxPrices: json['max_prices'] != null
+            ? SdkPresent((json['max_prices'] != null
+                ? ApiModelPricing.fromJson(
+                    json['max_prices'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        minPrices: json['min_prices'] != null
+            ? SdkPresent((json['min_prices'] != null
+                ? ApiModelPricing.fromJson(
+                    json['min_prices'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (intervals) {
-      SdkPresent<List<ApiModelPricingInterval>>(value: final value) => {'intervals': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxPrices) {
-      SdkPresent<ApiModelPricing>(value: final value) => {'max_prices': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (minPrices) {
-      SdkPresent<ApiModelPricing>(value: final value) => {'min_prices': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (intervals) {
+          SdkPresent<List<ApiModelPricingInterval>>(value: final value) => {
+              'intervals': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxPrices) {
+          SdkPresent<ApiModelPricing>(value: final value) => {
+              'max_prices': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (minPrices) {
+          SdkPresent<ApiModelPricing>(value: final value) => {
+              'min_prices': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

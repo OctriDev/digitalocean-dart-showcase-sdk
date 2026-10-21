@@ -8,33 +8,60 @@ part of 'insights_logs.dart';
 class LogsSearchResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Matching log records. Omitted when no records match.
   final SdkOptional<List<LogsLogRecord>> data;
+
   /// Pagination response.
   final SdkOptional<LogsPaginationResponse> pagination;
 
-  const LogsSearchResponse({this.data = const SdkOmitted(), this.pagination = const SdkOmitted()});
+  const LogsSearchResponse(
+      {this.data = const SdkOmitted(), this.pagination = const SdkOmitted()});
 
-  LogsSearchResponse Function({SdkOptional<List<LogsLogRecord>> data, SdkOptional<LogsPaginationResponse> pagination}) get copyWith => _copyWith;
+  LogsSearchResponse Function(
+          {SdkOptional<List<LogsLogRecord>> data,
+          SdkOptional<LogsPaginationResponse> pagination})
+      get copyWith => _copyWith;
 
-  LogsSearchResponse _copyWith({Object? data = sdkOmittedValue, Object? pagination = sdkOmittedValue}) => LogsSearchResponse(
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<List<LogsLogRecord>>,
-    pagination: identical(pagination, sdkOmittedValue) ? this.pagination : pagination as SdkOptional<LogsPaginationResponse>,
-  );
+  LogsSearchResponse _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? pagination = sdkOmittedValue}) =>
+      LogsSearchResponse(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<List<LogsLogRecord>>,
+        pagination: identical(pagination, sdkOmittedValue)
+            ? this.pagination
+            : pagination as SdkOptional<LogsPaginationResponse>,
+      );
 
-  factory LogsSearchResponse.fromJson(Map<String, dynamic> json) => LogsSearchResponse(
-    data: json['data'] != null ? SdkPresent(((json['data'] as List?)?.map((e) => LogsLogRecord.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    pagination: json['pagination'] != null ? SdkPresent((json['pagination'] != null ? LogsPaginationResponse.fromJson(json['pagination'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory LogsSearchResponse.fromJson(Map<String, dynamic> json) =>
+      LogsSearchResponse(
+        data: json['data'] != null
+            ? SdkPresent(((json['data'] as List?)
+                ?.map((e) => LogsLogRecord.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        pagination: json['pagination'] != null
+            ? SdkPresent((json['pagination'] != null
+                ? LogsPaginationResponse.fromJson(
+                    json['pagination'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (data) {
-      SdkPresent<List<LogsLogRecord>>(value: final value) => {'data': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pagination) {
-      SdkPresent<LogsPaginationResponse>(value: final value) => {'pagination': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (data) {
+          SdkPresent<List<LogsLogRecord>>(value: final value) => {
+              'data': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pagination) {
+          SdkPresent<LogsPaginationResponse>(value: final value) => {
+              'pagination': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -9,8 +9,12 @@ sealed class PromSampleItem {
   static const String constructionSurface = 'named';
   const PromSampleItem();
   factory PromSampleItem.fromJson(Object? json) {
-    if (json is String) { return PromSampleItemString(json); }
-    if (json is num) { return PromSampleItemDouble(json.toDouble()); }
+    if (json is String) {
+      return PromSampleItemString(json);
+    }
+    if (json is num) {
+      return PromSampleItemDouble(json.toDouble());
+    }
     throw FormatException("No variant matched for PromSampleItem");
   }
   Object? toJson();
@@ -19,13 +23,15 @@ sealed class PromSampleItem {
 final class PromSampleItemDouble extends PromSampleItem {
   final double value;
   const PromSampleItemDouble(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 final class PromSampleItemString extends PromSampleItem {
   final String value;
   const PromSampleItemString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 // PromSample = List<PromSampleItem>

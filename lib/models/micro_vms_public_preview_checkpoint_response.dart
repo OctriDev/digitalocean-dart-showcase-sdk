@@ -8,25 +8,38 @@ part of 'micro_vms_public_preview.dart';
 class CheckpointResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A checkpoint of a MicroVM's memory and disk. New MicroVMs created from a checkpoint start from that state.
   final SdkOptional<Checkpoint2> checkpoint;
 
   const CheckpointResponse({this.checkpoint = const SdkOmitted()});
 
-  CheckpointResponse Function({SdkOptional<Checkpoint2> checkpoint}) get copyWith => _copyWith;
+  CheckpointResponse Function({SdkOptional<Checkpoint2> checkpoint})
+      get copyWith => _copyWith;
 
-  CheckpointResponse _copyWith({Object? checkpoint = sdkOmittedValue}) => CheckpointResponse(
-    checkpoint: identical(checkpoint, sdkOmittedValue) ? this.checkpoint : checkpoint as SdkOptional<Checkpoint2>,
-  );
+  CheckpointResponse _copyWith({Object? checkpoint = sdkOmittedValue}) =>
+      CheckpointResponse(
+        checkpoint: identical(checkpoint, sdkOmittedValue)
+            ? this.checkpoint
+            : checkpoint as SdkOptional<Checkpoint2>,
+      );
 
-  factory CheckpointResponse.fromJson(Map<String, dynamic> json) => CheckpointResponse(
-    checkpoint: json['checkpoint'] != null ? SdkPresent((json['checkpoint'] != null ? Checkpoint2.fromJson(json['checkpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory CheckpointResponse.fromJson(Map<String, dynamic> json) =>
+      CheckpointResponse(
+        checkpoint: json['checkpoint'] != null
+            ? SdkPresent((json['checkpoint'] != null
+                ? Checkpoint2.fromJson(
+                    json['checkpoint'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (checkpoint) {
-      SdkPresent<Checkpoint2>(value: final value) => {'checkpoint': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (checkpoint) {
+          SdkPresent<Checkpoint2>(value: final value) => {
+              'checkpoint': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

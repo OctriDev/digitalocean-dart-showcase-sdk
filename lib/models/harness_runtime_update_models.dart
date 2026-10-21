@@ -8,108 +8,210 @@ part of 'harness_runtime_update.dart';
 class UpdateTemplateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `source_oci_ref` wire field.
   final SdkOptional<String> sourceOciRef;
+
   /// Optional `string` value serialized in the `base_template` wire field.
   final SdkOptional<String> baseTemplate;
 
-  const UpdateTemplateRequest({this.sourceOciRef = const SdkOmitted(), this.baseTemplate = const SdkOmitted()});
+  const UpdateTemplateRequest(
+      {this.sourceOciRef = const SdkOmitted(),
+      this.baseTemplate = const SdkOmitted()});
 
-  UpdateTemplateRequest Function({SdkOptional<String> sourceOciRef, SdkOptional<String> baseTemplate}) get copyWith => _copyWith;
+  UpdateTemplateRequest Function(
+      {SdkOptional<String> sourceOciRef,
+      SdkOptional<String> baseTemplate}) get copyWith => _copyWith;
 
-  UpdateTemplateRequest _copyWith({Object? sourceOciRef = sdkOmittedValue, Object? baseTemplate = sdkOmittedValue}) => UpdateTemplateRequest(
-    sourceOciRef: identical(sourceOciRef, sdkOmittedValue) ? this.sourceOciRef : sourceOciRef as SdkOptional<String>,
-    baseTemplate: identical(baseTemplate, sdkOmittedValue) ? this.baseTemplate : baseTemplate as SdkOptional<String>,
-  );
+  UpdateTemplateRequest _copyWith(
+          {Object? sourceOciRef = sdkOmittedValue,
+          Object? baseTemplate = sdkOmittedValue}) =>
+      UpdateTemplateRequest(
+        sourceOciRef: identical(sourceOciRef, sdkOmittedValue)
+            ? this.sourceOciRef
+            : sourceOciRef as SdkOptional<String>,
+        baseTemplate: identical(baseTemplate, sdkOmittedValue)
+            ? this.baseTemplate
+            : baseTemplate as SdkOptional<String>,
+      );
 
-  factory UpdateTemplateRequest.fromJson(Map<String, dynamic> json) => UpdateTemplateRequest(
-    sourceOciRef: json['source_oci_ref'] != null ? SdkPresent((json['source_oci_ref'] as String?)!) : const SdkOmitted(),
-    baseTemplate: json['base_template'] != null ? SdkPresent((json['base_template'] as String?)!) : const SdkOmitted(),
-  );
+  factory UpdateTemplateRequest.fromJson(Map<String, dynamic> json) =>
+      UpdateTemplateRequest(
+        sourceOciRef: json['source_oci_ref'] != null
+            ? SdkPresent((json['source_oci_ref'] as String?)!)
+            : const SdkOmitted(),
+        baseTemplate: json['base_template'] != null
+            ? SdkPresent((json['base_template'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sourceOciRef) {
-      SdkPresent<String>(value: final value) => {'source_oci_ref': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (baseTemplate) {
-      SdkPresent<String>(value: final value) => {'base_template': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sourceOciRef) {
+          SdkPresent<String>(value: final value) => {
+              'source_oci_ref': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (baseTemplate) {
+          SdkPresent<String>(value: final value) => {
+              'base_template': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Partial update. Only the supplied fields change. kind and webhook.provider are immutable. Sending status alone is how pause/re-enable work.
 class UpdateTriggerRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// New team-unique trigger name. Same charset/length rules as create.
   final SdkOptional<String> name;
+
   /// Trigger lifecycle state. Soft-deleted triggers are never returned (404).
   final SdkOptional<TriggerStatus> status;
+
   /// Optional `string` value serialized in the `prompt_template` wire field.
   final SdkOptional<String> promptTemplate;
+
   /// Output-delivery configuration on create/update. Exactly one of email / slack is required for the matching mode and forbidden otherwise; destinations are stored encrypted and never returned.
   final SdkOptional<TriggerOutputWrite> output;
+
   /// fresh triggers only. A session_template PATCH is a full replacement of the stored template; you must resupply every spec.secrets slot value the new manifest declares, or the request is a 400.
   final SdkOptional<String> sessionTemplate;
+
   /// reuse triggers only. UUID of an existing session owned by the team.
   final SdkOptional<String> boundSessionId;
+
   /// cron block on create.
   final SdkOptional<CreateCronConfig> cron;
 
-  const UpdateTriggerRequest({this.name = const SdkOmitted(), this.status = const SdkOmitted(), this.promptTemplate = const SdkOmitted(), this.output = const SdkOmitted(), this.sessionTemplate = const SdkOmitted(), this.boundSessionId = const SdkOmitted(), this.cron = const SdkOmitted()});
+  const UpdateTriggerRequest(
+      {this.name = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.promptTemplate = const SdkOmitted(),
+      this.output = const SdkOmitted(),
+      this.sessionTemplate = const SdkOmitted(),
+      this.boundSessionId = const SdkOmitted(),
+      this.cron = const SdkOmitted()});
 
-  UpdateTriggerRequest Function({SdkOptional<String> name, SdkOptional<TriggerStatus> status, SdkOptional<String> promptTemplate, SdkOptional<TriggerOutputWrite> output, SdkOptional<String> sessionTemplate, SdkOptional<String> boundSessionId, SdkOptional<CreateCronConfig> cron}) get copyWith => _copyWith;
+  UpdateTriggerRequest Function(
+      {SdkOptional<String> name,
+      SdkOptional<TriggerStatus> status,
+      SdkOptional<String> promptTemplate,
+      SdkOptional<TriggerOutputWrite> output,
+      SdkOptional<String> sessionTemplate,
+      SdkOptional<String> boundSessionId,
+      SdkOptional<CreateCronConfig> cron}) get copyWith => _copyWith;
 
-  UpdateTriggerRequest _copyWith({Object? name = sdkOmittedValue, Object? status = sdkOmittedValue, Object? promptTemplate = sdkOmittedValue, Object? output = sdkOmittedValue, Object? sessionTemplate = sdkOmittedValue, Object? boundSessionId = sdkOmittedValue, Object? cron = sdkOmittedValue}) => UpdateTriggerRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<TriggerStatus>,
-    promptTemplate: identical(promptTemplate, sdkOmittedValue) ? this.promptTemplate : promptTemplate as SdkOptional<String>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<TriggerOutputWrite>,
-    sessionTemplate: identical(sessionTemplate, sdkOmittedValue) ? this.sessionTemplate : sessionTemplate as SdkOptional<String>,
-    boundSessionId: identical(boundSessionId, sdkOmittedValue) ? this.boundSessionId : boundSessionId as SdkOptional<String>,
-    cron: identical(cron, sdkOmittedValue) ? this.cron : cron as SdkOptional<CreateCronConfig>,
-  );
+  UpdateTriggerRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? promptTemplate = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? sessionTemplate = sdkOmittedValue,
+          Object? boundSessionId = sdkOmittedValue,
+          Object? cron = sdkOmittedValue}) =>
+      UpdateTriggerRequest(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<TriggerStatus>,
+        promptTemplate: identical(promptTemplate, sdkOmittedValue)
+            ? this.promptTemplate
+            : promptTemplate as SdkOptional<String>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<TriggerOutputWrite>,
+        sessionTemplate: identical(sessionTemplate, sdkOmittedValue)
+            ? this.sessionTemplate
+            : sessionTemplate as SdkOptional<String>,
+        boundSessionId: identical(boundSessionId, sdkOmittedValue)
+            ? this.boundSessionId
+            : boundSessionId as SdkOptional<String>,
+        cron: identical(cron, sdkOmittedValue)
+            ? this.cron
+            : cron as SdkOptional<CreateCronConfig>,
+      );
 
-  factory UpdateTriggerRequest.fromJson(Map<String, dynamic> json) => UpdateTriggerRequest(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? TriggerStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    promptTemplate: json['prompt_template'] != null ? SdkPresent((json['prompt_template'] as String?)!) : const SdkOmitted(),
-    output: json['output'] != null ? SdkPresent((json['output'] != null ? TriggerOutputWrite.fromJson(json['output'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    sessionTemplate: json['session_template'] != null ? SdkPresent((json['session_template'] as String?)!) : const SdkOmitted(),
-    boundSessionId: json['bound_session_id'] != null ? SdkPresent((json['bound_session_id'] as String?)!) : const SdkOmitted(),
-    cron: json['cron'] != null ? SdkPresent((json['cron'] != null ? CreateCronConfig.fromJson(json['cron'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory UpdateTriggerRequest.fromJson(Map<String, dynamic> json) =>
+      UpdateTriggerRequest(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? TriggerStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        promptTemplate: json['prompt_template'] != null
+            ? SdkPresent((json['prompt_template'] as String?)!)
+            : const SdkOmitted(),
+        output: json['output'] != null
+            ? SdkPresent((json['output'] != null
+                ? TriggerOutputWrite.fromJson(
+                    json['output'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        sessionTemplate: json['session_template'] != null
+            ? SdkPresent((json['session_template'] as String?)!)
+            : const SdkOmitted(),
+        boundSessionId: json['bound_session_id'] != null
+            ? SdkPresent((json['bound_session_id'] as String?)!)
+            : const SdkOmitted(),
+        cron: json['cron'] != null
+            ? SdkPresent((json['cron'] != null
+                ? CreateCronConfig.fromJson(
+                    json['cron'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<TriggerStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (promptTemplate) {
-      SdkPresent<String>(value: final value) => {'prompt_template': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (output) {
-      SdkPresent<TriggerOutputWrite>(value: final value) => {'output': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sessionTemplate) {
-      SdkPresent<String>(value: final value) => {'session_template': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (boundSessionId) {
-      SdkPresent<String>(value: final value) => {'bound_session_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (cron) {
-      SdkPresent<CreateCronConfig>(value: final value) => {'cron': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<TriggerStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (promptTemplate) {
+          SdkPresent<String>(value: final value) => {
+              'prompt_template': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (output) {
+          SdkPresent<TriggerOutputWrite>(value: final value) => {
+              'output': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sessionTemplate) {
+          SdkPresent<String>(value: final value) => {
+              'session_template': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (boundSessionId) {
+          SdkPresent<String>(value: final value) => {
+              'bound_session_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (cron) {
+          SdkPresent<CreateCronConfig>(value: final value) => {
+              'cron': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

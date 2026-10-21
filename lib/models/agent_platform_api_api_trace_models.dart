@@ -6,26 +6,31 @@ part of 'agent_platform_api_api_trace.dart';
 // agent_platform_api_api_trace domain models
 /// Types of spans in a trace
 final class ApiTraceSpanType {
-
   final String value;
 
   const ApiTraceSpanType._(this.value);
 
   factory ApiTraceSpanType.fromJson(String value) => ApiTraceSpanType._(value);
 
-  static const traceSpanTypeUnknown = ApiTraceSpanType._('TRACE_SPAN_TYPE_UNKNOWN');
+  static const traceSpanTypeUnknown =
+      ApiTraceSpanType._('TRACE_SPAN_TYPE_UNKNOWN');
   static const traceSpanTypeLlm = ApiTraceSpanType._('TRACE_SPAN_TYPE_LLM');
-  static const traceSpanTypeRetriever = ApiTraceSpanType._('TRACE_SPAN_TYPE_RETRIEVER');
+  static const traceSpanTypeRetriever =
+      ApiTraceSpanType._('TRACE_SPAN_TYPE_RETRIEVER');
   static const traceSpanTypeTool = ApiTraceSpanType._('TRACE_SPAN_TYPE_TOOL');
   static const traceSpanTypeAgent = ApiTraceSpanType._('TRACE_SPAN_TYPE_AGENT');
-  static const traceSpanTypeWorkflow = ApiTraceSpanType._('TRACE_SPAN_TYPE_WORKFLOW');
+  static const traceSpanTypeWorkflow =
+      ApiTraceSpanType._('TRACE_SPAN_TYPE_WORKFLOW');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiTraceSpanType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiTraceSpanType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

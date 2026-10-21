@@ -8,113 +8,249 @@ part of 'billing.dart';
 class InvoiceSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// UUID of the invoice
   final SdkOptional<String> invoiceUuid;
+
   /// ID of the invoice
   final SdkOptional<String> invoiceId;
+
   /// Billing period of usage for which the invoice is issued, in `YYYY-MM` format.
   final SdkOptional<String> billingPeriod;
+
   /// Total amount of the invoice, in USD. This will reflect month-to-date usage in the invoice preview.
   final SdkOptional<String> amount;
+
   /// Name of the DigitalOcean customer being invoiced.
   final SdkOptional<String> userName;
+
   /// The billing address of the customer being invoiced.
   final SdkOptional<BillingAddress> userBillingAddress;
+
   /// Company of the DigitalOcean customer being invoiced, if set.
   final SdkOptional<String> userCompany;
+
   /// Email of the DigitalOcean customer being invoiced.
   final SdkOptional<String> userEmail;
+
   /// A summary of the product usage charges contributing to the invoice. This will include an amount, and grouped aggregates by resource type under the `items` key.
   final SdkOptional<ProductUsageCharges> productCharges;
+
   /// A summary of the overages contributing to the invoice.
   final SdkOptional<SimpleCharge> overages;
+
   /// A summary of the taxes contributing to the invoice.
   final SdkOptional<SimpleCharge> taxes;
+
   /// A summary of the credits and adjustments contributing to the invoice.
   final SdkOptional<SimpleCharge> creditsAndAdjustments;
 
-  const InvoiceSummary({this.invoiceUuid = const SdkOmitted(), this.invoiceId = const SdkOmitted(), this.billingPeriod = const SdkOmitted(), this.amount = const SdkOmitted(), this.userName = const SdkOmitted(), this.userBillingAddress = const SdkOmitted(), this.userCompany = const SdkOmitted(), this.userEmail = const SdkOmitted(), this.productCharges = const SdkOmitted(), this.overages = const SdkOmitted(), this.taxes = const SdkOmitted(), this.creditsAndAdjustments = const SdkOmitted()});
+  const InvoiceSummary(
+      {this.invoiceUuid = const SdkOmitted(),
+      this.invoiceId = const SdkOmitted(),
+      this.billingPeriod = const SdkOmitted(),
+      this.amount = const SdkOmitted(),
+      this.userName = const SdkOmitted(),
+      this.userBillingAddress = const SdkOmitted(),
+      this.userCompany = const SdkOmitted(),
+      this.userEmail = const SdkOmitted(),
+      this.productCharges = const SdkOmitted(),
+      this.overages = const SdkOmitted(),
+      this.taxes = const SdkOmitted(),
+      this.creditsAndAdjustments = const SdkOmitted()});
 
-  InvoiceSummary Function({SdkOptional<String> invoiceUuid, SdkOptional<String> invoiceId, SdkOptional<String> billingPeriod, SdkOptional<String> amount, SdkOptional<String> userName, SdkOptional<BillingAddress> userBillingAddress, SdkOptional<String> userCompany, SdkOptional<String> userEmail, SdkOptional<ProductUsageCharges> productCharges, SdkOptional<SimpleCharge> overages, SdkOptional<SimpleCharge> taxes, SdkOptional<SimpleCharge> creditsAndAdjustments}) get copyWith => _copyWith;
+  InvoiceSummary Function(
+          {SdkOptional<String> invoiceUuid,
+          SdkOptional<String> invoiceId,
+          SdkOptional<String> billingPeriod,
+          SdkOptional<String> amount,
+          SdkOptional<String> userName,
+          SdkOptional<BillingAddress> userBillingAddress,
+          SdkOptional<String> userCompany,
+          SdkOptional<String> userEmail,
+          SdkOptional<ProductUsageCharges> productCharges,
+          SdkOptional<SimpleCharge> overages,
+          SdkOptional<SimpleCharge> taxes,
+          SdkOptional<SimpleCharge> creditsAndAdjustments})
+      get copyWith => _copyWith;
 
-  InvoiceSummary _copyWith({Object? invoiceUuid = sdkOmittedValue, Object? invoiceId = sdkOmittedValue, Object? billingPeriod = sdkOmittedValue, Object? amount = sdkOmittedValue, Object? userName = sdkOmittedValue, Object? userBillingAddress = sdkOmittedValue, Object? userCompany = sdkOmittedValue, Object? userEmail = sdkOmittedValue, Object? productCharges = sdkOmittedValue, Object? overages = sdkOmittedValue, Object? taxes = sdkOmittedValue, Object? creditsAndAdjustments = sdkOmittedValue}) => InvoiceSummary(
-    invoiceUuid: identical(invoiceUuid, sdkOmittedValue) ? this.invoiceUuid : invoiceUuid as SdkOptional<String>,
-    invoiceId: identical(invoiceId, sdkOmittedValue) ? this.invoiceId : invoiceId as SdkOptional<String>,
-    billingPeriod: identical(billingPeriod, sdkOmittedValue) ? this.billingPeriod : billingPeriod as SdkOptional<String>,
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<String>,
-    userName: identical(userName, sdkOmittedValue) ? this.userName : userName as SdkOptional<String>,
-    userBillingAddress: identical(userBillingAddress, sdkOmittedValue) ? this.userBillingAddress : userBillingAddress as SdkOptional<BillingAddress>,
-    userCompany: identical(userCompany, sdkOmittedValue) ? this.userCompany : userCompany as SdkOptional<String>,
-    userEmail: identical(userEmail, sdkOmittedValue) ? this.userEmail : userEmail as SdkOptional<String>,
-    productCharges: identical(productCharges, sdkOmittedValue) ? this.productCharges : productCharges as SdkOptional<ProductUsageCharges>,
-    overages: identical(overages, sdkOmittedValue) ? this.overages : overages as SdkOptional<SimpleCharge>,
-    taxes: identical(taxes, sdkOmittedValue) ? this.taxes : taxes as SdkOptional<SimpleCharge>,
-    creditsAndAdjustments: identical(creditsAndAdjustments, sdkOmittedValue) ? this.creditsAndAdjustments : creditsAndAdjustments as SdkOptional<SimpleCharge>,
-  );
+  InvoiceSummary _copyWith(
+          {Object? invoiceUuid = sdkOmittedValue,
+          Object? invoiceId = sdkOmittedValue,
+          Object? billingPeriod = sdkOmittedValue,
+          Object? amount = sdkOmittedValue,
+          Object? userName = sdkOmittedValue,
+          Object? userBillingAddress = sdkOmittedValue,
+          Object? userCompany = sdkOmittedValue,
+          Object? userEmail = sdkOmittedValue,
+          Object? productCharges = sdkOmittedValue,
+          Object? overages = sdkOmittedValue,
+          Object? taxes = sdkOmittedValue,
+          Object? creditsAndAdjustments = sdkOmittedValue}) =>
+      InvoiceSummary(
+        invoiceUuid: identical(invoiceUuid, sdkOmittedValue)
+            ? this.invoiceUuid
+            : invoiceUuid as SdkOptional<String>,
+        invoiceId: identical(invoiceId, sdkOmittedValue)
+            ? this.invoiceId
+            : invoiceId as SdkOptional<String>,
+        billingPeriod: identical(billingPeriod, sdkOmittedValue)
+            ? this.billingPeriod
+            : billingPeriod as SdkOptional<String>,
+        amount: identical(amount, sdkOmittedValue)
+            ? this.amount
+            : amount as SdkOptional<String>,
+        userName: identical(userName, sdkOmittedValue)
+            ? this.userName
+            : userName as SdkOptional<String>,
+        userBillingAddress: identical(userBillingAddress, sdkOmittedValue)
+            ? this.userBillingAddress
+            : userBillingAddress as SdkOptional<BillingAddress>,
+        userCompany: identical(userCompany, sdkOmittedValue)
+            ? this.userCompany
+            : userCompany as SdkOptional<String>,
+        userEmail: identical(userEmail, sdkOmittedValue)
+            ? this.userEmail
+            : userEmail as SdkOptional<String>,
+        productCharges: identical(productCharges, sdkOmittedValue)
+            ? this.productCharges
+            : productCharges as SdkOptional<ProductUsageCharges>,
+        overages: identical(overages, sdkOmittedValue)
+            ? this.overages
+            : overages as SdkOptional<SimpleCharge>,
+        taxes: identical(taxes, sdkOmittedValue)
+            ? this.taxes
+            : taxes as SdkOptional<SimpleCharge>,
+        creditsAndAdjustments: identical(creditsAndAdjustments, sdkOmittedValue)
+            ? this.creditsAndAdjustments
+            : creditsAndAdjustments as SdkOptional<SimpleCharge>,
+      );
 
   factory InvoiceSummary.fromJson(Map<String, dynamic> json) => InvoiceSummary(
-    invoiceUuid: json['invoice_uuid'] != null ? SdkPresent((json['invoice_uuid'] as String?)!) : const SdkOmitted(),
-    invoiceId: json['invoice_id'] != null ? SdkPresent((json['invoice_id'] as String?)!) : const SdkOmitted(),
-    billingPeriod: json['billing_period'] != null ? SdkPresent((json['billing_period'] as String?)!) : const SdkOmitted(),
-    amount: json['amount'] != null ? SdkPresent((json['amount'] as String?)!) : const SdkOmitted(),
-    userName: json['user_name'] != null ? SdkPresent((json['user_name'] as String?)!) : const SdkOmitted(),
-    userBillingAddress: json['user_billing_address'] != null ? SdkPresent((json['user_billing_address'] != null ? BillingAddress.fromJson(json['user_billing_address'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    userCompany: json['user_company'] != null ? SdkPresent((json['user_company'] as String?)!) : const SdkOmitted(),
-    userEmail: json['user_email'] != null ? SdkPresent((json['user_email'] as String?)!) : const SdkOmitted(),
-    productCharges: json['product_charges'] != null ? SdkPresent((json['product_charges'] != null ? ProductUsageCharges.fromJson(json['product_charges'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    overages: json['overages'] != null ? SdkPresent((json['overages'] != null ? SimpleCharge.fromJson(json['overages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    taxes: json['taxes'] != null ? SdkPresent((json['taxes'] != null ? SimpleCharge.fromJson(json['taxes'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    creditsAndAdjustments: json['credits_and_adjustments'] != null ? SdkPresent((json['credits_and_adjustments'] != null ? SimpleCharge.fromJson(json['credits_and_adjustments'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        invoiceUuid: json['invoice_uuid'] != null
+            ? SdkPresent((json['invoice_uuid'] as String?)!)
+            : const SdkOmitted(),
+        invoiceId: json['invoice_id'] != null
+            ? SdkPresent((json['invoice_id'] as String?)!)
+            : const SdkOmitted(),
+        billingPeriod: json['billing_period'] != null
+            ? SdkPresent((json['billing_period'] as String?)!)
+            : const SdkOmitted(),
+        amount: json['amount'] != null
+            ? SdkPresent((json['amount'] as String?)!)
+            : const SdkOmitted(),
+        userName: json['user_name'] != null
+            ? SdkPresent((json['user_name'] as String?)!)
+            : const SdkOmitted(),
+        userBillingAddress: json['user_billing_address'] != null
+            ? SdkPresent((json['user_billing_address'] != null
+                ? BillingAddress.fromJson(
+                    json['user_billing_address'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        userCompany: json['user_company'] != null
+            ? SdkPresent((json['user_company'] as String?)!)
+            : const SdkOmitted(),
+        userEmail: json['user_email'] != null
+            ? SdkPresent((json['user_email'] as String?)!)
+            : const SdkOmitted(),
+        productCharges: json['product_charges'] != null
+            ? SdkPresent((json['product_charges'] != null
+                ? ProductUsageCharges.fromJson(
+                    json['product_charges'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        overages: json['overages'] != null
+            ? SdkPresent((json['overages'] != null
+                ? SimpleCharge.fromJson(
+                    json['overages'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        taxes: json['taxes'] != null
+            ? SdkPresent((json['taxes'] != null
+                ? SimpleCharge.fromJson(json['taxes'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        creditsAndAdjustments: json['credits_and_adjustments'] != null
+            ? SdkPresent((json['credits_and_adjustments'] != null
+                ? SimpleCharge.fromJson(
+                    json['credits_and_adjustments'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (invoiceUuid) {
-      SdkPresent<String>(value: final value) => {'invoice_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (invoiceId) {
-      SdkPresent<String>(value: final value) => {'invoice_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (billingPeriod) {
-      SdkPresent<String>(value: final value) => {'billing_period': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (amount) {
-      SdkPresent<String>(value: final value) => {'amount': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userName) {
-      SdkPresent<String>(value: final value) => {'user_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userBillingAddress) {
-      SdkPresent<BillingAddress>(value: final value) => {'user_billing_address': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userCompany) {
-      SdkPresent<String>(value: final value) => {'user_company': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userEmail) {
-      SdkPresent<String>(value: final value) => {'user_email': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (productCharges) {
-      SdkPresent<ProductUsageCharges>(value: final value) => {'product_charges': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (overages) {
-      SdkPresent<SimpleCharge>(value: final value) => {'overages': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (taxes) {
-      SdkPresent<SimpleCharge>(value: final value) => {'taxes': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (creditsAndAdjustments) {
-      SdkPresent<SimpleCharge>(value: final value) => {'credits_and_adjustments': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (invoiceUuid) {
+          SdkPresent<String>(value: final value) => {
+              'invoice_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (invoiceId) {
+          SdkPresent<String>(value: final value) => {
+              'invoice_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (billingPeriod) {
+          SdkPresent<String>(value: final value) => {
+              'billing_period': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (amount) {
+          SdkPresent<String>(value: final value) => {
+              'amount': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userName) {
+          SdkPresent<String>(value: final value) => {
+              'user_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userBillingAddress) {
+          SdkPresent<BillingAddress>(value: final value) => {
+              'user_billing_address': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userCompany) {
+          SdkPresent<String>(value: final value) => {
+              'user_company': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userEmail) {
+          SdkPresent<String>(value: final value) => {
+              'user_email': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (productCharges) {
+          SdkPresent<ProductUsageCharges>(value: final value) => {
+              'product_charges': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (overages) {
+          SdkPresent<SimpleCharge>(value: final value) => {
+              'overages': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (taxes) {
+          SdkPresent<SimpleCharge>(value: final value) => {
+              'taxes': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (creditsAndAdjustments) {
+          SdkPresent<SimpleCharge>(value: final value) => {
+              'credits_and_adjustments': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

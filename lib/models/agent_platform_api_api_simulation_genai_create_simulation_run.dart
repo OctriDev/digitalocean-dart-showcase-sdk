@@ -8,33 +8,60 @@ part of 'agent_platform_api_api_simulation.dart';
 class ApiSimulationEvaluationConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Evaluation metric UUIDs (from the evaluation metrics catalog). Must be simulation-eligible (multi-turn) metrics; the create request is rejected if any UUID is unknown or ineligible.
   final SdkOptional<List<String>> metricUuids;
+
   /// Optional object value serialized in the `star_metric` wire field.
   final SdkOptional<ApiStarMetric> starMetric;
 
-  const ApiSimulationEvaluationConfig({this.metricUuids = const SdkOmitted(), this.starMetric = const SdkOmitted()});
+  const ApiSimulationEvaluationConfig(
+      {this.metricUuids = const SdkOmitted(),
+      this.starMetric = const SdkOmitted()});
 
-  ApiSimulationEvaluationConfig Function({SdkOptional<List<String>> metricUuids, SdkOptional<ApiStarMetric> starMetric}) get copyWith => _copyWith;
+  ApiSimulationEvaluationConfig Function(
+      {SdkOptional<List<String>> metricUuids,
+      SdkOptional<ApiStarMetric> starMetric}) get copyWith => _copyWith;
 
-  ApiSimulationEvaluationConfig _copyWith({Object? metricUuids = sdkOmittedValue, Object? starMetric = sdkOmittedValue}) => ApiSimulationEvaluationConfig(
-    metricUuids: identical(metricUuids, sdkOmittedValue) ? this.metricUuids : metricUuids as SdkOptional<List<String>>,
-    starMetric: identical(starMetric, sdkOmittedValue) ? this.starMetric : starMetric as SdkOptional<ApiStarMetric>,
-  );
+  ApiSimulationEvaluationConfig _copyWith(
+          {Object? metricUuids = sdkOmittedValue,
+          Object? starMetric = sdkOmittedValue}) =>
+      ApiSimulationEvaluationConfig(
+        metricUuids: identical(metricUuids, sdkOmittedValue)
+            ? this.metricUuids
+            : metricUuids as SdkOptional<List<String>>,
+        starMetric: identical(starMetric, sdkOmittedValue)
+            ? this.starMetric
+            : starMetric as SdkOptional<ApiStarMetric>,
+      );
 
-  factory ApiSimulationEvaluationConfig.fromJson(Map<String, dynamic> json) => ApiSimulationEvaluationConfig(
-    metricUuids: json['metric_uuids'] != null ? SdkPresent(((json['metric_uuids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    starMetric: json['star_metric'] != null ? SdkPresent((json['star_metric'] != null ? ApiStarMetric.fromJson(json['star_metric'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiSimulationEvaluationConfig.fromJson(Map<String, dynamic> json) =>
+      ApiSimulationEvaluationConfig(
+        metricUuids: json['metric_uuids'] != null
+            ? SdkPresent(((json['metric_uuids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        starMetric: json['star_metric'] != null
+            ? SdkPresent((json['star_metric'] != null
+                ? ApiStarMetric.fromJson(
+                    json['star_metric'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (metricUuids) {
-      SdkPresent<List<String>>(value: final value) => {'metric_uuids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (starMetric) {
-      SdkPresent<ApiStarMetric>(value: final value) => {'star_metric': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (metricUuids) {
+          SdkPresent<List<String>>(value: final value) => {
+              'metric_uuids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (starMetric) {
+          SdkPresent<ApiStarMetric>(value: final value) => {
+              'star_metric': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

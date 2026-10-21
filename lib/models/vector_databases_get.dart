@@ -8,25 +8,38 @@ part of 'vector_databases.dart';
 class VectordbGetVectorDBResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// VectorDB represents a provisioned vector database instance.
   final SdkOptional<VectordbVectorDB> vectorDb;
 
   const VectordbGetVectorDBResponse({this.vectorDb = const SdkOmitted()});
 
-  VectordbGetVectorDBResponse Function({SdkOptional<VectordbVectorDB> vectorDb}) get copyWith => _copyWith;
+  VectordbGetVectorDBResponse Function({SdkOptional<VectordbVectorDB> vectorDb})
+      get copyWith => _copyWith;
 
-  VectordbGetVectorDBResponse _copyWith({Object? vectorDb = sdkOmittedValue}) => VectordbGetVectorDBResponse(
-    vectorDb: identical(vectorDb, sdkOmittedValue) ? this.vectorDb : vectorDb as SdkOptional<VectordbVectorDB>,
-  );
+  VectordbGetVectorDBResponse _copyWith({Object? vectorDb = sdkOmittedValue}) =>
+      VectordbGetVectorDBResponse(
+        vectorDb: identical(vectorDb, sdkOmittedValue)
+            ? this.vectorDb
+            : vectorDb as SdkOptional<VectordbVectorDB>,
+      );
 
-  factory VectordbGetVectorDBResponse.fromJson(Map<String, dynamic> json) => VectordbGetVectorDBResponse(
-    vectorDb: json['vector_db'] != null ? SdkPresent((json['vector_db'] != null ? VectordbVectorDB.fromJson(json['vector_db'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory VectordbGetVectorDBResponse.fromJson(Map<String, dynamic> json) =>
+      VectordbGetVectorDBResponse(
+        vectorDb: json['vector_db'] != null
+            ? SdkPresent((json['vector_db'] != null
+                ? VectordbVectorDB.fromJson(
+                    json['vector_db'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (vectorDb) {
-      SdkPresent<VectordbVectorDB>(value: final value) => {'vector_db': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (vectorDb) {
+          SdkPresent<VectordbVectorDB>(value: final value) => {
+              'vector_db': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

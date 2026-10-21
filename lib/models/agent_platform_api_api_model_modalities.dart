@@ -8,33 +8,56 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelModalities {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `input` wire field.
   final SdkOptional<List<String>> input;
+
   /// Optional array value serialized in the `output` wire field.
   final SdkOptional<List<String>> output;
 
-  const ApiModelModalities({this.input = const SdkOmitted(), this.output = const SdkOmitted()});
+  const ApiModelModalities(
+      {this.input = const SdkOmitted(), this.output = const SdkOmitted()});
 
-  ApiModelModalities Function({SdkOptional<List<String>> input, SdkOptional<List<String>> output}) get copyWith => _copyWith;
+  ApiModelModalities Function(
+      {SdkOptional<List<String>> input,
+      SdkOptional<List<String>> output}) get copyWith => _copyWith;
 
-  ApiModelModalities _copyWith({Object? input = sdkOmittedValue, Object? output = sdkOmittedValue}) => ApiModelModalities(
-    input: identical(input, sdkOmittedValue) ? this.input : input as SdkOptional<List<String>>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<List<String>>,
-  );
+  ApiModelModalities _copyWith(
+          {Object? input = sdkOmittedValue,
+          Object? output = sdkOmittedValue}) =>
+      ApiModelModalities(
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as SdkOptional<List<String>>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<List<String>>,
+      );
 
-  factory ApiModelModalities.fromJson(Map<String, dynamic> json) => ApiModelModalities(
-    input: json['input'] != null ? SdkPresent(((json['input'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    output: json['output'] != null ? SdkPresent(((json['output'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory ApiModelModalities.fromJson(Map<String, dynamic> json) =>
+      ApiModelModalities(
+        input: json['input'] != null
+            ? SdkPresent(
+                ((json['input'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        output: json['output'] != null
+            ? SdkPresent(
+                ((json['output'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (input) {
-      SdkPresent<List<String>>(value: final value) => {'input': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (output) {
-      SdkPresent<List<String>>(value: final value) => {'output': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (input) {
+          SdkPresent<List<String>>(value: final value) => {
+              'input': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (output) {
+          SdkPresent<List<String>>(value: final value) => {
+              'output': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

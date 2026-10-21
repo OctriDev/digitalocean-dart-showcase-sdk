@@ -8,73 +8,148 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelRouter {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `config` wire field.
   final SdkOptional<ApiModelRouterConfig> config;
+
   /// Creation date / time
   final SdkOptional<String> createdAt;
+
   /// Description
   final SdkOptional<String> description;
+
   /// Name of the model router
   final SdkOptional<String> name;
+
   /// Target regions for the router
   final SdkOptional<List<String>> regions;
+
   /// Last modified
   final SdkOptional<String> updatedAt;
+
   /// Unique id
   final SdkOptional<String> uuid;
 
-  const ApiModelRouter({this.config = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.description = const SdkOmitted(), this.name = const SdkOmitted(), this.regions = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.uuid = const SdkOmitted()});
+  const ApiModelRouter(
+      {this.config = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.regions = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.uuid = const SdkOmitted()});
 
-  ApiModelRouter Function({SdkOptional<ApiModelRouterConfig> config, SdkOptional<String> createdAt, SdkOptional<String> description, SdkOptional<String> name, SdkOptional<List<String>> regions, SdkOptional<String> updatedAt, SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiModelRouter Function(
+      {SdkOptional<ApiModelRouterConfig> config,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> description,
+      SdkOptional<String> name,
+      SdkOptional<List<String>> regions,
+      SdkOptional<String> updatedAt,
+      SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiModelRouter _copyWith({Object? config = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? description = sdkOmittedValue, Object? name = sdkOmittedValue, Object? regions = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiModelRouter(
-    config: identical(config, sdkOmittedValue) ? this.config : config as SdkOptional<ApiModelRouterConfig>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
-  );
+  ApiModelRouter _copyWith(
+          {Object? config = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? regions = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? uuid = sdkOmittedValue}) =>
+      ApiModelRouter(
+        config: identical(config, sdkOmittedValue)
+            ? this.config
+            : config as SdkOptional<ApiModelRouterConfig>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as SdkOptional<List<String>>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+        uuid: identical(uuid, sdkOmittedValue)
+            ? this.uuid
+            : uuid as SdkOptional<String>,
+      );
 
   factory ApiModelRouter.fromJson(Map<String, dynamic> json) => ApiModelRouter(
-    config: json['config'] != null ? SdkPresent((json['config'] != null ? ApiModelRouterConfig.fromJson(json['config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
-  );
+        config: json['config'] != null
+            ? SdkPresent((json['config'] != null
+                ? ApiModelRouterConfig.fromJson(
+                    json['config'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        regions: json['regions'] != null
+            ? SdkPresent(
+                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+        uuid: json['uuid'] != null
+            ? SdkPresent((json['uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (config) {
-      SdkPresent<ApiModelRouterConfig>(value: final value) => {'config': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (regions) {
-      SdkPresent<List<String>>(value: final value) => {'regions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (uuid) {
-      SdkPresent<String>(value: final value) => {'uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (config) {
+          SdkPresent<ApiModelRouterConfig>(value: final value) => {
+              'config': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (regions) {
+          SdkPresent<List<String>>(value: final value) => {
+              'regions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (uuid) {
+          SdkPresent<String>(value: final value) => {
+              'uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

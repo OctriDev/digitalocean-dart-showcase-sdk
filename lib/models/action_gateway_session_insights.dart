@@ -8,41 +8,73 @@ part of 'action_gateway_session.dart';
 class SessionInsights {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Accepted and stored for parity with the Insights schema.
   final SdkOptional<bool?> metrics;
+
   /// Whether the session's customer logs are sent to Insights.
   final SdkOptional<bool?> logs;
+
   /// Whether the session's customer traces are sent to Insights.
   final SdkOptional<bool?> traces;
 
-  const SessionInsights({this.metrics = const SdkOmitted(), this.logs = const SdkOmitted(), this.traces = const SdkOmitted()});
+  const SessionInsights(
+      {this.metrics = const SdkOmitted(),
+      this.logs = const SdkOmitted(),
+      this.traces = const SdkOmitted()});
 
-  SessionInsights Function({SdkOptional<bool?> metrics, SdkOptional<bool?> logs, SdkOptional<bool?> traces}) get copyWith => _copyWith;
+  SessionInsights Function(
+      {SdkOptional<bool?> metrics,
+      SdkOptional<bool?> logs,
+      SdkOptional<bool?> traces}) get copyWith => _copyWith;
 
-  SessionInsights _copyWith({Object? metrics = sdkOmittedValue, Object? logs = sdkOmittedValue, Object? traces = sdkOmittedValue}) => SessionInsights(
-    metrics: identical(metrics, sdkOmittedValue) ? this.metrics : metrics as SdkOptional<bool?>,
-    logs: identical(logs, sdkOmittedValue) ? this.logs : logs as SdkOptional<bool?>,
-    traces: identical(traces, sdkOmittedValue) ? this.traces : traces as SdkOptional<bool?>,
-  );
+  SessionInsights _copyWith(
+          {Object? metrics = sdkOmittedValue,
+          Object? logs = sdkOmittedValue,
+          Object? traces = sdkOmittedValue}) =>
+      SessionInsights(
+        metrics: identical(metrics, sdkOmittedValue)
+            ? this.metrics
+            : metrics as SdkOptional<bool?>,
+        logs: identical(logs, sdkOmittedValue)
+            ? this.logs
+            : logs as SdkOptional<bool?>,
+        traces: identical(traces, sdkOmittedValue)
+            ? this.traces
+            : traces as SdkOptional<bool?>,
+      );
 
-  factory SessionInsights.fromJson(Map<String, dynamic> json) => SessionInsights(
-    metrics: json.containsKey('metrics') ? SdkPresent(json['metrics'] as bool?) : const SdkOmitted(),
-    logs: json.containsKey('logs') ? SdkPresent(json['logs'] as bool?) : const SdkOmitted(),
-    traces: json.containsKey('traces') ? SdkPresent(json['traces'] as bool?) : const SdkOmitted(),
-  );
+  factory SessionInsights.fromJson(Map<String, dynamic> json) =>
+      SessionInsights(
+        metrics: json.containsKey('metrics')
+            ? SdkPresent(json['metrics'] as bool?)
+            : const SdkOmitted(),
+        logs: json.containsKey('logs')
+            ? SdkPresent(json['logs'] as bool?)
+            : const SdkOmitted(),
+        traces: json.containsKey('traces')
+            ? SdkPresent(json['traces'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (metrics) {
-      SdkPresent<bool?>(value: final value) => {'metrics': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (logs) {
-      SdkPresent<bool?>(value: final value) => {'logs': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (traces) {
-      SdkPresent<bool?>(value: final value) => {'traces': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (metrics) {
+          SdkPresent<bool?>(value: final value) => {
+              'metrics': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (logs) {
+          SdkPresent<bool?>(value: final value) => {
+              'logs': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (traces) {
+          SdkPresent<bool?>(value: final value) => {
+              'traces': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

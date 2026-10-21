@@ -8,73 +8,167 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListSimulationEpisodesOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Sort-by values available for this list request.
   final SdkOptional<List<ApiSimulationEpisodeSortField>> availableSortBy;
+
   /// Sort-direction values available for this list request.
   final SdkOptional<List<ApiSortDirection>> availableSortDirections;
+
   /// Statuses available for filtering this list request.
   final SdkOptional<List<ApiSimulationEpisodeStatus>> availableStatuses;
+
   /// Verdicts available for filtering this list request.
   final SdkOptional<List<ApiSimulationEpisodeVerdict>> availableVerdicts;
+
   /// The episodes for the current page.
   final SdkOptional<List<ApiSimulationEpisode>> episodes;
+
   /// Links to other pages
   final SdkOptional<ApiLinks> links;
+
   /// Meta information about the data set
   final SdkOptional<ApiMeta> meta;
 
-  const ApiListSimulationEpisodesOutput({this.availableSortBy = const SdkOmitted(), this.availableSortDirections = const SdkOmitted(), this.availableStatuses = const SdkOmitted(), this.availableVerdicts = const SdkOmitted(), this.episodes = const SdkOmitted(), this.links = const SdkOmitted(), this.meta = const SdkOmitted()});
+  const ApiListSimulationEpisodesOutput(
+      {this.availableSortBy = const SdkOmitted(),
+      this.availableSortDirections = const SdkOmitted(),
+      this.availableStatuses = const SdkOmitted(),
+      this.availableVerdicts = const SdkOmitted(),
+      this.episodes = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      this.meta = const SdkOmitted()});
 
-  ApiListSimulationEpisodesOutput Function({SdkOptional<List<ApiSimulationEpisodeSortField>> availableSortBy, SdkOptional<List<ApiSortDirection>> availableSortDirections, SdkOptional<List<ApiSimulationEpisodeStatus>> availableStatuses, SdkOptional<List<ApiSimulationEpisodeVerdict>> availableVerdicts, SdkOptional<List<ApiSimulationEpisode>> episodes, SdkOptional<ApiLinks> links, SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
+  ApiListSimulationEpisodesOutput Function(
+      {SdkOptional<List<ApiSimulationEpisodeSortField>> availableSortBy,
+      SdkOptional<List<ApiSortDirection>> availableSortDirections,
+      SdkOptional<List<ApiSimulationEpisodeStatus>> availableStatuses,
+      SdkOptional<List<ApiSimulationEpisodeVerdict>> availableVerdicts,
+      SdkOptional<List<ApiSimulationEpisode>> episodes,
+      SdkOptional<ApiLinks> links,
+      SdkOptional<ApiMeta> meta}) get copyWith => _copyWith;
 
-  ApiListSimulationEpisodesOutput _copyWith({Object? availableSortBy = sdkOmittedValue, Object? availableSortDirections = sdkOmittedValue, Object? availableStatuses = sdkOmittedValue, Object? availableVerdicts = sdkOmittedValue, Object? episodes = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ApiListSimulationEpisodesOutput(
-    availableSortBy: identical(availableSortBy, sdkOmittedValue) ? this.availableSortBy : availableSortBy as SdkOptional<List<ApiSimulationEpisodeSortField>>,
-    availableSortDirections: identical(availableSortDirections, sdkOmittedValue) ? this.availableSortDirections : availableSortDirections as SdkOptional<List<ApiSortDirection>>,
-    availableStatuses: identical(availableStatuses, sdkOmittedValue) ? this.availableStatuses : availableStatuses as SdkOptional<List<ApiSimulationEpisodeStatus>>,
-    availableVerdicts: identical(availableVerdicts, sdkOmittedValue) ? this.availableVerdicts : availableVerdicts as SdkOptional<List<ApiSimulationEpisodeVerdict>>,
-    episodes: identical(episodes, sdkOmittedValue) ? this.episodes : episodes as SdkOptional<List<ApiSimulationEpisode>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<ApiLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<ApiMeta>,
-  );
+  ApiListSimulationEpisodesOutput _copyWith(
+          {Object? availableSortBy = sdkOmittedValue,
+          Object? availableSortDirections = sdkOmittedValue,
+          Object? availableStatuses = sdkOmittedValue,
+          Object? availableVerdicts = sdkOmittedValue,
+          Object? episodes = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      ApiListSimulationEpisodesOutput(
+        availableSortBy: identical(availableSortBy, sdkOmittedValue)
+            ? this.availableSortBy
+            : availableSortBy
+                as SdkOptional<List<ApiSimulationEpisodeSortField>>,
+        availableSortDirections: identical(
+                availableSortDirections, sdkOmittedValue)
+            ? this.availableSortDirections
+            : availableSortDirections as SdkOptional<List<ApiSortDirection>>,
+        availableStatuses: identical(availableStatuses, sdkOmittedValue)
+            ? this.availableStatuses
+            : availableStatuses
+                as SdkOptional<List<ApiSimulationEpisodeStatus>>,
+        availableVerdicts: identical(availableVerdicts, sdkOmittedValue)
+            ? this.availableVerdicts
+            : availableVerdicts
+                as SdkOptional<List<ApiSimulationEpisodeVerdict>>,
+        episodes: identical(episodes, sdkOmittedValue)
+            ? this.episodes
+            : episodes as SdkOptional<List<ApiSimulationEpisode>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<ApiLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<ApiMeta>,
+      );
 
-  factory ApiListSimulationEpisodesOutput.fromJson(Map<String, dynamic> json) => ApiListSimulationEpisodesOutput(
-    availableSortBy: json['available_sort_by'] != null ? SdkPresent(((json['available_sort_by'] as List?)?.map((e) => ApiSimulationEpisodeSortField.fromJson(e as String)).toList())!) : const SdkOmitted(),
-    availableSortDirections: json['available_sort_directions'] != null ? SdkPresent(((json['available_sort_directions'] as List?)?.map((e) => ApiSortDirection.fromJson(e as String)).toList())!) : const SdkOmitted(),
-    availableStatuses: json['available_statuses'] != null ? SdkPresent(((json['available_statuses'] as List?)?.map((e) => ApiSimulationEpisodeStatus.fromJson(e as String)).toList())!) : const SdkOmitted(),
-    availableVerdicts: json['available_verdicts'] != null ? SdkPresent(((json['available_verdicts'] as List?)?.map((e) => ApiSimulationEpisodeVerdict.fromJson(e as String)).toList())!) : const SdkOmitted(),
-    episodes: json['episodes'] != null ? SdkPresent(((json['episodes'] as List?)?.map((e) => ApiSimulationEpisode.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: json['meta'] != null ? SdkPresent((json['meta'] != null ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiListSimulationEpisodesOutput.fromJson(Map<String, dynamic> json) =>
+      ApiListSimulationEpisodesOutput(
+        availableSortBy: json['available_sort_by'] != null
+            ? SdkPresent(((json['available_sort_by'] as List?)
+                ?.map(
+                    (e) => ApiSimulationEpisodeSortField.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+        availableSortDirections: json['available_sort_directions'] != null
+            ? SdkPresent(((json['available_sort_directions'] as List?)
+                ?.map((e) => ApiSortDirection.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+        availableStatuses: json['available_statuses'] != null
+            ? SdkPresent(((json['available_statuses'] as List?)
+                ?.map((e) => ApiSimulationEpisodeStatus.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+        availableVerdicts: json['available_verdicts'] != null
+            ? SdkPresent(((json['available_verdicts'] as List?)
+                ?.map((e) => ApiSimulationEpisodeVerdict.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+        episodes: json['episodes'] != null
+            ? SdkPresent(((json['episodes'] as List?)
+                ?.map((e) =>
+                    ApiSimulationEpisode.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: json['meta'] != null
+            ? SdkPresent((json['meta'] != null
+                ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (availableSortBy) {
-      SdkPresent<List<ApiSimulationEpisodeSortField>>(value: final value) => {'available_sort_by': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (availableSortDirections) {
-      SdkPresent<List<ApiSortDirection>>(value: final value) => {'available_sort_directions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (availableStatuses) {
-      SdkPresent<List<ApiSimulationEpisodeStatus>>(value: final value) => {'available_statuses': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (availableVerdicts) {
-      SdkPresent<List<ApiSimulationEpisodeVerdict>>(value: final value) => {'available_verdicts': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (episodes) {
-      SdkPresent<List<ApiSimulationEpisode>>(value: final value) => {'episodes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<ApiLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (meta) {
-      SdkPresent<ApiMeta>(value: final value) => {'meta': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (availableSortBy) {
+          SdkPresent<List<ApiSimulationEpisodeSortField>>(value: final value) =>
+            {
+              'available_sort_by': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (availableSortDirections) {
+          SdkPresent<List<ApiSortDirection>>(value: final value) => {
+              'available_sort_directions':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (availableStatuses) {
+          SdkPresent<List<ApiSimulationEpisodeStatus>>(value: final value) => {
+              'available_statuses': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (availableVerdicts) {
+          SdkPresent<List<ApiSimulationEpisodeVerdict>>(value: final value) => {
+              'available_verdicts': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (episodes) {
+          SdkPresent<List<ApiSimulationEpisode>>(value: final value) => {
+              'episodes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<ApiLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (meta) {
+          SdkPresent<ApiMeta>(value: final value) => {
+              'meta': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

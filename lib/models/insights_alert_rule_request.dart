@@ -8,30 +8,50 @@ part of 'insights_alert.dart';
 class AlertRuleRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Spec for an Insights alert rule. On create, `name`, `query`, `thresholds`, and at least one `notification_channels` binding are required. On update, omit `notification_channels` to keep existing bindings; an explicit empty list is rejected.
   final AlertRuleSpec spec;
+
   /// Desired alert rule status. Allowed values: - `ALERT_RULE_STATUS_ACTIVE` = active - `ALERT_RULE_STATUS_PAUSED` = paused
   final SdkOptional<AlertRuleRequestStatus> status;
 
-  const AlertRuleRequest({required this.spec, this.status = const SdkOmitted()});
+  const AlertRuleRequest(
+      {required this.spec, this.status = const SdkOmitted()});
 
-  AlertRuleRequest Function({AlertRuleSpec spec, SdkOptional<AlertRuleRequestStatus> status}) get copyWith => _copyWith;
+  AlertRuleRequest Function(
+      {AlertRuleSpec spec,
+      SdkOptional<AlertRuleRequestStatus> status}) get copyWith => _copyWith;
 
-  AlertRuleRequest _copyWith({Object? spec = sdkOmittedValue, Object? status = sdkOmittedValue}) => AlertRuleRequest(
-    spec: identical(spec, sdkOmittedValue) ? this.spec : spec as AlertRuleSpec,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<AlertRuleRequestStatus>,
-  );
+  AlertRuleRequest _copyWith(
+          {Object? spec = sdkOmittedValue, Object? status = sdkOmittedValue}) =>
+      AlertRuleRequest(
+        spec: identical(spec, sdkOmittedValue)
+            ? this.spec
+            : spec as AlertRuleSpec,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<AlertRuleRequestStatus>,
+      );
 
-  factory AlertRuleRequest.fromJson(Map<String, dynamic> json) => AlertRuleRequest(
-    spec: (json['spec'] != null ? AlertRuleSpec.fromJson(json['spec'] as Map<String, dynamic>) : null)!,
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? AlertRuleRequestStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory AlertRuleRequest.fromJson(Map<String, dynamic> json) =>
+      AlertRuleRequest(
+        spec: (json['spec'] != null
+            ? AlertRuleSpec.fromJson(json['spec'] as Map<String, dynamic>)
+            : null)!,
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? AlertRuleRequestStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'spec': spec.toJson(),
-    ...switch (status) {
-      SdkPresent<AlertRuleRequestStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'spec': spec.toJson(),
+        ...switch (status) {
+          SdkPresent<AlertRuleRequestStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

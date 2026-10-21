@@ -8,32 +8,51 @@ part of 'insights_prom.dart';
 class PromError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `status` wire field.
   final PromErrorStatus status;
+
   /// Prometheus error category.
   final PromErrorErrorType errorType;
+
   /// Human-readable error message.
   final String error;
 
-  const PromError({required this.status, required this.errorType, required this.error});
+  const PromError(
+      {required this.status, required this.errorType, required this.error});
 
-  PromError Function({PromErrorStatus status, PromErrorErrorType errorType, String error}) get copyWith => _copyWith;
+  PromError Function(
+      {PromErrorStatus status,
+      PromErrorErrorType errorType,
+      String error}) get copyWith => _copyWith;
 
-  PromError _copyWith({Object? status = sdkOmittedValue, Object? errorType = sdkOmittedValue, Object? error = sdkOmittedValue}) => PromError(
-    status: identical(status, sdkOmittedValue) ? this.status : status as PromErrorStatus,
-    errorType: identical(errorType, sdkOmittedValue) ? this.errorType : errorType as PromErrorErrorType,
-    error: identical(error, sdkOmittedValue) ? this.error : error as String,
-  );
+  PromError _copyWith(
+          {Object? status = sdkOmittedValue,
+          Object? errorType = sdkOmittedValue,
+          Object? error = sdkOmittedValue}) =>
+      PromError(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as PromErrorStatus,
+        errorType: identical(errorType, sdkOmittedValue)
+            ? this.errorType
+            : errorType as PromErrorErrorType,
+        error: identical(error, sdkOmittedValue) ? this.error : error as String,
+      );
 
   factory PromError.fromJson(Map<String, dynamic> json) => PromError(
-    status: (json['status'] != null ? PromErrorStatus.fromJson(json['status'] as String) : null)!,
-    errorType: (json['errorType'] != null ? PromErrorErrorType.fromJson(json['errorType'] as String) : null)!,
-    error: (json['error'] as String?)!,
-  );
+        status: (json['status'] != null
+            ? PromErrorStatus.fromJson(json['status'] as String)
+            : null)!,
+        errorType: (json['errorType'] != null
+            ? PromErrorErrorType.fromJson(json['errorType'] as String)
+            : null)!,
+        error: (json['error'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'status': status.toJson(),
-    'errorType': errorType.toJson(),
-    'error': error,
-  };
+        'status': status.toJson(),
+        'errorType': errorType.toJson(),
+        'error': error,
+      };
 }

@@ -6,25 +6,33 @@ part of 'agent_platform_api_api_scenario.dart';
 // agent_platform_api_api_scenario domain models
 /// How a scenario set was created. - SCENARIO_SET_SOURCE_KIND_USER_UPLOAD: Created from uploaded or inline scenarios. - SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED: Produced by goal-driven generation. - SCENARIO_SET_SOURCE_KIND_LIBRARY: Copied from a platform-curated library entry. - SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED: Produced from a completed Signals export.
 final class ApiScenarioSetSourceKind {
-
   final String value;
 
   const ApiScenarioSetSourceKind._(this.value);
 
-  factory ApiScenarioSetSourceKind.fromJson(String value) => ApiScenarioSetSourceKind._(value);
+  factory ApiScenarioSetSourceKind.fromJson(String value) =>
+      ApiScenarioSetSourceKind._(value);
 
-  static const scenarioSetSourceKindUnspecified = ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_UNSPECIFIED');
-  static const scenarioSetSourceKindUserUpload = ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_USER_UPLOAD');
-  static const scenarioSetSourceKindGoalGenerated = ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED');
-  static const scenarioSetSourceKindLibrary = ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_LIBRARY');
-  static const scenarioSetSourceKindSignalGenerated = ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED');
+  static const scenarioSetSourceKindUnspecified =
+      ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_UNSPECIFIED');
+  static const scenarioSetSourceKindUserUpload =
+      ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_USER_UPLOAD');
+  static const scenarioSetSourceKindGoalGenerated =
+      ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_GOAL_GENERATED');
+  static const scenarioSetSourceKindLibrary =
+      ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_LIBRARY');
+  static const scenarioSetSourceKindSignalGenerated =
+      ApiScenarioSetSourceKind._('SCENARIO_SET_SOURCE_KIND_SIGNAL_GENERATED');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiScenarioSetSourceKind && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiScenarioSetSourceKind && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

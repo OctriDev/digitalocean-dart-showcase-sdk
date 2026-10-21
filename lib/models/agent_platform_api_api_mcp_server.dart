@@ -8,57 +8,113 @@ part of 'agent_platform_api_api.dart';
 class ApiMcpServer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional list of allowed tool names to expose from this server
   final SdkOptional<List<String>> allowedTools;
+
   /// Optional authorization header value for the MCP server
   final SdkOptional<String> authorization;
+
   /// Optional additional headers to send to the MCP server
   final SdkOptional<Map<String, String>> headers;
+
   /// A label identifying this MCP server
   final SdkOptional<String> serverLabel;
+
   /// The URL of the MCP server
   final SdkOptional<String> serverUrl;
 
-  const ApiMcpServer({this.allowedTools = const SdkOmitted(), this.authorization = const SdkOmitted(), this.headers = const SdkOmitted(), this.serverLabel = const SdkOmitted(), this.serverUrl = const SdkOmitted()});
+  const ApiMcpServer(
+      {this.allowedTools = const SdkOmitted(),
+      this.authorization = const SdkOmitted(),
+      this.headers = const SdkOmitted(),
+      this.serverLabel = const SdkOmitted(),
+      this.serverUrl = const SdkOmitted()});
 
-  ApiMcpServer Function({SdkOptional<List<String>> allowedTools, SdkOptional<String> authorization, SdkOptional<Map<String, String>> headers, SdkOptional<String> serverLabel, SdkOptional<String> serverUrl}) get copyWith => _copyWith;
+  ApiMcpServer Function(
+      {SdkOptional<List<String>> allowedTools,
+      SdkOptional<String> authorization,
+      SdkOptional<Map<String, String>> headers,
+      SdkOptional<String> serverLabel,
+      SdkOptional<String> serverUrl}) get copyWith => _copyWith;
 
-  ApiMcpServer _copyWith({Object? allowedTools = sdkOmittedValue, Object? authorization = sdkOmittedValue, Object? headers = sdkOmittedValue, Object? serverLabel = sdkOmittedValue, Object? serverUrl = sdkOmittedValue}) => ApiMcpServer(
-    allowedTools: identical(allowedTools, sdkOmittedValue) ? this.allowedTools : allowedTools as SdkOptional<List<String>>,
-    authorization: identical(authorization, sdkOmittedValue) ? this.authorization : authorization as SdkOptional<String>,
-    headers: identical(headers, sdkOmittedValue) ? this.headers : headers as SdkOptional<Map<String, String>>,
-    serverLabel: identical(serverLabel, sdkOmittedValue) ? this.serverLabel : serverLabel as SdkOptional<String>,
-    serverUrl: identical(serverUrl, sdkOmittedValue) ? this.serverUrl : serverUrl as SdkOptional<String>,
-  );
+  ApiMcpServer _copyWith(
+          {Object? allowedTools = sdkOmittedValue,
+          Object? authorization = sdkOmittedValue,
+          Object? headers = sdkOmittedValue,
+          Object? serverLabel = sdkOmittedValue,
+          Object? serverUrl = sdkOmittedValue}) =>
+      ApiMcpServer(
+        allowedTools: identical(allowedTools, sdkOmittedValue)
+            ? this.allowedTools
+            : allowedTools as SdkOptional<List<String>>,
+        authorization: identical(authorization, sdkOmittedValue)
+            ? this.authorization
+            : authorization as SdkOptional<String>,
+        headers: identical(headers, sdkOmittedValue)
+            ? this.headers
+            : headers as SdkOptional<Map<String, String>>,
+        serverLabel: identical(serverLabel, sdkOmittedValue)
+            ? this.serverLabel
+            : serverLabel as SdkOptional<String>,
+        serverUrl: identical(serverUrl, sdkOmittedValue)
+            ? this.serverUrl
+            : serverUrl as SdkOptional<String>,
+      );
 
   factory ApiMcpServer.fromJson(Map<String, dynamic> json) => ApiMcpServer(
-    allowedTools: json['allowed_tools'] != null ? SdkPresent(((json['allowed_tools'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    authorization: json['authorization'] != null ? SdkPresent((json['authorization'] as String?)!) : const SdkOmitted(),
-    headers: json['headers'] != null ? SdkPresent((json['headers'] == null ? null : Map<String, dynamic>.from(json['headers'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-    serverLabel: json['server_label'] != null ? SdkPresent((json['server_label'] as String?)!) : const SdkOmitted(),
-    serverUrl: json['server_url'] != null ? SdkPresent((json['server_url'] as String?)!) : const SdkOmitted(),
-  );
+        allowedTools: json['allowed_tools'] != null
+            ? SdkPresent(((json['allowed_tools'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        authorization: json['authorization'] != null
+            ? SdkPresent((json['authorization'] as String?)!)
+            : const SdkOmitted(),
+        headers: json['headers'] != null
+            ? SdkPresent((json['headers'] == null
+                ? null
+                : Map<String, dynamic>.from(json['headers'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+        serverLabel: json['server_label'] != null
+            ? SdkPresent((json['server_label'] as String?)!)
+            : const SdkOmitted(),
+        serverUrl: json['server_url'] != null
+            ? SdkPresent((json['server_url'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (allowedTools) {
-      SdkPresent<List<String>>(value: final value) => {'allowed_tools': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (authorization) {
-      SdkPresent<String>(value: final value) => {'authorization': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (headers) {
-      SdkPresent<Map<String, String>>(value: final value) => {'headers': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (serverLabel) {
-      SdkPresent<String>(value: final value) => {'server_label': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (serverUrl) {
-      SdkPresent<String>(value: final value) => {'server_url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (allowedTools) {
+          SdkPresent<List<String>>(value: final value) => {
+              'allowed_tools': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (authorization) {
+          SdkPresent<String>(value: final value) => {
+              'authorization': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (headers) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'headers': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (serverLabel) {
+          SdkPresent<String>(value: final value) => {
+              'server_label': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (serverUrl) {
+          SdkPresent<String>(value: final value) => {
+              'server_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

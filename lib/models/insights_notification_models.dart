@@ -8,205 +8,381 @@ part of 'insights_notification.dart';
 class NotificationChannel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique identifier for the notification channel.
   final String id;
+
   /// A human-readable name for the notification channel.
   final String name;
+
   /// The configured channel type. Allowed values: - `CHANNEL_TYPE_EMAIL` = email - `CHANNEL_TYPE_SLACK` = slack - `CHANNEL_TYPE_WEBHOOK` = webhook
   final NotificationChannelChannelType channelType;
+
   /// Email notification channel configuration. Recipients must be verified team member email addresses.
   final SdkOptional<EmailNotificationConfig> email;
+
   /// Slack notification channel configuration as returned in API responses. The webhook URL is never returned; `webhook_url_status` indicates whether it is configured.
   final SdkOptional<SlackNotificationConfigResponse> slack;
+
   /// Generic HTTPS webhook notification channel configuration as returned in API responses. The URL and headers are returned in full. Credential secrets are never returned; nested `*_status` objects indicate whether they are configured.
   final SdkOptional<WebhookNotificationConfigResponse> webhook;
+
   /// Output-only usage summary derived from alert rules that reference this notification channel.
   final SdkOptional<NotificationChannelUsage> usage;
+
   /// Time the notification channel was created.
   final String createdAt;
+
   /// Time the notification channel was last updated.
   final String updatedAt;
 
-  const NotificationChannel({required this.id, required this.name, required this.channelType, this.email = const SdkOmitted(), this.slack = const SdkOmitted(), this.webhook = const SdkOmitted(), this.usage = const SdkOmitted(), required this.createdAt, required this.updatedAt});
+  const NotificationChannel(
+      {required this.id,
+      required this.name,
+      required this.channelType,
+      this.email = const SdkOmitted(),
+      this.slack = const SdkOmitted(),
+      this.webhook = const SdkOmitted(),
+      this.usage = const SdkOmitted(),
+      required this.createdAt,
+      required this.updatedAt});
 
-  NotificationChannel Function({String id, String name, NotificationChannelChannelType channelType, SdkOptional<EmailNotificationConfig> email, SdkOptional<SlackNotificationConfigResponse> slack, SdkOptional<WebhookNotificationConfigResponse> webhook, SdkOptional<NotificationChannelUsage> usage, String createdAt, String updatedAt}) get copyWith => _copyWith;
+  NotificationChannel Function(
+      {String id,
+      String name,
+      NotificationChannelChannelType channelType,
+      SdkOptional<EmailNotificationConfig> email,
+      SdkOptional<SlackNotificationConfigResponse> slack,
+      SdkOptional<WebhookNotificationConfigResponse> webhook,
+      SdkOptional<NotificationChannelUsage> usage,
+      String createdAt,
+      String updatedAt}) get copyWith => _copyWith;
 
-  NotificationChannel _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? channelType = sdkOmittedValue, Object? email = sdkOmittedValue, Object? slack = sdkOmittedValue, Object? webhook = sdkOmittedValue, Object? usage = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => NotificationChannel(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    channelType: identical(channelType, sdkOmittedValue) ? this.channelType : channelType as NotificationChannelChannelType,
-    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<EmailNotificationConfig>,
-    slack: identical(slack, sdkOmittedValue) ? this.slack : slack as SdkOptional<SlackNotificationConfigResponse>,
-    webhook: identical(webhook, sdkOmittedValue) ? this.webhook : webhook as SdkOptional<WebhookNotificationConfigResponse>,
-    usage: identical(usage, sdkOmittedValue) ? this.usage : usage as SdkOptional<NotificationChannelUsage>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
-  );
+  NotificationChannel _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? channelType = sdkOmittedValue,
+          Object? email = sdkOmittedValue,
+          Object? slack = sdkOmittedValue,
+          Object? webhook = sdkOmittedValue,
+          Object? usage = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      NotificationChannel(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        channelType: identical(channelType, sdkOmittedValue)
+            ? this.channelType
+            : channelType as NotificationChannelChannelType,
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as SdkOptional<EmailNotificationConfig>,
+        slack: identical(slack, sdkOmittedValue)
+            ? this.slack
+            : slack as SdkOptional<SlackNotificationConfigResponse>,
+        webhook: identical(webhook, sdkOmittedValue)
+            ? this.webhook
+            : webhook as SdkOptional<WebhookNotificationConfigResponse>,
+        usage: identical(usage, sdkOmittedValue)
+            ? this.usage
+            : usage as SdkOptional<NotificationChannelUsage>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as String,
+      );
 
-  factory NotificationChannel.fromJson(Map<String, dynamic> json) => NotificationChannel(
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    channelType: (json['channel_type'] != null ? NotificationChannelChannelType.fromJson(json['channel_type'] as String) : null)!,
-    email: json['email'] != null ? SdkPresent((json['email'] != null ? EmailNotificationConfig.fromJson(json['email'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    slack: json['slack'] != null ? SdkPresent((json['slack'] != null ? SlackNotificationConfigResponse.fromJson(json['slack'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    webhook: json['webhook'] != null ? SdkPresent((json['webhook'] != null ? WebhookNotificationConfigResponse.fromJson(json['webhook'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    usage: json['usage'] != null ? SdkPresent((json['usage'] != null ? NotificationChannelUsage.fromJson(json['usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdAt: (json['created_at'] as String?)!,
-    updatedAt: (json['updated_at'] as String?)!,
-  );
+  factory NotificationChannel.fromJson(Map<String, dynamic> json) =>
+      NotificationChannel(
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        channelType: (json['channel_type'] != null
+            ? NotificationChannelChannelType.fromJson(
+                json['channel_type'] as String)
+            : null)!,
+        email: json['email'] != null
+            ? SdkPresent((json['email'] != null
+                ? EmailNotificationConfig.fromJson(
+                    json['email'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        slack: json['slack'] != null
+            ? SdkPresent((json['slack'] != null
+                ? SlackNotificationConfigResponse.fromJson(
+                    json['slack'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        webhook: json['webhook'] != null
+            ? SdkPresent((json['webhook'] != null
+                ? WebhookNotificationConfigResponse.fromJson(
+                    json['webhook'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        usage: json['usage'] != null
+            ? SdkPresent((json['usage'] != null
+                ? NotificationChannelUsage.fromJson(
+                    json['usage'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: (json['created_at'] as String?)!,
+        updatedAt: (json['updated_at'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'channel_type': channelType.toJson(),
-    ...switch (email) {
-      SdkPresent<EmailNotificationConfig>(value: final value) => {'email': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (slack) {
-      SdkPresent<SlackNotificationConfigResponse>(value: final value) => {'slack': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (webhook) {
-      SdkPresent<WebhookNotificationConfigResponse>(value: final value) => {'webhook': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (usage) {
-      SdkPresent<NotificationChannelUsage>(value: final value) => {'usage': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
+        'id': id,
+        'name': name,
+        'channel_type': channelType.toJson(),
+        ...switch (email) {
+          SdkPresent<EmailNotificationConfig>(value: final value) => {
+              'email': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (slack) {
+          SdkPresent<SlackNotificationConfigResponse>(value: final value) => {
+              'slack': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (webhook) {
+          SdkPresent<WebhookNotificationConfigResponse>(value: final value) => {
+              'webhook': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (usage) {
+          SdkPresent<NotificationChannelUsage>(value: final value) => {
+              'usage': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
 }
 
 /// Binding from an alert rule to a notification channel. When `notify_on` is omitted or empty, the channel is notified for all severities.
 class NotificationChannelBinding {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// ID of an existing notification channel owned by the account.
   final String notificationChannelId;
+
   /// Severities that trigger this channel. Allowed values: - `SEVERITY_WARNING` = warning - `SEVERITY_CRITICAL` = critical
   final SdkOptional<List<NotificationChannelBindingNotifyOnItem>> notifyOn;
 
-  const NotificationChannelBinding({required this.notificationChannelId, this.notifyOn = const SdkOmitted()});
+  const NotificationChannelBinding(
+      {required this.notificationChannelId,
+      this.notifyOn = const SdkOmitted()});
 
-  NotificationChannelBinding Function({String notificationChannelId, SdkOptional<List<NotificationChannelBindingNotifyOnItem>> notifyOn}) get copyWith => _copyWith;
+  NotificationChannelBinding Function(
+          {String notificationChannelId,
+          SdkOptional<List<NotificationChannelBindingNotifyOnItem>> notifyOn})
+      get copyWith => _copyWith;
 
-  NotificationChannelBinding _copyWith({Object? notificationChannelId = sdkOmittedValue, Object? notifyOn = sdkOmittedValue}) => NotificationChannelBinding(
-    notificationChannelId: identical(notificationChannelId, sdkOmittedValue) ? this.notificationChannelId : notificationChannelId as String,
-    notifyOn: identical(notifyOn, sdkOmittedValue) ? this.notifyOn : notifyOn as SdkOptional<List<NotificationChannelBindingNotifyOnItem>>,
-  );
+  NotificationChannelBinding _copyWith(
+          {Object? notificationChannelId = sdkOmittedValue,
+          Object? notifyOn = sdkOmittedValue}) =>
+      NotificationChannelBinding(
+        notificationChannelId: identical(notificationChannelId, sdkOmittedValue)
+            ? this.notificationChannelId
+            : notificationChannelId as String,
+        notifyOn: identical(notifyOn, sdkOmittedValue)
+            ? this.notifyOn
+            : notifyOn
+                as SdkOptional<List<NotificationChannelBindingNotifyOnItem>>,
+      );
 
-  factory NotificationChannelBinding.fromJson(Map<String, dynamic> json) => NotificationChannelBinding(
-    notificationChannelId: (json['notification_channel_id'] as String?)!,
-    notifyOn: json['notify_on'] != null ? SdkPresent(((json['notify_on'] as List?)?.map((e) => NotificationChannelBindingNotifyOnItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+  factory NotificationChannelBinding.fromJson(Map<String, dynamic> json) =>
+      NotificationChannelBinding(
+        notificationChannelId: (json['notification_channel_id'] as String?)!,
+        notifyOn: json['notify_on'] != null
+            ? SdkPresent(((json['notify_on'] as List?)
+                ?.map((e) => NotificationChannelBindingNotifyOnItem.fromJson(
+                    e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'notification_channel_id': notificationChannelId,
-    ...switch (notifyOn) {
-      SdkPresent<List<NotificationChannelBindingNotifyOnItem>>(value: final value) => {'notify_on': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'notification_channel_id': notificationChannelId,
+        ...switch (notifyOn) {
+          SdkPresent<List<NotificationChannelBindingNotifyOnItem>>(
+            value: final value
+          ) =>
+            {
+              'notify_on': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Create or update body for a notification channel. Provide a `name` and exactly one of `email`, `slack`, or `webhook`. Secret fields are write-only: send the full value to set or rotate; omit the field on update to keep the existing secret.
 class NotificationChannelRequestRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A human-readable name for the notification channel.
   final String name;
+
   /// Email notification channel configuration. Recipients must be verified team member email addresses.
   final SdkOptional<EmailNotificationConfig> email;
+
   /// Slack notification channel configuration for create and update requests. `webhook_url` is write-only: send the full value to set or rotate. Omit `webhook_url` on update to keep the existing secret.
   final SdkOptional<SlackNotificationConfigRequest> slack;
+
   /// Generic HTTPS webhook notification channel configuration for create and update requests. The URL must use HTTPS and must not include userinfo. Optionally configure either `basic_auth` or `bearer_token` (not both), custom headers, and a signing secret. `url` is not a secret and is returned in full on read. Credential fields (`basic_auth.password`, `bearer_token.token`, `signature.secret`) are write-only: send the full value to set or rotate. Omit a secret field on update to keep the existing value. Responses return nested `*_status` objects instead of secret values.
   final SdkOptional<WebhookNotificationConfigRequest> webhook;
 
-  const NotificationChannelRequestRequest({required this.name, this.email = const SdkOmitted(), this.slack = const SdkOmitted(), this.webhook = const SdkOmitted()});
+  const NotificationChannelRequestRequest(
+      {required this.name,
+      this.email = const SdkOmitted(),
+      this.slack = const SdkOmitted(),
+      this.webhook = const SdkOmitted()});
 
-  NotificationChannelRequestRequest Function({String name, SdkOptional<EmailNotificationConfig> email, SdkOptional<SlackNotificationConfigRequest> slack, SdkOptional<WebhookNotificationConfigRequest> webhook}) get copyWith => _copyWith;
+  NotificationChannelRequestRequest Function(
+          {String name,
+          SdkOptional<EmailNotificationConfig> email,
+          SdkOptional<SlackNotificationConfigRequest> slack,
+          SdkOptional<WebhookNotificationConfigRequest> webhook})
+      get copyWith => _copyWith;
 
-  NotificationChannelRequestRequest _copyWith({Object? name = sdkOmittedValue, Object? email = sdkOmittedValue, Object? slack = sdkOmittedValue, Object? webhook = sdkOmittedValue}) => NotificationChannelRequestRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<EmailNotificationConfig>,
-    slack: identical(slack, sdkOmittedValue) ? this.slack : slack as SdkOptional<SlackNotificationConfigRequest>,
-    webhook: identical(webhook, sdkOmittedValue) ? this.webhook : webhook as SdkOptional<WebhookNotificationConfigRequest>,
-  );
+  NotificationChannelRequestRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? email = sdkOmittedValue,
+          Object? slack = sdkOmittedValue,
+          Object? webhook = sdkOmittedValue}) =>
+      NotificationChannelRequestRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as SdkOptional<EmailNotificationConfig>,
+        slack: identical(slack, sdkOmittedValue)
+            ? this.slack
+            : slack as SdkOptional<SlackNotificationConfigRequest>,
+        webhook: identical(webhook, sdkOmittedValue)
+            ? this.webhook
+            : webhook as SdkOptional<WebhookNotificationConfigRequest>,
+      );
 
-  factory NotificationChannelRequestRequest.fromJson(Map<String, dynamic> json) => NotificationChannelRequestRequest(
-    name: (json['name'] as String?)!,
-    email: json['email'] != null ? SdkPresent((json['email'] != null ? EmailNotificationConfig.fromJson(json['email'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    slack: json['slack'] != null ? SdkPresent((json['slack'] != null ? SlackNotificationConfigRequest.fromJson(json['slack'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    webhook: json['webhook'] != null ? SdkPresent((json['webhook'] != null ? WebhookNotificationConfigRequest.fromJson(json['webhook'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory NotificationChannelRequestRequest.fromJson(
+          Map<String, dynamic> json) =>
+      NotificationChannelRequestRequest(
+        name: (json['name'] as String?)!,
+        email: json['email'] != null
+            ? SdkPresent((json['email'] != null
+                ? EmailNotificationConfig.fromJson(
+                    json['email'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        slack: json['slack'] != null
+            ? SdkPresent((json['slack'] != null
+                ? SlackNotificationConfigRequest.fromJson(
+                    json['slack'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        webhook: json['webhook'] != null
+            ? SdkPresent((json['webhook'] != null
+                ? WebhookNotificationConfigRequest.fromJson(
+                    json['webhook'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (email) {
-      SdkPresent<EmailNotificationConfig>(value: final value) => {'email': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (slack) {
-      SdkPresent<SlackNotificationConfigRequest>(value: final value) => {'slack': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (webhook) {
-      SdkPresent<WebhookNotificationConfigRequest>(value: final value) => {'webhook': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (email) {
+          SdkPresent<EmailNotificationConfig>(value: final value) => {
+              'email': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (slack) {
+          SdkPresent<SlackNotificationConfigRequest>(value: final value) => {
+              'slack': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (webhook) {
+          SdkPresent<WebhookNotificationConfigRequest>(value: final value) => {
+              'webhook': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `NotificationChannelResponse` API schema.
 class NotificationChannelResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A reusable Insights notification channel.
   final NotificationChannel notificationChannel;
 
   const NotificationChannelResponse({required this.notificationChannel});
 
-  NotificationChannelResponse Function({NotificationChannel notificationChannel}) get copyWith => _copyWith;
+  NotificationChannelResponse Function(
+      {NotificationChannel notificationChannel}) get copyWith => _copyWith;
 
-  NotificationChannelResponse _copyWith({Object? notificationChannel = sdkOmittedValue}) => NotificationChannelResponse(
-    notificationChannel: identical(notificationChannel, sdkOmittedValue) ? this.notificationChannel : notificationChannel as NotificationChannel,
-  );
+  NotificationChannelResponse _copyWith(
+          {Object? notificationChannel = sdkOmittedValue}) =>
+      NotificationChannelResponse(
+        notificationChannel: identical(notificationChannel, sdkOmittedValue)
+            ? this.notificationChannel
+            : notificationChannel as NotificationChannel,
+      );
 
-  factory NotificationChannelResponse.fromJson(Map<String, dynamic> json) => NotificationChannelResponse(
-    notificationChannel: (json['notification_channel'] != null ? NotificationChannel.fromJson(json['notification_channel'] as Map<String, dynamic>) : null)!,
-  );
+  factory NotificationChannelResponse.fromJson(Map<String, dynamic> json) =>
+      NotificationChannelResponse(
+        notificationChannel: (json['notification_channel'] != null
+            ? NotificationChannel.fromJson(
+                json['notification_channel'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'notification_channel': notificationChannel.toJson(),
-  };
+        'notification_channel': notificationChannel.toJson(),
+      };
 }
 
 /// Output-only usage summary derived from alert rules that reference this notification channel.
 class NotificationChannelUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Number of alert rules that reference this channel.
   final SdkOptional<int> ruleCount;
 
   const NotificationChannelUsage({this.ruleCount = const SdkOmitted()});
 
-  NotificationChannelUsage Function({SdkOptional<int> ruleCount}) get copyWith => _copyWith;
+  NotificationChannelUsage Function({SdkOptional<int> ruleCount})
+      get copyWith => _copyWith;
 
-  NotificationChannelUsage _copyWith({Object? ruleCount = sdkOmittedValue}) => NotificationChannelUsage(
-    ruleCount: identical(ruleCount, sdkOmittedValue) ? this.ruleCount : ruleCount as SdkOptional<int>,
-  );
+  NotificationChannelUsage _copyWith({Object? ruleCount = sdkOmittedValue}) =>
+      NotificationChannelUsage(
+        ruleCount: identical(ruleCount, sdkOmittedValue)
+            ? this.ruleCount
+            : ruleCount as SdkOptional<int>,
+      );
 
-  factory NotificationChannelUsage.fromJson(Map<String, dynamic> json) => NotificationChannelUsage(
-    ruleCount: json['rule_count'] != null ? SdkPresent(((json['rule_count'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory NotificationChannelUsage.fromJson(Map<String, dynamic> json) =>
+      NotificationChannelUsage(
+        ruleCount: json['rule_count'] != null
+            ? SdkPresent(((json['rule_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (ruleCount) {
-      SdkPresent<int>(value: final value) => {'rule_count': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (ruleCount) {
+          SdkPresent<int>(value: final value) => {
+              'rule_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

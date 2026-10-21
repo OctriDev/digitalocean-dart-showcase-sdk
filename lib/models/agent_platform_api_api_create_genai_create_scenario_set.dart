@@ -8,68 +8,119 @@ part of 'agent_platform_api_api_create.dart';
 class ApiCreateScenarioSetInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Uploaded scenario file to ingest. Provide this or `scenarios`, not both.
   final SdkOptional<ApiFileUploadDataSource> fileUploadScenarioSet;
+
   /// The name of the scenario set.
   final SdkOptional<String> name;
+
   /// Inline scenarios. Provide this or `file_upload_scenario_set`, not both.
   final SdkOptional<List<ApiScenario>> scenarios;
 
-  const ApiCreateScenarioSetInputPublic({this.fileUploadScenarioSet = const SdkOmitted(), this.name = const SdkOmitted(), this.scenarios = const SdkOmitted()});
+  const ApiCreateScenarioSetInputPublic(
+      {this.fileUploadScenarioSet = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.scenarios = const SdkOmitted()});
 
-  ApiCreateScenarioSetInputPublic Function({SdkOptional<ApiFileUploadDataSource> fileUploadScenarioSet, SdkOptional<String> name, SdkOptional<List<ApiScenario>> scenarios}) get copyWith => _copyWith;
+  ApiCreateScenarioSetInputPublic Function(
+      {SdkOptional<ApiFileUploadDataSource> fileUploadScenarioSet,
+      SdkOptional<String> name,
+      SdkOptional<List<ApiScenario>> scenarios}) get copyWith => _copyWith;
 
-  ApiCreateScenarioSetInputPublic _copyWith({Object? fileUploadScenarioSet = sdkOmittedValue, Object? name = sdkOmittedValue, Object? scenarios = sdkOmittedValue}) => ApiCreateScenarioSetInputPublic(
-    fileUploadScenarioSet: identical(fileUploadScenarioSet, sdkOmittedValue) ? this.fileUploadScenarioSet : fileUploadScenarioSet as SdkOptional<ApiFileUploadDataSource>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    scenarios: identical(scenarios, sdkOmittedValue) ? this.scenarios : scenarios as SdkOptional<List<ApiScenario>>,
-  );
+  ApiCreateScenarioSetInputPublic _copyWith(
+          {Object? fileUploadScenarioSet = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? scenarios = sdkOmittedValue}) =>
+      ApiCreateScenarioSetInputPublic(
+        fileUploadScenarioSet: identical(fileUploadScenarioSet, sdkOmittedValue)
+            ? this.fileUploadScenarioSet
+            : fileUploadScenarioSet as SdkOptional<ApiFileUploadDataSource>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        scenarios: identical(scenarios, sdkOmittedValue)
+            ? this.scenarios
+            : scenarios as SdkOptional<List<ApiScenario>>,
+      );
 
-  factory ApiCreateScenarioSetInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateScenarioSetInputPublic(
-    fileUploadScenarioSet: json['file_upload_scenario_set'] != null ? SdkPresent((json['file_upload_scenario_set'] != null ? ApiFileUploadDataSource.fromJson(json['file_upload_scenario_set'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    scenarios: json['scenarios'] != null ? SdkPresent(((json['scenarios'] as List?)?.map((e) => ApiScenario.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiCreateScenarioSetInputPublic.fromJson(Map<String, dynamic> json) =>
+      ApiCreateScenarioSetInputPublic(
+        fileUploadScenarioSet: json['file_upload_scenario_set'] != null
+            ? SdkPresent((json['file_upload_scenario_set'] != null
+                ? ApiFileUploadDataSource.fromJson(
+                    json['file_upload_scenario_set'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        scenarios: json['scenarios'] != null
+            ? SdkPresent(((json['scenarios'] as List?)
+                ?.map((e) => ApiScenario.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (fileUploadScenarioSet) {
-      SdkPresent<ApiFileUploadDataSource>(value: final value) => {'file_upload_scenario_set': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scenarios) {
-      SdkPresent<List<ApiScenario>>(value: final value) => {'scenarios': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (fileUploadScenarioSet) {
+          SdkPresent<ApiFileUploadDataSource>(value: final value) => {
+              'file_upload_scenario_set': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scenarios) {
+          SdkPresent<List<ApiScenario>>(value: final value) => {
+              'scenarios': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Output for creating a scenario set.
 class ApiCreateScenarioSetOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A team-owned collection of scenarios.
   final SdkOptional<ApiScenarioSet> scenarioSet;
 
   const ApiCreateScenarioSetOutput({this.scenarioSet = const SdkOmitted()});
 
-  ApiCreateScenarioSetOutput Function({SdkOptional<ApiScenarioSet> scenarioSet}) get copyWith => _copyWith;
+  ApiCreateScenarioSetOutput Function({SdkOptional<ApiScenarioSet> scenarioSet})
+      get copyWith => _copyWith;
 
-  ApiCreateScenarioSetOutput _copyWith({Object? scenarioSet = sdkOmittedValue}) => ApiCreateScenarioSetOutput(
-    scenarioSet: identical(scenarioSet, sdkOmittedValue) ? this.scenarioSet : scenarioSet as SdkOptional<ApiScenarioSet>,
-  );
+  ApiCreateScenarioSetOutput _copyWith(
+          {Object? scenarioSet = sdkOmittedValue}) =>
+      ApiCreateScenarioSetOutput(
+        scenarioSet: identical(scenarioSet, sdkOmittedValue)
+            ? this.scenarioSet
+            : scenarioSet as SdkOptional<ApiScenarioSet>,
+      );
 
-  factory ApiCreateScenarioSetOutput.fromJson(Map<String, dynamic> json) => ApiCreateScenarioSetOutput(
-    scenarioSet: json['scenario_set'] != null ? SdkPresent((json['scenario_set'] != null ? ApiScenarioSet.fromJson(json['scenario_set'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiCreateScenarioSetOutput.fromJson(Map<String, dynamic> json) =>
+      ApiCreateScenarioSetOutput(
+        scenarioSet: json['scenario_set'] != null
+            ? SdkPresent((json['scenario_set'] != null
+                ? ApiScenarioSet.fromJson(
+                    json['scenario_set'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (scenarioSet) {
-      SdkPresent<ApiScenarioSet>(value: final value) => {'scenario_set': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (scenarioSet) {
+          SdkPresent<ApiScenarioSet>(value: final value) => {
+              'scenario_set': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

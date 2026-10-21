@@ -8,25 +8,37 @@ part of 'monitoring.dart';
 class AlertPolicyResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `policy` wire field.
   final SdkOptional<AlertPolicy> policy;
 
   const AlertPolicyResponse({this.policy = const SdkOmitted()});
 
-  AlertPolicyResponse Function({SdkOptional<AlertPolicy> policy}) get copyWith => _copyWith;
+  AlertPolicyResponse Function({SdkOptional<AlertPolicy> policy})
+      get copyWith => _copyWith;
 
-  AlertPolicyResponse _copyWith({Object? policy = sdkOmittedValue}) => AlertPolicyResponse(
-    policy: identical(policy, sdkOmittedValue) ? this.policy : policy as SdkOptional<AlertPolicy>,
-  );
+  AlertPolicyResponse _copyWith({Object? policy = sdkOmittedValue}) =>
+      AlertPolicyResponse(
+        policy: identical(policy, sdkOmittedValue)
+            ? this.policy
+            : policy as SdkOptional<AlertPolicy>,
+      );
 
-  factory AlertPolicyResponse.fromJson(Map<String, dynamic> json) => AlertPolicyResponse(
-    policy: json['policy'] != null ? SdkPresent((json['policy'] != null ? AlertPolicy.fromJson(json['policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AlertPolicyResponse.fromJson(Map<String, dynamic> json) =>
+      AlertPolicyResponse(
+        policy: json['policy'] != null
+            ? SdkPresent((json['policy'] != null
+                ? AlertPolicy.fromJson(json['policy'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (policy) {
-      SdkPresent<AlertPolicy>(value: final value) => {'policy': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (policy) {
+          SdkPresent<AlertPolicy>(value: final value) => {
+              'policy': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

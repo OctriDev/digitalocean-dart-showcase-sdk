@@ -8,25 +8,40 @@ part of 'agent_platform_api_api_delete.dart';
 class ApiDeleteAnthropicAPIKeyOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Anthropic API Key Info
   final SdkOptional<ApiAnthropicAPIKeyInfo> apiKeyInfo;
 
   const ApiDeleteAnthropicAPIKeyOutput({this.apiKeyInfo = const SdkOmitted()});
 
-  ApiDeleteAnthropicAPIKeyOutput Function({SdkOptional<ApiAnthropicAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
+  ApiDeleteAnthropicAPIKeyOutput Function(
+          {SdkOptional<ApiAnthropicAPIKeyInfo> apiKeyInfo})
+      get copyWith => _copyWith;
 
-  ApiDeleteAnthropicAPIKeyOutput _copyWith({Object? apiKeyInfo = sdkOmittedValue}) => ApiDeleteAnthropicAPIKeyOutput(
-    apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue) ? this.apiKeyInfo : apiKeyInfo as SdkOptional<ApiAnthropicAPIKeyInfo>,
-  );
+  ApiDeleteAnthropicAPIKeyOutput _copyWith(
+          {Object? apiKeyInfo = sdkOmittedValue}) =>
+      ApiDeleteAnthropicAPIKeyOutput(
+        apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue)
+            ? this.apiKeyInfo
+            : apiKeyInfo as SdkOptional<ApiAnthropicAPIKeyInfo>,
+      );
 
-  factory ApiDeleteAnthropicAPIKeyOutput.fromJson(Map<String, dynamic> json) => ApiDeleteAnthropicAPIKeyOutput(
-    apiKeyInfo: json['api_key_info'] != null ? SdkPresent((json['api_key_info'] != null ? ApiAnthropicAPIKeyInfo.fromJson(json['api_key_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiDeleteAnthropicAPIKeyOutput.fromJson(Map<String, dynamic> json) =>
+      ApiDeleteAnthropicAPIKeyOutput(
+        apiKeyInfo: json['api_key_info'] != null
+            ? SdkPresent((json['api_key_info'] != null
+                ? ApiAnthropicAPIKeyInfo.fromJson(
+                    json['api_key_info'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (apiKeyInfo) {
-      SdkPresent<ApiAnthropicAPIKeyInfo>(value: final value) => {'api_key_info': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (apiKeyInfo) {
+          SdkPresent<ApiAnthropicAPIKeyInfo>(value: final value) => {
+              'api_key_info': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

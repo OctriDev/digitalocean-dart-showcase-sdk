@@ -8,30 +8,45 @@ part of 'action_gateway_data_plane.dart';
 class SearchQuery {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A normalized English description of one complete use case: the action and the intended outcome, including any app the user named. Put personal identifiers in `known_fields` instead. Up to 512 bytes and 32 search terms, with at least one letter or digit.
   final String useCase;
+
   /// Known workflow inputs as one string of comma-separated `key:value` pairs, such as identifiers or settings. Used as context, not for keyword matching.
   final SdkOptional<String> knownFields;
 
-  const SearchQuery({required this.useCase, this.knownFields = const SdkOmitted()});
+  const SearchQuery(
+      {required this.useCase, this.knownFields = const SdkOmitted()});
 
-  SearchQuery Function({String useCase, SdkOptional<String> knownFields}) get copyWith => _copyWith;
+  SearchQuery Function({String useCase, SdkOptional<String> knownFields})
+      get copyWith => _copyWith;
 
-  SearchQuery _copyWith({Object? useCase = sdkOmittedValue, Object? knownFields = sdkOmittedValue}) => SearchQuery(
-    useCase: identical(useCase, sdkOmittedValue) ? this.useCase : useCase as String,
-    knownFields: identical(knownFields, sdkOmittedValue) ? this.knownFields : knownFields as SdkOptional<String>,
-  );
+  SearchQuery _copyWith(
+          {Object? useCase = sdkOmittedValue,
+          Object? knownFields = sdkOmittedValue}) =>
+      SearchQuery(
+        useCase: identical(useCase, sdkOmittedValue)
+            ? this.useCase
+            : useCase as String,
+        knownFields: identical(knownFields, sdkOmittedValue)
+            ? this.knownFields
+            : knownFields as SdkOptional<String>,
+      );
 
   factory SearchQuery.fromJson(Map<String, dynamic> json) => SearchQuery(
-    useCase: (json['use_case'] as String?)!,
-    knownFields: json['known_fields'] != null ? SdkPresent((json['known_fields'] as String?)!) : const SdkOmitted(),
-  );
+        useCase: (json['use_case'] as String?)!,
+        knownFields: json['known_fields'] != null
+            ? SdkPresent((json['known_fields'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'use_case': useCase,
-    ...switch (knownFields) {
-      SdkPresent<String>(value: final value) => {'known_fields': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'use_case': useCase,
+        ...switch (knownFields) {
+          SdkPresent<String>(value: final value) => {
+              'known_fields': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

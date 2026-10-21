@@ -11,22 +11,33 @@ class VpcSubnetMembersVariant0 {
 
   const VpcSubnetMembersVariant0({this.members = const SdkOmitted()});
 
-  VpcSubnetMembersVariant0 Function({SdkOptional<List<VpcMember>> members}) get copyWith => _copyWith;
+  VpcSubnetMembersVariant0 Function({SdkOptional<List<VpcMember>> members})
+      get copyWith => _copyWith;
 
-  VpcSubnetMembersVariant0 _copyWith({Object? members = sdkOmittedValue}) => VpcSubnetMembersVariant0(
-    members: identical(members, sdkOmittedValue) ? this.members : members as SdkOptional<List<VpcMember>>,
-  );
+  VpcSubnetMembersVariant0 _copyWith({Object? members = sdkOmittedValue}) =>
+      VpcSubnetMembersVariant0(
+        members: identical(members, sdkOmittedValue)
+            ? this.members
+            : members as SdkOptional<List<VpcMember>>,
+      );
 
-  factory VpcSubnetMembersVariant0.fromJson(Map<String, dynamic> json) => VpcSubnetMembersVariant0(
-    members: json['members'] != null ? SdkPresent(((json['members'] as List?)?.map((e) => VpcMember.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory VpcSubnetMembersVariant0.fromJson(Map<String, dynamic> json) =>
+      VpcSubnetMembersVariant0(
+        members: json['members'] != null
+            ? SdkPresent(((json['members'] as List?)
+                ?.map((e) => VpcMember.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (members) {
-      SdkPresent<List<VpcMember>>(value: final value) => {'members': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (members) {
+          SdkPresent<List<VpcMember>>(value: final value) => {
+              'members': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `VpcSubnetMembers` API schema.
@@ -34,36 +45,69 @@ class VpcSubnetMembers {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<VpcMember>> members;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const VpcSubnetMembers({this.members = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const VpcSubnetMembers(
+      {this.members = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  VpcSubnetMembers Function({SdkOptional<List<VpcMember>> members, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  VpcSubnetMembers Function(
+      {SdkOptional<List<VpcMember>> members,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  VpcSubnetMembers _copyWith({Object? members = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => VpcSubnetMembers(
-    members: identical(members, sdkOmittedValue) ? this.members : members as SdkOptional<List<VpcMember>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  VpcSubnetMembers _copyWith(
+          {Object? members = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      VpcSubnetMembers(
+        members: identical(members, sdkOmittedValue)
+            ? this.members
+            : members as SdkOptional<List<VpcMember>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory VpcSubnetMembers.fromJson(Map<String, dynamic> json) => VpcSubnetMembers(
-    members: json['members'] != null ? SdkPresent(((json['members'] as List?)?.map((e) => VpcMember.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory VpcSubnetMembers.fromJson(Map<String, dynamic> json) =>
+      VpcSubnetMembers(
+        members: json['members'] != null
+            ? SdkPresent(((json['members'] as List?)
+                ?.map((e) => VpcMember.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (members) {
-      SdkPresent<List<VpcMember>>(value: final value) => {'members': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (members) {
+          SdkPresent<List<VpcMember>>(value: final value) => {
+              'members': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

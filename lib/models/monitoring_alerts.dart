@@ -8,27 +8,38 @@ part of 'monitoring.dart';
 class Alerts {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An email to notify on an alert trigger.
   final List<String> email;
+
   /// Slack integration details.
   final List<SlackDetails> slack;
 
   const Alerts({required this.email, required this.slack});
 
-  Alerts Function({List<String> email, List<SlackDetails> slack}) get copyWith => _copyWith;
+  Alerts Function({List<String> email, List<SlackDetails> slack})
+      get copyWith => _copyWith;
 
-  Alerts _copyWith({Object? email = sdkOmittedValue, Object? slack = sdkOmittedValue}) => Alerts(
-    email: identical(email, sdkOmittedValue) ? this.email : email as List<String>,
-    slack: identical(slack, sdkOmittedValue) ? this.slack : slack as List<SlackDetails>,
-  );
+  Alerts _copyWith(
+          {Object? email = sdkOmittedValue, Object? slack = sdkOmittedValue}) =>
+      Alerts(
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as List<String>,
+        slack: identical(slack, sdkOmittedValue)
+            ? this.slack
+            : slack as List<SlackDetails>,
+      );
 
   factory Alerts.fromJson(Map<String, dynamic> json) => Alerts(
-    email: ((json['email'] as List?)?.map((e) => e as String).toList())!,
-    slack: ((json['slack'] as List?)?.map((e) => SlackDetails.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+        email: ((json['email'] as List?)?.map((e) => e as String).toList())!,
+        slack: ((json['slack'] as List?)
+            ?.map((e) => SlackDetails.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'email': email,
-    'slack': slack.map((item) => item.toJson()).toList(),
-  };
+        'email': email,
+        'slack': slack.map((item) => item.toJson()).toList(),
+      };
 }

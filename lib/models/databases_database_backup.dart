@@ -8,30 +8,46 @@ part of 'databases_database.dart';
 class DatabaseBackup {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of an existing database cluster from which the backup will be restored.
   final String databaseName;
+
   /// The timestamp of an existing database cluster backup in ISO8601 combined date and time format. The most recent backup will be used if excluded.
   final SdkOptional<String> backupCreatedAt;
 
-  const DatabaseBackup({required this.databaseName, this.backupCreatedAt = const SdkOmitted()});
+  const DatabaseBackup(
+      {required this.databaseName, this.backupCreatedAt = const SdkOmitted()});
 
-  DatabaseBackup Function({String databaseName, SdkOptional<String> backupCreatedAt}) get copyWith => _copyWith;
+  DatabaseBackup Function(
+      {String databaseName,
+      SdkOptional<String> backupCreatedAt}) get copyWith => _copyWith;
 
-  DatabaseBackup _copyWith({Object? databaseName = sdkOmittedValue, Object? backupCreatedAt = sdkOmittedValue}) => DatabaseBackup(
-    databaseName: identical(databaseName, sdkOmittedValue) ? this.databaseName : databaseName as String,
-    backupCreatedAt: identical(backupCreatedAt, sdkOmittedValue) ? this.backupCreatedAt : backupCreatedAt as SdkOptional<String>,
-  );
+  DatabaseBackup _copyWith(
+          {Object? databaseName = sdkOmittedValue,
+          Object? backupCreatedAt = sdkOmittedValue}) =>
+      DatabaseBackup(
+        databaseName: identical(databaseName, sdkOmittedValue)
+            ? this.databaseName
+            : databaseName as String,
+        backupCreatedAt: identical(backupCreatedAt, sdkOmittedValue)
+            ? this.backupCreatedAt
+            : backupCreatedAt as SdkOptional<String>,
+      );
 
   factory DatabaseBackup.fromJson(Map<String, dynamic> json) => DatabaseBackup(
-    databaseName: (json['database_name'] as String?)!,
-    backupCreatedAt: json['backup_created_at'] != null ? SdkPresent((json['backup_created_at'] as String?)!) : const SdkOmitted(),
-  );
+        databaseName: (json['database_name'] as String?)!,
+        backupCreatedAt: json['backup_created_at'] != null
+            ? SdkPresent((json['backup_created_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'database_name': databaseName,
-    ...switch (backupCreatedAt) {
-      SdkPresent<String>(value: final value) => {'backup_created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'database_name': databaseName,
+        ...switch (backupCreatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'backup_created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

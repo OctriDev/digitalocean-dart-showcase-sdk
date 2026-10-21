@@ -8,6 +8,7 @@ part of 'action_gateway_data_plane.dart';
 class ExecuteCodeRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Python source to run. The sandbox provides `invoke_digitalocean_tool(name: str, arguments: dict) -&gt; dict`, which calls a catalog tool under the session's policy and returns a tool result.
   final String code;
 
@@ -15,58 +16,92 @@ class ExecuteCodeRequest {
 
   ExecuteCodeRequest Function({String code}) get copyWith => _copyWith;
 
-  ExecuteCodeRequest _copyWith({Object? code = sdkOmittedValue}) => ExecuteCodeRequest(
-    code: identical(code, sdkOmittedValue) ? this.code : code as String,
-  );
+  ExecuteCodeRequest _copyWith({Object? code = sdkOmittedValue}) =>
+      ExecuteCodeRequest(
+        code: identical(code, sdkOmittedValue) ? this.code : code as String,
+      );
 
-  factory ExecuteCodeRequest.fromJson(Map<String, dynamic> json) => ExecuteCodeRequest(
-    code: (json['code'] as String?)!,
-  );
+  factory ExecuteCodeRequest.fromJson(Map<String, dynamic> json) =>
+      ExecuteCodeRequest(
+        code: (json['code'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'code': code,
-  };
+        'code': code,
+      };
 }
 
 class ExecuteCodeResponseVariant1Output {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<String> stdout;
+
   /// Omitted when empty.
   final SdkOptional<String> stderr;
+
   /// The process exit code. A nonzero exit code is still a succeeded result.
   final SdkOptional<int> exitCode;
 
-  const ExecuteCodeResponseVariant1Output({this.stdout = const SdkOmitted(), this.stderr = const SdkOmitted(), this.exitCode = const SdkOmitted()});
+  const ExecuteCodeResponseVariant1Output(
+      {this.stdout = const SdkOmitted(),
+      this.stderr = const SdkOmitted(),
+      this.exitCode = const SdkOmitted()});
 
-  ExecuteCodeResponseVariant1Output Function({SdkOptional<String> stdout, SdkOptional<String> stderr, SdkOptional<int> exitCode}) get copyWith => _copyWith;
+  ExecuteCodeResponseVariant1Output Function(
+      {SdkOptional<String> stdout,
+      SdkOptional<String> stderr,
+      SdkOptional<int> exitCode}) get copyWith => _copyWith;
 
-  ExecuteCodeResponseVariant1Output _copyWith({Object? stdout = sdkOmittedValue, Object? stderr = sdkOmittedValue, Object? exitCode = sdkOmittedValue}) => ExecuteCodeResponseVariant1Output(
-    stdout: identical(stdout, sdkOmittedValue) ? this.stdout : stdout as SdkOptional<String>,
-    stderr: identical(stderr, sdkOmittedValue) ? this.stderr : stderr as SdkOptional<String>,
-    exitCode: identical(exitCode, sdkOmittedValue) ? this.exitCode : exitCode as SdkOptional<int>,
-  );
+  ExecuteCodeResponseVariant1Output _copyWith(
+          {Object? stdout = sdkOmittedValue,
+          Object? stderr = sdkOmittedValue,
+          Object? exitCode = sdkOmittedValue}) =>
+      ExecuteCodeResponseVariant1Output(
+        stdout: identical(stdout, sdkOmittedValue)
+            ? this.stdout
+            : stdout as SdkOptional<String>,
+        stderr: identical(stderr, sdkOmittedValue)
+            ? this.stderr
+            : stderr as SdkOptional<String>,
+        exitCode: identical(exitCode, sdkOmittedValue)
+            ? this.exitCode
+            : exitCode as SdkOptional<int>,
+      );
 
-  factory ExecuteCodeResponseVariant1Output.fromJson(Map<String, dynamic> json) => ExecuteCodeResponseVariant1Output(
-    stdout: json['stdout'] != null ? SdkPresent((json['stdout'] as String?)!) : const SdkOmitted(),
-    stderr: json['stderr'] != null ? SdkPresent((json['stderr'] as String?)!) : const SdkOmitted(),
-    exitCode: json['exit_code'] != null ? SdkPresent(((json['exit_code'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory ExecuteCodeResponseVariant1Output.fromJson(
+          Map<String, dynamic> json) =>
+      ExecuteCodeResponseVariant1Output(
+        stdout: json['stdout'] != null
+            ? SdkPresent((json['stdout'] as String?)!)
+            : const SdkOmitted(),
+        stderr: json['stderr'] != null
+            ? SdkPresent((json['stderr'] as String?)!)
+            : const SdkOmitted(),
+        exitCode: json['exit_code'] != null
+            ? SdkPresent(((json['exit_code'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (stdout) {
-      SdkPresent<String>(value: final value) => {'stdout': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (stderr) {
-      SdkPresent<String>(value: final value) => {'stderr': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (exitCode) {
-      SdkPresent<int>(value: final value) => {'exit_code': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (stdout) {
+          SdkPresent<String>(value: final value) => {
+              'stdout': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (stderr) {
+          SdkPresent<String>(value: final value) => {
+              'stderr': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (exitCode) {
+          SdkPresent<int>(value: final value) => {
+              'exit_code': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class ExecuteCodeResponseVariant1 {
@@ -76,72 +111,137 @@ class ExecuteCodeResponseVariant1 {
 
   const ExecuteCodeResponseVariant1({this.output = const SdkOmitted()});
 
-  ExecuteCodeResponseVariant1 Function({SdkOptional<ExecuteCodeResponseVariant1Output> output}) get copyWith => _copyWith;
+  ExecuteCodeResponseVariant1 Function(
+          {SdkOptional<ExecuteCodeResponseVariant1Output> output})
+      get copyWith => _copyWith;
 
-  ExecuteCodeResponseVariant1 _copyWith({Object? output = sdkOmittedValue}) => ExecuteCodeResponseVariant1(
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<ExecuteCodeResponseVariant1Output>,
-  );
+  ExecuteCodeResponseVariant1 _copyWith({Object? output = sdkOmittedValue}) =>
+      ExecuteCodeResponseVariant1(
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<ExecuteCodeResponseVariant1Output>,
+      );
 
-  factory ExecuteCodeResponseVariant1.fromJson(Map<String, dynamic> json) => ExecuteCodeResponseVariant1(
-    output: json['output'] != null ? SdkPresent((json['output'] != null ? ExecuteCodeResponseVariant1Output.fromJson(json['output'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ExecuteCodeResponseVariant1.fromJson(Map<String, dynamic> json) =>
+      ExecuteCodeResponseVariant1(
+        output: json['output'] != null
+            ? SdkPresent((json['output'] != null
+                ? ExecuteCodeResponseVariant1Output.fromJson(
+                    json['output'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (output) {
-      SdkPresent<ExecuteCodeResponseVariant1Output>(value: final value) => {'output': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (output) {
+          SdkPresent<ExecuteCodeResponseVariant1Output>(value: final value) => {
+              'output': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ExecuteCodeResponse` API schema.
 class ExecuteCodeResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `status` wire field.
   final ToolResultStatus status;
   final SdkOptional<ExecuteCodeResponseVariant1Output> output;
+
   /// Describes why a request or tool call failed and whether retrying can help.
   final SdkOptional<ErrorEnvelope> error;
+
   /// A unique identifier for this call. Include it when contacting support.
   final String callId;
+
   /// Additional result metadata. Keys include: - `status`: `requires_approval`, `requires_authorization`, or `requires_connection_configuration` when the call stopped before running. - `approval_id`, `tool_name`, `expires_at`, and `decide`: present with `requires_approval`. `decide` gives the `method`, `path`, and `body` of the approval request to send. Approve the call, then repeat it with the same arguments before `expires_at`. - `retry`: `{"attempt_count": N, "exhausted": bool}` when the gateway retried the call. - `output_view`: the output view applied to the result.
   final SdkOptional<Map<String, Object?>> meta;
 
-  const ExecuteCodeResponse({required this.status, this.output = const SdkOmitted(), this.error = const SdkOmitted(), required this.callId, this.meta = const SdkOmitted()});
+  const ExecuteCodeResponse(
+      {required this.status,
+      this.output = const SdkOmitted(),
+      this.error = const SdkOmitted(),
+      required this.callId,
+      this.meta = const SdkOmitted()});
 
-  ExecuteCodeResponse Function({ToolResultStatus status, SdkOptional<ExecuteCodeResponseVariant1Output> output, SdkOptional<ErrorEnvelope> error, String callId, SdkOptional<Map<String, Object?>> meta}) get copyWith => _copyWith;
+  ExecuteCodeResponse Function(
+      {ToolResultStatus status,
+      SdkOptional<ExecuteCodeResponseVariant1Output> output,
+      SdkOptional<ErrorEnvelope> error,
+      String callId,
+      SdkOptional<Map<String, Object?>> meta}) get copyWith => _copyWith;
 
-  ExecuteCodeResponse _copyWith({Object? status = sdkOmittedValue, Object? output = sdkOmittedValue, Object? error = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ExecuteCodeResponse(
-    status: identical(status, sdkOmittedValue) ? this.status : status as ToolResultStatus,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<ExecuteCodeResponseVariant1Output>,
-    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<ErrorEnvelope>,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<Map<String, Object?>>,
-  );
+  ExecuteCodeResponse _copyWith(
+          {Object? status = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? error = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      ExecuteCodeResponse(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ToolResultStatus,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<ExecuteCodeResponseVariant1Output>,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as SdkOptional<ErrorEnvelope>,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<Map<String, Object?>>,
+      );
 
-  factory ExecuteCodeResponse.fromJson(Map<String, dynamic> json) => ExecuteCodeResponse(
-    status: (json['status'] != null ? ToolResultStatus.fromJson(json['status'] as String) : null)!,
-    output: json['output'] != null ? SdkPresent((json['output'] != null ? ExecuteCodeResponseVariant1Output.fromJson(json['output'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    error: json['error'] != null ? SdkPresent((json['error'] != null ? ErrorEnvelope.fromJson(json['error'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    callId: (json['call_id'] as String?)!,
-    meta: json['_meta'] != null ? SdkPresent((json['_meta'] == null ? null : Map<String, dynamic>.from(json['_meta'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-  );
+  factory ExecuteCodeResponse.fromJson(Map<String, dynamic> json) =>
+      ExecuteCodeResponse(
+        status: (json['status'] != null
+            ? ToolResultStatus.fromJson(json['status'] as String)
+            : null)!,
+        output: json['output'] != null
+            ? SdkPresent((json['output'] != null
+                ? ExecuteCodeResponseVariant1Output.fromJson(
+                    json['output'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        error: json['error'] != null
+            ? SdkPresent((json['error'] != null
+                ? ErrorEnvelope.fromJson(json['error'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        callId: (json['call_id'] as String?)!,
+        meta: json['_meta'] != null
+            ? SdkPresent((json['_meta'] == null
+                ? null
+                : Map<String, dynamic>.from(json['_meta'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'status': status.toJson(),
-    ...switch (output) {
-      SdkPresent<ExecuteCodeResponseVariant1Output>(value: final value) => {'output': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (error) {
-      SdkPresent<ErrorEnvelope>(value: final value) => {'error': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'call_id': callId,
-    ...switch (meta) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'_meta': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'status': status.toJson(),
+        ...switch (output) {
+          SdkPresent<ExecuteCodeResponseVariant1Output>(value: final value) => {
+              'output': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (error) {
+          SdkPresent<ErrorEnvelope>(value: final value) => {
+              'error': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'call_id': callId,
+        ...switch (meta) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              '_meta': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

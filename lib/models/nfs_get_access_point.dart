@@ -8,22 +8,31 @@ part of 'nfs.dart';
 class AccessPointGetResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Represents an NFS access point resource.
   final AccessPointResponse accessPoint;
 
   const AccessPointGetResponse({required this.accessPoint});
 
-  AccessPointGetResponse Function({AccessPointResponse accessPoint}) get copyWith => _copyWith;
+  AccessPointGetResponse Function({AccessPointResponse accessPoint})
+      get copyWith => _copyWith;
 
-  AccessPointGetResponse _copyWith({Object? accessPoint = sdkOmittedValue}) => AccessPointGetResponse(
-    accessPoint: identical(accessPoint, sdkOmittedValue) ? this.accessPoint : accessPoint as AccessPointResponse,
-  );
+  AccessPointGetResponse _copyWith({Object? accessPoint = sdkOmittedValue}) =>
+      AccessPointGetResponse(
+        accessPoint: identical(accessPoint, sdkOmittedValue)
+            ? this.accessPoint
+            : accessPoint as AccessPointResponse,
+      );
 
-  factory AccessPointGetResponse.fromJson(Map<String, dynamic> json) => AccessPointGetResponse(
-    accessPoint: (json['access_point'] != null ? AccessPointResponse.fromJson(json['access_point'] as Map<String, dynamic>) : null)!,
-  );
+  factory AccessPointGetResponse.fromJson(Map<String, dynamic> json) =>
+      AccessPointGetResponse(
+        accessPoint: (json['access_point'] != null
+            ? AccessPointResponse.fromJson(
+                json['access_point'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'access_point': accessPoint.toJson(),
-  };
+        'access_point': accessPoint.toJson(),
+      };
 }

@@ -8,33 +8,55 @@ part of 'agent_platform_api_api_agent.dart';
 class ApiAgentGuardrailInput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Guardrail uuid
   final SdkOptional<String> guardrailUuid;
+
   /// Priority of the guardrail
   final SdkOptional<int> priority;
 
-  const ApiAgentGuardrailInput({this.guardrailUuid = const SdkOmitted(), this.priority = const SdkOmitted()});
+  const ApiAgentGuardrailInput(
+      {this.guardrailUuid = const SdkOmitted(),
+      this.priority = const SdkOmitted()});
 
-  ApiAgentGuardrailInput Function({SdkOptional<String> guardrailUuid, SdkOptional<int> priority}) get copyWith => _copyWith;
+  ApiAgentGuardrailInput Function(
+      {SdkOptional<String> guardrailUuid,
+      SdkOptional<int> priority}) get copyWith => _copyWith;
 
-  ApiAgentGuardrailInput _copyWith({Object? guardrailUuid = sdkOmittedValue, Object? priority = sdkOmittedValue}) => ApiAgentGuardrailInput(
-    guardrailUuid: identical(guardrailUuid, sdkOmittedValue) ? this.guardrailUuid : guardrailUuid as SdkOptional<String>,
-    priority: identical(priority, sdkOmittedValue) ? this.priority : priority as SdkOptional<int>,
-  );
+  ApiAgentGuardrailInput _copyWith(
+          {Object? guardrailUuid = sdkOmittedValue,
+          Object? priority = sdkOmittedValue}) =>
+      ApiAgentGuardrailInput(
+        guardrailUuid: identical(guardrailUuid, sdkOmittedValue)
+            ? this.guardrailUuid
+            : guardrailUuid as SdkOptional<String>,
+        priority: identical(priority, sdkOmittedValue)
+            ? this.priority
+            : priority as SdkOptional<int>,
+      );
 
-  factory ApiAgentGuardrailInput.fromJson(Map<String, dynamic> json) => ApiAgentGuardrailInput(
-    guardrailUuid: json['guardrail_uuid'] != null ? SdkPresent((json['guardrail_uuid'] as String?)!) : const SdkOmitted(),
-    priority: json['priority'] != null ? SdkPresent(((json['priority'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory ApiAgentGuardrailInput.fromJson(Map<String, dynamic> json) =>
+      ApiAgentGuardrailInput(
+        guardrailUuid: json['guardrail_uuid'] != null
+            ? SdkPresent((json['guardrail_uuid'] as String?)!)
+            : const SdkOmitted(),
+        priority: json['priority'] != null
+            ? SdkPresent(((json['priority'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (guardrailUuid) {
-      SdkPresent<String>(value: final value) => {'guardrail_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (priority) {
-      SdkPresent<int>(value: final value) => {'priority': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (guardrailUuid) {
+          SdkPresent<String>(value: final value) => {
+              'guardrail_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (priority) {
+          SdkPresent<int>(value: final value) => {
+              'priority': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,35 +8,60 @@ part of 'signals.dart';
 class CreateDeletionRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The scope of the deletion. `agent` deletes Signals conversations for one Harness Runtime environment and requires `agent_id`. `inference` deletes Serverless Inference Signals conversations for the whole team (team-wide; omit `agent_id`).
   final CreateDeletionRequestType type_;
+
   /// The team whose data should be deleted. Must match the authenticated team.
   final int teamId;
+
   /// The Harness Runtime Environment Config ID of the environment whose conversations should be deleted. This is the environment's `agent_id`. Required when `type` is `agent`; must be omitted when `type` is `inference`.
   final SdkOptional<String> agentId;
 
-  const CreateDeletionRequest({required this.type_, required this.teamId, this.agentId = const SdkOmitted()});
+  const CreateDeletionRequest(
+      {required this.type_,
+      required this.teamId,
+      this.agentId = const SdkOmitted()});
 
-  CreateDeletionRequest Function({CreateDeletionRequestType type_, int teamId, SdkOptional<String> agentId}) get copyWith => _copyWith;
+  CreateDeletionRequest Function(
+      {CreateDeletionRequestType type_,
+      int teamId,
+      SdkOptional<String> agentId}) get copyWith => _copyWith;
 
-  CreateDeletionRequest _copyWith({Object? type_ = sdkOmittedValue, Object? teamId = sdkOmittedValue, Object? agentId = sdkOmittedValue}) => CreateDeletionRequest(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as CreateDeletionRequestType,
-    teamId: identical(teamId, sdkOmittedValue) ? this.teamId : teamId as int,
-    agentId: identical(agentId, sdkOmittedValue) ? this.agentId : agentId as SdkOptional<String>,
-  );
+  CreateDeletionRequest _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? teamId = sdkOmittedValue,
+          Object? agentId = sdkOmittedValue}) =>
+      CreateDeletionRequest(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as CreateDeletionRequestType,
+        teamId:
+            identical(teamId, sdkOmittedValue) ? this.teamId : teamId as int,
+        agentId: identical(agentId, sdkOmittedValue)
+            ? this.agentId
+            : agentId as SdkOptional<String>,
+      );
 
-  factory CreateDeletionRequest.fromJson(Map<String, dynamic> json) => CreateDeletionRequest(
-    type_: (json['type'] != null ? CreateDeletionRequestType.fromJson(json['type'] as String) : null)!,
-    teamId: ((json['team_id'] as num?)?.toInt())!,
-    agentId: json['agent_id'] != null ? SdkPresent((json['agent_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateDeletionRequest.fromJson(Map<String, dynamic> json) =>
+      CreateDeletionRequest(
+        type_: (json['type'] != null
+            ? CreateDeletionRequestType.fromJson(json['type'] as String)
+            : null)!,
+        teamId: ((json['team_id'] as num?)?.toInt())!,
+        agentId: json['agent_id'] != null
+            ? SdkPresent((json['agent_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'team_id': teamId,
-    ...switch (agentId) {
-      SdkPresent<String>(value: final value) => {'agent_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        'team_id': teamId,
+        ...switch (agentId) {
+          SdkPresent<String>(value: final value) => {
+              'agent_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

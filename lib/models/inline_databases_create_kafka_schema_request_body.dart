@@ -7,233 +7,432 @@ part of 'inline.dart';
 class DatabasesCreateKafkaSchemaRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the schema subject.
   final String subjectName;
+
   /// The type of the schema.
   final DatabasesCreateKafkaSchemaRequestBodySchemaType schemaType;
+
   /// The schema definition in the specified format.
   final String schema;
 
-  const DatabasesCreateKafkaSchemaRequestBody({required this.subjectName, required this.schemaType, required this.schema});
+  const DatabasesCreateKafkaSchemaRequestBody(
+      {required this.subjectName,
+      required this.schemaType,
+      required this.schema});
 
-  DatabasesCreateKafkaSchemaRequestBody Function({String subjectName, DatabasesCreateKafkaSchemaRequestBodySchemaType schemaType, String schema}) get copyWith => _copyWith;
+  DatabasesCreateKafkaSchemaRequestBody Function(
+      {String subjectName,
+      DatabasesCreateKafkaSchemaRequestBodySchemaType schemaType,
+      String schema}) get copyWith => _copyWith;
 
-  DatabasesCreateKafkaSchemaRequestBody _copyWith({Object? subjectName = sdkOmittedValue, Object? schemaType = sdkOmittedValue, Object? schema = sdkOmittedValue}) => DatabasesCreateKafkaSchemaRequestBody(
-    subjectName: identical(subjectName, sdkOmittedValue) ? this.subjectName : subjectName as String,
-    schemaType: identical(schemaType, sdkOmittedValue) ? this.schemaType : schemaType as DatabasesCreateKafkaSchemaRequestBodySchemaType,
-    schema: identical(schema, sdkOmittedValue) ? this.schema : schema as String,
-  );
+  DatabasesCreateKafkaSchemaRequestBody _copyWith(
+          {Object? subjectName = sdkOmittedValue,
+          Object? schemaType = sdkOmittedValue,
+          Object? schema = sdkOmittedValue}) =>
+      DatabasesCreateKafkaSchemaRequestBody(
+        subjectName: identical(subjectName, sdkOmittedValue)
+            ? this.subjectName
+            : subjectName as String,
+        schemaType: identical(schemaType, sdkOmittedValue)
+            ? this.schemaType
+            : schemaType as DatabasesCreateKafkaSchemaRequestBodySchemaType,
+        schema:
+            identical(schema, sdkOmittedValue) ? this.schema : schema as String,
+      );
 
-  factory DatabasesCreateKafkaSchemaRequestBody.fromJson(Map<String, dynamic> json) => DatabasesCreateKafkaSchemaRequestBody(
-    subjectName: (json['subject_name'] as String?)!,
-    schemaType: (json['schema_type'] != null ? DatabasesCreateKafkaSchemaRequestBodySchemaType.fromJson(json['schema_type'] as String) : null)!,
-    schema: (json['schema'] as String?)!,
-  );
+  factory DatabasesCreateKafkaSchemaRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      DatabasesCreateKafkaSchemaRequestBody(
+        subjectName: (json['subject_name'] as String?)!,
+        schemaType: (json['schema_type'] != null
+            ? DatabasesCreateKafkaSchemaRequestBodySchemaType.fromJson(
+                json['schema_type'] as String)
+            : null)!,
+        schema: (json['schema'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'subject_name': subjectName,
-    'schema_type': schemaType.toJson(),
-    'schema': schema,
-  };
+        'subject_name': subjectName,
+        'schema_type': schemaType.toJson(),
+        'schema': schema,
+      };
 }
 
 class DatabasesUpdateKafkaSchemaConfigRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The compatibility level of the schema registry.
-  final DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel compatibilityLevel;
+  final DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel
+      compatibilityLevel;
 
-  const DatabasesUpdateKafkaSchemaConfigRequestBody({required this.compatibilityLevel});
+  const DatabasesUpdateKafkaSchemaConfigRequestBody(
+      {required this.compatibilityLevel});
 
-  DatabasesUpdateKafkaSchemaConfigRequestBody Function({DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel compatibilityLevel}) get copyWith => _copyWith;
+  DatabasesUpdateKafkaSchemaConfigRequestBody Function(
+      {DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel
+          compatibilityLevel}) get copyWith => _copyWith;
 
-  DatabasesUpdateKafkaSchemaConfigRequestBody _copyWith({Object? compatibilityLevel = sdkOmittedValue}) => DatabasesUpdateKafkaSchemaConfigRequestBody(
-    compatibilityLevel: identical(compatibilityLevel, sdkOmittedValue) ? this.compatibilityLevel : compatibilityLevel as DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel,
-  );
+  DatabasesUpdateKafkaSchemaConfigRequestBody _copyWith(
+          {Object? compatibilityLevel = sdkOmittedValue}) =>
+      DatabasesUpdateKafkaSchemaConfigRequestBody(
+        compatibilityLevel: identical(compatibilityLevel, sdkOmittedValue)
+            ? this.compatibilityLevel
+            : compatibilityLevel
+                as DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel,
+      );
 
-  factory DatabasesUpdateKafkaSchemaConfigRequestBody.fromJson(Map<String, dynamic> json) => DatabasesUpdateKafkaSchemaConfigRequestBody(
-    compatibilityLevel: (json['compatibility_level'] != null ? DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel.fromJson(json['compatibility_level'] as String) : null)!,
-  );
+  factory DatabasesUpdateKafkaSchemaConfigRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      DatabasesUpdateKafkaSchemaConfigRequestBody(
+        compatibilityLevel: (json['compatibility_level'] != null
+            ? DatabasesUpdateKafkaSchemaConfigRequestBodyCompatibilityLevel
+                .fromJson(json['compatibility_level'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'compatibility_level': compatibilityLevel.toJson(),
-  };
+        'compatibility_level': compatibilityLevel.toJson(),
+      };
 }
 
 class DatabasesUpdateKafkaSchemaSubjectConfigRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The compatibility level of the schema registry.
-  final DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel compatibilityLevel;
+  final DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel
+      compatibilityLevel;
 
-  const DatabasesUpdateKafkaSchemaSubjectConfigRequestBody({required this.compatibilityLevel});
+  const DatabasesUpdateKafkaSchemaSubjectConfigRequestBody(
+      {required this.compatibilityLevel});
 
-  DatabasesUpdateKafkaSchemaSubjectConfigRequestBody Function({DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel compatibilityLevel}) get copyWith => _copyWith;
+  DatabasesUpdateKafkaSchemaSubjectConfigRequestBody Function(
+      {DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel
+          compatibilityLevel}) get copyWith => _copyWith;
 
-  DatabasesUpdateKafkaSchemaSubjectConfigRequestBody _copyWith({Object? compatibilityLevel = sdkOmittedValue}) => DatabasesUpdateKafkaSchemaSubjectConfigRequestBody(
-    compatibilityLevel: identical(compatibilityLevel, sdkOmittedValue) ? this.compatibilityLevel : compatibilityLevel as DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel,
-  );
+  DatabasesUpdateKafkaSchemaSubjectConfigRequestBody _copyWith(
+          {Object? compatibilityLevel = sdkOmittedValue}) =>
+      DatabasesUpdateKafkaSchemaSubjectConfigRequestBody(
+        compatibilityLevel: identical(compatibilityLevel, sdkOmittedValue)
+            ? this.compatibilityLevel
+            : compatibilityLevel
+                as DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel,
+      );
 
-  factory DatabasesUpdateKafkaSchemaSubjectConfigRequestBody.fromJson(Map<String, dynamic> json) => DatabasesUpdateKafkaSchemaSubjectConfigRequestBody(
-    compatibilityLevel: (json['compatibility_level'] != null ? DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel.fromJson(json['compatibility_level'] as String) : null)!,
-  );
+  factory DatabasesUpdateKafkaSchemaSubjectConfigRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      DatabasesUpdateKafkaSchemaSubjectConfigRequestBody(
+        compatibilityLevel: (json['compatibility_level'] != null
+            ? DatabasesUpdateKafkaSchemaSubjectConfigRequestBodyCompatibilityLevel
+                .fromJson(json['compatibility_level'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'compatibility_level': compatibilityLevel.toJson(),
-  };
+        'compatibility_level': compatibilityLevel.toJson(),
+      };
 }
 
 class FirewallsCreateRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-).
   final SdkOptional<String> name;
+
   /// An array containing the IDs of the Droplets assigned to the firewall. &lt;br&gt;&lt;br&gt;Requires `droplet:read` scope.
   final SdkOptional<List<int>?> dropletIds;
   final SdkOptional<List<String>> tags;
   final SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules;
   final SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules;
 
-  const FirewallsCreateRequestBody({this.name = const SdkOmitted(), this.dropletIds = const SdkOmitted(), this.tags = const SdkOmitted(), this.inboundRules = const SdkOmitted(), this.outboundRules = const SdkOmitted()});
+  const FirewallsCreateRequestBody(
+      {this.name = const SdkOmitted(),
+      this.dropletIds = const SdkOmitted(),
+      this.tags = const SdkOmitted(),
+      this.inboundRules = const SdkOmitted(),
+      this.outboundRules = const SdkOmitted()});
 
-  FirewallsCreateRequestBody Function({SdkOptional<String> name, SdkOptional<List<int>?> dropletIds, SdkOptional<List<String>> tags, SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules, SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules}) get copyWith => _copyWith;
+  FirewallsCreateRequestBody Function(
+          {SdkOptional<String> name,
+          SdkOptional<List<int>?> dropletIds,
+          SdkOptional<List<String>> tags,
+          SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules,
+          SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules})
+      get copyWith => _copyWith;
 
-  FirewallsCreateRequestBody _copyWith({Object? name = sdkOmittedValue, Object? dropletIds = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? inboundRules = sdkOmittedValue, Object? outboundRules = sdkOmittedValue}) => FirewallsCreateRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    dropletIds: identical(dropletIds, sdkOmittedValue) ? this.dropletIds : dropletIds as SdkOptional<List<int>?>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    inboundRules: identical(inboundRules, sdkOmittedValue) ? this.inboundRules : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
-    outboundRules: identical(outboundRules, sdkOmittedValue) ? this.outboundRules : outboundRules as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
-  );
+  FirewallsCreateRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? dropletIds = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? inboundRules = sdkOmittedValue,
+          Object? outboundRules = sdkOmittedValue}) =>
+      FirewallsCreateRequestBody(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        dropletIds: identical(dropletIds, sdkOmittedValue)
+            ? this.dropletIds
+            : dropletIds as SdkOptional<List<int>?>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        inboundRules: identical(inboundRules, sdkOmittedValue)
+            ? this.inboundRules
+            : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
+        outboundRules: identical(outboundRules, sdkOmittedValue)
+            ? this.outboundRules
+            : outboundRules
+                as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
+      );
 
-  factory FirewallsCreateRequestBody.fromJson(Map<String, dynamic> json) => FirewallsCreateRequestBody(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    dropletIds: json.containsKey('droplet_ids') ? SdkPresent((json['droplet_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    inboundRules: json.containsKey('inbound_rules') ? SdkPresent((json['inbound_rules'] as List?)?.map((e) => FirewallRulesInboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-    outboundRules: json.containsKey('outbound_rules') ? SdkPresent((json['outbound_rules'] as List?)?.map((e) => FirewallRulesOutboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+  factory FirewallsCreateRequestBody.fromJson(Map<String, dynamic> json) =>
+      FirewallsCreateRequestBody(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        dropletIds: json.containsKey('droplet_ids')
+            ? SdkPresent((json['droplet_ids'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        inboundRules: json.containsKey('inbound_rules')
+            ? SdkPresent((json['inbound_rules'] as List?)
+                ?.map((e) => FirewallRulesInboundRulesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+        outboundRules: json.containsKey('outbound_rules')
+            ? SdkPresent((json['outbound_rules'] as List?)
+                ?.map((e) => FirewallRulesOutboundRulesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dropletIds) {
-      SdkPresent<List<int>?>(value: final value) => {'droplet_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inboundRules) {
-      SdkPresent<List<FirewallRulesInboundRulesItem>?>(value: final value) => {'inbound_rules': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outboundRules) {
-      SdkPresent<List<FirewallRulesOutboundRulesItem>?>(value: final value) => {'outbound_rules': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dropletIds) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'droplet_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inboundRules) {
+          SdkPresent<List<FirewallRulesInboundRulesItem>?>(
+            value: final value
+          ) =>
+            {
+              'inbound_rules': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outboundRules) {
+          SdkPresent<List<FirewallRulesOutboundRulesItem>?>(
+            value: final value
+          ) =>
+            {
+              'outbound_rules': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class FirewallsUpdateRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-).
   final String name;
+
   /// An array containing the IDs of the Droplets assigned to the firewall. &lt;br&gt;&lt;br&gt;Requires `droplet:read` scope.
   final SdkOptional<List<int>?> dropletIds;
   final SdkOptional<List<String>> tags;
   final SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules;
   final SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules;
 
-  const FirewallsUpdateRequestBody({required this.name, this.dropletIds = const SdkOmitted(), this.tags = const SdkOmitted(), this.inboundRules = const SdkOmitted(), this.outboundRules = const SdkOmitted()});
+  const FirewallsUpdateRequestBody(
+      {required this.name,
+      this.dropletIds = const SdkOmitted(),
+      this.tags = const SdkOmitted(),
+      this.inboundRules = const SdkOmitted(),
+      this.outboundRules = const SdkOmitted()});
 
-  FirewallsUpdateRequestBody Function({String name, SdkOptional<List<int>?> dropletIds, SdkOptional<List<String>> tags, SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules, SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules}) get copyWith => _copyWith;
+  FirewallsUpdateRequestBody Function(
+          {String name,
+          SdkOptional<List<int>?> dropletIds,
+          SdkOptional<List<String>> tags,
+          SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules,
+          SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules})
+      get copyWith => _copyWith;
 
-  FirewallsUpdateRequestBody _copyWith({Object? name = sdkOmittedValue, Object? dropletIds = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? inboundRules = sdkOmittedValue, Object? outboundRules = sdkOmittedValue}) => FirewallsUpdateRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    dropletIds: identical(dropletIds, sdkOmittedValue) ? this.dropletIds : dropletIds as SdkOptional<List<int>?>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    inboundRules: identical(inboundRules, sdkOmittedValue) ? this.inboundRules : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
-    outboundRules: identical(outboundRules, sdkOmittedValue) ? this.outboundRules : outboundRules as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
-  );
+  FirewallsUpdateRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? dropletIds = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? inboundRules = sdkOmittedValue,
+          Object? outboundRules = sdkOmittedValue}) =>
+      FirewallsUpdateRequestBody(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        dropletIds: identical(dropletIds, sdkOmittedValue)
+            ? this.dropletIds
+            : dropletIds as SdkOptional<List<int>?>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        inboundRules: identical(inboundRules, sdkOmittedValue)
+            ? this.inboundRules
+            : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
+        outboundRules: identical(outboundRules, sdkOmittedValue)
+            ? this.outboundRules
+            : outboundRules
+                as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
+      );
 
-  factory FirewallsUpdateRequestBody.fromJson(Map<String, dynamic> json) => FirewallsUpdateRequestBody(
-    name: (json['name'] as String?)!,
-    dropletIds: json.containsKey('droplet_ids') ? SdkPresent((json['droplet_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    inboundRules: json.containsKey('inbound_rules') ? SdkPresent((json['inbound_rules'] as List?)?.map((e) => FirewallRulesInboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-    outboundRules: json.containsKey('outbound_rules') ? SdkPresent((json['outbound_rules'] as List?)?.map((e) => FirewallRulesOutboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+  factory FirewallsUpdateRequestBody.fromJson(Map<String, dynamic> json) =>
+      FirewallsUpdateRequestBody(
+        name: (json['name'] as String?)!,
+        dropletIds: json.containsKey('droplet_ids')
+            ? SdkPresent((json['droplet_ids'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        inboundRules: json.containsKey('inbound_rules')
+            ? SdkPresent((json['inbound_rules'] as List?)
+                ?.map((e) => FirewallRulesInboundRulesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+        outboundRules: json.containsKey('outbound_rules')
+            ? SdkPresent((json['outbound_rules'] as List?)
+                ?.map((e) => FirewallRulesOutboundRulesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (dropletIds) {
-      SdkPresent<List<int>?>(value: final value) => {'droplet_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inboundRules) {
-      SdkPresent<List<FirewallRulesInboundRulesItem>?>(value: final value) => {'inbound_rules': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outboundRules) {
-      SdkPresent<List<FirewallRulesOutboundRulesItem>?>(value: final value) => {'outbound_rules': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (dropletIds) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'droplet_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inboundRules) {
+          SdkPresent<List<FirewallRulesInboundRulesItem>?>(
+            value: final value
+          ) =>
+            {
+              'inbound_rules': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outboundRules) {
+          SdkPresent<List<FirewallRulesOutboundRulesItem>?>(
+            value: final value
+          ) =>
+            {
+              'outbound_rules': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class FirewallsAssignDropletsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array containing the IDs of the Droplets to be assigned to the firewall.
   final List<int> dropletIds;
 
   const FirewallsAssignDropletsRequestBody({required this.dropletIds});
 
-  FirewallsAssignDropletsRequestBody Function({List<int> dropletIds}) get copyWith => _copyWith;
+  FirewallsAssignDropletsRequestBody Function({List<int> dropletIds})
+      get copyWith => _copyWith;
 
-  FirewallsAssignDropletsRequestBody _copyWith({Object? dropletIds = sdkOmittedValue}) => FirewallsAssignDropletsRequestBody(
-    dropletIds: identical(dropletIds, sdkOmittedValue) ? this.dropletIds : dropletIds as List<int>,
-  );
+  FirewallsAssignDropletsRequestBody _copyWith(
+          {Object? dropletIds = sdkOmittedValue}) =>
+      FirewallsAssignDropletsRequestBody(
+        dropletIds: identical(dropletIds, sdkOmittedValue)
+            ? this.dropletIds
+            : dropletIds as List<int>,
+      );
 
-  factory FirewallsAssignDropletsRequestBody.fromJson(Map<String, dynamic> json) => FirewallsAssignDropletsRequestBody(
-    dropletIds: ((json['droplet_ids'] as List?)?.map((e) => (e as num).toInt()).toList())!,
-  );
+  factory FirewallsAssignDropletsRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      FirewallsAssignDropletsRequestBody(
+        dropletIds: ((json['droplet_ids'] as List?)
+            ?.map((e) => (e as num).toInt())
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'droplet_ids': dropletIds,
-  };
+        'droplet_ids': dropletIds,
+      };
 }
 
 class FirewallsDeleteDropletsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array containing the IDs of the Droplets to be removed from the firewall.
   final List<int> dropletIds;
 
   const FirewallsDeleteDropletsRequestBody({required this.dropletIds});
 
-  FirewallsDeleteDropletsRequestBody Function({List<int> dropletIds}) get copyWith => _copyWith;
+  FirewallsDeleteDropletsRequestBody Function({List<int> dropletIds})
+      get copyWith => _copyWith;
 
-  FirewallsDeleteDropletsRequestBody _copyWith({Object? dropletIds = sdkOmittedValue}) => FirewallsDeleteDropletsRequestBody(
-    dropletIds: identical(dropletIds, sdkOmittedValue) ? this.dropletIds : dropletIds as List<int>,
-  );
+  FirewallsDeleteDropletsRequestBody _copyWith(
+          {Object? dropletIds = sdkOmittedValue}) =>
+      FirewallsDeleteDropletsRequestBody(
+        dropletIds: identical(dropletIds, sdkOmittedValue)
+            ? this.dropletIds
+            : dropletIds as List<int>,
+      );
 
-  factory FirewallsDeleteDropletsRequestBody.fromJson(Map<String, dynamic> json) => FirewallsDeleteDropletsRequestBody(
-    dropletIds: ((json['droplet_ids'] as List?)?.map((e) => (e as num).toInt()).toList())!,
-  );
+  factory FirewallsDeleteDropletsRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      FirewallsDeleteDropletsRequestBody(
+        dropletIds: ((json['droplet_ids'] as List?)
+            ?.map((e) => (e as num).toInt())
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'droplet_ids': dropletIds,
-  };
+        'droplet_ids': dropletIds,
+      };
 }
 
 class FirewallsAddTagsRequestBody {
@@ -243,19 +442,23 @@ class FirewallsAddTagsRequestBody {
 
   const FirewallsAddTagsRequestBody({required this.tags});
 
-  FirewallsAddTagsRequestBody Function({List<String> tags}) get copyWith => _copyWith;
+  FirewallsAddTagsRequestBody Function({List<String> tags}) get copyWith =>
+      _copyWith;
 
-  FirewallsAddTagsRequestBody _copyWith({Object? tags = sdkOmittedValue}) => FirewallsAddTagsRequestBody(
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as List<String>,
-  );
+  FirewallsAddTagsRequestBody _copyWith({Object? tags = sdkOmittedValue}) =>
+      FirewallsAddTagsRequestBody(
+        tags:
+            identical(tags, sdkOmittedValue) ? this.tags : tags as List<String>,
+      );
 
-  factory FirewallsAddTagsRequestBody.fromJson(Map<String, dynamic> json) => FirewallsAddTagsRequestBody(
-    tags: ((json['tags'] as List?)?.map((e) => e as String).toList())!,
-  );
+  factory FirewallsAddTagsRequestBody.fromJson(Map<String, dynamic> json) =>
+      FirewallsAddTagsRequestBody(
+        tags: ((json['tags'] as List?)?.map((e) => e as String).toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'tags': tags,
-  };
+        'tags': tags,
+      };
 }
 
 class FirewallsDeleteTagsRequestBody {
@@ -265,17 +468,21 @@ class FirewallsDeleteTagsRequestBody {
 
   const FirewallsDeleteTagsRequestBody({required this.tags});
 
-  FirewallsDeleteTagsRequestBody Function({List<String> tags}) get copyWith => _copyWith;
+  FirewallsDeleteTagsRequestBody Function({List<String> tags}) get copyWith =>
+      _copyWith;
 
-  FirewallsDeleteTagsRequestBody _copyWith({Object? tags = sdkOmittedValue}) => FirewallsDeleteTagsRequestBody(
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as List<String>,
-  );
+  FirewallsDeleteTagsRequestBody _copyWith({Object? tags = sdkOmittedValue}) =>
+      FirewallsDeleteTagsRequestBody(
+        tags:
+            identical(tags, sdkOmittedValue) ? this.tags : tags as List<String>,
+      );
 
-  factory FirewallsDeleteTagsRequestBody.fromJson(Map<String, dynamic> json) => FirewallsDeleteTagsRequestBody(
-    tags: ((json['tags'] as List?)?.map((e) => e as String).toList())!,
-  );
+  factory FirewallsDeleteTagsRequestBody.fromJson(Map<String, dynamic> json) =>
+      FirewallsDeleteTagsRequestBody(
+        tags: ((json['tags'] as List?)?.map((e) => e as String).toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'tags': tags,
-  };
+        'tags': tags,
+      };
 }

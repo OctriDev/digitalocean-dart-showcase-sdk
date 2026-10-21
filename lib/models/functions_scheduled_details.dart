@@ -8,57 +8,83 @@ part of 'functions.dart';
 class ScheduledDetailsBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
 
   const ScheduledDetailsBody({this.name = const SdkOmitted()});
 
-  ScheduledDetailsBody Function({SdkOptional<String> name}) get copyWith => _copyWith;
+  ScheduledDetailsBody Function({SdkOptional<String> name}) get copyWith =>
+      _copyWith;
 
-  ScheduledDetailsBody _copyWith({Object? name = sdkOmittedValue}) => ScheduledDetailsBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  ScheduledDetailsBody _copyWith({Object? name = sdkOmittedValue}) =>
+      ScheduledDetailsBody(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory ScheduledDetailsBody.fromJson(Map<String, dynamic> json) => ScheduledDetailsBody(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory ScheduledDetailsBody.fromJson(Map<String, dynamic> json) =>
+      ScheduledDetailsBody(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Trigger details for SCHEDULED type, where body is optional.
 class ScheduledDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// valid cron expression string which is required for SCHEDULED type triggers.
   final String cron;
+
   /// Optional data to be sent to function while triggering the function.
   final SdkOptional<ScheduledDetailsBody?> body;
 
   const ScheduledDetails({required this.cron, this.body = const SdkOmitted()});
 
-  ScheduledDetails Function({String cron, SdkOptional<ScheduledDetailsBody?> body}) get copyWith => _copyWith;
+  ScheduledDetails Function(
+      {String cron,
+      SdkOptional<ScheduledDetailsBody?> body}) get copyWith => _copyWith;
 
-  ScheduledDetails _copyWith({Object? cron = sdkOmittedValue, Object? body = sdkOmittedValue}) => ScheduledDetails(
-    cron: identical(cron, sdkOmittedValue) ? this.cron : cron as String,
-    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<ScheduledDetailsBody?>,
-  );
+  ScheduledDetails _copyWith(
+          {Object? cron = sdkOmittedValue, Object? body = sdkOmittedValue}) =>
+      ScheduledDetails(
+        cron: identical(cron, sdkOmittedValue) ? this.cron : cron as String,
+        body: identical(body, sdkOmittedValue)
+            ? this.body
+            : body as SdkOptional<ScheduledDetailsBody?>,
+      );
 
-  factory ScheduledDetails.fromJson(Map<String, dynamic> json) => ScheduledDetails(
-    cron: (json['cron'] as String?)!,
-    body: json.containsKey('body') ? SdkPresent(json['body'] != null ? ScheduledDetailsBody.fromJson(json['body'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory ScheduledDetails.fromJson(Map<String, dynamic> json) =>
+      ScheduledDetails(
+        cron: (json['cron'] as String?)!,
+        body: json.containsKey('body')
+            ? SdkPresent(json['body'] != null
+                ? ScheduledDetailsBody.fromJson(
+                    json['body'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'cron': cron,
-    ...switch (body) {
-      SdkPresent<ScheduledDetailsBody?>(value: final value) => {'body': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'cron': cron,
+        ...switch (body) {
+          SdkPresent<ScheduledDetailsBody?>(value: final value) => {
+              'body': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

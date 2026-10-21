@@ -8,33 +8,54 @@ part of 'insights_traces.dart';
 class TracesTimeInstant {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An absolute timestamp, either RFC3339 (with optional fractional seconds) or a Unix epoch integer as a decimal string. Epoch precision is inferred from magnitude: seconds, milliseconds, microseconds, or nanoseconds.
   final SdkOptional<String> absolute;
+
   /// A time relative to now. Use `now` for the current time, a bare duration such as `15m` or `24h` to look back from now, or an offset such as `now-2h` or `now+30m`. Supported units are `s`, `m`, `h`, `d`, and `w`; decimal amounts such as `1.5h` are allowed.
   final SdkOptional<String> relative;
 
-  const TracesTimeInstant({this.absolute = const SdkOmitted(), this.relative = const SdkOmitted()});
+  const TracesTimeInstant(
+      {this.absolute = const SdkOmitted(), this.relative = const SdkOmitted()});
 
-  TracesTimeInstant Function({SdkOptional<String> absolute, SdkOptional<String> relative}) get copyWith => _copyWith;
+  TracesTimeInstant Function(
+      {SdkOptional<String> absolute,
+      SdkOptional<String> relative}) get copyWith => _copyWith;
 
-  TracesTimeInstant _copyWith({Object? absolute = sdkOmittedValue, Object? relative = sdkOmittedValue}) => TracesTimeInstant(
-    absolute: identical(absolute, sdkOmittedValue) ? this.absolute : absolute as SdkOptional<String>,
-    relative: identical(relative, sdkOmittedValue) ? this.relative : relative as SdkOptional<String>,
-  );
+  TracesTimeInstant _copyWith(
+          {Object? absolute = sdkOmittedValue,
+          Object? relative = sdkOmittedValue}) =>
+      TracesTimeInstant(
+        absolute: identical(absolute, sdkOmittedValue)
+            ? this.absolute
+            : absolute as SdkOptional<String>,
+        relative: identical(relative, sdkOmittedValue)
+            ? this.relative
+            : relative as SdkOptional<String>,
+      );
 
-  factory TracesTimeInstant.fromJson(Map<String, dynamic> json) => TracesTimeInstant(
-    absolute: json['absolute'] != null ? SdkPresent((json['absolute'] as String?)!) : const SdkOmitted(),
-    relative: json['relative'] != null ? SdkPresent((json['relative'] as String?)!) : const SdkOmitted(),
-  );
+  factory TracesTimeInstant.fromJson(Map<String, dynamic> json) =>
+      TracesTimeInstant(
+        absolute: json['absolute'] != null
+            ? SdkPresent((json['absolute'] as String?)!)
+            : const SdkOmitted(),
+        relative: json['relative'] != null
+            ? SdkPresent((json['relative'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (absolute) {
-      SdkPresent<String>(value: final value) => {'absolute': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (relative) {
-      SdkPresent<String>(value: final value) => {'relative': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (absolute) {
+          SdkPresent<String>(value: final value) => {
+              'absolute': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (relative) {
+          SdkPresent<String>(value: final value) => {
+              'relative': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

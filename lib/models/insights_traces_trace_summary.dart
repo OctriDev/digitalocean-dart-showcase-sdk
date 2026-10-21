@@ -8,78 +8,160 @@ part of 'insights_traces.dart';
 class TracesTraceSummary {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The trace identifier.
   final String traceId;
+
   /// The start time of the earliest span in the trace, in RFC 3339 format.
   final SdkOptional<String> started;
+
   /// The service that emitted the root span. Omitted when the root span has no service.name resource attribute.
   final SdkOptional<String> serviceName;
+
   /// Wall-clock duration of the trace in nanoseconds.
   final SdkOptional<int> durationNs;
+
   /// The number of spans in the trace.
   final SdkOptional<int> spanCount;
+
   /// The number of spans in the trace with an `Error` status code. Omitted when zero.
   final SdkOptional<int> errorCount;
+
   /// The rolled-up status of the trace. `Error` if any span has an `Error` status code, otherwise `Ok`.
   final SdkOptional<TracesTraceSummaryStatus> status;
+
   /// The distinct span names present in the trace.
   final SdkOptional<List<String>> spanNames;
 
-  const TracesTraceSummary({required this.traceId, this.started = const SdkOmitted(), this.serviceName = const SdkOmitted(), this.durationNs = const SdkOmitted(), this.spanCount = const SdkOmitted(), this.errorCount = const SdkOmitted(), this.status = const SdkOmitted(), this.spanNames = const SdkOmitted()});
+  const TracesTraceSummary(
+      {required this.traceId,
+      this.started = const SdkOmitted(),
+      this.serviceName = const SdkOmitted(),
+      this.durationNs = const SdkOmitted(),
+      this.spanCount = const SdkOmitted(),
+      this.errorCount = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.spanNames = const SdkOmitted()});
 
-  TracesTraceSummary Function({String traceId, SdkOptional<String> started, SdkOptional<String> serviceName, SdkOptional<int> durationNs, SdkOptional<int> spanCount, SdkOptional<int> errorCount, SdkOptional<TracesTraceSummaryStatus> status, SdkOptional<List<String>> spanNames}) get copyWith => _copyWith;
+  TracesTraceSummary Function(
+      {String traceId,
+      SdkOptional<String> started,
+      SdkOptional<String> serviceName,
+      SdkOptional<int> durationNs,
+      SdkOptional<int> spanCount,
+      SdkOptional<int> errorCount,
+      SdkOptional<TracesTraceSummaryStatus> status,
+      SdkOptional<List<String>> spanNames}) get copyWith => _copyWith;
 
-  TracesTraceSummary _copyWith({Object? traceId = sdkOmittedValue, Object? started = sdkOmittedValue, Object? serviceName = sdkOmittedValue, Object? durationNs = sdkOmittedValue, Object? spanCount = sdkOmittedValue, Object? errorCount = sdkOmittedValue, Object? status = sdkOmittedValue, Object? spanNames = sdkOmittedValue}) => TracesTraceSummary(
-    traceId: identical(traceId, sdkOmittedValue) ? this.traceId : traceId as String,
-    started: identical(started, sdkOmittedValue) ? this.started : started as SdkOptional<String>,
-    serviceName: identical(serviceName, sdkOmittedValue) ? this.serviceName : serviceName as SdkOptional<String>,
-    durationNs: identical(durationNs, sdkOmittedValue) ? this.durationNs : durationNs as SdkOptional<int>,
-    spanCount: identical(spanCount, sdkOmittedValue) ? this.spanCount : spanCount as SdkOptional<int>,
-    errorCount: identical(errorCount, sdkOmittedValue) ? this.errorCount : errorCount as SdkOptional<int>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<TracesTraceSummaryStatus>,
-    spanNames: identical(spanNames, sdkOmittedValue) ? this.spanNames : spanNames as SdkOptional<List<String>>,
-  );
+  TracesTraceSummary _copyWith(
+          {Object? traceId = sdkOmittedValue,
+          Object? started = sdkOmittedValue,
+          Object? serviceName = sdkOmittedValue,
+          Object? durationNs = sdkOmittedValue,
+          Object? spanCount = sdkOmittedValue,
+          Object? errorCount = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? spanNames = sdkOmittedValue}) =>
+      TracesTraceSummary(
+        traceId: identical(traceId, sdkOmittedValue)
+            ? this.traceId
+            : traceId as String,
+        started: identical(started, sdkOmittedValue)
+            ? this.started
+            : started as SdkOptional<String>,
+        serviceName: identical(serviceName, sdkOmittedValue)
+            ? this.serviceName
+            : serviceName as SdkOptional<String>,
+        durationNs: identical(durationNs, sdkOmittedValue)
+            ? this.durationNs
+            : durationNs as SdkOptional<int>,
+        spanCount: identical(spanCount, sdkOmittedValue)
+            ? this.spanCount
+            : spanCount as SdkOptional<int>,
+        errorCount: identical(errorCount, sdkOmittedValue)
+            ? this.errorCount
+            : errorCount as SdkOptional<int>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<TracesTraceSummaryStatus>,
+        spanNames: identical(spanNames, sdkOmittedValue)
+            ? this.spanNames
+            : spanNames as SdkOptional<List<String>>,
+      );
 
-  factory TracesTraceSummary.fromJson(Map<String, dynamic> json) => TracesTraceSummary(
-    traceId: (json['traceId'] as String?)!,
-    started: json['started'] != null ? SdkPresent((json['started'] as String?)!) : const SdkOmitted(),
-    serviceName: json['serviceName'] != null ? SdkPresent((json['serviceName'] as String?)!) : const SdkOmitted(),
-    durationNs: json['durationNs'] != null ? SdkPresent(((json['durationNs'] as num?)?.toInt())!) : const SdkOmitted(),
-    spanCount: json['spanCount'] != null ? SdkPresent(((json['spanCount'] as num?)?.toInt())!) : const SdkOmitted(),
-    errorCount: json['errorCount'] != null ? SdkPresent(((json['errorCount'] as num?)?.toInt())!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? TracesTraceSummaryStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    spanNames: json['spanNames'] != null ? SdkPresent(((json['spanNames'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory TracesTraceSummary.fromJson(Map<String, dynamic> json) =>
+      TracesTraceSummary(
+        traceId: (json['traceId'] as String?)!,
+        started: json['started'] != null
+            ? SdkPresent((json['started'] as String?)!)
+            : const SdkOmitted(),
+        serviceName: json['serviceName'] != null
+            ? SdkPresent((json['serviceName'] as String?)!)
+            : const SdkOmitted(),
+        durationNs: json['durationNs'] != null
+            ? SdkPresent(((json['durationNs'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        spanCount: json['spanCount'] != null
+            ? SdkPresent(((json['spanCount'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        errorCount: json['errorCount'] != null
+            ? SdkPresent(((json['errorCount'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? TracesTraceSummaryStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        spanNames: json['spanNames'] != null
+            ? SdkPresent(((json['spanNames'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'traceId': traceId,
-    ...switch (started) {
-      SdkPresent<String>(value: final value) => {'started': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (serviceName) {
-      SdkPresent<String>(value: final value) => {'serviceName': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (durationNs) {
-      SdkPresent<int>(value: final value) => {'durationNs': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (spanCount) {
-      SdkPresent<int>(value: final value) => {'spanCount': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (errorCount) {
-      SdkPresent<int>(value: final value) => {'errorCount': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<TracesTraceSummaryStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (spanNames) {
-      SdkPresent<List<String>>(value: final value) => {'spanNames': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'traceId': traceId,
+        ...switch (started) {
+          SdkPresent<String>(value: final value) => {
+              'started': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (serviceName) {
+          SdkPresent<String>(value: final value) => {
+              'serviceName': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (durationNs) {
+          SdkPresent<int>(value: final value) => {
+              'durationNs': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (spanCount) {
+          SdkPresent<int>(value: final value) => {
+              'spanCount': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (errorCount) {
+          SdkPresent<int>(value: final value) => {
+              'errorCount': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<TracesTraceSummaryStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (spanNames) {
+          SdkPresent<List<String>>(value: final value) => {
+              'spanNames': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

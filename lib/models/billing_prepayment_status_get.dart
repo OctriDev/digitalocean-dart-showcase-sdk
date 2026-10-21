@@ -8,25 +8,38 @@ part of 'billing.dart';
 class PrepaymentStatusResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `status` wire field.
   final SdkOptional<PrepaymentStatus> status;
 
   const PrepaymentStatusResponse({this.status = const SdkOmitted()});
 
-  PrepaymentStatusResponse Function({SdkOptional<PrepaymentStatus> status}) get copyWith => _copyWith;
+  PrepaymentStatusResponse Function({SdkOptional<PrepaymentStatus> status})
+      get copyWith => _copyWith;
 
-  PrepaymentStatusResponse _copyWith({Object? status = sdkOmittedValue}) => PrepaymentStatusResponse(
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<PrepaymentStatus>,
-  );
+  PrepaymentStatusResponse _copyWith({Object? status = sdkOmittedValue}) =>
+      PrepaymentStatusResponse(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<PrepaymentStatus>,
+      );
 
-  factory PrepaymentStatusResponse.fromJson(Map<String, dynamic> json) => PrepaymentStatusResponse(
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? PrepaymentStatus.fromJson(json['status'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory PrepaymentStatusResponse.fromJson(Map<String, dynamic> json) =>
+      PrepaymentStatusResponse(
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? PrepaymentStatus.fromJson(
+                    json['status'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (status) {
-      SdkPresent<PrepaymentStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (status) {
+          SdkPresent<PrepaymentStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

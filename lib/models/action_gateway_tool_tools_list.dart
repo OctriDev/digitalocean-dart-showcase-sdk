@@ -8,263 +8,546 @@ part of 'action_gateway_tool.dart';
 class Tool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Tool name, without the provider prefix.
   final SdkOptional<String> name;
+
   /// ID of the provider that offers the tool. For a tool from one of your team's MCP servers it is that server's `serverRef`.
   final SdkOptional<String> toolkitId;
+
   /// The provider-qualified, stable tool identifier `&lt;toolkit_id&gt;_&lt;name&gt;`. Pass this value back verbatim to the toolbelt add/remove endpoints; clients should treat it as opaque rather than reconstructing it from `toolkitId` and name.
   final SdkOptional<String> toolSlug;
+
   /// Human-readable tool title.
   final SdkOptional<String> title;
+
   /// What the tool does.
   final SdkOptional<String> description;
+
   /// Released version, for example `v3`.
   final SdkOptional<String> version;
+
   /// JSON Schema the tool's arguments must satisfy.
   final SdkOptional<Map<String, dynamic>?> inputSchema;
+
   /// JSON Schema of the tool's result, when declared.
   final SdkOptional<Map<String, dynamic>?> outputSchema;
+
   /// Advisory behavior hints for the tool.
   final SdkOptional<ToolAnnotations?> annotations;
+
   /// Catalog hint that calls to the tool may run in parallel.
   final SdkOptional<bool> parallelizable;
+
   /// Catalog hint that the tool's result can be streamed.
   final SdkOptional<bool> streamingSafe;
 
-  const Tool({this.name = const SdkOmitted(), this.toolkitId = const SdkOmitted(), this.toolSlug = const SdkOmitted(), this.title = const SdkOmitted(), this.description = const SdkOmitted(), this.version = const SdkOmitted(), this.inputSchema = const SdkOmitted(), this.outputSchema = const SdkOmitted(), this.annotations = const SdkOmitted(), this.parallelizable = const SdkOmitted(), this.streamingSafe = const SdkOmitted()});
+  const Tool(
+      {this.name = const SdkOmitted(),
+      this.toolkitId = const SdkOmitted(),
+      this.toolSlug = const SdkOmitted(),
+      this.title = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.version = const SdkOmitted(),
+      this.inputSchema = const SdkOmitted(),
+      this.outputSchema = const SdkOmitted(),
+      this.annotations = const SdkOmitted(),
+      this.parallelizable = const SdkOmitted(),
+      this.streamingSafe = const SdkOmitted()});
 
-  Tool Function({SdkOptional<String> name, SdkOptional<String> toolkitId, SdkOptional<String> toolSlug, SdkOptional<String> title, SdkOptional<String> description, SdkOptional<String> version, SdkOptional<Map<String, dynamic>?> inputSchema, SdkOptional<Map<String, dynamic>?> outputSchema, SdkOptional<ToolAnnotations?> annotations, SdkOptional<bool> parallelizable, SdkOptional<bool> streamingSafe}) get copyWith => _copyWith;
+  Tool Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> toolkitId,
+      SdkOptional<String> toolSlug,
+      SdkOptional<String> title,
+      SdkOptional<String> description,
+      SdkOptional<String> version,
+      SdkOptional<Map<String, dynamic>?> inputSchema,
+      SdkOptional<Map<String, dynamic>?> outputSchema,
+      SdkOptional<ToolAnnotations?> annotations,
+      SdkOptional<bool> parallelizable,
+      SdkOptional<bool> streamingSafe}) get copyWith => _copyWith;
 
-  Tool _copyWith({Object? name = sdkOmittedValue, Object? toolkitId = sdkOmittedValue, Object? toolSlug = sdkOmittedValue, Object? title = sdkOmittedValue, Object? description = sdkOmittedValue, Object? version = sdkOmittedValue, Object? inputSchema = sdkOmittedValue, Object? outputSchema = sdkOmittedValue, Object? annotations = sdkOmittedValue, Object? parallelizable = sdkOmittedValue, Object? streamingSafe = sdkOmittedValue}) => Tool(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    toolkitId: identical(toolkitId, sdkOmittedValue) ? this.toolkitId : toolkitId as SdkOptional<String>,
-    toolSlug: identical(toolSlug, sdkOmittedValue) ? this.toolSlug : toolSlug as SdkOptional<String>,
-    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
-    inputSchema: identical(inputSchema, sdkOmittedValue) ? this.inputSchema : inputSchema as SdkOptional<Map<String, dynamic>?>,
-    outputSchema: identical(outputSchema, sdkOmittedValue) ? this.outputSchema : outputSchema as SdkOptional<Map<String, dynamic>?>,
-    annotations: identical(annotations, sdkOmittedValue) ? this.annotations : annotations as SdkOptional<ToolAnnotations?>,
-    parallelizable: identical(parallelizable, sdkOmittedValue) ? this.parallelizable : parallelizable as SdkOptional<bool>,
-    streamingSafe: identical(streamingSafe, sdkOmittedValue) ? this.streamingSafe : streamingSafe as SdkOptional<bool>,
-  );
+  Tool _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? toolkitId = sdkOmittedValue,
+          Object? toolSlug = sdkOmittedValue,
+          Object? title = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? version = sdkOmittedValue,
+          Object? inputSchema = sdkOmittedValue,
+          Object? outputSchema = sdkOmittedValue,
+          Object? annotations = sdkOmittedValue,
+          Object? parallelizable = sdkOmittedValue,
+          Object? streamingSafe = sdkOmittedValue}) =>
+      Tool(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        toolkitId: identical(toolkitId, sdkOmittedValue)
+            ? this.toolkitId
+            : toolkitId as SdkOptional<String>,
+        toolSlug: identical(toolSlug, sdkOmittedValue)
+            ? this.toolSlug
+            : toolSlug as SdkOptional<String>,
+        title: identical(title, sdkOmittedValue)
+            ? this.title
+            : title as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as SdkOptional<String>,
+        inputSchema: identical(inputSchema, sdkOmittedValue)
+            ? this.inputSchema
+            : inputSchema as SdkOptional<Map<String, dynamic>?>,
+        outputSchema: identical(outputSchema, sdkOmittedValue)
+            ? this.outputSchema
+            : outputSchema as SdkOptional<Map<String, dynamic>?>,
+        annotations: identical(annotations, sdkOmittedValue)
+            ? this.annotations
+            : annotations as SdkOptional<ToolAnnotations?>,
+        parallelizable: identical(parallelizable, sdkOmittedValue)
+            ? this.parallelizable
+            : parallelizable as SdkOptional<bool>,
+        streamingSafe: identical(streamingSafe, sdkOmittedValue)
+            ? this.streamingSafe
+            : streamingSafe as SdkOptional<bool>,
+      );
 
   factory Tool.fromJson(Map<String, dynamic> json) => Tool(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    toolkitId: json['toolkitId'] != null ? SdkPresent((json['toolkitId'] as String?)!) : const SdkOmitted(),
-    toolSlug: json['toolSlug'] != null ? SdkPresent((json['toolSlug'] as String?)!) : const SdkOmitted(),
-    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
-    inputSchema: json.containsKey('inputSchema') ? SdkPresent(json['inputSchema'] == null ? null : json['inputSchema'] as Map<String, dynamic>) : const SdkOmitted(),
-    outputSchema: json.containsKey('outputSchema') ? SdkPresent(json['outputSchema'] == null ? null : json['outputSchema'] as Map<String, dynamic>) : const SdkOmitted(),
-    annotations: json.containsKey('annotations') ? SdkPresent(json['annotations'] != null ? ToolAnnotations.fromJson(json['annotations'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    parallelizable: json['parallelizable'] != null ? SdkPresent((json['parallelizable'] as bool?)!) : const SdkOmitted(),
-    streamingSafe: json['streamingSafe'] != null ? SdkPresent((json['streamingSafe'] as bool?)!) : const SdkOmitted(),
-  );
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        toolkitId: json['toolkitId'] != null
+            ? SdkPresent((json['toolkitId'] as String?)!)
+            : const SdkOmitted(),
+        toolSlug: json['toolSlug'] != null
+            ? SdkPresent((json['toolSlug'] as String?)!)
+            : const SdkOmitted(),
+        title: json['title'] != null
+            ? SdkPresent((json['title'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        version: json['version'] != null
+            ? SdkPresent((json['version'] as String?)!)
+            : const SdkOmitted(),
+        inputSchema: json.containsKey('inputSchema')
+            ? SdkPresent(json['inputSchema'] == null
+                ? null
+                : json['inputSchema'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        outputSchema: json.containsKey('outputSchema')
+            ? SdkPresent(json['outputSchema'] == null
+                ? null
+                : json['outputSchema'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        annotations: json.containsKey('annotations')
+            ? SdkPresent(json['annotations'] != null
+                ? ToolAnnotations.fromJson(
+                    json['annotations'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        parallelizable: json['parallelizable'] != null
+            ? SdkPresent((json['parallelizable'] as bool?)!)
+            : const SdkOmitted(),
+        streamingSafe: json['streamingSafe'] != null
+            ? SdkPresent((json['streamingSafe'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (toolkitId) {
-      SdkPresent<String>(value: final value) => {'toolkitId': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (toolSlug) {
-      SdkPresent<String>(value: final value) => {'toolSlug': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (title) {
-      SdkPresent<String>(value: final value) => {'title': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (version) {
-      SdkPresent<String>(value: final value) => {'version': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inputSchema) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'inputSchema': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outputSchema) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'outputSchema': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (annotations) {
-      SdkPresent<ToolAnnotations?>(value: final value) => {'annotations': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parallelizable) {
-      SdkPresent<bool>(value: final value) => {'parallelizable': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (streamingSafe) {
-      SdkPresent<bool>(value: final value) => {'streamingSafe': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (toolkitId) {
+          SdkPresent<String>(value: final value) => {
+              'toolkitId': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (toolSlug) {
+          SdkPresent<String>(value: final value) => {
+              'toolSlug': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (title) {
+          SdkPresent<String>(value: final value) => {
+              'title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (version) {
+          SdkPresent<String>(value: final value) => {
+              'version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inputSchema) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'inputSchema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outputSchema) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'outputSchema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (annotations) {
+          SdkPresent<ToolAnnotations?>(value: final value) => {
+              'annotations': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parallelizable) {
+          SdkPresent<bool>(value: final value) => {
+              'parallelizable': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (streamingSafe) {
+          SdkPresent<bool>(value: final value) => {
+              'streamingSafe': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Names the provider account the tool acts through and the scopes it requests.
 class ToolDefinitionAuth {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Lists how the tool authenticates: oauth (a user connection), `user_token` (a key your team supplies), `shared_key` (a key DigitalOcean supplies), or none.
   final SdkOptional<List<String>> modes;
+
   /// The provider slug a connection is created for. Empty when the tool needs no provider account.
   final SdkOptional<String> provider;
+
   /// The provider permissions the tool requests.
   final SdkOptional<List<String>> scopes;
 
-  const ToolDefinitionAuth({this.modes = const SdkOmitted(), this.provider = const SdkOmitted(), this.scopes = const SdkOmitted()});
+  const ToolDefinitionAuth(
+      {this.modes = const SdkOmitted(),
+      this.provider = const SdkOmitted(),
+      this.scopes = const SdkOmitted()});
 
-  ToolDefinitionAuth Function({SdkOptional<List<String>> modes, SdkOptional<String> provider, SdkOptional<List<String>> scopes}) get copyWith => _copyWith;
+  ToolDefinitionAuth Function(
+      {SdkOptional<List<String>> modes,
+      SdkOptional<String> provider,
+      SdkOptional<List<String>> scopes}) get copyWith => _copyWith;
 
-  ToolDefinitionAuth _copyWith({Object? modes = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? scopes = sdkOmittedValue}) => ToolDefinitionAuth(
-    modes: identical(modes, sdkOmittedValue) ? this.modes : modes as SdkOptional<List<String>>,
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as SdkOptional<String>,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
-  );
+  ToolDefinitionAuth _copyWith(
+          {Object? modes = sdkOmittedValue,
+          Object? provider = sdkOmittedValue,
+          Object? scopes = sdkOmittedValue}) =>
+      ToolDefinitionAuth(
+        modes: identical(modes, sdkOmittedValue)
+            ? this.modes
+            : modes as SdkOptional<List<String>>,
+        provider: identical(provider, sdkOmittedValue)
+            ? this.provider
+            : provider as SdkOptional<String>,
+        scopes: identical(scopes, sdkOmittedValue)
+            ? this.scopes
+            : scopes as SdkOptional<List<String>>,
+      );
 
-  factory ToolDefinitionAuth.fromJson(Map<String, dynamic> json) => ToolDefinitionAuth(
-    modes: json['modes'] != null ? SdkPresent(((json['modes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    provider: json['provider'] != null ? SdkPresent((json['provider'] as String?)!) : const SdkOmitted(),
-    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory ToolDefinitionAuth.fromJson(Map<String, dynamic> json) =>
+      ToolDefinitionAuth(
+        modes: json['modes'] != null
+            ? SdkPresent(
+                ((json['modes'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        provider: json['provider'] != null
+            ? SdkPresent((json['provider'] as String?)!)
+            : const SdkOmitted(),
+        scopes: json['scopes'] != null
+            ? SdkPresent(
+                ((json['scopes'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (modes) {
-      SdkPresent<List<String>>(value: final value) => {'modes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (provider) {
-      SdkPresent<String>(value: final value) => {'provider': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scopes) {
-      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (modes) {
+          SdkPresent<List<String>>(value: final value) => {
+              'modes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (provider) {
+          SdkPresent<String>(value: final value) => {
+              'provider': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scopes) {
+          SdkPresent<List<String>>(value: final value) => {
+              'scopes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Describes a tool you can call.
 class ToolDefinition {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The opaque identity of this released tool version.
   final SdkOptional<String> toolId;
+
   /// The tool name without the provider prefix.
   final SdkOptional<String> name;
+
   /// The ID of the provider that offers the tool. For a tool from one of your team's MCP servers it is that server's `serverRef`.
   final SdkOptional<String> toolkitId;
+
   /// The provider-qualified tool identifier `&lt;toolkit_id&gt;_&lt;name&gt;`. Treat it as opaque and pass it back verbatim.
   final SdkOptional<String> toolSlug;
+
   /// Human-readable tool title.
   final SdkOptional<String> title;
+
   /// What the tool does.
   final SdkOptional<String> description;
+
   /// The JSON Schema the tool's arguments must satisfy.
   final SdkOptional<Map<String, dynamic>?> inputSchema;
+
   /// The JSON Schema of the tool's result, when declared.
   final SdkOptional<Map<String, dynamic>?> outputSchema;
+
   /// Advisory behavior hints for the tool.
   final SdkOptional<ToolAnnotations?> annotations;
+
   /// The released version, for example `v3`.
   final SdkOptional<String> version;
+
   /// Names the provider account the tool acts through and the scopes it requests.
   final SdkOptional<ToolDefinitionAuth?> auth;
+
   /// Classifies the provider: native, `managed_api`, `customer_mcp`, sandbox, or `byo_mcp` (one of your team's MCP servers).
   final SdkOptional<String> providerKind;
 
-  const ToolDefinition({this.toolId = const SdkOmitted(), this.name = const SdkOmitted(), this.toolkitId = const SdkOmitted(), this.toolSlug = const SdkOmitted(), this.title = const SdkOmitted(), this.description = const SdkOmitted(), this.inputSchema = const SdkOmitted(), this.outputSchema = const SdkOmitted(), this.annotations = const SdkOmitted(), this.version = const SdkOmitted(), this.auth = const SdkOmitted(), this.providerKind = const SdkOmitted()});
+  const ToolDefinition(
+      {this.toolId = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.toolkitId = const SdkOmitted(),
+      this.toolSlug = const SdkOmitted(),
+      this.title = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.inputSchema = const SdkOmitted(),
+      this.outputSchema = const SdkOmitted(),
+      this.annotations = const SdkOmitted(),
+      this.version = const SdkOmitted(),
+      this.auth = const SdkOmitted(),
+      this.providerKind = const SdkOmitted()});
 
-  ToolDefinition Function({SdkOptional<String> toolId, SdkOptional<String> name, SdkOptional<String> toolkitId, SdkOptional<String> toolSlug, SdkOptional<String> title, SdkOptional<String> description, SdkOptional<Map<String, dynamic>?> inputSchema, SdkOptional<Map<String, dynamic>?> outputSchema, SdkOptional<ToolAnnotations?> annotations, SdkOptional<String> version, SdkOptional<ToolDefinitionAuth?> auth, SdkOptional<String> providerKind}) get copyWith => _copyWith;
+  ToolDefinition Function(
+      {SdkOptional<String> toolId,
+      SdkOptional<String> name,
+      SdkOptional<String> toolkitId,
+      SdkOptional<String> toolSlug,
+      SdkOptional<String> title,
+      SdkOptional<String> description,
+      SdkOptional<Map<String, dynamic>?> inputSchema,
+      SdkOptional<Map<String, dynamic>?> outputSchema,
+      SdkOptional<ToolAnnotations?> annotations,
+      SdkOptional<String> version,
+      SdkOptional<ToolDefinitionAuth?> auth,
+      SdkOptional<String> providerKind}) get copyWith => _copyWith;
 
-  ToolDefinition _copyWith({Object? toolId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? toolkitId = sdkOmittedValue, Object? toolSlug = sdkOmittedValue, Object? title = sdkOmittedValue, Object? description = sdkOmittedValue, Object? inputSchema = sdkOmittedValue, Object? outputSchema = sdkOmittedValue, Object? annotations = sdkOmittedValue, Object? version = sdkOmittedValue, Object? auth = sdkOmittedValue, Object? providerKind = sdkOmittedValue}) => ToolDefinition(
-    toolId: identical(toolId, sdkOmittedValue) ? this.toolId : toolId as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    toolkitId: identical(toolkitId, sdkOmittedValue) ? this.toolkitId : toolkitId as SdkOptional<String>,
-    toolSlug: identical(toolSlug, sdkOmittedValue) ? this.toolSlug : toolSlug as SdkOptional<String>,
-    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    inputSchema: identical(inputSchema, sdkOmittedValue) ? this.inputSchema : inputSchema as SdkOptional<Map<String, dynamic>?>,
-    outputSchema: identical(outputSchema, sdkOmittedValue) ? this.outputSchema : outputSchema as SdkOptional<Map<String, dynamic>?>,
-    annotations: identical(annotations, sdkOmittedValue) ? this.annotations : annotations as SdkOptional<ToolAnnotations?>,
-    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
-    auth: identical(auth, sdkOmittedValue) ? this.auth : auth as SdkOptional<ToolDefinitionAuth?>,
-    providerKind: identical(providerKind, sdkOmittedValue) ? this.providerKind : providerKind as SdkOptional<String>,
-  );
+  ToolDefinition _copyWith(
+          {Object? toolId = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? toolkitId = sdkOmittedValue,
+          Object? toolSlug = sdkOmittedValue,
+          Object? title = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? inputSchema = sdkOmittedValue,
+          Object? outputSchema = sdkOmittedValue,
+          Object? annotations = sdkOmittedValue,
+          Object? version = sdkOmittedValue,
+          Object? auth = sdkOmittedValue,
+          Object? providerKind = sdkOmittedValue}) =>
+      ToolDefinition(
+        toolId: identical(toolId, sdkOmittedValue)
+            ? this.toolId
+            : toolId as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        toolkitId: identical(toolkitId, sdkOmittedValue)
+            ? this.toolkitId
+            : toolkitId as SdkOptional<String>,
+        toolSlug: identical(toolSlug, sdkOmittedValue)
+            ? this.toolSlug
+            : toolSlug as SdkOptional<String>,
+        title: identical(title, sdkOmittedValue)
+            ? this.title
+            : title as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        inputSchema: identical(inputSchema, sdkOmittedValue)
+            ? this.inputSchema
+            : inputSchema as SdkOptional<Map<String, dynamic>?>,
+        outputSchema: identical(outputSchema, sdkOmittedValue)
+            ? this.outputSchema
+            : outputSchema as SdkOptional<Map<String, dynamic>?>,
+        annotations: identical(annotations, sdkOmittedValue)
+            ? this.annotations
+            : annotations as SdkOptional<ToolAnnotations?>,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as SdkOptional<String>,
+        auth: identical(auth, sdkOmittedValue)
+            ? this.auth
+            : auth as SdkOptional<ToolDefinitionAuth?>,
+        providerKind: identical(providerKind, sdkOmittedValue)
+            ? this.providerKind
+            : providerKind as SdkOptional<String>,
+      );
 
   factory ToolDefinition.fromJson(Map<String, dynamic> json) => ToolDefinition(
-    toolId: json['toolId'] != null ? SdkPresent((json['toolId'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    toolkitId: json['toolkitId'] != null ? SdkPresent((json['toolkitId'] as String?)!) : const SdkOmitted(),
-    toolSlug: json['toolSlug'] != null ? SdkPresent((json['toolSlug'] as String?)!) : const SdkOmitted(),
-    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    inputSchema: json.containsKey('inputSchema') ? SdkPresent(json['inputSchema'] == null ? null : json['inputSchema'] as Map<String, dynamic>) : const SdkOmitted(),
-    outputSchema: json.containsKey('outputSchema') ? SdkPresent(json['outputSchema'] == null ? null : json['outputSchema'] as Map<String, dynamic>) : const SdkOmitted(),
-    annotations: json.containsKey('annotations') ? SdkPresent(json['annotations'] != null ? ToolAnnotations.fromJson(json['annotations'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
-    auth: json.containsKey('auth') ? SdkPresent(json['auth'] != null ? ToolDefinitionAuth.fromJson(json['auth'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    providerKind: json['providerKind'] != null ? SdkPresent((json['providerKind'] as String?)!) : const SdkOmitted(),
-  );
+        toolId: json['toolId'] != null
+            ? SdkPresent((json['toolId'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        toolkitId: json['toolkitId'] != null
+            ? SdkPresent((json['toolkitId'] as String?)!)
+            : const SdkOmitted(),
+        toolSlug: json['toolSlug'] != null
+            ? SdkPresent((json['toolSlug'] as String?)!)
+            : const SdkOmitted(),
+        title: json['title'] != null
+            ? SdkPresent((json['title'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        inputSchema: json.containsKey('inputSchema')
+            ? SdkPresent(json['inputSchema'] == null
+                ? null
+                : json['inputSchema'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        outputSchema: json.containsKey('outputSchema')
+            ? SdkPresent(json['outputSchema'] == null
+                ? null
+                : json['outputSchema'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        annotations: json.containsKey('annotations')
+            ? SdkPresent(json['annotations'] != null
+                ? ToolAnnotations.fromJson(
+                    json['annotations'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        version: json['version'] != null
+            ? SdkPresent((json['version'] as String?)!)
+            : const SdkOmitted(),
+        auth: json.containsKey('auth')
+            ? SdkPresent(json['auth'] != null
+                ? ToolDefinitionAuth.fromJson(
+                    json['auth'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        providerKind: json['providerKind'] != null
+            ? SdkPresent((json['providerKind'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (toolId) {
-      SdkPresent<String>(value: final value) => {'toolId': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (toolkitId) {
-      SdkPresent<String>(value: final value) => {'toolkitId': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (toolSlug) {
-      SdkPresent<String>(value: final value) => {'toolSlug': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (title) {
-      SdkPresent<String>(value: final value) => {'title': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inputSchema) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'inputSchema': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outputSchema) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'outputSchema': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (annotations) {
-      SdkPresent<ToolAnnotations?>(value: final value) => {'annotations': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (version) {
-      SdkPresent<String>(value: final value) => {'version': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (auth) {
-      SdkPresent<ToolDefinitionAuth?>(value: final value) => {'auth': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (providerKind) {
-      SdkPresent<String>(value: final value) => {'providerKind': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (toolId) {
+          SdkPresent<String>(value: final value) => {
+              'toolId': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (toolkitId) {
+          SdkPresent<String>(value: final value) => {
+              'toolkitId': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (toolSlug) {
+          SdkPresent<String>(value: final value) => {
+              'toolSlug': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (title) {
+          SdkPresent<String>(value: final value) => {
+              'title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inputSchema) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'inputSchema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outputSchema) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'outputSchema': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (annotations) {
+          SdkPresent<ToolAnnotations?>(value: final value) => {
+              'annotations': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (version) {
+          SdkPresent<String>(value: final value) => {
+              'version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (auth) {
+          SdkPresent<ToolDefinitionAuth?>(value: final value) => {
+              'auth': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (providerKind) {
+          SdkPresent<String>(value: final value) => {
+              'providerKind': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

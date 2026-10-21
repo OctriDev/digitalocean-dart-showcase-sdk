@@ -8,237 +8,455 @@ part of 'signals.dart';
 class ConsentRecord {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique numeric identifier for the consent record.
   final int id;
+
   /// The team ID that owns this consent record.
   final int teamId;
+
   /// The source this consent applies to. `agent` is per-environment consent for Harness Runtime; `inference` is team-level consent for Serverless Inference chat completions.
   final ConsentRecordSource source;
+
   /// The unique identifier of the environment. For Harness Runtime, this is the Environment Config ID. Empty for team-level records (`source: inference`), which are not tied to an environment.
   final String agentId;
+
   /// Whether signals collection is enabled for this source.
   final bool enabled;
+
   /// A time value given in ISO8601 combined date and time format.
   final String updatedAt;
 
-  const ConsentRecord({required this.id, required this.teamId, required this.source, required this.agentId, required this.enabled, required this.updatedAt});
+  const ConsentRecord(
+      {required this.id,
+      required this.teamId,
+      required this.source,
+      required this.agentId,
+      required this.enabled,
+      required this.updatedAt});
 
-  ConsentRecord Function({int id, int teamId, ConsentRecordSource source, String agentId, bool enabled, String updatedAt}) get copyWith => _copyWith;
+  ConsentRecord Function(
+      {int id,
+      int teamId,
+      ConsentRecordSource source,
+      String agentId,
+      bool enabled,
+      String updatedAt}) get copyWith => _copyWith;
 
-  ConsentRecord _copyWith({Object? id = sdkOmittedValue, Object? teamId = sdkOmittedValue, Object? source = sdkOmittedValue, Object? agentId = sdkOmittedValue, Object? enabled = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => ConsentRecord(
-    id: identical(id, sdkOmittedValue) ? this.id : id as int,
-    teamId: identical(teamId, sdkOmittedValue) ? this.teamId : teamId as int,
-    source: identical(source, sdkOmittedValue) ? this.source : source as ConsentRecordSource,
-    agentId: identical(agentId, sdkOmittedValue) ? this.agentId : agentId as String,
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
-  );
+  ConsentRecord _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? teamId = sdkOmittedValue,
+          Object? source = sdkOmittedValue,
+          Object? agentId = sdkOmittedValue,
+          Object? enabled = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      ConsentRecord(
+        id: identical(id, sdkOmittedValue) ? this.id : id as int,
+        teamId:
+            identical(teamId, sdkOmittedValue) ? this.teamId : teamId as int,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as ConsentRecordSource,
+        agentId: identical(agentId, sdkOmittedValue)
+            ? this.agentId
+            : agentId as String,
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as bool,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as String,
+      );
 
   factory ConsentRecord.fromJson(Map<String, dynamic> json) => ConsentRecord(
-    id: ((json['id'] as num?)?.toInt())!,
-    teamId: ((json['team_id'] as num?)?.toInt())!,
-    source: (json['source'] != null ? ConsentRecordSource.fromJson(json['source'] as String) : null)!,
-    agentId: (json['agent_id'] as String?)!,
-    enabled: (json['enabled'] as bool?)!,
-    updatedAt: (json['updated_at'] as String?)!,
-  );
+        id: ((json['id'] as num?)?.toInt())!,
+        teamId: ((json['team_id'] as num?)?.toInt())!,
+        source: (json['source'] != null
+            ? ConsentRecordSource.fromJson(json['source'] as String)
+            : null)!,
+        agentId: (json['agent_id'] as String?)!,
+        enabled: (json['enabled'] as bool?)!,
+        updatedAt: (json['updated_at'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'team_id': teamId,
-    'source': source.toJson(),
-    'agent_id': agentId,
-    'enabled': enabled,
-    'updated_at': updatedAt,
-  };
+        'id': id,
+        'team_id': teamId,
+        'source': source.toJson(),
+        'agent_id': agentId,
+        'enabled': enabled,
+        'updated_at': updatedAt,
+      };
 }
 
 /// A deletion job that permanently removes Signals conversations for one Harness Runtime environment, or Serverless Inference Signals conversations for a whole team. Aggregated Insights or metrics summaries may still remain.
 class DeletionJob {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The team that owns the deletion job.
   final int teamId;
+
   /// The unique identifier for the deletion job (ULID).
   final String deletionId;
+
   /// The scope of the deletion. `agent` deletes Signals conversations for one Harness Runtime environment. `inference` deletes Serverless Inference Signals conversations for the whole team.
   final DeletionJobType type_;
+
   /// The Harness Runtime Environment Config ID (agent UUID) whose conversations are being deleted. Only present for `agent` deletions.
   final SdkOptional<String> agentId;
+
   /// The current status of the deletion job.
   final DeletionJobStatus status;
+
   /// Error message if the deletion failed, or null otherwise.
   final SdkOptional<String?> errorMessage;
+
   /// Unix timestamp when the deletion job was created.
   final int createdAt;
+
   /// Unix timestamp when processing started, or null if still queued.
   final SdkOptional<int?> startedAt;
+
   /// Unix timestamp when the deletion finished, or null if still in progress.
   final SdkOptional<int?> completedAt;
 
-  const DeletionJob({required this.teamId, required this.deletionId, required this.type_, this.agentId = const SdkOmitted(), required this.status, this.errorMessage = const SdkOmitted(), required this.createdAt, this.startedAt = const SdkOmitted(), this.completedAt = const SdkOmitted()});
+  const DeletionJob(
+      {required this.teamId,
+      required this.deletionId,
+      required this.type_,
+      this.agentId = const SdkOmitted(),
+      required this.status,
+      this.errorMessage = const SdkOmitted(),
+      required this.createdAt,
+      this.startedAt = const SdkOmitted(),
+      this.completedAt = const SdkOmitted()});
 
-  DeletionJob Function({int teamId, String deletionId, DeletionJobType type_, SdkOptional<String> agentId, DeletionJobStatus status, SdkOptional<String?> errorMessage, int createdAt, SdkOptional<int?> startedAt, SdkOptional<int?> completedAt}) get copyWith => _copyWith;
+  DeletionJob Function(
+      {int teamId,
+      String deletionId,
+      DeletionJobType type_,
+      SdkOptional<String> agentId,
+      DeletionJobStatus status,
+      SdkOptional<String?> errorMessage,
+      int createdAt,
+      SdkOptional<int?> startedAt,
+      SdkOptional<int?> completedAt}) get copyWith => _copyWith;
 
-  DeletionJob _copyWith({Object? teamId = sdkOmittedValue, Object? deletionId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? agentId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? errorMessage = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue}) => DeletionJob(
-    teamId: identical(teamId, sdkOmittedValue) ? this.teamId : teamId as int,
-    deletionId: identical(deletionId, sdkOmittedValue) ? this.deletionId : deletionId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DeletionJobType,
-    agentId: identical(agentId, sdkOmittedValue) ? this.agentId : agentId as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as DeletionJobStatus,
-    errorMessage: identical(errorMessage, sdkOmittedValue) ? this.errorMessage : errorMessage as SdkOptional<String?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<int?>,
-    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<int?>,
-  );
+  DeletionJob _copyWith(
+          {Object? teamId = sdkOmittedValue,
+          Object? deletionId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? agentId = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? errorMessage = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? startedAt = sdkOmittedValue,
+          Object? completedAt = sdkOmittedValue}) =>
+      DeletionJob(
+        teamId:
+            identical(teamId, sdkOmittedValue) ? this.teamId : teamId as int,
+        deletionId: identical(deletionId, sdkOmittedValue)
+            ? this.deletionId
+            : deletionId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DeletionJobType,
+        agentId: identical(agentId, sdkOmittedValue)
+            ? this.agentId
+            : agentId as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as DeletionJobStatus,
+        errorMessage: identical(errorMessage, sdkOmittedValue)
+            ? this.errorMessage
+            : errorMessage as SdkOptional<String?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        startedAt: identical(startedAt, sdkOmittedValue)
+            ? this.startedAt
+            : startedAt as SdkOptional<int?>,
+        completedAt: identical(completedAt, sdkOmittedValue)
+            ? this.completedAt
+            : completedAt as SdkOptional<int?>,
+      );
 
   factory DeletionJob.fromJson(Map<String, dynamic> json) => DeletionJob(
-    teamId: ((json['team_id'] as num?)?.toInt())!,
-    deletionId: (json['deletion_id'] as String?)!,
-    type_: (json['type'] != null ? DeletionJobType.fromJson(json['type'] as String) : null)!,
-    agentId: json['agent_id'] != null ? SdkPresent((json['agent_id'] as String?)!) : const SdkOmitted(),
-    status: (json['status'] != null ? DeletionJobStatus.fromJson(json['status'] as String) : null)!,
-    errorMessage: json.containsKey('error_message') ? SdkPresent(json['error_message'] as String?) : const SdkOmitted(),
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    startedAt: json.containsKey('started_at') ? SdkPresent((json['started_at'] as num?)?.toInt()) : const SdkOmitted(),
-    completedAt: json.containsKey('completed_at') ? SdkPresent((json['completed_at'] as num?)?.toInt()) : const SdkOmitted(),
-  );
+        teamId: ((json['team_id'] as num?)?.toInt())!,
+        deletionId: (json['deletion_id'] as String?)!,
+        type_: (json['type'] != null
+            ? DeletionJobType.fromJson(json['type'] as String)
+            : null)!,
+        agentId: json['agent_id'] != null
+            ? SdkPresent((json['agent_id'] as String?)!)
+            : const SdkOmitted(),
+        status: (json['status'] != null
+            ? DeletionJobStatus.fromJson(json['status'] as String)
+            : null)!,
+        errorMessage: json.containsKey('error_message')
+            ? SdkPresent(json['error_message'] as String?)
+            : const SdkOmitted(),
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        startedAt: json.containsKey('started_at')
+            ? SdkPresent((json['started_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        completedAt: json.containsKey('completed_at')
+            ? SdkPresent((json['completed_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'team_id': teamId,
-    'deletion_id': deletionId,
-    'type': type_.toJson(),
-    ...switch (agentId) {
-      SdkPresent<String>(value: final value) => {'agent_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'status': status.toJson(),
-    ...switch (errorMessage) {
-      SdkPresent<String?>(value: final value) => {'error_message': value,},
-      _ => const <String, dynamic>{},
-    },
-    'created_at': createdAt,
-    ...switch (startedAt) {
-      SdkPresent<int?>(value: final value) => {'started_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (completedAt) {
-      SdkPresent<int?>(value: final value) => {'completed_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'team_id': teamId,
+        'deletion_id': deletionId,
+        'type': type_.toJson(),
+        ...switch (agentId) {
+          SdkPresent<String>(value: final value) => {
+              'agent_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'status': status.toJson(),
+        ...switch (errorMessage) {
+          SdkPresent<String?>(value: final value) => {
+              'error_message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_at': createdAt,
+        ...switch (startedAt) {
+          SdkPresent<int?>(value: final value) => {
+              'started_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (completedAt) {
+          SdkPresent<int?>(value: final value) => {
+              'completed_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The filters applied to this export.
 class ExportJobFilters {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Signal types included in the export.
   final SdkOptional<List<String>> signalType;
+
   /// Specific session IDs included in the export.
   final SdkOptional<List<String>> sessionIds;
 
-  const ExportJobFilters({this.signalType = const SdkOmitted(), this.sessionIds = const SdkOmitted()});
+  const ExportJobFilters(
+      {this.signalType = const SdkOmitted(),
+      this.sessionIds = const SdkOmitted()});
 
-  ExportJobFilters Function({SdkOptional<List<String>> signalType, SdkOptional<List<String>> sessionIds}) get copyWith => _copyWith;
+  ExportJobFilters Function(
+      {SdkOptional<List<String>> signalType,
+      SdkOptional<List<String>> sessionIds}) get copyWith => _copyWith;
 
-  ExportJobFilters _copyWith({Object? signalType = sdkOmittedValue, Object? sessionIds = sdkOmittedValue}) => ExportJobFilters(
-    signalType: identical(signalType, sdkOmittedValue) ? this.signalType : signalType as SdkOptional<List<String>>,
-    sessionIds: identical(sessionIds, sdkOmittedValue) ? this.sessionIds : sessionIds as SdkOptional<List<String>>,
-  );
+  ExportJobFilters _copyWith(
+          {Object? signalType = sdkOmittedValue,
+          Object? sessionIds = sdkOmittedValue}) =>
+      ExportJobFilters(
+        signalType: identical(signalType, sdkOmittedValue)
+            ? this.signalType
+            : signalType as SdkOptional<List<String>>,
+        sessionIds: identical(sessionIds, sdkOmittedValue)
+            ? this.sessionIds
+            : sessionIds as SdkOptional<List<String>>,
+      );
 
-  factory ExportJobFilters.fromJson(Map<String, dynamic> json) => ExportJobFilters(
-    signalType: json['signal_type'] != null ? SdkPresent(((json['signal_type'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    sessionIds: json['session_ids'] != null ? SdkPresent(((json['session_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory ExportJobFilters.fromJson(Map<String, dynamic> json) =>
+      ExportJobFilters(
+        signalType: json['signal_type'] != null
+            ? SdkPresent(((json['signal_type'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        sessionIds: json['session_ids'] != null
+            ? SdkPresent(((json['session_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (signalType) {
-      SdkPresent<List<String>>(value: final value) => {'signal_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sessionIds) {
-      SdkPresent<List<String>>(value: final value) => {'session_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (signalType) {
+          SdkPresent<List<String>>(value: final value) => {
+              'signal_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sessionIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'session_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An export job that produces a downloadable archive of signals data.
 class ExportJob {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the export job.
   final String exportId;
+
   /// The scope of the export. `agent` covers one Harness Runtime environment; `inference` covers the team's Serverless Inference Signals conversations.
   final SdkOptional<ExportJobType> type_;
+
   /// The environment whose data is being exported. For Harness Runtime, this is the Environment Config ID. Not meaningful for `inference` exports; use `type` to distinguish the export scope.
   final String agentId;
+
   /// The current status of the export job.
   final ExportJobStatus status;
+
   /// The filters applied to this export.
   final SdkOptional<ExportJobFilters> filters;
+
   /// Unix timestamp when the export was created.
   final int createdAt;
+
   /// Unix timestamp when the export completed, or null if still in progress.
   final SdkOptional<int?> completedAt;
+
   /// Unix timestamp when the export download link expires.
   final SdkOptional<int?> expiresAt;
+
   /// Error message if the export failed, or null on success.
   final SdkOptional<String?> errorMessage;
 
-  const ExportJob({required this.exportId, this.type_ = const SdkOmitted(), required this.agentId, required this.status, this.filters = const SdkOmitted(), required this.createdAt, this.completedAt = const SdkOmitted(), this.expiresAt = const SdkOmitted(), this.errorMessage = const SdkOmitted()});
+  const ExportJob(
+      {required this.exportId,
+      this.type_ = const SdkOmitted(),
+      required this.agentId,
+      required this.status,
+      this.filters = const SdkOmitted(),
+      required this.createdAt,
+      this.completedAt = const SdkOmitted(),
+      this.expiresAt = const SdkOmitted(),
+      this.errorMessage = const SdkOmitted()});
 
-  ExportJob Function({String exportId, SdkOptional<ExportJobType> type_, String agentId, ExportJobStatus status, SdkOptional<ExportJobFilters> filters, int createdAt, SdkOptional<int?> completedAt, SdkOptional<int?> expiresAt, SdkOptional<String?> errorMessage}) get copyWith => _copyWith;
+  ExportJob Function(
+      {String exportId,
+      SdkOptional<ExportJobType> type_,
+      String agentId,
+      ExportJobStatus status,
+      SdkOptional<ExportJobFilters> filters,
+      int createdAt,
+      SdkOptional<int?> completedAt,
+      SdkOptional<int?> expiresAt,
+      SdkOptional<String?> errorMessage}) get copyWith => _copyWith;
 
-  ExportJob _copyWith({Object? exportId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? agentId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? filters = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? errorMessage = sdkOmittedValue}) => ExportJob(
-    exportId: identical(exportId, sdkOmittedValue) ? this.exportId : exportId as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<ExportJobType>,
-    agentId: identical(agentId, sdkOmittedValue) ? this.agentId : agentId as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as ExportJobStatus,
-    filters: identical(filters, sdkOmittedValue) ? this.filters : filters as SdkOptional<ExportJobFilters>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<int?>,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<int?>,
-    errorMessage: identical(errorMessage, sdkOmittedValue) ? this.errorMessage : errorMessage as SdkOptional<String?>,
-  );
+  ExportJob _copyWith(
+          {Object? exportId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? agentId = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? filters = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? completedAt = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue,
+          Object? errorMessage = sdkOmittedValue}) =>
+      ExportJob(
+        exportId: identical(exportId, sdkOmittedValue)
+            ? this.exportId
+            : exportId as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<ExportJobType>,
+        agentId: identical(agentId, sdkOmittedValue)
+            ? this.agentId
+            : agentId as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ExportJobStatus,
+        filters: identical(filters, sdkOmittedValue)
+            ? this.filters
+            : filters as SdkOptional<ExportJobFilters>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        completedAt: identical(completedAt, sdkOmittedValue)
+            ? this.completedAt
+            : completedAt as SdkOptional<int?>,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<int?>,
+        errorMessage: identical(errorMessage, sdkOmittedValue)
+            ? this.errorMessage
+            : errorMessage as SdkOptional<String?>,
+      );
 
   factory ExportJob.fromJson(Map<String, dynamic> json) => ExportJob(
-    exportId: (json['export_id'] as String?)!,
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? ExportJobType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    agentId: (json['agent_id'] as String?)!,
-    status: (json['status'] != null ? ExportJobStatus.fromJson(json['status'] as String) : null)!,
-    filters: json['filters'] != null ? SdkPresent((json['filters'] != null ? ExportJobFilters.fromJson(json['filters'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    completedAt: json.containsKey('completed_at') ? SdkPresent((json['completed_at'] as num?)?.toInt()) : const SdkOmitted(),
-    expiresAt: json.containsKey('expires_at') ? SdkPresent((json['expires_at'] as num?)?.toInt()) : const SdkOmitted(),
-    errorMessage: json.containsKey('error_message') ? SdkPresent(json['error_message'] as String?) : const SdkOmitted(),
-  );
+        exportId: (json['export_id'] as String?)!,
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? ExportJobType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        agentId: (json['agent_id'] as String?)!,
+        status: (json['status'] != null
+            ? ExportJobStatus.fromJson(json['status'] as String)
+            : null)!,
+        filters: json['filters'] != null
+            ? SdkPresent((json['filters'] != null
+                ? ExportJobFilters.fromJson(
+                    json['filters'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        completedAt: json.containsKey('completed_at')
+            ? SdkPresent((json['completed_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        expiresAt: json.containsKey('expires_at')
+            ? SdkPresent((json['expires_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        errorMessage: json.containsKey('error_message')
+            ? SdkPresent(json['error_message'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'export_id': exportId,
-    ...switch (type_) {
-      SdkPresent<ExportJobType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'agent_id': agentId,
-    'status': status.toJson(),
-    ...switch (filters) {
-      SdkPresent<ExportJobFilters>(value: final value) => {'filters': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'created_at': createdAt,
-    ...switch (completedAt) {
-      SdkPresent<int?>(value: final value) => {'completed_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresAt) {
-      SdkPresent<int?>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (errorMessage) {
-      SdkPresent<String?>(value: final value) => {'error_message': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'export_id': exportId,
+        ...switch (type_) {
+          SdkPresent<ExportJobType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'agent_id': agentId,
+        'status': status.toJson(),
+        ...switch (filters) {
+          SdkPresent<ExportJobFilters>(value: final value) => {
+              'filters': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_at': createdAt,
+        ...switch (completedAt) {
+          SdkPresent<int?>(value: final value) => {
+              'completed_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresAt) {
+          SdkPresent<int?>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (errorMessage) {
+          SdkPresent<String?>(value: final value) => {
+              'error_message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

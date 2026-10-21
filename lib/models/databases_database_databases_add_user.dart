@@ -8,38 +8,70 @@ part of 'databases_database.dart';
 class DatabaseUserRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of a database user.
   final String name;
+
   /// Optional object value serialized in the `mysql_settings` wire field.
   final SdkOptional<MysqlSettings> mysqlSettings;
+
   /// Optional object value serialized in the `settings` wire field.
   final SdkOptional<UserSettings> settings;
 
-  const DatabaseUserRequest({required this.name, this.mysqlSettings = const SdkOmitted(), this.settings = const SdkOmitted()});
+  const DatabaseUserRequest(
+      {required this.name,
+      this.mysqlSettings = const SdkOmitted(),
+      this.settings = const SdkOmitted()});
 
-  DatabaseUserRequest Function({String name, SdkOptional<MysqlSettings> mysqlSettings, SdkOptional<UserSettings> settings}) get copyWith => _copyWith;
+  DatabaseUserRequest Function(
+      {String name,
+      SdkOptional<MysqlSettings> mysqlSettings,
+      SdkOptional<UserSettings> settings}) get copyWith => _copyWith;
 
-  DatabaseUserRequest _copyWith({Object? name = sdkOmittedValue, Object? mysqlSettings = sdkOmittedValue, Object? settings = sdkOmittedValue}) => DatabaseUserRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    mysqlSettings: identical(mysqlSettings, sdkOmittedValue) ? this.mysqlSettings : mysqlSettings as SdkOptional<MysqlSettings>,
-    settings: identical(settings, sdkOmittedValue) ? this.settings : settings as SdkOptional<UserSettings>,
-  );
+  DatabaseUserRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? mysqlSettings = sdkOmittedValue,
+          Object? settings = sdkOmittedValue}) =>
+      DatabaseUserRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        mysqlSettings: identical(mysqlSettings, sdkOmittedValue)
+            ? this.mysqlSettings
+            : mysqlSettings as SdkOptional<MysqlSettings>,
+        settings: identical(settings, sdkOmittedValue)
+            ? this.settings
+            : settings as SdkOptional<UserSettings>,
+      );
 
-  factory DatabaseUserRequest.fromJson(Map<String, dynamic> json) => DatabaseUserRequest(
-    name: (json['name'] as String?)!,
-    mysqlSettings: json['mysql_settings'] != null ? SdkPresent((json['mysql_settings'] != null ? MysqlSettings.fromJson(json['mysql_settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    settings: json['settings'] != null ? SdkPresent((json['settings'] != null ? UserSettings.fromJson(json['settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DatabaseUserRequest.fromJson(Map<String, dynamic> json) =>
+      DatabaseUserRequest(
+        name: (json['name'] as String?)!,
+        mysqlSettings: json['mysql_settings'] != null
+            ? SdkPresent((json['mysql_settings'] != null
+                ? MysqlSettings.fromJson(
+                    json['mysql_settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        settings: json['settings'] != null
+            ? SdkPresent((json['settings'] != null
+                ? UserSettings.fromJson(
+                    json['settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (mysqlSettings) {
-      SdkPresent<MysqlSettings>(value: final value) => {'mysql_settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (settings) {
-      SdkPresent<UserSettings>(value: final value) => {'settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (mysqlSettings) {
+          SdkPresent<MysqlSettings>(value: final value) => {
+              'mysql_settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (settings) {
+          SdkPresent<UserSettings>(value: final value) => {
+              'settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

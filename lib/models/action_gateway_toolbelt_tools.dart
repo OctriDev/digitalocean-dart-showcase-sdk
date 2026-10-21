@@ -8,6 +8,7 @@ part of 'action_gateway_toolbelt.dart';
 class ToolbeltTools {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Tool slugs (`&lt;provider&gt;_&lt;name&gt;`) to add or remove, each optionally pinned as `&lt;tool_slug&gt;@&lt;version&gt;`. At least one is required. When adding, a pin must equal the tool's current released version.
   final List<String> tools;
 
@@ -16,14 +17,16 @@ class ToolbeltTools {
   ToolbeltTools Function({List<String> tools}) get copyWith => _copyWith;
 
   ToolbeltTools _copyWith({Object? tools = sdkOmittedValue}) => ToolbeltTools(
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as List<String>,
-  );
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as List<String>,
+      );
 
   factory ToolbeltTools.fromJson(Map<String, dynamic> json) => ToolbeltTools(
-    tools: ((json['tools'] as List?)?.map((e) => e as String).toList())!,
-  );
+        tools: ((json['tools'] as List?)?.map((e) => e as String).toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'tools': tools,
-  };
+        'tools': tools,
+      };
 }

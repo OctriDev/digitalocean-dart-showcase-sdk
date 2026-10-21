@@ -8,57 +8,121 @@ part of 'micro_vms_public_preview.dart';
 class MicrovmOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The slug of the region MicroVMs are created in by default.
   final SdkOptional<String> defaultRegion;
+
   /// The sizes available to your team.
   final SdkOptional<List<MicrovmOptionsSizesItem>> sizes;
+
   /// Per-resource rates, in USD.
   final SdkOptional<MicrovmOptionsResourcePricing> resourcePricing;
+
   /// Your team's MicroVM limits.
   final SdkOptional<MicrovmOptionsAccountLimits> accountLimits;
+
   /// Features and whether they are enabled for your team.
   final SdkOptional<List<MicrovmOptionsFeaturesItem>> features;
 
-  const MicrovmOptions({this.defaultRegion = const SdkOmitted(), this.sizes = const SdkOmitted(), this.resourcePricing = const SdkOmitted(), this.accountLimits = const SdkOmitted(), this.features = const SdkOmitted()});
+  const MicrovmOptions(
+      {this.defaultRegion = const SdkOmitted(),
+      this.sizes = const SdkOmitted(),
+      this.resourcePricing = const SdkOmitted(),
+      this.accountLimits = const SdkOmitted(),
+      this.features = const SdkOmitted()});
 
-  MicrovmOptions Function({SdkOptional<String> defaultRegion, SdkOptional<List<MicrovmOptionsSizesItem>> sizes, SdkOptional<MicrovmOptionsResourcePricing> resourcePricing, SdkOptional<MicrovmOptionsAccountLimits> accountLimits, SdkOptional<List<MicrovmOptionsFeaturesItem>> features}) get copyWith => _copyWith;
+  MicrovmOptions Function(
+          {SdkOptional<String> defaultRegion,
+          SdkOptional<List<MicrovmOptionsSizesItem>> sizes,
+          SdkOptional<MicrovmOptionsResourcePricing> resourcePricing,
+          SdkOptional<MicrovmOptionsAccountLimits> accountLimits,
+          SdkOptional<List<MicrovmOptionsFeaturesItem>> features})
+      get copyWith => _copyWith;
 
-  MicrovmOptions _copyWith({Object? defaultRegion = sdkOmittedValue, Object? sizes = sdkOmittedValue, Object? resourcePricing = sdkOmittedValue, Object? accountLimits = sdkOmittedValue, Object? features = sdkOmittedValue}) => MicrovmOptions(
-    defaultRegion: identical(defaultRegion, sdkOmittedValue) ? this.defaultRegion : defaultRegion as SdkOptional<String>,
-    sizes: identical(sizes, sdkOmittedValue) ? this.sizes : sizes as SdkOptional<List<MicrovmOptionsSizesItem>>,
-    resourcePricing: identical(resourcePricing, sdkOmittedValue) ? this.resourcePricing : resourcePricing as SdkOptional<MicrovmOptionsResourcePricing>,
-    accountLimits: identical(accountLimits, sdkOmittedValue) ? this.accountLimits : accountLimits as SdkOptional<MicrovmOptionsAccountLimits>,
-    features: identical(features, sdkOmittedValue) ? this.features : features as SdkOptional<List<MicrovmOptionsFeaturesItem>>,
-  );
+  MicrovmOptions _copyWith(
+          {Object? defaultRegion = sdkOmittedValue,
+          Object? sizes = sdkOmittedValue,
+          Object? resourcePricing = sdkOmittedValue,
+          Object? accountLimits = sdkOmittedValue,
+          Object? features = sdkOmittedValue}) =>
+      MicrovmOptions(
+        defaultRegion: identical(defaultRegion, sdkOmittedValue)
+            ? this.defaultRegion
+            : defaultRegion as SdkOptional<String>,
+        sizes: identical(sizes, sdkOmittedValue)
+            ? this.sizes
+            : sizes as SdkOptional<List<MicrovmOptionsSizesItem>>,
+        resourcePricing: identical(resourcePricing, sdkOmittedValue)
+            ? this.resourcePricing
+            : resourcePricing as SdkOptional<MicrovmOptionsResourcePricing>,
+        accountLimits: identical(accountLimits, sdkOmittedValue)
+            ? this.accountLimits
+            : accountLimits as SdkOptional<MicrovmOptionsAccountLimits>,
+        features: identical(features, sdkOmittedValue)
+            ? this.features
+            : features as SdkOptional<List<MicrovmOptionsFeaturesItem>>,
+      );
 
   factory MicrovmOptions.fromJson(Map<String, dynamic> json) => MicrovmOptions(
-    defaultRegion: json['default_region'] != null ? SdkPresent((json['default_region'] as String?)!) : const SdkOmitted(),
-    sizes: json['sizes'] != null ? SdkPresent(((json['sizes'] as List?)?.map((e) => MicrovmOptionsSizesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    resourcePricing: json['resource_pricing'] != null ? SdkPresent((json['resource_pricing'] != null ? MicrovmOptionsResourcePricing.fromJson(json['resource_pricing'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    accountLimits: json['account_limits'] != null ? SdkPresent((json['account_limits'] != null ? MicrovmOptionsAccountLimits.fromJson(json['account_limits'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    features: json['features'] != null ? SdkPresent(((json['features'] as List?)?.map((e) => MicrovmOptionsFeaturesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        defaultRegion: json['default_region'] != null
+            ? SdkPresent((json['default_region'] as String?)!)
+            : const SdkOmitted(),
+        sizes: json['sizes'] != null
+            ? SdkPresent(((json['sizes'] as List?)
+                ?.map((e) =>
+                    MicrovmOptionsSizesItem.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        resourcePricing: json['resource_pricing'] != null
+            ? SdkPresent((json['resource_pricing'] != null
+                ? MicrovmOptionsResourcePricing.fromJson(
+                    json['resource_pricing'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        accountLimits: json['account_limits'] != null
+            ? SdkPresent((json['account_limits'] != null
+                ? MicrovmOptionsAccountLimits.fromJson(
+                    json['account_limits'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        features: json['features'] != null
+            ? SdkPresent(((json['features'] as List?)
+                ?.map((e) => MicrovmOptionsFeaturesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (defaultRegion) {
-      SdkPresent<String>(value: final value) => {'default_region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sizes) {
-      SdkPresent<List<MicrovmOptionsSizesItem>>(value: final value) => {'sizes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (resourcePricing) {
-      SdkPresent<MicrovmOptionsResourcePricing>(value: final value) => {'resource_pricing': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (accountLimits) {
-      SdkPresent<MicrovmOptionsAccountLimits>(value: final value) => {'account_limits': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (features) {
-      SdkPresent<List<MicrovmOptionsFeaturesItem>>(value: final value) => {'features': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (defaultRegion) {
+          SdkPresent<String>(value: final value) => {
+              'default_region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sizes) {
+          SdkPresent<List<MicrovmOptionsSizesItem>>(value: final value) => {
+              'sizes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (resourcePricing) {
+          SdkPresent<MicrovmOptionsResourcePricing>(value: final value) => {
+              'resource_pricing': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (accountLimits) {
+          SdkPresent<MicrovmOptionsAccountLimits>(value: final value) => {
+              'account_limits': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (features) {
+          SdkPresent<List<MicrovmOptionsFeaturesItem>>(value: final value) => {
+              'features': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

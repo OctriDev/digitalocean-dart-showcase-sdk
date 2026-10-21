@@ -6,25 +6,33 @@ part of 'agent_platform_api_api_evaluation.dart';
 // agent_platform_api_api_evaluation domain models
 /// Typed representation of the `ApiEvaluationMetricType` API schema.
 final class ApiEvaluationMetricType {
-
   final String value;
 
   const ApiEvaluationMetricType._(this.value);
 
-  factory ApiEvaluationMetricType.fromJson(String value) => ApiEvaluationMetricType._(value);
+  factory ApiEvaluationMetricType.fromJson(String value) =>
+      ApiEvaluationMetricType._(value);
 
-  static const metricTypeUnspecified = ApiEvaluationMetricType._('METRIC_TYPE_UNSPECIFIED');
-  static const metricTypeGeneralQuality = ApiEvaluationMetricType._('METRIC_TYPE_GENERAL_QUALITY');
-  static const metricTypeRagAndTool = ApiEvaluationMetricType._('METRIC_TYPE_RAG_AND_TOOL');
-  static const metricTypeModelQuality = ApiEvaluationMetricType._('METRIC_TYPE_MODEL_QUALITY');
-  static const metricTypeModelSafety = ApiEvaluationMetricType._('METRIC_TYPE_MODEL_SAFETY');
+  static const metricTypeUnspecified =
+      ApiEvaluationMetricType._('METRIC_TYPE_UNSPECIFIED');
+  static const metricTypeGeneralQuality =
+      ApiEvaluationMetricType._('METRIC_TYPE_GENERAL_QUALITY');
+  static const metricTypeRagAndTool =
+      ApiEvaluationMetricType._('METRIC_TYPE_RAG_AND_TOOL');
+  static const metricTypeModelQuality =
+      ApiEvaluationMetricType._('METRIC_TYPE_MODEL_QUALITY');
+  static const metricTypeModelSafety =
+      ApiEvaluationMetricType._('METRIC_TYPE_MODEL_SAFETY');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiEvaluationMetricType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiEvaluationMetricType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

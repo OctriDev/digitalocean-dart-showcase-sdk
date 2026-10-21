@@ -8,41 +8,73 @@ part of 'agent_platform_api_api_simulation.dart';
 class ApiSimulationEpisodeCounts {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Number of episodes with a FAILURE verdict.
   final SdkOptional<int> failureCount;
+
   /// Number of episodes with an INCONCLUSIVE verdict.
   final SdkOptional<int> inconclusiveCount;
+
   /// Number of episodes with a SUCCESS verdict.
   final SdkOptional<int> successCount;
 
-  const ApiSimulationEpisodeCounts({this.failureCount = const SdkOmitted(), this.inconclusiveCount = const SdkOmitted(), this.successCount = const SdkOmitted()});
+  const ApiSimulationEpisodeCounts(
+      {this.failureCount = const SdkOmitted(),
+      this.inconclusiveCount = const SdkOmitted(),
+      this.successCount = const SdkOmitted()});
 
-  ApiSimulationEpisodeCounts Function({SdkOptional<int> failureCount, SdkOptional<int> inconclusiveCount, SdkOptional<int> successCount}) get copyWith => _copyWith;
+  ApiSimulationEpisodeCounts Function(
+      {SdkOptional<int> failureCount,
+      SdkOptional<int> inconclusiveCount,
+      SdkOptional<int> successCount}) get copyWith => _copyWith;
 
-  ApiSimulationEpisodeCounts _copyWith({Object? failureCount = sdkOmittedValue, Object? inconclusiveCount = sdkOmittedValue, Object? successCount = sdkOmittedValue}) => ApiSimulationEpisodeCounts(
-    failureCount: identical(failureCount, sdkOmittedValue) ? this.failureCount : failureCount as SdkOptional<int>,
-    inconclusiveCount: identical(inconclusiveCount, sdkOmittedValue) ? this.inconclusiveCount : inconclusiveCount as SdkOptional<int>,
-    successCount: identical(successCount, sdkOmittedValue) ? this.successCount : successCount as SdkOptional<int>,
-  );
+  ApiSimulationEpisodeCounts _copyWith(
+          {Object? failureCount = sdkOmittedValue,
+          Object? inconclusiveCount = sdkOmittedValue,
+          Object? successCount = sdkOmittedValue}) =>
+      ApiSimulationEpisodeCounts(
+        failureCount: identical(failureCount, sdkOmittedValue)
+            ? this.failureCount
+            : failureCount as SdkOptional<int>,
+        inconclusiveCount: identical(inconclusiveCount, sdkOmittedValue)
+            ? this.inconclusiveCount
+            : inconclusiveCount as SdkOptional<int>,
+        successCount: identical(successCount, sdkOmittedValue)
+            ? this.successCount
+            : successCount as SdkOptional<int>,
+      );
 
-  factory ApiSimulationEpisodeCounts.fromJson(Map<String, dynamic> json) => ApiSimulationEpisodeCounts(
-    failureCount: json['failure_count'] != null ? SdkPresent(((json['failure_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    inconclusiveCount: json['inconclusive_count'] != null ? SdkPresent(((json['inconclusive_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    successCount: json['success_count'] != null ? SdkPresent(((json['success_count'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory ApiSimulationEpisodeCounts.fromJson(Map<String, dynamic> json) =>
+      ApiSimulationEpisodeCounts(
+        failureCount: json['failure_count'] != null
+            ? SdkPresent(((json['failure_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        inconclusiveCount: json['inconclusive_count'] != null
+            ? SdkPresent(((json['inconclusive_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        successCount: json['success_count'] != null
+            ? SdkPresent(((json['success_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (failureCount) {
-      SdkPresent<int>(value: final value) => {'failure_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inconclusiveCount) {
-      SdkPresent<int>(value: final value) => {'inconclusive_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (successCount) {
-      SdkPresent<int>(value: final value) => {'success_count': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (failureCount) {
+          SdkPresent<int>(value: final value) => {
+              'failure_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inconclusiveCount) {
+          SdkPresent<int>(value: final value) => {
+              'inconclusive_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (successCount) {
+          SdkPresent<int>(value: final value) => {
+              'success_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

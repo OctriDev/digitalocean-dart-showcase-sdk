@@ -8,25 +8,37 @@ part of 'functions.dart';
 class AccessKeyUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `access_key` wire field.
   final SdkOptional<AccessKey> accessKey;
 
   const AccessKeyUpdate({this.accessKey = const SdkOmitted()});
 
-  AccessKeyUpdate Function({SdkOptional<AccessKey> accessKey}) get copyWith => _copyWith;
+  AccessKeyUpdate Function({SdkOptional<AccessKey> accessKey}) get copyWith =>
+      _copyWith;
 
-  AccessKeyUpdate _copyWith({Object? accessKey = sdkOmittedValue}) => AccessKeyUpdate(
-    accessKey: identical(accessKey, sdkOmittedValue) ? this.accessKey : accessKey as SdkOptional<AccessKey>,
-  );
+  AccessKeyUpdate _copyWith({Object? accessKey = sdkOmittedValue}) =>
+      AccessKeyUpdate(
+        accessKey: identical(accessKey, sdkOmittedValue)
+            ? this.accessKey
+            : accessKey as SdkOptional<AccessKey>,
+      );
 
-  factory AccessKeyUpdate.fromJson(Map<String, dynamic> json) => AccessKeyUpdate(
-    accessKey: json['access_key'] != null ? SdkPresent((json['access_key'] != null ? AccessKey.fromJson(json['access_key'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AccessKeyUpdate.fromJson(Map<String, dynamic> json) =>
+      AccessKeyUpdate(
+        accessKey: json['access_key'] != null
+            ? SdkPresent((json['access_key'] != null
+                ? AccessKey.fromJson(json['access_key'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (accessKey) {
-      SdkPresent<AccessKey>(value: final value) => {'access_key': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (accessKey) {
+          SdkPresent<AccessKey>(value: final value) => {
+              'access_key': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

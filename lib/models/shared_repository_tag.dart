@@ -8,73 +8,144 @@ part of 'shared_repository.dart';
 class RepositoryTag {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the container registry.
   final SdkOptional<String> registryName;
+
   /// The name of the repository.
   final SdkOptional<String> repository;
+
   /// The name of the tag.
   final SdkOptional<String> tag;
+
   /// The digest of the manifest associated with the tag.
   final SdkOptional<String> manifestDigest;
+
   /// The compressed size of the tag in bytes.
   final SdkOptional<int> compressedSizeBytes;
+
   /// The uncompressed size of the tag in bytes (this size is calculated asynchronously so it may not be immediately available).
   final SdkOptional<int> sizeBytes;
+
   /// The time the tag was last updated.
   final SdkOptional<String> updatedAt;
 
-  const RepositoryTag({this.registryName = const SdkOmitted(), this.repository = const SdkOmitted(), this.tag = const SdkOmitted(), this.manifestDigest = const SdkOmitted(), this.compressedSizeBytes = const SdkOmitted(), this.sizeBytes = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
+  const RepositoryTag(
+      {this.registryName = const SdkOmitted(),
+      this.repository = const SdkOmitted(),
+      this.tag = const SdkOmitted(),
+      this.manifestDigest = const SdkOmitted(),
+      this.compressedSizeBytes = const SdkOmitted(),
+      this.sizeBytes = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted()});
 
-  RepositoryTag Function({SdkOptional<String> registryName, SdkOptional<String> repository, SdkOptional<String> tag, SdkOptional<String> manifestDigest, SdkOptional<int> compressedSizeBytes, SdkOptional<int> sizeBytes, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  RepositoryTag Function(
+      {SdkOptional<String> registryName,
+      SdkOptional<String> repository,
+      SdkOptional<String> tag,
+      SdkOptional<String> manifestDigest,
+      SdkOptional<int> compressedSizeBytes,
+      SdkOptional<int> sizeBytes,
+      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  RepositoryTag _copyWith({Object? registryName = sdkOmittedValue, Object? repository = sdkOmittedValue, Object? tag = sdkOmittedValue, Object? manifestDigest = sdkOmittedValue, Object? compressedSizeBytes = sdkOmittedValue, Object? sizeBytes = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RepositoryTag(
-    registryName: identical(registryName, sdkOmittedValue) ? this.registryName : registryName as SdkOptional<String>,
-    repository: identical(repository, sdkOmittedValue) ? this.repository : repository as SdkOptional<String>,
-    tag: identical(tag, sdkOmittedValue) ? this.tag : tag as SdkOptional<String>,
-    manifestDigest: identical(manifestDigest, sdkOmittedValue) ? this.manifestDigest : manifestDigest as SdkOptional<String>,
-    compressedSizeBytes: identical(compressedSizeBytes, sdkOmittedValue) ? this.compressedSizeBytes : compressedSizeBytes as SdkOptional<int>,
-    sizeBytes: identical(sizeBytes, sdkOmittedValue) ? this.sizeBytes : sizeBytes as SdkOptional<int>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-  );
+  RepositoryTag _copyWith(
+          {Object? registryName = sdkOmittedValue,
+          Object? repository = sdkOmittedValue,
+          Object? tag = sdkOmittedValue,
+          Object? manifestDigest = sdkOmittedValue,
+          Object? compressedSizeBytes = sdkOmittedValue,
+          Object? sizeBytes = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      RepositoryTag(
+        registryName: identical(registryName, sdkOmittedValue)
+            ? this.registryName
+            : registryName as SdkOptional<String>,
+        repository: identical(repository, sdkOmittedValue)
+            ? this.repository
+            : repository as SdkOptional<String>,
+        tag: identical(tag, sdkOmittedValue)
+            ? this.tag
+            : tag as SdkOptional<String>,
+        manifestDigest: identical(manifestDigest, sdkOmittedValue)
+            ? this.manifestDigest
+            : manifestDigest as SdkOptional<String>,
+        compressedSizeBytes: identical(compressedSizeBytes, sdkOmittedValue)
+            ? this.compressedSizeBytes
+            : compressedSizeBytes as SdkOptional<int>,
+        sizeBytes: identical(sizeBytes, sdkOmittedValue)
+            ? this.sizeBytes
+            : sizeBytes as SdkOptional<int>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+      );
 
   factory RepositoryTag.fromJson(Map<String, dynamic> json) => RepositoryTag(
-    registryName: json['registry_name'] != null ? SdkPresent((json['registry_name'] as String?)!) : const SdkOmitted(),
-    repository: json['repository'] != null ? SdkPresent((json['repository'] as String?)!) : const SdkOmitted(),
-    tag: json['tag'] != null ? SdkPresent((json['tag'] as String?)!) : const SdkOmitted(),
-    manifestDigest: json['manifest_digest'] != null ? SdkPresent((json['manifest_digest'] as String?)!) : const SdkOmitted(),
-    compressedSizeBytes: json['compressed_size_bytes'] != null ? SdkPresent(((json['compressed_size_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    sizeBytes: json['size_bytes'] != null ? SdkPresent(((json['size_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-  );
+        registryName: json['registry_name'] != null
+            ? SdkPresent((json['registry_name'] as String?)!)
+            : const SdkOmitted(),
+        repository: json['repository'] != null
+            ? SdkPresent((json['repository'] as String?)!)
+            : const SdkOmitted(),
+        tag: json['tag'] != null
+            ? SdkPresent((json['tag'] as String?)!)
+            : const SdkOmitted(),
+        manifestDigest: json['manifest_digest'] != null
+            ? SdkPresent((json['manifest_digest'] as String?)!)
+            : const SdkOmitted(),
+        compressedSizeBytes: json['compressed_size_bytes'] != null
+            ? SdkPresent(((json['compressed_size_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        sizeBytes: json['size_bytes'] != null
+            ? SdkPresent(((json['size_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (registryName) {
-      SdkPresent<String>(value: final value) => {'registry_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (repository) {
-      SdkPresent<String>(value: final value) => {'repository': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tag) {
-      SdkPresent<String>(value: final value) => {'tag': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (manifestDigest) {
-      SdkPresent<String>(value: final value) => {'manifest_digest': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (compressedSizeBytes) {
-      SdkPresent<int>(value: final value) => {'compressed_size_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sizeBytes) {
-      SdkPresent<int>(value: final value) => {'size_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (registryName) {
+          SdkPresent<String>(value: final value) => {
+              'registry_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (repository) {
+          SdkPresent<String>(value: final value) => {
+              'repository': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tag) {
+          SdkPresent<String>(value: final value) => {
+              'tag': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (manifestDigest) {
+          SdkPresent<String>(value: final value) => {
+              'manifest_digest': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (compressedSizeBytes) {
+          SdkPresent<int>(value: final value) => {
+              'compressed_size_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sizeBytes) {
+          SdkPresent<int>(value: final value) => {
+              'size_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

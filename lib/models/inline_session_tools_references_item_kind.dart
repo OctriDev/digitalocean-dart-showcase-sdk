@@ -6,34 +6,39 @@ part of 'inline.dart';
 // Inline operation models
 /// Whether name is a tool or a toolbelt.
 final class SessionToolsReferencesItemKind {
-
   final String value;
 
   const SessionToolsReferencesItemKind._(this.value);
 
-  factory SessionToolsReferencesItemKind.fromJson(String value) => SessionToolsReferencesItemKind._(value);
+  factory SessionToolsReferencesItemKind.fromJson(String value) =>
+      SessionToolsReferencesItemKind._(value);
 
-  static const sessionToolReferenceKindTool = SessionToolsReferencesItemKind._('SESSION_TOOL_REFERENCE_KIND_TOOL');
-  static const sessionToolReferenceKindToolbelt = SessionToolsReferencesItemKind._('SESSION_TOOL_REFERENCE_KIND_TOOLBELT');
+  static const sessionToolReferenceKindTool =
+      SessionToolsReferencesItemKind._('SESSION_TOOL_REFERENCE_KIND_TOOL');
+  static const sessionToolReferenceKindToolbelt =
+      SessionToolsReferencesItemKind._('SESSION_TOOL_REFERENCE_KIND_TOOLBELT');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SessionToolsReferencesItemKind && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SessionToolsReferencesItemKind && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Action for calls no rule matches. Empty means ask; otherwise this must be allow, ask, or deny.
 final class SessionPolicyDefaultAction {
-
   final String value;
 
   const SessionPolicyDefaultAction._(this.value);
 
-  factory SessionPolicyDefaultAction.fromJson(String value) => SessionPolicyDefaultAction._(value);
+  factory SessionPolicyDefaultAction.fromJson(String value) =>
+      SessionPolicyDefaultAction._(value);
 
   static const allow = SessionPolicyDefaultAction._('allow');
   static const ask = SessionPolicyDefaultAction._('ask');
@@ -41,22 +46,25 @@ final class SessionPolicyDefaultAction {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SessionPolicyDefaultAction && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SessionPolicyDefaultAction && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required: allow, ask, or deny.
 final class SessionPolicyRulesItemAction {
-
   final String value;
 
   const SessionPolicyRulesItemAction._(this.value);
 
-  factory SessionPolicyRulesItemAction.fromJson(String value) => SessionPolicyRulesItemAction._(value);
+  factory SessionPolicyRulesItemAction.fromJson(String value) =>
+      SessionPolicyRulesItemAction._(value);
 
   static const allow = SessionPolicyRulesItemAction._('allow');
   static const ask = SessionPolicyRulesItemAction._('ask');
@@ -64,44 +72,50 @@ final class SessionPolicyRulesItemAction {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SessionPolicyRulesItemAction && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SessionPolicyRulesItemAction && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of resource that the snapshot originated from.
 final class SnapshotsVariant2ResourceType {
-
   final String value;
 
   const SnapshotsVariant2ResourceType._(this.value);
 
-  factory SnapshotsVariant2ResourceType.fromJson(String value) => SnapshotsVariant2ResourceType._(value);
+  factory SnapshotsVariant2ResourceType.fromJson(String value) =>
+      SnapshotsVariant2ResourceType._(value);
 
   static const droplet = SnapshotsVariant2ResourceType._('droplet');
   static const volume = SnapshotsVariant2ResourceType._('volume');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SnapshotsVariant2ResourceType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SnapshotsVariant2ResourceType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The comparison operator for a `condition` node.
 final class SpansFilterExpressionOperator {
-
   final String value;
 
   const SpansFilterExpressionOperator._(this.value);
 
-  factory SpansFilterExpressionOperator.fromJson(String value) => SpansFilterExpressionOperator._(value);
+  factory SpansFilterExpressionOperator.fromJson(String value) =>
+      SpansFilterExpressionOperator._(value);
 
   static const eq = SpansFilterExpressionOperator._('eq');
   static const neq = SpansFilterExpressionOperator._('neq');
@@ -114,22 +128,25 @@ final class SpansFilterExpressionOperator {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SpansFilterExpressionOperator && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SpansFilterExpressionOperator && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The node kind.
 final class SpansFilterExpressionType {
-
   final String value;
 
   const SpansFilterExpressionType._(this.value);
 
-  factory SpansFilterExpressionType.fromJson(String value) => SpansFilterExpressionType._(value);
+  factory SpansFilterExpressionType.fromJson(String value) =>
+      SpansFilterExpressionType._(value);
 
   static const condition = SpansFilterExpressionType._('condition');
   static const and = SpansFilterExpressionType._('and');
@@ -139,44 +156,50 @@ final class SpansFilterExpressionType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SpansFilterExpressionType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SpansFilterExpressionType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional attribute scope. Use `resource` to match a resource attribute or `attributes` to match a span attribute. Omit for well-known fields or to search both attribute maps.
 final class SpansFilterFieldScope {
-
   final String value;
 
   const SpansFilterFieldScope._(this.value);
 
-  factory SpansFilterFieldScope.fromJson(String value) => SpansFilterFieldScope._(value);
+  factory SpansFilterFieldScope.fromJson(String value) =>
+      SpansFilterFieldScope._(value);
 
   static const resource = SpansFilterFieldScope._('resource');
   static const attributes = SpansFilterFieldScope._('attributes');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SpansFilterFieldScope && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SpansFilterFieldScope && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The value type.
 final class SpansFilterValueVariant4Type {
-
   final String value;
 
   const SpansFilterValueVariant4Type._(this.value);
 
-  factory SpansFilterValueVariant4Type.fromJson(String value) => SpansFilterValueVariant4Type._(value);
+  factory SpansFilterValueVariant4Type.fromJson(String value) =>
+      SpansFilterValueVariant4Type._(value);
 
   static const string = SpansFilterValueVariant4Type._('string');
   static const number = SpansFilterValueVariant4Type._('number');
@@ -185,66 +208,75 @@ final class SpansFilterValueVariant4Type {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SpansFilterValueVariant4Type && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SpansFilterValueVariant4Type && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The sort direction. Defaults to `desc` when omitted.
 final class SpansOrderByDirection {
-
   final String value;
 
   const SpansOrderByDirection._(this.value);
 
-  factory SpansOrderByDirection.fromJson(String value) => SpansOrderByDirection._(value);
+  factory SpansOrderByDirection.fromJson(String value) =>
+      SpansOrderByDirection._(value);
 
   static const asc = SpansOrderByDirection._('asc');
   static const desc = SpansOrderByDirection._('desc');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SpansOrderByDirection && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SpansOrderByDirection && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// An attribute indicating how and if requests from a client will be persistently served by the same backend Droplet. The possible values are `cookies` or `none`.
 final class StickySessionsType {
-
   final String value;
 
   const StickySessionsType._(this.value);
 
-  factory StickySessionsType.fromJson(String value) => StickySessionsType._(value);
+  factory StickySessionsType.fromJson(String value) =>
+      StickySessionsType._(value);
 
   static const cookies = StickySessionsType._('cookies');
   static const none = StickySessionsType._('none');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is StickySessionsType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is StickySessionsType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Server-assigned component that submitted the event.
 final class StreamEventProducer {
-
   final String value;
 
   const StreamEventProducer._(this.value);
 
-  factory StreamEventProducer.fromJson(String value) => StreamEventProducer._(value);
+  factory StreamEventProducer.fromJson(String value) =>
+      StreamEventProducer._(value);
 
   static const agent = StreamEventProducer._('agent');
   static const ohr = StreamEventProducer._('ohr');
@@ -253,10 +285,13 @@ final class StreamEventProducer {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is StreamEventProducer && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is StreamEventProducer && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

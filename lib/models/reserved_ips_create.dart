@@ -7,6 +7,7 @@ part of 'reserved_ips.dart';
 class ReservedIpCreateVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the Droplet that the reserved IP will be assigned to.
   final int dropletId;
 
@@ -14,48 +15,67 @@ class ReservedIpCreateVariant0 {
 
   ReservedIpCreateVariant0 Function({int dropletId}) get copyWith => _copyWith;
 
-  ReservedIpCreateVariant0 _copyWith({Object? dropletId = sdkOmittedValue}) => ReservedIpCreateVariant0(
-    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as int,
-  );
+  ReservedIpCreateVariant0 _copyWith({Object? dropletId = sdkOmittedValue}) =>
+      ReservedIpCreateVariant0(
+        dropletId: identical(dropletId, sdkOmittedValue)
+            ? this.dropletId
+            : dropletId as int,
+      );
 
-  factory ReservedIpCreateVariant0.fromJson(Map<String, dynamic> json) => ReservedIpCreateVariant0(
-    dropletId: ((json['droplet_id'] as num?)?.toInt())!,
-  );
+  factory ReservedIpCreateVariant0.fromJson(Map<String, dynamic> json) =>
+      ReservedIpCreateVariant0(
+        dropletId: ((json['droplet_id'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'droplet_id': dropletId,
-  };
+        'droplet_id': dropletId,
+      };
 }
 
 class ReservedIpCreateVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The slug identifier for the region the reserved IP will be reserved to.
   final String region;
+
   /// The UUID of the project to which the reserved IP will be assigned.
   final SdkOptional<String> projectId;
 
-  const ReservedIpCreateVariant1({required this.region, this.projectId = const SdkOmitted()});
+  const ReservedIpCreateVariant1(
+      {required this.region, this.projectId = const SdkOmitted()});
 
-  ReservedIpCreateVariant1 Function({String region, SdkOptional<String> projectId}) get copyWith => _copyWith;
+  ReservedIpCreateVariant1 Function(
+      {String region, SdkOptional<String> projectId}) get copyWith => _copyWith;
 
-  ReservedIpCreateVariant1 _copyWith({Object? region = sdkOmittedValue, Object? projectId = sdkOmittedValue}) => ReservedIpCreateVariant1(
-    region: identical(region, sdkOmittedValue) ? this.region : region as String,
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
-  );
+  ReservedIpCreateVariant1 _copyWith(
+          {Object? region = sdkOmittedValue,
+          Object? projectId = sdkOmittedValue}) =>
+      ReservedIpCreateVariant1(
+        region:
+            identical(region, sdkOmittedValue) ? this.region : region as String,
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as SdkOptional<String>,
+      );
 
-  factory ReservedIpCreateVariant1.fromJson(Map<String, dynamic> json) => ReservedIpCreateVariant1(
-    region: (json['region'] as String?)!,
-    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory ReservedIpCreateVariant1.fromJson(Map<String, dynamic> json) =>
+      ReservedIpCreateVariant1(
+        region: (json['region'] as String?)!,
+        projectId: json['project_id'] != null
+            ? SdkPresent((json['project_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'region': region,
-    ...switch (projectId) {
-      SdkPresent<String>(value: final value) => {'project_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'region': region,
+        ...switch (projectId) {
+          SdkPresent<String>(value: final value) => {
+              'project_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class ReservedIpCreate {
@@ -64,11 +84,27 @@ sealed class ReservedIpCreate {
   const ReservedIpCreate();
   factory ReservedIpCreate.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ReservedIpCreateVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ReservedIpCreateReservedIpCreateVariant0(value); } } catch (_) {}
-      try { final value = ReservedIpCreateVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ReservedIpCreateReservedIpCreateVariant1(value); } } catch (_) {}
+      try {
+        final value = ReservedIpCreateVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ReservedIpCreateReservedIpCreateVariant0(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ReservedIpCreateVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ReservedIpCreateReservedIpCreateVariant1(value);
+        }
+      } catch (_) {}
     }
-    try { return ReservedIpCreateReservedIpCreateVariant0(ReservedIpCreateVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ReservedIpCreateReservedIpCreateVariant1(ReservedIpCreateVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return ReservedIpCreateReservedIpCreateVariant0(
+          ReservedIpCreateVariant0.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ReservedIpCreateReservedIpCreateVariant1(
+          ReservedIpCreateVariant1.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for ReservedIpCreate");
   }
   Object? toJson();
@@ -77,81 +113,135 @@ sealed class ReservedIpCreate {
 final class ReservedIpCreateReservedIpCreateVariant0 extends ReservedIpCreate {
   final ReservedIpCreateVariant0 value;
   const ReservedIpCreateReservedIpCreateVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ReservedIpCreateReservedIpCreateVariant1 extends ReservedIpCreate {
   final ReservedIpCreateVariant1 value;
   const ReservedIpCreateReservedIpCreateVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Optional object value serialized in the `links` wire field.
 class ReservedIpCreatedLinks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `droplets` wire field.
   final SdkOptional<List<ActionLink>> droplets;
+
   /// Optional array value serialized in the `actions` wire field.
   final SdkOptional<List<ActionLink>> actions;
 
-  const ReservedIpCreatedLinks({this.droplets = const SdkOmitted(), this.actions = const SdkOmitted()});
+  const ReservedIpCreatedLinks(
+      {this.droplets = const SdkOmitted(), this.actions = const SdkOmitted()});
 
-  ReservedIpCreatedLinks Function({SdkOptional<List<ActionLink>> droplets, SdkOptional<List<ActionLink>> actions}) get copyWith => _copyWith;
+  ReservedIpCreatedLinks Function(
+      {SdkOptional<List<ActionLink>> droplets,
+      SdkOptional<List<ActionLink>> actions}) get copyWith => _copyWith;
 
-  ReservedIpCreatedLinks _copyWith({Object? droplets = sdkOmittedValue, Object? actions = sdkOmittedValue}) => ReservedIpCreatedLinks(
-    droplets: identical(droplets, sdkOmittedValue) ? this.droplets : droplets as SdkOptional<List<ActionLink>>,
-    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<ActionLink>>,
-  );
+  ReservedIpCreatedLinks _copyWith(
+          {Object? droplets = sdkOmittedValue,
+          Object? actions = sdkOmittedValue}) =>
+      ReservedIpCreatedLinks(
+        droplets: identical(droplets, sdkOmittedValue)
+            ? this.droplets
+            : droplets as SdkOptional<List<ActionLink>>,
+        actions: identical(actions, sdkOmittedValue)
+            ? this.actions
+            : actions as SdkOptional<List<ActionLink>>,
+      );
 
-  factory ReservedIpCreatedLinks.fromJson(Map<String, dynamic> json) => ReservedIpCreatedLinks(
-    droplets: json['droplets'] != null ? SdkPresent(((json['droplets'] as List?)?.map((e) => ActionLink.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => ActionLink.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ReservedIpCreatedLinks.fromJson(Map<String, dynamic> json) =>
+      ReservedIpCreatedLinks(
+        droplets: json['droplets'] != null
+            ? SdkPresent(((json['droplets'] as List?)
+                ?.map((e) => ActionLink.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        actions: json['actions'] != null
+            ? SdkPresent(((json['actions'] as List?)
+                ?.map((e) => ActionLink.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (droplets) {
-      SdkPresent<List<ActionLink>>(value: final value) => {'droplets': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (actions) {
-      SdkPresent<List<ActionLink>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (droplets) {
+          SdkPresent<List<ActionLink>>(value: final value) => {
+              'droplets': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (actions) {
+          SdkPresent<List<ActionLink>>(value: final value) => {
+              'actions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ReservedIpCreated` API schema.
 class ReservedIpCreated {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `reserved_ip` wire field.
   final SdkOptional<ReservedIp> reservedIp;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<ReservedIpCreatedLinks> links;
 
-  const ReservedIpCreated({this.reservedIp = const SdkOmitted(), this.links = const SdkOmitted()});
+  const ReservedIpCreated(
+      {this.reservedIp = const SdkOmitted(), this.links = const SdkOmitted()});
 
-  ReservedIpCreated Function({SdkOptional<ReservedIp> reservedIp, SdkOptional<ReservedIpCreatedLinks> links}) get copyWith => _copyWith;
+  ReservedIpCreated Function(
+      {SdkOptional<ReservedIp> reservedIp,
+      SdkOptional<ReservedIpCreatedLinks> links}) get copyWith => _copyWith;
 
-  ReservedIpCreated _copyWith({Object? reservedIp = sdkOmittedValue, Object? links = sdkOmittedValue}) => ReservedIpCreated(
-    reservedIp: identical(reservedIp, sdkOmittedValue) ? this.reservedIp : reservedIp as SdkOptional<ReservedIp>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<ReservedIpCreatedLinks>,
-  );
+  ReservedIpCreated _copyWith(
+          {Object? reservedIp = sdkOmittedValue,
+          Object? links = sdkOmittedValue}) =>
+      ReservedIpCreated(
+        reservedIp: identical(reservedIp, sdkOmittedValue)
+            ? this.reservedIp
+            : reservedIp as SdkOptional<ReservedIp>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<ReservedIpCreatedLinks>,
+      );
 
-  factory ReservedIpCreated.fromJson(Map<String, dynamic> json) => ReservedIpCreated(
-    reservedIp: json['reserved_ip'] != null ? SdkPresent((json['reserved_ip'] != null ? ReservedIp.fromJson(json['reserved_ip'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? ReservedIpCreatedLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ReservedIpCreated.fromJson(Map<String, dynamic> json) =>
+      ReservedIpCreated(
+        reservedIp: json['reserved_ip'] != null
+            ? SdkPresent((json['reserved_ip'] != null
+                ? ReservedIp.fromJson(
+                    json['reserved_ip'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? ReservedIpCreatedLinks.fromJson(
+                    json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (reservedIp) {
-      SdkPresent<ReservedIp>(value: final value) => {'reserved_ip': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<ReservedIpCreatedLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (reservedIp) {
+          SdkPresent<ReservedIp>(value: final value) => {
+              'reserved_ip': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<ReservedIpCreatedLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,27 +8,42 @@ part of 'insights_prom.dart';
 class PromQueryRangeResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `status` wire field.
   final PromQueryRangeResponseStatus status;
+
   /// Required object value serialized in the `data` wire field.
   final PromMatrixData data;
 
   const PromQueryRangeResponse({required this.status, required this.data});
 
-  PromQueryRangeResponse Function({PromQueryRangeResponseStatus status, PromMatrixData data}) get copyWith => _copyWith;
+  PromQueryRangeResponse Function(
+      {PromQueryRangeResponseStatus status,
+      PromMatrixData data}) get copyWith => _copyWith;
 
-  PromQueryRangeResponse _copyWith({Object? status = sdkOmittedValue, Object? data = sdkOmittedValue}) => PromQueryRangeResponse(
-    status: identical(status, sdkOmittedValue) ? this.status : status as PromQueryRangeResponseStatus,
-    data: identical(data, sdkOmittedValue) ? this.data : data as PromMatrixData,
-  );
+  PromQueryRangeResponse _copyWith(
+          {Object? status = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      PromQueryRangeResponse(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as PromQueryRangeResponseStatus,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as PromMatrixData,
+      );
 
-  factory PromQueryRangeResponse.fromJson(Map<String, dynamic> json) => PromQueryRangeResponse(
-    status: (json['status'] != null ? PromQueryRangeResponseStatus.fromJson(json['status'] as String) : null)!,
-    data: (json['data'] != null ? PromMatrixData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-  );
+  factory PromQueryRangeResponse.fromJson(Map<String, dynamic> json) =>
+      PromQueryRangeResponse(
+        status: (json['status'] != null
+            ? PromQueryRangeResponseStatus.fromJson(json['status'] as String)
+            : null)!,
+        data: (json['data'] != null
+            ? PromMatrixData.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'status': status.toJson(),
-    'data': data.toJson(),
-  };
+        'status': status.toJson(),
+        'data': data.toJson(),
+      };
 }

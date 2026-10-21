@@ -8,35 +8,60 @@ part of 'serverless_inference_messages.dart';
 class MessagesToolDefinitionParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Tool name referenced in `tool_use` blocks.
   final String name;
+
   /// Human-readable description of what the tool does.
   final SdkOptional<String> description;
+
   /// JSON Schema (draft 2020-12 style) describing the tool input object.
   final Map<String, Object?> inputSchema;
 
-  const MessagesToolDefinitionParam({required this.name, this.description = const SdkOmitted(), required this.inputSchema});
+  const MessagesToolDefinitionParam(
+      {required this.name,
+      this.description = const SdkOmitted(),
+      required this.inputSchema});
 
-  MessagesToolDefinitionParam Function({String name, SdkOptional<String> description, Map<String, Object?> inputSchema}) get copyWith => _copyWith;
+  MessagesToolDefinitionParam Function(
+      {String name,
+      SdkOptional<String> description,
+      Map<String, Object?> inputSchema}) get copyWith => _copyWith;
 
-  MessagesToolDefinitionParam _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? inputSchema = sdkOmittedValue}) => MessagesToolDefinitionParam(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    inputSchema: identical(inputSchema, sdkOmittedValue) ? this.inputSchema : inputSchema as Map<String, Object?>,
-  );
+  MessagesToolDefinitionParam _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? inputSchema = sdkOmittedValue}) =>
+      MessagesToolDefinitionParam(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        inputSchema: identical(inputSchema, sdkOmittedValue)
+            ? this.inputSchema
+            : inputSchema as Map<String, Object?>,
+      );
 
-  factory MessagesToolDefinitionParam.fromJson(Map<String, dynamic> json) => MessagesToolDefinitionParam(
-    name: (json['name'] as String?)!,
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    inputSchema: (json['input_schema'] == null ? null : Map<String, dynamic>.from(json['input_schema'] as Map).map((key, value) => MapEntry(key, value)))!,
-  );
+  factory MessagesToolDefinitionParam.fromJson(Map<String, dynamic> json) =>
+      MessagesToolDefinitionParam(
+        name: (json['name'] as String?)!,
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        inputSchema: (json['input_schema'] == null
+            ? null
+            : Map<String, dynamic>.from(json['input_schema'] as Map)
+                .map((key, value) => MapEntry(key, value)))!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    'input_schema': inputSchema,
-  };
+        'name': name,
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'input_schema': inputSchema,
+      };
 }

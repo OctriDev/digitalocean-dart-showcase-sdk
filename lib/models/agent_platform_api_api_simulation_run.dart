@@ -8,209 +8,463 @@ part of 'agent_platform_api_api_simulation.dart';
 class ApiSimulationRun {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Configuration of the candidate agent under test for a simulation run.
   final SdkOptional<ApiCandidateAgentConfig> agentConfig;
+
   /// Time created at.
   final SdkOptional<String> createdAt;
+
   /// Email of the user who triggered this run.
   final SdkOptional<String> createdByUserEmail;
+
   /// User id of the actor who triggered this run.
   final SdkOptional<String> createdByUserId;
+
   /// Time deleted at. Unset unless the run has been deleted.
   final SdkOptional<String> deletedAt;
+
   /// UUID of the evaluation run reserved for this simulation, when the create request included evaluation_config. Empty when no evaluation is attached.
   final SdkOptional<String> evaluationRunUuid;
+
   /// Optional run-level episodes-per-scenario override. When set, overrides each scenario's exploration_budget.
   final SdkOptional<int> explorationBudget;
+
   /// Human-readable explanation of a terminal FAILED status. Empty otherwise.
   final SdkOptional<String> failureReason;
+
   /// Number of episodes that have finished (successfully or not).
   final SdkOptional<int> episodesFinished;
+
   /// Display name of the judge model (from the model catalog).
   final SdkOptional<String> judgeModelName;
+
   /// Model used by the judge.
   final SdkOptional<String> judgeModelUuid;
+
   /// Optional run-level turn budget. When set, overrides each scenario's max_turns.
   final SdkOptional<int> maxTurns;
+
   /// Optional run name.
   final SdkOptional<String> name;
+
   /// Aggregated final result of a simulation run: verdict counts plus token and duration totals.
   final SdkOptional<ApiSimulationRunResultSummary> resultSummary;
+
   /// UUID of the run.
   final SdkOptional<String> runUuid;
+
   /// Number of scenarios in the scenario set for this run.
   final SdkOptional<int> scenarioCount;
+
   /// UUID of the scenario set being executed (must exist at run create).
   final SdkOptional<String> scenarioSetUuid;
+
   /// Lifecycle status of a simulation run. - SIMULATION_RUN_STATUS_PENDING: Accepted and queued, not yet executing. - SIMULATION_RUN_STATUS_RUNNING: Episodes are executing. - SIMULATION_RUN_STATUS_SUCCEEDED: All episodes finished successfully. - SIMULATION_RUN_STATUS_FAILED: The run failed, for example because of a timeout or workflow error. - SIMULATION_RUN_STATUS_CANCELLED: The run was cancelled. - SIMULATION_RUN_STATUS_EVALUATING: Episodes finished and an attached evaluation is running. Only reachable when the create request included evaluation_config. When the evaluation reaches a terminal status, its outcome is reflected in the simulation run status. - SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL: The simulation or its attached evaluation completed with a mixture of successful and failed results.
   final SdkOptional<ApiSimulationRunStatus> status;
+
   /// Total number of episodes (sum of exploration budgets).
   final SdkOptional<int> totalEpisodes;
+
   /// Time last updated at.
   final SdkOptional<String> updatedAt;
+
   /// Optional user simulator model settings such as temperature and max_tokens.
   final SdkOptional<Map<String, dynamic>> userSimulatorConfig;
+
   /// Display name of the user simulator model (from the model catalog).
   final SdkOptional<String> userSimulatorModelName;
+
   /// Model used by the user simulator.
   final SdkOptional<String> userSimulatorModelUuid;
+
   /// Identifier of the workflow executing this run.
   final SdkOptional<String> workflowUuid;
 
-  const ApiSimulationRun({this.agentConfig = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.createdByUserEmail = const SdkOmitted(), this.createdByUserId = const SdkOmitted(), this.deletedAt = const SdkOmitted(), this.evaluationRunUuid = const SdkOmitted(), this.explorationBudget = const SdkOmitted(), this.failureReason = const SdkOmitted(), this.episodesFinished = const SdkOmitted(), this.judgeModelName = const SdkOmitted(), this.judgeModelUuid = const SdkOmitted(), this.maxTurns = const SdkOmitted(), this.name = const SdkOmitted(), this.resultSummary = const SdkOmitted(), this.runUuid = const SdkOmitted(), this.scenarioCount = const SdkOmitted(), this.scenarioSetUuid = const SdkOmitted(), this.status = const SdkOmitted(), this.totalEpisodes = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.userSimulatorConfig = const SdkOmitted(), this.userSimulatorModelName = const SdkOmitted(), this.userSimulatorModelUuid = const SdkOmitted(), this.workflowUuid = const SdkOmitted()});
+  const ApiSimulationRun(
+      {this.agentConfig = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.createdByUserEmail = const SdkOmitted(),
+      this.createdByUserId = const SdkOmitted(),
+      this.deletedAt = const SdkOmitted(),
+      this.evaluationRunUuid = const SdkOmitted(),
+      this.explorationBudget = const SdkOmitted(),
+      this.failureReason = const SdkOmitted(),
+      this.episodesFinished = const SdkOmitted(),
+      this.judgeModelName = const SdkOmitted(),
+      this.judgeModelUuid = const SdkOmitted(),
+      this.maxTurns = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.resultSummary = const SdkOmitted(),
+      this.runUuid = const SdkOmitted(),
+      this.scenarioCount = const SdkOmitted(),
+      this.scenarioSetUuid = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.totalEpisodes = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.userSimulatorConfig = const SdkOmitted(),
+      this.userSimulatorModelName = const SdkOmitted(),
+      this.userSimulatorModelUuid = const SdkOmitted(),
+      this.workflowUuid = const SdkOmitted()});
 
-  ApiSimulationRun Function({SdkOptional<ApiCandidateAgentConfig> agentConfig, SdkOptional<String> createdAt, SdkOptional<String> createdByUserEmail, SdkOptional<String> createdByUserId, SdkOptional<String> deletedAt, SdkOptional<String> evaluationRunUuid, SdkOptional<int> explorationBudget, SdkOptional<String> failureReason, SdkOptional<int> episodesFinished, SdkOptional<String> judgeModelName, SdkOptional<String> judgeModelUuid, SdkOptional<int> maxTurns, SdkOptional<String> name, SdkOptional<ApiSimulationRunResultSummary> resultSummary, SdkOptional<String> runUuid, SdkOptional<int> scenarioCount, SdkOptional<String> scenarioSetUuid, SdkOptional<ApiSimulationRunStatus> status, SdkOptional<int> totalEpisodes, SdkOptional<String> updatedAt, SdkOptional<Map<String, dynamic>> userSimulatorConfig, SdkOptional<String> userSimulatorModelName, SdkOptional<String> userSimulatorModelUuid, SdkOptional<String> workflowUuid}) get copyWith => _copyWith;
+  ApiSimulationRun Function(
+      {SdkOptional<ApiCandidateAgentConfig> agentConfig,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> createdByUserEmail,
+      SdkOptional<String> createdByUserId,
+      SdkOptional<String> deletedAt,
+      SdkOptional<String> evaluationRunUuid,
+      SdkOptional<int> explorationBudget,
+      SdkOptional<String> failureReason,
+      SdkOptional<int> episodesFinished,
+      SdkOptional<String> judgeModelName,
+      SdkOptional<String> judgeModelUuid,
+      SdkOptional<int> maxTurns,
+      SdkOptional<String> name,
+      SdkOptional<ApiSimulationRunResultSummary> resultSummary,
+      SdkOptional<String> runUuid,
+      SdkOptional<int> scenarioCount,
+      SdkOptional<String> scenarioSetUuid,
+      SdkOptional<ApiSimulationRunStatus> status,
+      SdkOptional<int> totalEpisodes,
+      SdkOptional<String> updatedAt,
+      SdkOptional<Map<String, dynamic>> userSimulatorConfig,
+      SdkOptional<String> userSimulatorModelName,
+      SdkOptional<String> userSimulatorModelUuid,
+      SdkOptional<String> workflowUuid}) get copyWith => _copyWith;
 
-  ApiSimulationRun _copyWith({Object? agentConfig = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? createdByUserEmail = sdkOmittedValue, Object? createdByUserId = sdkOmittedValue, Object? deletedAt = sdkOmittedValue, Object? evaluationRunUuid = sdkOmittedValue, Object? explorationBudget = sdkOmittedValue, Object? failureReason = sdkOmittedValue, Object? episodesFinished = sdkOmittedValue, Object? judgeModelName = sdkOmittedValue, Object? judgeModelUuid = sdkOmittedValue, Object? maxTurns = sdkOmittedValue, Object? name = sdkOmittedValue, Object? resultSummary = sdkOmittedValue, Object? runUuid = sdkOmittedValue, Object? scenarioCount = sdkOmittedValue, Object? scenarioSetUuid = sdkOmittedValue, Object? status = sdkOmittedValue, Object? totalEpisodes = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? userSimulatorConfig = sdkOmittedValue, Object? userSimulatorModelName = sdkOmittedValue, Object? userSimulatorModelUuid = sdkOmittedValue, Object? workflowUuid = sdkOmittedValue}) => ApiSimulationRun(
-    agentConfig: identical(agentConfig, sdkOmittedValue) ? this.agentConfig : agentConfig as SdkOptional<ApiCandidateAgentConfig>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    createdByUserEmail: identical(createdByUserEmail, sdkOmittedValue) ? this.createdByUserEmail : createdByUserEmail as SdkOptional<String>,
-    createdByUserId: identical(createdByUserId, sdkOmittedValue) ? this.createdByUserId : createdByUserId as SdkOptional<String>,
-    deletedAt: identical(deletedAt, sdkOmittedValue) ? this.deletedAt : deletedAt as SdkOptional<String>,
-    evaluationRunUuid: identical(evaluationRunUuid, sdkOmittedValue) ? this.evaluationRunUuid : evaluationRunUuid as SdkOptional<String>,
-    explorationBudget: identical(explorationBudget, sdkOmittedValue) ? this.explorationBudget : explorationBudget as SdkOptional<int>,
-    failureReason: identical(failureReason, sdkOmittedValue) ? this.failureReason : failureReason as SdkOptional<String>,
-    episodesFinished: identical(episodesFinished, sdkOmittedValue) ? this.episodesFinished : episodesFinished as SdkOptional<int>,
-    judgeModelName: identical(judgeModelName, sdkOmittedValue) ? this.judgeModelName : judgeModelName as SdkOptional<String>,
-    judgeModelUuid: identical(judgeModelUuid, sdkOmittedValue) ? this.judgeModelUuid : judgeModelUuid as SdkOptional<String>,
-    maxTurns: identical(maxTurns, sdkOmittedValue) ? this.maxTurns : maxTurns as SdkOptional<int>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    resultSummary: identical(resultSummary, sdkOmittedValue) ? this.resultSummary : resultSummary as SdkOptional<ApiSimulationRunResultSummary>,
-    runUuid: identical(runUuid, sdkOmittedValue) ? this.runUuid : runUuid as SdkOptional<String>,
-    scenarioCount: identical(scenarioCount, sdkOmittedValue) ? this.scenarioCount : scenarioCount as SdkOptional<int>,
-    scenarioSetUuid: identical(scenarioSetUuid, sdkOmittedValue) ? this.scenarioSetUuid : scenarioSetUuid as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ApiSimulationRunStatus>,
-    totalEpisodes: identical(totalEpisodes, sdkOmittedValue) ? this.totalEpisodes : totalEpisodes as SdkOptional<int>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-    userSimulatorConfig: identical(userSimulatorConfig, sdkOmittedValue) ? this.userSimulatorConfig : userSimulatorConfig as SdkOptional<Map<String, dynamic>>,
-    userSimulatorModelName: identical(userSimulatorModelName, sdkOmittedValue) ? this.userSimulatorModelName : userSimulatorModelName as SdkOptional<String>,
-    userSimulatorModelUuid: identical(userSimulatorModelUuid, sdkOmittedValue) ? this.userSimulatorModelUuid : userSimulatorModelUuid as SdkOptional<String>,
-    workflowUuid: identical(workflowUuid, sdkOmittedValue) ? this.workflowUuid : workflowUuid as SdkOptional<String>,
-  );
+  ApiSimulationRun _copyWith(
+          {Object? agentConfig = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? createdByUserEmail = sdkOmittedValue,
+          Object? createdByUserId = sdkOmittedValue,
+          Object? deletedAt = sdkOmittedValue,
+          Object? evaluationRunUuid = sdkOmittedValue,
+          Object? explorationBudget = sdkOmittedValue,
+          Object? failureReason = sdkOmittedValue,
+          Object? episodesFinished = sdkOmittedValue,
+          Object? judgeModelName = sdkOmittedValue,
+          Object? judgeModelUuid = sdkOmittedValue,
+          Object? maxTurns = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? resultSummary = sdkOmittedValue,
+          Object? runUuid = sdkOmittedValue,
+          Object? scenarioCount = sdkOmittedValue,
+          Object? scenarioSetUuid = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? totalEpisodes = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? userSimulatorConfig = sdkOmittedValue,
+          Object? userSimulatorModelName = sdkOmittedValue,
+          Object? userSimulatorModelUuid = sdkOmittedValue,
+          Object? workflowUuid = sdkOmittedValue}) =>
+      ApiSimulationRun(
+        agentConfig: identical(agentConfig, sdkOmittedValue)
+            ? this.agentConfig
+            : agentConfig as SdkOptional<ApiCandidateAgentConfig>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        createdByUserEmail: identical(createdByUserEmail, sdkOmittedValue)
+            ? this.createdByUserEmail
+            : createdByUserEmail as SdkOptional<String>,
+        createdByUserId: identical(createdByUserId, sdkOmittedValue)
+            ? this.createdByUserId
+            : createdByUserId as SdkOptional<String>,
+        deletedAt: identical(deletedAt, sdkOmittedValue)
+            ? this.deletedAt
+            : deletedAt as SdkOptional<String>,
+        evaluationRunUuid: identical(evaluationRunUuid, sdkOmittedValue)
+            ? this.evaluationRunUuid
+            : evaluationRunUuid as SdkOptional<String>,
+        explorationBudget: identical(explorationBudget, sdkOmittedValue)
+            ? this.explorationBudget
+            : explorationBudget as SdkOptional<int>,
+        failureReason: identical(failureReason, sdkOmittedValue)
+            ? this.failureReason
+            : failureReason as SdkOptional<String>,
+        episodesFinished: identical(episodesFinished, sdkOmittedValue)
+            ? this.episodesFinished
+            : episodesFinished as SdkOptional<int>,
+        judgeModelName: identical(judgeModelName, sdkOmittedValue)
+            ? this.judgeModelName
+            : judgeModelName as SdkOptional<String>,
+        judgeModelUuid: identical(judgeModelUuid, sdkOmittedValue)
+            ? this.judgeModelUuid
+            : judgeModelUuid as SdkOptional<String>,
+        maxTurns: identical(maxTurns, sdkOmittedValue)
+            ? this.maxTurns
+            : maxTurns as SdkOptional<int>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        resultSummary: identical(resultSummary, sdkOmittedValue)
+            ? this.resultSummary
+            : resultSummary as SdkOptional<ApiSimulationRunResultSummary>,
+        runUuid: identical(runUuid, sdkOmittedValue)
+            ? this.runUuid
+            : runUuid as SdkOptional<String>,
+        scenarioCount: identical(scenarioCount, sdkOmittedValue)
+            ? this.scenarioCount
+            : scenarioCount as SdkOptional<int>,
+        scenarioSetUuid: identical(scenarioSetUuid, sdkOmittedValue)
+            ? this.scenarioSetUuid
+            : scenarioSetUuid as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<ApiSimulationRunStatus>,
+        totalEpisodes: identical(totalEpisodes, sdkOmittedValue)
+            ? this.totalEpisodes
+            : totalEpisodes as SdkOptional<int>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+        userSimulatorConfig: identical(userSimulatorConfig, sdkOmittedValue)
+            ? this.userSimulatorConfig
+            : userSimulatorConfig as SdkOptional<Map<String, dynamic>>,
+        userSimulatorModelName:
+            identical(userSimulatorModelName, sdkOmittedValue)
+                ? this.userSimulatorModelName
+                : userSimulatorModelName as SdkOptional<String>,
+        userSimulatorModelUuid:
+            identical(userSimulatorModelUuid, sdkOmittedValue)
+                ? this.userSimulatorModelUuid
+                : userSimulatorModelUuid as SdkOptional<String>,
+        workflowUuid: identical(workflowUuid, sdkOmittedValue)
+            ? this.workflowUuid
+            : workflowUuid as SdkOptional<String>,
+      );
 
-  factory ApiSimulationRun.fromJson(Map<String, dynamic> json) => ApiSimulationRun(
-    agentConfig: json['agent_config'] != null ? SdkPresent((json['agent_config'] != null ? ApiCandidateAgentConfig.fromJson(json['agent_config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    createdByUserEmail: json['created_by_user_email'] != null ? SdkPresent((json['created_by_user_email'] as String?)!) : const SdkOmitted(),
-    createdByUserId: json['created_by_user_id'] != null ? SdkPresent((json['created_by_user_id'] as String?)!) : const SdkOmitted(),
-    deletedAt: json['deleted_at'] != null ? SdkPresent((json['deleted_at'] as String?)!) : const SdkOmitted(),
-    evaluationRunUuid: json['evaluation_run_uuid'] != null ? SdkPresent((json['evaluation_run_uuid'] as String?)!) : const SdkOmitted(),
-    explorationBudget: json['exploration_budget'] != null ? SdkPresent(((json['exploration_budget'] as num?)?.toInt())!) : const SdkOmitted(),
-    failureReason: json['failure_reason'] != null ? SdkPresent((json['failure_reason'] as String?)!) : const SdkOmitted(),
-    episodesFinished: json['episodes_finished'] != null ? SdkPresent(((json['episodes_finished'] as num?)?.toInt())!) : const SdkOmitted(),
-    judgeModelName: json['judge_model_name'] != null ? SdkPresent((json['judge_model_name'] as String?)!) : const SdkOmitted(),
-    judgeModelUuid: json['judge_model_uuid'] != null ? SdkPresent((json['judge_model_uuid'] as String?)!) : const SdkOmitted(),
-    maxTurns: json['max_turns'] != null ? SdkPresent(((json['max_turns'] as num?)?.toInt())!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    resultSummary: json['result_summary'] != null ? SdkPresent((json['result_summary'] != null ? ApiSimulationRunResultSummary.fromJson(json['result_summary'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    runUuid: json['run_uuid'] != null ? SdkPresent((json['run_uuid'] as String?)!) : const SdkOmitted(),
-    scenarioCount: json['scenario_count'] != null ? SdkPresent(((json['scenario_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    scenarioSetUuid: json['scenario_set_uuid'] != null ? SdkPresent((json['scenario_set_uuid'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? ApiSimulationRunStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    totalEpisodes: json['total_episodes'] != null ? SdkPresent(((json['total_episodes'] as num?)?.toInt())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-    userSimulatorConfig: json['user_simulator_config'] != null ? SdkPresent((json['user_simulator_config'] == null ? null : json['user_simulator_config'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    userSimulatorModelName: json['user_simulator_model_name'] != null ? SdkPresent((json['user_simulator_model_name'] as String?)!) : const SdkOmitted(),
-    userSimulatorModelUuid: json['user_simulator_model_uuid'] != null ? SdkPresent((json['user_simulator_model_uuid'] as String?)!) : const SdkOmitted(),
-    workflowUuid: json['workflow_uuid'] != null ? SdkPresent((json['workflow_uuid'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiSimulationRun.fromJson(Map<String, dynamic> json) =>
+      ApiSimulationRun(
+        agentConfig: json['agent_config'] != null
+            ? SdkPresent((json['agent_config'] != null
+                ? ApiCandidateAgentConfig.fromJson(
+                    json['agent_config'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        createdByUserEmail: json['created_by_user_email'] != null
+            ? SdkPresent((json['created_by_user_email'] as String?)!)
+            : const SdkOmitted(),
+        createdByUserId: json['created_by_user_id'] != null
+            ? SdkPresent((json['created_by_user_id'] as String?)!)
+            : const SdkOmitted(),
+        deletedAt: json['deleted_at'] != null
+            ? SdkPresent((json['deleted_at'] as String?)!)
+            : const SdkOmitted(),
+        evaluationRunUuid: json['evaluation_run_uuid'] != null
+            ? SdkPresent((json['evaluation_run_uuid'] as String?)!)
+            : const SdkOmitted(),
+        explorationBudget: json['exploration_budget'] != null
+            ? SdkPresent(((json['exploration_budget'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        failureReason: json['failure_reason'] != null
+            ? SdkPresent((json['failure_reason'] as String?)!)
+            : const SdkOmitted(),
+        episodesFinished: json['episodes_finished'] != null
+            ? SdkPresent(((json['episodes_finished'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        judgeModelName: json['judge_model_name'] != null
+            ? SdkPresent((json['judge_model_name'] as String?)!)
+            : const SdkOmitted(),
+        judgeModelUuid: json['judge_model_uuid'] != null
+            ? SdkPresent((json['judge_model_uuid'] as String?)!)
+            : const SdkOmitted(),
+        maxTurns: json['max_turns'] != null
+            ? SdkPresent(((json['max_turns'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        resultSummary: json['result_summary'] != null
+            ? SdkPresent((json['result_summary'] != null
+                ? ApiSimulationRunResultSummary.fromJson(
+                    json['result_summary'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        runUuid: json['run_uuid'] != null
+            ? SdkPresent((json['run_uuid'] as String?)!)
+            : const SdkOmitted(),
+        scenarioCount: json['scenario_count'] != null
+            ? SdkPresent(((json['scenario_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        scenarioSetUuid: json['scenario_set_uuid'] != null
+            ? SdkPresent((json['scenario_set_uuid'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? ApiSimulationRunStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        totalEpisodes: json['total_episodes'] != null
+            ? SdkPresent(((json['total_episodes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+        userSimulatorConfig: json['user_simulator_config'] != null
+            ? SdkPresent((json['user_simulator_config'] == null
+                ? null
+                : json['user_simulator_config'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        userSimulatorModelName: json['user_simulator_model_name'] != null
+            ? SdkPresent((json['user_simulator_model_name'] as String?)!)
+            : const SdkOmitted(),
+        userSimulatorModelUuid: json['user_simulator_model_uuid'] != null
+            ? SdkPresent((json['user_simulator_model_uuid'] as String?)!)
+            : const SdkOmitted(),
+        workflowUuid: json['workflow_uuid'] != null
+            ? SdkPresent((json['workflow_uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agentConfig) {
-      SdkPresent<ApiCandidateAgentConfig>(value: final value) => {'agent_config': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdByUserEmail) {
-      SdkPresent<String>(value: final value) => {'created_by_user_email': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdByUserId) {
-      SdkPresent<String>(value: final value) => {'created_by_user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deletedAt) {
-      SdkPresent<String>(value: final value) => {'deleted_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (evaluationRunUuid) {
-      SdkPresent<String>(value: final value) => {'evaluation_run_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (explorationBudget) {
-      SdkPresent<int>(value: final value) => {'exploration_budget': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (failureReason) {
-      SdkPresent<String>(value: final value) => {'failure_reason': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (episodesFinished) {
-      SdkPresent<int>(value: final value) => {'episodes_finished': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (judgeModelName) {
-      SdkPresent<String>(value: final value) => {'judge_model_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (judgeModelUuid) {
-      SdkPresent<String>(value: final value) => {'judge_model_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxTurns) {
-      SdkPresent<int>(value: final value) => {'max_turns': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (resultSummary) {
-      SdkPresent<ApiSimulationRunResultSummary>(value: final value) => {'result_summary': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (runUuid) {
-      SdkPresent<String>(value: final value) => {'run_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scenarioCount) {
-      SdkPresent<int>(value: final value) => {'scenario_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scenarioSetUuid) {
-      SdkPresent<String>(value: final value) => {'scenario_set_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<ApiSimulationRunStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalEpisodes) {
-      SdkPresent<int>(value: final value) => {'total_episodes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userSimulatorConfig) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'user_simulator_config': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userSimulatorModelName) {
-      SdkPresent<String>(value: final value) => {'user_simulator_model_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userSimulatorModelUuid) {
-      SdkPresent<String>(value: final value) => {'user_simulator_model_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (workflowUuid) {
-      SdkPresent<String>(value: final value) => {'workflow_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agentConfig) {
+          SdkPresent<ApiCandidateAgentConfig>(value: final value) => {
+              'agent_config': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdByUserEmail) {
+          SdkPresent<String>(value: final value) => {
+              'created_by_user_email': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdByUserId) {
+          SdkPresent<String>(value: final value) => {
+              'created_by_user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deletedAt) {
+          SdkPresent<String>(value: final value) => {
+              'deleted_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (evaluationRunUuid) {
+          SdkPresent<String>(value: final value) => {
+              'evaluation_run_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (explorationBudget) {
+          SdkPresent<int>(value: final value) => {
+              'exploration_budget': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (failureReason) {
+          SdkPresent<String>(value: final value) => {
+              'failure_reason': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (episodesFinished) {
+          SdkPresent<int>(value: final value) => {
+              'episodes_finished': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (judgeModelName) {
+          SdkPresent<String>(value: final value) => {
+              'judge_model_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (judgeModelUuid) {
+          SdkPresent<String>(value: final value) => {
+              'judge_model_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxTurns) {
+          SdkPresent<int>(value: final value) => {
+              'max_turns': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (resultSummary) {
+          SdkPresent<ApiSimulationRunResultSummary>(value: final value) => {
+              'result_summary': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (runUuid) {
+          SdkPresent<String>(value: final value) => {
+              'run_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scenarioCount) {
+          SdkPresent<int>(value: final value) => {
+              'scenario_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scenarioSetUuid) {
+          SdkPresent<String>(value: final value) => {
+              'scenario_set_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<ApiSimulationRunStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalEpisodes) {
+          SdkPresent<int>(value: final value) => {
+              'total_episodes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userSimulatorConfig) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'user_simulator_config': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userSimulatorModelName) {
+          SdkPresent<String>(value: final value) => {
+              'user_simulator_model_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userSimulatorModelUuid) {
+          SdkPresent<String>(value: final value) => {
+              'user_simulator_model_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (workflowUuid) {
+          SdkPresent<String>(value: final value) => {
+              'workflow_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

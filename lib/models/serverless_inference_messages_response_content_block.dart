@@ -10,32 +10,60 @@ sealed class MessagesResponseContentBlock {
   const MessagesResponseContentBlock();
   factory MessagesResponseContentBlock.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = MessagesResponseTextBlock.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessagesResponseContentBlockMessagesResponseTextBlock(value); } } catch (_) {}
-      try { final value = MessagesResponseToolUseBlock.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return MessagesResponseContentBlockMessagesResponseToolUseBlock(value); } } catch (_) {}
+      try {
+        final value = MessagesResponseTextBlock.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessagesResponseContentBlockMessagesResponseTextBlock(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MessagesResponseToolUseBlock.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return MessagesResponseContentBlockMessagesResponseToolUseBlock(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return MessagesResponseContentBlockMessagesResponseTextBlock(MessagesResponseTextBlock.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return MessagesResponseContentBlockMessagesResponseToolUseBlock(MessagesResponseToolUseBlock.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["type"] is String && !const {"text", "tool_use"}.contains(json["type"])) { return UnknownMessagesResponseContentBlock(json); }
-    throw FormatException("No variant matched for MessagesResponseContentBlock");
+    try {
+      return MessagesResponseContentBlockMessagesResponseTextBlock(
+          MessagesResponseTextBlock.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return MessagesResponseContentBlockMessagesResponseToolUseBlock(
+          MessagesResponseToolUseBlock.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["type"] is String &&
+        !const {"text", "tool_use"}.contains(json["type"])) {
+      return UnknownMessagesResponseContentBlock(json);
+    }
+    throw FormatException(
+        "No variant matched for MessagesResponseContentBlock");
   }
   Object? toJson();
 }
 
-final class MessagesResponseContentBlockMessagesResponseTextBlock extends MessagesResponseContentBlock {
+final class MessagesResponseContentBlockMessagesResponseTextBlock
+    extends MessagesResponseContentBlock {
   final MessagesResponseTextBlock value;
   const MessagesResponseContentBlockMessagesResponseTextBlock(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class MessagesResponseContentBlockMessagesResponseToolUseBlock extends MessagesResponseContentBlock {
+final class MessagesResponseContentBlockMessagesResponseToolUseBlock
+    extends MessagesResponseContentBlock {
   final MessagesResponseToolUseBlock value;
   const MessagesResponseContentBlockMessagesResponseToolUseBlock(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [MessagesResponseContentBlock] whose `type` names no branch this SDK knows, kept as received.
-final class UnknownMessagesResponseContentBlock extends MessagesResponseContentBlock {
+final class UnknownMessagesResponseContentBlock
+    extends MessagesResponseContentBlock {
   final Map<String, dynamic> raw;
   const UnknownMessagesResponseContentBlock(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

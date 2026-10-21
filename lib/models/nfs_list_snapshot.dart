@@ -8,25 +8,39 @@ part of 'nfs.dart';
 class NfsSnapshotListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `snapshots` wire field.
   final SdkOptional<List<NfsSnapshotResponse>> snapshots;
 
   const NfsSnapshotListResponse({this.snapshots = const SdkOmitted()});
 
-  NfsSnapshotListResponse Function({SdkOptional<List<NfsSnapshotResponse>> snapshots}) get copyWith => _copyWith;
+  NfsSnapshotListResponse Function(
+          {SdkOptional<List<NfsSnapshotResponse>> snapshots})
+      get copyWith => _copyWith;
 
-  NfsSnapshotListResponse _copyWith({Object? snapshots = sdkOmittedValue}) => NfsSnapshotListResponse(
-    snapshots: identical(snapshots, sdkOmittedValue) ? this.snapshots : snapshots as SdkOptional<List<NfsSnapshotResponse>>,
-  );
+  NfsSnapshotListResponse _copyWith({Object? snapshots = sdkOmittedValue}) =>
+      NfsSnapshotListResponse(
+        snapshots: identical(snapshots, sdkOmittedValue)
+            ? this.snapshots
+            : snapshots as SdkOptional<List<NfsSnapshotResponse>>,
+      );
 
-  factory NfsSnapshotListResponse.fromJson(Map<String, dynamic> json) => NfsSnapshotListResponse(
-    snapshots: json['snapshots'] != null ? SdkPresent(((json['snapshots'] as List?)?.map((e) => NfsSnapshotResponse.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory NfsSnapshotListResponse.fromJson(Map<String, dynamic> json) =>
+      NfsSnapshotListResponse(
+        snapshots: json['snapshots'] != null
+            ? SdkPresent(((json['snapshots'] as List?)
+                ?.map((e) =>
+                    NfsSnapshotResponse.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (snapshots) {
-      SdkPresent<List<NfsSnapshotResponse>>(value: final value) => {'snapshots': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (snapshots) {
+          SdkPresent<List<NfsSnapshotResponse>>(value: final value) => {
+              'snapshots': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

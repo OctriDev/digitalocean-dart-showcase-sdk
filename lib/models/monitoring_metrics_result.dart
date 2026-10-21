@@ -8,27 +8,43 @@ part of 'monitoring.dart';
 class MetricsResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An object containing the metric's labels. These labels are key/value pairs that vary depending on the metric being queried. For example, load balancer metrics contain a `lb_id` label, while Droplet metrics contain a `host_id` label, and App Platform metrics contain a `app_component` label.
   final Map<String, String> metric;
+
   /// An array of values for the metric.
   final List<List<dynamic>> values;
 
   const MetricsResult({required this.metric, required this.values});
 
-  MetricsResult Function({Map<String, String> metric, List<List<dynamic>> values}) get copyWith => _copyWith;
+  MetricsResult Function(
+      {Map<String, String> metric,
+      List<List<dynamic>> values}) get copyWith => _copyWith;
 
-  MetricsResult _copyWith({Object? metric = sdkOmittedValue, Object? values = sdkOmittedValue}) => MetricsResult(
-    metric: identical(metric, sdkOmittedValue) ? this.metric : metric as Map<String, String>,
-    values: identical(values, sdkOmittedValue) ? this.values : values as List<List<dynamic>>,
-  );
+  MetricsResult _copyWith(
+          {Object? metric = sdkOmittedValue,
+          Object? values = sdkOmittedValue}) =>
+      MetricsResult(
+        metric: identical(metric, sdkOmittedValue)
+            ? this.metric
+            : metric as Map<String, String>,
+        values: identical(values, sdkOmittedValue)
+            ? this.values
+            : values as List<List<dynamic>>,
+      );
 
   factory MetricsResult.fromJson(Map<String, dynamic> json) => MetricsResult(
-    metric: (json['metric'] == null ? null : Map<String, dynamic>.from(json['metric'] as Map).map((key, value) => MapEntry(key, value as String)))!,
-    values: ((json['values'] as List?)?.map((e) => (e as List).map((item) => item).toList()).toList())!,
-  );
+        metric: (json['metric'] == null
+            ? null
+            : Map<String, dynamic>.from(json['metric'] as Map)
+                .map((key, value) => MapEntry(key, value as String)))!,
+        values: ((json['values'] as List?)
+            ?.map((e) => (e as List).map((item) => item).toList())
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'metric': metric,
-    'values': values,
-  };
+        'metric': metric,
+        'values': values,
+      };
 }

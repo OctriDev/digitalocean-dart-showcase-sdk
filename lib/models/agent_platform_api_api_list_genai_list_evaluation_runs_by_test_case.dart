@@ -8,25 +8,42 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListEvaluationRunsByTestCaseOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// List of evaluation runs.
   final SdkOptional<List<ApiEvaluationRun>> evaluationRuns;
 
-  const ApiListEvaluationRunsByTestCaseOutput({this.evaluationRuns = const SdkOmitted()});
+  const ApiListEvaluationRunsByTestCaseOutput(
+      {this.evaluationRuns = const SdkOmitted()});
 
-  ApiListEvaluationRunsByTestCaseOutput Function({SdkOptional<List<ApiEvaluationRun>> evaluationRuns}) get copyWith => _copyWith;
+  ApiListEvaluationRunsByTestCaseOutput Function(
+          {SdkOptional<List<ApiEvaluationRun>> evaluationRuns})
+      get copyWith => _copyWith;
 
-  ApiListEvaluationRunsByTestCaseOutput _copyWith({Object? evaluationRuns = sdkOmittedValue}) => ApiListEvaluationRunsByTestCaseOutput(
-    evaluationRuns: identical(evaluationRuns, sdkOmittedValue) ? this.evaluationRuns : evaluationRuns as SdkOptional<List<ApiEvaluationRun>>,
-  );
+  ApiListEvaluationRunsByTestCaseOutput _copyWith(
+          {Object? evaluationRuns = sdkOmittedValue}) =>
+      ApiListEvaluationRunsByTestCaseOutput(
+        evaluationRuns: identical(evaluationRuns, sdkOmittedValue)
+            ? this.evaluationRuns
+            : evaluationRuns as SdkOptional<List<ApiEvaluationRun>>,
+      );
 
-  factory ApiListEvaluationRunsByTestCaseOutput.fromJson(Map<String, dynamic> json) => ApiListEvaluationRunsByTestCaseOutput(
-    evaluationRuns: json['evaluation_runs'] != null ? SdkPresent(((json['evaluation_runs'] as List?)?.map((e) => ApiEvaluationRun.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiListEvaluationRunsByTestCaseOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiListEvaluationRunsByTestCaseOutput(
+        evaluationRuns: json['evaluation_runs'] != null
+            ? SdkPresent(((json['evaluation_runs'] as List?)
+                ?.map(
+                    (e) => ApiEvaluationRun.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (evaluationRuns) {
-      SdkPresent<List<ApiEvaluationRun>>(value: final value) => {'evaluation_runs': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (evaluationRuns) {
+          SdkPresent<List<ApiEvaluationRun>>(value: final value) => {
+              'evaluation_runs': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

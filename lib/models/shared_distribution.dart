@@ -6,7 +6,6 @@ part of 'shared.dart';
 // shared domain models
 /// The name of a custom image's distribution. Currently, the valid values are `Arch Linux`, `CentOS`, `CoreOS`, `Debian`, `Fedora`, `Fedora Atomic`, `FreeBSD`, `Gentoo`, `openSUSE`, `RancherOS`, `Rocky Linux`, `Ubuntu`, and `Unknown`. Any other value will be accepted but ignored, and `Unknown` will be used in its place.
 final class Distribution {
-
   final String value;
 
   const Distribution._(this.value);
@@ -29,10 +28,13 @@ final class Distribution {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is Distribution && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is Distribution && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

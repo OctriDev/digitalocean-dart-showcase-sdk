@@ -8,65 +8,131 @@ part of 'droplet_autoscale_pools.dart';
 class AutoscalePool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique identifier for each autoscale pool instance. This is automatically generated upon autoscale pool creation.
   final String id;
+
   /// The human-readable name set for the autoscale pool.
   final String name;
+
   /// The scaling configuration for an autoscale pool, which is how the pool scales up and down (either by resource utilization or static configuration).
   final AutoscalePoolConfig config;
+
   /// Required object value serialized in the `droplet_template` wire field.
   final AutoscalePoolDropletTemplate dropletTemplate;
+
   /// Optional object value serialized in the `current_utilization` wire field.
   final SdkOptional<CurrentUtilization> currentUtilization;
+
   /// A time value given in ISO8601 combined date and time format that represents when the autoscale pool was created.
   final String createdAt;
+
   /// A time value given in ISO8601 combined date and time format that represents when the autoscale pool was last updated.
   final String updatedAt;
+
   /// The current status of the autoscale pool.
   final AutoscalePoolStatus status;
+
   /// The number of active Droplets in the autoscale pool.
   final int activeResourcesCount;
 
-  const AutoscalePool({required this.id, required this.name, required this.config, required this.dropletTemplate, this.currentUtilization = const SdkOmitted(), required this.createdAt, required this.updatedAt, required this.status, required this.activeResourcesCount});
+  const AutoscalePool(
+      {required this.id,
+      required this.name,
+      required this.config,
+      required this.dropletTemplate,
+      this.currentUtilization = const SdkOmitted(),
+      required this.createdAt,
+      required this.updatedAt,
+      required this.status,
+      required this.activeResourcesCount});
 
-  AutoscalePool Function({String id, String name, AutoscalePoolConfig config, AutoscalePoolDropletTemplate dropletTemplate, SdkOptional<CurrentUtilization> currentUtilization, String createdAt, String updatedAt, AutoscalePoolStatus status, int activeResourcesCount}) get copyWith => _copyWith;
+  AutoscalePool Function(
+      {String id,
+      String name,
+      AutoscalePoolConfig config,
+      AutoscalePoolDropletTemplate dropletTemplate,
+      SdkOptional<CurrentUtilization> currentUtilization,
+      String createdAt,
+      String updatedAt,
+      AutoscalePoolStatus status,
+      int activeResourcesCount}) get copyWith => _copyWith;
 
-  AutoscalePool _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? config = sdkOmittedValue, Object? dropletTemplate = sdkOmittedValue, Object? currentUtilization = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? status = sdkOmittedValue, Object? activeResourcesCount = sdkOmittedValue}) => AutoscalePool(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    config: identical(config, sdkOmittedValue) ? this.config : config as AutoscalePoolConfig,
-    dropletTemplate: identical(dropletTemplate, sdkOmittedValue) ? this.dropletTemplate : dropletTemplate as AutoscalePoolDropletTemplate,
-    currentUtilization: identical(currentUtilization, sdkOmittedValue) ? this.currentUtilization : currentUtilization as SdkOptional<CurrentUtilization>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as AutoscalePoolStatus,
-    activeResourcesCount: identical(activeResourcesCount, sdkOmittedValue) ? this.activeResourcesCount : activeResourcesCount as int,
-  );
+  AutoscalePool _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? config = sdkOmittedValue,
+          Object? dropletTemplate = sdkOmittedValue,
+          Object? currentUtilization = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? activeResourcesCount = sdkOmittedValue}) =>
+      AutoscalePool(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        config: identical(config, sdkOmittedValue)
+            ? this.config
+            : config as AutoscalePoolConfig,
+        dropletTemplate: identical(dropletTemplate, sdkOmittedValue)
+            ? this.dropletTemplate
+            : dropletTemplate as AutoscalePoolDropletTemplate,
+        currentUtilization: identical(currentUtilization, sdkOmittedValue)
+            ? this.currentUtilization
+            : currentUtilization as SdkOptional<CurrentUtilization>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as AutoscalePoolStatus,
+        activeResourcesCount: identical(activeResourcesCount, sdkOmittedValue)
+            ? this.activeResourcesCount
+            : activeResourcesCount as int,
+      );
 
   factory AutoscalePool.fromJson(Map<String, dynamic> json) => AutoscalePool(
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    config: (json['config'] != null ? AutoscalePoolConfig.fromJson(json['config']) : null)!,
-    dropletTemplate: (json['droplet_template'] != null ? AutoscalePoolDropletTemplate.fromJson(json['droplet_template'] as Map<String, dynamic>) : null)!,
-    currentUtilization: json['current_utilization'] != null ? SdkPresent((json['current_utilization'] != null ? CurrentUtilization.fromJson(json['current_utilization'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdAt: (json['created_at'] as String?)!,
-    updatedAt: (json['updated_at'] as String?)!,
-    status: (json['status'] != null ? AutoscalePoolStatus.fromJson(json['status'] as String) : null)!,
-    activeResourcesCount: ((json['active_resources_count'] as num?)?.toInt())!,
-  );
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        config: (json['config'] != null
+            ? AutoscalePoolConfig.fromJson(json['config'])
+            : null)!,
+        dropletTemplate: (json['droplet_template'] != null
+            ? AutoscalePoolDropletTemplate.fromJson(
+                json['droplet_template'] as Map<String, dynamic>)
+            : null)!,
+        currentUtilization: json['current_utilization'] != null
+            ? SdkPresent((json['current_utilization'] != null
+                ? CurrentUtilization.fromJson(
+                    json['current_utilization'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: (json['created_at'] as String?)!,
+        updatedAt: (json['updated_at'] as String?)!,
+        status: (json['status'] != null
+            ? AutoscalePoolStatus.fromJson(json['status'] as String)
+            : null)!,
+        activeResourcesCount:
+            ((json['active_resources_count'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'config': config.toJson(),
-    'droplet_template': dropletTemplate.toJson(),
-    ...switch (currentUtilization) {
-      SdkPresent<CurrentUtilization>(value: final value) => {'current_utilization': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-    'status': status.toJson(),
-    'active_resources_count': activeResourcesCount,
-  };
+        'id': id,
+        'name': name,
+        'config': config.toJson(),
+        'droplet_template': dropletTemplate.toJson(),
+        ...switch (currentUtilization) {
+          SdkPresent<CurrentUtilization>(value: final value) => {
+              'current_utilization': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+        'status': status.toJson(),
+        'active_resources_count': activeResourcesCount,
+      };
 }

@@ -6,23 +6,28 @@ part of 'agent_platform_api_api_model.dart';
 // agent_platform_api_api_model domain models
 /// Typed representation of the `ApiModelProvider` API schema.
 final class ApiModelProvider {
-
   final String value;
 
   const ApiModelProvider._(this.value);
 
   factory ApiModelProvider.fromJson(String value) => ApiModelProvider._(value);
 
-  static const modelProviderDigitalocean = ApiModelProvider._('MODEL_PROVIDER_DIGITALOCEAN');
-  static const modelProviderAnthropic = ApiModelProvider._('MODEL_PROVIDER_ANTHROPIC');
-  static const modelProviderOpenai = ApiModelProvider._('MODEL_PROVIDER_OPENAI');
+  static const modelProviderDigitalocean =
+      ApiModelProvider._('MODEL_PROVIDER_DIGITALOCEAN');
+  static const modelProviderAnthropic =
+      ApiModelProvider._('MODEL_PROVIDER_ANTHROPIC');
+  static const modelProviderOpenai =
+      ApiModelProvider._('MODEL_PROVIDER_OPENAI');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiModelProvider && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiModelProvider && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

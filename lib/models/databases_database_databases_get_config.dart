@@ -8,24 +8,32 @@ part of 'databases_database.dart';
 class DatabaseConfigResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required API value serialized in the `config` wire field.
   final DatabaseConfigResponseConfig config;
 
   const DatabaseConfigResponse({required this.config});
 
-  DatabaseConfigResponse Function({DatabaseConfigResponseConfig config}) get copyWith => _copyWith;
+  DatabaseConfigResponse Function({DatabaseConfigResponseConfig config})
+      get copyWith => _copyWith;
 
-  DatabaseConfigResponse _copyWith({Object? config = sdkOmittedValue}) => DatabaseConfigResponse(
-    config: identical(config, sdkOmittedValue) ? this.config : config as DatabaseConfigResponseConfig,
-  );
+  DatabaseConfigResponse _copyWith({Object? config = sdkOmittedValue}) =>
+      DatabaseConfigResponse(
+        config: identical(config, sdkOmittedValue)
+            ? this.config
+            : config as DatabaseConfigResponseConfig,
+      );
 
-  factory DatabaseConfigResponse.fromJson(Map<String, dynamic> json) => DatabaseConfigResponse(
-    config: (json['config'] != null ? DatabaseConfigResponseConfig.fromJson(json['config']) : null)!,
-  );
+  factory DatabaseConfigResponse.fromJson(Map<String, dynamic> json) =>
+      DatabaseConfigResponse(
+        config: (json['config'] != null
+            ? DatabaseConfigResponseConfig.fromJson(json['config'])
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'config': config.toJson(),
-  };
+        'config': config.toJson(),
+      };
 }
 
 sealed class DatabaseConfigResponseConfig {
@@ -34,64 +42,135 @@ sealed class DatabaseConfigResponseConfig {
   const DatabaseConfigResponseConfig();
   factory DatabaseConfigResponseConfig.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = MysqlAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigMysqlAdvancedConfig(value); } } catch (_) {}
-      try { final value = PostgresAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigPostgresAdvancedConfig(value); } } catch (_) {}
-      try { final value = RedisAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigRedisAdvancedConfig(value); } } catch (_) {}
-      try { final value = ValkeyAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigValkeyAdvancedConfig(value); } } catch (_) {}
-      try { final value = KafkaAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigKafkaAdvancedConfig(value); } } catch (_) {}
-      try { final value = OpensearchAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigOpensearchAdvancedConfig(value); } } catch (_) {}
-      try { final value = MongoAdvancedConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DatabaseConfigResponseConfigMongoAdvancedConfig(value); } } catch (_) {}
+      try {
+        final value = MysqlAdvancedConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DatabaseConfigResponseConfigMysqlAdvancedConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = PostgresAdvancedConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DatabaseConfigResponseConfigPostgresAdvancedConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = RedisAdvancedConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DatabaseConfigResponseConfigRedisAdvancedConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = ValkeyAdvancedConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DatabaseConfigResponseConfigValkeyAdvancedConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = KafkaAdvancedConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DatabaseConfigResponseConfigKafkaAdvancedConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = OpensearchAdvancedConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DatabaseConfigResponseConfigOpensearchAdvancedConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = MongoAdvancedConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DatabaseConfigResponseConfigMongoAdvancedConfig(value);
+        }
+      } catch (_) {}
     }
-    try { return DatabaseConfigResponseConfigMysqlAdvancedConfig(MysqlAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DatabaseConfigResponseConfigPostgresAdvancedConfig(PostgresAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DatabaseConfigResponseConfigRedisAdvancedConfig(RedisAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DatabaseConfigResponseConfigValkeyAdvancedConfig(ValkeyAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DatabaseConfigResponseConfigKafkaAdvancedConfig(KafkaAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DatabaseConfigResponseConfigOpensearchAdvancedConfig(OpensearchAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DatabaseConfigResponseConfigMongoAdvancedConfig(MongoAdvancedConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for DatabaseConfigResponseConfig");
+    try {
+      return DatabaseConfigResponseConfigMysqlAdvancedConfig(
+          MysqlAdvancedConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DatabaseConfigResponseConfigPostgresAdvancedConfig(
+          PostgresAdvancedConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DatabaseConfigResponseConfigRedisAdvancedConfig(
+          RedisAdvancedConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DatabaseConfigResponseConfigValkeyAdvancedConfig(
+          ValkeyAdvancedConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DatabaseConfigResponseConfigKafkaAdvancedConfig(
+          KafkaAdvancedConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DatabaseConfigResponseConfigOpensearchAdvancedConfig(
+          OpensearchAdvancedConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DatabaseConfigResponseConfigMongoAdvancedConfig(
+          MongoAdvancedConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for DatabaseConfigResponseConfig");
   }
   Object? toJson();
 }
 
-final class DatabaseConfigResponseConfigMysqlAdvancedConfig extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigMysqlAdvancedConfig
+    extends DatabaseConfigResponseConfig {
   final MysqlAdvancedConfig value;
   const DatabaseConfigResponseConfigMysqlAdvancedConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigResponseConfigPostgresAdvancedConfig extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigPostgresAdvancedConfig
+    extends DatabaseConfigResponseConfig {
   final PostgresAdvancedConfig value;
   const DatabaseConfigResponseConfigPostgresAdvancedConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigResponseConfigRedisAdvancedConfig extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigRedisAdvancedConfig
+    extends DatabaseConfigResponseConfig {
   final RedisAdvancedConfig value;
   const DatabaseConfigResponseConfigRedisAdvancedConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigResponseConfigValkeyAdvancedConfig extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigValkeyAdvancedConfig
+    extends DatabaseConfigResponseConfig {
   final ValkeyAdvancedConfig value;
   const DatabaseConfigResponseConfigValkeyAdvancedConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigResponseConfigKafkaAdvancedConfig extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigKafkaAdvancedConfig
+    extends DatabaseConfigResponseConfig {
   final KafkaAdvancedConfig value;
   const DatabaseConfigResponseConfigKafkaAdvancedConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigResponseConfigOpensearchAdvancedConfig extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigOpensearchAdvancedConfig
+    extends DatabaseConfigResponseConfig {
   final OpensearchAdvancedConfig value;
   const DatabaseConfigResponseConfigOpensearchAdvancedConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class DatabaseConfigResponseConfigMongoAdvancedConfig extends DatabaseConfigResponseConfig {
+final class DatabaseConfigResponseConfigMongoAdvancedConfig
+    extends DatabaseConfigResponseConfig {
   final MongoAdvancedConfig value;
   const DatabaseConfigResponseConfigMongoAdvancedConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

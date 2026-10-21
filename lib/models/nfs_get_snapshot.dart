@@ -8,25 +8,38 @@ part of 'nfs.dart';
 class NfsSnapshotGetResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Represents an NFS snapshot.
   final SdkOptional<NfsSnapshotResponse> snapshot;
 
   const NfsSnapshotGetResponse({this.snapshot = const SdkOmitted()});
 
-  NfsSnapshotGetResponse Function({SdkOptional<NfsSnapshotResponse> snapshot}) get copyWith => _copyWith;
+  NfsSnapshotGetResponse Function({SdkOptional<NfsSnapshotResponse> snapshot})
+      get copyWith => _copyWith;
 
-  NfsSnapshotGetResponse _copyWith({Object? snapshot = sdkOmittedValue}) => NfsSnapshotGetResponse(
-    snapshot: identical(snapshot, sdkOmittedValue) ? this.snapshot : snapshot as SdkOptional<NfsSnapshotResponse>,
-  );
+  NfsSnapshotGetResponse _copyWith({Object? snapshot = sdkOmittedValue}) =>
+      NfsSnapshotGetResponse(
+        snapshot: identical(snapshot, sdkOmittedValue)
+            ? this.snapshot
+            : snapshot as SdkOptional<NfsSnapshotResponse>,
+      );
 
-  factory NfsSnapshotGetResponse.fromJson(Map<String, dynamic> json) => NfsSnapshotGetResponse(
-    snapshot: json['snapshot'] != null ? SdkPresent((json['snapshot'] != null ? NfsSnapshotResponse.fromJson(json['snapshot'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory NfsSnapshotGetResponse.fromJson(Map<String, dynamic> json) =>
+      NfsSnapshotGetResponse(
+        snapshot: json['snapshot'] != null
+            ? SdkPresent((json['snapshot'] != null
+                ? NfsSnapshotResponse.fromJson(
+                    json['snapshot'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (snapshot) {
-      SdkPresent<NfsSnapshotResponse>(value: final value) => {'snapshot': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (snapshot) {
+          SdkPresent<NfsSnapshotResponse>(value: final value) => {
+              'snapshot': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

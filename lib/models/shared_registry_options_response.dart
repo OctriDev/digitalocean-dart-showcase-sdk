@@ -8,159 +8,331 @@ part of 'shared_registry.dart';
 class RegistryOptionsResponseOptionsSubscriptionTiersItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the subscription tier.
   final SdkOptional<String> name;
+
   /// The slug identifier of the subscription tier.
   final SdkOptional<String> slug;
+
   /// The number of repositories included in the subscription tier. `0` indicates that the subscription tier includes unlimited repositories.
   final SdkOptional<int> includedRepositories;
+
   /// The amount of storage included in the subscription tier in bytes.
   final SdkOptional<int> includedStorageBytes;
+
   /// A boolean indicating whether the subscription tier supports additional storage above what is included in the base plan at an additional cost per GiB used.
   final SdkOptional<bool> allowStorageOverage;
+
   /// The amount of outbound data transfer included in the subscription tier in bytes.
   final SdkOptional<int> includedBandwidthBytes;
+
   /// The monthly cost of the subscription tier in cents.
   final SdkOptional<int> monthlyPriceInCents;
+
   /// The price paid in cents per GiB for additional storage beyond what is included in the subscription plan.
   final SdkOptional<int> storageOveragePriceInCents;
+
   /// A boolean indicating whether your account it eligible to use a certain subscription tier.
   final SdkOptional<bool> eligible;
+
   /// If your account is not eligible to use a certain subscription tier, this will include a list of reasons that prevent you from using the tier.
-  final SdkOptional<List<RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem>> eligibilityReasons;
+  final SdkOptional<
+          List<
+              RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem>>
+      eligibilityReasons;
 
-  const RegistryOptionsResponseOptionsSubscriptionTiersItem({this.name = const SdkOmitted(), this.slug = const SdkOmitted(), this.includedRepositories = const SdkOmitted(), this.includedStorageBytes = const SdkOmitted(), this.allowStorageOverage = const SdkOmitted(), this.includedBandwidthBytes = const SdkOmitted(), this.monthlyPriceInCents = const SdkOmitted(), this.storageOveragePriceInCents = const SdkOmitted(), this.eligible = const SdkOmitted(), this.eligibilityReasons = const SdkOmitted()});
+  const RegistryOptionsResponseOptionsSubscriptionTiersItem(
+      {this.name = const SdkOmitted(),
+      this.slug = const SdkOmitted(),
+      this.includedRepositories = const SdkOmitted(),
+      this.includedStorageBytes = const SdkOmitted(),
+      this.allowStorageOverage = const SdkOmitted(),
+      this.includedBandwidthBytes = const SdkOmitted(),
+      this.monthlyPriceInCents = const SdkOmitted(),
+      this.storageOveragePriceInCents = const SdkOmitted(),
+      this.eligible = const SdkOmitted(),
+      this.eligibilityReasons = const SdkOmitted()});
 
-  RegistryOptionsResponseOptionsSubscriptionTiersItem Function({SdkOptional<String> name, SdkOptional<String> slug, SdkOptional<int> includedRepositories, SdkOptional<int> includedStorageBytes, SdkOptional<bool> allowStorageOverage, SdkOptional<int> includedBandwidthBytes, SdkOptional<int> monthlyPriceInCents, SdkOptional<int> storageOveragePriceInCents, SdkOptional<bool> eligible, SdkOptional<List<RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem>> eligibilityReasons}) get copyWith => _copyWith;
+  RegistryOptionsResponseOptionsSubscriptionTiersItem Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> slug,
+      SdkOptional<int> includedRepositories,
+      SdkOptional<int> includedStorageBytes,
+      SdkOptional<bool> allowStorageOverage,
+      SdkOptional<int> includedBandwidthBytes,
+      SdkOptional<int> monthlyPriceInCents,
+      SdkOptional<int> storageOveragePriceInCents,
+      SdkOptional<bool> eligible,
+      SdkOptional<
+              List<
+                  RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem>>
+          eligibilityReasons}) get copyWith => _copyWith;
 
-  RegistryOptionsResponseOptionsSubscriptionTiersItem _copyWith({Object? name = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? includedRepositories = sdkOmittedValue, Object? includedStorageBytes = sdkOmittedValue, Object? allowStorageOverage = sdkOmittedValue, Object? includedBandwidthBytes = sdkOmittedValue, Object? monthlyPriceInCents = sdkOmittedValue, Object? storageOveragePriceInCents = sdkOmittedValue, Object? eligible = sdkOmittedValue, Object? eligibilityReasons = sdkOmittedValue}) => RegistryOptionsResponseOptionsSubscriptionTiersItem(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as SdkOptional<String>,
-    includedRepositories: identical(includedRepositories, sdkOmittedValue) ? this.includedRepositories : includedRepositories as SdkOptional<int>,
-    includedStorageBytes: identical(includedStorageBytes, sdkOmittedValue) ? this.includedStorageBytes : includedStorageBytes as SdkOptional<int>,
-    allowStorageOverage: identical(allowStorageOverage, sdkOmittedValue) ? this.allowStorageOverage : allowStorageOverage as SdkOptional<bool>,
-    includedBandwidthBytes: identical(includedBandwidthBytes, sdkOmittedValue) ? this.includedBandwidthBytes : includedBandwidthBytes as SdkOptional<int>,
-    monthlyPriceInCents: identical(monthlyPriceInCents, sdkOmittedValue) ? this.monthlyPriceInCents : monthlyPriceInCents as SdkOptional<int>,
-    storageOveragePriceInCents: identical(storageOveragePriceInCents, sdkOmittedValue) ? this.storageOveragePriceInCents : storageOveragePriceInCents as SdkOptional<int>,
-    eligible: identical(eligible, sdkOmittedValue) ? this.eligible : eligible as SdkOptional<bool>,
-    eligibilityReasons: identical(eligibilityReasons, sdkOmittedValue) ? this.eligibilityReasons : eligibilityReasons as SdkOptional<List<RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem>>,
-  );
+  RegistryOptionsResponseOptionsSubscriptionTiersItem _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? slug = sdkOmittedValue,
+          Object? includedRepositories = sdkOmittedValue,
+          Object? includedStorageBytes = sdkOmittedValue,
+          Object? allowStorageOverage = sdkOmittedValue,
+          Object? includedBandwidthBytes = sdkOmittedValue,
+          Object? monthlyPriceInCents = sdkOmittedValue,
+          Object? storageOveragePriceInCents = sdkOmittedValue,
+          Object? eligible = sdkOmittedValue,
+          Object? eligibilityReasons = sdkOmittedValue}) =>
+      RegistryOptionsResponseOptionsSubscriptionTiersItem(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        slug: identical(slug, sdkOmittedValue)
+            ? this.slug
+            : slug as SdkOptional<String>,
+        includedRepositories: identical(includedRepositories, sdkOmittedValue)
+            ? this.includedRepositories
+            : includedRepositories as SdkOptional<int>,
+        includedStorageBytes: identical(includedStorageBytes, sdkOmittedValue)
+            ? this.includedStorageBytes
+            : includedStorageBytes as SdkOptional<int>,
+        allowStorageOverage: identical(allowStorageOverage, sdkOmittedValue)
+            ? this.allowStorageOverage
+            : allowStorageOverage as SdkOptional<bool>,
+        includedBandwidthBytes:
+            identical(includedBandwidthBytes, sdkOmittedValue)
+                ? this.includedBandwidthBytes
+                : includedBandwidthBytes as SdkOptional<int>,
+        monthlyPriceInCents: identical(monthlyPriceInCents, sdkOmittedValue)
+            ? this.monthlyPriceInCents
+            : monthlyPriceInCents as SdkOptional<int>,
+        storageOveragePriceInCents:
+            identical(storageOveragePriceInCents, sdkOmittedValue)
+                ? this.storageOveragePriceInCents
+                : storageOveragePriceInCents as SdkOptional<int>,
+        eligible: identical(eligible, sdkOmittedValue)
+            ? this.eligible
+            : eligible as SdkOptional<bool>,
+        eligibilityReasons: identical(eligibilityReasons, sdkOmittedValue)
+            ? this.eligibilityReasons
+            : eligibilityReasons as SdkOptional<
+                List<
+                    RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem>>,
+      );
 
-  factory RegistryOptionsResponseOptionsSubscriptionTiersItem.fromJson(Map<String, dynamic> json) => RegistryOptionsResponseOptionsSubscriptionTiersItem(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    slug: json['slug'] != null ? SdkPresent((json['slug'] as String?)!) : const SdkOmitted(),
-    includedRepositories: json['included_repositories'] != null ? SdkPresent(((json['included_repositories'] as num?)?.toInt())!) : const SdkOmitted(),
-    includedStorageBytes: json['included_storage_bytes'] != null ? SdkPresent(((json['included_storage_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    allowStorageOverage: json['allow_storage_overage'] != null ? SdkPresent((json['allow_storage_overage'] as bool?)!) : const SdkOmitted(),
-    includedBandwidthBytes: json['included_bandwidth_bytes'] != null ? SdkPresent(((json['included_bandwidth_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    monthlyPriceInCents: json['monthly_price_in_cents'] != null ? SdkPresent(((json['monthly_price_in_cents'] as num?)?.toInt())!) : const SdkOmitted(),
-    storageOveragePriceInCents: json['storage_overage_price_in_cents'] != null ? SdkPresent(((json['storage_overage_price_in_cents'] as num?)?.toInt())!) : const SdkOmitted(),
-    eligible: json['eligible'] != null ? SdkPresent((json['eligible'] as bool?)!) : const SdkOmitted(),
-    eligibilityReasons: json['eligibility_reasons'] != null ? SdkPresent(((json['eligibility_reasons'] as List?)?.map((e) => RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+  factory RegistryOptionsResponseOptionsSubscriptionTiersItem.fromJson(
+          Map<String, dynamic> json) =>
+      RegistryOptionsResponseOptionsSubscriptionTiersItem(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        slug: json['slug'] != null
+            ? SdkPresent((json['slug'] as String?)!)
+            : const SdkOmitted(),
+        includedRepositories: json['included_repositories'] != null
+            ? SdkPresent(((json['included_repositories'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        includedStorageBytes: json['included_storage_bytes'] != null
+            ? SdkPresent(((json['included_storage_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        allowStorageOverage: json['allow_storage_overage'] != null
+            ? SdkPresent((json['allow_storage_overage'] as bool?)!)
+            : const SdkOmitted(),
+        includedBandwidthBytes: json['included_bandwidth_bytes'] != null
+            ? SdkPresent(((json['included_bandwidth_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        monthlyPriceInCents: json['monthly_price_in_cents'] != null
+            ? SdkPresent(((json['monthly_price_in_cents'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        storageOveragePriceInCents: json['storage_overage_price_in_cents'] !=
+                null
+            ? SdkPresent(
+                ((json['storage_overage_price_in_cents'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        eligible: json['eligible'] != null
+            ? SdkPresent((json['eligible'] as bool?)!)
+            : const SdkOmitted(),
+        eligibilityReasons: json['eligibility_reasons'] != null
+            ? SdkPresent(((json['eligibility_reasons'] as List?)
+                ?.map((e) =>
+                    RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem
+                        .fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (slug) {
-      SdkPresent<String>(value: final value) => {'slug': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (includedRepositories) {
-      SdkPresent<int>(value: final value) => {'included_repositories': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (includedStorageBytes) {
-      SdkPresent<int>(value: final value) => {'included_storage_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowStorageOverage) {
-      SdkPresent<bool>(value: final value) => {'allow_storage_overage': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (includedBandwidthBytes) {
-      SdkPresent<int>(value: final value) => {'included_bandwidth_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (monthlyPriceInCents) {
-      SdkPresent<int>(value: final value) => {'monthly_price_in_cents': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (storageOveragePriceInCents) {
-      SdkPresent<int>(value: final value) => {'storage_overage_price_in_cents': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (eligible) {
-      SdkPresent<bool>(value: final value) => {'eligible': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (eligibilityReasons) {
-      SdkPresent<List<RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem>>(value: final value) => {'eligibility_reasons': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (slug) {
+          SdkPresent<String>(value: final value) => {
+              'slug': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (includedRepositories) {
+          SdkPresent<int>(value: final value) => {
+              'included_repositories': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (includedStorageBytes) {
+          SdkPresent<int>(value: final value) => {
+              'included_storage_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowStorageOverage) {
+          SdkPresent<bool>(value: final value) => {
+              'allow_storage_overage': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (includedBandwidthBytes) {
+          SdkPresent<int>(value: final value) => {
+              'included_bandwidth_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (monthlyPriceInCents) {
+          SdkPresent<int>(value: final value) => {
+              'monthly_price_in_cents': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (storageOveragePriceInCents) {
+          SdkPresent<int>(value: final value) => {
+              'storage_overage_price_in_cents': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (eligible) {
+          SdkPresent<bool>(value: final value) => {
+              'eligible': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (eligibilityReasons) {
+          SdkPresent<
+                List<
+                    RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem>>(
+            value: final value
+          ) =>
+            {
+              'eligibility_reasons':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `options` wire field.
 class RegistryOptionsResponseOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `available_regions` wire field.
   final SdkOptional<List<String>> availableRegions;
+
   /// Optional array value serialized in the `subscription_tiers` wire field.
-  final SdkOptional<List<RegistryOptionsResponseOptionsSubscriptionTiersItem>> subscriptionTiers;
+  final SdkOptional<List<RegistryOptionsResponseOptionsSubscriptionTiersItem>>
+      subscriptionTiers;
 
-  const RegistryOptionsResponseOptions({this.availableRegions = const SdkOmitted(), this.subscriptionTiers = const SdkOmitted()});
+  const RegistryOptionsResponseOptions(
+      {this.availableRegions = const SdkOmitted(),
+      this.subscriptionTiers = const SdkOmitted()});
 
-  RegistryOptionsResponseOptions Function({SdkOptional<List<String>> availableRegions, SdkOptional<List<RegistryOptionsResponseOptionsSubscriptionTiersItem>> subscriptionTiers}) get copyWith => _copyWith;
+  RegistryOptionsResponseOptions Function(
+      {SdkOptional<List<String>> availableRegions,
+      SdkOptional<List<RegistryOptionsResponseOptionsSubscriptionTiersItem>>
+          subscriptionTiers}) get copyWith => _copyWith;
 
-  RegistryOptionsResponseOptions _copyWith({Object? availableRegions = sdkOmittedValue, Object? subscriptionTiers = sdkOmittedValue}) => RegistryOptionsResponseOptions(
-    availableRegions: identical(availableRegions, sdkOmittedValue) ? this.availableRegions : availableRegions as SdkOptional<List<String>>,
-    subscriptionTiers: identical(subscriptionTiers, sdkOmittedValue) ? this.subscriptionTiers : subscriptionTiers as SdkOptional<List<RegistryOptionsResponseOptionsSubscriptionTiersItem>>,
-  );
+  RegistryOptionsResponseOptions _copyWith(
+          {Object? availableRegions = sdkOmittedValue,
+          Object? subscriptionTiers = sdkOmittedValue}) =>
+      RegistryOptionsResponseOptions(
+        availableRegions: identical(availableRegions, sdkOmittedValue)
+            ? this.availableRegions
+            : availableRegions as SdkOptional<List<String>>,
+        subscriptionTiers: identical(subscriptionTiers, sdkOmittedValue)
+            ? this.subscriptionTiers
+            : subscriptionTiers as SdkOptional<
+                List<RegistryOptionsResponseOptionsSubscriptionTiersItem>>,
+      );
 
-  factory RegistryOptionsResponseOptions.fromJson(Map<String, dynamic> json) => RegistryOptionsResponseOptions(
-    availableRegions: json['available_regions'] != null ? SdkPresent(((json['available_regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    subscriptionTiers: json['subscription_tiers'] != null ? SdkPresent(((json['subscription_tiers'] as List?)?.map((e) => RegistryOptionsResponseOptionsSubscriptionTiersItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory RegistryOptionsResponseOptions.fromJson(Map<String, dynamic> json) =>
+      RegistryOptionsResponseOptions(
+        availableRegions: json['available_regions'] != null
+            ? SdkPresent(((json['available_regions'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        subscriptionTiers: json['subscription_tiers'] != null
+            ? SdkPresent(((json['subscription_tiers'] as List?)
+                ?.map((e) => RegistryOptionsResponseOptionsSubscriptionTiersItem
+                    .fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (availableRegions) {
-      SdkPresent<List<String>>(value: final value) => {'available_regions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (subscriptionTiers) {
-      SdkPresent<List<RegistryOptionsResponseOptionsSubscriptionTiersItem>>(value: final value) => {'subscription_tiers': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (availableRegions) {
+          SdkPresent<List<String>>(value: final value) => {
+              'available_regions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (subscriptionTiers) {
+          SdkPresent<List<RegistryOptionsResponseOptionsSubscriptionTiersItem>>(
+            value: final value
+          ) =>
+            {
+              'subscription_tiers': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `RegistryOptionsResponse` API schema.
 class RegistryOptionsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `options` wire field.
   final SdkOptional<RegistryOptionsResponseOptions> options;
 
   const RegistryOptionsResponse({this.options = const SdkOmitted()});
 
-  RegistryOptionsResponse Function({SdkOptional<RegistryOptionsResponseOptions> options}) get copyWith => _copyWith;
+  RegistryOptionsResponse Function(
+          {SdkOptional<RegistryOptionsResponseOptions> options})
+      get copyWith => _copyWith;
 
-  RegistryOptionsResponse _copyWith({Object? options = sdkOmittedValue}) => RegistryOptionsResponse(
-    options: identical(options, sdkOmittedValue) ? this.options : options as SdkOptional<RegistryOptionsResponseOptions>,
-  );
+  RegistryOptionsResponse _copyWith({Object? options = sdkOmittedValue}) =>
+      RegistryOptionsResponse(
+        options: identical(options, sdkOmittedValue)
+            ? this.options
+            : options as SdkOptional<RegistryOptionsResponseOptions>,
+      );
 
-  factory RegistryOptionsResponse.fromJson(Map<String, dynamic> json) => RegistryOptionsResponse(
-    options: json['options'] != null ? SdkPresent((json['options'] != null ? RegistryOptionsResponseOptions.fromJson(json['options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory RegistryOptionsResponse.fromJson(Map<String, dynamic> json) =>
+      RegistryOptionsResponse(
+        options: json['options'] != null
+            ? SdkPresent((json['options'] != null
+                ? RegistryOptionsResponseOptions.fromJson(
+                    json['options'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (options) {
-      SdkPresent<RegistryOptionsResponseOptions>(value: final value) => {'options': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (options) {
+          SdkPresent<RegistryOptionsResponseOptions>(value: final value) => {
+              'options': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

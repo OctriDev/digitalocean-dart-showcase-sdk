@@ -8,73 +8,148 @@ part of 'harness_runtime_agent.dart';
 class AgentConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `uuid`-formatted value serialized in the `id` wire field.
   final String id;
+
   /// Required `string` value serialized in the `name` wire field.
   final String name;
+
   /// The manifest contract the server accepted at create time: the manifest's own apiVersion for legacy envelope parses (currently agents.digitalocean.com/v1alpha1), or agents.digitalocean.com/flat.v1 for flat-format parses.
   final String agentspecSchemaVersion;
+
   /// Canonical runnable environment spec JSON, immutable after create. Validated non-secret spec.env and spec.permissions remain; spec.secrets retains name/source/provider but omits ref and the write-only value; metadata.name is cleared while safe metadata such as labels remains.
   final AgentManifest manifest;
+
   /// Lowercase SHA-256 hex digest of the canonical sanitized manifest JSON.
   final String contentHash;
+
   /// The per-signal telemetry opt-in recorded at create time. Absent when the customer expressed no choice. This echoes the create-time request only: a customer who later re-toggles a signal from the Insights settings page changes their enablement there, not here.
   final SdkOptional<InsightsOptIn> insights;
+
   /// Authenticated user identity that created the config.
   final String createdBy;
+
   /// Required `date-time`-formatted value serialized in the `created_at` wire field.
   final String createdAt;
+
   /// Required `date-time`-formatted value serialized in the `updated_at` wire field.
   final String updatedAt;
+
   /// Redacted credential slot metadata (name/source/provider). Secret values are never included.
   final SdkOptional<List<AgentConfigCredentialSlot>> credentials;
 
-  const AgentConfig({required this.id, required this.name, required this.agentspecSchemaVersion, required this.manifest, required this.contentHash, this.insights = const SdkOmitted(), required this.createdBy, required this.createdAt, required this.updatedAt, this.credentials = const SdkOmitted()});
+  const AgentConfig(
+      {required this.id,
+      required this.name,
+      required this.agentspecSchemaVersion,
+      required this.manifest,
+      required this.contentHash,
+      this.insights = const SdkOmitted(),
+      required this.createdBy,
+      required this.createdAt,
+      required this.updatedAt,
+      this.credentials = const SdkOmitted()});
 
-  AgentConfig Function({String id, String name, String agentspecSchemaVersion, AgentManifest manifest, String contentHash, SdkOptional<InsightsOptIn> insights, String createdBy, String createdAt, String updatedAt, SdkOptional<List<AgentConfigCredentialSlot>> credentials}) get copyWith => _copyWith;
+  AgentConfig Function(
+          {String id,
+          String name,
+          String agentspecSchemaVersion,
+          AgentManifest manifest,
+          String contentHash,
+          SdkOptional<InsightsOptIn> insights,
+          String createdBy,
+          String createdAt,
+          String updatedAt,
+          SdkOptional<List<AgentConfigCredentialSlot>> credentials})
+      get copyWith => _copyWith;
 
-  AgentConfig _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? agentspecSchemaVersion = sdkOmittedValue, Object? manifest = sdkOmittedValue, Object? contentHash = sdkOmittedValue, Object? insights = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? credentials = sdkOmittedValue}) => AgentConfig(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    agentspecSchemaVersion: identical(agentspecSchemaVersion, sdkOmittedValue) ? this.agentspecSchemaVersion : agentspecSchemaVersion as String,
-    manifest: identical(manifest, sdkOmittedValue) ? this.manifest : manifest as AgentManifest,
-    contentHash: identical(contentHash, sdkOmittedValue) ? this.contentHash : contentHash as String,
-    insights: identical(insights, sdkOmittedValue) ? this.insights : insights as SdkOptional<InsightsOptIn>,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
-    credentials: identical(credentials, sdkOmittedValue) ? this.credentials : credentials as SdkOptional<List<AgentConfigCredentialSlot>>,
-  );
+  AgentConfig _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? agentspecSchemaVersion = sdkOmittedValue,
+          Object? manifest = sdkOmittedValue,
+          Object? contentHash = sdkOmittedValue,
+          Object? insights = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? credentials = sdkOmittedValue}) =>
+      AgentConfig(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        agentspecSchemaVersion:
+            identical(agentspecSchemaVersion, sdkOmittedValue)
+                ? this.agentspecSchemaVersion
+                : agentspecSchemaVersion as String,
+        manifest: identical(manifest, sdkOmittedValue)
+            ? this.manifest
+            : manifest as AgentManifest,
+        contentHash: identical(contentHash, sdkOmittedValue)
+            ? this.contentHash
+            : contentHash as String,
+        insights: identical(insights, sdkOmittedValue)
+            ? this.insights
+            : insights as SdkOptional<InsightsOptIn>,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as String,
+        credentials: identical(credentials, sdkOmittedValue)
+            ? this.credentials
+            : credentials as SdkOptional<List<AgentConfigCredentialSlot>>,
+      );
 
   factory AgentConfig.fromJson(Map<String, dynamic> json) => AgentConfig(
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    agentspecSchemaVersion: (json['agentspec_schema_version'] as String?)!,
-    manifest: (json['manifest'] != null ? AgentManifest.fromJson(json['manifest'] as Map<String, dynamic>) : null)!,
-    contentHash: (json['content_hash'] as String?)!,
-    insights: json['insights'] != null ? SdkPresent((json['insights'] != null ? InsightsOptIn.fromJson(json['insights'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdBy: (json['created_by'] as String?)!,
-    createdAt: (json['created_at'] as String?)!,
-    updatedAt: (json['updated_at'] as String?)!,
-    credentials: json['credentials'] != null ? SdkPresent(((json['credentials'] as List?)?.map((e) => AgentConfigCredentialSlot.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        agentspecSchemaVersion: (json['agentspec_schema_version'] as String?)!,
+        manifest: (json['manifest'] != null
+            ? AgentManifest.fromJson(json['manifest'] as Map<String, dynamic>)
+            : null)!,
+        contentHash: (json['content_hash'] as String?)!,
+        insights: json['insights'] != null
+            ? SdkPresent((json['insights'] != null
+                ? InsightsOptIn.fromJson(
+                    json['insights'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdBy: (json['created_by'] as String?)!,
+        createdAt: (json['created_at'] as String?)!,
+        updatedAt: (json['updated_at'] as String?)!,
+        credentials: json['credentials'] != null
+            ? SdkPresent(((json['credentials'] as List?)
+                ?.map((e) => AgentConfigCredentialSlot.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'agentspec_schema_version': agentspecSchemaVersion,
-    'manifest': manifest.toJson(),
-    'content_hash': contentHash,
-    ...switch (insights) {
-      SdkPresent<InsightsOptIn>(value: final value) => {'insights': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'created_by': createdBy,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-    ...switch (credentials) {
-      SdkPresent<List<AgentConfigCredentialSlot>>(value: final value) => {'credentials': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        'name': name,
+        'agentspec_schema_version': agentspecSchemaVersion,
+        'manifest': manifest.toJson(),
+        'content_hash': contentHash,
+        ...switch (insights) {
+          SdkPresent<InsightsOptIn>(value: final value) => {
+              'insights': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_by': createdBy,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+        ...switch (credentials) {
+          SdkPresent<List<AgentConfigCredentialSlot>>(value: final value) => {
+              'credentials': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

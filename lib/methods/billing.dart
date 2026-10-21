@@ -14,12 +14,18 @@ Future<Balance> balanceGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'balanceGet',
-          fromJsonRaw: (value) => Balance.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Balance.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To retrieve the prepayment configuration and current prepayment status for a customer's account, send a GET request to `/v2/customers/my/prepayment_config`.
 Future<PrepaymentConfigResponse> prepaymentConfigGet(ClientConfig config,
@@ -29,12 +35,18 @@ Future<PrepaymentConfigResponse> prepaymentConfigGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'prepaymentConfigGet',
-          fromJsonRaw: (value) => PrepaymentConfigResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PrepaymentConfigResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To retrieve the prepayment gate status and balances for a customer's account, send a GET request to `/v2/customers/my/prepayment_status`.
 Future<PrepaymentStatusResponse> prepaymentStatusGet(ClientConfig config,
@@ -44,12 +56,18 @@ Future<PrepaymentStatusResponse> prepaymentStatusGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'prepaymentStatusGet',
-          fromJsonRaw: (value) => PrepaymentStatusResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PrepaymentStatusResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To retrieve a list of all billing history entries, send a GET request to `/v2/customers/my/billing_history`.
 Future<BillingHistoryResponse> billingHistoryList(ClientConfig config,
@@ -59,12 +77,18 @@ Future<BillingHistoryResponse> billingHistoryList(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'billingHistoryList',
-          fromJsonRaw: (value) => BillingHistoryResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              BillingHistoryResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To retrieve a list of all invoices, send a GET request to `/v2/customers/my/invoices`.
 ///
@@ -84,17 +108,24 @@ Future<Invoices> invoicesList(ClientConfig config,
   return (await sdkRequest<Invoices>('GET', '/v2/customers/my/invoices',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'invoicesList',
-          fromJsonRaw: (value) => Invoices.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Invoices.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve the invoice items for an invoice, send a GET request to `/v2/customers/my/invoices/$INVOICE_UUID`.
 ///
@@ -117,17 +148,25 @@ Future<Invoice> invoicesGetByUuid(ClientConfig config,
           '/v2/customers/my/invoices/${Uri.encodeComponent(invoiceUuid.toString())}',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'invoicesGetByUuid',
-          fromJsonRaw: (value) => Invoice.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Invoice.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve a CSV for an invoice, send a GET request to `/v2/customers/my/invoices/$INVOICE_UUID/csv`.
 ///
@@ -140,10 +179,15 @@ Future<String> invoicesGetCsvByUuid(ClientConfig config,
           decoder: SdkResponseDecoder.text,
           operationId: 'invoicesGetCsvByUuid',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To retrieve a PDF for an invoice, send a GET request to `/v2/customers/my/invoices/$INVOICE_UUID/pdf`.
 ///
@@ -156,10 +200,15 @@ Future<List<int>> invoicesGetPdfByUuid(ClientConfig config,
           decoder: SdkResponseDecoder.bytes,
           operationId: 'invoicesGetPdfByUuid',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To retrieve a summary for an invoice, send a GET request to `/v2/customers/my/invoices/$INVOICE_UUID/summary`.
 ///
@@ -171,12 +220,18 @@ Future<InvoiceSummary> invoicesGetSummaryByUuid(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'invoicesGetSummaryByUuid',
-          fromJsonRaw: (value) => InvoiceSummary.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              InvoiceSummary.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// This endpoint returns day-over-day changes in billing resource usage based on nightly invoice items, including total amount, region, SKU, and description for a specified date range. It is important to note that the daily resource usage may not reflect month-end billing totals when totaled for a given month as nightly invoice item estimates do not necessarily encompass all invoicing factors for the entire month.
 ///
@@ -207,18 +262,25 @@ Future<BillingInsights> billingInsightsList(ClientConfig config,
           '/v2/billing/${Uri.encodeComponent(accountUrn.toString())}/insights/${Uri.encodeComponent(startDate.toString())}/${Uri.encodeComponent(endDate.toString())}',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'billingInsightsList',
-          fromJsonRaw: (value) => BillingInsights.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              BillingInsights.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// This endpoint returns day-over-day changes in billing resource usage based on nightly invoice items, including total amount, region, SKU, and description for a specified date range. It is important to note that the daily resource usage may not reflect month-end billing totals when totaled for a given month as nightly invoice item estimates do not necessarily encompass all invoicing factors for the entire month.
 ///
@@ -229,13 +291,29 @@ Future<BillingInsights> billingInsightsList(ClientConfig config,
 ///   31 days of start_date
 /// [perPage] Number of items returned per page
 /// [page] Which 'page' of paginated results to return.
-Stream<BillingDataPoint> billingInsightsListPaginated(ClientConfig config, {required String accountUrn, required String startDate, required String endDate, int? perPage, int? page, RequestOptions? requestOptions}) async* {
+Stream<BillingDataPoint> billingInsightsListPaginated(ClientConfig config,
+    {required String accountUrn,
+    required String startDate,
+    required String endDate,
+    int? perPage,
+    int? page,
+    RequestOptions? requestOptions}) async* {
   var sdkPageNumber = page ?? 1;
   while (true) {
-    final sdkPage = await billingInsightsList(config, accountUrn: accountUrn, startDate: startDate, endDate: endDate, perPage: perPage == null ? const SdkOmitted<int>() : SdkPresent<int>(perPage), page: SdkPresent<int>(sdkPageNumber), requestOptions: requestOptions);
+    final sdkPage = await billingInsightsList(config,
+        accountUrn: accountUrn,
+        startDate: startDate,
+        endDate: endDate,
+        perPage: perPage == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(perPage),
+        page: SdkPresent<int>(sdkPageNumber),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.dataPoints;
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     if (sdkPageNumber >= sdkPage.totalPages) {
       return;
     }
@@ -243,14 +321,30 @@ Stream<BillingDataPoint> billingInsightsListPaginated(ClientConfig config, {requ
   }
 }
 
-Stream<SdkPage<BillingInsights, BillingDataPoint>> billingInsightsListPages(ClientConfig config, {required String accountUrn, required String startDate, required String endDate, int? perPage, int? page, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<BillingInsights, BillingDataPoint>> billingInsightsListPages(
+    ClientConfig config,
+    {required String accountUrn,
+    required String startDate,
+    required String endDate,
+    int? perPage,
+    int? page,
+    RequestOptions? requestOptions}) async* {
   var sdkPageNumber = page ?? 1;
   while (true) {
-    final sdkPage = await billingInsightsList(config, accountUrn: accountUrn, startDate: startDate, endDate: endDate, perPage: perPage == null ? const SdkOmitted<int>() : SdkPresent<int>(perPage), page: SdkPresent<int>(sdkPageNumber), requestOptions: requestOptions);
+    final sdkPage = await billingInsightsList(config,
+        accountUrn: accountUrn,
+        startDate: startDate,
+        endDate: endDate,
+        perPage: perPage == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(perPage),
+        page: SdkPresent<int>(sdkPageNumber),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.dataPoints;
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPageNumber + 1;
-    final sdkHasMore = true && sdkNext != sdkPageNumber && (sdkNext <= sdkPage.totalPages);
+    final sdkHasMore =
+        true && sdkNext != sdkPageNumber && (sdkNext <= sdkPage.totalPages);
     yield SdkPage(data: sdkPage, items: sdkItems, hasMore: sdkHasMore);
     if (!sdkHasMore) return;
     sdkPageNumber = sdkNext;

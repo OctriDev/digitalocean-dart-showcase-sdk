@@ -8,25 +8,35 @@ part of 'agent_platform_api_api_delete.dart';
 class ApiDeleteSimulationRunOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// UUID of the deleted run.
   final SdkOptional<String> runUuid;
 
   const ApiDeleteSimulationRunOutput({this.runUuid = const SdkOmitted()});
 
-  ApiDeleteSimulationRunOutput Function({SdkOptional<String> runUuid}) get copyWith => _copyWith;
+  ApiDeleteSimulationRunOutput Function({SdkOptional<String> runUuid})
+      get copyWith => _copyWith;
 
-  ApiDeleteSimulationRunOutput _copyWith({Object? runUuid = sdkOmittedValue}) => ApiDeleteSimulationRunOutput(
-    runUuid: identical(runUuid, sdkOmittedValue) ? this.runUuid : runUuid as SdkOptional<String>,
-  );
+  ApiDeleteSimulationRunOutput _copyWith({Object? runUuid = sdkOmittedValue}) =>
+      ApiDeleteSimulationRunOutput(
+        runUuid: identical(runUuid, sdkOmittedValue)
+            ? this.runUuid
+            : runUuid as SdkOptional<String>,
+      );
 
-  factory ApiDeleteSimulationRunOutput.fromJson(Map<String, dynamic> json) => ApiDeleteSimulationRunOutput(
-    runUuid: json['run_uuid'] != null ? SdkPresent((json['run_uuid'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiDeleteSimulationRunOutput.fromJson(Map<String, dynamic> json) =>
+      ApiDeleteSimulationRunOutput(
+        runUuid: json['run_uuid'] != null
+            ? SdkPresent((json['run_uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (runUuid) {
-      SdkPresent<String>(value: final value) => {'run_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (runUuid) {
+          SdkPresent<String>(value: final value) => {
+              'run_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

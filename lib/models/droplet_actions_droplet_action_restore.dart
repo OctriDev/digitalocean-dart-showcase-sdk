@@ -7,57 +7,85 @@ part of 'droplet_actions.dart';
 class DropletActionRestoreVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of a backup of the current Droplet instance to restore from.
   final SdkOptional<int> image;
 
   const DropletActionRestoreVariant1({this.image = const SdkOmitted()});
 
-  DropletActionRestoreVariant1 Function({SdkOptional<int> image}) get copyWith => _copyWith;
+  DropletActionRestoreVariant1 Function({SdkOptional<int> image})
+      get copyWith => _copyWith;
 
-  DropletActionRestoreVariant1 _copyWith({Object? image = sdkOmittedValue}) => DropletActionRestoreVariant1(
-    image: identical(image, sdkOmittedValue) ? this.image : image as SdkOptional<int>,
-  );
+  DropletActionRestoreVariant1 _copyWith({Object? image = sdkOmittedValue}) =>
+      DropletActionRestoreVariant1(
+        image: identical(image, sdkOmittedValue)
+            ? this.image
+            : image as SdkOptional<int>,
+      );
 
-  factory DropletActionRestoreVariant1.fromJson(Map<String, dynamic> json) => DropletActionRestoreVariant1(
-    image: json['image'] != null ? SdkPresent(((json['image'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory DropletActionRestoreVariant1.fromJson(Map<String, dynamic> json) =>
+      DropletActionRestoreVariant1(
+        image: json['image'] != null
+            ? SdkPresent(((json['image'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (image) {
-      SdkPresent<int>(value: final value) => {'image': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (image) {
+          SdkPresent<int>(value: final value) => {
+              'image': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DropletActionRestore` API schema.
 class DropletActionRestore {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
+
   /// The ID of a backup of the current Droplet instance to restore from.
   final SdkOptional<int> image;
 
-  const DropletActionRestore({required this.type_, this.image = const SdkOmitted()});
+  const DropletActionRestore(
+      {required this.type_, this.image = const SdkOmitted()});
 
-  DropletActionRestore Function({DropletActionType type_, SdkOptional<int> image}) get copyWith => _copyWith;
+  DropletActionRestore Function(
+      {DropletActionType type_,
+      SdkOptional<int> image}) get copyWith => _copyWith;
 
-  DropletActionRestore _copyWith({Object? type_ = sdkOmittedValue, Object? image = sdkOmittedValue}) => DropletActionRestore(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
-    image: identical(image, sdkOmittedValue) ? this.image : image as SdkOptional<int>,
-  );
+  DropletActionRestore _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? image = sdkOmittedValue}) =>
+      DropletActionRestore(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DropletActionType,
+        image: identical(image, sdkOmittedValue)
+            ? this.image
+            : image as SdkOptional<int>,
+      );
 
-  factory DropletActionRestore.fromJson(Map<String, dynamic> json) => DropletActionRestore(
-    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
-    image: json['image'] != null ? SdkPresent(((json['image'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory DropletActionRestore.fromJson(Map<String, dynamic> json) =>
+      DropletActionRestore(
+        type_: (json['type'] != null
+            ? DropletActionType.fromJson(json['type'] as String)
+            : null)!,
+        image: json['image'] != null
+            ? SdkPresent(((json['image'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (image) {
-      SdkPresent<int>(value: final value) => {'image': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (image) {
+          SdkPresent<int>(value: final value) => {
+              'image': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

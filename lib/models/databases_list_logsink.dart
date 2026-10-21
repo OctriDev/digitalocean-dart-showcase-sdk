@@ -8,25 +8,35 @@ part of 'databases.dart';
 class Logsinks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `sinks` wire field.
   final SdkOptional<List<LogsinkSchema>> sinks;
 
   const Logsinks({this.sinks = const SdkOmitted()});
 
-  Logsinks Function({SdkOptional<List<LogsinkSchema>> sinks}) get copyWith => _copyWith;
+  Logsinks Function({SdkOptional<List<LogsinkSchema>> sinks}) get copyWith =>
+      _copyWith;
 
   Logsinks _copyWith({Object? sinks = sdkOmittedValue}) => Logsinks(
-    sinks: identical(sinks, sdkOmittedValue) ? this.sinks : sinks as SdkOptional<List<LogsinkSchema>>,
-  );
+        sinks: identical(sinks, sdkOmittedValue)
+            ? this.sinks
+            : sinks as SdkOptional<List<LogsinkSchema>>,
+      );
 
   factory Logsinks.fromJson(Map<String, dynamic> json) => Logsinks(
-    sinks: json['sinks'] != null ? SdkPresent(((json['sinks'] as List?)?.map((e) => LogsinkSchema.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        sinks: json['sinks'] != null
+            ? SdkPresent(((json['sinks'] as List?)
+                ?.map((e) => LogsinkSchema.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sinks) {
-      SdkPresent<List<LogsinkSchema>>(value: final value) => {'sinks': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sinks) {
+          SdkPresent<List<LogsinkSchema>>(value: final value) => {
+              'sinks': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

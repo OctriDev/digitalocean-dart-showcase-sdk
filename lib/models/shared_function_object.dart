@@ -8,38 +8,66 @@ part of 'shared.dart';
 class FunctionObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the function to be called. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64.
   final String name;
+
   /// A description of what the function does, used by the model to choose when and how to call the function.
   final SdkOptional<String> description;
+
   /// The parameters the function accepts, described as a JSON Schema object.
   final SdkOptional<Map<String, Object?>> parameters;
 
-  const FunctionObject({required this.name, this.description = const SdkOmitted(), this.parameters = const SdkOmitted()});
+  const FunctionObject(
+      {required this.name,
+      this.description = const SdkOmitted(),
+      this.parameters = const SdkOmitted()});
 
-  FunctionObject Function({String name, SdkOptional<String> description, SdkOptional<Map<String, Object?>> parameters}) get copyWith => _copyWith;
+  FunctionObject Function(
+      {String name,
+      SdkOptional<String> description,
+      SdkOptional<Map<String, Object?>> parameters}) get copyWith => _copyWith;
 
-  FunctionObject _copyWith({Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? parameters = sdkOmittedValue}) => FunctionObject(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    parameters: identical(parameters, sdkOmittedValue) ? this.parameters : parameters as SdkOptional<Map<String, Object?>>,
-  );
+  FunctionObject _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? parameters = sdkOmittedValue}) =>
+      FunctionObject(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        parameters: identical(parameters, sdkOmittedValue)
+            ? this.parameters
+            : parameters as SdkOptional<Map<String, Object?>>,
+      );
 
   factory FunctionObject.fromJson(Map<String, dynamic> json) => FunctionObject(
-    name: (json['name'] as String?)!,
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    parameters: json['parameters'] != null ? SdkPresent((json['parameters'] == null ? null : Map<String, dynamic>.from(json['parameters'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-  );
+        name: (json['name'] as String?)!,
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        parameters: json['parameters'] != null
+            ? SdkPresent((json['parameters'] == null
+                ? null
+                : Map<String, dynamic>.from(json['parameters'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parameters) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'parameters': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parameters) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'parameters': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

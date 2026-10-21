@@ -8,25 +8,38 @@ part of 'action_gateway.dart';
 class DeleteConnectionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The resulting revoked connection.
   final SdkOptional<Connection> connection;
 
   const DeleteConnectionResponse({this.connection = const SdkOmitted()});
 
-  DeleteConnectionResponse Function({SdkOptional<Connection> connection}) get copyWith => _copyWith;
+  DeleteConnectionResponse Function({SdkOptional<Connection> connection})
+      get copyWith => _copyWith;
 
-  DeleteConnectionResponse _copyWith({Object? connection = sdkOmittedValue}) => DeleteConnectionResponse(
-    connection: identical(connection, sdkOmittedValue) ? this.connection : connection as SdkOptional<Connection>,
-  );
+  DeleteConnectionResponse _copyWith({Object? connection = sdkOmittedValue}) =>
+      DeleteConnectionResponse(
+        connection: identical(connection, sdkOmittedValue)
+            ? this.connection
+            : connection as SdkOptional<Connection>,
+      );
 
-  factory DeleteConnectionResponse.fromJson(Map<String, dynamic> json) => DeleteConnectionResponse(
-    connection: json['connection'] != null ? SdkPresent((json['connection'] != null ? Connection.fromJson(json['connection'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DeleteConnectionResponse.fromJson(Map<String, dynamic> json) =>
+      DeleteConnectionResponse(
+        connection: json['connection'] != null
+            ? SdkPresent((json['connection'] != null
+                ? Connection.fromJson(
+                    json['connection'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (connection) {
-      SdkPresent<Connection>(value: final value) => {'connection': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (connection) {
+          SdkPresent<Connection>(value: final value) => {
+              'connection': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,65 +8,127 @@ part of 'dedicated_inference.dart';
 class DedicatedInferenceAccelerator {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique ID of the accelerator.
   final SdkOptional<String> id;
+
   /// Name of the accelerator.
   final SdkOptional<String> name;
+
   /// DigitalOcean GPU slug.
   final SdkOptional<String> slug;
+
   /// Role of the accelerator (e.g. prefill_decode).
   final SdkOptional<String> role;
+
   /// Status of the accelerator.
   final SdkOptional<String> status;
+
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
 
-  const DedicatedInferenceAccelerator({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.slug = const SdkOmitted(), this.role = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAt = const SdkOmitted()});
+  const DedicatedInferenceAccelerator(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.slug = const SdkOmitted(),
+      this.role = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.createdAt = const SdkOmitted()});
 
-  DedicatedInferenceAccelerator Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> slug, SdkOptional<String> role, SdkOptional<String> status, SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  DedicatedInferenceAccelerator Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<String> slug,
+      SdkOptional<String> role,
+      SdkOptional<String> status,
+      SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  DedicatedInferenceAccelerator _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? role = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => DedicatedInferenceAccelerator(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as SdkOptional<String>,
-    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-  );
+  DedicatedInferenceAccelerator _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? slug = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      DedicatedInferenceAccelerator(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        slug: identical(slug, sdkOmittedValue)
+            ? this.slug
+            : slug as SdkOptional<String>,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+      );
 
-  factory DedicatedInferenceAccelerator.fromJson(Map<String, dynamic> json) => DedicatedInferenceAccelerator(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    slug: json['slug'] != null ? SdkPresent((json['slug'] as String?)!) : const SdkOmitted(),
-    role: json['role'] != null ? SdkPresent((json['role'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory DedicatedInferenceAccelerator.fromJson(Map<String, dynamic> json) =>
+      DedicatedInferenceAccelerator(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        slug: json['slug'] != null
+            ? SdkPresent((json['slug'] as String?)!)
+            : const SdkOmitted(),
+        role: json['role'] != null
+            ? SdkPresent((json['role'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (slug) {
-      SdkPresent<String>(value: final value) => {'slug': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (role) {
-      SdkPresent<String>(value: final value) => {'role': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<String>(value: final value) => {'status': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (slug) {
+          SdkPresent<String>(value: final value) => {
+              'slug': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (role) {
+          SdkPresent<String>(value: final value) => {
+              'role': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<String>(value: final value) => {
+              'status': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

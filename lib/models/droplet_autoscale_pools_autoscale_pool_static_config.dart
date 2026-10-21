@@ -8,22 +8,30 @@ part of 'droplet_autoscale_pools.dart';
 class AutoscalePoolStaticConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Fixed number of instances in an autoscale pool.
   final int targetNumberInstances;
 
   const AutoscalePoolStaticConfig({required this.targetNumberInstances});
 
-  AutoscalePoolStaticConfig Function({int targetNumberInstances}) get copyWith => _copyWith;
+  AutoscalePoolStaticConfig Function({int targetNumberInstances})
+      get copyWith => _copyWith;
 
-  AutoscalePoolStaticConfig _copyWith({Object? targetNumberInstances = sdkOmittedValue}) => AutoscalePoolStaticConfig(
-    targetNumberInstances: identical(targetNumberInstances, sdkOmittedValue) ? this.targetNumberInstances : targetNumberInstances as int,
-  );
+  AutoscalePoolStaticConfig _copyWith(
+          {Object? targetNumberInstances = sdkOmittedValue}) =>
+      AutoscalePoolStaticConfig(
+        targetNumberInstances: identical(targetNumberInstances, sdkOmittedValue)
+            ? this.targetNumberInstances
+            : targetNumberInstances as int,
+      );
 
-  factory AutoscalePoolStaticConfig.fromJson(Map<String, dynamic> json) => AutoscalePoolStaticConfig(
-    targetNumberInstances: ((json['target_number_instances'] as num?)?.toInt())!,
-  );
+  factory AutoscalePoolStaticConfig.fromJson(Map<String, dynamic> json) =>
+      AutoscalePoolStaticConfig(
+        targetNumberInstances:
+            ((json['target_number_instances'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'target_number_instances': targetNumberInstances,
-  };
+        'target_number_instances': targetNumberInstances,
+      };
 }

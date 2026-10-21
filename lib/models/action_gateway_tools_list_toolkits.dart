@@ -8,65 +8,128 @@ part of 'action_gateway.dart';
 class Toolkit {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Provider ID. For one of your team's MCP servers it is normally the server's `serverRef`; `provider_kind` tells the two kinds apart.
   final SdkOptional<String> id;
+
   /// Human-readable provider name.
   final SdkOptional<String> name;
+
   /// Provider description.
   final SdkOptional<String> description;
+
   /// Distinct categories of the provider's released tools, sorted.
   final SdkOptional<List<String>> categories;
+
   /// When the provider was added.
   final SdkOptional<String?> createdAt;
+
   /// Classifies the provider, for example `managed_api` or `byo_mcp` (one of your team's MCP servers). It is the same value as PublicToolDefinition.provider_kind for the provider's tools.
   final SdkOptional<String> providerKind;
 
-  const Toolkit({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.description = const SdkOmitted(), this.categories = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.providerKind = const SdkOmitted()});
+  const Toolkit(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.categories = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.providerKind = const SdkOmitted()});
 
-  Toolkit Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> description, SdkOptional<List<String>> categories, SdkOptional<String?> createdAt, SdkOptional<String> providerKind}) get copyWith => _copyWith;
+  Toolkit Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<String> description,
+      SdkOptional<List<String>> categories,
+      SdkOptional<String?> createdAt,
+      SdkOptional<String> providerKind}) get copyWith => _copyWith;
 
-  Toolkit _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? categories = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? providerKind = sdkOmittedValue}) => Toolkit(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    categories: identical(categories, sdkOmittedValue) ? this.categories : categories as SdkOptional<List<String>>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String?>,
-    providerKind: identical(providerKind, sdkOmittedValue) ? this.providerKind : providerKind as SdkOptional<String>,
-  );
+  Toolkit _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? categories = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? providerKind = sdkOmittedValue}) =>
+      Toolkit(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        categories: identical(categories, sdkOmittedValue)
+            ? this.categories
+            : categories as SdkOptional<List<String>>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String?>,
+        providerKind: identical(providerKind, sdkOmittedValue)
+            ? this.providerKind
+            : providerKind as SdkOptional<String>,
+      );
 
   factory Toolkit.fromJson(Map<String, dynamic> json) => Toolkit(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    categories: json['categories'] != null ? SdkPresent(((json['categories'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    createdAt: json.containsKey('created_at') ? SdkPresent(json['created_at'] as String?) : const SdkOmitted(),
-    providerKind: json['provider_kind'] != null ? SdkPresent((json['provider_kind'] as String?)!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        categories: json['categories'] != null
+            ? SdkPresent(((json['categories'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        createdAt: json.containsKey('created_at')
+            ? SdkPresent(json['created_at'] as String?)
+            : const SdkOmitted(),
+        providerKind: json['provider_kind'] != null
+            ? SdkPresent((json['provider_kind'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (categories) {
-      SdkPresent<List<String>>(value: final value) => {'categories': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String?>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (providerKind) {
-      SdkPresent<String>(value: final value) => {'provider_kind': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (categories) {
+          SdkPresent<List<String>>(value: final value) => {
+              'categories': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String?>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (providerKind) {
+          SdkPresent<String>(value: final value) => {
+              'provider_kind': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

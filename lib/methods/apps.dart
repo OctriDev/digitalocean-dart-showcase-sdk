@@ -28,18 +28,28 @@ Future<AppsResponse> appsList(ClientConfig config,
   return (await sdkRequest<AppsResponse>('GET', '/v2/apps',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'with_projects': SdkQueryValue(SdkUtils.unwrapOptional(withProjects), style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'with_projects': SdkQueryValue(
+                SdkUtils.unwrapOptional(withProjects),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsList',
-          fromJsonRaw: (value) => AppsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Create a new app by submitting an app specification. For documentation on app specifications (`AppSpec` objects), please refer to [the product documentation](https://docs.digitalocean.com/products/app-platform/reference/app-spec/).
 ///
@@ -62,14 +72,20 @@ Future<AppResponse> appsCreate(ClientConfig config,
             'project_id': SdkUtils.unwrapOptional(projectId)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'Accept': SdkUtils.unwrapOptional(accept)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'Accept': SdkUtils.unwrapOptional(accept)}),
           operationId: 'appsCreate',
-          fromJsonRaw: (value) => AppResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Delete an existing app. Once deleted, all active deployments will be permanently shut down and the app deleted. If needed, be sure to back up your app specification so that you may re-create it at a later time.
 ///
@@ -81,12 +97,18 @@ Future<AppsDeleteAppResponse> appsDelete(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'appsDelete',
-          fromJsonRaw: (value) => AppsDeleteAppResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsDeleteAppResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieve details about an existing app by either its ID or name. To retrieve an app by its name, do not include an ID in the request path. Information about the current active deployment as well as any in progress ones will also be included in the response.
 ///
@@ -100,16 +122,23 @@ Future<AppResponse> appsGet(ClientConfig config,
           'GET', '/v2/apps/${Uri.encodeComponent(id.toString())}',
           config: config,
           query: {
-            'name': SdkQueryValue(SdkUtils.unwrapOptional(name), style: 'form', explode: true)
+            'name': SdkQueryValue(SdkUtils.unwrapOptional(name),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGet',
-          fromJsonRaw: (value) => AppResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Update an existing app by submitting a new app specification. For documentation on app specifications (`AppSpec` objects), please refer to [the product documentation](https://docs.digitalocean.com/products/app-platform/reference/app-spec/).
 ///
@@ -130,16 +159,23 @@ Future<AppResponse> appsUpdate(ClientConfig config,
           config: config,
           body: {
             'spec': spec,
-            'update_all_source_versions': SdkUtils.unwrapOptional(updateAllSourceVersions)
+            'update_all_source_versions':
+                SdkUtils.unwrapOptional(updateAllSourceVersions)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsUpdate',
-          fromJsonRaw: (value) => AppResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Triggers a rolling restart of an app, either across all components or only the components you specify. Pass `components` to limit the restart; omit it to restart all components. A successful response includes the resulting deployment object.
 ///
@@ -157,12 +193,18 @@ Future<AppsDeploymentResponse> appsRestart(ClientConfig config,
           body: {'components': SdkUtils.unwrapOptional(components)},
           decoder: SdkResponseDecoder.json,
           operationId: 'appsRestart',
-          fromJsonRaw: (value) => AppsDeploymentResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsDeploymentResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve the logs of the active deployment if one exists. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment. Note log_type=BUILD logs will return logs associated with the current active deployment (being served). To view build logs associated with in-progress build, the query must explicitly reference the deployment id.
 ///
@@ -188,17 +230,27 @@ Future<AppsGetLogsResponse> appsGetLogsActiveDeployment(ClientConfig config,
           config: config,
           query: {
             'type': SdkQueryValue(type_, style: 'form', explode: true),
-            'follow': SdkQueryValue(SdkUtils.unwrapOptional(follow), style: 'form', explode: true),
-            'pod_connection_timeout': SdkQueryValue(SdkUtils.unwrapOptional(podConnectionTimeout), style: 'form', explode: true)
+            'follow': SdkQueryValue(SdkUtils.unwrapOptional(follow),
+                style: 'form', explode: true),
+            'pod_connection_timeout': SdkQueryValue(
+                SdkUtils.unwrapOptional(podConnectionTimeout),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetLogsActiveDeployment',
-          fromJsonRaw: (value) => AppsGetLogsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsGetLogsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns a websocket URL that allows sending/receiving console input and output to a component of the active deployment if one exists.
 ///
@@ -215,16 +267,25 @@ Future<AppsGetExecResponse> appsGetExecActiveDeployment(ClientConfig config,
           '/v2/apps/${Uri.encodeComponent(appId.toString())}/components/${Uri.encodeComponent(componentName.toString())}/exec',
           config: config,
           query: {
-            'instance_name': SdkQueryValue(SdkUtils.unwrapOptional(instanceName), style: 'form', explode: true)
+            'instance_name': SdkQueryValue(
+                SdkUtils.unwrapOptional(instanceName),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetExecActiveDeployment',
-          fromJsonRaw: (value) => AppsGetExecResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsGetExecResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve the list of running instances for a given application, including instance names and component types. Please note that these instances are ephemeral and may change over time. It is recommended not to make persistent changes or develop scripts that rely on their persistence.
 ///
@@ -236,12 +297,18 @@ Future<AppInstances> appsGetInstances(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetInstances',
-          fromJsonRaw: (value) => AppInstances.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppInstances.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists deployments for a specific app. Filter by deployment type and use `page` and `per_page` to paginate the results.
 ///
@@ -261,7 +328,8 @@ Future<AppsDeploymentsResponse> appsListDeployments(ClientConfig config,
     {required String appId,
     SdkOptional<int> page = const SdkOmitted(),
     SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<List<AppsListDeploymentsDeploymentTypesItem>> deploymentTypes = const SdkOmitted(),
+    SdkOptional<List<AppsListDeploymentsDeploymentTypesItem>> deploymentTypes =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (page is SdkPresent<int>) {
     validateRange('page', page.value, min: 1);
@@ -274,18 +342,29 @@ Future<AppsDeploymentsResponse> appsListDeployments(ClientConfig config,
           '/v2/apps/${Uri.encodeComponent(appId.toString())}/deployments',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'deployment_types': SdkQueryValue(SdkUtils.unwrapOptional(deploymentTypes), style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'deployment_types': SdkQueryValue(
+                SdkUtils.unwrapOptional(deploymentTypes),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsListDeployments',
-          fromJsonRaw: (value) => AppsDeploymentsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsDeploymentsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a deployment for a specific app by pulling the latest changes from its repository and scheduling a new deployment. Set `force_build` to build the app from source even when an existing cached build can be reused. The response includes the deployment record and its current phase.
 ///
@@ -304,12 +383,18 @@ Future<AppsDeploymentResponse> appsCreateDeployment(ClientConfig config,
           body: {'force_build': SdkUtils.unwrapOptional(forceBuild)},
           decoder: SdkResponseDecoder.json,
           operationId: 'appsCreateDeployment',
-          fromJsonRaw: (value) => AppsDeploymentResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsDeploymentResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves details for a specific deployment of an app. Use both identifiers to select the deployment, and inspect its phase and progress to check its current state.
 ///
@@ -326,12 +411,18 @@ Future<AppsDeploymentResponse> appsGetDeployment(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetDeployment',
-          fromJsonRaw: (value) => AppsDeploymentResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsDeploymentResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Cancels an in-progress deployment for a specific app. Use the app and deployment identifiers to select the deployment to stop. The response contains the deployment after it has been cancelled.
 ///
@@ -348,12 +439,18 @@ Future<AppsDeploymentResponse> appsCancelDeployment(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'appsCancelDeployment',
-          fromJsonRaw: (value) => AppsDeploymentResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsDeploymentResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieve the logs of a past, in-progress, or active deployment. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment.
 ///
@@ -381,17 +478,27 @@ Future<AppsGetLogsResponse> appsGetLogs(ClientConfig config,
           config: config,
           query: {
             'type': SdkQueryValue(type_, style: 'form', explode: true),
-            'follow': SdkQueryValue(SdkUtils.unwrapOptional(follow), style: 'form', explode: true),
-            'pod_connection_timeout': SdkQueryValue(SdkUtils.unwrapOptional(podConnectionTimeout), style: 'form', explode: true)
+            'follow': SdkQueryValue(SdkUtils.unwrapOptional(follow),
+                style: 'form', explode: true),
+            'pod_connection_timeout': SdkQueryValue(
+                SdkUtils.unwrapOptional(podConnectionTimeout),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetLogs',
-          fromJsonRaw: (value) => AppsGetLogsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsGetLogsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve the logs of a past, in-progress, or active deployment. If a component name is specified, the logs will be limited to only that component. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment.
 ///
@@ -416,17 +523,27 @@ Future<AppsGetLogsResponse> appsGetLogsAggregate(ClientConfig config,
           config: config,
           query: {
             'type': SdkQueryValue(type_, style: 'form', explode: true),
-            'follow': SdkQueryValue(SdkUtils.unwrapOptional(follow), style: 'form', explode: true),
-            'pod_connection_timeout': SdkQueryValue(SdkUtils.unwrapOptional(podConnectionTimeout), style: 'form', explode: true)
+            'follow': SdkQueryValue(SdkUtils.unwrapOptional(follow),
+                style: 'form', explode: true),
+            'pod_connection_timeout': SdkQueryValue(
+                SdkUtils.unwrapOptional(podConnectionTimeout),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetLogsAggregate',
-          fromJsonRaw: (value) => AppsGetLogsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsGetLogsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns a websocket URL that allows sending/receiving console input and output to a component of the specified deployment if one exists. Optionally, the instance_name parameter can be provided to retrieve the exec URL for a specific instance. Note that instances are ephemeral; therefore, we recommended to avoid making persistent changes or such scripting around them.
 ///
@@ -445,16 +562,25 @@ Future<AppsGetExecResponse> appsGetExec(ClientConfig config,
           '/v2/apps/${Uri.encodeComponent(appId.toString())}/deployments/${Uri.encodeComponent(deploymentId.toString())}/components/${Uri.encodeComponent(componentName.toString())}/exec',
           config: config,
           query: {
-            'instance_name': SdkQueryValue(SdkUtils.unwrapOptional(instanceName), style: 'form', explode: true)
+            'instance_name': SdkQueryValue(
+                SdkUtils.unwrapOptional(instanceName),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetExec',
-          fromJsonRaw: (value) => AppsGetExecResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsGetExecResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve the logs of the active deployment if one exists. The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment. Note log_type=BUILD logs will return logs associated with the current active deployment (being served). To view build logs associated with in-progress build, the query must explicitly reference the deployment id.
 ///
@@ -466,29 +592,39 @@ Future<AppsGetExecResponse> appsGetExec(ClientConfig config,
 /// [follow] Whether the logs should follow live updates.
 /// [podConnectionTimeout] An optional time duration to wait if the underlying
 ///   component instance is not immediately available. Default: `3m`.
-Future<AppsGetLogsResponse>
-    appsGetLogsActiveDeploymentAggregate(ClientConfig config,
-        {required String appId,
-        required SchemaSchema2ebc6d5a type_,
-        SdkOptional<bool> follow = const SdkOmitted(),
-        SdkOptional<String> podConnectionTimeout = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<AppsGetLogsResponse> appsGetLogsActiveDeploymentAggregate(
+    ClientConfig config,
+    {required String appId,
+    required SchemaSchema2ebc6d5a type_,
+    SdkOptional<bool> follow = const SdkOmitted(),
+    SdkOptional<String> podConnectionTimeout = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<AppsGetLogsResponse>(
           'GET', '/v2/apps/${Uri.encodeComponent(appId.toString())}/logs',
           config: config,
           query: {
             'type': SdkQueryValue(type_, style: 'form', explode: true),
-            'follow': SdkQueryValue(SdkUtils.unwrapOptional(follow), style: 'form', explode: true),
-            'pod_connection_timeout': SdkQueryValue(SdkUtils.unwrapOptional(podConnectionTimeout), style: 'form', explode: true)
+            'follow': SdkQueryValue(SdkUtils.unwrapOptional(follow),
+                style: 'form', explode: true),
+            'pod_connection_timeout': SdkQueryValue(
+                SdkUtils.unwrapOptional(podConnectionTimeout),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetLogsActiveDeploymentAggregate',
-          fromJsonRaw: (value) => AppsGetLogsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsGetLogsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists job invocations for a specific app. Filter the results by job names or deployment, and use `page` and `per_page` to paginate the results.
 ///
@@ -517,19 +653,31 @@ Future<AppJobInvocations> appsListJobInvocations(ClientConfig config,
           '/v2/apps/${Uri.encodeComponent(appId.toString())}/job-invocations',
           config: config,
           query: {
-            'job_names': SdkQueryValue(SdkUtils.unwrapOptional(jobNames), style: 'form', explode: true),
-            'deployment_id': SdkQueryValue(SdkUtils.unwrapOptional(deploymentId), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'job_names': SdkQueryValue(SdkUtils.unwrapOptional(jobNames),
+                style: 'form', explode: true),
+            'deployment_id': SdkQueryValue(
+                SdkUtils.unwrapOptional(deploymentId),
+                style: 'form',
+                explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsListJobInvocations',
-          fromJsonRaw: (value) => AppJobInvocations.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppJobInvocations.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a specific job invocation for an app. Use `job_invocation_id` to select the invocation and optionally provide `job_name` to specify the job associated with it.
 ///
@@ -547,16 +695,23 @@ Future<AppJobInvocation> appsGetJobInvocation(ClientConfig config,
           '/v2/apps/${Uri.encodeComponent(appId.toString())}/job-invocations/${Uri.encodeComponent(jobInvocationId.toString())}',
           config: config,
           query: {
-            'job_name': SdkQueryValue(SdkUtils.unwrapOptional(jobName), style: 'form', explode: true)
+            'job_name': SdkQueryValue(SdkUtils.unwrapOptional(jobName),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetJobInvocation',
-          fromJsonRaw: (value) => AppJobInvocation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppJobInvocation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Cancels a job invocation for a specified app. Use `app_id` and `job_invocation_id` to identify the invocation, and provide `job_name` to identify the associated job when needed. The response includes the invocation's phase and lifecycle timestamps.
 ///
@@ -574,16 +729,23 @@ Future<AppJobInvocation> appsCancelJobInvocation(ClientConfig config,
           '/v2/apps/${Uri.encodeComponent(appId.toString())}/job-invocations/${Uri.encodeComponent(jobInvocationId.toString())}/cancel',
           config: config,
           query: {
-            'job_name': SdkQueryValue(SdkUtils.unwrapOptional(jobName), style: 'form', explode: true)
+            'job_name': SdkQueryValue(SdkUtils.unwrapOptional(jobName),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsCancelJobInvocation',
-          fromJsonRaw: (value) => AppJobInvocation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppJobInvocation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve the logs of a past, in-progress, or active deployment. If a component name is specified, the logs will be limited to only that component. If deployment is omitted the active deployment will be selected (if available). The response will include links to either real-time logs of an in-progress or active deployment or archived logs of a past deployment.
 ///
@@ -611,19 +773,33 @@ Future<AppsGetLogsResponse> appsGetJobInvocationLogs(ClientConfig config,
           config: config,
           query: {
             'type': SdkQueryValue(type_, style: 'form', explode: true),
-            'deployment_id': SdkQueryValue(SdkUtils.unwrapOptional(deploymentId), style: 'form', explode: true),
-            'follow': SdkQueryValue(SdkUtils.unwrapOptional(follow), style: 'form', explode: true),
-            'pod_connection_timeout': SdkQueryValue(SdkUtils.unwrapOptional(podConnectionTimeout), style: 'form', explode: true),
-            'tail_lines': SdkQueryValue(SdkUtils.unwrapOptional(tailLines), style: 'form', explode: true)
+            'deployment_id': SdkQueryValue(
+                SdkUtils.unwrapOptional(deploymentId),
+                style: 'form',
+                explode: true),
+            'follow': SdkQueryValue(SdkUtils.unwrapOptional(follow),
+                style: 'form', explode: true),
+            'pod_connection_timeout': SdkQueryValue(
+                SdkUtils.unwrapOptional(podConnectionTimeout),
+                style: 'form',
+                explode: true),
+            'tail_lines': SdkQueryValue(SdkUtils.unwrapOptional(tailLines),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetJobInvocationLogs',
-          fromJsonRaw: (value) => AppsGetLogsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsGetLogsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// List all events for an app, including deployments and autoscaling events.
 ///
@@ -635,7 +811,8 @@ Future<AppEvents> appsListEvents(ClientConfig config,
     {required String appId,
     SdkOptional<int> page = const SdkOmitted(),
     SdkOptional<int> perPage = const SdkOmitted(),
-    SdkOptional<List<AppsListEventsEventTypesItem>> eventTypes = const SdkOmitted(),
+    SdkOptional<List<AppsListEventsEventTypesItem>> eventTypes =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (page is SdkPresent<int>) {
     validateRange('page', page.value, min: 1);
@@ -648,18 +825,27 @@ Future<AppEvents> appsListEvents(ClientConfig config,
           'GET', '/v2/apps/${Uri.encodeComponent(appId.toString())}/events',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'event_types': SdkQueryValue(SdkUtils.unwrapOptional(eventTypes), style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'event_types': SdkQueryValue(SdkUtils.unwrapOptional(eventTypes),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsListEvents',
-          fromJsonRaw: (value) => AppEvents.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppEvents.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a single event for a specified app. Use `app_id` and `event_id` to identify the event whose details you need.
 ///
@@ -676,12 +862,18 @@ Future<GetEvent> appsGetEvent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetEvent',
-          fromJsonRaw: (value) => GetEvent.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetEvent.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Cancels an in-progress autoscaling event for a specified app. Use `app_id` and `event_id` to identify the event to cancel. The response includes the event details after the cancellation request.
 ///
@@ -698,12 +890,18 @@ Future<CancelEvent> appsCancelEvent(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'appsCancelEvent',
-          fromJsonRaw: (value) => CancelEvent.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CancelEvent.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieve the logs of an autoscaling event for an app.
 ///
@@ -728,17 +926,27 @@ Future<AppsGetLogsResponse> appsGetEventLogs(ClientConfig config,
           config: config,
           query: {
             'type': SdkQueryValue(type_, style: 'form', explode: true),
-            'follow': SdkQueryValue(SdkUtils.unwrapOptional(follow), style: 'form', explode: true),
-            'pod_connection_timeout': SdkQueryValue(SdkUtils.unwrapOptional(podConnectionTimeout), style: 'form', explode: true)
+            'follow': SdkQueryValue(SdkUtils.unwrapOptional(follow),
+                style: 'form', explode: true),
+            'pod_connection_timeout': SdkQueryValue(
+                SdkUtils.unwrapOptional(podConnectionTimeout),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetEventLogs',
-          fromJsonRaw: (value) => AppsGetLogsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsGetLogsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// List all instance sizes for `service`, `worker`, and `job` components.
 Future<AppsListInstanceSizesResponse> appsListInstanceSizes(ClientConfig config,
@@ -748,12 +956,17 @@ Future<AppsListInstanceSizesResponse> appsListInstanceSizes(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'appsListInstanceSizes',
-          fromJsonRaw: (value) => AppsListInstanceSizesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AppsListInstanceSizesResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieve information about a specific instance size for `service`, `worker`, and `job` components.
 ///
@@ -765,12 +978,18 @@ Future<AppsGetInstanceSizeResponse> appsGetInstanceSize(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetInstanceSize',
-          fromJsonRaw: (value) => AppsGetInstanceSizeResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => AppsGetInstanceSizeResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Lists the regions supported by App Platform. Use the returned region slugs and availability details to choose a region when configuring an app.
 ///
@@ -781,12 +1000,17 @@ Future<AppsListRegionsResponse> appsListRegions(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'appsListRegions',
-          fromJsonRaw: (value) => AppsListRegionsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsListRegionsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To propose and validate a spec for a new or existing app, send a POST request to the `/v2/apps/propose` endpoint. The request returns some information about the proposed app, including app cost and upgrade cost. If an existing app ID is specified, the app spec is treated as a proposed update to the existing app.
 ///
@@ -803,12 +1027,17 @@ Future<AppProposeResponse> appsValidateAppSpec(ClientConfig config,
           body: {'spec': spec, 'app_id': SdkUtils.unwrapOptional(appId)},
           decoder: SdkResponseDecoder.json,
           operationId: 'appsValidateAppSpec',
-          fromJsonRaw: (value) => AppProposeResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppProposeResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// List alerts associated to the app and any components. This includes configuration information about the alerts including emails, slack webhooks, and triggering events or conditions.
 ///
@@ -820,12 +1049,18 @@ Future<AppsListAlertsResponse> appsListAlerts(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'appsListAlerts',
-          fromJsonRaw: (value) => AppsListAlertsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsListAlertsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the email and Slack webhook destinations for an app alert. Supply destination details in `emails`, `slack_webhooks`, or both; each email address must be associated with a user who has access to the app. The response includes the updated alert object.
 ///
@@ -851,12 +1086,18 @@ Future<AppsAlertResponse> appsAssignAlertDestinations(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsAssignAlertDestinations',
-          fromJsonRaw: (value) => AppsAlertResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsAlertResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Rollback an app to a previous deployment. A new deployment will be created to perform the rollback. The app will be pinned to the rollback deployment preventing any new deployments from being created, either manually or through Auto Deploy on Push webhooks. To resume deployments, the rollback must be either committed or reverted. It is recommended to use the Validate App Rollback endpoint to double check if the rollback is valid and if there are any warnings.
 ///
@@ -882,12 +1123,18 @@ Future<AppsDeploymentResponse> appsCreateRollback(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsCreateRollback',
-          fromJsonRaw: (value) => AppsDeploymentResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsDeploymentResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Check whether an app can be rolled back to a specific deployment. This endpoint can also be used to check if there are any warnings or validation conditions that will cause the rollback to proceed under unideal circumstances. For example, if a component must be rebuilt as part of the rollback causing it to take longer than usual.
 ///
@@ -913,12 +1160,18 @@ Future<AppsValidateRollback> appsValidateRollback(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsValidateRollback',
-          fromJsonRaw: (value) => AppsValidateRollback.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsValidateRollback.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Commit an app rollback. This action permanently applies the rollback and unpins the app to resume new deployments.
 ///
@@ -931,10 +1184,15 @@ Future<void> appsCommitRollback(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'appsCommitRollback',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Revert an app rollback. This action reverts the active rollback by creating a new deployment from the latest app spec prior to the rollback and unpins the app to resume new deployments.
 ///
@@ -946,23 +1204,29 @@ Future<AppsDeploymentResponse> appsRevertRollback(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'appsRevertRollback',
-          fromJsonRaw: (value) => AppsDeploymentResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppsDeploymentResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieve daily bandwidth usage metrics for a single app.
 ///
 /// [appId] The app ID
 /// [date] Optional day to query. Only the date component of the timestamp will
 ///   be considered. Default: yesterday.
-Future<AppMetricsBandwidthUsage>
-    appsGetMetricsBandwidthDaily(ClientConfig config,
-        {required String appId,
-        SdkOptional<String> date = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<AppMetricsBandwidthUsage> appsGetMetricsBandwidthDaily(
+    ClientConfig config,
+    {required String appId,
+    SdkOptional<String> date = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   if (date is SdkPresent<String>) {
     sdkValidateDateTime('date', date.value);
   }
@@ -971,27 +1235,34 @@ Future<AppMetricsBandwidthUsage>
           '/v2/apps/${Uri.encodeComponent(appId.toString())}/metrics/bandwidth_daily',
           config: config,
           query: {
-            'date': SdkQueryValue(SdkUtils.unwrapOptional(date), style: 'form', explode: true)
+            'date': SdkQueryValue(SdkUtils.unwrapOptional(date),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetMetricsBandwidthDaily',
-          fromJsonRaw: (value) => AppMetricsBandwidthUsage.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppMetricsBandwidthUsage.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve daily bandwidth usage metrics for multiple apps.
 ///
 /// [appIds] A list of app IDs to query bandwidth metrics for.
 /// [date] Optional day to query. Only the date component of the timestamp will
 ///   be considered. Default: yesterday.
-Future<AppMetricsBandwidthUsage>
-    appsListMetricsBandwidthDaily(ClientConfig config,
-        {required List<String> appIds,
-        SdkOptional<String> date = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<AppMetricsBandwidthUsage> appsListMetricsBandwidthDaily(
+    ClientConfig config,
+    {required List<String> appIds,
+    SdkOptional<String> date = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   validateItems('app_ids', appIds, max: 100);
   if (date is SdkPresent<String>) {
     sdkValidateDateTime('date', date.value);
@@ -1003,12 +1274,18 @@ Future<AppMetricsBandwidthUsage>
           body: {'app_ids': appIds, 'date': SdkUtils.unwrapOptional(date)},
           decoder: SdkResponseDecoder.json,
           operationId: 'appsListMetricsBandwidthDaily',
-          fromJsonRaw: (value) => AppMetricsBandwidthUsage.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppMetricsBandwidthUsage.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve information like health status, cpu and memory utilization of app components.
 ///
@@ -1020,8 +1297,15 @@ Future<AppHealthResponse> appsGetHealth(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'appsGetHealth',
-          fromJsonRaw: (value) => AppHealthResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AppHealthResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

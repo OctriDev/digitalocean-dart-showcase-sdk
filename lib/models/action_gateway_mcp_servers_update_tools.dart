@@ -8,30 +8,49 @@ part of 'action_gateway_mcp.dart';
 class McpServerToolsUpdate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The complete set of tool slugs (`&lt;server_ref&gt;_&lt;name&gt;`) to enable; every other tool of the server is disabled. Empty disables every tool.
   final List<String> enabledToolSlugs;
+
   /// Required for a server registered with `credentialRefSource` connection when a tool needs verification against the live server, which can only be reached as a user who has authorized it. Ignored otherwise.
   final SdkOptional<String> userId;
 
-  const McpServerToolsUpdate({required this.enabledToolSlugs, this.userId = const SdkOmitted()});
+  const McpServerToolsUpdate(
+      {required this.enabledToolSlugs, this.userId = const SdkOmitted()});
 
-  McpServerToolsUpdate Function({List<String> enabledToolSlugs, SdkOptional<String> userId}) get copyWith => _copyWith;
+  McpServerToolsUpdate Function(
+      {List<String> enabledToolSlugs,
+      SdkOptional<String> userId}) get copyWith => _copyWith;
 
-  McpServerToolsUpdate _copyWith({Object? enabledToolSlugs = sdkOmittedValue, Object? userId = sdkOmittedValue}) => McpServerToolsUpdate(
-    enabledToolSlugs: identical(enabledToolSlugs, sdkOmittedValue) ? this.enabledToolSlugs : enabledToolSlugs as List<String>,
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
-  );
+  McpServerToolsUpdate _copyWith(
+          {Object? enabledToolSlugs = sdkOmittedValue,
+          Object? userId = sdkOmittedValue}) =>
+      McpServerToolsUpdate(
+        enabledToolSlugs: identical(enabledToolSlugs, sdkOmittedValue)
+            ? this.enabledToolSlugs
+            : enabledToolSlugs as List<String>,
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String>,
+      );
 
-  factory McpServerToolsUpdate.fromJson(Map<String, dynamic> json) => McpServerToolsUpdate(
-    enabledToolSlugs: ((json['enabledToolSlugs'] as List?)?.map((e) => e as String).toList())!,
-    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory McpServerToolsUpdate.fromJson(Map<String, dynamic> json) =>
+      McpServerToolsUpdate(
+        enabledToolSlugs: ((json['enabledToolSlugs'] as List?)
+            ?.map((e) => e as String)
+            .toList())!,
+        userId: json['user_id'] != null
+            ? SdkPresent((json['user_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'enabledToolSlugs': enabledToolSlugs,
-    ...switch (userId) {
-      SdkPresent<String>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'enabledToolSlugs': enabledToolSlugs,
+        ...switch (userId) {
+          SdkPresent<String>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

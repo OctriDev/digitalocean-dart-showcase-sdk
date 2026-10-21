@@ -8,25 +8,43 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListIndexingJobDataSourcesOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `indexed_data_sources` wire field.
   final SdkOptional<List<ApiIndexedDataSource>> indexedDataSources;
 
-  const ApiListIndexingJobDataSourcesOutput({this.indexedDataSources = const SdkOmitted()});
+  const ApiListIndexingJobDataSourcesOutput(
+      {this.indexedDataSources = const SdkOmitted()});
 
-  ApiListIndexingJobDataSourcesOutput Function({SdkOptional<List<ApiIndexedDataSource>> indexedDataSources}) get copyWith => _copyWith;
+  ApiListIndexingJobDataSourcesOutput Function(
+          {SdkOptional<List<ApiIndexedDataSource>> indexedDataSources})
+      get copyWith => _copyWith;
 
-  ApiListIndexingJobDataSourcesOutput _copyWith({Object? indexedDataSources = sdkOmittedValue}) => ApiListIndexingJobDataSourcesOutput(
-    indexedDataSources: identical(indexedDataSources, sdkOmittedValue) ? this.indexedDataSources : indexedDataSources as SdkOptional<List<ApiIndexedDataSource>>,
-  );
+  ApiListIndexingJobDataSourcesOutput _copyWith(
+          {Object? indexedDataSources = sdkOmittedValue}) =>
+      ApiListIndexingJobDataSourcesOutput(
+        indexedDataSources: identical(indexedDataSources, sdkOmittedValue)
+            ? this.indexedDataSources
+            : indexedDataSources as SdkOptional<List<ApiIndexedDataSource>>,
+      );
 
-  factory ApiListIndexingJobDataSourcesOutput.fromJson(Map<String, dynamic> json) => ApiListIndexingJobDataSourcesOutput(
-    indexedDataSources: json['indexed_data_sources'] != null ? SdkPresent(((json['indexed_data_sources'] as List?)?.map((e) => ApiIndexedDataSource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiListIndexingJobDataSourcesOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiListIndexingJobDataSourcesOutput(
+        indexedDataSources: json['indexed_data_sources'] != null
+            ? SdkPresent(((json['indexed_data_sources'] as List?)
+                ?.map((e) =>
+                    ApiIndexedDataSource.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (indexedDataSources) {
-      SdkPresent<List<ApiIndexedDataSource>>(value: final value) => {'indexed_data_sources': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (indexedDataSources) {
+          SdkPresent<List<ApiIndexedDataSource>>(value: final value) => {
+              'indexed_data_sources':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

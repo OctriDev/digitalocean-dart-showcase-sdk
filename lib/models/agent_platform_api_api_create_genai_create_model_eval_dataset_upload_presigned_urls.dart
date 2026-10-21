@@ -8,25 +8,41 @@ part of 'agent_platform_api_api_create.dart';
 class ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of files to generate presigned URLs for.
   final SdkOptional<List<ApiPresignedUrlFile>> files;
 
-  const ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic({this.files = const SdkOmitted()});
+  const ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic(
+      {this.files = const SdkOmitted()});
 
-  ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic Function({SdkOptional<List<ApiPresignedUrlFile>> files}) get copyWith => _copyWith;
+  ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic Function(
+      {SdkOptional<List<ApiPresignedUrlFile>> files}) get copyWith => _copyWith;
 
-  ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic _copyWith({Object? files = sdkOmittedValue}) => ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic(
-    files: identical(files, sdkOmittedValue) ? this.files : files as SdkOptional<List<ApiPresignedUrlFile>>,
-  );
+  ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic _copyWith(
+          {Object? files = sdkOmittedValue}) =>
+      ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic(
+        files: identical(files, sdkOmittedValue)
+            ? this.files
+            : files as SdkOptional<List<ApiPresignedUrlFile>>,
+      );
 
-  factory ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic(
-    files: json['files'] != null ? SdkPresent(((json['files'] as List?)?.map((e) => ApiPresignedUrlFile.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic(
+        files: json['files'] != null
+            ? SdkPresent(((json['files'] as List?)
+                ?.map((e) =>
+                    ApiPresignedUrlFile.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (files) {
-      SdkPresent<List<ApiPresignedUrlFile>>(value: final value) => {'files': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (files) {
+          SdkPresent<List<ApiPresignedUrlFile>>(value: final value) => {
+              'files': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

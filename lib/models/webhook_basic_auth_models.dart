@@ -8,6 +8,7 @@ part of 'webhook_basic_auth.dart';
 class WebhookBasicAuth {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Basic auth username.
   final String username;
 
@@ -15,15 +16,19 @@ class WebhookBasicAuth {
 
   WebhookBasicAuth Function({String username}) get copyWith => _copyWith;
 
-  WebhookBasicAuth _copyWith({Object? username = sdkOmittedValue}) => WebhookBasicAuth(
-    username: identical(username, sdkOmittedValue) ? this.username : username as String,
-  );
+  WebhookBasicAuth _copyWith({Object? username = sdkOmittedValue}) =>
+      WebhookBasicAuth(
+        username: identical(username, sdkOmittedValue)
+            ? this.username
+            : username as String,
+      );
 
-  factory WebhookBasicAuth.fromJson(Map<String, dynamic> json) => WebhookBasicAuth(
-    username: (json['username'] as String?)!,
-  );
+  factory WebhookBasicAuth.fromJson(Map<String, dynamic> json) =>
+      WebhookBasicAuth(
+        username: (json['username'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'username': username,
-  };
+        'username': username,
+      };
 }

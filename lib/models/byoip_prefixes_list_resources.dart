@@ -11,22 +11,35 @@ class ByoipPrefixListResourcesVariant0 {
 
   const ByoipPrefixListResourcesVariant0({this.ips = const SdkOmitted()});
 
-  ByoipPrefixListResourcesVariant0 Function({SdkOptional<List<ByoipPrefixResource>> ips}) get copyWith => _copyWith;
+  ByoipPrefixListResourcesVariant0 Function(
+      {SdkOptional<List<ByoipPrefixResource>> ips}) get copyWith => _copyWith;
 
-  ByoipPrefixListResourcesVariant0 _copyWith({Object? ips = sdkOmittedValue}) => ByoipPrefixListResourcesVariant0(
-    ips: identical(ips, sdkOmittedValue) ? this.ips : ips as SdkOptional<List<ByoipPrefixResource>>,
-  );
+  ByoipPrefixListResourcesVariant0 _copyWith({Object? ips = sdkOmittedValue}) =>
+      ByoipPrefixListResourcesVariant0(
+        ips: identical(ips, sdkOmittedValue)
+            ? this.ips
+            : ips as SdkOptional<List<ByoipPrefixResource>>,
+      );
 
-  factory ByoipPrefixListResourcesVariant0.fromJson(Map<String, dynamic> json) => ByoipPrefixListResourcesVariant0(
-    ips: json['ips'] != null ? SdkPresent(((json['ips'] as List?)?.map((e) => ByoipPrefixResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ByoipPrefixListResourcesVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      ByoipPrefixListResourcesVariant0(
+        ips: json['ips'] != null
+            ? SdkPresent(((json['ips'] as List?)
+                ?.map((e) =>
+                    ByoipPrefixResource.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (ips) {
-      SdkPresent<List<ByoipPrefixResource>>(value: final value) => {'ips': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (ips) {
+          SdkPresent<List<ByoipPrefixResource>>(value: final value) => {
+              'ips': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ByoipPrefixListResources` API schema.
@@ -34,95 +47,179 @@ class ByoipPrefixListResources {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<ByoipPrefixResource>> ips;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const ByoipPrefixListResources({this.ips = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const ByoipPrefixListResources(
+      {this.ips = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  ByoipPrefixListResources Function({SdkOptional<List<ByoipPrefixResource>> ips, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  ByoipPrefixListResources Function(
+      {SdkOptional<List<ByoipPrefixResource>> ips,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  ByoipPrefixListResources _copyWith({Object? ips = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ByoipPrefixListResources(
-    ips: identical(ips, sdkOmittedValue) ? this.ips : ips as SdkOptional<List<ByoipPrefixResource>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  ByoipPrefixListResources _copyWith(
+          {Object? ips = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      ByoipPrefixListResources(
+        ips: identical(ips, sdkOmittedValue)
+            ? this.ips
+            : ips as SdkOptional<List<ByoipPrefixResource>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory ByoipPrefixListResources.fromJson(Map<String, dynamic> json) => ByoipPrefixListResources(
-    ips: json['ips'] != null ? SdkPresent(((json['ips'] as List?)?.map((e) => ByoipPrefixResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory ByoipPrefixListResources.fromJson(Map<String, dynamic> json) =>
+      ByoipPrefixListResources(
+        ips: json['ips'] != null
+            ? SdkPresent(((json['ips'] as List?)
+                ?.map((e) =>
+                    ByoipPrefixResource.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (ips) {
-      SdkPresent<List<ByoipPrefixResource>>(value: final value) => {'ips': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (ips) {
+          SdkPresent<List<ByoipPrefixResource>>(value: final value) => {
+              'ips': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 /// Typed representation of the `ByoipPrefixResource` API schema.
 class ByoipPrefixResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Unique identifier for the allocation
   final SdkOptional<int> id;
+
   /// The BYOIP prefix UUID
   final SdkOptional<String> byoip;
+
   /// Region where the allocation is made
   final SdkOptional<String> region;
+
   /// The resource associated with the allocation
   final SdkOptional<String> resource;
+
   /// Time when the allocation was assigned
   final SdkOptional<String> assignedAt;
 
-  const ByoipPrefixResource({this.id = const SdkOmitted(), this.byoip = const SdkOmitted(), this.region = const SdkOmitted(), this.resource = const SdkOmitted(), this.assignedAt = const SdkOmitted()});
+  const ByoipPrefixResource(
+      {this.id = const SdkOmitted(),
+      this.byoip = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      this.resource = const SdkOmitted(),
+      this.assignedAt = const SdkOmitted()});
 
-  ByoipPrefixResource Function({SdkOptional<int> id, SdkOptional<String> byoip, SdkOptional<String> region, SdkOptional<String> resource, SdkOptional<String> assignedAt}) get copyWith => _copyWith;
+  ByoipPrefixResource Function(
+      {SdkOptional<int> id,
+      SdkOptional<String> byoip,
+      SdkOptional<String> region,
+      SdkOptional<String> resource,
+      SdkOptional<String> assignedAt}) get copyWith => _copyWith;
 
-  ByoipPrefixResource _copyWith({Object? id = sdkOmittedValue, Object? byoip = sdkOmittedValue, Object? region = sdkOmittedValue, Object? resource = sdkOmittedValue, Object? assignedAt = sdkOmittedValue}) => ByoipPrefixResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
-    byoip: identical(byoip, sdkOmittedValue) ? this.byoip : byoip as SdkOptional<String>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    resource: identical(resource, sdkOmittedValue) ? this.resource : resource as SdkOptional<String>,
-    assignedAt: identical(assignedAt, sdkOmittedValue) ? this.assignedAt : assignedAt as SdkOptional<String>,
-  );
+  ByoipPrefixResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? byoip = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? resource = sdkOmittedValue,
+          Object? assignedAt = sdkOmittedValue}) =>
+      ByoipPrefixResource(
+        id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<int>,
+        byoip: identical(byoip, sdkOmittedValue)
+            ? this.byoip
+            : byoip as SdkOptional<String>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        resource: identical(resource, sdkOmittedValue)
+            ? this.resource
+            : resource as SdkOptional<String>,
+        assignedAt: identical(assignedAt, sdkOmittedValue)
+            ? this.assignedAt
+            : assignedAt as SdkOptional<String>,
+      );
 
-  factory ByoipPrefixResource.fromJson(Map<String, dynamic> json) => ByoipPrefixResource(
-    id: json['id'] != null ? SdkPresent(((json['id'] as num?)?.toInt())!) : const SdkOmitted(),
-    byoip: json['byoip'] != null ? SdkPresent((json['byoip'] as String?)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    resource: json['resource'] != null ? SdkPresent((json['resource'] as String?)!) : const SdkOmitted(),
-    assignedAt: json['assigned_at'] != null ? SdkPresent((json['assigned_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory ByoipPrefixResource.fromJson(Map<String, dynamic> json) =>
+      ByoipPrefixResource(
+        id: json['id'] != null
+            ? SdkPresent(((json['id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        byoip: json['byoip'] != null
+            ? SdkPresent((json['byoip'] as String?)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        resource: json['resource'] != null
+            ? SdkPresent((json['resource'] as String?)!)
+            : const SdkOmitted(),
+        assignedAt: json['assigned_at'] != null
+            ? SdkPresent((json['assigned_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<int>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (byoip) {
-      SdkPresent<String>(value: final value) => {'byoip': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (resource) {
-      SdkPresent<String>(value: final value) => {'resource': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (assignedAt) {
-      SdkPresent<String>(value: final value) => {'assigned_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<int>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (byoip) {
+          SdkPresent<String>(value: final value) => {
+              'byoip': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (resource) {
+          SdkPresent<String>(value: final value) => {
+              'resource': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (assignedAt) {
+          SdkPresent<String>(value: final value) => {
+              'assigned_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

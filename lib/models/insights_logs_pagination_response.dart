@@ -8,33 +8,55 @@ part of 'insights_logs.dart';
 class LogsPaginationResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether more results are available.
   final SdkOptional<bool> hasMore;
+
   /// Opaque cursor to fetch the next page.
   final SdkOptional<String> nextCursor;
 
-  const LogsPaginationResponse({this.hasMore = const SdkOmitted(), this.nextCursor = const SdkOmitted()});
+  const LogsPaginationResponse(
+      {this.hasMore = const SdkOmitted(),
+      this.nextCursor = const SdkOmitted()});
 
-  LogsPaginationResponse Function({SdkOptional<bool> hasMore, SdkOptional<String> nextCursor}) get copyWith => _copyWith;
+  LogsPaginationResponse Function(
+      {SdkOptional<bool> hasMore,
+      SdkOptional<String> nextCursor}) get copyWith => _copyWith;
 
-  LogsPaginationResponse _copyWith({Object? hasMore = sdkOmittedValue, Object? nextCursor = sdkOmittedValue}) => LogsPaginationResponse(
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as SdkOptional<bool>,
-    nextCursor: identical(nextCursor, sdkOmittedValue) ? this.nextCursor : nextCursor as SdkOptional<String>,
-  );
+  LogsPaginationResponse _copyWith(
+          {Object? hasMore = sdkOmittedValue,
+          Object? nextCursor = sdkOmittedValue}) =>
+      LogsPaginationResponse(
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as SdkOptional<bool>,
+        nextCursor: identical(nextCursor, sdkOmittedValue)
+            ? this.nextCursor
+            : nextCursor as SdkOptional<String>,
+      );
 
-  factory LogsPaginationResponse.fromJson(Map<String, dynamic> json) => LogsPaginationResponse(
-    hasMore: json['has_more'] != null ? SdkPresent((json['has_more'] as bool?)!) : const SdkOmitted(),
-    nextCursor: json['next_cursor'] != null ? SdkPresent((json['next_cursor'] as String?)!) : const SdkOmitted(),
-  );
+  factory LogsPaginationResponse.fromJson(Map<String, dynamic> json) =>
+      LogsPaginationResponse(
+        hasMore: json['has_more'] != null
+            ? SdkPresent((json['has_more'] as bool?)!)
+            : const SdkOmitted(),
+        nextCursor: json['next_cursor'] != null
+            ? SdkPresent((json['next_cursor'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (hasMore) {
-      SdkPresent<bool>(value: final value) => {'has_more': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nextCursor) {
-      SdkPresent<String>(value: final value) => {'next_cursor': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (hasMore) {
+          SdkPresent<bool>(value: final value) => {
+              'has_more': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nextCursor) {
+          SdkPresent<String>(value: final value) => {
+              'next_cursor': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

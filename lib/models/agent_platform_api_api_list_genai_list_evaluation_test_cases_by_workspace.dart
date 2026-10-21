@@ -8,25 +8,43 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListEvaluationTestCasesByWorkspaceOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `evaluation_test_cases` wire field.
   final SdkOptional<List<ApiEvaluationTestCase>> evaluationTestCases;
 
-  const ApiListEvaluationTestCasesByWorkspaceOutput({this.evaluationTestCases = const SdkOmitted()});
+  const ApiListEvaluationTestCasesByWorkspaceOutput(
+      {this.evaluationTestCases = const SdkOmitted()});
 
-  ApiListEvaluationTestCasesByWorkspaceOutput Function({SdkOptional<List<ApiEvaluationTestCase>> evaluationTestCases}) get copyWith => _copyWith;
+  ApiListEvaluationTestCasesByWorkspaceOutput Function(
+          {SdkOptional<List<ApiEvaluationTestCase>> evaluationTestCases})
+      get copyWith => _copyWith;
 
-  ApiListEvaluationTestCasesByWorkspaceOutput _copyWith({Object? evaluationTestCases = sdkOmittedValue}) => ApiListEvaluationTestCasesByWorkspaceOutput(
-    evaluationTestCases: identical(evaluationTestCases, sdkOmittedValue) ? this.evaluationTestCases : evaluationTestCases as SdkOptional<List<ApiEvaluationTestCase>>,
-  );
+  ApiListEvaluationTestCasesByWorkspaceOutput _copyWith(
+          {Object? evaluationTestCases = sdkOmittedValue}) =>
+      ApiListEvaluationTestCasesByWorkspaceOutput(
+        evaluationTestCases: identical(evaluationTestCases, sdkOmittedValue)
+            ? this.evaluationTestCases
+            : evaluationTestCases as SdkOptional<List<ApiEvaluationTestCase>>,
+      );
 
-  factory ApiListEvaluationTestCasesByWorkspaceOutput.fromJson(Map<String, dynamic> json) => ApiListEvaluationTestCasesByWorkspaceOutput(
-    evaluationTestCases: json['evaluation_test_cases'] != null ? SdkPresent(((json['evaluation_test_cases'] as List?)?.map((e) => ApiEvaluationTestCase.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiListEvaluationTestCasesByWorkspaceOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiListEvaluationTestCasesByWorkspaceOutput(
+        evaluationTestCases: json['evaluation_test_cases'] != null
+            ? SdkPresent(((json['evaluation_test_cases'] as List?)
+                ?.map((e) =>
+                    ApiEvaluationTestCase.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (evaluationTestCases) {
-      SdkPresent<List<ApiEvaluationTestCase>>(value: final value) => {'evaluation_test_cases': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (evaluationTestCases) {
+          SdkPresent<List<ApiEvaluationTestCase>>(value: final value) => {
+              'evaluation_test_cases':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

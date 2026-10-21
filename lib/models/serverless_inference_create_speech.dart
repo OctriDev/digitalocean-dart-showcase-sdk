@@ -8,51 +8,91 @@ part of 'serverless_inference_create.dart';
 class CreateSpeechRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The text-to-speech model to use.
   final String model;
+
   /// The text to convert to speech.
   final String input;
+
   /// The voice to use for synthesis.
   final SdkOptional<String> voice;
+
   /// The audio format to return. Supported values include `mp3` and `wav`. The API may return raw audio bytes or a JSON envelope with base64-encoded audio.
   final SdkOptional<String> responseFormat;
+
   /// Optional style or delivery instructions for the synthesizer.
   final SdkOptional<String> instructions;
 
-  const CreateSpeechRequest({required this.model, required this.input, this.voice = const SdkOmitted(), this.responseFormat = const SdkOmitted(), this.instructions = const SdkOmitted()});
+  const CreateSpeechRequest(
+      {required this.model,
+      required this.input,
+      this.voice = const SdkOmitted(),
+      this.responseFormat = const SdkOmitted(),
+      this.instructions = const SdkOmitted()});
 
-  CreateSpeechRequest Function({String model, String input, SdkOptional<String> voice, SdkOptional<String> responseFormat, SdkOptional<String> instructions}) get copyWith => _copyWith;
+  CreateSpeechRequest Function(
+      {String model,
+      String input,
+      SdkOptional<String> voice,
+      SdkOptional<String> responseFormat,
+      SdkOptional<String> instructions}) get copyWith => _copyWith;
 
-  CreateSpeechRequest _copyWith({Object? model = sdkOmittedValue, Object? input = sdkOmittedValue, Object? voice = sdkOmittedValue, Object? responseFormat = sdkOmittedValue, Object? instructions = sdkOmittedValue}) => CreateSpeechRequest(
-    model: identical(model, sdkOmittedValue) ? this.model : model as String,
-    input: identical(input, sdkOmittedValue) ? this.input : input as String,
-    voice: identical(voice, sdkOmittedValue) ? this.voice : voice as SdkOptional<String>,
-    responseFormat: identical(responseFormat, sdkOmittedValue) ? this.responseFormat : responseFormat as SdkOptional<String>,
-    instructions: identical(instructions, sdkOmittedValue) ? this.instructions : instructions as SdkOptional<String>,
-  );
+  CreateSpeechRequest _copyWith(
+          {Object? model = sdkOmittedValue,
+          Object? input = sdkOmittedValue,
+          Object? voice = sdkOmittedValue,
+          Object? responseFormat = sdkOmittedValue,
+          Object? instructions = sdkOmittedValue}) =>
+      CreateSpeechRequest(
+        model: identical(model, sdkOmittedValue) ? this.model : model as String,
+        input: identical(input, sdkOmittedValue) ? this.input : input as String,
+        voice: identical(voice, sdkOmittedValue)
+            ? this.voice
+            : voice as SdkOptional<String>,
+        responseFormat: identical(responseFormat, sdkOmittedValue)
+            ? this.responseFormat
+            : responseFormat as SdkOptional<String>,
+        instructions: identical(instructions, sdkOmittedValue)
+            ? this.instructions
+            : instructions as SdkOptional<String>,
+      );
 
-  factory CreateSpeechRequest.fromJson(Map<String, dynamic> json) => CreateSpeechRequest(
-    model: (json['model'] as String?)!,
-    input: (json['input'] as String?)!,
-    voice: json['voice'] != null ? SdkPresent((json['voice'] as String?)!) : const SdkOmitted(),
-    responseFormat: json['response_format'] != null ? SdkPresent((json['response_format'] as String?)!) : const SdkOmitted(),
-    instructions: json['instructions'] != null ? SdkPresent((json['instructions'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateSpeechRequest.fromJson(Map<String, dynamic> json) =>
+      CreateSpeechRequest(
+        model: (json['model'] as String?)!,
+        input: (json['input'] as String?)!,
+        voice: json['voice'] != null
+            ? SdkPresent((json['voice'] as String?)!)
+            : const SdkOmitted(),
+        responseFormat: json['response_format'] != null
+            ? SdkPresent((json['response_format'] as String?)!)
+            : const SdkOmitted(),
+        instructions: json['instructions'] != null
+            ? SdkPresent((json['instructions'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'model': model,
-    'input': input,
-    ...switch (voice) {
-      SdkPresent<String>(value: final value) => {'voice': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (responseFormat) {
-      SdkPresent<String>(value: final value) => {'response_format': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (instructions) {
-      SdkPresent<String>(value: final value) => {'instructions': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'model': model,
+        'input': input,
+        ...switch (voice) {
+          SdkPresent<String>(value: final value) => {
+              'voice': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (responseFormat) {
+          SdkPresent<String>(value: final value) => {
+              'response_format': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (instructions) {
+          SdkPresent<String>(value: final value) => {
+              'instructions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

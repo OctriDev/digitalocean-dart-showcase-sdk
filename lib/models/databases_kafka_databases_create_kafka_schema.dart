@@ -8,37 +8,63 @@ part of 'databases_kafka.dart';
 class KafkaSchema {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The id for schema.
   final int schemaId;
+
   /// The name of the schema subject.
   final String subjectName;
+
   /// The type of the schema.
   final KafkaSchemaSchemaType schemaType;
+
   /// The schema definition in the specified format.
   final String schema;
 
-  const KafkaSchema({required this.schemaId, required this.subjectName, required this.schemaType, required this.schema});
+  const KafkaSchema(
+      {required this.schemaId,
+      required this.subjectName,
+      required this.schemaType,
+      required this.schema});
 
-  KafkaSchema Function({int schemaId, String subjectName, KafkaSchemaSchemaType schemaType, String schema}) get copyWith => _copyWith;
+  KafkaSchema Function(
+      {int schemaId,
+      String subjectName,
+      KafkaSchemaSchemaType schemaType,
+      String schema}) get copyWith => _copyWith;
 
-  KafkaSchema _copyWith({Object? schemaId = sdkOmittedValue, Object? subjectName = sdkOmittedValue, Object? schemaType = sdkOmittedValue, Object? schema = sdkOmittedValue}) => KafkaSchema(
-    schemaId: identical(schemaId, sdkOmittedValue) ? this.schemaId : schemaId as int,
-    subjectName: identical(subjectName, sdkOmittedValue) ? this.subjectName : subjectName as String,
-    schemaType: identical(schemaType, sdkOmittedValue) ? this.schemaType : schemaType as KafkaSchemaSchemaType,
-    schema: identical(schema, sdkOmittedValue) ? this.schema : schema as String,
-  );
+  KafkaSchema _copyWith(
+          {Object? schemaId = sdkOmittedValue,
+          Object? subjectName = sdkOmittedValue,
+          Object? schemaType = sdkOmittedValue,
+          Object? schema = sdkOmittedValue}) =>
+      KafkaSchema(
+        schemaId: identical(schemaId, sdkOmittedValue)
+            ? this.schemaId
+            : schemaId as int,
+        subjectName: identical(subjectName, sdkOmittedValue)
+            ? this.subjectName
+            : subjectName as String,
+        schemaType: identical(schemaType, sdkOmittedValue)
+            ? this.schemaType
+            : schemaType as KafkaSchemaSchemaType,
+        schema:
+            identical(schema, sdkOmittedValue) ? this.schema : schema as String,
+      );
 
   factory KafkaSchema.fromJson(Map<String, dynamic> json) => KafkaSchema(
-    schemaId: ((json['schema_id'] as num?)?.toInt())!,
-    subjectName: (json['subject_name'] as String?)!,
-    schemaType: (json['schema_type'] != null ? KafkaSchemaSchemaType.fromJson(json['schema_type'] as String) : null)!,
-    schema: (json['schema'] as String?)!,
-  );
+        schemaId: ((json['schema_id'] as num?)?.toInt())!,
+        subjectName: (json['subject_name'] as String?)!,
+        schemaType: (json['schema_type'] != null
+            ? KafkaSchemaSchemaType.fromJson(json['schema_type'] as String)
+            : null)!,
+        schema: (json['schema'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'schema_id': schemaId,
-    'subject_name': subjectName,
-    'schema_type': schemaType.toJson(),
-    'schema': schema,
-  };
+        'schema_id': schemaId,
+        'subject_name': subjectName,
+        'schema_type': schemaType.toJson(),
+        'schema': schema,
+      };
 }

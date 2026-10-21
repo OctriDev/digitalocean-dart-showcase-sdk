@@ -11,22 +11,31 @@ class ScansVariant0 {
 
   const ScansVariant0({this.scans = const SdkOmitted()});
 
-  ScansVariant0 Function({SdkOptional<List<Scan>> scans}) get copyWith => _copyWith;
+  ScansVariant0 Function({SdkOptional<List<Scan>> scans}) get copyWith =>
+      _copyWith;
 
   ScansVariant0 _copyWith({Object? scans = sdkOmittedValue}) => ScansVariant0(
-    scans: identical(scans, sdkOmittedValue) ? this.scans : scans as SdkOptional<List<Scan>>,
-  );
+        scans: identical(scans, sdkOmittedValue)
+            ? this.scans
+            : scans as SdkOptional<List<Scan>>,
+      );
 
   factory ScansVariant0.fromJson(Map<String, dynamic> json) => ScansVariant0(
-    scans: json['scans'] != null ? SdkPresent(((json['scans'] as List?)?.map((e) => Scan.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        scans: json['scans'] != null
+            ? SdkPresent(((json['scans'] as List?)
+                ?.map((e) => Scan.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (scans) {
-      SdkPresent<List<Scan>>(value: final value) => {'scans': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (scans) {
+          SdkPresent<List<Scan>>(value: final value) => {
+              'scans': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `Scans` API schema.
@@ -34,36 +43,68 @@ class Scans {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Scan>> scans;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const Scans({this.scans = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const Scans(
+      {this.scans = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  Scans Function({SdkOptional<List<Scan>> scans, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  Scans Function(
+      {SdkOptional<List<Scan>> scans,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  Scans _copyWith({Object? scans = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => Scans(
-    scans: identical(scans, sdkOmittedValue) ? this.scans : scans as SdkOptional<List<Scan>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  Scans _copyWith(
+          {Object? scans = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      Scans(
+        scans: identical(scans, sdkOmittedValue)
+            ? this.scans
+            : scans as SdkOptional<List<Scan>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
   factory Scans.fromJson(Map<String, dynamic> json) => Scans(
-    scans: json['scans'] != null ? SdkPresent(((json['scans'] as List?)?.map((e) => Scan.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+        scans: json['scans'] != null
+            ? SdkPresent(((json['scans'] as List?)
+                ?.map((e) => Scan.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (scans) {
-      SdkPresent<List<Scan>>(value: final value) => {'scans': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (scans) {
+          SdkPresent<List<Scan>>(value: final value) => {
+              'scans': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

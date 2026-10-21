@@ -8,6 +8,7 @@ part of 'security.dart';
 class ScanResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `scan` wire field.
   final SdkOptional<Scan> scan;
 
@@ -16,17 +17,25 @@ class ScanResponse {
   ScanResponse Function({SdkOptional<Scan> scan}) get copyWith => _copyWith;
 
   ScanResponse _copyWith({Object? scan = sdkOmittedValue}) => ScanResponse(
-    scan: identical(scan, sdkOmittedValue) ? this.scan : scan as SdkOptional<Scan>,
-  );
+        scan: identical(scan, sdkOmittedValue)
+            ? this.scan
+            : scan as SdkOptional<Scan>,
+      );
 
   factory ScanResponse.fromJson(Map<String, dynamic> json) => ScanResponse(
-    scan: json['scan'] != null ? SdkPresent((json['scan'] != null ? Scan.fromJson(json['scan'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        scan: json['scan'] != null
+            ? SdkPresent((json['scan'] != null
+                ? Scan.fromJson(json['scan'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (scan) {
-      SdkPresent<Scan>(value: final value) => {'scan': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (scan) {
+          SdkPresent<Scan>(value: final value) => {
+              'scan': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

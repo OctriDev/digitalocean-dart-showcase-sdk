@@ -8,33 +8,56 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetModelEvaluationRunResultsDownloadURLOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The presigned URL to download the gzip-compressed JSON results file (.json.gz).
   final SdkOptional<String> downloadUrl;
+
   /// The time the URL expires at.
   final SdkOptional<String> expiresAt;
 
-  const ApiGetModelEvaluationRunResultsDownloadURLOutput({this.downloadUrl = const SdkOmitted(), this.expiresAt = const SdkOmitted()});
+  const ApiGetModelEvaluationRunResultsDownloadURLOutput(
+      {this.downloadUrl = const SdkOmitted(),
+      this.expiresAt = const SdkOmitted()});
 
-  ApiGetModelEvaluationRunResultsDownloadURLOutput Function({SdkOptional<String> downloadUrl, SdkOptional<String> expiresAt}) get copyWith => _copyWith;
+  ApiGetModelEvaluationRunResultsDownloadURLOutput Function(
+      {SdkOptional<String> downloadUrl,
+      SdkOptional<String> expiresAt}) get copyWith => _copyWith;
 
-  ApiGetModelEvaluationRunResultsDownloadURLOutput _copyWith({Object? downloadUrl = sdkOmittedValue, Object? expiresAt = sdkOmittedValue}) => ApiGetModelEvaluationRunResultsDownloadURLOutput(
-    downloadUrl: identical(downloadUrl, sdkOmittedValue) ? this.downloadUrl : downloadUrl as SdkOptional<String>,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String>,
-  );
+  ApiGetModelEvaluationRunResultsDownloadURLOutput _copyWith(
+          {Object? downloadUrl = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue}) =>
+      ApiGetModelEvaluationRunResultsDownloadURLOutput(
+        downloadUrl: identical(downloadUrl, sdkOmittedValue)
+            ? this.downloadUrl
+            : downloadUrl as SdkOptional<String>,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<String>,
+      );
 
-  factory ApiGetModelEvaluationRunResultsDownloadURLOutput.fromJson(Map<String, dynamic> json) => ApiGetModelEvaluationRunResultsDownloadURLOutput(
-    downloadUrl: json['download_url'] != null ? SdkPresent((json['download_url'] as String?)!) : const SdkOmitted(),
-    expiresAt: json['expires_at'] != null ? SdkPresent((json['expires_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiGetModelEvaluationRunResultsDownloadURLOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiGetModelEvaluationRunResultsDownloadURLOutput(
+        downloadUrl: json['download_url'] != null
+            ? SdkPresent((json['download_url'] as String?)!)
+            : const SdkOmitted(),
+        expiresAt: json['expires_at'] != null
+            ? SdkPresent((json['expires_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (downloadUrl) {
-      SdkPresent<String>(value: final value) => {'download_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresAt) {
-      SdkPresent<String>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (downloadUrl) {
+          SdkPresent<String>(value: final value) => {
+              'download_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresAt) {
+          SdkPresent<String>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

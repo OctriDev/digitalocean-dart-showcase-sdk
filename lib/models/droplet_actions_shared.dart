@@ -8,6 +8,7 @@ part of 'droplet_actions.dart';
 class DropletAction {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
 
@@ -16,72 +17,104 @@ class DropletAction {
   DropletAction Function({DropletActionType type_}) get copyWith => _copyWith;
 
   DropletAction _copyWith({Object? type_ = sdkOmittedValue}) => DropletAction(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
-  );
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DropletActionType,
+      );
 
   factory DropletAction.fromJson(Map<String, dynamic> json) => DropletAction(
-    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
-  );
+        type_: (json['type'] != null
+            ? DropletActionType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 class DropletActionSnapshotVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name to give the new snapshot of the Droplet.
   final SdkOptional<String> name;
 
   const DropletActionSnapshotVariant1({this.name = const SdkOmitted()});
 
-  DropletActionSnapshotVariant1 Function({SdkOptional<String> name}) get copyWith => _copyWith;
+  DropletActionSnapshotVariant1 Function({SdkOptional<String> name})
+      get copyWith => _copyWith;
 
-  DropletActionSnapshotVariant1 _copyWith({Object? name = sdkOmittedValue}) => DropletActionSnapshotVariant1(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  DropletActionSnapshotVariant1 _copyWith({Object? name = sdkOmittedValue}) =>
+      DropletActionSnapshotVariant1(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory DropletActionSnapshotVariant1.fromJson(Map<String, dynamic> json) => DropletActionSnapshotVariant1(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory DropletActionSnapshotVariant1.fromJson(Map<String, dynamic> json) =>
+      DropletActionSnapshotVariant1(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DropletActionSnapshot` API schema.
 class DropletActionSnapshot {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
+
   /// The name to give the new snapshot of the Droplet.
   final SdkOptional<String> name;
 
-  const DropletActionSnapshot({required this.type_, this.name = const SdkOmitted()});
+  const DropletActionSnapshot(
+      {required this.type_, this.name = const SdkOmitted()});
 
-  DropletActionSnapshot Function({DropletActionType type_, SdkOptional<String> name}) get copyWith => _copyWith;
+  DropletActionSnapshot Function(
+      {DropletActionType type_,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  DropletActionSnapshot _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) => DropletActionSnapshot(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  DropletActionSnapshot _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
+      DropletActionSnapshot(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DropletActionType,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory DropletActionSnapshot.fromJson(Map<String, dynamic> json) => DropletActionSnapshot(
-    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory DropletActionSnapshot.fromJson(Map<String, dynamic> json) =>
+      DropletActionSnapshot(
+        type_: (json['type'] != null
+            ? DropletActionType.fromJson(json['type'] as String)
+            : null)!,
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

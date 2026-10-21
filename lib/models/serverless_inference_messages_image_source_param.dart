@@ -8,32 +8,44 @@ part of 'serverless_inference_messages.dart';
 class MessagesImageSourceParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Source kind (for example `base64`).
   final String type_;
+
   /// MIME type of the image (for example `image/jpeg`).
   final String mediaType;
+
   /// Encoded image data.
   final String data;
 
-  const MessagesImageSourceParam({required this.type_, required this.mediaType, required this.data});
+  const MessagesImageSourceParam(
+      {required this.type_, required this.mediaType, required this.data});
 
-  MessagesImageSourceParam Function({String type_, String mediaType, String data}) get copyWith => _copyWith;
+  MessagesImageSourceParam Function(
+      {String type_, String mediaType, String data}) get copyWith => _copyWith;
 
-  MessagesImageSourceParam _copyWith({Object? type_ = sdkOmittedValue, Object? mediaType = sdkOmittedValue, Object? data = sdkOmittedValue}) => MessagesImageSourceParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-    mediaType: identical(mediaType, sdkOmittedValue) ? this.mediaType : mediaType as String,
-    data: identical(data, sdkOmittedValue) ? this.data : data as String,
-  );
+  MessagesImageSourceParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? mediaType = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      MessagesImageSourceParam(
+        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+        mediaType: identical(mediaType, sdkOmittedValue)
+            ? this.mediaType
+            : mediaType as String,
+        data: identical(data, sdkOmittedValue) ? this.data : data as String,
+      );
 
-  factory MessagesImageSourceParam.fromJson(Map<String, dynamic> json) => MessagesImageSourceParam(
-    type_: (json['type'] as String?)!,
-    mediaType: (json['media_type'] as String?)!,
-    data: (json['data'] as String?)!,
-  );
+  factory MessagesImageSourceParam.fromJson(Map<String, dynamic> json) =>
+      MessagesImageSourceParam(
+        type_: (json['type'] as String?)!,
+        mediaType: (json['media_type'] as String?)!,
+        data: (json['data'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_,
-    'media_type': mediaType,
-    'data': data,
-  };
+        'type': type_,
+        'media_type': mediaType,
+        'data': data,
+      };
 }

@@ -8,25 +8,37 @@ part of 'block_storage_actions.dart';
 class VolumeActionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `action` wire field.
   final SdkOptional<VolumeAction> action;
 
   const VolumeActionResponse({this.action = const SdkOmitted()});
 
-  VolumeActionResponse Function({SdkOptional<VolumeAction> action}) get copyWith => _copyWith;
+  VolumeActionResponse Function({SdkOptional<VolumeAction> action})
+      get copyWith => _copyWith;
 
-  VolumeActionResponse _copyWith({Object? action = sdkOmittedValue}) => VolumeActionResponse(
-    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<VolumeAction>,
-  );
+  VolumeActionResponse _copyWith({Object? action = sdkOmittedValue}) =>
+      VolumeActionResponse(
+        action: identical(action, sdkOmittedValue)
+            ? this.action
+            : action as SdkOptional<VolumeAction>,
+      );
 
-  factory VolumeActionResponse.fromJson(Map<String, dynamic> json) => VolumeActionResponse(
-    action: json['action'] != null ? SdkPresent((json['action'] != null ? VolumeAction.fromJson(json['action'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory VolumeActionResponse.fromJson(Map<String, dynamic> json) =>
+      VolumeActionResponse(
+        action: json['action'] != null
+            ? SdkPresent((json['action'] != null
+                ? VolumeAction.fromJson(json['action'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (action) {
-      SdkPresent<VolumeAction>(value: final value) => {'action': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (action) {
+          SdkPresent<VolumeAction>(value: final value) => {
+              'action': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

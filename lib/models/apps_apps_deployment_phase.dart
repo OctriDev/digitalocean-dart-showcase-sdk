@@ -6,12 +6,12 @@ part of 'apps_apps_deployment.dart';
 // apps_apps_deployment domain models
 /// Typed representation of the `AppsDeploymentPhase` API schema.
 final class AppsDeploymentPhase {
-
   final String value;
 
   const AppsDeploymentPhase._(this.value);
 
-  factory AppsDeploymentPhase.fromJson(String value) => AppsDeploymentPhase._(value);
+  factory AppsDeploymentPhase.fromJson(String value) =>
+      AppsDeploymentPhase._(value);
 
   static const unknown = AppsDeploymentPhase._('UNKNOWN');
   static const pendingBuild = AppsDeploymentPhase._('PENDING_BUILD');
@@ -25,10 +25,13 @@ final class AppsDeploymentPhase {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AppsDeploymentPhase && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AppsDeploymentPhase && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

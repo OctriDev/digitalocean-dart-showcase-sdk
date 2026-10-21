@@ -11,22 +11,34 @@ class ByoipPrefixListVariant0 {
 
   const ByoipPrefixListVariant0({this.byoipPrefixes = const SdkOmitted()});
 
-  ByoipPrefixListVariant0 Function({SdkOptional<List<ByoipPrefix>> byoipPrefixes}) get copyWith => _copyWith;
+  ByoipPrefixListVariant0 Function(
+      {SdkOptional<List<ByoipPrefix>> byoipPrefixes}) get copyWith => _copyWith;
 
-  ByoipPrefixListVariant0 _copyWith({Object? byoipPrefixes = sdkOmittedValue}) => ByoipPrefixListVariant0(
-    byoipPrefixes: identical(byoipPrefixes, sdkOmittedValue) ? this.byoipPrefixes : byoipPrefixes as SdkOptional<List<ByoipPrefix>>,
-  );
+  ByoipPrefixListVariant0 _copyWith(
+          {Object? byoipPrefixes = sdkOmittedValue}) =>
+      ByoipPrefixListVariant0(
+        byoipPrefixes: identical(byoipPrefixes, sdkOmittedValue)
+            ? this.byoipPrefixes
+            : byoipPrefixes as SdkOptional<List<ByoipPrefix>>,
+      );
 
-  factory ByoipPrefixListVariant0.fromJson(Map<String, dynamic> json) => ByoipPrefixListVariant0(
-    byoipPrefixes: json['byoip_prefixes'] != null ? SdkPresent(((json['byoip_prefixes'] as List?)?.map((e) => ByoipPrefix.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ByoipPrefixListVariant0.fromJson(Map<String, dynamic> json) =>
+      ByoipPrefixListVariant0(
+        byoipPrefixes: json['byoip_prefixes'] != null
+            ? SdkPresent(((json['byoip_prefixes'] as List?)
+                ?.map((e) => ByoipPrefix.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (byoipPrefixes) {
-      SdkPresent<List<ByoipPrefix>>(value: final value) => {'byoip_prefixes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (byoipPrefixes) {
+          SdkPresent<List<ByoipPrefix>>(value: final value) => {
+              'byoip_prefixes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ByoipPrefixList` API schema.
@@ -34,36 +46,69 @@ class ByoipPrefixList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<ByoipPrefix>> byoipPrefixes;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const ByoipPrefixList({this.byoipPrefixes = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const ByoipPrefixList(
+      {this.byoipPrefixes = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  ByoipPrefixList Function({SdkOptional<List<ByoipPrefix>> byoipPrefixes, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  ByoipPrefixList Function(
+      {SdkOptional<List<ByoipPrefix>> byoipPrefixes,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  ByoipPrefixList _copyWith({Object? byoipPrefixes = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ByoipPrefixList(
-    byoipPrefixes: identical(byoipPrefixes, sdkOmittedValue) ? this.byoipPrefixes : byoipPrefixes as SdkOptional<List<ByoipPrefix>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  ByoipPrefixList _copyWith(
+          {Object? byoipPrefixes = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      ByoipPrefixList(
+        byoipPrefixes: identical(byoipPrefixes, sdkOmittedValue)
+            ? this.byoipPrefixes
+            : byoipPrefixes as SdkOptional<List<ByoipPrefix>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory ByoipPrefixList.fromJson(Map<String, dynamic> json) => ByoipPrefixList(
-    byoipPrefixes: json['byoip_prefixes'] != null ? SdkPresent(((json['byoip_prefixes'] as List?)?.map((e) => ByoipPrefix.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory ByoipPrefixList.fromJson(Map<String, dynamic> json) =>
+      ByoipPrefixList(
+        byoipPrefixes: json['byoip_prefixes'] != null
+            ? SdkPresent(((json['byoip_prefixes'] as List?)
+                ?.map((e) => ByoipPrefix.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (byoipPrefixes) {
-      SdkPresent<List<ByoipPrefix>>(value: final value) => {'byoip_prefixes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (byoipPrefixes) {
+          SdkPresent<List<ByoipPrefix>>(value: final value) => {
+              'byoip_prefixes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

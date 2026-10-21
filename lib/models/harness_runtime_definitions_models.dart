@@ -8,231 +8,469 @@ part of 'harness_runtime_definitions.dart';
 class DefinitionsCreateSessionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Session is the user-facing record of a environment session + sandbox pair.
   final SdkOptional<DefinitionsSession> session;
 
   const DefinitionsCreateSessionResponse({this.session = const SdkOmitted()});
 
-  DefinitionsCreateSessionResponse Function({SdkOptional<DefinitionsSession> session}) get copyWith => _copyWith;
+  DefinitionsCreateSessionResponse Function(
+      {SdkOptional<DefinitionsSession> session}) get copyWith => _copyWith;
 
-  DefinitionsCreateSessionResponse _copyWith({Object? session = sdkOmittedValue}) => DefinitionsCreateSessionResponse(
-    session: identical(session, sdkOmittedValue) ? this.session : session as SdkOptional<DefinitionsSession>,
-  );
+  DefinitionsCreateSessionResponse _copyWith(
+          {Object? session = sdkOmittedValue}) =>
+      DefinitionsCreateSessionResponse(
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as SdkOptional<DefinitionsSession>,
+      );
 
-  factory DefinitionsCreateSessionResponse.fromJson(Map<String, dynamic> json) => DefinitionsCreateSessionResponse(
-    session: json['session'] != null ? SdkPresent((json['session'] != null ? DefinitionsSession.fromJson(json['session'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DefinitionsCreateSessionResponse.fromJson(
+          Map<String, dynamic> json) =>
+      DefinitionsCreateSessionResponse(
+        session: json['session'] != null
+            ? SdkPresent((json['session'] != null
+                ? DefinitionsSession.fromJson(
+                    json['session'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (session) {
-      SdkPresent<DefinitionsSession>(value: final value) => {'session': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (session) {
+          SdkPresent<DefinitionsSession>(value: final value) => {
+              'session': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DefinitionsListSessionsResponse` API schema.
 class DefinitionsListSessionsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `sessions` wire field.
   final SdkOptional<List<DefinitionsSession>> sessions;
+
   /// Opaque cursor for the next page. Empty when there are no further pages.
   final SdkOptional<String> nextPageToken;
 
-  const DefinitionsListSessionsResponse({this.sessions = const SdkOmitted(), this.nextPageToken = const SdkOmitted()});
+  const DefinitionsListSessionsResponse(
+      {this.sessions = const SdkOmitted(),
+      this.nextPageToken = const SdkOmitted()});
 
-  DefinitionsListSessionsResponse Function({SdkOptional<List<DefinitionsSession>> sessions, SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
+  DefinitionsListSessionsResponse Function(
+      {SdkOptional<List<DefinitionsSession>> sessions,
+      SdkOptional<String> nextPageToken}) get copyWith => _copyWith;
 
-  DefinitionsListSessionsResponse _copyWith({Object? sessions = sdkOmittedValue, Object? nextPageToken = sdkOmittedValue}) => DefinitionsListSessionsResponse(
-    sessions: identical(sessions, sdkOmittedValue) ? this.sessions : sessions as SdkOptional<List<DefinitionsSession>>,
-    nextPageToken: identical(nextPageToken, sdkOmittedValue) ? this.nextPageToken : nextPageToken as SdkOptional<String>,
-  );
+  DefinitionsListSessionsResponse _copyWith(
+          {Object? sessions = sdkOmittedValue,
+          Object? nextPageToken = sdkOmittedValue}) =>
+      DefinitionsListSessionsResponse(
+        sessions: identical(sessions, sdkOmittedValue)
+            ? this.sessions
+            : sessions as SdkOptional<List<DefinitionsSession>>,
+        nextPageToken: identical(nextPageToken, sdkOmittedValue)
+            ? this.nextPageToken
+            : nextPageToken as SdkOptional<String>,
+      );
 
-  factory DefinitionsListSessionsResponse.fromJson(Map<String, dynamic> json) => DefinitionsListSessionsResponse(
-    sessions: json['sessions'] != null ? SdkPresent(((json['sessions'] as List?)?.map((e) => DefinitionsSession.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    nextPageToken: json['next_page_token'] != null ? SdkPresent((json['next_page_token'] as String?)!) : const SdkOmitted(),
-  );
+  factory DefinitionsListSessionsResponse.fromJson(Map<String, dynamic> json) =>
+      DefinitionsListSessionsResponse(
+        sessions: json['sessions'] != null
+            ? SdkPresent(((json['sessions'] as List?)
+                ?.map((e) =>
+                    DefinitionsSession.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        nextPageToken: json['next_page_token'] != null
+            ? SdkPresent((json['next_page_token'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sessions) {
-      SdkPresent<List<DefinitionsSession>>(value: final value) => {'sessions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nextPageToken) {
-      SdkPresent<String>(value: final value) => {'next_page_token': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sessions) {
+          SdkPresent<List<DefinitionsSession>>(value: final value) => {
+              'sessions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nextPageToken) {
+          SdkPresent<String>(value: final value) => {
+              'next_page_token': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Session is the user-facing record of a environment session + sandbox pair.
 class DefinitionsSession {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `session_id` wire field.
   final SdkOptional<String> sessionId;
+
   /// User-assignable display name, unique per team among non-terminal sessions. Usable in place of session_id by clients (doctl / Console resolve it to the id via the ListSessions ?name= filter; the {session_id} path stays UUID-only). Supplied via the environment-spec metadata.name, or auto-generated ("session-&lt;agent-type&gt;-&lt;date-time&gt;") when omitted.
   final SdkOptional<String> name;
+
   /// Lineage: id of the session this one was forked from. Omitted/empty for root (non-fork) sessions.
   final SdkOptional<String> parentSessionId;
+
   /// Lineage: branch label assigned when this session was created by ForkSession (or rollback's internal fork). Omitted/empty for root sessions.
   final SdkOptional<String> forkId;
+
   /// Lineage: harness-api checkpoint id (cp_&lt;hex&gt;) the child booted from at fork time. Drives OHP inherited-history replay on attach. Omitted/empty for root sessions and legacy forks created before this field was persisted.
   final SdkOptional<String> forkFromCheckpointId;
+
   /// AgentKind identifies what runs inside the session sandbox. CreateSession accepts CLAUDE_CODE, OPENCODE, CODEX_CLI, CURSOR_CLI, OPENAI_CODEX, LANGGRAPH, and CREWAI (the supported set is overridable via HARNESS_SUPPORTED_AGENT_KINDS); other values are rejected with 400. AGENT_KIND_OPENAI_CODEX is the OpenAI sandbox-provider kind (DO runs codex exec-server; the agent loop lives at OpenAI). AGENT_KIND_LANGGRAPH is the LangGraph framework adapter. AGENT_KIND_CREWAI is the CrewAI Crew framework adapter: like LANGGRAPH the template bakes no agent code, so spec.env must supply FRAMEWORK_REPO and FRAMEWORK_REPO_SHA; a Crew kickoff is one-shot and exposes no HITL surface. CREWAI is additionally gated per team and returns 400 for teams it is not enabled for.
   final SdkOptional<AgentKind> agentKind;
+
   /// SessionStatus is the lifecycle state of the sandbox + agent pair. SESSION_STATUS_ALL is a ListSessions status-filter value only -- no session is ever actually in this status. SESSION_STATUS_LOCKED is reserved for internal use and never appears in an end-user-facing response.
   final SdkOptional<SessionStatus> status;
+
   /// Sandbox identity for support / debugging. Informational; omitted until a sandbox is allocated.
   final SdkOptional<String> sandboxId;
+
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
+
   /// Timestamp of the most recent event in this session's canonical stream. Drives the inactivity policy that destroys idle sessions.
   final SdkOptional<String> lastEventAt;
+
   /// Session is exempt from idle auto-pause (manifest keep_warm, or the agent-kind default: hermes sessions keep warm). Pause requests against such a session are rejected with 409. Omitted when false.
   final SdkOptional<bool> keepWarm;
+
   /// Session consents to being resumed automatically when the team's prepayment balance is restored after a low-balance pause. Defaults to false at create time; may be toggled later via PATCH /v2/agents/sessions/{session_id} (resume_on_topoff only). Only a session paused with reason low_balance whose latest run did not complete is ever resumed automatically - a session the customer paused themselves, or one that idled out, stays paused regardless. Not an environment-spec field, and forks do not inherit it. Omitted when false.
   final SdkOptional<bool> resumeOnTopoff;
+
   /// Why this session is paused. Present only when status is SESSION_STATUS_PAUSED; omitted otherwise. Known values: manual (PauseSession RPC), idle (inactivity auto-pause), low_balance (prepay gate). Clients should treat an unrecognized value as an opaque reason string.
   final SdkOptional<String> pauseReason;
+
   /// This session's own idle-pause timeout (manifest idle_timeout). Omitted when the session uses the deployment-wide default.
   final SdkOptional<int> idleTimeoutSeconds;
+
   /// Optional repository hint supplied at session creation (first spec.workspace.repos entry of the manifest). Not authoritative; the agent may change repos in-session.
   final SdkOptional<String> repoHint;
+
   /// Non-fatal advisories computed from the manifest at create time: one entry per populated accepted-but-not-yet-enforced section (flat names: secrets, model, tools, memory, budget, max_lifetime, mounts; legacy manifests get the corresponding spec.* paths), a deprecation entry when a legacy-envelope manifest or an adapter alias (codex-cli, cursor-cli) is used, and a heuristic entry per credential-looking spec.env value. Populated on the CreateSession response only.
   final SdkOptional<List<String>> warnings;
+
   /// Durable Environment Config UUID the session was created from (inline manifests persist a config too, named after the session). Persisted and returned on create/get/list; absent only for sessions created before config references were stored.
   final SdkOptional<String> configId;
+
   /// OpenAI Agents API session id (sess_…) this DO sandbox hosts. Populated only for AGENT_KIND_OPENAI_CODEX sessions (empty otherwise). Non-secret correlation metadata; a client (doctl agents attach) reads it to bridge to the OpenAI session. See docs/design/openai-sandbox-provider.md.
   final SdkOptional<String> openaiSessionId;
+
   /// OpenAI Agents API environment id (env_…), captured from the resolved CODEX_ENVIRONMENT_ID guest env value. Populated only for AGENT_KIND_OPENAI_CODEX sessions. Non-secret correlation metadata.
   final SdkOptional<String> openaiEnvironmentId;
 
-  const DefinitionsSession({this.sessionId = const SdkOmitted(), this.name = const SdkOmitted(), this.parentSessionId = const SdkOmitted(), this.forkId = const SdkOmitted(), this.forkFromCheckpointId = const SdkOmitted(), this.agentKind = const SdkOmitted(), this.status = const SdkOmitted(), this.sandboxId = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.lastEventAt = const SdkOmitted(), this.keepWarm = const SdkOmitted(), this.resumeOnTopoff = const SdkOmitted(), this.pauseReason = const SdkOmitted(), this.idleTimeoutSeconds = const SdkOmitted(), this.repoHint = const SdkOmitted(), this.warnings = const SdkOmitted(), this.configId = const SdkOmitted(), this.openaiSessionId = const SdkOmitted(), this.openaiEnvironmentId = const SdkOmitted()});
+  const DefinitionsSession(
+      {this.sessionId = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.parentSessionId = const SdkOmitted(),
+      this.forkId = const SdkOmitted(),
+      this.forkFromCheckpointId = const SdkOmitted(),
+      this.agentKind = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.sandboxId = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.lastEventAt = const SdkOmitted(),
+      this.keepWarm = const SdkOmitted(),
+      this.resumeOnTopoff = const SdkOmitted(),
+      this.pauseReason = const SdkOmitted(),
+      this.idleTimeoutSeconds = const SdkOmitted(),
+      this.repoHint = const SdkOmitted(),
+      this.warnings = const SdkOmitted(),
+      this.configId = const SdkOmitted(),
+      this.openaiSessionId = const SdkOmitted(),
+      this.openaiEnvironmentId = const SdkOmitted()});
 
-  DefinitionsSession Function({SdkOptional<String> sessionId, SdkOptional<String> name, SdkOptional<String> parentSessionId, SdkOptional<String> forkId, SdkOptional<String> forkFromCheckpointId, SdkOptional<AgentKind> agentKind, SdkOptional<SessionStatus> status, SdkOptional<String> sandboxId, SdkOptional<String> createdAt, SdkOptional<String> lastEventAt, SdkOptional<bool> keepWarm, SdkOptional<bool> resumeOnTopoff, SdkOptional<String> pauseReason, SdkOptional<int> idleTimeoutSeconds, SdkOptional<String> repoHint, SdkOptional<List<String>> warnings, SdkOptional<String> configId, SdkOptional<String> openaiSessionId, SdkOptional<String> openaiEnvironmentId}) get copyWith => _copyWith;
+  DefinitionsSession Function(
+      {SdkOptional<String> sessionId,
+      SdkOptional<String> name,
+      SdkOptional<String> parentSessionId,
+      SdkOptional<String> forkId,
+      SdkOptional<String> forkFromCheckpointId,
+      SdkOptional<AgentKind> agentKind,
+      SdkOptional<SessionStatus> status,
+      SdkOptional<String> sandboxId,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> lastEventAt,
+      SdkOptional<bool> keepWarm,
+      SdkOptional<bool> resumeOnTopoff,
+      SdkOptional<String> pauseReason,
+      SdkOptional<int> idleTimeoutSeconds,
+      SdkOptional<String> repoHint,
+      SdkOptional<List<String>> warnings,
+      SdkOptional<String> configId,
+      SdkOptional<String> openaiSessionId,
+      SdkOptional<String> openaiEnvironmentId}) get copyWith => _copyWith;
 
-  DefinitionsSession _copyWith({Object? sessionId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? parentSessionId = sdkOmittedValue, Object? forkId = sdkOmittedValue, Object? forkFromCheckpointId = sdkOmittedValue, Object? agentKind = sdkOmittedValue, Object? status = sdkOmittedValue, Object? sandboxId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? lastEventAt = sdkOmittedValue, Object? keepWarm = sdkOmittedValue, Object? resumeOnTopoff = sdkOmittedValue, Object? pauseReason = sdkOmittedValue, Object? idleTimeoutSeconds = sdkOmittedValue, Object? repoHint = sdkOmittedValue, Object? warnings = sdkOmittedValue, Object? configId = sdkOmittedValue, Object? openaiSessionId = sdkOmittedValue, Object? openaiEnvironmentId = sdkOmittedValue}) => DefinitionsSession(
-    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    parentSessionId: identical(parentSessionId, sdkOmittedValue) ? this.parentSessionId : parentSessionId as SdkOptional<String>,
-    forkId: identical(forkId, sdkOmittedValue) ? this.forkId : forkId as SdkOptional<String>,
-    forkFromCheckpointId: identical(forkFromCheckpointId, sdkOmittedValue) ? this.forkFromCheckpointId : forkFromCheckpointId as SdkOptional<String>,
-    agentKind: identical(agentKind, sdkOmittedValue) ? this.agentKind : agentKind as SdkOptional<AgentKind>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<SessionStatus>,
-    sandboxId: identical(sandboxId, sdkOmittedValue) ? this.sandboxId : sandboxId as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    lastEventAt: identical(lastEventAt, sdkOmittedValue) ? this.lastEventAt : lastEventAt as SdkOptional<String>,
-    keepWarm: identical(keepWarm, sdkOmittedValue) ? this.keepWarm : keepWarm as SdkOptional<bool>,
-    resumeOnTopoff: identical(resumeOnTopoff, sdkOmittedValue) ? this.resumeOnTopoff : resumeOnTopoff as SdkOptional<bool>,
-    pauseReason: identical(pauseReason, sdkOmittedValue) ? this.pauseReason : pauseReason as SdkOptional<String>,
-    idleTimeoutSeconds: identical(idleTimeoutSeconds, sdkOmittedValue) ? this.idleTimeoutSeconds : idleTimeoutSeconds as SdkOptional<int>,
-    repoHint: identical(repoHint, sdkOmittedValue) ? this.repoHint : repoHint as SdkOptional<String>,
-    warnings: identical(warnings, sdkOmittedValue) ? this.warnings : warnings as SdkOptional<List<String>>,
-    configId: identical(configId, sdkOmittedValue) ? this.configId : configId as SdkOptional<String>,
-    openaiSessionId: identical(openaiSessionId, sdkOmittedValue) ? this.openaiSessionId : openaiSessionId as SdkOptional<String>,
-    openaiEnvironmentId: identical(openaiEnvironmentId, sdkOmittedValue) ? this.openaiEnvironmentId : openaiEnvironmentId as SdkOptional<String>,
-  );
+  DefinitionsSession _copyWith(
+          {Object? sessionId = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? parentSessionId = sdkOmittedValue,
+          Object? forkId = sdkOmittedValue,
+          Object? forkFromCheckpointId = sdkOmittedValue,
+          Object? agentKind = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? sandboxId = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? lastEventAt = sdkOmittedValue,
+          Object? keepWarm = sdkOmittedValue,
+          Object? resumeOnTopoff = sdkOmittedValue,
+          Object? pauseReason = sdkOmittedValue,
+          Object? idleTimeoutSeconds = sdkOmittedValue,
+          Object? repoHint = sdkOmittedValue,
+          Object? warnings = sdkOmittedValue,
+          Object? configId = sdkOmittedValue,
+          Object? openaiSessionId = sdkOmittedValue,
+          Object? openaiEnvironmentId = sdkOmittedValue}) =>
+      DefinitionsSession(
+        sessionId: identical(sessionId, sdkOmittedValue)
+            ? this.sessionId
+            : sessionId as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        parentSessionId: identical(parentSessionId, sdkOmittedValue)
+            ? this.parentSessionId
+            : parentSessionId as SdkOptional<String>,
+        forkId: identical(forkId, sdkOmittedValue)
+            ? this.forkId
+            : forkId as SdkOptional<String>,
+        forkFromCheckpointId: identical(forkFromCheckpointId, sdkOmittedValue)
+            ? this.forkFromCheckpointId
+            : forkFromCheckpointId as SdkOptional<String>,
+        agentKind: identical(agentKind, sdkOmittedValue)
+            ? this.agentKind
+            : agentKind as SdkOptional<AgentKind>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<SessionStatus>,
+        sandboxId: identical(sandboxId, sdkOmittedValue)
+            ? this.sandboxId
+            : sandboxId as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        lastEventAt: identical(lastEventAt, sdkOmittedValue)
+            ? this.lastEventAt
+            : lastEventAt as SdkOptional<String>,
+        keepWarm: identical(keepWarm, sdkOmittedValue)
+            ? this.keepWarm
+            : keepWarm as SdkOptional<bool>,
+        resumeOnTopoff: identical(resumeOnTopoff, sdkOmittedValue)
+            ? this.resumeOnTopoff
+            : resumeOnTopoff as SdkOptional<bool>,
+        pauseReason: identical(pauseReason, sdkOmittedValue)
+            ? this.pauseReason
+            : pauseReason as SdkOptional<String>,
+        idleTimeoutSeconds: identical(idleTimeoutSeconds, sdkOmittedValue)
+            ? this.idleTimeoutSeconds
+            : idleTimeoutSeconds as SdkOptional<int>,
+        repoHint: identical(repoHint, sdkOmittedValue)
+            ? this.repoHint
+            : repoHint as SdkOptional<String>,
+        warnings: identical(warnings, sdkOmittedValue)
+            ? this.warnings
+            : warnings as SdkOptional<List<String>>,
+        configId: identical(configId, sdkOmittedValue)
+            ? this.configId
+            : configId as SdkOptional<String>,
+        openaiSessionId: identical(openaiSessionId, sdkOmittedValue)
+            ? this.openaiSessionId
+            : openaiSessionId as SdkOptional<String>,
+        openaiEnvironmentId: identical(openaiEnvironmentId, sdkOmittedValue)
+            ? this.openaiEnvironmentId
+            : openaiEnvironmentId as SdkOptional<String>,
+      );
 
-  factory DefinitionsSession.fromJson(Map<String, dynamic> json) => DefinitionsSession(
-    sessionId: json['session_id'] != null ? SdkPresent((json['session_id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    parentSessionId: json['parent_session_id'] != null ? SdkPresent((json['parent_session_id'] as String?)!) : const SdkOmitted(),
-    forkId: json['fork_id'] != null ? SdkPresent((json['fork_id'] as String?)!) : const SdkOmitted(),
-    forkFromCheckpointId: json['fork_from_checkpoint_id'] != null ? SdkPresent((json['fork_from_checkpoint_id'] as String?)!) : const SdkOmitted(),
-    agentKind: json['agent_kind'] != null ? SdkPresent((json['agent_kind'] != null ? AgentKind.fromJson(json['agent_kind'] as String) : null)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? SessionStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    sandboxId: json['sandbox_id'] != null ? SdkPresent((json['sandbox_id'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    lastEventAt: json['last_event_at'] != null ? SdkPresent((json['last_event_at'] as String?)!) : const SdkOmitted(),
-    keepWarm: json['keep_warm'] != null ? SdkPresent((json['keep_warm'] as bool?)!) : const SdkOmitted(),
-    resumeOnTopoff: json['resume_on_topoff'] != null ? SdkPresent((json['resume_on_topoff'] as bool?)!) : const SdkOmitted(),
-    pauseReason: json['pause_reason'] != null ? SdkPresent((json['pause_reason'] as String?)!) : const SdkOmitted(),
-    idleTimeoutSeconds: json['idle_timeout_seconds'] != null ? SdkPresent(((json['idle_timeout_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
-    repoHint: json['repo_hint'] != null ? SdkPresent((json['repo_hint'] as String?)!) : const SdkOmitted(),
-    warnings: json['warnings'] != null ? SdkPresent(((json['warnings'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    configId: json['config_id'] != null ? SdkPresent((json['config_id'] as String?)!) : const SdkOmitted(),
-    openaiSessionId: json['openai_session_id'] != null ? SdkPresent((json['openai_session_id'] as String?)!) : const SdkOmitted(),
-    openaiEnvironmentId: json['openai_environment_id'] != null ? SdkPresent((json['openai_environment_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory DefinitionsSession.fromJson(Map<String, dynamic> json) =>
+      DefinitionsSession(
+        sessionId: json['session_id'] != null
+            ? SdkPresent((json['session_id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        parentSessionId: json['parent_session_id'] != null
+            ? SdkPresent((json['parent_session_id'] as String?)!)
+            : const SdkOmitted(),
+        forkId: json['fork_id'] != null
+            ? SdkPresent((json['fork_id'] as String?)!)
+            : const SdkOmitted(),
+        forkFromCheckpointId: json['fork_from_checkpoint_id'] != null
+            ? SdkPresent((json['fork_from_checkpoint_id'] as String?)!)
+            : const SdkOmitted(),
+        agentKind: json['agent_kind'] != null
+            ? SdkPresent((json['agent_kind'] != null
+                ? AgentKind.fromJson(json['agent_kind'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? SessionStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        sandboxId: json['sandbox_id'] != null
+            ? SdkPresent((json['sandbox_id'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        lastEventAt: json['last_event_at'] != null
+            ? SdkPresent((json['last_event_at'] as String?)!)
+            : const SdkOmitted(),
+        keepWarm: json['keep_warm'] != null
+            ? SdkPresent((json['keep_warm'] as bool?)!)
+            : const SdkOmitted(),
+        resumeOnTopoff: json['resume_on_topoff'] != null
+            ? SdkPresent((json['resume_on_topoff'] as bool?)!)
+            : const SdkOmitted(),
+        pauseReason: json['pause_reason'] != null
+            ? SdkPresent((json['pause_reason'] as String?)!)
+            : const SdkOmitted(),
+        idleTimeoutSeconds: json['idle_timeout_seconds'] != null
+            ? SdkPresent(((json['idle_timeout_seconds'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        repoHint: json['repo_hint'] != null
+            ? SdkPresent((json['repo_hint'] as String?)!)
+            : const SdkOmitted(),
+        warnings: json['warnings'] != null
+            ? SdkPresent(((json['warnings'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        configId: json['config_id'] != null
+            ? SdkPresent((json['config_id'] as String?)!)
+            : const SdkOmitted(),
+        openaiSessionId: json['openai_session_id'] != null
+            ? SdkPresent((json['openai_session_id'] as String?)!)
+            : const SdkOmitted(),
+        openaiEnvironmentId: json['openai_environment_id'] != null
+            ? SdkPresent((json['openai_environment_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sessionId) {
-      SdkPresent<String>(value: final value) => {'session_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parentSessionId) {
-      SdkPresent<String>(value: final value) => {'parent_session_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (forkId) {
-      SdkPresent<String>(value: final value) => {'fork_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (forkFromCheckpointId) {
-      SdkPresent<String>(value: final value) => {'fork_from_checkpoint_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (agentKind) {
-      SdkPresent<AgentKind>(value: final value) => {'agent_kind': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<SessionStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sandboxId) {
-      SdkPresent<String>(value: final value) => {'sandbox_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastEventAt) {
-      SdkPresent<String>(value: final value) => {'last_event_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (keepWarm) {
-      SdkPresent<bool>(value: final value) => {'keep_warm': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (resumeOnTopoff) {
-      SdkPresent<bool>(value: final value) => {'resume_on_topoff': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pauseReason) {
-      SdkPresent<String>(value: final value) => {'pause_reason': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idleTimeoutSeconds) {
-      SdkPresent<int>(value: final value) => {'idle_timeout_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (repoHint) {
-      SdkPresent<String>(value: final value) => {'repo_hint': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (warnings) {
-      SdkPresent<List<String>>(value: final value) => {'warnings': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (configId) {
-      SdkPresent<String>(value: final value) => {'config_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (openaiSessionId) {
-      SdkPresent<String>(value: final value) => {'openai_session_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (openaiEnvironmentId) {
-      SdkPresent<String>(value: final value) => {'openai_environment_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sessionId) {
+          SdkPresent<String>(value: final value) => {
+              'session_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parentSessionId) {
+          SdkPresent<String>(value: final value) => {
+              'parent_session_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (forkId) {
+          SdkPresent<String>(value: final value) => {
+              'fork_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (forkFromCheckpointId) {
+          SdkPresent<String>(value: final value) => {
+              'fork_from_checkpoint_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (agentKind) {
+          SdkPresent<AgentKind>(value: final value) => {
+              'agent_kind': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<SessionStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sandboxId) {
+          SdkPresent<String>(value: final value) => {
+              'sandbox_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastEventAt) {
+          SdkPresent<String>(value: final value) => {
+              'last_event_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (keepWarm) {
+          SdkPresent<bool>(value: final value) => {
+              'keep_warm': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (resumeOnTopoff) {
+          SdkPresent<bool>(value: final value) => {
+              'resume_on_topoff': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pauseReason) {
+          SdkPresent<String>(value: final value) => {
+              'pause_reason': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idleTimeoutSeconds) {
+          SdkPresent<int>(value: final value) => {
+              'idle_timeout_seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (repoHint) {
+          SdkPresent<String>(value: final value) => {
+              'repo_hint': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (warnings) {
+          SdkPresent<List<String>>(value: final value) => {
+              'warnings': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (configId) {
+          SdkPresent<String>(value: final value) => {
+              'config_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (openaiSessionId) {
+          SdkPresent<String>(value: final value) => {
+              'openai_session_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (openaiEnvironmentId) {
+          SdkPresent<String>(value: final value) => {
+              'openai_environment_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

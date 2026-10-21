@@ -8,6 +8,7 @@ part of 'tags.dart';
 class TagsExisting {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A tag is a label that can be applied to a resource (currently Droplets, Images, Volumes, Volume Snapshots, and Database clusters) in order to better organize or facilitate the lookups and actions on it. Tags have two attributes: a user defined `name` attribute and an embedded `resources` attribute with information about resources that have been tagged.
   final SdkOptional<Tags> tag;
 
@@ -16,17 +17,25 @@ class TagsExisting {
   TagsExisting Function({SdkOptional<Tags> tag}) get copyWith => _copyWith;
 
   TagsExisting _copyWith({Object? tag = sdkOmittedValue}) => TagsExisting(
-    tag: identical(tag, sdkOmittedValue) ? this.tag : tag as SdkOptional<Tags>,
-  );
+        tag: identical(tag, sdkOmittedValue)
+            ? this.tag
+            : tag as SdkOptional<Tags>,
+      );
 
   factory TagsExisting.fromJson(Map<String, dynamic> json) => TagsExisting(
-    tag: json['tag'] != null ? SdkPresent((json['tag'] != null ? Tags.fromJson(json['tag'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        tag: json['tag'] != null
+            ? SdkPresent((json['tag'] != null
+                ? Tags.fromJson(json['tag'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (tag) {
-      SdkPresent<Tags>(value: final value) => {'tag': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (tag) {
+          SdkPresent<Tags>(value: final value) => {
+              'tag': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

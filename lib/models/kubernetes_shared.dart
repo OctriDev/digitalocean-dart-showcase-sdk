@@ -8,68 +8,103 @@ part of 'kubernetes.dart';
 class ControlPlaneFirewall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether the control plane firewall is enabled.
   final SdkOptional<bool> enabled;
+
   /// An array of public addresses (IPv4 or CIDR) allowed to access the control plane.
   final SdkOptional<List<String>> allowedAddresses;
 
-  const ControlPlaneFirewall({this.enabled = const SdkOmitted(), this.allowedAddresses = const SdkOmitted()});
+  const ControlPlaneFirewall(
+      {this.enabled = const SdkOmitted(),
+      this.allowedAddresses = const SdkOmitted()});
 
-  ControlPlaneFirewall Function({SdkOptional<bool> enabled, SdkOptional<List<String>> allowedAddresses}) get copyWith => _copyWith;
+  ControlPlaneFirewall Function(
+      {SdkOptional<bool> enabled,
+      SdkOptional<List<String>> allowedAddresses}) get copyWith => _copyWith;
 
-  ControlPlaneFirewall _copyWith({Object? enabled = sdkOmittedValue, Object? allowedAddresses = sdkOmittedValue}) => ControlPlaneFirewall(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-    allowedAddresses: identical(allowedAddresses, sdkOmittedValue) ? this.allowedAddresses : allowedAddresses as SdkOptional<List<String>>,
-  );
+  ControlPlaneFirewall _copyWith(
+          {Object? enabled = sdkOmittedValue,
+          Object? allowedAddresses = sdkOmittedValue}) =>
+      ControlPlaneFirewall(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+        allowedAddresses: identical(allowedAddresses, sdkOmittedValue)
+            ? this.allowedAddresses
+            : allowedAddresses as SdkOptional<List<String>>,
+      );
 
-  factory ControlPlaneFirewall.fromJson(Map<String, dynamic> json) => ControlPlaneFirewall(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-    allowedAddresses: json['allowed_addresses'] != null ? SdkPresent(((json['allowed_addresses'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory ControlPlaneFirewall.fromJson(Map<String, dynamic> json) =>
+      ControlPlaneFirewall(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+        allowedAddresses: json['allowed_addresses'] != null
+            ? SdkPresent(((json['allowed_addresses'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowedAddresses) {
-      SdkPresent<List<String>>(value: final value) => {'allowed_addresses': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowedAddresses) {
+          SdkPresent<List<String>>(value: final value) => {
+              'allowed_addresses': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object specifying whether the Cluster Proportional Autoscaler (CPA) add-on for CoreDNS should be enabled for the Kubernetes cluster.
 class CorednsAutoscaler {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether the CoreDNS Cluster Proportional Autoscaler add-on is enabled.
   final SdkOptional<bool> enabled;
 
   const CorednsAutoscaler({this.enabled = const SdkOmitted()});
 
-  CorednsAutoscaler Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  CorednsAutoscaler Function({SdkOptional<bool> enabled}) get copyWith =>
+      _copyWith;
 
-  CorednsAutoscaler _copyWith({Object? enabled = sdkOmittedValue}) => CorednsAutoscaler(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  CorednsAutoscaler _copyWith({Object? enabled = sdkOmittedValue}) =>
+      CorednsAutoscaler(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
-  factory CorednsAutoscaler.fromJson(Map<String, dynamic> json) => CorednsAutoscaler(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+  factory CorednsAutoscaler.fromJson(Map<String, dynamic> json) =>
+      CorednsAutoscaler(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object specifying whether the NFS CSI plugin should be enabled for the Kubernetes cluster.
 class NfsCsiPlugin {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether the NFS CSI plugin is enabled.
   final SdkOptional<bool> enabled;
 
@@ -78,79 +113,106 @@ class NfsCsiPlugin {
   NfsCsiPlugin Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
 
   NfsCsiPlugin _copyWith({Object? enabled = sdkOmittedValue}) => NfsCsiPlugin(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
   factory NfsCsiPlugin.fromJson(Map<String, dynamic> json) => NfsCsiPlugin(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object specifying whether the Peer-to-peer OCI registry component should be enabled for the Kubernetes cluster.
 class P2pOciRegistryPlugin {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether the Peer-to-peer OCI registry component is enabled.
   final SdkOptional<bool> enabled;
 
   const P2pOciRegistryPlugin({this.enabled = const SdkOmitted()});
 
-  P2pOciRegistryPlugin Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  P2pOciRegistryPlugin Function({SdkOptional<bool> enabled}) get copyWith =>
+      _copyWith;
 
-  P2pOciRegistryPlugin _copyWith({Object? enabled = sdkOmittedValue}) => P2pOciRegistryPlugin(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  P2pOciRegistryPlugin _copyWith({Object? enabled = sdkOmittedValue}) =>
+      P2pOciRegistryPlugin(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
-  factory P2pOciRegistryPlugin.fromJson(Map<String, dynamic> json) => P2pOciRegistryPlugin(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+  factory P2pOciRegistryPlugin.fromJson(Map<String, dynamic> json) =>
+      P2pOciRegistryPlugin(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object specifying whether the RDMA shared device plugin should be enabled in the Kubernetes cluster.
 class RdmaSharedDevPlugin {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether the RDMA shared device plugin is enabled.
   final SdkOptional<bool> enabled;
 
   const RdmaSharedDevPlugin({this.enabled = const SdkOmitted()});
 
-  RdmaSharedDevPlugin Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  RdmaSharedDevPlugin Function({SdkOptional<bool> enabled}) get copyWith =>
+      _copyWith;
 
-  RdmaSharedDevPlugin _copyWith({Object? enabled = sdkOmittedValue}) => RdmaSharedDevPlugin(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  RdmaSharedDevPlugin _copyWith({Object? enabled = sdkOmittedValue}) =>
+      RdmaSharedDevPlugin(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
-  factory RdmaSharedDevPlugin.fromJson(Map<String, dynamic> json) => RdmaSharedDevPlugin(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+  factory RdmaSharedDevPlugin.fromJson(Map<String, dynamic> json) =>
+      RdmaSharedDevPlugin(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object specifying whether the routing-agent component should be enabled for the Kubernetes cluster.
 class RoutingAgent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether the routing-agent component is enabled.
   final SdkOptional<bool> enabled;
 
@@ -159,68 +221,115 @@ class RoutingAgent {
   RoutingAgent Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
 
   RoutingAgent _copyWith({Object? enabled = sdkOmittedValue}) => RoutingAgent(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
   factory RoutingAgent.fromJson(Map<String, dynamic> json) => RoutingAgent(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object specifying Single Sign-On (SSO) configuration for the Kubernetes cluster.
 class Sso {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether SSO authentication is enabled for the cluster.
   final SdkOptional<bool> enabled;
+
   /// Indicates whether any non-SSO forms of authentication are disallowed. Can only be set to `true` when `enabled` is `true`.
   final SdkOptional<bool> required_;
+
   /// The OIDC issuer URL for the identity provider. Required when `enabled` is `true`.
   final SdkOptional<String> issuerUrl;
+
   /// The OIDC client ID registered with the identity provider. Required when `enabled` is `true`.
   final SdkOptional<String> clientId;
 
-  const Sso({this.enabled = const SdkOmitted(), this.required_ = const SdkOmitted(), this.issuerUrl = const SdkOmitted(), this.clientId = const SdkOmitted()});
+  const Sso(
+      {this.enabled = const SdkOmitted(),
+      this.required_ = const SdkOmitted(),
+      this.issuerUrl = const SdkOmitted(),
+      this.clientId = const SdkOmitted()});
 
-  Sso Function({SdkOptional<bool> enabled, SdkOptional<bool> required_, SdkOptional<String> issuerUrl, SdkOptional<String> clientId}) get copyWith => _copyWith;
+  Sso Function(
+      {SdkOptional<bool> enabled,
+      SdkOptional<bool> required_,
+      SdkOptional<String> issuerUrl,
+      SdkOptional<String> clientId}) get copyWith => _copyWith;
 
-  Sso _copyWith({Object? enabled = sdkOmittedValue, Object? required_ = sdkOmittedValue, Object? issuerUrl = sdkOmittedValue, Object? clientId = sdkOmittedValue}) => Sso(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-    required_: identical(required_, sdkOmittedValue) ? this.required_ : required_ as SdkOptional<bool>,
-    issuerUrl: identical(issuerUrl, sdkOmittedValue) ? this.issuerUrl : issuerUrl as SdkOptional<String>,
-    clientId: identical(clientId, sdkOmittedValue) ? this.clientId : clientId as SdkOptional<String>,
-  );
+  Sso _copyWith(
+          {Object? enabled = sdkOmittedValue,
+          Object? required_ = sdkOmittedValue,
+          Object? issuerUrl = sdkOmittedValue,
+          Object? clientId = sdkOmittedValue}) =>
+      Sso(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+        required_: identical(required_, sdkOmittedValue)
+            ? this.required_
+            : required_ as SdkOptional<bool>,
+        issuerUrl: identical(issuerUrl, sdkOmittedValue)
+            ? this.issuerUrl
+            : issuerUrl as SdkOptional<String>,
+        clientId: identical(clientId, sdkOmittedValue)
+            ? this.clientId
+            : clientId as SdkOptional<String>,
+      );
 
   factory Sso.fromJson(Map<String, dynamic> json) => Sso(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-    required_: json['required'] != null ? SdkPresent((json['required'] as bool?)!) : const SdkOmitted(),
-    issuerUrl: json['issuer_url'] != null ? SdkPresent((json['issuer_url'] as String?)!) : const SdkOmitted(),
-    clientId: json['client_id'] != null ? SdkPresent((json['client_id'] as String?)!) : const SdkOmitted(),
-  );
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+        required_: json['required'] != null
+            ? SdkPresent((json['required'] as bool?)!)
+            : const SdkOmitted(),
+        issuerUrl: json['issuer_url'] != null
+            ? SdkPresent((json['issuer_url'] as String?)!)
+            : const SdkOmitted(),
+        clientId: json['client_id'] != null
+            ? SdkPresent((json['client_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (required_) {
-      SdkPresent<bool>(value: final value) => {'required': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (issuerUrl) {
-      SdkPresent<String>(value: final value) => {'issuer_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (clientId) {
-      SdkPresent<String>(value: final value) => {'client_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (required_) {
+          SdkPresent<bool>(value: final value) => {
+              'required': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (issuerUrl) {
+          SdkPresent<String>(value: final value) => {
+              'issuer_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (clientId) {
+          SdkPresent<String>(value: final value) => {
+              'client_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

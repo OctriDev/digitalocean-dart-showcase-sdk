@@ -6,57 +6,68 @@ part of 'inline.dart';
 // Inline operation models
 /// The configured channel type. Allowed values: - `CHANNEL_TYPE_EMAIL` = email - `CHANNEL_TYPE_SLACK` = slack - `CHANNEL_TYPE_WEBHOOK` = webhook
 final class NotificationChannelChannelType {
-
   final String value;
 
   const NotificationChannelChannelType._(this.value);
 
-  factory NotificationChannelChannelType.fromJson(String value) => NotificationChannelChannelType._(value);
+  factory NotificationChannelChannelType.fromJson(String value) =>
+      NotificationChannelChannelType._(value);
 
-  static const channelTypeEmail = NotificationChannelChannelType._('CHANNEL_TYPE_EMAIL');
-  static const channelTypeSlack = NotificationChannelChannelType._('CHANNEL_TYPE_SLACK');
-  static const channelTypeWebhook = NotificationChannelChannelType._('CHANNEL_TYPE_WEBHOOK');
+  static const channelTypeEmail =
+      NotificationChannelChannelType._('CHANNEL_TYPE_EMAIL');
+  static const channelTypeSlack =
+      NotificationChannelChannelType._('CHANNEL_TYPE_SLACK');
+  static const channelTypeWebhook =
+      NotificationChannelChannelType._('CHANNEL_TYPE_WEBHOOK');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is NotificationChannelChannelType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is NotificationChannelChannelType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `notify_on[]` wire field.
 final class NotificationChannelBindingNotifyOnItem {
-
   final String value;
 
   const NotificationChannelBindingNotifyOnItem._(this.value);
 
-  factory NotificationChannelBindingNotifyOnItem.fromJson(String value) => NotificationChannelBindingNotifyOnItem._(value);
+  factory NotificationChannelBindingNotifyOnItem.fromJson(String value) =>
+      NotificationChannelBindingNotifyOnItem._(value);
 
-  static const severityWarning = NotificationChannelBindingNotifyOnItem._('SEVERITY_WARNING');
-  static const severityCritical = NotificationChannelBindingNotifyOnItem._('SEVERITY_CRITICAL');
+  static const severityWarning =
+      NotificationChannelBindingNotifyOnItem._('SEVERITY_WARNING');
+  static const severityCritical =
+      NotificationChannelBindingNotifyOnItem._('SEVERITY_CRITICAL');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is NotificationChannelBindingNotifyOnItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is NotificationChannelBindingNotifyOnItem && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The current status of the migration.
 final class OnlineMigrationStatus {
-
   final String value;
 
   const OnlineMigrationStatus._(this.value);
 
-  factory OnlineMigrationStatus.fromJson(String value) => OnlineMigrationStatus._(value);
+  factory OnlineMigrationStatus.fromJson(String value) =>
+      OnlineMigrationStatus._(value);
 
   static const running = OnlineMigrationStatus._('running');
   static const syncing = OnlineMigrationStatus._('syncing');
@@ -66,22 +77,25 @@ final class OnlineMigrationStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OnlineMigrationStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OnlineMigrationStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The health of the OpenSearch index.
 final class OpensearchIndexVariant1Health {
-
   final String value;
 
   const OpensearchIndexVariant1Health._(this.value);
 
-  factory OpensearchIndexVariant1Health.fromJson(String value) => OpensearchIndexVariant1Health._(value);
+  factory OpensearchIndexVariant1Health.fromJson(String value) =>
+      OpensearchIndexVariant1Health._(value);
 
   static const unknown = OpensearchIndexVariant1Health._('unknown');
   static const green = OpensearchIndexVariant1Health._('green');
@@ -91,22 +105,25 @@ final class OpensearchIndexVariant1Health {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OpensearchIndexVariant1Health && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OpensearchIndexVariant1Health && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The status of the OpenSearch index.
 final class OpensearchIndexVariant1Status {
-
   final String value;
 
   const OpensearchIndexVariant1Status._(this.value);
 
-  factory OpensearchIndexVariant1Status.fromJson(String value) => OpensearchIndexVariant1Status._(value);
+  factory OpensearchIndexVariant1Status.fromJson(String value) =>
+      OpensearchIndexVariant1Status._(value);
 
   static const unknown = OpensearchIndexVariant1Status._('unknown');
   static const open = OpensearchIndexVariant1Status._('open');
@@ -115,112 +132,136 @@ final class OpensearchIndexVariant1Status {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OpensearchIndexVariant1Status && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OpensearchIndexVariant1Status && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The team's membership status within the organization.
 final class OrganizationTeamStatus {
-
   final String value;
 
   const OrganizationTeamStatus._(this.value);
 
-  factory OrganizationTeamStatus.fromJson(String value) => OrganizationTeamStatus._(value);
+  factory OrganizationTeamStatus.fromJson(String value) =>
+      OrganizationTeamStatus._(value);
 
   static const joined = OrganizationTeamStatus._('joined');
   static const pending = OrganizationTeamStatus._('pending');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationTeamStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationTeamStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// `OUTPUT_VIEW_KIND_PROJECTION` or `OUTPUT_VIEW_KIND_TRANSFORM`.
 final class OutputViewKind {
-
   final String value;
 
   const OutputViewKind._(this.value);
 
   factory OutputViewKind.fromJson(String value) => OutputViewKind._(value);
 
-  static const outputViewKindProjection = OutputViewKind._('OUTPUT_VIEW_KIND_PROJECTION');
-  static const outputViewKindTransform = OutputViewKind._('OUTPUT_VIEW_KIND_TRANSFORM');
+  static const outputViewKindProjection =
+      OutputViewKind._('OUTPUT_VIEW_KIND_PROJECTION');
+  static const outputViewKindTransform =
+      OutputViewKind._('OUTPUT_VIEW_KIND_TRANSFORM');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OutputViewKind && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OutputViewKind && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Bandwidth (in Mbps) of the connection.
 final class PartnerAttachmentWritableConnectionBandwidthInMbps {
-
   final int value;
 
   const PartnerAttachmentWritableConnectionBandwidthInMbps._(this.value);
 
-  factory PartnerAttachmentWritableConnectionBandwidthInMbps.fromJson(int value) => PartnerAttachmentWritableConnectionBandwidthInMbps._(value);
+  factory PartnerAttachmentWritableConnectionBandwidthInMbps.fromJson(
+          int value) =>
+      PartnerAttachmentWritableConnectionBandwidthInMbps._(value);
 
-  static const v1000 = PartnerAttachmentWritableConnectionBandwidthInMbps._(1000);
-  static const v2000 = PartnerAttachmentWritableConnectionBandwidthInMbps._(2000);
-  static const v5000 = PartnerAttachmentWritableConnectionBandwidthInMbps._(5000);
-  static const v10000 = PartnerAttachmentWritableConnectionBandwidthInMbps._(10000);
+  static const v1000 =
+      PartnerAttachmentWritableConnectionBandwidthInMbps._(1000);
+  static const v2000 =
+      PartnerAttachmentWritableConnectionBandwidthInMbps._(2000);
+  static const v5000 =
+      PartnerAttachmentWritableConnectionBandwidthInMbps._(5000);
+  static const v10000 =
+      PartnerAttachmentWritableConnectionBandwidthInMbps._(10000);
 
   int toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is PartnerAttachmentWritableConnectionBandwidthInMbps && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is PartnerAttachmentWritableConnectionBandwidthInMbps &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional redundancy zone for the partner attachment.
 final class PartnerAttachmentWritableRedundancyZone {
-
   final String value;
 
   const PartnerAttachmentWritableRedundancyZone._(this.value);
 
-  factory PartnerAttachmentWritableRedundancyZone.fromJson(String value) => PartnerAttachmentWritableRedundancyZone._(value);
+  factory PartnerAttachmentWritableRedundancyZone.fromJson(String value) =>
+      PartnerAttachmentWritableRedundancyZone._(value);
 
-  static const megaportBlue = PartnerAttachmentWritableRedundancyZone._('MEGAPORT_BLUE');
-  static const megaportRed = PartnerAttachmentWritableRedundancyZone._('MEGAPORT_RED');
+  static const megaportBlue =
+      PartnerAttachmentWritableRedundancyZone._('MEGAPORT_BLUE');
+  static const megaportRed =
+      PartnerAttachmentWritableRedundancyZone._('MEGAPORT_RED');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is PartnerAttachmentWritableRedundancyZone && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is PartnerAttachmentWritableRedundancyZone && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The region to create the partner attachment.
 final class PartnerAttachmentWritableRegion {
-
   final String value;
 
   const PartnerAttachmentWritableRegion._(this.value);
 
-  factory PartnerAttachmentWritableRegion.fromJson(String value) => PartnerAttachmentWritableRegion._(value);
+  factory PartnerAttachmentWritableRegion.fromJson(String value) =>
+      PartnerAttachmentWritableRegion._(value);
 
   static const nyc = PartnerAttachmentWritableRegion._('nyc');
   static const sfo = PartnerAttachmentWritableRegion._('sfo');
@@ -230,54 +271,63 @@ final class PartnerAttachmentWritableRegion {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is PartnerAttachmentWritableRegion && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is PartnerAttachmentWritableRegion && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `status` wire field.
 final class PendingDeploymentSpecStatus {
-
   final String value;
 
   const PendingDeploymentSpecStatus._(this.value);
 
-  factory PendingDeploymentSpecStatus.fromJson(String value) => PendingDeploymentSpecStatus._(value);
+  factory PendingDeploymentSpecStatus.fromJson(String value) =>
+      PendingDeploymentSpecStatus._(value);
 
   static const provisioning = PendingDeploymentSpecStatus._('provisioning');
   static const updating = PendingDeploymentSpecStatus._('updating');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is PendingDeploymentSpecStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is PendingDeploymentSpecStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `mode` wire field.
 final class PermissionFilesystemMode {
-
   final String value;
 
   const PermissionFilesystemMode._(this.value);
 
-  factory PermissionFilesystemMode.fromJson(String value) => PermissionFilesystemMode._(value);
+  factory PermissionFilesystemMode.fromJson(String value) =>
+      PermissionFilesystemMode._(value);
 
   static const readOnly = PermissionFilesystemMode._('read-only');
   static const workspaceWrite = PermissionFilesystemMode._('workspace-write');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is PermissionFilesystemMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is PermissionFilesystemMode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

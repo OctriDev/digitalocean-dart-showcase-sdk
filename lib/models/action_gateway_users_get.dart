@@ -8,231 +8,474 @@ part of 'action_gateway.dart';
 class UserSessionsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Session URN.
   final SdkOptional<String> sessionUrn;
+
   /// Session name.
   final SdkOptional<String> name;
+
   /// When the session was created.
   final SdkOptional<String?> createdAt;
+
   /// When the session was last modified.
   final SdkOptional<String?> updatedAt;
 
-  const UserSessionsItem({this.sessionUrn = const SdkOmitted(), this.name = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
+  const UserSessionsItem(
+      {this.sessionUrn = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted()});
 
-  UserSessionsItem Function({SdkOptional<String> sessionUrn, SdkOptional<String> name, SdkOptional<String?> createdAt, SdkOptional<String?> updatedAt}) get copyWith => _copyWith;
+  UserSessionsItem Function(
+      {SdkOptional<String> sessionUrn,
+      SdkOptional<String> name,
+      SdkOptional<String?> createdAt,
+      SdkOptional<String?> updatedAt}) get copyWith => _copyWith;
 
-  UserSessionsItem _copyWith({Object? sessionUrn = sdkOmittedValue, Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => UserSessionsItem(
-    sessionUrn: identical(sessionUrn, sdkOmittedValue) ? this.sessionUrn : sessionUrn as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String?>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String?>,
-  );
+  UserSessionsItem _copyWith(
+          {Object? sessionUrn = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      UserSessionsItem(
+        sessionUrn: identical(sessionUrn, sdkOmittedValue)
+            ? this.sessionUrn
+            : sessionUrn as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String?>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String?>,
+      );
 
-  factory UserSessionsItem.fromJson(Map<String, dynamic> json) => UserSessionsItem(
-    sessionUrn: json['session_urn'] != null ? SdkPresent((json['session_urn'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    createdAt: json.containsKey('created_at') ? SdkPresent(json['created_at'] as String?) : const SdkOmitted(),
-    updatedAt: json.containsKey('updated_at') ? SdkPresent(json['updated_at'] as String?) : const SdkOmitted(),
-  );
+  factory UserSessionsItem.fromJson(Map<String, dynamic> json) =>
+      UserSessionsItem(
+        sessionUrn: json['session_urn'] != null
+            ? SdkPresent((json['session_urn'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json.containsKey('created_at')
+            ? SdkPresent(json['created_at'] as String?)
+            : const SdkOmitted(),
+        updatedAt: json.containsKey('updated_at')
+            ? SdkPresent(json['updated_at'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sessionUrn) {
-      SdkPresent<String>(value: final value) => {'session_urn': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String?>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String?>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sessionUrn) {
+          SdkPresent<String>(value: final value) => {
+              'session_urn': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String?>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String?>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `connections[]` wire field.
 class UserConnectionsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Opaque connection ID.
   final SdkOptional<String> id;
+
   /// Provider slug, for example `jira`.
   final SdkOptional<String> provider;
+
   /// Human-readable provider name, for example `Jira`.
   final SdkOptional<String> providerDisplayName;
+
   /// Your identifier for the user the connection acts for.
   final SdkOptional<String> userId;
+
   /// Provider scopes granted, or requested while pending.
   final SdkOptional<List<String>> scopes;
+
   /// pending, active, revoked, or expired.
   final SdkOptional<UserConnectionsItemStatus> status;
+
   /// When the user completed authorization.
   final SdkOptional<String?> grantedAt;
+
   /// When the connection was revoked.
   final SdkOptional<String?> revokedAt;
+
   /// When the connection was created.
   final SdkOptional<String?> createdAt;
+
   /// When the connection was last modified.
   final SdkOptional<String?> updatedAt;
+
   /// Non-sensitive provider configuration.
   final SdkOptional<Map<String, dynamic>?> connectionParameters;
+
   /// `digitalocean_oauth`, `private_oauth`, or `team_api_key`.
   final SdkOptional<UserConnectionsItemCredentialKind> credentialKind;
+
   /// ID of the team provider credential the connection uses; empty for DigitalOcean's shared application.
   final SdkOptional<String> credentialId;
+
   /// Private network the connection's calls use, when configured.
   final SdkOptional<ConnectionNetwork?> network;
+
   /// DigitalOcean user ID of the user who created the connection, when recorded.
   final SdkOptional<String> owningUserId;
 
-  const UserConnectionsItem({this.id = const SdkOmitted(), this.provider = const SdkOmitted(), this.providerDisplayName = const SdkOmitted(), this.userId = const SdkOmitted(), this.scopes = const SdkOmitted(), this.status = const SdkOmitted(), this.grantedAt = const SdkOmitted(), this.revokedAt = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.connectionParameters = const SdkOmitted(), this.credentialKind = const SdkOmitted(), this.credentialId = const SdkOmitted(), this.network = const SdkOmitted(), this.owningUserId = const SdkOmitted()});
+  const UserConnectionsItem(
+      {this.id = const SdkOmitted(),
+      this.provider = const SdkOmitted(),
+      this.providerDisplayName = const SdkOmitted(),
+      this.userId = const SdkOmitted(),
+      this.scopes = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.grantedAt = const SdkOmitted(),
+      this.revokedAt = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.connectionParameters = const SdkOmitted(),
+      this.credentialKind = const SdkOmitted(),
+      this.credentialId = const SdkOmitted(),
+      this.network = const SdkOmitted(),
+      this.owningUserId = const SdkOmitted()});
 
-  UserConnectionsItem Function({SdkOptional<String> id, SdkOptional<String> provider, SdkOptional<String> providerDisplayName, SdkOptional<String> userId, SdkOptional<List<String>> scopes, SdkOptional<UserConnectionsItemStatus> status, SdkOptional<String?> grantedAt, SdkOptional<String?> revokedAt, SdkOptional<String?> createdAt, SdkOptional<String?> updatedAt, SdkOptional<Map<String, dynamic>?> connectionParameters, SdkOptional<UserConnectionsItemCredentialKind> credentialKind, SdkOptional<String> credentialId, SdkOptional<ConnectionNetwork?> network, SdkOptional<String> owningUserId}) get copyWith => _copyWith;
+  UserConnectionsItem Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> provider,
+      SdkOptional<String> providerDisplayName,
+      SdkOptional<String> userId,
+      SdkOptional<List<String>> scopes,
+      SdkOptional<UserConnectionsItemStatus> status,
+      SdkOptional<String?> grantedAt,
+      SdkOptional<String?> revokedAt,
+      SdkOptional<String?> createdAt,
+      SdkOptional<String?> updatedAt,
+      SdkOptional<Map<String, dynamic>?> connectionParameters,
+      SdkOptional<UserConnectionsItemCredentialKind> credentialKind,
+      SdkOptional<String> credentialId,
+      SdkOptional<ConnectionNetwork?> network,
+      SdkOptional<String> owningUserId}) get copyWith => _copyWith;
 
-  UserConnectionsItem _copyWith({Object? id = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? providerDisplayName = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? status = sdkOmittedValue, Object? grantedAt = sdkOmittedValue, Object? revokedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? connectionParameters = sdkOmittedValue, Object? credentialKind = sdkOmittedValue, Object? credentialId = sdkOmittedValue, Object? network = sdkOmittedValue, Object? owningUserId = sdkOmittedValue}) => UserConnectionsItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as SdkOptional<String>,
-    providerDisplayName: identical(providerDisplayName, sdkOmittedValue) ? this.providerDisplayName : providerDisplayName as SdkOptional<String>,
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<UserConnectionsItemStatus>,
-    grantedAt: identical(grantedAt, sdkOmittedValue) ? this.grantedAt : grantedAt as SdkOptional<String?>,
-    revokedAt: identical(revokedAt, sdkOmittedValue) ? this.revokedAt : revokedAt as SdkOptional<String?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String?>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String?>,
-    connectionParameters: identical(connectionParameters, sdkOmittedValue) ? this.connectionParameters : connectionParameters as SdkOptional<Map<String, dynamic>?>,
-    credentialKind: identical(credentialKind, sdkOmittedValue) ? this.credentialKind : credentialKind as SdkOptional<UserConnectionsItemCredentialKind>,
-    credentialId: identical(credentialId, sdkOmittedValue) ? this.credentialId : credentialId as SdkOptional<String>,
-    network: identical(network, sdkOmittedValue) ? this.network : network as SdkOptional<ConnectionNetwork?>,
-    owningUserId: identical(owningUserId, sdkOmittedValue) ? this.owningUserId : owningUserId as SdkOptional<String>,
-  );
+  UserConnectionsItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? provider = sdkOmittedValue,
+          Object? providerDisplayName = sdkOmittedValue,
+          Object? userId = sdkOmittedValue,
+          Object? scopes = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? grantedAt = sdkOmittedValue,
+          Object? revokedAt = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? connectionParameters = sdkOmittedValue,
+          Object? credentialKind = sdkOmittedValue,
+          Object? credentialId = sdkOmittedValue,
+          Object? network = sdkOmittedValue,
+          Object? owningUserId = sdkOmittedValue}) =>
+      UserConnectionsItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        provider: identical(provider, sdkOmittedValue)
+            ? this.provider
+            : provider as SdkOptional<String>,
+        providerDisplayName: identical(providerDisplayName, sdkOmittedValue)
+            ? this.providerDisplayName
+            : providerDisplayName as SdkOptional<String>,
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String>,
+        scopes: identical(scopes, sdkOmittedValue)
+            ? this.scopes
+            : scopes as SdkOptional<List<String>>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<UserConnectionsItemStatus>,
+        grantedAt: identical(grantedAt, sdkOmittedValue)
+            ? this.grantedAt
+            : grantedAt as SdkOptional<String?>,
+        revokedAt: identical(revokedAt, sdkOmittedValue)
+            ? this.revokedAt
+            : revokedAt as SdkOptional<String?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String?>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String?>,
+        connectionParameters: identical(connectionParameters, sdkOmittedValue)
+            ? this.connectionParameters
+            : connectionParameters as SdkOptional<Map<String, dynamic>?>,
+        credentialKind: identical(credentialKind, sdkOmittedValue)
+            ? this.credentialKind
+            : credentialKind as SdkOptional<UserConnectionsItemCredentialKind>,
+        credentialId: identical(credentialId, sdkOmittedValue)
+            ? this.credentialId
+            : credentialId as SdkOptional<String>,
+        network: identical(network, sdkOmittedValue)
+            ? this.network
+            : network as SdkOptional<ConnectionNetwork?>,
+        owningUserId: identical(owningUserId, sdkOmittedValue)
+            ? this.owningUserId
+            : owningUserId as SdkOptional<String>,
+      );
 
-  factory UserConnectionsItem.fromJson(Map<String, dynamic> json) => UserConnectionsItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    provider: json['provider'] != null ? SdkPresent((json['provider'] as String?)!) : const SdkOmitted(),
-    providerDisplayName: json['provider_display_name'] != null ? SdkPresent((json['provider_display_name'] as String?)!) : const SdkOmitted(),
-    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
-    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? UserConnectionsItemStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    grantedAt: json.containsKey('granted_at') ? SdkPresent(json['granted_at'] as String?) : const SdkOmitted(),
-    revokedAt: json.containsKey('revoked_at') ? SdkPresent(json['revoked_at'] as String?) : const SdkOmitted(),
-    createdAt: json.containsKey('created_at') ? SdkPresent(json['created_at'] as String?) : const SdkOmitted(),
-    updatedAt: json.containsKey('updated_at') ? SdkPresent(json['updated_at'] as String?) : const SdkOmitted(),
-    connectionParameters: json.containsKey('connection_parameters') ? SdkPresent(json['connection_parameters'] == null ? null : json['connection_parameters'] as Map<String, dynamic>) : const SdkOmitted(),
-    credentialKind: json['credential_kind'] != null ? SdkPresent((json['credential_kind'] != null ? UserConnectionsItemCredentialKind.fromJson(json['credential_kind'] as String) : null)!) : const SdkOmitted(),
-    credentialId: json['credential_id'] != null ? SdkPresent((json['credential_id'] as String?)!) : const SdkOmitted(),
-    network: json.containsKey('network') ? SdkPresent(json['network'] != null ? ConnectionNetwork.fromJson(json['network'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    owningUserId: json['owning_user_id'] != null ? SdkPresent((json['owning_user_id'] as String?)!) : const SdkOmitted(),
-  );
+  factory UserConnectionsItem.fromJson(Map<String, dynamic> json) =>
+      UserConnectionsItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        provider: json['provider'] != null
+            ? SdkPresent((json['provider'] as String?)!)
+            : const SdkOmitted(),
+        providerDisplayName: json['provider_display_name'] != null
+            ? SdkPresent((json['provider_display_name'] as String?)!)
+            : const SdkOmitted(),
+        userId: json['user_id'] != null
+            ? SdkPresent((json['user_id'] as String?)!)
+            : const SdkOmitted(),
+        scopes: json['scopes'] != null
+            ? SdkPresent(
+                ((json['scopes'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? UserConnectionsItemStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        grantedAt: json.containsKey('granted_at')
+            ? SdkPresent(json['granted_at'] as String?)
+            : const SdkOmitted(),
+        revokedAt: json.containsKey('revoked_at')
+            ? SdkPresent(json['revoked_at'] as String?)
+            : const SdkOmitted(),
+        createdAt: json.containsKey('created_at')
+            ? SdkPresent(json['created_at'] as String?)
+            : const SdkOmitted(),
+        updatedAt: json.containsKey('updated_at')
+            ? SdkPresent(json['updated_at'] as String?)
+            : const SdkOmitted(),
+        connectionParameters: json.containsKey('connection_parameters')
+            ? SdkPresent(json['connection_parameters'] == null
+                ? null
+                : json['connection_parameters'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        credentialKind: json['credential_kind'] != null
+            ? SdkPresent((json['credential_kind'] != null
+                ? UserConnectionsItemCredentialKind.fromJson(
+                    json['credential_kind'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        credentialId: json['credential_id'] != null
+            ? SdkPresent((json['credential_id'] as String?)!)
+            : const SdkOmitted(),
+        network: json.containsKey('network')
+            ? SdkPresent(json['network'] != null
+                ? ConnectionNetwork.fromJson(
+                    json['network'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        owningUserId: json['owning_user_id'] != null
+            ? SdkPresent((json['owning_user_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (provider) {
-      SdkPresent<String>(value: final value) => {'provider': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (providerDisplayName) {
-      SdkPresent<String>(value: final value) => {'provider_display_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userId) {
-      SdkPresent<String>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scopes) {
-      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<UserConnectionsItemStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (grantedAt) {
-      SdkPresent<String?>(value: final value) => {'granted_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (revokedAt) {
-      SdkPresent<String?>(value: final value) => {'revoked_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String?>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String?>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (connectionParameters) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'connection_parameters': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (credentialKind) {
-      SdkPresent<UserConnectionsItemCredentialKind>(value: final value) => {'credential_kind': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (credentialId) {
-      SdkPresent<String>(value: final value) => {'credential_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (network) {
-      SdkPresent<ConnectionNetwork?>(value: final value) => {'network': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (owningUserId) {
-      SdkPresent<String>(value: final value) => {'owning_user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (provider) {
+          SdkPresent<String>(value: final value) => {
+              'provider': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (providerDisplayName) {
+          SdkPresent<String>(value: final value) => {
+              'provider_display_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userId) {
+          SdkPresent<String>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scopes) {
+          SdkPresent<List<String>>(value: final value) => {
+              'scopes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<UserConnectionsItemStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (grantedAt) {
+          SdkPresent<String?>(value: final value) => {
+              'granted_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (revokedAt) {
+          SdkPresent<String?>(value: final value) => {
+              'revoked_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String?>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String?>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (connectionParameters) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'connection_parameters': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (credentialKind) {
+          SdkPresent<UserConnectionsItemCredentialKind>(value: final value) => {
+              'credential_kind': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (credentialId) {
+          SdkPresent<String>(value: final value) => {
+              'credential_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (network) {
+          SdkPresent<ConnectionNetwork?>(value: final value) => {
+              'network': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (owningUserId) {
+          SdkPresent<String>(value: final value) => {
+              'owning_user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// One of your team's users, as seen across its sessions and connections.
 class User {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The user ID: a session `actor_id` or a connection `user_id`.
   final SdkOptional<String> userId;
+
   /// Sessions bound to the user, oldest first.
   final SdkOptional<List<UserSessionsItem>> sessions;
+
   /// The user's connections that are not revoked, sorted by provider.
   final SdkOptional<List<UserConnectionsItem>> connections;
 
-  const User({this.userId = const SdkOmitted(), this.sessions = const SdkOmitted(), this.connections = const SdkOmitted()});
+  const User(
+      {this.userId = const SdkOmitted(),
+      this.sessions = const SdkOmitted(),
+      this.connections = const SdkOmitted()});
 
-  User Function({SdkOptional<String> userId, SdkOptional<List<UserSessionsItem>> sessions, SdkOptional<List<UserConnectionsItem>> connections}) get copyWith => _copyWith;
+  User Function(
+          {SdkOptional<String> userId,
+          SdkOptional<List<UserSessionsItem>> sessions,
+          SdkOptional<List<UserConnectionsItem>> connections})
+      get copyWith => _copyWith;
 
-  User _copyWith({Object? userId = sdkOmittedValue, Object? sessions = sdkOmittedValue, Object? connections = sdkOmittedValue}) => User(
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
-    sessions: identical(sessions, sdkOmittedValue) ? this.sessions : sessions as SdkOptional<List<UserSessionsItem>>,
-    connections: identical(connections, sdkOmittedValue) ? this.connections : connections as SdkOptional<List<UserConnectionsItem>>,
-  );
+  User _copyWith(
+          {Object? userId = sdkOmittedValue,
+          Object? sessions = sdkOmittedValue,
+          Object? connections = sdkOmittedValue}) =>
+      User(
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String>,
+        sessions: identical(sessions, sdkOmittedValue)
+            ? this.sessions
+            : sessions as SdkOptional<List<UserSessionsItem>>,
+        connections: identical(connections, sdkOmittedValue)
+            ? this.connections
+            : connections as SdkOptional<List<UserConnectionsItem>>,
+      );
 
   factory User.fromJson(Map<String, dynamic> json) => User(
-    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
-    sessions: json['sessions'] != null ? SdkPresent(((json['sessions'] as List?)?.map((e) => UserSessionsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    connections: json['connections'] != null ? SdkPresent(((json['connections'] as List?)?.map((e) => UserConnectionsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        userId: json['user_id'] != null
+            ? SdkPresent((json['user_id'] as String?)!)
+            : const SdkOmitted(),
+        sessions: json['sessions'] != null
+            ? SdkPresent(((json['sessions'] as List?)
+                ?.map(
+                    (e) => UserSessionsItem.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        connections: json['connections'] != null
+            ? SdkPresent(((json['connections'] as List?)
+                ?.map((e) =>
+                    UserConnectionsItem.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (userId) {
-      SdkPresent<String>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sessions) {
-      SdkPresent<List<UserSessionsItem>>(value: final value) => {'sessions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (connections) {
-      SdkPresent<List<UserConnectionsItem>>(value: final value) => {'connections': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (userId) {
+          SdkPresent<String>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sessions) {
+          SdkPresent<List<UserSessionsItem>>(value: final value) => {
+              'sessions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (connections) {
+          SdkPresent<List<UserConnectionsItem>>(value: final value) => {
+              'connections': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

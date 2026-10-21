@@ -8,33 +8,47 @@ part of 'dedicated_inference.dart';
 class AllDedicatedInferencesLinks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Pagination links (first, prev, next, last).
   final SdkOptional<Map<String, String>> pages;
 
   const AllDedicatedInferencesLinks({this.pages = const SdkOmitted()});
 
-  AllDedicatedInferencesLinks Function({SdkOptional<Map<String, String>> pages}) get copyWith => _copyWith;
+  AllDedicatedInferencesLinks Function({SdkOptional<Map<String, String>> pages})
+      get copyWith => _copyWith;
 
-  AllDedicatedInferencesLinks _copyWith({Object? pages = sdkOmittedValue}) => AllDedicatedInferencesLinks(
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<Map<String, String>>,
-  );
+  AllDedicatedInferencesLinks _copyWith({Object? pages = sdkOmittedValue}) =>
+      AllDedicatedInferencesLinks(
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<Map<String, String>>,
+      );
 
-  factory AllDedicatedInferencesLinks.fromJson(Map<String, dynamic> json) => AllDedicatedInferencesLinks(
-    pages: json['pages'] != null ? SdkPresent((json['pages'] == null ? null : Map<String, dynamic>.from(json['pages'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-  );
+  factory AllDedicatedInferencesLinks.fromJson(Map<String, dynamic> json) =>
+      AllDedicatedInferencesLinks(
+        pages: json['pages'] != null
+            ? SdkPresent((json['pages'] == null
+                ? null
+                : Map<String, dynamic>.from(json['pages'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (pages) {
-      SdkPresent<Map<String, String>>(value: final value) => {'pages': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (pages) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'pages': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `meta` wire field.
 class AllDedicatedInferencesMeta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Total number of results.
   final int total;
 
@@ -42,49 +56,80 @@ class AllDedicatedInferencesMeta {
 
   AllDedicatedInferencesMeta Function({int total}) get copyWith => _copyWith;
 
-  AllDedicatedInferencesMeta _copyWith({Object? total = sdkOmittedValue}) => AllDedicatedInferencesMeta(
-    total: identical(total, sdkOmittedValue) ? this.total : total as int,
-  );
+  AllDedicatedInferencesMeta _copyWith({Object? total = sdkOmittedValue}) =>
+      AllDedicatedInferencesMeta(
+        total: identical(total, sdkOmittedValue) ? this.total : total as int,
+      );
 
-  factory AllDedicatedInferencesMeta.fromJson(Map<String, dynamic> json) => AllDedicatedInferencesMeta(
-    total: ((json['total'] as num?)?.toInt())!,
-  );
+  factory AllDedicatedInferencesMeta.fromJson(Map<String, dynamic> json) =>
+      AllDedicatedInferencesMeta(
+        total: ((json['total'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'total': total,
-  };
+        'total': total,
+      };
 }
 
 /// Typed representation of the `AllDedicatedInferences` API schema.
 class AllDedicatedInferences {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Array of Dedicated Inference instances.
   final List<DedicatedInference> dedicatedInferences;
+
   /// Required object value serialized in the `links` wire field.
   final AllDedicatedInferencesLinks links;
+
   /// Required object value serialized in the `meta` wire field.
   final AllDedicatedInferencesMeta meta;
 
-  const AllDedicatedInferences({required this.dedicatedInferences, required this.links, required this.meta});
+  const AllDedicatedInferences(
+      {required this.dedicatedInferences,
+      required this.links,
+      required this.meta});
 
-  AllDedicatedInferences Function({List<DedicatedInference> dedicatedInferences, AllDedicatedInferencesLinks links, AllDedicatedInferencesMeta meta}) get copyWith => _copyWith;
+  AllDedicatedInferences Function(
+      {List<DedicatedInference> dedicatedInferences,
+      AllDedicatedInferencesLinks links,
+      AllDedicatedInferencesMeta meta}) get copyWith => _copyWith;
 
-  AllDedicatedInferences _copyWith({Object? dedicatedInferences = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllDedicatedInferences(
-    dedicatedInferences: identical(dedicatedInferences, sdkOmittedValue) ? this.dedicatedInferences : dedicatedInferences as List<DedicatedInference>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as AllDedicatedInferencesLinks,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as AllDedicatedInferencesMeta,
-  );
+  AllDedicatedInferences _copyWith(
+          {Object? dedicatedInferences = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllDedicatedInferences(
+        dedicatedInferences: identical(dedicatedInferences, sdkOmittedValue)
+            ? this.dedicatedInferences
+            : dedicatedInferences as List<DedicatedInference>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as AllDedicatedInferencesLinks,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as AllDedicatedInferencesMeta,
+      );
 
-  factory AllDedicatedInferences.fromJson(Map<String, dynamic> json) => AllDedicatedInferences(
-    dedicatedInferences: ((json['dedicated_inferences'] as List?)?.map((e) => DedicatedInference.fromJson(e as Map<String, dynamic>)).toList())!,
-    links: (json['links'] != null ? AllDedicatedInferencesLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!,
-    meta: (json['meta'] != null ? AllDedicatedInferencesMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory AllDedicatedInferences.fromJson(Map<String, dynamic> json) =>
+      AllDedicatedInferences(
+        dedicatedInferences: ((json['dedicated_inferences'] as List?)
+            ?.map((e) => DedicatedInference.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        links: (json['links'] != null
+            ? AllDedicatedInferencesLinks.fromJson(
+                json['links'] as Map<String, dynamic>)
+            : null)!,
+        meta: (json['meta'] != null
+            ? AllDedicatedInferencesMeta.fromJson(
+                json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'dedicated_inferences': dedicatedInferences.map((item) => item.toJson()).toList(),
-    'links': links.toJson(),
-    'meta': meta.toJson(),
-  };
+        'dedicated_inferences':
+            dedicatedInferences.map((item) => item.toJson()).toList(),
+        'links': links.toJson(),
+        'meta': meta.toJson(),
+      };
 }

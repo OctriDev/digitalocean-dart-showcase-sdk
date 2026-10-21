@@ -8,25 +8,42 @@ part of 'kubernetes.dart';
 class AvailableUpgrades {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `available_upgrade_versions` wire field.
   final SdkOptional<List<KubernetesVersion>?> availableUpgradeVersions;
 
   const AvailableUpgrades({this.availableUpgradeVersions = const SdkOmitted()});
 
-  AvailableUpgrades Function({SdkOptional<List<KubernetesVersion>?> availableUpgradeVersions}) get copyWith => _copyWith;
+  AvailableUpgrades Function(
+          {SdkOptional<List<KubernetesVersion>?> availableUpgradeVersions})
+      get copyWith => _copyWith;
 
-  AvailableUpgrades _copyWith({Object? availableUpgradeVersions = sdkOmittedValue}) => AvailableUpgrades(
-    availableUpgradeVersions: identical(availableUpgradeVersions, sdkOmittedValue) ? this.availableUpgradeVersions : availableUpgradeVersions as SdkOptional<List<KubernetesVersion>?>,
-  );
+  AvailableUpgrades _copyWith(
+          {Object? availableUpgradeVersions = sdkOmittedValue}) =>
+      AvailableUpgrades(
+        availableUpgradeVersions: identical(
+                availableUpgradeVersions, sdkOmittedValue)
+            ? this.availableUpgradeVersions
+            : availableUpgradeVersions as SdkOptional<List<KubernetesVersion>?>,
+      );
 
-  factory AvailableUpgrades.fromJson(Map<String, dynamic> json) => AvailableUpgrades(
-    availableUpgradeVersions: json.containsKey('available_upgrade_versions') ? SdkPresent((json['available_upgrade_versions'] as List?)?.map((e) => KubernetesVersion.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+  factory AvailableUpgrades.fromJson(Map<String, dynamic> json) =>
+      AvailableUpgrades(
+        availableUpgradeVersions: json.containsKey('available_upgrade_versions')
+            ? SdkPresent((json['available_upgrade_versions'] as List?)
+                ?.map((e) =>
+                    KubernetesVersion.fromJson(e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (availableUpgradeVersions) {
-      SdkPresent<List<KubernetesVersion>?>(value: final value) => {'available_upgrade_versions': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (availableUpgradeVersions) {
+          SdkPresent<List<KubernetesVersion>?>(value: final value) => {
+              'available_upgrade_versions':
+                  value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

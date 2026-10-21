@@ -6,12 +6,12 @@ part of 'apps_app_alert.dart';
 // apps_app_alert domain models
 /// Typed representation of the `AppAlertSpecWindow` API schema.
 final class AppAlertSpecWindow {
-
   final String value;
 
   const AppAlertSpecWindow._(this.value);
 
-  factory AppAlertSpecWindow.fromJson(String value) => AppAlertSpecWindow._(value);
+  factory AppAlertSpecWindow.fromJson(String value) =>
+      AppAlertSpecWindow._(value);
 
   static const unspecifiedWindow = AppAlertSpecWindow._('UNSPECIFIED_WINDOW');
   static const fiveMinutes = AppAlertSpecWindow._('FIVE_MINUTES');
@@ -21,10 +21,13 @@ final class AppAlertSpecWindow {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AppAlertSpecWindow && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AppAlertSpecWindow && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

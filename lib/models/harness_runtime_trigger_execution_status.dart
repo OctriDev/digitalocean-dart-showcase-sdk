@@ -6,12 +6,12 @@ part of 'harness_runtime_trigger.dart';
 // harness_runtime_trigger domain models
 /// Per-firing outcome.
 final class TriggerExecutionStatus {
-
   final String value;
 
   const TriggerExecutionStatus._(this.value);
 
-  factory TriggerExecutionStatus.fromJson(String value) => TriggerExecutionStatus._(value);
+  factory TriggerExecutionStatus.fromJson(String value) =>
+      TriggerExecutionStatus._(value);
 
   static const pending = TriggerExecutionStatus._('pending');
   static const running = TriggerExecutionStatus._('running');
@@ -20,10 +20,13 @@ final class TriggerExecutionStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TriggerExecutionStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TriggerExecutionStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

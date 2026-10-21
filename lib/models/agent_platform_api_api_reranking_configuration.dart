@@ -8,33 +8,54 @@ part of 'agent_platform_api_api.dart';
 class ApiRerankingConfiguration {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether reranking is enabled for retrieval
   final SdkOptional<bool> enabled;
+
   /// Reranker model internal name
   final SdkOptional<String> model;
 
-  const ApiRerankingConfiguration({this.enabled = const SdkOmitted(), this.model = const SdkOmitted()});
+  const ApiRerankingConfiguration(
+      {this.enabled = const SdkOmitted(), this.model = const SdkOmitted()});
 
-  ApiRerankingConfiguration Function({SdkOptional<bool> enabled, SdkOptional<String> model}) get copyWith => _copyWith;
+  ApiRerankingConfiguration Function(
+      {SdkOptional<bool> enabled,
+      SdkOptional<String> model}) get copyWith => _copyWith;
 
-  ApiRerankingConfiguration _copyWith({Object? enabled = sdkOmittedValue, Object? model = sdkOmittedValue}) => ApiRerankingConfiguration(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<String>,
-  );
+  ApiRerankingConfiguration _copyWith(
+          {Object? enabled = sdkOmittedValue,
+          Object? model = sdkOmittedValue}) =>
+      ApiRerankingConfiguration(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as SdkOptional<String>,
+      );
 
-  factory ApiRerankingConfiguration.fromJson(Map<String, dynamic> json) => ApiRerankingConfiguration(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-    model: json['model'] != null ? SdkPresent((json['model'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiRerankingConfiguration.fromJson(Map<String, dynamic> json) =>
+      ApiRerankingConfiguration(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+        model: json['model'] != null
+            ? SdkPresent((json['model'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (model) {
-      SdkPresent<String>(value: final value) => {'model': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (model) {
+          SdkPresent<String>(value: final value) => {
+              'model': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
