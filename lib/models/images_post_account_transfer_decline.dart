@@ -8,22 +8,30 @@ part of 'images.dart';
 class ImagesPostAccountTransferDecline {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique number that used to identify and reference an image account transfer.
   final int transferId;
 
   const ImagesPostAccountTransferDecline({required this.transferId});
 
-  ImagesPostAccountTransferDecline Function({int transferId}) get copyWith => _copyWith;
+  ImagesPostAccountTransferDecline Function({int transferId}) get copyWith =>
+      _copyWith;
 
-  ImagesPostAccountTransferDecline _copyWith({Object? transferId = sdkOmittedValue}) => ImagesPostAccountTransferDecline(
-    transferId: identical(transferId, sdkOmittedValue) ? this.transferId : transferId as int,
-  );
+  ImagesPostAccountTransferDecline _copyWith(
+          {Object? transferId = sdkOmittedValue}) =>
+      ImagesPostAccountTransferDecline(
+        transferId: identical(transferId, sdkOmittedValue)
+            ? this.transferId
+            : transferId as int,
+      );
 
-  factory ImagesPostAccountTransferDecline.fromJson(Map<String, dynamic> json) => ImagesPostAccountTransferDecline(
-    transferId: ((json['transfer_id'] as num?)?.toInt())!,
-  );
+  factory ImagesPostAccountTransferDecline.fromJson(
+          Map<String, dynamic> json) =>
+      ImagesPostAccountTransferDecline(
+        transferId: ((json['transfer_id'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'transfer_id': transferId,
-  };
+        'transfer_id': transferId,
+      };
 }

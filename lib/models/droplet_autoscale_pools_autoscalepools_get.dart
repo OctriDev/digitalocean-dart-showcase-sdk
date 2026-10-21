@@ -8,25 +8,38 @@ part of 'droplet_autoscale_pools.dart';
 class ExistingAutoscalePool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `autoscale_pool` wire field.
   final SdkOptional<AutoscalePool> autoscalePool;
 
   const ExistingAutoscalePool({this.autoscalePool = const SdkOmitted()});
 
-  ExistingAutoscalePool Function({SdkOptional<AutoscalePool> autoscalePool}) get copyWith => _copyWith;
+  ExistingAutoscalePool Function({SdkOptional<AutoscalePool> autoscalePool})
+      get copyWith => _copyWith;
 
-  ExistingAutoscalePool _copyWith({Object? autoscalePool = sdkOmittedValue}) => ExistingAutoscalePool(
-    autoscalePool: identical(autoscalePool, sdkOmittedValue) ? this.autoscalePool : autoscalePool as SdkOptional<AutoscalePool>,
-  );
+  ExistingAutoscalePool _copyWith({Object? autoscalePool = sdkOmittedValue}) =>
+      ExistingAutoscalePool(
+        autoscalePool: identical(autoscalePool, sdkOmittedValue)
+            ? this.autoscalePool
+            : autoscalePool as SdkOptional<AutoscalePool>,
+      );
 
-  factory ExistingAutoscalePool.fromJson(Map<String, dynamic> json) => ExistingAutoscalePool(
-    autoscalePool: json['autoscale_pool'] != null ? SdkPresent((json['autoscale_pool'] != null ? AutoscalePool.fromJson(json['autoscale_pool'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ExistingAutoscalePool.fromJson(Map<String, dynamic> json) =>
+      ExistingAutoscalePool(
+        autoscalePool: json['autoscale_pool'] != null
+            ? SdkPresent((json['autoscale_pool'] != null
+                ? AutoscalePool.fromJson(
+                    json['autoscale_pool'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (autoscalePool) {
-      SdkPresent<AutoscalePool>(value: final value) => {'autoscale_pool': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (autoscalePool) {
+          SdkPresent<AutoscalePool>(value: final value) => {
+              'autoscale_pool': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

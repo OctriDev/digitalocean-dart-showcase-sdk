@@ -8,151 +8,266 @@ part of 'container_registries.dart';
 class AllRegistriesInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `registries` wire field.
   final SdkOptional<List<Registry>> registries;
 
   const AllRegistriesInfo({this.registries = const SdkOmitted()});
 
-  AllRegistriesInfo Function({SdkOptional<List<Registry>> registries}) get copyWith => _copyWith;
+  AllRegistriesInfo Function({SdkOptional<List<Registry>> registries})
+      get copyWith => _copyWith;
 
-  AllRegistriesInfo _copyWith({Object? registries = sdkOmittedValue}) => AllRegistriesInfo(
-    registries: identical(registries, sdkOmittedValue) ? this.registries : registries as SdkOptional<List<Registry>>,
-  );
+  AllRegistriesInfo _copyWith({Object? registries = sdkOmittedValue}) =>
+      AllRegistriesInfo(
+        registries: identical(registries, sdkOmittedValue)
+            ? this.registries
+            : registries as SdkOptional<List<Registry>>,
+      );
 
-  factory AllRegistriesInfo.fromJson(Map<String, dynamic> json) => AllRegistriesInfo(
-    registries: json['registries'] != null ? SdkPresent(((json['registries'] as List?)?.map((e) => Registry.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AllRegistriesInfo.fromJson(Map<String, dynamic> json) =>
+      AllRegistriesInfo(
+        registries: json['registries'] != null
+            ? SdkPresent(((json['registries'] as List?)
+                ?.map((e) => Registry.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (registries) {
-      SdkPresent<List<Registry>>(value: final value) => {'registries': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (registries) {
+          SdkPresent<List<Registry>>(value: final value) => {
+              'registries': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `Multiregistry` API schema.
 class Multiregistry {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
   final SdkOptional<String> name;
+
   /// A time value given in ISO8601 combined date and time format that represents when the registry was created.
   final SdkOptional<String> createdAt;
+
   /// Slug of the region where registry data is stored
   final SdkOptional<String> region;
+
   /// The amount of storage used in the registry in bytes.
   final SdkOptional<int> storageUsageBytes;
+
   /// The time at which the storage usage was updated. Storage usage is calculated asynchronously, and may not immediately reflect pushes to the registry.
   final SdkOptional<String> storageUsageBytesUpdatedAt;
 
-  const Multiregistry({this.name = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.region = const SdkOmitted(), this.storageUsageBytes = const SdkOmitted(), this.storageUsageBytesUpdatedAt = const SdkOmitted()});
+  const Multiregistry(
+      {this.name = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      this.storageUsageBytes = const SdkOmitted(),
+      this.storageUsageBytesUpdatedAt = const SdkOmitted()});
 
-  Multiregistry Function({SdkOptional<String> name, SdkOptional<String> createdAt, SdkOptional<String> region, SdkOptional<int> storageUsageBytes, SdkOptional<String> storageUsageBytesUpdatedAt}) get copyWith => _copyWith;
+  Multiregistry Function(
+          {SdkOptional<String> name,
+          SdkOptional<String> createdAt,
+          SdkOptional<String> region,
+          SdkOptional<int> storageUsageBytes,
+          SdkOptional<String> storageUsageBytesUpdatedAt})
+      get copyWith => _copyWith;
 
-  Multiregistry _copyWith({Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? region = sdkOmittedValue, Object? storageUsageBytes = sdkOmittedValue, Object? storageUsageBytesUpdatedAt = sdkOmittedValue}) => Multiregistry(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    storageUsageBytes: identical(storageUsageBytes, sdkOmittedValue) ? this.storageUsageBytes : storageUsageBytes as SdkOptional<int>,
-    storageUsageBytesUpdatedAt: identical(storageUsageBytesUpdatedAt, sdkOmittedValue) ? this.storageUsageBytesUpdatedAt : storageUsageBytesUpdatedAt as SdkOptional<String>,
-  );
+  Multiregistry _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? storageUsageBytes = sdkOmittedValue,
+          Object? storageUsageBytesUpdatedAt = sdkOmittedValue}) =>
+      Multiregistry(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        storageUsageBytes: identical(storageUsageBytes, sdkOmittedValue)
+            ? this.storageUsageBytes
+            : storageUsageBytes as SdkOptional<int>,
+        storageUsageBytesUpdatedAt:
+            identical(storageUsageBytesUpdatedAt, sdkOmittedValue)
+                ? this.storageUsageBytesUpdatedAt
+                : storageUsageBytesUpdatedAt as SdkOptional<String>,
+      );
 
   factory Multiregistry.fromJson(Map<String, dynamic> json) => Multiregistry(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    storageUsageBytes: json['storage_usage_bytes'] != null ? SdkPresent(((json['storage_usage_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    storageUsageBytesUpdatedAt: json['storage_usage_bytes_updated_at'] != null ? SdkPresent((json['storage_usage_bytes_updated_at'] as String?)!) : const SdkOmitted(),
-  );
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        storageUsageBytes: json['storage_usage_bytes'] != null
+            ? SdkPresent(((json['storage_usage_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        storageUsageBytesUpdatedAt: json['storage_usage_bytes_updated_at'] !=
+                null
+            ? SdkPresent((json['storage_usage_bytes_updated_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (storageUsageBytes) {
-      SdkPresent<int>(value: final value) => {'storage_usage_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (storageUsageBytesUpdatedAt) {
-      SdkPresent<String>(value: final value) => {'storage_usage_bytes_updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (storageUsageBytes) {
+          SdkPresent<int>(value: final value) => {
+              'storage_usage_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (storageUsageBytesUpdatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'storage_usage_bytes_updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `MultiregistryCreate` API schema.
 class MultiregistryCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
   final String name;
+
   /// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
-  final SdkOptional<MultiregistryCreateSubscriptionTierSlug> subscriptionTierSlug;
+  final SdkOptional<MultiregistryCreateSubscriptionTierSlug>
+      subscriptionTierSlug;
+
   /// Slug of the region where registry data is stored. When not provided, a region will be selected.
   final SdkOptional<MultiregistryCreateRegion> region;
 
-  const MultiregistryCreate({required this.name, this.subscriptionTierSlug = const SdkOmitted(), this.region = const SdkOmitted()});
+  const MultiregistryCreate(
+      {required this.name,
+      this.subscriptionTierSlug = const SdkOmitted(),
+      this.region = const SdkOmitted()});
 
-  MultiregistryCreate Function({String name, SdkOptional<MultiregistryCreateSubscriptionTierSlug> subscriptionTierSlug, SdkOptional<MultiregistryCreateRegion> region}) get copyWith => _copyWith;
+  MultiregistryCreate Function(
+      {String name,
+      SdkOptional<MultiregistryCreateSubscriptionTierSlug> subscriptionTierSlug,
+      SdkOptional<MultiregistryCreateRegion> region}) get copyWith => _copyWith;
 
-  MultiregistryCreate _copyWith({Object? name = sdkOmittedValue, Object? subscriptionTierSlug = sdkOmittedValue, Object? region = sdkOmittedValue}) => MultiregistryCreate(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    subscriptionTierSlug: identical(subscriptionTierSlug, sdkOmittedValue) ? this.subscriptionTierSlug : subscriptionTierSlug as SdkOptional<MultiregistryCreateSubscriptionTierSlug>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<MultiregistryCreateRegion>,
-  );
+  MultiregistryCreate _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? subscriptionTierSlug = sdkOmittedValue,
+          Object? region = sdkOmittedValue}) =>
+      MultiregistryCreate(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        subscriptionTierSlug: identical(subscriptionTierSlug, sdkOmittedValue)
+            ? this.subscriptionTierSlug
+            : subscriptionTierSlug
+                as SdkOptional<MultiregistryCreateSubscriptionTierSlug>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<MultiregistryCreateRegion>,
+      );
 
-  factory MultiregistryCreate.fromJson(Map<String, dynamic> json) => MultiregistryCreate(
-    name: (json['name'] as String?)!,
-    subscriptionTierSlug: json['subscription_tier_slug'] != null ? SdkPresent((json['subscription_tier_slug'] != null ? MultiregistryCreateSubscriptionTierSlug.fromJson(json['subscription_tier_slug'] as String) : null)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] != null ? MultiregistryCreateRegion.fromJson(json['region'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory MultiregistryCreate.fromJson(Map<String, dynamic> json) =>
+      MultiregistryCreate(
+        name: (json['name'] as String?)!,
+        subscriptionTierSlug: json['subscription_tier_slug'] != null
+            ? SdkPresent((json['subscription_tier_slug'] != null
+                ? MultiregistryCreateSubscriptionTierSlug.fromJson(
+                    json['subscription_tier_slug'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] != null
+                ? MultiregistryCreateRegion.fromJson(json['region'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (subscriptionTierSlug) {
-      SdkPresent<MultiregistryCreateSubscriptionTierSlug>(value: final value) => {'subscription_tier_slug': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<MultiregistryCreateRegion>(value: final value) => {'region': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (subscriptionTierSlug) {
+          SdkPresent<MultiregistryCreateSubscriptionTierSlug>(
+            value: final value
+          ) =>
+            {
+              'subscription_tier_slug': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<MultiregistryCreateRegion>(value: final value) => {
+              'region': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `MultiregistryInfo` API schema.
 class MultiregistryInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `registry` wire field.
   final SdkOptional<Multiregistry> registry;
 
   const MultiregistryInfo({this.registry = const SdkOmitted()});
 
-  MultiregistryInfo Function({SdkOptional<Multiregistry> registry}) get copyWith => _copyWith;
+  MultiregistryInfo Function({SdkOptional<Multiregistry> registry})
+      get copyWith => _copyWith;
 
-  MultiregistryInfo _copyWith({Object? registry = sdkOmittedValue}) => MultiregistryInfo(
-    registry: identical(registry, sdkOmittedValue) ? this.registry : registry as SdkOptional<Multiregistry>,
-  );
+  MultiregistryInfo _copyWith({Object? registry = sdkOmittedValue}) =>
+      MultiregistryInfo(
+        registry: identical(registry, sdkOmittedValue)
+            ? this.registry
+            : registry as SdkOptional<Multiregistry>,
+      );
 
-  factory MultiregistryInfo.fromJson(Map<String, dynamic> json) => MultiregistryInfo(
-    registry: json['registry'] != null ? SdkPresent((json['registry'] != null ? Multiregistry.fromJson(json['registry'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory MultiregistryInfo.fromJson(Map<String, dynamic> json) =>
+      MultiregistryInfo(
+        registry: json['registry'] != null
+            ? SdkPresent((json['registry'] != null
+                ? Multiregistry.fromJson(
+                    json['registry'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (registry) {
-      SdkPresent<Multiregistry>(value: final value) => {'registry': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (registry) {
+          SdkPresent<Multiregistry>(value: final value) => {
+              'registry': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

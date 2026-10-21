@@ -8,60 +8,98 @@ part of 'agent_platform_api_api_update.dart';
 class ApiUpdateModelEvaluationRunInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// UUID of the model evaluation run to update. Returned by `CreateModelEvaluationRun` and listed via `ListModelEvaluationRuns`.
   final SdkOptional<String> evalRunUuid;
+
   /// Optional new display name for the evaluation run (max 255 characters).
   final SdkOptional<String> name;
 
-  const ApiUpdateModelEvaluationRunInputPublic({this.evalRunUuid = const SdkOmitted(), this.name = const SdkOmitted()});
+  const ApiUpdateModelEvaluationRunInputPublic(
+      {this.evalRunUuid = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  ApiUpdateModelEvaluationRunInputPublic Function({SdkOptional<String> evalRunUuid, SdkOptional<String> name}) get copyWith => _copyWith;
+  ApiUpdateModelEvaluationRunInputPublic Function(
+      {SdkOptional<String> evalRunUuid,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ApiUpdateModelEvaluationRunInputPublic _copyWith({Object? evalRunUuid = sdkOmittedValue, Object? name = sdkOmittedValue}) => ApiUpdateModelEvaluationRunInputPublic(
-    evalRunUuid: identical(evalRunUuid, sdkOmittedValue) ? this.evalRunUuid : evalRunUuid as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  ApiUpdateModelEvaluationRunInputPublic _copyWith(
+          {Object? evalRunUuid = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      ApiUpdateModelEvaluationRunInputPublic(
+        evalRunUuid: identical(evalRunUuid, sdkOmittedValue)
+            ? this.evalRunUuid
+            : evalRunUuid as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory ApiUpdateModelEvaluationRunInputPublic.fromJson(Map<String, dynamic> json) => ApiUpdateModelEvaluationRunInputPublic(
-    evalRunUuid: json['eval_run_uuid'] != null ? SdkPresent((json['eval_run_uuid'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiUpdateModelEvaluationRunInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiUpdateModelEvaluationRunInputPublic(
+        evalRunUuid: json['eval_run_uuid'] != null
+            ? SdkPresent((json['eval_run_uuid'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (evalRunUuid) {
-      SdkPresent<String>(value: final value) => {'eval_run_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (evalRunUuid) {
+          SdkPresent<String>(value: final value) => {
+              'eval_run_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ApiUpdateModelEvaluationRunOutput` API schema.
 class ApiUpdateModelEvaluationRunOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Model Evaluation Run Summary - lightweight view used in run history list.
   final SdkOptional<ApiModelEvaluationRunSummary> run;
 
   const ApiUpdateModelEvaluationRunOutput({this.run = const SdkOmitted()});
 
-  ApiUpdateModelEvaluationRunOutput Function({SdkOptional<ApiModelEvaluationRunSummary> run}) get copyWith => _copyWith;
+  ApiUpdateModelEvaluationRunOutput Function(
+          {SdkOptional<ApiModelEvaluationRunSummary> run})
+      get copyWith => _copyWith;
 
-  ApiUpdateModelEvaluationRunOutput _copyWith({Object? run = sdkOmittedValue}) => ApiUpdateModelEvaluationRunOutput(
-    run: identical(run, sdkOmittedValue) ? this.run : run as SdkOptional<ApiModelEvaluationRunSummary>,
-  );
+  ApiUpdateModelEvaluationRunOutput _copyWith(
+          {Object? run = sdkOmittedValue}) =>
+      ApiUpdateModelEvaluationRunOutput(
+        run: identical(run, sdkOmittedValue)
+            ? this.run
+            : run as SdkOptional<ApiModelEvaluationRunSummary>,
+      );
 
-  factory ApiUpdateModelEvaluationRunOutput.fromJson(Map<String, dynamic> json) => ApiUpdateModelEvaluationRunOutput(
-    run: json['run'] != null ? SdkPresent((json['run'] != null ? ApiModelEvaluationRunSummary.fromJson(json['run'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiUpdateModelEvaluationRunOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiUpdateModelEvaluationRunOutput(
+        run: json['run'] != null
+            ? SdkPresent((json['run'] != null
+                ? ApiModelEvaluationRunSummary.fromJson(
+                    json['run'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (run) {
-      SdkPresent<ApiModelEvaluationRunSummary>(value: final value) => {'run': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (run) {
+          SdkPresent<ApiModelEvaluationRunSummary>(value: final value) => {
+              'run': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,57 +8,119 @@ part of 'droplets.dart';
 class SelectiveDestroyAssociatedResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An array of unique identifiers for the floating IPs to be scheduled for deletion.
   final SdkOptional<List<String>> floatingIps;
+
   /// An array of unique identifiers for the reserved IPs to be scheduled for deletion.
   final SdkOptional<List<String>> reservedIps;
+
   /// An array of unique identifiers for the snapshots to be scheduled for deletion.
   final SdkOptional<List<String>> snapshots;
+
   /// An array of unique identifiers for the volumes to be scheduled for deletion.
   final SdkOptional<List<String>> volumes;
+
   /// An array of unique identifiers for the volume snapshots to be scheduled for deletion.
   final SdkOptional<List<String>> volumeSnapshots;
 
-  const SelectiveDestroyAssociatedResource({this.floatingIps = const SdkOmitted(), this.reservedIps = const SdkOmitted(), this.snapshots = const SdkOmitted(), this.volumes = const SdkOmitted(), this.volumeSnapshots = const SdkOmitted()});
+  const SelectiveDestroyAssociatedResource(
+      {this.floatingIps = const SdkOmitted(),
+      this.reservedIps = const SdkOmitted(),
+      this.snapshots = const SdkOmitted(),
+      this.volumes = const SdkOmitted(),
+      this.volumeSnapshots = const SdkOmitted()});
 
-  SelectiveDestroyAssociatedResource Function({SdkOptional<List<String>> floatingIps, SdkOptional<List<String>> reservedIps, SdkOptional<List<String>> snapshots, SdkOptional<List<String>> volumes, SdkOptional<List<String>> volumeSnapshots}) get copyWith => _copyWith;
+  SelectiveDestroyAssociatedResource Function(
+      {SdkOptional<List<String>> floatingIps,
+      SdkOptional<List<String>> reservedIps,
+      SdkOptional<List<String>> snapshots,
+      SdkOptional<List<String>> volumes,
+      SdkOptional<List<String>> volumeSnapshots}) get copyWith => _copyWith;
 
-  SelectiveDestroyAssociatedResource _copyWith({Object? floatingIps = sdkOmittedValue, Object? reservedIps = sdkOmittedValue, Object? snapshots = sdkOmittedValue, Object? volumes = sdkOmittedValue, Object? volumeSnapshots = sdkOmittedValue}) => SelectiveDestroyAssociatedResource(
-    floatingIps: identical(floatingIps, sdkOmittedValue) ? this.floatingIps : floatingIps as SdkOptional<List<String>>,
-    reservedIps: identical(reservedIps, sdkOmittedValue) ? this.reservedIps : reservedIps as SdkOptional<List<String>>,
-    snapshots: identical(snapshots, sdkOmittedValue) ? this.snapshots : snapshots as SdkOptional<List<String>>,
-    volumes: identical(volumes, sdkOmittedValue) ? this.volumes : volumes as SdkOptional<List<String>>,
-    volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue) ? this.volumeSnapshots : volumeSnapshots as SdkOptional<List<String>>,
-  );
+  SelectiveDestroyAssociatedResource _copyWith(
+          {Object? floatingIps = sdkOmittedValue,
+          Object? reservedIps = sdkOmittedValue,
+          Object? snapshots = sdkOmittedValue,
+          Object? volumes = sdkOmittedValue,
+          Object? volumeSnapshots = sdkOmittedValue}) =>
+      SelectiveDestroyAssociatedResource(
+        floatingIps: identical(floatingIps, sdkOmittedValue)
+            ? this.floatingIps
+            : floatingIps as SdkOptional<List<String>>,
+        reservedIps: identical(reservedIps, sdkOmittedValue)
+            ? this.reservedIps
+            : reservedIps as SdkOptional<List<String>>,
+        snapshots: identical(snapshots, sdkOmittedValue)
+            ? this.snapshots
+            : snapshots as SdkOptional<List<String>>,
+        volumes: identical(volumes, sdkOmittedValue)
+            ? this.volumes
+            : volumes as SdkOptional<List<String>>,
+        volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue)
+            ? this.volumeSnapshots
+            : volumeSnapshots as SdkOptional<List<String>>,
+      );
 
-  factory SelectiveDestroyAssociatedResource.fromJson(Map<String, dynamic> json) => SelectiveDestroyAssociatedResource(
-    floatingIps: json['floating_ips'] != null ? SdkPresent(((json['floating_ips'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    reservedIps: json['reserved_ips'] != null ? SdkPresent(((json['reserved_ips'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    snapshots: json['snapshots'] != null ? SdkPresent(((json['snapshots'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    volumes: json['volumes'] != null ? SdkPresent(((json['volumes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    volumeSnapshots: json['volume_snapshots'] != null ? SdkPresent(((json['volume_snapshots'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory SelectiveDestroyAssociatedResource.fromJson(
+          Map<String, dynamic> json) =>
+      SelectiveDestroyAssociatedResource(
+        floatingIps: json['floating_ips'] != null
+            ? SdkPresent(((json['floating_ips'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        reservedIps: json['reserved_ips'] != null
+            ? SdkPresent(((json['reserved_ips'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        snapshots: json['snapshots'] != null
+            ? SdkPresent(((json['snapshots'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        volumes: json['volumes'] != null
+            ? SdkPresent(
+                ((json['volumes'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        volumeSnapshots: json['volume_snapshots'] != null
+            ? SdkPresent(((json['volume_snapshots'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (floatingIps) {
-      SdkPresent<List<String>>(value: final value) => {'floating_ips': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reservedIps) {
-      SdkPresent<List<String>>(value: final value) => {'reserved_ips': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (snapshots) {
-      SdkPresent<List<String>>(value: final value) => {'snapshots': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (volumes) {
-      SdkPresent<List<String>>(value: final value) => {'volumes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (volumeSnapshots) {
-      SdkPresent<List<String>>(value: final value) => {'volume_snapshots': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (floatingIps) {
+          SdkPresent<List<String>>(value: final value) => {
+              'floating_ips': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reservedIps) {
+          SdkPresent<List<String>>(value: final value) => {
+              'reserved_ips': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (snapshots) {
+          SdkPresent<List<String>>(value: final value) => {
+              'snapshots': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (volumes) {
+          SdkPresent<List<String>>(value: final value) => {
+              'volumes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (volumeSnapshots) {
+          SdkPresent<List<String>>(value: final value) => {
+              'volume_snapshots': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

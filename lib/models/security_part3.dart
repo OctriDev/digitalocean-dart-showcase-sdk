@@ -8,164 +8,295 @@ part of 'security.dart';
 class SuppressedResourceRootMeta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `integer` value serialized in the `page` wire field.
   final SdkOptional<int> page;
+
   /// Optional `integer` value serialized in the `pages` wire field.
   final SdkOptional<int> pages;
+
   /// Optional `integer` value serialized in the `total` wire field.
   final SdkOptional<int> total;
 
-  const SuppressedResourceRootMeta({this.page = const SdkOmitted(), this.pages = const SdkOmitted(), this.total = const SdkOmitted()});
+  const SuppressedResourceRootMeta(
+      {this.page = const SdkOmitted(),
+      this.pages = const SdkOmitted(),
+      this.total = const SdkOmitted()});
 
-  SuppressedResourceRootMeta Function({SdkOptional<int> page, SdkOptional<int> pages, SdkOptional<int> total}) get copyWith => _copyWith;
+  SuppressedResourceRootMeta Function(
+      {SdkOptional<int> page,
+      SdkOptional<int> pages,
+      SdkOptional<int> total}) get copyWith => _copyWith;
 
-  SuppressedResourceRootMeta _copyWith({Object? page = sdkOmittedValue, Object? pages = sdkOmittedValue, Object? total = sdkOmittedValue}) => SuppressedResourceRootMeta(
-    page: identical(page, sdkOmittedValue) ? this.page : page as SdkOptional<int>,
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<int>,
-    total: identical(total, sdkOmittedValue) ? this.total : total as SdkOptional<int>,
-  );
+  SuppressedResourceRootMeta _copyWith(
+          {Object? page = sdkOmittedValue,
+          Object? pages = sdkOmittedValue,
+          Object? total = sdkOmittedValue}) =>
+      SuppressedResourceRootMeta(
+        page: identical(page, sdkOmittedValue)
+            ? this.page
+            : page as SdkOptional<int>,
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<int>,
+        total: identical(total, sdkOmittedValue)
+            ? this.total
+            : total as SdkOptional<int>,
+      );
 
-  factory SuppressedResourceRootMeta.fromJson(Map<String, dynamic> json) => SuppressedResourceRootMeta(
-    page: json['page'] != null ? SdkPresent(((json['page'] as num?)?.toInt())!) : const SdkOmitted(),
-    pages: json['pages'] != null ? SdkPresent(((json['pages'] as num?)?.toInt())!) : const SdkOmitted(),
-    total: json['total'] != null ? SdkPresent(((json['total'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory SuppressedResourceRootMeta.fromJson(Map<String, dynamic> json) =>
+      SuppressedResourceRootMeta(
+        page: json['page'] != null
+            ? SdkPresent(((json['page'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        pages: json['pages'] != null
+            ? SdkPresent(((json['pages'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        total: json['total'] != null
+            ? SdkPresent(((json['total'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (page) {
-      SdkPresent<int>(value: final value) => {'page': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pages) {
-      SdkPresent<int>(value: final value) => {'pages': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (total) {
-      SdkPresent<int>(value: final value) => {'total': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (page) {
+          SdkPresent<int>(value: final value) => {
+              'page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pages) {
+          SdkPresent<int>(value: final value) => {
+              'pages': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (total) {
+          SdkPresent<int>(value: final value) => {
+              'total': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `pages` wire field.
 class SuppressedResourceRootLinksPages {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `first` wire field.
   final SdkOptional<String> first;
+
   /// Optional `string` value serialized in the `prev` wire field.
   final SdkOptional<String> prev;
+
   /// Optional `string` value serialized in the `next` wire field.
   final SdkOptional<String> next;
+
   /// Optional `string` value serialized in the `last` wire field.
   final SdkOptional<String> last;
 
-  const SuppressedResourceRootLinksPages({this.first = const SdkOmitted(), this.prev = const SdkOmitted(), this.next = const SdkOmitted(), this.last = const SdkOmitted()});
+  const SuppressedResourceRootLinksPages(
+      {this.first = const SdkOmitted(),
+      this.prev = const SdkOmitted(),
+      this.next = const SdkOmitted(),
+      this.last = const SdkOmitted()});
 
-  SuppressedResourceRootLinksPages Function({SdkOptional<String> first, SdkOptional<String> prev, SdkOptional<String> next, SdkOptional<String> last}) get copyWith => _copyWith;
+  SuppressedResourceRootLinksPages Function(
+      {SdkOptional<String> first,
+      SdkOptional<String> prev,
+      SdkOptional<String> next,
+      SdkOptional<String> last}) get copyWith => _copyWith;
 
-  SuppressedResourceRootLinksPages _copyWith({Object? first = sdkOmittedValue, Object? prev = sdkOmittedValue, Object? next = sdkOmittedValue, Object? last = sdkOmittedValue}) => SuppressedResourceRootLinksPages(
-    first: identical(first, sdkOmittedValue) ? this.first : first as SdkOptional<String>,
-    prev: identical(prev, sdkOmittedValue) ? this.prev : prev as SdkOptional<String>,
-    next: identical(next, sdkOmittedValue) ? this.next : next as SdkOptional<String>,
-    last: identical(last, sdkOmittedValue) ? this.last : last as SdkOptional<String>,
-  );
+  SuppressedResourceRootLinksPages _copyWith(
+          {Object? first = sdkOmittedValue,
+          Object? prev = sdkOmittedValue,
+          Object? next = sdkOmittedValue,
+          Object? last = sdkOmittedValue}) =>
+      SuppressedResourceRootLinksPages(
+        first: identical(first, sdkOmittedValue)
+            ? this.first
+            : first as SdkOptional<String>,
+        prev: identical(prev, sdkOmittedValue)
+            ? this.prev
+            : prev as SdkOptional<String>,
+        next: identical(next, sdkOmittedValue)
+            ? this.next
+            : next as SdkOptional<String>,
+        last: identical(last, sdkOmittedValue)
+            ? this.last
+            : last as SdkOptional<String>,
+      );
 
-  factory SuppressedResourceRootLinksPages.fromJson(Map<String, dynamic> json) => SuppressedResourceRootLinksPages(
-    first: json['first'] != null ? SdkPresent((json['first'] as String?)!) : const SdkOmitted(),
-    prev: json['prev'] != null ? SdkPresent((json['prev'] as String?)!) : const SdkOmitted(),
-    next: json['next'] != null ? SdkPresent((json['next'] as String?)!) : const SdkOmitted(),
-    last: json['last'] != null ? SdkPresent((json['last'] as String?)!) : const SdkOmitted(),
-  );
+  factory SuppressedResourceRootLinksPages.fromJson(
+          Map<String, dynamic> json) =>
+      SuppressedResourceRootLinksPages(
+        first: json['first'] != null
+            ? SdkPresent((json['first'] as String?)!)
+            : const SdkOmitted(),
+        prev: json['prev'] != null
+            ? SdkPresent((json['prev'] as String?)!)
+            : const SdkOmitted(),
+        next: json['next'] != null
+            ? SdkPresent((json['next'] as String?)!)
+            : const SdkOmitted(),
+        last: json['last'] != null
+            ? SdkPresent((json['last'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (first) {
-      SdkPresent<String>(value: final value) => {'first': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (prev) {
-      SdkPresent<String>(value: final value) => {'prev': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (next) {
-      SdkPresent<String>(value: final value) => {'next': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (last) {
-      SdkPresent<String>(value: final value) => {'last': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (first) {
+          SdkPresent<String>(value: final value) => {
+              'first': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (prev) {
+          SdkPresent<String>(value: final value) => {
+              'prev': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (next) {
+          SdkPresent<String>(value: final value) => {
+              'next': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (last) {
+          SdkPresent<String>(value: final value) => {
+              'last': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `links` wire field.
 class SuppressedResourceRootLinks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `pages` wire field.
   final SdkOptional<SuppressedResourceRootLinksPages> pages;
 
   const SuppressedResourceRootLinks({this.pages = const SdkOmitted()});
 
-  SuppressedResourceRootLinks Function({SdkOptional<SuppressedResourceRootLinksPages> pages}) get copyWith => _copyWith;
+  SuppressedResourceRootLinks Function(
+          {SdkOptional<SuppressedResourceRootLinksPages> pages})
+      get copyWith => _copyWith;
 
-  SuppressedResourceRootLinks _copyWith({Object? pages = sdkOmittedValue}) => SuppressedResourceRootLinks(
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<SuppressedResourceRootLinksPages>,
-  );
+  SuppressedResourceRootLinks _copyWith({Object? pages = sdkOmittedValue}) =>
+      SuppressedResourceRootLinks(
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<SuppressedResourceRootLinksPages>,
+      );
 
-  factory SuppressedResourceRootLinks.fromJson(Map<String, dynamic> json) => SuppressedResourceRootLinks(
-    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? SuppressedResourceRootLinksPages.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory SuppressedResourceRootLinks.fromJson(Map<String, dynamic> json) =>
+      SuppressedResourceRootLinks(
+        pages: json['pages'] != null
+            ? SdkPresent((json['pages'] != null
+                ? SuppressedResourceRootLinksPages.fromJson(
+                    json['pages'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (pages) {
-      SdkPresent<SuppressedResourceRootLinksPages>(value: final value) => {'pages': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (pages) {
+          SdkPresent<SuppressedResourceRootLinksPages>(value: final value) => {
+              'pages': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `SuppressedResourceRoot` API schema.
 class SuppressedResourceRoot {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `resources` wire field.
   final SdkOptional<List<SuppressedResource>> resources;
+
   /// Optional object value serialized in the `meta` wire field.
   final SdkOptional<SuppressedResourceRootMeta> meta;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<SuppressedResourceRootLinks> links;
 
-  const SuppressedResourceRoot({this.resources = const SdkOmitted(), this.meta = const SdkOmitted(), this.links = const SdkOmitted()});
+  const SuppressedResourceRoot(
+      {this.resources = const SdkOmitted(),
+      this.meta = const SdkOmitted(),
+      this.links = const SdkOmitted()});
 
-  SuppressedResourceRoot Function({SdkOptional<List<SuppressedResource>> resources, SdkOptional<SuppressedResourceRootMeta> meta, SdkOptional<SuppressedResourceRootLinks> links}) get copyWith => _copyWith;
+  SuppressedResourceRoot Function(
+          {SdkOptional<List<SuppressedResource>> resources,
+          SdkOptional<SuppressedResourceRootMeta> meta,
+          SdkOptional<SuppressedResourceRootLinks> links})
+      get copyWith => _copyWith;
 
-  SuppressedResourceRoot _copyWith({Object? resources = sdkOmittedValue, Object? meta = sdkOmittedValue, Object? links = sdkOmittedValue}) => SuppressedResourceRoot(
-    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<List<SuppressedResource>>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<SuppressedResourceRootMeta>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<SuppressedResourceRootLinks>,
-  );
+  SuppressedResourceRoot _copyWith(
+          {Object? resources = sdkOmittedValue,
+          Object? meta = sdkOmittedValue,
+          Object? links = sdkOmittedValue}) =>
+      SuppressedResourceRoot(
+        resources: identical(resources, sdkOmittedValue)
+            ? this.resources
+            : resources as SdkOptional<List<SuppressedResource>>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<SuppressedResourceRootMeta>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<SuppressedResourceRootLinks>,
+      );
 
-  factory SuppressedResourceRoot.fromJson(Map<String, dynamic> json) => SuppressedResourceRoot(
-    resources: json['resources'] != null ? SdkPresent(((json['resources'] as List?)?.map((e) => SuppressedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    meta: json['meta'] != null ? SdkPresent((json['meta'] != null ? SuppressedResourceRootMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? SuppressedResourceRootLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory SuppressedResourceRoot.fromJson(Map<String, dynamic> json) =>
+      SuppressedResourceRoot(
+        resources: json['resources'] != null
+            ? SdkPresent(((json['resources'] as List?)
+                ?.map((e) =>
+                    SuppressedResource.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        meta: json['meta'] != null
+            ? SdkPresent((json['meta'] != null
+                ? SuppressedResourceRootMeta.fromJson(
+                    json['meta'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? SuppressedResourceRootLinks.fromJson(
+                    json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (resources) {
-      SdkPresent<List<SuppressedResource>>(value: final value) => {'resources': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (meta) {
-      SdkPresent<SuppressedResourceRootMeta>(value: final value) => {'meta': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<SuppressedResourceRootLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (resources) {
+          SdkPresent<List<SuppressedResource>>(value: final value) => {
+              'resources': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (meta) {
+          SdkPresent<SuppressedResourceRootMeta>(value: final value) => {
+              'meta': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<SuppressedResourceRootLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class TierCoverageTierCoverageValue {
@@ -174,55 +305,98 @@ class TierCoverageTierCoverageValue {
   final SdkOptional<List<String>> resources;
   final SdkOptional<List<String>> tags;
 
-  const TierCoverageTierCoverageValue({this.resources = const SdkOmitted(), this.tags = const SdkOmitted()});
+  const TierCoverageTierCoverageValue(
+      {this.resources = const SdkOmitted(), this.tags = const SdkOmitted()});
 
-  TierCoverageTierCoverageValue Function({SdkOptional<List<String>> resources, SdkOptional<List<String>> tags}) get copyWith => _copyWith;
+  TierCoverageTierCoverageValue Function(
+      {SdkOptional<List<String>> resources,
+      SdkOptional<List<String>> tags}) get copyWith => _copyWith;
 
-  TierCoverageTierCoverageValue _copyWith({Object? resources = sdkOmittedValue, Object? tags = sdkOmittedValue}) => TierCoverageTierCoverageValue(
-    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<List<String>>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-  );
+  TierCoverageTierCoverageValue _copyWith(
+          {Object? resources = sdkOmittedValue,
+          Object? tags = sdkOmittedValue}) =>
+      TierCoverageTierCoverageValue(
+        resources: identical(resources, sdkOmittedValue)
+            ? this.resources
+            : resources as SdkOptional<List<String>>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+      );
 
-  factory TierCoverageTierCoverageValue.fromJson(Map<String, dynamic> json) => TierCoverageTierCoverageValue(
-    resources: json['resources'] != null ? SdkPresent(((json['resources'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory TierCoverageTierCoverageValue.fromJson(Map<String, dynamic> json) =>
+      TierCoverageTierCoverageValue(
+        resources: json['resources'] != null
+            ? SdkPresent(((json['resources'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (resources) {
-      SdkPresent<List<String>>(value: final value) => {'resources': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (resources) {
+          SdkPresent<List<String>>(value: final value) => {
+              'resources': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `TierCoverage` API schema.
 class TierCoverage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `tier_coverage` wire field.
   final SdkOptional<Map<String, TierCoverageTierCoverageValue>> tierCoverage;
 
   const TierCoverage({this.tierCoverage = const SdkOmitted()});
 
-  TierCoverage Function({SdkOptional<Map<String, TierCoverageTierCoverageValue>> tierCoverage}) get copyWith => _copyWith;
+  TierCoverage Function(
+      {SdkOptional<Map<String, TierCoverageTierCoverageValue>>
+          tierCoverage}) get copyWith => _copyWith;
 
-  TierCoverage _copyWith({Object? tierCoverage = sdkOmittedValue}) => TierCoverage(
-    tierCoverage: identical(tierCoverage, sdkOmittedValue) ? this.tierCoverage : tierCoverage as SdkOptional<Map<String, TierCoverageTierCoverageValue>>,
-  );
+  TierCoverage _copyWith({Object? tierCoverage = sdkOmittedValue}) =>
+      TierCoverage(
+        tierCoverage: identical(tierCoverage, sdkOmittedValue)
+            ? this.tierCoverage
+            : tierCoverage
+                as SdkOptional<Map<String, TierCoverageTierCoverageValue>>,
+      );
 
   factory TierCoverage.fromJson(Map<String, dynamic> json) => TierCoverage(
-    tierCoverage: json['tier_coverage'] != null ? SdkPresent((json['tier_coverage'] == null ? null : Map<String, dynamic>.from(json['tier_coverage'] as Map).map((key, value) => MapEntry(key, TierCoverageTierCoverageValue.fromJson(value as Map<String, dynamic>))))!) : const SdkOmitted(),
-  );
+        tierCoverage: json['tier_coverage'] != null
+            ? SdkPresent((json['tier_coverage'] == null
+                ? null
+                : Map<String, dynamic>.from(json['tier_coverage'] as Map).map(
+                    (key, value) => MapEntry(
+                        key,
+                        TierCoverageTierCoverageValue.fromJson(
+                            value as Map<String, dynamic>))))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (tierCoverage) {
-      SdkPresent<Map<String, TierCoverageTierCoverageValue>>(value: final value) => {'tier_coverage': value.map((key, value) => MapEntry(key, value.toJson())),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (tierCoverage) {
+          SdkPresent<Map<String, TierCoverageTierCoverageValue>>(
+            value: final value
+          ) =>
+            {
+              'tier_coverage':
+                  value.map((key, value) => MapEntry(key, value.toJson())),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

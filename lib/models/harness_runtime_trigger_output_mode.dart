@@ -6,12 +6,12 @@ part of 'harness_runtime_trigger.dart';
 // harness_runtime_trigger domain models
 /// none = nothing pushed; the result stays in run history for self-serve. email = the collected run output is emailed to a configured address. slack = the collected run output is posted to a Slack incoming webhook URL (channel fixed by the webhook at install time).
 final class TriggerOutputMode {
-
   final String value;
 
   const TriggerOutputMode._(this.value);
 
-  factory TriggerOutputMode.fromJson(String value) => TriggerOutputMode._(value);
+  factory TriggerOutputMode.fromJson(String value) =>
+      TriggerOutputMode._(value);
 
   static const none = TriggerOutputMode._('none');
   static const email = TriggerOutputMode._('email');
@@ -19,10 +19,13 @@ final class TriggerOutputMode {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TriggerOutputMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TriggerOutputMode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -8,25 +8,37 @@ part of 'action_gateway_toolbelt.dart';
 class ToolbeltUpdateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// After adding or removing tools: the new version, or the current version when membership did not change. After a delete: the latest version, with status deprecated.
   final SdkOptional<Toolbelt> toolbelt;
 
   const ToolbeltUpdateResponse({this.toolbelt = const SdkOmitted()});
 
-  ToolbeltUpdateResponse Function({SdkOptional<Toolbelt> toolbelt}) get copyWith => _copyWith;
+  ToolbeltUpdateResponse Function({SdkOptional<Toolbelt> toolbelt})
+      get copyWith => _copyWith;
 
-  ToolbeltUpdateResponse _copyWith({Object? toolbelt = sdkOmittedValue}) => ToolbeltUpdateResponse(
-    toolbelt: identical(toolbelt, sdkOmittedValue) ? this.toolbelt : toolbelt as SdkOptional<Toolbelt>,
-  );
+  ToolbeltUpdateResponse _copyWith({Object? toolbelt = sdkOmittedValue}) =>
+      ToolbeltUpdateResponse(
+        toolbelt: identical(toolbelt, sdkOmittedValue)
+            ? this.toolbelt
+            : toolbelt as SdkOptional<Toolbelt>,
+      );
 
-  factory ToolbeltUpdateResponse.fromJson(Map<String, dynamic> json) => ToolbeltUpdateResponse(
-    toolbelt: json['toolbelt'] != null ? SdkPresent((json['toolbelt'] != null ? Toolbelt.fromJson(json['toolbelt'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ToolbeltUpdateResponse.fromJson(Map<String, dynamic> json) =>
+      ToolbeltUpdateResponse(
+        toolbelt: json['toolbelt'] != null
+            ? SdkPresent((json['toolbelt'] != null
+                ? Toolbelt.fromJson(json['toolbelt'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (toolbelt) {
-      SdkPresent<Toolbelt>(value: final value) => {'toolbelt': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (toolbelt) {
+          SdkPresent<Toolbelt>(value: final value) => {
+              'toolbelt': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

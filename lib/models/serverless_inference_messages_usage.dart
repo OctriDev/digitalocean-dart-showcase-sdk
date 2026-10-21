@@ -8,51 +8,98 @@ part of 'serverless_inference_messages.dart';
 class MessagesUsage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Number of input tokens billed for this request.
   final int inputTokens;
+
   /// Number of output tokens generated.
   final int outputTokens;
+
   /// Input tokens used to create a prompt cache entry, if applicable.
   final SdkOptional<int> cacheCreationInputTokens;
+
   /// Input tokens read from a prompt cache, if applicable.
   final SdkOptional<int> cacheReadInputTokens;
+
   /// Inference speed tier reflected in billing or routing.
   final SdkOptional<MessagesUsageSpeed?> speed;
 
-  const MessagesUsage({required this.inputTokens, required this.outputTokens, this.cacheCreationInputTokens = const SdkOmitted(), this.cacheReadInputTokens = const SdkOmitted(), this.speed = const SdkOmitted()});
+  const MessagesUsage(
+      {required this.inputTokens,
+      required this.outputTokens,
+      this.cacheCreationInputTokens = const SdkOmitted(),
+      this.cacheReadInputTokens = const SdkOmitted(),
+      this.speed = const SdkOmitted()});
 
-  MessagesUsage Function({int inputTokens, int outputTokens, SdkOptional<int> cacheCreationInputTokens, SdkOptional<int> cacheReadInputTokens, SdkOptional<MessagesUsageSpeed?> speed}) get copyWith => _copyWith;
+  MessagesUsage Function(
+      {int inputTokens,
+      int outputTokens,
+      SdkOptional<int> cacheCreationInputTokens,
+      SdkOptional<int> cacheReadInputTokens,
+      SdkOptional<MessagesUsageSpeed?> speed}) get copyWith => _copyWith;
 
-  MessagesUsage _copyWith({Object? inputTokens = sdkOmittedValue, Object? outputTokens = sdkOmittedValue, Object? cacheCreationInputTokens = sdkOmittedValue, Object? cacheReadInputTokens = sdkOmittedValue, Object? speed = sdkOmittedValue}) => MessagesUsage(
-    inputTokens: identical(inputTokens, sdkOmittedValue) ? this.inputTokens : inputTokens as int,
-    outputTokens: identical(outputTokens, sdkOmittedValue) ? this.outputTokens : outputTokens as int,
-    cacheCreationInputTokens: identical(cacheCreationInputTokens, sdkOmittedValue) ? this.cacheCreationInputTokens : cacheCreationInputTokens as SdkOptional<int>,
-    cacheReadInputTokens: identical(cacheReadInputTokens, sdkOmittedValue) ? this.cacheReadInputTokens : cacheReadInputTokens as SdkOptional<int>,
-    speed: identical(speed, sdkOmittedValue) ? this.speed : speed as SdkOptional<MessagesUsageSpeed?>,
-  );
+  MessagesUsage _copyWith(
+          {Object? inputTokens = sdkOmittedValue,
+          Object? outputTokens = sdkOmittedValue,
+          Object? cacheCreationInputTokens = sdkOmittedValue,
+          Object? cacheReadInputTokens = sdkOmittedValue,
+          Object? speed = sdkOmittedValue}) =>
+      MessagesUsage(
+        inputTokens: identical(inputTokens, sdkOmittedValue)
+            ? this.inputTokens
+            : inputTokens as int,
+        outputTokens: identical(outputTokens, sdkOmittedValue)
+            ? this.outputTokens
+            : outputTokens as int,
+        cacheCreationInputTokens:
+            identical(cacheCreationInputTokens, sdkOmittedValue)
+                ? this.cacheCreationInputTokens
+                : cacheCreationInputTokens as SdkOptional<int>,
+        cacheReadInputTokens: identical(cacheReadInputTokens, sdkOmittedValue)
+            ? this.cacheReadInputTokens
+            : cacheReadInputTokens as SdkOptional<int>,
+        speed: identical(speed, sdkOmittedValue)
+            ? this.speed
+            : speed as SdkOptional<MessagesUsageSpeed?>,
+      );
 
   factory MessagesUsage.fromJson(Map<String, dynamic> json) => MessagesUsage(
-    inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
-    outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
-    cacheCreationInputTokens: json['cache_creation_input_tokens'] != null ? SdkPresent(((json['cache_creation_input_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
-    cacheReadInputTokens: json['cache_read_input_tokens'] != null ? SdkPresent(((json['cache_read_input_tokens'] as num?)?.toInt())!) : const SdkOmitted(),
-    speed: json.containsKey('speed') ? SdkPresent(json['speed'] != null ? MessagesUsageSpeed.fromJson(json['speed'] as String) : null) : const SdkOmitted(),
-  );
+        inputTokens: ((json['input_tokens'] as num?)?.toInt())!,
+        outputTokens: ((json['output_tokens'] as num?)?.toInt())!,
+        cacheCreationInputTokens: json['cache_creation_input_tokens'] != null
+            ? SdkPresent(
+                ((json['cache_creation_input_tokens'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        cacheReadInputTokens: json['cache_read_input_tokens'] != null
+            ? SdkPresent(((json['cache_read_input_tokens'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        speed: json.containsKey('speed')
+            ? SdkPresent(json['speed'] != null
+                ? MessagesUsageSpeed.fromJson(json['speed'] as String)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'input_tokens': inputTokens,
-    'output_tokens': outputTokens,
-    ...switch (cacheCreationInputTokens) {
-      SdkPresent<int>(value: final value) => {'cache_creation_input_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (cacheReadInputTokens) {
-      SdkPresent<int>(value: final value) => {'cache_read_input_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (speed) {
-      SdkPresent<MessagesUsageSpeed?>(value: final value) => {'speed': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'input_tokens': inputTokens,
+        'output_tokens': outputTokens,
+        ...switch (cacheCreationInputTokens) {
+          SdkPresent<int>(value: final value) => {
+              'cache_creation_input_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (cacheReadInputTokens) {
+          SdkPresent<int>(value: final value) => {
+              'cache_read_input_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (speed) {
+          SdkPresent<MessagesUsageSpeed?>(value: final value) => {
+              'speed': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

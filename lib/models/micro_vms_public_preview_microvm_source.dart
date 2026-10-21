@@ -8,33 +8,54 @@ part of 'micro_vms_public_preview.dart';
 class MicrovmSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A reference to a `linux/amd64` container image in the form `registry/repository:tag`. The image can be public, such as an image on Docker Hub, or private in your team's DigitalOcean Container Registry.
   final SdkOptional<String> ociRef;
+
   /// The ID of a checkpoint to create the MicroVM from. The new MicroVM inherits the checkpoint's region, size, container image, and environment variables.
   final SdkOptional<String> checkpointId;
 
-  const MicrovmSource({this.ociRef = const SdkOmitted(), this.checkpointId = const SdkOmitted()});
+  const MicrovmSource(
+      {this.ociRef = const SdkOmitted(),
+      this.checkpointId = const SdkOmitted()});
 
-  MicrovmSource Function({SdkOptional<String> ociRef, SdkOptional<String> checkpointId}) get copyWith => _copyWith;
+  MicrovmSource Function(
+      {SdkOptional<String> ociRef,
+      SdkOptional<String> checkpointId}) get copyWith => _copyWith;
 
-  MicrovmSource _copyWith({Object? ociRef = sdkOmittedValue, Object? checkpointId = sdkOmittedValue}) => MicrovmSource(
-    ociRef: identical(ociRef, sdkOmittedValue) ? this.ociRef : ociRef as SdkOptional<String>,
-    checkpointId: identical(checkpointId, sdkOmittedValue) ? this.checkpointId : checkpointId as SdkOptional<String>,
-  );
+  MicrovmSource _copyWith(
+          {Object? ociRef = sdkOmittedValue,
+          Object? checkpointId = sdkOmittedValue}) =>
+      MicrovmSource(
+        ociRef: identical(ociRef, sdkOmittedValue)
+            ? this.ociRef
+            : ociRef as SdkOptional<String>,
+        checkpointId: identical(checkpointId, sdkOmittedValue)
+            ? this.checkpointId
+            : checkpointId as SdkOptional<String>,
+      );
 
   factory MicrovmSource.fromJson(Map<String, dynamic> json) => MicrovmSource(
-    ociRef: json['oci_ref'] != null ? SdkPresent((json['oci_ref'] as String?)!) : const SdkOmitted(),
-    checkpointId: json['checkpoint_id'] != null ? SdkPresent((json['checkpoint_id'] as String?)!) : const SdkOmitted(),
-  );
+        ociRef: json['oci_ref'] != null
+            ? SdkPresent((json['oci_ref'] as String?)!)
+            : const SdkOmitted(),
+        checkpointId: json['checkpoint_id'] != null
+            ? SdkPresent((json['checkpoint_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (ociRef) {
-      SdkPresent<String>(value: final value) => {'oci_ref': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (checkpointId) {
-      SdkPresent<String>(value: final value) => {'checkpoint_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (ociRef) {
+          SdkPresent<String>(value: final value) => {
+              'oci_ref': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (checkpointId) {
+          SdkPresent<String>(value: final value) => {
+              'checkpoint_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

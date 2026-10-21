@@ -8,33 +8,62 @@ part of 'databases.dart';
 class PostgresAdvancedConfigPgaudit {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Enable pgaudit extension. When enabled, pgaudit extension will be automatically installed. Otherwise, extension will be uninstalled but auditing configurations will be preserved.
   final SdkOptional<bool> featureEnabled;
+
   /// Specifies which classes of statements will be logged by session audit logging. Available values are `read` (SELECT and COPY when the source is a relation or query), `write` (INSERT, UPDATE, DELETE, TRUNCATE, and COPY when the destination is a relation), `function` (function calls and DO blocks), `role` (statements related to roles and privileges: GRANT, REVOKE, CREATE/ALTER/DROP ROLE), `ddl` (all DDL that is not included in the role class), `misc` (miscellaneous commands, e.g. DISCARD, FETCH, CHECKPOINT, VACUUM, SET), `misc_set` (miscellaneous SET commands, e.g. SET ROLE), and `all` (include all of the above).
   final SdkOptional<List<PostgresAdvancedConfigPgauditLogItem>> log;
 
-  const PostgresAdvancedConfigPgaudit({this.featureEnabled = const SdkOmitted(), this.log = const SdkOmitted()});
+  const PostgresAdvancedConfigPgaudit(
+      {this.featureEnabled = const SdkOmitted(),
+      this.log = const SdkOmitted()});
 
-  PostgresAdvancedConfigPgaudit Function({SdkOptional<bool> featureEnabled, SdkOptional<List<PostgresAdvancedConfigPgauditLogItem>> log}) get copyWith => _copyWith;
+  PostgresAdvancedConfigPgaudit Function(
+          {SdkOptional<bool> featureEnabled,
+          SdkOptional<List<PostgresAdvancedConfigPgauditLogItem>> log})
+      get copyWith => _copyWith;
 
-  PostgresAdvancedConfigPgaudit _copyWith({Object? featureEnabled = sdkOmittedValue, Object? log = sdkOmittedValue}) => PostgresAdvancedConfigPgaudit(
-    featureEnabled: identical(featureEnabled, sdkOmittedValue) ? this.featureEnabled : featureEnabled as SdkOptional<bool>,
-    log: identical(log, sdkOmittedValue) ? this.log : log as SdkOptional<List<PostgresAdvancedConfigPgauditLogItem>>,
-  );
+  PostgresAdvancedConfigPgaudit _copyWith(
+          {Object? featureEnabled = sdkOmittedValue,
+          Object? log = sdkOmittedValue}) =>
+      PostgresAdvancedConfigPgaudit(
+        featureEnabled: identical(featureEnabled, sdkOmittedValue)
+            ? this.featureEnabled
+            : featureEnabled as SdkOptional<bool>,
+        log: identical(log, sdkOmittedValue)
+            ? this.log
+            : log as SdkOptional<List<PostgresAdvancedConfigPgauditLogItem>>,
+      );
 
-  factory PostgresAdvancedConfigPgaudit.fromJson(Map<String, dynamic> json) => PostgresAdvancedConfigPgaudit(
-    featureEnabled: json['feature_enabled'] != null ? SdkPresent((json['feature_enabled'] as bool?)!) : const SdkOmitted(),
-    log: json['log'] != null ? SdkPresent(((json['log'] as List?)?.map((e) => PostgresAdvancedConfigPgauditLogItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+  factory PostgresAdvancedConfigPgaudit.fromJson(Map<String, dynamic> json) =>
+      PostgresAdvancedConfigPgaudit(
+        featureEnabled: json['feature_enabled'] != null
+            ? SdkPresent((json['feature_enabled'] as bool?)!)
+            : const SdkOmitted(),
+        log: json['log'] != null
+            ? SdkPresent(((json['log'] as List?)
+                ?.map((e) =>
+                    PostgresAdvancedConfigPgauditLogItem.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (featureEnabled) {
-      SdkPresent<bool>(value: final value) => {'feature_enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (log) {
-      SdkPresent<List<PostgresAdvancedConfigPgauditLogItem>>(value: final value) => {'log': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (featureEnabled) {
+          SdkPresent<bool>(value: final value) => {
+              'feature_enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (log) {
+          SdkPresent<List<PostgresAdvancedConfigPgauditLogItem>>(
+            value: final value
+          ) =>
+            {
+              'log': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

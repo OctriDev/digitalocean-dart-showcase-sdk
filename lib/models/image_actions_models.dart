@@ -11,22 +11,34 @@ class GetImageActionsResponseVariant0 {
 
   const GetImageActionsResponseVariant0({this.actions = const SdkOmitted()});
 
-  GetImageActionsResponseVariant0 Function({SdkOptional<List<Action>> actions}) get copyWith => _copyWith;
+  GetImageActionsResponseVariant0 Function({SdkOptional<List<Action>> actions})
+      get copyWith => _copyWith;
 
-  GetImageActionsResponseVariant0 _copyWith({Object? actions = sdkOmittedValue}) => GetImageActionsResponseVariant0(
-    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<Action>>,
-  );
+  GetImageActionsResponseVariant0 _copyWith(
+          {Object? actions = sdkOmittedValue}) =>
+      GetImageActionsResponseVariant0(
+        actions: identical(actions, sdkOmittedValue)
+            ? this.actions
+            : actions as SdkOptional<List<Action>>,
+      );
 
-  factory GetImageActionsResponseVariant0.fromJson(Map<String, dynamic> json) => GetImageActionsResponseVariant0(
-    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => Action.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory GetImageActionsResponseVariant0.fromJson(Map<String, dynamic> json) =>
+      GetImageActionsResponseVariant0(
+        actions: json['actions'] != null
+            ? SdkPresent(((json['actions'] as List?)
+                ?.map((e) => Action.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (actions) {
-      SdkPresent<List<Action>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (actions) {
+          SdkPresent<List<Action>>(value: final value) => {
+              'actions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `GetImageActionsResponse` API schema.
@@ -34,112 +46,176 @@ class GetImageActionsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Action>> actions;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const GetImageActionsResponse({this.actions = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const GetImageActionsResponse(
+      {this.actions = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  GetImageActionsResponse Function({SdkOptional<List<Action>> actions, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  GetImageActionsResponse Function(
+      {SdkOptional<List<Action>> actions,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  GetImageActionsResponse _copyWith({Object? actions = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => GetImageActionsResponse(
-    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<Action>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  GetImageActionsResponse _copyWith(
+          {Object? actions = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      GetImageActionsResponse(
+        actions: identical(actions, sdkOmittedValue)
+            ? this.actions
+            : actions as SdkOptional<List<Action>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory GetImageActionsResponse.fromJson(Map<String, dynamic> json) => GetImageActionsResponse(
-    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => Action.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory GetImageActionsResponse.fromJson(Map<String, dynamic> json) =>
+      GetImageActionsResponse(
+        actions: json['actions'] != null
+            ? SdkPresent(((json['actions'] as List?)
+                ?.map((e) => Action.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (actions) {
-      SdkPresent<List<Action>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (actions) {
+          SdkPresent<List<Action>>(value: final value) => {
+              'actions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 /// Typed representation of the `ImageActionBase` API schema.
 class ImageActionBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The action to be taken on the image. Can be either `convert` or `transfer`.
   final ImageActionBaseType type_;
 
   const ImageActionBase({required this.type_});
 
-  ImageActionBase Function({ImageActionBaseType type_}) get copyWith => _copyWith;
+  ImageActionBase Function({ImageActionBaseType type_}) get copyWith =>
+      _copyWith;
 
-  ImageActionBase _copyWith({Object? type_ = sdkOmittedValue}) => ImageActionBase(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ImageActionBaseType,
-  );
+  ImageActionBase _copyWith({Object? type_ = sdkOmittedValue}) =>
+      ImageActionBase(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ImageActionBaseType,
+      );
 
-  factory ImageActionBase.fromJson(Map<String, dynamic> json) => ImageActionBase(
-    type_: (json['type'] != null ? ImageActionBaseType.fromJson(json['type'] as String) : null)!,
-  );
+  factory ImageActionBase.fromJson(Map<String, dynamic> json) =>
+      ImageActionBase(
+        type_: (json['type'] != null
+            ? ImageActionBaseType.fromJson(json['type'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-  };
+        'type': type_.toJson(),
+      };
 }
 
 class ImageActionTransferVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The slug identifier for the region where the resource will initially be available.
   final RegionSlug region;
 
   const ImageActionTransferVariant1({required this.region});
 
-  ImageActionTransferVariant1 Function({RegionSlug region}) get copyWith => _copyWith;
+  ImageActionTransferVariant1 Function({RegionSlug region}) get copyWith =>
+      _copyWith;
 
-  ImageActionTransferVariant1 _copyWith({Object? region = sdkOmittedValue}) => ImageActionTransferVariant1(
-    region: identical(region, sdkOmittedValue) ? this.region : region as RegionSlug,
-  );
+  ImageActionTransferVariant1 _copyWith({Object? region = sdkOmittedValue}) =>
+      ImageActionTransferVariant1(
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as RegionSlug,
+      );
 
-  factory ImageActionTransferVariant1.fromJson(Map<String, dynamic> json) => ImageActionTransferVariant1(
-    region: (json['region'] != null ? RegionSlug.fromJson(json['region'] as String) : null)!,
-  );
+  factory ImageActionTransferVariant1.fromJson(Map<String, dynamic> json) =>
+      ImageActionTransferVariant1(
+        region: (json['region'] != null
+            ? RegionSlug.fromJson(json['region'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'region': region.toJson(),
-  };
+        'region': region.toJson(),
+      };
 }
 
 /// Typed representation of the `ImageActionTransfer` API schema.
 class ImageActionTransfer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The action to be taken on the image. Can be either `convert` or `transfer`.
   final ImageActionBaseType type_;
+
   /// The slug identifier for the region where the resource will initially be available.
   final RegionSlug region;
 
   const ImageActionTransfer({required this.type_, required this.region});
 
-  ImageActionTransfer Function({ImageActionBaseType type_, RegionSlug region}) get copyWith => _copyWith;
+  ImageActionTransfer Function({ImageActionBaseType type_, RegionSlug region})
+      get copyWith => _copyWith;
 
-  ImageActionTransfer _copyWith({Object? type_ = sdkOmittedValue, Object? region = sdkOmittedValue}) => ImageActionTransfer(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ImageActionBaseType,
-    region: identical(region, sdkOmittedValue) ? this.region : region as RegionSlug,
-  );
+  ImageActionTransfer _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? region = sdkOmittedValue}) =>
+      ImageActionTransfer(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ImageActionBaseType,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as RegionSlug,
+      );
 
-  factory ImageActionTransfer.fromJson(Map<String, dynamic> json) => ImageActionTransfer(
-    type_: (json['type'] != null ? ImageActionBaseType.fromJson(json['type'] as String) : null)!,
-    region: (json['region'] != null ? RegionSlug.fromJson(json['region'] as String) : null)!,
-  );
+  factory ImageActionTransfer.fromJson(Map<String, dynamic> json) =>
+      ImageActionTransfer(
+        type_: (json['type'] != null
+            ? ImageActionBaseType.fromJson(json['type'] as String)
+            : null)!,
+        region: (json['region'] != null
+            ? RegionSlug.fromJson(json['region'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'region': region.toJson(),
-  };
+        'type': type_.toJson(),
+        'region': region.toJson(),
+      };
 }

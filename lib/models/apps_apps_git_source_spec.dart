@@ -8,33 +8,55 @@ part of 'apps_apps.dart';
 class AppsGitSourceSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the branch to use
   final SdkOptional<String> branch;
+
   /// The clone URL of the repo. Example: `https://github.com/digitalocean/sample-golang.git`
   final SdkOptional<String> repoCloneUrl;
 
-  const AppsGitSourceSpec({this.branch = const SdkOmitted(), this.repoCloneUrl = const SdkOmitted()});
+  const AppsGitSourceSpec(
+      {this.branch = const SdkOmitted(),
+      this.repoCloneUrl = const SdkOmitted()});
 
-  AppsGitSourceSpec Function({SdkOptional<String> branch, SdkOptional<String> repoCloneUrl}) get copyWith => _copyWith;
+  AppsGitSourceSpec Function(
+      {SdkOptional<String> branch,
+      SdkOptional<String> repoCloneUrl}) get copyWith => _copyWith;
 
-  AppsGitSourceSpec _copyWith({Object? branch = sdkOmittedValue, Object? repoCloneUrl = sdkOmittedValue}) => AppsGitSourceSpec(
-    branch: identical(branch, sdkOmittedValue) ? this.branch : branch as SdkOptional<String>,
-    repoCloneUrl: identical(repoCloneUrl, sdkOmittedValue) ? this.repoCloneUrl : repoCloneUrl as SdkOptional<String>,
-  );
+  AppsGitSourceSpec _copyWith(
+          {Object? branch = sdkOmittedValue,
+          Object? repoCloneUrl = sdkOmittedValue}) =>
+      AppsGitSourceSpec(
+        branch: identical(branch, sdkOmittedValue)
+            ? this.branch
+            : branch as SdkOptional<String>,
+        repoCloneUrl: identical(repoCloneUrl, sdkOmittedValue)
+            ? this.repoCloneUrl
+            : repoCloneUrl as SdkOptional<String>,
+      );
 
-  factory AppsGitSourceSpec.fromJson(Map<String, dynamic> json) => AppsGitSourceSpec(
-    branch: json['branch'] != null ? SdkPresent((json['branch'] as String?)!) : const SdkOmitted(),
-    repoCloneUrl: json['repo_clone_url'] != null ? SdkPresent((json['repo_clone_url'] as String?)!) : const SdkOmitted(),
-  );
+  factory AppsGitSourceSpec.fromJson(Map<String, dynamic> json) =>
+      AppsGitSourceSpec(
+        branch: json['branch'] != null
+            ? SdkPresent((json['branch'] as String?)!)
+            : const SdkOmitted(),
+        repoCloneUrl: json['repo_clone_url'] != null
+            ? SdkPresent((json['repo_clone_url'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (branch) {
-      SdkPresent<String>(value: final value) => {'branch': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (repoCloneUrl) {
-      SdkPresent<String>(value: final value) => {'repo_clone_url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (branch) {
+          SdkPresent<String>(value: final value) => {
+              'branch': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (repoCloneUrl) {
+          SdkPresent<String>(value: final value) => {
+              'repo_clone_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

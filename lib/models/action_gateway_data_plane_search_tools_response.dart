@@ -7,27 +7,43 @@ part of 'action_gateway_data_plane.dart';
 class DataPlaneSearchToolsResponseVariant1Output {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// One result group per query, in request order.
   final SdkOptional<List<SearchToolsGroup>> results;
 
-  const DataPlaneSearchToolsResponseVariant1Output({this.results = const SdkOmitted()});
+  const DataPlaneSearchToolsResponseVariant1Output(
+      {this.results = const SdkOmitted()});
 
-  DataPlaneSearchToolsResponseVariant1Output Function({SdkOptional<List<SearchToolsGroup>> results}) get copyWith => _copyWith;
+  DataPlaneSearchToolsResponseVariant1Output Function(
+      {SdkOptional<List<SearchToolsGroup>> results}) get copyWith => _copyWith;
 
-  DataPlaneSearchToolsResponseVariant1Output _copyWith({Object? results = sdkOmittedValue}) => DataPlaneSearchToolsResponseVariant1Output(
-    results: identical(results, sdkOmittedValue) ? this.results : results as SdkOptional<List<SearchToolsGroup>>,
-  );
+  DataPlaneSearchToolsResponseVariant1Output _copyWith(
+          {Object? results = sdkOmittedValue}) =>
+      DataPlaneSearchToolsResponseVariant1Output(
+        results: identical(results, sdkOmittedValue)
+            ? this.results
+            : results as SdkOptional<List<SearchToolsGroup>>,
+      );
 
-  factory DataPlaneSearchToolsResponseVariant1Output.fromJson(Map<String, dynamic> json) => DataPlaneSearchToolsResponseVariant1Output(
-    results: json['results'] != null ? SdkPresent(((json['results'] as List?)?.map((e) => SearchToolsGroup.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory DataPlaneSearchToolsResponseVariant1Output.fromJson(
+          Map<String, dynamic> json) =>
+      DataPlaneSearchToolsResponseVariant1Output(
+        results: json['results'] != null
+            ? SdkPresent(((json['results'] as List?)
+                ?.map(
+                    (e) => SearchToolsGroup.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (results) {
-      SdkPresent<List<SearchToolsGroup>>(value: final value) => {'results': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (results) {
+          SdkPresent<List<SearchToolsGroup>>(value: final value) => {
+              'results': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DataPlaneSearchToolsResponseVariant1 {
@@ -35,74 +51,148 @@ class DataPlaneSearchToolsResponseVariant1 {
   static const String constructionSurface = 'named';
   final SdkOptional<DataPlaneSearchToolsResponseVariant1Output> output;
 
-  const DataPlaneSearchToolsResponseVariant1({this.output = const SdkOmitted()});
+  const DataPlaneSearchToolsResponseVariant1(
+      {this.output = const SdkOmitted()});
 
-  DataPlaneSearchToolsResponseVariant1 Function({SdkOptional<DataPlaneSearchToolsResponseVariant1Output> output}) get copyWith => _copyWith;
+  DataPlaneSearchToolsResponseVariant1 Function(
+          {SdkOptional<DataPlaneSearchToolsResponseVariant1Output> output})
+      get copyWith => _copyWith;
 
-  DataPlaneSearchToolsResponseVariant1 _copyWith({Object? output = sdkOmittedValue}) => DataPlaneSearchToolsResponseVariant1(
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<DataPlaneSearchToolsResponseVariant1Output>,
-  );
+  DataPlaneSearchToolsResponseVariant1 _copyWith(
+          {Object? output = sdkOmittedValue}) =>
+      DataPlaneSearchToolsResponseVariant1(
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<DataPlaneSearchToolsResponseVariant1Output>,
+      );
 
-  factory DataPlaneSearchToolsResponseVariant1.fromJson(Map<String, dynamic> json) => DataPlaneSearchToolsResponseVariant1(
-    output: json['output'] != null ? SdkPresent((json['output'] != null ? DataPlaneSearchToolsResponseVariant1Output.fromJson(json['output'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DataPlaneSearchToolsResponseVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      DataPlaneSearchToolsResponseVariant1(
+        output: json['output'] != null
+            ? SdkPresent((json['output'] != null
+                ? DataPlaneSearchToolsResponseVariant1Output.fromJson(
+                    json['output'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (output) {
-      SdkPresent<DataPlaneSearchToolsResponseVariant1Output>(value: final value) => {'output': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (output) {
+          SdkPresent<DataPlaneSearchToolsResponseVariant1Output>(
+            value: final value
+          ) =>
+            {
+              'output': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DataPlaneSearchToolsResponse` API schema.
 class DataPlaneSearchToolsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `status` wire field.
   final ToolResultStatus status;
   final SdkOptional<DataPlaneSearchToolsResponseVariant1Output> output;
+
   /// Describes why a request or tool call failed and whether retrying can help.
   final SdkOptional<ErrorEnvelope> error;
+
   /// A unique identifier for this call. Include it when contacting support.
   final String callId;
+
   /// Additional result metadata. Keys include: - `status`: `requires_approval`, `requires_authorization`, or `requires_connection_configuration` when the call stopped before running. - `approval_id`, `tool_name`, `expires_at`, and `decide`: present with `requires_approval`. `decide` gives the `method`, `path`, and `body` of the approval request to send. Approve the call, then repeat it with the same arguments before `expires_at`. - `retry`: `{"attempt_count": N, "exhausted": bool}` when the gateway retried the call. - `output_view`: the output view applied to the result.
   final SdkOptional<Map<String, Object?>> meta;
 
-  const DataPlaneSearchToolsResponse({required this.status, this.output = const SdkOmitted(), this.error = const SdkOmitted(), required this.callId, this.meta = const SdkOmitted()});
+  const DataPlaneSearchToolsResponse(
+      {required this.status,
+      this.output = const SdkOmitted(),
+      this.error = const SdkOmitted(),
+      required this.callId,
+      this.meta = const SdkOmitted()});
 
-  DataPlaneSearchToolsResponse Function({ToolResultStatus status, SdkOptional<DataPlaneSearchToolsResponseVariant1Output> output, SdkOptional<ErrorEnvelope> error, String callId, SdkOptional<Map<String, Object?>> meta}) get copyWith => _copyWith;
+  DataPlaneSearchToolsResponse Function(
+      {ToolResultStatus status,
+      SdkOptional<DataPlaneSearchToolsResponseVariant1Output> output,
+      SdkOptional<ErrorEnvelope> error,
+      String callId,
+      SdkOptional<Map<String, Object?>> meta}) get copyWith => _copyWith;
 
-  DataPlaneSearchToolsResponse _copyWith({Object? status = sdkOmittedValue, Object? output = sdkOmittedValue, Object? error = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? meta = sdkOmittedValue}) => DataPlaneSearchToolsResponse(
-    status: identical(status, sdkOmittedValue) ? this.status : status as ToolResultStatus,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<DataPlaneSearchToolsResponseVariant1Output>,
-    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<ErrorEnvelope>,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<Map<String, Object?>>,
-  );
+  DataPlaneSearchToolsResponse _copyWith(
+          {Object? status = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? error = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      DataPlaneSearchToolsResponse(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ToolResultStatus,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<DataPlaneSearchToolsResponseVariant1Output>,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as SdkOptional<ErrorEnvelope>,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<Map<String, Object?>>,
+      );
 
-  factory DataPlaneSearchToolsResponse.fromJson(Map<String, dynamic> json) => DataPlaneSearchToolsResponse(
-    status: (json['status'] != null ? ToolResultStatus.fromJson(json['status'] as String) : null)!,
-    output: json['output'] != null ? SdkPresent((json['output'] != null ? DataPlaneSearchToolsResponseVariant1Output.fromJson(json['output'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    error: json['error'] != null ? SdkPresent((json['error'] != null ? ErrorEnvelope.fromJson(json['error'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    callId: (json['call_id'] as String?)!,
-    meta: json['_meta'] != null ? SdkPresent((json['_meta'] == null ? null : Map<String, dynamic>.from(json['_meta'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-  );
+  factory DataPlaneSearchToolsResponse.fromJson(Map<String, dynamic> json) =>
+      DataPlaneSearchToolsResponse(
+        status: (json['status'] != null
+            ? ToolResultStatus.fromJson(json['status'] as String)
+            : null)!,
+        output: json['output'] != null
+            ? SdkPresent((json['output'] != null
+                ? DataPlaneSearchToolsResponseVariant1Output.fromJson(
+                    json['output'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        error: json['error'] != null
+            ? SdkPresent((json['error'] != null
+                ? ErrorEnvelope.fromJson(json['error'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        callId: (json['call_id'] as String?)!,
+        meta: json['_meta'] != null
+            ? SdkPresent((json['_meta'] == null
+                ? null
+                : Map<String, dynamic>.from(json['_meta'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'status': status.toJson(),
-    ...switch (output) {
-      SdkPresent<DataPlaneSearchToolsResponseVariant1Output>(value: final value) => {'output': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (error) {
-      SdkPresent<ErrorEnvelope>(value: final value) => {'error': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'call_id': callId,
-    ...switch (meta) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'_meta': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'status': status.toJson(),
+        ...switch (output) {
+          SdkPresent<DataPlaneSearchToolsResponseVariant1Output>(
+            value: final value
+          ) =>
+            {
+              'output': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (error) {
+          SdkPresent<ErrorEnvelope>(value: final value) => {
+              'error': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'call_id': callId,
+        ...switch (meta) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              '_meta': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

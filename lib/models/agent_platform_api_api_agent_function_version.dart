@@ -8,57 +8,109 @@ part of 'agent_platform_api_api_agent.dart';
 class ApiAgentFunctionVersion {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Description of the function
   final SdkOptional<String> description;
+
   /// FaaS name of the function
   final SdkOptional<String> faasName;
+
   /// FaaS namespace of the function
   final SdkOptional<String> faasNamespace;
+
   /// Whether the function is deleted
   final SdkOptional<bool> isDeleted;
+
   /// Name of the function
   final SdkOptional<String> name;
 
-  const ApiAgentFunctionVersion({this.description = const SdkOmitted(), this.faasName = const SdkOmitted(), this.faasNamespace = const SdkOmitted(), this.isDeleted = const SdkOmitted(), this.name = const SdkOmitted()});
+  const ApiAgentFunctionVersion(
+      {this.description = const SdkOmitted(),
+      this.faasName = const SdkOmitted(),
+      this.faasNamespace = const SdkOmitted(),
+      this.isDeleted = const SdkOmitted(),
+      this.name = const SdkOmitted()});
 
-  ApiAgentFunctionVersion Function({SdkOptional<String> description, SdkOptional<String> faasName, SdkOptional<String> faasNamespace, SdkOptional<bool> isDeleted, SdkOptional<String> name}) get copyWith => _copyWith;
+  ApiAgentFunctionVersion Function(
+      {SdkOptional<String> description,
+      SdkOptional<String> faasName,
+      SdkOptional<String> faasNamespace,
+      SdkOptional<bool> isDeleted,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ApiAgentFunctionVersion _copyWith({Object? description = sdkOmittedValue, Object? faasName = sdkOmittedValue, Object? faasNamespace = sdkOmittedValue, Object? isDeleted = sdkOmittedValue, Object? name = sdkOmittedValue}) => ApiAgentFunctionVersion(
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    faasName: identical(faasName, sdkOmittedValue) ? this.faasName : faasName as SdkOptional<String>,
-    faasNamespace: identical(faasNamespace, sdkOmittedValue) ? this.faasNamespace : faasNamespace as SdkOptional<String>,
-    isDeleted: identical(isDeleted, sdkOmittedValue) ? this.isDeleted : isDeleted as SdkOptional<bool>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  ApiAgentFunctionVersion _copyWith(
+          {Object? description = sdkOmittedValue,
+          Object? faasName = sdkOmittedValue,
+          Object? faasNamespace = sdkOmittedValue,
+          Object? isDeleted = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      ApiAgentFunctionVersion(
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        faasName: identical(faasName, sdkOmittedValue)
+            ? this.faasName
+            : faasName as SdkOptional<String>,
+        faasNamespace: identical(faasNamespace, sdkOmittedValue)
+            ? this.faasNamespace
+            : faasNamespace as SdkOptional<String>,
+        isDeleted: identical(isDeleted, sdkOmittedValue)
+            ? this.isDeleted
+            : isDeleted as SdkOptional<bool>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory ApiAgentFunctionVersion.fromJson(Map<String, dynamic> json) => ApiAgentFunctionVersion(
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    faasName: json['faas_name'] != null ? SdkPresent((json['faas_name'] as String?)!) : const SdkOmitted(),
-    faasNamespace: json['faas_namespace'] != null ? SdkPresent((json['faas_namespace'] as String?)!) : const SdkOmitted(),
-    isDeleted: json['is_deleted'] != null ? SdkPresent((json['is_deleted'] as bool?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiAgentFunctionVersion.fromJson(Map<String, dynamic> json) =>
+      ApiAgentFunctionVersion(
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        faasName: json['faas_name'] != null
+            ? SdkPresent((json['faas_name'] as String?)!)
+            : const SdkOmitted(),
+        faasNamespace: json['faas_namespace'] != null
+            ? SdkPresent((json['faas_namespace'] as String?)!)
+            : const SdkOmitted(),
+        isDeleted: json['is_deleted'] != null
+            ? SdkPresent((json['is_deleted'] as bool?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (faasName) {
-      SdkPresent<String>(value: final value) => {'faas_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (faasNamespace) {
-      SdkPresent<String>(value: final value) => {'faas_namespace': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (isDeleted) {
-      SdkPresent<bool>(value: final value) => {'is_deleted': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (faasName) {
+          SdkPresent<String>(value: final value) => {
+              'faas_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (faasNamespace) {
+          SdkPresent<String>(value: final value) => {
+              'faas_namespace': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (isDeleted) {
+          SdkPresent<bool>(value: final value) => {
+              'is_deleted': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

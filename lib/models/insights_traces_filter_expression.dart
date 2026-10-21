@@ -8,65 +8,139 @@ part of 'insights_traces.dart';
 class TracesFilterExpression {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The node type. Matching is case-insensitive.
   final SdkOptional<TracesFilterExpressionType> type_;
+
   /// Child nodes for `and`, `or`, and `not`. `and` and `or` accept 1 to 32 children; `not` requires exactly one.
   final SdkOptional<List<TracesFilterExpression>> expressions;
+
   /// A reference to a span field, used in filters and `orderBy`.
   final SdkOptional<TracesFieldRef> field;
+
   /// The comparison operator for a `condition` node. Matching is case-insensitive, and the symbol forms `=`, `!=`, `&gt;`, `&gt;=`, `&lt;`, and `&lt;=` are accepted as aliases for `eq`, `neq`, `gt`, `gte`, `lt`, and `lte`. `exists` matches spans where the field is present and non-empty and ignores `value`. `in` requires an array `value` with 1 to 100 entries. `neq` on string fields also matches spans where the field is absent.
   final SdkOptional<TracesFilterExpressionOperator> operator_;
+
   /// The comparison value for a filter `condition`. Pass either a bare JSON literal (string, number, boolean, or array for `in`) or a typed object `{"type": "...", "value": ...}`. String values are coerced to the field's type: numeric fields such as `durationNs` parse the string as a number, and time fields such as `startTime` accept the same absolute formats as `timeRange` (RFC3339 or Unix seconds/milliseconds/microseconds/nanoseconds).
   final SdkOptional<TracesFilterValue> value;
+
   /// The search string for a `text_search` node. Leading and trailing whitespace is trimmed; the trimmed string must be non-empty.
   final SdkOptional<String> query;
 
-  const TracesFilterExpression({this.type_ = const SdkOmitted(), this.expressions = const SdkOmitted(), this.field = const SdkOmitted(), this.operator_ = const SdkOmitted(), this.value = const SdkOmitted(), this.query = const SdkOmitted()});
+  const TracesFilterExpression(
+      {this.type_ = const SdkOmitted(),
+      this.expressions = const SdkOmitted(),
+      this.field = const SdkOmitted(),
+      this.operator_ = const SdkOmitted(),
+      this.value = const SdkOmitted(),
+      this.query = const SdkOmitted()});
 
-  TracesFilterExpression Function({SdkOptional<TracesFilterExpressionType> type_, SdkOptional<List<TracesFilterExpression>> expressions, SdkOptional<TracesFieldRef> field, SdkOptional<TracesFilterExpressionOperator> operator_, SdkOptional<TracesFilterValue> value, SdkOptional<String> query}) get copyWith => _copyWith;
+  TracesFilterExpression Function(
+      {SdkOptional<TracesFilterExpressionType> type_,
+      SdkOptional<List<TracesFilterExpression>> expressions,
+      SdkOptional<TracesFieldRef> field,
+      SdkOptional<TracesFilterExpressionOperator> operator_,
+      SdkOptional<TracesFilterValue> value,
+      SdkOptional<String> query}) get copyWith => _copyWith;
 
-  TracesFilterExpression _copyWith({Object? type_ = sdkOmittedValue, Object? expressions = sdkOmittedValue, Object? field = sdkOmittedValue, Object? operator_ = sdkOmittedValue, Object? value = sdkOmittedValue, Object? query = sdkOmittedValue}) => TracesFilterExpression(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<TracesFilterExpressionType>,
-    expressions: identical(expressions, sdkOmittedValue) ? this.expressions : expressions as SdkOptional<List<TracesFilterExpression>>,
-    field: identical(field, sdkOmittedValue) ? this.field : field as SdkOptional<TracesFieldRef>,
-    operator_: identical(operator_, sdkOmittedValue) ? this.operator_ : operator_ as SdkOptional<TracesFilterExpressionOperator>,
-    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<TracesFilterValue>,
-    query: identical(query, sdkOmittedValue) ? this.query : query as SdkOptional<String>,
-  );
+  TracesFilterExpression _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? expressions = sdkOmittedValue,
+          Object? field = sdkOmittedValue,
+          Object? operator_ = sdkOmittedValue,
+          Object? value = sdkOmittedValue,
+          Object? query = sdkOmittedValue}) =>
+      TracesFilterExpression(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<TracesFilterExpressionType>,
+        expressions: identical(expressions, sdkOmittedValue)
+            ? this.expressions
+            : expressions as SdkOptional<List<TracesFilterExpression>>,
+        field: identical(field, sdkOmittedValue)
+            ? this.field
+            : field as SdkOptional<TracesFieldRef>,
+        operator_: identical(operator_, sdkOmittedValue)
+            ? this.operator_
+            : operator_ as SdkOptional<TracesFilterExpressionOperator>,
+        value: identical(value, sdkOmittedValue)
+            ? this.value
+            : value as SdkOptional<TracesFilterValue>,
+        query: identical(query, sdkOmittedValue)
+            ? this.query
+            : query as SdkOptional<String>,
+      );
 
-  factory TracesFilterExpression.fromJson(Map<String, dynamic> json) => TracesFilterExpression(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? TracesFilterExpressionType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    expressions: json['expressions'] != null ? SdkPresent(((json['expressions'] as List?)?.map((e) => TracesFilterExpression.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    field: json['field'] != null ? SdkPresent((json['field'] != null ? TracesFieldRef.fromJson(json['field'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    operator_: json['operator'] != null ? SdkPresent((json['operator'] != null ? TracesFilterExpressionOperator.fromJson(json['operator'] as String) : null)!) : const SdkOmitted(),
-    value: json['value'] != null ? SdkPresent((json['value'] != null ? TracesFilterValue.fromJson(json['value']) : null)!) : const SdkOmitted(),
-    query: json['query'] != null ? SdkPresent((json['query'] as String?)!) : const SdkOmitted(),
-  );
+  factory TracesFilterExpression.fromJson(Map<String, dynamic> json) =>
+      TracesFilterExpression(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? TracesFilterExpressionType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        expressions: json['expressions'] != null
+            ? SdkPresent(((json['expressions'] as List?)
+                ?.map((e) =>
+                    TracesFilterExpression.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        field: json['field'] != null
+            ? SdkPresent((json['field'] != null
+                ? TracesFieldRef.fromJson(json['field'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        operator_: json['operator'] != null
+            ? SdkPresent((json['operator'] != null
+                ? TracesFilterExpressionOperator.fromJson(
+                    json['operator'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        value: json['value'] != null
+            ? SdkPresent((json['value'] != null
+                ? TracesFilterValue.fromJson(json['value'])
+                : null)!)
+            : const SdkOmitted(),
+        query: json['query'] != null
+            ? SdkPresent((json['query'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<TracesFilterExpressionType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expressions) {
-      SdkPresent<List<TracesFilterExpression>>(value: final value) => {'expressions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (field) {
-      SdkPresent<TracesFieldRef>(value: final value) => {'field': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (operator_) {
-      SdkPresent<TracesFilterExpressionOperator>(value: final value) => {'operator': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (value) {
-      SdkPresent<TracesFilterValue>(value: final value) => {'value': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (query) {
-      SdkPresent<String>(value: final value) => {'query': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<TracesFilterExpressionType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expressions) {
+          SdkPresent<List<TracesFilterExpression>>(value: final value) => {
+              'expressions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (field) {
+          SdkPresent<TracesFieldRef>(value: final value) => {
+              'field': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (operator_) {
+          SdkPresent<TracesFilterExpressionOperator>(value: final value) => {
+              'operator': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (value) {
+          SdkPresent<TracesFilterValue>(value: final value) => {
+              'value': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (query) {
+          SdkPresent<String>(value: final value) => {
+              'query': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

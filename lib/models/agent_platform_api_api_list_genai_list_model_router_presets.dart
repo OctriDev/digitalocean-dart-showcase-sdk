@@ -8,41 +8,81 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListModelRouterPresetsOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Links to other pages
   final SdkOptional<ApiLinks> links;
+
   /// Meta information about the data set
   final SdkOptional<ApiMeta> meta;
+
   /// The model router presets
   final SdkOptional<List<ApiModelRouterPreset>> presets;
 
-  const ApiListModelRouterPresetsOutput({this.links = const SdkOmitted(), this.meta = const SdkOmitted(), this.presets = const SdkOmitted()});
+  const ApiListModelRouterPresetsOutput(
+      {this.links = const SdkOmitted(),
+      this.meta = const SdkOmitted(),
+      this.presets = const SdkOmitted()});
 
-  ApiListModelRouterPresetsOutput Function({SdkOptional<ApiLinks> links, SdkOptional<ApiMeta> meta, SdkOptional<List<ApiModelRouterPreset>> presets}) get copyWith => _copyWith;
+  ApiListModelRouterPresetsOutput Function(
+          {SdkOptional<ApiLinks> links,
+          SdkOptional<ApiMeta> meta,
+          SdkOptional<List<ApiModelRouterPreset>> presets})
+      get copyWith => _copyWith;
 
-  ApiListModelRouterPresetsOutput _copyWith({Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue, Object? presets = sdkOmittedValue}) => ApiListModelRouterPresetsOutput(
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<ApiLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<ApiMeta>,
-    presets: identical(presets, sdkOmittedValue) ? this.presets : presets as SdkOptional<List<ApiModelRouterPreset>>,
-  );
+  ApiListModelRouterPresetsOutput _copyWith(
+          {Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue,
+          Object? presets = sdkOmittedValue}) =>
+      ApiListModelRouterPresetsOutput(
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<ApiLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<ApiMeta>,
+        presets: identical(presets, sdkOmittedValue)
+            ? this.presets
+            : presets as SdkOptional<List<ApiModelRouterPreset>>,
+      );
 
-  factory ApiListModelRouterPresetsOutput.fromJson(Map<String, dynamic> json) => ApiListModelRouterPresetsOutput(
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: json['meta'] != null ? SdkPresent((json['meta'] != null ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    presets: json['presets'] != null ? SdkPresent(((json['presets'] as List?)?.map((e) => ApiModelRouterPreset.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiListModelRouterPresetsOutput.fromJson(Map<String, dynamic> json) =>
+      ApiListModelRouterPresetsOutput(
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: json['meta'] != null
+            ? SdkPresent((json['meta'] != null
+                ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        presets: json['presets'] != null
+            ? SdkPresent(((json['presets'] as List?)
+                ?.map((e) =>
+                    ApiModelRouterPreset.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (links) {
-      SdkPresent<ApiLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (meta) {
-      SdkPresent<ApiMeta>(value: final value) => {'meta': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (presets) {
-      SdkPresent<List<ApiModelRouterPreset>>(value: final value) => {'presets': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (links) {
+          SdkPresent<ApiLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (meta) {
+          SdkPresent<ApiMeta>(value: final value) => {
+              'meta': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (presets) {
+          SdkPresent<List<ApiModelRouterPreset>>(value: final value) => {
+              'presets': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

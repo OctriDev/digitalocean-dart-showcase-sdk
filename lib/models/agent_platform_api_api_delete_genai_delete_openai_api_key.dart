@@ -8,25 +8,39 @@ part of 'agent_platform_api_api_delete.dart';
 class ApiDeleteOpenAIAPIKeyOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// OpenAI API Key Info
   final SdkOptional<ApiOpenAIAPIKeyInfo> apiKeyInfo;
 
   const ApiDeleteOpenAIAPIKeyOutput({this.apiKeyInfo = const SdkOmitted()});
 
-  ApiDeleteOpenAIAPIKeyOutput Function({SdkOptional<ApiOpenAIAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
+  ApiDeleteOpenAIAPIKeyOutput Function(
+      {SdkOptional<ApiOpenAIAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
 
-  ApiDeleteOpenAIAPIKeyOutput _copyWith({Object? apiKeyInfo = sdkOmittedValue}) => ApiDeleteOpenAIAPIKeyOutput(
-    apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue) ? this.apiKeyInfo : apiKeyInfo as SdkOptional<ApiOpenAIAPIKeyInfo>,
-  );
+  ApiDeleteOpenAIAPIKeyOutput _copyWith(
+          {Object? apiKeyInfo = sdkOmittedValue}) =>
+      ApiDeleteOpenAIAPIKeyOutput(
+        apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue)
+            ? this.apiKeyInfo
+            : apiKeyInfo as SdkOptional<ApiOpenAIAPIKeyInfo>,
+      );
 
-  factory ApiDeleteOpenAIAPIKeyOutput.fromJson(Map<String, dynamic> json) => ApiDeleteOpenAIAPIKeyOutput(
-    apiKeyInfo: json['api_key_info'] != null ? SdkPresent((json['api_key_info'] != null ? ApiOpenAIAPIKeyInfo.fromJson(json['api_key_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiDeleteOpenAIAPIKeyOutput.fromJson(Map<String, dynamic> json) =>
+      ApiDeleteOpenAIAPIKeyOutput(
+        apiKeyInfo: json['api_key_info'] != null
+            ? SdkPresent((json['api_key_info'] != null
+                ? ApiOpenAIAPIKeyInfo.fromJson(
+                    json['api_key_info'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (apiKeyInfo) {
-      SdkPresent<ApiOpenAIAPIKeyInfo>(value: final value) => {'api_key_info': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (apiKeyInfo) {
+          SdkPresent<ApiOpenAIAPIKeyInfo>(value: final value) => {
+              'api_key_info': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

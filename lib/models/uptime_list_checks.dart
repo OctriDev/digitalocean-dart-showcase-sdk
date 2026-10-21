@@ -11,22 +11,33 @@ class AllChecksVariant0 {
 
   const AllChecksVariant0({this.checks = const SdkOmitted()});
 
-  AllChecksVariant0 Function({SdkOptional<List<Check>> checks}) get copyWith => _copyWith;
+  AllChecksVariant0 Function({SdkOptional<List<Check>> checks}) get copyWith =>
+      _copyWith;
 
-  AllChecksVariant0 _copyWith({Object? checks = sdkOmittedValue}) => AllChecksVariant0(
-    checks: identical(checks, sdkOmittedValue) ? this.checks : checks as SdkOptional<List<Check>>,
-  );
+  AllChecksVariant0 _copyWith({Object? checks = sdkOmittedValue}) =>
+      AllChecksVariant0(
+        checks: identical(checks, sdkOmittedValue)
+            ? this.checks
+            : checks as SdkOptional<List<Check>>,
+      );
 
-  factory AllChecksVariant0.fromJson(Map<String, dynamic> json) => AllChecksVariant0(
-    checks: json['checks'] != null ? SdkPresent(((json['checks'] as List?)?.map((e) => Check.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AllChecksVariant0.fromJson(Map<String, dynamic> json) =>
+      AllChecksVariant0(
+        checks: json['checks'] != null
+            ? SdkPresent(((json['checks'] as List?)
+                ?.map((e) => Check.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (checks) {
-      SdkPresent<List<Check>>(value: final value) => {'checks': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (checks) {
+          SdkPresent<List<Check>>(value: final value) => {
+              'checks': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllChecks` API schema.
@@ -34,36 +45,68 @@ class AllChecks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Check>> checks;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllChecks({this.checks = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllChecks(
+      {this.checks = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllChecks Function({SdkOptional<List<Check>> checks, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllChecks Function(
+      {SdkOptional<List<Check>> checks,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllChecks _copyWith({Object? checks = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllChecks(
-    checks: identical(checks, sdkOmittedValue) ? this.checks : checks as SdkOptional<List<Check>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllChecks _copyWith(
+          {Object? checks = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllChecks(
+        checks: identical(checks, sdkOmittedValue)
+            ? this.checks
+            : checks as SdkOptional<List<Check>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
   factory AllChecks.fromJson(Map<String, dynamic> json) => AllChecks(
-    checks: json['checks'] != null ? SdkPresent(((json['checks'] as List?)?.map((e) => Check.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+        checks: json['checks'] != null
+            ? SdkPresent(((json['checks'] as List?)
+                ?.map((e) => Check.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (checks) {
-      SdkPresent<List<Check>>(value: final value) => {'checks': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (checks) {
+          SdkPresent<List<Check>>(value: final value) => {
+              'checks': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

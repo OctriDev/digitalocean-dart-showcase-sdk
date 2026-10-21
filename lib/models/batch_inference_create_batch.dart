@@ -8,53 +8,109 @@ part of 'batch_inference.dart';
 class BatchCreateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The `file_id` returned by `POST /v1/batches/files`.
   final String fileId;
+
   /// The inference provider whose JSONL schema the input file conforms to. `openai` follows the OpenAI Batch API input schema (`custom_id`, `method`, `url`, `body`); `anthropic` follows the Anthropic Message Batches JSONL conventions.
   final BatchCreateRequestProvider provider;
+
   /// Inference endpoint each request is dispatched to. **Required when `provider` is `openai` and must match the `url` on every JSONL line. Must be omitted when `provider` is `anthropic`.**
   final SdkOptional<BatchCreateRequestEndpoint> endpoint;
+
   /// Time window in which the job must complete. Jobs that do not finish in time transition to `expired`.
   final BatchCreateRequestCompletionWindow completionWindow;
+
   /// Client-supplied idempotency key. Retries with the same value return the existing job instead of creating a duplicate.
   final String requestId;
+
   /// Optional string-valued metadata to attach to the job.
   final SdkOptional<Map<String, String>?> metadata;
 
-  const BatchCreateRequest({required this.fileId, required this.provider, this.endpoint = const SdkOmitted(), required this.completionWindow, required this.requestId, this.metadata = const SdkOmitted()});
+  const BatchCreateRequest(
+      {required this.fileId,
+      required this.provider,
+      this.endpoint = const SdkOmitted(),
+      required this.completionWindow,
+      required this.requestId,
+      this.metadata = const SdkOmitted()});
 
-  BatchCreateRequest Function({String fileId, BatchCreateRequestProvider provider, SdkOptional<BatchCreateRequestEndpoint> endpoint, BatchCreateRequestCompletionWindow completionWindow, String requestId, SdkOptional<Map<String, String>?> metadata}) get copyWith => _copyWith;
+  BatchCreateRequest Function(
+      {String fileId,
+      BatchCreateRequestProvider provider,
+      SdkOptional<BatchCreateRequestEndpoint> endpoint,
+      BatchCreateRequestCompletionWindow completionWindow,
+      String requestId,
+      SdkOptional<Map<String, String>?> metadata}) get copyWith => _copyWith;
 
-  BatchCreateRequest _copyWith({Object? fileId = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? endpoint = sdkOmittedValue, Object? completionWindow = sdkOmittedValue, Object? requestId = sdkOmittedValue, Object? metadata = sdkOmittedValue}) => BatchCreateRequest(
-    fileId: identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as BatchCreateRequestProvider,
-    endpoint: identical(endpoint, sdkOmittedValue) ? this.endpoint : endpoint as SdkOptional<BatchCreateRequestEndpoint>,
-    completionWindow: identical(completionWindow, sdkOmittedValue) ? this.completionWindow : completionWindow as BatchCreateRequestCompletionWindow,
-    requestId: identical(requestId, sdkOmittedValue) ? this.requestId : requestId as String,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, String>?>,
-  );
+  BatchCreateRequest _copyWith(
+          {Object? fileId = sdkOmittedValue,
+          Object? provider = sdkOmittedValue,
+          Object? endpoint = sdkOmittedValue,
+          Object? completionWindow = sdkOmittedValue,
+          Object? requestId = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue}) =>
+      BatchCreateRequest(
+        fileId:
+            identical(fileId, sdkOmittedValue) ? this.fileId : fileId as String,
+        provider: identical(provider, sdkOmittedValue)
+            ? this.provider
+            : provider as BatchCreateRequestProvider,
+        endpoint: identical(endpoint, sdkOmittedValue)
+            ? this.endpoint
+            : endpoint as SdkOptional<BatchCreateRequestEndpoint>,
+        completionWindow: identical(completionWindow, sdkOmittedValue)
+            ? this.completionWindow
+            : completionWindow as BatchCreateRequestCompletionWindow,
+        requestId: identical(requestId, sdkOmittedValue)
+            ? this.requestId
+            : requestId as String,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, String>?>,
+      );
 
-  factory BatchCreateRequest.fromJson(Map<String, dynamic> json) => BatchCreateRequest(
-    fileId: (json['file_id'] as String?)!,
-    provider: (json['provider'] != null ? BatchCreateRequestProvider.fromJson(json['provider'] as String) : null)!,
-    endpoint: json['endpoint'] != null ? SdkPresent((json['endpoint'] != null ? BatchCreateRequestEndpoint.fromJson(json['endpoint'] as String) : null)!) : const SdkOmitted(),
-    completionWindow: (json['completion_window'] != null ? BatchCreateRequestCompletionWindow.fromJson(json['completion_window'] as String) : null)!,
-    requestId: (json['request_id'] as String?)!,
-    metadata: json.containsKey('metadata') ? SdkPresent(json['metadata'] == null ? null : Map<String, dynamic>.from(json['metadata'] as Map).map((key, value) => MapEntry(key, value as String))) : const SdkOmitted(),
-  );
+  factory BatchCreateRequest.fromJson(Map<String, dynamic> json) =>
+      BatchCreateRequest(
+        fileId: (json['file_id'] as String?)!,
+        provider: (json['provider'] != null
+            ? BatchCreateRequestProvider.fromJson(json['provider'] as String)
+            : null)!,
+        endpoint: json['endpoint'] != null
+            ? SdkPresent((json['endpoint'] != null
+                ? BatchCreateRequestEndpoint.fromJson(
+                    json['endpoint'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        completionWindow: (json['completion_window'] != null
+            ? BatchCreateRequestCompletionWindow.fromJson(
+                json['completion_window'] as String)
+            : null)!,
+        requestId: (json['request_id'] as String?)!,
+        metadata: json.containsKey('metadata')
+            ? SdkPresent(json['metadata'] == null
+                ? null
+                : Map<String, dynamic>.from(json['metadata'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'file_id': fileId,
-    'provider': provider.toJson(),
-    ...switch (endpoint) {
-      SdkPresent<BatchCreateRequestEndpoint>(value: final value) => {'endpoint': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'completion_window': completionWindow.toJson(),
-    'request_id': requestId,
-    ...switch (metadata) {
-      SdkPresent<Map<String, String>?>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'file_id': fileId,
+        'provider': provider.toJson(),
+        ...switch (endpoint) {
+          SdkPresent<BatchCreateRequestEndpoint>(value: final value) => {
+              'endpoint': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'completion_window': completionWindow.toJson(),
+        'request_id': requestId,
+        ...switch (metadata) {
+          SdkPresent<Map<String, String>?>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,49 +8,100 @@ part of 'action_gateway_tool.dart';
 class ToolQuotas {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Calls per minute to the `exa_web_search` tool.
   final SdkOptional<String> webSearchRequestsPerMinute;
+
   /// Calls per minute to the `exa_web_fetch` tool.
   final SdkOptional<String> webFetchRequestsPerMinute;
+
   /// Calls per minute to DigitalOcean tools.
   final SdkOptional<String> nativeToolCallsRequestsPerMinute;
+
   /// Calls per minute to all other tools.
   final SdkOptional<String> nonNativeToolCallsRequestsPerMinute;
 
-  const ToolQuotas({this.webSearchRequestsPerMinute = const SdkOmitted(), this.webFetchRequestsPerMinute = const SdkOmitted(), this.nativeToolCallsRequestsPerMinute = const SdkOmitted(), this.nonNativeToolCallsRequestsPerMinute = const SdkOmitted()});
+  const ToolQuotas(
+      {this.webSearchRequestsPerMinute = const SdkOmitted(),
+      this.webFetchRequestsPerMinute = const SdkOmitted(),
+      this.nativeToolCallsRequestsPerMinute = const SdkOmitted(),
+      this.nonNativeToolCallsRequestsPerMinute = const SdkOmitted()});
 
-  ToolQuotas Function({SdkOptional<String> webSearchRequestsPerMinute, SdkOptional<String> webFetchRequestsPerMinute, SdkOptional<String> nativeToolCallsRequestsPerMinute, SdkOptional<String> nonNativeToolCallsRequestsPerMinute}) get copyWith => _copyWith;
+  ToolQuotas Function(
+          {SdkOptional<String> webSearchRequestsPerMinute,
+          SdkOptional<String> webFetchRequestsPerMinute,
+          SdkOptional<String> nativeToolCallsRequestsPerMinute,
+          SdkOptional<String> nonNativeToolCallsRequestsPerMinute})
+      get copyWith => _copyWith;
 
-  ToolQuotas _copyWith({Object? webSearchRequestsPerMinute = sdkOmittedValue, Object? webFetchRequestsPerMinute = sdkOmittedValue, Object? nativeToolCallsRequestsPerMinute = sdkOmittedValue, Object? nonNativeToolCallsRequestsPerMinute = sdkOmittedValue}) => ToolQuotas(
-    webSearchRequestsPerMinute: identical(webSearchRequestsPerMinute, sdkOmittedValue) ? this.webSearchRequestsPerMinute : webSearchRequestsPerMinute as SdkOptional<String>,
-    webFetchRequestsPerMinute: identical(webFetchRequestsPerMinute, sdkOmittedValue) ? this.webFetchRequestsPerMinute : webFetchRequestsPerMinute as SdkOptional<String>,
-    nativeToolCallsRequestsPerMinute: identical(nativeToolCallsRequestsPerMinute, sdkOmittedValue) ? this.nativeToolCallsRequestsPerMinute : nativeToolCallsRequestsPerMinute as SdkOptional<String>,
-    nonNativeToolCallsRequestsPerMinute: identical(nonNativeToolCallsRequestsPerMinute, sdkOmittedValue) ? this.nonNativeToolCallsRequestsPerMinute : nonNativeToolCallsRequestsPerMinute as SdkOptional<String>,
-  );
+  ToolQuotas _copyWith(
+          {Object? webSearchRequestsPerMinute = sdkOmittedValue,
+          Object? webFetchRequestsPerMinute = sdkOmittedValue,
+          Object? nativeToolCallsRequestsPerMinute = sdkOmittedValue,
+          Object? nonNativeToolCallsRequestsPerMinute = sdkOmittedValue}) =>
+      ToolQuotas(
+        webSearchRequestsPerMinute:
+            identical(webSearchRequestsPerMinute, sdkOmittedValue)
+                ? this.webSearchRequestsPerMinute
+                : webSearchRequestsPerMinute as SdkOptional<String>,
+        webFetchRequestsPerMinute:
+            identical(webFetchRequestsPerMinute, sdkOmittedValue)
+                ? this.webFetchRequestsPerMinute
+                : webFetchRequestsPerMinute as SdkOptional<String>,
+        nativeToolCallsRequestsPerMinute:
+            identical(nativeToolCallsRequestsPerMinute, sdkOmittedValue)
+                ? this.nativeToolCallsRequestsPerMinute
+                : nativeToolCallsRequestsPerMinute as SdkOptional<String>,
+        nonNativeToolCallsRequestsPerMinute:
+            identical(nonNativeToolCallsRequestsPerMinute, sdkOmittedValue)
+                ? this.nonNativeToolCallsRequestsPerMinute
+                : nonNativeToolCallsRequestsPerMinute as SdkOptional<String>,
+      );
 
   factory ToolQuotas.fromJson(Map<String, dynamic> json) => ToolQuotas(
-    webSearchRequestsPerMinute: json['web_search_requests_per_minute'] != null ? SdkPresent((json['web_search_requests_per_minute'] as String?)!) : const SdkOmitted(),
-    webFetchRequestsPerMinute: json['web_fetch_requests_per_minute'] != null ? SdkPresent((json['web_fetch_requests_per_minute'] as String?)!) : const SdkOmitted(),
-    nativeToolCallsRequestsPerMinute: json['native_tool_calls_requests_per_minute'] != null ? SdkPresent((json['native_tool_calls_requests_per_minute'] as String?)!) : const SdkOmitted(),
-    nonNativeToolCallsRequestsPerMinute: json['non_native_tool_calls_requests_per_minute'] != null ? SdkPresent((json['non_native_tool_calls_requests_per_minute'] as String?)!) : const SdkOmitted(),
-  );
+        webSearchRequestsPerMinute: json['web_search_requests_per_minute'] !=
+                null
+            ? SdkPresent((json['web_search_requests_per_minute'] as String?)!)
+            : const SdkOmitted(),
+        webFetchRequestsPerMinute: json['web_fetch_requests_per_minute'] != null
+            ? SdkPresent((json['web_fetch_requests_per_minute'] as String?)!)
+            : const SdkOmitted(),
+        nativeToolCallsRequestsPerMinute:
+            json['native_tool_calls_requests_per_minute'] != null
+                ? SdkPresent(
+                    (json['native_tool_calls_requests_per_minute'] as String?)!)
+                : const SdkOmitted(),
+        nonNativeToolCallsRequestsPerMinute:
+            json['non_native_tool_calls_requests_per_minute'] != null
+                ? SdkPresent((json['non_native_tool_calls_requests_per_minute']
+                    as String?)!)
+                : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (webSearchRequestsPerMinute) {
-      SdkPresent<String>(value: final value) => {'web_search_requests_per_minute': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (webFetchRequestsPerMinute) {
-      SdkPresent<String>(value: final value) => {'web_fetch_requests_per_minute': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nativeToolCallsRequestsPerMinute) {
-      SdkPresent<String>(value: final value) => {'native_tool_calls_requests_per_minute': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nonNativeToolCallsRequestsPerMinute) {
-      SdkPresent<String>(value: final value) => {'non_native_tool_calls_requests_per_minute': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (webSearchRequestsPerMinute) {
+          SdkPresent<String>(value: final value) => {
+              'web_search_requests_per_minute': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (webFetchRequestsPerMinute) {
+          SdkPresent<String>(value: final value) => {
+              'web_fetch_requests_per_minute': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nativeToolCallsRequestsPerMinute) {
+          SdkPresent<String>(value: final value) => {
+              'native_tool_calls_requests_per_minute': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nonNativeToolCallsRequestsPerMinute) {
+          SdkPresent<String>(value: final value) => {
+              'non_native_tool_calls_requests_per_minute': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

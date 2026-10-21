@@ -8,62 +8,98 @@ part of 'security.dart';
 class PlanDowngrades {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// URNs of resources that will be downgraded.
   final SdkOptional<List<String>> resources;
+
   /// When the coverage downgrade takes effect.
   final SdkOptional<String> effectiveAt;
 
-  const PlanDowngrades({this.resources = const SdkOmitted(), this.effectiveAt = const SdkOmitted()});
+  const PlanDowngrades(
+      {this.resources = const SdkOmitted(),
+      this.effectiveAt = const SdkOmitted()});
 
-  PlanDowngrades Function({SdkOptional<List<String>> resources, SdkOptional<String> effectiveAt}) get copyWith => _copyWith;
+  PlanDowngrades Function(
+      {SdkOptional<List<String>> resources,
+      SdkOptional<String> effectiveAt}) get copyWith => _copyWith;
 
-  PlanDowngrades _copyWith({Object? resources = sdkOmittedValue, Object? effectiveAt = sdkOmittedValue}) => PlanDowngrades(
-    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<List<String>>,
-    effectiveAt: identical(effectiveAt, sdkOmittedValue) ? this.effectiveAt : effectiveAt as SdkOptional<String>,
-  );
+  PlanDowngrades _copyWith(
+          {Object? resources = sdkOmittedValue,
+          Object? effectiveAt = sdkOmittedValue}) =>
+      PlanDowngrades(
+        resources: identical(resources, sdkOmittedValue)
+            ? this.resources
+            : resources as SdkOptional<List<String>>,
+        effectiveAt: identical(effectiveAt, sdkOmittedValue)
+            ? this.effectiveAt
+            : effectiveAt as SdkOptional<String>,
+      );
 
   factory PlanDowngrades.fromJson(Map<String, dynamic> json) => PlanDowngrades(
-    resources: json['resources'] != null ? SdkPresent(((json['resources'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    effectiveAt: json['effective_at'] != null ? SdkPresent((json['effective_at'] as String?)!) : const SdkOmitted(),
-  );
+        resources: json['resources'] != null
+            ? SdkPresent(((json['resources'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        effectiveAt: json['effective_at'] != null
+            ? SdkPresent((json['effective_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (resources) {
-      SdkPresent<List<String>>(value: final value) => {'resources': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (effectiveAt) {
-      SdkPresent<String>(value: final value) => {'effective_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (resources) {
+          SdkPresent<List<String>>(value: final value) => {
+              'resources': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (effectiveAt) {
+          SdkPresent<String>(value: final value) => {
+              'effective_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `settings` wire field.
 class SettingsSettings {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `suppressions` wire field.
   final SdkOptional<SuppressedResourceRoot> suppressions;
 
   const SettingsSettings({this.suppressions = const SdkOmitted()});
 
-  SettingsSettings Function({SdkOptional<SuppressedResourceRoot> suppressions}) get copyWith => _copyWith;
+  SettingsSettings Function({SdkOptional<SuppressedResourceRoot> suppressions})
+      get copyWith => _copyWith;
 
-  SettingsSettings _copyWith({Object? suppressions = sdkOmittedValue}) => SettingsSettings(
-    suppressions: identical(suppressions, sdkOmittedValue) ? this.suppressions : suppressions as SdkOptional<SuppressedResourceRoot>,
-  );
+  SettingsSettings _copyWith({Object? suppressions = sdkOmittedValue}) =>
+      SettingsSettings(
+        suppressions: identical(suppressions, sdkOmittedValue)
+            ? this.suppressions
+            : suppressions as SdkOptional<SuppressedResourceRoot>,
+      );
 
-  factory SettingsSettings.fromJson(Map<String, dynamic> json) => SettingsSettings(
-    suppressions: json['suppressions'] != null ? SdkPresent((json['suppressions'] != null ? SuppressedResourceRoot.fromJson(json['suppressions'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory SettingsSettings.fromJson(Map<String, dynamic> json) =>
+      SettingsSettings(
+        suppressions: json['suppressions'] != null
+            ? SdkPresent((json['suppressions'] != null
+                ? SuppressedResourceRoot.fromJson(
+                    json['suppressions'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (suppressions) {
-      SdkPresent<SuppressedResourceRoot>(value: final value) => {'suppressions': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (suppressions) {
+          SdkPresent<SuppressedResourceRoot>(value: final value) => {
+              'suppressions': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class SettingsTierCoverageValue {
@@ -72,71 +108,146 @@ class SettingsTierCoverageValue {
   final SdkOptional<List<String>> resources;
   final SdkOptional<List<String>> tags;
 
-  const SettingsTierCoverageValue({this.resources = const SdkOmitted(), this.tags = const SdkOmitted()});
+  const SettingsTierCoverageValue(
+      {this.resources = const SdkOmitted(), this.tags = const SdkOmitted()});
 
-  SettingsTierCoverageValue Function({SdkOptional<List<String>> resources, SdkOptional<List<String>> tags}) get copyWith => _copyWith;
+  SettingsTierCoverageValue Function(
+      {SdkOptional<List<String>> resources,
+      SdkOptional<List<String>> tags}) get copyWith => _copyWith;
 
-  SettingsTierCoverageValue _copyWith({Object? resources = sdkOmittedValue, Object? tags = sdkOmittedValue}) => SettingsTierCoverageValue(
-    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<List<String>>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-  );
+  SettingsTierCoverageValue _copyWith(
+          {Object? resources = sdkOmittedValue,
+          Object? tags = sdkOmittedValue}) =>
+      SettingsTierCoverageValue(
+        resources: identical(resources, sdkOmittedValue)
+            ? this.resources
+            : resources as SdkOptional<List<String>>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+      );
 
-  factory SettingsTierCoverageValue.fromJson(Map<String, dynamic> json) => SettingsTierCoverageValue(
-    resources: json['resources'] != null ? SdkPresent(((json['resources'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory SettingsTierCoverageValue.fromJson(Map<String, dynamic> json) =>
+      SettingsTierCoverageValue(
+        resources: json['resources'] != null
+            ? SdkPresent(((json['resources'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (resources) {
-      SdkPresent<List<String>>(value: final value) => {'resources': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (resources) {
+          SdkPresent<List<String>>(value: final value) => {
+              'resources': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `Settings` API schema.
 class Settings {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `settings` wire field.
   final SdkOptional<SettingsSettings> settings;
+
   /// Optional object value serialized in the `tier_coverage` wire field.
   final SdkOptional<Map<String, SettingsTierCoverageValue>> tierCoverage;
+
   /// Optional object value serialized in the `plan_downgrades` wire field.
   final SdkOptional<Map<String, PlanDowngrades>> planDowngrades;
 
-  const Settings({this.settings = const SdkOmitted(), this.tierCoverage = const SdkOmitted(), this.planDowngrades = const SdkOmitted()});
+  const Settings(
+      {this.settings = const SdkOmitted(),
+      this.tierCoverage = const SdkOmitted(),
+      this.planDowngrades = const SdkOmitted()});
 
-  Settings Function({SdkOptional<SettingsSettings> settings, SdkOptional<Map<String, SettingsTierCoverageValue>> tierCoverage, SdkOptional<Map<String, PlanDowngrades>> planDowngrades}) get copyWith => _copyWith;
+  Settings Function(
+          {SdkOptional<SettingsSettings> settings,
+          SdkOptional<Map<String, SettingsTierCoverageValue>> tierCoverage,
+          SdkOptional<Map<String, PlanDowngrades>> planDowngrades})
+      get copyWith => _copyWith;
 
-  Settings _copyWith({Object? settings = sdkOmittedValue, Object? tierCoverage = sdkOmittedValue, Object? planDowngrades = sdkOmittedValue}) => Settings(
-    settings: identical(settings, sdkOmittedValue) ? this.settings : settings as SdkOptional<SettingsSettings>,
-    tierCoverage: identical(tierCoverage, sdkOmittedValue) ? this.tierCoverage : tierCoverage as SdkOptional<Map<String, SettingsTierCoverageValue>>,
-    planDowngrades: identical(planDowngrades, sdkOmittedValue) ? this.planDowngrades : planDowngrades as SdkOptional<Map<String, PlanDowngrades>>,
-  );
+  Settings _copyWith(
+          {Object? settings = sdkOmittedValue,
+          Object? tierCoverage = sdkOmittedValue,
+          Object? planDowngrades = sdkOmittedValue}) =>
+      Settings(
+        settings: identical(settings, sdkOmittedValue)
+            ? this.settings
+            : settings as SdkOptional<SettingsSettings>,
+        tierCoverage: identical(tierCoverage, sdkOmittedValue)
+            ? this.tierCoverage
+            : tierCoverage
+                as SdkOptional<Map<String, SettingsTierCoverageValue>>,
+        planDowngrades: identical(planDowngrades, sdkOmittedValue)
+            ? this.planDowngrades
+            : planDowngrades as SdkOptional<Map<String, PlanDowngrades>>,
+      );
 
   factory Settings.fromJson(Map<String, dynamic> json) => Settings(
-    settings: json['settings'] != null ? SdkPresent((json['settings'] != null ? SettingsSettings.fromJson(json['settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    tierCoverage: json['tier_coverage'] != null ? SdkPresent((json['tier_coverage'] == null ? null : Map<String, dynamic>.from(json['tier_coverage'] as Map).map((key, value) => MapEntry(key, SettingsTierCoverageValue.fromJson(value as Map<String, dynamic>))))!) : const SdkOmitted(),
-    planDowngrades: json['plan_downgrades'] != null ? SdkPresent((json['plan_downgrades'] == null ? null : Map<String, dynamic>.from(json['plan_downgrades'] as Map).map((key, value) => MapEntry(key, PlanDowngrades.fromJson(value as Map<String, dynamic>))))!) : const SdkOmitted(),
-  );
+        settings: json['settings'] != null
+            ? SdkPresent((json['settings'] != null
+                ? SettingsSettings.fromJson(
+                    json['settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        tierCoverage: json['tier_coverage'] != null
+            ? SdkPresent((json['tier_coverage'] == null
+                ? null
+                : Map<String, dynamic>.from(json['tier_coverage'] as Map).map(
+                    (key, value) => MapEntry(
+                        key,
+                        SettingsTierCoverageValue.fromJson(
+                            value as Map<String, dynamic>))))!)
+            : const SdkOmitted(),
+        planDowngrades: json['plan_downgrades'] != null
+            ? SdkPresent((json['plan_downgrades'] == null
+                ? null
+                : Map<String, dynamic>.from(json['plan_downgrades'] as Map).map(
+                    (key, value) => MapEntry(
+                        key,
+                        PlanDowngrades.fromJson(
+                            value as Map<String, dynamic>))))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (settings) {
-      SdkPresent<SettingsSettings>(value: final value) => {'settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tierCoverage) {
-      SdkPresent<Map<String, SettingsTierCoverageValue>>(value: final value) => {'tier_coverage': value.map((key, value) => MapEntry(key, value.toJson())),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (planDowngrades) {
-      SdkPresent<Map<String, PlanDowngrades>>(value: final value) => {'plan_downgrades': value.map((key, value) => MapEntry(key, value.toJson())),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (settings) {
+          SdkPresent<SettingsSettings>(value: final value) => {
+              'settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tierCoverage) {
+          SdkPresent<Map<String, SettingsTierCoverageValue>>(
+            value: final value
+          ) =>
+            {
+              'tier_coverage':
+                  value.map((key, value) => MapEntry(key, value.toJson())),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (planDowngrades) {
+          SdkPresent<Map<String, PlanDowngrades>>(value: final value) => {
+              'plan_downgrades':
+                  value.map((key, value) => MapEntry(key, value.toJson())),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

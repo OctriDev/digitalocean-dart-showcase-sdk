@@ -9,24 +9,40 @@ class AllPartnerAttachmentsVariant0 {
   static const String constructionSurface = 'named';
   final SdkOptional<List<PartnerAttachment>> partnerAttachments;
 
-  const AllPartnerAttachmentsVariant0({this.partnerAttachments = const SdkOmitted()});
+  const AllPartnerAttachmentsVariant0(
+      {this.partnerAttachments = const SdkOmitted()});
 
-  AllPartnerAttachmentsVariant0 Function({SdkOptional<List<PartnerAttachment>> partnerAttachments}) get copyWith => _copyWith;
+  AllPartnerAttachmentsVariant0 Function(
+          {SdkOptional<List<PartnerAttachment>> partnerAttachments})
+      get copyWith => _copyWith;
 
-  AllPartnerAttachmentsVariant0 _copyWith({Object? partnerAttachments = sdkOmittedValue}) => AllPartnerAttachmentsVariant0(
-    partnerAttachments: identical(partnerAttachments, sdkOmittedValue) ? this.partnerAttachments : partnerAttachments as SdkOptional<List<PartnerAttachment>>,
-  );
+  AllPartnerAttachmentsVariant0 _copyWith(
+          {Object? partnerAttachments = sdkOmittedValue}) =>
+      AllPartnerAttachmentsVariant0(
+        partnerAttachments: identical(partnerAttachments, sdkOmittedValue)
+            ? this.partnerAttachments
+            : partnerAttachments as SdkOptional<List<PartnerAttachment>>,
+      );
 
-  factory AllPartnerAttachmentsVariant0.fromJson(Map<String, dynamic> json) => AllPartnerAttachmentsVariant0(
-    partnerAttachments: json['partner_attachments'] != null ? SdkPresent(((json['partner_attachments'] as List?)?.map((e) => PartnerAttachment.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AllPartnerAttachmentsVariant0.fromJson(Map<String, dynamic> json) =>
+      AllPartnerAttachmentsVariant0(
+        partnerAttachments: json['partner_attachments'] != null
+            ? SdkPresent(((json['partner_attachments'] as List?)
+                ?.map((e) =>
+                    PartnerAttachment.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (partnerAttachments) {
-      SdkPresent<List<PartnerAttachment>>(value: final value) => {'partner_attachments': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (partnerAttachments) {
+          SdkPresent<List<PartnerAttachment>>(value: final value) => {
+              'partner_attachments':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllPartnerAttachments` API schema.
@@ -34,36 +50,71 @@ class AllPartnerAttachments {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<PartnerAttachment>> partnerAttachments;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllPartnerAttachments({this.partnerAttachments = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllPartnerAttachments(
+      {this.partnerAttachments = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllPartnerAttachments Function({SdkOptional<List<PartnerAttachment>> partnerAttachments, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllPartnerAttachments Function(
+      {SdkOptional<List<PartnerAttachment>> partnerAttachments,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllPartnerAttachments _copyWith({Object? partnerAttachments = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllPartnerAttachments(
-    partnerAttachments: identical(partnerAttachments, sdkOmittedValue) ? this.partnerAttachments : partnerAttachments as SdkOptional<List<PartnerAttachment>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllPartnerAttachments _copyWith(
+          {Object? partnerAttachments = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllPartnerAttachments(
+        partnerAttachments: identical(partnerAttachments, sdkOmittedValue)
+            ? this.partnerAttachments
+            : partnerAttachments as SdkOptional<List<PartnerAttachment>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AllPartnerAttachments.fromJson(Map<String, dynamic> json) => AllPartnerAttachments(
-    partnerAttachments: json['partner_attachments'] != null ? SdkPresent(((json['partner_attachments'] as List?)?.map((e) => PartnerAttachment.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory AllPartnerAttachments.fromJson(Map<String, dynamic> json) =>
+      AllPartnerAttachments(
+        partnerAttachments: json['partner_attachments'] != null
+            ? SdkPresent(((json['partner_attachments'] as List?)
+                ?.map((e) =>
+                    PartnerAttachment.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (partnerAttachments) {
-      SdkPresent<List<PartnerAttachment>>(value: final value) => {'partner_attachments': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (partnerAttachments) {
+          SdkPresent<List<PartnerAttachment>>(value: final value) => {
+              'partner_attachments':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

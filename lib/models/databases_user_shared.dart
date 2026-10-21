@@ -8,6 +8,7 @@ part of 'databases_user.dart';
 class UserResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `user` wire field.
   final DatabaseUser user;
 
@@ -16,172 +17,308 @@ class UserResponse {
   UserResponse Function({DatabaseUser user}) get copyWith => _copyWith;
 
   UserResponse _copyWith({Object? user = sdkOmittedValue}) => UserResponse(
-    user: identical(user, sdkOmittedValue) ? this.user : user as DatabaseUser,
-  );
+        user:
+            identical(user, sdkOmittedValue) ? this.user : user as DatabaseUser,
+      );
 
   factory UserResponse.fromJson(Map<String, dynamic> json) => UserResponse(
-    user: (json['user'] != null ? DatabaseUser.fromJson(json['user'] as Map<String, dynamic>) : null)!,
-  );
+        user: (json['user'] != null
+            ? DatabaseUser.fromJson(json['user'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'user': user.toJson(),
-  };
+        'user': user.toJson(),
+      };
 }
 
 /// MongoDB-specific settings for the user. Configure these when creating a user. Updating MongoDB roles or database access after creation is not supported; recreate the user to change them. This option is not currently supported for other database engines.
 class UserSettingsMongoUserSettings {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of databases to which the user should have access. When the database is set to `admin`, the user will have access to all databases based on the user's role i.e. a user with the role `readOnly` assigned to the `admin` database will have read access to all databases.
   final SdkOptional<List<String>> databases;
+
   /// The role to assign to the user with each role mapping to a MongoDB built-in role. `readOnly` maps to a [read](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-read) role. `readWrite` maps to a [readWrite](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-readWrite) role. `dbAdmin` maps to a [dbAdmin](https://www.mongodb.com/docs/manual/reference/built-in-roles/#mongodb-authrole-dbAdmin) role.
   final SdkOptional<UserSettingsMongoUserSettingsRole> role;
 
-  const UserSettingsMongoUserSettings({this.databases = const SdkOmitted(), this.role = const SdkOmitted()});
+  const UserSettingsMongoUserSettings(
+      {this.databases = const SdkOmitted(), this.role = const SdkOmitted()});
 
-  UserSettingsMongoUserSettings Function({SdkOptional<List<String>> databases, SdkOptional<UserSettingsMongoUserSettingsRole> role}) get copyWith => _copyWith;
+  UserSettingsMongoUserSettings Function(
+          {SdkOptional<List<String>> databases,
+          SdkOptional<UserSettingsMongoUserSettingsRole> role})
+      get copyWith => _copyWith;
 
-  UserSettingsMongoUserSettings _copyWith({Object? databases = sdkOmittedValue, Object? role = sdkOmittedValue}) => UserSettingsMongoUserSettings(
-    databases: identical(databases, sdkOmittedValue) ? this.databases : databases as SdkOptional<List<String>>,
-    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<UserSettingsMongoUserSettingsRole>,
-  );
+  UserSettingsMongoUserSettings _copyWith(
+          {Object? databases = sdkOmittedValue,
+          Object? role = sdkOmittedValue}) =>
+      UserSettingsMongoUserSettings(
+        databases: identical(databases, sdkOmittedValue)
+            ? this.databases
+            : databases as SdkOptional<List<String>>,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as SdkOptional<UserSettingsMongoUserSettingsRole>,
+      );
 
-  factory UserSettingsMongoUserSettings.fromJson(Map<String, dynamic> json) => UserSettingsMongoUserSettings(
-    databases: json['databases'] != null ? SdkPresent(((json['databases'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    role: json['role'] != null ? SdkPresent((json['role'] != null ? UserSettingsMongoUserSettingsRole.fromJson(json['role'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory UserSettingsMongoUserSettings.fromJson(Map<String, dynamic> json) =>
+      UserSettingsMongoUserSettings(
+        databases: json['databases'] != null
+            ? SdkPresent(((json['databases'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        role: json['role'] != null
+            ? SdkPresent((json['role'] != null
+                ? UserSettingsMongoUserSettingsRole.fromJson(
+                    json['role'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (databases) {
-      SdkPresent<List<String>>(value: final value) => {'databases': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (role) {
-      SdkPresent<UserSettingsMongoUserSettingsRole>(value: final value) => {'role': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (databases) {
+          SdkPresent<List<String>>(value: final value) => {
+              'databases': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (role) {
+          SdkPresent<UserSettingsMongoUserSettingsRole>(value: final value) => {
+              'role': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `opensearch_acl[]` wire field.
 class UserSettingsOpensearchAclItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A regex for matching the indexes that this ACL should apply to.
   final SdkOptional<String> index;
+
   /// Permission set applied to the ACL. 'read' allows user to read from the index. 'write' allows for user to write to the index. 'readwrite' allows for both 'read' and 'write' permission. 'deny'(default) restricts user from performing any operation over an index. 'admin' allows for 'readwrite' as well as any operations to administer the index.
   final SdkOptional<UserSettingsOpensearchAclItemPermission> permission;
 
-  const UserSettingsOpensearchAclItem({this.index = const SdkOmitted(), this.permission = const SdkOmitted()});
+  const UserSettingsOpensearchAclItem(
+      {this.index = const SdkOmitted(), this.permission = const SdkOmitted()});
 
-  UserSettingsOpensearchAclItem Function({SdkOptional<String> index, SdkOptional<UserSettingsOpensearchAclItemPermission> permission}) get copyWith => _copyWith;
+  UserSettingsOpensearchAclItem Function(
+          {SdkOptional<String> index,
+          SdkOptional<UserSettingsOpensearchAclItemPermission> permission})
+      get copyWith => _copyWith;
 
-  UserSettingsOpensearchAclItem _copyWith({Object? index = sdkOmittedValue, Object? permission = sdkOmittedValue}) => UserSettingsOpensearchAclItem(
-    index: identical(index, sdkOmittedValue) ? this.index : index as SdkOptional<String>,
-    permission: identical(permission, sdkOmittedValue) ? this.permission : permission as SdkOptional<UserSettingsOpensearchAclItemPermission>,
-  );
+  UserSettingsOpensearchAclItem _copyWith(
+          {Object? index = sdkOmittedValue,
+          Object? permission = sdkOmittedValue}) =>
+      UserSettingsOpensearchAclItem(
+        index: identical(index, sdkOmittedValue)
+            ? this.index
+            : index as SdkOptional<String>,
+        permission: identical(permission, sdkOmittedValue)
+            ? this.permission
+            : permission
+                as SdkOptional<UserSettingsOpensearchAclItemPermission>,
+      );
 
-  factory UserSettingsOpensearchAclItem.fromJson(Map<String, dynamic> json) => UserSettingsOpensearchAclItem(
-    index: json['index'] != null ? SdkPresent((json['index'] as String?)!) : const SdkOmitted(),
-    permission: json['permission'] != null ? SdkPresent((json['permission'] != null ? UserSettingsOpensearchAclItemPermission.fromJson(json['permission'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory UserSettingsOpensearchAclItem.fromJson(Map<String, dynamic> json) =>
+      UserSettingsOpensearchAclItem(
+        index: json['index'] != null
+            ? SdkPresent((json['index'] as String?)!)
+            : const SdkOmitted(),
+        permission: json['permission'] != null
+            ? SdkPresent((json['permission'] != null
+                ? UserSettingsOpensearchAclItemPermission.fromJson(
+                    json['permission'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (index) {
-      SdkPresent<String>(value: final value) => {'index': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (permission) {
-      SdkPresent<UserSettingsOpensearchAclItemPermission>(value: final value) => {'permission': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (index) {
+          SdkPresent<String>(value: final value) => {
+              'index': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (permission) {
+          SdkPresent<UserSettingsOpensearchAclItemPermission>(
+            value: final value
+          ) =>
+            {
+              'permission': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `acl[]` wire field.
 class UserSettingsAclItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An identifier for the ACL. Will be computed after the ACL is created/updated.
   final SdkOptional<String> id;
+
   /// A regex for matching the topic(s) that this ACL should apply to.
   final String topic;
+
   /// Permission set applied to the ACL. 'consume' allows for messages to be consumed from the topic. 'produce' allows for messages to be published to the topic. 'produceconsume' allows for both 'consume' and 'produce' permission. 'admin' allows for 'produceconsume' as well as any operations to administer the topic (delete, update).
   final UserSettingsAclItemPermission permission;
 
-  const UserSettingsAclItem({this.id = const SdkOmitted(), required this.topic, required this.permission});
+  const UserSettingsAclItem(
+      {this.id = const SdkOmitted(),
+      required this.topic,
+      required this.permission});
 
-  UserSettingsAclItem Function({SdkOptional<String> id, String topic, UserSettingsAclItemPermission permission}) get copyWith => _copyWith;
+  UserSettingsAclItem Function(
+      {SdkOptional<String> id,
+      String topic,
+      UserSettingsAclItemPermission permission}) get copyWith => _copyWith;
 
-  UserSettingsAclItem _copyWith({Object? id = sdkOmittedValue, Object? topic = sdkOmittedValue, Object? permission = sdkOmittedValue}) => UserSettingsAclItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    topic: identical(topic, sdkOmittedValue) ? this.topic : topic as String,
-    permission: identical(permission, sdkOmittedValue) ? this.permission : permission as UserSettingsAclItemPermission,
-  );
+  UserSettingsAclItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? topic = sdkOmittedValue,
+          Object? permission = sdkOmittedValue}) =>
+      UserSettingsAclItem(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        topic: identical(topic, sdkOmittedValue) ? this.topic : topic as String,
+        permission: identical(permission, sdkOmittedValue)
+            ? this.permission
+            : permission as UserSettingsAclItemPermission,
+      );
 
-  factory UserSettingsAclItem.fromJson(Map<String, dynamic> json) => UserSettingsAclItem(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    topic: (json['topic'] as String?)!,
-    permission: (json['permission'] != null ? UserSettingsAclItemPermission.fromJson(json['permission'] as String) : null)!,
-  );
+  factory UserSettingsAclItem.fromJson(Map<String, dynamic> json) =>
+      UserSettingsAclItem(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        topic: (json['topic'] as String?)!,
+        permission: (json['permission'] != null
+            ? UserSettingsAclItemPermission.fromJson(
+                json['permission'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'topic': topic,
-    'permission': permission.toJson(),
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'topic': topic,
+        'permission': permission.toJson(),
+      };
 }
 
 /// Typed representation of the `UserSettings` API schema.
 class UserSettings {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// For PostgreSQL clusters, set to `true` to grant the user replication privileges. When omitted on create or update, the value defaults to `false` and replication privileges are not granted. This option is not currently supported for other database engines.
   final SdkOptional<bool> pgAllowReplication;
+
   /// ACLs (Access Control Lists) specifying permissions on index within a OpenSearch cluster.
   final SdkOptional<List<UserSettingsOpensearchAclItem>> opensearchAcl;
+
   /// ACLs (Access Control Lists) specifying permissions on topics within a Kafka cluster.
   final SdkOptional<List<UserSettingsAclItem>> acl;
+
   /// MongoDB-specific settings for the user. Configure these when creating a user. Updating MongoDB roles or database access after creation is not supported; recreate the user to change them. This option is not currently supported for other database engines.
   final SdkOptional<UserSettingsMongoUserSettings> mongoUserSettings;
 
-  const UserSettings({this.pgAllowReplication = const SdkOmitted(), this.opensearchAcl = const SdkOmitted(), this.acl = const SdkOmitted(), this.mongoUserSettings = const SdkOmitted()});
+  const UserSettings(
+      {this.pgAllowReplication = const SdkOmitted(),
+      this.opensearchAcl = const SdkOmitted(),
+      this.acl = const SdkOmitted(),
+      this.mongoUserSettings = const SdkOmitted()});
 
-  UserSettings Function({SdkOptional<bool> pgAllowReplication, SdkOptional<List<UserSettingsOpensearchAclItem>> opensearchAcl, SdkOptional<List<UserSettingsAclItem>> acl, SdkOptional<UserSettingsMongoUserSettings> mongoUserSettings}) get copyWith => _copyWith;
+  UserSettings Function(
+          {SdkOptional<bool> pgAllowReplication,
+          SdkOptional<List<UserSettingsOpensearchAclItem>> opensearchAcl,
+          SdkOptional<List<UserSettingsAclItem>> acl,
+          SdkOptional<UserSettingsMongoUserSettings> mongoUserSettings})
+      get copyWith => _copyWith;
 
-  UserSettings _copyWith({Object? pgAllowReplication = sdkOmittedValue, Object? opensearchAcl = sdkOmittedValue, Object? acl = sdkOmittedValue, Object? mongoUserSettings = sdkOmittedValue}) => UserSettings(
-    pgAllowReplication: identical(pgAllowReplication, sdkOmittedValue) ? this.pgAllowReplication : pgAllowReplication as SdkOptional<bool>,
-    opensearchAcl: identical(opensearchAcl, sdkOmittedValue) ? this.opensearchAcl : opensearchAcl as SdkOptional<List<UserSettingsOpensearchAclItem>>,
-    acl: identical(acl, sdkOmittedValue) ? this.acl : acl as SdkOptional<List<UserSettingsAclItem>>,
-    mongoUserSettings: identical(mongoUserSettings, sdkOmittedValue) ? this.mongoUserSettings : mongoUserSettings as SdkOptional<UserSettingsMongoUserSettings>,
-  );
+  UserSettings _copyWith(
+          {Object? pgAllowReplication = sdkOmittedValue,
+          Object? opensearchAcl = sdkOmittedValue,
+          Object? acl = sdkOmittedValue,
+          Object? mongoUserSettings = sdkOmittedValue}) =>
+      UserSettings(
+        pgAllowReplication: identical(pgAllowReplication, sdkOmittedValue)
+            ? this.pgAllowReplication
+            : pgAllowReplication as SdkOptional<bool>,
+        opensearchAcl: identical(opensearchAcl, sdkOmittedValue)
+            ? this.opensearchAcl
+            : opensearchAcl as SdkOptional<List<UserSettingsOpensearchAclItem>>,
+        acl: identical(acl, sdkOmittedValue)
+            ? this.acl
+            : acl as SdkOptional<List<UserSettingsAclItem>>,
+        mongoUserSettings: identical(mongoUserSettings, sdkOmittedValue)
+            ? this.mongoUserSettings
+            : mongoUserSettings as SdkOptional<UserSettingsMongoUserSettings>,
+      );
 
   factory UserSettings.fromJson(Map<String, dynamic> json) => UserSettings(
-    pgAllowReplication: json['pg_allow_replication'] != null ? SdkPresent((json['pg_allow_replication'] as bool?)!) : const SdkOmitted(),
-    opensearchAcl: json['opensearch_acl'] != null ? SdkPresent(((json['opensearch_acl'] as List?)?.map((e) => UserSettingsOpensearchAclItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    acl: json['acl'] != null ? SdkPresent(((json['acl'] as List?)?.map((e) => UserSettingsAclItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    mongoUserSettings: json['mongo_user_settings'] != null ? SdkPresent((json['mongo_user_settings'] != null ? UserSettingsMongoUserSettings.fromJson(json['mongo_user_settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        pgAllowReplication: json['pg_allow_replication'] != null
+            ? SdkPresent((json['pg_allow_replication'] as bool?)!)
+            : const SdkOmitted(),
+        opensearchAcl: json['opensearch_acl'] != null
+            ? SdkPresent(((json['opensearch_acl'] as List?)
+                ?.map((e) => UserSettingsOpensearchAclItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        acl: json['acl'] != null
+            ? SdkPresent(((json['acl'] as List?)
+                ?.map((e) =>
+                    UserSettingsAclItem.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        mongoUserSettings: json['mongo_user_settings'] != null
+            ? SdkPresent((json['mongo_user_settings'] != null
+                ? UserSettingsMongoUserSettings.fromJson(
+                    json['mongo_user_settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (pgAllowReplication) {
-      SdkPresent<bool>(value: final value) => {'pg_allow_replication': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (opensearchAcl) {
-      SdkPresent<List<UserSettingsOpensearchAclItem>>(value: final value) => {'opensearch_acl': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (acl) {
-      SdkPresent<List<UserSettingsAclItem>>(value: final value) => {'acl': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (mongoUserSettings) {
-      SdkPresent<UserSettingsMongoUserSettings>(value: final value) => {'mongo_user_settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (pgAllowReplication) {
+          SdkPresent<bool>(value: final value) => {
+              'pg_allow_replication': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (opensearchAcl) {
+          SdkPresent<List<UserSettingsOpensearchAclItem>>(value: final value) =>
+            {
+              'opensearch_acl': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (acl) {
+          SdkPresent<List<UserSettingsAclItem>>(value: final value) => {
+              'acl': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (mongoUserSettings) {
+          SdkPresent<UserSettingsMongoUserSettings>(value: final value) => {
+              'mongo_user_settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

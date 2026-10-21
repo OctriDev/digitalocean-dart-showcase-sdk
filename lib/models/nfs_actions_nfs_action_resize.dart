@@ -7,24 +7,30 @@ part of 'nfs_actions.dart';
 class NfsActionResizeVariant1Params {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new size for the NFS share.
   final int sizeGib;
 
   const NfsActionResizeVariant1Params({required this.sizeGib});
 
-  NfsActionResizeVariant1Params Function({int sizeGib}) get copyWith => _copyWith;
+  NfsActionResizeVariant1Params Function({int sizeGib}) get copyWith =>
+      _copyWith;
 
-  NfsActionResizeVariant1Params _copyWith({Object? sizeGib = sdkOmittedValue}) => NfsActionResizeVariant1Params(
-    sizeGib: identical(sizeGib, sdkOmittedValue) ? this.sizeGib : sizeGib as int,
-  );
+  NfsActionResizeVariant1Params _copyWith(
+          {Object? sizeGib = sdkOmittedValue}) =>
+      NfsActionResizeVariant1Params(
+        sizeGib:
+            identical(sizeGib, sdkOmittedValue) ? this.sizeGib : sizeGib as int,
+      );
 
-  factory NfsActionResizeVariant1Params.fromJson(Map<String, dynamic> json) => NfsActionResizeVariant1Params(
-    sizeGib: ((json['size_gib'] as num?)?.toInt())!,
-  );
+  factory NfsActionResizeVariant1Params.fromJson(Map<String, dynamic> json) =>
+      NfsActionResizeVariant1Params(
+        sizeGib: ((json['size_gib'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'size_gib': sizeGib,
-  };
+        'size_gib': sizeGib,
+      };
 }
 
 class NfsActionResizeVariant1 {
@@ -34,59 +40,105 @@ class NfsActionResizeVariant1 {
 
   const NfsActionResizeVariant1({this.params = const SdkOmitted()});
 
-  NfsActionResizeVariant1 Function({SdkOptional<NfsActionResizeVariant1Params> params}) get copyWith => _copyWith;
+  NfsActionResizeVariant1 Function(
+          {SdkOptional<NfsActionResizeVariant1Params> params})
+      get copyWith => _copyWith;
 
-  NfsActionResizeVariant1 _copyWith({Object? params = sdkOmittedValue}) => NfsActionResizeVariant1(
-    params: identical(params, sdkOmittedValue) ? this.params : params as SdkOptional<NfsActionResizeVariant1Params>,
-  );
+  NfsActionResizeVariant1 _copyWith({Object? params = sdkOmittedValue}) =>
+      NfsActionResizeVariant1(
+        params: identical(params, sdkOmittedValue)
+            ? this.params
+            : params as SdkOptional<NfsActionResizeVariant1Params>,
+      );
 
-  factory NfsActionResizeVariant1.fromJson(Map<String, dynamic> json) => NfsActionResizeVariant1(
-    params: json['params'] != null ? SdkPresent((json['params'] != null ? NfsActionResizeVariant1Params.fromJson(json['params'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory NfsActionResizeVariant1.fromJson(Map<String, dynamic> json) =>
+      NfsActionResizeVariant1(
+        params: json['params'] != null
+            ? SdkPresent((json['params'] != null
+                ? NfsActionResizeVariant1Params.fromJson(
+                    json['params'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (params) {
-      SdkPresent<NfsActionResizeVariant1Params>(value: final value) => {'params': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (params) {
+          SdkPresent<NfsActionResizeVariant1Params>(value: final value) => {
+              'params': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `NfsActionResize` API schema.
 class NfsActionResize {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of action to initiate for the NFS share (such as resize or snapshot).
   final NfsActionType type_;
+
   /// The DigitalOcean region slug (e.g. atl1, nyc2) where the NFS snapshot resides.
   final SdkOptional<String> region;
   final SdkOptional<NfsActionResizeVariant1Params> params;
 
-  const NfsActionResize({required this.type_, this.region = const SdkOmitted(), this.params = const SdkOmitted()});
+  const NfsActionResize(
+      {required this.type_,
+      this.region = const SdkOmitted(),
+      this.params = const SdkOmitted()});
 
-  NfsActionResize Function({NfsActionType type_, SdkOptional<String> region, SdkOptional<NfsActionResizeVariant1Params> params}) get copyWith => _copyWith;
+  NfsActionResize Function(
+          {NfsActionType type_,
+          SdkOptional<String> region,
+          SdkOptional<NfsActionResizeVariant1Params> params})
+      get copyWith => _copyWith;
 
-  NfsActionResize _copyWith({Object? type_ = sdkOmittedValue, Object? region = sdkOmittedValue, Object? params = sdkOmittedValue}) => NfsActionResize(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as NfsActionType,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    params: identical(params, sdkOmittedValue) ? this.params : params as SdkOptional<NfsActionResizeVariant1Params>,
-  );
+  NfsActionResize _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? params = sdkOmittedValue}) =>
+      NfsActionResize(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as NfsActionType,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        params: identical(params, sdkOmittedValue)
+            ? this.params
+            : params as SdkOptional<NfsActionResizeVariant1Params>,
+      );
 
-  factory NfsActionResize.fromJson(Map<String, dynamic> json) => NfsActionResize(
-    type_: (json['type'] != null ? NfsActionType.fromJson(json['type'] as String) : null)!,
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    params: json['params'] != null ? SdkPresent((json['params'] != null ? NfsActionResizeVariant1Params.fromJson(json['params'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory NfsActionResize.fromJson(Map<String, dynamic> json) =>
+      NfsActionResize(
+        type_: (json['type'] != null
+            ? NfsActionType.fromJson(json['type'] as String)
+            : null)!,
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        params: json['params'] != null
+            ? SdkPresent((json['params'] != null
+                ? NfsActionResizeVariant1Params.fromJson(
+                    json['params'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (params) {
-      SdkPresent<NfsActionResizeVariant1Params>(value: final value) => {'params': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (params) {
+          SdkPresent<NfsActionResizeVariant1Params>(value: final value) => {
+              'params': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

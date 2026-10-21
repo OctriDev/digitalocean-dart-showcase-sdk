@@ -8,33 +8,66 @@ part of 'misc.dart';
 class SubscriptionTierExtended {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A boolean indicating whether your account it eligible to use a certain subscription tier.
   final SdkOptional<bool> eligible;
+
   /// If your account is not eligible to use a certain subscription tier, this will include a list of reasons that prevent you from using the tier.
-  final SdkOptional<List<SubscriptionTierExtendedEligibilityReasonsItem>> eligibilityReasons;
+  final SdkOptional<List<SubscriptionTierExtendedEligibilityReasonsItem>>
+      eligibilityReasons;
 
-  const SubscriptionTierExtended({this.eligible = const SdkOmitted(), this.eligibilityReasons = const SdkOmitted()});
+  const SubscriptionTierExtended(
+      {this.eligible = const SdkOmitted(),
+      this.eligibilityReasons = const SdkOmitted()});
 
-  SubscriptionTierExtended Function({SdkOptional<bool> eligible, SdkOptional<List<SubscriptionTierExtendedEligibilityReasonsItem>> eligibilityReasons}) get copyWith => _copyWith;
+  SubscriptionTierExtended Function(
+      {SdkOptional<bool> eligible,
+      SdkOptional<List<SubscriptionTierExtendedEligibilityReasonsItem>>
+          eligibilityReasons}) get copyWith => _copyWith;
 
-  SubscriptionTierExtended _copyWith({Object? eligible = sdkOmittedValue, Object? eligibilityReasons = sdkOmittedValue}) => SubscriptionTierExtended(
-    eligible: identical(eligible, sdkOmittedValue) ? this.eligible : eligible as SdkOptional<bool>,
-    eligibilityReasons: identical(eligibilityReasons, sdkOmittedValue) ? this.eligibilityReasons : eligibilityReasons as SdkOptional<List<SubscriptionTierExtendedEligibilityReasonsItem>>,
-  );
+  SubscriptionTierExtended _copyWith(
+          {Object? eligible = sdkOmittedValue,
+          Object? eligibilityReasons = sdkOmittedValue}) =>
+      SubscriptionTierExtended(
+        eligible: identical(eligible, sdkOmittedValue)
+            ? this.eligible
+            : eligible as SdkOptional<bool>,
+        eligibilityReasons: identical(eligibilityReasons, sdkOmittedValue)
+            ? this.eligibilityReasons
+            : eligibilityReasons as SdkOptional<
+                List<SubscriptionTierExtendedEligibilityReasonsItem>>,
+      );
 
-  factory SubscriptionTierExtended.fromJson(Map<String, dynamic> json) => SubscriptionTierExtended(
-    eligible: json['eligible'] != null ? SdkPresent((json['eligible'] as bool?)!) : const SdkOmitted(),
-    eligibilityReasons: json['eligibility_reasons'] != null ? SdkPresent(((json['eligibility_reasons'] as List?)?.map((e) => SubscriptionTierExtendedEligibilityReasonsItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-  );
+  factory SubscriptionTierExtended.fromJson(Map<String, dynamic> json) =>
+      SubscriptionTierExtended(
+        eligible: json['eligible'] != null
+            ? SdkPresent((json['eligible'] as bool?)!)
+            : const SdkOmitted(),
+        eligibilityReasons: json['eligibility_reasons'] != null
+            ? SdkPresent(((json['eligibility_reasons'] as List?)
+                ?.map((e) =>
+                    SubscriptionTierExtendedEligibilityReasonsItem.fromJson(
+                        e as String))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eligible) {
-      SdkPresent<bool>(value: final value) => {'eligible': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (eligibilityReasons) {
-      SdkPresent<List<SubscriptionTierExtendedEligibilityReasonsItem>>(value: final value) => {'eligibility_reasons': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (eligible) {
+          SdkPresent<bool>(value: final value) => {
+              'eligible': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (eligibilityReasons) {
+          SdkPresent<List<SubscriptionTierExtendedEligibilityReasonsItem>>(
+            value: final value
+          ) =>
+            {
+              'eligibility_reasons':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,25 +8,37 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetCustomModelOutputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Custom model - user-imported model from HuggingFace, Spaces, etc.
   final SdkOptional<ApiCustomModel> model;
 
   const ApiGetCustomModelOutputPublic({this.model = const SdkOmitted()});
 
-  ApiGetCustomModelOutputPublic Function({SdkOptional<ApiCustomModel> model}) get copyWith => _copyWith;
+  ApiGetCustomModelOutputPublic Function({SdkOptional<ApiCustomModel> model})
+      get copyWith => _copyWith;
 
-  ApiGetCustomModelOutputPublic _copyWith({Object? model = sdkOmittedValue}) => ApiGetCustomModelOutputPublic(
-    model: identical(model, sdkOmittedValue) ? this.model : model as SdkOptional<ApiCustomModel>,
-  );
+  ApiGetCustomModelOutputPublic _copyWith({Object? model = sdkOmittedValue}) =>
+      ApiGetCustomModelOutputPublic(
+        model: identical(model, sdkOmittedValue)
+            ? this.model
+            : model as SdkOptional<ApiCustomModel>,
+      );
 
-  factory ApiGetCustomModelOutputPublic.fromJson(Map<String, dynamic> json) => ApiGetCustomModelOutputPublic(
-    model: json['model'] != null ? SdkPresent((json['model'] != null ? ApiCustomModel.fromJson(json['model'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiGetCustomModelOutputPublic.fromJson(Map<String, dynamic> json) =>
+      ApiGetCustomModelOutputPublic(
+        model: json['model'] != null
+            ? SdkPresent((json['model'] != null
+                ? ApiCustomModel.fromJson(json['model'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (model) {
-      SdkPresent<ApiCustomModel>(value: final value) => {'model': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (model) {
+          SdkPresent<ApiCustomModel>(value: final value) => {
+              'model': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

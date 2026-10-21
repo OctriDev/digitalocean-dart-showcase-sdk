@@ -11,9 +11,8 @@ class WebhookBearerToken {
 
   const WebhookBearerToken();
 
-  factory WebhookBearerToken.fromJson(Map<String, dynamic> json) => WebhookBearerToken(
-  );
+  factory WebhookBearerToken.fromJson(Map<String, dynamic> json) =>
+      WebhookBearerToken();
 
-  Map<String, dynamic> toJson() => {
-  };
+  Map<String, dynamic> toJson() => {};
 }

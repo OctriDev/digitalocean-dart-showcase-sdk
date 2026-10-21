@@ -8,268 +8,600 @@ part of 'agent_platform_api_api_knowledge.dart';
 class ApiKnowledgeBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Time when the knowledge base was added to the agent
   final SdkOptional<String> addedToAgentAt;
+
   /// Creation date / time
   final SdkOptional<String> createdAt;
+
   /// Optional `string` value serialized in the `database_id` wire field.
   final SdkOptional<String> databaseId;
+
   /// Optional `string` value serialized in the `embedding_model_uuid` wire field.
   final SdkOptional<String> embeddingModelUuid;
+
   /// Whether the knowledge base is public or not
   final SdkOptional<bool> isPublic;
+
   /// IndexingJob description
   final SdkOptional<ApiIndexingJob> lastIndexingJob;
+
   /// Name of knowledge base
   final SdkOptional<String> name;
+
   /// Optional `string` value serialized in the `project_id` wire field.
   final SdkOptional<String> projectId;
+
   /// Region code
   final SdkOptional<String> region;
+
   /// Configuration for cross-encoder reranking during retrieval.
   final SdkOptional<ApiRerankingConfiguration> rerankingConfig;
+
   /// Tags to organize related resources
   final SdkOptional<List<String>> tags;
+
   /// Last modified
   final SdkOptional<String> updatedAt;
+
   /// Id of user that created the knowledge base
   final SdkOptional<String> userId;
+
   /// Unique id for knowledge base
   final SdkOptional<String> uuid;
 
-  const ApiKnowledgeBase({this.addedToAgentAt = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.databaseId = const SdkOmitted(), this.embeddingModelUuid = const SdkOmitted(), this.isPublic = const SdkOmitted(), this.lastIndexingJob = const SdkOmitted(), this.name = const SdkOmitted(), this.projectId = const SdkOmitted(), this.region = const SdkOmitted(), this.rerankingConfig = const SdkOmitted(), this.tags = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.userId = const SdkOmitted(), this.uuid = const SdkOmitted()});
+  const ApiKnowledgeBase(
+      {this.addedToAgentAt = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.databaseId = const SdkOmitted(),
+      this.embeddingModelUuid = const SdkOmitted(),
+      this.isPublic = const SdkOmitted(),
+      this.lastIndexingJob = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.projectId = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      this.rerankingConfig = const SdkOmitted(),
+      this.tags = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.userId = const SdkOmitted(),
+      this.uuid = const SdkOmitted()});
 
-  ApiKnowledgeBase Function({SdkOptional<String> addedToAgentAt, SdkOptional<String> createdAt, SdkOptional<String> databaseId, SdkOptional<String> embeddingModelUuid, SdkOptional<bool> isPublic, SdkOptional<ApiIndexingJob> lastIndexingJob, SdkOptional<String> name, SdkOptional<String> projectId, SdkOptional<String> region, SdkOptional<ApiRerankingConfiguration> rerankingConfig, SdkOptional<List<String>> tags, SdkOptional<String> updatedAt, SdkOptional<String> userId, SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiKnowledgeBase Function(
+      {SdkOptional<String> addedToAgentAt,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> databaseId,
+      SdkOptional<String> embeddingModelUuid,
+      SdkOptional<bool> isPublic,
+      SdkOptional<ApiIndexingJob> lastIndexingJob,
+      SdkOptional<String> name,
+      SdkOptional<String> projectId,
+      SdkOptional<String> region,
+      SdkOptional<ApiRerankingConfiguration> rerankingConfig,
+      SdkOptional<List<String>> tags,
+      SdkOptional<String> updatedAt,
+      SdkOptional<String> userId,
+      SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiKnowledgeBase _copyWith({Object? addedToAgentAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? databaseId = sdkOmittedValue, Object? embeddingModelUuid = sdkOmittedValue, Object? isPublic = sdkOmittedValue, Object? lastIndexingJob = sdkOmittedValue, Object? name = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? region = sdkOmittedValue, Object? rerankingConfig = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiKnowledgeBase(
-    addedToAgentAt: identical(addedToAgentAt, sdkOmittedValue) ? this.addedToAgentAt : addedToAgentAt as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    databaseId: identical(databaseId, sdkOmittedValue) ? this.databaseId : databaseId as SdkOptional<String>,
-    embeddingModelUuid: identical(embeddingModelUuid, sdkOmittedValue) ? this.embeddingModelUuid : embeddingModelUuid as SdkOptional<String>,
-    isPublic: identical(isPublic, sdkOmittedValue) ? this.isPublic : isPublic as SdkOptional<bool>,
-    lastIndexingJob: identical(lastIndexingJob, sdkOmittedValue) ? this.lastIndexingJob : lastIndexingJob as SdkOptional<ApiIndexingJob>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    rerankingConfig: identical(rerankingConfig, sdkOmittedValue) ? this.rerankingConfig : rerankingConfig as SdkOptional<ApiRerankingConfiguration>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
-  );
+  ApiKnowledgeBase _copyWith(
+          {Object? addedToAgentAt = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? databaseId = sdkOmittedValue,
+          Object? embeddingModelUuid = sdkOmittedValue,
+          Object? isPublic = sdkOmittedValue,
+          Object? lastIndexingJob = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? projectId = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? rerankingConfig = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? userId = sdkOmittedValue,
+          Object? uuid = sdkOmittedValue}) =>
+      ApiKnowledgeBase(
+        addedToAgentAt: identical(addedToAgentAt, sdkOmittedValue)
+            ? this.addedToAgentAt
+            : addedToAgentAt as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        databaseId: identical(databaseId, sdkOmittedValue)
+            ? this.databaseId
+            : databaseId as SdkOptional<String>,
+        embeddingModelUuid: identical(embeddingModelUuid, sdkOmittedValue)
+            ? this.embeddingModelUuid
+            : embeddingModelUuid as SdkOptional<String>,
+        isPublic: identical(isPublic, sdkOmittedValue)
+            ? this.isPublic
+            : isPublic as SdkOptional<bool>,
+        lastIndexingJob: identical(lastIndexingJob, sdkOmittedValue)
+            ? this.lastIndexingJob
+            : lastIndexingJob as SdkOptional<ApiIndexingJob>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as SdkOptional<String>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        rerankingConfig: identical(rerankingConfig, sdkOmittedValue)
+            ? this.rerankingConfig
+            : rerankingConfig as SdkOptional<ApiRerankingConfiguration>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String>,
+        uuid: identical(uuid, sdkOmittedValue)
+            ? this.uuid
+            : uuid as SdkOptional<String>,
+      );
 
-  factory ApiKnowledgeBase.fromJson(Map<String, dynamic> json) => ApiKnowledgeBase(
-    addedToAgentAt: json['added_to_agent_at'] != null ? SdkPresent((json['added_to_agent_at'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    databaseId: json['database_id'] != null ? SdkPresent((json['database_id'] as String?)!) : const SdkOmitted(),
-    embeddingModelUuid: json['embedding_model_uuid'] != null ? SdkPresent((json['embedding_model_uuid'] as String?)!) : const SdkOmitted(),
-    isPublic: json['is_public'] != null ? SdkPresent((json['is_public'] as bool?)!) : const SdkOmitted(),
-    lastIndexingJob: json['last_indexing_job'] != null ? SdkPresent((json['last_indexing_job'] != null ? ApiIndexingJob.fromJson(json['last_indexing_job'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    rerankingConfig: json['reranking_config'] != null ? SdkPresent((json['reranking_config'] != null ? ApiRerankingConfiguration.fromJson(json['reranking_config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
-    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiKnowledgeBase.fromJson(Map<String, dynamic> json) =>
+      ApiKnowledgeBase(
+        addedToAgentAt: json['added_to_agent_at'] != null
+            ? SdkPresent((json['added_to_agent_at'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        databaseId: json['database_id'] != null
+            ? SdkPresent((json['database_id'] as String?)!)
+            : const SdkOmitted(),
+        embeddingModelUuid: json['embedding_model_uuid'] != null
+            ? SdkPresent((json['embedding_model_uuid'] as String?)!)
+            : const SdkOmitted(),
+        isPublic: json['is_public'] != null
+            ? SdkPresent((json['is_public'] as bool?)!)
+            : const SdkOmitted(),
+        lastIndexingJob: json['last_indexing_job'] != null
+            ? SdkPresent((json['last_indexing_job'] != null
+                ? ApiIndexingJob.fromJson(
+                    json['last_indexing_job'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        projectId: json['project_id'] != null
+            ? SdkPresent((json['project_id'] as String?)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        rerankingConfig: json['reranking_config'] != null
+            ? SdkPresent((json['reranking_config'] != null
+                ? ApiRerankingConfiguration.fromJson(
+                    json['reranking_config'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+        userId: json['user_id'] != null
+            ? SdkPresent((json['user_id'] as String?)!)
+            : const SdkOmitted(),
+        uuid: json['uuid'] != null
+            ? SdkPresent((json['uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (addedToAgentAt) {
-      SdkPresent<String>(value: final value) => {'added_to_agent_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (databaseId) {
-      SdkPresent<String>(value: final value) => {'database_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (embeddingModelUuid) {
-      SdkPresent<String>(value: final value) => {'embedding_model_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (isPublic) {
-      SdkPresent<bool>(value: final value) => {'is_public': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastIndexingJob) {
-      SdkPresent<ApiIndexingJob>(value: final value) => {'last_indexing_job': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (projectId) {
-      SdkPresent<String>(value: final value) => {'project_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (rerankingConfig) {
-      SdkPresent<ApiRerankingConfiguration>(value: final value) => {'reranking_config': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userId) {
-      SdkPresent<String>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (uuid) {
-      SdkPresent<String>(value: final value) => {'uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (addedToAgentAt) {
+          SdkPresent<String>(value: final value) => {
+              'added_to_agent_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (databaseId) {
+          SdkPresent<String>(value: final value) => {
+              'database_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (embeddingModelUuid) {
+          SdkPresent<String>(value: final value) => {
+              'embedding_model_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (isPublic) {
+          SdkPresent<bool>(value: final value) => {
+              'is_public': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastIndexingJob) {
+          SdkPresent<ApiIndexingJob>(value: final value) => {
+              'last_indexing_job': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (projectId) {
+          SdkPresent<String>(value: final value) => {
+              'project_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (rerankingConfig) {
+          SdkPresent<ApiRerankingConfiguration>(value: final value) => {
+              'reranking_config': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userId) {
+          SdkPresent<String>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (uuid) {
+          SdkPresent<String>(value: final value) => {
+              'uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Data Source configuration for Knowledge Bases
 class ApiKnowledgeBaseDataSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// AWS S3 Data Source for Display
   final SdkOptional<ApiAWSDataSourceDisplay> awsDataSource;
+
   /// Name of storage bucket - Deprecated, moved to data_source_details
   final SdkOptional<String> bucketName;
+
   /// Optional enumerated value serialized in the `chunking_algorithm` wire field.
   final SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm;
+
   /// Optional object value serialized in the `chunking_options` wire field.
   final SdkOptional<ApiChunkingOptions> chunkingOptions;
+
   /// Creation date / time
   final SdkOptional<String> createdAt;
+
   /// Dropbox Data Source for Display
   final SdkOptional<ApiDropboxDataSourceDisplay> dropboxDataSource;
+
   /// File to upload as data source for knowledge base.
   final SdkOptional<ApiFileUploadDataSource> fileUploadDataSource;
+
   /// Google Drive Data Source for Display
   final SdkOptional<ApiGoogleDriveDataSourceDisplay> googleDriveDataSource;
+
   /// Path of folder or object in bucket - Deprecated, moved to data_source_details
   final SdkOptional<String> itemPath;
+
   /// Optional object value serialized in the `last_datasource_indexing_job` wire field.
   final SdkOptional<ApiIndexedDataSource> lastDatasourceIndexingJob;
+
   /// Region code - Deprecated, moved to data_source_details
   final SdkOptional<String> region;
+
   /// Spaces Bucket Data Source
   final SdkOptional<ApiSpacesDataSource> spacesDataSource;
+
   /// Last modified
   final SdkOptional<String> updatedAt;
+
   /// Unique id of knowledge base
   final SdkOptional<String> uuid;
+
   /// WebCrawlerDataSource
   final SdkOptional<ApiWebCrawlerDataSource> webCrawlerDataSource;
 
-  const ApiKnowledgeBaseDataSource({this.awsDataSource = const SdkOmitted(), this.bucketName = const SdkOmitted(), this.chunkingAlgorithm = const SdkOmitted(), this.chunkingOptions = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.dropboxDataSource = const SdkOmitted(), this.fileUploadDataSource = const SdkOmitted(), this.googleDriveDataSource = const SdkOmitted(), this.itemPath = const SdkOmitted(), this.lastDatasourceIndexingJob = const SdkOmitted(), this.region = const SdkOmitted(), this.spacesDataSource = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.uuid = const SdkOmitted(), this.webCrawlerDataSource = const SdkOmitted()});
+  const ApiKnowledgeBaseDataSource(
+      {this.awsDataSource = const SdkOmitted(),
+      this.bucketName = const SdkOmitted(),
+      this.chunkingAlgorithm = const SdkOmitted(),
+      this.chunkingOptions = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.dropboxDataSource = const SdkOmitted(),
+      this.fileUploadDataSource = const SdkOmitted(),
+      this.googleDriveDataSource = const SdkOmitted(),
+      this.itemPath = const SdkOmitted(),
+      this.lastDatasourceIndexingJob = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      this.spacesDataSource = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.uuid = const SdkOmitted(),
+      this.webCrawlerDataSource = const SdkOmitted()});
 
-  ApiKnowledgeBaseDataSource Function({SdkOptional<ApiAWSDataSourceDisplay> awsDataSource, SdkOptional<String> bucketName, SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm, SdkOptional<ApiChunkingOptions> chunkingOptions, SdkOptional<String> createdAt, SdkOptional<ApiDropboxDataSourceDisplay> dropboxDataSource, SdkOptional<ApiFileUploadDataSource> fileUploadDataSource, SdkOptional<ApiGoogleDriveDataSourceDisplay> googleDriveDataSource, SdkOptional<String> itemPath, SdkOptional<ApiIndexedDataSource> lastDatasourceIndexingJob, SdkOptional<String> region, SdkOptional<ApiSpacesDataSource> spacesDataSource, SdkOptional<String> updatedAt, SdkOptional<String> uuid, SdkOptional<ApiWebCrawlerDataSource> webCrawlerDataSource}) get copyWith => _copyWith;
+  ApiKnowledgeBaseDataSource Function(
+          {SdkOptional<ApiAWSDataSourceDisplay> awsDataSource,
+          SdkOptional<String> bucketName,
+          SdkOptional<ApiChunkingAlgorithm> chunkingAlgorithm,
+          SdkOptional<ApiChunkingOptions> chunkingOptions,
+          SdkOptional<String> createdAt,
+          SdkOptional<ApiDropboxDataSourceDisplay> dropboxDataSource,
+          SdkOptional<ApiFileUploadDataSource> fileUploadDataSource,
+          SdkOptional<ApiGoogleDriveDataSourceDisplay> googleDriveDataSource,
+          SdkOptional<String> itemPath,
+          SdkOptional<ApiIndexedDataSource> lastDatasourceIndexingJob,
+          SdkOptional<String> region,
+          SdkOptional<ApiSpacesDataSource> spacesDataSource,
+          SdkOptional<String> updatedAt,
+          SdkOptional<String> uuid,
+          SdkOptional<ApiWebCrawlerDataSource> webCrawlerDataSource})
+      get copyWith => _copyWith;
 
-  ApiKnowledgeBaseDataSource _copyWith({Object? awsDataSource = sdkOmittedValue, Object? bucketName = sdkOmittedValue, Object? chunkingAlgorithm = sdkOmittedValue, Object? chunkingOptions = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? dropboxDataSource = sdkOmittedValue, Object? fileUploadDataSource = sdkOmittedValue, Object? googleDriveDataSource = sdkOmittedValue, Object? itemPath = sdkOmittedValue, Object? lastDatasourceIndexingJob = sdkOmittedValue, Object? region = sdkOmittedValue, Object? spacesDataSource = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? uuid = sdkOmittedValue, Object? webCrawlerDataSource = sdkOmittedValue}) => ApiKnowledgeBaseDataSource(
-    awsDataSource: identical(awsDataSource, sdkOmittedValue) ? this.awsDataSource : awsDataSource as SdkOptional<ApiAWSDataSourceDisplay>,
-    bucketName: identical(bucketName, sdkOmittedValue) ? this.bucketName : bucketName as SdkOptional<String>,
-    chunkingAlgorithm: identical(chunkingAlgorithm, sdkOmittedValue) ? this.chunkingAlgorithm : chunkingAlgorithm as SdkOptional<ApiChunkingAlgorithm>,
-    chunkingOptions: identical(chunkingOptions, sdkOmittedValue) ? this.chunkingOptions : chunkingOptions as SdkOptional<ApiChunkingOptions>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    dropboxDataSource: identical(dropboxDataSource, sdkOmittedValue) ? this.dropboxDataSource : dropboxDataSource as SdkOptional<ApiDropboxDataSourceDisplay>,
-    fileUploadDataSource: identical(fileUploadDataSource, sdkOmittedValue) ? this.fileUploadDataSource : fileUploadDataSource as SdkOptional<ApiFileUploadDataSource>,
-    googleDriveDataSource: identical(googleDriveDataSource, sdkOmittedValue) ? this.googleDriveDataSource : googleDriveDataSource as SdkOptional<ApiGoogleDriveDataSourceDisplay>,
-    itemPath: identical(itemPath, sdkOmittedValue) ? this.itemPath : itemPath as SdkOptional<String>,
-    lastDatasourceIndexingJob: identical(lastDatasourceIndexingJob, sdkOmittedValue) ? this.lastDatasourceIndexingJob : lastDatasourceIndexingJob as SdkOptional<ApiIndexedDataSource>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    spacesDataSource: identical(spacesDataSource, sdkOmittedValue) ? this.spacesDataSource : spacesDataSource as SdkOptional<ApiSpacesDataSource>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
-    webCrawlerDataSource: identical(webCrawlerDataSource, sdkOmittedValue) ? this.webCrawlerDataSource : webCrawlerDataSource as SdkOptional<ApiWebCrawlerDataSource>,
-  );
+  ApiKnowledgeBaseDataSource _copyWith(
+          {Object? awsDataSource = sdkOmittedValue,
+          Object? bucketName = sdkOmittedValue,
+          Object? chunkingAlgorithm = sdkOmittedValue,
+          Object? chunkingOptions = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? dropboxDataSource = sdkOmittedValue,
+          Object? fileUploadDataSource = sdkOmittedValue,
+          Object? googleDriveDataSource = sdkOmittedValue,
+          Object? itemPath = sdkOmittedValue,
+          Object? lastDatasourceIndexingJob = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? spacesDataSource = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? uuid = sdkOmittedValue,
+          Object? webCrawlerDataSource = sdkOmittedValue}) =>
+      ApiKnowledgeBaseDataSource(
+        awsDataSource: identical(awsDataSource, sdkOmittedValue)
+            ? this.awsDataSource
+            : awsDataSource as SdkOptional<ApiAWSDataSourceDisplay>,
+        bucketName: identical(bucketName, sdkOmittedValue)
+            ? this.bucketName
+            : bucketName as SdkOptional<String>,
+        chunkingAlgorithm: identical(chunkingAlgorithm, sdkOmittedValue)
+            ? this.chunkingAlgorithm
+            : chunkingAlgorithm as SdkOptional<ApiChunkingAlgorithm>,
+        chunkingOptions: identical(chunkingOptions, sdkOmittedValue)
+            ? this.chunkingOptions
+            : chunkingOptions as SdkOptional<ApiChunkingOptions>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        dropboxDataSource: identical(dropboxDataSource, sdkOmittedValue)
+            ? this.dropboxDataSource
+            : dropboxDataSource as SdkOptional<ApiDropboxDataSourceDisplay>,
+        fileUploadDataSource: identical(fileUploadDataSource, sdkOmittedValue)
+            ? this.fileUploadDataSource
+            : fileUploadDataSource as SdkOptional<ApiFileUploadDataSource>,
+        googleDriveDataSource: identical(googleDriveDataSource, sdkOmittedValue)
+            ? this.googleDriveDataSource
+            : googleDriveDataSource
+                as SdkOptional<ApiGoogleDriveDataSourceDisplay>,
+        itemPath: identical(itemPath, sdkOmittedValue)
+            ? this.itemPath
+            : itemPath as SdkOptional<String>,
+        lastDatasourceIndexingJob: identical(
+                lastDatasourceIndexingJob, sdkOmittedValue)
+            ? this.lastDatasourceIndexingJob
+            : lastDatasourceIndexingJob as SdkOptional<ApiIndexedDataSource>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        spacesDataSource: identical(spacesDataSource, sdkOmittedValue)
+            ? this.spacesDataSource
+            : spacesDataSource as SdkOptional<ApiSpacesDataSource>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+        uuid: identical(uuid, sdkOmittedValue)
+            ? this.uuid
+            : uuid as SdkOptional<String>,
+        webCrawlerDataSource: identical(webCrawlerDataSource, sdkOmittedValue)
+            ? this.webCrawlerDataSource
+            : webCrawlerDataSource as SdkOptional<ApiWebCrawlerDataSource>,
+      );
 
-  factory ApiKnowledgeBaseDataSource.fromJson(Map<String, dynamic> json) => ApiKnowledgeBaseDataSource(
-    awsDataSource: json['aws_data_source'] != null ? SdkPresent((json['aws_data_source'] != null ? ApiAWSDataSourceDisplay.fromJson(json['aws_data_source'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    bucketName: json['bucket_name'] != null ? SdkPresent((json['bucket_name'] as String?)!) : const SdkOmitted(),
-    chunkingAlgorithm: json['chunking_algorithm'] != null ? SdkPresent((json['chunking_algorithm'] != null ? ApiChunkingAlgorithm.fromJson(json['chunking_algorithm'] as String) : null)!) : const SdkOmitted(),
-    chunkingOptions: json['chunking_options'] != null ? SdkPresent((json['chunking_options'] != null ? ApiChunkingOptions.fromJson(json['chunking_options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    dropboxDataSource: json['dropbox_data_source'] != null ? SdkPresent((json['dropbox_data_source'] != null ? ApiDropboxDataSourceDisplay.fromJson(json['dropbox_data_source'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    fileUploadDataSource: json['file_upload_data_source'] != null ? SdkPresent((json['file_upload_data_source'] != null ? ApiFileUploadDataSource.fromJson(json['file_upload_data_source'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    googleDriveDataSource: json['google_drive_data_source'] != null ? SdkPresent((json['google_drive_data_source'] != null ? ApiGoogleDriveDataSourceDisplay.fromJson(json['google_drive_data_source'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    itemPath: json['item_path'] != null ? SdkPresent((json['item_path'] as String?)!) : const SdkOmitted(),
-    lastDatasourceIndexingJob: json['last_datasource_indexing_job'] != null ? SdkPresent((json['last_datasource_indexing_job'] != null ? ApiIndexedDataSource.fromJson(json['last_datasource_indexing_job'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    spacesDataSource: json['spaces_data_source'] != null ? SdkPresent((json['spaces_data_source'] != null ? ApiSpacesDataSource.fromJson(json['spaces_data_source'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
-    webCrawlerDataSource: json['web_crawler_data_source'] != null ? SdkPresent((json['web_crawler_data_source'] != null ? ApiWebCrawlerDataSource.fromJson(json['web_crawler_data_source'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiKnowledgeBaseDataSource.fromJson(Map<String, dynamic> json) =>
+      ApiKnowledgeBaseDataSource(
+        awsDataSource: json['aws_data_source'] != null
+            ? SdkPresent((json['aws_data_source'] != null
+                ? ApiAWSDataSourceDisplay.fromJson(
+                    json['aws_data_source'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        bucketName: json['bucket_name'] != null
+            ? SdkPresent((json['bucket_name'] as String?)!)
+            : const SdkOmitted(),
+        chunkingAlgorithm: json['chunking_algorithm'] != null
+            ? SdkPresent((json['chunking_algorithm'] != null
+                ? ApiChunkingAlgorithm.fromJson(
+                    json['chunking_algorithm'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        chunkingOptions: json['chunking_options'] != null
+            ? SdkPresent((json['chunking_options'] != null
+                ? ApiChunkingOptions.fromJson(
+                    json['chunking_options'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        dropboxDataSource: json['dropbox_data_source'] != null
+            ? SdkPresent((json['dropbox_data_source'] != null
+                ? ApiDropboxDataSourceDisplay.fromJson(
+                    json['dropbox_data_source'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        fileUploadDataSource: json['file_upload_data_source'] != null
+            ? SdkPresent((json['file_upload_data_source'] != null
+                ? ApiFileUploadDataSource.fromJson(
+                    json['file_upload_data_source'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        googleDriveDataSource: json['google_drive_data_source'] != null
+            ? SdkPresent((json['google_drive_data_source'] != null
+                ? ApiGoogleDriveDataSourceDisplay.fromJson(
+                    json['google_drive_data_source'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        itemPath: json['item_path'] != null
+            ? SdkPresent((json['item_path'] as String?)!)
+            : const SdkOmitted(),
+        lastDatasourceIndexingJob: json['last_datasource_indexing_job'] != null
+            ? SdkPresent((json['last_datasource_indexing_job'] != null
+                ? ApiIndexedDataSource.fromJson(
+                    json['last_datasource_indexing_job']
+                        as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        spacesDataSource: json['spaces_data_source'] != null
+            ? SdkPresent((json['spaces_data_source'] != null
+                ? ApiSpacesDataSource.fromJson(
+                    json['spaces_data_source'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+        uuid: json['uuid'] != null
+            ? SdkPresent((json['uuid'] as String?)!)
+            : const SdkOmitted(),
+        webCrawlerDataSource: json['web_crawler_data_source'] != null
+            ? SdkPresent((json['web_crawler_data_source'] != null
+                ? ApiWebCrawlerDataSource.fromJson(
+                    json['web_crawler_data_source'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (awsDataSource) {
-      SdkPresent<ApiAWSDataSourceDisplay>(value: final value) => {'aws_data_source': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (bucketName) {
-      SdkPresent<String>(value: final value) => {'bucket_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (chunkingAlgorithm) {
-      SdkPresent<ApiChunkingAlgorithm>(value: final value) => {'chunking_algorithm': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (chunkingOptions) {
-      SdkPresent<ApiChunkingOptions>(value: final value) => {'chunking_options': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dropboxDataSource) {
-      SdkPresent<ApiDropboxDataSourceDisplay>(value: final value) => {'dropbox_data_source': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fileUploadDataSource) {
-      SdkPresent<ApiFileUploadDataSource>(value: final value) => {'file_upload_data_source': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (googleDriveDataSource) {
-      SdkPresent<ApiGoogleDriveDataSourceDisplay>(value: final value) => {'google_drive_data_source': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (itemPath) {
-      SdkPresent<String>(value: final value) => {'item_path': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastDatasourceIndexingJob) {
-      SdkPresent<ApiIndexedDataSource>(value: final value) => {'last_datasource_indexing_job': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (spacesDataSource) {
-      SdkPresent<ApiSpacesDataSource>(value: final value) => {'spaces_data_source': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (uuid) {
-      SdkPresent<String>(value: final value) => {'uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (webCrawlerDataSource) {
-      SdkPresent<ApiWebCrawlerDataSource>(value: final value) => {'web_crawler_data_source': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (awsDataSource) {
+          SdkPresent<ApiAWSDataSourceDisplay>(value: final value) => {
+              'aws_data_source': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (bucketName) {
+          SdkPresent<String>(value: final value) => {
+              'bucket_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (chunkingAlgorithm) {
+          SdkPresent<ApiChunkingAlgorithm>(value: final value) => {
+              'chunking_algorithm': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (chunkingOptions) {
+          SdkPresent<ApiChunkingOptions>(value: final value) => {
+              'chunking_options': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dropboxDataSource) {
+          SdkPresent<ApiDropboxDataSourceDisplay>(value: final value) => {
+              'dropbox_data_source': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fileUploadDataSource) {
+          SdkPresent<ApiFileUploadDataSource>(value: final value) => {
+              'file_upload_data_source': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (googleDriveDataSource) {
+          SdkPresent<ApiGoogleDriveDataSourceDisplay>(value: final value) => {
+              'google_drive_data_source': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (itemPath) {
+          SdkPresent<String>(value: final value) => {
+              'item_path': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastDatasourceIndexingJob) {
+          SdkPresent<ApiIndexedDataSource>(value: final value) => {
+              'last_datasource_indexing_job': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (spacesDataSource) {
+          SdkPresent<ApiSpacesDataSource>(value: final value) => {
+              'spaces_data_source': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (uuid) {
+          SdkPresent<String>(value: final value) => {
+              'uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (webCrawlerDataSource) {
+          SdkPresent<ApiWebCrawlerDataSource>(value: final value) => {
+              'web_crawler_data_source': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,33 +8,55 @@ part of 'functions.dart';
 class AccessKeyList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `access_keys` wire field.
   final SdkOptional<List<AccessKey>> accessKeys;
+
   /// Total number of access keys
   final SdkOptional<int> count;
 
-  const AccessKeyList({this.accessKeys = const SdkOmitted(), this.count = const SdkOmitted()});
+  const AccessKeyList(
+      {this.accessKeys = const SdkOmitted(), this.count = const SdkOmitted()});
 
-  AccessKeyList Function({SdkOptional<List<AccessKey>> accessKeys, SdkOptional<int> count}) get copyWith => _copyWith;
+  AccessKeyList Function(
+      {SdkOptional<List<AccessKey>> accessKeys,
+      SdkOptional<int> count}) get copyWith => _copyWith;
 
-  AccessKeyList _copyWith({Object? accessKeys = sdkOmittedValue, Object? count = sdkOmittedValue}) => AccessKeyList(
-    accessKeys: identical(accessKeys, sdkOmittedValue) ? this.accessKeys : accessKeys as SdkOptional<List<AccessKey>>,
-    count: identical(count, sdkOmittedValue) ? this.count : count as SdkOptional<int>,
-  );
+  AccessKeyList _copyWith(
+          {Object? accessKeys = sdkOmittedValue,
+          Object? count = sdkOmittedValue}) =>
+      AccessKeyList(
+        accessKeys: identical(accessKeys, sdkOmittedValue)
+            ? this.accessKeys
+            : accessKeys as SdkOptional<List<AccessKey>>,
+        count: identical(count, sdkOmittedValue)
+            ? this.count
+            : count as SdkOptional<int>,
+      );
 
   factory AccessKeyList.fromJson(Map<String, dynamic> json) => AccessKeyList(
-    accessKeys: json['access_keys'] != null ? SdkPresent(((json['access_keys'] as List?)?.map((e) => AccessKey.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    count: json['count'] != null ? SdkPresent(((json['count'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+        accessKeys: json['access_keys'] != null
+            ? SdkPresent(((json['access_keys'] as List?)
+                ?.map((e) => AccessKey.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        count: json['count'] != null
+            ? SdkPresent(((json['count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (accessKeys) {
-      SdkPresent<List<AccessKey>>(value: final value) => {'access_keys': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (count) {
-      SdkPresent<int>(value: final value) => {'count': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (accessKeys) {
+          SdkPresent<List<AccessKey>>(value: final value) => {
+              'access_keys': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (count) {
+          SdkPresent<int>(value: final value) => {
+              'count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

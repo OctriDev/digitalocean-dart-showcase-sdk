@@ -8,48 +8,91 @@ part of 'batch_inference.dart';
 class BatchListResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The object type, always `list`.
   final BatchListResponseObject object;
+
   /// Batch jobs on this page, ordered newest first.
   final List<Batch> data;
+
   /// ID of the first batch on this page. Null when the page is empty.
   final SdkOptional<String?> firstId;
+
   /// ID of the last batch on this page. Pass as `after` to fetch the next page.
   final SdkOptional<String?> lastId;
+
   /// Whether additional batches exist beyond this page.
   final bool hasMore;
 
-  const BatchListResponse({required this.object, required this.data, this.firstId = const SdkOmitted(), this.lastId = const SdkOmitted(), required this.hasMore});
+  const BatchListResponse(
+      {required this.object,
+      required this.data,
+      this.firstId = const SdkOmitted(),
+      this.lastId = const SdkOmitted(),
+      required this.hasMore});
 
-  BatchListResponse Function({BatchListResponseObject object, List<Batch> data, SdkOptional<String?> firstId, SdkOptional<String?> lastId, bool hasMore}) get copyWith => _copyWith;
+  BatchListResponse Function(
+      {BatchListResponseObject object,
+      List<Batch> data,
+      SdkOptional<String?> firstId,
+      SdkOptional<String?> lastId,
+      bool hasMore}) get copyWith => _copyWith;
 
-  BatchListResponse _copyWith({Object? object = sdkOmittedValue, Object? data = sdkOmittedValue, Object? firstId = sdkOmittedValue, Object? lastId = sdkOmittedValue, Object? hasMore = sdkOmittedValue}) => BatchListResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as BatchListResponseObject,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<Batch>,
-    firstId: identical(firstId, sdkOmittedValue) ? this.firstId : firstId as SdkOptional<String?>,
-    lastId: identical(lastId, sdkOmittedValue) ? this.lastId : lastId as SdkOptional<String?>,
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  BatchListResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? data = sdkOmittedValue,
+          Object? firstId = sdkOmittedValue,
+          Object? lastId = sdkOmittedValue,
+          Object? hasMore = sdkOmittedValue}) =>
+      BatchListResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as BatchListResponseObject,
+        data:
+            identical(data, sdkOmittedValue) ? this.data : data as List<Batch>,
+        firstId: identical(firstId, sdkOmittedValue)
+            ? this.firstId
+            : firstId as SdkOptional<String?>,
+        lastId: identical(lastId, sdkOmittedValue)
+            ? this.lastId
+            : lastId as SdkOptional<String?>,
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory BatchListResponse.fromJson(Map<String, dynamic> json) => BatchListResponse(
-    object: (json['object'] != null ? BatchListResponseObject.fromJson(json['object'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => Batch.fromJson(e as Map<String, dynamic>)).toList())!,
-    firstId: json.containsKey('first_id') ? SdkPresent(json['first_id'] as String?) : const SdkOmitted(),
-    lastId: json.containsKey('last_id') ? SdkPresent(json['last_id'] as String?) : const SdkOmitted(),
-    hasMore: (json['has_more'] as bool?)!,
-  );
+  factory BatchListResponse.fromJson(Map<String, dynamic> json) =>
+      BatchListResponse(
+        object: (json['object'] != null
+            ? BatchListResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        data: ((json['data'] as List?)
+            ?.map((e) => Batch.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        firstId: json.containsKey('first_id')
+            ? SdkPresent(json['first_id'] as String?)
+            : const SdkOmitted(),
+        lastId: json.containsKey('last_id')
+            ? SdkPresent(json['last_id'] as String?)
+            : const SdkOmitted(),
+        hasMore: (json['has_more'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'data': data.map((item) => item.toJson()).toList(),
-    ...switch (firstId) {
-      SdkPresent<String?>(value: final value) => {'first_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastId) {
-      SdkPresent<String?>(value: final value) => {'last_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'has_more': hasMore,
-  };
+        'object': object.toJson(),
+        'data': data.map((item) => item.toJson()).toList(),
+        ...switch (firstId) {
+          SdkPresent<String?>(value: final value) => {
+              'first_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastId) {
+          SdkPresent<String?>(value: final value) => {
+              'last_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'has_more': hasMore,
+      };
 }

@@ -8,41 +8,77 @@ part of 'harness_runtime_workspace.dart';
 class WorkspaceTransferCancelled {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `transfer_id` wire field.
   final SdkOptional<String> transferId;
+
   /// True if this call transitioned an active transfer to terminal; false if it was already terminal.
   final SdkOptional<bool> aborted;
+
   /// Optional enumerated value serialized in the `status` wire field.
   final SdkOptional<WorkspaceTransferCancelledStatus> status;
 
-  const WorkspaceTransferCancelled({this.transferId = const SdkOmitted(), this.aborted = const SdkOmitted(), this.status = const SdkOmitted()});
+  const WorkspaceTransferCancelled(
+      {this.transferId = const SdkOmitted(),
+      this.aborted = const SdkOmitted(),
+      this.status = const SdkOmitted()});
 
-  WorkspaceTransferCancelled Function({SdkOptional<String> transferId, SdkOptional<bool> aborted, SdkOptional<WorkspaceTransferCancelledStatus> status}) get copyWith => _copyWith;
+  WorkspaceTransferCancelled Function(
+          {SdkOptional<String> transferId,
+          SdkOptional<bool> aborted,
+          SdkOptional<WorkspaceTransferCancelledStatus> status})
+      get copyWith => _copyWith;
 
-  WorkspaceTransferCancelled _copyWith({Object? transferId = sdkOmittedValue, Object? aborted = sdkOmittedValue, Object? status = sdkOmittedValue}) => WorkspaceTransferCancelled(
-    transferId: identical(transferId, sdkOmittedValue) ? this.transferId : transferId as SdkOptional<String>,
-    aborted: identical(aborted, sdkOmittedValue) ? this.aborted : aborted as SdkOptional<bool>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<WorkspaceTransferCancelledStatus>,
-  );
+  WorkspaceTransferCancelled _copyWith(
+          {Object? transferId = sdkOmittedValue,
+          Object? aborted = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      WorkspaceTransferCancelled(
+        transferId: identical(transferId, sdkOmittedValue)
+            ? this.transferId
+            : transferId as SdkOptional<String>,
+        aborted: identical(aborted, sdkOmittedValue)
+            ? this.aborted
+            : aborted as SdkOptional<bool>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<WorkspaceTransferCancelledStatus>,
+      );
 
-  factory WorkspaceTransferCancelled.fromJson(Map<String, dynamic> json) => WorkspaceTransferCancelled(
-    transferId: json['transfer_id'] != null ? SdkPresent((json['transfer_id'] as String?)!) : const SdkOmitted(),
-    aborted: json['aborted'] != null ? SdkPresent((json['aborted'] as bool?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? WorkspaceTransferCancelledStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory WorkspaceTransferCancelled.fromJson(Map<String, dynamic> json) =>
+      WorkspaceTransferCancelled(
+        transferId: json['transfer_id'] != null
+            ? SdkPresent((json['transfer_id'] as String?)!)
+            : const SdkOmitted(),
+        aborted: json['aborted'] != null
+            ? SdkPresent((json['aborted'] as bool?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? WorkspaceTransferCancelledStatus.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (transferId) {
-      SdkPresent<String>(value: final value) => {'transfer_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (aborted) {
-      SdkPresent<bool>(value: final value) => {'aborted': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<WorkspaceTransferCancelledStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (transferId) {
+          SdkPresent<String>(value: final value) => {
+              'transfer_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (aborted) {
+          SdkPresent<bool>(value: final value) => {
+              'aborted': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<WorkspaceTransferCancelledStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,33 +8,60 @@ part of 'action_gateway_list.dart';
 class ListSessionsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Sessions, newest first.
   final SdkOptional<List<Session>> sessions;
+
   /// Paging applied to this response and the total number of sessions.
   final SdkOptional<Pagination> pagination;
 
-  const ListSessionsResponse({this.sessions = const SdkOmitted(), this.pagination = const SdkOmitted()});
+  const ListSessionsResponse(
+      {this.sessions = const SdkOmitted(),
+      this.pagination = const SdkOmitted()});
 
-  ListSessionsResponse Function({SdkOptional<List<Session>> sessions, SdkOptional<Pagination> pagination}) get copyWith => _copyWith;
+  ListSessionsResponse Function(
+      {SdkOptional<List<Session>> sessions,
+      SdkOptional<Pagination> pagination}) get copyWith => _copyWith;
 
-  ListSessionsResponse _copyWith({Object? sessions = sdkOmittedValue, Object? pagination = sdkOmittedValue}) => ListSessionsResponse(
-    sessions: identical(sessions, sdkOmittedValue) ? this.sessions : sessions as SdkOptional<List<Session>>,
-    pagination: identical(pagination, sdkOmittedValue) ? this.pagination : pagination as SdkOptional<Pagination>,
-  );
+  ListSessionsResponse _copyWith(
+          {Object? sessions = sdkOmittedValue,
+          Object? pagination = sdkOmittedValue}) =>
+      ListSessionsResponse(
+        sessions: identical(sessions, sdkOmittedValue)
+            ? this.sessions
+            : sessions as SdkOptional<List<Session>>,
+        pagination: identical(pagination, sdkOmittedValue)
+            ? this.pagination
+            : pagination as SdkOptional<Pagination>,
+      );
 
-  factory ListSessionsResponse.fromJson(Map<String, dynamic> json) => ListSessionsResponse(
-    sessions: json['sessions'] != null ? SdkPresent(((json['sessions'] as List?)?.map((e) => Session.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    pagination: json['pagination'] != null ? SdkPresent((json['pagination'] != null ? Pagination.fromJson(json['pagination'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ListSessionsResponse.fromJson(Map<String, dynamic> json) =>
+      ListSessionsResponse(
+        sessions: json['sessions'] != null
+            ? SdkPresent(((json['sessions'] as List?)
+                ?.map((e) => Session.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        pagination: json['pagination'] != null
+            ? SdkPresent((json['pagination'] != null
+                ? Pagination.fromJson(
+                    json['pagination'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sessions) {
-      SdkPresent<List<Session>>(value: final value) => {'sessions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pagination) {
-      SdkPresent<Pagination>(value: final value) => {'pagination': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sessions) {
+          SdkPresent<List<Session>>(value: final value) => {
+              'sessions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pagination) {
+          SdkPresent<Pagination>(value: final value) => {
+              'pagination': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,145 +8,313 @@ part of 'harness_runtime.dart';
 class StreamEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `event_id` wire field.
   final SdkOptional<String> eventId;
+
   /// Optional `string` value serialized in the `run_id` wire field.
   final SdkOptional<String> runId;
+
   /// DO Team ID rendered as a decimal string.
   final SdkOptional<String> tenantId;
+
   /// Optional `string` value serialized in the `session_id` wire field.
   final SdkOptional<String> sessionId;
+
   /// Optional `string` value serialized in the `trace_parent` wire field.
   final SdkOptional<String> traceParent;
+
   /// Optional `date-time`-formatted value serialized in the `timestamp` wire field.
   final SdkOptional<String> timestamp;
+
   /// Producer-supplied sequence number; nonzero values increase monotonically within an ingress stream.
   final SdkOptional<int> seq;
+
   /// Optional `string` value serialized in the `source_event_id` wire field.
   final SdkOptional<String> sourceEventId;
+
   /// Optional `string` value serialized in the `source_event_type` wire field.
   final SdkOptional<String> sourceEventType;
+
   /// Optional runtime-native tenant identifier; distinct from authoritative tenant_id.
   final SdkOptional<String> sourceTenantId;
+
   /// Server-assigned component that submitted the event.
   final SdkOptional<StreamEventProducer> producer;
+
   /// Optional `string` value serialized in the `definition_id` wire field.
   final SdkOptional<String> definitionId;
+
   /// Optional `string` value serialized in the `revision_id` wire field.
   final SdkOptional<String> revisionId;
+
   /// Optional `string` value serialized in the `credential_binding_set_id` wire field.
   final SdkOptional<String> credentialBindingSetId;
+
   /// Canonical SPI event type. The SSE `event:` field carries the same value.
   final SdkOptional<StreamEventType> type_;
+
   /// Type-specific payload, discriminated by `type` (canonical SPI shapes; numeric fields are JSON numbers): - run.started: {agent} - run.token_delta: {text} - run.tool_call_started: {tool_call_id, name, input} - run.tool_call_completed: {tool_call_id, ok, duration_ms, summary} - run.human_input_requested: {hitl_id, payload} - run.human_input_received: {hitl_id, outcome, actor, reason} - run.completed: {total_tokens_in, total_tokens_out, run_cost_micros} - run.failed: {code, message} - run.paused: {reason} - run.resumed: {} - session.updated: {} - run.state_checkpointed: {checkpoint_id, digest} - run.handoff: {from, to, description} - run.usage_recorded: {step_id, model_id, usage: {input_tokens, output_tokens, cached_input_tokens, reasoning_tokens, tool_seconds}} - run.sandbox_allocated: {sandbox_id, kind, template} - run.sandbox_released: {sandbox_id, exit_code, duration_ms} - run.cost_accrued: {running_total_micros, delta_micros} - run.log: {level, message, fields}
   final SdkOptional<Map<String, dynamic>> data;
 
-  const StreamEvent({this.eventId = const SdkOmitted(), this.runId = const SdkOmitted(), this.tenantId = const SdkOmitted(), this.sessionId = const SdkOmitted(), this.traceParent = const SdkOmitted(), this.timestamp = const SdkOmitted(), this.seq = const SdkOmitted(), this.sourceEventId = const SdkOmitted(), this.sourceEventType = const SdkOmitted(), this.sourceTenantId = const SdkOmitted(), this.producer = const SdkOmitted(), this.definitionId = const SdkOmitted(), this.revisionId = const SdkOmitted(), this.credentialBindingSetId = const SdkOmitted(), this.type_ = const SdkOmitted(), this.data = const SdkOmitted()});
+  const StreamEvent(
+      {this.eventId = const SdkOmitted(),
+      this.runId = const SdkOmitted(),
+      this.tenantId = const SdkOmitted(),
+      this.sessionId = const SdkOmitted(),
+      this.traceParent = const SdkOmitted(),
+      this.timestamp = const SdkOmitted(),
+      this.seq = const SdkOmitted(),
+      this.sourceEventId = const SdkOmitted(),
+      this.sourceEventType = const SdkOmitted(),
+      this.sourceTenantId = const SdkOmitted(),
+      this.producer = const SdkOmitted(),
+      this.definitionId = const SdkOmitted(),
+      this.revisionId = const SdkOmitted(),
+      this.credentialBindingSetId = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.data = const SdkOmitted()});
 
-  StreamEvent Function({SdkOptional<String> eventId, SdkOptional<String> runId, SdkOptional<String> tenantId, SdkOptional<String> sessionId, SdkOptional<String> traceParent, SdkOptional<String> timestamp, SdkOptional<int> seq, SdkOptional<String> sourceEventId, SdkOptional<String> sourceEventType, SdkOptional<String> sourceTenantId, SdkOptional<StreamEventProducer> producer, SdkOptional<String> definitionId, SdkOptional<String> revisionId, SdkOptional<String> credentialBindingSetId, SdkOptional<StreamEventType> type_, SdkOptional<Map<String, dynamic>> data}) get copyWith => _copyWith;
+  StreamEvent Function(
+      {SdkOptional<String> eventId,
+      SdkOptional<String> runId,
+      SdkOptional<String> tenantId,
+      SdkOptional<String> sessionId,
+      SdkOptional<String> traceParent,
+      SdkOptional<String> timestamp,
+      SdkOptional<int> seq,
+      SdkOptional<String> sourceEventId,
+      SdkOptional<String> sourceEventType,
+      SdkOptional<String> sourceTenantId,
+      SdkOptional<StreamEventProducer> producer,
+      SdkOptional<String> definitionId,
+      SdkOptional<String> revisionId,
+      SdkOptional<String> credentialBindingSetId,
+      SdkOptional<StreamEventType> type_,
+      SdkOptional<Map<String, dynamic>> data}) get copyWith => _copyWith;
 
-  StreamEvent _copyWith({Object? eventId = sdkOmittedValue, Object? runId = sdkOmittedValue, Object? tenantId = sdkOmittedValue, Object? sessionId = sdkOmittedValue, Object? traceParent = sdkOmittedValue, Object? timestamp = sdkOmittedValue, Object? seq = sdkOmittedValue, Object? sourceEventId = sdkOmittedValue, Object? sourceEventType = sdkOmittedValue, Object? sourceTenantId = sdkOmittedValue, Object? producer = sdkOmittedValue, Object? definitionId = sdkOmittedValue, Object? revisionId = sdkOmittedValue, Object? credentialBindingSetId = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? data = sdkOmittedValue}) => StreamEvent(
-    eventId: identical(eventId, sdkOmittedValue) ? this.eventId : eventId as SdkOptional<String>,
-    runId: identical(runId, sdkOmittedValue) ? this.runId : runId as SdkOptional<String>,
-    tenantId: identical(tenantId, sdkOmittedValue) ? this.tenantId : tenantId as SdkOptional<String>,
-    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as SdkOptional<String>,
-    traceParent: identical(traceParent, sdkOmittedValue) ? this.traceParent : traceParent as SdkOptional<String>,
-    timestamp: identical(timestamp, sdkOmittedValue) ? this.timestamp : timestamp as SdkOptional<String>,
-    seq: identical(seq, sdkOmittedValue) ? this.seq : seq as SdkOptional<int>,
-    sourceEventId: identical(sourceEventId, sdkOmittedValue) ? this.sourceEventId : sourceEventId as SdkOptional<String>,
-    sourceEventType: identical(sourceEventType, sdkOmittedValue) ? this.sourceEventType : sourceEventType as SdkOptional<String>,
-    sourceTenantId: identical(sourceTenantId, sdkOmittedValue) ? this.sourceTenantId : sourceTenantId as SdkOptional<String>,
-    producer: identical(producer, sdkOmittedValue) ? this.producer : producer as SdkOptional<StreamEventProducer>,
-    definitionId: identical(definitionId, sdkOmittedValue) ? this.definitionId : definitionId as SdkOptional<String>,
-    revisionId: identical(revisionId, sdkOmittedValue) ? this.revisionId : revisionId as SdkOptional<String>,
-    credentialBindingSetId: identical(credentialBindingSetId, sdkOmittedValue) ? this.credentialBindingSetId : credentialBindingSetId as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<StreamEventType>,
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<Map<String, dynamic>>,
-  );
+  StreamEvent _copyWith(
+          {Object? eventId = sdkOmittedValue,
+          Object? runId = sdkOmittedValue,
+          Object? tenantId = sdkOmittedValue,
+          Object? sessionId = sdkOmittedValue,
+          Object? traceParent = sdkOmittedValue,
+          Object? timestamp = sdkOmittedValue,
+          Object? seq = sdkOmittedValue,
+          Object? sourceEventId = sdkOmittedValue,
+          Object? sourceEventType = sdkOmittedValue,
+          Object? sourceTenantId = sdkOmittedValue,
+          Object? producer = sdkOmittedValue,
+          Object? definitionId = sdkOmittedValue,
+          Object? revisionId = sdkOmittedValue,
+          Object? credentialBindingSetId = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? data = sdkOmittedValue}) =>
+      StreamEvent(
+        eventId: identical(eventId, sdkOmittedValue)
+            ? this.eventId
+            : eventId as SdkOptional<String>,
+        runId: identical(runId, sdkOmittedValue)
+            ? this.runId
+            : runId as SdkOptional<String>,
+        tenantId: identical(tenantId, sdkOmittedValue)
+            ? this.tenantId
+            : tenantId as SdkOptional<String>,
+        sessionId: identical(sessionId, sdkOmittedValue)
+            ? this.sessionId
+            : sessionId as SdkOptional<String>,
+        traceParent: identical(traceParent, sdkOmittedValue)
+            ? this.traceParent
+            : traceParent as SdkOptional<String>,
+        timestamp: identical(timestamp, sdkOmittedValue)
+            ? this.timestamp
+            : timestamp as SdkOptional<String>,
+        seq: identical(seq, sdkOmittedValue)
+            ? this.seq
+            : seq as SdkOptional<int>,
+        sourceEventId: identical(sourceEventId, sdkOmittedValue)
+            ? this.sourceEventId
+            : sourceEventId as SdkOptional<String>,
+        sourceEventType: identical(sourceEventType, sdkOmittedValue)
+            ? this.sourceEventType
+            : sourceEventType as SdkOptional<String>,
+        sourceTenantId: identical(sourceTenantId, sdkOmittedValue)
+            ? this.sourceTenantId
+            : sourceTenantId as SdkOptional<String>,
+        producer: identical(producer, sdkOmittedValue)
+            ? this.producer
+            : producer as SdkOptional<StreamEventProducer>,
+        definitionId: identical(definitionId, sdkOmittedValue)
+            ? this.definitionId
+            : definitionId as SdkOptional<String>,
+        revisionId: identical(revisionId, sdkOmittedValue)
+            ? this.revisionId
+            : revisionId as SdkOptional<String>,
+        credentialBindingSetId:
+            identical(credentialBindingSetId, sdkOmittedValue)
+                ? this.credentialBindingSetId
+                : credentialBindingSetId as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<StreamEventType>,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<Map<String, dynamic>>,
+      );
 
   factory StreamEvent.fromJson(Map<String, dynamic> json) => StreamEvent(
-    eventId: json['event_id'] != null ? SdkPresent((json['event_id'] as String?)!) : const SdkOmitted(),
-    runId: json['run_id'] != null ? SdkPresent((json['run_id'] as String?)!) : const SdkOmitted(),
-    tenantId: json['tenant_id'] != null ? SdkPresent((json['tenant_id'] as String?)!) : const SdkOmitted(),
-    sessionId: json['session_id'] != null ? SdkPresent((json['session_id'] as String?)!) : const SdkOmitted(),
-    traceParent: json['trace_parent'] != null ? SdkPresent((json['trace_parent'] as String?)!) : const SdkOmitted(),
-    timestamp: json['timestamp'] != null ? SdkPresent((json['timestamp'] as String?)!) : const SdkOmitted(),
-    seq: json['seq'] != null ? SdkPresent(((json['seq'] as num?)?.toInt())!) : const SdkOmitted(),
-    sourceEventId: json['source_event_id'] != null ? SdkPresent((json['source_event_id'] as String?)!) : const SdkOmitted(),
-    sourceEventType: json['source_event_type'] != null ? SdkPresent((json['source_event_type'] as String?)!) : const SdkOmitted(),
-    sourceTenantId: json['source_tenant_id'] != null ? SdkPresent((json['source_tenant_id'] as String?)!) : const SdkOmitted(),
-    producer: json['producer'] != null ? SdkPresent((json['producer'] != null ? StreamEventProducer.fromJson(json['producer'] as String) : null)!) : const SdkOmitted(),
-    definitionId: json['definition_id'] != null ? SdkPresent((json['definition_id'] as String?)!) : const SdkOmitted(),
-    revisionId: json['revision_id'] != null ? SdkPresent((json['revision_id'] as String?)!) : const SdkOmitted(),
-    credentialBindingSetId: json['credential_binding_set_id'] != null ? SdkPresent((json['credential_binding_set_id'] as String?)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? StreamEventType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    data: json['data'] != null ? SdkPresent((json['data'] == null ? null : json['data'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+        eventId: json['event_id'] != null
+            ? SdkPresent((json['event_id'] as String?)!)
+            : const SdkOmitted(),
+        runId: json['run_id'] != null
+            ? SdkPresent((json['run_id'] as String?)!)
+            : const SdkOmitted(),
+        tenantId: json['tenant_id'] != null
+            ? SdkPresent((json['tenant_id'] as String?)!)
+            : const SdkOmitted(),
+        sessionId: json['session_id'] != null
+            ? SdkPresent((json['session_id'] as String?)!)
+            : const SdkOmitted(),
+        traceParent: json['trace_parent'] != null
+            ? SdkPresent((json['trace_parent'] as String?)!)
+            : const SdkOmitted(),
+        timestamp: json['timestamp'] != null
+            ? SdkPresent((json['timestamp'] as String?)!)
+            : const SdkOmitted(),
+        seq: json['seq'] != null
+            ? SdkPresent(((json['seq'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        sourceEventId: json['source_event_id'] != null
+            ? SdkPresent((json['source_event_id'] as String?)!)
+            : const SdkOmitted(),
+        sourceEventType: json['source_event_type'] != null
+            ? SdkPresent((json['source_event_type'] as String?)!)
+            : const SdkOmitted(),
+        sourceTenantId: json['source_tenant_id'] != null
+            ? SdkPresent((json['source_tenant_id'] as String?)!)
+            : const SdkOmitted(),
+        producer: json['producer'] != null
+            ? SdkPresent((json['producer'] != null
+                ? StreamEventProducer.fromJson(json['producer'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        definitionId: json['definition_id'] != null
+            ? SdkPresent((json['definition_id'] as String?)!)
+            : const SdkOmitted(),
+        revisionId: json['revision_id'] != null
+            ? SdkPresent((json['revision_id'] as String?)!)
+            : const SdkOmitted(),
+        credentialBindingSetId: json['credential_binding_set_id'] != null
+            ? SdkPresent((json['credential_binding_set_id'] as String?)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? StreamEventType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        data: json['data'] != null
+            ? SdkPresent((json['data'] == null
+                ? null
+                : json['data'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (eventId) {
-      SdkPresent<String>(value: final value) => {'event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (runId) {
-      SdkPresent<String>(value: final value) => {'run_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tenantId) {
-      SdkPresent<String>(value: final value) => {'tenant_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sessionId) {
-      SdkPresent<String>(value: final value) => {'session_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (traceParent) {
-      SdkPresent<String>(value: final value) => {'trace_parent': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (timestamp) {
-      SdkPresent<String>(value: final value) => {'timestamp': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (seq) {
-      SdkPresent<int>(value: final value) => {'seq': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sourceEventId) {
-      SdkPresent<String>(value: final value) => {'source_event_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sourceEventType) {
-      SdkPresent<String>(value: final value) => {'source_event_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sourceTenantId) {
-      SdkPresent<String>(value: final value) => {'source_tenant_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (producer) {
-      SdkPresent<StreamEventProducer>(value: final value) => {'producer': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (definitionId) {
-      SdkPresent<String>(value: final value) => {'definition_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (revisionId) {
-      SdkPresent<String>(value: final value) => {'revision_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (credentialBindingSetId) {
-      SdkPresent<String>(value: final value) => {'credential_binding_set_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<StreamEventType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (data) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'data': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (eventId) {
+          SdkPresent<String>(value: final value) => {
+              'event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (runId) {
+          SdkPresent<String>(value: final value) => {
+              'run_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tenantId) {
+          SdkPresent<String>(value: final value) => {
+              'tenant_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sessionId) {
+          SdkPresent<String>(value: final value) => {
+              'session_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (traceParent) {
+          SdkPresent<String>(value: final value) => {
+              'trace_parent': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (timestamp) {
+          SdkPresent<String>(value: final value) => {
+              'timestamp': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (seq) {
+          SdkPresent<int>(value: final value) => {
+              'seq': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sourceEventId) {
+          SdkPresent<String>(value: final value) => {
+              'source_event_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sourceEventType) {
+          SdkPresent<String>(value: final value) => {
+              'source_event_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sourceTenantId) {
+          SdkPresent<String>(value: final value) => {
+              'source_tenant_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (producer) {
+          SdkPresent<StreamEventProducer>(value: final value) => {
+              'producer': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (definitionId) {
+          SdkPresent<String>(value: final value) => {
+              'definition_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (revisionId) {
+          SdkPresent<String>(value: final value) => {
+              'revision_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (credentialBindingSetId) {
+          SdkPresent<String>(value: final value) => {
+              'credential_binding_set_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<StreamEventType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (data) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'data': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

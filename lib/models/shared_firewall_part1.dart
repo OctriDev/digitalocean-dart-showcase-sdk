@@ -8,291 +8,603 @@ part of 'shared_firewall.dart';
 class FirewallVariant0PendingChangesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `integer` value serialized in the `droplet_id` wire field.
   final SdkOptional<int> dropletId;
+
   /// Optional `boolean` value serialized in the `removing` wire field.
   final SdkOptional<bool> removing;
+
   /// Optional `string` value serialized in the `status` wire field.
   final SdkOptional<String> status;
 
-  const FirewallVariant0PendingChangesItem({this.dropletId = const SdkOmitted(), this.removing = const SdkOmitted(), this.status = const SdkOmitted()});
+  const FirewallVariant0PendingChangesItem(
+      {this.dropletId = const SdkOmitted(),
+      this.removing = const SdkOmitted(),
+      this.status = const SdkOmitted()});
 
-  FirewallVariant0PendingChangesItem Function({SdkOptional<int> dropletId, SdkOptional<bool> removing, SdkOptional<String> status}) get copyWith => _copyWith;
+  FirewallVariant0PendingChangesItem Function(
+      {SdkOptional<int> dropletId,
+      SdkOptional<bool> removing,
+      SdkOptional<String> status}) get copyWith => _copyWith;
 
-  FirewallVariant0PendingChangesItem _copyWith({Object? dropletId = sdkOmittedValue, Object? removing = sdkOmittedValue, Object? status = sdkOmittedValue}) => FirewallVariant0PendingChangesItem(
-    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as SdkOptional<int>,
-    removing: identical(removing, sdkOmittedValue) ? this.removing : removing as SdkOptional<bool>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
-  );
+  FirewallVariant0PendingChangesItem _copyWith(
+          {Object? dropletId = sdkOmittedValue,
+          Object? removing = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      FirewallVariant0PendingChangesItem(
+        dropletId: identical(dropletId, sdkOmittedValue)
+            ? this.dropletId
+            : dropletId as SdkOptional<int>,
+        removing: identical(removing, sdkOmittedValue)
+            ? this.removing
+            : removing as SdkOptional<bool>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<String>,
+      );
 
-  factory FirewallVariant0PendingChangesItem.fromJson(Map<String, dynamic> json) => FirewallVariant0PendingChangesItem(
-    dropletId: json['droplet_id'] != null ? SdkPresent(((json['droplet_id'] as num?)?.toInt())!) : const SdkOmitted(),
-    removing: json['removing'] != null ? SdkPresent((json['removing'] as bool?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
-  );
+  factory FirewallVariant0PendingChangesItem.fromJson(
+          Map<String, dynamic> json) =>
+      FirewallVariant0PendingChangesItem(
+        dropletId: json['droplet_id'] != null
+            ? SdkPresent(((json['droplet_id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        removing: json['removing'] != null
+            ? SdkPresent((json['removing'] as bool?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (dropletId) {
-      SdkPresent<int>(value: final value) => {'droplet_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (removing) {
-      SdkPresent<bool>(value: final value) => {'removing': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<String>(value: final value) => {'status': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (dropletId) {
+          SdkPresent<int>(value: final value) => {
+              'droplet_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (removing) {
+          SdkPresent<bool>(value: final value) => {
+              'removing': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<String>(value: final value) => {
+              'status': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `firewall` wire field.
 class FirewallVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique ID that can be used to identify and reference a firewall.
   final SdkOptional<String> id;
+
   /// A status string indicating the current state of the firewall. This can be "waiting", "succeeded", or "failed".
   final SdkOptional<FirewallVariant0Status> status;
+
   /// A time value given in ISO8601 combined date and time format that represents when the firewall was created.
   final SdkOptional<String> createdAt;
+
   /// An array of objects each containing the fields "droplet_id", "removing", and "status". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied.
   final SdkOptional<List<FirewallVariant0PendingChangesItem>> pendingChanges;
+
   /// A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-).
   final SdkOptional<String> name;
+
   /// An array containing the IDs of the Droplets assigned to the firewall. &lt;br&gt;&lt;br&gt;Requires `droplet:read` scope.
   final SdkOptional<List<int>?> dropletIds;
+
   /// Optional API value serialized in the `tags` wire field.
   final SdkOptional<List<String>> tags;
 
-  const FirewallVariant0({this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.pendingChanges = const SdkOmitted(), this.name = const SdkOmitted(), this.dropletIds = const SdkOmitted(), this.tags = const SdkOmitted()});
+  const FirewallVariant0(
+      {this.id = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.pendingChanges = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.dropletIds = const SdkOmitted(),
+      this.tags = const SdkOmitted()});
 
-  FirewallVariant0 Function({SdkOptional<String> id, SdkOptional<FirewallVariant0Status> status, SdkOptional<String> createdAt, SdkOptional<List<FirewallVariant0PendingChangesItem>> pendingChanges, SdkOptional<String> name, SdkOptional<List<int>?> dropletIds, SdkOptional<List<String>> tags}) get copyWith => _copyWith;
+  FirewallVariant0 Function(
+      {SdkOptional<String> id,
+      SdkOptional<FirewallVariant0Status> status,
+      SdkOptional<String> createdAt,
+      SdkOptional<List<FirewallVariant0PendingChangesItem>> pendingChanges,
+      SdkOptional<String> name,
+      SdkOptional<List<int>?> dropletIds,
+      SdkOptional<List<String>> tags}) get copyWith => _copyWith;
 
-  FirewallVariant0 _copyWith({Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? pendingChanges = sdkOmittedValue, Object? name = sdkOmittedValue, Object? dropletIds = sdkOmittedValue, Object? tags = sdkOmittedValue}) => FirewallVariant0(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<FirewallVariant0Status>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    pendingChanges: identical(pendingChanges, sdkOmittedValue) ? this.pendingChanges : pendingChanges as SdkOptional<List<FirewallVariant0PendingChangesItem>>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    dropletIds: identical(dropletIds, sdkOmittedValue) ? this.dropletIds : dropletIds as SdkOptional<List<int>?>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-  );
+  FirewallVariant0 _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? pendingChanges = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? dropletIds = sdkOmittedValue,
+          Object? tags = sdkOmittedValue}) =>
+      FirewallVariant0(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<FirewallVariant0Status>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        pendingChanges: identical(pendingChanges, sdkOmittedValue)
+            ? this.pendingChanges
+            : pendingChanges
+                as SdkOptional<List<FirewallVariant0PendingChangesItem>>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        dropletIds: identical(dropletIds, sdkOmittedValue)
+            ? this.dropletIds
+            : dropletIds as SdkOptional<List<int>?>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+      );
 
-  factory FirewallVariant0.fromJson(Map<String, dynamic> json) => FirewallVariant0(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? FirewallVariant0Status.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    pendingChanges: json['pending_changes'] != null ? SdkPresent(((json['pending_changes'] as List?)?.map((e) => FirewallVariant0PendingChangesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    dropletIds: json.containsKey('droplet_ids') ? SdkPresent((json['droplet_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory FirewallVariant0.fromJson(Map<String, dynamic> json) =>
+      FirewallVariant0(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? FirewallVariant0Status.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        pendingChanges: json['pending_changes'] != null
+            ? SdkPresent(((json['pending_changes'] as List?)
+                ?.map((e) => FirewallVariant0PendingChangesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        dropletIds: json.containsKey('droplet_ids')
+            ? SdkPresent((json['droplet_ids'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<FirewallVariant0Status>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pendingChanges) {
-      SdkPresent<List<FirewallVariant0PendingChangesItem>>(value: final value) => {'pending_changes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dropletIds) {
-      SdkPresent<List<int>?>(value: final value) => {'droplet_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<FirewallVariant0Status>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pendingChanges) {
+          SdkPresent<List<FirewallVariant0PendingChangesItem>>(
+            value: final value
+          ) =>
+            {
+              'pending_changes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dropletIds) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'droplet_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `Firewall` API schema.
 class Firewall {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique ID that can be used to identify and reference a firewall.
   final SdkOptional<String> id;
+
   /// A status string indicating the current state of the firewall. This can be "waiting", "succeeded", or "failed".
   final SdkOptional<FirewallVariant0Status> status;
+
   /// A time value given in ISO8601 combined date and time format that represents when the firewall was created.
   final SdkOptional<String> createdAt;
+
   /// An array of objects each containing the fields "droplet_id", "removing", and "status". It is provided to detail exactly which Droplets are having their security policies updated. When empty, all changes have been successfully applied.
   final SdkOptional<List<FirewallVariant0PendingChangesItem>> pendingChanges;
+
   /// A human-readable name for a firewall. The name must begin with an alphanumeric character. Subsequent characters must either be alphanumeric characters, a period (.), or a dash (-).
   final SdkOptional<String> name;
+
   /// An array containing the IDs of the Droplets assigned to the firewall. &lt;br&gt;&lt;br&gt;Requires `droplet:read` scope.
   final SdkOptional<List<int>?> dropletIds;
+
   /// Optional API value serialized in the `tags` wire field.
   final SdkOptional<List<String>> tags;
+
   /// Optional array value serialized in the `inbound_rules` wire field.
   final SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules;
+
   /// Optional array value serialized in the `outbound_rules` wire field.
   final SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules;
 
-  const Firewall({this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.pendingChanges = const SdkOmitted(), this.name = const SdkOmitted(), this.dropletIds = const SdkOmitted(), this.tags = const SdkOmitted(), this.inboundRules = const SdkOmitted(), this.outboundRules = const SdkOmitted()});
+  const Firewall(
+      {this.id = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.pendingChanges = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.dropletIds = const SdkOmitted(),
+      this.tags = const SdkOmitted(),
+      this.inboundRules = const SdkOmitted(),
+      this.outboundRules = const SdkOmitted()});
 
-  Firewall Function({SdkOptional<String> id, SdkOptional<FirewallVariant0Status> status, SdkOptional<String> createdAt, SdkOptional<List<FirewallVariant0PendingChangesItem>> pendingChanges, SdkOptional<String> name, SdkOptional<List<int>?> dropletIds, SdkOptional<List<String>> tags, SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules, SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules}) get copyWith => _copyWith;
+  Firewall Function(
+          {SdkOptional<String> id,
+          SdkOptional<FirewallVariant0Status> status,
+          SdkOptional<String> createdAt,
+          SdkOptional<List<FirewallVariant0PendingChangesItem>> pendingChanges,
+          SdkOptional<String> name,
+          SdkOptional<List<int>?> dropletIds,
+          SdkOptional<List<String>> tags,
+          SdkOptional<List<FirewallRulesInboundRulesItem>?> inboundRules,
+          SdkOptional<List<FirewallRulesOutboundRulesItem>?> outboundRules})
+      get copyWith => _copyWith;
 
-  Firewall _copyWith({Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? pendingChanges = sdkOmittedValue, Object? name = sdkOmittedValue, Object? dropletIds = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? inboundRules = sdkOmittedValue, Object? outboundRules = sdkOmittedValue}) => Firewall(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<FirewallVariant0Status>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    pendingChanges: identical(pendingChanges, sdkOmittedValue) ? this.pendingChanges : pendingChanges as SdkOptional<List<FirewallVariant0PendingChangesItem>>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    dropletIds: identical(dropletIds, sdkOmittedValue) ? this.dropletIds : dropletIds as SdkOptional<List<int>?>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    inboundRules: identical(inboundRules, sdkOmittedValue) ? this.inboundRules : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
-    outboundRules: identical(outboundRules, sdkOmittedValue) ? this.outboundRules : outboundRules as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
-  );
+  Firewall _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? pendingChanges = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? dropletIds = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? inboundRules = sdkOmittedValue,
+          Object? outboundRules = sdkOmittedValue}) =>
+      Firewall(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<FirewallVariant0Status>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        pendingChanges: identical(pendingChanges, sdkOmittedValue)
+            ? this.pendingChanges
+            : pendingChanges
+                as SdkOptional<List<FirewallVariant0PendingChangesItem>>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        dropletIds: identical(dropletIds, sdkOmittedValue)
+            ? this.dropletIds
+            : dropletIds as SdkOptional<List<int>?>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        inboundRules: identical(inboundRules, sdkOmittedValue)
+            ? this.inboundRules
+            : inboundRules as SdkOptional<List<FirewallRulesInboundRulesItem>?>,
+        outboundRules: identical(outboundRules, sdkOmittedValue)
+            ? this.outboundRules
+            : outboundRules
+                as SdkOptional<List<FirewallRulesOutboundRulesItem>?>,
+      );
 
   factory Firewall.fromJson(Map<String, dynamic> json) => Firewall(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? FirewallVariant0Status.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    pendingChanges: json['pending_changes'] != null ? SdkPresent(((json['pending_changes'] as List?)?.map((e) => FirewallVariant0PendingChangesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    dropletIds: json.containsKey('droplet_ids') ? SdkPresent((json['droplet_ids'] as List?)?.map((e) => (e as num).toInt()).toList()) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    inboundRules: json.containsKey('inbound_rules') ? SdkPresent((json['inbound_rules'] as List?)?.map((e) => FirewallRulesInboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-    outboundRules: json.containsKey('outbound_rules') ? SdkPresent((json['outbound_rules'] as List?)?.map((e) => FirewallRulesOutboundRulesItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? FirewallVariant0Status.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        pendingChanges: json['pending_changes'] != null
+            ? SdkPresent(((json['pending_changes'] as List?)
+                ?.map((e) => FirewallVariant0PendingChangesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        dropletIds: json.containsKey('droplet_ids')
+            ? SdkPresent((json['droplet_ids'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        inboundRules: json.containsKey('inbound_rules')
+            ? SdkPresent((json['inbound_rules'] as List?)
+                ?.map((e) => FirewallRulesInboundRulesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+        outboundRules: json.containsKey('outbound_rules')
+            ? SdkPresent((json['outbound_rules'] as List?)
+                ?.map((e) => FirewallRulesOutboundRulesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<FirewallVariant0Status>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pendingChanges) {
-      SdkPresent<List<FirewallVariant0PendingChangesItem>>(value: final value) => {'pending_changes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dropletIds) {
-      SdkPresent<List<int>?>(value: final value) => {'droplet_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inboundRules) {
-      SdkPresent<List<FirewallRulesInboundRulesItem>?>(value: final value) => {'inbound_rules': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outboundRules) {
-      SdkPresent<List<FirewallRulesOutboundRulesItem>?>(value: final value) => {'outbound_rules': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<FirewallVariant0Status>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pendingChanges) {
+          SdkPresent<List<FirewallVariant0PendingChangesItem>>(
+            value: final value
+          ) =>
+            {
+              'pending_changes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dropletIds) {
+          SdkPresent<List<int>?>(value: final value) => {
+              'droplet_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inboundRules) {
+          SdkPresent<List<FirewallRulesInboundRulesItem>?>(
+            value: final value
+          ) =>
+            {
+              'inbound_rules': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outboundRules) {
+          SdkPresent<List<FirewallRulesOutboundRulesItem>?>(
+            value: final value
+          ) =>
+            {
+              'outbound_rules': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `inbound_rules[]` wire field.
 class FirewallRulesInboundRulesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
   final FirewallRulesInboundRulesItemProtocol protocol;
+
   /// The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
   final String ports;
+
   /// The action to be taken when traffic matches the rule. This may be one of `allow` or `deny`. For backward compatibility, this field is optional. When not set, it defaults to `allow`.
   final SdkOptional<FirewallRulesInboundRulesItemAction> action;
+
   /// An object specifying locations from which inbound traffic will be accepted.
   final FirewallRuleTarget sources;
 
-  const FirewallRulesInboundRulesItem({required this.protocol, required this.ports, this.action = const SdkOmitted(), required this.sources});
+  const FirewallRulesInboundRulesItem(
+      {required this.protocol,
+      required this.ports,
+      this.action = const SdkOmitted(),
+      required this.sources});
 
-  FirewallRulesInboundRulesItem Function({FirewallRulesInboundRulesItemProtocol protocol, String ports, SdkOptional<FirewallRulesInboundRulesItemAction> action, FirewallRuleTarget sources}) get copyWith => _copyWith;
+  FirewallRulesInboundRulesItem Function(
+      {FirewallRulesInboundRulesItemProtocol protocol,
+      String ports,
+      SdkOptional<FirewallRulesInboundRulesItemAction> action,
+      FirewallRuleTarget sources}) get copyWith => _copyWith;
 
-  FirewallRulesInboundRulesItem _copyWith({Object? protocol = sdkOmittedValue, Object? ports = sdkOmittedValue, Object? action = sdkOmittedValue, Object? sources = sdkOmittedValue}) => FirewallRulesInboundRulesItem(
-    protocol: identical(protocol, sdkOmittedValue) ? this.protocol : protocol as FirewallRulesInboundRulesItemProtocol,
-    ports: identical(ports, sdkOmittedValue) ? this.ports : ports as String,
-    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<FirewallRulesInboundRulesItemAction>,
-    sources: identical(sources, sdkOmittedValue) ? this.sources : sources as FirewallRuleTarget,
-  );
+  FirewallRulesInboundRulesItem _copyWith(
+          {Object? protocol = sdkOmittedValue,
+          Object? ports = sdkOmittedValue,
+          Object? action = sdkOmittedValue,
+          Object? sources = sdkOmittedValue}) =>
+      FirewallRulesInboundRulesItem(
+        protocol: identical(protocol, sdkOmittedValue)
+            ? this.protocol
+            : protocol as FirewallRulesInboundRulesItemProtocol,
+        ports: identical(ports, sdkOmittedValue) ? this.ports : ports as String,
+        action: identical(action, sdkOmittedValue)
+            ? this.action
+            : action as SdkOptional<FirewallRulesInboundRulesItemAction>,
+        sources: identical(sources, sdkOmittedValue)
+            ? this.sources
+            : sources as FirewallRuleTarget,
+      );
 
-  factory FirewallRulesInboundRulesItem.fromJson(Map<String, dynamic> json) => FirewallRulesInboundRulesItem(
-    protocol: (json['protocol'] != null ? FirewallRulesInboundRulesItemProtocol.fromJson(json['protocol'] as String) : null)!,
-    ports: (json['ports'] as String?)!,
-    action: json['action'] != null ? SdkPresent((json['action'] != null ? FirewallRulesInboundRulesItemAction.fromJson(json['action'] as String) : null)!) : const SdkOmitted(),
-    sources: (json['sources'] != null ? FirewallRuleTarget.fromJson(json['sources'] as Map<String, dynamic>) : null)!,
-  );
+  factory FirewallRulesInboundRulesItem.fromJson(Map<String, dynamic> json) =>
+      FirewallRulesInboundRulesItem(
+        protocol: (json['protocol'] != null
+            ? FirewallRulesInboundRulesItemProtocol.fromJson(
+                json['protocol'] as String)
+            : null)!,
+        ports: (json['ports'] as String?)!,
+        action: json['action'] != null
+            ? SdkPresent((json['action'] != null
+                ? FirewallRulesInboundRulesItemAction.fromJson(
+                    json['action'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        sources: (json['sources'] != null
+            ? FirewallRuleTarget.fromJson(
+                json['sources'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'protocol': protocol.toJson(),
-    'ports': ports,
-    ...switch (action) {
-      SdkPresent<FirewallRulesInboundRulesItemAction>(value: final value) => {'action': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'sources': sources.toJson(),
-  };
+        'protocol': protocol.toJson(),
+        'ports': ports,
+        ...switch (action) {
+          SdkPresent<FirewallRulesInboundRulesItemAction>(value: final value) =>
+            {
+              'action': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'sources': sources.toJson(),
+      };
 }
 
 /// Required object value serialized in the `outbound_rules[]` wire field.
 class FirewallRulesOutboundRulesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of traffic to be allowed. This may be one of `tcp`, `udp`, or `icmp`.
   final FirewallRulesOutboundRulesItemProtocol protocol;
+
   /// The ports on which traffic will be allowed specified as a string containing a single port, a range (e.g. "8000-9000"), or "0" when all ports are open for a protocol. For ICMP rules this parameter will always return "0".
   final String ports;
+
   /// The action to be taken when traffic matches the rule. This may be one of `allow` or `deny`. For backward compatibility, this field is optional. When not set, it defaults to `allow`.
   final SdkOptional<FirewallRulesOutboundRulesItemAction> action;
+
   /// An object specifying locations to which outbound traffic that will be allowed.
   final FirewallRuleTarget destinations;
 
-  const FirewallRulesOutboundRulesItem({required this.protocol, required this.ports, this.action = const SdkOmitted(), required this.destinations});
+  const FirewallRulesOutboundRulesItem(
+      {required this.protocol,
+      required this.ports,
+      this.action = const SdkOmitted(),
+      required this.destinations});
 
-  FirewallRulesOutboundRulesItem Function({FirewallRulesOutboundRulesItemProtocol protocol, String ports, SdkOptional<FirewallRulesOutboundRulesItemAction> action, FirewallRuleTarget destinations}) get copyWith => _copyWith;
+  FirewallRulesOutboundRulesItem Function(
+      {FirewallRulesOutboundRulesItemProtocol protocol,
+      String ports,
+      SdkOptional<FirewallRulesOutboundRulesItemAction> action,
+      FirewallRuleTarget destinations}) get copyWith => _copyWith;
 
-  FirewallRulesOutboundRulesItem _copyWith({Object? protocol = sdkOmittedValue, Object? ports = sdkOmittedValue, Object? action = sdkOmittedValue, Object? destinations = sdkOmittedValue}) => FirewallRulesOutboundRulesItem(
-    protocol: identical(protocol, sdkOmittedValue) ? this.protocol : protocol as FirewallRulesOutboundRulesItemProtocol,
-    ports: identical(ports, sdkOmittedValue) ? this.ports : ports as String,
-    action: identical(action, sdkOmittedValue) ? this.action : action as SdkOptional<FirewallRulesOutboundRulesItemAction>,
-    destinations: identical(destinations, sdkOmittedValue) ? this.destinations : destinations as FirewallRuleTarget,
-  );
+  FirewallRulesOutboundRulesItem _copyWith(
+          {Object? protocol = sdkOmittedValue,
+          Object? ports = sdkOmittedValue,
+          Object? action = sdkOmittedValue,
+          Object? destinations = sdkOmittedValue}) =>
+      FirewallRulesOutboundRulesItem(
+        protocol: identical(protocol, sdkOmittedValue)
+            ? this.protocol
+            : protocol as FirewallRulesOutboundRulesItemProtocol,
+        ports: identical(ports, sdkOmittedValue) ? this.ports : ports as String,
+        action: identical(action, sdkOmittedValue)
+            ? this.action
+            : action as SdkOptional<FirewallRulesOutboundRulesItemAction>,
+        destinations: identical(destinations, sdkOmittedValue)
+            ? this.destinations
+            : destinations as FirewallRuleTarget,
+      );
 
-  factory FirewallRulesOutboundRulesItem.fromJson(Map<String, dynamic> json) => FirewallRulesOutboundRulesItem(
-    protocol: (json['protocol'] != null ? FirewallRulesOutboundRulesItemProtocol.fromJson(json['protocol'] as String) : null)!,
-    ports: (json['ports'] as String?)!,
-    action: json['action'] != null ? SdkPresent((json['action'] != null ? FirewallRulesOutboundRulesItemAction.fromJson(json['action'] as String) : null)!) : const SdkOmitted(),
-    destinations: (json['destinations'] != null ? FirewallRuleTarget.fromJson(json['destinations'] as Map<String, dynamic>) : null)!,
-  );
+  factory FirewallRulesOutboundRulesItem.fromJson(Map<String, dynamic> json) =>
+      FirewallRulesOutboundRulesItem(
+        protocol: (json['protocol'] != null
+            ? FirewallRulesOutboundRulesItemProtocol.fromJson(
+                json['protocol'] as String)
+            : null)!,
+        ports: (json['ports'] as String?)!,
+        action: json['action'] != null
+            ? SdkPresent((json['action'] != null
+                ? FirewallRulesOutboundRulesItemAction.fromJson(
+                    json['action'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        destinations: (json['destinations'] != null
+            ? FirewallRuleTarget.fromJson(
+                json['destinations'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'protocol': protocol.toJson(),
-    'ports': ports,
-    ...switch (action) {
-      SdkPresent<FirewallRulesOutboundRulesItemAction>(value: final value) => {'action': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'destinations': destinations.toJson(),
-  };
+        'protocol': protocol.toJson(),
+        'ports': ports,
+        ...switch (action) {
+          SdkPresent<FirewallRulesOutboundRulesItemAction>(
+            value: final value
+          ) =>
+            {
+              'action': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'destinations': destinations.toJson(),
+      };
 }

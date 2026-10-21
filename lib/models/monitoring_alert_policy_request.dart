@@ -8,62 +8,123 @@ part of 'monitoring.dart';
 class AlertPolicyRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `alerts` wire field.
   final Alerts alerts;
+
   /// Required enumerated value serialized in the `compare` wire field.
   final AlertPolicyRequestCompare compare;
+
   /// Required `string` value serialized in the `description` wire field.
   final String description;
+
   /// Required `boolean` value serialized in the `enabled` wire field.
   final bool enabled;
+
   /// Required array value serialized in the `entities` wire field.
   final List<String> entities;
+
   /// Required array value serialized in the `tags` wire field.
   final List<String> tags;
+
   /// Required enumerated value serialized in the `type` wire field.
   final AlertPolicyRequestType type_;
+
   /// Required `float`-formatted value serialized in the `value` wire field.
   final double value;
+
   /// Required enumerated value serialized in the `window` wire field.
   final AlertPolicyRequestWindow window;
 
-  const AlertPolicyRequest({required this.alerts, required this.compare, required this.description, required this.enabled, required this.entities, required this.tags, required this.type_, required this.value, required this.window});
+  const AlertPolicyRequest(
+      {required this.alerts,
+      required this.compare,
+      required this.description,
+      required this.enabled,
+      required this.entities,
+      required this.tags,
+      required this.type_,
+      required this.value,
+      required this.window});
 
-  AlertPolicyRequest Function({Alerts alerts, AlertPolicyRequestCompare compare, String description, bool enabled, List<String> entities, List<String> tags, AlertPolicyRequestType type_, double value, AlertPolicyRequestWindow window}) get copyWith => _copyWith;
+  AlertPolicyRequest Function(
+      {Alerts alerts,
+      AlertPolicyRequestCompare compare,
+      String description,
+      bool enabled,
+      List<String> entities,
+      List<String> tags,
+      AlertPolicyRequestType type_,
+      double value,
+      AlertPolicyRequestWindow window}) get copyWith => _copyWith;
 
-  AlertPolicyRequest _copyWith({Object? alerts = sdkOmittedValue, Object? compare = sdkOmittedValue, Object? description = sdkOmittedValue, Object? enabled = sdkOmittedValue, Object? entities = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? value = sdkOmittedValue, Object? window = sdkOmittedValue}) => AlertPolicyRequest(
-    alerts: identical(alerts, sdkOmittedValue) ? this.alerts : alerts as Alerts,
-    compare: identical(compare, sdkOmittedValue) ? this.compare : compare as AlertPolicyRequestCompare,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String,
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
-    entities: identical(entities, sdkOmittedValue) ? this.entities : entities as List<String>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as List<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as AlertPolicyRequestType,
-    value: identical(value, sdkOmittedValue) ? this.value : value as double,
-    window: identical(window, sdkOmittedValue) ? this.window : window as AlertPolicyRequestWindow,
-  );
+  AlertPolicyRequest _copyWith(
+          {Object? alerts = sdkOmittedValue,
+          Object? compare = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? enabled = sdkOmittedValue,
+          Object? entities = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? value = sdkOmittedValue,
+          Object? window = sdkOmittedValue}) =>
+      AlertPolicyRequest(
+        alerts:
+            identical(alerts, sdkOmittedValue) ? this.alerts : alerts as Alerts,
+        compare: identical(compare, sdkOmittedValue)
+            ? this.compare
+            : compare as AlertPolicyRequestCompare,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String,
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as bool,
+        entities: identical(entities, sdkOmittedValue)
+            ? this.entities
+            : entities as List<String>,
+        tags:
+            identical(tags, sdkOmittedValue) ? this.tags : tags as List<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as AlertPolicyRequestType,
+        value: identical(value, sdkOmittedValue) ? this.value : value as double,
+        window: identical(window, sdkOmittedValue)
+            ? this.window
+            : window as AlertPolicyRequestWindow,
+      );
 
-  factory AlertPolicyRequest.fromJson(Map<String, dynamic> json) => AlertPolicyRequest(
-    alerts: (json['alerts'] != null ? Alerts.fromJson(json['alerts'] as Map<String, dynamic>) : null)!,
-    compare: (json['compare'] != null ? AlertPolicyRequestCompare.fromJson(json['compare'] as String) : null)!,
-    description: (json['description'] as String?)!,
-    enabled: (json['enabled'] as bool?)!,
-    entities: ((json['entities'] as List?)?.map((e) => e as String).toList())!,
-    tags: ((json['tags'] as List?)?.map((e) => e as String).toList())!,
-    type_: (json['type'] != null ? AlertPolicyRequestType.fromJson(json['type'] as String) : null)!,
-    value: ((json['value'] as num?)?.toDouble())!,
-    window: (json['window'] != null ? AlertPolicyRequestWindow.fromJson(json['window'] as String) : null)!,
-  );
+  factory AlertPolicyRequest.fromJson(Map<String, dynamic> json) =>
+      AlertPolicyRequest(
+        alerts: (json['alerts'] != null
+            ? Alerts.fromJson(json['alerts'] as Map<String, dynamic>)
+            : null)!,
+        compare: (json['compare'] != null
+            ? AlertPolicyRequestCompare.fromJson(json['compare'] as String)
+            : null)!,
+        description: (json['description'] as String?)!,
+        enabled: (json['enabled'] as bool?)!,
+        entities:
+            ((json['entities'] as List?)?.map((e) => e as String).toList())!,
+        tags: ((json['tags'] as List?)?.map((e) => e as String).toList())!,
+        type_: (json['type'] != null
+            ? AlertPolicyRequestType.fromJson(json['type'] as String)
+            : null)!,
+        value: ((json['value'] as num?)?.toDouble())!,
+        window: (json['window'] != null
+            ? AlertPolicyRequestWindow.fromJson(json['window'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'alerts': alerts.toJson(),
-    'compare': compare.toJson(),
-    'description': description,
-    'enabled': enabled,
-    'entities': entities,
-    'tags': tags,
-    'type': type_.toJson(),
-    'value': value,
-    'window': window.toJson(),
-  };
+        'alerts': alerts.toJson(),
+        'compare': compare.toJson(),
+        'description': description,
+        'enabled': enabled,
+        'entities': entities,
+        'tags': tags,
+        'type': type_.toJson(),
+        'value': value,
+        'window': window.toJson(),
+      };
 }

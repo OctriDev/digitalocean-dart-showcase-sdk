@@ -8,51 +8,98 @@ part of 'droplet_autoscale_pools.dart';
 class AutoscalePoolDynamicConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The minimum number of Droplets in an autoscale pool.
   final int minInstances;
+
   /// The maximum number of Droplets in an autoscale pool.
   final int maxInstances;
+
   /// Target CPU utilization as a decimal.
   final SdkOptional<double> targetCpuUtilization;
+
   /// Target memory utilization as a decimal.
   final SdkOptional<double> targetMemoryUtilization;
+
   /// The number of minutes to wait between scaling events in an autoscale pool. Defaults to 10 minutes.
   final SdkOptional<int> cooldownMinutes;
 
-  const AutoscalePoolDynamicConfig({required this.minInstances, required this.maxInstances, this.targetCpuUtilization = const SdkOmitted(), this.targetMemoryUtilization = const SdkOmitted(), this.cooldownMinutes = const SdkOmitted()});
+  const AutoscalePoolDynamicConfig(
+      {required this.minInstances,
+      required this.maxInstances,
+      this.targetCpuUtilization = const SdkOmitted(),
+      this.targetMemoryUtilization = const SdkOmitted(),
+      this.cooldownMinutes = const SdkOmitted()});
 
-  AutoscalePoolDynamicConfig Function({int minInstances, int maxInstances, SdkOptional<double> targetCpuUtilization, SdkOptional<double> targetMemoryUtilization, SdkOptional<int> cooldownMinutes}) get copyWith => _copyWith;
+  AutoscalePoolDynamicConfig Function(
+      {int minInstances,
+      int maxInstances,
+      SdkOptional<double> targetCpuUtilization,
+      SdkOptional<double> targetMemoryUtilization,
+      SdkOptional<int> cooldownMinutes}) get copyWith => _copyWith;
 
-  AutoscalePoolDynamicConfig _copyWith({Object? minInstances = sdkOmittedValue, Object? maxInstances = sdkOmittedValue, Object? targetCpuUtilization = sdkOmittedValue, Object? targetMemoryUtilization = sdkOmittedValue, Object? cooldownMinutes = sdkOmittedValue}) => AutoscalePoolDynamicConfig(
-    minInstances: identical(minInstances, sdkOmittedValue) ? this.minInstances : minInstances as int,
-    maxInstances: identical(maxInstances, sdkOmittedValue) ? this.maxInstances : maxInstances as int,
-    targetCpuUtilization: identical(targetCpuUtilization, sdkOmittedValue) ? this.targetCpuUtilization : targetCpuUtilization as SdkOptional<double>,
-    targetMemoryUtilization: identical(targetMemoryUtilization, sdkOmittedValue) ? this.targetMemoryUtilization : targetMemoryUtilization as SdkOptional<double>,
-    cooldownMinutes: identical(cooldownMinutes, sdkOmittedValue) ? this.cooldownMinutes : cooldownMinutes as SdkOptional<int>,
-  );
+  AutoscalePoolDynamicConfig _copyWith(
+          {Object? minInstances = sdkOmittedValue,
+          Object? maxInstances = sdkOmittedValue,
+          Object? targetCpuUtilization = sdkOmittedValue,
+          Object? targetMemoryUtilization = sdkOmittedValue,
+          Object? cooldownMinutes = sdkOmittedValue}) =>
+      AutoscalePoolDynamicConfig(
+        minInstances: identical(minInstances, sdkOmittedValue)
+            ? this.minInstances
+            : minInstances as int,
+        maxInstances: identical(maxInstances, sdkOmittedValue)
+            ? this.maxInstances
+            : maxInstances as int,
+        targetCpuUtilization: identical(targetCpuUtilization, sdkOmittedValue)
+            ? this.targetCpuUtilization
+            : targetCpuUtilization as SdkOptional<double>,
+        targetMemoryUtilization:
+            identical(targetMemoryUtilization, sdkOmittedValue)
+                ? this.targetMemoryUtilization
+                : targetMemoryUtilization as SdkOptional<double>,
+        cooldownMinutes: identical(cooldownMinutes, sdkOmittedValue)
+            ? this.cooldownMinutes
+            : cooldownMinutes as SdkOptional<int>,
+      );
 
-  factory AutoscalePoolDynamicConfig.fromJson(Map<String, dynamic> json) => AutoscalePoolDynamicConfig(
-    minInstances: ((json['min_instances'] as num?)?.toInt())!,
-    maxInstances: ((json['max_instances'] as num?)?.toInt())!,
-    targetCpuUtilization: json['target_cpu_utilization'] != null ? SdkPresent(((json['target_cpu_utilization'] as num?)?.toDouble())!) : const SdkOmitted(),
-    targetMemoryUtilization: json['target_memory_utilization'] != null ? SdkPresent(((json['target_memory_utilization'] as num?)?.toDouble())!) : const SdkOmitted(),
-    cooldownMinutes: json['cooldown_minutes'] != null ? SdkPresent(((json['cooldown_minutes'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory AutoscalePoolDynamicConfig.fromJson(Map<String, dynamic> json) =>
+      AutoscalePoolDynamicConfig(
+        minInstances: ((json['min_instances'] as num?)?.toInt())!,
+        maxInstances: ((json['max_instances'] as num?)?.toInt())!,
+        targetCpuUtilization: json['target_cpu_utilization'] != null
+            ? SdkPresent(
+                ((json['target_cpu_utilization'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        targetMemoryUtilization: json['target_memory_utilization'] != null
+            ? SdkPresent(
+                ((json['target_memory_utilization'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        cooldownMinutes: json['cooldown_minutes'] != null
+            ? SdkPresent(((json['cooldown_minutes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'min_instances': minInstances,
-    'max_instances': maxInstances,
-    ...switch (targetCpuUtilization) {
-      SdkPresent<double>(value: final value) => {'target_cpu_utilization': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (targetMemoryUtilization) {
-      SdkPresent<double>(value: final value) => {'target_memory_utilization': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (cooldownMinutes) {
-      SdkPresent<int>(value: final value) => {'cooldown_minutes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'min_instances': minInstances,
+        'max_instances': maxInstances,
+        ...switch (targetCpuUtilization) {
+          SdkPresent<double>(value: final value) => {
+              'target_cpu_utilization': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (targetMemoryUtilization) {
+          SdkPresent<double>(value: final value) => {
+              'target_memory_utilization': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (cooldownMinutes) {
+          SdkPresent<int>(value: final value) => {
+              'cooldown_minutes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

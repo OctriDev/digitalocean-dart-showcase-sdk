@@ -8,88 +8,156 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelAPIKeyInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Creation date
   final SdkOptional<String> createdAt;
+
   /// Created by
   final SdkOptional<String> createdBy;
+
   /// Deleted date
   final SdkOptional<String> deletedAt;
+
   /// Name
   final SdkOptional<String> name;
+
   /// Optional `string` value serialized in the `secret_key` wire field.
   final SdkOptional<String> secretKey;
+
   /// Uuid
   final SdkOptional<String> uuid;
 
-  const ApiModelAPIKeyInfo({this.createdAt = const SdkOmitted(), this.createdBy = const SdkOmitted(), this.deletedAt = const SdkOmitted(), this.name = const SdkOmitted(), this.secretKey = const SdkOmitted(), this.uuid = const SdkOmitted()});
+  const ApiModelAPIKeyInfo(
+      {this.createdAt = const SdkOmitted(),
+      this.createdBy = const SdkOmitted(),
+      this.deletedAt = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.secretKey = const SdkOmitted(),
+      this.uuid = const SdkOmitted()});
 
-  ApiModelAPIKeyInfo Function({SdkOptional<String> createdAt, SdkOptional<String> createdBy, SdkOptional<String> deletedAt, SdkOptional<String> name, SdkOptional<String> secretKey, SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiModelAPIKeyInfo Function(
+      {SdkOptional<String> createdAt,
+      SdkOptional<String> createdBy,
+      SdkOptional<String> deletedAt,
+      SdkOptional<String> name,
+      SdkOptional<String> secretKey,
+      SdkOptional<String> uuid}) get copyWith => _copyWith;
 
-  ApiModelAPIKeyInfo _copyWith({Object? createdAt = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? deletedAt = sdkOmittedValue, Object? name = sdkOmittedValue, Object? secretKey = sdkOmittedValue, Object? uuid = sdkOmittedValue}) => ApiModelAPIKeyInfo(
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String>,
-    deletedAt: identical(deletedAt, sdkOmittedValue) ? this.deletedAt : deletedAt as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    secretKey: identical(secretKey, sdkOmittedValue) ? this.secretKey : secretKey as SdkOptional<String>,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
-  );
+  ApiModelAPIKeyInfo _copyWith(
+          {Object? createdAt = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue,
+          Object? deletedAt = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? secretKey = sdkOmittedValue,
+          Object? uuid = sdkOmittedValue}) =>
+      ApiModelAPIKeyInfo(
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as SdkOptional<String>,
+        deletedAt: identical(deletedAt, sdkOmittedValue)
+            ? this.deletedAt
+            : deletedAt as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        secretKey: identical(secretKey, sdkOmittedValue)
+            ? this.secretKey
+            : secretKey as SdkOptional<String>,
+        uuid: identical(uuid, sdkOmittedValue)
+            ? this.uuid
+            : uuid as SdkOptional<String>,
+      );
 
-  factory ApiModelAPIKeyInfo.fromJson(Map<String, dynamic> json) => ApiModelAPIKeyInfo(
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    createdBy: json['created_by'] != null ? SdkPresent((json['created_by'] as String?)!) : const SdkOmitted(),
-    deletedAt: json['deleted_at'] != null ? SdkPresent((json['deleted_at'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    secretKey: json['secret_key'] != null ? SdkPresent((json['secret_key'] as String?)!) : const SdkOmitted(),
-    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiModelAPIKeyInfo.fromJson(Map<String, dynamic> json) =>
+      ApiModelAPIKeyInfo(
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        createdBy: json['created_by'] != null
+            ? SdkPresent((json['created_by'] as String?)!)
+            : const SdkOmitted(),
+        deletedAt: json['deleted_at'] != null
+            ? SdkPresent((json['deleted_at'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        secretKey: json['secret_key'] != null
+            ? SdkPresent((json['secret_key'] as String?)!)
+            : const SdkOmitted(),
+        uuid: json['uuid'] != null
+            ? SdkPresent((json['uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdBy) {
-      SdkPresent<String>(value: final value) => {'created_by': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deletedAt) {
-      SdkPresent<String>(value: final value) => {'deleted_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (secretKey) {
-      SdkPresent<String>(value: final value) => {'secret_key': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (uuid) {
-      SdkPresent<String>(value: final value) => {'uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdBy) {
+          SdkPresent<String>(value: final value) => {
+              'created_by': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deletedAt) {
+          SdkPresent<String>(value: final value) => {
+              'deleted_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (secretKey) {
+          SdkPresent<String>(value: final value) => {
+              'secret_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (uuid) {
+          SdkPresent<String>(value: final value) => {
+              'uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Whether rates apply to real-time or batch requests. - MODEL_BILLING_MODE_INTERACTIVE: Real-time request pricing. - MODEL_BILLING_MODE_BATCH: Discounted pricing for asynchronous batch requests.
 final class ApiModelBillingMode {
-
   final String value;
 
   const ApiModelBillingMode._(this.value);
 
-  factory ApiModelBillingMode.fromJson(String value) => ApiModelBillingMode._(value);
+  factory ApiModelBillingMode.fromJson(String value) =>
+      ApiModelBillingMode._(value);
 
-  static const modelBillingModeUnspecified = ApiModelBillingMode._('MODEL_BILLING_MODE_UNSPECIFIED');
-  static const modelBillingModeInteractive = ApiModelBillingMode._('MODEL_BILLING_MODE_INTERACTIVE');
-  static const modelBillingModeBatch = ApiModelBillingMode._('MODEL_BILLING_MODE_BATCH');
+  static const modelBillingModeUnspecified =
+      ApiModelBillingMode._('MODEL_BILLING_MODE_UNSPECIFIED');
+  static const modelBillingModeInteractive =
+      ApiModelBillingMode._('MODEL_BILLING_MODE_INTERACTIVE');
+  static const modelBillingModeBatch =
+      ApiModelBillingMode._('MODEL_BILLING_MODE_BATCH');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiModelBillingMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiModelBillingMode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

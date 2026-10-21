@@ -8,65 +8,118 @@ part of 'dedicated_inference.dart';
 class DedicatedInferenceCreateRequestRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Structured configuration for a Dedicated Inference deployment.
   final DedicatedInferenceSpecRequest spec;
+
   /// Key-value pairs for provider tokens (e.g. Hugging Face).
   final SdkOptional<Map<String, String>> accessTokens;
 
-  const DedicatedInferenceCreateRequestRequest({required this.spec, this.accessTokens = const SdkOmitted()});
+  const DedicatedInferenceCreateRequestRequest(
+      {required this.spec, this.accessTokens = const SdkOmitted()});
 
-  DedicatedInferenceCreateRequestRequest Function({DedicatedInferenceSpecRequest spec, SdkOptional<Map<String, String>> accessTokens}) get copyWith => _copyWith;
+  DedicatedInferenceCreateRequestRequest Function(
+      {DedicatedInferenceSpecRequest spec,
+      SdkOptional<Map<String, String>> accessTokens}) get copyWith => _copyWith;
 
-  DedicatedInferenceCreateRequestRequest _copyWith({Object? spec = sdkOmittedValue, Object? accessTokens = sdkOmittedValue}) => DedicatedInferenceCreateRequestRequest(
-    spec: identical(spec, sdkOmittedValue) ? this.spec : spec as DedicatedInferenceSpecRequest,
-    accessTokens: identical(accessTokens, sdkOmittedValue) ? this.accessTokens : accessTokens as SdkOptional<Map<String, String>>,
-  );
+  DedicatedInferenceCreateRequestRequest _copyWith(
+          {Object? spec = sdkOmittedValue,
+          Object? accessTokens = sdkOmittedValue}) =>
+      DedicatedInferenceCreateRequestRequest(
+        spec: identical(spec, sdkOmittedValue)
+            ? this.spec
+            : spec as DedicatedInferenceSpecRequest,
+        accessTokens: identical(accessTokens, sdkOmittedValue)
+            ? this.accessTokens
+            : accessTokens as SdkOptional<Map<String, String>>,
+      );
 
-  factory DedicatedInferenceCreateRequestRequest.fromJson(Map<String, dynamic> json) => DedicatedInferenceCreateRequestRequest(
-    spec: (json['spec'] != null ? DedicatedInferenceSpecRequest.fromJson(json['spec'] as Map<String, dynamic>) : null)!,
-    accessTokens: json['access_tokens'] != null ? SdkPresent((json['access_tokens'] == null ? null : Map<String, dynamic>.from(json['access_tokens'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-  );
+  factory DedicatedInferenceCreateRequestRequest.fromJson(
+          Map<String, dynamic> json) =>
+      DedicatedInferenceCreateRequestRequest(
+        spec: (json['spec'] != null
+            ? DedicatedInferenceSpecRequest.fromJson(
+                json['spec'] as Map<String, dynamic>)
+            : null)!,
+        accessTokens: json['access_tokens'] != null
+            ? SdkPresent((json['access_tokens'] == null
+                ? null
+                : Map<String, dynamic>.from(json['access_tokens'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'spec': spec.toJson(),
-    ...switch (accessTokens) {
-      SdkPresent<Map<String, String>>(value: final value) => {'access_tokens': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'spec': spec.toJson(),
+        ...switch (accessTokens) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'access_tokens': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DedicatedInferenceProvisioning` API schema.
 class DedicatedInferenceProvisioning {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A Dedicated Inference instance.
   final SdkOptional<DedicatedInference> dedicatedInference;
+
   /// Access token for authenticating to Dedicated Inference endpoints.
   final SdkOptional<DedicatedInferenceAccessToken> token;
 
-  const DedicatedInferenceProvisioning({this.dedicatedInference = const SdkOmitted(), this.token = const SdkOmitted()});
+  const DedicatedInferenceProvisioning(
+      {this.dedicatedInference = const SdkOmitted(),
+      this.token = const SdkOmitted()});
 
-  DedicatedInferenceProvisioning Function({SdkOptional<DedicatedInference> dedicatedInference, SdkOptional<DedicatedInferenceAccessToken> token}) get copyWith => _copyWith;
+  DedicatedInferenceProvisioning Function(
+          {SdkOptional<DedicatedInference> dedicatedInference,
+          SdkOptional<DedicatedInferenceAccessToken> token})
+      get copyWith => _copyWith;
 
-  DedicatedInferenceProvisioning _copyWith({Object? dedicatedInference = sdkOmittedValue, Object? token = sdkOmittedValue}) => DedicatedInferenceProvisioning(
-    dedicatedInference: identical(dedicatedInference, sdkOmittedValue) ? this.dedicatedInference : dedicatedInference as SdkOptional<DedicatedInference>,
-    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<DedicatedInferenceAccessToken>,
-  );
+  DedicatedInferenceProvisioning _copyWith(
+          {Object? dedicatedInference = sdkOmittedValue,
+          Object? token = sdkOmittedValue}) =>
+      DedicatedInferenceProvisioning(
+        dedicatedInference: identical(dedicatedInference, sdkOmittedValue)
+            ? this.dedicatedInference
+            : dedicatedInference as SdkOptional<DedicatedInference>,
+        token: identical(token, sdkOmittedValue)
+            ? this.token
+            : token as SdkOptional<DedicatedInferenceAccessToken>,
+      );
 
-  factory DedicatedInferenceProvisioning.fromJson(Map<String, dynamic> json) => DedicatedInferenceProvisioning(
-    dedicatedInference: json['dedicated_inference'] != null ? SdkPresent((json['dedicated_inference'] != null ? DedicatedInference.fromJson(json['dedicated_inference'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    token: json['token'] != null ? SdkPresent((json['token'] != null ? DedicatedInferenceAccessToken.fromJson(json['token'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DedicatedInferenceProvisioning.fromJson(Map<String, dynamic> json) =>
+      DedicatedInferenceProvisioning(
+        dedicatedInference: json['dedicated_inference'] != null
+            ? SdkPresent((json['dedicated_inference'] != null
+                ? DedicatedInference.fromJson(
+                    json['dedicated_inference'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        token: json['token'] != null
+            ? SdkPresent((json['token'] != null
+                ? DedicatedInferenceAccessToken.fromJson(
+                    json['token'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (dedicatedInference) {
-      SdkPresent<DedicatedInference>(value: final value) => {'dedicated_inference': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (token) {
-      SdkPresent<DedicatedInferenceAccessToken>(value: final value) => {'token': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (dedicatedInference) {
+          SdkPresent<DedicatedInference>(value: final value) => {
+              'dedicated_inference': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (token) {
+          SdkPresent<DedicatedInferenceAccessToken>(value: final value) => {
+              'token': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

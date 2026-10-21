@@ -8,49 +8,98 @@ part of 'monitoring.dart';
 class DestinationOmitCredentials {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique identifier for a destination.
   final SdkOptional<String> id;
+
   /// destination name
   final SdkOptional<String> name;
+
   /// The destination type. `opensearch_dbaas` for a DigitalOcean managed OpenSearch cluster or `opensearch_ext` for an externally managed one.
   final SdkOptional<DestinationOmitCredentialsType> type_;
+
   /// OpenSearch destination configuration with `credentials` omitted.
   final SdkOptional<OpensearchConfigOmitCredentials> config;
 
-  const DestinationOmitCredentials({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.type_ = const SdkOmitted(), this.config = const SdkOmitted()});
+  const DestinationOmitCredentials(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.config = const SdkOmitted()});
 
-  DestinationOmitCredentials Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<DestinationOmitCredentialsType> type_, SdkOptional<OpensearchConfigOmitCredentials> config}) get copyWith => _copyWith;
+  DestinationOmitCredentials Function(
+          {SdkOptional<String> id,
+          SdkOptional<String> name,
+          SdkOptional<DestinationOmitCredentialsType> type_,
+          SdkOptional<OpensearchConfigOmitCredentials> config})
+      get copyWith => _copyWith;
 
-  DestinationOmitCredentials _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? config = sdkOmittedValue}) => DestinationOmitCredentials(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<DestinationOmitCredentialsType>,
-    config: identical(config, sdkOmittedValue) ? this.config : config as SdkOptional<OpensearchConfigOmitCredentials>,
-  );
+  DestinationOmitCredentials _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? config = sdkOmittedValue}) =>
+      DestinationOmitCredentials(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<DestinationOmitCredentialsType>,
+        config: identical(config, sdkOmittedValue)
+            ? this.config
+            : config as SdkOptional<OpensearchConfigOmitCredentials>,
+      );
 
-  factory DestinationOmitCredentials.fromJson(Map<String, dynamic> json) => DestinationOmitCredentials(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? DestinationOmitCredentialsType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    config: json['config'] != null ? SdkPresent((json['config'] != null ? OpensearchConfigOmitCredentials.fromJson(json['config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DestinationOmitCredentials.fromJson(Map<String, dynamic> json) =>
+      DestinationOmitCredentials(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? DestinationOmitCredentialsType.fromJson(
+                    json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        config: json['config'] != null
+            ? SdkPresent((json['config'] != null
+                ? OpensearchConfigOmitCredentials.fromJson(
+                    json['config'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<DestinationOmitCredentialsType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (config) {
-      SdkPresent<OpensearchConfigOmitCredentials>(value: final value) => {'config': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<DestinationOmitCredentialsType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (config) {
+          SdkPresent<OpensearchConfigOmitCredentials>(value: final value) => {
+              'config': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

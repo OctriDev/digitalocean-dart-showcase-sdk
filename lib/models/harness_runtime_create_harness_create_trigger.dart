@@ -8,136 +8,254 @@ part of 'harness_runtime_create.dart';
 class CreateTriggerRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// How the trigger fires - on an event (webhook) or on a schedule (cron). Immutable after create.
   final TriggerKind kind;
+
   /// Team-unique (among non-deleted triggers) trigger name. Same rules as session names; not UUID-form.
   final String name;
+
   /// fresh = a new session is created from the trigger's spec on every firing and destroyed after. reuse = the trigger binds an existing PAUSED session, resumed on each firing and paused after; multiple triggers may bind one session.
   final TriggerSessionMode sessionMode;
+
   /// The prompt sent on each fire. For cron it must not contain payload-interpolation placeholders.
   final String promptTemplate;
+
   /// Output-delivery configuration on create/update. Exactly one of email / slack is required for the matching mode and forbidden otherwise; destinations are stored encrypted and never returned.
   final TriggerOutputWrite output;
+
   /// fresh only. Full agents.yaml Agent manifest (YAML or JSON). Any embedded env values are split out and encrypted server-side.
   final SdkOptional<String> sessionTemplate;
+
   /// reuse only. UUID of an existing session owned by the team.
   final SdkOptional<String> boundSessionId;
+
   /// webhook block on create. Omitting provider defaults to custom.
   final SdkOptional<CreateWebhookConfig> webhook;
+
   /// cron block on create.
   final SdkOptional<CreateCronConfig> cron;
 
-  const CreateTriggerRequest({required this.kind, required this.name, required this.sessionMode, required this.promptTemplate, required this.output, this.sessionTemplate = const SdkOmitted(), this.boundSessionId = const SdkOmitted(), this.webhook = const SdkOmitted(), this.cron = const SdkOmitted()});
+  const CreateTriggerRequest(
+      {required this.kind,
+      required this.name,
+      required this.sessionMode,
+      required this.promptTemplate,
+      required this.output,
+      this.sessionTemplate = const SdkOmitted(),
+      this.boundSessionId = const SdkOmitted(),
+      this.webhook = const SdkOmitted(),
+      this.cron = const SdkOmitted()});
 
-  CreateTriggerRequest Function({TriggerKind kind, String name, TriggerSessionMode sessionMode, String promptTemplate, TriggerOutputWrite output, SdkOptional<String> sessionTemplate, SdkOptional<String> boundSessionId, SdkOptional<CreateWebhookConfig> webhook, SdkOptional<CreateCronConfig> cron}) get copyWith => _copyWith;
+  CreateTriggerRequest Function(
+      {TriggerKind kind,
+      String name,
+      TriggerSessionMode sessionMode,
+      String promptTemplate,
+      TriggerOutputWrite output,
+      SdkOptional<String> sessionTemplate,
+      SdkOptional<String> boundSessionId,
+      SdkOptional<CreateWebhookConfig> webhook,
+      SdkOptional<CreateCronConfig> cron}) get copyWith => _copyWith;
 
-  CreateTriggerRequest _copyWith({Object? kind = sdkOmittedValue, Object? name = sdkOmittedValue, Object? sessionMode = sdkOmittedValue, Object? promptTemplate = sdkOmittedValue, Object? output = sdkOmittedValue, Object? sessionTemplate = sdkOmittedValue, Object? boundSessionId = sdkOmittedValue, Object? webhook = sdkOmittedValue, Object? cron = sdkOmittedValue}) => CreateTriggerRequest(
-    kind: identical(kind, sdkOmittedValue) ? this.kind : kind as TriggerKind,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    sessionMode: identical(sessionMode, sdkOmittedValue) ? this.sessionMode : sessionMode as TriggerSessionMode,
-    promptTemplate: identical(promptTemplate, sdkOmittedValue) ? this.promptTemplate : promptTemplate as String,
-    output: identical(output, sdkOmittedValue) ? this.output : output as TriggerOutputWrite,
-    sessionTemplate: identical(sessionTemplate, sdkOmittedValue) ? this.sessionTemplate : sessionTemplate as SdkOptional<String>,
-    boundSessionId: identical(boundSessionId, sdkOmittedValue) ? this.boundSessionId : boundSessionId as SdkOptional<String>,
-    webhook: identical(webhook, sdkOmittedValue) ? this.webhook : webhook as SdkOptional<CreateWebhookConfig>,
-    cron: identical(cron, sdkOmittedValue) ? this.cron : cron as SdkOptional<CreateCronConfig>,
-  );
+  CreateTriggerRequest _copyWith(
+          {Object? kind = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? sessionMode = sdkOmittedValue,
+          Object? promptTemplate = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? sessionTemplate = sdkOmittedValue,
+          Object? boundSessionId = sdkOmittedValue,
+          Object? webhook = sdkOmittedValue,
+          Object? cron = sdkOmittedValue}) =>
+      CreateTriggerRequest(
+        kind:
+            identical(kind, sdkOmittedValue) ? this.kind : kind as TriggerKind,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        sessionMode: identical(sessionMode, sdkOmittedValue)
+            ? this.sessionMode
+            : sessionMode as TriggerSessionMode,
+        promptTemplate: identical(promptTemplate, sdkOmittedValue)
+            ? this.promptTemplate
+            : promptTemplate as String,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as TriggerOutputWrite,
+        sessionTemplate: identical(sessionTemplate, sdkOmittedValue)
+            ? this.sessionTemplate
+            : sessionTemplate as SdkOptional<String>,
+        boundSessionId: identical(boundSessionId, sdkOmittedValue)
+            ? this.boundSessionId
+            : boundSessionId as SdkOptional<String>,
+        webhook: identical(webhook, sdkOmittedValue)
+            ? this.webhook
+            : webhook as SdkOptional<CreateWebhookConfig>,
+        cron: identical(cron, sdkOmittedValue)
+            ? this.cron
+            : cron as SdkOptional<CreateCronConfig>,
+      );
 
-  factory CreateTriggerRequest.fromJson(Map<String, dynamic> json) => CreateTriggerRequest(
-    kind: (json['kind'] != null ? TriggerKind.fromJson(json['kind'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    sessionMode: (json['session_mode'] != null ? TriggerSessionMode.fromJson(json['session_mode'] as String) : null)!,
-    promptTemplate: (json['prompt_template'] as String?)!,
-    output: (json['output'] != null ? TriggerOutputWrite.fromJson(json['output'] as Map<String, dynamic>) : null)!,
-    sessionTemplate: json['session_template'] != null ? SdkPresent((json['session_template'] as String?)!) : const SdkOmitted(),
-    boundSessionId: json['bound_session_id'] != null ? SdkPresent((json['bound_session_id'] as String?)!) : const SdkOmitted(),
-    webhook: json['webhook'] != null ? SdkPresent((json['webhook'] != null ? CreateWebhookConfig.fromJson(json['webhook'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    cron: json['cron'] != null ? SdkPresent((json['cron'] != null ? CreateCronConfig.fromJson(json['cron'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory CreateTriggerRequest.fromJson(Map<String, dynamic> json) =>
+      CreateTriggerRequest(
+        kind: (json['kind'] != null
+            ? TriggerKind.fromJson(json['kind'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        sessionMode: (json['session_mode'] != null
+            ? TriggerSessionMode.fromJson(json['session_mode'] as String)
+            : null)!,
+        promptTemplate: (json['prompt_template'] as String?)!,
+        output: (json['output'] != null
+            ? TriggerOutputWrite.fromJson(
+                json['output'] as Map<String, dynamic>)
+            : null)!,
+        sessionTemplate: json['session_template'] != null
+            ? SdkPresent((json['session_template'] as String?)!)
+            : const SdkOmitted(),
+        boundSessionId: json['bound_session_id'] != null
+            ? SdkPresent((json['bound_session_id'] as String?)!)
+            : const SdkOmitted(),
+        webhook: json['webhook'] != null
+            ? SdkPresent((json['webhook'] != null
+                ? CreateWebhookConfig.fromJson(
+                    json['webhook'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        cron: json['cron'] != null
+            ? SdkPresent((json['cron'] != null
+                ? CreateCronConfig.fromJson(
+                    json['cron'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'kind': kind.toJson(),
-    'name': name,
-    'session_mode': sessionMode.toJson(),
-    'prompt_template': promptTemplate,
-    'output': output.toJson(),
-    ...switch (sessionTemplate) {
-      SdkPresent<String>(value: final value) => {'session_template': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (boundSessionId) {
-      SdkPresent<String>(value: final value) => {'bound_session_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (webhook) {
-      SdkPresent<CreateWebhookConfig>(value: final value) => {'webhook': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (cron) {
-      SdkPresent<CreateCronConfig>(value: final value) => {'cron': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'kind': kind.toJson(),
+        'name': name,
+        'session_mode': sessionMode.toJson(),
+        'prompt_template': promptTemplate,
+        'output': output.toJson(),
+        ...switch (sessionTemplate) {
+          SdkPresent<String>(value: final value) => {
+              'session_template': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (boundSessionId) {
+          SdkPresent<String>(value: final value) => {
+              'bound_session_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (webhook) {
+          SdkPresent<CreateWebhookConfig>(value: final value) => {
+              'webhook': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (cron) {
+          SdkPresent<CreateCronConfig>(value: final value) => {
+              'cron': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CreateTriggerResponse` API schema.
 class CreateTriggerResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A single automation bound to exactly one agent/session (agent == session in v1). The nested block present depends on `kind` (webhook xor cron) and `session_mode` (fresh =&gt; session_template; reuse =&gt; bound_session_id). `agent_kind` is read-only and derived; the webhook secret, the output email address / Slack webhook URL, and any env values inside session_template are write-only and never returned.
   final SdkOptional<Trigger> trigger;
+
   /// The generated webhook secret. Present for webhook triggers only and shown EXACTLY ONCE - it is never returned again. Paste it into the external system's webhook configuration.
   final SdkOptional<String> webhookSecret;
 
-  const CreateTriggerResponse({this.trigger = const SdkOmitted(), this.webhookSecret = const SdkOmitted()});
+  const CreateTriggerResponse(
+      {this.trigger = const SdkOmitted(),
+      this.webhookSecret = const SdkOmitted()});
 
-  CreateTriggerResponse Function({SdkOptional<Trigger> trigger, SdkOptional<String> webhookSecret}) get copyWith => _copyWith;
+  CreateTriggerResponse Function(
+      {SdkOptional<Trigger> trigger,
+      SdkOptional<String> webhookSecret}) get copyWith => _copyWith;
 
-  CreateTriggerResponse _copyWith({Object? trigger = sdkOmittedValue, Object? webhookSecret = sdkOmittedValue}) => CreateTriggerResponse(
-    trigger: identical(trigger, sdkOmittedValue) ? this.trigger : trigger as SdkOptional<Trigger>,
-    webhookSecret: identical(webhookSecret, sdkOmittedValue) ? this.webhookSecret : webhookSecret as SdkOptional<String>,
-  );
+  CreateTriggerResponse _copyWith(
+          {Object? trigger = sdkOmittedValue,
+          Object? webhookSecret = sdkOmittedValue}) =>
+      CreateTriggerResponse(
+        trigger: identical(trigger, sdkOmittedValue)
+            ? this.trigger
+            : trigger as SdkOptional<Trigger>,
+        webhookSecret: identical(webhookSecret, sdkOmittedValue)
+            ? this.webhookSecret
+            : webhookSecret as SdkOptional<String>,
+      );
 
-  factory CreateTriggerResponse.fromJson(Map<String, dynamic> json) => CreateTriggerResponse(
-    trigger: json['trigger'] != null ? SdkPresent((json['trigger'] != null ? Trigger.fromJson(json['trigger'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    webhookSecret: json['webhook_secret'] != null ? SdkPresent((json['webhook_secret'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateTriggerResponse.fromJson(Map<String, dynamic> json) =>
+      CreateTriggerResponse(
+        trigger: json['trigger'] != null
+            ? SdkPresent((json['trigger'] != null
+                ? Trigger.fromJson(json['trigger'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        webhookSecret: json['webhook_secret'] != null
+            ? SdkPresent((json['webhook_secret'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (trigger) {
-      SdkPresent<Trigger>(value: final value) => {'trigger': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (webhookSecret) {
-      SdkPresent<String>(value: final value) => {'webhook_secret': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (trigger) {
+          SdkPresent<Trigger>(value: final value) => {
+              'trigger': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (webhookSecret) {
+          SdkPresent<String>(value: final value) => {
+              'webhook_secret': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// webhook block on create. Omitting provider defaults to custom.
 class CreateWebhookConfig {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Signature-verification scheme applied to a delivery. Omitted on create defaults to custom.
   final SdkOptional<WebhookProviderKey> provider;
 
   const CreateWebhookConfig({this.provider = const SdkOmitted()});
 
-  CreateWebhookConfig Function({SdkOptional<WebhookProviderKey> provider}) get copyWith => _copyWith;
+  CreateWebhookConfig Function({SdkOptional<WebhookProviderKey> provider})
+      get copyWith => _copyWith;
 
-  CreateWebhookConfig _copyWith({Object? provider = sdkOmittedValue}) => CreateWebhookConfig(
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as SdkOptional<WebhookProviderKey>,
-  );
+  CreateWebhookConfig _copyWith({Object? provider = sdkOmittedValue}) =>
+      CreateWebhookConfig(
+        provider: identical(provider, sdkOmittedValue)
+            ? this.provider
+            : provider as SdkOptional<WebhookProviderKey>,
+      );
 
-  factory CreateWebhookConfig.fromJson(Map<String, dynamic> json) => CreateWebhookConfig(
-    provider: json['provider'] != null ? SdkPresent((json['provider'] != null ? WebhookProviderKey.fromJson(json['provider'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory CreateWebhookConfig.fromJson(Map<String, dynamic> json) =>
+      CreateWebhookConfig(
+        provider: json['provider'] != null
+            ? SdkPresent((json['provider'] != null
+                ? WebhookProviderKey.fromJson(json['provider'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (provider) {
-      SdkPresent<WebhookProviderKey>(value: final value) => {'provider': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (provider) {
+          SdkPresent<WebhookProviderKey>(value: final value) => {
+              'provider': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

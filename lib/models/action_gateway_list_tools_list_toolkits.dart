@@ -8,33 +8,56 @@ part of 'action_gateway_list.dart';
 class ListToolkitsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Catalog version identifier, for example `v1`.
   final SdkOptional<String> version;
+
   /// Toolkits available to your team.
   final SdkOptional<List<Toolkit>> toolkits;
 
-  const ListToolkitsResponse({this.version = const SdkOmitted(), this.toolkits = const SdkOmitted()});
+  const ListToolkitsResponse(
+      {this.version = const SdkOmitted(), this.toolkits = const SdkOmitted()});
 
-  ListToolkitsResponse Function({SdkOptional<String> version, SdkOptional<List<Toolkit>> toolkits}) get copyWith => _copyWith;
+  ListToolkitsResponse Function(
+      {SdkOptional<String> version,
+      SdkOptional<List<Toolkit>> toolkits}) get copyWith => _copyWith;
 
-  ListToolkitsResponse _copyWith({Object? version = sdkOmittedValue, Object? toolkits = sdkOmittedValue}) => ListToolkitsResponse(
-    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
-    toolkits: identical(toolkits, sdkOmittedValue) ? this.toolkits : toolkits as SdkOptional<List<Toolkit>>,
-  );
+  ListToolkitsResponse _copyWith(
+          {Object? version = sdkOmittedValue,
+          Object? toolkits = sdkOmittedValue}) =>
+      ListToolkitsResponse(
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as SdkOptional<String>,
+        toolkits: identical(toolkits, sdkOmittedValue)
+            ? this.toolkits
+            : toolkits as SdkOptional<List<Toolkit>>,
+      );
 
-  factory ListToolkitsResponse.fromJson(Map<String, dynamic> json) => ListToolkitsResponse(
-    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
-    toolkits: json['toolkits'] != null ? SdkPresent(((json['toolkits'] as List?)?.map((e) => Toolkit.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ListToolkitsResponse.fromJson(Map<String, dynamic> json) =>
+      ListToolkitsResponse(
+        version: json['version'] != null
+            ? SdkPresent((json['version'] as String?)!)
+            : const SdkOmitted(),
+        toolkits: json['toolkits'] != null
+            ? SdkPresent(((json['toolkits'] as List?)
+                ?.map((e) => Toolkit.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (version) {
-      SdkPresent<String>(value: final value) => {'version': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (toolkits) {
-      SdkPresent<List<Toolkit>>(value: final value) => {'toolkits': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (version) {
+          SdkPresent<String>(value: final value) => {
+              'version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (toolkits) {
+          SdkPresent<List<Toolkit>>(value: final value) => {
+              'toolkits': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

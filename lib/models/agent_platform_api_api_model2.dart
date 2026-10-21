@@ -8,249 +8,567 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Agreement Description
   final SdkOptional<ApiAgreement> agreement;
+
   /// Benchmark scores for this model, stored as arbitrary JSON
   final SdkOptional<Map<String, dynamic>> benchmarkScore;
+
   /// High-level capabilities (e.g. tool_calling, vision, streaming)
   final SdkOptional<List<String>> capabilities;
+
   /// Context window size in tokens
   final SdkOptional<String> contextWindow;
+
   /// Creation date / time
   final SdkOptional<String> createdAt;
+
   /// Available endpoints and their capabilities
   final SdkOptional<List<ApiModelEndpoint>> endpoints;
+
   /// Internally used name
   final SdkOptional<String> inferenceName;
+
   /// Internally used version
   final SdkOptional<String> inferenceVersion;
+
   /// True if it is a foundational model provided by do
   final SdkOptional<bool> isFoundational;
+
   /// Default chunking size limit to show in UI
   final SdkOptional<int> kbDefaultChunkSize;
+
   /// Maximum chunk size limit of model
   final SdkOptional<int> kbMaxChunkSize;
+
   /// Minimum chunking size token limits if model supports KNOWLEDGEBASE usecase
   final SdkOptional<int> kbMinChunkSize;
+
   /// Lifecycle status of the model (internal, public-preview, active, deprecated, end_of_life)
   final SdkOptional<String> lifecycleStatus;
+
   /// Additional meta data
   final SdkOptional<Map<String, dynamic>> metadata;
+
   /// Input/output modalities
   final SdkOptional<ApiModelModalities> modalities;
+
   /// Name of the model
   final SdkOptional<String> name;
+
   /// Parameter count in billions
   final SdkOptional<double> parameterCount;
+
   /// Unique id of the model, this model is based on
   final SdkOptional<String> parentUuid;
+
   /// Optional enumerated value serialized in the `provider` wire field.
   final SdkOptional<ApiModelProvider> provider;
+
   /// Available reasoning efforts for this model
   final SdkOptional<List<String>> reasoningEfforts;
+
   /// Playground settings derived from model metadata
   final SdkOptional<List<ApiModelSetting>> settings;
+
   /// Whether this model supports extended thinking (Anthropic models)
   final SdkOptional<bool> thinking;
+
   /// Model type (chat, embedding, image, reasoning, coding)
   final SdkOptional<String> type_;
+
   /// Last modified
   final SdkOptional<String> updatedAt;
+
   /// Model has been fully uploaded
   final SdkOptional<bool> uploadComplete;
+
   /// Download url
   final SdkOptional<String> url;
+
   /// Usecases of the model
   final SdkOptional<List<ApiModelUsecase>> usecases;
+
   /// Unique id
   final SdkOptional<String> uuid;
+
   /// Version Information about a Model
   final SdkOptional<ApiModelVersion> version;
 
-  const ApiModel({this.agreement = const SdkOmitted(), this.benchmarkScore = const SdkOmitted(), this.capabilities = const SdkOmitted(), this.contextWindow = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.endpoints = const SdkOmitted(), this.inferenceName = const SdkOmitted(), this.inferenceVersion = const SdkOmitted(), this.isFoundational = const SdkOmitted(), this.kbDefaultChunkSize = const SdkOmitted(), this.kbMaxChunkSize = const SdkOmitted(), this.kbMinChunkSize = const SdkOmitted(), this.lifecycleStatus = const SdkOmitted(), this.metadata = const SdkOmitted(), this.modalities = const SdkOmitted(), this.name = const SdkOmitted(), this.parameterCount = const SdkOmitted(), this.parentUuid = const SdkOmitted(), this.provider = const SdkOmitted(), this.reasoningEfforts = const SdkOmitted(), this.settings = const SdkOmitted(), this.thinking = const SdkOmitted(), this.type_ = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.uploadComplete = const SdkOmitted(), this.url = const SdkOmitted(), this.usecases = const SdkOmitted(), this.uuid = const SdkOmitted(), this.version = const SdkOmitted()});
+  const ApiModel(
+      {this.agreement = const SdkOmitted(),
+      this.benchmarkScore = const SdkOmitted(),
+      this.capabilities = const SdkOmitted(),
+      this.contextWindow = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.endpoints = const SdkOmitted(),
+      this.inferenceName = const SdkOmitted(),
+      this.inferenceVersion = const SdkOmitted(),
+      this.isFoundational = const SdkOmitted(),
+      this.kbDefaultChunkSize = const SdkOmitted(),
+      this.kbMaxChunkSize = const SdkOmitted(),
+      this.kbMinChunkSize = const SdkOmitted(),
+      this.lifecycleStatus = const SdkOmitted(),
+      this.metadata = const SdkOmitted(),
+      this.modalities = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.parameterCount = const SdkOmitted(),
+      this.parentUuid = const SdkOmitted(),
+      this.provider = const SdkOmitted(),
+      this.reasoningEfforts = const SdkOmitted(),
+      this.settings = const SdkOmitted(),
+      this.thinking = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.uploadComplete = const SdkOmitted(),
+      this.url = const SdkOmitted(),
+      this.usecases = const SdkOmitted(),
+      this.uuid = const SdkOmitted(),
+      this.version = const SdkOmitted()});
 
-  ApiModel Function({SdkOptional<ApiAgreement> agreement, SdkOptional<Map<String, dynamic>> benchmarkScore, SdkOptional<List<String>> capabilities, SdkOptional<String> contextWindow, SdkOptional<String> createdAt, SdkOptional<List<ApiModelEndpoint>> endpoints, SdkOptional<String> inferenceName, SdkOptional<String> inferenceVersion, SdkOptional<bool> isFoundational, SdkOptional<int> kbDefaultChunkSize, SdkOptional<int> kbMaxChunkSize, SdkOptional<int> kbMinChunkSize, SdkOptional<String> lifecycleStatus, SdkOptional<Map<String, dynamic>> metadata, SdkOptional<ApiModelModalities> modalities, SdkOptional<String> name, SdkOptional<double> parameterCount, SdkOptional<String> parentUuid, SdkOptional<ApiModelProvider> provider, SdkOptional<List<String>> reasoningEfforts, SdkOptional<List<ApiModelSetting>> settings, SdkOptional<bool> thinking, SdkOptional<String> type_, SdkOptional<String> updatedAt, SdkOptional<bool> uploadComplete, SdkOptional<String> url, SdkOptional<List<ApiModelUsecase>> usecases, SdkOptional<String> uuid, SdkOptional<ApiModelVersion> version}) get copyWith => _copyWith;
+  ApiModel Function(
+      {SdkOptional<ApiAgreement> agreement,
+      SdkOptional<Map<String, dynamic>> benchmarkScore,
+      SdkOptional<List<String>> capabilities,
+      SdkOptional<String> contextWindow,
+      SdkOptional<String> createdAt,
+      SdkOptional<List<ApiModelEndpoint>> endpoints,
+      SdkOptional<String> inferenceName,
+      SdkOptional<String> inferenceVersion,
+      SdkOptional<bool> isFoundational,
+      SdkOptional<int> kbDefaultChunkSize,
+      SdkOptional<int> kbMaxChunkSize,
+      SdkOptional<int> kbMinChunkSize,
+      SdkOptional<String> lifecycleStatus,
+      SdkOptional<Map<String, dynamic>> metadata,
+      SdkOptional<ApiModelModalities> modalities,
+      SdkOptional<String> name,
+      SdkOptional<double> parameterCount,
+      SdkOptional<String> parentUuid,
+      SdkOptional<ApiModelProvider> provider,
+      SdkOptional<List<String>> reasoningEfforts,
+      SdkOptional<List<ApiModelSetting>> settings,
+      SdkOptional<bool> thinking,
+      SdkOptional<String> type_,
+      SdkOptional<String> updatedAt,
+      SdkOptional<bool> uploadComplete,
+      SdkOptional<String> url,
+      SdkOptional<List<ApiModelUsecase>> usecases,
+      SdkOptional<String> uuid,
+      SdkOptional<ApiModelVersion> version}) get copyWith => _copyWith;
 
-  ApiModel _copyWith({Object? agreement = sdkOmittedValue, Object? benchmarkScore = sdkOmittedValue, Object? capabilities = sdkOmittedValue, Object? contextWindow = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? endpoints = sdkOmittedValue, Object? inferenceName = sdkOmittedValue, Object? inferenceVersion = sdkOmittedValue, Object? isFoundational = sdkOmittedValue, Object? kbDefaultChunkSize = sdkOmittedValue, Object? kbMaxChunkSize = sdkOmittedValue, Object? kbMinChunkSize = sdkOmittedValue, Object? lifecycleStatus = sdkOmittedValue, Object? metadata = sdkOmittedValue, Object? modalities = sdkOmittedValue, Object? name = sdkOmittedValue, Object? parameterCount = sdkOmittedValue, Object? parentUuid = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? reasoningEfforts = sdkOmittedValue, Object? settings = sdkOmittedValue, Object? thinking = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? uploadComplete = sdkOmittedValue, Object? url = sdkOmittedValue, Object? usecases = sdkOmittedValue, Object? uuid = sdkOmittedValue, Object? version = sdkOmittedValue}) => ApiModel(
-    agreement: identical(agreement, sdkOmittedValue) ? this.agreement : agreement as SdkOptional<ApiAgreement>,
-    benchmarkScore: identical(benchmarkScore, sdkOmittedValue) ? this.benchmarkScore : benchmarkScore as SdkOptional<Map<String, dynamic>>,
-    capabilities: identical(capabilities, sdkOmittedValue) ? this.capabilities : capabilities as SdkOptional<List<String>>,
-    contextWindow: identical(contextWindow, sdkOmittedValue) ? this.contextWindow : contextWindow as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    endpoints: identical(endpoints, sdkOmittedValue) ? this.endpoints : endpoints as SdkOptional<List<ApiModelEndpoint>>,
-    inferenceName: identical(inferenceName, sdkOmittedValue) ? this.inferenceName : inferenceName as SdkOptional<String>,
-    inferenceVersion: identical(inferenceVersion, sdkOmittedValue) ? this.inferenceVersion : inferenceVersion as SdkOptional<String>,
-    isFoundational: identical(isFoundational, sdkOmittedValue) ? this.isFoundational : isFoundational as SdkOptional<bool>,
-    kbDefaultChunkSize: identical(kbDefaultChunkSize, sdkOmittedValue) ? this.kbDefaultChunkSize : kbDefaultChunkSize as SdkOptional<int>,
-    kbMaxChunkSize: identical(kbMaxChunkSize, sdkOmittedValue) ? this.kbMaxChunkSize : kbMaxChunkSize as SdkOptional<int>,
-    kbMinChunkSize: identical(kbMinChunkSize, sdkOmittedValue) ? this.kbMinChunkSize : kbMinChunkSize as SdkOptional<int>,
-    lifecycleStatus: identical(lifecycleStatus, sdkOmittedValue) ? this.lifecycleStatus : lifecycleStatus as SdkOptional<String>,
-    metadata: identical(metadata, sdkOmittedValue) ? this.metadata : metadata as SdkOptional<Map<String, dynamic>>,
-    modalities: identical(modalities, sdkOmittedValue) ? this.modalities : modalities as SdkOptional<ApiModelModalities>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    parameterCount: identical(parameterCount, sdkOmittedValue) ? this.parameterCount : parameterCount as SdkOptional<double>,
-    parentUuid: identical(parentUuid, sdkOmittedValue) ? this.parentUuid : parentUuid as SdkOptional<String>,
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as SdkOptional<ApiModelProvider>,
-    reasoningEfforts: identical(reasoningEfforts, sdkOmittedValue) ? this.reasoningEfforts : reasoningEfforts as SdkOptional<List<String>>,
-    settings: identical(settings, sdkOmittedValue) ? this.settings : settings as SdkOptional<List<ApiModelSetting>>,
-    thinking: identical(thinking, sdkOmittedValue) ? this.thinking : thinking as SdkOptional<bool>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-    uploadComplete: identical(uploadComplete, sdkOmittedValue) ? this.uploadComplete : uploadComplete as SdkOptional<bool>,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    usecases: identical(usecases, sdkOmittedValue) ? this.usecases : usecases as SdkOptional<List<ApiModelUsecase>>,
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
-    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<ApiModelVersion>,
-  );
+  ApiModel _copyWith(
+          {Object? agreement = sdkOmittedValue,
+          Object? benchmarkScore = sdkOmittedValue,
+          Object? capabilities = sdkOmittedValue,
+          Object? contextWindow = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? endpoints = sdkOmittedValue,
+          Object? inferenceName = sdkOmittedValue,
+          Object? inferenceVersion = sdkOmittedValue,
+          Object? isFoundational = sdkOmittedValue,
+          Object? kbDefaultChunkSize = sdkOmittedValue,
+          Object? kbMaxChunkSize = sdkOmittedValue,
+          Object? kbMinChunkSize = sdkOmittedValue,
+          Object? lifecycleStatus = sdkOmittedValue,
+          Object? metadata = sdkOmittedValue,
+          Object? modalities = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? parameterCount = sdkOmittedValue,
+          Object? parentUuid = sdkOmittedValue,
+          Object? provider = sdkOmittedValue,
+          Object? reasoningEfforts = sdkOmittedValue,
+          Object? settings = sdkOmittedValue,
+          Object? thinking = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? uploadComplete = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? usecases = sdkOmittedValue,
+          Object? uuid = sdkOmittedValue,
+          Object? version = sdkOmittedValue}) =>
+      ApiModel(
+        agreement: identical(agreement, sdkOmittedValue)
+            ? this.agreement
+            : agreement as SdkOptional<ApiAgreement>,
+        benchmarkScore: identical(benchmarkScore, sdkOmittedValue)
+            ? this.benchmarkScore
+            : benchmarkScore as SdkOptional<Map<String, dynamic>>,
+        capabilities: identical(capabilities, sdkOmittedValue)
+            ? this.capabilities
+            : capabilities as SdkOptional<List<String>>,
+        contextWindow: identical(contextWindow, sdkOmittedValue)
+            ? this.contextWindow
+            : contextWindow as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        endpoints: identical(endpoints, sdkOmittedValue)
+            ? this.endpoints
+            : endpoints as SdkOptional<List<ApiModelEndpoint>>,
+        inferenceName: identical(inferenceName, sdkOmittedValue)
+            ? this.inferenceName
+            : inferenceName as SdkOptional<String>,
+        inferenceVersion: identical(inferenceVersion, sdkOmittedValue)
+            ? this.inferenceVersion
+            : inferenceVersion as SdkOptional<String>,
+        isFoundational: identical(isFoundational, sdkOmittedValue)
+            ? this.isFoundational
+            : isFoundational as SdkOptional<bool>,
+        kbDefaultChunkSize: identical(kbDefaultChunkSize, sdkOmittedValue)
+            ? this.kbDefaultChunkSize
+            : kbDefaultChunkSize as SdkOptional<int>,
+        kbMaxChunkSize: identical(kbMaxChunkSize, sdkOmittedValue)
+            ? this.kbMaxChunkSize
+            : kbMaxChunkSize as SdkOptional<int>,
+        kbMinChunkSize: identical(kbMinChunkSize, sdkOmittedValue)
+            ? this.kbMinChunkSize
+            : kbMinChunkSize as SdkOptional<int>,
+        lifecycleStatus: identical(lifecycleStatus, sdkOmittedValue)
+            ? this.lifecycleStatus
+            : lifecycleStatus as SdkOptional<String>,
+        metadata: identical(metadata, sdkOmittedValue)
+            ? this.metadata
+            : metadata as SdkOptional<Map<String, dynamic>>,
+        modalities: identical(modalities, sdkOmittedValue)
+            ? this.modalities
+            : modalities as SdkOptional<ApiModelModalities>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        parameterCount: identical(parameterCount, sdkOmittedValue)
+            ? this.parameterCount
+            : parameterCount as SdkOptional<double>,
+        parentUuid: identical(parentUuid, sdkOmittedValue)
+            ? this.parentUuid
+            : parentUuid as SdkOptional<String>,
+        provider: identical(provider, sdkOmittedValue)
+            ? this.provider
+            : provider as SdkOptional<ApiModelProvider>,
+        reasoningEfforts: identical(reasoningEfforts, sdkOmittedValue)
+            ? this.reasoningEfforts
+            : reasoningEfforts as SdkOptional<List<String>>,
+        settings: identical(settings, sdkOmittedValue)
+            ? this.settings
+            : settings as SdkOptional<List<ApiModelSetting>>,
+        thinking: identical(thinking, sdkOmittedValue)
+            ? this.thinking
+            : thinking as SdkOptional<bool>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+        uploadComplete: identical(uploadComplete, sdkOmittedValue)
+            ? this.uploadComplete
+            : uploadComplete as SdkOptional<bool>,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        usecases: identical(usecases, sdkOmittedValue)
+            ? this.usecases
+            : usecases as SdkOptional<List<ApiModelUsecase>>,
+        uuid: identical(uuid, sdkOmittedValue)
+            ? this.uuid
+            : uuid as SdkOptional<String>,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as SdkOptional<ApiModelVersion>,
+      );
 
   factory ApiModel.fromJson(Map<String, dynamic> json) => ApiModel(
-    agreement: json['agreement'] != null ? SdkPresent((json['agreement'] != null ? ApiAgreement.fromJson(json['agreement'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    benchmarkScore: json['benchmark_score'] != null ? SdkPresent((json['benchmark_score'] == null ? null : json['benchmark_score'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    capabilities: json['capabilities'] != null ? SdkPresent(((json['capabilities'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    contextWindow: json['context_window'] != null ? SdkPresent((json['context_window'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    endpoints: json['endpoints'] != null ? SdkPresent(((json['endpoints'] as List?)?.map((e) => ApiModelEndpoint.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    inferenceName: json['inference_name'] != null ? SdkPresent((json['inference_name'] as String?)!) : const SdkOmitted(),
-    inferenceVersion: json['inference_version'] != null ? SdkPresent((json['inference_version'] as String?)!) : const SdkOmitted(),
-    isFoundational: json['is_foundational'] != null ? SdkPresent((json['is_foundational'] as bool?)!) : const SdkOmitted(),
-    kbDefaultChunkSize: json['kb_default_chunk_size'] != null ? SdkPresent(((json['kb_default_chunk_size'] as num?)?.toInt())!) : const SdkOmitted(),
-    kbMaxChunkSize: json['kb_max_chunk_size'] != null ? SdkPresent(((json['kb_max_chunk_size'] as num?)?.toInt())!) : const SdkOmitted(),
-    kbMinChunkSize: json['kb_min_chunk_size'] != null ? SdkPresent(((json['kb_min_chunk_size'] as num?)?.toInt())!) : const SdkOmitted(),
-    lifecycleStatus: json['lifecycle_status'] != null ? SdkPresent((json['lifecycle_status'] as String?)!) : const SdkOmitted(),
-    metadata: json['metadata'] != null ? SdkPresent((json['metadata'] == null ? null : json['metadata'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    modalities: json['modalities'] != null ? SdkPresent((json['modalities'] != null ? ApiModelModalities.fromJson(json['modalities'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    parameterCount: json['parameter_count'] != null ? SdkPresent(((json['parameter_count'] as num?)?.toDouble())!) : const SdkOmitted(),
-    parentUuid: json['parent_uuid'] != null ? SdkPresent((json['parent_uuid'] as String?)!) : const SdkOmitted(),
-    provider: json['provider'] != null ? SdkPresent((json['provider'] != null ? ApiModelProvider.fromJson(json['provider'] as String) : null)!) : const SdkOmitted(),
-    reasoningEfforts: json['reasoning_efforts'] != null ? SdkPresent(((json['reasoning_efforts'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    settings: json['settings'] != null ? SdkPresent(((json['settings'] as List?)?.map((e) => ApiModelSetting.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    thinking: json['thinking'] != null ? SdkPresent((json['thinking'] as bool?)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-    uploadComplete: json['upload_complete'] != null ? SdkPresent((json['upload_complete'] as bool?)!) : const SdkOmitted(),
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    usecases: json['usecases'] != null ? SdkPresent(((json['usecases'] as List?)?.map((e) => ApiModelUsecase.fromJson(e as String)).toList())!) : const SdkOmitted(),
-    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
-    version: json['version'] != null ? SdkPresent((json['version'] != null ? ApiModelVersion.fromJson(json['version'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        agreement: json['agreement'] != null
+            ? SdkPresent((json['agreement'] != null
+                ? ApiAgreement.fromJson(
+                    json['agreement'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        benchmarkScore: json['benchmark_score'] != null
+            ? SdkPresent((json['benchmark_score'] == null
+                ? null
+                : json['benchmark_score'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        capabilities: json['capabilities'] != null
+            ? SdkPresent(((json['capabilities'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        contextWindow: json['context_window'] != null
+            ? SdkPresent((json['context_window'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        endpoints: json['endpoints'] != null
+            ? SdkPresent(((json['endpoints'] as List?)
+                ?.map(
+                    (e) => ApiModelEndpoint.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        inferenceName: json['inference_name'] != null
+            ? SdkPresent((json['inference_name'] as String?)!)
+            : const SdkOmitted(),
+        inferenceVersion: json['inference_version'] != null
+            ? SdkPresent((json['inference_version'] as String?)!)
+            : const SdkOmitted(),
+        isFoundational: json['is_foundational'] != null
+            ? SdkPresent((json['is_foundational'] as bool?)!)
+            : const SdkOmitted(),
+        kbDefaultChunkSize: json['kb_default_chunk_size'] != null
+            ? SdkPresent(((json['kb_default_chunk_size'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        kbMaxChunkSize: json['kb_max_chunk_size'] != null
+            ? SdkPresent(((json['kb_max_chunk_size'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        kbMinChunkSize: json['kb_min_chunk_size'] != null
+            ? SdkPresent(((json['kb_min_chunk_size'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        lifecycleStatus: json['lifecycle_status'] != null
+            ? SdkPresent((json['lifecycle_status'] as String?)!)
+            : const SdkOmitted(),
+        metadata: json['metadata'] != null
+            ? SdkPresent((json['metadata'] == null
+                ? null
+                : json['metadata'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        modalities: json['modalities'] != null
+            ? SdkPresent((json['modalities'] != null
+                ? ApiModelModalities.fromJson(
+                    json['modalities'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        parameterCount: json['parameter_count'] != null
+            ? SdkPresent(((json['parameter_count'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        parentUuid: json['parent_uuid'] != null
+            ? SdkPresent((json['parent_uuid'] as String?)!)
+            : const SdkOmitted(),
+        provider: json['provider'] != null
+            ? SdkPresent((json['provider'] != null
+                ? ApiModelProvider.fromJson(json['provider'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        reasoningEfforts: json['reasoning_efforts'] != null
+            ? SdkPresent(((json['reasoning_efforts'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        settings: json['settings'] != null
+            ? SdkPresent(((json['settings'] as List?)
+                ?.map(
+                    (e) => ApiModelSetting.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        thinking: json['thinking'] != null
+            ? SdkPresent((json['thinking'] as bool?)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+        uploadComplete: json['upload_complete'] != null
+            ? SdkPresent((json['upload_complete'] as bool?)!)
+            : const SdkOmitted(),
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        usecases: json['usecases'] != null
+            ? SdkPresent(((json['usecases'] as List?)
+                ?.map((e) => ApiModelUsecase.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+        uuid: json['uuid'] != null
+            ? SdkPresent((json['uuid'] as String?)!)
+            : const SdkOmitted(),
+        version: json['version'] != null
+            ? SdkPresent((json['version'] != null
+                ? ApiModelVersion.fromJson(
+                    json['version'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agreement) {
-      SdkPresent<ApiAgreement>(value: final value) => {'agreement': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (benchmarkScore) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'benchmark_score': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (capabilities) {
-      SdkPresent<List<String>>(value: final value) => {'capabilities': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (contextWindow) {
-      SdkPresent<String>(value: final value) => {'context_window': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (endpoints) {
-      SdkPresent<List<ApiModelEndpoint>>(value: final value) => {'endpoints': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inferenceName) {
-      SdkPresent<String>(value: final value) => {'inference_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (inferenceVersion) {
-      SdkPresent<String>(value: final value) => {'inference_version': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (isFoundational) {
-      SdkPresent<bool>(value: final value) => {'is_foundational': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (kbDefaultChunkSize) {
-      SdkPresent<int>(value: final value) => {'kb_default_chunk_size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (kbMaxChunkSize) {
-      SdkPresent<int>(value: final value) => {'kb_max_chunk_size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (kbMinChunkSize) {
-      SdkPresent<int>(value: final value) => {'kb_min_chunk_size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lifecycleStatus) {
-      SdkPresent<String>(value: final value) => {'lifecycle_status': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (metadata) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (modalities) {
-      SdkPresent<ApiModelModalities>(value: final value) => {'modalities': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parameterCount) {
-      SdkPresent<double>(value: final value) => {'parameter_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (parentUuid) {
-      SdkPresent<String>(value: final value) => {'parent_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (provider) {
-      SdkPresent<ApiModelProvider>(value: final value) => {'provider': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reasoningEfforts) {
-      SdkPresent<List<String>>(value: final value) => {'reasoning_efforts': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (settings) {
-      SdkPresent<List<ApiModelSetting>>(value: final value) => {'settings': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (thinking) {
-      SdkPresent<bool>(value: final value) => {'thinking': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (uploadComplete) {
-      SdkPresent<bool>(value: final value) => {'upload_complete': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (usecases) {
-      SdkPresent<List<ApiModelUsecase>>(value: final value) => {'usecases': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (uuid) {
-      SdkPresent<String>(value: final value) => {'uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (version) {
-      SdkPresent<ApiModelVersion>(value: final value) => {'version': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agreement) {
+          SdkPresent<ApiAgreement>(value: final value) => {
+              'agreement': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (benchmarkScore) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'benchmark_score': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (capabilities) {
+          SdkPresent<List<String>>(value: final value) => {
+              'capabilities': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (contextWindow) {
+          SdkPresent<String>(value: final value) => {
+              'context_window': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (endpoints) {
+          SdkPresent<List<ApiModelEndpoint>>(value: final value) => {
+              'endpoints': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inferenceName) {
+          SdkPresent<String>(value: final value) => {
+              'inference_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (inferenceVersion) {
+          SdkPresent<String>(value: final value) => {
+              'inference_version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (isFoundational) {
+          SdkPresent<bool>(value: final value) => {
+              'is_foundational': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (kbDefaultChunkSize) {
+          SdkPresent<int>(value: final value) => {
+              'kb_default_chunk_size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (kbMaxChunkSize) {
+          SdkPresent<int>(value: final value) => {
+              'kb_max_chunk_size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (kbMinChunkSize) {
+          SdkPresent<int>(value: final value) => {
+              'kb_min_chunk_size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lifecycleStatus) {
+          SdkPresent<String>(value: final value) => {
+              'lifecycle_status': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (metadata) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (modalities) {
+          SdkPresent<ApiModelModalities>(value: final value) => {
+              'modalities': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parameterCount) {
+          SdkPresent<double>(value: final value) => {
+              'parameter_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (parentUuid) {
+          SdkPresent<String>(value: final value) => {
+              'parent_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (provider) {
+          SdkPresent<ApiModelProvider>(value: final value) => {
+              'provider': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reasoningEfforts) {
+          SdkPresent<List<String>>(value: final value) => {
+              'reasoning_efforts': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (settings) {
+          SdkPresent<List<ApiModelSetting>>(value: final value) => {
+              'settings': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (thinking) {
+          SdkPresent<bool>(value: final value) => {
+              'thinking': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (uploadComplete) {
+          SdkPresent<bool>(value: final value) => {
+              'upload_complete': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (usecases) {
+          SdkPresent<List<ApiModelUsecase>>(value: final value) => {
+              'usecases': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (uuid) {
+          SdkPresent<String>(value: final value) => {
+              'uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (version) {
+          SdkPresent<ApiModelVersion>(value: final value) => {
+              'version': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,222 +8,423 @@ part of 'serverless_inference_async.dart';
 class AsyncInvokeRequestInput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The text prompt describing the desired output. Used for image generation and audio generation models.
   final SdkOptional<String> prompt;
+
   /// The text content to convert to speech. Used for text-to-speech models.
   final SdkOptional<String> text;
+
   /// The desired output format or aspect ratio for image generation.
   final SdkOptional<String?> outputFormat;
+
   /// The number of inference steps to use during image generation. More steps generally produce higher quality output but take longer.
   final SdkOptional<int?> numInferenceSteps;
+
   /// Controls how closely the image generation model follows the prompt. Higher values produce output more closely matching the prompt.
   final SdkOptional<double?> guidanceScale;
+
   /// The number of images to generate.
   final SdkOptional<int?> numImages;
+
   /// Whether to enable the safety checker for generated content.
   final SdkOptional<bool?> enableSafetyChecker;
+
   /// The total duration in seconds for generated audio. Used for audio generation models.
   final SdkOptional<int?> secondsTotal;
   final Map<String, dynamic> additionalProperties;
 
-  const AsyncInvokeRequestInput({this.prompt = const SdkOmitted(), this.text = const SdkOmitted(), this.outputFormat = const SdkOmitted(), this.numInferenceSteps = const SdkOmitted(), this.guidanceScale = const SdkOmitted(), this.numImages = const SdkOmitted(), this.enableSafetyChecker = const SdkOmitted(), this.secondsTotal = const SdkOmitted(), this.additionalProperties = const <String, dynamic>{}});
+  const AsyncInvokeRequestInput(
+      {this.prompt = const SdkOmitted(),
+      this.text = const SdkOmitted(),
+      this.outputFormat = const SdkOmitted(),
+      this.numInferenceSteps = const SdkOmitted(),
+      this.guidanceScale = const SdkOmitted(),
+      this.numImages = const SdkOmitted(),
+      this.enableSafetyChecker = const SdkOmitted(),
+      this.secondsTotal = const SdkOmitted(),
+      this.additionalProperties = const <String, dynamic>{}});
 
-  AsyncInvokeRequestInput Function({SdkOptional<String> prompt, SdkOptional<String> text, SdkOptional<String?> outputFormat, SdkOptional<int?> numInferenceSteps, SdkOptional<double?> guidanceScale, SdkOptional<int?> numImages, SdkOptional<bool?> enableSafetyChecker, SdkOptional<int?> secondsTotal}) get copyWith => _copyWith;
+  AsyncInvokeRequestInput Function(
+      {SdkOptional<String> prompt,
+      SdkOptional<String> text,
+      SdkOptional<String?> outputFormat,
+      SdkOptional<int?> numInferenceSteps,
+      SdkOptional<double?> guidanceScale,
+      SdkOptional<int?> numImages,
+      SdkOptional<bool?> enableSafetyChecker,
+      SdkOptional<int?> secondsTotal}) get copyWith => _copyWith;
 
-  AsyncInvokeRequestInput _copyWith({Object? prompt = sdkOmittedValue, Object? text = sdkOmittedValue, Object? outputFormat = sdkOmittedValue, Object? numInferenceSteps = sdkOmittedValue, Object? guidanceScale = sdkOmittedValue, Object? numImages = sdkOmittedValue, Object? enableSafetyChecker = sdkOmittedValue, Object? secondsTotal = sdkOmittedValue}) => AsyncInvokeRequestInput(
-    prompt: identical(prompt, sdkOmittedValue) ? this.prompt : prompt as SdkOptional<String>,
-    text: identical(text, sdkOmittedValue) ? this.text : text as SdkOptional<String>,
-    outputFormat: identical(outputFormat, sdkOmittedValue) ? this.outputFormat : outputFormat as SdkOptional<String?>,
-    numInferenceSteps: identical(numInferenceSteps, sdkOmittedValue) ? this.numInferenceSteps : numInferenceSteps as SdkOptional<int?>,
-    guidanceScale: identical(guidanceScale, sdkOmittedValue) ? this.guidanceScale : guidanceScale as SdkOptional<double?>,
-    numImages: identical(numImages, sdkOmittedValue) ? this.numImages : numImages as SdkOptional<int?>,
-    enableSafetyChecker: identical(enableSafetyChecker, sdkOmittedValue) ? this.enableSafetyChecker : enableSafetyChecker as SdkOptional<bool?>,
-    secondsTotal: identical(secondsTotal, sdkOmittedValue) ? this.secondsTotal : secondsTotal as SdkOptional<int?>,
-    additionalProperties: additionalProperties,
-  );
+  AsyncInvokeRequestInput _copyWith(
+          {Object? prompt = sdkOmittedValue,
+          Object? text = sdkOmittedValue,
+          Object? outputFormat = sdkOmittedValue,
+          Object? numInferenceSteps = sdkOmittedValue,
+          Object? guidanceScale = sdkOmittedValue,
+          Object? numImages = sdkOmittedValue,
+          Object? enableSafetyChecker = sdkOmittedValue,
+          Object? secondsTotal = sdkOmittedValue}) =>
+      AsyncInvokeRequestInput(
+        prompt: identical(prompt, sdkOmittedValue)
+            ? this.prompt
+            : prompt as SdkOptional<String>,
+        text: identical(text, sdkOmittedValue)
+            ? this.text
+            : text as SdkOptional<String>,
+        outputFormat: identical(outputFormat, sdkOmittedValue)
+            ? this.outputFormat
+            : outputFormat as SdkOptional<String?>,
+        numInferenceSteps: identical(numInferenceSteps, sdkOmittedValue)
+            ? this.numInferenceSteps
+            : numInferenceSteps as SdkOptional<int?>,
+        guidanceScale: identical(guidanceScale, sdkOmittedValue)
+            ? this.guidanceScale
+            : guidanceScale as SdkOptional<double?>,
+        numImages: identical(numImages, sdkOmittedValue)
+            ? this.numImages
+            : numImages as SdkOptional<int?>,
+        enableSafetyChecker: identical(enableSafetyChecker, sdkOmittedValue)
+            ? this.enableSafetyChecker
+            : enableSafetyChecker as SdkOptional<bool?>,
+        secondsTotal: identical(secondsTotal, sdkOmittedValue)
+            ? this.secondsTotal
+            : secondsTotal as SdkOptional<int?>,
+        additionalProperties: additionalProperties,
+      );
 
-  factory AsyncInvokeRequestInput.fromJson(Map<String, dynamic> json) => AsyncInvokeRequestInput(
-    prompt: json['prompt'] != null ? SdkPresent((json['prompt'] as String?)!) : const SdkOmitted(),
-    text: json['text'] != null ? SdkPresent((json['text'] as String?)!) : const SdkOmitted(),
-    outputFormat: json.containsKey('output_format') ? SdkPresent(json['output_format'] as String?) : const SdkOmitted(),
-    numInferenceSteps: json.containsKey('num_inference_steps') ? SdkPresent((json['num_inference_steps'] as num?)?.toInt()) : const SdkOmitted(),
-    guidanceScale: json.containsKey('guidance_scale') ? SdkPresent((json['guidance_scale'] as num?)?.toDouble()) : const SdkOmitted(),
-    numImages: json.containsKey('num_images') ? SdkPresent((json['num_images'] as num?)?.toInt()) : const SdkOmitted(),
-    enableSafetyChecker: json.containsKey('enable_safety_checker') ? SdkPresent(json['enable_safety_checker'] as bool?) : const SdkOmitted(),
-    secondsTotal: json.containsKey('seconds_total') ? SdkPresent((json['seconds_total'] as num?)?.toInt()) : const SdkOmitted(),
-    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{'prompt', 'text', 'output_format', 'num_inference_steps', 'guidance_scale', 'num_images', 'enable_safety_checker', 'seconds_total'}.contains(key)),
-  );
+  factory AsyncInvokeRequestInput.fromJson(Map<String, dynamic> json) =>
+      AsyncInvokeRequestInput(
+        prompt: json['prompt'] != null
+            ? SdkPresent((json['prompt'] as String?)!)
+            : const SdkOmitted(),
+        text: json['text'] != null
+            ? SdkPresent((json['text'] as String?)!)
+            : const SdkOmitted(),
+        outputFormat: json.containsKey('output_format')
+            ? SdkPresent(json['output_format'] as String?)
+            : const SdkOmitted(),
+        numInferenceSteps: json.containsKey('num_inference_steps')
+            ? SdkPresent((json['num_inference_steps'] as num?)?.toInt())
+            : const SdkOmitted(),
+        guidanceScale: json.containsKey('guidance_scale')
+            ? SdkPresent((json['guidance_scale'] as num?)?.toDouble())
+            : const SdkOmitted(),
+        numImages: json.containsKey('num_images')
+            ? SdkPresent((json['num_images'] as num?)?.toInt())
+            : const SdkOmitted(),
+        enableSafetyChecker: json.containsKey('enable_safety_checker')
+            ? SdkPresent(json['enable_safety_checker'] as bool?)
+            : const SdkOmitted(),
+        secondsTotal: json.containsKey('seconds_total')
+            ? SdkPresent((json['seconds_total'] as num?)?.toInt())
+            : const SdkOmitted(),
+        additionalProperties: Map.of(json)
+          ..removeWhere((key, _) => const <String>{
+                'prompt',
+                'text',
+                'output_format',
+                'num_inference_steps',
+                'guidance_scale',
+                'num_images',
+                'enable_safety_checker',
+                'seconds_total'
+              }.contains(key)),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...additionalProperties,
-    ...switch (prompt) {
-      SdkPresent<String>(value: final value) => {'prompt': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (text) {
-      SdkPresent<String>(value: final value) => {'text': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (outputFormat) {
-      SdkPresent<String?>(value: final value) => {'output_format': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (numInferenceSteps) {
-      SdkPresent<int?>(value: final value) => {'num_inference_steps': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (guidanceScale) {
-      SdkPresent<double?>(value: final value) => {'guidance_scale': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (numImages) {
-      SdkPresent<int?>(value: final value) => {'num_images': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enableSafetyChecker) {
-      SdkPresent<bool?>(value: final value) => {'enable_safety_checker': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (secondsTotal) {
-      SdkPresent<int?>(value: final value) => {'seconds_total': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...additionalProperties,
+        ...switch (prompt) {
+          SdkPresent<String>(value: final value) => {
+              'prompt': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (text) {
+          SdkPresent<String>(value: final value) => {
+              'text': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (outputFormat) {
+          SdkPresent<String?>(value: final value) => {
+              'output_format': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (numInferenceSteps) {
+          SdkPresent<int?>(value: final value) => {
+              'num_inference_steps': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (guidanceScale) {
+          SdkPresent<double?>(value: final value) => {
+              'guidance_scale': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (numImages) {
+          SdkPresent<int?>(value: final value) => {
+              'num_images': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (enableSafetyChecker) {
+          SdkPresent<bool?>(value: final value) => {
+              'enable_safety_checker': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (secondsTotal) {
+          SdkPresent<int?>(value: final value) => {
+              'seconds_total': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `tags[]` wire field.
 class AsyncInvokeRequestTagsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The tag key.
   final String key;
+
   /// The tag value.
   final String value;
 
   const AsyncInvokeRequestTagsItem({required this.key, required this.value});
 
-  AsyncInvokeRequestTagsItem Function({String key, String value}) get copyWith => _copyWith;
+  AsyncInvokeRequestTagsItem Function({String key, String value})
+      get copyWith => _copyWith;
 
-  AsyncInvokeRequestTagsItem _copyWith({Object? key = sdkOmittedValue, Object? value = sdkOmittedValue}) => AsyncInvokeRequestTagsItem(
-    key: identical(key, sdkOmittedValue) ? this.key : key as String,
-    value: identical(value, sdkOmittedValue) ? this.value : value as String,
-  );
+  AsyncInvokeRequestTagsItem _copyWith(
+          {Object? key = sdkOmittedValue, Object? value = sdkOmittedValue}) =>
+      AsyncInvokeRequestTagsItem(
+        key: identical(key, sdkOmittedValue) ? this.key : key as String,
+        value: identical(value, sdkOmittedValue) ? this.value : value as String,
+      );
 
-  factory AsyncInvokeRequestTagsItem.fromJson(Map<String, dynamic> json) => AsyncInvokeRequestTagsItem(
-    key: (json['key'] as String?)!,
-    value: (json['value'] as String?)!,
-  );
+  factory AsyncInvokeRequestTagsItem.fromJson(Map<String, dynamic> json) =>
+      AsyncInvokeRequestTagsItem(
+        key: (json['key'] as String?)!,
+        value: (json['value'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'key': key,
-    'value': value,
-  };
+        'key': key,
+        'value': value,
+      };
 }
 
 /// Request body for asynchronously invoking a model. Supports image generation, audio generation, and text-to-speech models. The `input` object fields vary depending on the model type.
 class AsyncInvokeRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the model to invoke asynchronously.
   final String modelId;
+
   /// The input parameters for the model invocation. Fields vary by model type. For **image generation** models (e.g., `fal-ai/flux/schnell`, `fal-ai/fast-sdxl`), use `prompt` along with optional image parameters like `output_format`, `num_inference_steps`, `guidance_scale`, `num_images`, and `enable_safety_checker`. For **audio generation** models (e.g., `fal-ai/stable-audio-25/text-to-audio`), use `prompt` along with `seconds_total` to control the duration. For **text-to-speech** models (e.g., `fal-ai/elevenlabs/tts/multilingual-v2`), use `text` with the content you want converted to speech.
   final AsyncInvokeRequestInput input;
+
   /// An optional list of key-value tags to attach to the invocation request for tracking or categorization.
   final SdkOptional<List<AsyncInvokeRequestTagsItem>?> tags;
 
-  const AsyncInvokeRequest({required this.modelId, required this.input, this.tags = const SdkOmitted()});
+  const AsyncInvokeRequest(
+      {required this.modelId,
+      required this.input,
+      this.tags = const SdkOmitted()});
 
-  AsyncInvokeRequest Function({String modelId, AsyncInvokeRequestInput input, SdkOptional<List<AsyncInvokeRequestTagsItem>?> tags}) get copyWith => _copyWith;
+  AsyncInvokeRequest Function(
+          {String modelId,
+          AsyncInvokeRequestInput input,
+          SdkOptional<List<AsyncInvokeRequestTagsItem>?> tags})
+      get copyWith => _copyWith;
 
-  AsyncInvokeRequest _copyWith({Object? modelId = sdkOmittedValue, Object? input = sdkOmittedValue, Object? tags = sdkOmittedValue}) => AsyncInvokeRequest(
-    modelId: identical(modelId, sdkOmittedValue) ? this.modelId : modelId as String,
-    input: identical(input, sdkOmittedValue) ? this.input : input as AsyncInvokeRequestInput,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<AsyncInvokeRequestTagsItem>?>,
-  );
+  AsyncInvokeRequest _copyWith(
+          {Object? modelId = sdkOmittedValue,
+          Object? input = sdkOmittedValue,
+          Object? tags = sdkOmittedValue}) =>
+      AsyncInvokeRequest(
+        modelId: identical(modelId, sdkOmittedValue)
+            ? this.modelId
+            : modelId as String,
+        input: identical(input, sdkOmittedValue)
+            ? this.input
+            : input as AsyncInvokeRequestInput,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<AsyncInvokeRequestTagsItem>?>,
+      );
 
-  factory AsyncInvokeRequest.fromJson(Map<String, dynamic> json) => AsyncInvokeRequest(
-    modelId: (json['model_id'] as String?)!,
-    input: (json['input'] != null ? AsyncInvokeRequestInput.fromJson(json['input'] as Map<String, dynamic>) : null)!,
-    tags: json.containsKey('tags') ? SdkPresent((json['tags'] as List?)?.map((e) => AsyncInvokeRequestTagsItem.fromJson(e as Map<String, dynamic>)).toList()) : const SdkOmitted(),
-  );
+  factory AsyncInvokeRequest.fromJson(Map<String, dynamic> json) =>
+      AsyncInvokeRequest(
+        modelId: (json['model_id'] as String?)!,
+        input: (json['input'] != null
+            ? AsyncInvokeRequestInput.fromJson(
+                json['input'] as Map<String, dynamic>)
+            : null)!,
+        tags: json.containsKey('tags')
+            ? SdkPresent((json['tags'] as List?)
+                ?.map((e) => AsyncInvokeRequestTagsItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'model_id': modelId,
-    'input': input.toJson(),
-    ...switch (tags) {
-      SdkPresent<List<AsyncInvokeRequestTagsItem>?>(value: final value) => {'tags': value?.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'model_id': modelId,
+        'input': input.toJson(),
+        ...switch (tags) {
+          SdkPresent<List<AsyncInvokeRequestTagsItem>?>(value: final value) => {
+              'tags': value?.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Response returned when an asynchronous invocation request is accepted. The job status is QUEUED initially. Use the request_id to poll for the result.
 class AsyncInvokeResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique identifier for the async invocation request. Use this ID to check the status and retrieve the result.
   final String requestId;
+
   /// The current status of the async invocation.
   final AsyncInvokeResponseStatus status;
+
   /// The model ID that was invoked.
   final String modelId;
+
   /// The timestamp when the request was created.
   final String createdAt;
+
   /// The timestamp when the job started processing. Null while queued.
   final SdkOptional<String?> startedAt;
+
   /// The timestamp when the job completed. Null until finished.
   final SdkOptional<String?> completedAt;
+
   /// The output of the invocation. Null while the job is queued or in progress. Contains the result once completed.
   final SdkOptional<Map<String, Object?>?> output;
+
   /// Error message if the job failed. Null on success.
   final SdkOptional<String?> error;
 
-  const AsyncInvokeResponse({required this.requestId, required this.status, required this.modelId, required this.createdAt, this.startedAt = const SdkOmitted(), this.completedAt = const SdkOmitted(), this.output = const SdkOmitted(), this.error = const SdkOmitted()});
+  const AsyncInvokeResponse(
+      {required this.requestId,
+      required this.status,
+      required this.modelId,
+      required this.createdAt,
+      this.startedAt = const SdkOmitted(),
+      this.completedAt = const SdkOmitted(),
+      this.output = const SdkOmitted(),
+      this.error = const SdkOmitted()});
 
-  AsyncInvokeResponse Function({String requestId, AsyncInvokeResponseStatus status, String modelId, String createdAt, SdkOptional<String?> startedAt, SdkOptional<String?> completedAt, SdkOptional<Map<String, Object?>?> output, SdkOptional<String?> error}) get copyWith => _copyWith;
+  AsyncInvokeResponse Function(
+      {String requestId,
+      AsyncInvokeResponseStatus status,
+      String modelId,
+      String createdAt,
+      SdkOptional<String?> startedAt,
+      SdkOptional<String?> completedAt,
+      SdkOptional<Map<String, Object?>?> output,
+      SdkOptional<String?> error}) get copyWith => _copyWith;
 
-  AsyncInvokeResponse _copyWith({Object? requestId = sdkOmittedValue, Object? status = sdkOmittedValue, Object? modelId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? output = sdkOmittedValue, Object? error = sdkOmittedValue}) => AsyncInvokeResponse(
-    requestId: identical(requestId, sdkOmittedValue) ? this.requestId : requestId as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as AsyncInvokeResponseStatus,
-    modelId: identical(modelId, sdkOmittedValue) ? this.modelId : modelId as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String?>,
-    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<String?>,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<Map<String, Object?>?>,
-    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<String?>,
-  );
+  AsyncInvokeResponse _copyWith(
+          {Object? requestId = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? modelId = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? startedAt = sdkOmittedValue,
+          Object? completedAt = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? error = sdkOmittedValue}) =>
+      AsyncInvokeResponse(
+        requestId: identical(requestId, sdkOmittedValue)
+            ? this.requestId
+            : requestId as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as AsyncInvokeResponseStatus,
+        modelId: identical(modelId, sdkOmittedValue)
+            ? this.modelId
+            : modelId as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        startedAt: identical(startedAt, sdkOmittedValue)
+            ? this.startedAt
+            : startedAt as SdkOptional<String?>,
+        completedAt: identical(completedAt, sdkOmittedValue)
+            ? this.completedAt
+            : completedAt as SdkOptional<String?>,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<Map<String, Object?>?>,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as SdkOptional<String?>,
+      );
 
-  factory AsyncInvokeResponse.fromJson(Map<String, dynamic> json) => AsyncInvokeResponse(
-    requestId: (json['request_id'] as String?)!,
-    status: (json['status'] != null ? AsyncInvokeResponseStatus.fromJson(json['status'] as String) : null)!,
-    modelId: (json['model_id'] as String?)!,
-    createdAt: (json['created_at'] as String?)!,
-    startedAt: json.containsKey('started_at') ? SdkPresent(json['started_at'] as String?) : const SdkOmitted(),
-    completedAt: json.containsKey('completed_at') ? SdkPresent(json['completed_at'] as String?) : const SdkOmitted(),
-    output: json.containsKey('output') ? SdkPresent(json['output'] == null ? null : Map<String, dynamic>.from(json['output'] as Map).map((key, value) => MapEntry(key, value))) : const SdkOmitted(),
-    error: json.containsKey('error') ? SdkPresent(json['error'] as String?) : const SdkOmitted(),
-  );
+  factory AsyncInvokeResponse.fromJson(Map<String, dynamic> json) =>
+      AsyncInvokeResponse(
+        requestId: (json['request_id'] as String?)!,
+        status: (json['status'] != null
+            ? AsyncInvokeResponseStatus.fromJson(json['status'] as String)
+            : null)!,
+        modelId: (json['model_id'] as String?)!,
+        createdAt: (json['created_at'] as String?)!,
+        startedAt: json.containsKey('started_at')
+            ? SdkPresent(json['started_at'] as String?)
+            : const SdkOmitted(),
+        completedAt: json.containsKey('completed_at')
+            ? SdkPresent(json['completed_at'] as String?)
+            : const SdkOmitted(),
+        output: json.containsKey('output')
+            ? SdkPresent(json['output'] == null
+                ? null
+                : Map<String, dynamic>.from(json['output'] as Map)
+                    .map((key, value) => MapEntry(key, value)))
+            : const SdkOmitted(),
+        error: json.containsKey('error')
+            ? SdkPresent(json['error'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'request_id': requestId,
-    'status': status.toJson(),
-    'model_id': modelId,
-    'created_at': createdAt,
-    ...switch (startedAt) {
-      SdkPresent<String?>(value: final value) => {'started_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (completedAt) {
-      SdkPresent<String?>(value: final value) => {'completed_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (output) {
-      SdkPresent<Map<String, Object?>?>(value: final value) => {'output': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (error) {
-      SdkPresent<String?>(value: final value) => {'error': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'request_id': requestId,
+        'status': status.toJson(),
+        'model_id': modelId,
+        'created_at': createdAt,
+        ...switch (startedAt) {
+          SdkPresent<String?>(value: final value) => {
+              'started_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (completedAt) {
+          SdkPresent<String?>(value: final value) => {
+              'completed_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (output) {
+          SdkPresent<Map<String, Object?>?>(value: final value) => {
+              'output': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (error) {
+          SdkPresent<String?>(value: final value) => {
+              'error': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

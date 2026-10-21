@@ -8,239 +8,461 @@ part of 'droplets.dart';
 class AssociatedResourceStatusResources {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `reserved_ips` wire field.
   final SdkOptional<List<DestroyedAssociatedResource>> reservedIps;
+
   /// Optional array value serialized in the `floating_ips` wire field.
   final SdkOptional<List<DestroyedAssociatedResource>> floatingIps;
+
   /// Optional array value serialized in the `snapshots` wire field.
   final SdkOptional<List<DestroyedAssociatedResource>> snapshots;
+
   /// Optional array value serialized in the `volumes` wire field.
   final SdkOptional<List<DestroyedAssociatedResource>> volumes;
+
   /// Optional array value serialized in the `volume_snapshots` wire field.
   final SdkOptional<List<DestroyedAssociatedResource>> volumeSnapshots;
 
-  const AssociatedResourceStatusResources({this.reservedIps = const SdkOmitted(), this.floatingIps = const SdkOmitted(), this.snapshots = const SdkOmitted(), this.volumes = const SdkOmitted(), this.volumeSnapshots = const SdkOmitted()});
+  const AssociatedResourceStatusResources(
+      {this.reservedIps = const SdkOmitted(),
+      this.floatingIps = const SdkOmitted(),
+      this.snapshots = const SdkOmitted(),
+      this.volumes = const SdkOmitted(),
+      this.volumeSnapshots = const SdkOmitted()});
 
-  AssociatedResourceStatusResources Function({SdkOptional<List<DestroyedAssociatedResource>> reservedIps, SdkOptional<List<DestroyedAssociatedResource>> floatingIps, SdkOptional<List<DestroyedAssociatedResource>> snapshots, SdkOptional<List<DestroyedAssociatedResource>> volumes, SdkOptional<List<DestroyedAssociatedResource>> volumeSnapshots}) get copyWith => _copyWith;
+  AssociatedResourceStatusResources Function(
+          {SdkOptional<List<DestroyedAssociatedResource>> reservedIps,
+          SdkOptional<List<DestroyedAssociatedResource>> floatingIps,
+          SdkOptional<List<DestroyedAssociatedResource>> snapshots,
+          SdkOptional<List<DestroyedAssociatedResource>> volumes,
+          SdkOptional<List<DestroyedAssociatedResource>> volumeSnapshots})
+      get copyWith => _copyWith;
 
-  AssociatedResourceStatusResources _copyWith({Object? reservedIps = sdkOmittedValue, Object? floatingIps = sdkOmittedValue, Object? snapshots = sdkOmittedValue, Object? volumes = sdkOmittedValue, Object? volumeSnapshots = sdkOmittedValue}) => AssociatedResourceStatusResources(
-    reservedIps: identical(reservedIps, sdkOmittedValue) ? this.reservedIps : reservedIps as SdkOptional<List<DestroyedAssociatedResource>>,
-    floatingIps: identical(floatingIps, sdkOmittedValue) ? this.floatingIps : floatingIps as SdkOptional<List<DestroyedAssociatedResource>>,
-    snapshots: identical(snapshots, sdkOmittedValue) ? this.snapshots : snapshots as SdkOptional<List<DestroyedAssociatedResource>>,
-    volumes: identical(volumes, sdkOmittedValue) ? this.volumes : volumes as SdkOptional<List<DestroyedAssociatedResource>>,
-    volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue) ? this.volumeSnapshots : volumeSnapshots as SdkOptional<List<DestroyedAssociatedResource>>,
-  );
+  AssociatedResourceStatusResources _copyWith(
+          {Object? reservedIps = sdkOmittedValue,
+          Object? floatingIps = sdkOmittedValue,
+          Object? snapshots = sdkOmittedValue,
+          Object? volumes = sdkOmittedValue,
+          Object? volumeSnapshots = sdkOmittedValue}) =>
+      AssociatedResourceStatusResources(
+        reservedIps: identical(reservedIps, sdkOmittedValue)
+            ? this.reservedIps
+            : reservedIps as SdkOptional<List<DestroyedAssociatedResource>>,
+        floatingIps: identical(floatingIps, sdkOmittedValue)
+            ? this.floatingIps
+            : floatingIps as SdkOptional<List<DestroyedAssociatedResource>>,
+        snapshots: identical(snapshots, sdkOmittedValue)
+            ? this.snapshots
+            : snapshots as SdkOptional<List<DestroyedAssociatedResource>>,
+        volumes: identical(volumes, sdkOmittedValue)
+            ? this.volumes
+            : volumes as SdkOptional<List<DestroyedAssociatedResource>>,
+        volumeSnapshots: identical(volumeSnapshots, sdkOmittedValue)
+            ? this.volumeSnapshots
+            : volumeSnapshots as SdkOptional<List<DestroyedAssociatedResource>>,
+      );
 
-  factory AssociatedResourceStatusResources.fromJson(Map<String, dynamic> json) => AssociatedResourceStatusResources(
-    reservedIps: json['reserved_ips'] != null ? SdkPresent(((json['reserved_ips'] as List?)?.map((e) => DestroyedAssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    floatingIps: json['floating_ips'] != null ? SdkPresent(((json['floating_ips'] as List?)?.map((e) => DestroyedAssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    snapshots: json['snapshots'] != null ? SdkPresent(((json['snapshots'] as List?)?.map((e) => DestroyedAssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    volumes: json['volumes'] != null ? SdkPresent(((json['volumes'] as List?)?.map((e) => DestroyedAssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    volumeSnapshots: json['volume_snapshots'] != null ? SdkPresent(((json['volume_snapshots'] as List?)?.map((e) => DestroyedAssociatedResource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AssociatedResourceStatusResources.fromJson(
+          Map<String, dynamic> json) =>
+      AssociatedResourceStatusResources(
+        reservedIps: json['reserved_ips'] != null
+            ? SdkPresent(((json['reserved_ips'] as List?)
+                ?.map((e) => DestroyedAssociatedResource.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        floatingIps: json['floating_ips'] != null
+            ? SdkPresent(((json['floating_ips'] as List?)
+                ?.map((e) => DestroyedAssociatedResource.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        snapshots: json['snapshots'] != null
+            ? SdkPresent(((json['snapshots'] as List?)
+                ?.map((e) => DestroyedAssociatedResource.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        volumes: json['volumes'] != null
+            ? SdkPresent(((json['volumes'] as List?)
+                ?.map((e) => DestroyedAssociatedResource.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        volumeSnapshots: json['volume_snapshots'] != null
+            ? SdkPresent(((json['volume_snapshots'] as List?)
+                ?.map((e) => DestroyedAssociatedResource.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (reservedIps) {
-      SdkPresent<List<DestroyedAssociatedResource>>(value: final value) => {'reserved_ips': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (floatingIps) {
-      SdkPresent<List<DestroyedAssociatedResource>>(value: final value) => {'floating_ips': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (snapshots) {
-      SdkPresent<List<DestroyedAssociatedResource>>(value: final value) => {'snapshots': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (volumes) {
-      SdkPresent<List<DestroyedAssociatedResource>>(value: final value) => {'volumes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (volumeSnapshots) {
-      SdkPresent<List<DestroyedAssociatedResource>>(value: final value) => {'volume_snapshots': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (reservedIps) {
+          SdkPresent<List<DestroyedAssociatedResource>>(value: final value) => {
+              'reserved_ips': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (floatingIps) {
+          SdkPresent<List<DestroyedAssociatedResource>>(value: final value) => {
+              'floating_ips': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (snapshots) {
+          SdkPresent<List<DestroyedAssociatedResource>>(value: final value) => {
+              'snapshots': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (volumes) {
+          SdkPresent<List<DestroyedAssociatedResource>>(value: final value) => {
+              'volumes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (volumeSnapshots) {
+          SdkPresent<List<DestroyedAssociatedResource>>(value: final value) => {
+              'volume_snapshots': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An objects containing information about a resources scheduled for deletion.
 class AssociatedResourceStatus {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An object containing information about a resource scheduled for deletion.
   final SdkOptional<DestroyedAssociatedResource> droplet;
+
   /// An object containing additional information about resource related to a Droplet requested to be destroyed.
   final SdkOptional<AssociatedResourceStatusResources> resources;
+
   /// A time value given in ISO8601 combined date and time format indicating when the requested action was completed.
   final SdkOptional<String> completedAt;
+
   /// A count of the associated resources that failed to be destroyed, if any.
   final SdkOptional<int> failures;
 
-  const AssociatedResourceStatus({this.droplet = const SdkOmitted(), this.resources = const SdkOmitted(), this.completedAt = const SdkOmitted(), this.failures = const SdkOmitted()});
+  const AssociatedResourceStatus(
+      {this.droplet = const SdkOmitted(),
+      this.resources = const SdkOmitted(),
+      this.completedAt = const SdkOmitted(),
+      this.failures = const SdkOmitted()});
 
-  AssociatedResourceStatus Function({SdkOptional<DestroyedAssociatedResource> droplet, SdkOptional<AssociatedResourceStatusResources> resources, SdkOptional<String> completedAt, SdkOptional<int> failures}) get copyWith => _copyWith;
+  AssociatedResourceStatus Function(
+      {SdkOptional<DestroyedAssociatedResource> droplet,
+      SdkOptional<AssociatedResourceStatusResources> resources,
+      SdkOptional<String> completedAt,
+      SdkOptional<int> failures}) get copyWith => _copyWith;
 
-  AssociatedResourceStatus _copyWith({Object? droplet = sdkOmittedValue, Object? resources = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? failures = sdkOmittedValue}) => AssociatedResourceStatus(
-    droplet: identical(droplet, sdkOmittedValue) ? this.droplet : droplet as SdkOptional<DestroyedAssociatedResource>,
-    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<AssociatedResourceStatusResources>,
-    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<String>,
-    failures: identical(failures, sdkOmittedValue) ? this.failures : failures as SdkOptional<int>,
-  );
+  AssociatedResourceStatus _copyWith(
+          {Object? droplet = sdkOmittedValue,
+          Object? resources = sdkOmittedValue,
+          Object? completedAt = sdkOmittedValue,
+          Object? failures = sdkOmittedValue}) =>
+      AssociatedResourceStatus(
+        droplet: identical(droplet, sdkOmittedValue)
+            ? this.droplet
+            : droplet as SdkOptional<DestroyedAssociatedResource>,
+        resources: identical(resources, sdkOmittedValue)
+            ? this.resources
+            : resources as SdkOptional<AssociatedResourceStatusResources>,
+        completedAt: identical(completedAt, sdkOmittedValue)
+            ? this.completedAt
+            : completedAt as SdkOptional<String>,
+        failures: identical(failures, sdkOmittedValue)
+            ? this.failures
+            : failures as SdkOptional<int>,
+      );
 
-  factory AssociatedResourceStatus.fromJson(Map<String, dynamic> json) => AssociatedResourceStatus(
-    droplet: json['droplet'] != null ? SdkPresent((json['droplet'] != null ? DestroyedAssociatedResource.fromJson(json['droplet'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    resources: json['resources'] != null ? SdkPresent((json['resources'] != null ? AssociatedResourceStatusResources.fromJson(json['resources'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    completedAt: json['completed_at'] != null ? SdkPresent((json['completed_at'] as String?)!) : const SdkOmitted(),
-    failures: json['failures'] != null ? SdkPresent(((json['failures'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory AssociatedResourceStatus.fromJson(Map<String, dynamic> json) =>
+      AssociatedResourceStatus(
+        droplet: json['droplet'] != null
+            ? SdkPresent((json['droplet'] != null
+                ? DestroyedAssociatedResource.fromJson(
+                    json['droplet'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        resources: json['resources'] != null
+            ? SdkPresent((json['resources'] != null
+                ? AssociatedResourceStatusResources.fromJson(
+                    json['resources'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        completedAt: json['completed_at'] != null
+            ? SdkPresent((json['completed_at'] as String?)!)
+            : const SdkOmitted(),
+        failures: json['failures'] != null
+            ? SdkPresent(((json['failures'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (droplet) {
-      SdkPresent<DestroyedAssociatedResource>(value: final value) => {'droplet': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (resources) {
-      SdkPresent<AssociatedResourceStatusResources>(value: final value) => {'resources': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (completedAt) {
-      SdkPresent<String>(value: final value) => {'completed_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (failures) {
-      SdkPresent<int>(value: final value) => {'failures': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (droplet) {
+          SdkPresent<DestroyedAssociatedResource>(value: final value) => {
+              'droplet': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (resources) {
+          SdkPresent<AssociatedResourceStatusResources>(value: final value) => {
+              'resources': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (completedAt) {
+          SdkPresent<String>(value: final value) => {
+              'completed_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (failures) {
+          SdkPresent<int>(value: final value) => {
+              'failures': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object containing information about a resource scheduled for deletion.
 class DestroyedAssociatedResource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the resource scheduled for deletion.
   final SdkOptional<String> id;
+
   /// The name of the resource scheduled for deletion.
   final SdkOptional<String> name;
+
   /// A time value given in ISO8601 combined date and time format indicating when the resource was destroyed if the request was successful.
   final SdkOptional<String> destroyedAt;
+
   /// A string indicating that the resource was not successfully destroyed and providing additional information.
   final SdkOptional<String> errorMessage;
 
-  const DestroyedAssociatedResource({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.destroyedAt = const SdkOmitted(), this.errorMessage = const SdkOmitted()});
+  const DestroyedAssociatedResource(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.destroyedAt = const SdkOmitted(),
+      this.errorMessage = const SdkOmitted()});
 
-  DestroyedAssociatedResource Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> destroyedAt, SdkOptional<String> errorMessage}) get copyWith => _copyWith;
+  DestroyedAssociatedResource Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<String> destroyedAt,
+      SdkOptional<String> errorMessage}) get copyWith => _copyWith;
 
-  DestroyedAssociatedResource _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? destroyedAt = sdkOmittedValue, Object? errorMessage = sdkOmittedValue}) => DestroyedAssociatedResource(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    destroyedAt: identical(destroyedAt, sdkOmittedValue) ? this.destroyedAt : destroyedAt as SdkOptional<String>,
-    errorMessage: identical(errorMessage, sdkOmittedValue) ? this.errorMessage : errorMessage as SdkOptional<String>,
-  );
+  DestroyedAssociatedResource _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? destroyedAt = sdkOmittedValue,
+          Object? errorMessage = sdkOmittedValue}) =>
+      DestroyedAssociatedResource(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        destroyedAt: identical(destroyedAt, sdkOmittedValue)
+            ? this.destroyedAt
+            : destroyedAt as SdkOptional<String>,
+        errorMessage: identical(errorMessage, sdkOmittedValue)
+            ? this.errorMessage
+            : errorMessage as SdkOptional<String>,
+      );
 
-  factory DestroyedAssociatedResource.fromJson(Map<String, dynamic> json) => DestroyedAssociatedResource(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    destroyedAt: json['destroyed_at'] != null ? SdkPresent((json['destroyed_at'] as String?)!) : const SdkOmitted(),
-    errorMessage: json['error_message'] != null ? SdkPresent((json['error_message'] as String?)!) : const SdkOmitted(),
-  );
+  factory DestroyedAssociatedResource.fromJson(Map<String, dynamic> json) =>
+      DestroyedAssociatedResource(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        destroyedAt: json['destroyed_at'] != null
+            ? SdkPresent((json['destroyed_at'] as String?)!)
+            : const SdkOmitted(),
+        errorMessage: json['error_message'] != null
+            ? SdkPresent((json['error_message'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (destroyedAt) {
-      SdkPresent<String>(value: final value) => {'destroyed_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (errorMessage) {
-      SdkPresent<String>(value: final value) => {'error_message': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (destroyedAt) {
+          SdkPresent<String>(value: final value) => {
+              'destroyed_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (errorMessage) {
+          SdkPresent<String>(value: final value) => {
+              'error_message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DropletBackupPolicyRecord` API schema.
 class DropletBackupPolicyRecord {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the Droplet.
   final SdkOptional<int> dropletId;
+
   /// A boolean value indicating whether backups are enabled for the Droplet.
   final SdkOptional<bool> backupEnabled;
+
   /// An object specifying the backup policy for the Droplet.
   final SdkOptional<DropletBackupPolicy> backupPolicy;
+
   /// An object containing keys with the start and end times of the window during which the backup will occur.
   final SdkOptional<DropletNextBackupWindow?> nextBackupWindow;
 
-  const DropletBackupPolicyRecord({this.dropletId = const SdkOmitted(), this.backupEnabled = const SdkOmitted(), this.backupPolicy = const SdkOmitted(), this.nextBackupWindow = const SdkOmitted()});
+  const DropletBackupPolicyRecord(
+      {this.dropletId = const SdkOmitted(),
+      this.backupEnabled = const SdkOmitted(),
+      this.backupPolicy = const SdkOmitted(),
+      this.nextBackupWindow = const SdkOmitted()});
 
-  DropletBackupPolicyRecord Function({SdkOptional<int> dropletId, SdkOptional<bool> backupEnabled, SdkOptional<DropletBackupPolicy> backupPolicy, SdkOptional<DropletNextBackupWindow?> nextBackupWindow}) get copyWith => _copyWith;
+  DropletBackupPolicyRecord Function(
+          {SdkOptional<int> dropletId,
+          SdkOptional<bool> backupEnabled,
+          SdkOptional<DropletBackupPolicy> backupPolicy,
+          SdkOptional<DropletNextBackupWindow?> nextBackupWindow})
+      get copyWith => _copyWith;
 
-  DropletBackupPolicyRecord _copyWith({Object? dropletId = sdkOmittedValue, Object? backupEnabled = sdkOmittedValue, Object? backupPolicy = sdkOmittedValue, Object? nextBackupWindow = sdkOmittedValue}) => DropletBackupPolicyRecord(
-    dropletId: identical(dropletId, sdkOmittedValue) ? this.dropletId : dropletId as SdkOptional<int>,
-    backupEnabled: identical(backupEnabled, sdkOmittedValue) ? this.backupEnabled : backupEnabled as SdkOptional<bool>,
-    backupPolicy: identical(backupPolicy, sdkOmittedValue) ? this.backupPolicy : backupPolicy as SdkOptional<DropletBackupPolicy>,
-    nextBackupWindow: identical(nextBackupWindow, sdkOmittedValue) ? this.nextBackupWindow : nextBackupWindow as SdkOptional<DropletNextBackupWindow?>,
-  );
+  DropletBackupPolicyRecord _copyWith(
+          {Object? dropletId = sdkOmittedValue,
+          Object? backupEnabled = sdkOmittedValue,
+          Object? backupPolicy = sdkOmittedValue,
+          Object? nextBackupWindow = sdkOmittedValue}) =>
+      DropletBackupPolicyRecord(
+        dropletId: identical(dropletId, sdkOmittedValue)
+            ? this.dropletId
+            : dropletId as SdkOptional<int>,
+        backupEnabled: identical(backupEnabled, sdkOmittedValue)
+            ? this.backupEnabled
+            : backupEnabled as SdkOptional<bool>,
+        backupPolicy: identical(backupPolicy, sdkOmittedValue)
+            ? this.backupPolicy
+            : backupPolicy as SdkOptional<DropletBackupPolicy>,
+        nextBackupWindow: identical(nextBackupWindow, sdkOmittedValue)
+            ? this.nextBackupWindow
+            : nextBackupWindow as SdkOptional<DropletNextBackupWindow?>,
+      );
 
-  factory DropletBackupPolicyRecord.fromJson(Map<String, dynamic> json) => DropletBackupPolicyRecord(
-    dropletId: json['droplet_id'] != null ? SdkPresent(((json['droplet_id'] as num?)?.toInt())!) : const SdkOmitted(),
-    backupEnabled: json['backup_enabled'] != null ? SdkPresent((json['backup_enabled'] as bool?)!) : const SdkOmitted(),
-    backupPolicy: json['backup_policy'] != null ? SdkPresent((json['backup_policy'] != null ? DropletBackupPolicy.fromJson(json['backup_policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    nextBackupWindow: json.containsKey('next_backup_window') ? SdkPresent(json['next_backup_window'] != null ? DropletNextBackupWindow.fromJson(json['next_backup_window'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory DropletBackupPolicyRecord.fromJson(Map<String, dynamic> json) =>
+      DropletBackupPolicyRecord(
+        dropletId: json['droplet_id'] != null
+            ? SdkPresent(((json['droplet_id'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        backupEnabled: json['backup_enabled'] != null
+            ? SdkPresent((json['backup_enabled'] as bool?)!)
+            : const SdkOmitted(),
+        backupPolicy: json['backup_policy'] != null
+            ? SdkPresent((json['backup_policy'] != null
+                ? DropletBackupPolicy.fromJson(
+                    json['backup_policy'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        nextBackupWindow: json.containsKey('next_backup_window')
+            ? SdkPresent(json['next_backup_window'] != null
+                ? DropletNextBackupWindow.fromJson(
+                    json['next_backup_window'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (dropletId) {
-      SdkPresent<int>(value: final value) => {'droplet_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (backupEnabled) {
-      SdkPresent<bool>(value: final value) => {'backup_enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (backupPolicy) {
-      SdkPresent<DropletBackupPolicy>(value: final value) => {'backup_policy': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (nextBackupWindow) {
-      SdkPresent<DropletNextBackupWindow?>(value: final value) => {'next_backup_window': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (dropletId) {
+          SdkPresent<int>(value: final value) => {
+              'droplet_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (backupEnabled) {
+          SdkPresent<bool>(value: final value) => {
+              'backup_enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (backupPolicy) {
+          SdkPresent<DropletBackupPolicy>(value: final value) => {
+              'backup_policy': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (nextBackupWindow) {
+          SdkPresent<DropletNextBackupWindow?>(value: final value) => {
+              'next_backup_window': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DropletBackupPolicyResponse` API schema.
 class DropletBackupPolicyResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `policy` wire field.
   final SdkOptional<DropletBackupPolicyRecord> policy;
 
   const DropletBackupPolicyResponse({this.policy = const SdkOmitted()});
 
-  DropletBackupPolicyResponse Function({SdkOptional<DropletBackupPolicyRecord> policy}) get copyWith => _copyWith;
+  DropletBackupPolicyResponse Function(
+          {SdkOptional<DropletBackupPolicyRecord> policy})
+      get copyWith => _copyWith;
 
-  DropletBackupPolicyResponse _copyWith({Object? policy = sdkOmittedValue}) => DropletBackupPolicyResponse(
-    policy: identical(policy, sdkOmittedValue) ? this.policy : policy as SdkOptional<DropletBackupPolicyRecord>,
-  );
+  DropletBackupPolicyResponse _copyWith({Object? policy = sdkOmittedValue}) =>
+      DropletBackupPolicyResponse(
+        policy: identical(policy, sdkOmittedValue)
+            ? this.policy
+            : policy as SdkOptional<DropletBackupPolicyRecord>,
+      );
 
-  factory DropletBackupPolicyResponse.fromJson(Map<String, dynamic> json) => DropletBackupPolicyResponse(
-    policy: json['policy'] != null ? SdkPresent((json['policy'] != null ? DropletBackupPolicyRecord.fromJson(json['policy'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DropletBackupPolicyResponse.fromJson(Map<String, dynamic> json) =>
+      DropletBackupPolicyResponse(
+        policy: json['policy'] != null
+            ? SdkPresent((json['policy'] != null
+                ? DropletBackupPolicyRecord.fromJson(
+                    json['policy'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (policy) {
-      SdkPresent<DropletBackupPolicyRecord>(value: final value) => {'policy': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (policy) {
+          SdkPresent<DropletBackupPolicyRecord>(value: final value) => {
+              'policy': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class DropletCreateImage {
@@ -248,8 +470,12 @@ sealed class DropletCreateImage {
   static const String constructionSurface = 'named';
   const DropletCreateImage();
   factory DropletCreateImage.fromJson(Object? json) {
-    if (json is String) { return DropletCreateImageString(json); }
-    if (json is num) { return DropletCreateImageInt(json.toInt()); }
+    if (json is String) {
+      return DropletCreateImageString(json);
+    }
+    if (json is num) {
+      return DropletCreateImageInt(json.toInt());
+    }
     throw FormatException("No variant matched for DropletCreateImage");
   }
   Object? toJson();
@@ -258,11 +484,13 @@ sealed class DropletCreateImage {
 final class DropletCreateImageString extends DropletCreateImage {
   final String value;
   const DropletCreateImageString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 final class DropletCreateImageInt extends DropletCreateImage {
   final int value;
   const DropletCreateImageInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }

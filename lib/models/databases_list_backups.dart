@@ -8,35 +8,58 @@ part of 'databases.dart';
 class Backup {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A time value given in ISO8601 combined date and time format at which the backup was created.
   final String createdAt;
+
   /// The size of the database backup in GBs.
   final double sizeGigabytes;
+
   /// Indicates if this backup is a full or an incremental one (available only for MySQL).
   final SdkOptional<bool> incremental;
 
-  const Backup({required this.createdAt, required this.sizeGigabytes, this.incremental = const SdkOmitted()});
+  const Backup(
+      {required this.createdAt,
+      required this.sizeGigabytes,
+      this.incremental = const SdkOmitted()});
 
-  Backup Function({String createdAt, double sizeGigabytes, SdkOptional<bool> incremental}) get copyWith => _copyWith;
+  Backup Function(
+      {String createdAt,
+      double sizeGigabytes,
+      SdkOptional<bool> incremental}) get copyWith => _copyWith;
 
-  Backup _copyWith({Object? createdAt = sdkOmittedValue, Object? sizeGigabytes = sdkOmittedValue, Object? incremental = sdkOmittedValue}) => Backup(
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    sizeGigabytes: identical(sizeGigabytes, sdkOmittedValue) ? this.sizeGigabytes : sizeGigabytes as double,
-    incremental: identical(incremental, sdkOmittedValue) ? this.incremental : incremental as SdkOptional<bool>,
-  );
+  Backup _copyWith(
+          {Object? createdAt = sdkOmittedValue,
+          Object? sizeGigabytes = sdkOmittedValue,
+          Object? incremental = sdkOmittedValue}) =>
+      Backup(
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        sizeGigabytes: identical(sizeGigabytes, sdkOmittedValue)
+            ? this.sizeGigabytes
+            : sizeGigabytes as double,
+        incremental: identical(incremental, sdkOmittedValue)
+            ? this.incremental
+            : incremental as SdkOptional<bool>,
+      );
 
   factory Backup.fromJson(Map<String, dynamic> json) => Backup(
-    createdAt: (json['created_at'] as String?)!,
-    sizeGigabytes: ((json['size_gigabytes'] as num?)?.toDouble())!,
-    incremental: json['incremental'] != null ? SdkPresent((json['incremental'] as bool?)!) : const SdkOmitted(),
-  );
+        createdAt: (json['created_at'] as String?)!,
+        sizeGigabytes: ((json['size_gigabytes'] as num?)?.toDouble())!,
+        incremental: json['incremental'] != null
+            ? SdkPresent((json['incremental'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'created_at': createdAt,
-    'size_gigabytes': sizeGigabytes,
-    ...switch (incremental) {
-      SdkPresent<bool>(value: final value) => {'incremental': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'created_at': createdAt,
+        'size_gigabytes': sizeGigabytes,
+        ...switch (incremental) {
+          SdkPresent<bool>(value: final value) => {
+              'incremental': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

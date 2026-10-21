@@ -32,19 +32,36 @@ Future<ListSessionToolsResponse> gatewayToolsList(ClientConfig config,
   return (await sdkRequest<ListSessionToolsResponse>('GET', '/tools',
           config: config,
           query: {
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true)
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'X-Session-Id': xSessionId, 'If-None-Match': SdkUtils.unwrapOptional(ifNoneMatch)}),
+          extraHeaders: SdkUtils.serializeHeaders({
+            'X-Session-Id': xSessionId,
+            'If-None-Match': SdkUtils.unwrapOptional(ifNoneMatch)
+          }),
           operationId: 'gatewayToolsList',
-          fromJsonRaw: (value) => ListSessionToolsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListSessionToolsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Forbidden.fromJson(value), '412': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '429': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '500': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '503': (value) => ToolResultError.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Forbidden.fromJson(value),
+            '412': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Lists the catalog tools that a session can call, ordered by name. The list applies the session's `tools` selection and omits tools that its policy always denies. Each page includes an `ETag` header. Send it in `If-None-Match` to receive `304 Not Modified` while the page is unchanged.
 ///
@@ -57,23 +74,58 @@ Future<ListSessionToolsResponse> gatewayToolsList(ClientConfig config,
 ///   only valid for the session that received it.
 /// [ifNoneMatch] The `ETag` from a previous response for the same page. If the
 ///   page is unchanged, the response is `304 Not Modified` with no body.
-Stream<SessionTool> gatewayToolsListPaginated(ClientConfig config, {required String xSessionId, int? pageSize, String? pageToken, String? ifNoneMatch, RequestOptions? requestOptions}) async* {
+Stream<SessionTool> gatewayToolsListPaginated(ClientConfig config,
+    {required String xSessionId,
+    int? pageSize,
+    String? pageToken,
+    String? ifNoneMatch,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await gatewayToolsList(config, xSessionId: xSessionId, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), ifNoneMatch: ifNoneMatch == null ? const SdkOmitted<String>() : SdkPresent<String>(ifNoneMatch), requestOptions: requestOptions);
+    final sdkPage = await gatewayToolsList(config,
+        xSessionId: xSessionId,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        ifNoneMatch: ifNoneMatch == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(ifNoneMatch),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.tools.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListSessionToolsResponse, SessionTool>> gatewayToolsListPages(ClientConfig config, {required String xSessionId, int? pageSize, String? pageToken, String? ifNoneMatch, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListSessionToolsResponse, SessionTool>> gatewayToolsListPages(
+    ClientConfig config,
+    {required String xSessionId,
+    int? pageSize,
+    String? pageToken,
+    String? ifNoneMatch,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await gatewayToolsList(config, xSessionId: xSessionId, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), ifNoneMatch: ifNoneMatch == null ? const SdkOmitted<String>() : SdkPresent<String>(ifNoneMatch), requestOptions: requestOptions);
+    final sdkPage = await gatewayToolsList(config,
+        xSessionId: xSessionId,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        ifNoneMatch: ifNoneMatch == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(ifNoneMatch),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.tools.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -83,7 +135,6 @@ Stream<SdkPage<ListSessionToolsResponse, SessionTool>> gatewayToolsListPages(Cli
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Finds the catalog tools that fit one or more use cases. This is the REST form of the `action_search` MCP tool. Each query is searched independently and returns its own result group, so you can see which tools serve which goal. Results include each tool's `inputSchema`, so you can call a tool with `POST /tools/invoke` without another lookup. Results include only tools that the session can call. If the session policy requires approval for `action_search`, the response is a failed result with `_meta.status` set to `requires_approval`.
 ///
@@ -121,12 +172,27 @@ Future<DataPlaneSearchToolsResponse> gatewayToolsListSearch(ClientConfig config,
           decoder: SdkResponseDecoder.json,
           extraHeaders: SdkUtils.serializeHeaders({'X-Session-Id': xSessionId}),
           operationId: 'gatewayToolsListSearch',
-          fromJsonRaw: (value) => DataPlaneSearchToolsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DataPlaneSearchToolsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Forbidden.fromJson(value), '412': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '413': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '429': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '500': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '503': (value) => ToolResultError.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Forbidden.fromJson(value),
+            '412': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '413': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Runs 1 to 10 tool calls in parallel and returns one result per call, in request order. This is the REST form of the `action_invoke` MCP tool. Each call is checked against the session's tool selection and policy, uses the session actor's connections, and applies any output view bound to the tool in the session. A well-formed request returns `200` even when some calls fail. Check each item's `result.status`, and use `success_count` and `error_count` to branch without scanning every item. A call whose policy requires approval fails with `_meta.status` set to `requires_approval`. Have the session's owner approve it, then repeat the call with the same arguments. A call that needs the end user to connect a provider fails with `_meta.status` set to `requires_authorization` or `requires_connection_configuration`.
 ///
@@ -153,12 +219,29 @@ Future<InvokeToolsResponse> gatewayToolsRun(ClientConfig config,
           decoder: SdkResponseDecoder.json,
           extraHeaders: SdkUtils.serializeHeaders({'X-Session-Id': xSessionId}),
           operationId: 'gatewayToolsRun',
-          fromJsonRaw: (value) => InvokeToolsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              InvokeToolsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '403': (value) => Forbidden.fromJson(value), '412': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '413': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '429': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '500': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '503': (value) => ToolResultError.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Forbidden.fromJson(value),
+            '412': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '413': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Runs Python code in an ephemeral sandbox and returns its `stdout`, `stderr`, and `exit_code`. This is the REST form of the `action_code` MCP tool. Use it for computation, parsing, and data processing, or to chain several catalog tools in one request. The sandbox provides `invoke_digitalocean_tool(name, arguments)`, which calls a catalog tool and returns a tool result. Those calls follow the session's tool selection and policy. Each request runs in a fresh sandbox, so state is not kept between requests. Execution, including tool calls, is time limited. Code that runs too long fails with a `timeout` error. A nonzero exit code is still a `succeeded` result; check `output.exit_code`. If the session policy requires approval for `action_code`, the response is a failed result with `_meta.status` set to `requires_approval`.
 ///
@@ -180,12 +263,29 @@ Future<ExecuteCodeResponse> gatewayCodeRun(ClientConfig config,
           decoder: SdkResponseDecoder.json,
           extraHeaders: SdkUtils.serializeHeaders({'X-Session-Id': xSessionId}),
           operationId: 'gatewayCodeRun',
-          fromJsonRaw: (value) => ExecuteCodeResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExecuteCodeResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Forbidden.fromJson(value), '412': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '413': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '429': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '500': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '503': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '504': (value) => ToolResultError.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Forbidden.fromJson(value),
+            '412': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '413': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '504': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Approves or denies a tool call that is waiting for approval. A tool result returns `_meta.status` set to `requires_approval` when the session policy sets `ask` for the call, and its `_meta.decide` gives this request's path. Send the decision with the session owner's token. Approval is a separate control request, not a tool, so an agent cannot approve its own calls. After approving, repeat the original call with the same arguments before `expires_at`. An approval applies only to that session, tool version, and set of arguments, and is used once. To ask again after a denial or expiry, repeat the tool call.
 ///
@@ -195,12 +295,12 @@ Future<ExecuteCodeResponse> gatewayCodeRun(ClientConfig config,
 /// [approvalId] The `approval_id` from a tool result whose `_meta.status` is
 ///   `requires_approval`.
 /// [decision] Whether to let the pending call run.
-Future<ApprovalDecisionResponse>
-    gatewaySessionApprovalsUpdate(ClientConfig config,
-        {required String sessionId,
-        required String approvalId,
-        required ApprovalDecisionDecision decision,
-        RequestOptions? requestOptions}) async {
+Future<ApprovalDecisionResponse> gatewaySessionApprovalsUpdate(
+    ClientConfig config,
+    {required String sessionId,
+    required String approvalId,
+    required ApprovalDecisionDecision decision,
+    RequestOptions? requestOptions}) async {
   sdkValidateUuid('session_id', sessionId);
   sdkValidateUuid('approval_id', approvalId);
 
@@ -210,12 +310,29 @@ Future<ApprovalDecisionResponse>
           body: {'decision': decision},
           decoder: SdkResponseDecoder.json,
           operationId: 'gatewaySessionApprovalsUpdate',
-          fromJsonRaw: (value) => ApprovalDecisionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ApprovalDecisionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Forbidden.fromJson(value), '404': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '409': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '412': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '429': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '500': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '503': (value) => ToolResultError.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Forbidden.fromJson(value),
+            '404': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '412': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Approves or denies a tool call that is waiting for approval, identifying the session with the `X-Session-Id` header. It behaves the same as `POST /approvals/session/{session_id}/{approval_id}`, which is the path returned in a result's `_meta.decide`.
 ///
@@ -240,8 +357,26 @@ Future<ApprovalDecisionResponse> gatewayApprovalsUpdate(ClientConfig config,
           decoder: SdkResponseDecoder.json,
           extraHeaders: SdkUtils.serializeHeaders({'X-Session-Id': xSessionId}),
           operationId: 'gatewayApprovalsUpdate',
-          fromJsonRaw: (value) => ApprovalDecisionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ApprovalDecisionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Forbidden.fromJson(value), '404': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '409': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '412': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '429': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '500': (value) => ToolResultError.fromJson(value as Map<String, dynamic>), '503': (value) => ToolResultError.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Forbidden.fromJson(value),
+            '404': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '412': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>),
+            '503': (value) =>
+                ToolResultError.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

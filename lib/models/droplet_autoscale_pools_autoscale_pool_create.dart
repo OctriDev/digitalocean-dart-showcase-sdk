@@ -8,32 +8,55 @@ part of 'droplet_autoscale_pools.dart';
 class AutoscalePoolCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The human-readable name of the autoscale pool. This field cannot be updated
   final String name;
+
   /// The scaling configuration for an autoscale pool, which is how the pool scales up and down (either by resource utilization or static configuration).
   final AutoscalePoolCreateConfig config;
+
   /// Required object value serialized in the `droplet_template` wire field.
   final AutoscalePoolDropletTemplate dropletTemplate;
 
-  const AutoscalePoolCreate({required this.name, required this.config, required this.dropletTemplate});
+  const AutoscalePoolCreate(
+      {required this.name,
+      required this.config,
+      required this.dropletTemplate});
 
-  AutoscalePoolCreate Function({String name, AutoscalePoolCreateConfig config, AutoscalePoolDropletTemplate dropletTemplate}) get copyWith => _copyWith;
+  AutoscalePoolCreate Function(
+      {String name,
+      AutoscalePoolCreateConfig config,
+      AutoscalePoolDropletTemplate dropletTemplate}) get copyWith => _copyWith;
 
-  AutoscalePoolCreate _copyWith({Object? name = sdkOmittedValue, Object? config = sdkOmittedValue, Object? dropletTemplate = sdkOmittedValue}) => AutoscalePoolCreate(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    config: identical(config, sdkOmittedValue) ? this.config : config as AutoscalePoolCreateConfig,
-    dropletTemplate: identical(dropletTemplate, sdkOmittedValue) ? this.dropletTemplate : dropletTemplate as AutoscalePoolDropletTemplate,
-  );
+  AutoscalePoolCreate _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? config = sdkOmittedValue,
+          Object? dropletTemplate = sdkOmittedValue}) =>
+      AutoscalePoolCreate(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        config: identical(config, sdkOmittedValue)
+            ? this.config
+            : config as AutoscalePoolCreateConfig,
+        dropletTemplate: identical(dropletTemplate, sdkOmittedValue)
+            ? this.dropletTemplate
+            : dropletTemplate as AutoscalePoolDropletTemplate,
+      );
 
-  factory AutoscalePoolCreate.fromJson(Map<String, dynamic> json) => AutoscalePoolCreate(
-    name: (json['name'] as String?)!,
-    config: (json['config'] != null ? AutoscalePoolCreateConfig.fromJson(json['config']) : null)!,
-    dropletTemplate: (json['droplet_template'] != null ? AutoscalePoolDropletTemplate.fromJson(json['droplet_template'] as Map<String, dynamic>) : null)!,
-  );
+  factory AutoscalePoolCreate.fromJson(Map<String, dynamic> json) =>
+      AutoscalePoolCreate(
+        name: (json['name'] as String?)!,
+        config: (json['config'] != null
+            ? AutoscalePoolCreateConfig.fromJson(json['config'])
+            : null)!,
+        dropletTemplate: (json['droplet_template'] != null
+            ? AutoscalePoolDropletTemplate.fromJson(
+                json['droplet_template'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'config': config.toJson(),
-    'droplet_template': dropletTemplate.toJson(),
-  };
+        'name': name,
+        'config': config.toJson(),
+        'droplet_template': dropletTemplate.toJson(),
+      };
 }

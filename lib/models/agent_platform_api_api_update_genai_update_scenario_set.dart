@@ -8,68 +8,116 @@ part of 'agent_platform_api_api_update.dart';
 class ApiUpdateScenarioSetInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional new name. When set, must be non-empty and at most 255 characters.
   final SdkOptional<String> name;
+
   /// UUID of the scenario set to update.
   final SdkOptional<String> scenarioSetUuid;
+
   /// Optional inline scenarios to replace the set contents. At least one of name or scenarios is required.
   final SdkOptional<List<ApiScenario>> scenarios;
 
-  const ApiUpdateScenarioSetInputPublic({this.name = const SdkOmitted(), this.scenarioSetUuid = const SdkOmitted(), this.scenarios = const SdkOmitted()});
+  const ApiUpdateScenarioSetInputPublic(
+      {this.name = const SdkOmitted(),
+      this.scenarioSetUuid = const SdkOmitted(),
+      this.scenarios = const SdkOmitted()});
 
-  ApiUpdateScenarioSetInputPublic Function({SdkOptional<String> name, SdkOptional<String> scenarioSetUuid, SdkOptional<List<ApiScenario>> scenarios}) get copyWith => _copyWith;
+  ApiUpdateScenarioSetInputPublic Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> scenarioSetUuid,
+      SdkOptional<List<ApiScenario>> scenarios}) get copyWith => _copyWith;
 
-  ApiUpdateScenarioSetInputPublic _copyWith({Object? name = sdkOmittedValue, Object? scenarioSetUuid = sdkOmittedValue, Object? scenarios = sdkOmittedValue}) => ApiUpdateScenarioSetInputPublic(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    scenarioSetUuid: identical(scenarioSetUuid, sdkOmittedValue) ? this.scenarioSetUuid : scenarioSetUuid as SdkOptional<String>,
-    scenarios: identical(scenarios, sdkOmittedValue) ? this.scenarios : scenarios as SdkOptional<List<ApiScenario>>,
-  );
+  ApiUpdateScenarioSetInputPublic _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? scenarioSetUuid = sdkOmittedValue,
+          Object? scenarios = sdkOmittedValue}) =>
+      ApiUpdateScenarioSetInputPublic(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        scenarioSetUuid: identical(scenarioSetUuid, sdkOmittedValue)
+            ? this.scenarioSetUuid
+            : scenarioSetUuid as SdkOptional<String>,
+        scenarios: identical(scenarios, sdkOmittedValue)
+            ? this.scenarios
+            : scenarios as SdkOptional<List<ApiScenario>>,
+      );
 
-  factory ApiUpdateScenarioSetInputPublic.fromJson(Map<String, dynamic> json) => ApiUpdateScenarioSetInputPublic(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    scenarioSetUuid: json['scenario_set_uuid'] != null ? SdkPresent((json['scenario_set_uuid'] as String?)!) : const SdkOmitted(),
-    scenarios: json['scenarios'] != null ? SdkPresent(((json['scenarios'] as List?)?.map((e) => ApiScenario.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiUpdateScenarioSetInputPublic.fromJson(Map<String, dynamic> json) =>
+      ApiUpdateScenarioSetInputPublic(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        scenarioSetUuid: json['scenario_set_uuid'] != null
+            ? SdkPresent((json['scenario_set_uuid'] as String?)!)
+            : const SdkOmitted(),
+        scenarios: json['scenarios'] != null
+            ? SdkPresent(((json['scenarios'] as List?)
+                ?.map((e) => ApiScenario.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scenarioSetUuid) {
-      SdkPresent<String>(value: final value) => {'scenario_set_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scenarios) {
-      SdkPresent<List<ApiScenario>>(value: final value) => {'scenarios': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scenarioSetUuid) {
+          SdkPresent<String>(value: final value) => {
+              'scenario_set_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scenarios) {
+          SdkPresent<List<ApiScenario>>(value: final value) => {
+              'scenarios': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Output for updating a scenario set.
 class ApiUpdateScenarioSetOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A team-owned collection of scenarios.
   final SdkOptional<ApiScenarioSet> scenarioSet;
 
   const ApiUpdateScenarioSetOutput({this.scenarioSet = const SdkOmitted()});
 
-  ApiUpdateScenarioSetOutput Function({SdkOptional<ApiScenarioSet> scenarioSet}) get copyWith => _copyWith;
+  ApiUpdateScenarioSetOutput Function({SdkOptional<ApiScenarioSet> scenarioSet})
+      get copyWith => _copyWith;
 
-  ApiUpdateScenarioSetOutput _copyWith({Object? scenarioSet = sdkOmittedValue}) => ApiUpdateScenarioSetOutput(
-    scenarioSet: identical(scenarioSet, sdkOmittedValue) ? this.scenarioSet : scenarioSet as SdkOptional<ApiScenarioSet>,
-  );
+  ApiUpdateScenarioSetOutput _copyWith(
+          {Object? scenarioSet = sdkOmittedValue}) =>
+      ApiUpdateScenarioSetOutput(
+        scenarioSet: identical(scenarioSet, sdkOmittedValue)
+            ? this.scenarioSet
+            : scenarioSet as SdkOptional<ApiScenarioSet>,
+      );
 
-  factory ApiUpdateScenarioSetOutput.fromJson(Map<String, dynamic> json) => ApiUpdateScenarioSetOutput(
-    scenarioSet: json['scenario_set'] != null ? SdkPresent((json['scenario_set'] != null ? ApiScenarioSet.fromJson(json['scenario_set'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiUpdateScenarioSetOutput.fromJson(Map<String, dynamic> json) =>
+      ApiUpdateScenarioSetOutput(
+        scenarioSet: json['scenario_set'] != null
+            ? SdkPresent((json['scenario_set'] != null
+                ? ApiScenarioSet.fromJson(
+                    json['scenario_set'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (scenarioSet) {
-      SdkPresent<ApiScenarioSet>(value: final value) => {'scenario_set': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (scenarioSet) {
+          SdkPresent<ApiScenarioSet>(value: final value) => {
+              'scenario_set': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

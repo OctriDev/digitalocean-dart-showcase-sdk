@@ -8,118 +8,208 @@ part of 'action_gateway_data_plane.dart';
 class ApprovalDecision {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether to let the pending call run.
   final ApprovalDecisionDecision decision;
 
   const ApprovalDecision({required this.decision});
 
-  ApprovalDecision Function({ApprovalDecisionDecision decision}) get copyWith => _copyWith;
+  ApprovalDecision Function({ApprovalDecisionDecision decision}) get copyWith =>
+      _copyWith;
 
-  ApprovalDecision _copyWith({Object? decision = sdkOmittedValue}) => ApprovalDecision(
-    decision: identical(decision, sdkOmittedValue) ? this.decision : decision as ApprovalDecisionDecision,
-  );
+  ApprovalDecision _copyWith({Object? decision = sdkOmittedValue}) =>
+      ApprovalDecision(
+        decision: identical(decision, sdkOmittedValue)
+            ? this.decision
+            : decision as ApprovalDecisionDecision,
+      );
 
-  factory ApprovalDecision.fromJson(Map<String, dynamic> json) => ApprovalDecision(
-    decision: (json['decision'] != null ? ApprovalDecisionDecision.fromJson(json['decision'] as String) : null)!,
-  );
+  factory ApprovalDecision.fromJson(Map<String, dynamic> json) =>
+      ApprovalDecision(
+        decision: (json['decision'] != null
+            ? ApprovalDecisionDecision.fromJson(json['decision'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'decision': decision.toJson(),
-  };
+        'decision': decision.toJson(),
+      };
 }
 
 /// Typed representation of the `ApprovalDecisionResponse` API schema.
 class ApprovalDecisionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The approval ID.
   final SdkOptional<String> id;
+
   /// Optional enumerated value serialized in the `status` wire field.
   final SdkOptional<ApprovalDecisionResponseStatus> status;
+
   /// Repeat an approved call with the same arguments before this time.
   final SdkOptional<String> expiresAt;
 
-  const ApprovalDecisionResponse({this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.expiresAt = const SdkOmitted()});
+  const ApprovalDecisionResponse(
+      {this.id = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.expiresAt = const SdkOmitted()});
 
-  ApprovalDecisionResponse Function({SdkOptional<String> id, SdkOptional<ApprovalDecisionResponseStatus> status, SdkOptional<String> expiresAt}) get copyWith => _copyWith;
+  ApprovalDecisionResponse Function(
+      {SdkOptional<String> id,
+      SdkOptional<ApprovalDecisionResponseStatus> status,
+      SdkOptional<String> expiresAt}) get copyWith => _copyWith;
 
-  ApprovalDecisionResponse _copyWith({Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? expiresAt = sdkOmittedValue}) => ApprovalDecisionResponse(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ApprovalDecisionResponseStatus>,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<String>,
-  );
+  ApprovalDecisionResponse _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue}) =>
+      ApprovalDecisionResponse(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<ApprovalDecisionResponseStatus>,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<String>,
+      );
 
-  factory ApprovalDecisionResponse.fromJson(Map<String, dynamic> json) => ApprovalDecisionResponse(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? ApprovalDecisionResponseStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    expiresAt: json['expires_at'] != null ? SdkPresent((json['expires_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApprovalDecisionResponse.fromJson(Map<String, dynamic> json) =>
+      ApprovalDecisionResponse(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? ApprovalDecisionResponseStatus.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        expiresAt: json['expires_at'] != null
+            ? SdkPresent((json['expires_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<ApprovalDecisionResponseStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresAt) {
-      SdkPresent<String>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<ApprovalDecisionResponseStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresAt) {
+          SdkPresent<String>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Describes why a request or tool call failed and whether retrying can help.
 class ErrorEnvelope {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The failure class. Branch on this value rather than on `message`, which may change.
   final SdkOptional<ErrorEnvelopeClass> class_;
+
   /// A human-readable explanation that is safe to show to an agent or end user.
   final SdkOptional<String> message;
+
   /// Whether retrying the same request later can succeed.
   final SdkOptional<bool> retriable;
+
   /// The suggested next step.
   final SdkOptional<ErrorEnvelopeRecoveryHint> recoveryHint;
 
-  const ErrorEnvelope({this.class_ = const SdkOmitted(), this.message = const SdkOmitted(), this.retriable = const SdkOmitted(), this.recoveryHint = const SdkOmitted()});
+  const ErrorEnvelope(
+      {this.class_ = const SdkOmitted(),
+      this.message = const SdkOmitted(),
+      this.retriable = const SdkOmitted(),
+      this.recoveryHint = const SdkOmitted()});
 
-  ErrorEnvelope Function({SdkOptional<ErrorEnvelopeClass> class_, SdkOptional<String> message, SdkOptional<bool> retriable, SdkOptional<ErrorEnvelopeRecoveryHint> recoveryHint}) get copyWith => _copyWith;
+  ErrorEnvelope Function(
+          {SdkOptional<ErrorEnvelopeClass> class_,
+          SdkOptional<String> message,
+          SdkOptional<bool> retriable,
+          SdkOptional<ErrorEnvelopeRecoveryHint> recoveryHint})
+      get copyWith => _copyWith;
 
-  ErrorEnvelope _copyWith({Object? class_ = sdkOmittedValue, Object? message = sdkOmittedValue, Object? retriable = sdkOmittedValue, Object? recoveryHint = sdkOmittedValue}) => ErrorEnvelope(
-    class_: identical(class_, sdkOmittedValue) ? this.class_ : class_ as SdkOptional<ErrorEnvelopeClass>,
-    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
-    retriable: identical(retriable, sdkOmittedValue) ? this.retriable : retriable as SdkOptional<bool>,
-    recoveryHint: identical(recoveryHint, sdkOmittedValue) ? this.recoveryHint : recoveryHint as SdkOptional<ErrorEnvelopeRecoveryHint>,
-  );
+  ErrorEnvelope _copyWith(
+          {Object? class_ = sdkOmittedValue,
+          Object? message = sdkOmittedValue,
+          Object? retriable = sdkOmittedValue,
+          Object? recoveryHint = sdkOmittedValue}) =>
+      ErrorEnvelope(
+        class_: identical(class_, sdkOmittedValue)
+            ? this.class_
+            : class_ as SdkOptional<ErrorEnvelopeClass>,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as SdkOptional<String>,
+        retriable: identical(retriable, sdkOmittedValue)
+            ? this.retriable
+            : retriable as SdkOptional<bool>,
+        recoveryHint: identical(recoveryHint, sdkOmittedValue)
+            ? this.recoveryHint
+            : recoveryHint as SdkOptional<ErrorEnvelopeRecoveryHint>,
+      );
 
   factory ErrorEnvelope.fromJson(Map<String, dynamic> json) => ErrorEnvelope(
-    class_: json['class'] != null ? SdkPresent((json['class'] != null ? ErrorEnvelopeClass.fromJson(json['class'] as String) : null)!) : const SdkOmitted(),
-    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
-    retriable: json['retriable'] != null ? SdkPresent((json['retriable'] as bool?)!) : const SdkOmitted(),
-    recoveryHint: json['recovery_hint'] != null ? SdkPresent((json['recovery_hint'] != null ? ErrorEnvelopeRecoveryHint.fromJson(json['recovery_hint'] as String) : null)!) : const SdkOmitted(),
-  );
+        class_: json['class'] != null
+            ? SdkPresent((json['class'] != null
+                ? ErrorEnvelopeClass.fromJson(json['class'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        message: json['message'] != null
+            ? SdkPresent((json['message'] as String?)!)
+            : const SdkOmitted(),
+        retriable: json['retriable'] != null
+            ? SdkPresent((json['retriable'] as bool?)!)
+            : const SdkOmitted(),
+        recoveryHint: json['recovery_hint'] != null
+            ? SdkPresent((json['recovery_hint'] != null
+                ? ErrorEnvelopeRecoveryHint.fromJson(
+                    json['recovery_hint'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (class_) {
-      SdkPresent<ErrorEnvelopeClass>(value: final value) => {'class': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (message) {
-      SdkPresent<String>(value: final value) => {'message': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (retriable) {
-      SdkPresent<bool>(value: final value) => {'retriable': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (recoveryHint) {
-      SdkPresent<ErrorEnvelopeRecoveryHint>(value: final value) => {'recovery_hint': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (class_) {
+          SdkPresent<ErrorEnvelopeClass>(value: final value) => {
+              'class': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (message) {
+          SdkPresent<String>(value: final value) => {
+              'message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (retriable) {
+          SdkPresent<bool>(value: final value) => {
+              'retriable': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (recoveryHint) {
+          SdkPresent<ErrorEnvelopeRecoveryHint>(value: final value) => {
+              'recovery_hint': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class Forbidden {
@@ -128,11 +218,26 @@ sealed class Forbidden {
   const Forbidden();
   factory Forbidden.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = ToolResultError.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ForbiddenToolResultError(value); } } catch (_) {}
-      try { final value = Error2.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ForbiddenError2(value); } } catch (_) {}
+      try {
+        final value = ToolResultError.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ForbiddenToolResultError(value);
+        }
+      } catch (_) {}
+      try {
+        final value = Error2.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ForbiddenError2(value);
+        }
+      } catch (_) {}
     }
-    try { return ForbiddenToolResultError(ToolResultError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return ForbiddenError2(Error2.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return ForbiddenToolResultError(
+          ToolResultError.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return ForbiddenError2(Error2.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for Forbidden");
   }
   Object? toJson();
@@ -141,98 +246,173 @@ sealed class Forbidden {
 final class ForbiddenToolResultError extends Forbidden {
   final ToolResultError value;
   const ForbiddenToolResultError(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 final class ForbiddenError2 extends Forbidden {
   final Error2 value;
   const ForbiddenError2(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// The result of one tool call. Check `status` before reading `output`. A call that needs approval, authorization, or connection setup fails with a `_meta.status` that names the step to complete.
 class ToolResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `status` wire field.
   final ToolResultStatus status;
+
   /// The tool's JSON output. Present when `status` is `succeeded`. Its shape is the tool's output schema, or the output view bound to the tool in the session.
   final SdkOptional<Map<String, Object?>> output;
+
   /// Describes why a request or tool call failed and whether retrying can help.
   final SdkOptional<ErrorEnvelope> error;
+
   /// A unique identifier for this call. Include it when contacting support.
   final String callId;
+
   /// Additional result metadata. Keys include: - `status`: `requires_approval`, `requires_authorization`, or `requires_connection_configuration` when the call stopped before running. - `approval_id`, `tool_name`, `expires_at`, and `decide`: present with `requires_approval`. `decide` gives the `method`, `path`, and `body` of the approval request to send. Approve the call, then repeat it with the same arguments before `expires_at`. - `retry`: `{"attempt_count": N, "exhausted": bool}` when the gateway retried the call. - `output_view`: the output view applied to the result.
   final SdkOptional<Map<String, Object?>> meta;
 
-  const ToolResult({required this.status, this.output = const SdkOmitted(), this.error = const SdkOmitted(), required this.callId, this.meta = const SdkOmitted()});
+  const ToolResult(
+      {required this.status,
+      this.output = const SdkOmitted(),
+      this.error = const SdkOmitted(),
+      required this.callId,
+      this.meta = const SdkOmitted()});
 
-  ToolResult Function({ToolResultStatus status, SdkOptional<Map<String, Object?>> output, SdkOptional<ErrorEnvelope> error, String callId, SdkOptional<Map<String, Object?>> meta}) get copyWith => _copyWith;
+  ToolResult Function(
+      {ToolResultStatus status,
+      SdkOptional<Map<String, Object?>> output,
+      SdkOptional<ErrorEnvelope> error,
+      String callId,
+      SdkOptional<Map<String, Object?>> meta}) get copyWith => _copyWith;
 
-  ToolResult _copyWith({Object? status = sdkOmittedValue, Object? output = sdkOmittedValue, Object? error = sdkOmittedValue, Object? callId = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ToolResult(
-    status: identical(status, sdkOmittedValue) ? this.status : status as ToolResultStatus,
-    output: identical(output, sdkOmittedValue) ? this.output : output as SdkOptional<Map<String, Object?>>,
-    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<ErrorEnvelope>,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<Map<String, Object?>>,
-  );
+  ToolResult _copyWith(
+          {Object? status = sdkOmittedValue,
+          Object? output = sdkOmittedValue,
+          Object? error = sdkOmittedValue,
+          Object? callId = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      ToolResult(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ToolResultStatus,
+        output: identical(output, sdkOmittedValue)
+            ? this.output
+            : output as SdkOptional<Map<String, Object?>>,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as SdkOptional<ErrorEnvelope>,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<Map<String, Object?>>,
+      );
 
   factory ToolResult.fromJson(Map<String, dynamic> json) => ToolResult(
-    status: (json['status'] != null ? ToolResultStatus.fromJson(json['status'] as String) : null)!,
-    output: json['output'] != null ? SdkPresent((json['output'] == null ? null : Map<String, dynamic>.from(json['output'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-    error: json['error'] != null ? SdkPresent((json['error'] != null ? ErrorEnvelope.fromJson(json['error'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    callId: (json['call_id'] as String?)!,
-    meta: json['_meta'] != null ? SdkPresent((json['_meta'] == null ? null : Map<String, dynamic>.from(json['_meta'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-  );
+        status: (json['status'] != null
+            ? ToolResultStatus.fromJson(json['status'] as String)
+            : null)!,
+        output: json['output'] != null
+            ? SdkPresent((json['output'] == null
+                ? null
+                : Map<String, dynamic>.from(json['output'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+        error: json['error'] != null
+            ? SdkPresent((json['error'] != null
+                ? ErrorEnvelope.fromJson(json['error'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        callId: (json['call_id'] as String?)!,
+        meta: json['_meta'] != null
+            ? SdkPresent((json['_meta'] == null
+                ? null
+                : Map<String, dynamic>.from(json['_meta'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'status': status.toJson(),
-    ...switch (output) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'output': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (error) {
-      SdkPresent<ErrorEnvelope>(value: final value) => {'error': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'call_id': callId,
-    ...switch (meta) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'_meta': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'status': status.toJson(),
+        ...switch (output) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'output': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (error) {
+          SdkPresent<ErrorEnvelope>(value: final value) => {
+              'error': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'call_id': callId,
+        ...switch (meta) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              '_meta': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A failed request. The body has the same shape as a failed tool result.
 class ToolResultError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `status` wire field.
   final ToolResultErrorStatus status;
+
   /// Describes why a request or tool call failed and whether retrying can help.
   final ErrorEnvelope error;
+
   /// A unique identifier for this request, when one was assigned.
   final String callId;
 
-  const ToolResultError({required this.status, required this.error, required this.callId});
+  const ToolResultError(
+      {required this.status, required this.error, required this.callId});
 
-  ToolResultError Function({ToolResultErrorStatus status, ErrorEnvelope error, String callId}) get copyWith => _copyWith;
+  ToolResultError Function(
+      {ToolResultErrorStatus status,
+      ErrorEnvelope error,
+      String callId}) get copyWith => _copyWith;
 
-  ToolResultError _copyWith({Object? status = sdkOmittedValue, Object? error = sdkOmittedValue, Object? callId = sdkOmittedValue}) => ToolResultError(
-    status: identical(status, sdkOmittedValue) ? this.status : status as ToolResultErrorStatus,
-    error: identical(error, sdkOmittedValue) ? this.error : error as ErrorEnvelope,
-    callId: identical(callId, sdkOmittedValue) ? this.callId : callId as String,
-  );
+  ToolResultError _copyWith(
+          {Object? status = sdkOmittedValue,
+          Object? error = sdkOmittedValue,
+          Object? callId = sdkOmittedValue}) =>
+      ToolResultError(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as ToolResultErrorStatus,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as ErrorEnvelope,
+        callId:
+            identical(callId, sdkOmittedValue) ? this.callId : callId as String,
+      );
 
-  factory ToolResultError.fromJson(Map<String, dynamic> json) => ToolResultError(
-    status: (json['status'] != null ? ToolResultErrorStatus.fromJson(json['status'] as String) : null)!,
-    error: (json['error'] != null ? ErrorEnvelope.fromJson(json['error'] as Map<String, dynamic>) : null)!,
-    callId: (json['call_id'] as String?)!,
-  );
+  factory ToolResultError.fromJson(Map<String, dynamic> json) =>
+      ToolResultError(
+        status: (json['status'] != null
+            ? ToolResultErrorStatus.fromJson(json['status'] as String)
+            : null)!,
+        error: (json['error'] != null
+            ? ErrorEnvelope.fromJson(json['error'] as Map<String, dynamic>)
+            : null)!,
+        callId: (json['call_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'status': status.toJson(),
-    'error': error.toJson(),
-    'call_id': callId,
-  };
+        'status': status.toJson(),
+        'error': error.toJson(),
+        'call_id': callId,
+      };
 }

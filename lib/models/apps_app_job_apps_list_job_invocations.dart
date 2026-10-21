@@ -11,22 +11,36 @@ class AppJobInvocationsVariant0 {
 
   const AppJobInvocationsVariant0({this.jobInvocations = const SdkOmitted()});
 
-  AppJobInvocationsVariant0 Function({SdkOptional<List<AppJobInvocation>> jobInvocations}) get copyWith => _copyWith;
+  AppJobInvocationsVariant0 Function(
+          {SdkOptional<List<AppJobInvocation>> jobInvocations})
+      get copyWith => _copyWith;
 
-  AppJobInvocationsVariant0 _copyWith({Object? jobInvocations = sdkOmittedValue}) => AppJobInvocationsVariant0(
-    jobInvocations: identical(jobInvocations, sdkOmittedValue) ? this.jobInvocations : jobInvocations as SdkOptional<List<AppJobInvocation>>,
-  );
+  AppJobInvocationsVariant0 _copyWith(
+          {Object? jobInvocations = sdkOmittedValue}) =>
+      AppJobInvocationsVariant0(
+        jobInvocations: identical(jobInvocations, sdkOmittedValue)
+            ? this.jobInvocations
+            : jobInvocations as SdkOptional<List<AppJobInvocation>>,
+      );
 
-  factory AppJobInvocationsVariant0.fromJson(Map<String, dynamic> json) => AppJobInvocationsVariant0(
-    jobInvocations: json['job_invocations'] != null ? SdkPresent(((json['job_invocations'] as List?)?.map((e) => AppJobInvocation.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AppJobInvocationsVariant0.fromJson(Map<String, dynamic> json) =>
+      AppJobInvocationsVariant0(
+        jobInvocations: json['job_invocations'] != null
+            ? SdkPresent(((json['job_invocations'] as List?)
+                ?.map(
+                    (e) => AppJobInvocation.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (jobInvocations) {
-      SdkPresent<List<AppJobInvocation>>(value: final value) => {'job_invocations': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (jobInvocations) {
+          SdkPresent<List<AppJobInvocation>>(value: final value) => {
+              'job_invocations': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AppJobInvocations` API schema.
@@ -34,31 +48,57 @@ class AppJobInvocations {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<AppJobInvocation>> jobInvocations;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
 
-  const AppJobInvocations({this.jobInvocations = const SdkOmitted(), this.links = const SdkOmitted()});
+  const AppJobInvocations(
+      {this.jobInvocations = const SdkOmitted(),
+      this.links = const SdkOmitted()});
 
-  AppJobInvocations Function({SdkOptional<List<AppJobInvocation>> jobInvocations, SdkOptional<PageLinks> links}) get copyWith => _copyWith;
+  AppJobInvocations Function(
+      {SdkOptional<List<AppJobInvocation>> jobInvocations,
+      SdkOptional<PageLinks> links}) get copyWith => _copyWith;
 
-  AppJobInvocations _copyWith({Object? jobInvocations = sdkOmittedValue, Object? links = sdkOmittedValue}) => AppJobInvocations(
-    jobInvocations: identical(jobInvocations, sdkOmittedValue) ? this.jobInvocations : jobInvocations as SdkOptional<List<AppJobInvocation>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-  );
+  AppJobInvocations _copyWith(
+          {Object? jobInvocations = sdkOmittedValue,
+          Object? links = sdkOmittedValue}) =>
+      AppJobInvocations(
+        jobInvocations: identical(jobInvocations, sdkOmittedValue)
+            ? this.jobInvocations
+            : jobInvocations as SdkOptional<List<AppJobInvocation>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+      );
 
-  factory AppJobInvocations.fromJson(Map<String, dynamic> json) => AppJobInvocations(
-    jobInvocations: json['job_invocations'] != null ? SdkPresent(((json['job_invocations'] as List?)?.map((e) => AppJobInvocation.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AppJobInvocations.fromJson(Map<String, dynamic> json) =>
+      AppJobInvocations(
+        jobInvocations: json['job_invocations'] != null
+            ? SdkPresent(((json['job_invocations'] as List?)
+                ?.map(
+                    (e) => AppJobInvocation.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (jobInvocations) {
-      SdkPresent<List<AppJobInvocation>>(value: final value) => {'job_invocations': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (jobInvocations) {
+          SdkPresent<List<AppJobInvocation>>(value: final value) => {
+              'job_invocations': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,112 +8,212 @@ part of 'billing.dart';
 class BillingDataPoint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// URN of the team that incurred the usage
   final SdkOptional<String> usageTeamUrn;
+
   /// Start date of the billing data point in YYYY-MM-DD format
   final SdkOptional<String> startDate;
+
   /// Total amount for this data point in USD
   final SdkOptional<String> totalAmount;
+
   /// Region where the usage occurred
   final SdkOptional<String> region;
+
   /// Unique SKU identifier for the billed resource
   final SdkOptional<String> sku;
+
   /// Description of the billed resource or service as shown on an invoice item
   final SdkOptional<String> description;
+
   /// Optional invoice item group name of the billed resource or service, blank when not part an invoice item group
   final SdkOptional<String> groupDescription;
 
-  const BillingDataPoint({this.usageTeamUrn = const SdkOmitted(), this.startDate = const SdkOmitted(), this.totalAmount = const SdkOmitted(), this.region = const SdkOmitted(), this.sku = const SdkOmitted(), this.description = const SdkOmitted(), this.groupDescription = const SdkOmitted()});
+  const BillingDataPoint(
+      {this.usageTeamUrn = const SdkOmitted(),
+      this.startDate = const SdkOmitted(),
+      this.totalAmount = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      this.sku = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.groupDescription = const SdkOmitted()});
 
-  BillingDataPoint Function({SdkOptional<String> usageTeamUrn, SdkOptional<String> startDate, SdkOptional<String> totalAmount, SdkOptional<String> region, SdkOptional<String> sku, SdkOptional<String> description, SdkOptional<String> groupDescription}) get copyWith => _copyWith;
+  BillingDataPoint Function(
+      {SdkOptional<String> usageTeamUrn,
+      SdkOptional<String> startDate,
+      SdkOptional<String> totalAmount,
+      SdkOptional<String> region,
+      SdkOptional<String> sku,
+      SdkOptional<String> description,
+      SdkOptional<String> groupDescription}) get copyWith => _copyWith;
 
-  BillingDataPoint _copyWith({Object? usageTeamUrn = sdkOmittedValue, Object? startDate = sdkOmittedValue, Object? totalAmount = sdkOmittedValue, Object? region = sdkOmittedValue, Object? sku = sdkOmittedValue, Object? description = sdkOmittedValue, Object? groupDescription = sdkOmittedValue}) => BillingDataPoint(
-    usageTeamUrn: identical(usageTeamUrn, sdkOmittedValue) ? this.usageTeamUrn : usageTeamUrn as SdkOptional<String>,
-    startDate: identical(startDate, sdkOmittedValue) ? this.startDate : startDate as SdkOptional<String>,
-    totalAmount: identical(totalAmount, sdkOmittedValue) ? this.totalAmount : totalAmount as SdkOptional<String>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    sku: identical(sku, sdkOmittedValue) ? this.sku : sku as SdkOptional<String>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    groupDescription: identical(groupDescription, sdkOmittedValue) ? this.groupDescription : groupDescription as SdkOptional<String>,
-  );
+  BillingDataPoint _copyWith(
+          {Object? usageTeamUrn = sdkOmittedValue,
+          Object? startDate = sdkOmittedValue,
+          Object? totalAmount = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? sku = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? groupDescription = sdkOmittedValue}) =>
+      BillingDataPoint(
+        usageTeamUrn: identical(usageTeamUrn, sdkOmittedValue)
+            ? this.usageTeamUrn
+            : usageTeamUrn as SdkOptional<String>,
+        startDate: identical(startDate, sdkOmittedValue)
+            ? this.startDate
+            : startDate as SdkOptional<String>,
+        totalAmount: identical(totalAmount, sdkOmittedValue)
+            ? this.totalAmount
+            : totalAmount as SdkOptional<String>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        sku: identical(sku, sdkOmittedValue)
+            ? this.sku
+            : sku as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        groupDescription: identical(groupDescription, sdkOmittedValue)
+            ? this.groupDescription
+            : groupDescription as SdkOptional<String>,
+      );
 
-  factory BillingDataPoint.fromJson(Map<String, dynamic> json) => BillingDataPoint(
-    usageTeamUrn: json['usage_team_urn'] != null ? SdkPresent((json['usage_team_urn'] as String?)!) : const SdkOmitted(),
-    startDate: json['start_date'] != null ? SdkPresent((json['start_date'] as String?)!) : const SdkOmitted(),
-    totalAmount: json['total_amount'] != null ? SdkPresent((json['total_amount'] as String?)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    sku: json['sku'] != null ? SdkPresent((json['sku'] as String?)!) : const SdkOmitted(),
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    groupDescription: json['group_description'] != null ? SdkPresent((json['group_description'] as String?)!) : const SdkOmitted(),
-  );
+  factory BillingDataPoint.fromJson(Map<String, dynamic> json) =>
+      BillingDataPoint(
+        usageTeamUrn: json['usage_team_urn'] != null
+            ? SdkPresent((json['usage_team_urn'] as String?)!)
+            : const SdkOmitted(),
+        startDate: json['start_date'] != null
+            ? SdkPresent((json['start_date'] as String?)!)
+            : const SdkOmitted(),
+        totalAmount: json['total_amount'] != null
+            ? SdkPresent((json['total_amount'] as String?)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        sku: json['sku'] != null
+            ? SdkPresent((json['sku'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+        groupDescription: json['group_description'] != null
+            ? SdkPresent((json['group_description'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (usageTeamUrn) {
-      SdkPresent<String>(value: final value) => {'usage_team_urn': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (startDate) {
-      SdkPresent<String>(value: final value) => {'start_date': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalAmount) {
-      SdkPresent<String>(value: final value) => {'total_amount': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sku) {
-      SdkPresent<String>(value: final value) => {'sku': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (groupDescription) {
-      SdkPresent<String>(value: final value) => {'group_description': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (usageTeamUrn) {
+          SdkPresent<String>(value: final value) => {
+              'usage_team_urn': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (startDate) {
+          SdkPresent<String>(value: final value) => {
+              'start_date': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalAmount) {
+          SdkPresent<String>(value: final value) => {
+              'total_amount': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sku) {
+          SdkPresent<String>(value: final value) => {
+              'sku': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (groupDescription) {
+          SdkPresent<String>(value: final value) => {
+              'group_description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `BillingInsights` API schema.
 class BillingInsights {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Array of billing data points, which are day-over-day changes in billing resource usage based on nightly invoice item estimates, for the requested period
   final List<BillingDataPoint> dataPoints;
+
   /// Total number of items available across all pages
   final int totalItems;
+
   /// Total number of pages available
   final int totalPages;
+
   /// Current page number
   final int currentPage;
 
-  const BillingInsights({required this.dataPoints, required this.totalItems, required this.totalPages, required this.currentPage});
+  const BillingInsights(
+      {required this.dataPoints,
+      required this.totalItems,
+      required this.totalPages,
+      required this.currentPage});
 
-  BillingInsights Function({List<BillingDataPoint> dataPoints, int totalItems, int totalPages, int currentPage}) get copyWith => _copyWith;
+  BillingInsights Function(
+      {List<BillingDataPoint> dataPoints,
+      int totalItems,
+      int totalPages,
+      int currentPage}) get copyWith => _copyWith;
 
-  BillingInsights _copyWith({Object? dataPoints = sdkOmittedValue, Object? totalItems = sdkOmittedValue, Object? totalPages = sdkOmittedValue, Object? currentPage = sdkOmittedValue}) => BillingInsights(
-    dataPoints: identical(dataPoints, sdkOmittedValue) ? this.dataPoints : dataPoints as List<BillingDataPoint>,
-    totalItems: identical(totalItems, sdkOmittedValue) ? this.totalItems : totalItems as int,
-    totalPages: identical(totalPages, sdkOmittedValue) ? this.totalPages : totalPages as int,
-    currentPage: identical(currentPage, sdkOmittedValue) ? this.currentPage : currentPage as int,
-  );
+  BillingInsights _copyWith(
+          {Object? dataPoints = sdkOmittedValue,
+          Object? totalItems = sdkOmittedValue,
+          Object? totalPages = sdkOmittedValue,
+          Object? currentPage = sdkOmittedValue}) =>
+      BillingInsights(
+        dataPoints: identical(dataPoints, sdkOmittedValue)
+            ? this.dataPoints
+            : dataPoints as List<BillingDataPoint>,
+        totalItems: identical(totalItems, sdkOmittedValue)
+            ? this.totalItems
+            : totalItems as int,
+        totalPages: identical(totalPages, sdkOmittedValue)
+            ? this.totalPages
+            : totalPages as int,
+        currentPage: identical(currentPage, sdkOmittedValue)
+            ? this.currentPage
+            : currentPage as int,
+      );
 
-  factory BillingInsights.fromJson(Map<String, dynamic> json) => BillingInsights(
-    dataPoints: ((json['data_points'] as List?)?.map((e) => BillingDataPoint.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalItems: ((json['total_items'] as num?)?.toInt())!,
-    totalPages: ((json['total_pages'] as num?)?.toInt())!,
-    currentPage: ((json['current_page'] as num?)?.toInt())!,
-  );
+  factory BillingInsights.fromJson(Map<String, dynamic> json) =>
+      BillingInsights(
+        dataPoints: ((json['data_points'] as List?)
+            ?.map((e) => BillingDataPoint.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalItems: ((json['total_items'] as num?)?.toInt())!,
+        totalPages: ((json['total_pages'] as num?)?.toInt())!,
+        currentPage: ((json['current_page'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'data_points': dataPoints.map((item) => item.toJson()).toList(),
-    'total_items': totalItems,
-    'total_pages': totalPages,
-    'current_page': currentPage,
-  };
+        'data_points': dataPoints.map((item) => item.toJson()).toList(),
+        'total_items': totalItems,
+        'total_pages': totalPages,
+        'current_page': currentPage,
+      };
 }

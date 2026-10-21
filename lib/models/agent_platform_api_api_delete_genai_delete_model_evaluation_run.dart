@@ -8,56 +8,91 @@ part of 'agent_platform_api_api_delete.dart';
 class ApiDeleteModelEvaluationRunOutputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Error message if deletion failed
   final SdkOptional<String> error;
+
   /// Status of delete operation
   final SdkOptional<ApiDeleteModelEvaluationRunStatus> status;
 
-  const ApiDeleteModelEvaluationRunOutputPublic({this.error = const SdkOmitted(), this.status = const SdkOmitted()});
+  const ApiDeleteModelEvaluationRunOutputPublic(
+      {this.error = const SdkOmitted(), this.status = const SdkOmitted()});
 
-  ApiDeleteModelEvaluationRunOutputPublic Function({SdkOptional<String> error, SdkOptional<ApiDeleteModelEvaluationRunStatus> status}) get copyWith => _copyWith;
+  ApiDeleteModelEvaluationRunOutputPublic Function(
+          {SdkOptional<String> error,
+          SdkOptional<ApiDeleteModelEvaluationRunStatus> status})
+      get copyWith => _copyWith;
 
-  ApiDeleteModelEvaluationRunOutputPublic _copyWith({Object? error = sdkOmittedValue, Object? status = sdkOmittedValue}) => ApiDeleteModelEvaluationRunOutputPublic(
-    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ApiDeleteModelEvaluationRunStatus>,
-  );
+  ApiDeleteModelEvaluationRunOutputPublic _copyWith(
+          {Object? error = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      ApiDeleteModelEvaluationRunOutputPublic(
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<ApiDeleteModelEvaluationRunStatus>,
+      );
 
-  factory ApiDeleteModelEvaluationRunOutputPublic.fromJson(Map<String, dynamic> json) => ApiDeleteModelEvaluationRunOutputPublic(
-    error: json['error'] != null ? SdkPresent((json['error'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? ApiDeleteModelEvaluationRunStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory ApiDeleteModelEvaluationRunOutputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiDeleteModelEvaluationRunOutputPublic(
+        error: json['error'] != null
+            ? SdkPresent((json['error'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? ApiDeleteModelEvaluationRunStatus.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (error) {
-      SdkPresent<String>(value: final value) => {'error': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<ApiDeleteModelEvaluationRunStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (error) {
+          SdkPresent<String>(value: final value) => {
+              'error': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<ApiDeleteModelEvaluationRunStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Status of delete operation
 final class ApiDeleteModelEvaluationRunStatus {
-
   final String value;
 
   const ApiDeleteModelEvaluationRunStatus._(this.value);
 
-  factory ApiDeleteModelEvaluationRunStatus.fromJson(String value) => ApiDeleteModelEvaluationRunStatus._(value);
+  factory ApiDeleteModelEvaluationRunStatus.fromJson(String value) =>
+      ApiDeleteModelEvaluationRunStatus._(value);
 
-  static const deleteModelEvaluationRunStatusUnspecified = ApiDeleteModelEvaluationRunStatus._('DELETE_MODEL_EVALUATION_RUN_STATUS_UNSPECIFIED');
-  static const deleteModelEvaluationRunStatusSuccess = ApiDeleteModelEvaluationRunStatus._('DELETE_MODEL_EVALUATION_RUN_STATUS_SUCCESS');
-  static const deleteModelEvaluationRunStatusFail = ApiDeleteModelEvaluationRunStatus._('DELETE_MODEL_EVALUATION_RUN_STATUS_FAIL');
+  static const deleteModelEvaluationRunStatusUnspecified =
+      ApiDeleteModelEvaluationRunStatus._(
+          'DELETE_MODEL_EVALUATION_RUN_STATUS_UNSPECIFIED');
+  static const deleteModelEvaluationRunStatusSuccess =
+      ApiDeleteModelEvaluationRunStatus._(
+          'DELETE_MODEL_EVALUATION_RUN_STATUS_SUCCESS');
+  static const deleteModelEvaluationRunStatusFail =
+      ApiDeleteModelEvaluationRunStatus._(
+          'DELETE_MODEL_EVALUATION_RUN_STATUS_FAIL');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiDeleteModelEvaluationRunStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiDeleteModelEvaluationRunStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

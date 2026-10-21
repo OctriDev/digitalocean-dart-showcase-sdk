@@ -8,33 +8,60 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetKnowledgeBaseOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `database_status` wire field.
   final SdkOptional<DbaasClusterStatus> databaseStatus;
+
   /// Knowledgebase Description
   final SdkOptional<ApiKnowledgeBase> knowledgeBase;
 
-  const ApiGetKnowledgeBaseOutput({this.databaseStatus = const SdkOmitted(), this.knowledgeBase = const SdkOmitted()});
+  const ApiGetKnowledgeBaseOutput(
+      {this.databaseStatus = const SdkOmitted(),
+      this.knowledgeBase = const SdkOmitted()});
 
-  ApiGetKnowledgeBaseOutput Function({SdkOptional<DbaasClusterStatus> databaseStatus, SdkOptional<ApiKnowledgeBase> knowledgeBase}) get copyWith => _copyWith;
+  ApiGetKnowledgeBaseOutput Function(
+      {SdkOptional<DbaasClusterStatus> databaseStatus,
+      SdkOptional<ApiKnowledgeBase> knowledgeBase}) get copyWith => _copyWith;
 
-  ApiGetKnowledgeBaseOutput _copyWith({Object? databaseStatus = sdkOmittedValue, Object? knowledgeBase = sdkOmittedValue}) => ApiGetKnowledgeBaseOutput(
-    databaseStatus: identical(databaseStatus, sdkOmittedValue) ? this.databaseStatus : databaseStatus as SdkOptional<DbaasClusterStatus>,
-    knowledgeBase: identical(knowledgeBase, sdkOmittedValue) ? this.knowledgeBase : knowledgeBase as SdkOptional<ApiKnowledgeBase>,
-  );
+  ApiGetKnowledgeBaseOutput _copyWith(
+          {Object? databaseStatus = sdkOmittedValue,
+          Object? knowledgeBase = sdkOmittedValue}) =>
+      ApiGetKnowledgeBaseOutput(
+        databaseStatus: identical(databaseStatus, sdkOmittedValue)
+            ? this.databaseStatus
+            : databaseStatus as SdkOptional<DbaasClusterStatus>,
+        knowledgeBase: identical(knowledgeBase, sdkOmittedValue)
+            ? this.knowledgeBase
+            : knowledgeBase as SdkOptional<ApiKnowledgeBase>,
+      );
 
-  factory ApiGetKnowledgeBaseOutput.fromJson(Map<String, dynamic> json) => ApiGetKnowledgeBaseOutput(
-    databaseStatus: json['database_status'] != null ? SdkPresent((json['database_status'] != null ? DbaasClusterStatus.fromJson(json['database_status'] as String) : null)!) : const SdkOmitted(),
-    knowledgeBase: json['knowledge_base'] != null ? SdkPresent((json['knowledge_base'] != null ? ApiKnowledgeBase.fromJson(json['knowledge_base'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiGetKnowledgeBaseOutput.fromJson(Map<String, dynamic> json) =>
+      ApiGetKnowledgeBaseOutput(
+        databaseStatus: json['database_status'] != null
+            ? SdkPresent((json['database_status'] != null
+                ? DbaasClusterStatus.fromJson(json['database_status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        knowledgeBase: json['knowledge_base'] != null
+            ? SdkPresent((json['knowledge_base'] != null
+                ? ApiKnowledgeBase.fromJson(
+                    json['knowledge_base'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (databaseStatus) {
-      SdkPresent<DbaasClusterStatus>(value: final value) => {'database_status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (knowledgeBase) {
-      SdkPresent<ApiKnowledgeBase>(value: final value) => {'knowledge_base': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (databaseStatus) {
+          SdkPresent<DbaasClusterStatus>(value: final value) => {
+              'database_status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (knowledgeBase) {
+          SdkPresent<ApiKnowledgeBase>(value: final value) => {
+              'knowledge_base': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

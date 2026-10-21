@@ -8,65 +8,118 @@ part of 'shared.dart';
 class ToolAnnotations {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Human-readable tool title.
   final SdkOptional<String> title;
+
   /// The tool does not modify anything.
   final SdkOptional<bool> readOnlyHint;
+
   /// Repeating a call with the same arguments has no additional effect.
   final SdkOptional<bool> idempotentHint;
+
   /// The tool interacts with external systems beyond the provider's own data.
   final SdkOptional<bool?> openWorldHint;
+
   /// The tool may perform destructive updates.
   final SdkOptional<bool?> destructiveHint;
 
-  const ToolAnnotations({this.title = const SdkOmitted(), this.readOnlyHint = const SdkOmitted(), this.idempotentHint = const SdkOmitted(), this.openWorldHint = const SdkOmitted(), this.destructiveHint = const SdkOmitted()});
+  const ToolAnnotations(
+      {this.title = const SdkOmitted(),
+      this.readOnlyHint = const SdkOmitted(),
+      this.idempotentHint = const SdkOmitted(),
+      this.openWorldHint = const SdkOmitted(),
+      this.destructiveHint = const SdkOmitted()});
 
-  ToolAnnotations Function({SdkOptional<String> title, SdkOptional<bool> readOnlyHint, SdkOptional<bool> idempotentHint, SdkOptional<bool?> openWorldHint, SdkOptional<bool?> destructiveHint}) get copyWith => _copyWith;
+  ToolAnnotations Function(
+      {SdkOptional<String> title,
+      SdkOptional<bool> readOnlyHint,
+      SdkOptional<bool> idempotentHint,
+      SdkOptional<bool?> openWorldHint,
+      SdkOptional<bool?> destructiveHint}) get copyWith => _copyWith;
 
-  ToolAnnotations _copyWith({Object? title = sdkOmittedValue, Object? readOnlyHint = sdkOmittedValue, Object? idempotentHint = sdkOmittedValue, Object? openWorldHint = sdkOmittedValue, Object? destructiveHint = sdkOmittedValue}) => ToolAnnotations(
-    title: identical(title, sdkOmittedValue) ? this.title : title as SdkOptional<String>,
-    readOnlyHint: identical(readOnlyHint, sdkOmittedValue) ? this.readOnlyHint : readOnlyHint as SdkOptional<bool>,
-    idempotentHint: identical(idempotentHint, sdkOmittedValue) ? this.idempotentHint : idempotentHint as SdkOptional<bool>,
-    openWorldHint: identical(openWorldHint, sdkOmittedValue) ? this.openWorldHint : openWorldHint as SdkOptional<bool?>,
-    destructiveHint: identical(destructiveHint, sdkOmittedValue) ? this.destructiveHint : destructiveHint as SdkOptional<bool?>,
-  );
+  ToolAnnotations _copyWith(
+          {Object? title = sdkOmittedValue,
+          Object? readOnlyHint = sdkOmittedValue,
+          Object? idempotentHint = sdkOmittedValue,
+          Object? openWorldHint = sdkOmittedValue,
+          Object? destructiveHint = sdkOmittedValue}) =>
+      ToolAnnotations(
+        title: identical(title, sdkOmittedValue)
+            ? this.title
+            : title as SdkOptional<String>,
+        readOnlyHint: identical(readOnlyHint, sdkOmittedValue)
+            ? this.readOnlyHint
+            : readOnlyHint as SdkOptional<bool>,
+        idempotentHint: identical(idempotentHint, sdkOmittedValue)
+            ? this.idempotentHint
+            : idempotentHint as SdkOptional<bool>,
+        openWorldHint: identical(openWorldHint, sdkOmittedValue)
+            ? this.openWorldHint
+            : openWorldHint as SdkOptional<bool?>,
+        destructiveHint: identical(destructiveHint, sdkOmittedValue)
+            ? this.destructiveHint
+            : destructiveHint as SdkOptional<bool?>,
+      );
 
-  factory ToolAnnotations.fromJson(Map<String, dynamic> json) => ToolAnnotations(
-    title: json['title'] != null ? SdkPresent((json['title'] as String?)!) : const SdkOmitted(),
-    readOnlyHint: json['readOnlyHint'] != null ? SdkPresent((json['readOnlyHint'] as bool?)!) : const SdkOmitted(),
-    idempotentHint: json['idempotentHint'] != null ? SdkPresent((json['idempotentHint'] as bool?)!) : const SdkOmitted(),
-    openWorldHint: json.containsKey('openWorldHint') ? SdkPresent(json['openWorldHint'] as bool?) : const SdkOmitted(),
-    destructiveHint: json.containsKey('destructiveHint') ? SdkPresent(json['destructiveHint'] as bool?) : const SdkOmitted(),
-  );
+  factory ToolAnnotations.fromJson(Map<String, dynamic> json) =>
+      ToolAnnotations(
+        title: json['title'] != null
+            ? SdkPresent((json['title'] as String?)!)
+            : const SdkOmitted(),
+        readOnlyHint: json['readOnlyHint'] != null
+            ? SdkPresent((json['readOnlyHint'] as bool?)!)
+            : const SdkOmitted(),
+        idempotentHint: json['idempotentHint'] != null
+            ? SdkPresent((json['idempotentHint'] as bool?)!)
+            : const SdkOmitted(),
+        openWorldHint: json.containsKey('openWorldHint')
+            ? SdkPresent(json['openWorldHint'] as bool?)
+            : const SdkOmitted(),
+        destructiveHint: json.containsKey('destructiveHint')
+            ? SdkPresent(json['destructiveHint'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (title) {
-      SdkPresent<String>(value: final value) => {'title': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (readOnlyHint) {
-      SdkPresent<bool>(value: final value) => {'readOnlyHint': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idempotentHint) {
-      SdkPresent<bool>(value: final value) => {'idempotentHint': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (openWorldHint) {
-      SdkPresent<bool?>(value: final value) => {'openWorldHint': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (destructiveHint) {
-      SdkPresent<bool?>(value: final value) => {'destructiveHint': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (title) {
+          SdkPresent<String>(value: final value) => {
+              'title': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (readOnlyHint) {
+          SdkPresent<bool>(value: final value) => {
+              'readOnlyHint': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idempotentHint) {
+          SdkPresent<bool>(value: final value) => {
+              'idempotentHint': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (openWorldHint) {
+          SdkPresent<bool?>(value: final value) => {
+              'openWorldHint': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (destructiveHint) {
+          SdkPresent<bool?>(value: final value) => {
+              'destructiveHint': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `UpdateRegistry` API schema.
 class UpdateRegistry {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A boolean value indicating that the garbage collection should be cancelled.
   final SdkOptional<bool> cancel;
 
@@ -74,20 +127,27 @@ class UpdateRegistry {
 
   UpdateRegistry Function({SdkOptional<bool> cancel}) get copyWith => _copyWith;
 
-  UpdateRegistry _copyWith({Object? cancel = sdkOmittedValue}) => UpdateRegistry(
-    cancel: identical(cancel, sdkOmittedValue) ? this.cancel : cancel as SdkOptional<bool>,
-  );
+  UpdateRegistry _copyWith({Object? cancel = sdkOmittedValue}) =>
+      UpdateRegistry(
+        cancel: identical(cancel, sdkOmittedValue)
+            ? this.cancel
+            : cancel as SdkOptional<bool>,
+      );
 
   factory UpdateRegistry.fromJson(Map<String, dynamic> json) => UpdateRegistry(
-    cancel: json['cancel'] != null ? SdkPresent((json['cancel'] as bool?)!) : const SdkOmitted(),
-  );
+        cancel: json['cancel'] != null
+            ? SdkPresent((json['cancel'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (cancel) {
-      SdkPresent<bool>(value: final value) => {'cancel': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (cancel) {
+          SdkPresent<bool>(value: final value) => {
+              'cancel': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 // Urn = String
@@ -96,6 +156,7 @@ class UpdateRegistry {
 class ValidateRegistry {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
   final String name;
 
@@ -103,15 +164,17 @@ class ValidateRegistry {
 
   ValidateRegistry Function({String name}) get copyWith => _copyWith;
 
-  ValidateRegistry _copyWith({Object? name = sdkOmittedValue}) => ValidateRegistry(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+  ValidateRegistry _copyWith({Object? name = sdkOmittedValue}) =>
+      ValidateRegistry(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
-  factory ValidateRegistry.fromJson(Map<String, dynamic> json) => ValidateRegistry(
-    name: (json['name'] as String?)!,
-  );
+  factory ValidateRegistry.fromJson(Map<String, dynamic> json) =>
+      ValidateRegistry(
+        name: (json['name'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-  };
+        'name': name,
+      };
 }

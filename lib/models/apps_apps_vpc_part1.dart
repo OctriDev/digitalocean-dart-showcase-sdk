@@ -8,41 +8,65 @@ part of 'apps_apps_vpc.dart';
 class AppsVpc {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String> id;
+
   /// Optional array value serialized in the `egress_ips` wire field.
   final SdkOptional<List<AppsVpcEgressIp>> egressIps;
 
-  const AppsVpc({this.id = const SdkOmitted(), this.egressIps = const SdkOmitted()});
+  const AppsVpc(
+      {this.id = const SdkOmitted(), this.egressIps = const SdkOmitted()});
 
-  AppsVpc Function({SdkOptional<String> id, SdkOptional<List<AppsVpcEgressIp>> egressIps}) get copyWith => _copyWith;
+  AppsVpc Function(
+      {SdkOptional<String> id,
+      SdkOptional<List<AppsVpcEgressIp>> egressIps}) get copyWith => _copyWith;
 
-  AppsVpc _copyWith({Object? id = sdkOmittedValue, Object? egressIps = sdkOmittedValue}) => AppsVpc(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    egressIps: identical(egressIps, sdkOmittedValue) ? this.egressIps : egressIps as SdkOptional<List<AppsVpcEgressIp>>,
-  );
+  AppsVpc _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? egressIps = sdkOmittedValue}) =>
+      AppsVpc(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        egressIps: identical(egressIps, sdkOmittedValue)
+            ? this.egressIps
+            : egressIps as SdkOptional<List<AppsVpcEgressIp>>,
+      );
 
   factory AppsVpc.fromJson(Map<String, dynamic> json) => AppsVpc(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    egressIps: json['egress_ips'] != null ? SdkPresent(((json['egress_ips'] as List?)?.map((e) => AppsVpcEgressIp.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        egressIps: json['egress_ips'] != null
+            ? SdkPresent(((json['egress_ips'] as List?)
+                ?.map(
+                    (e) => AppsVpcEgressIp.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (egressIps) {
-      SdkPresent<List<AppsVpcEgressIp>>(value: final value) => {'egress_ips': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (egressIps) {
+          SdkPresent<List<AppsVpcEgressIp>>(value: final value) => {
+              'egress_ips': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AppsVpcEgressIp` API schema.
 class AppsVpcEgressIp {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `ip` wire field.
   final SdkOptional<String> ip;
 
@@ -51,17 +75,24 @@ class AppsVpcEgressIp {
   AppsVpcEgressIp Function({SdkOptional<String> ip}) get copyWith => _copyWith;
 
   AppsVpcEgressIp _copyWith({Object? ip = sdkOmittedValue}) => AppsVpcEgressIp(
-    ip: identical(ip, sdkOmittedValue) ? this.ip : ip as SdkOptional<String>,
-  );
+        ip: identical(ip, sdkOmittedValue)
+            ? this.ip
+            : ip as SdkOptional<String>,
+      );
 
-  factory AppsVpcEgressIp.fromJson(Map<String, dynamic> json) => AppsVpcEgressIp(
-    ip: json['ip'] != null ? SdkPresent((json['ip'] as String?)!) : const SdkOmitted(),
-  );
+  factory AppsVpcEgressIp.fromJson(Map<String, dynamic> json) =>
+      AppsVpcEgressIp(
+        ip: json['ip'] != null
+            ? SdkPresent((json['ip'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (ip) {
-      SdkPresent<String>(value: final value) => {'ip': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (ip) {
+          SdkPresent<String>(value: final value) => {
+              'ip': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

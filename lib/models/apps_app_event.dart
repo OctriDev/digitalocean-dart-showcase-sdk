@@ -7,143 +7,278 @@ part of 'apps_app.dart';
 class AppEventAutoscalingComponentsValue {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of replicas before scaling
   final SdkOptional<int> from;
+
   /// The number of replicas after scaling
   final SdkOptional<int> to;
+
   /// The metric that triggered the scale change. Known values are "cpu", "requests_per_second", "request_duration". For inactivity sleep, "scale_from_zero" and "scale_to_zero" are used.
   final SdkOptional<String> triggeringMetric;
 
-  const AppEventAutoscalingComponentsValue({this.from = const SdkOmitted(), this.to = const SdkOmitted(), this.triggeringMetric = const SdkOmitted()});
+  const AppEventAutoscalingComponentsValue(
+      {this.from = const SdkOmitted(),
+      this.to = const SdkOmitted(),
+      this.triggeringMetric = const SdkOmitted()});
 
-  AppEventAutoscalingComponentsValue Function({SdkOptional<int> from, SdkOptional<int> to, SdkOptional<String> triggeringMetric}) get copyWith => _copyWith;
+  AppEventAutoscalingComponentsValue Function(
+      {SdkOptional<int> from,
+      SdkOptional<int> to,
+      SdkOptional<String> triggeringMetric}) get copyWith => _copyWith;
 
-  AppEventAutoscalingComponentsValue _copyWith({Object? from = sdkOmittedValue, Object? to = sdkOmittedValue, Object? triggeringMetric = sdkOmittedValue}) => AppEventAutoscalingComponentsValue(
-    from: identical(from, sdkOmittedValue) ? this.from : from as SdkOptional<int>,
-    to: identical(to, sdkOmittedValue) ? this.to : to as SdkOptional<int>,
-    triggeringMetric: identical(triggeringMetric, sdkOmittedValue) ? this.triggeringMetric : triggeringMetric as SdkOptional<String>,
-  );
+  AppEventAutoscalingComponentsValue _copyWith(
+          {Object? from = sdkOmittedValue,
+          Object? to = sdkOmittedValue,
+          Object? triggeringMetric = sdkOmittedValue}) =>
+      AppEventAutoscalingComponentsValue(
+        from: identical(from, sdkOmittedValue)
+            ? this.from
+            : from as SdkOptional<int>,
+        to: identical(to, sdkOmittedValue) ? this.to : to as SdkOptional<int>,
+        triggeringMetric: identical(triggeringMetric, sdkOmittedValue)
+            ? this.triggeringMetric
+            : triggeringMetric as SdkOptional<String>,
+      );
 
-  factory AppEventAutoscalingComponentsValue.fromJson(Map<String, dynamic> json) => AppEventAutoscalingComponentsValue(
-    from: json['from'] != null ? SdkPresent(((json['from'] as num?)?.toInt())!) : const SdkOmitted(),
-    to: json['to'] != null ? SdkPresent(((json['to'] as num?)?.toInt())!) : const SdkOmitted(),
-    triggeringMetric: json['triggering_metric'] != null ? SdkPresent((json['triggering_metric'] as String?)!) : const SdkOmitted(),
-  );
+  factory AppEventAutoscalingComponentsValue.fromJson(
+          Map<String, dynamic> json) =>
+      AppEventAutoscalingComponentsValue(
+        from: json['from'] != null
+            ? SdkPresent(((json['from'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        to: json['to'] != null
+            ? SdkPresent(((json['to'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        triggeringMetric: json['triggering_metric'] != null
+            ? SdkPresent((json['triggering_metric'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (from) {
-      SdkPresent<int>(value: final value) => {'from': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (to) {
-      SdkPresent<int>(value: final value) => {'to': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (triggeringMetric) {
-      SdkPresent<String>(value: final value) => {'triggering_metric': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (from) {
+          SdkPresent<int>(value: final value) => {
+              'from': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (to) {
+          SdkPresent<int>(value: final value) => {
+              'to': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (triggeringMetric) {
+          SdkPresent<String>(value: final value) => {
+              'triggering_metric': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Autoscaling event details. Only present for autoscaling events.
 class AppEventAutoscaling {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The current phase of the autoscaling event
   final SdkOptional<AppEventAutoscalingPhase> phase;
+
   /// Map of component names to their scale changes
   final SdkOptional<Map<String, AppEventAutoscalingComponentsValue>> components;
 
-  const AppEventAutoscaling({this.phase = const SdkOmitted(), this.components = const SdkOmitted()});
+  const AppEventAutoscaling(
+      {this.phase = const SdkOmitted(), this.components = const SdkOmitted()});
 
-  AppEventAutoscaling Function({SdkOptional<AppEventAutoscalingPhase> phase, SdkOptional<Map<String, AppEventAutoscalingComponentsValue>> components}) get copyWith => _copyWith;
+  AppEventAutoscaling Function(
+      {SdkOptional<AppEventAutoscalingPhase> phase,
+      SdkOptional<Map<String, AppEventAutoscalingComponentsValue>>
+          components}) get copyWith => _copyWith;
 
-  AppEventAutoscaling _copyWith({Object? phase = sdkOmittedValue, Object? components = sdkOmittedValue}) => AppEventAutoscaling(
-    phase: identical(phase, sdkOmittedValue) ? this.phase : phase as SdkOptional<AppEventAutoscalingPhase>,
-    components: identical(components, sdkOmittedValue) ? this.components : components as SdkOptional<Map<String, AppEventAutoscalingComponentsValue>>,
-  );
+  AppEventAutoscaling _copyWith(
+          {Object? phase = sdkOmittedValue,
+          Object? components = sdkOmittedValue}) =>
+      AppEventAutoscaling(
+        phase: identical(phase, sdkOmittedValue)
+            ? this.phase
+            : phase as SdkOptional<AppEventAutoscalingPhase>,
+        components: identical(components, sdkOmittedValue)
+            ? this.components
+            : components
+                as SdkOptional<Map<String, AppEventAutoscalingComponentsValue>>,
+      );
 
-  factory AppEventAutoscaling.fromJson(Map<String, dynamic> json) => AppEventAutoscaling(
-    phase: json['phase'] != null ? SdkPresent((json['phase'] != null ? AppEventAutoscalingPhase.fromJson(json['phase'] as String) : null)!) : const SdkOmitted(),
-    components: json['components'] != null ? SdkPresent((json['components'] == null ? null : Map<String, dynamic>.from(json['components'] as Map).map((key, value) => MapEntry(key, AppEventAutoscalingComponentsValue.fromJson(value as Map<String, dynamic>))))!) : const SdkOmitted(),
-  );
+  factory AppEventAutoscaling.fromJson(Map<String, dynamic> json) =>
+      AppEventAutoscaling(
+        phase: json['phase'] != null
+            ? SdkPresent((json['phase'] != null
+                ? AppEventAutoscalingPhase.fromJson(json['phase'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        components: json['components'] != null
+            ? SdkPresent((json['components'] == null
+                ? null
+                : Map<String, dynamic>.from(json['components'] as Map).map(
+                    (key, value) => MapEntry(
+                        key,
+                        AppEventAutoscalingComponentsValue.fromJson(
+                            value as Map<String, dynamic>))))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (phase) {
-      SdkPresent<AppEventAutoscalingPhase>(value: final value) => {'phase': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (components) {
-      SdkPresent<Map<String, AppEventAutoscalingComponentsValue>>(value: final value) => {'components': value.map((key, value) => MapEntry(key, value.toJson())),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (phase) {
+          SdkPresent<AppEventAutoscalingPhase>(value: final value) => {
+              'phase': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (components) {
+          SdkPresent<Map<String, AppEventAutoscalingComponentsValue>>(
+            value: final value
+          ) =>
+            {
+              'components':
+                  value.map((key, value) => MapEntry(key, value.toJson())),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AppEvent` API schema.
 class AppEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String> id;
+
   /// The type of event
   final SdkOptional<AppEventType> type_;
+
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
+
   /// For deployment events, this is the same as the deployment's ID. For autoscaling events, this is the deployment that was autoscaled.
   final SdkOptional<String> deploymentId;
+
   /// Optional object value serialized in the `deployment` wire field.
   final SdkOptional<AppsDeployment> deployment;
+
   /// Autoscaling event details. Only present for autoscaling events.
   final SdkOptional<AppEventAutoscaling> autoscaling;
 
-  const AppEvent({this.id = const SdkOmitted(), this.type_ = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.deploymentId = const SdkOmitted(), this.deployment = const SdkOmitted(), this.autoscaling = const SdkOmitted()});
+  const AppEvent(
+      {this.id = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.deploymentId = const SdkOmitted(),
+      this.deployment = const SdkOmitted(),
+      this.autoscaling = const SdkOmitted()});
 
-  AppEvent Function({SdkOptional<String> id, SdkOptional<AppEventType> type_, SdkOptional<String> createdAt, SdkOptional<String> deploymentId, SdkOptional<AppsDeployment> deployment, SdkOptional<AppEventAutoscaling> autoscaling}) get copyWith => _copyWith;
+  AppEvent Function(
+      {SdkOptional<String> id,
+      SdkOptional<AppEventType> type_,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> deploymentId,
+      SdkOptional<AppsDeployment> deployment,
+      SdkOptional<AppEventAutoscaling> autoscaling}) get copyWith => _copyWith;
 
-  AppEvent _copyWith({Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? deploymentId = sdkOmittedValue, Object? deployment = sdkOmittedValue, Object? autoscaling = sdkOmittedValue}) => AppEvent(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<AppEventType>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    deploymentId: identical(deploymentId, sdkOmittedValue) ? this.deploymentId : deploymentId as SdkOptional<String>,
-    deployment: identical(deployment, sdkOmittedValue) ? this.deployment : deployment as SdkOptional<AppsDeployment>,
-    autoscaling: identical(autoscaling, sdkOmittedValue) ? this.autoscaling : autoscaling as SdkOptional<AppEventAutoscaling>,
-  );
+  AppEvent _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? deploymentId = sdkOmittedValue,
+          Object? deployment = sdkOmittedValue,
+          Object? autoscaling = sdkOmittedValue}) =>
+      AppEvent(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<AppEventType>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        deploymentId: identical(deploymentId, sdkOmittedValue)
+            ? this.deploymentId
+            : deploymentId as SdkOptional<String>,
+        deployment: identical(deployment, sdkOmittedValue)
+            ? this.deployment
+            : deployment as SdkOptional<AppsDeployment>,
+        autoscaling: identical(autoscaling, sdkOmittedValue)
+            ? this.autoscaling
+            : autoscaling as SdkOptional<AppEventAutoscaling>,
+      );
 
   factory AppEvent.fromJson(Map<String, dynamic> json) => AppEvent(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? AppEventType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    deploymentId: json['deployment_id'] != null ? SdkPresent((json['deployment_id'] as String?)!) : const SdkOmitted(),
-    deployment: json['deployment'] != null ? SdkPresent((json['deployment'] != null ? AppsDeployment.fromJson(json['deployment'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    autoscaling: json['autoscaling'] != null ? SdkPresent((json['autoscaling'] != null ? AppEventAutoscaling.fromJson(json['autoscaling'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? AppEventType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        deploymentId: json['deployment_id'] != null
+            ? SdkPresent((json['deployment_id'] as String?)!)
+            : const SdkOmitted(),
+        deployment: json['deployment'] != null
+            ? SdkPresent((json['deployment'] != null
+                ? AppsDeployment.fromJson(
+                    json['deployment'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        autoscaling: json['autoscaling'] != null
+            ? SdkPresent((json['autoscaling'] != null
+                ? AppEventAutoscaling.fromJson(
+                    json['autoscaling'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<AppEventType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deploymentId) {
-      SdkPresent<String>(value: final value) => {'deployment_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deployment) {
-      SdkPresent<AppsDeployment>(value: final value) => {'deployment': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (autoscaling) {
-      SdkPresent<AppEventAutoscaling>(value: final value) => {'autoscaling': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<AppEventType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deploymentId) {
+          SdkPresent<String>(value: final value) => {
+              'deployment_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deployment) {
+          SdkPresent<AppsDeployment>(value: final value) => {
+              'deployment': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (autoscaling) {
+          SdkPresent<AppEventAutoscaling>(value: final value) => {
+              'autoscaling': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

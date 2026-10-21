@@ -8,41 +8,81 @@ part of 'action_gateway_list.dart';
 class ListProviderHealthResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// When the metrics were computed and the window they cover.
   final SdkOptional<HealthSnapshot> snapshot;
+
   /// Providers sorted by ID.
   final SdkOptional<List<ProviderHealth>> providers;
+
   /// Paging applied to this response and the total number of providers.
   final SdkOptional<Pagination> pagination;
 
-  const ListProviderHealthResponse({this.snapshot = const SdkOmitted(), this.providers = const SdkOmitted(), this.pagination = const SdkOmitted()});
+  const ListProviderHealthResponse(
+      {this.snapshot = const SdkOmitted(),
+      this.providers = const SdkOmitted(),
+      this.pagination = const SdkOmitted()});
 
-  ListProviderHealthResponse Function({SdkOptional<HealthSnapshot> snapshot, SdkOptional<List<ProviderHealth>> providers, SdkOptional<Pagination> pagination}) get copyWith => _copyWith;
+  ListProviderHealthResponse Function(
+      {SdkOptional<HealthSnapshot> snapshot,
+      SdkOptional<List<ProviderHealth>> providers,
+      SdkOptional<Pagination> pagination}) get copyWith => _copyWith;
 
-  ListProviderHealthResponse _copyWith({Object? snapshot = sdkOmittedValue, Object? providers = sdkOmittedValue, Object? pagination = sdkOmittedValue}) => ListProviderHealthResponse(
-    snapshot: identical(snapshot, sdkOmittedValue) ? this.snapshot : snapshot as SdkOptional<HealthSnapshot>,
-    providers: identical(providers, sdkOmittedValue) ? this.providers : providers as SdkOptional<List<ProviderHealth>>,
-    pagination: identical(pagination, sdkOmittedValue) ? this.pagination : pagination as SdkOptional<Pagination>,
-  );
+  ListProviderHealthResponse _copyWith(
+          {Object? snapshot = sdkOmittedValue,
+          Object? providers = sdkOmittedValue,
+          Object? pagination = sdkOmittedValue}) =>
+      ListProviderHealthResponse(
+        snapshot: identical(snapshot, sdkOmittedValue)
+            ? this.snapshot
+            : snapshot as SdkOptional<HealthSnapshot>,
+        providers: identical(providers, sdkOmittedValue)
+            ? this.providers
+            : providers as SdkOptional<List<ProviderHealth>>,
+        pagination: identical(pagination, sdkOmittedValue)
+            ? this.pagination
+            : pagination as SdkOptional<Pagination>,
+      );
 
-  factory ListProviderHealthResponse.fromJson(Map<String, dynamic> json) => ListProviderHealthResponse(
-    snapshot: json['snapshot'] != null ? SdkPresent((json['snapshot'] != null ? HealthSnapshot.fromJson(json['snapshot'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    providers: json['providers'] != null ? SdkPresent(((json['providers'] as List?)?.map((e) => ProviderHealth.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    pagination: json['pagination'] != null ? SdkPresent((json['pagination'] != null ? Pagination.fromJson(json['pagination'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ListProviderHealthResponse.fromJson(Map<String, dynamic> json) =>
+      ListProviderHealthResponse(
+        snapshot: json['snapshot'] != null
+            ? SdkPresent((json['snapshot'] != null
+                ? HealthSnapshot.fromJson(
+                    json['snapshot'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        providers: json['providers'] != null
+            ? SdkPresent(((json['providers'] as List?)
+                ?.map((e) => ProviderHealth.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        pagination: json['pagination'] != null
+            ? SdkPresent((json['pagination'] != null
+                ? Pagination.fromJson(
+                    json['pagination'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (snapshot) {
-      SdkPresent<HealthSnapshot>(value: final value) => {'snapshot': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (providers) {
-      SdkPresent<List<ProviderHealth>>(value: final value) => {'providers': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pagination) {
-      SdkPresent<Pagination>(value: final value) => {'pagination': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (snapshot) {
+          SdkPresent<HealthSnapshot>(value: final value) => {
+              'snapshot': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (providers) {
+          SdkPresent<List<ProviderHealth>>(value: final value) => {
+              'providers': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pagination) {
+          SdkPresent<Pagination>(value: final value) => {
+              'pagination': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

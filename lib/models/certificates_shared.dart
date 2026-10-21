@@ -8,81 +8,168 @@ part of 'certificates.dart';
 class Certificate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique ID that can be used to identify and reference a certificate.
   final SdkOptional<String> id;
+
   /// A unique human-readable name referring to a certificate.
   final SdkOptional<String> name;
+
   /// A time value given in ISO8601 combined date and time format that represents the certificate's expiration date.
   final SdkOptional<String> notAfter;
+
   /// A unique identifier generated from the SHA-1 fingerprint of the certificate.
   final SdkOptional<String> sha1Fingerprint;
+
   /// A time value given in ISO8601 combined date and time format that represents when the certificate was created.
   final SdkOptional<String> createdAt;
+
   /// An array of fully qualified domain names (FQDNs) for which the certificate was issued.
   final SdkOptional<List<String>> dnsNames;
+
   /// A string representing the current state of the certificate. It may be `pending`, `verified`, or `error`.
   final SdkOptional<CertificateState> state;
+
   /// A string representing the type of the certificate. The value will be `custom` for a user-uploaded certificate or `lets_encrypt` for one automatically generated with Let's Encrypt.
   final SdkOptional<CertificateType> type_;
 
-  const Certificate({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.notAfter = const SdkOmitted(), this.sha1Fingerprint = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.dnsNames = const SdkOmitted(), this.state = const SdkOmitted(), this.type_ = const SdkOmitted()});
+  const Certificate(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.notAfter = const SdkOmitted(),
+      this.sha1Fingerprint = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.dnsNames = const SdkOmitted(),
+      this.state = const SdkOmitted(),
+      this.type_ = const SdkOmitted()});
 
-  Certificate Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> notAfter, SdkOptional<String> sha1Fingerprint, SdkOptional<String> createdAt, SdkOptional<List<String>> dnsNames, SdkOptional<CertificateState> state, SdkOptional<CertificateType> type_}) get copyWith => _copyWith;
+  Certificate Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<String> notAfter,
+      SdkOptional<String> sha1Fingerprint,
+      SdkOptional<String> createdAt,
+      SdkOptional<List<String>> dnsNames,
+      SdkOptional<CertificateState> state,
+      SdkOptional<CertificateType> type_}) get copyWith => _copyWith;
 
-  Certificate _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? notAfter = sdkOmittedValue, Object? sha1Fingerprint = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? dnsNames = sdkOmittedValue, Object? state = sdkOmittedValue, Object? type_ = sdkOmittedValue}) => Certificate(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    notAfter: identical(notAfter, sdkOmittedValue) ? this.notAfter : notAfter as SdkOptional<String>,
-    sha1Fingerprint: identical(sha1Fingerprint, sdkOmittedValue) ? this.sha1Fingerprint : sha1Fingerprint as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    dnsNames: identical(dnsNames, sdkOmittedValue) ? this.dnsNames : dnsNames as SdkOptional<List<String>>,
-    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<CertificateState>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<CertificateType>,
-  );
+  Certificate _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? notAfter = sdkOmittedValue,
+          Object? sha1Fingerprint = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? dnsNames = sdkOmittedValue,
+          Object? state = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue}) =>
+      Certificate(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        notAfter: identical(notAfter, sdkOmittedValue)
+            ? this.notAfter
+            : notAfter as SdkOptional<String>,
+        sha1Fingerprint: identical(sha1Fingerprint, sdkOmittedValue)
+            ? this.sha1Fingerprint
+            : sha1Fingerprint as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        dnsNames: identical(dnsNames, sdkOmittedValue)
+            ? this.dnsNames
+            : dnsNames as SdkOptional<List<String>>,
+        state: identical(state, sdkOmittedValue)
+            ? this.state
+            : state as SdkOptional<CertificateState>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<CertificateType>,
+      );
 
   factory Certificate.fromJson(Map<String, dynamic> json) => Certificate(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    notAfter: json['not_after'] != null ? SdkPresent((json['not_after'] as String?)!) : const SdkOmitted(),
-    sha1Fingerprint: json['sha1_fingerprint'] != null ? SdkPresent((json['sha1_fingerprint'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    dnsNames: json['dns_names'] != null ? SdkPresent(((json['dns_names'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    state: json['state'] != null ? SdkPresent((json['state'] != null ? CertificateState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? CertificateType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        notAfter: json['not_after'] != null
+            ? SdkPresent((json['not_after'] as String?)!)
+            : const SdkOmitted(),
+        sha1Fingerprint: json['sha1_fingerprint'] != null
+            ? SdkPresent((json['sha1_fingerprint'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        dnsNames: json['dns_names'] != null
+            ? SdkPresent(((json['dns_names'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        state: json['state'] != null
+            ? SdkPresent((json['state'] != null
+                ? CertificateState.fromJson(json['state'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? CertificateType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (notAfter) {
-      SdkPresent<String>(value: final value) => {'not_after': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sha1Fingerprint) {
-      SdkPresent<String>(value: final value) => {'sha1_fingerprint': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (dnsNames) {
-      SdkPresent<List<String>>(value: final value) => {'dns_names': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (state) {
-      SdkPresent<CertificateState>(value: final value) => {'state': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<CertificateType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (notAfter) {
+          SdkPresent<String>(value: final value) => {
+              'not_after': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sha1Fingerprint) {
+          SdkPresent<String>(value: final value) => {
+              'sha1_fingerprint': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (dnsNames) {
+          SdkPresent<List<String>>(value: final value) => {
+              'dns_names': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (state) {
+          SdkPresent<CertificateState>(value: final value) => {
+              'state': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<CertificateType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

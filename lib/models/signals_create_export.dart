@@ -8,65 +8,133 @@ part of 'signals.dart';
 class CreateExportRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The scope of the export. `agent` exports Signals conversations for one Harness Runtime environment and requires `agent_id`. `inference` exports Serverless Inference Signals conversations for the whole team (team-wide; omit `agent_id`). Defaults to `agent` when `agent_id` is provided and to `inference` when it is omitted.
   final SdkOptional<CreateExportRequestType> type_;
+
   /// The environment whose data should be exported. For Harness Runtime, this is the Environment Config ID. Required when `type` is `agent`; must be omitted when `type` is `inference`.
   final SdkOptional<String> agentId;
+
   /// Filter the export to only include the specified signal types. Use the export options endpoint to list available values.
   final SdkOptional<List<String>> signalType;
+
   /// Optional list of specific session IDs to include in the export.
   final SdkOptional<List<String>> sessionIds;
+
   /// Include only sessions that started at or after this timestamp.
   final SdkOptional<String> startTime;
+
   /// Include only sessions that started at or before this timestamp.
   final SdkOptional<String> endTime;
 
-  const CreateExportRequest({this.type_ = const SdkOmitted(), this.agentId = const SdkOmitted(), this.signalType = const SdkOmitted(), this.sessionIds = const SdkOmitted(), this.startTime = const SdkOmitted(), this.endTime = const SdkOmitted()});
+  const CreateExportRequest(
+      {this.type_ = const SdkOmitted(),
+      this.agentId = const SdkOmitted(),
+      this.signalType = const SdkOmitted(),
+      this.sessionIds = const SdkOmitted(),
+      this.startTime = const SdkOmitted(),
+      this.endTime = const SdkOmitted()});
 
-  CreateExportRequest Function({SdkOptional<CreateExportRequestType> type_, SdkOptional<String> agentId, SdkOptional<List<String>> signalType, SdkOptional<List<String>> sessionIds, SdkOptional<String> startTime, SdkOptional<String> endTime}) get copyWith => _copyWith;
+  CreateExportRequest Function(
+      {SdkOptional<CreateExportRequestType> type_,
+      SdkOptional<String> agentId,
+      SdkOptional<List<String>> signalType,
+      SdkOptional<List<String>> sessionIds,
+      SdkOptional<String> startTime,
+      SdkOptional<String> endTime}) get copyWith => _copyWith;
 
-  CreateExportRequest _copyWith({Object? type_ = sdkOmittedValue, Object? agentId = sdkOmittedValue, Object? signalType = sdkOmittedValue, Object? sessionIds = sdkOmittedValue, Object? startTime = sdkOmittedValue, Object? endTime = sdkOmittedValue}) => CreateExportRequest(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<CreateExportRequestType>,
-    agentId: identical(agentId, sdkOmittedValue) ? this.agentId : agentId as SdkOptional<String>,
-    signalType: identical(signalType, sdkOmittedValue) ? this.signalType : signalType as SdkOptional<List<String>>,
-    sessionIds: identical(sessionIds, sdkOmittedValue) ? this.sessionIds : sessionIds as SdkOptional<List<String>>,
-    startTime: identical(startTime, sdkOmittedValue) ? this.startTime : startTime as SdkOptional<String>,
-    endTime: identical(endTime, sdkOmittedValue) ? this.endTime : endTime as SdkOptional<String>,
-  );
+  CreateExportRequest _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? agentId = sdkOmittedValue,
+          Object? signalType = sdkOmittedValue,
+          Object? sessionIds = sdkOmittedValue,
+          Object? startTime = sdkOmittedValue,
+          Object? endTime = sdkOmittedValue}) =>
+      CreateExportRequest(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<CreateExportRequestType>,
+        agentId: identical(agentId, sdkOmittedValue)
+            ? this.agentId
+            : agentId as SdkOptional<String>,
+        signalType: identical(signalType, sdkOmittedValue)
+            ? this.signalType
+            : signalType as SdkOptional<List<String>>,
+        sessionIds: identical(sessionIds, sdkOmittedValue)
+            ? this.sessionIds
+            : sessionIds as SdkOptional<List<String>>,
+        startTime: identical(startTime, sdkOmittedValue)
+            ? this.startTime
+            : startTime as SdkOptional<String>,
+        endTime: identical(endTime, sdkOmittedValue)
+            ? this.endTime
+            : endTime as SdkOptional<String>,
+      );
 
-  factory CreateExportRequest.fromJson(Map<String, dynamic> json) => CreateExportRequest(
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? CreateExportRequestType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    agentId: json['agent_id'] != null ? SdkPresent((json['agent_id'] as String?)!) : const SdkOmitted(),
-    signalType: json['signal_type'] != null ? SdkPresent(((json['signal_type'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    sessionIds: json['session_ids'] != null ? SdkPresent(((json['session_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    startTime: json['start_time'] != null ? SdkPresent((json['start_time'] as String?)!) : const SdkOmitted(),
-    endTime: json['end_time'] != null ? SdkPresent((json['end_time'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateExportRequest.fromJson(Map<String, dynamic> json) =>
+      CreateExportRequest(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? CreateExportRequestType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        agentId: json['agent_id'] != null
+            ? SdkPresent((json['agent_id'] as String?)!)
+            : const SdkOmitted(),
+        signalType: json['signal_type'] != null
+            ? SdkPresent(((json['signal_type'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        sessionIds: json['session_ids'] != null
+            ? SdkPresent(((json['session_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        startTime: json['start_time'] != null
+            ? SdkPresent((json['start_time'] as String?)!)
+            : const SdkOmitted(),
+        endTime: json['end_time'] != null
+            ? SdkPresent((json['end_time'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<CreateExportRequestType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (agentId) {
-      SdkPresent<String>(value: final value) => {'agent_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (signalType) {
-      SdkPresent<List<String>>(value: final value) => {'signal_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sessionIds) {
-      SdkPresent<List<String>>(value: final value) => {'session_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (startTime) {
-      SdkPresent<String>(value: final value) => {'start_time': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (endTime) {
-      SdkPresent<String>(value: final value) => {'end_time': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<CreateExportRequestType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (agentId) {
+          SdkPresent<String>(value: final value) => {
+              'agent_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (signalType) {
+          SdkPresent<List<String>>(value: final value) => {
+              'signal_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sessionIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'session_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (startTime) {
+          SdkPresent<String>(value: final value) => {
+              'start_time': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (endTime) {
+          SdkPresent<String>(value: final value) => {
+              'end_time': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

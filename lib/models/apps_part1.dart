@@ -8,6 +8,7 @@ part of 'apps.dart';
 class CancelEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `event` wire field.
   final SdkOptional<AppEvent> event;
 
@@ -16,25 +17,34 @@ class CancelEvent {
   CancelEvent Function({SdkOptional<AppEvent> event}) get copyWith => _copyWith;
 
   CancelEvent _copyWith({Object? event = sdkOmittedValue}) => CancelEvent(
-    event: identical(event, sdkOmittedValue) ? this.event : event as SdkOptional<AppEvent>,
-  );
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as SdkOptional<AppEvent>,
+      );
 
   factory CancelEvent.fromJson(Map<String, dynamic> json) => CancelEvent(
-    event: json['event'] != null ? SdkPresent((json['event'] != null ? AppEvent.fromJson(json['event'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        event: json['event'] != null
+            ? SdkPresent((json['event'] != null
+                ? AppEvent.fromJson(json['event'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (event) {
-      SdkPresent<AppEvent>(value: final value) => {'event': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (event) {
+          SdkPresent<AppEvent>(value: final value) => {
+              'event': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `GetEvent` API schema.
 class GetEvent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `event` wire field.
   final SdkOptional<AppEvent> event;
 
@@ -43,29 +53,37 @@ class GetEvent {
   GetEvent Function({SdkOptional<AppEvent> event}) get copyWith => _copyWith;
 
   GetEvent _copyWith({Object? event = sdkOmittedValue}) => GetEvent(
-    event: identical(event, sdkOmittedValue) ? this.event : event as SdkOptional<AppEvent>,
-  );
+        event: identical(event, sdkOmittedValue)
+            ? this.event
+            : event as SdkOptional<AppEvent>,
+      );
 
   factory GetEvent.fromJson(Map<String, dynamic> json) => GetEvent(
-    event: json['event'] != null ? SdkPresent((json['event'] != null ? AppEvent.fromJson(json['event'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        event: json['event'] != null
+            ? SdkPresent((json['event'] != null
+                ? AppEvent.fromJson(json['event'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (event) {
-      SdkPresent<AppEvent>(value: final value) => {'event': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (event) {
+          SdkPresent<AppEvent>(value: final value) => {
+              'event': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `InstanceSizeCpuType` API schema.
 final class InstanceSizeCpuType {
-
   final String value;
 
   const InstanceSizeCpuType._(this.value);
 
-  factory InstanceSizeCpuType.fromJson(String value) => InstanceSizeCpuType._(value);
+  factory InstanceSizeCpuType.fromJson(String value) =>
+      InstanceSizeCpuType._(value);
 
   static const unspecified = InstanceSizeCpuType._('UNSPECIFIED');
   static const shared = InstanceSizeCpuType._('SHARED');
@@ -73,12 +91,15 @@ final class InstanceSizeCpuType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is InstanceSizeCpuType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is InstanceSizeCpuType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 // Schema = String

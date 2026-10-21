@@ -8,25 +8,42 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetSimulationEpisodeTrajectoryOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Turn-by-turn trajectory for one episode. Poll this resource while the episode is running to watch live progress.
   final SdkOptional<ApiSimulationTrajectory> trajectory;
 
-  const ApiGetSimulationEpisodeTrajectoryOutput({this.trajectory = const SdkOmitted()});
+  const ApiGetSimulationEpisodeTrajectoryOutput(
+      {this.trajectory = const SdkOmitted()});
 
-  ApiGetSimulationEpisodeTrajectoryOutput Function({SdkOptional<ApiSimulationTrajectory> trajectory}) get copyWith => _copyWith;
+  ApiGetSimulationEpisodeTrajectoryOutput Function(
+          {SdkOptional<ApiSimulationTrajectory> trajectory})
+      get copyWith => _copyWith;
 
-  ApiGetSimulationEpisodeTrajectoryOutput _copyWith({Object? trajectory = sdkOmittedValue}) => ApiGetSimulationEpisodeTrajectoryOutput(
-    trajectory: identical(trajectory, sdkOmittedValue) ? this.trajectory : trajectory as SdkOptional<ApiSimulationTrajectory>,
-  );
+  ApiGetSimulationEpisodeTrajectoryOutput _copyWith(
+          {Object? trajectory = sdkOmittedValue}) =>
+      ApiGetSimulationEpisodeTrajectoryOutput(
+        trajectory: identical(trajectory, sdkOmittedValue)
+            ? this.trajectory
+            : trajectory as SdkOptional<ApiSimulationTrajectory>,
+      );
 
-  factory ApiGetSimulationEpisodeTrajectoryOutput.fromJson(Map<String, dynamic> json) => ApiGetSimulationEpisodeTrajectoryOutput(
-    trajectory: json['trajectory'] != null ? SdkPresent((json['trajectory'] != null ? ApiSimulationTrajectory.fromJson(json['trajectory'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiGetSimulationEpisodeTrajectoryOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiGetSimulationEpisodeTrajectoryOutput(
+        trajectory: json['trajectory'] != null
+            ? SdkPresent((json['trajectory'] != null
+                ? ApiSimulationTrajectory.fromJson(
+                    json['trajectory'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (trajectory) {
-      SdkPresent<ApiSimulationTrajectory>(value: final value) => {'trajectory': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (trajectory) {
+          SdkPresent<ApiSimulationTrajectory>(value: final value) => {
+              'trajectory': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

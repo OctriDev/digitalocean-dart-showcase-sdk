@@ -8,25 +8,38 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetIndexingJobDetailsSignedURLOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The signed url for downloading the indexing job details
   final SdkOptional<String> signedUrl;
 
-  const ApiGetIndexingJobDetailsSignedURLOutput({this.signedUrl = const SdkOmitted()});
+  const ApiGetIndexingJobDetailsSignedURLOutput(
+      {this.signedUrl = const SdkOmitted()});
 
-  ApiGetIndexingJobDetailsSignedURLOutput Function({SdkOptional<String> signedUrl}) get copyWith => _copyWith;
+  ApiGetIndexingJobDetailsSignedURLOutput Function(
+      {SdkOptional<String> signedUrl}) get copyWith => _copyWith;
 
-  ApiGetIndexingJobDetailsSignedURLOutput _copyWith({Object? signedUrl = sdkOmittedValue}) => ApiGetIndexingJobDetailsSignedURLOutput(
-    signedUrl: identical(signedUrl, sdkOmittedValue) ? this.signedUrl : signedUrl as SdkOptional<String>,
-  );
+  ApiGetIndexingJobDetailsSignedURLOutput _copyWith(
+          {Object? signedUrl = sdkOmittedValue}) =>
+      ApiGetIndexingJobDetailsSignedURLOutput(
+        signedUrl: identical(signedUrl, sdkOmittedValue)
+            ? this.signedUrl
+            : signedUrl as SdkOptional<String>,
+      );
 
-  factory ApiGetIndexingJobDetailsSignedURLOutput.fromJson(Map<String, dynamic> json) => ApiGetIndexingJobDetailsSignedURLOutput(
-    signedUrl: json['signed_url'] != null ? SdkPresent((json['signed_url'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiGetIndexingJobDetailsSignedURLOutput.fromJson(
+          Map<String, dynamic> json) =>
+      ApiGetIndexingJobDetailsSignedURLOutput(
+        signedUrl: json['signed_url'] != null
+            ? SdkPresent((json['signed_url'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (signedUrl) {
-      SdkPresent<String>(value: final value) => {'signed_url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (signedUrl) {
+          SdkPresent<String>(value: final value) => {
+              'signed_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

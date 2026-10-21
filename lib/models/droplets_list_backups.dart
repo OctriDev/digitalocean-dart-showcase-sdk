@@ -11,22 +11,34 @@ class AllDropletBackupsVariant0 {
 
   const AllDropletBackupsVariant0({this.backups = const SdkOmitted()});
 
-  AllDropletBackupsVariant0 Function({SdkOptional<List<DropletSnapshot>> backups}) get copyWith => _copyWith;
+  AllDropletBackupsVariant0 Function(
+      {SdkOptional<List<DropletSnapshot>> backups}) get copyWith => _copyWith;
 
-  AllDropletBackupsVariant0 _copyWith({Object? backups = sdkOmittedValue}) => AllDropletBackupsVariant0(
-    backups: identical(backups, sdkOmittedValue) ? this.backups : backups as SdkOptional<List<DropletSnapshot>>,
-  );
+  AllDropletBackupsVariant0 _copyWith({Object? backups = sdkOmittedValue}) =>
+      AllDropletBackupsVariant0(
+        backups: identical(backups, sdkOmittedValue)
+            ? this.backups
+            : backups as SdkOptional<List<DropletSnapshot>>,
+      );
 
-  factory AllDropletBackupsVariant0.fromJson(Map<String, dynamic> json) => AllDropletBackupsVariant0(
-    backups: json['backups'] != null ? SdkPresent(((json['backups'] as List?)?.map((e) => DropletSnapshot.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AllDropletBackupsVariant0.fromJson(Map<String, dynamic> json) =>
+      AllDropletBackupsVariant0(
+        backups: json['backups'] != null
+            ? SdkPresent(((json['backups'] as List?)
+                ?.map(
+                    (e) => DropletSnapshot.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (backups) {
-      SdkPresent<List<DropletSnapshot>>(value: final value) => {'backups': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (backups) {
+          SdkPresent<List<DropletSnapshot>>(value: final value) => {
+              'backups': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllDropletBackups` API schema.
@@ -34,36 +46,70 @@ class AllDropletBackups {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<DropletSnapshot>> backups;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllDropletBackups({this.backups = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllDropletBackups(
+      {this.backups = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllDropletBackups Function({SdkOptional<List<DropletSnapshot>> backups, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllDropletBackups Function(
+      {SdkOptional<List<DropletSnapshot>> backups,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllDropletBackups _copyWith({Object? backups = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllDropletBackups(
-    backups: identical(backups, sdkOmittedValue) ? this.backups : backups as SdkOptional<List<DropletSnapshot>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllDropletBackups _copyWith(
+          {Object? backups = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllDropletBackups(
+        backups: identical(backups, sdkOmittedValue)
+            ? this.backups
+            : backups as SdkOptional<List<DropletSnapshot>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AllDropletBackups.fromJson(Map<String, dynamic> json) => AllDropletBackups(
-    backups: json['backups'] != null ? SdkPresent(((json['backups'] as List?)?.map((e) => DropletSnapshot.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory AllDropletBackups.fromJson(Map<String, dynamic> json) =>
+      AllDropletBackups(
+        backups: json['backups'] != null
+            ? SdkPresent(((json['backups'] as List?)
+                ?.map(
+                    (e) => DropletSnapshot.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (backups) {
-      SdkPresent<List<DropletSnapshot>>(value: final value) => {'backups': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (backups) {
+          SdkPresent<List<DropletSnapshot>>(value: final value) => {
+              'backups': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

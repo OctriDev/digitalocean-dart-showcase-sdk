@@ -8,263 +8,530 @@ part of 'action_gateway_session.dart';
 class SessionToolsReferencesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether name is a tool or a toolbelt.
   final SdkOptional<SessionToolsReferencesItemKind> kind;
+
   /// Tool slug or toolbelt name.
   final SdkOptional<String> name;
+
   /// Pinned version.
   final SdkOptional<String> version;
 
-  const SessionToolsReferencesItem({this.kind = const SdkOmitted(), this.name = const SdkOmitted(), this.version = const SdkOmitted()});
+  const SessionToolsReferencesItem(
+      {this.kind = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.version = const SdkOmitted()});
 
-  SessionToolsReferencesItem Function({SdkOptional<SessionToolsReferencesItemKind> kind, SdkOptional<String> name, SdkOptional<String> version}) get copyWith => _copyWith;
+  SessionToolsReferencesItem Function(
+      {SdkOptional<SessionToolsReferencesItemKind> kind,
+      SdkOptional<String> name,
+      SdkOptional<String> version}) get copyWith => _copyWith;
 
-  SessionToolsReferencesItem _copyWith({Object? kind = sdkOmittedValue, Object? name = sdkOmittedValue, Object? version = sdkOmittedValue}) => SessionToolsReferencesItem(
-    kind: identical(kind, sdkOmittedValue) ? this.kind : kind as SdkOptional<SessionToolsReferencesItemKind>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
-  );
+  SessionToolsReferencesItem _copyWith(
+          {Object? kind = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? version = sdkOmittedValue}) =>
+      SessionToolsReferencesItem(
+        kind: identical(kind, sdkOmittedValue)
+            ? this.kind
+            : kind as SdkOptional<SessionToolsReferencesItemKind>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as SdkOptional<String>,
+      );
 
-  factory SessionToolsReferencesItem.fromJson(Map<String, dynamic> json) => SessionToolsReferencesItem(
-    kind: json['kind'] != null ? SdkPresent((json['kind'] != null ? SessionToolsReferencesItemKind.fromJson(json['kind'] as String) : null)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
-  );
+  factory SessionToolsReferencesItem.fromJson(Map<String, dynamic> json) =>
+      SessionToolsReferencesItem(
+        kind: json['kind'] != null
+            ? SdkPresent((json['kind'] != null
+                ? SessionToolsReferencesItemKind.fromJson(
+                    json['kind'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        version: json['version'] != null
+            ? SdkPresent((json['version'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (kind) {
-      SdkPresent<SessionToolsReferencesItemKind>(value: final value) => {'kind': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (version) {
-      SdkPresent<String>(value: final value) => {'version': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (kind) {
+          SdkPresent<SessionToolsReferencesItemKind>(value: final value) => {
+              'kind': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (version) {
+          SdkPresent<String>(value: final value) => {
+              'version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Omitted when the request omitted tools (all tools). A present selection with no references represents tools: [].
 class SessionTools {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The selected references. Empty means the session exposes no tools.
   final SdkOptional<List<SessionToolsReferencesItem>> references;
 
   const SessionTools({this.references = const SdkOmitted()});
 
-  SessionTools Function({SdkOptional<List<SessionToolsReferencesItem>> references}) get copyWith => _copyWith;
+  SessionTools Function(
+          {SdkOptional<List<SessionToolsReferencesItem>> references})
+      get copyWith => _copyWith;
 
-  SessionTools _copyWith({Object? references = sdkOmittedValue}) => SessionTools(
-    references: identical(references, sdkOmittedValue) ? this.references : references as SdkOptional<List<SessionToolsReferencesItem>>,
-  );
+  SessionTools _copyWith({Object? references = sdkOmittedValue}) =>
+      SessionTools(
+        references: identical(references, sdkOmittedValue)
+            ? this.references
+            : references as SdkOptional<List<SessionToolsReferencesItem>>,
+      );
 
   factory SessionTools.fromJson(Map<String, dynamic> json) => SessionTools(
-    references: json['references'] != null ? SdkPresent(((json['references'] as List?)?.map((e) => SessionToolsReferencesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        references: json['references'] != null
+            ? SdkPresent(((json['references'] as List?)
+                ?.map((e) => SessionToolsReferencesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (references) {
-      SdkPresent<List<SessionToolsReferencesItem>>(value: final value) => {'references': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (references) {
+          SdkPresent<List<SessionToolsReferencesItem>>(value: final value) => {
+              'references': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A session and the tool-permission policy bound to it.
 class Session {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Session URN, for example `do:managed_agent_session:&lt;uuid&gt;`.
   final SdkOptional<String> sessionUrn;
+
   /// The required human-readable session name.
   final SdkOptional<String> name;
+
   /// Empty when the session is not bound to an actor.
   final SdkOptional<String> actorId;
+
   /// The session's tool-permission policy.
   final SdkOptional<SessionPolicy?> policy;
+
   /// Omitted when the request omitted tools (all tools). A present selection with no references represents tools: [].
   final SdkOptional<SessionTools> tools;
+
   /// Session options as supplied at creation. Omitted when none were supplied.
   final SdkOptional<Map<String, dynamic>> config;
+
   /// Omitted when the request omitted network. A present binding currently supports only VPC attachment by UUID.
   final SdkOptional<SessionNetwork> network;
+
   /// Omitted when no explicit customer Insights choice was stored.
   final SdkOptional<SessionInsights> insights;
+
   /// URN of the agent that started the session. Empty for sessions created through this API.
   final SdkOptional<String> agentUrn;
+
   /// Name of the agent that started the session. Empty for sessions created through this API.
   final SdkOptional<String> agentName;
+
   /// When the session was created.
   final SdkOptional<String?> createdAt;
+
   /// When the session was last modified.
   final SdkOptional<String?> updatedAt;
+
   /// DigitalOcean user ID of the user who created the session, when recorded.
   final SdkOptional<String> owningUserId;
 
-  const Session({this.sessionUrn = const SdkOmitted(), this.name = const SdkOmitted(), this.actorId = const SdkOmitted(), this.policy = const SdkOmitted(), this.tools = const SdkOmitted(), this.config = const SdkOmitted(), this.network = const SdkOmitted(), this.insights = const SdkOmitted(), this.agentUrn = const SdkOmitted(), this.agentName = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.owningUserId = const SdkOmitted()});
+  const Session(
+      {this.sessionUrn = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.actorId = const SdkOmitted(),
+      this.policy = const SdkOmitted(),
+      this.tools = const SdkOmitted(),
+      this.config = const SdkOmitted(),
+      this.network = const SdkOmitted(),
+      this.insights = const SdkOmitted(),
+      this.agentUrn = const SdkOmitted(),
+      this.agentName = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.owningUserId = const SdkOmitted()});
 
-  Session Function({SdkOptional<String> sessionUrn, SdkOptional<String> name, SdkOptional<String> actorId, SdkOptional<SessionPolicy?> policy, SdkOptional<SessionTools> tools, SdkOptional<Map<String, dynamic>> config, SdkOptional<SessionNetwork> network, SdkOptional<SessionInsights> insights, SdkOptional<String> agentUrn, SdkOptional<String> agentName, SdkOptional<String?> createdAt, SdkOptional<String?> updatedAt, SdkOptional<String> owningUserId}) get copyWith => _copyWith;
+  Session Function(
+      {SdkOptional<String> sessionUrn,
+      SdkOptional<String> name,
+      SdkOptional<String> actorId,
+      SdkOptional<SessionPolicy?> policy,
+      SdkOptional<SessionTools> tools,
+      SdkOptional<Map<String, dynamic>> config,
+      SdkOptional<SessionNetwork> network,
+      SdkOptional<SessionInsights> insights,
+      SdkOptional<String> agentUrn,
+      SdkOptional<String> agentName,
+      SdkOptional<String?> createdAt,
+      SdkOptional<String?> updatedAt,
+      SdkOptional<String> owningUserId}) get copyWith => _copyWith;
 
-  Session _copyWith({Object? sessionUrn = sdkOmittedValue, Object? name = sdkOmittedValue, Object? actorId = sdkOmittedValue, Object? policy = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? config = sdkOmittedValue, Object? network = sdkOmittedValue, Object? insights = sdkOmittedValue, Object? agentUrn = sdkOmittedValue, Object? agentName = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? owningUserId = sdkOmittedValue}) => Session(
-    sessionUrn: identical(sessionUrn, sdkOmittedValue) ? this.sessionUrn : sessionUrn as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    actorId: identical(actorId, sdkOmittedValue) ? this.actorId : actorId as SdkOptional<String>,
-    policy: identical(policy, sdkOmittedValue) ? this.policy : policy as SdkOptional<SessionPolicy?>,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<SessionTools>,
-    config: identical(config, sdkOmittedValue) ? this.config : config as SdkOptional<Map<String, dynamic>>,
-    network: identical(network, sdkOmittedValue) ? this.network : network as SdkOptional<SessionNetwork>,
-    insights: identical(insights, sdkOmittedValue) ? this.insights : insights as SdkOptional<SessionInsights>,
-    agentUrn: identical(agentUrn, sdkOmittedValue) ? this.agentUrn : agentUrn as SdkOptional<String>,
-    agentName: identical(agentName, sdkOmittedValue) ? this.agentName : agentName as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String?>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String?>,
-    owningUserId: identical(owningUserId, sdkOmittedValue) ? this.owningUserId : owningUserId as SdkOptional<String>,
-  );
+  Session _copyWith(
+          {Object? sessionUrn = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? actorId = sdkOmittedValue,
+          Object? policy = sdkOmittedValue,
+          Object? tools = sdkOmittedValue,
+          Object? config = sdkOmittedValue,
+          Object? network = sdkOmittedValue,
+          Object? insights = sdkOmittedValue,
+          Object? agentUrn = sdkOmittedValue,
+          Object? agentName = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? owningUserId = sdkOmittedValue}) =>
+      Session(
+        sessionUrn: identical(sessionUrn, sdkOmittedValue)
+            ? this.sessionUrn
+            : sessionUrn as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        actorId: identical(actorId, sdkOmittedValue)
+            ? this.actorId
+            : actorId as SdkOptional<String>,
+        policy: identical(policy, sdkOmittedValue)
+            ? this.policy
+            : policy as SdkOptional<SessionPolicy?>,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as SdkOptional<SessionTools>,
+        config: identical(config, sdkOmittedValue)
+            ? this.config
+            : config as SdkOptional<Map<String, dynamic>>,
+        network: identical(network, sdkOmittedValue)
+            ? this.network
+            : network as SdkOptional<SessionNetwork>,
+        insights: identical(insights, sdkOmittedValue)
+            ? this.insights
+            : insights as SdkOptional<SessionInsights>,
+        agentUrn: identical(agentUrn, sdkOmittedValue)
+            ? this.agentUrn
+            : agentUrn as SdkOptional<String>,
+        agentName: identical(agentName, sdkOmittedValue)
+            ? this.agentName
+            : agentName as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String?>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String?>,
+        owningUserId: identical(owningUserId, sdkOmittedValue)
+            ? this.owningUserId
+            : owningUserId as SdkOptional<String>,
+      );
 
   factory Session.fromJson(Map<String, dynamic> json) => Session(
-    sessionUrn: json['sessionUrn'] != null ? SdkPresent((json['sessionUrn'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    actorId: json['actorId'] != null ? SdkPresent((json['actorId'] as String?)!) : const SdkOmitted(),
-    policy: json.containsKey('policy') ? SdkPresent(json['policy'] != null ? SessionPolicy.fromJson(json['policy'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    tools: json['tools'] != null ? SdkPresent((json['tools'] != null ? SessionTools.fromJson(json['tools'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    config: json['config'] != null ? SdkPresent((json['config'] == null ? null : json['config'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    network: json['network'] != null ? SdkPresent((json['network'] != null ? SessionNetwork.fromJson(json['network'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    insights: json['insights'] != null ? SdkPresent((json['insights'] != null ? SessionInsights.fromJson(json['insights'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    agentUrn: json['agentUrn'] != null ? SdkPresent((json['agentUrn'] as String?)!) : const SdkOmitted(),
-    agentName: json['agentName'] != null ? SdkPresent((json['agentName'] as String?)!) : const SdkOmitted(),
-    createdAt: json.containsKey('createdAt') ? SdkPresent(json['createdAt'] as String?) : const SdkOmitted(),
-    updatedAt: json.containsKey('updatedAt') ? SdkPresent(json['updatedAt'] as String?) : const SdkOmitted(),
-    owningUserId: json['owning_user_id'] != null ? SdkPresent((json['owning_user_id'] as String?)!) : const SdkOmitted(),
-  );
+        sessionUrn: json['sessionUrn'] != null
+            ? SdkPresent((json['sessionUrn'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        actorId: json['actorId'] != null
+            ? SdkPresent((json['actorId'] as String?)!)
+            : const SdkOmitted(),
+        policy: json.containsKey('policy')
+            ? SdkPresent(json['policy'] != null
+                ? SessionPolicy.fromJson(json['policy'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        tools: json['tools'] != null
+            ? SdkPresent((json['tools'] != null
+                ? SessionTools.fromJson(json['tools'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        config: json['config'] != null
+            ? SdkPresent((json['config'] == null
+                ? null
+                : json['config'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        network: json['network'] != null
+            ? SdkPresent((json['network'] != null
+                ? SessionNetwork.fromJson(
+                    json['network'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        insights: json['insights'] != null
+            ? SdkPresent((json['insights'] != null
+                ? SessionInsights.fromJson(
+                    json['insights'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        agentUrn: json['agentUrn'] != null
+            ? SdkPresent((json['agentUrn'] as String?)!)
+            : const SdkOmitted(),
+        agentName: json['agentName'] != null
+            ? SdkPresent((json['agentName'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json.containsKey('createdAt')
+            ? SdkPresent(json['createdAt'] as String?)
+            : const SdkOmitted(),
+        updatedAt: json.containsKey('updatedAt')
+            ? SdkPresent(json['updatedAt'] as String?)
+            : const SdkOmitted(),
+        owningUserId: json['owning_user_id'] != null
+            ? SdkPresent((json['owning_user_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sessionUrn) {
-      SdkPresent<String>(value: final value) => {'sessionUrn': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (actorId) {
-      SdkPresent<String>(value: final value) => {'actorId': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (policy) {
-      SdkPresent<SessionPolicy?>(value: final value) => {'policy': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tools) {
-      SdkPresent<SessionTools>(value: final value) => {'tools': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (config) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'config': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (network) {
-      SdkPresent<SessionNetwork>(value: final value) => {'network': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (insights) {
-      SdkPresent<SessionInsights>(value: final value) => {'insights': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (agentUrn) {
-      SdkPresent<String>(value: final value) => {'agentUrn': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (agentName) {
-      SdkPresent<String>(value: final value) => {'agentName': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String?>(value: final value) => {'createdAt': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String?>(value: final value) => {'updatedAt': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (owningUserId) {
-      SdkPresent<String>(value: final value) => {'owning_user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sessionUrn) {
+          SdkPresent<String>(value: final value) => {
+              'sessionUrn': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (actorId) {
+          SdkPresent<String>(value: final value) => {
+              'actorId': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (policy) {
+          SdkPresent<SessionPolicy?>(value: final value) => {
+              'policy': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tools) {
+          SdkPresent<SessionTools>(value: final value) => {
+              'tools': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (config) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'config': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (network) {
+          SdkPresent<SessionNetwork>(value: final value) => {
+              'network': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (insights) {
+          SdkPresent<SessionInsights>(value: final value) => {
+              'insights': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (agentUrn) {
+          SdkPresent<String>(value: final value) => {
+              'agentUrn': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (agentName) {
+          SdkPresent<String>(value: final value) => {
+              'agentName': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String?>(value: final value) => {
+              'createdAt': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String?>(value: final value) => {
+              'updatedAt': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (owningUserId) {
+          SdkPresent<String>(value: final value) => {
+              'owning_user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Describes a session to create.
 class SessionCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required human-readable session name.
   final String name;
+
   /// Optional actor binding: the user whose connections the session's tool calls use, matched against connection `user_id`. When set it must use the same alphabet as a connection's `user_id`, `[A-Za-z0-9._-]`, at most 64 characters; anything else is rejected with 400.
   final SdkOptional<String> actorId;
+
   /// Optional tool-permission policy. Omitted asks before every call.
   final SdkOptional<SessionPolicy?> policy;
+
   /// Omitted enables every tool. An explicit empty array enables no tools. Direct tools may be `&lt;tool&gt;` or `&lt;tool&gt;@&lt;version&gt;`, using provider-qualified tool slugs, and a pinned version must be the released one; toolbelt references must be version-pinned as `toolbelt:&lt;belt-name&gt;@&lt;version&gt;`.
   final SdkOptional<List<String>> tools;
+
   /// Optional session options. config.preloadTools may contain concrete tool names (optionally version-pinned) and version-pinned toolbelt references. config.customInstructions is a string of at most 1000 characters. config.outputViews maps up to 100 tool slugs to the name of an output view to apply to that tool's results.
   final SdkOptional<Map<String, dynamic>> config;
+
   /// Product-level session network binding. When set, `vpc_uuid` must identify a VPC owned by the session's team.
   final SdkOptional<SessionNetwork> network;
+
   /// Omitted when the request omitted insights or explicitly sent null.
   final SdkOptional<SessionInsights> insights;
 
-  const SessionCreate({required this.name, this.actorId = const SdkOmitted(), this.policy = const SdkOmitted(), this.tools = const SdkOmitted(), this.config = const SdkOmitted(), this.network = const SdkOmitted(), this.insights = const SdkOmitted()});
+  const SessionCreate(
+      {required this.name,
+      this.actorId = const SdkOmitted(),
+      this.policy = const SdkOmitted(),
+      this.tools = const SdkOmitted(),
+      this.config = const SdkOmitted(),
+      this.network = const SdkOmitted(),
+      this.insights = const SdkOmitted()});
 
-  SessionCreate Function({String name, SdkOptional<String> actorId, SdkOptional<SessionPolicy?> policy, SdkOptional<List<String>> tools, SdkOptional<Map<String, dynamic>> config, SdkOptional<SessionNetwork> network, SdkOptional<SessionInsights> insights}) get copyWith => _copyWith;
+  SessionCreate Function(
+      {String name,
+      SdkOptional<String> actorId,
+      SdkOptional<SessionPolicy?> policy,
+      SdkOptional<List<String>> tools,
+      SdkOptional<Map<String, dynamic>> config,
+      SdkOptional<SessionNetwork> network,
+      SdkOptional<SessionInsights> insights}) get copyWith => _copyWith;
 
-  SessionCreate _copyWith({Object? name = sdkOmittedValue, Object? actorId = sdkOmittedValue, Object? policy = sdkOmittedValue, Object? tools = sdkOmittedValue, Object? config = sdkOmittedValue, Object? network = sdkOmittedValue, Object? insights = sdkOmittedValue}) => SessionCreate(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    actorId: identical(actorId, sdkOmittedValue) ? this.actorId : actorId as SdkOptional<String>,
-    policy: identical(policy, sdkOmittedValue) ? this.policy : policy as SdkOptional<SessionPolicy?>,
-    tools: identical(tools, sdkOmittedValue) ? this.tools : tools as SdkOptional<List<String>>,
-    config: identical(config, sdkOmittedValue) ? this.config : config as SdkOptional<Map<String, dynamic>>,
-    network: identical(network, sdkOmittedValue) ? this.network : network as SdkOptional<SessionNetwork>,
-    insights: identical(insights, sdkOmittedValue) ? this.insights : insights as SdkOptional<SessionInsights>,
-  );
+  SessionCreate _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? actorId = sdkOmittedValue,
+          Object? policy = sdkOmittedValue,
+          Object? tools = sdkOmittedValue,
+          Object? config = sdkOmittedValue,
+          Object? network = sdkOmittedValue,
+          Object? insights = sdkOmittedValue}) =>
+      SessionCreate(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        actorId: identical(actorId, sdkOmittedValue)
+            ? this.actorId
+            : actorId as SdkOptional<String>,
+        policy: identical(policy, sdkOmittedValue)
+            ? this.policy
+            : policy as SdkOptional<SessionPolicy?>,
+        tools: identical(tools, sdkOmittedValue)
+            ? this.tools
+            : tools as SdkOptional<List<String>>,
+        config: identical(config, sdkOmittedValue)
+            ? this.config
+            : config as SdkOptional<Map<String, dynamic>>,
+        network: identical(network, sdkOmittedValue)
+            ? this.network
+            : network as SdkOptional<SessionNetwork>,
+        insights: identical(insights, sdkOmittedValue)
+            ? this.insights
+            : insights as SdkOptional<SessionInsights>,
+      );
 
   factory SessionCreate.fromJson(Map<String, dynamic> json) => SessionCreate(
-    name: (json['name'] as String?)!,
-    actorId: json['actorId'] != null ? SdkPresent((json['actorId'] as String?)!) : const SdkOmitted(),
-    policy: json.containsKey('policy') ? SdkPresent(json['policy'] != null ? SessionPolicy.fromJson(json['policy'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    tools: json['tools'] != null ? SdkPresent(((json['tools'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    config: json['config'] != null ? SdkPresent((json['config'] == null ? null : json['config'] as Map<String, dynamic>)!) : const SdkOmitted(),
-    network: json['network'] != null ? SdkPresent((json['network'] != null ? SessionNetwork.fromJson(json['network'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    insights: json['insights'] != null ? SdkPresent((json['insights'] != null ? SessionInsights.fromJson(json['insights'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        name: (json['name'] as String?)!,
+        actorId: json['actorId'] != null
+            ? SdkPresent((json['actorId'] as String?)!)
+            : const SdkOmitted(),
+        policy: json.containsKey('policy')
+            ? SdkPresent(json['policy'] != null
+                ? SessionPolicy.fromJson(json['policy'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        tools: json['tools'] != null
+            ? SdkPresent(
+                ((json['tools'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        config: json['config'] != null
+            ? SdkPresent((json['config'] == null
+                ? null
+                : json['config'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+        network: json['network'] != null
+            ? SdkPresent((json['network'] != null
+                ? SessionNetwork.fromJson(
+                    json['network'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        insights: json['insights'] != null
+            ? SdkPresent((json['insights'] != null
+                ? SessionInsights.fromJson(
+                    json['insights'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (actorId) {
-      SdkPresent<String>(value: final value) => {'actorId': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (policy) {
-      SdkPresent<SessionPolicy?>(value: final value) => {'policy': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tools) {
-      SdkPresent<List<String>>(value: final value) => {'tools': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (config) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'config': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (network) {
-      SdkPresent<SessionNetwork>(value: final value) => {'network': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (insights) {
-      SdkPresent<SessionInsights>(value: final value) => {'insights': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (actorId) {
+          SdkPresent<String>(value: final value) => {
+              'actorId': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (policy) {
+          SdkPresent<SessionPolicy?>(value: final value) => {
+              'policy': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tools) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tools': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (config) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'config': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (network) {
+          SdkPresent<SessionNetwork>(value: final value) => {
+              'network': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (insights) {
+          SdkPresent<SessionInsights>(value: final value) => {
+              'insights': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

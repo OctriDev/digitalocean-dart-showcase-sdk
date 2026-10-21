@@ -8,25 +8,34 @@ part of 'action_gateway_session.dart';
 class SessionNetwork {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// UUID of a VPC owned by your team, in a region that supports sessions.
   final SdkOptional<String> vpcUuid;
 
   const SessionNetwork({this.vpcUuid = const SdkOmitted()});
 
-  SessionNetwork Function({SdkOptional<String> vpcUuid}) get copyWith => _copyWith;
+  SessionNetwork Function({SdkOptional<String> vpcUuid}) get copyWith =>
+      _copyWith;
 
-  SessionNetwork _copyWith({Object? vpcUuid = sdkOmittedValue}) => SessionNetwork(
-    vpcUuid: identical(vpcUuid, sdkOmittedValue) ? this.vpcUuid : vpcUuid as SdkOptional<String>,
-  );
+  SessionNetwork _copyWith({Object? vpcUuid = sdkOmittedValue}) =>
+      SessionNetwork(
+        vpcUuid: identical(vpcUuid, sdkOmittedValue)
+            ? this.vpcUuid
+            : vpcUuid as SdkOptional<String>,
+      );
 
   factory SessionNetwork.fromJson(Map<String, dynamic> json) => SessionNetwork(
-    vpcUuid: json['vpcUuid'] != null ? SdkPresent((json['vpcUuid'] as String?)!) : const SdkOmitted(),
-  );
+        vpcUuid: json['vpcUuid'] != null
+            ? SdkPresent((json['vpcUuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (vpcUuid) {
-      SdkPresent<String>(value: final value) => {'vpcUuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (vpcUuid) {
+          SdkPresent<String>(value: final value) => {
+              'vpcUuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

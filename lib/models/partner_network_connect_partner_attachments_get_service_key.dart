@@ -9,24 +9,38 @@ class SinglePartnerAttachmentServiceKeyVariant0 {
   static const String constructionSurface = 'named';
   final SdkOptional<Map<String, dynamic>> serviceKey;
 
-  const SinglePartnerAttachmentServiceKeyVariant0({this.serviceKey = const SdkOmitted()});
+  const SinglePartnerAttachmentServiceKeyVariant0(
+      {this.serviceKey = const SdkOmitted()});
 
-  SinglePartnerAttachmentServiceKeyVariant0 Function({SdkOptional<Map<String, dynamic>> serviceKey}) get copyWith => _copyWith;
+  SinglePartnerAttachmentServiceKeyVariant0 Function(
+      {SdkOptional<Map<String, dynamic>> serviceKey}) get copyWith => _copyWith;
 
-  SinglePartnerAttachmentServiceKeyVariant0 _copyWith({Object? serviceKey = sdkOmittedValue}) => SinglePartnerAttachmentServiceKeyVariant0(
-    serviceKey: identical(serviceKey, sdkOmittedValue) ? this.serviceKey : serviceKey as SdkOptional<Map<String, dynamic>>,
-  );
+  SinglePartnerAttachmentServiceKeyVariant0 _copyWith(
+          {Object? serviceKey = sdkOmittedValue}) =>
+      SinglePartnerAttachmentServiceKeyVariant0(
+        serviceKey: identical(serviceKey, sdkOmittedValue)
+            ? this.serviceKey
+            : serviceKey as SdkOptional<Map<String, dynamic>>,
+      );
 
-  factory SinglePartnerAttachmentServiceKeyVariant0.fromJson(Map<String, dynamic> json) => SinglePartnerAttachmentServiceKeyVariant0(
-    serviceKey: json['service_key'] != null ? SdkPresent((json['service_key'] == null ? null : json['service_key'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+  factory SinglePartnerAttachmentServiceKeyVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      SinglePartnerAttachmentServiceKeyVariant0(
+        serviceKey: json['service_key'] != null
+            ? SdkPresent((json['service_key'] == null
+                ? null
+                : json['service_key'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (serviceKey) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'service_key': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (serviceKey) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'service_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `SinglePartnerAttachmentServiceKey` API schema.
@@ -35,22 +49,36 @@ class SinglePartnerAttachmentServiceKey {
   static const String constructionSurface = 'named';
   final SdkOptional<Map<String, dynamic>> serviceKey;
 
-  const SinglePartnerAttachmentServiceKey({this.serviceKey = const SdkOmitted()});
+  const SinglePartnerAttachmentServiceKey(
+      {this.serviceKey = const SdkOmitted()});
 
-  SinglePartnerAttachmentServiceKey Function({SdkOptional<Map<String, dynamic>> serviceKey}) get copyWith => _copyWith;
+  SinglePartnerAttachmentServiceKey Function(
+      {SdkOptional<Map<String, dynamic>> serviceKey}) get copyWith => _copyWith;
 
-  SinglePartnerAttachmentServiceKey _copyWith({Object? serviceKey = sdkOmittedValue}) => SinglePartnerAttachmentServiceKey(
-    serviceKey: identical(serviceKey, sdkOmittedValue) ? this.serviceKey : serviceKey as SdkOptional<Map<String, dynamic>>,
-  );
+  SinglePartnerAttachmentServiceKey _copyWith(
+          {Object? serviceKey = sdkOmittedValue}) =>
+      SinglePartnerAttachmentServiceKey(
+        serviceKey: identical(serviceKey, sdkOmittedValue)
+            ? this.serviceKey
+            : serviceKey as SdkOptional<Map<String, dynamic>>,
+      );
 
-  factory SinglePartnerAttachmentServiceKey.fromJson(Map<String, dynamic> json) => SinglePartnerAttachmentServiceKey(
-    serviceKey: json['service_key'] != null ? SdkPresent((json['service_key'] == null ? null : json['service_key'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+  factory SinglePartnerAttachmentServiceKey.fromJson(
+          Map<String, dynamic> json) =>
+      SinglePartnerAttachmentServiceKey(
+        serviceKey: json['service_key'] != null
+            ? SdkPresent((json['service_key'] == null
+                ? null
+                : json['service_key'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (serviceKey) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'service_key': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (serviceKey) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'service_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

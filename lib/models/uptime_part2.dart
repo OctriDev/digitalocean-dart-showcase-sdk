@@ -9,111 +9,209 @@ class AllChecks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Check>> checks;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllChecks({this.checks = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllChecks(
+      {this.checks = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllChecks Function({SdkOptional<List<Check>> checks, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllChecks Function(
+      {SdkOptional<List<Check>> checks,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllChecks _copyWith({Object? checks = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllChecks(
-    checks: identical(checks, sdkOmittedValue) ? this.checks : checks as SdkOptional<List<Check>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllChecks _copyWith(
+          {Object? checks = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllChecks(
+        checks: identical(checks, sdkOmittedValue)
+            ? this.checks
+            : checks as SdkOptional<List<Check>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
   factory AllChecks.fromJson(Map<String, dynamic> json) => AllChecks(
-    checks: json['checks'] != null ? SdkPresent(((json['checks'] as List?)?.map((e) => Check.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+        checks: json['checks'] != null
+            ? SdkPresent(((json['checks'] as List?)
+                ?.map((e) => Check.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (checks) {
-      SdkPresent<List<Check>>(value: final value) => {'checks': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (checks) {
+          SdkPresent<List<Check>>(value: final value) => {
+              'checks': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 /// Typed representation of the `Check` API schema.
 class Check {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique ID that can be used to identify and reference the check.
   final SdkOptional<String> id;
+
   /// A human-friendly display name.
   final SdkOptional<String> name;
+
   /// The type of health check to perform.
   final SdkOptional<CheckUpdatableType> type_;
+
   /// The endpoint to perform healthchecks on.
   final SdkOptional<String> target;
+
   /// An array containing the selected regions to perform healthchecks from.
   final SdkOptional<List<CheckUpdatableRegionsItem>> regions;
+
   /// A boolean value indicating whether the check is enabled/disabled.
   final SdkOptional<bool> enabled;
 
-  const Check({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.type_ = const SdkOmitted(), this.target = const SdkOmitted(), this.regions = const SdkOmitted(), this.enabled = const SdkOmitted()});
+  const Check(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.target = const SdkOmitted(),
+      this.regions = const SdkOmitted(),
+      this.enabled = const SdkOmitted()});
 
-  Check Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<CheckUpdatableType> type_, SdkOptional<String> target, SdkOptional<List<CheckUpdatableRegionsItem>> regions, SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  Check Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<CheckUpdatableType> type_,
+      SdkOptional<String> target,
+      SdkOptional<List<CheckUpdatableRegionsItem>> regions,
+      SdkOptional<bool> enabled}) get copyWith => _copyWith;
 
-  Check _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? target = sdkOmittedValue, Object? regions = sdkOmittedValue, Object? enabled = sdkOmittedValue}) => Check(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<CheckUpdatableType>,
-    target: identical(target, sdkOmittedValue) ? this.target : target as SdkOptional<String>,
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<CheckUpdatableRegionsItem>>,
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  Check _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? target = sdkOmittedValue,
+          Object? regions = sdkOmittedValue,
+          Object? enabled = sdkOmittedValue}) =>
+      Check(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<CheckUpdatableType>,
+        target: identical(target, sdkOmittedValue)
+            ? this.target
+            : target as SdkOptional<String>,
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as SdkOptional<List<CheckUpdatableRegionsItem>>,
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
   factory Check.fromJson(Map<String, dynamic> json) => Check(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? CheckUpdatableType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    target: json['target'] != null ? SdkPresent((json['target'] as String?)!) : const SdkOmitted(),
-    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => CheckUpdatableRegionsItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? CheckUpdatableType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        target: json['target'] != null
+            ? SdkPresent((json['target'] as String?)!)
+            : const SdkOmitted(),
+        regions: json['regions'] != null
+            ? SdkPresent(((json['regions'] as List?)
+                ?.map((e) => CheckUpdatableRegionsItem.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<CheckUpdatableType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (target) {
-      SdkPresent<String>(value: final value) => {'target': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (regions) {
-      SdkPresent<List<CheckUpdatableRegionsItem>>(value: final value) => {'regions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<CheckUpdatableType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (target) {
+          SdkPresent<String>(value: final value) => {
+              'target': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (regions) {
+          SdkPresent<List<CheckUpdatableRegionsItem>>(value: final value) => {
+              'regions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CheckBase` API schema.
 class CheckBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique ID that can be used to identify and reference the check.
   final SdkOptional<String> id;
 
@@ -122,84 +220,146 @@ class CheckBase {
   CheckBase Function({SdkOptional<String> id}) get copyWith => _copyWith;
 
   CheckBase _copyWith({Object? id = sdkOmittedValue}) => CheckBase(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
   factory CheckBase.fromJson(Map<String, dynamic> json) => CheckBase(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `CheckUpdatable` API schema.
 class CheckUpdatable {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A human-friendly display name.
   final SdkOptional<String> name;
+
   /// The type of health check to perform.
   final SdkOptional<CheckUpdatableType> type_;
+
   /// The endpoint to perform healthchecks on.
   final SdkOptional<String> target;
+
   /// An array containing the selected regions to perform healthchecks from.
   final SdkOptional<List<CheckUpdatableRegionsItem>> regions;
+
   /// A boolean value indicating whether the check is enabled/disabled.
   final SdkOptional<bool> enabled;
 
-  const CheckUpdatable({this.name = const SdkOmitted(), this.type_ = const SdkOmitted(), this.target = const SdkOmitted(), this.regions = const SdkOmitted(), this.enabled = const SdkOmitted()});
+  const CheckUpdatable(
+      {this.name = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.target = const SdkOmitted(),
+      this.regions = const SdkOmitted(),
+      this.enabled = const SdkOmitted()});
 
-  CheckUpdatable Function({SdkOptional<String> name, SdkOptional<CheckUpdatableType> type_, SdkOptional<String> target, SdkOptional<List<CheckUpdatableRegionsItem>> regions, SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  CheckUpdatable Function(
+      {SdkOptional<String> name,
+      SdkOptional<CheckUpdatableType> type_,
+      SdkOptional<String> target,
+      SdkOptional<List<CheckUpdatableRegionsItem>> regions,
+      SdkOptional<bool> enabled}) get copyWith => _copyWith;
 
-  CheckUpdatable _copyWith({Object? name = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? target = sdkOmittedValue, Object? regions = sdkOmittedValue, Object? enabled = sdkOmittedValue}) => CheckUpdatable(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<CheckUpdatableType>,
-    target: identical(target, sdkOmittedValue) ? this.target : target as SdkOptional<String>,
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<CheckUpdatableRegionsItem>>,
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  CheckUpdatable _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? target = sdkOmittedValue,
+          Object? regions = sdkOmittedValue,
+          Object? enabled = sdkOmittedValue}) =>
+      CheckUpdatable(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<CheckUpdatableType>,
+        target: identical(target, sdkOmittedValue)
+            ? this.target
+            : target as SdkOptional<String>,
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as SdkOptional<List<CheckUpdatableRegionsItem>>,
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
   factory CheckUpdatable.fromJson(Map<String, dynamic> json) => CheckUpdatable(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? CheckUpdatableType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    target: json['target'] != null ? SdkPresent((json['target'] as String?)!) : const SdkOmitted(),
-    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => CheckUpdatableRegionsItem.fromJson(e as String)).toList())!) : const SdkOmitted(),
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? CheckUpdatableType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        target: json['target'] != null
+            ? SdkPresent((json['target'] as String?)!)
+            : const SdkOmitted(),
+        regions: json['regions'] != null
+            ? SdkPresent(((json['regions'] as List?)
+                ?.map((e) => CheckUpdatableRegionsItem.fromJson(e as String))
+                .toList())!)
+            : const SdkOmitted(),
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<CheckUpdatableType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (target) {
-      SdkPresent<String>(value: final value) => {'target': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (regions) {
-      SdkPresent<List<CheckUpdatableRegionsItem>>(value: final value) => {'regions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<CheckUpdatableType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (target) {
+          SdkPresent<String>(value: final value) => {
+              'target': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (regions) {
+          SdkPresent<List<CheckUpdatableRegionsItem>>(value: final value) => {
+              'regions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ExistingAlert` API schema.
 class ExistingAlert {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `alert` wire field.
   final SdkOptional<Alert> alert;
 
@@ -208,25 +368,34 @@ class ExistingAlert {
   ExistingAlert Function({SdkOptional<Alert> alert}) get copyWith => _copyWith;
 
   ExistingAlert _copyWith({Object? alert = sdkOmittedValue}) => ExistingAlert(
-    alert: identical(alert, sdkOmittedValue) ? this.alert : alert as SdkOptional<Alert>,
-  );
+        alert: identical(alert, sdkOmittedValue)
+            ? this.alert
+            : alert as SdkOptional<Alert>,
+      );
 
   factory ExistingAlert.fromJson(Map<String, dynamic> json) => ExistingAlert(
-    alert: json['alert'] != null ? SdkPresent((json['alert'] != null ? Alert.fromJson(json['alert'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        alert: json['alert'] != null
+            ? SdkPresent((json['alert'] != null
+                ? Alert.fromJson(json['alert'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (alert) {
-      SdkPresent<Alert>(value: final value) => {'alert': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (alert) {
+          SdkPresent<Alert>(value: final value) => {
+              'alert': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ExistingCheck` API schema.
 class ExistingCheck {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `check` wire field.
   final SdkOptional<Check> check;
 
@@ -235,44 +404,64 @@ class ExistingCheck {
   ExistingCheck Function({SdkOptional<Check> check}) get copyWith => _copyWith;
 
   ExistingCheck _copyWith({Object? check = sdkOmittedValue}) => ExistingCheck(
-    check: identical(check, sdkOmittedValue) ? this.check : check as SdkOptional<Check>,
-  );
+        check: identical(check, sdkOmittedValue)
+            ? this.check
+            : check as SdkOptional<Check>,
+      );
 
   factory ExistingCheck.fromJson(Map<String, dynamic> json) => ExistingCheck(
-    check: json['check'] != null ? SdkPresent((json['check'] != null ? Check.fromJson(json['check'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        check: json['check'] != null
+            ? SdkPresent((json['check'] != null
+                ? Check.fromJson(json['check'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (check) {
-      SdkPresent<Check>(value: final value) => {'check': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (check) {
+          SdkPresent<Check>(value: final value) => {
+              'check': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ExistingCheckState` API schema.
 class ExistingCheckState {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `state` wire field.
   final SdkOptional<State> state;
 
   const ExistingCheckState({this.state = const SdkOmitted()});
 
-  ExistingCheckState Function({SdkOptional<State> state}) get copyWith => _copyWith;
+  ExistingCheckState Function({SdkOptional<State> state}) get copyWith =>
+      _copyWith;
 
-  ExistingCheckState _copyWith({Object? state = sdkOmittedValue}) => ExistingCheckState(
-    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<State>,
-  );
+  ExistingCheckState _copyWith({Object? state = sdkOmittedValue}) =>
+      ExistingCheckState(
+        state: identical(state, sdkOmittedValue)
+            ? this.state
+            : state as SdkOptional<State>,
+      );
 
-  factory ExistingCheckState.fromJson(Map<String, dynamic> json) => ExistingCheckState(
-    state: json['state'] != null ? SdkPresent((json['state'] != null ? State.fromJson(json['state'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ExistingCheckState.fromJson(Map<String, dynamic> json) =>
+      ExistingCheckState(
+        state: json['state'] != null
+            ? SdkPresent((json['state'] != null
+                ? State.fromJson(json['state'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (state) {
-      SdkPresent<State>(value: final value) => {'state': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (state) {
+          SdkPresent<State>(value: final value) => {
+              'state': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

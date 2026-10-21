@@ -24,12 +24,20 @@ Future<CreateTeamResponse> organizationsCreateTeam(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'organizationsCreateTeam',
-          fromJsonRaw: (value) => CreateTeamResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CreateTeamResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '412': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '412': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To list all teams in an organization, send a GET request to `/v2/organizations/teams`. This endpoint must be called in an organization context.
 Future<ListTeams> organizationsListTeams(ClientConfig config,
@@ -38,8 +46,16 @@ Future<ListTeams> organizationsListTeams(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'organizationsListTeams',
-          fromJsonRaw: (value) => ListTeams.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListTeams.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '412': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '412': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

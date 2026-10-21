@@ -8,25 +8,35 @@ part of 'agent_platform_api_api_delete.dart';
 class ApiDeleteKnowledgeBaseOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The id of the deleted knowledge base
   final SdkOptional<String> uuid;
 
   const ApiDeleteKnowledgeBaseOutput({this.uuid = const SdkOmitted()});
 
-  ApiDeleteKnowledgeBaseOutput Function({SdkOptional<String> uuid}) get copyWith => _copyWith;
+  ApiDeleteKnowledgeBaseOutput Function({SdkOptional<String> uuid})
+      get copyWith => _copyWith;
 
-  ApiDeleteKnowledgeBaseOutput _copyWith({Object? uuid = sdkOmittedValue}) => ApiDeleteKnowledgeBaseOutput(
-    uuid: identical(uuid, sdkOmittedValue) ? this.uuid : uuid as SdkOptional<String>,
-  );
+  ApiDeleteKnowledgeBaseOutput _copyWith({Object? uuid = sdkOmittedValue}) =>
+      ApiDeleteKnowledgeBaseOutput(
+        uuid: identical(uuid, sdkOmittedValue)
+            ? this.uuid
+            : uuid as SdkOptional<String>,
+      );
 
-  factory ApiDeleteKnowledgeBaseOutput.fromJson(Map<String, dynamic> json) => ApiDeleteKnowledgeBaseOutput(
-    uuid: json['uuid'] != null ? SdkPresent((json['uuid'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiDeleteKnowledgeBaseOutput.fromJson(Map<String, dynamic> json) =>
+      ApiDeleteKnowledgeBaseOutput(
+        uuid: json['uuid'] != null
+            ? SdkPresent((json['uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (uuid) {
-      SdkPresent<String>(value: final value) => {'uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (uuid) {
+          SdkPresent<String>(value: final value) => {
+              'uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

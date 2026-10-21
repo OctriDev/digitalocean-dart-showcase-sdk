@@ -8,25 +8,37 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListWorkspacesOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Workspaces
   final SdkOptional<List<ApiWorkspace>> workspaces;
 
   const ApiListWorkspacesOutput({this.workspaces = const SdkOmitted()});
 
-  ApiListWorkspacesOutput Function({SdkOptional<List<ApiWorkspace>> workspaces}) get copyWith => _copyWith;
+  ApiListWorkspacesOutput Function({SdkOptional<List<ApiWorkspace>> workspaces})
+      get copyWith => _copyWith;
 
-  ApiListWorkspacesOutput _copyWith({Object? workspaces = sdkOmittedValue}) => ApiListWorkspacesOutput(
-    workspaces: identical(workspaces, sdkOmittedValue) ? this.workspaces : workspaces as SdkOptional<List<ApiWorkspace>>,
-  );
+  ApiListWorkspacesOutput _copyWith({Object? workspaces = sdkOmittedValue}) =>
+      ApiListWorkspacesOutput(
+        workspaces: identical(workspaces, sdkOmittedValue)
+            ? this.workspaces
+            : workspaces as SdkOptional<List<ApiWorkspace>>,
+      );
 
-  factory ApiListWorkspacesOutput.fromJson(Map<String, dynamic> json) => ApiListWorkspacesOutput(
-    workspaces: json['workspaces'] != null ? SdkPresent(((json['workspaces'] as List?)?.map((e) => ApiWorkspace.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiListWorkspacesOutput.fromJson(Map<String, dynamic> json) =>
+      ApiListWorkspacesOutput(
+        workspaces: json['workspaces'] != null
+            ? SdkPresent(((json['workspaces'] as List?)
+                ?.map((e) => ApiWorkspace.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (workspaces) {
-      SdkPresent<List<ApiWorkspace>>(value: final value) => {'workspaces': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (workspaces) {
+          SdkPresent<List<ApiWorkspace>>(value: final value) => {
+              'workspaces': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,6 +8,7 @@ part of 'databases_ca.dart';
 class Ca {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// base64 encoding of the certificate used to secure database connections
   final String certificate;
 
@@ -16,22 +17,25 @@ class Ca {
   Ca Function({String certificate}) get copyWith => _copyWith;
 
   Ca _copyWith({Object? certificate = sdkOmittedValue}) => Ca(
-    certificate: identical(certificate, sdkOmittedValue) ? this.certificate : certificate as String,
-  );
+        certificate: identical(certificate, sdkOmittedValue)
+            ? this.certificate
+            : certificate as String,
+      );
 
   factory Ca.fromJson(Map<String, dynamic> json) => Ca(
-    certificate: (json['certificate'] as String?)!,
-  );
+        certificate: (json['certificate'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'certificate': certificate,
-  };
+        'certificate': certificate,
+      };
 }
 
 /// Typed representation of the `CaResponse` API schema.
 class CaResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `ca` wire field.
   final Ca ca;
 
@@ -40,14 +44,16 @@ class CaResponse {
   CaResponse Function({Ca ca}) get copyWith => _copyWith;
 
   CaResponse _copyWith({Object? ca = sdkOmittedValue}) => CaResponse(
-    ca: identical(ca, sdkOmittedValue) ? this.ca : ca as Ca,
-  );
+        ca: identical(ca, sdkOmittedValue) ? this.ca : ca as Ca,
+      );
 
   factory CaResponse.fromJson(Map<String, dynamic> json) => CaResponse(
-    ca: (json['ca'] != null ? Ca.fromJson(json['ca'] as Map<String, dynamic>) : null)!,
-  );
+        ca: (json['ca'] != null
+            ? Ca.fromJson(json['ca'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'ca': ca.toJson(),
-  };
+        'ca': ca.toJson(),
+      };
 }

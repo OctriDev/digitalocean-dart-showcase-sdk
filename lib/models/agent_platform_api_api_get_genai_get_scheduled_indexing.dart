@@ -8,25 +8,40 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetScheduledIndexingOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Metadata for scheduled indexing entries
   final SdkOptional<ApiScheduledIndexingInfo> indexingInfo;
 
   const ApiGetScheduledIndexingOutput({this.indexingInfo = const SdkOmitted()});
 
-  ApiGetScheduledIndexingOutput Function({SdkOptional<ApiScheduledIndexingInfo> indexingInfo}) get copyWith => _copyWith;
+  ApiGetScheduledIndexingOutput Function(
+          {SdkOptional<ApiScheduledIndexingInfo> indexingInfo})
+      get copyWith => _copyWith;
 
-  ApiGetScheduledIndexingOutput _copyWith({Object? indexingInfo = sdkOmittedValue}) => ApiGetScheduledIndexingOutput(
-    indexingInfo: identical(indexingInfo, sdkOmittedValue) ? this.indexingInfo : indexingInfo as SdkOptional<ApiScheduledIndexingInfo>,
-  );
+  ApiGetScheduledIndexingOutput _copyWith(
+          {Object? indexingInfo = sdkOmittedValue}) =>
+      ApiGetScheduledIndexingOutput(
+        indexingInfo: identical(indexingInfo, sdkOmittedValue)
+            ? this.indexingInfo
+            : indexingInfo as SdkOptional<ApiScheduledIndexingInfo>,
+      );
 
-  factory ApiGetScheduledIndexingOutput.fromJson(Map<String, dynamic> json) => ApiGetScheduledIndexingOutput(
-    indexingInfo: json['indexing_info'] != null ? SdkPresent((json['indexing_info'] != null ? ApiScheduledIndexingInfo.fromJson(json['indexing_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiGetScheduledIndexingOutput.fromJson(Map<String, dynamic> json) =>
+      ApiGetScheduledIndexingOutput(
+        indexingInfo: json['indexing_info'] != null
+            ? SdkPresent((json['indexing_info'] != null
+                ? ApiScheduledIndexingInfo.fromJson(
+                    json['indexing_info'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (indexingInfo) {
-      SdkPresent<ApiScheduledIndexingInfo>(value: final value) => {'indexing_info': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (indexingInfo) {
+          SdkPresent<ApiScheduledIndexingInfo>(value: final value) => {
+              'indexing_info': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

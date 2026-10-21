@@ -8,33 +8,53 @@ part of 'apps_app_alert.dart';
 class AppAlertSlackWebhook {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `url` wire field.
   final SdkOptional<String> url;
+
   /// Optional `string` value serialized in the `channel` wire field.
   final SdkOptional<String> channel;
 
-  const AppAlertSlackWebhook({this.url = const SdkOmitted(), this.channel = const SdkOmitted()});
+  const AppAlertSlackWebhook(
+      {this.url = const SdkOmitted(), this.channel = const SdkOmitted()});
 
-  AppAlertSlackWebhook Function({SdkOptional<String> url, SdkOptional<String> channel}) get copyWith => _copyWith;
+  AppAlertSlackWebhook Function(
+      {SdkOptional<String> url,
+      SdkOptional<String> channel}) get copyWith => _copyWith;
 
-  AppAlertSlackWebhook _copyWith({Object? url = sdkOmittedValue, Object? channel = sdkOmittedValue}) => AppAlertSlackWebhook(
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as SdkOptional<String>,
-  );
+  AppAlertSlackWebhook _copyWith(
+          {Object? url = sdkOmittedValue, Object? channel = sdkOmittedValue}) =>
+      AppAlertSlackWebhook(
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        channel: identical(channel, sdkOmittedValue)
+            ? this.channel
+            : channel as SdkOptional<String>,
+      );
 
-  factory AppAlertSlackWebhook.fromJson(Map<String, dynamic> json) => AppAlertSlackWebhook(
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    channel: json['channel'] != null ? SdkPresent((json['channel'] as String?)!) : const SdkOmitted(),
-  );
+  factory AppAlertSlackWebhook.fromJson(Map<String, dynamic> json) =>
+      AppAlertSlackWebhook(
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        channel: json['channel'] != null
+            ? SdkPresent((json['channel'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (channel) {
-      SdkPresent<String>(value: final value) => {'channel': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (channel) {
+          SdkPresent<String>(value: final value) => {
+              'channel': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

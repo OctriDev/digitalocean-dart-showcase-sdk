@@ -8,25 +8,35 @@ part of 'add_ons.dart';
 class AddonsGetApp {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `apps` wire field.
   final SdkOptional<List<AddonsAppInfo>> apps;
 
   const AddonsGetApp({this.apps = const SdkOmitted()});
 
-  AddonsGetApp Function({SdkOptional<List<AddonsAppInfo>> apps}) get copyWith => _copyWith;
+  AddonsGetApp Function({SdkOptional<List<AddonsAppInfo>> apps}) get copyWith =>
+      _copyWith;
 
   AddonsGetApp _copyWith({Object? apps = sdkOmittedValue}) => AddonsGetApp(
-    apps: identical(apps, sdkOmittedValue) ? this.apps : apps as SdkOptional<List<AddonsAppInfo>>,
-  );
+        apps: identical(apps, sdkOmittedValue)
+            ? this.apps
+            : apps as SdkOptional<List<AddonsAppInfo>>,
+      );
 
   factory AddonsGetApp.fromJson(Map<String, dynamic> json) => AddonsGetApp(
-    apps: json['apps'] != null ? SdkPresent(((json['apps'] as List?)?.map((e) => AddonsAppInfo.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        apps: json['apps'] != null
+            ? SdkPresent(((json['apps'] as List?)
+                ?.map((e) => AddonsAppInfo.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (apps) {
-      SdkPresent<List<AddonsAppInfo>>(value: final value) => {'apps': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (apps) {
+          SdkPresent<List<AddonsAppInfo>>(value: final value) => {
+              'apps': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

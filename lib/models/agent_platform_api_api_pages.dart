@@ -8,49 +8,90 @@ part of 'agent_platform_api_api.dart';
 class ApiPages {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// First page
   final SdkOptional<String> first;
+
   /// Last page
   final SdkOptional<String> last;
+
   /// Next page
   final SdkOptional<String> next;
+
   /// Previous page
   final SdkOptional<String> previous;
 
-  const ApiPages({this.first = const SdkOmitted(), this.last = const SdkOmitted(), this.next = const SdkOmitted(), this.previous = const SdkOmitted()});
+  const ApiPages(
+      {this.first = const SdkOmitted(),
+      this.last = const SdkOmitted(),
+      this.next = const SdkOmitted(),
+      this.previous = const SdkOmitted()});
 
-  ApiPages Function({SdkOptional<String> first, SdkOptional<String> last, SdkOptional<String> next, SdkOptional<String> previous}) get copyWith => _copyWith;
+  ApiPages Function(
+      {SdkOptional<String> first,
+      SdkOptional<String> last,
+      SdkOptional<String> next,
+      SdkOptional<String> previous}) get copyWith => _copyWith;
 
-  ApiPages _copyWith({Object? first = sdkOmittedValue, Object? last = sdkOmittedValue, Object? next = sdkOmittedValue, Object? previous = sdkOmittedValue}) => ApiPages(
-    first: identical(first, sdkOmittedValue) ? this.first : first as SdkOptional<String>,
-    last: identical(last, sdkOmittedValue) ? this.last : last as SdkOptional<String>,
-    next: identical(next, sdkOmittedValue) ? this.next : next as SdkOptional<String>,
-    previous: identical(previous, sdkOmittedValue) ? this.previous : previous as SdkOptional<String>,
-  );
+  ApiPages _copyWith(
+          {Object? first = sdkOmittedValue,
+          Object? last = sdkOmittedValue,
+          Object? next = sdkOmittedValue,
+          Object? previous = sdkOmittedValue}) =>
+      ApiPages(
+        first: identical(first, sdkOmittedValue)
+            ? this.first
+            : first as SdkOptional<String>,
+        last: identical(last, sdkOmittedValue)
+            ? this.last
+            : last as SdkOptional<String>,
+        next: identical(next, sdkOmittedValue)
+            ? this.next
+            : next as SdkOptional<String>,
+        previous: identical(previous, sdkOmittedValue)
+            ? this.previous
+            : previous as SdkOptional<String>,
+      );
 
   factory ApiPages.fromJson(Map<String, dynamic> json) => ApiPages(
-    first: json['first'] != null ? SdkPresent((json['first'] as String?)!) : const SdkOmitted(),
-    last: json['last'] != null ? SdkPresent((json['last'] as String?)!) : const SdkOmitted(),
-    next: json['next'] != null ? SdkPresent((json['next'] as String?)!) : const SdkOmitted(),
-    previous: json['previous'] != null ? SdkPresent((json['previous'] as String?)!) : const SdkOmitted(),
-  );
+        first: json['first'] != null
+            ? SdkPresent((json['first'] as String?)!)
+            : const SdkOmitted(),
+        last: json['last'] != null
+            ? SdkPresent((json['last'] as String?)!)
+            : const SdkOmitted(),
+        next: json['next'] != null
+            ? SdkPresent((json['next'] as String?)!)
+            : const SdkOmitted(),
+        previous: json['previous'] != null
+            ? SdkPresent((json['previous'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (first) {
-      SdkPresent<String>(value: final value) => {'first': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (last) {
-      SdkPresent<String>(value: final value) => {'last': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (next) {
-      SdkPresent<String>(value: final value) => {'next': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (previous) {
-      SdkPresent<String>(value: final value) => {'previous': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (first) {
+          SdkPresent<String>(value: final value) => {
+              'first': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (last) {
+          SdkPresent<String>(value: final value) => {
+              'last': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (next) {
+          SdkPresent<String>(value: final value) => {
+              'next': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (previous) {
+          SdkPresent<String>(value: final value) => {
+              'previous': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

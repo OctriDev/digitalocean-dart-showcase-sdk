@@ -8,49 +8,76 @@ part of 'shared_region.dart';
 class Region {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The display name of the region. This will be a full name that is used in the control panel and other interfaces.
   final String name;
+
   /// A human-readable string that is used as a unique identifier for each region.
   final String slug;
+
   /// This attribute is set to an array which contains features available in this region
   final List<String> features;
+
   /// This is a boolean value that represents whether new Droplets can be created in this region.
   final bool available;
+
   /// This attribute is set to an array which contains the identifying slugs for the sizes available in this region. sizes:read is required to view.
   final List<String> sizes;
 
-  const Region({required this.name, required this.slug, required this.features, required this.available, required this.sizes});
+  const Region(
+      {required this.name,
+      required this.slug,
+      required this.features,
+      required this.available,
+      required this.sizes});
 
-  Region Function({String name, String slug, List<String> features, bool available, List<String> sizes}) get copyWith => _copyWith;
+  Region Function(
+      {String name,
+      String slug,
+      List<String> features,
+      bool available,
+      List<String> sizes}) get copyWith => _copyWith;
 
-  Region _copyWith({Object? name = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? features = sdkOmittedValue, Object? available = sdkOmittedValue, Object? sizes = sdkOmittedValue}) => Region(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
-    features: identical(features, sdkOmittedValue) ? this.features : features as List<String>,
-    available: identical(available, sdkOmittedValue) ? this.available : available as bool,
-    sizes: identical(sizes, sdkOmittedValue) ? this.sizes : sizes as List<String>,
-  );
+  Region _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? slug = sdkOmittedValue,
+          Object? features = sdkOmittedValue,
+          Object? available = sdkOmittedValue,
+          Object? sizes = sdkOmittedValue}) =>
+      Region(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
+        features: identical(features, sdkOmittedValue)
+            ? this.features
+            : features as List<String>,
+        available: identical(available, sdkOmittedValue)
+            ? this.available
+            : available as bool,
+        sizes: identical(sizes, sdkOmittedValue)
+            ? this.sizes
+            : sizes as List<String>,
+      );
 
   factory Region.fromJson(Map<String, dynamic> json) => Region(
-    name: (json['name'] as String?)!,
-    slug: (json['slug'] as String?)!,
-    features: ((json['features'] as List?)?.map((e) => e as String).toList())!,
-    available: (json['available'] as bool?)!,
-    sizes: ((json['sizes'] as List?)?.map((e) => e as String).toList())!,
-  );
+        name: (json['name'] as String?)!,
+        slug: (json['slug'] as String?)!,
+        features:
+            ((json['features'] as List?)?.map((e) => e as String).toList())!,
+        available: (json['available'] as bool?)!,
+        sizes: ((json['sizes'] as List?)?.map((e) => e as String).toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'slug': slug,
-    'features': features,
-    'available': available,
-    'sizes': sizes,
-  };
+        'name': name,
+        'slug': slug,
+        'features': features,
+        'available': available,
+        'sizes': sizes,
+      };
 }
 
 /// The slug identifier for the region where the resource will initially be available.
 final class RegionSlug {
-
   final String value;
 
   const RegionSlug._(this.value);
@@ -75,10 +102,12 @@ final class RegionSlug {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RegionSlug && other.value == value;
+  @override
+  bool operator ==(Object other) => other is RegionSlug && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

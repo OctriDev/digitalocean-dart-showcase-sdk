@@ -8,22 +8,29 @@ part of 'databases_mysql.dart';
 class MysqlSettings {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A string specifying the authentication method to be used for connections to the MySQL user account. The valid values are `mysql_native_password` or `caching_sha2_password`. If excluded when creating a new user, the default for the version of MySQL in use will be used. As of MySQL 8.0, the default is `caching_sha2_password`.
   final MysqlSettingsAuthPlugin authPlugin;
 
   const MysqlSettings({required this.authPlugin});
 
-  MysqlSettings Function({MysqlSettingsAuthPlugin authPlugin}) get copyWith => _copyWith;
+  MysqlSettings Function({MysqlSettingsAuthPlugin authPlugin}) get copyWith =>
+      _copyWith;
 
-  MysqlSettings _copyWith({Object? authPlugin = sdkOmittedValue}) => MysqlSettings(
-    authPlugin: identical(authPlugin, sdkOmittedValue) ? this.authPlugin : authPlugin as MysqlSettingsAuthPlugin,
-  );
+  MysqlSettings _copyWith({Object? authPlugin = sdkOmittedValue}) =>
+      MysqlSettings(
+        authPlugin: identical(authPlugin, sdkOmittedValue)
+            ? this.authPlugin
+            : authPlugin as MysqlSettingsAuthPlugin,
+      );
 
   factory MysqlSettings.fromJson(Map<String, dynamic> json) => MysqlSettings(
-    authPlugin: (json['auth_plugin'] != null ? MysqlSettingsAuthPlugin.fromJson(json['auth_plugin'] as String) : null)!,
-  );
+        authPlugin: (json['auth_plugin'] != null
+            ? MysqlSettingsAuthPlugin.fromJson(json['auth_plugin'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'auth_plugin': authPlugin.toJson(),
-  };
+        'auth_plugin': authPlugin.toJson(),
+      };
 }

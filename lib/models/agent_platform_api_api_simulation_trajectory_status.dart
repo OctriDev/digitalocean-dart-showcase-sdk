@@ -6,25 +6,34 @@ part of 'agent_platform_api_api_simulation.dart';
 // agent_platform_api_api_simulation domain models
 /// Lifecycle status of the trajectory. Distinct from episode status: the trajectory is updated on every turn while the episode is executing. - SIMULATION_TRAJECTORY_STATUS_RUNNING: The episode loop is in progress; messages may grow on each poll. - SIMULATION_TRAJECTORY_STATUS_COMPLETED: The episode reached a stop condition and the trajectory is complete. - SIMULATION_TRAJECTORY_STATUS_FAILED: The episode failed before or during execution. - SIMULATION_TRAJECTORY_STATUS_CANCELLED: The episode was cancelled.
 final class ApiSimulationTrajectoryStatus {
-
   final String value;
 
   const ApiSimulationTrajectoryStatus._(this.value);
 
-  factory ApiSimulationTrajectoryStatus.fromJson(String value) => ApiSimulationTrajectoryStatus._(value);
+  factory ApiSimulationTrajectoryStatus.fromJson(String value) =>
+      ApiSimulationTrajectoryStatus._(value);
 
-  static const simulationTrajectoryStatusUnspecified = ApiSimulationTrajectoryStatus._('SIMULATION_TRAJECTORY_STATUS_UNSPECIFIED');
-  static const simulationTrajectoryStatusRunning = ApiSimulationTrajectoryStatus._('SIMULATION_TRAJECTORY_STATUS_RUNNING');
-  static const simulationTrajectoryStatusCompleted = ApiSimulationTrajectoryStatus._('SIMULATION_TRAJECTORY_STATUS_COMPLETED');
-  static const simulationTrajectoryStatusFailed = ApiSimulationTrajectoryStatus._('SIMULATION_TRAJECTORY_STATUS_FAILED');
-  static const simulationTrajectoryStatusCancelled = ApiSimulationTrajectoryStatus._('SIMULATION_TRAJECTORY_STATUS_CANCELLED');
+  static const simulationTrajectoryStatusUnspecified =
+      ApiSimulationTrajectoryStatus._(
+          'SIMULATION_TRAJECTORY_STATUS_UNSPECIFIED');
+  static const simulationTrajectoryStatusRunning =
+      ApiSimulationTrajectoryStatus._('SIMULATION_TRAJECTORY_STATUS_RUNNING');
+  static const simulationTrajectoryStatusCompleted =
+      ApiSimulationTrajectoryStatus._('SIMULATION_TRAJECTORY_STATUS_COMPLETED');
+  static const simulationTrajectoryStatusFailed =
+      ApiSimulationTrajectoryStatus._('SIMULATION_TRAJECTORY_STATUS_FAILED');
+  static const simulationTrajectoryStatusCancelled =
+      ApiSimulationTrajectoryStatus._('SIMULATION_TRAJECTORY_STATUS_CANCELLED');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiSimulationTrajectoryStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiSimulationTrajectoryStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -6,28 +6,39 @@ part of 'agent_platform_api_api.dart';
 // agent_platform_api_api domain models
 /// Typed representation of the `ApiIndexJobStatus` API schema.
 final class ApiIndexJobStatus {
-
   final String value;
 
   const ApiIndexJobStatus._(this.value);
 
-  factory ApiIndexJobStatus.fromJson(String value) => ApiIndexJobStatus._(value);
+  factory ApiIndexJobStatus.fromJson(String value) =>
+      ApiIndexJobStatus._(value);
 
-  static const indexJobStatusUnknown = ApiIndexJobStatus._('INDEX_JOB_STATUS_UNKNOWN');
-  static const indexJobStatusPartial = ApiIndexJobStatus._('INDEX_JOB_STATUS_PARTIAL');
-  static const indexJobStatusInProgress = ApiIndexJobStatus._('INDEX_JOB_STATUS_IN_PROGRESS');
-  static const indexJobStatusCompleted = ApiIndexJobStatus._('INDEX_JOB_STATUS_COMPLETED');
-  static const indexJobStatusFailed = ApiIndexJobStatus._('INDEX_JOB_STATUS_FAILED');
-  static const indexJobStatusNoChanges = ApiIndexJobStatus._('INDEX_JOB_STATUS_NO_CHANGES');
-  static const indexJobStatusPending = ApiIndexJobStatus._('INDEX_JOB_STATUS_PENDING');
-  static const indexJobStatusCancelled = ApiIndexJobStatus._('INDEX_JOB_STATUS_CANCELLED');
+  static const indexJobStatusUnknown =
+      ApiIndexJobStatus._('INDEX_JOB_STATUS_UNKNOWN');
+  static const indexJobStatusPartial =
+      ApiIndexJobStatus._('INDEX_JOB_STATUS_PARTIAL');
+  static const indexJobStatusInProgress =
+      ApiIndexJobStatus._('INDEX_JOB_STATUS_IN_PROGRESS');
+  static const indexJobStatusCompleted =
+      ApiIndexJobStatus._('INDEX_JOB_STATUS_COMPLETED');
+  static const indexJobStatusFailed =
+      ApiIndexJobStatus._('INDEX_JOB_STATUS_FAILED');
+  static const indexJobStatusNoChanges =
+      ApiIndexJobStatus._('INDEX_JOB_STATUS_NO_CHANGES');
+  static const indexJobStatusPending =
+      ApiIndexJobStatus._('INDEX_JOB_STATUS_PENDING');
+  static const indexJobStatusCancelled =
+      ApiIndexJobStatus._('INDEX_JOB_STATUS_CANCELLED');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiIndexJobStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiIndexJobStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

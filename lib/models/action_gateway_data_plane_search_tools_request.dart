@@ -8,46 +8,89 @@ part of 'action_gateway_data_plane.dart';
 class SearchToolsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Independent search queries. Split separate actions into separate queries. Each query is searched on its own and gets its own result group.
   final List<SearchQuery> queries;
+
   /// Restricts every query to these providers.
   final SdkOptional<List<String>> providers;
+
   /// Restricts every query to tools with these tags.
   final SdkOptional<List<String>> tags;
+
   /// The maximum number of tools returned per query. Values above 50 are capped at 50.
   final SdkOptional<int> limit;
 
-  const SearchToolsRequest({required this.queries, this.providers = const SdkOmitted(), this.tags = const SdkOmitted(), this.limit = const SdkOmitted()});
+  const SearchToolsRequest(
+      {required this.queries,
+      this.providers = const SdkOmitted(),
+      this.tags = const SdkOmitted(),
+      this.limit = const SdkOmitted()});
 
-  SearchToolsRequest Function({List<SearchQuery> queries, SdkOptional<List<String>> providers, SdkOptional<List<String>> tags, SdkOptional<int> limit}) get copyWith => _copyWith;
+  SearchToolsRequest Function(
+      {List<SearchQuery> queries,
+      SdkOptional<List<String>> providers,
+      SdkOptional<List<String>> tags,
+      SdkOptional<int> limit}) get copyWith => _copyWith;
 
-  SearchToolsRequest _copyWith({Object? queries = sdkOmittedValue, Object? providers = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? limit = sdkOmittedValue}) => SearchToolsRequest(
-    queries: identical(queries, sdkOmittedValue) ? this.queries : queries as List<SearchQuery>,
-    providers: identical(providers, sdkOmittedValue) ? this.providers : providers as SdkOptional<List<String>>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    limit: identical(limit, sdkOmittedValue) ? this.limit : limit as SdkOptional<int>,
-  );
+  SearchToolsRequest _copyWith(
+          {Object? queries = sdkOmittedValue,
+          Object? providers = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? limit = sdkOmittedValue}) =>
+      SearchToolsRequest(
+        queries: identical(queries, sdkOmittedValue)
+            ? this.queries
+            : queries as List<SearchQuery>,
+        providers: identical(providers, sdkOmittedValue)
+            ? this.providers
+            : providers as SdkOptional<List<String>>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        limit: identical(limit, sdkOmittedValue)
+            ? this.limit
+            : limit as SdkOptional<int>,
+      );
 
-  factory SearchToolsRequest.fromJson(Map<String, dynamic> json) => SearchToolsRequest(
-    queries: ((json['queries'] as List?)?.map((e) => SearchQuery.fromJson(e as Map<String, dynamic>)).toList())!,
-    providers: json['providers'] != null ? SdkPresent(((json['providers'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    limit: json['limit'] != null ? SdkPresent(((json['limit'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory SearchToolsRequest.fromJson(Map<String, dynamic> json) =>
+      SearchToolsRequest(
+        queries: ((json['queries'] as List?)
+            ?.map((e) => SearchQuery.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        providers: json['providers'] != null
+            ? SdkPresent(((json['providers'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        limit: json['limit'] != null
+            ? SdkPresent(((json['limit'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'queries': queries.map((item) => item.toJson()).toList(),
-    ...switch (providers) {
-      SdkPresent<List<String>>(value: final value) => {'providers': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (limit) {
-      SdkPresent<int>(value: final value) => {'limit': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'queries': queries.map((item) => item.toJson()).toList(),
+        ...switch (providers) {
+          SdkPresent<List<String>>(value: final value) => {
+              'providers': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (limit) {
+          SdkPresent<int>(value: final value) => {
+              'limit': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

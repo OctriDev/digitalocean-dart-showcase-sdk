@@ -8,237 +8,435 @@ part of 'micro_vms_public_preview.dart';
 class MicrovmOptionsResourcePricing {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The price per vCPU per hour of running time.
   final SdkOptional<double> pricePerVcpuHour;
+
   /// The price per GiB of memory per hour of running time.
   final SdkOptional<double> pricePerGibMemoryHour;
+
   /// The price per GiB-month of disk and checkpoint storage.
   final SdkOptional<double> pricePerGibStorageMonth;
+
   /// The price per GiB of outbound data transfer.
   final SdkOptional<double> pricePerGibBandwidth;
 
-  const MicrovmOptionsResourcePricing({this.pricePerVcpuHour = const SdkOmitted(), this.pricePerGibMemoryHour = const SdkOmitted(), this.pricePerGibStorageMonth = const SdkOmitted(), this.pricePerGibBandwidth = const SdkOmitted()});
+  const MicrovmOptionsResourcePricing(
+      {this.pricePerVcpuHour = const SdkOmitted(),
+      this.pricePerGibMemoryHour = const SdkOmitted(),
+      this.pricePerGibStorageMonth = const SdkOmitted(),
+      this.pricePerGibBandwidth = const SdkOmitted()});
 
-  MicrovmOptionsResourcePricing Function({SdkOptional<double> pricePerVcpuHour, SdkOptional<double> pricePerGibMemoryHour, SdkOptional<double> pricePerGibStorageMonth, SdkOptional<double> pricePerGibBandwidth}) get copyWith => _copyWith;
+  MicrovmOptionsResourcePricing Function(
+      {SdkOptional<double> pricePerVcpuHour,
+      SdkOptional<double> pricePerGibMemoryHour,
+      SdkOptional<double> pricePerGibStorageMonth,
+      SdkOptional<double> pricePerGibBandwidth}) get copyWith => _copyWith;
 
-  MicrovmOptionsResourcePricing _copyWith({Object? pricePerVcpuHour = sdkOmittedValue, Object? pricePerGibMemoryHour = sdkOmittedValue, Object? pricePerGibStorageMonth = sdkOmittedValue, Object? pricePerGibBandwidth = sdkOmittedValue}) => MicrovmOptionsResourcePricing(
-    pricePerVcpuHour: identical(pricePerVcpuHour, sdkOmittedValue) ? this.pricePerVcpuHour : pricePerVcpuHour as SdkOptional<double>,
-    pricePerGibMemoryHour: identical(pricePerGibMemoryHour, sdkOmittedValue) ? this.pricePerGibMemoryHour : pricePerGibMemoryHour as SdkOptional<double>,
-    pricePerGibStorageMonth: identical(pricePerGibStorageMonth, sdkOmittedValue) ? this.pricePerGibStorageMonth : pricePerGibStorageMonth as SdkOptional<double>,
-    pricePerGibBandwidth: identical(pricePerGibBandwidth, sdkOmittedValue) ? this.pricePerGibBandwidth : pricePerGibBandwidth as SdkOptional<double>,
-  );
+  MicrovmOptionsResourcePricing _copyWith(
+          {Object? pricePerVcpuHour = sdkOmittedValue,
+          Object? pricePerGibMemoryHour = sdkOmittedValue,
+          Object? pricePerGibStorageMonth = sdkOmittedValue,
+          Object? pricePerGibBandwidth = sdkOmittedValue}) =>
+      MicrovmOptionsResourcePricing(
+        pricePerVcpuHour: identical(pricePerVcpuHour, sdkOmittedValue)
+            ? this.pricePerVcpuHour
+            : pricePerVcpuHour as SdkOptional<double>,
+        pricePerGibMemoryHour: identical(pricePerGibMemoryHour, sdkOmittedValue)
+            ? this.pricePerGibMemoryHour
+            : pricePerGibMemoryHour as SdkOptional<double>,
+        pricePerGibStorageMonth:
+            identical(pricePerGibStorageMonth, sdkOmittedValue)
+                ? this.pricePerGibStorageMonth
+                : pricePerGibStorageMonth as SdkOptional<double>,
+        pricePerGibBandwidth: identical(pricePerGibBandwidth, sdkOmittedValue)
+            ? this.pricePerGibBandwidth
+            : pricePerGibBandwidth as SdkOptional<double>,
+      );
 
-  factory MicrovmOptionsResourcePricing.fromJson(Map<String, dynamic> json) => MicrovmOptionsResourcePricing(
-    pricePerVcpuHour: json['price_per_vcpu_hour'] != null ? SdkPresent(((json['price_per_vcpu_hour'] as num?)?.toDouble())!) : const SdkOmitted(),
-    pricePerGibMemoryHour: json['price_per_gib_memory_hour'] != null ? SdkPresent(((json['price_per_gib_memory_hour'] as num?)?.toDouble())!) : const SdkOmitted(),
-    pricePerGibStorageMonth: json['price_per_gib_storage_month'] != null ? SdkPresent(((json['price_per_gib_storage_month'] as num?)?.toDouble())!) : const SdkOmitted(),
-    pricePerGibBandwidth: json['price_per_gib_bandwidth'] != null ? SdkPresent(((json['price_per_gib_bandwidth'] as num?)?.toDouble())!) : const SdkOmitted(),
-  );
+  factory MicrovmOptionsResourcePricing.fromJson(Map<String, dynamic> json) =>
+      MicrovmOptionsResourcePricing(
+        pricePerVcpuHour: json['price_per_vcpu_hour'] != null
+            ? SdkPresent(((json['price_per_vcpu_hour'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        pricePerGibMemoryHour: json['price_per_gib_memory_hour'] != null
+            ? SdkPresent(
+                ((json['price_per_gib_memory_hour'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        pricePerGibStorageMonth: json['price_per_gib_storage_month'] != null
+            ? SdkPresent(
+                ((json['price_per_gib_storage_month'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        pricePerGibBandwidth: json['price_per_gib_bandwidth'] != null
+            ? SdkPresent(
+                ((json['price_per_gib_bandwidth'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (pricePerVcpuHour) {
-      SdkPresent<double>(value: final value) => {'price_per_vcpu_hour': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pricePerGibMemoryHour) {
-      SdkPresent<double>(value: final value) => {'price_per_gib_memory_hour': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pricePerGibStorageMonth) {
-      SdkPresent<double>(value: final value) => {'price_per_gib_storage_month': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pricePerGibBandwidth) {
-      SdkPresent<double>(value: final value) => {'price_per_gib_bandwidth': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (pricePerVcpuHour) {
+          SdkPresent<double>(value: final value) => {
+              'price_per_vcpu_hour': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pricePerGibMemoryHour) {
+          SdkPresent<double>(value: final value) => {
+              'price_per_gib_memory_hour': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pricePerGibStorageMonth) {
+          SdkPresent<double>(value: final value) => {
+              'price_per_gib_storage_month': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pricePerGibBandwidth) {
+          SdkPresent<double>(value: final value) => {
+              'price_per_gib_bandwidth': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Your team's MicroVM limits.
 class MicrovmOptionsAccountLimits {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The maximum number of MicroVMs, counting both running and paused MicroVMs.
   final SdkOptional<int> maxTotalCount;
+
   /// The maximum memory per MicroVM, in bytes.
   final SdkOptional<int> maxMemoryBytes;
+
   /// The maximum disk per MicroVM, in bytes.
   final SdkOptional<int> maxDiskBytes;
+
   /// The maximum auto-pause idle timeout, in seconds.
   final SdkOptional<int> maxIdleTimeoutSeconds;
 
-  const MicrovmOptionsAccountLimits({this.maxTotalCount = const SdkOmitted(), this.maxMemoryBytes = const SdkOmitted(), this.maxDiskBytes = const SdkOmitted(), this.maxIdleTimeoutSeconds = const SdkOmitted()});
+  const MicrovmOptionsAccountLimits(
+      {this.maxTotalCount = const SdkOmitted(),
+      this.maxMemoryBytes = const SdkOmitted(),
+      this.maxDiskBytes = const SdkOmitted(),
+      this.maxIdleTimeoutSeconds = const SdkOmitted()});
 
-  MicrovmOptionsAccountLimits Function({SdkOptional<int> maxTotalCount, SdkOptional<int> maxMemoryBytes, SdkOptional<int> maxDiskBytes, SdkOptional<int> maxIdleTimeoutSeconds}) get copyWith => _copyWith;
+  MicrovmOptionsAccountLimits Function(
+      {SdkOptional<int> maxTotalCount,
+      SdkOptional<int> maxMemoryBytes,
+      SdkOptional<int> maxDiskBytes,
+      SdkOptional<int> maxIdleTimeoutSeconds}) get copyWith => _copyWith;
 
-  MicrovmOptionsAccountLimits _copyWith({Object? maxTotalCount = sdkOmittedValue, Object? maxMemoryBytes = sdkOmittedValue, Object? maxDiskBytes = sdkOmittedValue, Object? maxIdleTimeoutSeconds = sdkOmittedValue}) => MicrovmOptionsAccountLimits(
-    maxTotalCount: identical(maxTotalCount, sdkOmittedValue) ? this.maxTotalCount : maxTotalCount as SdkOptional<int>,
-    maxMemoryBytes: identical(maxMemoryBytes, sdkOmittedValue) ? this.maxMemoryBytes : maxMemoryBytes as SdkOptional<int>,
-    maxDiskBytes: identical(maxDiskBytes, sdkOmittedValue) ? this.maxDiskBytes : maxDiskBytes as SdkOptional<int>,
-    maxIdleTimeoutSeconds: identical(maxIdleTimeoutSeconds, sdkOmittedValue) ? this.maxIdleTimeoutSeconds : maxIdleTimeoutSeconds as SdkOptional<int>,
-  );
+  MicrovmOptionsAccountLimits _copyWith(
+          {Object? maxTotalCount = sdkOmittedValue,
+          Object? maxMemoryBytes = sdkOmittedValue,
+          Object? maxDiskBytes = sdkOmittedValue,
+          Object? maxIdleTimeoutSeconds = sdkOmittedValue}) =>
+      MicrovmOptionsAccountLimits(
+        maxTotalCount: identical(maxTotalCount, sdkOmittedValue)
+            ? this.maxTotalCount
+            : maxTotalCount as SdkOptional<int>,
+        maxMemoryBytes: identical(maxMemoryBytes, sdkOmittedValue)
+            ? this.maxMemoryBytes
+            : maxMemoryBytes as SdkOptional<int>,
+        maxDiskBytes: identical(maxDiskBytes, sdkOmittedValue)
+            ? this.maxDiskBytes
+            : maxDiskBytes as SdkOptional<int>,
+        maxIdleTimeoutSeconds: identical(maxIdleTimeoutSeconds, sdkOmittedValue)
+            ? this.maxIdleTimeoutSeconds
+            : maxIdleTimeoutSeconds as SdkOptional<int>,
+      );
 
-  factory MicrovmOptionsAccountLimits.fromJson(Map<String, dynamic> json) => MicrovmOptionsAccountLimits(
-    maxTotalCount: json['max_total_count'] != null ? SdkPresent(((json['max_total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    maxMemoryBytes: json['max_memory_bytes'] != null ? SdkPresent(((json['max_memory_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    maxDiskBytes: json['max_disk_bytes'] != null ? SdkPresent(((json['max_disk_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    maxIdleTimeoutSeconds: json['max_idle_timeout_seconds'] != null ? SdkPresent(((json['max_idle_timeout_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory MicrovmOptionsAccountLimits.fromJson(Map<String, dynamic> json) =>
+      MicrovmOptionsAccountLimits(
+        maxTotalCount: json['max_total_count'] != null
+            ? SdkPresent(((json['max_total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        maxMemoryBytes: json['max_memory_bytes'] != null
+            ? SdkPresent(((json['max_memory_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        maxDiskBytes: json['max_disk_bytes'] != null
+            ? SdkPresent(((json['max_disk_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        maxIdleTimeoutSeconds: json['max_idle_timeout_seconds'] != null
+            ? SdkPresent(((json['max_idle_timeout_seconds'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (maxTotalCount) {
-      SdkPresent<int>(value: final value) => {'max_total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxMemoryBytes) {
-      SdkPresent<int>(value: final value) => {'max_memory_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxDiskBytes) {
-      SdkPresent<int>(value: final value) => {'max_disk_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxIdleTimeoutSeconds) {
-      SdkPresent<int>(value: final value) => {'max_idle_timeout_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (maxTotalCount) {
+          SdkPresent<int>(value: final value) => {
+              'max_total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxMemoryBytes) {
+          SdkPresent<int>(value: final value) => {
+              'max_memory_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxDiskBytes) {
+          SdkPresent<int>(value: final value) => {
+              'max_disk_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxIdleTimeoutSeconds) {
+          SdkPresent<int>(value: final value) => {
+              'max_idle_timeout_seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The compute price of the size.
 class MicrovmOptionsSizesItemPricing {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The price per hour of running time, in USD.
   final SdkOptional<double> pricePerHour;
+
   /// The price for running continuously for a month (730 hours), in USD.
   final SdkOptional<double> pricePerMonth;
 
-  const MicrovmOptionsSizesItemPricing({this.pricePerHour = const SdkOmitted(), this.pricePerMonth = const SdkOmitted()});
+  const MicrovmOptionsSizesItemPricing(
+      {this.pricePerHour = const SdkOmitted(),
+      this.pricePerMonth = const SdkOmitted()});
 
-  MicrovmOptionsSizesItemPricing Function({SdkOptional<double> pricePerHour, SdkOptional<double> pricePerMonth}) get copyWith => _copyWith;
+  MicrovmOptionsSizesItemPricing Function(
+      {SdkOptional<double> pricePerHour,
+      SdkOptional<double> pricePerMonth}) get copyWith => _copyWith;
 
-  MicrovmOptionsSizesItemPricing _copyWith({Object? pricePerHour = sdkOmittedValue, Object? pricePerMonth = sdkOmittedValue}) => MicrovmOptionsSizesItemPricing(
-    pricePerHour: identical(pricePerHour, sdkOmittedValue) ? this.pricePerHour : pricePerHour as SdkOptional<double>,
-    pricePerMonth: identical(pricePerMonth, sdkOmittedValue) ? this.pricePerMonth : pricePerMonth as SdkOptional<double>,
-  );
+  MicrovmOptionsSizesItemPricing _copyWith(
+          {Object? pricePerHour = sdkOmittedValue,
+          Object? pricePerMonth = sdkOmittedValue}) =>
+      MicrovmOptionsSizesItemPricing(
+        pricePerHour: identical(pricePerHour, sdkOmittedValue)
+            ? this.pricePerHour
+            : pricePerHour as SdkOptional<double>,
+        pricePerMonth: identical(pricePerMonth, sdkOmittedValue)
+            ? this.pricePerMonth
+            : pricePerMonth as SdkOptional<double>,
+      );
 
-  factory MicrovmOptionsSizesItemPricing.fromJson(Map<String, dynamic> json) => MicrovmOptionsSizesItemPricing(
-    pricePerHour: json['price_per_hour'] != null ? SdkPresent(((json['price_per_hour'] as num?)?.toDouble())!) : const SdkOmitted(),
-    pricePerMonth: json['price_per_month'] != null ? SdkPresent(((json['price_per_month'] as num?)?.toDouble())!) : const SdkOmitted(),
-  );
+  factory MicrovmOptionsSizesItemPricing.fromJson(Map<String, dynamic> json) =>
+      MicrovmOptionsSizesItemPricing(
+        pricePerHour: json['price_per_hour'] != null
+            ? SdkPresent(((json['price_per_hour'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        pricePerMonth: json['price_per_month'] != null
+            ? SdkPresent(((json['price_per_month'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (pricePerHour) {
-      SdkPresent<double>(value: final value) => {'price_per_hour': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pricePerMonth) {
-      SdkPresent<double>(value: final value) => {'price_per_month': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (pricePerHour) {
+          SdkPresent<double>(value: final value) => {
+              'price_per_hour': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pricePerMonth) {
+          SdkPresent<double>(value: final value) => {
+              'price_per_month': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `sizes[]` wire field.
 class MicrovmOptionsSizesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The number of vCPUs.
   final SdkOptional<int> cpu;
+
   /// The amount of memory, in MiB.
   final SdkOptional<int> memory;
+
   /// The size of the disk, in GB.
   final SdkOptional<int> disk;
+
   /// Whether the size is available on your team's plan.
   final SdkOptional<bool> available;
+
   /// The slugs of the regions the size is available in.
   final SdkOptional<List<String>> regions;
+
   /// The compute price of the size.
   final SdkOptional<MicrovmOptionsSizesItemPricing> pricing;
 
-  const MicrovmOptionsSizesItem({this.cpu = const SdkOmitted(), this.memory = const SdkOmitted(), this.disk = const SdkOmitted(), this.available = const SdkOmitted(), this.regions = const SdkOmitted(), this.pricing = const SdkOmitted()});
+  const MicrovmOptionsSizesItem(
+      {this.cpu = const SdkOmitted(),
+      this.memory = const SdkOmitted(),
+      this.disk = const SdkOmitted(),
+      this.available = const SdkOmitted(),
+      this.regions = const SdkOmitted(),
+      this.pricing = const SdkOmitted()});
 
-  MicrovmOptionsSizesItem Function({SdkOptional<int> cpu, SdkOptional<int> memory, SdkOptional<int> disk, SdkOptional<bool> available, SdkOptional<List<String>> regions, SdkOptional<MicrovmOptionsSizesItemPricing> pricing}) get copyWith => _copyWith;
+  MicrovmOptionsSizesItem Function(
+          {SdkOptional<int> cpu,
+          SdkOptional<int> memory,
+          SdkOptional<int> disk,
+          SdkOptional<bool> available,
+          SdkOptional<List<String>> regions,
+          SdkOptional<MicrovmOptionsSizesItemPricing> pricing})
+      get copyWith => _copyWith;
 
-  MicrovmOptionsSizesItem _copyWith({Object? cpu = sdkOmittedValue, Object? memory = sdkOmittedValue, Object? disk = sdkOmittedValue, Object? available = sdkOmittedValue, Object? regions = sdkOmittedValue, Object? pricing = sdkOmittedValue}) => MicrovmOptionsSizesItem(
-    cpu: identical(cpu, sdkOmittedValue) ? this.cpu : cpu as SdkOptional<int>,
-    memory: identical(memory, sdkOmittedValue) ? this.memory : memory as SdkOptional<int>,
-    disk: identical(disk, sdkOmittedValue) ? this.disk : disk as SdkOptional<int>,
-    available: identical(available, sdkOmittedValue) ? this.available : available as SdkOptional<bool>,
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<String>>,
-    pricing: identical(pricing, sdkOmittedValue) ? this.pricing : pricing as SdkOptional<MicrovmOptionsSizesItemPricing>,
-  );
+  MicrovmOptionsSizesItem _copyWith(
+          {Object? cpu = sdkOmittedValue,
+          Object? memory = sdkOmittedValue,
+          Object? disk = sdkOmittedValue,
+          Object? available = sdkOmittedValue,
+          Object? regions = sdkOmittedValue,
+          Object? pricing = sdkOmittedValue}) =>
+      MicrovmOptionsSizesItem(
+        cpu: identical(cpu, sdkOmittedValue)
+            ? this.cpu
+            : cpu as SdkOptional<int>,
+        memory: identical(memory, sdkOmittedValue)
+            ? this.memory
+            : memory as SdkOptional<int>,
+        disk: identical(disk, sdkOmittedValue)
+            ? this.disk
+            : disk as SdkOptional<int>,
+        available: identical(available, sdkOmittedValue)
+            ? this.available
+            : available as SdkOptional<bool>,
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as SdkOptional<List<String>>,
+        pricing: identical(pricing, sdkOmittedValue)
+            ? this.pricing
+            : pricing as SdkOptional<MicrovmOptionsSizesItemPricing>,
+      );
 
-  factory MicrovmOptionsSizesItem.fromJson(Map<String, dynamic> json) => MicrovmOptionsSizesItem(
-    cpu: json['cpu'] != null ? SdkPresent(((json['cpu'] as num?)?.toInt())!) : const SdkOmitted(),
-    memory: json['memory'] != null ? SdkPresent(((json['memory'] as num?)?.toInt())!) : const SdkOmitted(),
-    disk: json['disk'] != null ? SdkPresent(((json['disk'] as num?)?.toInt())!) : const SdkOmitted(),
-    available: json['available'] != null ? SdkPresent((json['available'] as bool?)!) : const SdkOmitted(),
-    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    pricing: json['pricing'] != null ? SdkPresent((json['pricing'] != null ? MicrovmOptionsSizesItemPricing.fromJson(json['pricing'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory MicrovmOptionsSizesItem.fromJson(Map<String, dynamic> json) =>
+      MicrovmOptionsSizesItem(
+        cpu: json['cpu'] != null
+            ? SdkPresent(((json['cpu'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        memory: json['memory'] != null
+            ? SdkPresent(((json['memory'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        disk: json['disk'] != null
+            ? SdkPresent(((json['disk'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        available: json['available'] != null
+            ? SdkPresent((json['available'] as bool?)!)
+            : const SdkOmitted(),
+        regions: json['regions'] != null
+            ? SdkPresent(
+                ((json['regions'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        pricing: json['pricing'] != null
+            ? SdkPresent((json['pricing'] != null
+                ? MicrovmOptionsSizesItemPricing.fromJson(
+                    json['pricing'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (cpu) {
-      SdkPresent<int>(value: final value) => {'cpu': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (memory) {
-      SdkPresent<int>(value: final value) => {'memory': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (disk) {
-      SdkPresent<int>(value: final value) => {'disk': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (available) {
-      SdkPresent<bool>(value: final value) => {'available': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (regions) {
-      SdkPresent<List<String>>(value: final value) => {'regions': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pricing) {
-      SdkPresent<MicrovmOptionsSizesItemPricing>(value: final value) => {'pricing': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (cpu) {
+          SdkPresent<int>(value: final value) => {
+              'cpu': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (memory) {
+          SdkPresent<int>(value: final value) => {
+              'memory': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (disk) {
+          SdkPresent<int>(value: final value) => {
+              'disk': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (available) {
+          SdkPresent<bool>(value: final value) => {
+              'available': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (regions) {
+          SdkPresent<List<String>>(value: final value) => {
+              'regions': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pricing) {
+          SdkPresent<MicrovmOptionsSizesItemPricing>(value: final value) => {
+              'pricing': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `features[]` wire field.
 class MicrovmOptionsFeaturesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the feature.
   final SdkOptional<String> name;
+
   /// Whether the feature is enabled.
   final SdkOptional<bool> enabled;
 
-  const MicrovmOptionsFeaturesItem({this.name = const SdkOmitted(), this.enabled = const SdkOmitted()});
+  const MicrovmOptionsFeaturesItem(
+      {this.name = const SdkOmitted(), this.enabled = const SdkOmitted()});
 
-  MicrovmOptionsFeaturesItem Function({SdkOptional<String> name, SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  MicrovmOptionsFeaturesItem Function(
+      {SdkOptional<String> name,
+      SdkOptional<bool> enabled}) get copyWith => _copyWith;
 
-  MicrovmOptionsFeaturesItem _copyWith({Object? name = sdkOmittedValue, Object? enabled = sdkOmittedValue}) => MicrovmOptionsFeaturesItem(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  MicrovmOptionsFeaturesItem _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? enabled = sdkOmittedValue}) =>
+      MicrovmOptionsFeaturesItem(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
-  factory MicrovmOptionsFeaturesItem.fromJson(Map<String, dynamic> json) => MicrovmOptionsFeaturesItem(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+  factory MicrovmOptionsFeaturesItem.fromJson(Map<String, dynamic> json) =>
+      MicrovmOptionsFeaturesItem(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -6,22 +6,27 @@ part of 'agent_platform_api_api_evaluation.dart';
 // agent_platform_api_api_evaluation domain models
 /// Typed representation of the `ApiEvaluationDatasetType` API schema.
 final class ApiEvaluationDatasetType {
-
   final String value;
 
   const ApiEvaluationDatasetType._(this.value);
 
-  factory ApiEvaluationDatasetType.fromJson(String value) => ApiEvaluationDatasetType._(value);
+  factory ApiEvaluationDatasetType.fromJson(String value) =>
+      ApiEvaluationDatasetType._(value);
 
-  static const evaluationDatasetTypeUnknown = ApiEvaluationDatasetType._('EVALUATION_DATASET_TYPE_UNKNOWN');
-  static const evaluationDatasetTypeModel = ApiEvaluationDatasetType._('EVALUATION_DATASET_TYPE_MODEL');
+  static const evaluationDatasetTypeUnknown =
+      ApiEvaluationDatasetType._('EVALUATION_DATASET_TYPE_UNKNOWN');
+  static const evaluationDatasetTypeModel =
+      ApiEvaluationDatasetType._('EVALUATION_DATASET_TYPE_MODEL');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiEvaluationDatasetType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiEvaluationDatasetType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

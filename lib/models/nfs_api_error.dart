@@ -8,8 +8,10 @@ part of 'nfs.dart';
 class NfsApiError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A service-defined error code.
   final String code;
+
   /// A human-readable description of the error.
   final String message;
 
@@ -17,18 +19,23 @@ class NfsApiError {
 
   NfsApiError Function({String code, String message}) get copyWith => _copyWith;
 
-  NfsApiError _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => NfsApiError(
-    code: identical(code, sdkOmittedValue) ? this.code : code as String,
-    message: identical(message, sdkOmittedValue) ? this.message : message as String,
-  );
+  NfsApiError _copyWith(
+          {Object? code = sdkOmittedValue,
+          Object? message = sdkOmittedValue}) =>
+      NfsApiError(
+        code: identical(code, sdkOmittedValue) ? this.code : code as String,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as String,
+      );
 
   factory NfsApiError.fromJson(Map<String, dynamic> json) => NfsApiError(
-    code: (json['code'] as String?)!,
-    message: (json['message'] as String?)!,
-  );
+        code: (json['code'] as String?)!,
+        message: (json['message'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'code': code,
-    'message': message,
-  };
+        'code': code,
+        'message': message,
+      };
 }

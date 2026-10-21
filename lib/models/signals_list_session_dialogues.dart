@@ -8,151 +8,262 @@ part of 'signals.dart';
 class ListDialoguesResponsePageInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether there are more results after this page.
   final SdkOptional<bool> hasNextPage;
 
   const ListDialoguesResponsePageInfo({this.hasNextPage = const SdkOmitted()});
 
-  ListDialoguesResponsePageInfo Function({SdkOptional<bool> hasNextPage}) get copyWith => _copyWith;
+  ListDialoguesResponsePageInfo Function({SdkOptional<bool> hasNextPage})
+      get copyWith => _copyWith;
 
-  ListDialoguesResponsePageInfo _copyWith({Object? hasNextPage = sdkOmittedValue}) => ListDialoguesResponsePageInfo(
-    hasNextPage: identical(hasNextPage, sdkOmittedValue) ? this.hasNextPage : hasNextPage as SdkOptional<bool>,
-  );
+  ListDialoguesResponsePageInfo _copyWith(
+          {Object? hasNextPage = sdkOmittedValue}) =>
+      ListDialoguesResponsePageInfo(
+        hasNextPage: identical(hasNextPage, sdkOmittedValue)
+            ? this.hasNextPage
+            : hasNextPage as SdkOptional<bool>,
+      );
 
-  factory ListDialoguesResponsePageInfo.fromJson(Map<String, dynamic> json) => ListDialoguesResponsePageInfo(
-    hasNextPage: json['has_next_page'] != null ? SdkPresent((json['has_next_page'] as bool?)!) : const SdkOmitted(),
-  );
+  factory ListDialoguesResponsePageInfo.fromJson(Map<String, dynamic> json) =>
+      ListDialoguesResponsePageInfo(
+        hasNextPage: json['has_next_page'] != null
+            ? SdkPresent((json['has_next_page'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (hasNextPage) {
-      SdkPresent<bool>(value: final value) => {'has_next_page': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (hasNextPage) {
+          SdkPresent<bool>(value: final value) => {
+              'has_next_page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `edges[]` wire field.
 class ListDialoguesResponseEdgesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An opaque cursor for pagination.
   final SdkOptional<String> cursor;
+
   /// A dialogue entry within a session, representing a single turn of conversation.
   final SdkOptional<SessionDialogue> node;
 
-  const ListDialoguesResponseEdgesItem({this.cursor = const SdkOmitted(), this.node = const SdkOmitted()});
+  const ListDialoguesResponseEdgesItem(
+      {this.cursor = const SdkOmitted(), this.node = const SdkOmitted()});
 
-  ListDialoguesResponseEdgesItem Function({SdkOptional<String> cursor, SdkOptional<SessionDialogue> node}) get copyWith => _copyWith;
+  ListDialoguesResponseEdgesItem Function(
+      {SdkOptional<String> cursor,
+      SdkOptional<SessionDialogue> node}) get copyWith => _copyWith;
 
-  ListDialoguesResponseEdgesItem _copyWith({Object? cursor = sdkOmittedValue, Object? node = sdkOmittedValue}) => ListDialoguesResponseEdgesItem(
-    cursor: identical(cursor, sdkOmittedValue) ? this.cursor : cursor as SdkOptional<String>,
-    node: identical(node, sdkOmittedValue) ? this.node : node as SdkOptional<SessionDialogue>,
-  );
+  ListDialoguesResponseEdgesItem _copyWith(
+          {Object? cursor = sdkOmittedValue, Object? node = sdkOmittedValue}) =>
+      ListDialoguesResponseEdgesItem(
+        cursor: identical(cursor, sdkOmittedValue)
+            ? this.cursor
+            : cursor as SdkOptional<String>,
+        node: identical(node, sdkOmittedValue)
+            ? this.node
+            : node as SdkOptional<SessionDialogue>,
+      );
 
-  factory ListDialoguesResponseEdgesItem.fromJson(Map<String, dynamic> json) => ListDialoguesResponseEdgesItem(
-    cursor: json['cursor'] != null ? SdkPresent((json['cursor'] as String?)!) : const SdkOmitted(),
-    node: json['node'] != null ? SdkPresent((json['node'] != null ? SessionDialogue.fromJson(json['node'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ListDialoguesResponseEdgesItem.fromJson(Map<String, dynamic> json) =>
+      ListDialoguesResponseEdgesItem(
+        cursor: json['cursor'] != null
+            ? SdkPresent((json['cursor'] as String?)!)
+            : const SdkOmitted(),
+        node: json['node'] != null
+            ? SdkPresent((json['node'] != null
+                ? SessionDialogue.fromJson(json['node'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (cursor) {
-      SdkPresent<String>(value: final value) => {'cursor': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (node) {
-      SdkPresent<SessionDialogue>(value: final value) => {'node': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (cursor) {
+          SdkPresent<String>(value: final value) => {
+              'cursor': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (node) {
+          SdkPresent<SessionDialogue>(value: final value) => {
+              'node': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ListDialoguesResponse` API schema.
 class ListDialoguesResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `edges` wire field.
   final SdkOptional<List<ListDialoguesResponseEdgesItem>> edges;
+
   /// Optional object value serialized in the `page_info` wire field.
   final SdkOptional<ListDialoguesResponsePageInfo> pageInfo;
 
-  const ListDialoguesResponse({this.edges = const SdkOmitted(), this.pageInfo = const SdkOmitted()});
+  const ListDialoguesResponse(
+      {this.edges = const SdkOmitted(), this.pageInfo = const SdkOmitted()});
 
-  ListDialoguesResponse Function({SdkOptional<List<ListDialoguesResponseEdgesItem>> edges, SdkOptional<ListDialoguesResponsePageInfo> pageInfo}) get copyWith => _copyWith;
+  ListDialoguesResponse Function(
+          {SdkOptional<List<ListDialoguesResponseEdgesItem>> edges,
+          SdkOptional<ListDialoguesResponsePageInfo> pageInfo})
+      get copyWith => _copyWith;
 
-  ListDialoguesResponse _copyWith({Object? edges = sdkOmittedValue, Object? pageInfo = sdkOmittedValue}) => ListDialoguesResponse(
-    edges: identical(edges, sdkOmittedValue) ? this.edges : edges as SdkOptional<List<ListDialoguesResponseEdgesItem>>,
-    pageInfo: identical(pageInfo, sdkOmittedValue) ? this.pageInfo : pageInfo as SdkOptional<ListDialoguesResponsePageInfo>,
-  );
+  ListDialoguesResponse _copyWith(
+          {Object? edges = sdkOmittedValue,
+          Object? pageInfo = sdkOmittedValue}) =>
+      ListDialoguesResponse(
+        edges: identical(edges, sdkOmittedValue)
+            ? this.edges
+            : edges as SdkOptional<List<ListDialoguesResponseEdgesItem>>,
+        pageInfo: identical(pageInfo, sdkOmittedValue)
+            ? this.pageInfo
+            : pageInfo as SdkOptional<ListDialoguesResponsePageInfo>,
+      );
 
-  factory ListDialoguesResponse.fromJson(Map<String, dynamic> json) => ListDialoguesResponse(
-    edges: json['edges'] != null ? SdkPresent(((json['edges'] as List?)?.map((e) => ListDialoguesResponseEdgesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    pageInfo: json['page_info'] != null ? SdkPresent((json['page_info'] != null ? ListDialoguesResponsePageInfo.fromJson(json['page_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ListDialoguesResponse.fromJson(Map<String, dynamic> json) =>
+      ListDialoguesResponse(
+        edges: json['edges'] != null
+            ? SdkPresent(((json['edges'] as List?)
+                ?.map((e) => ListDialoguesResponseEdgesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        pageInfo: json['page_info'] != null
+            ? SdkPresent((json['page_info'] != null
+                ? ListDialoguesResponsePageInfo.fromJson(
+                    json['page_info'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (edges) {
-      SdkPresent<List<ListDialoguesResponseEdgesItem>>(value: final value) => {'edges': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pageInfo) {
-      SdkPresent<ListDialoguesResponsePageInfo>(value: final value) => {'page_info': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (edges) {
+          SdkPresent<List<ListDialoguesResponseEdgesItem>>(
+            value: final value
+          ) =>
+            {
+              'edges': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pageInfo) {
+          SdkPresent<ListDialoguesResponsePageInfo>(value: final value) => {
+              'page_info': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A dialogue entry within a session, representing a single turn of conversation.
 class SessionDialogue {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the dialogue.
   final String id;
+
   /// The sequence number of this dialogue within the session.
   final SdkOptional<int> sequence;
+
   /// The execution status of this dialogue turn.
   final SdkOptional<String> runStatus;
+
   /// The user's message in this dialogue turn.
   final SdkOptional<String> userMessage;
+
   /// A list of signal types detected in this dialogue.
   final SdkOptional<List<String>> signals;
 
-  const SessionDialogue({required this.id, this.sequence = const SdkOmitted(), this.runStatus = const SdkOmitted(), this.userMessage = const SdkOmitted(), this.signals = const SdkOmitted()});
+  const SessionDialogue(
+      {required this.id,
+      this.sequence = const SdkOmitted(),
+      this.runStatus = const SdkOmitted(),
+      this.userMessage = const SdkOmitted(),
+      this.signals = const SdkOmitted()});
 
-  SessionDialogue Function({String id, SdkOptional<int> sequence, SdkOptional<String> runStatus, SdkOptional<String> userMessage, SdkOptional<List<String>> signals}) get copyWith => _copyWith;
+  SessionDialogue Function(
+      {String id,
+      SdkOptional<int> sequence,
+      SdkOptional<String> runStatus,
+      SdkOptional<String> userMessage,
+      SdkOptional<List<String>> signals}) get copyWith => _copyWith;
 
-  SessionDialogue _copyWith({Object? id = sdkOmittedValue, Object? sequence = sdkOmittedValue, Object? runStatus = sdkOmittedValue, Object? userMessage = sdkOmittedValue, Object? signals = sdkOmittedValue}) => SessionDialogue(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    sequence: identical(sequence, sdkOmittedValue) ? this.sequence : sequence as SdkOptional<int>,
-    runStatus: identical(runStatus, sdkOmittedValue) ? this.runStatus : runStatus as SdkOptional<String>,
-    userMessage: identical(userMessage, sdkOmittedValue) ? this.userMessage : userMessage as SdkOptional<String>,
-    signals: identical(signals, sdkOmittedValue) ? this.signals : signals as SdkOptional<List<String>>,
-  );
+  SessionDialogue _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? sequence = sdkOmittedValue,
+          Object? runStatus = sdkOmittedValue,
+          Object? userMessage = sdkOmittedValue,
+          Object? signals = sdkOmittedValue}) =>
+      SessionDialogue(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        sequence: identical(sequence, sdkOmittedValue)
+            ? this.sequence
+            : sequence as SdkOptional<int>,
+        runStatus: identical(runStatus, sdkOmittedValue)
+            ? this.runStatus
+            : runStatus as SdkOptional<String>,
+        userMessage: identical(userMessage, sdkOmittedValue)
+            ? this.userMessage
+            : userMessage as SdkOptional<String>,
+        signals: identical(signals, sdkOmittedValue)
+            ? this.signals
+            : signals as SdkOptional<List<String>>,
+      );
 
-  factory SessionDialogue.fromJson(Map<String, dynamic> json) => SessionDialogue(
-    id: (json['id'] as String?)!,
-    sequence: json['sequence'] != null ? SdkPresent(((json['sequence'] as num?)?.toInt())!) : const SdkOmitted(),
-    runStatus: json['run_status'] != null ? SdkPresent((json['run_status'] as String?)!) : const SdkOmitted(),
-    userMessage: json['user_message'] != null ? SdkPresent((json['user_message'] as String?)!) : const SdkOmitted(),
-    signals: json['signals'] != null ? SdkPresent(((json['signals'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory SessionDialogue.fromJson(Map<String, dynamic> json) =>
+      SessionDialogue(
+        id: (json['id'] as String?)!,
+        sequence: json['sequence'] != null
+            ? SdkPresent(((json['sequence'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        runStatus: json['run_status'] != null
+            ? SdkPresent((json['run_status'] as String?)!)
+            : const SdkOmitted(),
+        userMessage: json['user_message'] != null
+            ? SdkPresent((json['user_message'] as String?)!)
+            : const SdkOmitted(),
+        signals: json['signals'] != null
+            ? SdkPresent(
+                ((json['signals'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    ...switch (sequence) {
-      SdkPresent<int>(value: final value) => {'sequence': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (runStatus) {
-      SdkPresent<String>(value: final value) => {'run_status': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (userMessage) {
-      SdkPresent<String>(value: final value) => {'user_message': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (signals) {
-      SdkPresent<List<String>>(value: final value) => {'signals': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'id': id,
+        ...switch (sequence) {
+          SdkPresent<int>(value: final value) => {
+              'sequence': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (runStatus) {
+          SdkPresent<String>(value: final value) => {
+              'run_status': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (userMessage) {
+          SdkPresent<String>(value: final value) => {
+              'user_message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (signals) {
+          SdkPresent<List<String>>(value: final value) => {
+              'signals': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

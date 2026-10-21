@@ -8,187 +8,278 @@ part of 'harness_runtime_get.dart';
 class GetCheckpointResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Checkpoint is a durable capture of a session's live sandbox machine state bound to the event-log cursor at the cut. READY checkpoints seed forks (ForkSession) and rollback. Internal fields (team_id, the substrate checkpoint id, event_seq) are never serialized.
   final SdkOptional<Checkpoint> checkpoint;
 
   const GetCheckpointResponse({this.checkpoint = const SdkOmitted()});
 
-  GetCheckpointResponse Function({SdkOptional<Checkpoint> checkpoint}) get copyWith => _copyWith;
+  GetCheckpointResponse Function({SdkOptional<Checkpoint> checkpoint})
+      get copyWith => _copyWith;
 
-  GetCheckpointResponse _copyWith({Object? checkpoint = sdkOmittedValue}) => GetCheckpointResponse(
-    checkpoint: identical(checkpoint, sdkOmittedValue) ? this.checkpoint : checkpoint as SdkOptional<Checkpoint>,
-  );
+  GetCheckpointResponse _copyWith({Object? checkpoint = sdkOmittedValue}) =>
+      GetCheckpointResponse(
+        checkpoint: identical(checkpoint, sdkOmittedValue)
+            ? this.checkpoint
+            : checkpoint as SdkOptional<Checkpoint>,
+      );
 
-  factory GetCheckpointResponse.fromJson(Map<String, dynamic> json) => GetCheckpointResponse(
-    checkpoint: json['checkpoint'] != null ? SdkPresent((json['checkpoint'] != null ? Checkpoint.fromJson(json['checkpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory GetCheckpointResponse.fromJson(Map<String, dynamic> json) =>
+      GetCheckpointResponse(
+        checkpoint: json['checkpoint'] != null
+            ? SdkPresent((json['checkpoint'] != null
+                ? Checkpoint.fromJson(
+                    json['checkpoint'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (checkpoint) {
-      SdkPresent<Checkpoint>(value: final value) => {'checkpoint': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (checkpoint) {
+          SdkPresent<Checkpoint>(value: final value) => {
+              'checkpoint': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `GetIngressUrlResponse` API schema.
 class GetIngressUrlResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A publicly routable HTTPS URL to one guest port of the session's sandbox. The hostname is stable while the session runs; it is revoked on pause and lock, and rollback moves the session to a new sandbox, so re-fetch after resume, unlock or rollback. Requests must carry the caller's DO token as a Bearer header.
   final SdkOptional<SessionIngressUrl> ingressUrl;
 
   const GetIngressUrlResponse({this.ingressUrl = const SdkOmitted()});
 
-  GetIngressUrlResponse Function({SdkOptional<SessionIngressUrl> ingressUrl}) get copyWith => _copyWith;
+  GetIngressUrlResponse Function({SdkOptional<SessionIngressUrl> ingressUrl})
+      get copyWith => _copyWith;
 
-  GetIngressUrlResponse _copyWith({Object? ingressUrl = sdkOmittedValue}) => GetIngressUrlResponse(
-    ingressUrl: identical(ingressUrl, sdkOmittedValue) ? this.ingressUrl : ingressUrl as SdkOptional<SessionIngressUrl>,
-  );
+  GetIngressUrlResponse _copyWith({Object? ingressUrl = sdkOmittedValue}) =>
+      GetIngressUrlResponse(
+        ingressUrl: identical(ingressUrl, sdkOmittedValue)
+            ? this.ingressUrl
+            : ingressUrl as SdkOptional<SessionIngressUrl>,
+      );
 
-  factory GetIngressUrlResponse.fromJson(Map<String, dynamic> json) => GetIngressUrlResponse(
-    ingressUrl: json['ingress_url'] != null ? SdkPresent((json['ingress_url'] != null ? SessionIngressUrl.fromJson(json['ingress_url'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory GetIngressUrlResponse.fromJson(Map<String, dynamic> json) =>
+      GetIngressUrlResponse(
+        ingressUrl: json['ingress_url'] != null
+            ? SdkPresent((json['ingress_url'] != null
+                ? SessionIngressUrl.fromJson(
+                    json['ingress_url'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (ingressUrl) {
-      SdkPresent<SessionIngressUrl>(value: final value) => {'ingress_url': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (ingressUrl) {
+          SdkPresent<SessionIngressUrl>(value: final value) => {
+              'ingress_url': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `GetSessionResponse` API schema.
 class GetSessionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Session is the user-facing record of a environment session + sandbox pair.
   final SdkOptional<DefinitionsSession> session;
 
   const GetSessionResponse({this.session = const SdkOmitted()});
 
-  GetSessionResponse Function({SdkOptional<DefinitionsSession> session}) get copyWith => _copyWith;
+  GetSessionResponse Function({SdkOptional<DefinitionsSession> session})
+      get copyWith => _copyWith;
 
-  GetSessionResponse _copyWith({Object? session = sdkOmittedValue}) => GetSessionResponse(
-    session: identical(session, sdkOmittedValue) ? this.session : session as SdkOptional<DefinitionsSession>,
-  );
+  GetSessionResponse _copyWith({Object? session = sdkOmittedValue}) =>
+      GetSessionResponse(
+        session: identical(session, sdkOmittedValue)
+            ? this.session
+            : session as SdkOptional<DefinitionsSession>,
+      );
 
-  factory GetSessionResponse.fromJson(Map<String, dynamic> json) => GetSessionResponse(
-    session: json['session'] != null ? SdkPresent((json['session'] != null ? DefinitionsSession.fromJson(json['session'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory GetSessionResponse.fromJson(Map<String, dynamic> json) =>
+      GetSessionResponse(
+        session: json['session'] != null
+            ? SdkPresent((json['session'] != null
+                ? DefinitionsSession.fromJson(
+                    json['session'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (session) {
-      SdkPresent<DefinitionsSession>(value: final value) => {'session': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (session) {
+          SdkPresent<DefinitionsSession>(value: final value) => {
+              'session': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `GetTemplateBuildResponse` API schema.
 class GetTemplateBuildResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `build` wire field.
   final SdkOptional<SandboxTemplateBuild> build;
 
   const GetTemplateBuildResponse({this.build = const SdkOmitted()});
 
-  GetTemplateBuildResponse Function({SdkOptional<SandboxTemplateBuild> build}) get copyWith => _copyWith;
+  GetTemplateBuildResponse Function({SdkOptional<SandboxTemplateBuild> build})
+      get copyWith => _copyWith;
 
-  GetTemplateBuildResponse _copyWith({Object? build = sdkOmittedValue}) => GetTemplateBuildResponse(
-    build: identical(build, sdkOmittedValue) ? this.build : build as SdkOptional<SandboxTemplateBuild>,
-  );
+  GetTemplateBuildResponse _copyWith({Object? build = sdkOmittedValue}) =>
+      GetTemplateBuildResponse(
+        build: identical(build, sdkOmittedValue)
+            ? this.build
+            : build as SdkOptional<SandboxTemplateBuild>,
+      );
 
-  factory GetTemplateBuildResponse.fromJson(Map<String, dynamic> json) => GetTemplateBuildResponse(
-    build: json['build'] != null ? SdkPresent((json['build'] != null ? SandboxTemplateBuild.fromJson(json['build'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory GetTemplateBuildResponse.fromJson(Map<String, dynamic> json) =>
+      GetTemplateBuildResponse(
+        build: json['build'] != null
+            ? SdkPresent((json['build'] != null
+                ? SandboxTemplateBuild.fromJson(
+                    json['build'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (build) {
-      SdkPresent<SandboxTemplateBuild>(value: final value) => {'build': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (build) {
+          SdkPresent<SandboxTemplateBuild>(value: final value) => {
+              'build': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `GetTemplateResponse` API schema.
 class GetTemplateResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `template` wire field.
   final SdkOptional<SandboxTemplate> template;
 
   const GetTemplateResponse({this.template = const SdkOmitted()});
 
-  GetTemplateResponse Function({SdkOptional<SandboxTemplate> template}) get copyWith => _copyWith;
+  GetTemplateResponse Function({SdkOptional<SandboxTemplate> template})
+      get copyWith => _copyWith;
 
-  GetTemplateResponse _copyWith({Object? template = sdkOmittedValue}) => GetTemplateResponse(
-    template: identical(template, sdkOmittedValue) ? this.template : template as SdkOptional<SandboxTemplate>,
-  );
+  GetTemplateResponse _copyWith({Object? template = sdkOmittedValue}) =>
+      GetTemplateResponse(
+        template: identical(template, sdkOmittedValue)
+            ? this.template
+            : template as SdkOptional<SandboxTemplate>,
+      );
 
-  factory GetTemplateResponse.fromJson(Map<String, dynamic> json) => GetTemplateResponse(
-    template: json['template'] != null ? SdkPresent((json['template'] != null ? SandboxTemplate.fromJson(json['template'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory GetTemplateResponse.fromJson(Map<String, dynamic> json) =>
+      GetTemplateResponse(
+        template: json['template'] != null
+            ? SdkPresent((json['template'] != null
+                ? SandboxTemplate.fromJson(
+                    json['template'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (template) {
-      SdkPresent<SandboxTemplate>(value: final value) => {'template': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (template) {
+          SdkPresent<SandboxTemplate>(value: final value) => {
+              'template': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `GetTriggerExecutionResponse` API schema.
 class GetTriggerExecutionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// One row per firing (webhook delivery or cron tick).
   final SdkOptional<TriggerExecution> execution;
 
   const GetTriggerExecutionResponse({this.execution = const SdkOmitted()});
 
-  GetTriggerExecutionResponse Function({SdkOptional<TriggerExecution> execution}) get copyWith => _copyWith;
+  GetTriggerExecutionResponse Function(
+      {SdkOptional<TriggerExecution> execution}) get copyWith => _copyWith;
 
-  GetTriggerExecutionResponse _copyWith({Object? execution = sdkOmittedValue}) => GetTriggerExecutionResponse(
-    execution: identical(execution, sdkOmittedValue) ? this.execution : execution as SdkOptional<TriggerExecution>,
-  );
+  GetTriggerExecutionResponse _copyWith(
+          {Object? execution = sdkOmittedValue}) =>
+      GetTriggerExecutionResponse(
+        execution: identical(execution, sdkOmittedValue)
+            ? this.execution
+            : execution as SdkOptional<TriggerExecution>,
+      );
 
-  factory GetTriggerExecutionResponse.fromJson(Map<String, dynamic> json) => GetTriggerExecutionResponse(
-    execution: json['execution'] != null ? SdkPresent((json['execution'] != null ? TriggerExecution.fromJson(json['execution'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory GetTriggerExecutionResponse.fromJson(Map<String, dynamic> json) =>
+      GetTriggerExecutionResponse(
+        execution: json['execution'] != null
+            ? SdkPresent((json['execution'] != null
+                ? TriggerExecution.fromJson(
+                    json['execution'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (execution) {
-      SdkPresent<TriggerExecution>(value: final value) => {'execution': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (execution) {
+          SdkPresent<TriggerExecution>(value: final value) => {
+              'execution': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `GetTriggerResponse` API schema.
 class GetTriggerResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A single automation bound to exactly one agent/session (agent == session in v1). The nested block present depends on `kind` (webhook xor cron) and `session_mode` (fresh =&gt; session_template; reuse =&gt; bound_session_id). `agent_kind` is read-only and derived; the webhook secret, the output email address / Slack webhook URL, and any env values inside session_template are write-only and never returned.
   final SdkOptional<Trigger> trigger;
 
   const GetTriggerResponse({this.trigger = const SdkOmitted()});
 
-  GetTriggerResponse Function({SdkOptional<Trigger> trigger}) get copyWith => _copyWith;
+  GetTriggerResponse Function({SdkOptional<Trigger> trigger}) get copyWith =>
+      _copyWith;
 
-  GetTriggerResponse _copyWith({Object? trigger = sdkOmittedValue}) => GetTriggerResponse(
-    trigger: identical(trigger, sdkOmittedValue) ? this.trigger : trigger as SdkOptional<Trigger>,
-  );
+  GetTriggerResponse _copyWith({Object? trigger = sdkOmittedValue}) =>
+      GetTriggerResponse(
+        trigger: identical(trigger, sdkOmittedValue)
+            ? this.trigger
+            : trigger as SdkOptional<Trigger>,
+      );
 
-  factory GetTriggerResponse.fromJson(Map<String, dynamic> json) => GetTriggerResponse(
-    trigger: json['trigger'] != null ? SdkPresent((json['trigger'] != null ? Trigger.fromJson(json['trigger'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory GetTriggerResponse.fromJson(Map<String, dynamic> json) =>
+      GetTriggerResponse(
+        trigger: json['trigger'] != null
+            ? SdkPresent((json['trigger'] != null
+                ? Trigger.fromJson(json['trigger'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (trigger) {
-      SdkPresent<Trigger>(value: final value) => {'trigger': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (trigger) {
+          SdkPresent<Trigger>(value: final value) => {
+              'trigger': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,25 +8,37 @@ part of 'functions.dart';
 class TriggerResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `trigger` wire field.
   final SdkOptional<TriggerInfo> trigger;
 
   const TriggerResponse({this.trigger = const SdkOmitted()});
 
-  TriggerResponse Function({SdkOptional<TriggerInfo> trigger}) get copyWith => _copyWith;
+  TriggerResponse Function({SdkOptional<TriggerInfo> trigger}) get copyWith =>
+      _copyWith;
 
-  TriggerResponse _copyWith({Object? trigger = sdkOmittedValue}) => TriggerResponse(
-    trigger: identical(trigger, sdkOmittedValue) ? this.trigger : trigger as SdkOptional<TriggerInfo>,
-  );
+  TriggerResponse _copyWith({Object? trigger = sdkOmittedValue}) =>
+      TriggerResponse(
+        trigger: identical(trigger, sdkOmittedValue)
+            ? this.trigger
+            : trigger as SdkOptional<TriggerInfo>,
+      );
 
-  factory TriggerResponse.fromJson(Map<String, dynamic> json) => TriggerResponse(
-    trigger: json['trigger'] != null ? SdkPresent((json['trigger'] != null ? TriggerInfo.fromJson(json['trigger'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory TriggerResponse.fromJson(Map<String, dynamic> json) =>
+      TriggerResponse(
+        trigger: json['trigger'] != null
+            ? SdkPresent((json['trigger'] != null
+                ? TriggerInfo.fromJson(json['trigger'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (trigger) {
-      SdkPresent<TriggerInfo>(value: final value) => {'trigger': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (trigger) {
+          SdkPresent<TriggerInfo>(value: final value) => {
+              'trigger': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

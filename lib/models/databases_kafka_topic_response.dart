@@ -8,25 +8,38 @@ part of 'databases_kafka.dart';
 class KafkaTopicResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `topic` wire field.
   final SdkOptional<KafkaTopicVerbose> topic;
 
   const KafkaTopicResponse({this.topic = const SdkOmitted()});
 
-  KafkaTopicResponse Function({SdkOptional<KafkaTopicVerbose> topic}) get copyWith => _copyWith;
+  KafkaTopicResponse Function({SdkOptional<KafkaTopicVerbose> topic})
+      get copyWith => _copyWith;
 
-  KafkaTopicResponse _copyWith({Object? topic = sdkOmittedValue}) => KafkaTopicResponse(
-    topic: identical(topic, sdkOmittedValue) ? this.topic : topic as SdkOptional<KafkaTopicVerbose>,
-  );
+  KafkaTopicResponse _copyWith({Object? topic = sdkOmittedValue}) =>
+      KafkaTopicResponse(
+        topic: identical(topic, sdkOmittedValue)
+            ? this.topic
+            : topic as SdkOptional<KafkaTopicVerbose>,
+      );
 
-  factory KafkaTopicResponse.fromJson(Map<String, dynamic> json) => KafkaTopicResponse(
-    topic: json['topic'] != null ? SdkPresent((json['topic'] != null ? KafkaTopicVerbose.fromJson(json['topic'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory KafkaTopicResponse.fromJson(Map<String, dynamic> json) =>
+      KafkaTopicResponse(
+        topic: json['topic'] != null
+            ? SdkPresent((json['topic'] != null
+                ? KafkaTopicVerbose.fromJson(
+                    json['topic'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (topic) {
-      SdkPresent<KafkaTopicVerbose>(value: final value) => {'topic': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (topic) {
+          SdkPresent<KafkaTopicVerbose>(value: final value) => {
+              'topic': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

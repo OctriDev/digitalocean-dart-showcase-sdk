@@ -8,59 +8,98 @@ part of 'monitoring.dart';
 class ListAlertPolicy {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `policies` wire field.
   final List<AlertPolicy> policies;
 
   const ListAlertPolicy({required this.policies});
 
-  ListAlertPolicy Function({List<AlertPolicy> policies}) get copyWith => _copyWith;
+  ListAlertPolicy Function({List<AlertPolicy> policies}) get copyWith =>
+      _copyWith;
 
-  ListAlertPolicy _copyWith({Object? policies = sdkOmittedValue}) => ListAlertPolicy(
-    policies: identical(policies, sdkOmittedValue) ? this.policies : policies as List<AlertPolicy>,
-  );
+  ListAlertPolicy _copyWith({Object? policies = sdkOmittedValue}) =>
+      ListAlertPolicy(
+        policies: identical(policies, sdkOmittedValue)
+            ? this.policies
+            : policies as List<AlertPolicy>,
+      );
 
-  factory ListAlertPolicy.fromJson(Map<String, dynamic> json) => ListAlertPolicy(
-    policies: ((json['policies'] as List?)?.map((e) => AlertPolicy.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory ListAlertPolicy.fromJson(Map<String, dynamic> json) =>
+      ListAlertPolicy(
+        policies: ((json['policies'] as List?)
+            ?.map((e) => AlertPolicy.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'policies': policies.map((item) => item.toJson()).toList(),
-  };
+        'policies': policies.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Typed representation of the `MonitoringListAlertPolicyResponse` API schema.
 class MonitoringListAlertPolicyResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `policies` wire field.
   final List<AlertPolicy> policies;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const MonitoringListAlertPolicyResponse({required this.policies, this.links = const SdkOmitted(), required this.meta});
+  const MonitoringListAlertPolicyResponse(
+      {required this.policies,
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  MonitoringListAlertPolicyResponse Function({List<AlertPolicy> policies, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  MonitoringListAlertPolicyResponse Function(
+      {List<AlertPolicy> policies,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  MonitoringListAlertPolicyResponse _copyWith({Object? policies = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => MonitoringListAlertPolicyResponse(
-    policies: identical(policies, sdkOmittedValue) ? this.policies : policies as List<AlertPolicy>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  MonitoringListAlertPolicyResponse _copyWith(
+          {Object? policies = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      MonitoringListAlertPolicyResponse(
+        policies: identical(policies, sdkOmittedValue)
+            ? this.policies
+            : policies as List<AlertPolicy>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory MonitoringListAlertPolicyResponse.fromJson(Map<String, dynamic> json) => MonitoringListAlertPolicyResponse(
-    policies: ((json['policies'] as List?)?.map((e) => AlertPolicy.fromJson(e as Map<String, dynamic>)).toList())!,
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory MonitoringListAlertPolicyResponse.fromJson(
+          Map<String, dynamic> json) =>
+      MonitoringListAlertPolicyResponse(
+        policies: ((json['policies'] as List?)
+            ?.map((e) => AlertPolicy.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'policies': policies.map((item) => item.toJson()).toList(),
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        'policies': policies.map((item) => item.toJson()).toList(),
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

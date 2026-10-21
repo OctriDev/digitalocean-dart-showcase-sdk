@@ -8,281 +8,541 @@ part of 'micro_vms_public_preview.dart';
 class MicrovmCreateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the MicroVM. Must be unique in the region and contain 1 to 63 lowercase letters, digits, and hyphens.
   final String name;
+
   /// What the MicroVM runs. Set exactly one of `oci_ref` or `checkpoint_id`.
   final MicrovmSource source;
+
   /// The slug of the region to create the MicroVM in. Required with `source.oci_ref`.
   final SdkOptional<String> region;
+
   /// The MicroVM's size. `cpu` and `memory` must be one of the pairs `1`/`2048`, `2`/`4096`, `8`/`16384`, or `16`/`32768`. The size sets the disk, which is returned in responses.
   final SdkOptional<MicrovmSizeRequest> size;
+
   /// `public` sends outbound traffic through a shared NAT gateway. `vpc` places the MicroVM in the VPC network set by `vpc_uuid`.
   final SdkOptional<MicrovmCreateRequestNetworking> networking;
+
   /// The ID of a VPC network in the same region that belongs to your team. Required when `networking` is `vpc`.
   final SdkOptional<String> vpcUuid;
+
   /// Automatic pause settings. A MicroVM always pauses after it is idle for `idle_timeout`. Sending `enabled` set to `false` is rejected.
   final SdkOptional<MicrovmAutoPause> autoPause;
+
   /// Whether an HTTP request, command, or console session resumes the MicroVM when it is paused. Set to `false` to require a manual resume.
   final SdkOptional<bool> autoResume;
+
   /// The guest port the workload serves HTTP on. Defaults to `8080`. Not returned in responses. When creating from a checkpoint without `ports`, must be one of the checkpoint's ports.
   final SdkOptional<int> httpPort;
+
   /// The protocol the HTTP port serves.
   final SdkOptional<MicrovmCreateRequestHttpProtocol> httpProtocol;
+
   /// The guest ports to declare, up to five. Must include `http_port`. Defaults to only the HTTP port. During the public preview, only the HTTP port is reachable through the MicroVM's endpoint.
   final SdkOptional<List<int>> ports;
+
   /// Environment variables passed into the MicroVM at boot, as key and value pairs. Not returned in responses.
   final SdkOptional<Map<String, String>> environment;
+
   /// Tags to apply to the MicroVM.
   final SdkOptional<List<String>> tags;
 
-  const MicrovmCreateRequest({required this.name, required this.source, this.region = const SdkOmitted(), this.size = const SdkOmitted(), this.networking = const SdkOmitted(), this.vpcUuid = const SdkOmitted(), this.autoPause = const SdkOmitted(), this.autoResume = const SdkOmitted(), this.httpPort = const SdkOmitted(), this.httpProtocol = const SdkOmitted(), this.ports = const SdkOmitted(), this.environment = const SdkOmitted(), this.tags = const SdkOmitted()});
+  const MicrovmCreateRequest(
+      {required this.name,
+      required this.source,
+      this.region = const SdkOmitted(),
+      this.size = const SdkOmitted(),
+      this.networking = const SdkOmitted(),
+      this.vpcUuid = const SdkOmitted(),
+      this.autoPause = const SdkOmitted(),
+      this.autoResume = const SdkOmitted(),
+      this.httpPort = const SdkOmitted(),
+      this.httpProtocol = const SdkOmitted(),
+      this.ports = const SdkOmitted(),
+      this.environment = const SdkOmitted(),
+      this.tags = const SdkOmitted()});
 
-  MicrovmCreateRequest Function({String name, MicrovmSource source, SdkOptional<String> region, SdkOptional<MicrovmSizeRequest> size, SdkOptional<MicrovmCreateRequestNetworking> networking, SdkOptional<String> vpcUuid, SdkOptional<MicrovmAutoPause> autoPause, SdkOptional<bool> autoResume, SdkOptional<int> httpPort, SdkOptional<MicrovmCreateRequestHttpProtocol> httpProtocol, SdkOptional<List<int>> ports, SdkOptional<Map<String, String>> environment, SdkOptional<List<String>> tags}) get copyWith => _copyWith;
+  MicrovmCreateRequest Function(
+      {String name,
+      MicrovmSource source,
+      SdkOptional<String> region,
+      SdkOptional<MicrovmSizeRequest> size,
+      SdkOptional<MicrovmCreateRequestNetworking> networking,
+      SdkOptional<String> vpcUuid,
+      SdkOptional<MicrovmAutoPause> autoPause,
+      SdkOptional<bool> autoResume,
+      SdkOptional<int> httpPort,
+      SdkOptional<MicrovmCreateRequestHttpProtocol> httpProtocol,
+      SdkOptional<List<int>> ports,
+      SdkOptional<Map<String, String>> environment,
+      SdkOptional<List<String>> tags}) get copyWith => _copyWith;
 
-  MicrovmCreateRequest _copyWith({Object? name = sdkOmittedValue, Object? source = sdkOmittedValue, Object? region = sdkOmittedValue, Object? size = sdkOmittedValue, Object? networking = sdkOmittedValue, Object? vpcUuid = sdkOmittedValue, Object? autoPause = sdkOmittedValue, Object? autoResume = sdkOmittedValue, Object? httpPort = sdkOmittedValue, Object? httpProtocol = sdkOmittedValue, Object? ports = sdkOmittedValue, Object? environment = sdkOmittedValue, Object? tags = sdkOmittedValue}) => MicrovmCreateRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    source: identical(source, sdkOmittedValue) ? this.source : source as MicrovmSource,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<MicrovmSizeRequest>,
-    networking: identical(networking, sdkOmittedValue) ? this.networking : networking as SdkOptional<MicrovmCreateRequestNetworking>,
-    vpcUuid: identical(vpcUuid, sdkOmittedValue) ? this.vpcUuid : vpcUuid as SdkOptional<String>,
-    autoPause: identical(autoPause, sdkOmittedValue) ? this.autoPause : autoPause as SdkOptional<MicrovmAutoPause>,
-    autoResume: identical(autoResume, sdkOmittedValue) ? this.autoResume : autoResume as SdkOptional<bool>,
-    httpPort: identical(httpPort, sdkOmittedValue) ? this.httpPort : httpPort as SdkOptional<int>,
-    httpProtocol: identical(httpProtocol, sdkOmittedValue) ? this.httpProtocol : httpProtocol as SdkOptional<MicrovmCreateRequestHttpProtocol>,
-    ports: identical(ports, sdkOmittedValue) ? this.ports : ports as SdkOptional<List<int>>,
-    environment: identical(environment, sdkOmittedValue) ? this.environment : environment as SdkOptional<Map<String, String>>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-  );
+  MicrovmCreateRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? source = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? networking = sdkOmittedValue,
+          Object? vpcUuid = sdkOmittedValue,
+          Object? autoPause = sdkOmittedValue,
+          Object? autoResume = sdkOmittedValue,
+          Object? httpPort = sdkOmittedValue,
+          Object? httpProtocol = sdkOmittedValue,
+          Object? ports = sdkOmittedValue,
+          Object? environment = sdkOmittedValue,
+          Object? tags = sdkOmittedValue}) =>
+      MicrovmCreateRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as MicrovmSource,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<MicrovmSizeRequest>,
+        networking: identical(networking, sdkOmittedValue)
+            ? this.networking
+            : networking as SdkOptional<MicrovmCreateRequestNetworking>,
+        vpcUuid: identical(vpcUuid, sdkOmittedValue)
+            ? this.vpcUuid
+            : vpcUuid as SdkOptional<String>,
+        autoPause: identical(autoPause, sdkOmittedValue)
+            ? this.autoPause
+            : autoPause as SdkOptional<MicrovmAutoPause>,
+        autoResume: identical(autoResume, sdkOmittedValue)
+            ? this.autoResume
+            : autoResume as SdkOptional<bool>,
+        httpPort: identical(httpPort, sdkOmittedValue)
+            ? this.httpPort
+            : httpPort as SdkOptional<int>,
+        httpProtocol: identical(httpProtocol, sdkOmittedValue)
+            ? this.httpProtocol
+            : httpProtocol as SdkOptional<MicrovmCreateRequestHttpProtocol>,
+        ports: identical(ports, sdkOmittedValue)
+            ? this.ports
+            : ports as SdkOptional<List<int>>,
+        environment: identical(environment, sdkOmittedValue)
+            ? this.environment
+            : environment as SdkOptional<Map<String, String>>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+      );
 
-  factory MicrovmCreateRequest.fromJson(Map<String, dynamic> json) => MicrovmCreateRequest(
-    name: (json['name'] as String?)!,
-    source: (json['source'] != null ? MicrovmSource.fromJson(json['source'] as Map<String, dynamic>) : null)!,
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    size: json['size'] != null ? SdkPresent((json['size'] != null ? MicrovmSizeRequest.fromJson(json['size'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    networking: json['networking'] != null ? SdkPresent((json['networking'] != null ? MicrovmCreateRequestNetworking.fromJson(json['networking'] as String) : null)!) : const SdkOmitted(),
-    vpcUuid: json['vpc_uuid'] != null ? SdkPresent((json['vpc_uuid'] as String?)!) : const SdkOmitted(),
-    autoPause: json['auto_pause'] != null ? SdkPresent((json['auto_pause'] != null ? MicrovmAutoPause.fromJson(json['auto_pause'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    autoResume: json['auto_resume'] != null ? SdkPresent((json['auto_resume'] as bool?)!) : const SdkOmitted(),
-    httpPort: json['http_port'] != null ? SdkPresent(((json['http_port'] as num?)?.toInt())!) : const SdkOmitted(),
-    httpProtocol: json['http_protocol'] != null ? SdkPresent((json['http_protocol'] != null ? MicrovmCreateRequestHttpProtocol.fromJson(json['http_protocol'] as String) : null)!) : const SdkOmitted(),
-    ports: json['ports'] != null ? SdkPresent(((json['ports'] as List?)?.map((e) => (e as num).toInt()).toList())!) : const SdkOmitted(),
-    environment: json['environment'] != null ? SdkPresent((json['environment'] == null ? null : Map<String, dynamic>.from(json['environment'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory MicrovmCreateRequest.fromJson(Map<String, dynamic> json) =>
+      MicrovmCreateRequest(
+        name: (json['name'] as String?)!,
+        source: (json['source'] != null
+            ? MicrovmSource.fromJson(json['source'] as Map<String, dynamic>)
+            : null)!,
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        size: json['size'] != null
+            ? SdkPresent((json['size'] != null
+                ? MicrovmSizeRequest.fromJson(
+                    json['size'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        networking: json['networking'] != null
+            ? SdkPresent((json['networking'] != null
+                ? MicrovmCreateRequestNetworking.fromJson(
+                    json['networking'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        vpcUuid: json['vpc_uuid'] != null
+            ? SdkPresent((json['vpc_uuid'] as String?)!)
+            : const SdkOmitted(),
+        autoPause: json['auto_pause'] != null
+            ? SdkPresent((json['auto_pause'] != null
+                ? MicrovmAutoPause.fromJson(
+                    json['auto_pause'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        autoResume: json['auto_resume'] != null
+            ? SdkPresent((json['auto_resume'] as bool?)!)
+            : const SdkOmitted(),
+        httpPort: json['http_port'] != null
+            ? SdkPresent(((json['http_port'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        httpProtocol: json['http_protocol'] != null
+            ? SdkPresent((json['http_protocol'] != null
+                ? MicrovmCreateRequestHttpProtocol.fromJson(
+                    json['http_protocol'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        ports: json['ports'] != null
+            ? SdkPresent(((json['ports'] as List?)
+                ?.map((e) => (e as num).toInt())
+                .toList())!)
+            : const SdkOmitted(),
+        environment: json['environment'] != null
+            ? SdkPresent((json['environment'] == null
+                ? null
+                : Map<String, dynamic>.from(json['environment'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'source': source.toJson(),
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<MicrovmSizeRequest>(value: final value) => {'size': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (networking) {
-      SdkPresent<MicrovmCreateRequestNetworking>(value: final value) => {'networking': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (vpcUuid) {
-      SdkPresent<String>(value: final value) => {'vpc_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (autoPause) {
-      SdkPresent<MicrovmAutoPause>(value: final value) => {'auto_pause': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (autoResume) {
-      SdkPresent<bool>(value: final value) => {'auto_resume': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (httpPort) {
-      SdkPresent<int>(value: final value) => {'http_port': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (httpProtocol) {
-      SdkPresent<MicrovmCreateRequestHttpProtocol>(value: final value) => {'http_protocol': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ports) {
-      SdkPresent<List<int>>(value: final value) => {'ports': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (environment) {
-      SdkPresent<Map<String, String>>(value: final value) => {'environment': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        'source': source.toJson(),
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<MicrovmSizeRequest>(value: final value) => {
+              'size': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (networking) {
+          SdkPresent<MicrovmCreateRequestNetworking>(value: final value) => {
+              'networking': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (vpcUuid) {
+          SdkPresent<String>(value: final value) => {
+              'vpc_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (autoPause) {
+          SdkPresent<MicrovmAutoPause>(value: final value) => {
+              'auto_pause': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (autoResume) {
+          SdkPresent<bool>(value: final value) => {
+              'auto_resume': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (httpPort) {
+          SdkPresent<int>(value: final value) => {
+              'http_port': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (httpProtocol) {
+          SdkPresent<MicrovmCreateRequestHttpProtocol>(value: final value) => {
+              'http_protocol': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ports) {
+          SdkPresent<List<int>>(value: final value) => {
+              'ports': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (environment) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'environment': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A MicroVMs API error response.
 class MicrovmError {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A service-defined error code.
   final String code;
+
   /// A human-readable description of the error.
   final String message;
 
   const MicrovmError({required this.code, required this.message});
 
-  MicrovmError Function({String code, String message}) get copyWith => _copyWith;
+  MicrovmError Function({String code, String message}) get copyWith =>
+      _copyWith;
 
-  MicrovmError _copyWith({Object? code = sdkOmittedValue, Object? message = sdkOmittedValue}) => MicrovmError(
-    code: identical(code, sdkOmittedValue) ? this.code : code as String,
-    message: identical(message, sdkOmittedValue) ? this.message : message as String,
-  );
+  MicrovmError _copyWith(
+          {Object? code = sdkOmittedValue,
+          Object? message = sdkOmittedValue}) =>
+      MicrovmError(
+        code: identical(code, sdkOmittedValue) ? this.code : code as String,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as String,
+      );
 
   factory MicrovmError.fromJson(Map<String, dynamic> json) => MicrovmError(
-    code: (json['code'] as String?)!,
-    message: (json['message'] as String?)!,
-  );
+        code: (json['code'] as String?)!,
+        message: (json['message'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'code': code,
-    'message': message,
-  };
+        'code': code,
+        'message': message,
+      };
 }
 
 /// Per-resource rates, in USD.
 class MicrovmOptionsResourcePricing {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The price per vCPU per hour of running time.
   final SdkOptional<double> pricePerVcpuHour;
+
   /// The price per GiB of memory per hour of running time.
   final SdkOptional<double> pricePerGibMemoryHour;
+
   /// The price per GiB-month of disk and checkpoint storage.
   final SdkOptional<double> pricePerGibStorageMonth;
+
   /// The price per GiB of outbound data transfer.
   final SdkOptional<double> pricePerGibBandwidth;
 
-  const MicrovmOptionsResourcePricing({this.pricePerVcpuHour = const SdkOmitted(), this.pricePerGibMemoryHour = const SdkOmitted(), this.pricePerGibStorageMonth = const SdkOmitted(), this.pricePerGibBandwidth = const SdkOmitted()});
+  const MicrovmOptionsResourcePricing(
+      {this.pricePerVcpuHour = const SdkOmitted(),
+      this.pricePerGibMemoryHour = const SdkOmitted(),
+      this.pricePerGibStorageMonth = const SdkOmitted(),
+      this.pricePerGibBandwidth = const SdkOmitted()});
 
-  MicrovmOptionsResourcePricing Function({SdkOptional<double> pricePerVcpuHour, SdkOptional<double> pricePerGibMemoryHour, SdkOptional<double> pricePerGibStorageMonth, SdkOptional<double> pricePerGibBandwidth}) get copyWith => _copyWith;
+  MicrovmOptionsResourcePricing Function(
+      {SdkOptional<double> pricePerVcpuHour,
+      SdkOptional<double> pricePerGibMemoryHour,
+      SdkOptional<double> pricePerGibStorageMonth,
+      SdkOptional<double> pricePerGibBandwidth}) get copyWith => _copyWith;
 
-  MicrovmOptionsResourcePricing _copyWith({Object? pricePerVcpuHour = sdkOmittedValue, Object? pricePerGibMemoryHour = sdkOmittedValue, Object? pricePerGibStorageMonth = sdkOmittedValue, Object? pricePerGibBandwidth = sdkOmittedValue}) => MicrovmOptionsResourcePricing(
-    pricePerVcpuHour: identical(pricePerVcpuHour, sdkOmittedValue) ? this.pricePerVcpuHour : pricePerVcpuHour as SdkOptional<double>,
-    pricePerGibMemoryHour: identical(pricePerGibMemoryHour, sdkOmittedValue) ? this.pricePerGibMemoryHour : pricePerGibMemoryHour as SdkOptional<double>,
-    pricePerGibStorageMonth: identical(pricePerGibStorageMonth, sdkOmittedValue) ? this.pricePerGibStorageMonth : pricePerGibStorageMonth as SdkOptional<double>,
-    pricePerGibBandwidth: identical(pricePerGibBandwidth, sdkOmittedValue) ? this.pricePerGibBandwidth : pricePerGibBandwidth as SdkOptional<double>,
-  );
+  MicrovmOptionsResourcePricing _copyWith(
+          {Object? pricePerVcpuHour = sdkOmittedValue,
+          Object? pricePerGibMemoryHour = sdkOmittedValue,
+          Object? pricePerGibStorageMonth = sdkOmittedValue,
+          Object? pricePerGibBandwidth = sdkOmittedValue}) =>
+      MicrovmOptionsResourcePricing(
+        pricePerVcpuHour: identical(pricePerVcpuHour, sdkOmittedValue)
+            ? this.pricePerVcpuHour
+            : pricePerVcpuHour as SdkOptional<double>,
+        pricePerGibMemoryHour: identical(pricePerGibMemoryHour, sdkOmittedValue)
+            ? this.pricePerGibMemoryHour
+            : pricePerGibMemoryHour as SdkOptional<double>,
+        pricePerGibStorageMonth:
+            identical(pricePerGibStorageMonth, sdkOmittedValue)
+                ? this.pricePerGibStorageMonth
+                : pricePerGibStorageMonth as SdkOptional<double>,
+        pricePerGibBandwidth: identical(pricePerGibBandwidth, sdkOmittedValue)
+            ? this.pricePerGibBandwidth
+            : pricePerGibBandwidth as SdkOptional<double>,
+      );
 
-  factory MicrovmOptionsResourcePricing.fromJson(Map<String, dynamic> json) => MicrovmOptionsResourcePricing(
-    pricePerVcpuHour: json['price_per_vcpu_hour'] != null ? SdkPresent(((json['price_per_vcpu_hour'] as num?)?.toDouble())!) : const SdkOmitted(),
-    pricePerGibMemoryHour: json['price_per_gib_memory_hour'] != null ? SdkPresent(((json['price_per_gib_memory_hour'] as num?)?.toDouble())!) : const SdkOmitted(),
-    pricePerGibStorageMonth: json['price_per_gib_storage_month'] != null ? SdkPresent(((json['price_per_gib_storage_month'] as num?)?.toDouble())!) : const SdkOmitted(),
-    pricePerGibBandwidth: json['price_per_gib_bandwidth'] != null ? SdkPresent(((json['price_per_gib_bandwidth'] as num?)?.toDouble())!) : const SdkOmitted(),
-  );
+  factory MicrovmOptionsResourcePricing.fromJson(Map<String, dynamic> json) =>
+      MicrovmOptionsResourcePricing(
+        pricePerVcpuHour: json['price_per_vcpu_hour'] != null
+            ? SdkPresent(((json['price_per_vcpu_hour'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        pricePerGibMemoryHour: json['price_per_gib_memory_hour'] != null
+            ? SdkPresent(
+                ((json['price_per_gib_memory_hour'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        pricePerGibStorageMonth: json['price_per_gib_storage_month'] != null
+            ? SdkPresent(
+                ((json['price_per_gib_storage_month'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        pricePerGibBandwidth: json['price_per_gib_bandwidth'] != null
+            ? SdkPresent(
+                ((json['price_per_gib_bandwidth'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (pricePerVcpuHour) {
-      SdkPresent<double>(value: final value) => {'price_per_vcpu_hour': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pricePerGibMemoryHour) {
-      SdkPresent<double>(value: final value) => {'price_per_gib_memory_hour': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pricePerGibStorageMonth) {
-      SdkPresent<double>(value: final value) => {'price_per_gib_storage_month': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pricePerGibBandwidth) {
-      SdkPresent<double>(value: final value) => {'price_per_gib_bandwidth': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (pricePerVcpuHour) {
+          SdkPresent<double>(value: final value) => {
+              'price_per_vcpu_hour': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pricePerGibMemoryHour) {
+          SdkPresent<double>(value: final value) => {
+              'price_per_gib_memory_hour': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pricePerGibStorageMonth) {
+          SdkPresent<double>(value: final value) => {
+              'price_per_gib_storage_month': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pricePerGibBandwidth) {
+          SdkPresent<double>(value: final value) => {
+              'price_per_gib_bandwidth': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Your team's MicroVM limits.
 class MicrovmOptionsAccountLimits {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The maximum number of MicroVMs, counting both running and paused MicroVMs.
   final SdkOptional<int> maxTotalCount;
+
   /// The maximum memory per MicroVM, in bytes.
   final SdkOptional<int> maxMemoryBytes;
+
   /// The maximum disk per MicroVM, in bytes.
   final SdkOptional<int> maxDiskBytes;
+
   /// The maximum auto-pause idle timeout, in seconds.
   final SdkOptional<int> maxIdleTimeoutSeconds;
 
-  const MicrovmOptionsAccountLimits({this.maxTotalCount = const SdkOmitted(), this.maxMemoryBytes = const SdkOmitted(), this.maxDiskBytes = const SdkOmitted(), this.maxIdleTimeoutSeconds = const SdkOmitted()});
+  const MicrovmOptionsAccountLimits(
+      {this.maxTotalCount = const SdkOmitted(),
+      this.maxMemoryBytes = const SdkOmitted(),
+      this.maxDiskBytes = const SdkOmitted(),
+      this.maxIdleTimeoutSeconds = const SdkOmitted()});
 
-  MicrovmOptionsAccountLimits Function({SdkOptional<int> maxTotalCount, SdkOptional<int> maxMemoryBytes, SdkOptional<int> maxDiskBytes, SdkOptional<int> maxIdleTimeoutSeconds}) get copyWith => _copyWith;
+  MicrovmOptionsAccountLimits Function(
+      {SdkOptional<int> maxTotalCount,
+      SdkOptional<int> maxMemoryBytes,
+      SdkOptional<int> maxDiskBytes,
+      SdkOptional<int> maxIdleTimeoutSeconds}) get copyWith => _copyWith;
 
-  MicrovmOptionsAccountLimits _copyWith({Object? maxTotalCount = sdkOmittedValue, Object? maxMemoryBytes = sdkOmittedValue, Object? maxDiskBytes = sdkOmittedValue, Object? maxIdleTimeoutSeconds = sdkOmittedValue}) => MicrovmOptionsAccountLimits(
-    maxTotalCount: identical(maxTotalCount, sdkOmittedValue) ? this.maxTotalCount : maxTotalCount as SdkOptional<int>,
-    maxMemoryBytes: identical(maxMemoryBytes, sdkOmittedValue) ? this.maxMemoryBytes : maxMemoryBytes as SdkOptional<int>,
-    maxDiskBytes: identical(maxDiskBytes, sdkOmittedValue) ? this.maxDiskBytes : maxDiskBytes as SdkOptional<int>,
-    maxIdleTimeoutSeconds: identical(maxIdleTimeoutSeconds, sdkOmittedValue) ? this.maxIdleTimeoutSeconds : maxIdleTimeoutSeconds as SdkOptional<int>,
-  );
+  MicrovmOptionsAccountLimits _copyWith(
+          {Object? maxTotalCount = sdkOmittedValue,
+          Object? maxMemoryBytes = sdkOmittedValue,
+          Object? maxDiskBytes = sdkOmittedValue,
+          Object? maxIdleTimeoutSeconds = sdkOmittedValue}) =>
+      MicrovmOptionsAccountLimits(
+        maxTotalCount: identical(maxTotalCount, sdkOmittedValue)
+            ? this.maxTotalCount
+            : maxTotalCount as SdkOptional<int>,
+        maxMemoryBytes: identical(maxMemoryBytes, sdkOmittedValue)
+            ? this.maxMemoryBytes
+            : maxMemoryBytes as SdkOptional<int>,
+        maxDiskBytes: identical(maxDiskBytes, sdkOmittedValue)
+            ? this.maxDiskBytes
+            : maxDiskBytes as SdkOptional<int>,
+        maxIdleTimeoutSeconds: identical(maxIdleTimeoutSeconds, sdkOmittedValue)
+            ? this.maxIdleTimeoutSeconds
+            : maxIdleTimeoutSeconds as SdkOptional<int>,
+      );
 
-  factory MicrovmOptionsAccountLimits.fromJson(Map<String, dynamic> json) => MicrovmOptionsAccountLimits(
-    maxTotalCount: json['max_total_count'] != null ? SdkPresent(((json['max_total_count'] as num?)?.toInt())!) : const SdkOmitted(),
-    maxMemoryBytes: json['max_memory_bytes'] != null ? SdkPresent(((json['max_memory_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    maxDiskBytes: json['max_disk_bytes'] != null ? SdkPresent(((json['max_disk_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    maxIdleTimeoutSeconds: json['max_idle_timeout_seconds'] != null ? SdkPresent(((json['max_idle_timeout_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory MicrovmOptionsAccountLimits.fromJson(Map<String, dynamic> json) =>
+      MicrovmOptionsAccountLimits(
+        maxTotalCount: json['max_total_count'] != null
+            ? SdkPresent(((json['max_total_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        maxMemoryBytes: json['max_memory_bytes'] != null
+            ? SdkPresent(((json['max_memory_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        maxDiskBytes: json['max_disk_bytes'] != null
+            ? SdkPresent(((json['max_disk_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        maxIdleTimeoutSeconds: json['max_idle_timeout_seconds'] != null
+            ? SdkPresent(((json['max_idle_timeout_seconds'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (maxTotalCount) {
-      SdkPresent<int>(value: final value) => {'max_total_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxMemoryBytes) {
-      SdkPresent<int>(value: final value) => {'max_memory_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxDiskBytes) {
-      SdkPresent<int>(value: final value) => {'max_disk_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxIdleTimeoutSeconds) {
-      SdkPresent<int>(value: final value) => {'max_idle_timeout_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (maxTotalCount) {
+          SdkPresent<int>(value: final value) => {
+              'max_total_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxMemoryBytes) {
+          SdkPresent<int>(value: final value) => {
+              'max_memory_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxDiskBytes) {
+          SdkPresent<int>(value: final value) => {
+              'max_disk_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxIdleTimeoutSeconds) {
+          SdkPresent<int>(value: final value) => {
+              'max_idle_timeout_seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The compute price of the size.
 class MicrovmOptionsSizesItemPricing {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The price per hour of running time, in USD.
   final SdkOptional<double> pricePerHour;
+
   /// The price for running continuously for a month (730 hours), in USD.
   final SdkOptional<double> pricePerMonth;
 
-  const MicrovmOptionsSizesItemPricing({this.pricePerHour = const SdkOmitted(), this.pricePerMonth = const SdkOmitted()});
+  const MicrovmOptionsSizesItemPricing(
+      {this.pricePerHour = const SdkOmitted(),
+      this.pricePerMonth = const SdkOmitted()});
 
-  MicrovmOptionsSizesItemPricing Function({SdkOptional<double> pricePerHour, SdkOptional<double> pricePerMonth}) get copyWith => _copyWith;
+  MicrovmOptionsSizesItemPricing Function(
+      {SdkOptional<double> pricePerHour,
+      SdkOptional<double> pricePerMonth}) get copyWith => _copyWith;
 
-  MicrovmOptionsSizesItemPricing _copyWith({Object? pricePerHour = sdkOmittedValue, Object? pricePerMonth = sdkOmittedValue}) => MicrovmOptionsSizesItemPricing(
-    pricePerHour: identical(pricePerHour, sdkOmittedValue) ? this.pricePerHour : pricePerHour as SdkOptional<double>,
-    pricePerMonth: identical(pricePerMonth, sdkOmittedValue) ? this.pricePerMonth : pricePerMonth as SdkOptional<double>,
-  );
+  MicrovmOptionsSizesItemPricing _copyWith(
+          {Object? pricePerHour = sdkOmittedValue,
+          Object? pricePerMonth = sdkOmittedValue}) =>
+      MicrovmOptionsSizesItemPricing(
+        pricePerHour: identical(pricePerHour, sdkOmittedValue)
+            ? this.pricePerHour
+            : pricePerHour as SdkOptional<double>,
+        pricePerMonth: identical(pricePerMonth, sdkOmittedValue)
+            ? this.pricePerMonth
+            : pricePerMonth as SdkOptional<double>,
+      );
 
-  factory MicrovmOptionsSizesItemPricing.fromJson(Map<String, dynamic> json) => MicrovmOptionsSizesItemPricing(
-    pricePerHour: json['price_per_hour'] != null ? SdkPresent(((json['price_per_hour'] as num?)?.toDouble())!) : const SdkOmitted(),
-    pricePerMonth: json['price_per_month'] != null ? SdkPresent(((json['price_per_month'] as num?)?.toDouble())!) : const SdkOmitted(),
-  );
+  factory MicrovmOptionsSizesItemPricing.fromJson(Map<String, dynamic> json) =>
+      MicrovmOptionsSizesItemPricing(
+        pricePerHour: json['price_per_hour'] != null
+            ? SdkPresent(((json['price_per_hour'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        pricePerMonth: json['price_per_month'] != null
+            ? SdkPresent(((json['price_per_month'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (pricePerHour) {
-      SdkPresent<double>(value: final value) => {'price_per_hour': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pricePerMonth) {
-      SdkPresent<double>(value: final value) => {'price_per_month': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (pricePerHour) {
+          SdkPresent<double>(value: final value) => {
+              'price_per_hour': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pricePerMonth) {
+          SdkPresent<double>(value: final value) => {
+              'price_per_month': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

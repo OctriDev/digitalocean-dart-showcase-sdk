@@ -8,33 +8,56 @@ part of 'kubernetes_cluster.dart';
 class ClusterReadStatus {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A string indicating the current status of the cluster.
   final SdkOptional<ClusterReadStatusState> state;
+
   /// An optional message providing additional information about the current cluster state.
   final SdkOptional<String> message;
 
-  const ClusterReadStatus({this.state = const SdkOmitted(), this.message = const SdkOmitted()});
+  const ClusterReadStatus(
+      {this.state = const SdkOmitted(), this.message = const SdkOmitted()});
 
-  ClusterReadStatus Function({SdkOptional<ClusterReadStatusState> state, SdkOptional<String> message}) get copyWith => _copyWith;
+  ClusterReadStatus Function(
+      {SdkOptional<ClusterReadStatusState> state,
+      SdkOptional<String> message}) get copyWith => _copyWith;
 
-  ClusterReadStatus _copyWith({Object? state = sdkOmittedValue, Object? message = sdkOmittedValue}) => ClusterReadStatus(
-    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<ClusterReadStatusState>,
-    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String>,
-  );
+  ClusterReadStatus _copyWith(
+          {Object? state = sdkOmittedValue,
+          Object? message = sdkOmittedValue}) =>
+      ClusterReadStatus(
+        state: identical(state, sdkOmittedValue)
+            ? this.state
+            : state as SdkOptional<ClusterReadStatusState>,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as SdkOptional<String>,
+      );
 
-  factory ClusterReadStatus.fromJson(Map<String, dynamic> json) => ClusterReadStatus(
-    state: json['state'] != null ? SdkPresent((json['state'] != null ? ClusterReadStatusState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
-    message: json['message'] != null ? SdkPresent((json['message'] as String?)!) : const SdkOmitted(),
-  );
+  factory ClusterReadStatus.fromJson(Map<String, dynamic> json) =>
+      ClusterReadStatus(
+        state: json['state'] != null
+            ? SdkPresent((json['state'] != null
+                ? ClusterReadStatusState.fromJson(json['state'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        message: json['message'] != null
+            ? SdkPresent((json['message'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (state) {
-      SdkPresent<ClusterReadStatusState>(value: final value) => {'state': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (message) {
-      SdkPresent<String>(value: final value) => {'message': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (state) {
+          SdkPresent<ClusterReadStatusState>(value: final value) => {
+              'state': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (message) {
+          SdkPresent<String>(value: final value) => {
+              'message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

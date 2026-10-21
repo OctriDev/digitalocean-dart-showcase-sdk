@@ -8,135 +8,249 @@ part of 'shared_registry.dart';
 class RegistryVariant1Subscription {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `tier` wire field.
   final SdkOptional<SubscriptionTierBase> tier;
+
   /// The time at which the subscription was created.
   final SdkOptional<String> createdAt;
+
   /// The time at which the subscription was last updated.
   final SdkOptional<String> updatedAt;
 
-  const RegistryVariant1Subscription({this.tier = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
+  const RegistryVariant1Subscription(
+      {this.tier = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted()});
 
-  RegistryVariant1Subscription Function({SdkOptional<SubscriptionTierBase> tier, SdkOptional<String> createdAt, SdkOptional<String> updatedAt}) get copyWith => _copyWith;
+  RegistryVariant1Subscription Function(
+      {SdkOptional<SubscriptionTierBase> tier,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> updatedAt}) get copyWith => _copyWith;
 
-  RegistryVariant1Subscription _copyWith({Object? tier = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RegistryVariant1Subscription(
-    tier: identical(tier, sdkOmittedValue) ? this.tier : tier as SdkOptional<SubscriptionTierBase>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<String>,
-  );
+  RegistryVariant1Subscription _copyWith(
+          {Object? tier = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      RegistryVariant1Subscription(
+        tier: identical(tier, sdkOmittedValue)
+            ? this.tier
+            : tier as SdkOptional<SubscriptionTierBase>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<String>,
+      );
 
-  factory RegistryVariant1Subscription.fromJson(Map<String, dynamic> json) => RegistryVariant1Subscription(
-    tier: json['tier'] != null ? SdkPresent((json['tier'] != null ? SubscriptionTierBase.fromJson(json['tier'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent((json['updated_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory RegistryVariant1Subscription.fromJson(Map<String, dynamic> json) =>
+      RegistryVariant1Subscription(
+        tier: json['tier'] != null
+            ? SdkPresent((json['tier'] != null
+                ? SubscriptionTierBase.fromJson(
+                    json['tier'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent((json['updated_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (tier) {
-      SdkPresent<SubscriptionTierBase>(value: final value) => {'tier': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<String>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (tier) {
+          SdkPresent<SubscriptionTierBase>(value: final value) => {
+              'tier': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `registries[]` wire field.
 class RegistryVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `subscription` wire field.
   final SdkOptional<Subscription> subscription;
 
   const RegistryVariant1({this.subscription = const SdkOmitted()});
 
-  RegistryVariant1 Function({SdkOptional<Subscription> subscription}) get copyWith => _copyWith;
+  RegistryVariant1 Function({SdkOptional<Subscription> subscription})
+      get copyWith => _copyWith;
 
-  RegistryVariant1 _copyWith({Object? subscription = sdkOmittedValue}) => RegistryVariant1(
-    subscription: identical(subscription, sdkOmittedValue) ? this.subscription : subscription as SdkOptional<Subscription>,
-  );
+  RegistryVariant1 _copyWith({Object? subscription = sdkOmittedValue}) =>
+      RegistryVariant1(
+        subscription: identical(subscription, sdkOmittedValue)
+            ? this.subscription
+            : subscription as SdkOptional<Subscription>,
+      );
 
-  factory RegistryVariant1.fromJson(Map<String, dynamic> json) => RegistryVariant1(
-    subscription: json['subscription'] != null ? SdkPresent((json['subscription'] != null ? Subscription.fromJson(json['subscription'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory RegistryVariant1.fromJson(Map<String, dynamic> json) =>
+      RegistryVariant1(
+        subscription: json['subscription'] != null
+            ? SdkPresent((json['subscription'] != null
+                ? Subscription.fromJson(
+                    json['subscription'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (subscription) {
-      SdkPresent<Subscription>(value: final value) => {'subscription': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (subscription) {
+          SdkPresent<Subscription>(value: final value) => {
+              'subscription': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `Registry` API schema.
 class Registry {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A globally unique name for the container registry. Must be lowercase and be composed only of numbers, letters and `-`, up to a limit of 63 characters.
   final SdkOptional<String> name;
+
   /// A time value given in ISO8601 combined date and time format that represents when the registry was created.
   final SdkOptional<String> createdAt;
+
   /// Slug of the region where registry data is stored
   final SdkOptional<String> region;
+
   /// The amount of storage used in the registry in bytes.
   final SdkOptional<int> storageUsageBytes;
+
   /// The time at which the storage usage was updated. Storage usage is calculated asynchronously, and may not immediately reflect pushes to the registry.
   final SdkOptional<String> storageUsageBytesUpdatedAt;
+
   /// Optional API value serialized in the `subscription` wire field.
   final SdkOptional<Subscription> subscription;
 
-  const Registry({this.name = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.region = const SdkOmitted(), this.storageUsageBytes = const SdkOmitted(), this.storageUsageBytesUpdatedAt = const SdkOmitted(), this.subscription = const SdkOmitted()});
+  const Registry(
+      {this.name = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      this.storageUsageBytes = const SdkOmitted(),
+      this.storageUsageBytesUpdatedAt = const SdkOmitted(),
+      this.subscription = const SdkOmitted()});
 
-  Registry Function({SdkOptional<String> name, SdkOptional<String> createdAt, SdkOptional<String> region, SdkOptional<int> storageUsageBytes, SdkOptional<String> storageUsageBytesUpdatedAt, SdkOptional<Subscription> subscription}) get copyWith => _copyWith;
+  Registry Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> region,
+      SdkOptional<int> storageUsageBytes,
+      SdkOptional<String> storageUsageBytesUpdatedAt,
+      SdkOptional<Subscription> subscription}) get copyWith => _copyWith;
 
-  Registry _copyWith({Object? name = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? region = sdkOmittedValue, Object? storageUsageBytes = sdkOmittedValue, Object? storageUsageBytesUpdatedAt = sdkOmittedValue, Object? subscription = sdkOmittedValue}) => Registry(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    storageUsageBytes: identical(storageUsageBytes, sdkOmittedValue) ? this.storageUsageBytes : storageUsageBytes as SdkOptional<int>,
-    storageUsageBytesUpdatedAt: identical(storageUsageBytesUpdatedAt, sdkOmittedValue) ? this.storageUsageBytesUpdatedAt : storageUsageBytesUpdatedAt as SdkOptional<String>,
-    subscription: identical(subscription, sdkOmittedValue) ? this.subscription : subscription as SdkOptional<Subscription>,
-  );
+  Registry _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? storageUsageBytes = sdkOmittedValue,
+          Object? storageUsageBytesUpdatedAt = sdkOmittedValue,
+          Object? subscription = sdkOmittedValue}) =>
+      Registry(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        storageUsageBytes: identical(storageUsageBytes, sdkOmittedValue)
+            ? this.storageUsageBytes
+            : storageUsageBytes as SdkOptional<int>,
+        storageUsageBytesUpdatedAt:
+            identical(storageUsageBytesUpdatedAt, sdkOmittedValue)
+                ? this.storageUsageBytesUpdatedAt
+                : storageUsageBytesUpdatedAt as SdkOptional<String>,
+        subscription: identical(subscription, sdkOmittedValue)
+            ? this.subscription
+            : subscription as SdkOptional<Subscription>,
+      );
 
   factory Registry.fromJson(Map<String, dynamic> json) => Registry(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    storageUsageBytes: json['storage_usage_bytes'] != null ? SdkPresent(((json['storage_usage_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-    storageUsageBytesUpdatedAt: json['storage_usage_bytes_updated_at'] != null ? SdkPresent((json['storage_usage_bytes_updated_at'] as String?)!) : const SdkOmitted(),
-    subscription: json['subscription'] != null ? SdkPresent((json['subscription'] != null ? Subscription.fromJson(json['subscription'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        storageUsageBytes: json['storage_usage_bytes'] != null
+            ? SdkPresent(((json['storage_usage_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        storageUsageBytesUpdatedAt: json['storage_usage_bytes_updated_at'] !=
+                null
+            ? SdkPresent((json['storage_usage_bytes_updated_at'] as String?)!)
+            : const SdkOmitted(),
+        subscription: json['subscription'] != null
+            ? SdkPresent((json['subscription'] != null
+                ? Subscription.fromJson(
+                    json['subscription'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (storageUsageBytes) {
-      SdkPresent<int>(value: final value) => {'storage_usage_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (storageUsageBytesUpdatedAt) {
-      SdkPresent<String>(value: final value) => {'storage_usage_bytes_updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (subscription) {
-      SdkPresent<Subscription>(value: final value) => {'subscription': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (storageUsageBytes) {
+          SdkPresent<int>(value: final value) => {
+              'storage_usage_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (storageUsageBytesUpdatedAt) {
+          SdkPresent<String>(value: final value) => {
+              'storage_usage_bytes_updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (subscription) {
+          SdkPresent<Subscription>(value: final value) => {
+              'subscription': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

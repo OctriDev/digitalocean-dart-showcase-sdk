@@ -6,108 +6,135 @@ part of 'inline.dart';
 // Inline operation models (part 30)
 /// Comparison operator for the filter. Allowed values: - `FILTER_OPERATOR_EQUAL` = equal - `FILTER_OPERATOR_NOT_EQUAL` = `not_equal` - `FILTER_OPERATOR_LESS_THAN` = `less_than` - `FILTER_OPERATOR_LESS_THAN_OR_EQUAL` = `less_than_or_equal` - `FILTER_OPERATOR_GREATER_THAN` = `greater_than` - `FILTER_OPERATOR_GREATER_THAN_OR_EQUAL` = `greater_than_or_equal`
 final class QueryFilterOperator {
-
   final String value;
 
   const QueryFilterOperator._(this.value);
 
-  factory QueryFilterOperator.fromJson(String value) => QueryFilterOperator._(value);
+  factory QueryFilterOperator.fromJson(String value) =>
+      QueryFilterOperator._(value);
 
-  static const filterOperatorEqual = QueryFilterOperator._('FILTER_OPERATOR_EQUAL');
-  static const filterOperatorNotEqual = QueryFilterOperator._('FILTER_OPERATOR_NOT_EQUAL');
-  static const filterOperatorLessThan = QueryFilterOperator._('FILTER_OPERATOR_LESS_THAN');
-  static const filterOperatorLessThanOrEqual = QueryFilterOperator._('FILTER_OPERATOR_LESS_THAN_OR_EQUAL');
-  static const filterOperatorGreaterThan = QueryFilterOperator._('FILTER_OPERATOR_GREATER_THAN');
-  static const filterOperatorGreaterThanOrEqual = QueryFilterOperator._('FILTER_OPERATOR_GREATER_THAN_OR_EQUAL');
+  static const filterOperatorEqual =
+      QueryFilterOperator._('FILTER_OPERATOR_EQUAL');
+  static const filterOperatorNotEqual =
+      QueryFilterOperator._('FILTER_OPERATOR_NOT_EQUAL');
+  static const filterOperatorLessThan =
+      QueryFilterOperator._('FILTER_OPERATOR_LESS_THAN');
+  static const filterOperatorLessThanOrEqual =
+      QueryFilterOperator._('FILTER_OPERATOR_LESS_THAN_OR_EQUAL');
+  static const filterOperatorGreaterThan =
+      QueryFilterOperator._('FILTER_OPERATOR_GREATER_THAN');
+  static const filterOperatorGreaterThanOrEqual =
+      QueryFilterOperator._('FILTER_OPERATOR_GREATER_THAN_OR_EQUAL');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is QueryFilterOperator && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is QueryFilterOperator && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Determines default pub/sub channels' ACL for new users if ACL is not supplied. When this option is not defined, all_channels is assumed to keep backward compatibility. This option doesn't affect Caching configuration acl-pubsub-default.
 final class RedisAdvancedConfigRedisAclChannelsDefault {
-
   final String value;
 
   const RedisAdvancedConfigRedisAclChannelsDefault._(this.value);
 
-  factory RedisAdvancedConfigRedisAclChannelsDefault.fromJson(String value) => RedisAdvancedConfigRedisAclChannelsDefault._(value);
+  factory RedisAdvancedConfigRedisAclChannelsDefault.fromJson(String value) =>
+      RedisAdvancedConfigRedisAclChannelsDefault._(value);
 
-  static const allchannels = RedisAdvancedConfigRedisAclChannelsDefault._('allchannels');
-  static const resetchannels = RedisAdvancedConfigRedisAclChannelsDefault._('resetchannels');
+  static const allchannels =
+      RedisAdvancedConfigRedisAclChannelsDefault._('allchannels');
+  static const resetchannels =
+      RedisAdvancedConfigRedisAclChannelsDefault._('resetchannels');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RedisAdvancedConfigRedisAclChannelsDefault && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RedisAdvancedConfigRedisAclChannelsDefault &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// A string specifying the desired eviction policy for the Caching cluster. - `noeviction`: Don't evict any data, returns error when memory limit is reached. - `allkeys-lru:` Evict any key, least recently used (LRU) first. - `allkeys-random`: Evict keys in a random order. - `volatile-lru`: Evict keys with expiration only, least recently used (LRU) first. - `volatile-random`: Evict keys with expiration only in a random order. - `volatile-ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
 final class RedisAdvancedConfigRedisMaxmemoryPolicy {
-
   final String value;
 
   const RedisAdvancedConfigRedisMaxmemoryPolicy._(this.value);
 
-  factory RedisAdvancedConfigRedisMaxmemoryPolicy.fromJson(String value) => RedisAdvancedConfigRedisMaxmemoryPolicy._(value);
+  factory RedisAdvancedConfigRedisMaxmemoryPolicy.fromJson(String value) =>
+      RedisAdvancedConfigRedisMaxmemoryPolicy._(value);
 
-  static const noeviction = RedisAdvancedConfigRedisMaxmemoryPolicy._('noeviction');
-  static const allkeysLru = RedisAdvancedConfigRedisMaxmemoryPolicy._('allkeys-lru');
-  static const allkeysRandom = RedisAdvancedConfigRedisMaxmemoryPolicy._('allkeys-random');
-  static const volatileLru = RedisAdvancedConfigRedisMaxmemoryPolicy._('volatile-lru');
-  static const volatileRandom = RedisAdvancedConfigRedisMaxmemoryPolicy._('volatile-random');
-  static const volatileTtl = RedisAdvancedConfigRedisMaxmemoryPolicy._('volatile-ttl');
+  static const noeviction =
+      RedisAdvancedConfigRedisMaxmemoryPolicy._('noeviction');
+  static const allkeysLru =
+      RedisAdvancedConfigRedisMaxmemoryPolicy._('allkeys-lru');
+  static const allkeysRandom =
+      RedisAdvancedConfigRedisMaxmemoryPolicy._('allkeys-random');
+  static const volatileLru =
+      RedisAdvancedConfigRedisMaxmemoryPolicy._('volatile-lru');
+  static const volatileRandom =
+      RedisAdvancedConfigRedisMaxmemoryPolicy._('volatile-random');
+  static const volatileTtl =
+      RedisAdvancedConfigRedisMaxmemoryPolicy._('volatile-ttl');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RedisAdvancedConfigRedisMaxmemoryPolicy && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RedisAdvancedConfigRedisMaxmemoryPolicy && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Creates an RDB dump of the database every 10 minutes that can be used to recover data after a node crash. The database does not create the dump if no keys have changed since the last dump. When set to `off`, the database cannot fork services, and data can be lost if a service is restarted or powered off. DigitalOcean Managed Caching databases do not support the Append Only File (AOF) persistence method.
 final class RedisAdvancedConfigRedisPersistence {
-
   final String value;
 
   const RedisAdvancedConfigRedisPersistence._(this.value);
 
-  factory RedisAdvancedConfigRedisPersistence.fromJson(String value) => RedisAdvancedConfigRedisPersistence._(value);
+  factory RedisAdvancedConfigRedisPersistence.fromJson(String value) =>
+      RedisAdvancedConfigRedisPersistence._(value);
 
   static const off = RedisAdvancedConfigRedisPersistence._('off');
   static const rdb = RedisAdvancedConfigRedisPersistence._('rdb');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RedisAdvancedConfigRedisPersistence && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RedisAdvancedConfigRedisPersistence && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `status` wire field.
 final class RegionStateStatus {
-
   final String value;
 
   const RegionStateStatus._(this.value);
 
-  factory RegionStateStatus.fromJson(String value) => RegionStateStatus._(value);
+  factory RegionStateStatus.fromJson(String value) =>
+      RegionStateStatus._(value);
 
   static const down = RegionStateStatus._('DOWN');
   static const up = RegionStateStatus._('UP');
@@ -115,22 +142,25 @@ final class RegionStateStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RegionStateStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RegionStateStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Slug of the region where registry data is stored. When not provided, a region will be selected.
 final class RegistryCreateRegion {
-
   final String value;
 
   const RegistryCreateRegion._(this.value);
 
-  factory RegistryCreateRegion.fromJson(String value) => RegistryCreateRegion._(value);
+  factory RegistryCreateRegion.fromJson(String value) =>
+      RegistryCreateRegion._(value);
 
   static const nyc3 = RegistryCreateRegion._('nyc3');
   static const sfo3 = RegistryCreateRegion._('sfo3');
@@ -140,90 +170,115 @@ final class RegistryCreateRegion {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RegistryCreateRegion && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RegistryCreateRegion && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The slug of the subscription tier to sign up for. Valid values can be retrieved using the options endpoint.
 final class RegistryCreateSubscriptionTierSlug {
-
   final String value;
 
   const RegistryCreateSubscriptionTierSlug._(this.value);
 
-  factory RegistryCreateSubscriptionTierSlug.fromJson(String value) => RegistryCreateSubscriptionTierSlug._(value);
+  factory RegistryCreateSubscriptionTierSlug.fromJson(String value) =>
+      RegistryCreateSubscriptionTierSlug._(value);
 
   static const starter = RegistryCreateSubscriptionTierSlug._('starter');
   static const basic = RegistryCreateSubscriptionTierSlug._('basic');
-  static const professional = RegistryCreateSubscriptionTierSlug._('professional');
+  static const professional =
+      RegistryCreateSubscriptionTierSlug._('professional');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RegistryCreateSubscriptionTierSlug && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RegistryCreateSubscriptionTierSlug && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `eligibility_reasons[]` wire field.
 final class RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem {
-
   final String value;
 
-  const RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem._(this.value);
+  const RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem._(
+      this.value);
 
-  factory RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem.fromJson(String value) => RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem._(value);
+  factory RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem.fromJson(
+          String value) =>
+      RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem
+          ._(value);
 
-  static const overrepositorylimit = RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem._('OverRepositoryLimit');
-  static const overstoragelimit = RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem._('OverStorageLimit');
+  static const overrepositorylimit =
+      RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem
+          ._('OverRepositoryLimit');
+  static const overstoragelimit =
+      RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem
+          ._('OverStorageLimit');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other
+          is RegistryOptionsResponseOptionsSubscriptionTiersItemEligibilityReasonsItem &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Type of the garbage collection to run against this registry
 final class RegistryRunGcType {
-
   final String value;
 
   const RegistryRunGcType._(this.value);
 
-  factory RegistryRunGcType.fromJson(String value) => RegistryRunGcType._(value);
+  factory RegistryRunGcType.fromJson(String value) =>
+      RegistryRunGcType._(value);
 
-  static const untaggedManifestsOnly = RegistryRunGcType._('untagged manifests only');
-  static const unreferencedBlobsOnly = RegistryRunGcType._('unreferenced blobs only');
-  static const untaggedManifestsAndUnreferencedBlobs = RegistryRunGcType._('untagged manifests and unreferenced blobs');
+  static const untaggedManifestsOnly =
+      RegistryRunGcType._('untagged manifests only');
+  static const unreferencedBlobsOnly =
+      RegistryRunGcType._('unreferenced blobs only');
+  static const untaggedManifestsAndUnreferencedBlobs =
+      RegistryRunGcType._('untagged manifests and unreferenced blobs');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RegistryRunGcType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RegistryRunGcType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The current status of the action. This can be "in-progress", "completed", or "errored".
 final class ReservedIpActionActionStatus {
-
   final String value;
 
   const ReservedIpActionActionStatus._(this.value);
 
-  factory ReservedIpActionActionStatus.fromJson(String value) => ReservedIpActionActionStatus._(value);
+  factory ReservedIpActionActionStatus.fromJson(String value) =>
+      ReservedIpActionActionStatus._(value);
 
   static const inProgress = ReservedIpActionActionStatus._('in-progress');
   static const completed = ReservedIpActionActionStatus._('completed');
@@ -231,12 +286,15 @@ final class ReservedIpActionActionStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ReservedIpActionActionStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ReservedIpActionActionStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of action to initiate for the reserved IP.
@@ -246,16 +304,21 @@ enum ReservedIpActionTypeType {
 
   static ReservedIpActionTypeType fromJson(String value) {
     switch (value) {
-      case 'assign': return ReservedIpActionTypeType.assign;
-      case 'unassign': return ReservedIpActionTypeType.unassign;
-      default: throw ArgumentError('Unknown ReservedIpActionTypeType: $value');
+      case 'assign':
+        return ReservedIpActionTypeType.assign;
+      case 'unassign':
+        return ReservedIpActionTypeType.unassign;
+      default:
+        throw ArgumentError('Unknown ReservedIpActionTypeType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case ReservedIpActionTypeType.assign: return 'assign';
-      case ReservedIpActionTypeType.unassign: return 'unassign';
+      case ReservedIpActionTypeType.assign:
+        return 'assign';
+      case ReservedIpActionTypeType.unassign:
+        return 'unassign';
     }
   }
 
@@ -265,12 +328,12 @@ enum ReservedIpActionTypeType {
 
 /// The current status of the action. This can be "in-progress", "completed", or "errored".
 final class ReservedIpv6ActionActionStatus {
-
   final String value;
 
   const ReservedIpv6ActionActionStatus._(this.value);
 
-  factory ReservedIpv6ActionActionStatus.fromJson(String value) => ReservedIpv6ActionActionStatus._(value);
+  factory ReservedIpv6ActionActionStatus.fromJson(String value) =>
+      ReservedIpv6ActionActionStatus._(value);
 
   static const inProgress = ReservedIpv6ActionActionStatus._('in-progress');
   static const completed = ReservedIpv6ActionActionStatus._('completed');
@@ -278,10 +341,13 @@ final class ReservedIpv6ActionActionStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ReservedIpv6ActionActionStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ReservedIpv6ActionActionStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

@@ -9,79 +9,116 @@ sealed class DropletActionRebuildVariant1Image {
   static const String constructionSurface = 'named';
   const DropletActionRebuildVariant1Image();
   factory DropletActionRebuildVariant1Image.fromJson(Object? json) {
-    if (json is String) { return DropletActionRebuildVariant1ImageString(json); }
-    if (json is num) { return DropletActionRebuildVariant1ImageInt(json.toInt()); }
-    throw FormatException("No variant matched for DropletActionRebuildVariant1Image");
+    if (json is String) {
+      return DropletActionRebuildVariant1ImageString(json);
+    }
+    if (json is num) {
+      return DropletActionRebuildVariant1ImageInt(json.toInt());
+    }
+    throw FormatException(
+        "No variant matched for DropletActionRebuildVariant1Image");
   }
   Object? toJson();
 }
 
-final class DropletActionRebuildVariant1ImageString extends DropletActionRebuildVariant1Image {
+final class DropletActionRebuildVariant1ImageString
+    extends DropletActionRebuildVariant1Image {
   final String value;
   const DropletActionRebuildVariant1ImageString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class DropletActionRebuildVariant1ImageInt extends DropletActionRebuildVariant1Image {
+final class DropletActionRebuildVariant1ImageInt
+    extends DropletActionRebuildVariant1Image {
   final int value;
   const DropletActionRebuildVariant1ImageInt(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
 class DropletActionRebuildVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base.
   final SdkOptional<dynamic> image;
 
   const DropletActionRebuildVariant1({this.image = const SdkOmitted()});
 
-  DropletActionRebuildVariant1 Function({SdkOptional<dynamic> image}) get copyWith => _copyWith;
+  DropletActionRebuildVariant1 Function({SdkOptional<dynamic> image})
+      get copyWith => _copyWith;
 
-  DropletActionRebuildVariant1 _copyWith({Object? image = sdkOmittedValue}) => DropletActionRebuildVariant1(
-    image: identical(image, sdkOmittedValue) ? this.image : image as SdkOptional<dynamic>,
-  );
+  DropletActionRebuildVariant1 _copyWith({Object? image = sdkOmittedValue}) =>
+      DropletActionRebuildVariant1(
+        image: identical(image, sdkOmittedValue)
+            ? this.image
+            : image as SdkOptional<dynamic>,
+      );
 
-  factory DropletActionRebuildVariant1.fromJson(Map<String, dynamic> json) => DropletActionRebuildVariant1(
-    image: json['image'] != null ? SdkPresent((json['image'])!) : const SdkOmitted(),
-  );
+  factory DropletActionRebuildVariant1.fromJson(Map<String, dynamic> json) =>
+      DropletActionRebuildVariant1(
+        image: json['image'] != null
+            ? SdkPresent((json['image'])!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (image) {
-      SdkPresent<dynamic>(value: final value) => {'image': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (image) {
+          SdkPresent<dynamic>(value: final value) => {
+              'image': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DropletActionRebuild` API schema.
 class DropletActionRebuild {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
+
   /// The image ID of a public or private image or the slug identifier for a public image. The Droplet will be rebuilt using this image as its base.
   final SdkOptional<dynamic> image;
 
-  const DropletActionRebuild({required this.type_, this.image = const SdkOmitted()});
+  const DropletActionRebuild(
+      {required this.type_, this.image = const SdkOmitted()});
 
-  DropletActionRebuild Function({DropletActionType type_, SdkOptional<dynamic> image}) get copyWith => _copyWith;
+  DropletActionRebuild Function(
+      {DropletActionType type_,
+      SdkOptional<dynamic> image}) get copyWith => _copyWith;
 
-  DropletActionRebuild _copyWith({Object? type_ = sdkOmittedValue, Object? image = sdkOmittedValue}) => DropletActionRebuild(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
-    image: identical(image, sdkOmittedValue) ? this.image : image as SdkOptional<dynamic>,
-  );
+  DropletActionRebuild _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? image = sdkOmittedValue}) =>
+      DropletActionRebuild(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DropletActionType,
+        image: identical(image, sdkOmittedValue)
+            ? this.image
+            : image as SdkOptional<dynamic>,
+      );
 
-  factory DropletActionRebuild.fromJson(Map<String, dynamic> json) => DropletActionRebuild(
-    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
-    image: json['image'] != null ? SdkPresent((json['image'])!) : const SdkOmitted(),
-  );
+  factory DropletActionRebuild.fromJson(Map<String, dynamic> json) =>
+      DropletActionRebuild(
+        type_: (json['type'] != null
+            ? DropletActionType.fromJson(json['type'] as String)
+            : null)!,
+        image: json['image'] != null
+            ? SdkPresent((json['image'])!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (image) {
-      SdkPresent<dynamic>(value: final value) => {'image': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (image) {
+          SdkPresent<dynamic>(value: final value) => {
+              'image': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

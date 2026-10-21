@@ -8,25 +8,36 @@ part of 'insights_alert.dart';
 class AlertCondition {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Time window over which the metric is evaluated. Allowed values: - `EVALUATION_WINDOW_1M` = `1m` - `EVALUATION_WINDOW_5M` = `5m` - `EVALUATION_WINDOW_10M` = `10m` - `EVALUATION_WINDOW_15M` = `15m` - `EVALUATION_WINDOW_30M` = `30m` - `EVALUATION_WINDOW_1H` = `1h`
   final SdkOptional<AlertConditionWindow> window;
 
   const AlertCondition({this.window = const SdkOmitted()});
 
-  AlertCondition Function({SdkOptional<AlertConditionWindow> window}) get copyWith => _copyWith;
+  AlertCondition Function({SdkOptional<AlertConditionWindow> window})
+      get copyWith => _copyWith;
 
-  AlertCondition _copyWith({Object? window = sdkOmittedValue}) => AlertCondition(
-    window: identical(window, sdkOmittedValue) ? this.window : window as SdkOptional<AlertConditionWindow>,
-  );
+  AlertCondition _copyWith({Object? window = sdkOmittedValue}) =>
+      AlertCondition(
+        window: identical(window, sdkOmittedValue)
+            ? this.window
+            : window as SdkOptional<AlertConditionWindow>,
+      );
 
   factory AlertCondition.fromJson(Map<String, dynamic> json) => AlertCondition(
-    window: json['window'] != null ? SdkPresent((json['window'] != null ? AlertConditionWindow.fromJson(json['window'] as String) : null)!) : const SdkOmitted(),
-  );
+        window: json['window'] != null
+            ? SdkPresent((json['window'] != null
+                ? AlertConditionWindow.fromJson(json['window'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (window) {
-      SdkPresent<AlertConditionWindow>(value: final value) => {'window': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (window) {
+          SdkPresent<AlertConditionWindow>(value: final value) => {
+              'window': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

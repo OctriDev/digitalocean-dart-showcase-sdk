@@ -6,23 +6,29 @@ part of 'agent_platform_api_api_evaluation.dart';
 // agent_platform_api_api_evaluation domain models
 /// Scope that determines whether a metric belongs to agent evaluation or model evaluation. For backwards compatibility, UNSPECIFIED defaults to agent metrics only in list operations.
 final class ApiEvaluationScope {
-
   final String value;
 
   const ApiEvaluationScope._(this.value);
 
-  factory ApiEvaluationScope.fromJson(String value) => ApiEvaluationScope._(value);
+  factory ApiEvaluationScope.fromJson(String value) =>
+      ApiEvaluationScope._(value);
 
-  static const evaluationScopeUnspecified = ApiEvaluationScope._('EVALUATION_SCOPE_UNSPECIFIED');
-  static const evaluationScopeAgent = ApiEvaluationScope._('EVALUATION_SCOPE_AGENT');
-  static const evaluationScopeModel = ApiEvaluationScope._('EVALUATION_SCOPE_MODEL');
+  static const evaluationScopeUnspecified =
+      ApiEvaluationScope._('EVALUATION_SCOPE_UNSPECIFIED');
+  static const evaluationScopeAgent =
+      ApiEvaluationScope._('EVALUATION_SCOPE_AGENT');
+  static const evaluationScopeModel =
+      ApiEvaluationScope._('EVALUATION_SCOPE_MODEL');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiEvaluationScope && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiEvaluationScope && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

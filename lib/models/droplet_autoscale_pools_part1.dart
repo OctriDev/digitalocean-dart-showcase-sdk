@@ -11,22 +11,35 @@ class AllAutoscalePoolsVariant0 {
 
   const AllAutoscalePoolsVariant0({this.autoscalePools = const SdkOmitted()});
 
-  AllAutoscalePoolsVariant0 Function({SdkOptional<List<AutoscalePool>> autoscalePools}) get copyWith => _copyWith;
+  AllAutoscalePoolsVariant0 Function(
+          {SdkOptional<List<AutoscalePool>> autoscalePools})
+      get copyWith => _copyWith;
 
-  AllAutoscalePoolsVariant0 _copyWith({Object? autoscalePools = sdkOmittedValue}) => AllAutoscalePoolsVariant0(
-    autoscalePools: identical(autoscalePools, sdkOmittedValue) ? this.autoscalePools : autoscalePools as SdkOptional<List<AutoscalePool>>,
-  );
+  AllAutoscalePoolsVariant0 _copyWith(
+          {Object? autoscalePools = sdkOmittedValue}) =>
+      AllAutoscalePoolsVariant0(
+        autoscalePools: identical(autoscalePools, sdkOmittedValue)
+            ? this.autoscalePools
+            : autoscalePools as SdkOptional<List<AutoscalePool>>,
+      );
 
-  factory AllAutoscalePoolsVariant0.fromJson(Map<String, dynamic> json) => AllAutoscalePoolsVariant0(
-    autoscalePools: json['autoscale_pools'] != null ? SdkPresent(((json['autoscale_pools'] as List?)?.map((e) => AutoscalePool.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AllAutoscalePoolsVariant0.fromJson(Map<String, dynamic> json) =>
+      AllAutoscalePoolsVariant0(
+        autoscalePools: json['autoscale_pools'] != null
+            ? SdkPresent(((json['autoscale_pools'] as List?)
+                ?.map((e) => AutoscalePool.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (autoscalePools) {
-      SdkPresent<List<AutoscalePool>>(value: final value) => {'autoscale_pools': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (autoscalePools) {
+          SdkPresent<List<AutoscalePool>>(value: final value) => {
+              'autoscale_pools': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllAutoscalePools` API schema.
@@ -34,38 +47,71 @@ class AllAutoscalePools {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<AutoscalePool>> autoscalePools;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllAutoscalePools({this.autoscalePools = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllAutoscalePools(
+      {this.autoscalePools = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllAutoscalePools Function({SdkOptional<List<AutoscalePool>> autoscalePools, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllAutoscalePools Function(
+      {SdkOptional<List<AutoscalePool>> autoscalePools,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllAutoscalePools _copyWith({Object? autoscalePools = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllAutoscalePools(
-    autoscalePools: identical(autoscalePools, sdkOmittedValue) ? this.autoscalePools : autoscalePools as SdkOptional<List<AutoscalePool>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllAutoscalePools _copyWith(
+          {Object? autoscalePools = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllAutoscalePools(
+        autoscalePools: identical(autoscalePools, sdkOmittedValue)
+            ? this.autoscalePools
+            : autoscalePools as SdkOptional<List<AutoscalePool>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AllAutoscalePools.fromJson(Map<String, dynamic> json) => AllAutoscalePools(
-    autoscalePools: json['autoscale_pools'] != null ? SdkPresent(((json['autoscale_pools'] as List?)?.map((e) => AutoscalePool.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory AllAutoscalePools.fromJson(Map<String, dynamic> json) =>
+      AllAutoscalePools(
+        autoscalePools: json['autoscale_pools'] != null
+            ? SdkPresent(((json['autoscale_pools'] as List?)
+                ?.map((e) => AutoscalePool.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (autoscalePools) {
-      SdkPresent<List<AutoscalePool>>(value: final value) => {'autoscale_pools': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (autoscalePools) {
+          SdkPresent<List<AutoscalePool>>(value: final value) => {
+              'autoscale_pools': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 class AllMembersVariant0 {
@@ -75,22 +121,33 @@ class AllMembersVariant0 {
 
   const AllMembersVariant0({this.droplets = const SdkOmitted()});
 
-  AllMembersVariant0 Function({SdkOptional<List<Member>> droplets}) get copyWith => _copyWith;
+  AllMembersVariant0 Function({SdkOptional<List<Member>> droplets})
+      get copyWith => _copyWith;
 
-  AllMembersVariant0 _copyWith({Object? droplets = sdkOmittedValue}) => AllMembersVariant0(
-    droplets: identical(droplets, sdkOmittedValue) ? this.droplets : droplets as SdkOptional<List<Member>>,
-  );
+  AllMembersVariant0 _copyWith({Object? droplets = sdkOmittedValue}) =>
+      AllMembersVariant0(
+        droplets: identical(droplets, sdkOmittedValue)
+            ? this.droplets
+            : droplets as SdkOptional<List<Member>>,
+      );
 
-  factory AllMembersVariant0.fromJson(Map<String, dynamic> json) => AllMembersVariant0(
-    droplets: json['droplets'] != null ? SdkPresent(((json['droplets'] as List?)?.map((e) => Member.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AllMembersVariant0.fromJson(Map<String, dynamic> json) =>
+      AllMembersVariant0(
+        droplets: json['droplets'] != null
+            ? SdkPresent(((json['droplets'] as List?)
+                ?.map((e) => Member.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (droplets) {
-      SdkPresent<List<Member>>(value: final value) => {'droplets': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (droplets) {
+          SdkPresent<List<Member>>(value: final value) => {
+              'droplets': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllMembers` API schema.
@@ -98,105 +155,203 @@ class AllMembers {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Member>> droplets;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllMembers({this.droplets = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllMembers(
+      {this.droplets = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllMembers Function({SdkOptional<List<Member>> droplets, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllMembers Function(
+      {SdkOptional<List<Member>> droplets,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllMembers _copyWith({Object? droplets = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllMembers(
-    droplets: identical(droplets, sdkOmittedValue) ? this.droplets : droplets as SdkOptional<List<Member>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllMembers _copyWith(
+          {Object? droplets = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllMembers(
+        droplets: identical(droplets, sdkOmittedValue)
+            ? this.droplets
+            : droplets as SdkOptional<List<Member>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
   factory AllMembers.fromJson(Map<String, dynamic> json) => AllMembers(
-    droplets: json['droplets'] != null ? SdkPresent(((json['droplets'] as List?)?.map((e) => Member.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+        droplets: json['droplets'] != null
+            ? SdkPresent(((json['droplets'] as List?)
+                ?.map((e) => Member.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (droplets) {
-      SdkPresent<List<Member>>(value: final value) => {'droplets': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (droplets) {
+          SdkPresent<List<Member>>(value: final value) => {
+              'droplets': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 /// Typed representation of the `AutoscalePool` API schema.
 class AutoscalePool {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique identifier for each autoscale pool instance. This is automatically generated upon autoscale pool creation.
   final String id;
+
   /// The human-readable name set for the autoscale pool.
   final String name;
+
   /// The scaling configuration for an autoscale pool, which is how the pool scales up and down (either by resource utilization or static configuration).
   final AutoscalePoolConfig config;
+
   /// Required object value serialized in the `droplet_template` wire field.
   final AutoscalePoolDropletTemplate dropletTemplate;
+
   /// Optional object value serialized in the `current_utilization` wire field.
   final SdkOptional<CurrentUtilization> currentUtilization;
+
   /// A time value given in ISO8601 combined date and time format that represents when the autoscale pool was created.
   final String createdAt;
+
   /// A time value given in ISO8601 combined date and time format that represents when the autoscale pool was last updated.
   final String updatedAt;
+
   /// The current status of the autoscale pool.
   final AutoscalePoolStatus status;
+
   /// The number of active Droplets in the autoscale pool.
   final int activeResourcesCount;
 
-  const AutoscalePool({required this.id, required this.name, required this.config, required this.dropletTemplate, this.currentUtilization = const SdkOmitted(), required this.createdAt, required this.updatedAt, required this.status, required this.activeResourcesCount});
+  const AutoscalePool(
+      {required this.id,
+      required this.name,
+      required this.config,
+      required this.dropletTemplate,
+      this.currentUtilization = const SdkOmitted(),
+      required this.createdAt,
+      required this.updatedAt,
+      required this.status,
+      required this.activeResourcesCount});
 
-  AutoscalePool Function({String id, String name, AutoscalePoolConfig config, AutoscalePoolDropletTemplate dropletTemplate, SdkOptional<CurrentUtilization> currentUtilization, String createdAt, String updatedAt, AutoscalePoolStatus status, int activeResourcesCount}) get copyWith => _copyWith;
+  AutoscalePool Function(
+      {String id,
+      String name,
+      AutoscalePoolConfig config,
+      AutoscalePoolDropletTemplate dropletTemplate,
+      SdkOptional<CurrentUtilization> currentUtilization,
+      String createdAt,
+      String updatedAt,
+      AutoscalePoolStatus status,
+      int activeResourcesCount}) get copyWith => _copyWith;
 
-  AutoscalePool _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? config = sdkOmittedValue, Object? dropletTemplate = sdkOmittedValue, Object? currentUtilization = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? status = sdkOmittedValue, Object? activeResourcesCount = sdkOmittedValue}) => AutoscalePool(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    config: identical(config, sdkOmittedValue) ? this.config : config as AutoscalePoolConfig,
-    dropletTemplate: identical(dropletTemplate, sdkOmittedValue) ? this.dropletTemplate : dropletTemplate as AutoscalePoolDropletTemplate,
-    currentUtilization: identical(currentUtilization, sdkOmittedValue) ? this.currentUtilization : currentUtilization as SdkOptional<CurrentUtilization>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as AutoscalePoolStatus,
-    activeResourcesCount: identical(activeResourcesCount, sdkOmittedValue) ? this.activeResourcesCount : activeResourcesCount as int,
-  );
+  AutoscalePool _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? config = sdkOmittedValue,
+          Object? dropletTemplate = sdkOmittedValue,
+          Object? currentUtilization = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? activeResourcesCount = sdkOmittedValue}) =>
+      AutoscalePool(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        config: identical(config, sdkOmittedValue)
+            ? this.config
+            : config as AutoscalePoolConfig,
+        dropletTemplate: identical(dropletTemplate, sdkOmittedValue)
+            ? this.dropletTemplate
+            : dropletTemplate as AutoscalePoolDropletTemplate,
+        currentUtilization: identical(currentUtilization, sdkOmittedValue)
+            ? this.currentUtilization
+            : currentUtilization as SdkOptional<CurrentUtilization>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as AutoscalePoolStatus,
+        activeResourcesCount: identical(activeResourcesCount, sdkOmittedValue)
+            ? this.activeResourcesCount
+            : activeResourcesCount as int,
+      );
 
   factory AutoscalePool.fromJson(Map<String, dynamic> json) => AutoscalePool(
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    config: (json['config'] != null ? AutoscalePoolConfig.fromJson(json['config']) : null)!,
-    dropletTemplate: (json['droplet_template'] != null ? AutoscalePoolDropletTemplate.fromJson(json['droplet_template'] as Map<String, dynamic>) : null)!,
-    currentUtilization: json['current_utilization'] != null ? SdkPresent((json['current_utilization'] != null ? CurrentUtilization.fromJson(json['current_utilization'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdAt: (json['created_at'] as String?)!,
-    updatedAt: (json['updated_at'] as String?)!,
-    status: (json['status'] != null ? AutoscalePoolStatus.fromJson(json['status'] as String) : null)!,
-    activeResourcesCount: ((json['active_resources_count'] as num?)?.toInt())!,
-  );
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        config: (json['config'] != null
+            ? AutoscalePoolConfig.fromJson(json['config'])
+            : null)!,
+        dropletTemplate: (json['droplet_template'] != null
+            ? AutoscalePoolDropletTemplate.fromJson(
+                json['droplet_template'] as Map<String, dynamic>)
+            : null)!,
+        currentUtilization: json['current_utilization'] != null
+            ? SdkPresent((json['current_utilization'] != null
+                ? CurrentUtilization.fromJson(
+                    json['current_utilization'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: (json['created_at'] as String?)!,
+        updatedAt: (json['updated_at'] as String?)!,
+        status: (json['status'] != null
+            ? AutoscalePoolStatus.fromJson(json['status'] as String)
+            : null)!,
+        activeResourcesCount:
+            ((json['active_resources_count'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'name': name,
-    'config': config.toJson(),
-    'droplet_template': dropletTemplate.toJson(),
-    ...switch (currentUtilization) {
-      SdkPresent<CurrentUtilization>(value: final value) => {'current_utilization': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-    'status': status.toJson(),
-    'active_resources_count': activeResourcesCount,
-  };
+        'id': id,
+        'name': name,
+        'config': config.toJson(),
+        'droplet_template': dropletTemplate.toJson(),
+        ...switch (currentUtilization) {
+          SdkPresent<CurrentUtilization>(value: final value) => {
+              'current_utilization': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+        'status': status.toJson(),
+        'active_resources_count': activeResourcesCount,
+      };
 }
 
 sealed class AutoscalePoolConfig {
@@ -205,60 +360,103 @@ sealed class AutoscalePoolConfig {
   const AutoscalePoolConfig();
   factory AutoscalePoolConfig.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = AutoscalePoolStaticConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AutoscalePoolConfigAutoscalePoolStaticConfig(value); } } catch (_) {}
-      try { final value = AutoscalePoolDynamicConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AutoscalePoolConfigAutoscalePoolDynamicConfig(value); } } catch (_) {}
+      try {
+        final value = AutoscalePoolStaticConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AutoscalePoolConfigAutoscalePoolStaticConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AutoscalePoolDynamicConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AutoscalePoolConfigAutoscalePoolDynamicConfig(value);
+        }
+      } catch (_) {}
     }
-    try { return AutoscalePoolConfigAutoscalePoolStaticConfig(AutoscalePoolStaticConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AutoscalePoolConfigAutoscalePoolDynamicConfig(AutoscalePoolDynamicConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return AutoscalePoolConfigAutoscalePoolStaticConfig(
+          AutoscalePoolStaticConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AutoscalePoolConfigAutoscalePoolDynamicConfig(
+          AutoscalePoolDynamicConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for AutoscalePoolConfig");
   }
   Object? toJson();
 }
 
-final class AutoscalePoolConfigAutoscalePoolStaticConfig extends AutoscalePoolConfig {
+final class AutoscalePoolConfigAutoscalePoolStaticConfig
+    extends AutoscalePoolConfig {
   final AutoscalePoolStaticConfig value;
   const AutoscalePoolConfigAutoscalePoolStaticConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AutoscalePoolConfigAutoscalePoolDynamicConfig extends AutoscalePoolConfig {
+final class AutoscalePoolConfigAutoscalePoolDynamicConfig
+    extends AutoscalePoolConfig {
   final AutoscalePoolDynamicConfig value;
   const AutoscalePoolConfigAutoscalePoolDynamicConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `AutoscalePoolCreate` API schema.
 class AutoscalePoolCreate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The human-readable name of the autoscale pool. This field cannot be updated
   final String name;
+
   /// The scaling configuration for an autoscale pool, which is how the pool scales up and down (either by resource utilization or static configuration).
   final AutoscalePoolCreateConfig config;
+
   /// Required object value serialized in the `droplet_template` wire field.
   final AutoscalePoolDropletTemplate dropletTemplate;
 
-  const AutoscalePoolCreate({required this.name, required this.config, required this.dropletTemplate});
+  const AutoscalePoolCreate(
+      {required this.name,
+      required this.config,
+      required this.dropletTemplate});
 
-  AutoscalePoolCreate Function({String name, AutoscalePoolCreateConfig config, AutoscalePoolDropletTemplate dropletTemplate}) get copyWith => _copyWith;
+  AutoscalePoolCreate Function(
+      {String name,
+      AutoscalePoolCreateConfig config,
+      AutoscalePoolDropletTemplate dropletTemplate}) get copyWith => _copyWith;
 
-  AutoscalePoolCreate _copyWith({Object? name = sdkOmittedValue, Object? config = sdkOmittedValue, Object? dropletTemplate = sdkOmittedValue}) => AutoscalePoolCreate(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    config: identical(config, sdkOmittedValue) ? this.config : config as AutoscalePoolCreateConfig,
-    dropletTemplate: identical(dropletTemplate, sdkOmittedValue) ? this.dropletTemplate : dropletTemplate as AutoscalePoolDropletTemplate,
-  );
+  AutoscalePoolCreate _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? config = sdkOmittedValue,
+          Object? dropletTemplate = sdkOmittedValue}) =>
+      AutoscalePoolCreate(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        config: identical(config, sdkOmittedValue)
+            ? this.config
+            : config as AutoscalePoolCreateConfig,
+        dropletTemplate: identical(dropletTemplate, sdkOmittedValue)
+            ? this.dropletTemplate
+            : dropletTemplate as AutoscalePoolDropletTemplate,
+      );
 
-  factory AutoscalePoolCreate.fromJson(Map<String, dynamic> json) => AutoscalePoolCreate(
-    name: (json['name'] as String?)!,
-    config: (json['config'] != null ? AutoscalePoolCreateConfig.fromJson(json['config']) : null)!,
-    dropletTemplate: (json['droplet_template'] != null ? AutoscalePoolDropletTemplate.fromJson(json['droplet_template'] as Map<String, dynamic>) : null)!,
-  );
+  factory AutoscalePoolCreate.fromJson(Map<String, dynamic> json) =>
+      AutoscalePoolCreate(
+        name: (json['name'] as String?)!,
+        config: (json['config'] != null
+            ? AutoscalePoolCreateConfig.fromJson(json['config'])
+            : null)!,
+        dropletTemplate: (json['droplet_template'] != null
+            ? AutoscalePoolDropletTemplate.fromJson(
+                json['droplet_template'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'config': config.toJson(),
-    'droplet_template': dropletTemplate.toJson(),
-  };
+        'name': name,
+        'config': config.toJson(),
+        'droplet_template': dropletTemplate.toJson(),
+      };
 }
 
 sealed class AutoscalePoolCreateConfig {
@@ -267,24 +465,44 @@ sealed class AutoscalePoolCreateConfig {
   const AutoscalePoolCreateConfig();
   factory AutoscalePoolCreateConfig.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = AutoscalePoolStaticConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AutoscalePoolCreateConfigAutoscalePoolStaticConfig(value); } } catch (_) {}
-      try { final value = AutoscalePoolDynamicConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AutoscalePoolCreateConfigAutoscalePoolDynamicConfig(value); } } catch (_) {}
+      try {
+        final value = AutoscalePoolStaticConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AutoscalePoolCreateConfigAutoscalePoolStaticConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AutoscalePoolDynamicConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AutoscalePoolCreateConfigAutoscalePoolDynamicConfig(value);
+        }
+      } catch (_) {}
     }
-    try { return AutoscalePoolCreateConfigAutoscalePoolStaticConfig(AutoscalePoolStaticConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AutoscalePoolCreateConfigAutoscalePoolDynamicConfig(AutoscalePoolDynamicConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return AutoscalePoolCreateConfigAutoscalePoolStaticConfig(
+          AutoscalePoolStaticConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AutoscalePoolCreateConfigAutoscalePoolDynamicConfig(
+          AutoscalePoolDynamicConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for AutoscalePoolCreateConfig");
   }
   Object? toJson();
 }
 
-final class AutoscalePoolCreateConfigAutoscalePoolStaticConfig extends AutoscalePoolCreateConfig {
+final class AutoscalePoolCreateConfigAutoscalePoolStaticConfig
+    extends AutoscalePoolCreateConfig {
   final AutoscalePoolStaticConfig value;
   const AutoscalePoolCreateConfigAutoscalePoolStaticConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AutoscalePoolCreateConfigAutoscalePoolDynamicConfig extends AutoscalePoolCreateConfig {
+final class AutoscalePoolCreateConfigAutoscalePoolDynamicConfig
+    extends AutoscalePoolCreateConfig {
   final AutoscalePoolDynamicConfig value;
   const AutoscalePoolCreateConfigAutoscalePoolDynamicConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

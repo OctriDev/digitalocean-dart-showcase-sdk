@@ -10,6 +10,7 @@ part of 'databases.dart';
 class Version2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A string representing the version of the database engine in use for the cluster.
   final SdkOptional<String> version;
 
@@ -18,17 +19,23 @@ class Version2 {
   Version2 Function({SdkOptional<String> version}) get copyWith => _copyWith;
 
   Version2 _copyWith({Object? version = sdkOmittedValue}) => Version2(
-    version: identical(version, sdkOmittedValue) ? this.version : version as SdkOptional<String>,
-  );
+        version: identical(version, sdkOmittedValue)
+            ? this.version
+            : version as SdkOptional<String>,
+      );
 
   factory Version2.fromJson(Map<String, dynamic> json) => Version2(
-    version: json['version'] != null ? SdkPresent((json['version'] as String?)!) : const SdkOmitted(),
-  );
+        version: json['version'] != null
+            ? SdkPresent((json['version'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (version) {
-      SdkPresent<String>(value: final value) => {'version': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (version) {
+          SdkPresent<String>(value: final value) => {
+              'version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,151 +8,268 @@ part of 'signals.dart';
 class ListSessionsResponseResponsePageInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether there are more results after this page.
   final SdkOptional<bool> hasNextPage;
 
-  const ListSessionsResponseResponsePageInfo({this.hasNextPage = const SdkOmitted()});
+  const ListSessionsResponseResponsePageInfo(
+      {this.hasNextPage = const SdkOmitted()});
 
-  ListSessionsResponseResponsePageInfo Function({SdkOptional<bool> hasNextPage}) get copyWith => _copyWith;
+  ListSessionsResponseResponsePageInfo Function({SdkOptional<bool> hasNextPage})
+      get copyWith => _copyWith;
 
-  ListSessionsResponseResponsePageInfo _copyWith({Object? hasNextPage = sdkOmittedValue}) => ListSessionsResponseResponsePageInfo(
-    hasNextPage: identical(hasNextPage, sdkOmittedValue) ? this.hasNextPage : hasNextPage as SdkOptional<bool>,
-  );
+  ListSessionsResponseResponsePageInfo _copyWith(
+          {Object? hasNextPage = sdkOmittedValue}) =>
+      ListSessionsResponseResponsePageInfo(
+        hasNextPage: identical(hasNextPage, sdkOmittedValue)
+            ? this.hasNextPage
+            : hasNextPage as SdkOptional<bool>,
+      );
 
-  factory ListSessionsResponseResponsePageInfo.fromJson(Map<String, dynamic> json) => ListSessionsResponseResponsePageInfo(
-    hasNextPage: json['has_next_page'] != null ? SdkPresent((json['has_next_page'] as bool?)!) : const SdkOmitted(),
-  );
+  factory ListSessionsResponseResponsePageInfo.fromJson(
+          Map<String, dynamic> json) =>
+      ListSessionsResponseResponsePageInfo(
+        hasNextPage: json['has_next_page'] != null
+            ? SdkPresent((json['has_next_page'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (hasNextPage) {
-      SdkPresent<bool>(value: final value) => {'has_next_page': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (hasNextPage) {
+          SdkPresent<bool>(value: final value) => {
+              'has_next_page': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `edges[]` wire field.
 class ListSessionsResponseResponseEdgesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An opaque cursor for pagination.
   final SdkOptional<String> cursor;
+
   /// A session represents a conversation monitored by Signals, such as a Harness Runtime environment session or a Serverless Inference chat completion.
   final SdkOptional<Session2> node;
 
-  const ListSessionsResponseResponseEdgesItem({this.cursor = const SdkOmitted(), this.node = const SdkOmitted()});
+  const ListSessionsResponseResponseEdgesItem(
+      {this.cursor = const SdkOmitted(), this.node = const SdkOmitted()});
 
-  ListSessionsResponseResponseEdgesItem Function({SdkOptional<String> cursor, SdkOptional<Session2> node}) get copyWith => _copyWith;
+  ListSessionsResponseResponseEdgesItem Function(
+      {SdkOptional<String> cursor,
+      SdkOptional<Session2> node}) get copyWith => _copyWith;
 
-  ListSessionsResponseResponseEdgesItem _copyWith({Object? cursor = sdkOmittedValue, Object? node = sdkOmittedValue}) => ListSessionsResponseResponseEdgesItem(
-    cursor: identical(cursor, sdkOmittedValue) ? this.cursor : cursor as SdkOptional<String>,
-    node: identical(node, sdkOmittedValue) ? this.node : node as SdkOptional<Session2>,
-  );
+  ListSessionsResponseResponseEdgesItem _copyWith(
+          {Object? cursor = sdkOmittedValue, Object? node = sdkOmittedValue}) =>
+      ListSessionsResponseResponseEdgesItem(
+        cursor: identical(cursor, sdkOmittedValue)
+            ? this.cursor
+            : cursor as SdkOptional<String>,
+        node: identical(node, sdkOmittedValue)
+            ? this.node
+            : node as SdkOptional<Session2>,
+      );
 
-  factory ListSessionsResponseResponseEdgesItem.fromJson(Map<String, dynamic> json) => ListSessionsResponseResponseEdgesItem(
-    cursor: json['cursor'] != null ? SdkPresent((json['cursor'] as String?)!) : const SdkOmitted(),
-    node: json['node'] != null ? SdkPresent((json['node'] != null ? Session2.fromJson(json['node'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ListSessionsResponseResponseEdgesItem.fromJson(
+          Map<String, dynamic> json) =>
+      ListSessionsResponseResponseEdgesItem(
+        cursor: json['cursor'] != null
+            ? SdkPresent((json['cursor'] as String?)!)
+            : const SdkOmitted(),
+        node: json['node'] != null
+            ? SdkPresent((json['node'] != null
+                ? Session2.fromJson(json['node'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (cursor) {
-      SdkPresent<String>(value: final value) => {'cursor': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (node) {
-      SdkPresent<Session2>(value: final value) => {'node': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (cursor) {
+          SdkPresent<String>(value: final value) => {
+              'cursor': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (node) {
+          SdkPresent<Session2>(value: final value) => {
+              'node': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ListSessionsResponseResponse` API schema.
 class ListSessionsResponseResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `edges` wire field.
   final SdkOptional<List<ListSessionsResponseResponseEdgesItem>> edges;
+
   /// Optional object value serialized in the `page_info` wire field.
   final SdkOptional<ListSessionsResponseResponsePageInfo> pageInfo;
 
-  const ListSessionsResponseResponse({this.edges = const SdkOmitted(), this.pageInfo = const SdkOmitted()});
+  const ListSessionsResponseResponse(
+      {this.edges = const SdkOmitted(), this.pageInfo = const SdkOmitted()});
 
-  ListSessionsResponseResponse Function({SdkOptional<List<ListSessionsResponseResponseEdgesItem>> edges, SdkOptional<ListSessionsResponseResponsePageInfo> pageInfo}) get copyWith => _copyWith;
+  ListSessionsResponseResponse Function(
+          {SdkOptional<List<ListSessionsResponseResponseEdgesItem>> edges,
+          SdkOptional<ListSessionsResponseResponsePageInfo> pageInfo})
+      get copyWith => _copyWith;
 
-  ListSessionsResponseResponse _copyWith({Object? edges = sdkOmittedValue, Object? pageInfo = sdkOmittedValue}) => ListSessionsResponseResponse(
-    edges: identical(edges, sdkOmittedValue) ? this.edges : edges as SdkOptional<List<ListSessionsResponseResponseEdgesItem>>,
-    pageInfo: identical(pageInfo, sdkOmittedValue) ? this.pageInfo : pageInfo as SdkOptional<ListSessionsResponseResponsePageInfo>,
-  );
+  ListSessionsResponseResponse _copyWith(
+          {Object? edges = sdkOmittedValue,
+          Object? pageInfo = sdkOmittedValue}) =>
+      ListSessionsResponseResponse(
+        edges: identical(edges, sdkOmittedValue)
+            ? this.edges
+            : edges as SdkOptional<List<ListSessionsResponseResponseEdgesItem>>,
+        pageInfo: identical(pageInfo, sdkOmittedValue)
+            ? this.pageInfo
+            : pageInfo as SdkOptional<ListSessionsResponseResponsePageInfo>,
+      );
 
-  factory ListSessionsResponseResponse.fromJson(Map<String, dynamic> json) => ListSessionsResponseResponse(
-    edges: json['edges'] != null ? SdkPresent(((json['edges'] as List?)?.map((e) => ListSessionsResponseResponseEdgesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    pageInfo: json['page_info'] != null ? SdkPresent((json['page_info'] != null ? ListSessionsResponseResponsePageInfo.fromJson(json['page_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ListSessionsResponseResponse.fromJson(Map<String, dynamic> json) =>
+      ListSessionsResponseResponse(
+        edges: json['edges'] != null
+            ? SdkPresent(((json['edges'] as List?)
+                ?.map((e) => ListSessionsResponseResponseEdgesItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        pageInfo: json['page_info'] != null
+            ? SdkPresent((json['page_info'] != null
+                ? ListSessionsResponseResponsePageInfo.fromJson(
+                    json['page_info'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (edges) {
-      SdkPresent<List<ListSessionsResponseResponseEdgesItem>>(value: final value) => {'edges': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pageInfo) {
-      SdkPresent<ListSessionsResponseResponsePageInfo>(value: final value) => {'page_info': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (edges) {
+          SdkPresent<List<ListSessionsResponseResponseEdgesItem>>(
+            value: final value
+          ) =>
+            {
+              'edges': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pageInfo) {
+          SdkPresent<ListSessionsResponseResponsePageInfo>(
+            value: final value
+          ) =>
+            {
+              'page_info': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// A session represents a conversation monitored by Signals, such as a Harness Runtime environment session or a Serverless Inference chat completion.
 class Session2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the session.
   final String sessionId;
+
   /// The total number of conversation turns in this session.
   final SdkOptional<int> totalTurns;
+
   /// When the session started.
   final SdkOptional<String> startedAt;
+
   /// The duration of the session in seconds.
   final SdkOptional<double> durationSeconds;
+
   /// The number of signals detected in this session.
   final SdkOptional<int> signalCount;
 
-  const Session2({required this.sessionId, this.totalTurns = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.durationSeconds = const SdkOmitted(), this.signalCount = const SdkOmitted()});
+  const Session2(
+      {required this.sessionId,
+      this.totalTurns = const SdkOmitted(),
+      this.startedAt = const SdkOmitted(),
+      this.durationSeconds = const SdkOmitted(),
+      this.signalCount = const SdkOmitted()});
 
-  Session2 Function({String sessionId, SdkOptional<int> totalTurns, SdkOptional<String> startedAt, SdkOptional<double> durationSeconds, SdkOptional<int> signalCount}) get copyWith => _copyWith;
+  Session2 Function(
+      {String sessionId,
+      SdkOptional<int> totalTurns,
+      SdkOptional<String> startedAt,
+      SdkOptional<double> durationSeconds,
+      SdkOptional<int> signalCount}) get copyWith => _copyWith;
 
-  Session2 _copyWith({Object? sessionId = sdkOmittedValue, Object? totalTurns = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? durationSeconds = sdkOmittedValue, Object? signalCount = sdkOmittedValue}) => Session2(
-    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as String,
-    totalTurns: identical(totalTurns, sdkOmittedValue) ? this.totalTurns : totalTurns as SdkOptional<int>,
-    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String>,
-    durationSeconds: identical(durationSeconds, sdkOmittedValue) ? this.durationSeconds : durationSeconds as SdkOptional<double>,
-    signalCount: identical(signalCount, sdkOmittedValue) ? this.signalCount : signalCount as SdkOptional<int>,
-  );
+  Session2 _copyWith(
+          {Object? sessionId = sdkOmittedValue,
+          Object? totalTurns = sdkOmittedValue,
+          Object? startedAt = sdkOmittedValue,
+          Object? durationSeconds = sdkOmittedValue,
+          Object? signalCount = sdkOmittedValue}) =>
+      Session2(
+        sessionId: identical(sessionId, sdkOmittedValue)
+            ? this.sessionId
+            : sessionId as String,
+        totalTurns: identical(totalTurns, sdkOmittedValue)
+            ? this.totalTurns
+            : totalTurns as SdkOptional<int>,
+        startedAt: identical(startedAt, sdkOmittedValue)
+            ? this.startedAt
+            : startedAt as SdkOptional<String>,
+        durationSeconds: identical(durationSeconds, sdkOmittedValue)
+            ? this.durationSeconds
+            : durationSeconds as SdkOptional<double>,
+        signalCount: identical(signalCount, sdkOmittedValue)
+            ? this.signalCount
+            : signalCount as SdkOptional<int>,
+      );
 
   factory Session2.fromJson(Map<String, dynamic> json) => Session2(
-    sessionId: (json['session_id'] as String?)!,
-    totalTurns: json['total_turns'] != null ? SdkPresent(((json['total_turns'] as num?)?.toInt())!) : const SdkOmitted(),
-    startedAt: json['started_at'] != null ? SdkPresent((json['started_at'] as String?)!) : const SdkOmitted(),
-    durationSeconds: json['duration_seconds'] != null ? SdkPresent(((json['duration_seconds'] as num?)?.toDouble())!) : const SdkOmitted(),
-    signalCount: json['signal_count'] != null ? SdkPresent(((json['signal_count'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+        sessionId: (json['session_id'] as String?)!,
+        totalTurns: json['total_turns'] != null
+            ? SdkPresent(((json['total_turns'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        startedAt: json['started_at'] != null
+            ? SdkPresent((json['started_at'] as String?)!)
+            : const SdkOmitted(),
+        durationSeconds: json['duration_seconds'] != null
+            ? SdkPresent(((json['duration_seconds'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        signalCount: json['signal_count'] != null
+            ? SdkPresent(((json['signal_count'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'session_id': sessionId,
-    ...switch (totalTurns) {
-      SdkPresent<int>(value: final value) => {'total_turns': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (startedAt) {
-      SdkPresent<String>(value: final value) => {'started_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (durationSeconds) {
-      SdkPresent<double>(value: final value) => {'duration_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (signalCount) {
-      SdkPresent<int>(value: final value) => {'signal_count': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'session_id': sessionId,
+        ...switch (totalTurns) {
+          SdkPresent<int>(value: final value) => {
+              'total_turns': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (startedAt) {
+          SdkPresent<String>(value: final value) => {
+              'started_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (durationSeconds) {
+          SdkPresent<double>(value: final value) => {
+              'duration_seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (signalCount) {
+          SdkPresent<int>(value: final value) => {
+              'signal_count': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

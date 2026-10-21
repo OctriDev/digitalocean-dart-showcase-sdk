@@ -8,25 +8,40 @@ part of 'databases_database.dart';
 class DatabaseMetricsCredentials {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `credentials` wire field.
   final SdkOptional<DatabasesBasicAuthCredentials> credentials;
 
   const DatabaseMetricsCredentials({this.credentials = const SdkOmitted()});
 
-  DatabaseMetricsCredentials Function({SdkOptional<DatabasesBasicAuthCredentials> credentials}) get copyWith => _copyWith;
+  DatabaseMetricsCredentials Function(
+          {SdkOptional<DatabasesBasicAuthCredentials> credentials})
+      get copyWith => _copyWith;
 
-  DatabaseMetricsCredentials _copyWith({Object? credentials = sdkOmittedValue}) => DatabaseMetricsCredentials(
-    credentials: identical(credentials, sdkOmittedValue) ? this.credentials : credentials as SdkOptional<DatabasesBasicAuthCredentials>,
-  );
+  DatabaseMetricsCredentials _copyWith(
+          {Object? credentials = sdkOmittedValue}) =>
+      DatabaseMetricsCredentials(
+        credentials: identical(credentials, sdkOmittedValue)
+            ? this.credentials
+            : credentials as SdkOptional<DatabasesBasicAuthCredentials>,
+      );
 
-  factory DatabaseMetricsCredentials.fromJson(Map<String, dynamic> json) => DatabaseMetricsCredentials(
-    credentials: json['credentials'] != null ? SdkPresent((json['credentials'] != null ? DatabasesBasicAuthCredentials.fromJson(json['credentials'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DatabaseMetricsCredentials.fromJson(Map<String, dynamic> json) =>
+      DatabaseMetricsCredentials(
+        credentials: json['credentials'] != null
+            ? SdkPresent((json['credentials'] != null
+                ? DatabasesBasicAuthCredentials.fromJson(
+                    json['credentials'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (credentials) {
-      SdkPresent<DatabasesBasicAuthCredentials>(value: final value) => {'credentials': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (credentials) {
+          SdkPresent<DatabasesBasicAuthCredentials>(value: final value) => {
+              'credentials': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

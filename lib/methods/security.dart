@@ -25,17 +25,24 @@ Future<Scans> securityListScans(ClientConfig config,
   return (await sdkRequest<Scans>('GET', '/v2/security/scans',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'securityListScans',
           fromJsonRaw: (value) => Scans.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To create a CSPM scan, send a POST request to `/v2/security/scans`.
 Future<ScanResponse> securityCreateScan(ClientConfig config,
@@ -44,12 +51,19 @@ Future<ScanResponse> securityCreateScan(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'securityCreateScan',
-          fromJsonRaw: (value) => ScanResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ScanResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To get a CSPM scan by ID, send a GET request to `/v2/security/scans/{scan_id}`.
 ///
@@ -77,19 +91,29 @@ Future<ScanResponse> securityGetScan(ClientConfig config,
           'GET', '/v2/security/scans/${Uri.encodeComponent(scanId.toString())}',
           config: config,
           query: {
-            'severity': SdkQueryValue(SdkUtils.unwrapOptional(severity), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_), style: 'form', explode: true)
+            'severity': SdkQueryValue(SdkUtils.unwrapOptional(severity),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'securityGetScan',
-          fromJsonRaw: (value) => ScanResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ScanResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To get the latest CSPM scan, send a GET request to `/v2/security/scans/latest`.
 ///
@@ -113,19 +137,29 @@ Future<ScanResponse> securityGetLatestScan(ClientConfig config,
   return (await sdkRequest<ScanResponse>('GET', '/v2/security/scans/latest',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'severity': SdkQueryValue(SdkUtils.unwrapOptional(severity), style: 'form', explode: true),
-            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'severity': SdkQueryValue(SdkUtils.unwrapOptional(severity),
+                style: 'form', explode: true),
+            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'securityGetLatestScan',
-          fromJsonRaw: (value) => ScanResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ScanResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To mark a scan finding as a false positive, send a POST request to `/v2/security/scans/rules` to create a new scan rule.
 ///
@@ -139,10 +173,16 @@ Future<void> securityCreateScanRule(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'securityCreateScanRule',
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To get affected resources for a scan finding, send a GET request to `/v2/security/scans/{scan_id}/findings/{finding_uuid}/affected_resources`.
 ///
@@ -150,13 +190,13 @@ Future<void> securityCreateScanRule(ClientConfig config,
 /// [findingUuid] The finding UUID.
 /// [perPage] Number of items returned per page
 /// [page] Which 'page' of paginated results to return.
-Future<AffectedResources>
-    securityListScanFindingAffectedResources(ClientConfig config,
-        {required String scanId,
-        required String findingUuid,
-        SdkOptional<int> perPage = const SdkOmitted(),
-        SdkOptional<int> page = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<AffectedResources> securityListScanFindingAffectedResources(
+    ClientConfig config,
+    {required String scanId,
+    required String findingUuid,
+    SdkOptional<int> perPage = const SdkOmitted(),
+    SdkOptional<int> page = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   sdkValidateUuid('scan_id', scanId);
   sdkValidateUuid('finding_uuid', findingUuid);
   if (perPage is SdkPresent<int>) {
@@ -170,17 +210,25 @@ Future<AffectedResources>
           '/v2/security/scans/${Uri.encodeComponent(scanId.toString())}/findings/${Uri.encodeComponent(findingUuid.toString())}/affected_resources',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'securityListScanFindingAffectedResources',
-          fromJsonRaw: (value) => AffectedResources.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AffectedResources.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To list CSPM scan settings, send a GET request to `/v2/security/settings`.
 ///
@@ -200,35 +248,52 @@ Future<Settings> securityListSettings(ClientConfig config,
   return (await sdkRequest<Settings>('GET', '/v2/security/settings',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'securityListSettings',
-          fromJsonRaw: (value) => Settings.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Settings.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To update CSPM plan coverage, send a PUT request to `/v2/security/settings/plan`.
 ///
 /// [tierCoverage] Scan coverage for each available plan tier.
 Future<TierCoverage> securityUpdateSettingsPlan(ClientConfig config,
-    {SdkOptional<Map<String, SecurityUpdateSettingsPlanRequestBodyTierCoverageValue>> tierCoverage = const SdkOmitted(),
+    {SdkOptional<
+            Map<String, SecurityUpdateSettingsPlanRequestBodyTierCoverageValue>>
+        tierCoverage = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<TierCoverage>('PUT', '/v2/security/settings/plan',
           config: config,
           body: {'tier_coverage': SdkUtils.unwrapOptional(tierCoverage)},
           decoder: SdkResponseDecoder.json,
           operationId: 'securityUpdateSettingsPlan',
-          fromJsonRaw: (value) => TierCoverage.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              TierCoverage.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To suppress scan findings, send a POST request to `/v2/security/settings/suppressions`.
 ///
@@ -247,12 +312,19 @@ Future<SuppressedResourceRoot> securityCreateSuppression(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'securityCreateSuppression',
-          fromJsonRaw: (value) => SuppressedResourceRoot.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SuppressedResourceRoot.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To remove a suppression, send a DELETE request to `/v2/security/settings/suppressions/{suppression_uuid}`.
 ///
@@ -267,6 +339,12 @@ Future<void> securityDeleteSuppression(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'securityDeleteSuppression',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

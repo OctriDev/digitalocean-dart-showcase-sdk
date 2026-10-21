@@ -9,24 +9,38 @@ class DropletsCreateResponseVariant0Links {
   static const String constructionSurface = 'named';
   final SdkOptional<List<ActionLink>> actions;
 
-  const DropletsCreateResponseVariant0Links({this.actions = const SdkOmitted()});
+  const DropletsCreateResponseVariant0Links(
+      {this.actions = const SdkOmitted()});
 
-  DropletsCreateResponseVariant0Links Function({SdkOptional<List<ActionLink>> actions}) get copyWith => _copyWith;
+  DropletsCreateResponseVariant0Links Function(
+      {SdkOptional<List<ActionLink>> actions}) get copyWith => _copyWith;
 
-  DropletsCreateResponseVariant0Links _copyWith({Object? actions = sdkOmittedValue}) => DropletsCreateResponseVariant0Links(
-    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<ActionLink>>,
-  );
+  DropletsCreateResponseVariant0Links _copyWith(
+          {Object? actions = sdkOmittedValue}) =>
+      DropletsCreateResponseVariant0Links(
+        actions: identical(actions, sdkOmittedValue)
+            ? this.actions
+            : actions as SdkOptional<List<ActionLink>>,
+      );
 
-  factory DropletsCreateResponseVariant0Links.fromJson(Map<String, dynamic> json) => DropletsCreateResponseVariant0Links(
-    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => ActionLink.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory DropletsCreateResponseVariant0Links.fromJson(
+          Map<String, dynamic> json) =>
+      DropletsCreateResponseVariant0Links(
+        actions: json['actions'] != null
+            ? SdkPresent(((json['actions'] as List?)
+                ?.map((e) => ActionLink.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (actions) {
-      SdkPresent<List<ActionLink>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (actions) {
+          SdkPresent<List<ActionLink>>(value: final value) => {
+              'actions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DropletsCreateResponseVariant0 {
@@ -35,24 +49,40 @@ class DropletsCreateResponseVariant0 {
   final Droplet droplet;
   final DropletsCreateResponseVariant0Links links;
 
-  const DropletsCreateResponseVariant0({required this.droplet, required this.links});
+  const DropletsCreateResponseVariant0(
+      {required this.droplet, required this.links});
 
-  DropletsCreateResponseVariant0 Function({Droplet droplet, DropletsCreateResponseVariant0Links links}) get copyWith => _copyWith;
+  DropletsCreateResponseVariant0 Function(
+      {Droplet droplet,
+      DropletsCreateResponseVariant0Links links}) get copyWith => _copyWith;
 
-  DropletsCreateResponseVariant0 _copyWith({Object? droplet = sdkOmittedValue, Object? links = sdkOmittedValue}) => DropletsCreateResponseVariant0(
-    droplet: identical(droplet, sdkOmittedValue) ? this.droplet : droplet as Droplet,
-    links: identical(links, sdkOmittedValue) ? this.links : links as DropletsCreateResponseVariant0Links,
-  );
+  DropletsCreateResponseVariant0 _copyWith(
+          {Object? droplet = sdkOmittedValue,
+          Object? links = sdkOmittedValue}) =>
+      DropletsCreateResponseVariant0(
+        droplet: identical(droplet, sdkOmittedValue)
+            ? this.droplet
+            : droplet as Droplet,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as DropletsCreateResponseVariant0Links,
+      );
 
-  factory DropletsCreateResponseVariant0.fromJson(Map<String, dynamic> json) => DropletsCreateResponseVariant0(
-    droplet: (json['droplet'] != null ? Droplet.fromJson(json['droplet'] as Map<String, dynamic>) : null)!,
-    links: (json['links'] != null ? DropletsCreateResponseVariant0Links.fromJson(json['links'] as Map<String, dynamic>) : null)!,
-  );
+  factory DropletsCreateResponseVariant0.fromJson(Map<String, dynamic> json) =>
+      DropletsCreateResponseVariant0(
+        droplet: (json['droplet'] != null
+            ? Droplet.fromJson(json['droplet'] as Map<String, dynamic>)
+            : null)!,
+        links: (json['links'] != null
+            ? DropletsCreateResponseVariant0Links.fromJson(
+                json['links'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'droplet': droplet.toJson(),
-    'links': links.toJson(),
-  };
+        'droplet': droplet.toJson(),
+        'links': links.toJson(),
+      };
 }
 
 class DropletsCreateResponseVariant1Links {
@@ -60,24 +90,38 @@ class DropletsCreateResponseVariant1Links {
   static const String constructionSurface = 'named';
   final SdkOptional<List<ActionLink>> actions;
 
-  const DropletsCreateResponseVariant1Links({this.actions = const SdkOmitted()});
+  const DropletsCreateResponseVariant1Links(
+      {this.actions = const SdkOmitted()});
 
-  DropletsCreateResponseVariant1Links Function({SdkOptional<List<ActionLink>> actions}) get copyWith => _copyWith;
+  DropletsCreateResponseVariant1Links Function(
+      {SdkOptional<List<ActionLink>> actions}) get copyWith => _copyWith;
 
-  DropletsCreateResponseVariant1Links _copyWith({Object? actions = sdkOmittedValue}) => DropletsCreateResponseVariant1Links(
-    actions: identical(actions, sdkOmittedValue) ? this.actions : actions as SdkOptional<List<ActionLink>>,
-  );
+  DropletsCreateResponseVariant1Links _copyWith(
+          {Object? actions = sdkOmittedValue}) =>
+      DropletsCreateResponseVariant1Links(
+        actions: identical(actions, sdkOmittedValue)
+            ? this.actions
+            : actions as SdkOptional<List<ActionLink>>,
+      );
 
-  factory DropletsCreateResponseVariant1Links.fromJson(Map<String, dynamic> json) => DropletsCreateResponseVariant1Links(
-    actions: json['actions'] != null ? SdkPresent(((json['actions'] as List?)?.map((e) => ActionLink.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory DropletsCreateResponseVariant1Links.fromJson(
+          Map<String, dynamic> json) =>
+      DropletsCreateResponseVariant1Links(
+        actions: json['actions'] != null
+            ? SdkPresent(((json['actions'] as List?)
+                ?.map((e) => ActionLink.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (actions) {
-      SdkPresent<List<ActionLink>>(value: final value) => {'actions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (actions) {
+          SdkPresent<List<ActionLink>>(value: final value) => {
+              'actions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DropletsCreateResponseVariant1 {
@@ -86,24 +130,40 @@ class DropletsCreateResponseVariant1 {
   final List<Droplet> droplets;
   final DropletsCreateResponseVariant1Links links;
 
-  const DropletsCreateResponseVariant1({required this.droplets, required this.links});
+  const DropletsCreateResponseVariant1(
+      {required this.droplets, required this.links});
 
-  DropletsCreateResponseVariant1 Function({List<Droplet> droplets, DropletsCreateResponseVariant1Links links}) get copyWith => _copyWith;
+  DropletsCreateResponseVariant1 Function(
+      {List<Droplet> droplets,
+      DropletsCreateResponseVariant1Links links}) get copyWith => _copyWith;
 
-  DropletsCreateResponseVariant1 _copyWith({Object? droplets = sdkOmittedValue, Object? links = sdkOmittedValue}) => DropletsCreateResponseVariant1(
-    droplets: identical(droplets, sdkOmittedValue) ? this.droplets : droplets as List<Droplet>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as DropletsCreateResponseVariant1Links,
-  );
+  DropletsCreateResponseVariant1 _copyWith(
+          {Object? droplets = sdkOmittedValue,
+          Object? links = sdkOmittedValue}) =>
+      DropletsCreateResponseVariant1(
+        droplets: identical(droplets, sdkOmittedValue)
+            ? this.droplets
+            : droplets as List<Droplet>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as DropletsCreateResponseVariant1Links,
+      );
 
-  factory DropletsCreateResponseVariant1.fromJson(Map<String, dynamic> json) => DropletsCreateResponseVariant1(
-    droplets: ((json['droplets'] as List?)?.map((e) => Droplet.fromJson(e as Map<String, dynamic>)).toList())!,
-    links: (json['links'] != null ? DropletsCreateResponseVariant1Links.fromJson(json['links'] as Map<String, dynamic>) : null)!,
-  );
+  factory DropletsCreateResponseVariant1.fromJson(Map<String, dynamic> json) =>
+      DropletsCreateResponseVariant1(
+        droplets: ((json['droplets'] as List?)
+            ?.map((e) => Droplet.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        links: (json['links'] != null
+            ? DropletsCreateResponseVariant1Links.fromJson(
+                json['links'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'droplets': droplets.map((item) => item.toJson()).toList(),
-    'links': links.toJson(),
-  };
+        'droplets': droplets.map((item) => item.toJson()).toList(),
+        'links': links.toJson(),
+      };
 }
 
 sealed class DropletsCreateResponse {
@@ -112,24 +172,46 @@ sealed class DropletsCreateResponse {
   const DropletsCreateResponse();
   factory DropletsCreateResponse.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = DropletsCreateResponseVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DropletsCreateResponseDropletsCreateResponseVariant0(value); } } catch (_) {}
-      try { final value = DropletsCreateResponseVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return DropletsCreateResponseDropletsCreateResponseVariant1(value); } } catch (_) {}
+      try {
+        final value = DropletsCreateResponseVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DropletsCreateResponseDropletsCreateResponseVariant0(value);
+        }
+      } catch (_) {}
+      try {
+        final value = DropletsCreateResponseVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return DropletsCreateResponseDropletsCreateResponseVariant1(value);
+        }
+      } catch (_) {}
     }
-    try { return DropletsCreateResponseDropletsCreateResponseVariant0(DropletsCreateResponseVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return DropletsCreateResponseDropletsCreateResponseVariant1(DropletsCreateResponseVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return DropletsCreateResponseDropletsCreateResponseVariant0(
+          DropletsCreateResponseVariant0.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return DropletsCreateResponseDropletsCreateResponseVariant1(
+          DropletsCreateResponseVariant1.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for DropletsCreateResponse");
   }
   Object? toJson();
 }
 
-final class DropletsCreateResponseDropletsCreateResponseVariant0 extends DropletsCreateResponse {
+final class DropletsCreateResponseDropletsCreateResponseVariant0
+    extends DropletsCreateResponse {
   final DropletsCreateResponseVariant0 value;
   const DropletsCreateResponseDropletsCreateResponseVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class DropletsCreateResponseDropletsCreateResponseVariant1 extends DropletsCreateResponse {
+final class DropletsCreateResponseDropletsCreateResponseVariant1
+    extends DropletsCreateResponse {
   final DropletsCreateResponseVariant1 value;
   const DropletsCreateResponseDropletsCreateResponseVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

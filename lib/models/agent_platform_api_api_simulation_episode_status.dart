@@ -6,25 +6,33 @@ part of 'agent_platform_api_api_simulation.dart';
 // agent_platform_api_api_simulation domain models
 /// Lifecycle status of a single episode. - SIMULATION_EPISODE_STATUS_RUNNING: The episode is executing and a trajectory is available to retrieve. - SIMULATION_EPISODE_STATUS_FINISHED: The episode reached a stop condition and produced a verdict. - SIMULATION_EPISODE_STATUS_FAILED: The episode failed because of a cancel, timeout, or error. - SIMULATION_EPISODE_STATUS_PREPARING: The episode is allocated but its trajectory is not available yet.
 final class ApiSimulationEpisodeStatus {
-
   final String value;
 
   const ApiSimulationEpisodeStatus._(this.value);
 
-  factory ApiSimulationEpisodeStatus.fromJson(String value) => ApiSimulationEpisodeStatus._(value);
+  factory ApiSimulationEpisodeStatus.fromJson(String value) =>
+      ApiSimulationEpisodeStatus._(value);
 
-  static const simulationEpisodeStatusUnspecified = ApiSimulationEpisodeStatus._('SIMULATION_EPISODE_STATUS_UNSPECIFIED');
-  static const simulationEpisodeStatusRunning = ApiSimulationEpisodeStatus._('SIMULATION_EPISODE_STATUS_RUNNING');
-  static const simulationEpisodeStatusFinished = ApiSimulationEpisodeStatus._('SIMULATION_EPISODE_STATUS_FINISHED');
-  static const simulationEpisodeStatusFailed = ApiSimulationEpisodeStatus._('SIMULATION_EPISODE_STATUS_FAILED');
-  static const simulationEpisodeStatusPreparing = ApiSimulationEpisodeStatus._('SIMULATION_EPISODE_STATUS_PREPARING');
+  static const simulationEpisodeStatusUnspecified =
+      ApiSimulationEpisodeStatus._('SIMULATION_EPISODE_STATUS_UNSPECIFIED');
+  static const simulationEpisodeStatusRunning =
+      ApiSimulationEpisodeStatus._('SIMULATION_EPISODE_STATUS_RUNNING');
+  static const simulationEpisodeStatusFinished =
+      ApiSimulationEpisodeStatus._('SIMULATION_EPISODE_STATUS_FINISHED');
+  static const simulationEpisodeStatusFailed =
+      ApiSimulationEpisodeStatus._('SIMULATION_EPISODE_STATUS_FAILED');
+  static const simulationEpisodeStatusPreparing =
+      ApiSimulationEpisodeStatus._('SIMULATION_EPISODE_STATUS_PREPARING');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiSimulationEpisodeStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiSimulationEpisodeStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

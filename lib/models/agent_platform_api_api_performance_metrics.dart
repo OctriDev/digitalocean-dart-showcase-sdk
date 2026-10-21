@@ -8,33 +8,61 @@ part of 'agent_platform_api_api.dart';
 class ApiPerformanceMetrics {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Latency metrics for candidate model invocations (in milliseconds).
   final SdkOptional<ApiLatencyMetrics> candidateLatency;
+
   /// Optional object value serialized in the `token_usage` wire field.
   final SdkOptional<ApiTokenUsage> tokenUsage;
 
-  const ApiPerformanceMetrics({this.candidateLatency = const SdkOmitted(), this.tokenUsage = const SdkOmitted()});
+  const ApiPerformanceMetrics(
+      {this.candidateLatency = const SdkOmitted(),
+      this.tokenUsage = const SdkOmitted()});
 
-  ApiPerformanceMetrics Function({SdkOptional<ApiLatencyMetrics> candidateLatency, SdkOptional<ApiTokenUsage> tokenUsage}) get copyWith => _copyWith;
+  ApiPerformanceMetrics Function(
+      {SdkOptional<ApiLatencyMetrics> candidateLatency,
+      SdkOptional<ApiTokenUsage> tokenUsage}) get copyWith => _copyWith;
 
-  ApiPerformanceMetrics _copyWith({Object? candidateLatency = sdkOmittedValue, Object? tokenUsage = sdkOmittedValue}) => ApiPerformanceMetrics(
-    candidateLatency: identical(candidateLatency, sdkOmittedValue) ? this.candidateLatency : candidateLatency as SdkOptional<ApiLatencyMetrics>,
-    tokenUsage: identical(tokenUsage, sdkOmittedValue) ? this.tokenUsage : tokenUsage as SdkOptional<ApiTokenUsage>,
-  );
+  ApiPerformanceMetrics _copyWith(
+          {Object? candidateLatency = sdkOmittedValue,
+          Object? tokenUsage = sdkOmittedValue}) =>
+      ApiPerformanceMetrics(
+        candidateLatency: identical(candidateLatency, sdkOmittedValue)
+            ? this.candidateLatency
+            : candidateLatency as SdkOptional<ApiLatencyMetrics>,
+        tokenUsage: identical(tokenUsage, sdkOmittedValue)
+            ? this.tokenUsage
+            : tokenUsage as SdkOptional<ApiTokenUsage>,
+      );
 
-  factory ApiPerformanceMetrics.fromJson(Map<String, dynamic> json) => ApiPerformanceMetrics(
-    candidateLatency: json['candidate_latency'] != null ? SdkPresent((json['candidate_latency'] != null ? ApiLatencyMetrics.fromJson(json['candidate_latency'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    tokenUsage: json['token_usage'] != null ? SdkPresent((json['token_usage'] != null ? ApiTokenUsage.fromJson(json['token_usage'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiPerformanceMetrics.fromJson(Map<String, dynamic> json) =>
+      ApiPerformanceMetrics(
+        candidateLatency: json['candidate_latency'] != null
+            ? SdkPresent((json['candidate_latency'] != null
+                ? ApiLatencyMetrics.fromJson(
+                    json['candidate_latency'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        tokenUsage: json['token_usage'] != null
+            ? SdkPresent((json['token_usage'] != null
+                ? ApiTokenUsage.fromJson(
+                    json['token_usage'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (candidateLatency) {
-      SdkPresent<ApiLatencyMetrics>(value: final value) => {'candidate_latency': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tokenUsage) {
-      SdkPresent<ApiTokenUsage>(value: final value) => {'token_usage': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (candidateLatency) {
+          SdkPresent<ApiLatencyMetrics>(value: final value) => {
+              'candidate_latency': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tokenUsage) {
+          SdkPresent<ApiTokenUsage>(value: final value) => {
+              'token_usage': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

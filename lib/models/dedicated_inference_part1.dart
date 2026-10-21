@@ -8,76 +8,121 @@ part of 'dedicated_inference.dart';
 class AcceleratorConfigSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Number of accelerator instances.
   final int scale;
+
   /// Accelerator type (e.g. prefill_decode).
   final String type_;
+
   /// DigitalOcean GPU slug.
   final String acceleratorSlug;
+
   /// Current state of the Accelerator.
   final SdkOptional<AcceleratorConfigSpecStatus> status;
 
-  const AcceleratorConfigSpec({required this.scale, required this.type_, required this.acceleratorSlug, this.status = const SdkOmitted()});
+  const AcceleratorConfigSpec(
+      {required this.scale,
+      required this.type_,
+      required this.acceleratorSlug,
+      this.status = const SdkOmitted()});
 
-  AcceleratorConfigSpec Function({int scale, String type_, String acceleratorSlug, SdkOptional<AcceleratorConfigSpecStatus> status}) get copyWith => _copyWith;
+  AcceleratorConfigSpec Function(
+          {int scale,
+          String type_,
+          String acceleratorSlug,
+          SdkOptional<AcceleratorConfigSpecStatus> status})
+      get copyWith => _copyWith;
 
-  AcceleratorConfigSpec _copyWith({Object? scale = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? acceleratorSlug = sdkOmittedValue, Object? status = sdkOmittedValue}) => AcceleratorConfigSpec(
-    scale: identical(scale, sdkOmittedValue) ? this.scale : scale as int,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-    acceleratorSlug: identical(acceleratorSlug, sdkOmittedValue) ? this.acceleratorSlug : acceleratorSlug as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<AcceleratorConfigSpecStatus>,
-  );
+  AcceleratorConfigSpec _copyWith(
+          {Object? scale = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? acceleratorSlug = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      AcceleratorConfigSpec(
+        scale: identical(scale, sdkOmittedValue) ? this.scale : scale as int,
+        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+        acceleratorSlug: identical(acceleratorSlug, sdkOmittedValue)
+            ? this.acceleratorSlug
+            : acceleratorSlug as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<AcceleratorConfigSpecStatus>,
+      );
 
-  factory AcceleratorConfigSpec.fromJson(Map<String, dynamic> json) => AcceleratorConfigSpec(
-    scale: ((json['scale'] as num?)?.toInt())!,
-    type_: (json['type'] as String?)!,
-    acceleratorSlug: (json['accelerator_slug'] as String?)!,
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? AcceleratorConfigSpecStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory AcceleratorConfigSpec.fromJson(Map<String, dynamic> json) =>
+      AcceleratorConfigSpec(
+        scale: ((json['scale'] as num?)?.toInt())!,
+        type_: (json['type'] as String?)!,
+        acceleratorSlug: (json['accelerator_slug'] as String?)!,
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? AcceleratorConfigSpecStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'scale': scale,
-    'type': type_,
-    'accelerator_slug': acceleratorSlug,
-    ...switch (status) {
-      SdkPresent<AcceleratorConfigSpecStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'scale': scale,
+        'type': type_,
+        'accelerator_slug': acceleratorSlug,
+        ...switch (status) {
+          SdkPresent<AcceleratorConfigSpecStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AcceleratorConfigSpecRequest` API schema.
 class AcceleratorConfigSpecRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Number of accelerator instances.
   final int scale;
+
   /// Accelerator type (e.g. prefill_decode).
   final String type_;
+
   /// DigitalOcean GPU slug.
   final String acceleratorSlug;
 
-  const AcceleratorConfigSpecRequest({required this.scale, required this.type_, required this.acceleratorSlug});
+  const AcceleratorConfigSpecRequest(
+      {required this.scale,
+      required this.type_,
+      required this.acceleratorSlug});
 
-  AcceleratorConfigSpecRequest Function({int scale, String type_, String acceleratorSlug}) get copyWith => _copyWith;
+  AcceleratorConfigSpecRequest Function(
+      {int scale,
+      String type_,
+      String acceleratorSlug}) get copyWith => _copyWith;
 
-  AcceleratorConfigSpecRequest _copyWith({Object? scale = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? acceleratorSlug = sdkOmittedValue}) => AcceleratorConfigSpecRequest(
-    scale: identical(scale, sdkOmittedValue) ? this.scale : scale as int,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-    acceleratorSlug: identical(acceleratorSlug, sdkOmittedValue) ? this.acceleratorSlug : acceleratorSlug as String,
-  );
+  AcceleratorConfigSpecRequest _copyWith(
+          {Object? scale = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? acceleratorSlug = sdkOmittedValue}) =>
+      AcceleratorConfigSpecRequest(
+        scale: identical(scale, sdkOmittedValue) ? this.scale : scale as int,
+        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+        acceleratorSlug: identical(acceleratorSlug, sdkOmittedValue)
+            ? this.acceleratorSlug
+            : acceleratorSlug as String,
+      );
 
-  factory AcceleratorConfigSpecRequest.fromJson(Map<String, dynamic> json) => AcceleratorConfigSpecRequest(
-    scale: ((json['scale'] as num?)?.toInt())!,
-    type_: (json['type'] as String?)!,
-    acceleratorSlug: (json['accelerator_slug'] as String?)!,
-  );
+  factory AcceleratorConfigSpecRequest.fromJson(Map<String, dynamic> json) =>
+      AcceleratorConfigSpecRequest(
+        scale: ((json['scale'] as num?)?.toInt())!,
+        type_: (json['type'] as String?)!,
+        acceleratorSlug: (json['accelerator_slug'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'scale': scale,
-    'type': type_,
-    'accelerator_slug': acceleratorSlug,
-  };
+        'scale': scale,
+        'type': type_,
+        'accelerator_slug': acceleratorSlug,
+      };
 }
 
 class AcceleratorsListVariant0 {
@@ -87,22 +132,37 @@ class AcceleratorsListVariant0 {
 
   const AcceleratorsListVariant0({this.accelerators = const SdkOmitted()});
 
-  AcceleratorsListVariant0 Function({SdkOptional<List<DedicatedInferenceAccelerator>> accelerators}) get copyWith => _copyWith;
+  AcceleratorsListVariant0 Function(
+          {SdkOptional<List<DedicatedInferenceAccelerator>> accelerators})
+      get copyWith => _copyWith;
 
-  AcceleratorsListVariant0 _copyWith({Object? accelerators = sdkOmittedValue}) => AcceleratorsListVariant0(
-    accelerators: identical(accelerators, sdkOmittedValue) ? this.accelerators : accelerators as SdkOptional<List<DedicatedInferenceAccelerator>>,
-  );
+  AcceleratorsListVariant0 _copyWith(
+          {Object? accelerators = sdkOmittedValue}) =>
+      AcceleratorsListVariant0(
+        accelerators: identical(accelerators, sdkOmittedValue)
+            ? this.accelerators
+            : accelerators as SdkOptional<List<DedicatedInferenceAccelerator>>,
+      );
 
-  factory AcceleratorsListVariant0.fromJson(Map<String, dynamic> json) => AcceleratorsListVariant0(
-    accelerators: json['accelerators'] != null ? SdkPresent(((json['accelerators'] as List?)?.map((e) => DedicatedInferenceAccelerator.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory AcceleratorsListVariant0.fromJson(Map<String, dynamic> json) =>
+      AcceleratorsListVariant0(
+        accelerators: json['accelerators'] != null
+            ? SdkPresent(((json['accelerators'] as List?)
+                ?.map((e) => DedicatedInferenceAccelerator.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (accelerators) {
-      SdkPresent<List<DedicatedInferenceAccelerator>>(value: final value) => {'accelerators': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (accelerators) {
+          SdkPresent<List<DedicatedInferenceAccelerator>>(value: final value) =>
+            {
+              'accelerators': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AcceleratorsList` API schema.
@@ -110,71 +170,120 @@ class AcceleratorsList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<DedicatedInferenceAccelerator>> accelerators;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AcceleratorsList({this.accelerators = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AcceleratorsList(
+      {this.accelerators = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AcceleratorsList Function({SdkOptional<List<DedicatedInferenceAccelerator>> accelerators, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AcceleratorsList Function(
+      {SdkOptional<List<DedicatedInferenceAccelerator>> accelerators,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AcceleratorsList _copyWith({Object? accelerators = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AcceleratorsList(
-    accelerators: identical(accelerators, sdkOmittedValue) ? this.accelerators : accelerators as SdkOptional<List<DedicatedInferenceAccelerator>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AcceleratorsList _copyWith(
+          {Object? accelerators = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AcceleratorsList(
+        accelerators: identical(accelerators, sdkOmittedValue)
+            ? this.accelerators
+            : accelerators as SdkOptional<List<DedicatedInferenceAccelerator>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AcceleratorsList.fromJson(Map<String, dynamic> json) => AcceleratorsList(
-    accelerators: json['accelerators'] != null ? SdkPresent(((json['accelerators'] as List?)?.map((e) => DedicatedInferenceAccelerator.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory AcceleratorsList.fromJson(Map<String, dynamic> json) =>
+      AcceleratorsList(
+        accelerators: json['accelerators'] != null
+            ? SdkPresent(((json['accelerators'] as List?)
+                ?.map((e) => DedicatedInferenceAccelerator.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (accelerators) {
-      SdkPresent<List<DedicatedInferenceAccelerator>>(value: final value) => {'accelerators': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (accelerators) {
+          SdkPresent<List<DedicatedInferenceAccelerator>>(value: final value) =>
+            {
+              'accelerators': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 /// Required object value serialized in the `links` wire field.
 class AllDedicatedInferencesLinks {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Pagination links (first, prev, next, last).
   final SdkOptional<Map<String, String>> pages;
 
   const AllDedicatedInferencesLinks({this.pages = const SdkOmitted()});
 
-  AllDedicatedInferencesLinks Function({SdkOptional<Map<String, String>> pages}) get copyWith => _copyWith;
+  AllDedicatedInferencesLinks Function({SdkOptional<Map<String, String>> pages})
+      get copyWith => _copyWith;
 
-  AllDedicatedInferencesLinks _copyWith({Object? pages = sdkOmittedValue}) => AllDedicatedInferencesLinks(
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<Map<String, String>>,
-  );
+  AllDedicatedInferencesLinks _copyWith({Object? pages = sdkOmittedValue}) =>
+      AllDedicatedInferencesLinks(
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<Map<String, String>>,
+      );
 
-  factory AllDedicatedInferencesLinks.fromJson(Map<String, dynamic> json) => AllDedicatedInferencesLinks(
-    pages: json['pages'] != null ? SdkPresent((json['pages'] == null ? null : Map<String, dynamic>.from(json['pages'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-  );
+  factory AllDedicatedInferencesLinks.fromJson(Map<String, dynamic> json) =>
+      AllDedicatedInferencesLinks(
+        pages: json['pages'] != null
+            ? SdkPresent((json['pages'] == null
+                ? null
+                : Map<String, dynamic>.from(json['pages'] as Map)
+                    .map((key, value) => MapEntry(key, value as String)))!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (pages) {
-      SdkPresent<Map<String, String>>(value: final value) => {'pages': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (pages) {
+          SdkPresent<Map<String, String>>(value: final value) => {
+              'pages': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Required object value serialized in the `meta` wire field.
 class AllDedicatedInferencesMeta {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Total number of results.
   final int total;
 
@@ -182,57 +291,89 @@ class AllDedicatedInferencesMeta {
 
   AllDedicatedInferencesMeta Function({int total}) get copyWith => _copyWith;
 
-  AllDedicatedInferencesMeta _copyWith({Object? total = sdkOmittedValue}) => AllDedicatedInferencesMeta(
-    total: identical(total, sdkOmittedValue) ? this.total : total as int,
-  );
+  AllDedicatedInferencesMeta _copyWith({Object? total = sdkOmittedValue}) =>
+      AllDedicatedInferencesMeta(
+        total: identical(total, sdkOmittedValue) ? this.total : total as int,
+      );
 
-  factory AllDedicatedInferencesMeta.fromJson(Map<String, dynamic> json) => AllDedicatedInferencesMeta(
-    total: ((json['total'] as num?)?.toInt())!,
-  );
+  factory AllDedicatedInferencesMeta.fromJson(Map<String, dynamic> json) =>
+      AllDedicatedInferencesMeta(
+        total: ((json['total'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'total': total,
-  };
+        'total': total,
+      };
 }
 
 /// Typed representation of the `AllDedicatedInferences` API schema.
 class AllDedicatedInferences {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Array of Dedicated Inference instances.
   final List<DedicatedInference> dedicatedInferences;
+
   /// Required object value serialized in the `links` wire field.
   final AllDedicatedInferencesLinks links;
+
   /// Required object value serialized in the `meta` wire field.
   final AllDedicatedInferencesMeta meta;
 
-  const AllDedicatedInferences({required this.dedicatedInferences, required this.links, required this.meta});
+  const AllDedicatedInferences(
+      {required this.dedicatedInferences,
+      required this.links,
+      required this.meta});
 
-  AllDedicatedInferences Function({List<DedicatedInference> dedicatedInferences, AllDedicatedInferencesLinks links, AllDedicatedInferencesMeta meta}) get copyWith => _copyWith;
+  AllDedicatedInferences Function(
+      {List<DedicatedInference> dedicatedInferences,
+      AllDedicatedInferencesLinks links,
+      AllDedicatedInferencesMeta meta}) get copyWith => _copyWith;
 
-  AllDedicatedInferences _copyWith({Object? dedicatedInferences = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllDedicatedInferences(
-    dedicatedInferences: identical(dedicatedInferences, sdkOmittedValue) ? this.dedicatedInferences : dedicatedInferences as List<DedicatedInference>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as AllDedicatedInferencesLinks,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as AllDedicatedInferencesMeta,
-  );
+  AllDedicatedInferences _copyWith(
+          {Object? dedicatedInferences = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllDedicatedInferences(
+        dedicatedInferences: identical(dedicatedInferences, sdkOmittedValue)
+            ? this.dedicatedInferences
+            : dedicatedInferences as List<DedicatedInference>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as AllDedicatedInferencesLinks,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as AllDedicatedInferencesMeta,
+      );
 
-  factory AllDedicatedInferences.fromJson(Map<String, dynamic> json) => AllDedicatedInferences(
-    dedicatedInferences: ((json['dedicated_inferences'] as List?)?.map((e) => DedicatedInference.fromJson(e as Map<String, dynamic>)).toList())!,
-    links: (json['links'] != null ? AllDedicatedInferencesLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!,
-    meta: (json['meta'] != null ? AllDedicatedInferencesMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory AllDedicatedInferences.fromJson(Map<String, dynamic> json) =>
+      AllDedicatedInferences(
+        dedicatedInferences: ((json['dedicated_inferences'] as List?)
+            ?.map((e) => DedicatedInference.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        links: (json['links'] != null
+            ? AllDedicatedInferencesLinks.fromJson(
+                json['links'] as Map<String, dynamic>)
+            : null)!,
+        meta: (json['meta'] != null
+            ? AllDedicatedInferencesMeta.fromJson(
+                json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'dedicated_inferences': dedicatedInferences.map((item) => item.toJson()).toList(),
-    'links': links.toJson(),
-    'meta': meta.toJson(),
-  };
+        'dedicated_inferences':
+            dedicatedInferences.map((item) => item.toJson()).toList(),
+        'links': links.toJson(),
+        'meta': meta.toJson(),
+      };
 }
 
 /// Typed representation of the `CaCertificate` API schema.
 class CaCertificate {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Base64-encoded CA certificate.
   final String cert;
 
@@ -241,49 +382,71 @@ class CaCertificate {
   CaCertificate Function({String cert}) get copyWith => _copyWith;
 
   CaCertificate _copyWith({Object? cert = sdkOmittedValue}) => CaCertificate(
-    cert: identical(cert, sdkOmittedValue) ? this.cert : cert as String,
-  );
+        cert: identical(cert, sdkOmittedValue) ? this.cert : cert as String,
+      );
 
   factory CaCertificate.fromJson(Map<String, dynamic> json) => CaCertificate(
-    cert: (json['cert'] as String?)!,
-  );
+        cert: (json['cert'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'cert': cert,
-  };
+        'cert': cert,
+      };
 }
 
 /// Optional object value serialized in the `endpoints` wire field.
 class DedicatedInferenceEndpoints {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Public FQDN of the Dedicated Inference instance.
   final SdkOptional<String> publicEndpointFqdn;
+
   /// Private VPC FQDN of the Dedicated Inference instance.
   final SdkOptional<String> privateEndpointFqdn;
 
-  const DedicatedInferenceEndpoints({this.publicEndpointFqdn = const SdkOmitted(), this.privateEndpointFqdn = const SdkOmitted()});
+  const DedicatedInferenceEndpoints(
+      {this.publicEndpointFqdn = const SdkOmitted(),
+      this.privateEndpointFqdn = const SdkOmitted()});
 
-  DedicatedInferenceEndpoints Function({SdkOptional<String> publicEndpointFqdn, SdkOptional<String> privateEndpointFqdn}) get copyWith => _copyWith;
+  DedicatedInferenceEndpoints Function(
+      {SdkOptional<String> publicEndpointFqdn,
+      SdkOptional<String> privateEndpointFqdn}) get copyWith => _copyWith;
 
-  DedicatedInferenceEndpoints _copyWith({Object? publicEndpointFqdn = sdkOmittedValue, Object? privateEndpointFqdn = sdkOmittedValue}) => DedicatedInferenceEndpoints(
-    publicEndpointFqdn: identical(publicEndpointFqdn, sdkOmittedValue) ? this.publicEndpointFqdn : publicEndpointFqdn as SdkOptional<String>,
-    privateEndpointFqdn: identical(privateEndpointFqdn, sdkOmittedValue) ? this.privateEndpointFqdn : privateEndpointFqdn as SdkOptional<String>,
-  );
+  DedicatedInferenceEndpoints _copyWith(
+          {Object? publicEndpointFqdn = sdkOmittedValue,
+          Object? privateEndpointFqdn = sdkOmittedValue}) =>
+      DedicatedInferenceEndpoints(
+        publicEndpointFqdn: identical(publicEndpointFqdn, sdkOmittedValue)
+            ? this.publicEndpointFqdn
+            : publicEndpointFqdn as SdkOptional<String>,
+        privateEndpointFqdn: identical(privateEndpointFqdn, sdkOmittedValue)
+            ? this.privateEndpointFqdn
+            : privateEndpointFqdn as SdkOptional<String>,
+      );
 
-  factory DedicatedInferenceEndpoints.fromJson(Map<String, dynamic> json) => DedicatedInferenceEndpoints(
-    publicEndpointFqdn: json['public_endpoint_fqdn'] != null ? SdkPresent((json['public_endpoint_fqdn'] as String?)!) : const SdkOmitted(),
-    privateEndpointFqdn: json['private_endpoint_fqdn'] != null ? SdkPresent((json['private_endpoint_fqdn'] as String?)!) : const SdkOmitted(),
-  );
+  factory DedicatedInferenceEndpoints.fromJson(Map<String, dynamic> json) =>
+      DedicatedInferenceEndpoints(
+        publicEndpointFqdn: json['public_endpoint_fqdn'] != null
+            ? SdkPresent((json['public_endpoint_fqdn'] as String?)!)
+            : const SdkOmitted(),
+        privateEndpointFqdn: json['private_endpoint_fqdn'] != null
+            ? SdkPresent((json['private_endpoint_fqdn'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (publicEndpointFqdn) {
-      SdkPresent<String>(value: final value) => {'public_endpoint_fqdn': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (privateEndpointFqdn) {
-      SdkPresent<String>(value: final value) => {'private_endpoint_fqdn': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (publicEndpointFqdn) {
+          SdkPresent<String>(value: final value) => {
+              'public_endpoint_fqdn': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (privateEndpointFqdn) {
+          SdkPresent<String>(value: final value) => {
+              'private_endpoint_fqdn': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

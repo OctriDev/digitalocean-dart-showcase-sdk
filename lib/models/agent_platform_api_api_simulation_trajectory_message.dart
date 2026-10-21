@@ -8,73 +8,157 @@ part of 'agent_platform_api_api_simulation.dart';
 class ApiSimulationTrajectoryMessage {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// ISO-8601 timestamp when the message completed.
   final SdkOptional<String> completedAt;
+
   /// Message body text.
   final SdkOptional<String> content;
+
   /// Message role: "user" or "assistant".
   final SdkOptional<String> role;
+
   /// ISO-8601 timestamp when the message started.
   final SdkOptional<String> startedAt;
+
   /// Token usage for a single assistant message in the trajectory JSON.
   final SdkOptional<ApiSimulationTrajectoryMessageTokens> tokens;
+
   /// Tool calls on assistant turns.
   final SdkOptional<List<ApiSimulationTrajectoryToolCall>> toolCalls;
+
   /// Zero-based turn index shared by the user and assistant messages in one exchange.
   final SdkOptional<int> turnIndex;
 
-  const ApiSimulationTrajectoryMessage({this.completedAt = const SdkOmitted(), this.content = const SdkOmitted(), this.role = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.tokens = const SdkOmitted(), this.toolCalls = const SdkOmitted(), this.turnIndex = const SdkOmitted()});
+  const ApiSimulationTrajectoryMessage(
+      {this.completedAt = const SdkOmitted(),
+      this.content = const SdkOmitted(),
+      this.role = const SdkOmitted(),
+      this.startedAt = const SdkOmitted(),
+      this.tokens = const SdkOmitted(),
+      this.toolCalls = const SdkOmitted(),
+      this.turnIndex = const SdkOmitted()});
 
-  ApiSimulationTrajectoryMessage Function({SdkOptional<String> completedAt, SdkOptional<String> content, SdkOptional<String> role, SdkOptional<String> startedAt, SdkOptional<ApiSimulationTrajectoryMessageTokens> tokens, SdkOptional<List<ApiSimulationTrajectoryToolCall>> toolCalls, SdkOptional<int> turnIndex}) get copyWith => _copyWith;
+  ApiSimulationTrajectoryMessage Function(
+      {SdkOptional<String> completedAt,
+      SdkOptional<String> content,
+      SdkOptional<String> role,
+      SdkOptional<String> startedAt,
+      SdkOptional<ApiSimulationTrajectoryMessageTokens> tokens,
+      SdkOptional<List<ApiSimulationTrajectoryToolCall>> toolCalls,
+      SdkOptional<int> turnIndex}) get copyWith => _copyWith;
 
-  ApiSimulationTrajectoryMessage _copyWith({Object? completedAt = sdkOmittedValue, Object? content = sdkOmittedValue, Object? role = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? tokens = sdkOmittedValue, Object? toolCalls = sdkOmittedValue, Object? turnIndex = sdkOmittedValue}) => ApiSimulationTrajectoryMessage(
-    completedAt: identical(completedAt, sdkOmittedValue) ? this.completedAt : completedAt as SdkOptional<String>,
-    content: identical(content, sdkOmittedValue) ? this.content : content as SdkOptional<String>,
-    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<String>,
-    startedAt: identical(startedAt, sdkOmittedValue) ? this.startedAt : startedAt as SdkOptional<String>,
-    tokens: identical(tokens, sdkOmittedValue) ? this.tokens : tokens as SdkOptional<ApiSimulationTrajectoryMessageTokens>,
-    toolCalls: identical(toolCalls, sdkOmittedValue) ? this.toolCalls : toolCalls as SdkOptional<List<ApiSimulationTrajectoryToolCall>>,
-    turnIndex: identical(turnIndex, sdkOmittedValue) ? this.turnIndex : turnIndex as SdkOptional<int>,
-  );
+  ApiSimulationTrajectoryMessage _copyWith(
+          {Object? completedAt = sdkOmittedValue,
+          Object? content = sdkOmittedValue,
+          Object? role = sdkOmittedValue,
+          Object? startedAt = sdkOmittedValue,
+          Object? tokens = sdkOmittedValue,
+          Object? toolCalls = sdkOmittedValue,
+          Object? turnIndex = sdkOmittedValue}) =>
+      ApiSimulationTrajectoryMessage(
+        completedAt: identical(completedAt, sdkOmittedValue)
+            ? this.completedAt
+            : completedAt as SdkOptional<String>,
+        content: identical(content, sdkOmittedValue)
+            ? this.content
+            : content as SdkOptional<String>,
+        role: identical(role, sdkOmittedValue)
+            ? this.role
+            : role as SdkOptional<String>,
+        startedAt: identical(startedAt, sdkOmittedValue)
+            ? this.startedAt
+            : startedAt as SdkOptional<String>,
+        tokens: identical(tokens, sdkOmittedValue)
+            ? this.tokens
+            : tokens as SdkOptional<ApiSimulationTrajectoryMessageTokens>,
+        toolCalls: identical(toolCalls, sdkOmittedValue)
+            ? this.toolCalls
+            : toolCalls as SdkOptional<List<ApiSimulationTrajectoryToolCall>>,
+        turnIndex: identical(turnIndex, sdkOmittedValue)
+            ? this.turnIndex
+            : turnIndex as SdkOptional<int>,
+      );
 
-  factory ApiSimulationTrajectoryMessage.fromJson(Map<String, dynamic> json) => ApiSimulationTrajectoryMessage(
-    completedAt: json['completed_at'] != null ? SdkPresent((json['completed_at'] as String?)!) : const SdkOmitted(),
-    content: json['content'] != null ? SdkPresent((json['content'] as String?)!) : const SdkOmitted(),
-    role: json['role'] != null ? SdkPresent((json['role'] as String?)!) : const SdkOmitted(),
-    startedAt: json['started_at'] != null ? SdkPresent((json['started_at'] as String?)!) : const SdkOmitted(),
-    tokens: json['tokens'] != null ? SdkPresent((json['tokens'] != null ? ApiSimulationTrajectoryMessageTokens.fromJson(json['tokens'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    toolCalls: json['tool_calls'] != null ? SdkPresent(((json['tool_calls'] as List?)?.map((e) => ApiSimulationTrajectoryToolCall.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    turnIndex: json['turn_index'] != null ? SdkPresent(((json['turn_index'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory ApiSimulationTrajectoryMessage.fromJson(Map<String, dynamic> json) =>
+      ApiSimulationTrajectoryMessage(
+        completedAt: json['completed_at'] != null
+            ? SdkPresent((json['completed_at'] as String?)!)
+            : const SdkOmitted(),
+        content: json['content'] != null
+            ? SdkPresent((json['content'] as String?)!)
+            : const SdkOmitted(),
+        role: json['role'] != null
+            ? SdkPresent((json['role'] as String?)!)
+            : const SdkOmitted(),
+        startedAt: json['started_at'] != null
+            ? SdkPresent((json['started_at'] as String?)!)
+            : const SdkOmitted(),
+        tokens: json['tokens'] != null
+            ? SdkPresent((json['tokens'] != null
+                ? ApiSimulationTrajectoryMessageTokens.fromJson(
+                    json['tokens'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        toolCalls: json['tool_calls'] != null
+            ? SdkPresent(((json['tool_calls'] as List?)
+                ?.map((e) => ApiSimulationTrajectoryToolCall.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        turnIndex: json['turn_index'] != null
+            ? SdkPresent(((json['turn_index'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (completedAt) {
-      SdkPresent<String>(value: final value) => {'completed_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (content) {
-      SdkPresent<String>(value: final value) => {'content': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (role) {
-      SdkPresent<String>(value: final value) => {'role': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (startedAt) {
-      SdkPresent<String>(value: final value) => {'started_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tokens) {
-      SdkPresent<ApiSimulationTrajectoryMessageTokens>(value: final value) => {'tokens': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (toolCalls) {
-      SdkPresent<List<ApiSimulationTrajectoryToolCall>>(value: final value) => {'tool_calls': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (turnIndex) {
-      SdkPresent<int>(value: final value) => {'turn_index': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (completedAt) {
+          SdkPresent<String>(value: final value) => {
+              'completed_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (content) {
+          SdkPresent<String>(value: final value) => {
+              'content': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (role) {
+          SdkPresent<String>(value: final value) => {
+              'role': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (startedAt) {
+          SdkPresent<String>(value: final value) => {
+              'started_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tokens) {
+          SdkPresent<ApiSimulationTrajectoryMessageTokens>(
+            value: final value
+          ) =>
+            {
+              'tokens': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (toolCalls) {
+          SdkPresent<List<ApiSimulationTrajectoryToolCall>>(
+            value: final value
+          ) =>
+            {
+              'tool_calls': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (turnIndex) {
+          SdkPresent<int>(value: final value) => {
+              'turn_index': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

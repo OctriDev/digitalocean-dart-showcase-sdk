@@ -6,26 +6,35 @@ part of 'agent_platform_api_api_model.dart';
 // agent_platform_api_api_model domain models
 /// A pricing variant of a model, such as a faster serving option or a larger context window. - MODEL_PRICING_TIER_STANDARD: Default pricing. - MODEL_PRICING_TIER_FAST_MODE: Faster, higher-priority serving at a premium price. - MODEL_PRICING_TIER_EXTENDED_1M: Pricing for the 1M-token context window. - MODEL_PRICING_TIER_EXTENDED_272K: Pricing for the 272K-token context window. - MODEL_PRICING_TIER_BYOK: Pricing when using your own model API key.
 final class ApiModelPricingTier {
-
   final String value;
 
   const ApiModelPricingTier._(this.value);
 
-  factory ApiModelPricingTier.fromJson(String value) => ApiModelPricingTier._(value);
+  factory ApiModelPricingTier.fromJson(String value) =>
+      ApiModelPricingTier._(value);
 
-  static const modelPricingTierUnspecified = ApiModelPricingTier._('MODEL_PRICING_TIER_UNSPECIFIED');
-  static const modelPricingTierStandard = ApiModelPricingTier._('MODEL_PRICING_TIER_STANDARD');
-  static const modelPricingTierFastMode = ApiModelPricingTier._('MODEL_PRICING_TIER_FAST_MODE');
-  static const modelPricingTierExtended1m = ApiModelPricingTier._('MODEL_PRICING_TIER_EXTENDED_1M');
-  static const modelPricingTierExtended272k = ApiModelPricingTier._('MODEL_PRICING_TIER_EXTENDED_272K');
-  static const modelPricingTierByok = ApiModelPricingTier._('MODEL_PRICING_TIER_BYOK');
+  static const modelPricingTierUnspecified =
+      ApiModelPricingTier._('MODEL_PRICING_TIER_UNSPECIFIED');
+  static const modelPricingTierStandard =
+      ApiModelPricingTier._('MODEL_PRICING_TIER_STANDARD');
+  static const modelPricingTierFastMode =
+      ApiModelPricingTier._('MODEL_PRICING_TIER_FAST_MODE');
+  static const modelPricingTierExtended1m =
+      ApiModelPricingTier._('MODEL_PRICING_TIER_EXTENDED_1M');
+  static const modelPricingTierExtended272k =
+      ApiModelPricingTier._('MODEL_PRICING_TIER_EXTENDED_272K');
+  static const modelPricingTierByok =
+      ApiModelPricingTier._('MODEL_PRICING_TIER_BYOK');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiModelPricingTier && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiModelPricingTier && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

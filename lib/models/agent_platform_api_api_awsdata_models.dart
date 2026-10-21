@@ -8,100 +8,184 @@ part of 'agent_platform_api_api_awsdata.dart';
 class ApiAWSDataSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Spaces bucket name
   final SdkOptional<String> bucketName;
+
   /// Optional `string` value serialized in the `item_path` wire field.
   final SdkOptional<String> itemPath;
+
   /// The AWS Key ID
   final SdkOptional<String> keyId;
+
   /// Region of bucket
   final SdkOptional<String> region;
+
   /// The AWS Secret Key
   final SdkOptional<String> secretKey;
 
-  const ApiAWSDataSource({this.bucketName = const SdkOmitted(), this.itemPath = const SdkOmitted(), this.keyId = const SdkOmitted(), this.region = const SdkOmitted(), this.secretKey = const SdkOmitted()});
+  const ApiAWSDataSource(
+      {this.bucketName = const SdkOmitted(),
+      this.itemPath = const SdkOmitted(),
+      this.keyId = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      this.secretKey = const SdkOmitted()});
 
-  ApiAWSDataSource Function({SdkOptional<String> bucketName, SdkOptional<String> itemPath, SdkOptional<String> keyId, SdkOptional<String> region, SdkOptional<String> secretKey}) get copyWith => _copyWith;
+  ApiAWSDataSource Function(
+      {SdkOptional<String> bucketName,
+      SdkOptional<String> itemPath,
+      SdkOptional<String> keyId,
+      SdkOptional<String> region,
+      SdkOptional<String> secretKey}) get copyWith => _copyWith;
 
-  ApiAWSDataSource _copyWith({Object? bucketName = sdkOmittedValue, Object? itemPath = sdkOmittedValue, Object? keyId = sdkOmittedValue, Object? region = sdkOmittedValue, Object? secretKey = sdkOmittedValue}) => ApiAWSDataSource(
-    bucketName: identical(bucketName, sdkOmittedValue) ? this.bucketName : bucketName as SdkOptional<String>,
-    itemPath: identical(itemPath, sdkOmittedValue) ? this.itemPath : itemPath as SdkOptional<String>,
-    keyId: identical(keyId, sdkOmittedValue) ? this.keyId : keyId as SdkOptional<String>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    secretKey: identical(secretKey, sdkOmittedValue) ? this.secretKey : secretKey as SdkOptional<String>,
-  );
+  ApiAWSDataSource _copyWith(
+          {Object? bucketName = sdkOmittedValue,
+          Object? itemPath = sdkOmittedValue,
+          Object? keyId = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? secretKey = sdkOmittedValue}) =>
+      ApiAWSDataSource(
+        bucketName: identical(bucketName, sdkOmittedValue)
+            ? this.bucketName
+            : bucketName as SdkOptional<String>,
+        itemPath: identical(itemPath, sdkOmittedValue)
+            ? this.itemPath
+            : itemPath as SdkOptional<String>,
+        keyId: identical(keyId, sdkOmittedValue)
+            ? this.keyId
+            : keyId as SdkOptional<String>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        secretKey: identical(secretKey, sdkOmittedValue)
+            ? this.secretKey
+            : secretKey as SdkOptional<String>,
+      );
 
-  factory ApiAWSDataSource.fromJson(Map<String, dynamic> json) => ApiAWSDataSource(
-    bucketName: json['bucket_name'] != null ? SdkPresent((json['bucket_name'] as String?)!) : const SdkOmitted(),
-    itemPath: json['item_path'] != null ? SdkPresent((json['item_path'] as String?)!) : const SdkOmitted(),
-    keyId: json['key_id'] != null ? SdkPresent((json['key_id'] as String?)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    secretKey: json['secret_key'] != null ? SdkPresent((json['secret_key'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiAWSDataSource.fromJson(Map<String, dynamic> json) =>
+      ApiAWSDataSource(
+        bucketName: json['bucket_name'] != null
+            ? SdkPresent((json['bucket_name'] as String?)!)
+            : const SdkOmitted(),
+        itemPath: json['item_path'] != null
+            ? SdkPresent((json['item_path'] as String?)!)
+            : const SdkOmitted(),
+        keyId: json['key_id'] != null
+            ? SdkPresent((json['key_id'] as String?)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        secretKey: json['secret_key'] != null
+            ? SdkPresent((json['secret_key'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (bucketName) {
-      SdkPresent<String>(value: final value) => {'bucket_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (itemPath) {
-      SdkPresent<String>(value: final value) => {'item_path': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (keyId) {
-      SdkPresent<String>(value: final value) => {'key_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (secretKey) {
-      SdkPresent<String>(value: final value) => {'secret_key': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (bucketName) {
+          SdkPresent<String>(value: final value) => {
+              'bucket_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (itemPath) {
+          SdkPresent<String>(value: final value) => {
+              'item_path': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (keyId) {
+          SdkPresent<String>(value: final value) => {
+              'key_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (secretKey) {
+          SdkPresent<String>(value: final value) => {
+              'secret_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// AWS S3 Data Source for Display
 class ApiAWSDataSourceDisplay {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Spaces bucket name
   final SdkOptional<String> bucketName;
+
   /// Optional `string` value serialized in the `item_path` wire field.
   final SdkOptional<String> itemPath;
+
   /// Region of bucket
   final SdkOptional<String> region;
 
-  const ApiAWSDataSourceDisplay({this.bucketName = const SdkOmitted(), this.itemPath = const SdkOmitted(), this.region = const SdkOmitted()});
+  const ApiAWSDataSourceDisplay(
+      {this.bucketName = const SdkOmitted(),
+      this.itemPath = const SdkOmitted(),
+      this.region = const SdkOmitted()});
 
-  ApiAWSDataSourceDisplay Function({SdkOptional<String> bucketName, SdkOptional<String> itemPath, SdkOptional<String> region}) get copyWith => _copyWith;
+  ApiAWSDataSourceDisplay Function(
+      {SdkOptional<String> bucketName,
+      SdkOptional<String> itemPath,
+      SdkOptional<String> region}) get copyWith => _copyWith;
 
-  ApiAWSDataSourceDisplay _copyWith({Object? bucketName = sdkOmittedValue, Object? itemPath = sdkOmittedValue, Object? region = sdkOmittedValue}) => ApiAWSDataSourceDisplay(
-    bucketName: identical(bucketName, sdkOmittedValue) ? this.bucketName : bucketName as SdkOptional<String>,
-    itemPath: identical(itemPath, sdkOmittedValue) ? this.itemPath : itemPath as SdkOptional<String>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-  );
+  ApiAWSDataSourceDisplay _copyWith(
+          {Object? bucketName = sdkOmittedValue,
+          Object? itemPath = sdkOmittedValue,
+          Object? region = sdkOmittedValue}) =>
+      ApiAWSDataSourceDisplay(
+        bucketName: identical(bucketName, sdkOmittedValue)
+            ? this.bucketName
+            : bucketName as SdkOptional<String>,
+        itemPath: identical(itemPath, sdkOmittedValue)
+            ? this.itemPath
+            : itemPath as SdkOptional<String>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+      );
 
-  factory ApiAWSDataSourceDisplay.fromJson(Map<String, dynamic> json) => ApiAWSDataSourceDisplay(
-    bucketName: json['bucket_name'] != null ? SdkPresent((json['bucket_name'] as String?)!) : const SdkOmitted(),
-    itemPath: json['item_path'] != null ? SdkPresent((json['item_path'] as String?)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiAWSDataSourceDisplay.fromJson(Map<String, dynamic> json) =>
+      ApiAWSDataSourceDisplay(
+        bucketName: json['bucket_name'] != null
+            ? SdkPresent((json['bucket_name'] as String?)!)
+            : const SdkOmitted(),
+        itemPath: json['item_path'] != null
+            ? SdkPresent((json['item_path'] as String?)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (bucketName) {
-      SdkPresent<String>(value: final value) => {'bucket_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (itemPath) {
-      SdkPresent<String>(value: final value) => {'item_path': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (bucketName) {
+          SdkPresent<String>(value: final value) => {
+              'bucket_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (itemPath) {
+          SdkPresent<String>(value: final value) => {
+              'item_path': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

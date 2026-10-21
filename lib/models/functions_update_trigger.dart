@@ -8,33 +8,58 @@ part of 'functions.dart';
 class UpdateTrigger {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates weather the trigger is paused or unpaused.
   final SdkOptional<bool> isEnabled;
+
   /// Trigger details for SCHEDULED type, where body is optional.
   final SdkOptional<ScheduledDetails> scheduledDetails;
 
-  const UpdateTrigger({this.isEnabled = const SdkOmitted(), this.scheduledDetails = const SdkOmitted()});
+  const UpdateTrigger(
+      {this.isEnabled = const SdkOmitted(),
+      this.scheduledDetails = const SdkOmitted()});
 
-  UpdateTrigger Function({SdkOptional<bool> isEnabled, SdkOptional<ScheduledDetails> scheduledDetails}) get copyWith => _copyWith;
+  UpdateTrigger Function(
+          {SdkOptional<bool> isEnabled,
+          SdkOptional<ScheduledDetails> scheduledDetails})
+      get copyWith => _copyWith;
 
-  UpdateTrigger _copyWith({Object? isEnabled = sdkOmittedValue, Object? scheduledDetails = sdkOmittedValue}) => UpdateTrigger(
-    isEnabled: identical(isEnabled, sdkOmittedValue) ? this.isEnabled : isEnabled as SdkOptional<bool>,
-    scheduledDetails: identical(scheduledDetails, sdkOmittedValue) ? this.scheduledDetails : scheduledDetails as SdkOptional<ScheduledDetails>,
-  );
+  UpdateTrigger _copyWith(
+          {Object? isEnabled = sdkOmittedValue,
+          Object? scheduledDetails = sdkOmittedValue}) =>
+      UpdateTrigger(
+        isEnabled: identical(isEnabled, sdkOmittedValue)
+            ? this.isEnabled
+            : isEnabled as SdkOptional<bool>,
+        scheduledDetails: identical(scheduledDetails, sdkOmittedValue)
+            ? this.scheduledDetails
+            : scheduledDetails as SdkOptional<ScheduledDetails>,
+      );
 
   factory UpdateTrigger.fromJson(Map<String, dynamic> json) => UpdateTrigger(
-    isEnabled: json['is_enabled'] != null ? SdkPresent((json['is_enabled'] as bool?)!) : const SdkOmitted(),
-    scheduledDetails: json['scheduled_details'] != null ? SdkPresent((json['scheduled_details'] != null ? ScheduledDetails.fromJson(json['scheduled_details'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        isEnabled: json['is_enabled'] != null
+            ? SdkPresent((json['is_enabled'] as bool?)!)
+            : const SdkOmitted(),
+        scheduledDetails: json['scheduled_details'] != null
+            ? SdkPresent((json['scheduled_details'] != null
+                ? ScheduledDetails.fromJson(
+                    json['scheduled_details'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (isEnabled) {
-      SdkPresent<bool>(value: final value) => {'is_enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scheduledDetails) {
-      SdkPresent<ScheduledDetails>(value: final value) => {'scheduled_details': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (isEnabled) {
+          SdkPresent<bool>(value: final value) => {
+              'is_enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scheduledDetails) {
+          SdkPresent<ScheduledDetails>(value: final value) => {
+              'scheduled_details': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

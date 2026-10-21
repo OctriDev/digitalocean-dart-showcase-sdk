@@ -8,178 +8,330 @@ part of 'agent_platform_api_api_create.dart';
 class ApiCreateKnowledgeBaseInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Identifier of the DigitalOcean OpenSearch database this knowledge base will use, optional. If not provided, we create a new database for the knowledge base in the same region as the knowledge base.
   final SdkOptional<String> databaseId;
+
   /// Optional data sources to attach at creation. Omit or use an empty list to create the knowledge base without sources, then add sources (with chunking strategy and sizes) using Add a Data Source to a Knowledge Base. When provided, see [Organize Data Sources](https://docs.digitalocean.com/products/inference/how-to/create-manage-agent-knowledge-bases/#add-data-sources) for best practices.
   final SdkOptional<List<ApiKBDataSource>> datasources;
+
   /// Identifier for the [embedding model](https://docs.digitalocean.com/products/genai-platform/details/models/#embedding-models).
   final SdkOptional<String> embeddingModelUuid;
+
   /// Name of the knowledge base.
   final SdkOptional<String> name;
+
   /// Identifier of the DigitalOcean project this knowledge base will belong to.
   final SdkOptional<String> projectId;
+
   /// The datacenter region to deploy the knowledge base in.
   final SdkOptional<String> region;
+
   /// Configuration for cross-encoder reranking during retrieval.
   final SdkOptional<ApiRerankingConfiguration> rerankingConfig;
+
   /// Optional enumerated value serialized in the `size` wire field.
   final SdkOptional<ApiOpenSearchPlanSize> size;
+
   /// Tags to organize your knowledge base.
   final SdkOptional<List<String>> tags;
+
   /// The VPC to deploy the knowledge base database in
   final SdkOptional<String> vpcUuid;
 
-  const ApiCreateKnowledgeBaseInputPublic({this.databaseId = const SdkOmitted(), this.datasources = const SdkOmitted(), this.embeddingModelUuid = const SdkOmitted(), this.name = const SdkOmitted(), this.projectId = const SdkOmitted(), this.region = const SdkOmitted(), this.rerankingConfig = const SdkOmitted(), this.size = const SdkOmitted(), this.tags = const SdkOmitted(), this.vpcUuid = const SdkOmitted()});
+  const ApiCreateKnowledgeBaseInputPublic(
+      {this.databaseId = const SdkOmitted(),
+      this.datasources = const SdkOmitted(),
+      this.embeddingModelUuid = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.projectId = const SdkOmitted(),
+      this.region = const SdkOmitted(),
+      this.rerankingConfig = const SdkOmitted(),
+      this.size = const SdkOmitted(),
+      this.tags = const SdkOmitted(),
+      this.vpcUuid = const SdkOmitted()});
 
-  ApiCreateKnowledgeBaseInputPublic Function({SdkOptional<String> databaseId, SdkOptional<List<ApiKBDataSource>> datasources, SdkOptional<String> embeddingModelUuid, SdkOptional<String> name, SdkOptional<String> projectId, SdkOptional<String> region, SdkOptional<ApiRerankingConfiguration> rerankingConfig, SdkOptional<ApiOpenSearchPlanSize> size, SdkOptional<List<String>> tags, SdkOptional<String> vpcUuid}) get copyWith => _copyWith;
+  ApiCreateKnowledgeBaseInputPublic Function(
+      {SdkOptional<String> databaseId,
+      SdkOptional<List<ApiKBDataSource>> datasources,
+      SdkOptional<String> embeddingModelUuid,
+      SdkOptional<String> name,
+      SdkOptional<String> projectId,
+      SdkOptional<String> region,
+      SdkOptional<ApiRerankingConfiguration> rerankingConfig,
+      SdkOptional<ApiOpenSearchPlanSize> size,
+      SdkOptional<List<String>> tags,
+      SdkOptional<String> vpcUuid}) get copyWith => _copyWith;
 
-  ApiCreateKnowledgeBaseInputPublic _copyWith({Object? databaseId = sdkOmittedValue, Object? datasources = sdkOmittedValue, Object? embeddingModelUuid = sdkOmittedValue, Object? name = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? region = sdkOmittedValue, Object? rerankingConfig = sdkOmittedValue, Object? size = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? vpcUuid = sdkOmittedValue}) => ApiCreateKnowledgeBaseInputPublic(
-    databaseId: identical(databaseId, sdkOmittedValue) ? this.databaseId : databaseId as SdkOptional<String>,
-    datasources: identical(datasources, sdkOmittedValue) ? this.datasources : datasources as SdkOptional<List<ApiKBDataSource>>,
-    embeddingModelUuid: identical(embeddingModelUuid, sdkOmittedValue) ? this.embeddingModelUuid : embeddingModelUuid as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    rerankingConfig: identical(rerankingConfig, sdkOmittedValue) ? this.rerankingConfig : rerankingConfig as SdkOptional<ApiRerankingConfiguration>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<ApiOpenSearchPlanSize>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    vpcUuid: identical(vpcUuid, sdkOmittedValue) ? this.vpcUuid : vpcUuid as SdkOptional<String>,
-  );
+  ApiCreateKnowledgeBaseInputPublic _copyWith(
+          {Object? databaseId = sdkOmittedValue,
+          Object? datasources = sdkOmittedValue,
+          Object? embeddingModelUuid = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? projectId = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? rerankingConfig = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? vpcUuid = sdkOmittedValue}) =>
+      ApiCreateKnowledgeBaseInputPublic(
+        databaseId: identical(databaseId, sdkOmittedValue)
+            ? this.databaseId
+            : databaseId as SdkOptional<String>,
+        datasources: identical(datasources, sdkOmittedValue)
+            ? this.datasources
+            : datasources as SdkOptional<List<ApiKBDataSource>>,
+        embeddingModelUuid: identical(embeddingModelUuid, sdkOmittedValue)
+            ? this.embeddingModelUuid
+            : embeddingModelUuid as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as SdkOptional<String>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        rerankingConfig: identical(rerankingConfig, sdkOmittedValue)
+            ? this.rerankingConfig
+            : rerankingConfig as SdkOptional<ApiRerankingConfiguration>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<ApiOpenSearchPlanSize>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        vpcUuid: identical(vpcUuid, sdkOmittedValue)
+            ? this.vpcUuid
+            : vpcUuid as SdkOptional<String>,
+      );
 
-  factory ApiCreateKnowledgeBaseInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateKnowledgeBaseInputPublic(
-    databaseId: json['database_id'] != null ? SdkPresent((json['database_id'] as String?)!) : const SdkOmitted(),
-    datasources: json['datasources'] != null ? SdkPresent(((json['datasources'] as List?)?.map((e) => ApiKBDataSource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    embeddingModelUuid: json['embedding_model_uuid'] != null ? SdkPresent((json['embedding_model_uuid'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    rerankingConfig: json['reranking_config'] != null ? SdkPresent((json['reranking_config'] != null ? ApiRerankingConfiguration.fromJson(json['reranking_config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    size: json['size'] != null ? SdkPresent((json['size'] != null ? ApiOpenSearchPlanSize.fromJson(json['size'] as String) : null)!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    vpcUuid: json['vpc_uuid'] != null ? SdkPresent((json['vpc_uuid'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiCreateKnowledgeBaseInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiCreateKnowledgeBaseInputPublic(
+        databaseId: json['database_id'] != null
+            ? SdkPresent((json['database_id'] as String?)!)
+            : const SdkOmitted(),
+        datasources: json['datasources'] != null
+            ? SdkPresent(((json['datasources'] as List?)
+                ?.map(
+                    (e) => ApiKBDataSource.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        embeddingModelUuid: json['embedding_model_uuid'] != null
+            ? SdkPresent((json['embedding_model_uuid'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        projectId: json['project_id'] != null
+            ? SdkPresent((json['project_id'] as String?)!)
+            : const SdkOmitted(),
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        rerankingConfig: json['reranking_config'] != null
+            ? SdkPresent((json['reranking_config'] != null
+                ? ApiRerankingConfiguration.fromJson(
+                    json['reranking_config'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        size: json['size'] != null
+            ? SdkPresent((json['size'] != null
+                ? ApiOpenSearchPlanSize.fromJson(json['size'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        vpcUuid: json['vpc_uuid'] != null
+            ? SdkPresent((json['vpc_uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (databaseId) {
-      SdkPresent<String>(value: final value) => {'database_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (datasources) {
-      SdkPresent<List<ApiKBDataSource>>(value: final value) => {'datasources': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (embeddingModelUuid) {
-      SdkPresent<String>(value: final value) => {'embedding_model_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (projectId) {
-      SdkPresent<String>(value: final value) => {'project_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (rerankingConfig) {
-      SdkPresent<ApiRerankingConfiguration>(value: final value) => {'reranking_config': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<ApiOpenSearchPlanSize>(value: final value) => {'size': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (vpcUuid) {
-      SdkPresent<String>(value: final value) => {'vpc_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (databaseId) {
+          SdkPresent<String>(value: final value) => {
+              'database_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (datasources) {
+          SdkPresent<List<ApiKBDataSource>>(value: final value) => {
+              'datasources': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (embeddingModelUuid) {
+          SdkPresent<String>(value: final value) => {
+              'embedding_model_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (projectId) {
+          SdkPresent<String>(value: final value) => {
+              'project_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (rerankingConfig) {
+          SdkPresent<ApiRerankingConfiguration>(value: final value) => {
+              'reranking_config': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<ApiOpenSearchPlanSize>(value: final value) => {
+              'size': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (vpcUuid) {
+          SdkPresent<String>(value: final value) => {
+              'vpc_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Information about a newly created knowledge base
 class ApiCreateKnowledgeBaseOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Knowledgebase Description
   final SdkOptional<ApiKnowledgeBase> knowledgeBase;
 
   const ApiCreateKnowledgeBaseOutput({this.knowledgeBase = const SdkOmitted()});
 
-  ApiCreateKnowledgeBaseOutput Function({SdkOptional<ApiKnowledgeBase> knowledgeBase}) get copyWith => _copyWith;
+  ApiCreateKnowledgeBaseOutput Function(
+      {SdkOptional<ApiKnowledgeBase> knowledgeBase}) get copyWith => _copyWith;
 
-  ApiCreateKnowledgeBaseOutput _copyWith({Object? knowledgeBase = sdkOmittedValue}) => ApiCreateKnowledgeBaseOutput(
-    knowledgeBase: identical(knowledgeBase, sdkOmittedValue) ? this.knowledgeBase : knowledgeBase as SdkOptional<ApiKnowledgeBase>,
-  );
+  ApiCreateKnowledgeBaseOutput _copyWith(
+          {Object? knowledgeBase = sdkOmittedValue}) =>
+      ApiCreateKnowledgeBaseOutput(
+        knowledgeBase: identical(knowledgeBase, sdkOmittedValue)
+            ? this.knowledgeBase
+            : knowledgeBase as SdkOptional<ApiKnowledgeBase>,
+      );
 
-  factory ApiCreateKnowledgeBaseOutput.fromJson(Map<String, dynamic> json) => ApiCreateKnowledgeBaseOutput(
-    knowledgeBase: json['knowledge_base'] != null ? SdkPresent((json['knowledge_base'] != null ? ApiKnowledgeBase.fromJson(json['knowledge_base'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiCreateKnowledgeBaseOutput.fromJson(Map<String, dynamic> json) =>
+      ApiCreateKnowledgeBaseOutput(
+        knowledgeBase: json['knowledge_base'] != null
+            ? SdkPresent((json['knowledge_base'] != null
+                ? ApiKnowledgeBase.fromJson(
+                    json['knowledge_base'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (knowledgeBase) {
-      SdkPresent<ApiKnowledgeBase>(value: final value) => {'knowledge_base': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (knowledgeBase) {
+          SdkPresent<ApiKnowledgeBase>(value: final value) => {
+              'knowledge_base': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ApiCreateModelAPIKeyInputPublic` API schema.
 class ApiCreateModelAPIKeyInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A human friendly name to identify the key
   final SdkOptional<String> name;
 
   const ApiCreateModelAPIKeyInputPublic({this.name = const SdkOmitted()});
 
-  ApiCreateModelAPIKeyInputPublic Function({SdkOptional<String> name}) get copyWith => _copyWith;
+  ApiCreateModelAPIKeyInputPublic Function({SdkOptional<String> name})
+      get copyWith => _copyWith;
 
-  ApiCreateModelAPIKeyInputPublic _copyWith({Object? name = sdkOmittedValue}) => ApiCreateModelAPIKeyInputPublic(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  ApiCreateModelAPIKeyInputPublic _copyWith({Object? name = sdkOmittedValue}) =>
+      ApiCreateModelAPIKeyInputPublic(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory ApiCreateModelAPIKeyInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateModelAPIKeyInputPublic(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiCreateModelAPIKeyInputPublic.fromJson(Map<String, dynamic> json) =>
+      ApiCreateModelAPIKeyInputPublic(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Public request for presigned upload URLs for model evaluation dataset files.
 class ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of files to generate presigned URLs for.
   final SdkOptional<List<ApiPresignedUrlFile>> files;
 
-  const ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic({this.files = const SdkOmitted()});
+  const ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic(
+      {this.files = const SdkOmitted()});
 
-  ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic Function({SdkOptional<List<ApiPresignedUrlFile>> files}) get copyWith => _copyWith;
+  ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic Function(
+      {SdkOptional<List<ApiPresignedUrlFile>> files}) get copyWith => _copyWith;
 
-  ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic _copyWith({Object? files = sdkOmittedValue}) => ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic(
-    files: identical(files, sdkOmittedValue) ? this.files : files as SdkOptional<List<ApiPresignedUrlFile>>,
-  );
+  ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic _copyWith(
+          {Object? files = sdkOmittedValue}) =>
+      ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic(
+        files: identical(files, sdkOmittedValue)
+            ? this.files
+            : files as SdkOptional<List<ApiPresignedUrlFile>>,
+      );
 
-  factory ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic(
-    files: json['files'] != null ? SdkPresent(((json['files'] as List?)?.map((e) => ApiPresignedUrlFile.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiCreateModelEvalDatasetUploadPresignedUrlsInputPublic(
+        files: json['files'] != null
+            ? SdkPresent(((json['files'] as List?)
+                ?.map((e) =>
+                    ApiPresignedUrlFile.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (files) {
-      SdkPresent<List<ApiPresignedUrlFile>>(value: final value) => {'files': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (files) {
+          SdkPresent<List<ApiPresignedUrlFile>>(value: final value) => {
+              'files': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

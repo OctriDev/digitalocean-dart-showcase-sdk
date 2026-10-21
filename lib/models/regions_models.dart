@@ -13,17 +13,23 @@ class AllRegionsVariant0 {
 
   AllRegionsVariant0 Function({List<Region> regions}) get copyWith => _copyWith;
 
-  AllRegionsVariant0 _copyWith({Object? regions = sdkOmittedValue}) => AllRegionsVariant0(
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as List<Region>,
-  );
+  AllRegionsVariant0 _copyWith({Object? regions = sdkOmittedValue}) =>
+      AllRegionsVariant0(
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as List<Region>,
+      );
 
-  factory AllRegionsVariant0.fromJson(Map<String, dynamic> json) => AllRegionsVariant0(
-    regions: ((json['regions'] as List?)?.map((e) => Region.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory AllRegionsVariant0.fromJson(Map<String, dynamic> json) =>
+      AllRegionsVariant0(
+        regions: ((json['regions'] as List?)
+            ?.map((e) => Region.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'regions': regions.map((item) => item.toJson()).toList(),
-  };
+        'regions': regions.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Typed representation of the `AllRegions` API schema.
@@ -31,33 +37,61 @@ class AllRegions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final List<Region> regions;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllRegions({required this.regions, this.links = const SdkOmitted(), required this.meta});
+  const AllRegions(
+      {required this.regions,
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllRegions Function({List<Region> regions, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllRegions Function(
+      {List<Region> regions,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllRegions _copyWith({Object? regions = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllRegions(
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as List<Region>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllRegions _copyWith(
+          {Object? regions = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllRegions(
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as List<Region>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
   factory AllRegions.fromJson(Map<String, dynamic> json) => AllRegions(
-    regions: ((json['regions'] as List?)?.map((e) => Region.fromJson(e as Map<String, dynamic>)).toList())!,
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+        regions: ((json['regions'] as List?)
+            ?.map((e) => Region.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'regions': regions.map((item) => item.toJson()).toList(),
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        'regions': regions.map((item) => item.toJson()).toList(),
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

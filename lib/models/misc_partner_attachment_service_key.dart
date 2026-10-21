@@ -8,41 +8,73 @@ part of 'misc.dart';
 class PartnerAttachmentServiceKey {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `value` wire field.
   final SdkOptional<String> value;
+
   /// A time value given in the ISO 8601 combined date and time format.
   final SdkOptional<String> createdAt;
+
   /// Optional `string` value serialized in the `state` wire field.
   final SdkOptional<String> state;
 
-  const PartnerAttachmentServiceKey({this.value = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.state = const SdkOmitted()});
+  const PartnerAttachmentServiceKey(
+      {this.value = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.state = const SdkOmitted()});
 
-  PartnerAttachmentServiceKey Function({SdkOptional<String> value, SdkOptional<String> createdAt, SdkOptional<String> state}) get copyWith => _copyWith;
+  PartnerAttachmentServiceKey Function(
+      {SdkOptional<String> value,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> state}) get copyWith => _copyWith;
 
-  PartnerAttachmentServiceKey _copyWith({Object? value = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? state = sdkOmittedValue}) => PartnerAttachmentServiceKey(
-    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<String>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<String>,
-  );
+  PartnerAttachmentServiceKey _copyWith(
+          {Object? value = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? state = sdkOmittedValue}) =>
+      PartnerAttachmentServiceKey(
+        value: identical(value, sdkOmittedValue)
+            ? this.value
+            : value as SdkOptional<String>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        state: identical(state, sdkOmittedValue)
+            ? this.state
+            : state as SdkOptional<String>,
+      );
 
-  factory PartnerAttachmentServiceKey.fromJson(Map<String, dynamic> json) => PartnerAttachmentServiceKey(
-    value: json['value'] != null ? SdkPresent((json['value'] as String?)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    state: json['state'] != null ? SdkPresent((json['state'] as String?)!) : const SdkOmitted(),
-  );
+  factory PartnerAttachmentServiceKey.fromJson(Map<String, dynamic> json) =>
+      PartnerAttachmentServiceKey(
+        value: json['value'] != null
+            ? SdkPresent((json['value'] as String?)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        state: json['state'] != null
+            ? SdkPresent((json['state'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (value) {
-      SdkPresent<String>(value: final value) => {'value': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (state) {
-      SdkPresent<String>(value: final value) => {'state': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (value) {
+          SdkPresent<String>(value: final value) => {
+              'value': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (state) {
+          SdkPresent<String>(value: final value) => {
+              'state': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,258 +8,459 @@ part of 'kubernetes_kubernetes.dart';
 class KubernetesNodePoolUpdateRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A human-readable name for the node pool.
   final String name;
+
   /// The number of Droplet instances in the node pool.
   final int count;
+
   /// An array containing the tags applied to the node pool. All node pools are automatically tagged `k8s`, `k8s-worker`, and `k8s:$K8S_CLUSTER_ID`. &lt;br&gt;&lt;br&gt;Requires `tag:read` scope.
   final SdkOptional<List<String>> tags;
+
   /// An object of key/value mappings specifying labels to apply to all nodes in a pool. Labels will automatically be applied to all existing nodes and any subsequent nodes added to the pool. Note that when a label is removed, it is not deleted from the nodes in the pool.
   final SdkOptional<Map<String, dynamic>?> labels;
+
   /// An array of taints to apply to all nodes in a pool. Taints will automatically be applied to all existing nodes and any subsequent nodes added to the pool. When a taint is removed, it is deleted from all nodes in the pool.
   final SdkOptional<List<KubernetesNodePoolTaint>> taints;
+
   /// A boolean value indicating whether auto-scaling is enabled for this node pool.
   final SdkOptional<bool> autoScale;
+
   /// The minimum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`.
   final SdkOptional<int> minNodes;
+
   /// The maximum number of nodes that this node pool can be auto-scaled to. The value will be `0` if `auto_scale` is set to `false`.
   final SdkOptional<int> maxNodes;
 
-  const KubernetesNodePoolUpdateRequest({required this.name, required this.count, this.tags = const SdkOmitted(), this.labels = const SdkOmitted(), this.taints = const SdkOmitted(), this.autoScale = const SdkOmitted(), this.minNodes = const SdkOmitted(), this.maxNodes = const SdkOmitted()});
+  const KubernetesNodePoolUpdateRequest(
+      {required this.name,
+      required this.count,
+      this.tags = const SdkOmitted(),
+      this.labels = const SdkOmitted(),
+      this.taints = const SdkOmitted(),
+      this.autoScale = const SdkOmitted(),
+      this.minNodes = const SdkOmitted(),
+      this.maxNodes = const SdkOmitted()});
 
-  KubernetesNodePoolUpdateRequest Function({String name, int count, SdkOptional<List<String>> tags, SdkOptional<Map<String, dynamic>?> labels, SdkOptional<List<KubernetesNodePoolTaint>> taints, SdkOptional<bool> autoScale, SdkOptional<int> minNodes, SdkOptional<int> maxNodes}) get copyWith => _copyWith;
+  KubernetesNodePoolUpdateRequest Function(
+      {String name,
+      int count,
+      SdkOptional<List<String>> tags,
+      SdkOptional<Map<String, dynamic>?> labels,
+      SdkOptional<List<KubernetesNodePoolTaint>> taints,
+      SdkOptional<bool> autoScale,
+      SdkOptional<int> minNodes,
+      SdkOptional<int> maxNodes}) get copyWith => _copyWith;
 
-  KubernetesNodePoolUpdateRequest _copyWith({Object? name = sdkOmittedValue, Object? count = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? labels = sdkOmittedValue, Object? taints = sdkOmittedValue, Object? autoScale = sdkOmittedValue, Object? minNodes = sdkOmittedValue, Object? maxNodes = sdkOmittedValue}) => KubernetesNodePoolUpdateRequest(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    count: identical(count, sdkOmittedValue) ? this.count : count as int,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    labels: identical(labels, sdkOmittedValue) ? this.labels : labels as SdkOptional<Map<String, dynamic>?>,
-    taints: identical(taints, sdkOmittedValue) ? this.taints : taints as SdkOptional<List<KubernetesNodePoolTaint>>,
-    autoScale: identical(autoScale, sdkOmittedValue) ? this.autoScale : autoScale as SdkOptional<bool>,
-    minNodes: identical(minNodes, sdkOmittedValue) ? this.minNodes : minNodes as SdkOptional<int>,
-    maxNodes: identical(maxNodes, sdkOmittedValue) ? this.maxNodes : maxNodes as SdkOptional<int>,
-  );
+  KubernetesNodePoolUpdateRequest _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? count = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? labels = sdkOmittedValue,
+          Object? taints = sdkOmittedValue,
+          Object? autoScale = sdkOmittedValue,
+          Object? minNodes = sdkOmittedValue,
+          Object? maxNodes = sdkOmittedValue}) =>
+      KubernetesNodePoolUpdateRequest(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        count: identical(count, sdkOmittedValue) ? this.count : count as int,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        labels: identical(labels, sdkOmittedValue)
+            ? this.labels
+            : labels as SdkOptional<Map<String, dynamic>?>,
+        taints: identical(taints, sdkOmittedValue)
+            ? this.taints
+            : taints as SdkOptional<List<KubernetesNodePoolTaint>>,
+        autoScale: identical(autoScale, sdkOmittedValue)
+            ? this.autoScale
+            : autoScale as SdkOptional<bool>,
+        minNodes: identical(minNodes, sdkOmittedValue)
+            ? this.minNodes
+            : minNodes as SdkOptional<int>,
+        maxNodes: identical(maxNodes, sdkOmittedValue)
+            ? this.maxNodes
+            : maxNodes as SdkOptional<int>,
+      );
 
-  factory KubernetesNodePoolUpdateRequest.fromJson(Map<String, dynamic> json) => KubernetesNodePoolUpdateRequest(
-    name: (json['name'] as String?)!,
-    count: ((json['count'] as num?)?.toInt())!,
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    labels: json.containsKey('labels') ? SdkPresent(json['labels'] == null ? null : json['labels'] as Map<String, dynamic>) : const SdkOmitted(),
-    taints: json['taints'] != null ? SdkPresent(((json['taints'] as List?)?.map((e) => KubernetesNodePoolTaint.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    autoScale: json['auto_scale'] != null ? SdkPresent((json['auto_scale'] as bool?)!) : const SdkOmitted(),
-    minNodes: json['min_nodes'] != null ? SdkPresent(((json['min_nodes'] as num?)?.toInt())!) : const SdkOmitted(),
-    maxNodes: json['max_nodes'] != null ? SdkPresent(((json['max_nodes'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory KubernetesNodePoolUpdateRequest.fromJson(Map<String, dynamic> json) =>
+      KubernetesNodePoolUpdateRequest(
+        name: (json['name'] as String?)!,
+        count: ((json['count'] as num?)?.toInt())!,
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        labels: json.containsKey('labels')
+            ? SdkPresent(json['labels'] == null
+                ? null
+                : json['labels'] as Map<String, dynamic>)
+            : const SdkOmitted(),
+        taints: json['taints'] != null
+            ? SdkPresent(((json['taints'] as List?)
+                ?.map((e) =>
+                    KubernetesNodePoolTaint.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        autoScale: json['auto_scale'] != null
+            ? SdkPresent((json['auto_scale'] as bool?)!)
+            : const SdkOmitted(),
+        minNodes: json['min_nodes'] != null
+            ? SdkPresent(((json['min_nodes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        maxNodes: json['max_nodes'] != null
+            ? SdkPresent(((json['max_nodes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'count': count,
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (labels) {
-      SdkPresent<Map<String, dynamic>?>(value: final value) => {'labels': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (taints) {
-      SdkPresent<List<KubernetesNodePoolTaint>>(value: final value) => {'taints': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (autoScale) {
-      SdkPresent<bool>(value: final value) => {'auto_scale': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (minNodes) {
-      SdkPresent<int>(value: final value) => {'min_nodes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (maxNodes) {
-      SdkPresent<int>(value: final value) => {'max_nodes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        'count': count,
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (labels) {
+          SdkPresent<Map<String, dynamic>?>(value: final value) => {
+              'labels': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (taints) {
+          SdkPresent<List<KubernetesNodePoolTaint>>(value: final value) => {
+              'taints': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (autoScale) {
+          SdkPresent<bool>(value: final value) => {
+              'auto_scale': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (minNodes) {
+          SdkPresent<int>(value: final value) => {
+              'min_nodes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (maxNodes) {
+          SdkPresent<int>(value: final value) => {
+              'max_nodes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `options` wire field.
 class KubernetesOptionsOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `regions` wire field.
   final SdkOptional<List<KubernetesRegion>> regions;
+
   /// Optional array value serialized in the `versions` wire field.
   final SdkOptional<List<KubernetesVersion>> versions;
+
   /// Optional array value serialized in the `sizes` wire field.
   final SdkOptional<List<KubernetesSize>> sizes;
 
-  const KubernetesOptionsOptions({this.regions = const SdkOmitted(), this.versions = const SdkOmitted(), this.sizes = const SdkOmitted()});
+  const KubernetesOptionsOptions(
+      {this.regions = const SdkOmitted(),
+      this.versions = const SdkOmitted(),
+      this.sizes = const SdkOmitted()});
 
-  KubernetesOptionsOptions Function({SdkOptional<List<KubernetesRegion>> regions, SdkOptional<List<KubernetesVersion>> versions, SdkOptional<List<KubernetesSize>> sizes}) get copyWith => _copyWith;
+  KubernetesOptionsOptions Function(
+      {SdkOptional<List<KubernetesRegion>> regions,
+      SdkOptional<List<KubernetesVersion>> versions,
+      SdkOptional<List<KubernetesSize>> sizes}) get copyWith => _copyWith;
 
-  KubernetesOptionsOptions _copyWith({Object? regions = sdkOmittedValue, Object? versions = sdkOmittedValue, Object? sizes = sdkOmittedValue}) => KubernetesOptionsOptions(
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<KubernetesRegion>>,
-    versions: identical(versions, sdkOmittedValue) ? this.versions : versions as SdkOptional<List<KubernetesVersion>>,
-    sizes: identical(sizes, sdkOmittedValue) ? this.sizes : sizes as SdkOptional<List<KubernetesSize>>,
-  );
+  KubernetesOptionsOptions _copyWith(
+          {Object? regions = sdkOmittedValue,
+          Object? versions = sdkOmittedValue,
+          Object? sizes = sdkOmittedValue}) =>
+      KubernetesOptionsOptions(
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as SdkOptional<List<KubernetesRegion>>,
+        versions: identical(versions, sdkOmittedValue)
+            ? this.versions
+            : versions as SdkOptional<List<KubernetesVersion>>,
+        sizes: identical(sizes, sdkOmittedValue)
+            ? this.sizes
+            : sizes as SdkOptional<List<KubernetesSize>>,
+      );
 
-  factory KubernetesOptionsOptions.fromJson(Map<String, dynamic> json) => KubernetesOptionsOptions(
-    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => KubernetesRegion.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    versions: json['versions'] != null ? SdkPresent(((json['versions'] as List?)?.map((e) => KubernetesVersion.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    sizes: json['sizes'] != null ? SdkPresent(((json['sizes'] as List?)?.map((e) => KubernetesSize.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory KubernetesOptionsOptions.fromJson(Map<String, dynamic> json) =>
+      KubernetesOptionsOptions(
+        regions: json['regions'] != null
+            ? SdkPresent(((json['regions'] as List?)
+                ?.map(
+                    (e) => KubernetesRegion.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        versions: json['versions'] != null
+            ? SdkPresent(((json['versions'] as List?)
+                ?.map((e) =>
+                    KubernetesVersion.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        sizes: json['sizes'] != null
+            ? SdkPresent(((json['sizes'] as List?)
+                ?.map((e) => KubernetesSize.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (regions) {
-      SdkPresent<List<KubernetesRegion>>(value: final value) => {'regions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (versions) {
-      SdkPresent<List<KubernetesVersion>>(value: final value) => {'versions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sizes) {
-      SdkPresent<List<KubernetesSize>>(value: final value) => {'sizes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (regions) {
+          SdkPresent<List<KubernetesRegion>>(value: final value) => {
+              'regions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (versions) {
+          SdkPresent<List<KubernetesVersion>>(value: final value) => {
+              'versions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sizes) {
+          SdkPresent<List<KubernetesSize>>(value: final value) => {
+              'sizes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `KubernetesOptions` API schema.
 class KubernetesOptions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `options` wire field.
   final SdkOptional<KubernetesOptionsOptions> options;
 
   const KubernetesOptions({this.options = const SdkOmitted()});
 
-  KubernetesOptions Function({SdkOptional<KubernetesOptionsOptions> options}) get copyWith => _copyWith;
+  KubernetesOptions Function({SdkOptional<KubernetesOptionsOptions> options})
+      get copyWith => _copyWith;
 
-  KubernetesOptions _copyWith({Object? options = sdkOmittedValue}) => KubernetesOptions(
-    options: identical(options, sdkOmittedValue) ? this.options : options as SdkOptional<KubernetesOptionsOptions>,
-  );
+  KubernetesOptions _copyWith({Object? options = sdkOmittedValue}) =>
+      KubernetesOptions(
+        options: identical(options, sdkOmittedValue)
+            ? this.options
+            : options as SdkOptional<KubernetesOptionsOptions>,
+      );
 
-  factory KubernetesOptions.fromJson(Map<String, dynamic> json) => KubernetesOptions(
-    options: json['options'] != null ? SdkPresent((json['options'] != null ? KubernetesOptionsOptions.fromJson(json['options'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory KubernetesOptions.fromJson(Map<String, dynamic> json) =>
+      KubernetesOptions(
+        options: json['options'] != null
+            ? SdkPresent((json['options'] != null
+                ? KubernetesOptionsOptions.fromJson(
+                    json['options'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (options) {
-      SdkPresent<KubernetesOptionsOptions>(value: final value) => {'options': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (options) {
+          SdkPresent<KubernetesOptionsOptions>(value: final value) => {
+              'options': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `KubernetesRegion` API schema.
 class KubernetesRegion {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A DigitalOcean region where Kubernetes is available.
   final SdkOptional<String> name;
+
   /// The identifier for a region for use when creating a new cluster.
   final SdkOptional<String> slug;
 
-  const KubernetesRegion({this.name = const SdkOmitted(), this.slug = const SdkOmitted()});
+  const KubernetesRegion(
+      {this.name = const SdkOmitted(), this.slug = const SdkOmitted()});
 
-  KubernetesRegion Function({SdkOptional<String> name, SdkOptional<String> slug}) get copyWith => _copyWith;
+  KubernetesRegion Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> slug}) get copyWith => _copyWith;
 
-  KubernetesRegion _copyWith({Object? name = sdkOmittedValue, Object? slug = sdkOmittedValue}) => KubernetesRegion(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as SdkOptional<String>,
-  );
+  KubernetesRegion _copyWith(
+          {Object? name = sdkOmittedValue, Object? slug = sdkOmittedValue}) =>
+      KubernetesRegion(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        slug: identical(slug, sdkOmittedValue)
+            ? this.slug
+            : slug as SdkOptional<String>,
+      );
 
-  factory KubernetesRegion.fromJson(Map<String, dynamic> json) => KubernetesRegion(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    slug: json['slug'] != null ? SdkPresent((json['slug'] as String?)!) : const SdkOmitted(),
-  );
+  factory KubernetesRegion.fromJson(Map<String, dynamic> json) =>
+      KubernetesRegion(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        slug: json['slug'] != null
+            ? SdkPresent((json['slug'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (slug) {
-      SdkPresent<String>(value: final value) => {'slug': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (slug) {
+          SdkPresent<String>(value: final value) => {
+              'slug': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `KubernetesSize` API schema.
 class KubernetesSize {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A Droplet size available for use in a Kubernetes node pool.
   final SdkOptional<String> name;
+
   /// The identifier for a size for use when creating a new cluster.
   final SdkOptional<String> slug;
 
-  const KubernetesSize({this.name = const SdkOmitted(), this.slug = const SdkOmitted()});
+  const KubernetesSize(
+      {this.name = const SdkOmitted(), this.slug = const SdkOmitted()});
 
-  KubernetesSize Function({SdkOptional<String> name, SdkOptional<String> slug}) get copyWith => _copyWith;
+  KubernetesSize Function({SdkOptional<String> name, SdkOptional<String> slug})
+      get copyWith => _copyWith;
 
-  KubernetesSize _copyWith({Object? name = sdkOmittedValue, Object? slug = sdkOmittedValue}) => KubernetesSize(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as SdkOptional<String>,
-  );
+  KubernetesSize _copyWith(
+          {Object? name = sdkOmittedValue, Object? slug = sdkOmittedValue}) =>
+      KubernetesSize(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        slug: identical(slug, sdkOmittedValue)
+            ? this.slug
+            : slug as SdkOptional<String>,
+      );
 
   factory KubernetesSize.fromJson(Map<String, dynamic> json) => KubernetesSize(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    slug: json['slug'] != null ? SdkPresent((json['slug'] as String?)!) : const SdkOmitted(),
-  );
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        slug: json['slug'] != null
+            ? SdkPresent((json['slug'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (slug) {
-      SdkPresent<String>(value: final value) => {'slug': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (slug) {
+          SdkPresent<String>(value: final value) => {
+              'slug': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `KubernetesVersion` API schema.
 class KubernetesVersion {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The slug identifier for an available version of Kubernetes for use when creating or updating a cluster. The string contains both the upstream version of Kubernetes as well as the DigitalOcean revision.
   final SdkOptional<String> slug;
+
   /// The upstream version string for the version of Kubernetes provided by a given slug.
   final SdkOptional<String> kubernetesVersion;
+
   /// The features available with the version of Kubernetes provided by a given slug.
   final SdkOptional<List<String>> supportedFeatures;
 
-  const KubernetesVersion({this.slug = const SdkOmitted(), this.kubernetesVersion = const SdkOmitted(), this.supportedFeatures = const SdkOmitted()});
+  const KubernetesVersion(
+      {this.slug = const SdkOmitted(),
+      this.kubernetesVersion = const SdkOmitted(),
+      this.supportedFeatures = const SdkOmitted()});
 
-  KubernetesVersion Function({SdkOptional<String> slug, SdkOptional<String> kubernetesVersion, SdkOptional<List<String>> supportedFeatures}) get copyWith => _copyWith;
+  KubernetesVersion Function(
+      {SdkOptional<String> slug,
+      SdkOptional<String> kubernetesVersion,
+      SdkOptional<List<String>> supportedFeatures}) get copyWith => _copyWith;
 
-  KubernetesVersion _copyWith({Object? slug = sdkOmittedValue, Object? kubernetesVersion = sdkOmittedValue, Object? supportedFeatures = sdkOmittedValue}) => KubernetesVersion(
-    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as SdkOptional<String>,
-    kubernetesVersion: identical(kubernetesVersion, sdkOmittedValue) ? this.kubernetesVersion : kubernetesVersion as SdkOptional<String>,
-    supportedFeatures: identical(supportedFeatures, sdkOmittedValue) ? this.supportedFeatures : supportedFeatures as SdkOptional<List<String>>,
-  );
+  KubernetesVersion _copyWith(
+          {Object? slug = sdkOmittedValue,
+          Object? kubernetesVersion = sdkOmittedValue,
+          Object? supportedFeatures = sdkOmittedValue}) =>
+      KubernetesVersion(
+        slug: identical(slug, sdkOmittedValue)
+            ? this.slug
+            : slug as SdkOptional<String>,
+        kubernetesVersion: identical(kubernetesVersion, sdkOmittedValue)
+            ? this.kubernetesVersion
+            : kubernetesVersion as SdkOptional<String>,
+        supportedFeatures: identical(supportedFeatures, sdkOmittedValue)
+            ? this.supportedFeatures
+            : supportedFeatures as SdkOptional<List<String>>,
+      );
 
-  factory KubernetesVersion.fromJson(Map<String, dynamic> json) => KubernetesVersion(
-    slug: json['slug'] != null ? SdkPresent((json['slug'] as String?)!) : const SdkOmitted(),
-    kubernetesVersion: json['kubernetes_version'] != null ? SdkPresent((json['kubernetes_version'] as String?)!) : const SdkOmitted(),
-    supportedFeatures: json['supported_features'] != null ? SdkPresent(((json['supported_features'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory KubernetesVersion.fromJson(Map<String, dynamic> json) =>
+      KubernetesVersion(
+        slug: json['slug'] != null
+            ? SdkPresent((json['slug'] as String?)!)
+            : const SdkOmitted(),
+        kubernetesVersion: json['kubernetes_version'] != null
+            ? SdkPresent((json['kubernetes_version'] as String?)!)
+            : const SdkOmitted(),
+        supportedFeatures: json['supported_features'] != null
+            ? SdkPresent(((json['supported_features'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (slug) {
-      SdkPresent<String>(value: final value) => {'slug': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (kubernetesVersion) {
-      SdkPresent<String>(value: final value) => {'kubernetes_version': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (supportedFeatures) {
-      SdkPresent<List<String>>(value: final value) => {'supported_features': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (slug) {
+          SdkPresent<String>(value: final value) => {
+              'slug': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (kubernetesVersion) {
+          SdkPresent<String>(value: final value) => {
+              'kubernetes_version': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (supportedFeatures) {
+          SdkPresent<List<String>>(value: final value) => {
+              'supported_features': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

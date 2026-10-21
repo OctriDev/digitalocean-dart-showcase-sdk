@@ -7,24 +7,31 @@ part of 'inline.dart';
 class DatabasesUpdateRegionRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A slug identifier for the region to which the database cluster will be migrated.
   final String region;
 
   const DatabasesUpdateRegionRequestBody({required this.region});
 
-  DatabasesUpdateRegionRequestBody Function({String region}) get copyWith => _copyWith;
+  DatabasesUpdateRegionRequestBody Function({String region}) get copyWith =>
+      _copyWith;
 
-  DatabasesUpdateRegionRequestBody _copyWith({Object? region = sdkOmittedValue}) => DatabasesUpdateRegionRequestBody(
-    region: identical(region, sdkOmittedValue) ? this.region : region as String,
-  );
+  DatabasesUpdateRegionRequestBody _copyWith(
+          {Object? region = sdkOmittedValue}) =>
+      DatabasesUpdateRegionRequestBody(
+        region:
+            identical(region, sdkOmittedValue) ? this.region : region as String,
+      );
 
-  factory DatabasesUpdateRegionRequestBody.fromJson(Map<String, dynamic> json) => DatabasesUpdateRegionRequestBody(
-    region: (json['region'] as String?)!,
-  );
+  factory DatabasesUpdateRegionRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      DatabasesUpdateRegionRequestBody(
+        region: (json['region'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'region': region,
-  };
+        'region': region,
+      };
 }
 
 class DatabasesUpdateFirewallRulesRequestBody {
@@ -32,200 +39,370 @@ class DatabasesUpdateFirewallRulesRequestBody {
   static const String constructionSurface = 'named';
   final SdkOptional<List<FirewallRuleRequest>> rules;
 
-  const DatabasesUpdateFirewallRulesRequestBody({this.rules = const SdkOmitted()});
+  const DatabasesUpdateFirewallRulesRequestBody(
+      {this.rules = const SdkOmitted()});
 
-  DatabasesUpdateFirewallRulesRequestBody Function({SdkOptional<List<FirewallRuleRequest>> rules}) get copyWith => _copyWith;
+  DatabasesUpdateFirewallRulesRequestBody Function(
+      {SdkOptional<List<FirewallRuleRequest>> rules}) get copyWith => _copyWith;
 
-  DatabasesUpdateFirewallRulesRequestBody _copyWith({Object? rules = sdkOmittedValue}) => DatabasesUpdateFirewallRulesRequestBody(
-    rules: identical(rules, sdkOmittedValue) ? this.rules : rules as SdkOptional<List<FirewallRuleRequest>>,
-  );
+  DatabasesUpdateFirewallRulesRequestBody _copyWith(
+          {Object? rules = sdkOmittedValue}) =>
+      DatabasesUpdateFirewallRulesRequestBody(
+        rules: identical(rules, sdkOmittedValue)
+            ? this.rules
+            : rules as SdkOptional<List<FirewallRuleRequest>>,
+      );
 
-  factory DatabasesUpdateFirewallRulesRequestBody.fromJson(Map<String, dynamic> json) => DatabasesUpdateFirewallRulesRequestBody(
-    rules: json['rules'] != null ? SdkPresent(((json['rules'] as List?)?.map((e) => FirewallRuleRequest.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory DatabasesUpdateFirewallRulesRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      DatabasesUpdateFirewallRulesRequestBody(
+        rules: json['rules'] != null
+            ? SdkPresent(((json['rules'] as List?)
+                ?.map((e) =>
+                    FirewallRuleRequest.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (rules) {
-      SdkPresent<List<FirewallRuleRequest>>(value: final value) => {'rules': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (rules) {
+          SdkPresent<List<FirewallRuleRequest>>(value: final value) => {
+              'rules': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DatabasesUpdateDoSettingsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// DigitalOcean-specific settings for the database cluster.
   final DoSettings doSettings;
 
   const DatabasesUpdateDoSettingsRequestBody({required this.doSettings});
 
-  DatabasesUpdateDoSettingsRequestBody Function({DoSettings doSettings}) get copyWith => _copyWith;
+  DatabasesUpdateDoSettingsRequestBody Function({DoSettings doSettings})
+      get copyWith => _copyWith;
 
-  DatabasesUpdateDoSettingsRequestBody _copyWith({Object? doSettings = sdkOmittedValue}) => DatabasesUpdateDoSettingsRequestBody(
-    doSettings: identical(doSettings, sdkOmittedValue) ? this.doSettings : doSettings as DoSettings,
-  );
+  DatabasesUpdateDoSettingsRequestBody _copyWith(
+          {Object? doSettings = sdkOmittedValue}) =>
+      DatabasesUpdateDoSettingsRequestBody(
+        doSettings: identical(doSettings, sdkOmittedValue)
+            ? this.doSettings
+            : doSettings as DoSettings,
+      );
 
-  factory DatabasesUpdateDoSettingsRequestBody.fromJson(Map<String, dynamic> json) => DatabasesUpdateDoSettingsRequestBody(
-    doSettings: (json['do_settings'] != null ? DoSettings.fromJson(json['do_settings'] as Map<String, dynamic>) : null)!,
-  );
+  factory DatabasesUpdateDoSettingsRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      DatabasesUpdateDoSettingsRequestBody(
+        doSettings: (json['do_settings'] != null
+            ? DoSettings.fromJson(json['do_settings'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'do_settings': doSettings.toJson(),
-  };
+        'do_settings': doSettings.toJson(),
+      };
 }
 
 class DatabasesCreateReplicaRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name to give the read-only replicating
   final String name;
+
   /// A slug identifier for the region where the read-only replica will be located. If excluded, the replica will be placed in the same region as the cluster.
   final SdkOptional<String> region;
+
   /// A slug identifier representing the size of the node for the read-only replica. The size of the replica must be at least as large as the node size for the database cluster from which it is replicating.
   final String size;
+
   /// A flat array of tag names as strings to apply to the read-only replica after it is created. Tag names can either be existing or new tags. &lt;br&gt;&lt;br&gt;Requires `tag:create` scope.
   final SdkOptional<List<String>> tags;
+
   /// A string specifying the UUID of the VPC to which the read-only replica will be assigned. If excluded, the replica will be assigned to your account's default VPC for the region. &lt;br&gt;&lt;br&gt;Requires `vpc:read` scope.
   final SdkOptional<String> privateNetworkUuid;
   final SdkOptional<DatabaseConnectionRequest> connection;
   final SdkOptional<DatabaseConnection> privateConnection;
+
   /// Additional storage added to the cluster, in MiB. If null, no additional storage is added to the cluster, beyond what is provided as a base amount from the 'size' and any previously added additional storage.
   final SdkOptional<int> storageSizeMib;
+
   /// DigitalOcean-specific settings for the read-only replica, including custom service CNAMEs.
   final SdkOptional<DoSettings> doSettings;
 
-  const DatabasesCreateReplicaRequestBody({required this.name, this.region = const SdkOmitted(), required this.size, this.tags = const SdkOmitted(), this.privateNetworkUuid = const SdkOmitted(), this.connection = const SdkOmitted(), this.privateConnection = const SdkOmitted(), this.storageSizeMib = const SdkOmitted(), this.doSettings = const SdkOmitted()});
+  const DatabasesCreateReplicaRequestBody(
+      {required this.name,
+      this.region = const SdkOmitted(),
+      required this.size,
+      this.tags = const SdkOmitted(),
+      this.privateNetworkUuid = const SdkOmitted(),
+      this.connection = const SdkOmitted(),
+      this.privateConnection = const SdkOmitted(),
+      this.storageSizeMib = const SdkOmitted(),
+      this.doSettings = const SdkOmitted()});
 
-  DatabasesCreateReplicaRequestBody Function({String name, SdkOptional<String> region, String size, SdkOptional<List<String>> tags, SdkOptional<String> privateNetworkUuid, SdkOptional<DatabaseConnectionRequest> connection, SdkOptional<DatabaseConnection> privateConnection, SdkOptional<int> storageSizeMib, SdkOptional<DoSettings> doSettings}) get copyWith => _copyWith;
+  DatabasesCreateReplicaRequestBody Function(
+      {String name,
+      SdkOptional<String> region,
+      String size,
+      SdkOptional<List<String>> tags,
+      SdkOptional<String> privateNetworkUuid,
+      SdkOptional<DatabaseConnectionRequest> connection,
+      SdkOptional<DatabaseConnection> privateConnection,
+      SdkOptional<int> storageSizeMib,
+      SdkOptional<DoSettings> doSettings}) get copyWith => _copyWith;
 
-  DatabasesCreateReplicaRequestBody _copyWith({Object? name = sdkOmittedValue, Object? region = sdkOmittedValue, Object? size = sdkOmittedValue, Object? tags = sdkOmittedValue, Object? privateNetworkUuid = sdkOmittedValue, Object? connection = sdkOmittedValue, Object? privateConnection = sdkOmittedValue, Object? storageSizeMib = sdkOmittedValue, Object? doSettings = sdkOmittedValue}) => DatabasesCreateReplicaRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as String,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-    privateNetworkUuid: identical(privateNetworkUuid, sdkOmittedValue) ? this.privateNetworkUuid : privateNetworkUuid as SdkOptional<String>,
-    connection: identical(connection, sdkOmittedValue) ? this.connection : connection as SdkOptional<DatabaseConnectionRequest>,
-    privateConnection: identical(privateConnection, sdkOmittedValue) ? this.privateConnection : privateConnection as SdkOptional<DatabaseConnection>,
-    storageSizeMib: identical(storageSizeMib, sdkOmittedValue) ? this.storageSizeMib : storageSizeMib as SdkOptional<int>,
-    doSettings: identical(doSettings, sdkOmittedValue) ? this.doSettings : doSettings as SdkOptional<DoSettings>,
-  );
+  DatabasesCreateReplicaRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? tags = sdkOmittedValue,
+          Object? privateNetworkUuid = sdkOmittedValue,
+          Object? connection = sdkOmittedValue,
+          Object? privateConnection = sdkOmittedValue,
+          Object? storageSizeMib = sdkOmittedValue,
+          Object? doSettings = sdkOmittedValue}) =>
+      DatabasesCreateReplicaRequestBody(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        size: identical(size, sdkOmittedValue) ? this.size : size as String,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+        privateNetworkUuid: identical(privateNetworkUuid, sdkOmittedValue)
+            ? this.privateNetworkUuid
+            : privateNetworkUuid as SdkOptional<String>,
+        connection: identical(connection, sdkOmittedValue)
+            ? this.connection
+            : connection as SdkOptional<DatabaseConnectionRequest>,
+        privateConnection: identical(privateConnection, sdkOmittedValue)
+            ? this.privateConnection
+            : privateConnection as SdkOptional<DatabaseConnection>,
+        storageSizeMib: identical(storageSizeMib, sdkOmittedValue)
+            ? this.storageSizeMib
+            : storageSizeMib as SdkOptional<int>,
+        doSettings: identical(doSettings, sdkOmittedValue)
+            ? this.doSettings
+            : doSettings as SdkOptional<DoSettings>,
+      );
 
-  factory DatabasesCreateReplicaRequestBody.fromJson(Map<String, dynamic> json) => DatabasesCreateReplicaRequestBody(
-    name: (json['name'] as String?)!,
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    size: (json['size'] as String?)!,
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    privateNetworkUuid: json['private_network_uuid'] != null ? SdkPresent((json['private_network_uuid'] as String?)!) : const SdkOmitted(),
-    connection: json['connection'] != null ? SdkPresent((json['connection'] != null ? DatabaseConnectionRequest.fromJson(json['connection'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    privateConnection: json['private_connection'] != null ? SdkPresent((json['private_connection'] != null ? DatabaseConnection.fromJson(json['private_connection'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    storageSizeMib: json['storage_size_mib'] != null ? SdkPresent(((json['storage_size_mib'] as num?)?.toInt())!) : const SdkOmitted(),
-    doSettings: json['do_settings'] != null ? SdkPresent((json['do_settings'] != null ? DoSettings.fromJson(json['do_settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DatabasesCreateReplicaRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      DatabasesCreateReplicaRequestBody(
+        name: (json['name'] as String?)!,
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        size: (json['size'] as String?)!,
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        privateNetworkUuid: json['private_network_uuid'] != null
+            ? SdkPresent((json['private_network_uuid'] as String?)!)
+            : const SdkOmitted(),
+        connection: json['connection'] != null
+            ? SdkPresent((json['connection'] != null
+                ? DatabaseConnectionRequest.fromJson(
+                    json['connection'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        privateConnection: json['private_connection'] != null
+            ? SdkPresent((json['private_connection'] != null
+                ? DatabaseConnection.fromJson(
+                    json['private_connection'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        storageSizeMib: json['storage_size_mib'] != null
+            ? SdkPresent(((json['storage_size_mib'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        doSettings: json['do_settings'] != null
+            ? SdkPresent((json['do_settings'] != null
+                ? DoSettings.fromJson(
+                    json['do_settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    'size': size,
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (privateNetworkUuid) {
-      SdkPresent<String>(value: final value) => {'private_network_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (connection) {
-      SdkPresent<DatabaseConnectionRequest>(value: final value) => {'connection': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (privateConnection) {
-      SdkPresent<DatabaseConnection>(value: final value) => {'private_connection': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (storageSizeMib) {
-      SdkPresent<int>(value: final value) => {'storage_size_mib': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (doSettings) {
-      SdkPresent<DoSettings>(value: final value) => {'do_settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'size': size,
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (privateNetworkUuid) {
+          SdkPresent<String>(value: final value) => {
+              'private_network_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (connection) {
+          SdkPresent<DatabaseConnectionRequest>(value: final value) => {
+              'connection': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (privateConnection) {
+          SdkPresent<DatabaseConnection>(value: final value) => {
+              'private_connection': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (storageSizeMib) {
+          SdkPresent<int>(value: final value) => {
+              'storage_size_mib': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (doSettings) {
+          SdkPresent<DoSettings>(value: final value) => {
+              'do_settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DatabasesAddUserRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of a database user.
   final String name;
   final SdkOptional<MysqlSettings> mysqlSettings;
   final SdkOptional<UserSettings> settings;
+
   /// (To be deprecated: use settings.mongo_user_settings.role instead for access controls to MongoDB databases). For MongoDB clusters, set to `true` to create a read-only user. This option is not currently supported for other database engines.
   final SdkOptional<bool> readonly;
 
-  const DatabasesAddUserRequestBody({required this.name, this.mysqlSettings = const SdkOmitted(), this.settings = const SdkOmitted(), this.readonly = const SdkOmitted()});
+  const DatabasesAddUserRequestBody(
+      {required this.name,
+      this.mysqlSettings = const SdkOmitted(),
+      this.settings = const SdkOmitted(),
+      this.readonly = const SdkOmitted()});
 
-  DatabasesAddUserRequestBody Function({String name, SdkOptional<MysqlSettings> mysqlSettings, SdkOptional<UserSettings> settings, SdkOptional<bool> readonly}) get copyWith => _copyWith;
+  DatabasesAddUserRequestBody Function(
+      {String name,
+      SdkOptional<MysqlSettings> mysqlSettings,
+      SdkOptional<UserSettings> settings,
+      SdkOptional<bool> readonly}) get copyWith => _copyWith;
 
-  DatabasesAddUserRequestBody _copyWith({Object? name = sdkOmittedValue, Object? mysqlSettings = sdkOmittedValue, Object? settings = sdkOmittedValue, Object? readonly = sdkOmittedValue}) => DatabasesAddUserRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    mysqlSettings: identical(mysqlSettings, sdkOmittedValue) ? this.mysqlSettings : mysqlSettings as SdkOptional<MysqlSettings>,
-    settings: identical(settings, sdkOmittedValue) ? this.settings : settings as SdkOptional<UserSettings>,
-    readonly: identical(readonly, sdkOmittedValue) ? this.readonly : readonly as SdkOptional<bool>,
-  );
+  DatabasesAddUserRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? mysqlSettings = sdkOmittedValue,
+          Object? settings = sdkOmittedValue,
+          Object? readonly = sdkOmittedValue}) =>
+      DatabasesAddUserRequestBody(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        mysqlSettings: identical(mysqlSettings, sdkOmittedValue)
+            ? this.mysqlSettings
+            : mysqlSettings as SdkOptional<MysqlSettings>,
+        settings: identical(settings, sdkOmittedValue)
+            ? this.settings
+            : settings as SdkOptional<UserSettings>,
+        readonly: identical(readonly, sdkOmittedValue)
+            ? this.readonly
+            : readonly as SdkOptional<bool>,
+      );
 
-  factory DatabasesAddUserRequestBody.fromJson(Map<String, dynamic> json) => DatabasesAddUserRequestBody(
-    name: (json['name'] as String?)!,
-    mysqlSettings: json['mysql_settings'] != null ? SdkPresent((json['mysql_settings'] != null ? MysqlSettings.fromJson(json['mysql_settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    settings: json['settings'] != null ? SdkPresent((json['settings'] != null ? UserSettings.fromJson(json['settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    readonly: json['readonly'] != null ? SdkPresent((json['readonly'] as bool?)!) : const SdkOmitted(),
-  );
+  factory DatabasesAddUserRequestBody.fromJson(Map<String, dynamic> json) =>
+      DatabasesAddUserRequestBody(
+        name: (json['name'] as String?)!,
+        mysqlSettings: json['mysql_settings'] != null
+            ? SdkPresent((json['mysql_settings'] != null
+                ? MysqlSettings.fromJson(
+                    json['mysql_settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        settings: json['settings'] != null
+            ? SdkPresent((json['settings'] != null
+                ? UserSettings.fromJson(
+                    json['settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        readonly: json['readonly'] != null
+            ? SdkPresent((json['readonly'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (mysqlSettings) {
-      SdkPresent<MysqlSettings>(value: final value) => {'mysql_settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (settings) {
-      SdkPresent<UserSettings>(value: final value) => {'settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (readonly) {
-      SdkPresent<bool>(value: final value) => {'readonly': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (mysqlSettings) {
+          SdkPresent<MysqlSettings>(value: final value) => {
+              'mysql_settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (settings) {
+          SdkPresent<UserSettings>(value: final value) => {
+              'settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (readonly) {
+          SdkPresent<bool>(value: final value) => {
+              'readonly': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DatabasesUpdateUserRequestBodyVariant0 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// User settings that can be updated via the Update a Database User endpoint. Supported for PostgreSQL, Kafka, and OpenSearch clusters. For other engines, the request returns a 422. MongoDB user roles and database access (`mongo_user_settings`) cannot be updated after creation; recreate the user to change them.
   final SdkOptional<UserSettingsUpdate> settings;
 
-  const DatabasesUpdateUserRequestBodyVariant0({this.settings = const SdkOmitted()});
+  const DatabasesUpdateUserRequestBodyVariant0(
+      {this.settings = const SdkOmitted()});
 
-  DatabasesUpdateUserRequestBodyVariant0 Function({SdkOptional<UserSettingsUpdate> settings}) get copyWith => _copyWith;
+  DatabasesUpdateUserRequestBodyVariant0 Function(
+      {SdkOptional<UserSettingsUpdate> settings}) get copyWith => _copyWith;
 
-  DatabasesUpdateUserRequestBodyVariant0 _copyWith({Object? settings = sdkOmittedValue}) => DatabasesUpdateUserRequestBodyVariant0(
-    settings: identical(settings, sdkOmittedValue) ? this.settings : settings as SdkOptional<UserSettingsUpdate>,
-  );
+  DatabasesUpdateUserRequestBodyVariant0 _copyWith(
+          {Object? settings = sdkOmittedValue}) =>
+      DatabasesUpdateUserRequestBodyVariant0(
+        settings: identical(settings, sdkOmittedValue)
+            ? this.settings
+            : settings as SdkOptional<UserSettingsUpdate>,
+      );
 
-  factory DatabasesUpdateUserRequestBodyVariant0.fromJson(Map<String, dynamic> json) => DatabasesUpdateUserRequestBodyVariant0(
-    settings: json['settings'] != null ? SdkPresent((json['settings'] != null ? UserSettingsUpdate.fromJson(json['settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DatabasesUpdateUserRequestBodyVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      DatabasesUpdateUserRequestBodyVariant0(
+        settings: json['settings'] != null
+            ? SdkPresent((json['settings'] != null
+                ? UserSettingsUpdate.fromJson(
+                    json['settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (settings) {
-      SdkPresent<UserSettingsUpdate>(value: final value) => {'settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (settings) {
+          SdkPresent<UserSettingsUpdate>(value: final value) => {
+              'settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DatabasesResetAuthRequestBody {
@@ -233,45 +410,70 @@ class DatabasesResetAuthRequestBody {
   static const String constructionSurface = 'named';
   final SdkOptional<MysqlSettings> mysqlSettings;
 
-  const DatabasesResetAuthRequestBody({this.mysqlSettings = const SdkOmitted()});
+  const DatabasesResetAuthRequestBody(
+      {this.mysqlSettings = const SdkOmitted()});
 
-  DatabasesResetAuthRequestBody Function({SdkOptional<MysqlSettings> mysqlSettings}) get copyWith => _copyWith;
+  DatabasesResetAuthRequestBody Function(
+      {SdkOptional<MysqlSettings> mysqlSettings}) get copyWith => _copyWith;
 
-  DatabasesResetAuthRequestBody _copyWith({Object? mysqlSettings = sdkOmittedValue}) => DatabasesResetAuthRequestBody(
-    mysqlSettings: identical(mysqlSettings, sdkOmittedValue) ? this.mysqlSettings : mysqlSettings as SdkOptional<MysqlSettings>,
-  );
+  DatabasesResetAuthRequestBody _copyWith(
+          {Object? mysqlSettings = sdkOmittedValue}) =>
+      DatabasesResetAuthRequestBody(
+        mysqlSettings: identical(mysqlSettings, sdkOmittedValue)
+            ? this.mysqlSettings
+            : mysqlSettings as SdkOptional<MysqlSettings>,
+      );
 
-  factory DatabasesResetAuthRequestBody.fromJson(Map<String, dynamic> json) => DatabasesResetAuthRequestBody(
-    mysqlSettings: json['mysql_settings'] != null ? SdkPresent((json['mysql_settings'] != null ? MysqlSettings.fromJson(json['mysql_settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory DatabasesResetAuthRequestBody.fromJson(Map<String, dynamic> json) =>
+      DatabasesResetAuthRequestBody(
+        mysqlSettings: json['mysql_settings'] != null
+            ? SdkPresent((json['mysql_settings'] != null
+                ? MysqlSettings.fromJson(
+                    json['mysql_settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (mysqlSettings) {
-      SdkPresent<MysqlSettings>(value: final value) => {'mysql_settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (mysqlSettings) {
+          SdkPresent<MysqlSettings>(value: final value) => {
+              'mysql_settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class DatabasesUpdateEvictionPolicyRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A string specifying the desired eviction policy for a Caching or Valkey cluster. - `noeviction`: Don't evict any data, returns error when memory limit is reached. - `allkeys_lru:` Evict any key, least recently used (LRU) first. - `allkeys_random`: Evict keys in a random order. - `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first. - `volatile_random`: Evict keys with expiration only in a random order. - `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.
   final EvictionPolicyModel evictionPolicy;
 
-  const DatabasesUpdateEvictionPolicyRequestBody({required this.evictionPolicy});
+  const DatabasesUpdateEvictionPolicyRequestBody(
+      {required this.evictionPolicy});
 
-  DatabasesUpdateEvictionPolicyRequestBody Function({EvictionPolicyModel evictionPolicy}) get copyWith => _copyWith;
+  DatabasesUpdateEvictionPolicyRequestBody Function(
+      {EvictionPolicyModel evictionPolicy}) get copyWith => _copyWith;
 
-  DatabasesUpdateEvictionPolicyRequestBody _copyWith({Object? evictionPolicy = sdkOmittedValue}) => DatabasesUpdateEvictionPolicyRequestBody(
-    evictionPolicy: identical(evictionPolicy, sdkOmittedValue) ? this.evictionPolicy : evictionPolicy as EvictionPolicyModel,
-  );
+  DatabasesUpdateEvictionPolicyRequestBody _copyWith(
+          {Object? evictionPolicy = sdkOmittedValue}) =>
+      DatabasesUpdateEvictionPolicyRequestBody(
+        evictionPolicy: identical(evictionPolicy, sdkOmittedValue)
+            ? this.evictionPolicy
+            : evictionPolicy as EvictionPolicyModel,
+      );
 
-  factory DatabasesUpdateEvictionPolicyRequestBody.fromJson(Map<String, dynamic> json) => DatabasesUpdateEvictionPolicyRequestBody(
-    evictionPolicy: (json['eviction_policy'] != null ? EvictionPolicyModel.fromJson(json['eviction_policy'] as String) : null)!,
-  );
+  factory DatabasesUpdateEvictionPolicyRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      DatabasesUpdateEvictionPolicyRequestBody(
+        evictionPolicy: (json['eviction_policy'] != null
+            ? EvictionPolicyModel.fromJson(json['eviction_policy'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'eviction_policy': evictionPolicy.toJson(),
-  };
+        'eviction_policy': evictionPolicy.toJson(),
+      };
 }

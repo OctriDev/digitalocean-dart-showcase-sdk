@@ -8,25 +8,35 @@ part of 'databases.dart';
 class Users {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `users` wire field.
   final SdkOptional<List<DatabaseUser>> users;
 
   const Users({this.users = const SdkOmitted()});
 
-  Users Function({SdkOptional<List<DatabaseUser>> users}) get copyWith => _copyWith;
+  Users Function({SdkOptional<List<DatabaseUser>> users}) get copyWith =>
+      _copyWith;
 
   Users _copyWith({Object? users = sdkOmittedValue}) => Users(
-    users: identical(users, sdkOmittedValue) ? this.users : users as SdkOptional<List<DatabaseUser>>,
-  );
+        users: identical(users, sdkOmittedValue)
+            ? this.users
+            : users as SdkOptional<List<DatabaseUser>>,
+      );
 
   factory Users.fromJson(Map<String, dynamic> json) => Users(
-    users: json['users'] != null ? SdkPresent(((json['users'] as List?)?.map((e) => DatabaseUser.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+        users: json['users'] != null
+            ? SdkPresent(((json['users'] as List?)
+                ?.map((e) => DatabaseUser.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (users) {
-      SdkPresent<List<DatabaseUser>>(value: final value) => {'users': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (users) {
+          SdkPresent<List<DatabaseUser>>(value: final value) => {
+              'users': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

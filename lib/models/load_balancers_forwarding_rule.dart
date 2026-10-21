@@ -8,53 +8,104 @@ part of 'load_balancers.dart';
 class ForwardingRule {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The protocol used for traffic to the load balancer. The possible values are: `http`, `https`, `http2`, `http3`, `tcp`, or `udp`. If you set the `entry_protocol` to `udp`, the `target_protocol` must be set to `udp`. When using UDP, the load balancer requires that you set up a health check with a port that uses TCP, HTTP, or HTTPS to work properly.
   final ForwardingRuleEntryProtocol entryProtocol;
+
   /// An integer representing the port on which the load balancer instance will listen.
   final int entryPort;
+
   /// The protocol used for traffic from the load balancer to the backend Droplets. The possible values are: `http`, `https`, `http2`, `tcp`, or `udp`. If you set the `target_protocol` to `udp`, the `entry_protocol` must be set to `udp`. When using UDP, the load balancer requires that you set up a health check with a port that uses TCP, HTTP, or HTTPS to work properly.
   final ForwardingRuleTargetProtocol targetProtocol;
+
   /// An integer representing the port on the backend Droplets to which the load balancer will send traffic.
   final int targetPort;
+
   /// The ID of the TLS certificate used for SSL termination if enabled.
   final SdkOptional<String> certificateId;
+
   /// A boolean value indicating whether SSL encrypted traffic will be passed through to the backend Droplets.
   final SdkOptional<bool> tlsPassthrough;
 
-  const ForwardingRule({required this.entryProtocol, required this.entryPort, required this.targetProtocol, required this.targetPort, this.certificateId = const SdkOmitted(), this.tlsPassthrough = const SdkOmitted()});
+  const ForwardingRule(
+      {required this.entryProtocol,
+      required this.entryPort,
+      required this.targetProtocol,
+      required this.targetPort,
+      this.certificateId = const SdkOmitted(),
+      this.tlsPassthrough = const SdkOmitted()});
 
-  ForwardingRule Function({ForwardingRuleEntryProtocol entryProtocol, int entryPort, ForwardingRuleTargetProtocol targetProtocol, int targetPort, SdkOptional<String> certificateId, SdkOptional<bool> tlsPassthrough}) get copyWith => _copyWith;
+  ForwardingRule Function(
+      {ForwardingRuleEntryProtocol entryProtocol,
+      int entryPort,
+      ForwardingRuleTargetProtocol targetProtocol,
+      int targetPort,
+      SdkOptional<String> certificateId,
+      SdkOptional<bool> tlsPassthrough}) get copyWith => _copyWith;
 
-  ForwardingRule _copyWith({Object? entryProtocol = sdkOmittedValue, Object? entryPort = sdkOmittedValue, Object? targetProtocol = sdkOmittedValue, Object? targetPort = sdkOmittedValue, Object? certificateId = sdkOmittedValue, Object? tlsPassthrough = sdkOmittedValue}) => ForwardingRule(
-    entryProtocol: identical(entryProtocol, sdkOmittedValue) ? this.entryProtocol : entryProtocol as ForwardingRuleEntryProtocol,
-    entryPort: identical(entryPort, sdkOmittedValue) ? this.entryPort : entryPort as int,
-    targetProtocol: identical(targetProtocol, sdkOmittedValue) ? this.targetProtocol : targetProtocol as ForwardingRuleTargetProtocol,
-    targetPort: identical(targetPort, sdkOmittedValue) ? this.targetPort : targetPort as int,
-    certificateId: identical(certificateId, sdkOmittedValue) ? this.certificateId : certificateId as SdkOptional<String>,
-    tlsPassthrough: identical(tlsPassthrough, sdkOmittedValue) ? this.tlsPassthrough : tlsPassthrough as SdkOptional<bool>,
-  );
+  ForwardingRule _copyWith(
+          {Object? entryProtocol = sdkOmittedValue,
+          Object? entryPort = sdkOmittedValue,
+          Object? targetProtocol = sdkOmittedValue,
+          Object? targetPort = sdkOmittedValue,
+          Object? certificateId = sdkOmittedValue,
+          Object? tlsPassthrough = sdkOmittedValue}) =>
+      ForwardingRule(
+        entryProtocol: identical(entryProtocol, sdkOmittedValue)
+            ? this.entryProtocol
+            : entryProtocol as ForwardingRuleEntryProtocol,
+        entryPort: identical(entryPort, sdkOmittedValue)
+            ? this.entryPort
+            : entryPort as int,
+        targetProtocol: identical(targetProtocol, sdkOmittedValue)
+            ? this.targetProtocol
+            : targetProtocol as ForwardingRuleTargetProtocol,
+        targetPort: identical(targetPort, sdkOmittedValue)
+            ? this.targetPort
+            : targetPort as int,
+        certificateId: identical(certificateId, sdkOmittedValue)
+            ? this.certificateId
+            : certificateId as SdkOptional<String>,
+        tlsPassthrough: identical(tlsPassthrough, sdkOmittedValue)
+            ? this.tlsPassthrough
+            : tlsPassthrough as SdkOptional<bool>,
+      );
 
   factory ForwardingRule.fromJson(Map<String, dynamic> json) => ForwardingRule(
-    entryProtocol: (json['entry_protocol'] != null ? ForwardingRuleEntryProtocol.fromJson(json['entry_protocol'] as String) : null)!,
-    entryPort: ((json['entry_port'] as num?)?.toInt())!,
-    targetProtocol: (json['target_protocol'] != null ? ForwardingRuleTargetProtocol.fromJson(json['target_protocol'] as String) : null)!,
-    targetPort: ((json['target_port'] as num?)?.toInt())!,
-    certificateId: json['certificate_id'] != null ? SdkPresent((json['certificate_id'] as String?)!) : const SdkOmitted(),
-    tlsPassthrough: json['tls_passthrough'] != null ? SdkPresent((json['tls_passthrough'] as bool?)!) : const SdkOmitted(),
-  );
+        entryProtocol: (json['entry_protocol'] != null
+            ? ForwardingRuleEntryProtocol.fromJson(
+                json['entry_protocol'] as String)
+            : null)!,
+        entryPort: ((json['entry_port'] as num?)?.toInt())!,
+        targetProtocol: (json['target_protocol'] != null
+            ? ForwardingRuleTargetProtocol.fromJson(
+                json['target_protocol'] as String)
+            : null)!,
+        targetPort: ((json['target_port'] as num?)?.toInt())!,
+        certificateId: json['certificate_id'] != null
+            ? SdkPresent((json['certificate_id'] as String?)!)
+            : const SdkOmitted(),
+        tlsPassthrough: json['tls_passthrough'] != null
+            ? SdkPresent((json['tls_passthrough'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'entry_protocol': entryProtocol.toJson(),
-    'entry_port': entryPort,
-    'target_protocol': targetProtocol.toJson(),
-    'target_port': targetPort,
-    ...switch (certificateId) {
-      SdkPresent<String>(value: final value) => {'certificate_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tlsPassthrough) {
-      SdkPresent<bool>(value: final value) => {'tls_passthrough': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'entry_protocol': entryProtocol.toJson(),
+        'entry_port': entryPort,
+        'target_protocol': targetProtocol.toJson(),
+        'target_port': targetPort,
+        ...switch (certificateId) {
+          SdkPresent<String>(value: final value) => {
+              'certificate_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tlsPassthrough) {
+          SdkPresent<bool>(value: final value) => {
+              'tls_passthrough': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

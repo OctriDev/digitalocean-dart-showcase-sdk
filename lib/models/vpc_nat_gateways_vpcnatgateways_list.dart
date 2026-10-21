@@ -11,22 +11,36 @@ class VpcNatGatewaysVariant0 {
 
   const VpcNatGatewaysVariant0({this.vpcNatGateways = const SdkOmitted()});
 
-  VpcNatGatewaysVariant0 Function({SdkOptional<List<VpcNatGatewayGet>> vpcNatGateways}) get copyWith => _copyWith;
+  VpcNatGatewaysVariant0 Function(
+          {SdkOptional<List<VpcNatGatewayGet>> vpcNatGateways})
+      get copyWith => _copyWith;
 
-  VpcNatGatewaysVariant0 _copyWith({Object? vpcNatGateways = sdkOmittedValue}) => VpcNatGatewaysVariant0(
-    vpcNatGateways: identical(vpcNatGateways, sdkOmittedValue) ? this.vpcNatGateways : vpcNatGateways as SdkOptional<List<VpcNatGatewayGet>>,
-  );
+  VpcNatGatewaysVariant0 _copyWith(
+          {Object? vpcNatGateways = sdkOmittedValue}) =>
+      VpcNatGatewaysVariant0(
+        vpcNatGateways: identical(vpcNatGateways, sdkOmittedValue)
+            ? this.vpcNatGateways
+            : vpcNatGateways as SdkOptional<List<VpcNatGatewayGet>>,
+      );
 
-  factory VpcNatGatewaysVariant0.fromJson(Map<String, dynamic> json) => VpcNatGatewaysVariant0(
-    vpcNatGateways: json['vpc_nat_gateways'] != null ? SdkPresent(((json['vpc_nat_gateways'] as List?)?.map((e) => VpcNatGatewayGet.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory VpcNatGatewaysVariant0.fromJson(Map<String, dynamic> json) =>
+      VpcNatGatewaysVariant0(
+        vpcNatGateways: json['vpc_nat_gateways'] != null
+            ? SdkPresent(((json['vpc_nat_gateways'] as List?)
+                ?.map(
+                    (e) => VpcNatGatewayGet.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (vpcNatGateways) {
-      SdkPresent<List<VpcNatGatewayGet>>(value: final value) => {'vpc_nat_gateways': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (vpcNatGateways) {
+          SdkPresent<List<VpcNatGatewayGet>>(value: final value) => {
+              'vpc_nat_gateways': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `VpcNatGateways` API schema.
@@ -34,36 +48,69 @@ class VpcNatGateways {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<VpcNatGatewayGet>> vpcNatGateways;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const VpcNatGateways({this.vpcNatGateways = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const VpcNatGateways(
+      {this.vpcNatGateways = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  VpcNatGateways Function({SdkOptional<List<VpcNatGatewayGet>> vpcNatGateways, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  VpcNatGateways Function(
+      {SdkOptional<List<VpcNatGatewayGet>> vpcNatGateways,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  VpcNatGateways _copyWith({Object? vpcNatGateways = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => VpcNatGateways(
-    vpcNatGateways: identical(vpcNatGateways, sdkOmittedValue) ? this.vpcNatGateways : vpcNatGateways as SdkOptional<List<VpcNatGatewayGet>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  VpcNatGateways _copyWith(
+          {Object? vpcNatGateways = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      VpcNatGateways(
+        vpcNatGateways: identical(vpcNatGateways, sdkOmittedValue)
+            ? this.vpcNatGateways
+            : vpcNatGateways as SdkOptional<List<VpcNatGatewayGet>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
   factory VpcNatGateways.fromJson(Map<String, dynamic> json) => VpcNatGateways(
-    vpcNatGateways: json['vpc_nat_gateways'] != null ? SdkPresent(((json['vpc_nat_gateways'] as List?)?.map((e) => VpcNatGatewayGet.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+        vpcNatGateways: json['vpc_nat_gateways'] != null
+            ? SdkPresent(((json['vpc_nat_gateways'] as List?)
+                ?.map(
+                    (e) => VpcNatGatewayGet.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (vpcNatGateways) {
-      SdkPresent<List<VpcNatGatewayGet>>(value: final value) => {'vpc_nat_gateways': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (vpcNatGateways) {
+          SdkPresent<List<VpcNatGatewayGet>>(value: final value) => {
+              'vpc_nat_gateways': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

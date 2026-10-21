@@ -8,32 +8,51 @@ part of 'serverless_inference_messages.dart';
 class MessagesToolChoiceParamVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Tool selection mode.
   final MessagesToolChoiceParamVariant1Type type_;
+
   /// When `type` is `tool`, the tool name to use.
   final SdkOptional<String> name;
 
-  const MessagesToolChoiceParamVariant1({required this.type_, this.name = const SdkOmitted()});
+  const MessagesToolChoiceParamVariant1(
+      {required this.type_, this.name = const SdkOmitted()});
 
-  MessagesToolChoiceParamVariant1 Function({MessagesToolChoiceParamVariant1Type type_, SdkOptional<String> name}) get copyWith => _copyWith;
+  MessagesToolChoiceParamVariant1 Function(
+      {MessagesToolChoiceParamVariant1Type type_,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  MessagesToolChoiceParamVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) => MessagesToolChoiceParamVariant1(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesToolChoiceParamVariant1Type,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  MessagesToolChoiceParamVariant1 _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
+      MessagesToolChoiceParamVariant1(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessagesToolChoiceParamVariant1Type,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory MessagesToolChoiceParamVariant1.fromJson(Map<String, dynamic> json) => MessagesToolChoiceParamVariant1(
-    type_: (json['type'] != null ? MessagesToolChoiceParamVariant1Type.fromJson(json['type'] as String) : null)!,
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory MessagesToolChoiceParamVariant1.fromJson(Map<String, dynamic> json) =>
+      MessagesToolChoiceParamVariant1(
+        type_: (json['type'] != null
+            ? MessagesToolChoiceParamVariant1Type.fromJson(
+                json['type'] as String)
+            : null)!,
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 sealed class MessagesToolChoiceParam {
@@ -41,8 +60,14 @@ sealed class MessagesToolChoiceParam {
   static const String constructionSurface = 'named';
   const MessagesToolChoiceParam();
   factory MessagesToolChoiceParam.fromJson(Object? json) {
-    if (json is String) { return MessagesToolChoiceParamString(json); }
-    try { return MessagesToolChoiceParamMessagesToolChoiceParamVariant1(MessagesToolChoiceParamVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is String) {
+      return MessagesToolChoiceParamString(json);
+    }
+    try {
+      return MessagesToolChoiceParamMessagesToolChoiceParamVariant1(
+          MessagesToolChoiceParamVariant1.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for MessagesToolChoiceParam");
   }
   Object? toJson();
@@ -51,11 +76,14 @@ sealed class MessagesToolChoiceParam {
 final class MessagesToolChoiceParamString extends MessagesToolChoiceParam {
   final String value;
   const MessagesToolChoiceParamString(this.value);
-  @override Object? toJson() => value;
+  @override
+  Object? toJson() => value;
 }
 
-final class MessagesToolChoiceParamMessagesToolChoiceParamVariant1 extends MessagesToolChoiceParam {
+final class MessagesToolChoiceParamMessagesToolChoiceParamVariant1
+    extends MessagesToolChoiceParam {
   final MessagesToolChoiceParamVariant1 value;
   const MessagesToolChoiceParamMessagesToolChoiceParamVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

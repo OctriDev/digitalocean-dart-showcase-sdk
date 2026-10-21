@@ -8,60 +8,95 @@ part of 'agent_platform_api_api_create.dart';
 class ApiCreateAgentAPIKeyInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Agent id
   final SdkOptional<String> agentUuid;
+
   /// A human friendly name to identify the key
   final SdkOptional<String> name;
 
-  const ApiCreateAgentAPIKeyInputPublic({this.agentUuid = const SdkOmitted(), this.name = const SdkOmitted()});
+  const ApiCreateAgentAPIKeyInputPublic(
+      {this.agentUuid = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  ApiCreateAgentAPIKeyInputPublic Function({SdkOptional<String> agentUuid, SdkOptional<String> name}) get copyWith => _copyWith;
+  ApiCreateAgentAPIKeyInputPublic Function(
+      {SdkOptional<String> agentUuid,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ApiCreateAgentAPIKeyInputPublic _copyWith({Object? agentUuid = sdkOmittedValue, Object? name = sdkOmittedValue}) => ApiCreateAgentAPIKeyInputPublic(
-    agentUuid: identical(agentUuid, sdkOmittedValue) ? this.agentUuid : agentUuid as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  ApiCreateAgentAPIKeyInputPublic _copyWith(
+          {Object? agentUuid = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      ApiCreateAgentAPIKeyInputPublic(
+        agentUuid: identical(agentUuid, sdkOmittedValue)
+            ? this.agentUuid
+            : agentUuid as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory ApiCreateAgentAPIKeyInputPublic.fromJson(Map<String, dynamic> json) => ApiCreateAgentAPIKeyInputPublic(
-    agentUuid: json['agent_uuid'] != null ? SdkPresent((json['agent_uuid'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiCreateAgentAPIKeyInputPublic.fromJson(Map<String, dynamic> json) =>
+      ApiCreateAgentAPIKeyInputPublic(
+        agentUuid: json['agent_uuid'] != null
+            ? SdkPresent((json['agent_uuid'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (agentUuid) {
-      SdkPresent<String>(value: final value) => {'agent_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agentUuid) {
+          SdkPresent<String>(value: final value) => {
+              'agent_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ApiCreateAgentAPIKeyOutput` API schema.
 class ApiCreateAgentAPIKeyOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Agent API Key Info
   final SdkOptional<ApiAgentAPIKeyInfo> apiKeyInfo;
 
   const ApiCreateAgentAPIKeyOutput({this.apiKeyInfo = const SdkOmitted()});
 
-  ApiCreateAgentAPIKeyOutput Function({SdkOptional<ApiAgentAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
+  ApiCreateAgentAPIKeyOutput Function(
+      {SdkOptional<ApiAgentAPIKeyInfo> apiKeyInfo}) get copyWith => _copyWith;
 
-  ApiCreateAgentAPIKeyOutput _copyWith({Object? apiKeyInfo = sdkOmittedValue}) => ApiCreateAgentAPIKeyOutput(
-    apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue) ? this.apiKeyInfo : apiKeyInfo as SdkOptional<ApiAgentAPIKeyInfo>,
-  );
+  ApiCreateAgentAPIKeyOutput _copyWith(
+          {Object? apiKeyInfo = sdkOmittedValue}) =>
+      ApiCreateAgentAPIKeyOutput(
+        apiKeyInfo: identical(apiKeyInfo, sdkOmittedValue)
+            ? this.apiKeyInfo
+            : apiKeyInfo as SdkOptional<ApiAgentAPIKeyInfo>,
+      );
 
-  factory ApiCreateAgentAPIKeyOutput.fromJson(Map<String, dynamic> json) => ApiCreateAgentAPIKeyOutput(
-    apiKeyInfo: json['api_key_info'] != null ? SdkPresent((json['api_key_info'] != null ? ApiAgentAPIKeyInfo.fromJson(json['api_key_info'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiCreateAgentAPIKeyOutput.fromJson(Map<String, dynamic> json) =>
+      ApiCreateAgentAPIKeyOutput(
+        apiKeyInfo: json['api_key_info'] != null
+            ? SdkPresent((json['api_key_info'] != null
+                ? ApiAgentAPIKeyInfo.fromJson(
+                    json['api_key_info'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (apiKeyInfo) {
-      SdkPresent<ApiAgentAPIKeyInfo>(value: final value) => {'api_key_info': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (apiKeyInfo) {
+          SdkPresent<ApiAgentAPIKeyInfo>(value: final value) => {
+              'api_key_info': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

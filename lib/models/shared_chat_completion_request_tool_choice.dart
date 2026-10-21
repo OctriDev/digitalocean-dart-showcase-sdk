@@ -8,53 +8,80 @@ part of 'shared_chat.dart';
 class ChatCompletionRequestToolChoiceVariant1Function {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the function to call.
   final String name;
 
   const ChatCompletionRequestToolChoiceVariant1Function({required this.name});
 
-  ChatCompletionRequestToolChoiceVariant1Function Function({String name}) get copyWith => _copyWith;
+  ChatCompletionRequestToolChoiceVariant1Function Function({String name})
+      get copyWith => _copyWith;
 
-  ChatCompletionRequestToolChoiceVariant1Function _copyWith({Object? name = sdkOmittedValue}) => ChatCompletionRequestToolChoiceVariant1Function(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+  ChatCompletionRequestToolChoiceVariant1Function _copyWith(
+          {Object? name = sdkOmittedValue}) =>
+      ChatCompletionRequestToolChoiceVariant1Function(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
-  factory ChatCompletionRequestToolChoiceVariant1Function.fromJson(Map<String, dynamic> json) => ChatCompletionRequestToolChoiceVariant1Function(
-    name: (json['name'] as String?)!,
-  );
+  factory ChatCompletionRequestToolChoiceVariant1Function.fromJson(
+          Map<String, dynamic> json) =>
+      ChatCompletionRequestToolChoiceVariant1Function(
+        name: (json['name'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-  };
+        'name': name,
+      };
 }
 
 /// Force a specific tool to be called.
 class ChatCompletionRequestToolChoiceVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final ChatCompletionRequestToolChoiceVariant1Type type_;
+
   /// Required object value serialized in the `function` wire field.
   final ChatCompletionRequestToolChoiceVariant1Function function_;
 
-  const ChatCompletionRequestToolChoiceVariant1({required this.type_, required this.function_});
+  const ChatCompletionRequestToolChoiceVariant1(
+      {required this.type_, required this.function_});
 
-  ChatCompletionRequestToolChoiceVariant1 Function({ChatCompletionRequestToolChoiceVariant1Type type_, ChatCompletionRequestToolChoiceVariant1Function function_}) get copyWith => _copyWith;
+  ChatCompletionRequestToolChoiceVariant1 Function(
+          {ChatCompletionRequestToolChoiceVariant1Type type_,
+          ChatCompletionRequestToolChoiceVariant1Function function_})
+      get copyWith => _copyWith;
 
-  ChatCompletionRequestToolChoiceVariant1 _copyWith({Object? type_ = sdkOmittedValue, Object? function_ = sdkOmittedValue}) => ChatCompletionRequestToolChoiceVariant1(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as ChatCompletionRequestToolChoiceVariant1Type,
-    function_: identical(function_, sdkOmittedValue) ? this.function_ : function_ as ChatCompletionRequestToolChoiceVariant1Function,
-  );
+  ChatCompletionRequestToolChoiceVariant1 _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? function_ = sdkOmittedValue}) =>
+      ChatCompletionRequestToolChoiceVariant1(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as ChatCompletionRequestToolChoiceVariant1Type,
+        function_: identical(function_, sdkOmittedValue)
+            ? this.function_
+            : function_ as ChatCompletionRequestToolChoiceVariant1Function,
+      );
 
-  factory ChatCompletionRequestToolChoiceVariant1.fromJson(Map<String, dynamic> json) => ChatCompletionRequestToolChoiceVariant1(
-    type_: (json['type'] != null ? ChatCompletionRequestToolChoiceVariant1Type.fromJson(json['type'] as String) : null)!,
-    function_: (json['function'] != null ? ChatCompletionRequestToolChoiceVariant1Function.fromJson(json['function'] as Map<String, dynamic>) : null)!,
-  );
+  factory ChatCompletionRequestToolChoiceVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      ChatCompletionRequestToolChoiceVariant1(
+        type_: (json['type'] != null
+            ? ChatCompletionRequestToolChoiceVariant1Type.fromJson(
+                json['type'] as String)
+            : null)!,
+        function_: (json['function'] != null
+            ? ChatCompletionRequestToolChoiceVariant1Function.fromJson(
+                json['function'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'function': function_.toJson(),
-  };
+        'type': type_.toJson(),
+        'function': function_.toJson(),
+      };
 }
 
 sealed class ChatCompletionRequestToolChoice {
@@ -62,21 +89,35 @@ sealed class ChatCompletionRequestToolChoice {
   static const String constructionSurface = 'named';
   const ChatCompletionRequestToolChoice();
   factory ChatCompletionRequestToolChoice.fromJson(Object? json) {
-    try { return ChatCompletionRequestToolChoiceChatCompletionRequestToolChoiceVariant0(ChatCompletionRequestToolChoiceVariant0.fromJson(json as String)); } catch (_) {}
-    try { return ChatCompletionRequestToolChoiceChatCompletionRequestToolChoiceVariant1(ChatCompletionRequestToolChoiceVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for ChatCompletionRequestToolChoice");
+    try {
+      return ChatCompletionRequestToolChoiceChatCompletionRequestToolChoiceVariant0(
+          ChatCompletionRequestToolChoiceVariant0.fromJson(json as String));
+    } catch (_) {}
+    try {
+      return ChatCompletionRequestToolChoiceChatCompletionRequestToolChoiceVariant1(
+          ChatCompletionRequestToolChoiceVariant1.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for ChatCompletionRequestToolChoice");
   }
   Object? toJson();
 }
 
-final class ChatCompletionRequestToolChoiceChatCompletionRequestToolChoiceVariant0 extends ChatCompletionRequestToolChoice {
+final class ChatCompletionRequestToolChoiceChatCompletionRequestToolChoiceVariant0
+    extends ChatCompletionRequestToolChoice {
   final ChatCompletionRequestToolChoiceVariant0 value;
-  const ChatCompletionRequestToolChoiceChatCompletionRequestToolChoiceVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionRequestToolChoiceChatCompletionRequestToolChoiceVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class ChatCompletionRequestToolChoiceChatCompletionRequestToolChoiceVariant1 extends ChatCompletionRequestToolChoice {
+final class ChatCompletionRequestToolChoiceChatCompletionRequestToolChoiceVariant1
+    extends ChatCompletionRequestToolChoice {
   final ChatCompletionRequestToolChoiceVariant1 value;
-  const ChatCompletionRequestToolChoiceChatCompletionRequestToolChoiceVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  const ChatCompletionRequestToolChoiceChatCompletionRequestToolChoiceVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }

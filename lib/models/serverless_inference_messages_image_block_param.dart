@@ -8,27 +8,44 @@ part of 'serverless_inference_messages.dart';
 class MessagesImageBlockParam {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `type` wire field.
   final MessagesImageBlockParamType type_;
+
   /// Image payload (for example base64-encoded bytes).
   final MessagesImageSourceParam source;
 
   const MessagesImageBlockParam({required this.type_, required this.source});
 
-  MessagesImageBlockParam Function({MessagesImageBlockParamType type_, MessagesImageSourceParam source}) get copyWith => _copyWith;
+  MessagesImageBlockParam Function(
+      {MessagesImageBlockParamType type_,
+      MessagesImageSourceParam source}) get copyWith => _copyWith;
 
-  MessagesImageBlockParam _copyWith({Object? type_ = sdkOmittedValue, Object? source = sdkOmittedValue}) => MessagesImageBlockParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as MessagesImageBlockParamType,
-    source: identical(source, sdkOmittedValue) ? this.source : source as MessagesImageSourceParam,
-  );
+  MessagesImageBlockParam _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? source = sdkOmittedValue}) =>
+      MessagesImageBlockParam(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as MessagesImageBlockParamType,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as MessagesImageSourceParam,
+      );
 
-  factory MessagesImageBlockParam.fromJson(Map<String, dynamic> json) => MessagesImageBlockParam(
-    type_: (json['type'] != null ? MessagesImageBlockParamType.fromJson(json['type'] as String) : null)!,
-    source: (json['source'] != null ? MessagesImageSourceParam.fromJson(json['source'] as Map<String, dynamic>) : null)!,
-  );
+  factory MessagesImageBlockParam.fromJson(Map<String, dynamic> json) =>
+      MessagesImageBlockParam(
+        type_: (json['type'] != null
+            ? MessagesImageBlockParamType.fromJson(json['type'] as String)
+            : null)!,
+        source: (json['source'] != null
+            ? MessagesImageSourceParam.fromJson(
+                json['source'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    'source': source.toJson(),
-  };
+        'type': type_.toJson(),
+        'source': source.toJson(),
+      };
 }

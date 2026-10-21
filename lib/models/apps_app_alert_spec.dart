@@ -8,57 +8,114 @@ part of 'apps_app_alert.dart';
 class AppAlertSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `rule` wire field.
   final SdkOptional<AppAlertSpecRule> rule;
+
   /// Is the alert disabled?
   final SdkOptional<bool> disabled;
+
   /// Optional enumerated value serialized in the `operator` wire field.
   final SdkOptional<AppAlertSpecOperator> operator_;
+
   /// Threshold value for alert
   final SdkOptional<double> value;
+
   /// Optional enumerated value serialized in the `window` wire field.
   final SdkOptional<AppAlertSpecWindow> window;
 
-  const AppAlertSpec({this.rule = const SdkOmitted(), this.disabled = const SdkOmitted(), this.operator_ = const SdkOmitted(), this.value = const SdkOmitted(), this.window = const SdkOmitted()});
+  const AppAlertSpec(
+      {this.rule = const SdkOmitted(),
+      this.disabled = const SdkOmitted(),
+      this.operator_ = const SdkOmitted(),
+      this.value = const SdkOmitted(),
+      this.window = const SdkOmitted()});
 
-  AppAlertSpec Function({SdkOptional<AppAlertSpecRule> rule, SdkOptional<bool> disabled, SdkOptional<AppAlertSpecOperator> operator_, SdkOptional<double> value, SdkOptional<AppAlertSpecWindow> window}) get copyWith => _copyWith;
+  AppAlertSpec Function(
+      {SdkOptional<AppAlertSpecRule> rule,
+      SdkOptional<bool> disabled,
+      SdkOptional<AppAlertSpecOperator> operator_,
+      SdkOptional<double> value,
+      SdkOptional<AppAlertSpecWindow> window}) get copyWith => _copyWith;
 
-  AppAlertSpec _copyWith({Object? rule = sdkOmittedValue, Object? disabled = sdkOmittedValue, Object? operator_ = sdkOmittedValue, Object? value = sdkOmittedValue, Object? window = sdkOmittedValue}) => AppAlertSpec(
-    rule: identical(rule, sdkOmittedValue) ? this.rule : rule as SdkOptional<AppAlertSpecRule>,
-    disabled: identical(disabled, sdkOmittedValue) ? this.disabled : disabled as SdkOptional<bool>,
-    operator_: identical(operator_, sdkOmittedValue) ? this.operator_ : operator_ as SdkOptional<AppAlertSpecOperator>,
-    value: identical(value, sdkOmittedValue) ? this.value : value as SdkOptional<double>,
-    window: identical(window, sdkOmittedValue) ? this.window : window as SdkOptional<AppAlertSpecWindow>,
-  );
+  AppAlertSpec _copyWith(
+          {Object? rule = sdkOmittedValue,
+          Object? disabled = sdkOmittedValue,
+          Object? operator_ = sdkOmittedValue,
+          Object? value = sdkOmittedValue,
+          Object? window = sdkOmittedValue}) =>
+      AppAlertSpec(
+        rule: identical(rule, sdkOmittedValue)
+            ? this.rule
+            : rule as SdkOptional<AppAlertSpecRule>,
+        disabled: identical(disabled, sdkOmittedValue)
+            ? this.disabled
+            : disabled as SdkOptional<bool>,
+        operator_: identical(operator_, sdkOmittedValue)
+            ? this.operator_
+            : operator_ as SdkOptional<AppAlertSpecOperator>,
+        value: identical(value, sdkOmittedValue)
+            ? this.value
+            : value as SdkOptional<double>,
+        window: identical(window, sdkOmittedValue)
+            ? this.window
+            : window as SdkOptional<AppAlertSpecWindow>,
+      );
 
   factory AppAlertSpec.fromJson(Map<String, dynamic> json) => AppAlertSpec(
-    rule: json['rule'] != null ? SdkPresent((json['rule'] != null ? AppAlertSpecRule.fromJson(json['rule'] as String) : null)!) : const SdkOmitted(),
-    disabled: json['disabled'] != null ? SdkPresent((json['disabled'] as bool?)!) : const SdkOmitted(),
-    operator_: json['operator'] != null ? SdkPresent((json['operator'] != null ? AppAlertSpecOperator.fromJson(json['operator'] as String) : null)!) : const SdkOmitted(),
-    value: json['value'] != null ? SdkPresent(((json['value'] as num?)?.toDouble())!) : const SdkOmitted(),
-    window: json['window'] != null ? SdkPresent((json['window'] != null ? AppAlertSpecWindow.fromJson(json['window'] as String) : null)!) : const SdkOmitted(),
-  );
+        rule: json['rule'] != null
+            ? SdkPresent((json['rule'] != null
+                ? AppAlertSpecRule.fromJson(json['rule'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        disabled: json['disabled'] != null
+            ? SdkPresent((json['disabled'] as bool?)!)
+            : const SdkOmitted(),
+        operator_: json['operator'] != null
+            ? SdkPresent((json['operator'] != null
+                ? AppAlertSpecOperator.fromJson(json['operator'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        value: json['value'] != null
+            ? SdkPresent(((json['value'] as num?)?.toDouble())!)
+            : const SdkOmitted(),
+        window: json['window'] != null
+            ? SdkPresent((json['window'] != null
+                ? AppAlertSpecWindow.fromJson(json['window'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (rule) {
-      SdkPresent<AppAlertSpecRule>(value: final value) => {'rule': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (disabled) {
-      SdkPresent<bool>(value: final value) => {'disabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (operator_) {
-      SdkPresent<AppAlertSpecOperator>(value: final value) => {'operator': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (value) {
-      SdkPresent<double>(value: final value) => {'value': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (window) {
-      SdkPresent<AppAlertSpecWindow>(value: final value) => {'window': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (rule) {
+          SdkPresent<AppAlertSpecRule>(value: final value) => {
+              'rule': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (disabled) {
+          SdkPresent<bool>(value: final value) => {
+              'disabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (operator_) {
+          SdkPresent<AppAlertSpecOperator>(value: final value) => {
+              'operator': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (value) {
+          SdkPresent<double>(value: final value) => {
+              'value': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (window) {
+          SdkPresent<AppAlertSpecWindow>(value: final value) => {
+              'window': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

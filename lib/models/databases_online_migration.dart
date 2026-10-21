@@ -8,41 +8,75 @@ part of 'databases.dart';
 class OnlineMigration {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the most recent migration.
   final SdkOptional<String> id;
+
   /// The current status of the migration.
   final SdkOptional<OnlineMigrationStatus> status;
+
   /// The time the migration was initiated, in ISO 8601 format.
   final SdkOptional<String> createdAt;
 
-  const OnlineMigration({this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAt = const SdkOmitted()});
+  const OnlineMigration(
+      {this.id = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.createdAt = const SdkOmitted()});
 
-  OnlineMigration Function({SdkOptional<String> id, SdkOptional<OnlineMigrationStatus> status, SdkOptional<String> createdAt}) get copyWith => _copyWith;
+  OnlineMigration Function(
+      {SdkOptional<String> id,
+      SdkOptional<OnlineMigrationStatus> status,
+      SdkOptional<String> createdAt}) get copyWith => _copyWith;
 
-  OnlineMigration _copyWith({Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => OnlineMigration(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<OnlineMigrationStatus>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-  );
+  OnlineMigration _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      OnlineMigration(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<OnlineMigrationStatus>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+      );
 
-  factory OnlineMigration.fromJson(Map<String, dynamic> json) => OnlineMigration(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? OnlineMigrationStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory OnlineMigration.fromJson(Map<String, dynamic> json) =>
+      OnlineMigration(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? OnlineMigrationStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<OnlineMigrationStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<OnlineMigrationStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

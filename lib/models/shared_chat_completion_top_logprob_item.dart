@@ -8,32 +8,51 @@ part of 'shared_chat.dart';
 class ChatCompletionTopLogprobItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The token.
   final String token;
+
   /// The log probability of this token.
   final double logprob;
+
   /// Required array value serialized in the `bytes` wire field.
   final List<int>? bytes;
 
-  const ChatCompletionTopLogprobItem({required this.token, required this.logprob, required this.bytes});
+  const ChatCompletionTopLogprobItem(
+      {required this.token, required this.logprob, required this.bytes});
 
-  ChatCompletionTopLogprobItem Function({String token, double logprob, List<int>? bytes}) get copyWith => _copyWith;
+  ChatCompletionTopLogprobItem Function(
+      {String token,
+      double logprob,
+      List<int>? bytes}) get copyWith => _copyWith;
 
-  ChatCompletionTopLogprobItem _copyWith({Object? token = sdkOmittedValue, Object? logprob = sdkOmittedValue, Object? bytes = sdkOmittedValue}) => ChatCompletionTopLogprobItem(
-    token: identical(token, sdkOmittedValue) ? this.token : token as String,
-    logprob: identical(logprob, sdkOmittedValue) ? this.logprob : logprob as double,
-    bytes: identical(bytes, sdkOmittedValue) ? this.bytes : bytes as List<int>?,
-  );
+  ChatCompletionTopLogprobItem _copyWith(
+          {Object? token = sdkOmittedValue,
+          Object? logprob = sdkOmittedValue,
+          Object? bytes = sdkOmittedValue}) =>
+      ChatCompletionTopLogprobItem(
+        token: identical(token, sdkOmittedValue) ? this.token : token as String,
+        logprob: identical(logprob, sdkOmittedValue)
+            ? this.logprob
+            : logprob as double,
+        bytes: identical(bytes, sdkOmittedValue)
+            ? this.bytes
+            : bytes as List<int>?,
+      );
 
-  factory ChatCompletionTopLogprobItem.fromJson(Map<String, dynamic> json) => ChatCompletionTopLogprobItem(
-    token: (json['token'] as String?)!,
-    logprob: ((json['logprob'] as num?)?.toDouble())!,
-    bytes: json.containsKey('bytes') ? (json['bytes'] as List?)?.map((e) => (e as num).toInt()).toList() : throw ArgumentError.value(null, 'bytes', 'Required property is missing'),
-  );
+  factory ChatCompletionTopLogprobItem.fromJson(Map<String, dynamic> json) =>
+      ChatCompletionTopLogprobItem(
+        token: (json['token'] as String?)!,
+        logprob: ((json['logprob'] as num?)?.toDouble())!,
+        bytes: json.containsKey('bytes')
+            ? (json['bytes'] as List?)?.map((e) => (e as num).toInt()).toList()
+            : throw ArgumentError.value(
+                null, 'bytes', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'token': token,
-    'logprob': logprob,
-    'bytes': bytes,
-  };
+        'token': token,
+        'logprob': logprob,
+        'bytes': bytes,
+      };
 }

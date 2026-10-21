@@ -8,60 +8,96 @@ part of 'agent_platform_api_api_update.dart';
 class ApiUpdateSimulationRunInputPublic {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new name of the run.
   final SdkOptional<String> name;
+
   /// UUID of the run to update.
   final SdkOptional<String> runUuid;
 
-  const ApiUpdateSimulationRunInputPublic({this.name = const SdkOmitted(), this.runUuid = const SdkOmitted()});
+  const ApiUpdateSimulationRunInputPublic(
+      {this.name = const SdkOmitted(), this.runUuid = const SdkOmitted()});
 
-  ApiUpdateSimulationRunInputPublic Function({SdkOptional<String> name, SdkOptional<String> runUuid}) get copyWith => _copyWith;
+  ApiUpdateSimulationRunInputPublic Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> runUuid}) get copyWith => _copyWith;
 
-  ApiUpdateSimulationRunInputPublic _copyWith({Object? name = sdkOmittedValue, Object? runUuid = sdkOmittedValue}) => ApiUpdateSimulationRunInputPublic(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    runUuid: identical(runUuid, sdkOmittedValue) ? this.runUuid : runUuid as SdkOptional<String>,
-  );
+  ApiUpdateSimulationRunInputPublic _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? runUuid = sdkOmittedValue}) =>
+      ApiUpdateSimulationRunInputPublic(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        runUuid: identical(runUuid, sdkOmittedValue)
+            ? this.runUuid
+            : runUuid as SdkOptional<String>,
+      );
 
-  factory ApiUpdateSimulationRunInputPublic.fromJson(Map<String, dynamic> json) => ApiUpdateSimulationRunInputPublic(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    runUuid: json['run_uuid'] != null ? SdkPresent((json['run_uuid'] as String?)!) : const SdkOmitted(),
-  );
+  factory ApiUpdateSimulationRunInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      ApiUpdateSimulationRunInputPublic(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        runUuid: json['run_uuid'] != null
+            ? SdkPresent((json['run_uuid'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (runUuid) {
-      SdkPresent<String>(value: final value) => {'run_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (runUuid) {
+          SdkPresent<String>(value: final value) => {
+              'run_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Output for updating a simulation run.
 class ApiUpdateSimulationRunOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// One execution of a scenario set against a candidate agent.
   final SdkOptional<ApiSimulationRun> simulationRun;
 
   const ApiUpdateSimulationRunOutput({this.simulationRun = const SdkOmitted()});
 
-  ApiUpdateSimulationRunOutput Function({SdkOptional<ApiSimulationRun> simulationRun}) get copyWith => _copyWith;
+  ApiUpdateSimulationRunOutput Function(
+      {SdkOptional<ApiSimulationRun> simulationRun}) get copyWith => _copyWith;
 
-  ApiUpdateSimulationRunOutput _copyWith({Object? simulationRun = sdkOmittedValue}) => ApiUpdateSimulationRunOutput(
-    simulationRun: identical(simulationRun, sdkOmittedValue) ? this.simulationRun : simulationRun as SdkOptional<ApiSimulationRun>,
-  );
+  ApiUpdateSimulationRunOutput _copyWith(
+          {Object? simulationRun = sdkOmittedValue}) =>
+      ApiUpdateSimulationRunOutput(
+        simulationRun: identical(simulationRun, sdkOmittedValue)
+            ? this.simulationRun
+            : simulationRun as SdkOptional<ApiSimulationRun>,
+      );
 
-  factory ApiUpdateSimulationRunOutput.fromJson(Map<String, dynamic> json) => ApiUpdateSimulationRunOutput(
-    simulationRun: json['simulation_run'] != null ? SdkPresent((json['simulation_run'] != null ? ApiSimulationRun.fromJson(json['simulation_run'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiUpdateSimulationRunOutput.fromJson(Map<String, dynamic> json) =>
+      ApiUpdateSimulationRunOutput(
+        simulationRun: json['simulation_run'] != null
+            ? SdkPresent((json['simulation_run'] != null
+                ? ApiSimulationRun.fromJson(
+                    json['simulation_run'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (simulationRun) {
-      SdkPresent<ApiSimulationRun>(value: final value) => {'simulation_run': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (simulationRun) {
+          SdkPresent<ApiSimulationRun>(value: final value) => {
+              'simulation_run': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

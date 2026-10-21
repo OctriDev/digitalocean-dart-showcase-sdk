@@ -8,25 +8,46 @@ part of 'kubernetes_kubernetes.dart';
 class KubernetesNodePoolGpuPartition {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The AMD GPU partition mode for this node pool. Only applicable to AMD GPU sizes that support partitioning. Immutable after the node pool is created. When omitted, the GPUs in the pool are left unpartitioned.
-  final SdkOptional<KubernetesNodePoolGpuPartitionGpuPartitionMode> gpuPartitionMode;
+  final SdkOptional<KubernetesNodePoolGpuPartitionGpuPartitionMode>
+      gpuPartitionMode;
 
-  const KubernetesNodePoolGpuPartition({this.gpuPartitionMode = const SdkOmitted()});
+  const KubernetesNodePoolGpuPartition(
+      {this.gpuPartitionMode = const SdkOmitted()});
 
-  KubernetesNodePoolGpuPartition Function({SdkOptional<KubernetesNodePoolGpuPartitionGpuPartitionMode> gpuPartitionMode}) get copyWith => _copyWith;
+  KubernetesNodePoolGpuPartition Function(
+      {SdkOptional<KubernetesNodePoolGpuPartitionGpuPartitionMode>
+          gpuPartitionMode}) get copyWith => _copyWith;
 
-  KubernetesNodePoolGpuPartition _copyWith({Object? gpuPartitionMode = sdkOmittedValue}) => KubernetesNodePoolGpuPartition(
-    gpuPartitionMode: identical(gpuPartitionMode, sdkOmittedValue) ? this.gpuPartitionMode : gpuPartitionMode as SdkOptional<KubernetesNodePoolGpuPartitionGpuPartitionMode>,
-  );
+  KubernetesNodePoolGpuPartition _copyWith(
+          {Object? gpuPartitionMode = sdkOmittedValue}) =>
+      KubernetesNodePoolGpuPartition(
+        gpuPartitionMode: identical(gpuPartitionMode, sdkOmittedValue)
+            ? this.gpuPartitionMode
+            : gpuPartitionMode
+                as SdkOptional<KubernetesNodePoolGpuPartitionGpuPartitionMode>,
+      );
 
-  factory KubernetesNodePoolGpuPartition.fromJson(Map<String, dynamic> json) => KubernetesNodePoolGpuPartition(
-    gpuPartitionMode: json['gpu_partition_mode'] != null ? SdkPresent((json['gpu_partition_mode'] != null ? KubernetesNodePoolGpuPartitionGpuPartitionMode.fromJson(json['gpu_partition_mode'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory KubernetesNodePoolGpuPartition.fromJson(Map<String, dynamic> json) =>
+      KubernetesNodePoolGpuPartition(
+        gpuPartitionMode: json['gpu_partition_mode'] != null
+            ? SdkPresent((json['gpu_partition_mode'] != null
+                ? KubernetesNodePoolGpuPartitionGpuPartitionMode.fromJson(
+                    json['gpu_partition_mode'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (gpuPartitionMode) {
-      SdkPresent<KubernetesNodePoolGpuPartitionGpuPartitionMode>(value: final value) => {'gpu_partition_mode': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (gpuPartitionMode) {
+          SdkPresent<KubernetesNodePoolGpuPartitionGpuPartitionMode>(
+            value: final value
+          ) =>
+            {
+              'gpu_partition_mode': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

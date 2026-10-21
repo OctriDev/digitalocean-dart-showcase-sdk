@@ -7,248 +7,580 @@ part of 'load_balancer.dart';
 class LoadBalancerCreateVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of a Droplet tag corresponding to Droplets assigned to the load balancer.
   final String tag;
+
   /// An optional IP address to assign to the load balancer from one of your Bring Your Own IP (BYOIP) prefixes. The address must be an unassigned BYOIP address on your account in the same region as the load balancer. If omitted, DigitalOcean assigns a public IP address automatically. This field is only applied when creating the load balancer, cannot be changed afterward, and is not supported for `GLOBAL` or `INTERNAL` load balancers.
   final SdkOptional<String> ip;
+
   /// The slug identifier for the region where the resource will initially be available.
   final RegionSlug region;
+
   /// A unique ID that can be used to identify and reference a load balancer.
   final SdkOptional<String> id;
+
   /// A human-readable name for a load balancer instance.
   final SdkOptional<String> name;
+
   /// The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user's default project. If an invalid project ID is provided, the load balancer will not be created.
   final SdkOptional<String> projectId;
+
   /// An attribute containing the public-facing IPv6 address of the load balancer.
   final SdkOptional<String> ipv6;
+
   /// How many nodes the load balancer contains. Each additional node increases the load balancer's ability to manage more connections. Load balancers can be scaled up or down, and you can change the number of nodes after creation up to once per hour. This field is currently not available in the AMS2, NYC2, or SFO1 regions. Use the `size` field to scale load balancers that reside in these regions.
   final SdkOptional<int> sizeUnit;
+
   /// This field has been replaced by the `size_unit` field for all regions except in AMS2, NYC2, and SFO1. Each available load balancer size now equates to the load balancer having a set number of nodes. * `lb-small` = 1 node * `lb-medium` = 3 nodes * `lb-large` = 6 nodes You can resize load balancers after creation up to once per hour. You cannot resize a load balancer within the first hour of its creation.
   final SdkOptional<LoadBalancerBaseSize> size;
+
   /// This field has been deprecated. You can no longer specify an algorithm for load balancers.
   final SdkOptional<LoadBalancerBaseAlgorithm> algorithm;
+
   /// A status string indicating the current state of the load balancer. This can be `new`, `active`, or `errored`.
   final SdkOptional<LoadBalancerBaseStatus> status;
+
   /// A time value given in ISO8601 combined date and time format that represents when the load balancer was created.
   final SdkOptional<String> createdAt;
+
   /// An array of objects specifying the forwarding rules for a load balancer.
   final List<ForwardingRule> forwardingRules;
+
   /// An object specifying health check settings for the load balancer.
   final SdkOptional<HealthCheck> healthCheck;
+
   /// An object specifying sticky sessions settings for the load balancer.
   final SdkOptional<StickySessions> stickySessions;
+
   /// A boolean value indicating whether HTTP requests to the load balancer on port 80 will be redirected to HTTPS on port 443.
   final SdkOptional<bool> redirectHttpToHttps;
+
   /// A boolean value indicating whether PROXY Protocol is in use.
   final SdkOptional<bool> enableProxyProtocol;
+
   /// A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets.
   final SdkOptional<bool> enableBackendKeepalive;
+
   /// An integer value which configures the idle timeout for HTTP requests to the target droplets.
   final SdkOptional<int> httpIdleTimeoutSeconds;
+
   /// A string specifying the UUID of the VPC to which the load balancer is assigned.
   final SdkOptional<String> vpcUuid;
+
   /// A string specifying the UUID of the VPC subnet to which the load balancer is assigned.
   final SdkOptional<String> subnetUuid;
+
   /// A boolean value indicating whether to disable automatic DNS record creation for Let's Encrypt certificates that are added to the load balancer.
   final SdkOptional<bool> disableLetsEncryptDnsRecords;
+
   /// An object specifying allow and deny rules to control traffic to the load balancer.
   final SdkOptional<LbFirewall> firewall;
+
   /// A string indicating whether the load balancer should be external or internal. Internal load balancers have no public IPs and are only accessible to resources on the same VPC network. This property cannot be updated after creating the load balancer.
   final SdkOptional<LoadBalancerBaseNetwork> network;
+
   /// A string indicating whether the load balancer will support IPv4 or both IPv4 and IPv6 networking. This property cannot be updated after creating the load balancer.
   final SdkOptional<LoadBalancerBaseNetworkStack> networkStack;
+
   /// A string indicating whether the load balancer should be a standard regional HTTP load balancer, a regional network load balancer that routes traffic at the TCP/UDP transport layer, or a global load balancer.
   final SdkOptional<LoadBalancerBaseType> type_;
+
   /// An array of objects specifying the domain configurations for a Global load balancer.
   final SdkOptional<List<Domains>> domains;
+
   /// An object specifying forwarding configurations for a Global load balancer.
   final SdkOptional<GlbSettings> glbSettings;
+
   /// An array containing the UUIDs of the Regional load balancers to be used as target backends for a Global load balancer.
   final SdkOptional<List<String>> targetLoadBalancerIds;
+
   /// A string indicating the policy for the TLS cipher suites used by the load balancer. The possible values are `DEFAULT` or `STRONG`. The default value is `DEFAULT`.
   final SdkOptional<LoadBalancerBaseTlsCipherPolicy> tlsCipherPolicy;
 
-  const LoadBalancerCreateVariant1({required this.tag, this.ip = const SdkOmitted(), required this.region, this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.projectId = const SdkOmitted(), this.ipv6 = const SdkOmitted(), this.sizeUnit = const SdkOmitted(), this.size = const SdkOmitted(), this.algorithm = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAt = const SdkOmitted(), required this.forwardingRules, this.healthCheck = const SdkOmitted(), this.stickySessions = const SdkOmitted(), this.redirectHttpToHttps = const SdkOmitted(), this.enableProxyProtocol = const SdkOmitted(), this.enableBackendKeepalive = const SdkOmitted(), this.httpIdleTimeoutSeconds = const SdkOmitted(), this.vpcUuid = const SdkOmitted(), this.subnetUuid = const SdkOmitted(), this.disableLetsEncryptDnsRecords = const SdkOmitted(), this.firewall = const SdkOmitted(), this.network = const SdkOmitted(), this.networkStack = const SdkOmitted(), this.type_ = const SdkOmitted(), this.domains = const SdkOmitted(), this.glbSettings = const SdkOmitted(), this.targetLoadBalancerIds = const SdkOmitted(), this.tlsCipherPolicy = const SdkOmitted()});
+  const LoadBalancerCreateVariant1(
+      {required this.tag,
+      this.ip = const SdkOmitted(),
+      required this.region,
+      this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.projectId = const SdkOmitted(),
+      this.ipv6 = const SdkOmitted(),
+      this.sizeUnit = const SdkOmitted(),
+      this.size = const SdkOmitted(),
+      this.algorithm = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      required this.forwardingRules,
+      this.healthCheck = const SdkOmitted(),
+      this.stickySessions = const SdkOmitted(),
+      this.redirectHttpToHttps = const SdkOmitted(),
+      this.enableProxyProtocol = const SdkOmitted(),
+      this.enableBackendKeepalive = const SdkOmitted(),
+      this.httpIdleTimeoutSeconds = const SdkOmitted(),
+      this.vpcUuid = const SdkOmitted(),
+      this.subnetUuid = const SdkOmitted(),
+      this.disableLetsEncryptDnsRecords = const SdkOmitted(),
+      this.firewall = const SdkOmitted(),
+      this.network = const SdkOmitted(),
+      this.networkStack = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.domains = const SdkOmitted(),
+      this.glbSettings = const SdkOmitted(),
+      this.targetLoadBalancerIds = const SdkOmitted(),
+      this.tlsCipherPolicy = const SdkOmitted()});
 
-  LoadBalancerCreateVariant1 Function({String tag, SdkOptional<String> ip, RegionSlug region, SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String> projectId, SdkOptional<String> ipv6, SdkOptional<int> sizeUnit, SdkOptional<LoadBalancerBaseSize> size, SdkOptional<LoadBalancerBaseAlgorithm> algorithm, SdkOptional<LoadBalancerBaseStatus> status, SdkOptional<String> createdAt, List<ForwardingRule> forwardingRules, SdkOptional<HealthCheck> healthCheck, SdkOptional<StickySessions> stickySessions, SdkOptional<bool> redirectHttpToHttps, SdkOptional<bool> enableProxyProtocol, SdkOptional<bool> enableBackendKeepalive, SdkOptional<int> httpIdleTimeoutSeconds, SdkOptional<String> vpcUuid, SdkOptional<String> subnetUuid, SdkOptional<bool> disableLetsEncryptDnsRecords, SdkOptional<LbFirewall> firewall, SdkOptional<LoadBalancerBaseNetwork> network, SdkOptional<LoadBalancerBaseNetworkStack> networkStack, SdkOptional<LoadBalancerBaseType> type_, SdkOptional<List<Domains>> domains, SdkOptional<GlbSettings> glbSettings, SdkOptional<List<String>> targetLoadBalancerIds, SdkOptional<LoadBalancerBaseTlsCipherPolicy> tlsCipherPolicy}) get copyWith => _copyWith;
+  LoadBalancerCreateVariant1 Function(
+          {String tag,
+          SdkOptional<String> ip,
+          RegionSlug region,
+          SdkOptional<String> id,
+          SdkOptional<String> name,
+          SdkOptional<String> projectId,
+          SdkOptional<String> ipv6,
+          SdkOptional<int> sizeUnit,
+          SdkOptional<LoadBalancerBaseSize> size,
+          SdkOptional<LoadBalancerBaseAlgorithm> algorithm,
+          SdkOptional<LoadBalancerBaseStatus> status,
+          SdkOptional<String> createdAt,
+          List<ForwardingRule> forwardingRules,
+          SdkOptional<HealthCheck> healthCheck,
+          SdkOptional<StickySessions> stickySessions,
+          SdkOptional<bool> redirectHttpToHttps,
+          SdkOptional<bool> enableProxyProtocol,
+          SdkOptional<bool> enableBackendKeepalive,
+          SdkOptional<int> httpIdleTimeoutSeconds,
+          SdkOptional<String> vpcUuid,
+          SdkOptional<String> subnetUuid,
+          SdkOptional<bool> disableLetsEncryptDnsRecords,
+          SdkOptional<LbFirewall> firewall,
+          SdkOptional<LoadBalancerBaseNetwork> network,
+          SdkOptional<LoadBalancerBaseNetworkStack> networkStack,
+          SdkOptional<LoadBalancerBaseType> type_,
+          SdkOptional<List<Domains>> domains,
+          SdkOptional<GlbSettings> glbSettings,
+          SdkOptional<List<String>> targetLoadBalancerIds,
+          SdkOptional<LoadBalancerBaseTlsCipherPolicy> tlsCipherPolicy})
+      get copyWith => _copyWith;
 
-  LoadBalancerCreateVariant1 _copyWith({Object? tag = sdkOmittedValue, Object? ip = sdkOmittedValue, Object? region = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? projectId = sdkOmittedValue, Object? ipv6 = sdkOmittedValue, Object? sizeUnit = sdkOmittedValue, Object? size = sdkOmittedValue, Object? algorithm = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? forwardingRules = sdkOmittedValue, Object? healthCheck = sdkOmittedValue, Object? stickySessions = sdkOmittedValue, Object? redirectHttpToHttps = sdkOmittedValue, Object? enableProxyProtocol = sdkOmittedValue, Object? enableBackendKeepalive = sdkOmittedValue, Object? httpIdleTimeoutSeconds = sdkOmittedValue, Object? vpcUuid = sdkOmittedValue, Object? subnetUuid = sdkOmittedValue, Object? disableLetsEncryptDnsRecords = sdkOmittedValue, Object? firewall = sdkOmittedValue, Object? network = sdkOmittedValue, Object? networkStack = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? domains = sdkOmittedValue, Object? glbSettings = sdkOmittedValue, Object? targetLoadBalancerIds = sdkOmittedValue, Object? tlsCipherPolicy = sdkOmittedValue}) => LoadBalancerCreateVariant1(
-    tag: identical(tag, sdkOmittedValue) ? this.tag : tag as String,
-    ip: identical(ip, sdkOmittedValue) ? this.ip : ip as SdkOptional<String>,
-    region: identical(region, sdkOmittedValue) ? this.region : region as RegionSlug,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    projectId: identical(projectId, sdkOmittedValue) ? this.projectId : projectId as SdkOptional<String>,
-    ipv6: identical(ipv6, sdkOmittedValue) ? this.ipv6 : ipv6 as SdkOptional<String>,
-    sizeUnit: identical(sizeUnit, sdkOmittedValue) ? this.sizeUnit : sizeUnit as SdkOptional<int>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<LoadBalancerBaseSize>,
-    algorithm: identical(algorithm, sdkOmittedValue) ? this.algorithm : algorithm as SdkOptional<LoadBalancerBaseAlgorithm>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<LoadBalancerBaseStatus>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    forwardingRules: identical(forwardingRules, sdkOmittedValue) ? this.forwardingRules : forwardingRules as List<ForwardingRule>,
-    healthCheck: identical(healthCheck, sdkOmittedValue) ? this.healthCheck : healthCheck as SdkOptional<HealthCheck>,
-    stickySessions: identical(stickySessions, sdkOmittedValue) ? this.stickySessions : stickySessions as SdkOptional<StickySessions>,
-    redirectHttpToHttps: identical(redirectHttpToHttps, sdkOmittedValue) ? this.redirectHttpToHttps : redirectHttpToHttps as SdkOptional<bool>,
-    enableProxyProtocol: identical(enableProxyProtocol, sdkOmittedValue) ? this.enableProxyProtocol : enableProxyProtocol as SdkOptional<bool>,
-    enableBackendKeepalive: identical(enableBackendKeepalive, sdkOmittedValue) ? this.enableBackendKeepalive : enableBackendKeepalive as SdkOptional<bool>,
-    httpIdleTimeoutSeconds: identical(httpIdleTimeoutSeconds, sdkOmittedValue) ? this.httpIdleTimeoutSeconds : httpIdleTimeoutSeconds as SdkOptional<int>,
-    vpcUuid: identical(vpcUuid, sdkOmittedValue) ? this.vpcUuid : vpcUuid as SdkOptional<String>,
-    subnetUuid: identical(subnetUuid, sdkOmittedValue) ? this.subnetUuid : subnetUuid as SdkOptional<String>,
-    disableLetsEncryptDnsRecords: identical(disableLetsEncryptDnsRecords, sdkOmittedValue) ? this.disableLetsEncryptDnsRecords : disableLetsEncryptDnsRecords as SdkOptional<bool>,
-    firewall: identical(firewall, sdkOmittedValue) ? this.firewall : firewall as SdkOptional<LbFirewall>,
-    network: identical(network, sdkOmittedValue) ? this.network : network as SdkOptional<LoadBalancerBaseNetwork>,
-    networkStack: identical(networkStack, sdkOmittedValue) ? this.networkStack : networkStack as SdkOptional<LoadBalancerBaseNetworkStack>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<LoadBalancerBaseType>,
-    domains: identical(domains, sdkOmittedValue) ? this.domains : domains as SdkOptional<List<Domains>>,
-    glbSettings: identical(glbSettings, sdkOmittedValue) ? this.glbSettings : glbSettings as SdkOptional<GlbSettings>,
-    targetLoadBalancerIds: identical(targetLoadBalancerIds, sdkOmittedValue) ? this.targetLoadBalancerIds : targetLoadBalancerIds as SdkOptional<List<String>>,
-    tlsCipherPolicy: identical(tlsCipherPolicy, sdkOmittedValue) ? this.tlsCipherPolicy : tlsCipherPolicy as SdkOptional<LoadBalancerBaseTlsCipherPolicy>,
-  );
+  LoadBalancerCreateVariant1 _copyWith(
+          {Object? tag = sdkOmittedValue,
+          Object? ip = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? projectId = sdkOmittedValue,
+          Object? ipv6 = sdkOmittedValue,
+          Object? sizeUnit = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? algorithm = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? forwardingRules = sdkOmittedValue,
+          Object? healthCheck = sdkOmittedValue,
+          Object? stickySessions = sdkOmittedValue,
+          Object? redirectHttpToHttps = sdkOmittedValue,
+          Object? enableProxyProtocol = sdkOmittedValue,
+          Object? enableBackendKeepalive = sdkOmittedValue,
+          Object? httpIdleTimeoutSeconds = sdkOmittedValue,
+          Object? vpcUuid = sdkOmittedValue,
+          Object? subnetUuid = sdkOmittedValue,
+          Object? disableLetsEncryptDnsRecords = sdkOmittedValue,
+          Object? firewall = sdkOmittedValue,
+          Object? network = sdkOmittedValue,
+          Object? networkStack = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? domains = sdkOmittedValue,
+          Object? glbSettings = sdkOmittedValue,
+          Object? targetLoadBalancerIds = sdkOmittedValue,
+          Object? tlsCipherPolicy = sdkOmittedValue}) =>
+      LoadBalancerCreateVariant1(
+        tag: identical(tag, sdkOmittedValue) ? this.tag : tag as String,
+        ip: identical(ip, sdkOmittedValue)
+            ? this.ip
+            : ip as SdkOptional<String>,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as RegionSlug,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        projectId: identical(projectId, sdkOmittedValue)
+            ? this.projectId
+            : projectId as SdkOptional<String>,
+        ipv6: identical(ipv6, sdkOmittedValue)
+            ? this.ipv6
+            : ipv6 as SdkOptional<String>,
+        sizeUnit: identical(sizeUnit, sdkOmittedValue)
+            ? this.sizeUnit
+            : sizeUnit as SdkOptional<int>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<LoadBalancerBaseSize>,
+        algorithm: identical(algorithm, sdkOmittedValue)
+            ? this.algorithm
+            : algorithm as SdkOptional<LoadBalancerBaseAlgorithm>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<LoadBalancerBaseStatus>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        forwardingRules: identical(forwardingRules, sdkOmittedValue)
+            ? this.forwardingRules
+            : forwardingRules as List<ForwardingRule>,
+        healthCheck: identical(healthCheck, sdkOmittedValue)
+            ? this.healthCheck
+            : healthCheck as SdkOptional<HealthCheck>,
+        stickySessions: identical(stickySessions, sdkOmittedValue)
+            ? this.stickySessions
+            : stickySessions as SdkOptional<StickySessions>,
+        redirectHttpToHttps: identical(redirectHttpToHttps, sdkOmittedValue)
+            ? this.redirectHttpToHttps
+            : redirectHttpToHttps as SdkOptional<bool>,
+        enableProxyProtocol: identical(enableProxyProtocol, sdkOmittedValue)
+            ? this.enableProxyProtocol
+            : enableProxyProtocol as SdkOptional<bool>,
+        enableBackendKeepalive:
+            identical(enableBackendKeepalive, sdkOmittedValue)
+                ? this.enableBackendKeepalive
+                : enableBackendKeepalive as SdkOptional<bool>,
+        httpIdleTimeoutSeconds:
+            identical(httpIdleTimeoutSeconds, sdkOmittedValue)
+                ? this.httpIdleTimeoutSeconds
+                : httpIdleTimeoutSeconds as SdkOptional<int>,
+        vpcUuid: identical(vpcUuid, sdkOmittedValue)
+            ? this.vpcUuid
+            : vpcUuid as SdkOptional<String>,
+        subnetUuid: identical(subnetUuid, sdkOmittedValue)
+            ? this.subnetUuid
+            : subnetUuid as SdkOptional<String>,
+        disableLetsEncryptDnsRecords:
+            identical(disableLetsEncryptDnsRecords, sdkOmittedValue)
+                ? this.disableLetsEncryptDnsRecords
+                : disableLetsEncryptDnsRecords as SdkOptional<bool>,
+        firewall: identical(firewall, sdkOmittedValue)
+            ? this.firewall
+            : firewall as SdkOptional<LbFirewall>,
+        network: identical(network, sdkOmittedValue)
+            ? this.network
+            : network as SdkOptional<LoadBalancerBaseNetwork>,
+        networkStack: identical(networkStack, sdkOmittedValue)
+            ? this.networkStack
+            : networkStack as SdkOptional<LoadBalancerBaseNetworkStack>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<LoadBalancerBaseType>,
+        domains: identical(domains, sdkOmittedValue)
+            ? this.domains
+            : domains as SdkOptional<List<Domains>>,
+        glbSettings: identical(glbSettings, sdkOmittedValue)
+            ? this.glbSettings
+            : glbSettings as SdkOptional<GlbSettings>,
+        targetLoadBalancerIds: identical(targetLoadBalancerIds, sdkOmittedValue)
+            ? this.targetLoadBalancerIds
+            : targetLoadBalancerIds as SdkOptional<List<String>>,
+        tlsCipherPolicy: identical(tlsCipherPolicy, sdkOmittedValue)
+            ? this.tlsCipherPolicy
+            : tlsCipherPolicy as SdkOptional<LoadBalancerBaseTlsCipherPolicy>,
+      );
 
-  factory LoadBalancerCreateVariant1.fromJson(Map<String, dynamic> json) => LoadBalancerCreateVariant1(
-    tag: (json['tag'] as String?)!,
-    ip: json['ip'] != null ? SdkPresent((json['ip'] as String?)!) : const SdkOmitted(),
-    region: (json['region'] != null ? RegionSlug.fromJson(json['region'] as String) : null)!,
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    projectId: json['project_id'] != null ? SdkPresent((json['project_id'] as String?)!) : const SdkOmitted(),
-    ipv6: json['ipv6'] != null ? SdkPresent((json['ipv6'] as String?)!) : const SdkOmitted(),
-    sizeUnit: json['size_unit'] != null ? SdkPresent(((json['size_unit'] as num?)?.toInt())!) : const SdkOmitted(),
-    size: json['size'] != null ? SdkPresent((json['size'] != null ? LoadBalancerBaseSize.fromJson(json['size'] as String) : null)!) : const SdkOmitted(),
-    algorithm: json['algorithm'] != null ? SdkPresent((json['algorithm'] != null ? LoadBalancerBaseAlgorithm.fromJson(json['algorithm'] as String) : null)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? LoadBalancerBaseStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    forwardingRules: ((json['forwarding_rules'] as List?)?.map((e) => ForwardingRule.fromJson(e as Map<String, dynamic>)).toList())!,
-    healthCheck: json['health_check'] != null ? SdkPresent((json['health_check'] != null ? HealthCheck.fromJson(json['health_check'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    stickySessions: json['sticky_sessions'] != null ? SdkPresent((json['sticky_sessions'] != null ? StickySessions.fromJson(json['sticky_sessions'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    redirectHttpToHttps: json['redirect_http_to_https'] != null ? SdkPresent((json['redirect_http_to_https'] as bool?)!) : const SdkOmitted(),
-    enableProxyProtocol: json['enable_proxy_protocol'] != null ? SdkPresent((json['enable_proxy_protocol'] as bool?)!) : const SdkOmitted(),
-    enableBackendKeepalive: json['enable_backend_keepalive'] != null ? SdkPresent((json['enable_backend_keepalive'] as bool?)!) : const SdkOmitted(),
-    httpIdleTimeoutSeconds: json['http_idle_timeout_seconds'] != null ? SdkPresent(((json['http_idle_timeout_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
-    vpcUuid: json['vpc_uuid'] != null ? SdkPresent((json['vpc_uuid'] as String?)!) : const SdkOmitted(),
-    subnetUuid: json['subnet_uuid'] != null ? SdkPresent((json['subnet_uuid'] as String?)!) : const SdkOmitted(),
-    disableLetsEncryptDnsRecords: json['disable_lets_encrypt_dns_records'] != null ? SdkPresent((json['disable_lets_encrypt_dns_records'] as bool?)!) : const SdkOmitted(),
-    firewall: json['firewall'] != null ? SdkPresent((json['firewall'] != null ? LbFirewall.fromJson(json['firewall'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    network: json['network'] != null ? SdkPresent((json['network'] != null ? LoadBalancerBaseNetwork.fromJson(json['network'] as String) : null)!) : const SdkOmitted(),
-    networkStack: json['network_stack'] != null ? SdkPresent((json['network_stack'] != null ? LoadBalancerBaseNetworkStack.fromJson(json['network_stack'] as String) : null)!) : const SdkOmitted(),
-    type_: json['type'] != null ? SdkPresent((json['type'] != null ? LoadBalancerBaseType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
-    domains: json['domains'] != null ? SdkPresent(((json['domains'] as List?)?.map((e) => Domains.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    glbSettings: json['glb_settings'] != null ? SdkPresent((json['glb_settings'] != null ? GlbSettings.fromJson(json['glb_settings'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    targetLoadBalancerIds: json['target_load_balancer_ids'] != null ? SdkPresent(((json['target_load_balancer_ids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    tlsCipherPolicy: json['tls_cipher_policy'] != null ? SdkPresent((json['tls_cipher_policy'] != null ? LoadBalancerBaseTlsCipherPolicy.fromJson(json['tls_cipher_policy'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory LoadBalancerCreateVariant1.fromJson(Map<String, dynamic> json) =>
+      LoadBalancerCreateVariant1(
+        tag: (json['tag'] as String?)!,
+        ip: json['ip'] != null
+            ? SdkPresent((json['ip'] as String?)!)
+            : const SdkOmitted(),
+        region: (json['region'] != null
+            ? RegionSlug.fromJson(json['region'] as String)
+            : null)!,
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        projectId: json['project_id'] != null
+            ? SdkPresent((json['project_id'] as String?)!)
+            : const SdkOmitted(),
+        ipv6: json['ipv6'] != null
+            ? SdkPresent((json['ipv6'] as String?)!)
+            : const SdkOmitted(),
+        sizeUnit: json['size_unit'] != null
+            ? SdkPresent(((json['size_unit'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        size: json['size'] != null
+            ? SdkPresent((json['size'] != null
+                ? LoadBalancerBaseSize.fromJson(json['size'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        algorithm: json['algorithm'] != null
+            ? SdkPresent((json['algorithm'] != null
+                ? LoadBalancerBaseAlgorithm.fromJson(
+                    json['algorithm'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? LoadBalancerBaseStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        forwardingRules: ((json['forwarding_rules'] as List?)
+            ?.map((e) => ForwardingRule.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        healthCheck: json['health_check'] != null
+            ? SdkPresent((json['health_check'] != null
+                ? HealthCheck.fromJson(
+                    json['health_check'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        stickySessions: json['sticky_sessions'] != null
+            ? SdkPresent((json['sticky_sessions'] != null
+                ? StickySessions.fromJson(
+                    json['sticky_sessions'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        redirectHttpToHttps: json['redirect_http_to_https'] != null
+            ? SdkPresent((json['redirect_http_to_https'] as bool?)!)
+            : const SdkOmitted(),
+        enableProxyProtocol: json['enable_proxy_protocol'] != null
+            ? SdkPresent((json['enable_proxy_protocol'] as bool?)!)
+            : const SdkOmitted(),
+        enableBackendKeepalive: json['enable_backend_keepalive'] != null
+            ? SdkPresent((json['enable_backend_keepalive'] as bool?)!)
+            : const SdkOmitted(),
+        httpIdleTimeoutSeconds: json['http_idle_timeout_seconds'] != null
+            ? SdkPresent(
+                ((json['http_idle_timeout_seconds'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        vpcUuid: json['vpc_uuid'] != null
+            ? SdkPresent((json['vpc_uuid'] as String?)!)
+            : const SdkOmitted(),
+        subnetUuid: json['subnet_uuid'] != null
+            ? SdkPresent((json['subnet_uuid'] as String?)!)
+            : const SdkOmitted(),
+        disableLetsEncryptDnsRecords:
+            json['disable_lets_encrypt_dns_records'] != null
+                ? SdkPresent(
+                    (json['disable_lets_encrypt_dns_records'] as bool?)!)
+                : const SdkOmitted(),
+        firewall: json['firewall'] != null
+            ? SdkPresent((json['firewall'] != null
+                ? LbFirewall.fromJson(json['firewall'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        network: json['network'] != null
+            ? SdkPresent((json['network'] != null
+                ? LoadBalancerBaseNetwork.fromJson(json['network'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        networkStack: json['network_stack'] != null
+            ? SdkPresent((json['network_stack'] != null
+                ? LoadBalancerBaseNetworkStack.fromJson(
+                    json['network_stack'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? LoadBalancerBaseType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        domains: json['domains'] != null
+            ? SdkPresent(((json['domains'] as List?)
+                ?.map((e) => Domains.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        glbSettings: json['glb_settings'] != null
+            ? SdkPresent((json['glb_settings'] != null
+                ? GlbSettings.fromJson(
+                    json['glb_settings'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        targetLoadBalancerIds: json['target_load_balancer_ids'] != null
+            ? SdkPresent(((json['target_load_balancer_ids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        tlsCipherPolicy: json['tls_cipher_policy'] != null
+            ? SdkPresent((json['tls_cipher_policy'] != null
+                ? LoadBalancerBaseTlsCipherPolicy.fromJson(
+                    json['tls_cipher_policy'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'tag': tag,
-    ...switch (ip) {
-      SdkPresent<String>(value: final value) => {'ip': value,},
-      _ => const <String, dynamic>{},
-    },
-    'region': region.toJson(),
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (projectId) {
-      SdkPresent<String>(value: final value) => {'project_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (ipv6) {
-      SdkPresent<String>(value: final value) => {'ipv6': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sizeUnit) {
-      SdkPresent<int>(value: final value) => {'size_unit': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<LoadBalancerBaseSize>(value: final value) => {'size': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (algorithm) {
-      SdkPresent<LoadBalancerBaseAlgorithm>(value: final value) => {'algorithm': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<LoadBalancerBaseStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    'forwarding_rules': forwardingRules.map((item) => item.toJson()).toList(),
-    ...switch (healthCheck) {
-      SdkPresent<HealthCheck>(value: final value) => {'health_check': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (stickySessions) {
-      SdkPresent<StickySessions>(value: final value) => {'sticky_sessions': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (redirectHttpToHttps) {
-      SdkPresent<bool>(value: final value) => {'redirect_http_to_https': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enableProxyProtocol) {
-      SdkPresent<bool>(value: final value) => {'enable_proxy_protocol': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enableBackendKeepalive) {
-      SdkPresent<bool>(value: final value) => {'enable_backend_keepalive': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (httpIdleTimeoutSeconds) {
-      SdkPresent<int>(value: final value) => {'http_idle_timeout_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (vpcUuid) {
-      SdkPresent<String>(value: final value) => {'vpc_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (subnetUuid) {
-      SdkPresent<String>(value: final value) => {'subnet_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (disableLetsEncryptDnsRecords) {
-      SdkPresent<bool>(value: final value) => {'disable_lets_encrypt_dns_records': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firewall) {
-      SdkPresent<LbFirewall>(value: final value) => {'firewall': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (network) {
-      SdkPresent<LoadBalancerBaseNetwork>(value: final value) => {'network': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (networkStack) {
-      SdkPresent<LoadBalancerBaseNetworkStack>(value: final value) => {'network_stack': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<LoadBalancerBaseType>(value: final value) => {'type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (domains) {
-      SdkPresent<List<Domains>>(value: final value) => {'domains': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (glbSettings) {
-      SdkPresent<GlbSettings>(value: final value) => {'glb_settings': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (targetLoadBalancerIds) {
-      SdkPresent<List<String>>(value: final value) => {'target_load_balancer_ids': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tlsCipherPolicy) {
-      SdkPresent<LoadBalancerBaseTlsCipherPolicy>(value: final value) => {'tls_cipher_policy': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'tag': tag,
+        ...switch (ip) {
+          SdkPresent<String>(value: final value) => {
+              'ip': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'region': region.toJson(),
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (projectId) {
+          SdkPresent<String>(value: final value) => {
+              'project_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ipv6) {
+          SdkPresent<String>(value: final value) => {
+              'ipv6': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sizeUnit) {
+          SdkPresent<int>(value: final value) => {
+              'size_unit': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<LoadBalancerBaseSize>(value: final value) => {
+              'size': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (algorithm) {
+          SdkPresent<LoadBalancerBaseAlgorithm>(value: final value) => {
+              'algorithm': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<LoadBalancerBaseStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'forwarding_rules':
+            forwardingRules.map((item) => item.toJson()).toList(),
+        ...switch (healthCheck) {
+          SdkPresent<HealthCheck>(value: final value) => {
+              'health_check': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (stickySessions) {
+          SdkPresent<StickySessions>(value: final value) => {
+              'sticky_sessions': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (redirectHttpToHttps) {
+          SdkPresent<bool>(value: final value) => {
+              'redirect_http_to_https': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (enableProxyProtocol) {
+          SdkPresent<bool>(value: final value) => {
+              'enable_proxy_protocol': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (enableBackendKeepalive) {
+          SdkPresent<bool>(value: final value) => {
+              'enable_backend_keepalive': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (httpIdleTimeoutSeconds) {
+          SdkPresent<int>(value: final value) => {
+              'http_idle_timeout_seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (vpcUuid) {
+          SdkPresent<String>(value: final value) => {
+              'vpc_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (subnetUuid) {
+          SdkPresent<String>(value: final value) => {
+              'subnet_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (disableLetsEncryptDnsRecords) {
+          SdkPresent<bool>(value: final value) => {
+              'disable_lets_encrypt_dns_records': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firewall) {
+          SdkPresent<LbFirewall>(value: final value) => {
+              'firewall': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (network) {
+          SdkPresent<LoadBalancerBaseNetwork>(value: final value) => {
+              'network': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (networkStack) {
+          SdkPresent<LoadBalancerBaseNetworkStack>(value: final value) => {
+              'network_stack': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<LoadBalancerBaseType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (domains) {
+          SdkPresent<List<Domains>>(value: final value) => {
+              'domains': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (glbSettings) {
+          SdkPresent<GlbSettings>(value: final value) => {
+              'glb_settings': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (targetLoadBalancerIds) {
+          SdkPresent<List<String>>(value: final value) => {
+              'target_load_balancer_ids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tlsCipherPolicy) {
+          SdkPresent<LoadBalancerBaseTlsCipherPolicy>(value: final value) => {
+              'tls_cipher_policy': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

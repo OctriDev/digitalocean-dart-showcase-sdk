@@ -8,52 +8,75 @@ part of 'harness_runtime_create.dart';
 class CreateCheckpointRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional human-readable label stored on the checkpoint; "" if omitted.
   final SdkOptional<String> label;
 
   const CreateCheckpointRequest({this.label = const SdkOmitted()});
 
-  CreateCheckpointRequest Function({SdkOptional<String> label}) get copyWith => _copyWith;
+  CreateCheckpointRequest Function({SdkOptional<String> label}) get copyWith =>
+      _copyWith;
 
-  CreateCheckpointRequest _copyWith({Object? label = sdkOmittedValue}) => CreateCheckpointRequest(
-    label: identical(label, sdkOmittedValue) ? this.label : label as SdkOptional<String>,
-  );
+  CreateCheckpointRequest _copyWith({Object? label = sdkOmittedValue}) =>
+      CreateCheckpointRequest(
+        label: identical(label, sdkOmittedValue)
+            ? this.label
+            : label as SdkOptional<String>,
+      );
 
-  factory CreateCheckpointRequest.fromJson(Map<String, dynamic> json) => CreateCheckpointRequest(
-    label: json['label'] != null ? SdkPresent((json['label'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateCheckpointRequest.fromJson(Map<String, dynamic> json) =>
+      CreateCheckpointRequest(
+        label: json['label'] != null
+            ? SdkPresent((json['label'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (label) {
-      SdkPresent<String>(value: final value) => {'label': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (label) {
+          SdkPresent<String>(value: final value) => {
+              'label': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Terminal result of the synchronous capture: checkpoint.status is READY on success. Failures are reported through the error envelope, never as a FAILED checkpoint here.
 class CreateCheckpointResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Checkpoint is a durable capture of a session's live sandbox machine state bound to the event-log cursor at the cut. READY checkpoints seed forks (ForkSession) and rollback. Internal fields (team_id, the substrate checkpoint id, event_seq) are never serialized.
   final SdkOptional<Checkpoint> checkpoint;
 
   const CreateCheckpointResponse({this.checkpoint = const SdkOmitted()});
 
-  CreateCheckpointResponse Function({SdkOptional<Checkpoint> checkpoint}) get copyWith => _copyWith;
+  CreateCheckpointResponse Function({SdkOptional<Checkpoint> checkpoint})
+      get copyWith => _copyWith;
 
-  CreateCheckpointResponse _copyWith({Object? checkpoint = sdkOmittedValue}) => CreateCheckpointResponse(
-    checkpoint: identical(checkpoint, sdkOmittedValue) ? this.checkpoint : checkpoint as SdkOptional<Checkpoint>,
-  );
+  CreateCheckpointResponse _copyWith({Object? checkpoint = sdkOmittedValue}) =>
+      CreateCheckpointResponse(
+        checkpoint: identical(checkpoint, sdkOmittedValue)
+            ? this.checkpoint
+            : checkpoint as SdkOptional<Checkpoint>,
+      );
 
-  factory CreateCheckpointResponse.fromJson(Map<String, dynamic> json) => CreateCheckpointResponse(
-    checkpoint: json['checkpoint'] != null ? SdkPresent((json['checkpoint'] != null ? Checkpoint.fromJson(json['checkpoint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory CreateCheckpointResponse.fromJson(Map<String, dynamic> json) =>
+      CreateCheckpointResponse(
+        checkpoint: json['checkpoint'] != null
+            ? SdkPresent((json['checkpoint'] != null
+                ? Checkpoint.fromJson(
+                    json['checkpoint'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (checkpoint) {
-      SdkPresent<Checkpoint>(value: final value) => {'checkpoint': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (checkpoint) {
+          SdkPresent<Checkpoint>(value: final value) => {
+              'checkpoint': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

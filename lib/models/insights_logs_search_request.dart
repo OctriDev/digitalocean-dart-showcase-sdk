@@ -8,46 +8,94 @@ part of 'insights_logs.dart';
 class LogsSearchRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An inclusive query time window.
   final LogsTimeRange timeRange;
+
   /// A boolean filter tree for logs queries. Exactly one node is set per message.
   final SdkOptional<LogsFilterExpression> filter;
+
   /// Sort clauses applied to the result set.
   final SdkOptional<List<LogsOrderBy>> orderBy;
+
   /// Opaque keyset pagination request. Cursors are only valid when ordering by `timestamp` alone.
   final SdkOptional<LogsPaginationRequest> pagination;
 
-  const LogsSearchRequest({required this.timeRange, this.filter = const SdkOmitted(), this.orderBy = const SdkOmitted(), this.pagination = const SdkOmitted()});
+  const LogsSearchRequest(
+      {required this.timeRange,
+      this.filter = const SdkOmitted(),
+      this.orderBy = const SdkOmitted(),
+      this.pagination = const SdkOmitted()});
 
-  LogsSearchRequest Function({LogsTimeRange timeRange, SdkOptional<LogsFilterExpression> filter, SdkOptional<List<LogsOrderBy>> orderBy, SdkOptional<LogsPaginationRequest> pagination}) get copyWith => _copyWith;
+  LogsSearchRequest Function(
+      {LogsTimeRange timeRange,
+      SdkOptional<LogsFilterExpression> filter,
+      SdkOptional<List<LogsOrderBy>> orderBy,
+      SdkOptional<LogsPaginationRequest> pagination}) get copyWith => _copyWith;
 
-  LogsSearchRequest _copyWith({Object? timeRange = sdkOmittedValue, Object? filter = sdkOmittedValue, Object? orderBy = sdkOmittedValue, Object? pagination = sdkOmittedValue}) => LogsSearchRequest(
-    timeRange: identical(timeRange, sdkOmittedValue) ? this.timeRange : timeRange as LogsTimeRange,
-    filter: identical(filter, sdkOmittedValue) ? this.filter : filter as SdkOptional<LogsFilterExpression>,
-    orderBy: identical(orderBy, sdkOmittedValue) ? this.orderBy : orderBy as SdkOptional<List<LogsOrderBy>>,
-    pagination: identical(pagination, sdkOmittedValue) ? this.pagination : pagination as SdkOptional<LogsPaginationRequest>,
-  );
+  LogsSearchRequest _copyWith(
+          {Object? timeRange = sdkOmittedValue,
+          Object? filter = sdkOmittedValue,
+          Object? orderBy = sdkOmittedValue,
+          Object? pagination = sdkOmittedValue}) =>
+      LogsSearchRequest(
+        timeRange: identical(timeRange, sdkOmittedValue)
+            ? this.timeRange
+            : timeRange as LogsTimeRange,
+        filter: identical(filter, sdkOmittedValue)
+            ? this.filter
+            : filter as SdkOptional<LogsFilterExpression>,
+        orderBy: identical(orderBy, sdkOmittedValue)
+            ? this.orderBy
+            : orderBy as SdkOptional<List<LogsOrderBy>>,
+        pagination: identical(pagination, sdkOmittedValue)
+            ? this.pagination
+            : pagination as SdkOptional<LogsPaginationRequest>,
+      );
 
-  factory LogsSearchRequest.fromJson(Map<String, dynamic> json) => LogsSearchRequest(
-    timeRange: (json['time_range'] != null ? LogsTimeRange.fromJson(json['time_range'] as Map<String, dynamic>) : null)!,
-    filter: json['filter'] != null ? SdkPresent((json['filter'] != null ? LogsFilterExpression.fromJson(json['filter'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    orderBy: json['order_by'] != null ? SdkPresent(((json['order_by'] as List?)?.map((e) => LogsOrderBy.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    pagination: json['pagination'] != null ? SdkPresent((json['pagination'] != null ? LogsPaginationRequest.fromJson(json['pagination'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory LogsSearchRequest.fromJson(Map<String, dynamic> json) =>
+      LogsSearchRequest(
+        timeRange: (json['time_range'] != null
+            ? LogsTimeRange.fromJson(json['time_range'] as Map<String, dynamic>)
+            : null)!,
+        filter: json['filter'] != null
+            ? SdkPresent((json['filter'] != null
+                ? LogsFilterExpression.fromJson(
+                    json['filter'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        orderBy: json['order_by'] != null
+            ? SdkPresent(((json['order_by'] as List?)
+                ?.map((e) => LogsOrderBy.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        pagination: json['pagination'] != null
+            ? SdkPresent((json['pagination'] != null
+                ? LogsPaginationRequest.fromJson(
+                    json['pagination'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'time_range': timeRange.toJson(),
-    ...switch (filter) {
-      SdkPresent<LogsFilterExpression>(value: final value) => {'filter': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (orderBy) {
-      SdkPresent<List<LogsOrderBy>>(value: final value) => {'order_by': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pagination) {
-      SdkPresent<LogsPaginationRequest>(value: final value) => {'pagination': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'time_range': timeRange.toJson(),
+        ...switch (filter) {
+          SdkPresent<LogsFilterExpression>(value: final value) => {
+              'filter': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (orderBy) {
+          SdkPresent<List<LogsOrderBy>>(value: final value) => {
+              'order_by': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pagination) {
+          SdkPresent<LogsPaginationRequest>(value: final value) => {
+              'pagination': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,65 +8,131 @@ part of 'harness_runtime.dart';
 class ReusableSession {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `session_id` wire field.
   final SdkOptional<String> sessionId;
+
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
+
   /// AgentKind identifies what runs inside the session sandbox. CreateSession accepts CLAUDE_CODE, OPENCODE, CODEX_CLI, CURSOR_CLI, OPENAI_CODEX, LANGGRAPH, and CREWAI (the supported set is overridable via HARNESS_SUPPORTED_AGENT_KINDS); other values are rejected with 400. AGENT_KIND_OPENAI_CODEX is the OpenAI sandbox-provider kind (DO runs codex exec-server; the agent loop lives at OpenAI). AGENT_KIND_LANGGRAPH is the LangGraph framework adapter. AGENT_KIND_CREWAI is the CrewAI Crew framework adapter: like LANGGRAPH the template bakes no agent code, so spec.env must supply FRAMEWORK_REPO and FRAMEWORK_REPO_SHA; a Crew kickoff is one-shot and exposes no HITL surface. CREWAI is additionally gated per team and returns 400 for teams it is not enabled for.
   final SdkOptional<AgentKind> agentKind;
+
   /// SessionStatus is the lifecycle state of the sandbox + agent pair. SESSION_STATUS_ALL is a ListSessions status-filter value only -- no session is ever actually in this status. SESSION_STATUS_LOCKED is reserved for internal use and never appears in an end-user-facing response.
   final SdkOptional<SessionStatus> status;
+
   /// Optional `date-time`-formatted value serialized in the `created_at` wire field.
   final SdkOptional<String> createdAt;
+
   /// Optional `date-time`-formatted value serialized in the `last_event_at` wire field.
   final SdkOptional<String> lastEventAt;
 
-  const ReusableSession({this.sessionId = const SdkOmitted(), this.name = const SdkOmitted(), this.agentKind = const SdkOmitted(), this.status = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.lastEventAt = const SdkOmitted()});
+  const ReusableSession(
+      {this.sessionId = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.agentKind = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.lastEventAt = const SdkOmitted()});
 
-  ReusableSession Function({SdkOptional<String> sessionId, SdkOptional<String> name, SdkOptional<AgentKind> agentKind, SdkOptional<SessionStatus> status, SdkOptional<String> createdAt, SdkOptional<String> lastEventAt}) get copyWith => _copyWith;
+  ReusableSession Function(
+      {SdkOptional<String> sessionId,
+      SdkOptional<String> name,
+      SdkOptional<AgentKind> agentKind,
+      SdkOptional<SessionStatus> status,
+      SdkOptional<String> createdAt,
+      SdkOptional<String> lastEventAt}) get copyWith => _copyWith;
 
-  ReusableSession _copyWith({Object? sessionId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? agentKind = sdkOmittedValue, Object? status = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? lastEventAt = sdkOmittedValue}) => ReusableSession(
-    sessionId: identical(sessionId, sdkOmittedValue) ? this.sessionId : sessionId as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    agentKind: identical(agentKind, sdkOmittedValue) ? this.agentKind : agentKind as SdkOptional<AgentKind>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<SessionStatus>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String>,
-    lastEventAt: identical(lastEventAt, sdkOmittedValue) ? this.lastEventAt : lastEventAt as SdkOptional<String>,
-  );
+  ReusableSession _copyWith(
+          {Object? sessionId = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? agentKind = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? lastEventAt = sdkOmittedValue}) =>
+      ReusableSession(
+        sessionId: identical(sessionId, sdkOmittedValue)
+            ? this.sessionId
+            : sessionId as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        agentKind: identical(agentKind, sdkOmittedValue)
+            ? this.agentKind
+            : agentKind as SdkOptional<AgentKind>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<SessionStatus>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<String>,
+        lastEventAt: identical(lastEventAt, sdkOmittedValue)
+            ? this.lastEventAt
+            : lastEventAt as SdkOptional<String>,
+      );
 
-  factory ReusableSession.fromJson(Map<String, dynamic> json) => ReusableSession(
-    sessionId: json['session_id'] != null ? SdkPresent((json['session_id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    agentKind: json['agent_kind'] != null ? SdkPresent((json['agent_kind'] != null ? AgentKind.fromJson(json['agent_kind'] as String) : null)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? SessionStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent((json['created_at'] as String?)!) : const SdkOmitted(),
-    lastEventAt: json['last_event_at'] != null ? SdkPresent((json['last_event_at'] as String?)!) : const SdkOmitted(),
-  );
+  factory ReusableSession.fromJson(Map<String, dynamic> json) =>
+      ReusableSession(
+        sessionId: json['session_id'] != null
+            ? SdkPresent((json['session_id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        agentKind: json['agent_kind'] != null
+            ? SdkPresent((json['agent_kind'] != null
+                ? AgentKind.fromJson(json['agent_kind'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? SessionStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent((json['created_at'] as String?)!)
+            : const SdkOmitted(),
+        lastEventAt: json['last_event_at'] != null
+            ? SdkPresent((json['last_event_at'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (sessionId) {
-      SdkPresent<String>(value: final value) => {'session_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (agentKind) {
-      SdkPresent<AgentKind>(value: final value) => {'agent_kind': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<SessionStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<String>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastEventAt) {
-      SdkPresent<String>(value: final value) => {'last_event_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sessionId) {
+          SdkPresent<String>(value: final value) => {
+              'session_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (agentKind) {
+          SdkPresent<AgentKind>(value: final value) => {
+              'agent_kind': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<SessionStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<String>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastEventAt) {
+          SdkPresent<String>(value: final value) => {
+              'last_event_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

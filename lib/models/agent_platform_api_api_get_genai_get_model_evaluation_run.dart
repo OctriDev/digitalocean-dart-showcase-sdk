@@ -8,49 +8,101 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetModelEvaluationRunOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Links to other pages
   final SdkOptional<ApiLinks> links;
+
   /// Meta information about the data set
   final SdkOptional<ApiMeta> meta;
+
   /// Paginated per-prompt evaluation results.
   final SdkOptional<List<ApiModelEvaluationResult>> results;
+
   /// Model Evaluation Run Detail - full view returned when fetching a specific run.
   final SdkOptional<ApiModelEvaluationRunDetail> run;
 
-  const ApiGetModelEvaluationRunOutput({this.links = const SdkOmitted(), this.meta = const SdkOmitted(), this.results = const SdkOmitted(), this.run = const SdkOmitted()});
+  const ApiGetModelEvaluationRunOutput(
+      {this.links = const SdkOmitted(),
+      this.meta = const SdkOmitted(),
+      this.results = const SdkOmitted(),
+      this.run = const SdkOmitted()});
 
-  ApiGetModelEvaluationRunOutput Function({SdkOptional<ApiLinks> links, SdkOptional<ApiMeta> meta, SdkOptional<List<ApiModelEvaluationResult>> results, SdkOptional<ApiModelEvaluationRunDetail> run}) get copyWith => _copyWith;
+  ApiGetModelEvaluationRunOutput Function(
+      {SdkOptional<ApiLinks> links,
+      SdkOptional<ApiMeta> meta,
+      SdkOptional<List<ApiModelEvaluationResult>> results,
+      SdkOptional<ApiModelEvaluationRunDetail> run}) get copyWith => _copyWith;
 
-  ApiGetModelEvaluationRunOutput _copyWith({Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue, Object? results = sdkOmittedValue, Object? run = sdkOmittedValue}) => ApiGetModelEvaluationRunOutput(
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<ApiLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as SdkOptional<ApiMeta>,
-    results: identical(results, sdkOmittedValue) ? this.results : results as SdkOptional<List<ApiModelEvaluationResult>>,
-    run: identical(run, sdkOmittedValue) ? this.run : run as SdkOptional<ApiModelEvaluationRunDetail>,
-  );
+  ApiGetModelEvaluationRunOutput _copyWith(
+          {Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue,
+          Object? results = sdkOmittedValue,
+          Object? run = sdkOmittedValue}) =>
+      ApiGetModelEvaluationRunOutput(
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<ApiLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as SdkOptional<ApiMeta>,
+        results: identical(results, sdkOmittedValue)
+            ? this.results
+            : results as SdkOptional<List<ApiModelEvaluationResult>>,
+        run: identical(run, sdkOmittedValue)
+            ? this.run
+            : run as SdkOptional<ApiModelEvaluationRunDetail>,
+      );
 
-  factory ApiGetModelEvaluationRunOutput.fromJson(Map<String, dynamic> json) => ApiGetModelEvaluationRunOutput(
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: json['meta'] != null ? SdkPresent((json['meta'] != null ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    results: json['results'] != null ? SdkPresent(((json['results'] as List?)?.map((e) => ApiModelEvaluationResult.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    run: json['run'] != null ? SdkPresent((json['run'] != null ? ApiModelEvaluationRunDetail.fromJson(json['run'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiGetModelEvaluationRunOutput.fromJson(Map<String, dynamic> json) =>
+      ApiGetModelEvaluationRunOutput(
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? ApiLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: json['meta'] != null
+            ? SdkPresent((json['meta'] != null
+                ? ApiMeta.fromJson(json['meta'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        results: json['results'] != null
+            ? SdkPresent(((json['results'] as List?)
+                ?.map((e) => ApiModelEvaluationResult.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        run: json['run'] != null
+            ? SdkPresent((json['run'] != null
+                ? ApiModelEvaluationRunDetail.fromJson(
+                    json['run'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (links) {
-      SdkPresent<ApiLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (meta) {
-      SdkPresent<ApiMeta>(value: final value) => {'meta': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (results) {
-      SdkPresent<List<ApiModelEvaluationResult>>(value: final value) => {'results': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (run) {
-      SdkPresent<ApiModelEvaluationRunDetail>(value: final value) => {'run': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (links) {
+          SdkPresent<ApiLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (meta) {
+          SdkPresent<ApiMeta>(value: final value) => {
+              'meta': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (results) {
+          SdkPresent<List<ApiModelEvaluationResult>>(value: final value) => {
+              'results': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (run) {
+          SdkPresent<ApiModelEvaluationRunDetail>(value: final value) => {
+              'run': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,221 +8,397 @@ part of 'apps_apps.dart';
 class AppsGithubSourceSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the branch to use
   final SdkOptional<String> branch;
+
   /// Whether to automatically deploy new commits made to the repo
   final SdkOptional<bool> deployOnPush;
+
   /// The name of the repo in the format owner/repo. Example: `digitalocean/sample-golang`
   final SdkOptional<String> repo;
 
-  const AppsGithubSourceSpec({this.branch = const SdkOmitted(), this.deployOnPush = const SdkOmitted(), this.repo = const SdkOmitted()});
+  const AppsGithubSourceSpec(
+      {this.branch = const SdkOmitted(),
+      this.deployOnPush = const SdkOmitted(),
+      this.repo = const SdkOmitted()});
 
-  AppsGithubSourceSpec Function({SdkOptional<String> branch, SdkOptional<bool> deployOnPush, SdkOptional<String> repo}) get copyWith => _copyWith;
+  AppsGithubSourceSpec Function(
+      {SdkOptional<String> branch,
+      SdkOptional<bool> deployOnPush,
+      SdkOptional<String> repo}) get copyWith => _copyWith;
 
-  AppsGithubSourceSpec _copyWith({Object? branch = sdkOmittedValue, Object? deployOnPush = sdkOmittedValue, Object? repo = sdkOmittedValue}) => AppsGithubSourceSpec(
-    branch: identical(branch, sdkOmittedValue) ? this.branch : branch as SdkOptional<String>,
-    deployOnPush: identical(deployOnPush, sdkOmittedValue) ? this.deployOnPush : deployOnPush as SdkOptional<bool>,
-    repo: identical(repo, sdkOmittedValue) ? this.repo : repo as SdkOptional<String>,
-  );
+  AppsGithubSourceSpec _copyWith(
+          {Object? branch = sdkOmittedValue,
+          Object? deployOnPush = sdkOmittedValue,
+          Object? repo = sdkOmittedValue}) =>
+      AppsGithubSourceSpec(
+        branch: identical(branch, sdkOmittedValue)
+            ? this.branch
+            : branch as SdkOptional<String>,
+        deployOnPush: identical(deployOnPush, sdkOmittedValue)
+            ? this.deployOnPush
+            : deployOnPush as SdkOptional<bool>,
+        repo: identical(repo, sdkOmittedValue)
+            ? this.repo
+            : repo as SdkOptional<String>,
+      );
 
-  factory AppsGithubSourceSpec.fromJson(Map<String, dynamic> json) => AppsGithubSourceSpec(
-    branch: json['branch'] != null ? SdkPresent((json['branch'] as String?)!) : const SdkOmitted(),
-    deployOnPush: json['deploy_on_push'] != null ? SdkPresent((json['deploy_on_push'] as bool?)!) : const SdkOmitted(),
-    repo: json['repo'] != null ? SdkPresent((json['repo'] as String?)!) : const SdkOmitted(),
-  );
+  factory AppsGithubSourceSpec.fromJson(Map<String, dynamic> json) =>
+      AppsGithubSourceSpec(
+        branch: json['branch'] != null
+            ? SdkPresent((json['branch'] as String?)!)
+            : const SdkOmitted(),
+        deployOnPush: json['deploy_on_push'] != null
+            ? SdkPresent((json['deploy_on_push'] as bool?)!)
+            : const SdkOmitted(),
+        repo: json['repo'] != null
+            ? SdkPresent((json['repo'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (branch) {
-      SdkPresent<String>(value: final value) => {'branch': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deployOnPush) {
-      SdkPresent<bool>(value: final value) => {'deploy_on_push': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (repo) {
-      SdkPresent<String>(value: final value) => {'repo': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (branch) {
+          SdkPresent<String>(value: final value) => {
+              'branch': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deployOnPush) {
+          SdkPresent<bool>(value: final value) => {
+              'deploy_on_push': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (repo) {
+          SdkPresent<String>(value: final value) => {
+              'repo': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AppsGitlabSourceSpec` API schema.
 class AppsGitlabSourceSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the branch to use
   final SdkOptional<String> branch;
+
   /// Whether to automatically deploy new commits made to the repo
   final SdkOptional<bool> deployOnPush;
+
   /// The name of the repo in the format owner/repo. Example: `digitalocean/sample-golang`
   final SdkOptional<String> repo;
 
-  const AppsGitlabSourceSpec({this.branch = const SdkOmitted(), this.deployOnPush = const SdkOmitted(), this.repo = const SdkOmitted()});
+  const AppsGitlabSourceSpec(
+      {this.branch = const SdkOmitted(),
+      this.deployOnPush = const SdkOmitted(),
+      this.repo = const SdkOmitted()});
 
-  AppsGitlabSourceSpec Function({SdkOptional<String> branch, SdkOptional<bool> deployOnPush, SdkOptional<String> repo}) get copyWith => _copyWith;
+  AppsGitlabSourceSpec Function(
+      {SdkOptional<String> branch,
+      SdkOptional<bool> deployOnPush,
+      SdkOptional<String> repo}) get copyWith => _copyWith;
 
-  AppsGitlabSourceSpec _copyWith({Object? branch = sdkOmittedValue, Object? deployOnPush = sdkOmittedValue, Object? repo = sdkOmittedValue}) => AppsGitlabSourceSpec(
-    branch: identical(branch, sdkOmittedValue) ? this.branch : branch as SdkOptional<String>,
-    deployOnPush: identical(deployOnPush, sdkOmittedValue) ? this.deployOnPush : deployOnPush as SdkOptional<bool>,
-    repo: identical(repo, sdkOmittedValue) ? this.repo : repo as SdkOptional<String>,
-  );
+  AppsGitlabSourceSpec _copyWith(
+          {Object? branch = sdkOmittedValue,
+          Object? deployOnPush = sdkOmittedValue,
+          Object? repo = sdkOmittedValue}) =>
+      AppsGitlabSourceSpec(
+        branch: identical(branch, sdkOmittedValue)
+            ? this.branch
+            : branch as SdkOptional<String>,
+        deployOnPush: identical(deployOnPush, sdkOmittedValue)
+            ? this.deployOnPush
+            : deployOnPush as SdkOptional<bool>,
+        repo: identical(repo, sdkOmittedValue)
+            ? this.repo
+            : repo as SdkOptional<String>,
+      );
 
-  factory AppsGitlabSourceSpec.fromJson(Map<String, dynamic> json) => AppsGitlabSourceSpec(
-    branch: json['branch'] != null ? SdkPresent((json['branch'] as String?)!) : const SdkOmitted(),
-    deployOnPush: json['deploy_on_push'] != null ? SdkPresent((json['deploy_on_push'] as bool?)!) : const SdkOmitted(),
-    repo: json['repo'] != null ? SdkPresent((json['repo'] as String?)!) : const SdkOmitted(),
-  );
+  factory AppsGitlabSourceSpec.fromJson(Map<String, dynamic> json) =>
+      AppsGitlabSourceSpec(
+        branch: json['branch'] != null
+            ? SdkPresent((json['branch'] as String?)!)
+            : const SdkOmitted(),
+        deployOnPush: json['deploy_on_push'] != null
+            ? SdkPresent((json['deploy_on_push'] as bool?)!)
+            : const SdkOmitted(),
+        repo: json['repo'] != null
+            ? SdkPresent((json['repo'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (branch) {
-      SdkPresent<String>(value: final value) => {'branch': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deployOnPush) {
-      SdkPresent<bool>(value: final value) => {'deploy_on_push': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (repo) {
-      SdkPresent<String>(value: final value) => {'repo': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (branch) {
+          SdkPresent<String>(value: final value) => {
+              'branch': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deployOnPush) {
+          SdkPresent<bool>(value: final value) => {
+              'deploy_on_push': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (repo) {
+          SdkPresent<String>(value: final value) => {
+              'repo': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AppsGitSourceSpec` API schema.
 class AppsGitSourceSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the branch to use
   final SdkOptional<String> branch;
+
   /// The clone URL of the repo. Example: `https://github.com/digitalocean/sample-golang.git`
   final SdkOptional<String> repoCloneUrl;
 
-  const AppsGitSourceSpec({this.branch = const SdkOmitted(), this.repoCloneUrl = const SdkOmitted()});
+  const AppsGitSourceSpec(
+      {this.branch = const SdkOmitted(),
+      this.repoCloneUrl = const SdkOmitted()});
 
-  AppsGitSourceSpec Function({SdkOptional<String> branch, SdkOptional<String> repoCloneUrl}) get copyWith => _copyWith;
+  AppsGitSourceSpec Function(
+      {SdkOptional<String> branch,
+      SdkOptional<String> repoCloneUrl}) get copyWith => _copyWith;
 
-  AppsGitSourceSpec _copyWith({Object? branch = sdkOmittedValue, Object? repoCloneUrl = sdkOmittedValue}) => AppsGitSourceSpec(
-    branch: identical(branch, sdkOmittedValue) ? this.branch : branch as SdkOptional<String>,
-    repoCloneUrl: identical(repoCloneUrl, sdkOmittedValue) ? this.repoCloneUrl : repoCloneUrl as SdkOptional<String>,
-  );
+  AppsGitSourceSpec _copyWith(
+          {Object? branch = sdkOmittedValue,
+          Object? repoCloneUrl = sdkOmittedValue}) =>
+      AppsGitSourceSpec(
+        branch: identical(branch, sdkOmittedValue)
+            ? this.branch
+            : branch as SdkOptional<String>,
+        repoCloneUrl: identical(repoCloneUrl, sdkOmittedValue)
+            ? this.repoCloneUrl
+            : repoCloneUrl as SdkOptional<String>,
+      );
 
-  factory AppsGitSourceSpec.fromJson(Map<String, dynamic> json) => AppsGitSourceSpec(
-    branch: json['branch'] != null ? SdkPresent((json['branch'] as String?)!) : const SdkOmitted(),
-    repoCloneUrl: json['repo_clone_url'] != null ? SdkPresent((json['repo_clone_url'] as String?)!) : const SdkOmitted(),
-  );
+  factory AppsGitSourceSpec.fromJson(Map<String, dynamic> json) =>
+      AppsGitSourceSpec(
+        branch: json['branch'] != null
+            ? SdkPresent((json['branch'] as String?)!)
+            : const SdkOmitted(),
+        repoCloneUrl: json['repo_clone_url'] != null
+            ? SdkPresent((json['repo_clone_url'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (branch) {
-      SdkPresent<String>(value: final value) => {'branch': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (repoCloneUrl) {
-      SdkPresent<String>(value: final value) => {'repo_clone_url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (branch) {
+          SdkPresent<String>(value: final value) => {
+              'branch': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (repoCloneUrl) {
+          SdkPresent<String>(value: final value) => {
+              'repo_clone_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `deploy_on_push` wire field.
 class AppsImageSourceSpecDeployOnPush {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether to automatically deploy new images. Can only be used for images hosted in DOCR and can only be used with an image tag, not a specific digest.
   final SdkOptional<bool> enabled;
 
   const AppsImageSourceSpecDeployOnPush({this.enabled = const SdkOmitted()});
 
-  AppsImageSourceSpecDeployOnPush Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
+  AppsImageSourceSpecDeployOnPush Function({SdkOptional<bool> enabled})
+      get copyWith => _copyWith;
 
-  AppsImageSourceSpecDeployOnPush _copyWith({Object? enabled = sdkOmittedValue}) => AppsImageSourceSpecDeployOnPush(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+  AppsImageSourceSpecDeployOnPush _copyWith(
+          {Object? enabled = sdkOmittedValue}) =>
+      AppsImageSourceSpecDeployOnPush(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
-  factory AppsImageSourceSpecDeployOnPush.fromJson(Map<String, dynamic> json) => AppsImageSourceSpecDeployOnPush(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+  factory AppsImageSourceSpecDeployOnPush.fromJson(Map<String, dynamic> json) =>
+      AppsImageSourceSpecDeployOnPush(
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AppsImageSourceSpec` API schema.
 class AppsImageSourceSpec {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The registry name. Must be left empty for the `DOCR` registry type.
   final SdkOptional<String> registry;
+
   /// - DOCKER_HUB: The DockerHub container registry type. - DOCR: The DigitalOcean container registry type. - GHCR: The Github container registry type.
   final SdkOptional<AppsImageSourceSpecRegistryType> registryType;
+
   /// The credentials to be able to pull the image. The value will be encrypted on first submission. On following submissions, the encrypted value should be used. - "$username:$access_token" for registries of type `DOCKER_HUB`. - "$username:$access_token" for registries of type `GHCR`.
   final SdkOptional<String> registryCredentials;
+
   /// The repository name.
   final SdkOptional<String> repository;
+
   /// The repository tag. Defaults to `latest` if not provided and no digest is provided. Cannot be specified if digest is provided.
   final SdkOptional<String> tag;
+
   /// The image digest. Cannot be specified if tag is provided.
   final SdkOptional<String> digest;
+
   /// Optional object value serialized in the `deploy_on_push` wire field.
   final SdkOptional<AppsImageSourceSpecDeployOnPush> deployOnPush;
 
-  const AppsImageSourceSpec({this.registry = const SdkOmitted(), this.registryType = const SdkOmitted(), this.registryCredentials = const SdkOmitted(), this.repository = const SdkOmitted(), this.tag = const SdkOmitted(), this.digest = const SdkOmitted(), this.deployOnPush = const SdkOmitted()});
+  const AppsImageSourceSpec(
+      {this.registry = const SdkOmitted(),
+      this.registryType = const SdkOmitted(),
+      this.registryCredentials = const SdkOmitted(),
+      this.repository = const SdkOmitted(),
+      this.tag = const SdkOmitted(),
+      this.digest = const SdkOmitted(),
+      this.deployOnPush = const SdkOmitted()});
 
-  AppsImageSourceSpec Function({SdkOptional<String> registry, SdkOptional<AppsImageSourceSpecRegistryType> registryType, SdkOptional<String> registryCredentials, SdkOptional<String> repository, SdkOptional<String> tag, SdkOptional<String> digest, SdkOptional<AppsImageSourceSpecDeployOnPush> deployOnPush}) get copyWith => _copyWith;
+  AppsImageSourceSpec Function(
+          {SdkOptional<String> registry,
+          SdkOptional<AppsImageSourceSpecRegistryType> registryType,
+          SdkOptional<String> registryCredentials,
+          SdkOptional<String> repository,
+          SdkOptional<String> tag,
+          SdkOptional<String> digest,
+          SdkOptional<AppsImageSourceSpecDeployOnPush> deployOnPush})
+      get copyWith => _copyWith;
 
-  AppsImageSourceSpec _copyWith({Object? registry = sdkOmittedValue, Object? registryType = sdkOmittedValue, Object? registryCredentials = sdkOmittedValue, Object? repository = sdkOmittedValue, Object? tag = sdkOmittedValue, Object? digest = sdkOmittedValue, Object? deployOnPush = sdkOmittedValue}) => AppsImageSourceSpec(
-    registry: identical(registry, sdkOmittedValue) ? this.registry : registry as SdkOptional<String>,
-    registryType: identical(registryType, sdkOmittedValue) ? this.registryType : registryType as SdkOptional<AppsImageSourceSpecRegistryType>,
-    registryCredentials: identical(registryCredentials, sdkOmittedValue) ? this.registryCredentials : registryCredentials as SdkOptional<String>,
-    repository: identical(repository, sdkOmittedValue) ? this.repository : repository as SdkOptional<String>,
-    tag: identical(tag, sdkOmittedValue) ? this.tag : tag as SdkOptional<String>,
-    digest: identical(digest, sdkOmittedValue) ? this.digest : digest as SdkOptional<String>,
-    deployOnPush: identical(deployOnPush, sdkOmittedValue) ? this.deployOnPush : deployOnPush as SdkOptional<AppsImageSourceSpecDeployOnPush>,
-  );
+  AppsImageSourceSpec _copyWith(
+          {Object? registry = sdkOmittedValue,
+          Object? registryType = sdkOmittedValue,
+          Object? registryCredentials = sdkOmittedValue,
+          Object? repository = sdkOmittedValue,
+          Object? tag = sdkOmittedValue,
+          Object? digest = sdkOmittedValue,
+          Object? deployOnPush = sdkOmittedValue}) =>
+      AppsImageSourceSpec(
+        registry: identical(registry, sdkOmittedValue)
+            ? this.registry
+            : registry as SdkOptional<String>,
+        registryType: identical(registryType, sdkOmittedValue)
+            ? this.registryType
+            : registryType as SdkOptional<AppsImageSourceSpecRegistryType>,
+        registryCredentials: identical(registryCredentials, sdkOmittedValue)
+            ? this.registryCredentials
+            : registryCredentials as SdkOptional<String>,
+        repository: identical(repository, sdkOmittedValue)
+            ? this.repository
+            : repository as SdkOptional<String>,
+        tag: identical(tag, sdkOmittedValue)
+            ? this.tag
+            : tag as SdkOptional<String>,
+        digest: identical(digest, sdkOmittedValue)
+            ? this.digest
+            : digest as SdkOptional<String>,
+        deployOnPush: identical(deployOnPush, sdkOmittedValue)
+            ? this.deployOnPush
+            : deployOnPush as SdkOptional<AppsImageSourceSpecDeployOnPush>,
+      );
 
-  factory AppsImageSourceSpec.fromJson(Map<String, dynamic> json) => AppsImageSourceSpec(
-    registry: json['registry'] != null ? SdkPresent((json['registry'] as String?)!) : const SdkOmitted(),
-    registryType: json['registry_type'] != null ? SdkPresent((json['registry_type'] != null ? AppsImageSourceSpecRegistryType.fromJson(json['registry_type'] as String) : null)!) : const SdkOmitted(),
-    registryCredentials: json['registry_credentials'] != null ? SdkPresent((json['registry_credentials'] as String?)!) : const SdkOmitted(),
-    repository: json['repository'] != null ? SdkPresent((json['repository'] as String?)!) : const SdkOmitted(),
-    tag: json['tag'] != null ? SdkPresent((json['tag'] as String?)!) : const SdkOmitted(),
-    digest: json['digest'] != null ? SdkPresent((json['digest'] as String?)!) : const SdkOmitted(),
-    deployOnPush: json['deploy_on_push'] != null ? SdkPresent((json['deploy_on_push'] != null ? AppsImageSourceSpecDeployOnPush.fromJson(json['deploy_on_push'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory AppsImageSourceSpec.fromJson(Map<String, dynamic> json) =>
+      AppsImageSourceSpec(
+        registry: json['registry'] != null
+            ? SdkPresent((json['registry'] as String?)!)
+            : const SdkOmitted(),
+        registryType: json['registry_type'] != null
+            ? SdkPresent((json['registry_type'] != null
+                ? AppsImageSourceSpecRegistryType.fromJson(
+                    json['registry_type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        registryCredentials: json['registry_credentials'] != null
+            ? SdkPresent((json['registry_credentials'] as String?)!)
+            : const SdkOmitted(),
+        repository: json['repository'] != null
+            ? SdkPresent((json['repository'] as String?)!)
+            : const SdkOmitted(),
+        tag: json['tag'] != null
+            ? SdkPresent((json['tag'] as String?)!)
+            : const SdkOmitted(),
+        digest: json['digest'] != null
+            ? SdkPresent((json['digest'] as String?)!)
+            : const SdkOmitted(),
+        deployOnPush: json['deploy_on_push'] != null
+            ? SdkPresent((json['deploy_on_push'] != null
+                ? AppsImageSourceSpecDeployOnPush.fromJson(
+                    json['deploy_on_push'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (registry) {
-      SdkPresent<String>(value: final value) => {'registry': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (registryType) {
-      SdkPresent<AppsImageSourceSpecRegistryType>(value: final value) => {'registry_type': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (registryCredentials) {
-      SdkPresent<String>(value: final value) => {'registry_credentials': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (repository) {
-      SdkPresent<String>(value: final value) => {'repository': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tag) {
-      SdkPresent<String>(value: final value) => {'tag': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (digest) {
-      SdkPresent<String>(value: final value) => {'digest': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deployOnPush) {
-      SdkPresent<AppsImageSourceSpecDeployOnPush>(value: final value) => {'deploy_on_push': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (registry) {
+          SdkPresent<String>(value: final value) => {
+              'registry': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (registryType) {
+          SdkPresent<AppsImageSourceSpecRegistryType>(value: final value) => {
+              'registry_type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (registryCredentials) {
+          SdkPresent<String>(value: final value) => {
+              'registry_credentials': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (repository) {
+          SdkPresent<String>(value: final value) => {
+              'repository': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tag) {
+          SdkPresent<String>(value: final value) => {
+              'tag': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (digest) {
+          SdkPresent<String>(value: final value) => {
+              'digest': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deployOnPush) {
+          SdkPresent<AppsImageSourceSpecDeployOnPush>(value: final value) => {
+              'deploy_on_push': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,41 +8,73 @@ part of 'apps_apps_deployment.dart';
 class AppsDeploymentFunctions {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `name` wire field.
   final SdkOptional<String> name;
+
   /// The commit hash of the repository that was used to build this functions component.
   final SdkOptional<String> sourceCommitHash;
+
   /// The namespace where the functions are deployed.
   final SdkOptional<String> namespace;
 
-  const AppsDeploymentFunctions({this.name = const SdkOmitted(), this.sourceCommitHash = const SdkOmitted(), this.namespace = const SdkOmitted()});
+  const AppsDeploymentFunctions(
+      {this.name = const SdkOmitted(),
+      this.sourceCommitHash = const SdkOmitted(),
+      this.namespace = const SdkOmitted()});
 
-  AppsDeploymentFunctions Function({SdkOptional<String> name, SdkOptional<String> sourceCommitHash, SdkOptional<String> namespace}) get copyWith => _copyWith;
+  AppsDeploymentFunctions Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> sourceCommitHash,
+      SdkOptional<String> namespace}) get copyWith => _copyWith;
 
-  AppsDeploymentFunctions _copyWith({Object? name = sdkOmittedValue, Object? sourceCommitHash = sdkOmittedValue, Object? namespace = sdkOmittedValue}) => AppsDeploymentFunctions(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    sourceCommitHash: identical(sourceCommitHash, sdkOmittedValue) ? this.sourceCommitHash : sourceCommitHash as SdkOptional<String>,
-    namespace: identical(namespace, sdkOmittedValue) ? this.namespace : namespace as SdkOptional<String>,
-  );
+  AppsDeploymentFunctions _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? sourceCommitHash = sdkOmittedValue,
+          Object? namespace = sdkOmittedValue}) =>
+      AppsDeploymentFunctions(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        sourceCommitHash: identical(sourceCommitHash, sdkOmittedValue)
+            ? this.sourceCommitHash
+            : sourceCommitHash as SdkOptional<String>,
+        namespace: identical(namespace, sdkOmittedValue)
+            ? this.namespace
+            : namespace as SdkOptional<String>,
+      );
 
-  factory AppsDeploymentFunctions.fromJson(Map<String, dynamic> json) => AppsDeploymentFunctions(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    sourceCommitHash: json['source_commit_hash'] != null ? SdkPresent((json['source_commit_hash'] as String?)!) : const SdkOmitted(),
-    namespace: json['namespace'] != null ? SdkPresent((json['namespace'] as String?)!) : const SdkOmitted(),
-  );
+  factory AppsDeploymentFunctions.fromJson(Map<String, dynamic> json) =>
+      AppsDeploymentFunctions(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        sourceCommitHash: json['source_commit_hash'] != null
+            ? SdkPresent((json['source_commit_hash'] as String?)!)
+            : const SdkOmitted(),
+        namespace: json['namespace'] != null
+            ? SdkPresent((json['namespace'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sourceCommitHash) {
-      SdkPresent<String>(value: final value) => {'source_commit_hash': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (namespace) {
-      SdkPresent<String>(value: final value) => {'namespace': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sourceCommitHash) {
+          SdkPresent<String>(value: final value) => {
+              'source_commit_hash': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (namespace) {
+          SdkPresent<String>(value: final value) => {
+              'namespace': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,60 +8,98 @@ part of 'vector_databases.dart';
 class VectordbUpdateVectorDBTagsRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required. ID of the vector database to update tags for.
   final SdkOptional<String> id;
+
   /// Tags to set on the vector database. Replaces all existing tags.
   final SdkOptional<List<String>> tags;
 
-  const VectordbUpdateVectorDBTagsRequest({this.id = const SdkOmitted(), this.tags = const SdkOmitted()});
+  const VectordbUpdateVectorDBTagsRequest(
+      {this.id = const SdkOmitted(), this.tags = const SdkOmitted()});
 
-  VectordbUpdateVectorDBTagsRequest Function({SdkOptional<String> id, SdkOptional<List<String>> tags}) get copyWith => _copyWith;
+  VectordbUpdateVectorDBTagsRequest Function(
+      {SdkOptional<String> id,
+      SdkOptional<List<String>> tags}) get copyWith => _copyWith;
 
-  VectordbUpdateVectorDBTagsRequest _copyWith({Object? id = sdkOmittedValue, Object? tags = sdkOmittedValue}) => VectordbUpdateVectorDBTagsRequest(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<String>>,
-  );
+  VectordbUpdateVectorDBTagsRequest _copyWith(
+          {Object? id = sdkOmittedValue, Object? tags = sdkOmittedValue}) =>
+      VectordbUpdateVectorDBTagsRequest(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<String>>,
+      );
 
-  factory VectordbUpdateVectorDBTagsRequest.fromJson(Map<String, dynamic> json) => VectordbUpdateVectorDBTagsRequest(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory VectordbUpdateVectorDBTagsRequest.fromJson(
+          Map<String, dynamic> json) =>
+      VectordbUpdateVectorDBTagsRequest(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        tags: json['tags'] != null
+            ? SdkPresent(
+                ((json['tags'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tags) {
-      SdkPresent<List<String>>(value: final value) => {'tags': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tags) {
+          SdkPresent<List<String>>(value: final value) => {
+              'tags': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `VectordbUpdateVectorDBTagsResponse` API schema.
 class VectordbUpdateVectorDBTagsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// VectorDB represents a provisioned vector database instance.
   final SdkOptional<VectordbVectorDB> vectorDb;
 
-  const VectordbUpdateVectorDBTagsResponse({this.vectorDb = const SdkOmitted()});
+  const VectordbUpdateVectorDBTagsResponse(
+      {this.vectorDb = const SdkOmitted()});
 
-  VectordbUpdateVectorDBTagsResponse Function({SdkOptional<VectordbVectorDB> vectorDb}) get copyWith => _copyWith;
+  VectordbUpdateVectorDBTagsResponse Function(
+      {SdkOptional<VectordbVectorDB> vectorDb}) get copyWith => _copyWith;
 
-  VectordbUpdateVectorDBTagsResponse _copyWith({Object? vectorDb = sdkOmittedValue}) => VectordbUpdateVectorDBTagsResponse(
-    vectorDb: identical(vectorDb, sdkOmittedValue) ? this.vectorDb : vectorDb as SdkOptional<VectordbVectorDB>,
-  );
+  VectordbUpdateVectorDBTagsResponse _copyWith(
+          {Object? vectorDb = sdkOmittedValue}) =>
+      VectordbUpdateVectorDBTagsResponse(
+        vectorDb: identical(vectorDb, sdkOmittedValue)
+            ? this.vectorDb
+            : vectorDb as SdkOptional<VectordbVectorDB>,
+      );
 
-  factory VectordbUpdateVectorDBTagsResponse.fromJson(Map<String, dynamic> json) => VectordbUpdateVectorDBTagsResponse(
-    vectorDb: json['vector_db'] != null ? SdkPresent((json['vector_db'] != null ? VectordbVectorDB.fromJson(json['vector_db'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory VectordbUpdateVectorDBTagsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      VectordbUpdateVectorDBTagsResponse(
+        vectorDb: json['vector_db'] != null
+            ? SdkPresent((json['vector_db'] != null
+                ? VectordbVectorDB.fromJson(
+                    json['vector_db'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (vectorDb) {
-      SdkPresent<VectordbVectorDB>(value: final value) => {'vector_db': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (vectorDb) {
+          SdkPresent<VectordbVectorDB>(value: final value) => {
+              'vector_db': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -11,22 +11,36 @@ class RepositoryManifestsVariant0 {
 
   const RepositoryManifestsVariant0({this.manifests = const SdkOmitted()});
 
-  RepositoryManifestsVariant0 Function({SdkOptional<List<RepositoryManifest>> manifests}) get copyWith => _copyWith;
+  RepositoryManifestsVariant0 Function(
+          {SdkOptional<List<RepositoryManifest>> manifests})
+      get copyWith => _copyWith;
 
-  RepositoryManifestsVariant0 _copyWith({Object? manifests = sdkOmittedValue}) => RepositoryManifestsVariant0(
-    manifests: identical(manifests, sdkOmittedValue) ? this.manifests : manifests as SdkOptional<List<RepositoryManifest>>,
-  );
+  RepositoryManifestsVariant0 _copyWith(
+          {Object? manifests = sdkOmittedValue}) =>
+      RepositoryManifestsVariant0(
+        manifests: identical(manifests, sdkOmittedValue)
+            ? this.manifests
+            : manifests as SdkOptional<List<RepositoryManifest>>,
+      );
 
-  factory RepositoryManifestsVariant0.fromJson(Map<String, dynamic> json) => RepositoryManifestsVariant0(
-    manifests: json['manifests'] != null ? SdkPresent(((json['manifests'] as List?)?.map((e) => RepositoryManifest.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory RepositoryManifestsVariant0.fromJson(Map<String, dynamic> json) =>
+      RepositoryManifestsVariant0(
+        manifests: json['manifests'] != null
+            ? SdkPresent(((json['manifests'] as List?)
+                ?.map((e) =>
+                    RepositoryManifest.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (manifests) {
-      SdkPresent<List<RepositoryManifest>>(value: final value) => {'manifests': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (manifests) {
+          SdkPresent<List<RepositoryManifest>>(value: final value) => {
+              'manifests': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `RepositoryManifests` API schema.
@@ -34,36 +48,70 @@ class RepositoryManifests {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<RepositoryManifest>> manifests;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const RepositoryManifests({this.manifests = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const RepositoryManifests(
+      {this.manifests = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  RepositoryManifests Function({SdkOptional<List<RepositoryManifest>> manifests, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  RepositoryManifests Function(
+      {SdkOptional<List<RepositoryManifest>> manifests,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  RepositoryManifests _copyWith({Object? manifests = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => RepositoryManifests(
-    manifests: identical(manifests, sdkOmittedValue) ? this.manifests : manifests as SdkOptional<List<RepositoryManifest>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  RepositoryManifests _copyWith(
+          {Object? manifests = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      RepositoryManifests(
+        manifests: identical(manifests, sdkOmittedValue)
+            ? this.manifests
+            : manifests as SdkOptional<List<RepositoryManifest>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory RepositoryManifests.fromJson(Map<String, dynamic> json) => RepositoryManifests(
-    manifests: json['manifests'] != null ? SdkPresent(((json['manifests'] as List?)?.map((e) => RepositoryManifest.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  );
+  factory RepositoryManifests.fromJson(Map<String, dynamic> json) =>
+      RepositoryManifests(
+        manifests: json['manifests'] != null
+            ? SdkPresent(((json['manifests'] as List?)
+                ?.map((e) =>
+                    RepositoryManifest.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (manifests) {
-      SdkPresent<List<RepositoryManifest>>(value: final value) => {'manifests': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (manifests) {
+          SdkPresent<List<RepositoryManifest>>(value: final value) => {
+              'manifests': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

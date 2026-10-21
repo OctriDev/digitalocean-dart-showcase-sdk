@@ -8,25 +8,38 @@ part of 'load_balancers.dart';
 class UpdatedLoadBalancer {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `load_balancer` wire field.
   final SdkOptional<LoadBalancer> loadBalancer;
 
   const UpdatedLoadBalancer({this.loadBalancer = const SdkOmitted()});
 
-  UpdatedLoadBalancer Function({SdkOptional<LoadBalancer> loadBalancer}) get copyWith => _copyWith;
+  UpdatedLoadBalancer Function({SdkOptional<LoadBalancer> loadBalancer})
+      get copyWith => _copyWith;
 
-  UpdatedLoadBalancer _copyWith({Object? loadBalancer = sdkOmittedValue}) => UpdatedLoadBalancer(
-    loadBalancer: identical(loadBalancer, sdkOmittedValue) ? this.loadBalancer : loadBalancer as SdkOptional<LoadBalancer>,
-  );
+  UpdatedLoadBalancer _copyWith({Object? loadBalancer = sdkOmittedValue}) =>
+      UpdatedLoadBalancer(
+        loadBalancer: identical(loadBalancer, sdkOmittedValue)
+            ? this.loadBalancer
+            : loadBalancer as SdkOptional<LoadBalancer>,
+      );
 
-  factory UpdatedLoadBalancer.fromJson(Map<String, dynamic> json) => UpdatedLoadBalancer(
-    loadBalancer: json['load_balancer'] != null ? SdkPresent((json['load_balancer'] != null ? LoadBalancer.fromJson(json['load_balancer'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory UpdatedLoadBalancer.fromJson(Map<String, dynamic> json) =>
+      UpdatedLoadBalancer(
+        loadBalancer: json['load_balancer'] != null
+            ? SdkPresent((json['load_balancer'] != null
+                ? LoadBalancer.fromJson(
+                    json['load_balancer'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (loadBalancer) {
-      SdkPresent<LoadBalancer>(value: final value) => {'load_balancer': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (loadBalancer) {
+          SdkPresent<LoadBalancer>(value: final value) => {
+              'load_balancer': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

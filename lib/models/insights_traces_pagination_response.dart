@@ -8,6 +8,7 @@ part of 'insights_traces.dart';
 class TracesPaginationResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether more results matched the query than were returned.
   final bool hasMore;
 
@@ -15,15 +16,19 @@ class TracesPaginationResponse {
 
   TracesPaginationResponse Function({bool hasMore}) get copyWith => _copyWith;
 
-  TracesPaginationResponse _copyWith({Object? hasMore = sdkOmittedValue}) => TracesPaginationResponse(
-    hasMore: identical(hasMore, sdkOmittedValue) ? this.hasMore : hasMore as bool,
-  );
+  TracesPaginationResponse _copyWith({Object? hasMore = sdkOmittedValue}) =>
+      TracesPaginationResponse(
+        hasMore: identical(hasMore, sdkOmittedValue)
+            ? this.hasMore
+            : hasMore as bool,
+      );
 
-  factory TracesPaginationResponse.fromJson(Map<String, dynamic> json) => TracesPaginationResponse(
-    hasMore: (json['hasMore'] as bool?)!,
-  );
+  factory TracesPaginationResponse.fromJson(Map<String, dynamic> json) =>
+      TracesPaginationResponse(
+        hasMore: (json['hasMore'] as bool?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'hasMore': hasMore,
-  };
+        'hasMore': hasMore,
+      };
 }

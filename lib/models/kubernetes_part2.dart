@@ -8,6 +8,7 @@ part of 'kubernetes.dart';
 class RoutingAgent {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether the routing-agent component is enabled.
   final SdkOptional<bool> enabled;
 
@@ -16,157 +17,250 @@ class RoutingAgent {
   RoutingAgent Function({SdkOptional<bool> enabled}) get copyWith => _copyWith;
 
   RoutingAgent _copyWith({Object? enabled = sdkOmittedValue}) => RoutingAgent(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-  );
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+      );
 
   factory RoutingAgent.fromJson(Map<String, dynamic> json) => RoutingAgent(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-  );
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// An object specifying Single Sign-On (SSO) configuration for the Kubernetes cluster.
 class Sso {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates whether SSO authentication is enabled for the cluster.
   final SdkOptional<bool> enabled;
+
   /// Indicates whether any non-SSO forms of authentication are disallowed. Can only be set to `true` when `enabled` is `true`.
   final SdkOptional<bool> required_;
+
   /// The OIDC issuer URL for the identity provider. Required when `enabled` is `true`.
   final SdkOptional<String> issuerUrl;
+
   /// The OIDC client ID registered with the identity provider. Required when `enabled` is `true`.
   final SdkOptional<String> clientId;
 
-  const Sso({this.enabled = const SdkOmitted(), this.required_ = const SdkOmitted(), this.issuerUrl = const SdkOmitted(), this.clientId = const SdkOmitted()});
+  const Sso(
+      {this.enabled = const SdkOmitted(),
+      this.required_ = const SdkOmitted(),
+      this.issuerUrl = const SdkOmitted(),
+      this.clientId = const SdkOmitted()});
 
-  Sso Function({SdkOptional<bool> enabled, SdkOptional<bool> required_, SdkOptional<String> issuerUrl, SdkOptional<String> clientId}) get copyWith => _copyWith;
+  Sso Function(
+      {SdkOptional<bool> enabled,
+      SdkOptional<bool> required_,
+      SdkOptional<String> issuerUrl,
+      SdkOptional<String> clientId}) get copyWith => _copyWith;
 
-  Sso _copyWith({Object? enabled = sdkOmittedValue, Object? required_ = sdkOmittedValue, Object? issuerUrl = sdkOmittedValue, Object? clientId = sdkOmittedValue}) => Sso(
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-    required_: identical(required_, sdkOmittedValue) ? this.required_ : required_ as SdkOptional<bool>,
-    issuerUrl: identical(issuerUrl, sdkOmittedValue) ? this.issuerUrl : issuerUrl as SdkOptional<String>,
-    clientId: identical(clientId, sdkOmittedValue) ? this.clientId : clientId as SdkOptional<String>,
-  );
+  Sso _copyWith(
+          {Object? enabled = sdkOmittedValue,
+          Object? required_ = sdkOmittedValue,
+          Object? issuerUrl = sdkOmittedValue,
+          Object? clientId = sdkOmittedValue}) =>
+      Sso(
+        enabled: identical(enabled, sdkOmittedValue)
+            ? this.enabled
+            : enabled as SdkOptional<bool>,
+        required_: identical(required_, sdkOmittedValue)
+            ? this.required_
+            : required_ as SdkOptional<bool>,
+        issuerUrl: identical(issuerUrl, sdkOmittedValue)
+            ? this.issuerUrl
+            : issuerUrl as SdkOptional<String>,
+        clientId: identical(clientId, sdkOmittedValue)
+            ? this.clientId
+            : clientId as SdkOptional<String>,
+      );
 
   factory Sso.fromJson(Map<String, dynamic> json) => Sso(
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-    required_: json['required'] != null ? SdkPresent((json['required'] as bool?)!) : const SdkOmitted(),
-    issuerUrl: json['issuer_url'] != null ? SdkPresent((json['issuer_url'] as String?)!) : const SdkOmitted(),
-    clientId: json['client_id'] != null ? SdkPresent((json['client_id'] as String?)!) : const SdkOmitted(),
-  );
+        enabled: json['enabled'] != null
+            ? SdkPresent((json['enabled'] as bool?)!)
+            : const SdkOmitted(),
+        required_: json['required'] != null
+            ? SdkPresent((json['required'] as bool?)!)
+            : const SdkOmitted(),
+        issuerUrl: json['issuer_url'] != null
+            ? SdkPresent((json['issuer_url'] as String?)!)
+            : const SdkOmitted(),
+        clientId: json['client_id'] != null
+            ? SdkPresent((json['client_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (required_) {
-      SdkPresent<bool>(value: final value) => {'required': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (issuerUrl) {
-      SdkPresent<String>(value: final value) => {'issuer_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (clientId) {
-      SdkPresent<String>(value: final value) => {'client_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (enabled) {
+          SdkPresent<bool>(value: final value) => {
+              'enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (required_) {
+          SdkPresent<bool>(value: final value) => {
+              'required': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (issuerUrl) {
+          SdkPresent<String>(value: final value) => {
+              'issuer_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (clientId) {
+          SdkPresent<String>(value: final value) => {
+              'client_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `UpdatedCluster` API schema.
 class UpdatedCluster {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `kubernetes_cluster` wire field.
   final SdkOptional<Cluster> kubernetesCluster;
 
   const UpdatedCluster({this.kubernetesCluster = const SdkOmitted()});
 
-  UpdatedCluster Function({SdkOptional<Cluster> kubernetesCluster}) get copyWith => _copyWith;
+  UpdatedCluster Function({SdkOptional<Cluster> kubernetesCluster})
+      get copyWith => _copyWith;
 
-  UpdatedCluster _copyWith({Object? kubernetesCluster = sdkOmittedValue}) => UpdatedCluster(
-    kubernetesCluster: identical(kubernetesCluster, sdkOmittedValue) ? this.kubernetesCluster : kubernetesCluster as SdkOptional<Cluster>,
-  );
+  UpdatedCluster _copyWith({Object? kubernetesCluster = sdkOmittedValue}) =>
+      UpdatedCluster(
+        kubernetesCluster: identical(kubernetesCluster, sdkOmittedValue)
+            ? this.kubernetesCluster
+            : kubernetesCluster as SdkOptional<Cluster>,
+      );
 
   factory UpdatedCluster.fromJson(Map<String, dynamic> json) => UpdatedCluster(
-    kubernetesCluster: json['kubernetes_cluster'] != null ? SdkPresent((json['kubernetes_cluster'] != null ? Cluster.fromJson(json['kubernetes_cluster'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        kubernetesCluster: json['kubernetes_cluster'] != null
+            ? SdkPresent((json['kubernetes_cluster'] != null
+                ? Cluster.fromJson(
+                    json['kubernetes_cluster'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (kubernetesCluster) {
-      SdkPresent<Cluster>(value: final value) => {'kubernetes_cluster': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (kubernetesCluster) {
+          SdkPresent<Cluster>(value: final value) => {
+              'kubernetes_cluster': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Optional object value serialized in the `kubernetes_cluster_user` wire field.
 class User2KubernetesClusterUser {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The username for the cluster admin user.
   final SdkOptional<String> username;
+
   /// A list of in-cluster groups that the user belongs to.
   final SdkOptional<List<String>> groups;
 
-  const User2KubernetesClusterUser({this.username = const SdkOmitted(), this.groups = const SdkOmitted()});
+  const User2KubernetesClusterUser(
+      {this.username = const SdkOmitted(), this.groups = const SdkOmitted()});
 
-  User2KubernetesClusterUser Function({SdkOptional<String> username, SdkOptional<List<String>> groups}) get copyWith => _copyWith;
+  User2KubernetesClusterUser Function(
+      {SdkOptional<String> username,
+      SdkOptional<List<String>> groups}) get copyWith => _copyWith;
 
-  User2KubernetesClusterUser _copyWith({Object? username = sdkOmittedValue, Object? groups = sdkOmittedValue}) => User2KubernetesClusterUser(
-    username: identical(username, sdkOmittedValue) ? this.username : username as SdkOptional<String>,
-    groups: identical(groups, sdkOmittedValue) ? this.groups : groups as SdkOptional<List<String>>,
-  );
+  User2KubernetesClusterUser _copyWith(
+          {Object? username = sdkOmittedValue,
+          Object? groups = sdkOmittedValue}) =>
+      User2KubernetesClusterUser(
+        username: identical(username, sdkOmittedValue)
+            ? this.username
+            : username as SdkOptional<String>,
+        groups: identical(groups, sdkOmittedValue)
+            ? this.groups
+            : groups as SdkOptional<List<String>>,
+      );
 
-  factory User2KubernetesClusterUser.fromJson(Map<String, dynamic> json) => User2KubernetesClusterUser(
-    username: json['username'] != null ? SdkPresent((json['username'] as String?)!) : const SdkOmitted(),
-    groups: json['groups'] != null ? SdkPresent(((json['groups'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory User2KubernetesClusterUser.fromJson(Map<String, dynamic> json) =>
+      User2KubernetesClusterUser(
+        username: json['username'] != null
+            ? SdkPresent((json['username'] as String?)!)
+            : const SdkOmitted(),
+        groups: json['groups'] != null
+            ? SdkPresent(
+                ((json['groups'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (username) {
-      SdkPresent<String>(value: final value) => {'username': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (groups) {
-      SdkPresent<List<String>>(value: final value) => {'groups': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (username) {
+          SdkPresent<String>(value: final value) => {
+              'username': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (groups) {
+          SdkPresent<List<String>>(value: final value) => {
+              'groups': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `User2` API schema.
 class User2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `kubernetes_cluster_user` wire field.
   final SdkOptional<User2KubernetesClusterUser> kubernetesClusterUser;
 
   const User2({this.kubernetesClusterUser = const SdkOmitted()});
 
-  User2 Function({SdkOptional<User2KubernetesClusterUser> kubernetesClusterUser}) get copyWith => _copyWith;
+  User2 Function(
+          {SdkOptional<User2KubernetesClusterUser> kubernetesClusterUser})
+      get copyWith => _copyWith;
 
   User2 _copyWith({Object? kubernetesClusterUser = sdkOmittedValue}) => User2(
-    kubernetesClusterUser: identical(kubernetesClusterUser, sdkOmittedValue) ? this.kubernetesClusterUser : kubernetesClusterUser as SdkOptional<User2KubernetesClusterUser>,
-  );
+        kubernetesClusterUser: identical(kubernetesClusterUser, sdkOmittedValue)
+            ? this.kubernetesClusterUser
+            : kubernetesClusterUser as SdkOptional<User2KubernetesClusterUser>,
+      );
 
   factory User2.fromJson(Map<String, dynamic> json) => User2(
-    kubernetesClusterUser: json['kubernetes_cluster_user'] != null ? SdkPresent((json['kubernetes_cluster_user'] != null ? User2KubernetesClusterUser.fromJson(json['kubernetes_cluster_user'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+        kubernetesClusterUser: json['kubernetes_cluster_user'] != null
+            ? SdkPresent((json['kubernetes_cluster_user'] != null
+                ? User2KubernetesClusterUser.fromJson(
+                    json['kubernetes_cluster_user'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (kubernetesClusterUser) {
-      SdkPresent<User2KubernetesClusterUser>(value: final value) => {'kubernetes_cluster_user': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (kubernetesClusterUser) {
+          SdkPresent<User2KubernetesClusterUser>(value: final value) => {
+              'kubernetes_cluster_user': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

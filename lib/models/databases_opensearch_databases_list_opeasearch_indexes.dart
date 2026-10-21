@@ -8,194 +8,366 @@ part of 'databases_opensearch.dart';
 class OpensearchIndexVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The status of the OpenSearch index.
   final SdkOptional<OpensearchIndexVariant1Status> status;
+
   /// The health of the OpenSearch index.
   final SdkOptional<OpensearchIndexVariant1Health> health;
 
-  const OpensearchIndexVariant1({this.status = const SdkOmitted(), this.health = const SdkOmitted()});
+  const OpensearchIndexVariant1(
+      {this.status = const SdkOmitted(), this.health = const SdkOmitted()});
 
-  OpensearchIndexVariant1 Function({SdkOptional<OpensearchIndexVariant1Status> status, SdkOptional<OpensearchIndexVariant1Health> health}) get copyWith => _copyWith;
+  OpensearchIndexVariant1 Function(
+          {SdkOptional<OpensearchIndexVariant1Status> status,
+          SdkOptional<OpensearchIndexVariant1Health> health})
+      get copyWith => _copyWith;
 
-  OpensearchIndexVariant1 _copyWith({Object? status = sdkOmittedValue, Object? health = sdkOmittedValue}) => OpensearchIndexVariant1(
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<OpensearchIndexVariant1Status>,
-    health: identical(health, sdkOmittedValue) ? this.health : health as SdkOptional<OpensearchIndexVariant1Health>,
-  );
+  OpensearchIndexVariant1 _copyWith(
+          {Object? status = sdkOmittedValue,
+          Object? health = sdkOmittedValue}) =>
+      OpensearchIndexVariant1(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<OpensearchIndexVariant1Status>,
+        health: identical(health, sdkOmittedValue)
+            ? this.health
+            : health as SdkOptional<OpensearchIndexVariant1Health>,
+      );
 
-  factory OpensearchIndexVariant1.fromJson(Map<String, dynamic> json) => OpensearchIndexVariant1(
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? OpensearchIndexVariant1Status.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    health: json['health'] != null ? SdkPresent((json['health'] != null ? OpensearchIndexVariant1Health.fromJson(json['health'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory OpensearchIndexVariant1.fromJson(Map<String, dynamic> json) =>
+      OpensearchIndexVariant1(
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? OpensearchIndexVariant1Status.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        health: json['health'] != null
+            ? SdkPresent((json['health'] != null
+                ? OpensearchIndexVariant1Health.fromJson(
+                    json['health'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (status) {
-      SdkPresent<OpensearchIndexVariant1Status>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (health) {
-      SdkPresent<OpensearchIndexVariant1Health>(value: final value) => {'health': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (status) {
+          SdkPresent<OpensearchIndexVariant1Status>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (health) {
+          SdkPresent<OpensearchIndexVariant1Health>(value: final value) => {
+              'health': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `OpensearchIndex` API schema.
 class OpensearchIndex {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the opensearch index.
   final SdkOptional<String> indexName;
+
   /// The number of shards for the index.
   final SdkOptional<int> numberOfShards;
+
   /// The number of replicas for the index.
   final SdkOptional<int> numberOfReplicas;
+
   /// The size of the index.
   final SdkOptional<int> size;
+
   /// The date and time the index was created.
   final SdkOptional<String> createdTime;
+
   /// The status of the OpenSearch index.
   final SdkOptional<OpensearchIndexVariant1Status> status;
+
   /// The health of the OpenSearch index.
   final SdkOptional<OpensearchIndexVariant1Health> health;
 
-  const OpensearchIndex({this.indexName = const SdkOmitted(), this.numberOfShards = const SdkOmitted(), this.numberOfReplicas = const SdkOmitted(), this.size = const SdkOmitted(), this.createdTime = const SdkOmitted(), this.status = const SdkOmitted(), this.health = const SdkOmitted()});
+  const OpensearchIndex(
+      {this.indexName = const SdkOmitted(),
+      this.numberOfShards = const SdkOmitted(),
+      this.numberOfReplicas = const SdkOmitted(),
+      this.size = const SdkOmitted(),
+      this.createdTime = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.health = const SdkOmitted()});
 
-  OpensearchIndex Function({SdkOptional<String> indexName, SdkOptional<int> numberOfShards, SdkOptional<int> numberOfReplicas, SdkOptional<int> size, SdkOptional<String> createdTime, SdkOptional<OpensearchIndexVariant1Status> status, SdkOptional<OpensearchIndexVariant1Health> health}) get copyWith => _copyWith;
+  OpensearchIndex Function(
+          {SdkOptional<String> indexName,
+          SdkOptional<int> numberOfShards,
+          SdkOptional<int> numberOfReplicas,
+          SdkOptional<int> size,
+          SdkOptional<String> createdTime,
+          SdkOptional<OpensearchIndexVariant1Status> status,
+          SdkOptional<OpensearchIndexVariant1Health> health})
+      get copyWith => _copyWith;
 
-  OpensearchIndex _copyWith({Object? indexName = sdkOmittedValue, Object? numberOfShards = sdkOmittedValue, Object? numberOfReplicas = sdkOmittedValue, Object? size = sdkOmittedValue, Object? createdTime = sdkOmittedValue, Object? status = sdkOmittedValue, Object? health = sdkOmittedValue}) => OpensearchIndex(
-    indexName: identical(indexName, sdkOmittedValue) ? this.indexName : indexName as SdkOptional<String>,
-    numberOfShards: identical(numberOfShards, sdkOmittedValue) ? this.numberOfShards : numberOfShards as SdkOptional<int>,
-    numberOfReplicas: identical(numberOfReplicas, sdkOmittedValue) ? this.numberOfReplicas : numberOfReplicas as SdkOptional<int>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<int>,
-    createdTime: identical(createdTime, sdkOmittedValue) ? this.createdTime : createdTime as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<OpensearchIndexVariant1Status>,
-    health: identical(health, sdkOmittedValue) ? this.health : health as SdkOptional<OpensearchIndexVariant1Health>,
-  );
+  OpensearchIndex _copyWith(
+          {Object? indexName = sdkOmittedValue,
+          Object? numberOfShards = sdkOmittedValue,
+          Object? numberOfReplicas = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? createdTime = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? health = sdkOmittedValue}) =>
+      OpensearchIndex(
+        indexName: identical(indexName, sdkOmittedValue)
+            ? this.indexName
+            : indexName as SdkOptional<String>,
+        numberOfShards: identical(numberOfShards, sdkOmittedValue)
+            ? this.numberOfShards
+            : numberOfShards as SdkOptional<int>,
+        numberOfReplicas: identical(numberOfReplicas, sdkOmittedValue)
+            ? this.numberOfReplicas
+            : numberOfReplicas as SdkOptional<int>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<int>,
+        createdTime: identical(createdTime, sdkOmittedValue)
+            ? this.createdTime
+            : createdTime as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<OpensearchIndexVariant1Status>,
+        health: identical(health, sdkOmittedValue)
+            ? this.health
+            : health as SdkOptional<OpensearchIndexVariant1Health>,
+      );
 
-  factory OpensearchIndex.fromJson(Map<String, dynamic> json) => OpensearchIndex(
-    indexName: json['index_name'] != null ? SdkPresent((json['index_name'] as String?)!) : const SdkOmitted(),
-    numberOfShards: json['number_of_shards'] != null ? SdkPresent(((json['number_of_shards'] as num?)?.toInt())!) : const SdkOmitted(),
-    numberOfReplicas: json['number_of_replicas'] != null ? SdkPresent(((json['number_of_replicas'] as num?)?.toInt())!) : const SdkOmitted(),
-    size: json['size'] != null ? SdkPresent(((json['size'] as num?)?.toInt())!) : const SdkOmitted(),
-    createdTime: json['created_time'] != null ? SdkPresent((json['created_time'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? OpensearchIndexVariant1Status.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    health: json['health'] != null ? SdkPresent((json['health'] != null ? OpensearchIndexVariant1Health.fromJson(json['health'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory OpensearchIndex.fromJson(Map<String, dynamic> json) =>
+      OpensearchIndex(
+        indexName: json['index_name'] != null
+            ? SdkPresent((json['index_name'] as String?)!)
+            : const SdkOmitted(),
+        numberOfShards: json['number_of_shards'] != null
+            ? SdkPresent(((json['number_of_shards'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        numberOfReplicas: json['number_of_replicas'] != null
+            ? SdkPresent(((json['number_of_replicas'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        size: json['size'] != null
+            ? SdkPresent(((json['size'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        createdTime: json['created_time'] != null
+            ? SdkPresent((json['created_time'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? OpensearchIndexVariant1Status.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        health: json['health'] != null
+            ? SdkPresent((json['health'] != null
+                ? OpensearchIndexVariant1Health.fromJson(
+                    json['health'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (indexName) {
-      SdkPresent<String>(value: final value) => {'index_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (numberOfShards) {
-      SdkPresent<int>(value: final value) => {'number_of_shards': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (numberOfReplicas) {
-      SdkPresent<int>(value: final value) => {'number_of_replicas': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<int>(value: final value) => {'size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdTime) {
-      SdkPresent<String>(value: final value) => {'created_time': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<OpensearchIndexVariant1Status>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (health) {
-      SdkPresent<OpensearchIndexVariant1Health>(value: final value) => {'health': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (indexName) {
+          SdkPresent<String>(value: final value) => {
+              'index_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (numberOfShards) {
+          SdkPresent<int>(value: final value) => {
+              'number_of_shards': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (numberOfReplicas) {
+          SdkPresent<int>(value: final value) => {
+              'number_of_replicas': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<int>(value: final value) => {
+              'size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdTime) {
+          SdkPresent<String>(value: final value) => {
+              'created_time': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<OpensearchIndexVariant1Status>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (health) {
+          SdkPresent<OpensearchIndexVariant1Health>(value: final value) => {
+              'health': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `OpensearchIndexBase` API schema.
 class OpensearchIndexBase {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the opensearch index.
   final SdkOptional<String> indexName;
+
   /// The number of shards for the index.
   final SdkOptional<int> numberOfShards;
+
   /// The number of replicas for the index.
   final SdkOptional<int> numberOfReplicas;
+
   /// The size of the index.
   final SdkOptional<int> size;
+
   /// The date and time the index was created.
   final SdkOptional<String> createdTime;
 
-  const OpensearchIndexBase({this.indexName = const SdkOmitted(), this.numberOfShards = const SdkOmitted(), this.numberOfReplicas = const SdkOmitted(), this.size = const SdkOmitted(), this.createdTime = const SdkOmitted()});
+  const OpensearchIndexBase(
+      {this.indexName = const SdkOmitted(),
+      this.numberOfShards = const SdkOmitted(),
+      this.numberOfReplicas = const SdkOmitted(),
+      this.size = const SdkOmitted(),
+      this.createdTime = const SdkOmitted()});
 
-  OpensearchIndexBase Function({SdkOptional<String> indexName, SdkOptional<int> numberOfShards, SdkOptional<int> numberOfReplicas, SdkOptional<int> size, SdkOptional<String> createdTime}) get copyWith => _copyWith;
+  OpensearchIndexBase Function(
+      {SdkOptional<String> indexName,
+      SdkOptional<int> numberOfShards,
+      SdkOptional<int> numberOfReplicas,
+      SdkOptional<int> size,
+      SdkOptional<String> createdTime}) get copyWith => _copyWith;
 
-  OpensearchIndexBase _copyWith({Object? indexName = sdkOmittedValue, Object? numberOfShards = sdkOmittedValue, Object? numberOfReplicas = sdkOmittedValue, Object? size = sdkOmittedValue, Object? createdTime = sdkOmittedValue}) => OpensearchIndexBase(
-    indexName: identical(indexName, sdkOmittedValue) ? this.indexName : indexName as SdkOptional<String>,
-    numberOfShards: identical(numberOfShards, sdkOmittedValue) ? this.numberOfShards : numberOfShards as SdkOptional<int>,
-    numberOfReplicas: identical(numberOfReplicas, sdkOmittedValue) ? this.numberOfReplicas : numberOfReplicas as SdkOptional<int>,
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<int>,
-    createdTime: identical(createdTime, sdkOmittedValue) ? this.createdTime : createdTime as SdkOptional<String>,
-  );
+  OpensearchIndexBase _copyWith(
+          {Object? indexName = sdkOmittedValue,
+          Object? numberOfShards = sdkOmittedValue,
+          Object? numberOfReplicas = sdkOmittedValue,
+          Object? size = sdkOmittedValue,
+          Object? createdTime = sdkOmittedValue}) =>
+      OpensearchIndexBase(
+        indexName: identical(indexName, sdkOmittedValue)
+            ? this.indexName
+            : indexName as SdkOptional<String>,
+        numberOfShards: identical(numberOfShards, sdkOmittedValue)
+            ? this.numberOfShards
+            : numberOfShards as SdkOptional<int>,
+        numberOfReplicas: identical(numberOfReplicas, sdkOmittedValue)
+            ? this.numberOfReplicas
+            : numberOfReplicas as SdkOptional<int>,
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<int>,
+        createdTime: identical(createdTime, sdkOmittedValue)
+            ? this.createdTime
+            : createdTime as SdkOptional<String>,
+      );
 
-  factory OpensearchIndexBase.fromJson(Map<String, dynamic> json) => OpensearchIndexBase(
-    indexName: json['index_name'] != null ? SdkPresent((json['index_name'] as String?)!) : const SdkOmitted(),
-    numberOfShards: json['number_of_shards'] != null ? SdkPresent(((json['number_of_shards'] as num?)?.toInt())!) : const SdkOmitted(),
-    numberOfReplicas: json['number_of_replicas'] != null ? SdkPresent(((json['number_of_replicas'] as num?)?.toInt())!) : const SdkOmitted(),
-    size: json['size'] != null ? SdkPresent(((json['size'] as num?)?.toInt())!) : const SdkOmitted(),
-    createdTime: json['created_time'] != null ? SdkPresent((json['created_time'] as String?)!) : const SdkOmitted(),
-  );
+  factory OpensearchIndexBase.fromJson(Map<String, dynamic> json) =>
+      OpensearchIndexBase(
+        indexName: json['index_name'] != null
+            ? SdkPresent((json['index_name'] as String?)!)
+            : const SdkOmitted(),
+        numberOfShards: json['number_of_shards'] != null
+            ? SdkPresent(((json['number_of_shards'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        numberOfReplicas: json['number_of_replicas'] != null
+            ? SdkPresent(((json['number_of_replicas'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        size: json['size'] != null
+            ? SdkPresent(((json['size'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        createdTime: json['created_time'] != null
+            ? SdkPresent((json['created_time'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (indexName) {
-      SdkPresent<String>(value: final value) => {'index_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (numberOfShards) {
-      SdkPresent<int>(value: final value) => {'number_of_shards': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (numberOfReplicas) {
-      SdkPresent<int>(value: final value) => {'number_of_replicas': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (size) {
-      SdkPresent<int>(value: final value) => {'size': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdTime) {
-      SdkPresent<String>(value: final value) => {'created_time': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (indexName) {
+          SdkPresent<String>(value: final value) => {
+              'index_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (numberOfShards) {
+          SdkPresent<int>(value: final value) => {
+              'number_of_shards': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (numberOfReplicas) {
+          SdkPresent<int>(value: final value) => {
+              'number_of_replicas': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (size) {
+          SdkPresent<int>(value: final value) => {
+              'size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdTime) {
+          SdkPresent<String>(value: final value) => {
+              'created_time': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `OpensearchIndexes` API schema.
 class OpensearchIndexes {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `indexes` wire field.
   final SdkOptional<List<OpensearchIndex>> indexes;
 
   const OpensearchIndexes({this.indexes = const SdkOmitted()});
 
-  OpensearchIndexes Function({SdkOptional<List<OpensearchIndex>> indexes}) get copyWith => _copyWith;
+  OpensearchIndexes Function({SdkOptional<List<OpensearchIndex>> indexes})
+      get copyWith => _copyWith;
 
-  OpensearchIndexes _copyWith({Object? indexes = sdkOmittedValue}) => OpensearchIndexes(
-    indexes: identical(indexes, sdkOmittedValue) ? this.indexes : indexes as SdkOptional<List<OpensearchIndex>>,
-  );
+  OpensearchIndexes _copyWith({Object? indexes = sdkOmittedValue}) =>
+      OpensearchIndexes(
+        indexes: identical(indexes, sdkOmittedValue)
+            ? this.indexes
+            : indexes as SdkOptional<List<OpensearchIndex>>,
+      );
 
-  factory OpensearchIndexes.fromJson(Map<String, dynamic> json) => OpensearchIndexes(
-    indexes: json['indexes'] != null ? SdkPresent(((json['indexes'] as List?)?.map((e) => OpensearchIndex.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory OpensearchIndexes.fromJson(Map<String, dynamic> json) =>
+      OpensearchIndexes(
+        indexes: json['indexes'] != null
+            ? SdkPresent(((json['indexes'] as List?)
+                ?.map(
+                    (e) => OpensearchIndex.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (indexes) {
-      SdkPresent<List<OpensearchIndex>>(value: final value) => {'indexes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (indexes) {
+          SdkPresent<List<OpensearchIndex>>(value: final value) => {
+              'indexes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

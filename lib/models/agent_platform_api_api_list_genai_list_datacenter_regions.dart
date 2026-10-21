@@ -8,25 +8,37 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListRegionsOutput {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Region code
   final SdkOptional<List<GenaiapiRegion>> regions;
 
   const ApiListRegionsOutput({this.regions = const SdkOmitted()});
 
-  ApiListRegionsOutput Function({SdkOptional<List<GenaiapiRegion>> regions}) get copyWith => _copyWith;
+  ApiListRegionsOutput Function({SdkOptional<List<GenaiapiRegion>> regions})
+      get copyWith => _copyWith;
 
-  ApiListRegionsOutput _copyWith({Object? regions = sdkOmittedValue}) => ApiListRegionsOutput(
-    regions: identical(regions, sdkOmittedValue) ? this.regions : regions as SdkOptional<List<GenaiapiRegion>>,
-  );
+  ApiListRegionsOutput _copyWith({Object? regions = sdkOmittedValue}) =>
+      ApiListRegionsOutput(
+        regions: identical(regions, sdkOmittedValue)
+            ? this.regions
+            : regions as SdkOptional<List<GenaiapiRegion>>,
+      );
 
-  factory ApiListRegionsOutput.fromJson(Map<String, dynamic> json) => ApiListRegionsOutput(
-    regions: json['regions'] != null ? SdkPresent(((json['regions'] as List?)?.map((e) => GenaiapiRegion.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory ApiListRegionsOutput.fromJson(Map<String, dynamic> json) =>
+      ApiListRegionsOutput(
+        regions: json['regions'] != null
+            ? SdkPresent(((json['regions'] as List?)
+                ?.map((e) => GenaiapiRegion.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (regions) {
-      SdkPresent<List<GenaiapiRegion>>(value: final value) => {'regions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (regions) {
+          SdkPresent<List<GenaiapiRegion>>(value: final value) => {
+              'regions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

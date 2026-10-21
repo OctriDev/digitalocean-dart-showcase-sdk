@@ -8,49 +8,95 @@ part of 'agent_platform_api_api_simulation.dart';
 class ApiSimulationScenarioResult {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Episodes that have finished (successfully or not).
   final SdkOptional<int> episodesFinished;
+
   /// UUID of the scenario.
   final SdkOptional<String> scenarioUuid;
+
   /// Total episodes for this scenario (its exploration budget).
   final SdkOptional<int> totalEpisodes;
+
   /// Breakdown of episode outcomes by judge verdict. Reused wherever a success / failure / inconclusive tally is reported (run row, result summary, per-scenario rollup).
   final SdkOptional<ApiSimulationEpisodeCounts> verdictCounts;
 
-  const ApiSimulationScenarioResult({this.episodesFinished = const SdkOmitted(), this.scenarioUuid = const SdkOmitted(), this.totalEpisodes = const SdkOmitted(), this.verdictCounts = const SdkOmitted()});
+  const ApiSimulationScenarioResult(
+      {this.episodesFinished = const SdkOmitted(),
+      this.scenarioUuid = const SdkOmitted(),
+      this.totalEpisodes = const SdkOmitted(),
+      this.verdictCounts = const SdkOmitted()});
 
-  ApiSimulationScenarioResult Function({SdkOptional<int> episodesFinished, SdkOptional<String> scenarioUuid, SdkOptional<int> totalEpisodes, SdkOptional<ApiSimulationEpisodeCounts> verdictCounts}) get copyWith => _copyWith;
+  ApiSimulationScenarioResult Function(
+          {SdkOptional<int> episodesFinished,
+          SdkOptional<String> scenarioUuid,
+          SdkOptional<int> totalEpisodes,
+          SdkOptional<ApiSimulationEpisodeCounts> verdictCounts})
+      get copyWith => _copyWith;
 
-  ApiSimulationScenarioResult _copyWith({Object? episodesFinished = sdkOmittedValue, Object? scenarioUuid = sdkOmittedValue, Object? totalEpisodes = sdkOmittedValue, Object? verdictCounts = sdkOmittedValue}) => ApiSimulationScenarioResult(
-    episodesFinished: identical(episodesFinished, sdkOmittedValue) ? this.episodesFinished : episodesFinished as SdkOptional<int>,
-    scenarioUuid: identical(scenarioUuid, sdkOmittedValue) ? this.scenarioUuid : scenarioUuid as SdkOptional<String>,
-    totalEpisodes: identical(totalEpisodes, sdkOmittedValue) ? this.totalEpisodes : totalEpisodes as SdkOptional<int>,
-    verdictCounts: identical(verdictCounts, sdkOmittedValue) ? this.verdictCounts : verdictCounts as SdkOptional<ApiSimulationEpisodeCounts>,
-  );
+  ApiSimulationScenarioResult _copyWith(
+          {Object? episodesFinished = sdkOmittedValue,
+          Object? scenarioUuid = sdkOmittedValue,
+          Object? totalEpisodes = sdkOmittedValue,
+          Object? verdictCounts = sdkOmittedValue}) =>
+      ApiSimulationScenarioResult(
+        episodesFinished: identical(episodesFinished, sdkOmittedValue)
+            ? this.episodesFinished
+            : episodesFinished as SdkOptional<int>,
+        scenarioUuid: identical(scenarioUuid, sdkOmittedValue)
+            ? this.scenarioUuid
+            : scenarioUuid as SdkOptional<String>,
+        totalEpisodes: identical(totalEpisodes, sdkOmittedValue)
+            ? this.totalEpisodes
+            : totalEpisodes as SdkOptional<int>,
+        verdictCounts: identical(verdictCounts, sdkOmittedValue)
+            ? this.verdictCounts
+            : verdictCounts as SdkOptional<ApiSimulationEpisodeCounts>,
+      );
 
-  factory ApiSimulationScenarioResult.fromJson(Map<String, dynamic> json) => ApiSimulationScenarioResult(
-    episodesFinished: json['episodes_finished'] != null ? SdkPresent(((json['episodes_finished'] as num?)?.toInt())!) : const SdkOmitted(),
-    scenarioUuid: json['scenario_uuid'] != null ? SdkPresent((json['scenario_uuid'] as String?)!) : const SdkOmitted(),
-    totalEpisodes: json['total_episodes'] != null ? SdkPresent(((json['total_episodes'] as num?)?.toInt())!) : const SdkOmitted(),
-    verdictCounts: json['verdict_counts'] != null ? SdkPresent((json['verdict_counts'] != null ? ApiSimulationEpisodeCounts.fromJson(json['verdict_counts'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory ApiSimulationScenarioResult.fromJson(Map<String, dynamic> json) =>
+      ApiSimulationScenarioResult(
+        episodesFinished: json['episodes_finished'] != null
+            ? SdkPresent(((json['episodes_finished'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        scenarioUuid: json['scenario_uuid'] != null
+            ? SdkPresent((json['scenario_uuid'] as String?)!)
+            : const SdkOmitted(),
+        totalEpisodes: json['total_episodes'] != null
+            ? SdkPresent(((json['total_episodes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        verdictCounts: json['verdict_counts'] != null
+            ? SdkPresent((json['verdict_counts'] != null
+                ? ApiSimulationEpisodeCounts.fromJson(
+                    json['verdict_counts'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (episodesFinished) {
-      SdkPresent<int>(value: final value) => {'episodes_finished': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scenarioUuid) {
-      SdkPresent<String>(value: final value) => {'scenario_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totalEpisodes) {
-      SdkPresent<int>(value: final value) => {'total_episodes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (verdictCounts) {
-      SdkPresent<ApiSimulationEpisodeCounts>(value: final value) => {'verdict_counts': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (episodesFinished) {
+          SdkPresent<int>(value: final value) => {
+              'episodes_finished': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scenarioUuid) {
+          SdkPresent<String>(value: final value) => {
+              'scenario_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totalEpisodes) {
+          SdkPresent<int>(value: final value) => {
+              'total_episodes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (verdictCounts) {
+          SdkPresent<ApiSimulationEpisodeCounts>(value: final value) => {
+              'verdict_counts': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

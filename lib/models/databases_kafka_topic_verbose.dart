@@ -8,57 +8,117 @@ part of 'databases_kafka.dart';
 class KafkaTopicVerbose {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the Kafka topic.
   final SdkOptional<String> name;
+
   /// The state of the Kafka topic.
   final SdkOptional<KafkaTopicVerboseState> state;
+
   /// The number of nodes to replicate data across the cluster.
   final SdkOptional<int> replicationFactor;
+
   /// Optional array value serialized in the `partitions` wire field.
   final SdkOptional<List<KafkaTopicPartition>> partitions;
+
   /// Optional object value serialized in the `config` wire field.
   final SdkOptional<KafkaTopicConfig> config;
 
-  const KafkaTopicVerbose({this.name = const SdkOmitted(), this.state = const SdkOmitted(), this.replicationFactor = const SdkOmitted(), this.partitions = const SdkOmitted(), this.config = const SdkOmitted()});
+  const KafkaTopicVerbose(
+      {this.name = const SdkOmitted(),
+      this.state = const SdkOmitted(),
+      this.replicationFactor = const SdkOmitted(),
+      this.partitions = const SdkOmitted(),
+      this.config = const SdkOmitted()});
 
-  KafkaTopicVerbose Function({SdkOptional<String> name, SdkOptional<KafkaTopicVerboseState> state, SdkOptional<int> replicationFactor, SdkOptional<List<KafkaTopicPartition>> partitions, SdkOptional<KafkaTopicConfig> config}) get copyWith => _copyWith;
+  KafkaTopicVerbose Function(
+      {SdkOptional<String> name,
+      SdkOptional<KafkaTopicVerboseState> state,
+      SdkOptional<int> replicationFactor,
+      SdkOptional<List<KafkaTopicPartition>> partitions,
+      SdkOptional<KafkaTopicConfig> config}) get copyWith => _copyWith;
 
-  KafkaTopicVerbose _copyWith({Object? name = sdkOmittedValue, Object? state = sdkOmittedValue, Object? replicationFactor = sdkOmittedValue, Object? partitions = sdkOmittedValue, Object? config = sdkOmittedValue}) => KafkaTopicVerbose(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    state: identical(state, sdkOmittedValue) ? this.state : state as SdkOptional<KafkaTopicVerboseState>,
-    replicationFactor: identical(replicationFactor, sdkOmittedValue) ? this.replicationFactor : replicationFactor as SdkOptional<int>,
-    partitions: identical(partitions, sdkOmittedValue) ? this.partitions : partitions as SdkOptional<List<KafkaTopicPartition>>,
-    config: identical(config, sdkOmittedValue) ? this.config : config as SdkOptional<KafkaTopicConfig>,
-  );
+  KafkaTopicVerbose _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? state = sdkOmittedValue,
+          Object? replicationFactor = sdkOmittedValue,
+          Object? partitions = sdkOmittedValue,
+          Object? config = sdkOmittedValue}) =>
+      KafkaTopicVerbose(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        state: identical(state, sdkOmittedValue)
+            ? this.state
+            : state as SdkOptional<KafkaTopicVerboseState>,
+        replicationFactor: identical(replicationFactor, sdkOmittedValue)
+            ? this.replicationFactor
+            : replicationFactor as SdkOptional<int>,
+        partitions: identical(partitions, sdkOmittedValue)
+            ? this.partitions
+            : partitions as SdkOptional<List<KafkaTopicPartition>>,
+        config: identical(config, sdkOmittedValue)
+            ? this.config
+            : config as SdkOptional<KafkaTopicConfig>,
+      );
 
-  factory KafkaTopicVerbose.fromJson(Map<String, dynamic> json) => KafkaTopicVerbose(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    state: json['state'] != null ? SdkPresent((json['state'] != null ? KafkaTopicVerboseState.fromJson(json['state'] as String) : null)!) : const SdkOmitted(),
-    replicationFactor: json['replication_factor'] != null ? SdkPresent(((json['replication_factor'] as num?)?.toInt())!) : const SdkOmitted(),
-    partitions: json['partitions'] != null ? SdkPresent(((json['partitions'] as List?)?.map((e) => KafkaTopicPartition.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    config: json['config'] != null ? SdkPresent((json['config'] != null ? KafkaTopicConfig.fromJson(json['config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory KafkaTopicVerbose.fromJson(Map<String, dynamic> json) =>
+      KafkaTopicVerbose(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        state: json['state'] != null
+            ? SdkPresent((json['state'] != null
+                ? KafkaTopicVerboseState.fromJson(json['state'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        replicationFactor: json['replication_factor'] != null
+            ? SdkPresent(((json['replication_factor'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        partitions: json['partitions'] != null
+            ? SdkPresent(((json['partitions'] as List?)
+                ?.map((e) =>
+                    KafkaTopicPartition.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        config: json['config'] != null
+            ? SdkPresent((json['config'] != null
+                ? KafkaTopicConfig.fromJson(
+                    json['config'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (state) {
-      SdkPresent<KafkaTopicVerboseState>(value: final value) => {'state': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (replicationFactor) {
-      SdkPresent<int>(value: final value) => {'replication_factor': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (partitions) {
-      SdkPresent<List<KafkaTopicPartition>>(value: final value) => {'partitions': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (config) {
-      SdkPresent<KafkaTopicConfig>(value: final value) => {'config': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (state) {
+          SdkPresent<KafkaTopicVerboseState>(value: final value) => {
+              'state': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (replicationFactor) {
+          SdkPresent<int>(value: final value) => {
+              'replication_factor': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (partitions) {
+          SdkPresent<List<KafkaTopicPartition>>(value: final value) => {
+              'partitions': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (config) {
+          SdkPresent<KafkaTopicConfig>(value: final value) => {
+              'config': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

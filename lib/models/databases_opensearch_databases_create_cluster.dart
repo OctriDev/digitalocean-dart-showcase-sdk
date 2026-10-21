@@ -11,9 +11,8 @@ class OpensearchConnectionRequest {
 
   const OpensearchConnectionRequest();
 
-  factory OpensearchConnectionRequest.fromJson(Map<String, dynamic> json) => OpensearchConnectionRequest(
-  );
+  factory OpensearchConnectionRequest.fromJson(Map<String, dynamic> json) =>
+      OpensearchConnectionRequest();
 
-  Map<String, dynamic> toJson() => {
-  };
+  Map<String, dynamic> toJson() => {};
 }

@@ -8,25 +8,35 @@ part of 'load_balancers.dart';
 class LoadBalancerDropletTag {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of a Droplet tag corresponding to Droplets assigned to the load balancer.
   final SdkOptional<String> tag;
 
   const LoadBalancerDropletTag({this.tag = const SdkOmitted()});
 
-  LoadBalancerDropletTag Function({SdkOptional<String> tag}) get copyWith => _copyWith;
+  LoadBalancerDropletTag Function({SdkOptional<String> tag}) get copyWith =>
+      _copyWith;
 
-  LoadBalancerDropletTag _copyWith({Object? tag = sdkOmittedValue}) => LoadBalancerDropletTag(
-    tag: identical(tag, sdkOmittedValue) ? this.tag : tag as SdkOptional<String>,
-  );
+  LoadBalancerDropletTag _copyWith({Object? tag = sdkOmittedValue}) =>
+      LoadBalancerDropletTag(
+        tag: identical(tag, sdkOmittedValue)
+            ? this.tag
+            : tag as SdkOptional<String>,
+      );
 
-  factory LoadBalancerDropletTag.fromJson(Map<String, dynamic> json) => LoadBalancerDropletTag(
-    tag: json['tag'] != null ? SdkPresent((json['tag'] as String?)!) : const SdkOmitted(),
-  );
+  factory LoadBalancerDropletTag.fromJson(Map<String, dynamic> json) =>
+      LoadBalancerDropletTag(
+        tag: json['tag'] != null
+            ? SdkPresent((json['tag'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (tag) {
-      SdkPresent<String>(value: final value) => {'tag': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (tag) {
+          SdkPresent<String>(value: final value) => {
+              'tag': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

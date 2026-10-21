@@ -8,25 +8,39 @@ part of 'agent_platform_api_api_evaluation.dart';
 class ApiEvaluationTestCaseMetricList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `metric_uuids` wire field.
   final SdkOptional<List<String>> metricUuids;
 
-  const ApiEvaluationTestCaseMetricList({this.metricUuids = const SdkOmitted()});
+  const ApiEvaluationTestCaseMetricList(
+      {this.metricUuids = const SdkOmitted()});
 
-  ApiEvaluationTestCaseMetricList Function({SdkOptional<List<String>> metricUuids}) get copyWith => _copyWith;
+  ApiEvaluationTestCaseMetricList Function(
+      {SdkOptional<List<String>> metricUuids}) get copyWith => _copyWith;
 
-  ApiEvaluationTestCaseMetricList _copyWith({Object? metricUuids = sdkOmittedValue}) => ApiEvaluationTestCaseMetricList(
-    metricUuids: identical(metricUuids, sdkOmittedValue) ? this.metricUuids : metricUuids as SdkOptional<List<String>>,
-  );
+  ApiEvaluationTestCaseMetricList _copyWith(
+          {Object? metricUuids = sdkOmittedValue}) =>
+      ApiEvaluationTestCaseMetricList(
+        metricUuids: identical(metricUuids, sdkOmittedValue)
+            ? this.metricUuids
+            : metricUuids as SdkOptional<List<String>>,
+      );
 
-  factory ApiEvaluationTestCaseMetricList.fromJson(Map<String, dynamic> json) => ApiEvaluationTestCaseMetricList(
-    metricUuids: json['metric_uuids'] != null ? SdkPresent(((json['metric_uuids'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  );
+  factory ApiEvaluationTestCaseMetricList.fromJson(Map<String, dynamic> json) =>
+      ApiEvaluationTestCaseMetricList(
+        metricUuids: json['metric_uuids'] != null
+            ? SdkPresent(((json['metric_uuids'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (metricUuids) {
-      SdkPresent<List<String>>(value: final value) => {'metric_uuids': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (metricUuids) {
+          SdkPresent<List<String>>(value: final value) => {
+              'metric_uuids': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
