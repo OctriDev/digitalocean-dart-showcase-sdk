@@ -11,10 +11,9 @@ class WebhookBearerToken implements SdkJsonModel {
 
   const WebhookBearerToken();
 
-  factory WebhookBearerToken.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(WebhookBearerToken(
-  ), json);
+  factory WebhookBearerToken.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(WebhookBearerToken(), json);
 
   @override
-  Map<String, dynamic> toJson() => {
-  };
+  Map<String, dynamic> toJson() => {};
 }

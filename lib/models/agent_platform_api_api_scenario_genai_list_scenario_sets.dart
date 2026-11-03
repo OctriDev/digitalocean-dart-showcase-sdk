@@ -6,26 +6,35 @@ part of 'agent_platform_api_api_scenario.dart';
 // agent_platform_api_api_scenario domain models
 /// Sortable fields for listing scenario sets. - SCENARIO_SET_SORT_FIELD_CREATED_AT: Sort by creation date. Default. - SCENARIO_SET_SORT_FIELD_NAME: Sort by customer-supplied name (case-insensitive). - SCENARIO_SET_SORT_FIELD_STATUS: Sort by status using lifecycle order (generating → ready → terminal). - SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT: Sort by scenario_count. - SCENARIO_SET_SORT_FIELD_UPDATED_AT: Sort by last update date.
 final class ApiScenarioSetSortField {
-
   final String value;
 
   const ApiScenarioSetSortField._(this.value);
 
-  factory ApiScenarioSetSortField.fromJson(String value) => ApiScenarioSetSortField._(value);
+  factory ApiScenarioSetSortField.fromJson(String value) =>
+      ApiScenarioSetSortField._(value);
 
-  static const scenarioSetSortFieldUnspecified = ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_UNSPECIFIED');
-  static const scenarioSetSortFieldCreatedAt = ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_CREATED_AT');
-  static const scenarioSetSortFieldName = ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_NAME');
-  static const scenarioSetSortFieldStatus = ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_STATUS');
-  static const scenarioSetSortFieldScenarioCount = ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT');
-  static const scenarioSetSortFieldUpdatedAt = ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_UPDATED_AT');
+  static const scenarioSetSortFieldUnspecified =
+      ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_UNSPECIFIED');
+  static const scenarioSetSortFieldCreatedAt =
+      ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_CREATED_AT');
+  static const scenarioSetSortFieldName =
+      ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_NAME');
+  static const scenarioSetSortFieldStatus =
+      ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_STATUS');
+  static const scenarioSetSortFieldScenarioCount =
+      ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_SCENARIO_COUNT');
+  static const scenarioSetSortFieldUpdatedAt =
+      ApiScenarioSetSortField._('SCENARIO_SET_SORT_FIELD_UPDATED_AT');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiScenarioSetSortField && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiScenarioSetSortField && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

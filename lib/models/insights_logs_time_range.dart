@@ -8,28 +8,41 @@ part of 'insights_logs.dart';
 class LogsTimeRange implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A single point in time. Exactly one value form is set per message.
   final LogsTimeInstant from;
+
   /// A single point in time. Exactly one value form is set per message.
   final LogsTimeInstant to;
 
   const LogsTimeRange({required this.from, required this.to});
 
-  LogsTimeRange Function({LogsTimeInstant from, LogsTimeInstant to}) get copyWith => _copyWith;
+  LogsTimeRange Function({LogsTimeInstant from, LogsTimeInstant to})
+      get copyWith => _copyWith;
 
-  LogsTimeRange _copyWith({Object? from = sdkOmittedValue, Object? to = sdkOmittedValue}) => LogsTimeRange(
-    from: identical(from, sdkOmittedValue) ? this.from : from as LogsTimeInstant,
-    to: identical(to, sdkOmittedValue) ? this.to : to as LogsTimeInstant,
-  );
+  LogsTimeRange _copyWith(
+          {Object? from = sdkOmittedValue, Object? to = sdkOmittedValue}) =>
+      LogsTimeRange(
+        from: identical(from, sdkOmittedValue)
+            ? this.from
+            : from as LogsTimeInstant,
+        to: identical(to, sdkOmittedValue) ? this.to : to as LogsTimeInstant,
+      );
 
-  factory LogsTimeRange.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(LogsTimeRange(
-    from: (json['from'] != null ? LogsTimeInstant.fromJson(json['from'] as Map<String, dynamic>) : null)!,
-    to: (json['to'] != null ? LogsTimeInstant.fromJson(json['to'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory LogsTimeRange.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      LogsTimeRange(
+        from: (json['from'] != null
+            ? LogsTimeInstant.fromJson(json['from'] as Map<String, dynamic>)
+            : null)!,
+        to: (json['to'] != null
+            ? LogsTimeInstant.fromJson(json['to'] as Map<String, dynamic>)
+            : null)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'from': from.toJson(),
-    'to': to.toJson(),
-  };
+        'from': from.toJson(),
+        'to': to.toJson(),
+      };
 }

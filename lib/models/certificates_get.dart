@@ -8,26 +8,41 @@ part of 'certificates.dart';
 class ExistingCertificate implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `certificate` wire field.
   final SdkOptional<Certificate> certificate;
 
   const ExistingCertificate({this.certificate = const SdkOmitted()});
 
-  ExistingCertificate Function({SdkOptional<Certificate> certificate}) get copyWith => _copyWith;
+  ExistingCertificate Function({SdkOptional<Certificate> certificate})
+      get copyWith => _copyWith;
 
-  ExistingCertificate _copyWith({Object? certificate = sdkOmittedValue}) => ExistingCertificate(
-    certificate: identical(certificate, sdkOmittedValue) ? this.certificate : certificate as SdkOptional<Certificate>,
-  );
+  ExistingCertificate _copyWith({Object? certificate = sdkOmittedValue}) =>
+      ExistingCertificate(
+        certificate: identical(certificate, sdkOmittedValue)
+            ? this.certificate
+            : certificate as SdkOptional<Certificate>,
+      );
 
-  factory ExistingCertificate.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ExistingCertificate(
-    certificate: json['certificate'] != null ? SdkPresent((json['certificate'] != null ? Certificate.fromJson(json['certificate'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory ExistingCertificate.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ExistingCertificate(
+            certificate: json['certificate'] != null
+                ? SdkPresent((json['certificate'] != null
+                    ? Certificate.fromJson(
+                        json['certificate'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (certificate) {
-      SdkPresent<Certificate>(value: final value) => {'certificate': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (certificate) {
+          SdkPresent<Certificate>(value: final value) => {
+              'certificate': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

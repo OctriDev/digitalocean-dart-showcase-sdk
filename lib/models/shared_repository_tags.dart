@@ -11,23 +11,37 @@ class RepositoryTagsVariant0 implements SdkJsonModel {
 
   const RepositoryTagsVariant0({this.tags = const SdkOmitted()});
 
-  RepositoryTagsVariant0 Function({SdkOptional<List<RepositoryTag>> tags}) get copyWith => _copyWith;
+  RepositoryTagsVariant0 Function({SdkOptional<List<RepositoryTag>> tags})
+      get copyWith => _copyWith;
 
-  RepositoryTagsVariant0 _copyWith({Object? tags = sdkOmittedValue}) => RepositoryTagsVariant0(
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<RepositoryTag>>,
-  );
+  RepositoryTagsVariant0 _copyWith({Object? tags = sdkOmittedValue}) =>
+      RepositoryTagsVariant0(
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<RepositoryTag>>,
+      );
 
-  factory RepositoryTagsVariant0.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(RepositoryTagsVariant0(
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => RepositoryTag.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory RepositoryTagsVariant0.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          RepositoryTagsVariant0(
+            tags: json['tags'] != null
+                ? SdkPresent(((json['tags'] as List?)
+                    ?.map((e) =>
+                        RepositoryTag.fromJson(e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (tags) {
-      SdkPresent<List<RepositoryTag>>(value: final value) => {'tags': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (tags) {
+          SdkPresent<List<RepositoryTag>>(value: final value) => {
+              'tags': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `RepositoryTags` API schema.
@@ -35,37 +49,71 @@ class RepositoryTags implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<RepositoryTag>> tags;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const RepositoryTags({this.tags = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const RepositoryTags(
+      {this.tags = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  RepositoryTags Function({SdkOptional<List<RepositoryTag>> tags, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  RepositoryTags Function(
+      {SdkOptional<List<RepositoryTag>> tags,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  RepositoryTags _copyWith({Object? tags = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => RepositoryTags(
-    tags: identical(tags, sdkOmittedValue) ? this.tags : tags as SdkOptional<List<RepositoryTag>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  RepositoryTags _copyWith(
+          {Object? tags = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      RepositoryTags(
+        tags: identical(tags, sdkOmittedValue)
+            ? this.tags
+            : tags as SdkOptional<List<RepositoryTag>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory RepositoryTags.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(RepositoryTags(
-    tags: json['tags'] != null ? SdkPresent(((json['tags'] as List?)?.map((e) => RepositoryTag.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory RepositoryTags.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      RepositoryTags(
+        tags: json['tags'] != null
+            ? SdkPresent(((json['tags'] as List?)
+                ?.map((e) => RepositoryTag.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (tags) {
-      SdkPresent<List<RepositoryTag>>(value: final value) => {'tags': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (tags) {
+          SdkPresent<List<RepositoryTag>>(value: final value) => {
+              'tags': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

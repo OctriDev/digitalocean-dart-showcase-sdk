@@ -8,6 +8,7 @@ part of 'databases_database.dart';
 class Database implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the database.
   final String name;
 
@@ -16,15 +17,17 @@ class Database implements SdkJsonModel {
   Database Function({String name}) get copyWith => _copyWith;
 
   Database _copyWith({Object? name = sdkOmittedValue}) => Database(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
-  factory Database.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(Database(
-    name: (json['name'] as String?)!,
-  ), json);
+  factory Database.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      Database(
+        name: (json['name'] as String?)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'name': name,
-  };
+        'name': name,
+      };
 }

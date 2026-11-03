@@ -8,26 +8,41 @@ part of 'action_gateway_list.dart';
 class ListProvidersResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Providers sorted by display name.
   final SdkOptional<List<ProviderSummary>> providers;
 
   const ListProvidersResponse({this.providers = const SdkOmitted()});
 
-  ListProvidersResponse Function({SdkOptional<List<ProviderSummary>> providers}) get copyWith => _copyWith;
+  ListProvidersResponse Function({SdkOptional<List<ProviderSummary>> providers})
+      get copyWith => _copyWith;
 
-  ListProvidersResponse _copyWith({Object? providers = sdkOmittedValue}) => ListProvidersResponse(
-    providers: identical(providers, sdkOmittedValue) ? this.providers : providers as SdkOptional<List<ProviderSummary>>,
-  );
+  ListProvidersResponse _copyWith({Object? providers = sdkOmittedValue}) =>
+      ListProvidersResponse(
+        providers: identical(providers, sdkOmittedValue)
+            ? this.providers
+            : providers as SdkOptional<List<ProviderSummary>>,
+      );
 
-  factory ListProvidersResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ListProvidersResponse(
-    providers: json['providers'] != null ? SdkPresent(((json['providers'] as List?)?.map((e) => ProviderSummary.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory ListProvidersResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ListProvidersResponse(
+            providers: json['providers'] != null
+                ? SdkPresent(((json['providers'] as List?)
+                    ?.map((e) =>
+                        ProviderSummary.fromJson(e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (providers) {
-      SdkPresent<List<ProviderSummary>>(value: final value) => {'providers': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (providers) {
+          SdkPresent<List<ProviderSummary>>(value: final value) => {
+              'providers': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

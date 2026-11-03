@@ -6,28 +6,39 @@ part of 'agent_platform_api_api_simulation.dart';
 // agent_platform_api_api_simulation domain models
 /// Lifecycle status of a simulation run. - SIMULATION_RUN_STATUS_PENDING: Accepted and queued, not yet executing. - SIMULATION_RUN_STATUS_RUNNING: Episodes are executing. - SIMULATION_RUN_STATUS_SUCCEEDED: All episodes finished successfully. - SIMULATION_RUN_STATUS_FAILED: The run failed, for example because of a timeout or workflow error. - SIMULATION_RUN_STATUS_CANCELLED: The run was cancelled. - SIMULATION_RUN_STATUS_EVALUATING: Episodes finished and an attached evaluation is running. Only reachable when the create request included evaluation_config. When the evaluation reaches a terminal status, its outcome is reflected in the simulation run status. - SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL: The simulation or its attached evaluation completed with a mixture of successful and failed results.
 final class ApiSimulationRunStatus {
-
   final String value;
 
   const ApiSimulationRunStatus._(this.value);
 
-  factory ApiSimulationRunStatus.fromJson(String value) => ApiSimulationRunStatus._(value);
+  factory ApiSimulationRunStatus.fromJson(String value) =>
+      ApiSimulationRunStatus._(value);
 
-  static const simulationRunStatusUnspecified = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_UNSPECIFIED');
-  static const simulationRunStatusPending = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_PENDING');
-  static const simulationRunStatusRunning = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_RUNNING');
-  static const simulationRunStatusSucceeded = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_SUCCEEDED');
-  static const simulationRunStatusFailed = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_FAILED');
-  static const simulationRunStatusCancelled = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_CANCELLED');
-  static const simulationRunStatusEvaluating = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_EVALUATING');
-  static const simulationRunStatusPartiallySuccessful = ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL');
+  static const simulationRunStatusUnspecified =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_UNSPECIFIED');
+  static const simulationRunStatusPending =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_PENDING');
+  static const simulationRunStatusRunning =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_RUNNING');
+  static const simulationRunStatusSucceeded =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_SUCCEEDED');
+  static const simulationRunStatusFailed =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_FAILED');
+  static const simulationRunStatusCancelled =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_CANCELLED');
+  static const simulationRunStatusEvaluating =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_EVALUATING');
+  static const simulationRunStatusPartiallySuccessful =
+      ApiSimulationRunStatus._('SIMULATION_RUN_STATUS_PARTIALLY_SUCCESSFUL');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiSimulationRunStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiSimulationRunStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

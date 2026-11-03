@@ -8,6 +8,7 @@ part of 'uptime.dart';
 class AlertBase implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique ID that can be used to identify and reference the alert.
   final SdkOptional<String> id;
 
@@ -16,18 +17,26 @@ class AlertBase implements SdkJsonModel {
   AlertBase Function({SdkOptional<String> id}) get copyWith => _copyWith;
 
   AlertBase _copyWith({Object? id = sdkOmittedValue}) => AlertBase(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory AlertBase.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AlertBase(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory AlertBase.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      AlertBase(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

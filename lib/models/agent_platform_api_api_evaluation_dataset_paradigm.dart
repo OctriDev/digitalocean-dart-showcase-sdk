@@ -6,24 +6,31 @@ part of 'agent_platform_api_api_evaluation.dart';
 // agent_platform_api_api_evaluation domain models
 /// EvaluationDatasetParadigm is the row/content shape of a dataset, orthogonal to the surface in EvaluationDatasetType (e.g. a model dataset can be single- or multi-turn).
 final class ApiEvaluationDatasetParadigm {
-
   final String value;
 
   const ApiEvaluationDatasetParadigm._(this.value);
 
-  factory ApiEvaluationDatasetParadigm.fromJson(String value) => ApiEvaluationDatasetParadigm._(value);
+  factory ApiEvaluationDatasetParadigm.fromJson(String value) =>
+      ApiEvaluationDatasetParadigm._(value);
 
-  static const evaluationDatasetParadigmSingleTurn = ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_SINGLE_TURN');
-  static const evaluationDatasetParadigmMultiTurn = ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_MULTI_TURN');
-  static const evaluationDatasetParadigmCoding = ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_CODING');
-  static const evaluationDatasetParadigmNPlus1 = ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_N_PLUS_1');
+  static const evaluationDatasetParadigmSingleTurn =
+      ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_SINGLE_TURN');
+  static const evaluationDatasetParadigmMultiTurn =
+      ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_MULTI_TURN');
+  static const evaluationDatasetParadigmCoding =
+      ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_CODING');
+  static const evaluationDatasetParadigmNPlus1 =
+      ApiEvaluationDatasetParadigm._('EVALUATION_DATASET_PARADIGM_N_PLUS_1');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiEvaluationDatasetParadigm && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiEvaluationDatasetParadigm && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

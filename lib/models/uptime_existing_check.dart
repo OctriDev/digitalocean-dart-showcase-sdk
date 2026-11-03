@@ -8,6 +8,7 @@ part of 'uptime.dart';
 class ExistingCheck implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `check` wire field.
   final SdkOptional<Check> check;
 
@@ -16,18 +17,28 @@ class ExistingCheck implements SdkJsonModel {
   ExistingCheck Function({SdkOptional<Check> check}) get copyWith => _copyWith;
 
   ExistingCheck _copyWith({Object? check = sdkOmittedValue}) => ExistingCheck(
-    check: identical(check, sdkOmittedValue) ? this.check : check as SdkOptional<Check>,
-  );
+        check: identical(check, sdkOmittedValue)
+            ? this.check
+            : check as SdkOptional<Check>,
+      );
 
-  factory ExistingCheck.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ExistingCheck(
-    check: json['check'] != null ? SdkPresent((json['check'] != null ? Check.fromJson(json['check'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory ExistingCheck.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      ExistingCheck(
+        check: json['check'] != null
+            ? SdkPresent((json['check'] != null
+                ? Check.fromJson(json['check'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (check) {
-      SdkPresent<Check>(value: final value) => {'check': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (check) {
+          SdkPresent<Check>(value: final value) => {
+              'check': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

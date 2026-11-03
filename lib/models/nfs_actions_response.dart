@@ -8,6 +8,7 @@ part of 'nfs_actions.dart';
 class NfsActionsResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The action that was submitted.
   final NfsAction2 action;
 
@@ -15,16 +16,24 @@ class NfsActionsResponse implements SdkJsonModel {
 
   NfsActionsResponse Function({NfsAction2 action}) get copyWith => _copyWith;
 
-  NfsActionsResponse _copyWith({Object? action = sdkOmittedValue}) => NfsActionsResponse(
-    action: identical(action, sdkOmittedValue) ? this.action : action as NfsAction2,
-  );
+  NfsActionsResponse _copyWith({Object? action = sdkOmittedValue}) =>
+      NfsActionsResponse(
+        action: identical(action, sdkOmittedValue)
+            ? this.action
+            : action as NfsAction2,
+      );
 
-  factory NfsActionsResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(NfsActionsResponse(
-    action: (json['action'] != null ? NfsAction2.fromJson(json['action'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory NfsActionsResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          NfsActionsResponse(
+            action: (json['action'] != null
+                ? NfsAction2.fromJson(json['action'] as Map<String, dynamic>)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'action': action.toJson(),
-  };
+        'action': action.toJson(),
+      };
 }

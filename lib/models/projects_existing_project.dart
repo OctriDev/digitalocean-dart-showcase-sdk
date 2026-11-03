@@ -8,26 +8,39 @@ part of 'projects.dart';
 class ExistingProject implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `project` wire field.
   final SdkOptional<Project> project;
 
   const ExistingProject({this.project = const SdkOmitted()});
 
-  ExistingProject Function({SdkOptional<Project> project}) get copyWith => _copyWith;
+  ExistingProject Function({SdkOptional<Project> project}) get copyWith =>
+      _copyWith;
 
-  ExistingProject _copyWith({Object? project = sdkOmittedValue}) => ExistingProject(
-    project: identical(project, sdkOmittedValue) ? this.project : project as SdkOptional<Project>,
-  );
+  ExistingProject _copyWith({Object? project = sdkOmittedValue}) =>
+      ExistingProject(
+        project: identical(project, sdkOmittedValue)
+            ? this.project
+            : project as SdkOptional<Project>,
+      );
 
-  factory ExistingProject.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ExistingProject(
-    project: json['project'] != null ? SdkPresent((json['project'] != null ? Project.fromJson(json['project'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory ExistingProject.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      ExistingProject(
+        project: json['project'] != null
+            ? SdkPresent((json['project'] != null
+                ? Project.fromJson(json['project'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (project) {
-      SdkPresent<Project>(value: final value) => {'project': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (project) {
+          SdkPresent<Project>(value: final value) => {
+              'project': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

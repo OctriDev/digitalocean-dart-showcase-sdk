@@ -10,14 +10,17 @@ enum MessagesResponseTextBlockType {
 
   static MessagesResponseTextBlockType fromJson(String value) {
     switch (value) {
-      case 'text': return MessagesResponseTextBlockType.text;
-      default: throw ArgumentError('Unknown MessagesResponseTextBlockType: $value');
+      case 'text':
+        return MessagesResponseTextBlockType.text;
+      default:
+        throw ArgumentError('Unknown MessagesResponseTextBlockType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessagesResponseTextBlockType.text: return 'text';
+      case MessagesResponseTextBlockType.text:
+        return 'text';
     }
   }
 
@@ -31,14 +34,17 @@ enum MessagesResponseToolUseBlockType {
 
   static MessagesResponseToolUseBlockType fromJson(String value) {
     switch (value) {
-      case 'tool_use': return MessagesResponseToolUseBlockType.toolUse;
-      default: throw ArgumentError('Unknown MessagesResponseToolUseBlockType: $value');
+      case 'tool_use':
+        return MessagesResponseToolUseBlockType.toolUse;
+      default:
+        throw ArgumentError('Unknown MessagesResponseToolUseBlockType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessagesResponseToolUseBlockType.toolUse: return 'tool_use';
+      case MessagesResponseToolUseBlockType.toolUse:
+        return 'tool_use';
     }
   }
 
@@ -48,61 +54,70 @@ enum MessagesResponseToolUseBlockType {
 
 /// SSE event type.
 final class MessagesStreamEventType {
-
   final String value;
 
   const MessagesStreamEventType._(this.value);
 
-  factory MessagesStreamEventType.fromJson(String value) => MessagesStreamEventType._(value);
+  factory MessagesStreamEventType.fromJson(String value) =>
+      MessagesStreamEventType._(value);
 
   static const messageStart = MessagesStreamEventType._('message_start');
-  static const contentBlockStart = MessagesStreamEventType._('content_block_start');
-  static const contentBlockDelta = MessagesStreamEventType._('content_block_delta');
-  static const contentBlockStop = MessagesStreamEventType._('content_block_stop');
+  static const contentBlockStart =
+      MessagesStreamEventType._('content_block_start');
+  static const contentBlockDelta =
+      MessagesStreamEventType._('content_block_delta');
+  static const contentBlockStop =
+      MessagesStreamEventType._('content_block_stop');
   static const messageDelta = MessagesStreamEventType._('message_delta');
   static const messageStop = MessagesStreamEventType._('message_stop');
   static const ping = MessagesStreamEventType._('ping');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagesStreamEventType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagesStreamEventType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `speed` wire field.
 final class MessagesStreamEventUsageSpeed {
-
   final String value;
 
   const MessagesStreamEventUsageSpeed._(this.value);
 
-  factory MessagesStreamEventUsageSpeed.fromJson(String value) => MessagesStreamEventUsageSpeed._(value);
+  factory MessagesStreamEventUsageSpeed.fromJson(String value) =>
+      MessagesStreamEventUsageSpeed._(value);
 
   static const standard = MessagesStreamEventUsageSpeed._('standard');
   static const fast = MessagesStreamEventUsageSpeed._('fast');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagesStreamEventUsageSpeed && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagesStreamEventUsageSpeed && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Tool selection mode.
 final class MessagesToolChoiceParamVariant1Type {
-
   final String value;
 
   const MessagesToolChoiceParamVariant1Type._(this.value);
 
-  factory MessagesToolChoiceParamVariant1Type.fromJson(String value) => MessagesToolChoiceParamVariant1Type._(value);
+  factory MessagesToolChoiceParamVariant1Type.fromJson(String value) =>
+      MessagesToolChoiceParamVariant1Type._(value);
 
   static const auto = MessagesToolChoiceParamVariant1Type._('auto');
   static const any = MessagesToolChoiceParamVariant1Type._('any');
@@ -110,12 +125,15 @@ final class MessagesToolChoiceParamVariant1Type {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagesToolChoiceParamVariant1Type && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagesToolChoiceParamVariant1Type && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
@@ -124,14 +142,17 @@ enum MessagesToolResultBlockParamType {
 
   static MessagesToolResultBlockParamType fromJson(String value) {
     switch (value) {
-      case 'tool_result': return MessagesToolResultBlockParamType.toolResult;
-      default: throw ArgumentError('Unknown MessagesToolResultBlockParamType: $value');
+      case 'tool_result':
+        return MessagesToolResultBlockParamType.toolResult;
+      default:
+        throw ArgumentError('Unknown MessagesToolResultBlockParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessagesToolResultBlockParamType.toolResult: return 'tool_result';
+      case MessagesToolResultBlockParamType.toolResult:
+        return 'tool_result';
     }
   }
 
@@ -145,14 +166,17 @@ enum MessagesToolUseBlockParamType {
 
   static MessagesToolUseBlockParamType fromJson(String value) {
     switch (value) {
-      case 'tool_use': return MessagesToolUseBlockParamType.toolUse;
-      default: throw ArgumentError('Unknown MessagesToolUseBlockParamType: $value');
+      case 'tool_use':
+        return MessagesToolUseBlockParamType.toolUse;
+      default:
+        throw ArgumentError('Unknown MessagesToolUseBlockParamType: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case MessagesToolUseBlockParamType.toolUse: return 'tool_use';
+      case MessagesToolUseBlockParamType.toolUse:
+        return 'tool_use';
     }
   }
 
@@ -162,29 +186,31 @@ enum MessagesToolUseBlockParamType {
 
 /// Inference speed tier reflected in billing or routing.
 final class MessagesUsageSpeed {
-
   final String value;
 
   const MessagesUsageSpeed._(this.value);
 
-  factory MessagesUsageSpeed.fromJson(String value) => MessagesUsageSpeed._(value);
+  factory MessagesUsageSpeed.fromJson(String value) =>
+      MessagesUsageSpeed._(value);
 
   static const standard = MessagesUsageSpeed._('standard');
   static const fast = MessagesUsageSpeed._('fast');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MessagesUsageSpeed && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MessagesUsageSpeed && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class MetricsStatus {
-
   final String value;
 
   const MetricsStatus._(this.value);
@@ -196,75 +222,87 @@ final class MetricsStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MetricsStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MetricsStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `resultType` wire field.
 final class MetricsDataResultType {
-
   final String value;
 
   const MetricsDataResultType._(this.value);
 
-  factory MetricsDataResultType.fromJson(String value) => MetricsDataResultType._(value);
+  factory MetricsDataResultType.fromJson(String value) =>
+      MetricsDataResultType._(value);
 
   static const matrix = MetricsDataResultType._('matrix');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MetricsDataResultType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MetricsDataResultType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The protocol the MicroVM's HTTP port serves. `null` if the protocol was not set when the MicroVM was created.
 final class MicrovmHttpProtocol {
-
   final String value;
 
   const MicrovmHttpProtocol._(this.value);
 
-  factory MicrovmHttpProtocol.fromJson(String value) => MicrovmHttpProtocol._(value);
+  factory MicrovmHttpProtocol.fromJson(String value) =>
+      MicrovmHttpProtocol._(value);
 
   static const http = MicrovmHttpProtocol._('http');
   static const http2 = MicrovmHttpProtocol._('http2');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MicrovmHttpProtocol && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MicrovmHttpProtocol && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// `public` sends outbound traffic through a shared NAT gateway. `vpc` places the MicroVM in the VPC network set by `vpc_uuid`.
 final class MicrovmNetworking {
-
   final String value;
 
   const MicrovmNetworking._(this.value);
 
-  factory MicrovmNetworking.fromJson(String value) => MicrovmNetworking._(value);
+  factory MicrovmNetworking.fromJson(String value) =>
+      MicrovmNetworking._(value);
 
   static const public = MicrovmNetworking._('public');
   static const vpc = MicrovmNetworking._('vpc');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is MicrovmNetworking && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is MicrovmNetworking && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

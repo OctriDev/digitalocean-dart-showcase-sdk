@@ -8,26 +8,40 @@ part of 'agent_platform_api_api_delete.dart';
 class ApiDeleteAgentOutput implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An Agent
   final SdkOptional<ApiAgent> agent;
 
   const ApiDeleteAgentOutput({this.agent = const SdkOmitted()});
 
-  ApiDeleteAgentOutput Function({SdkOptional<ApiAgent> agent}) get copyWith => _copyWith;
+  ApiDeleteAgentOutput Function({SdkOptional<ApiAgent> agent}) get copyWith =>
+      _copyWith;
 
-  ApiDeleteAgentOutput _copyWith({Object? agent = sdkOmittedValue}) => ApiDeleteAgentOutput(
-    agent: identical(agent, sdkOmittedValue) ? this.agent : agent as SdkOptional<ApiAgent>,
-  );
+  ApiDeleteAgentOutput _copyWith({Object? agent = sdkOmittedValue}) =>
+      ApiDeleteAgentOutput(
+        agent: identical(agent, sdkOmittedValue)
+            ? this.agent
+            : agent as SdkOptional<ApiAgent>,
+      );
 
-  factory ApiDeleteAgentOutput.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiDeleteAgentOutput(
-    agent: json['agent'] != null ? SdkPresent((json['agent'] != null ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory ApiDeleteAgentOutput.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiDeleteAgentOutput(
+            agent: json['agent'] != null
+                ? SdkPresent((json['agent'] != null
+                    ? ApiAgent.fromJson(json['agent'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (agent) {
-      SdkPresent<ApiAgent>(value: final value) => {'agent': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agent) {
+          SdkPresent<ApiAgent>(value: final value) => {
+              'agent': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

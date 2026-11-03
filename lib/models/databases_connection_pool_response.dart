@@ -8,23 +8,33 @@ part of 'databases_connection.dart';
 class ConnectionPoolResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `pool` wire field.
   final ConnectionPool pool;
 
   const ConnectionPoolResponse({required this.pool});
 
-  ConnectionPoolResponse Function({ConnectionPool pool}) get copyWith => _copyWith;
+  ConnectionPoolResponse Function({ConnectionPool pool}) get copyWith =>
+      _copyWith;
 
-  ConnectionPoolResponse _copyWith({Object? pool = sdkOmittedValue}) => ConnectionPoolResponse(
-    pool: identical(pool, sdkOmittedValue) ? this.pool : pool as ConnectionPool,
-  );
+  ConnectionPoolResponse _copyWith({Object? pool = sdkOmittedValue}) =>
+      ConnectionPoolResponse(
+        pool: identical(pool, sdkOmittedValue)
+            ? this.pool
+            : pool as ConnectionPool,
+      );
 
-  factory ConnectionPoolResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ConnectionPoolResponse(
-    pool: (json['pool'] != null ? ConnectionPool.fromJson(json['pool'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory ConnectionPoolResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ConnectionPoolResponse(
+            pool: (json['pool'] != null
+                ? ConnectionPool.fromJson(json['pool'] as Map<String, dynamic>)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'pool': pool.toJson(),
-  };
+        'pool': pool.toJson(),
+      };
 }

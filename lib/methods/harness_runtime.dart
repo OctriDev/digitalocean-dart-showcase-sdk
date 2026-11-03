@@ -31,19 +31,27 @@ Future<ListAgentConfigsResponse> harnessListConfigs(ClientConfig config,
           'GET', '/v2/agents/configs',
           config: config,
           query: {
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true)
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessListConfigs',
-          fromJsonRaw: (value) => ListAgentConfigsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListAgentConfigsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Returns lightweight team-scoped config metadata without loading or returning environment-spec JSON. Soft-deleted configs are excluded.
 ///
@@ -53,23 +61,54 @@ Future<ListAgentConfigsResponse> harnessListConfigs(ClientConfig config,
 /// [search] Optional case-insensitive substring filter on config name
 ///   (contains). Empty or omitted returns the unfiltered page. At most 64
 ///   characters.
-Stream<AgentConfigSummary> harnessListConfigsPaginated(ClientConfig config, {int? pageSize, String? pageToken, String? search, RequestOptions? requestOptions}) async* {
+Stream<AgentConfigSummary> harnessListConfigsPaginated(ClientConfig config,
+    {int? pageSize,
+    String? pageToken,
+    String? search,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListConfigs(config, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), search: search == null ? const SdkOmitted<String>() : SdkPresent<String>(search), requestOptions: requestOptions);
+    final sdkPage = await harnessListConfigs(config,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        search: search == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(search),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.configs.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListAgentConfigsResponse, AgentConfigSummary>> harnessListConfigsPages(ClientConfig config, {int? pageSize, String? pageToken, String? search, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListAgentConfigsResponse, AgentConfigSummary>>
+    harnessListConfigsPages(ClientConfig config,
+        {int? pageSize,
+        String? pageToken,
+        String? search,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListConfigs(config, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), search: search == null ? const SdkOmitted<String>() : SdkPresent<String>(search), requestOptions: requestOptions);
+    final sdkPage = await harnessListConfigs(config,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        search: search == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(search),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.configs.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -79,7 +118,6 @@ Stream<SdkPage<ListAgentConfigsResponse, AgentConfigSummary>> harnessListConfigs
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates an immutable Environment Config for the team from a name and environment-spec YAML. Supply `name` and `manifest_yaml`; optionally set per-signal Insights telemetry preferences with `insights`. Declare tenant secrets in the environment spec, not as sibling request fields; secret values are never returned, and you must create a clone to change config content.
 ///
@@ -100,7 +138,8 @@ Future<AgentConfigResponse> harnessCreateConfig(ClientConfig config,
     SdkOptional<InsightsOptIn> insights = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   validateLength('name', name, min: 1, max: 64);
-  sdkValidatePattern('name', name, '^[A-Za-z0-9]([A-Za-z0-9._-]{0,62}[A-Za-z0-9])?\$');
+  sdkValidatePattern(
+      'name', name, '^[A-Za-z0-9]([A-Za-z0-9._-]{0,62}[A-Za-z0-9])?\$');
   validateLength('manifest_yaml', manifestYaml, max: 524288);
 
   return (await sdkRequest<AgentConfigResponse>('POST', '/v2/agents/configs',
@@ -112,12 +151,21 @@ Future<AgentConfigResponse> harnessCreateConfig(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessCreateConfig',
-          fromJsonRaw: (value) => AgentConfigResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AgentConfigResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '413': (value) => Error2.fromJson(value as Map<String, dynamic>), '415': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '413': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '415': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns one team-scoped Environment Config including the sanitized environment spec and redacted credential slot metadata. Secret values are never returned.
 ///
@@ -131,12 +179,19 @@ Future<AgentConfigResponse> harnessGetConfig(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessGetConfig',
-          fromJsonRaw: (value) => AgentConfigResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AgentConfigResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Releases the active team-scoped name; the config row is retained (soft delete), so sessions created from it keep a resolvable config_id.
 ///
@@ -151,10 +206,17 @@ Future<void> harnessDeleteConfig(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'harnessDeleteConfig',
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Copies the source config's sanitized manifest to a new UUID. Source and clone are independent (no lineage). Credential bindings are never copied: if the manifest declares secret slots, supply secrets/oauth_assignments again (write-only). content_hash matches the source when the manifest is unchanged.
 ///
@@ -173,7 +235,8 @@ Future<AgentConfigResponse> harnessCreateConfigClone(ClientConfig config,
     RequestOptions? requestOptions}) async {
   sdkValidateUuid('config_id', configId);
   validateLength('name', name, min: 1, max: 64);
-  sdkValidatePattern('name', name, '^[A-Za-z0-9]([A-Za-z0-9._-]{0,62}[A-Za-z0-9])?\$');
+  sdkValidatePattern(
+      'name', name, '^[A-Za-z0-9]([A-Za-z0-9._-]{0,62}[A-Za-z0-9])?\$');
 
   return (await sdkRequest<AgentConfigResponse>('POST',
           '/v2/agents/configs/${Uri.encodeComponent(configId.toString())}/clone',
@@ -185,12 +248,22 @@ Future<AgentConfigResponse> harnessCreateConfigClone(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessCreateConfigClone',
-          fromJsonRaw: (value) => AgentConfigResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AgentConfigResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '413': (value) => Error2.fromJson(value as Map<String, dynamic>), '415': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '413': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '415': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Enumerates the caller's team sessions whose session was created from this durable Environment Config. Keyset-paginated on an opaque cursor, newest first, same shape and status semantics as GET /v2/agents/sessions.
 ///
@@ -203,13 +276,13 @@ Future<AgentConfigResponse> harnessCreateConfigClone(ClientConfig config,
 ///   SESSION_STATUS_UNSPECIFIED still hides destroyed and failed sessions by
 ///   default; SESSION_STATUS_ALL opts out and returns every session regardless of
 ///   status.
-Future<DefinitionsListSessionsResponse>
-    harnessListConfigSessions(ClientConfig config,
-        {required String configId,
-        SdkOptional<int> pageSize = const SdkOmitted(),
-        SdkOptional<String> pageToken = const SdkOmitted(),
-        SdkOptional<HarnessListConfigSessionsStatus> status = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<DefinitionsListSessionsResponse> harnessListConfigSessions(
+    ClientConfig config,
+    {required String configId,
+    SdkOptional<int> pageSize = const SdkOmitted(),
+    SdkOptional<String> pageToken = const SdkOmitted(),
+    SdkOptional<HarnessListConfigSessionsStatus> status = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   sdkValidateUuid('config_id', configId);
   if (pageSize is SdkPresent<int>) {
     validateRange('page_size', pageSize.value, min: 1, max: 200);
@@ -219,19 +292,28 @@ Future<DefinitionsListSessionsResponse>
           '/v2/agents/configs/${Uri.encodeComponent(configId.toString())}/sessions',
           config: config,
           query: {
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true)
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessListConfigSessions',
-          fromJsonRaw: (value) => DefinitionsListSessionsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DefinitionsListSessionsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Enumerates the caller's team sessions whose session was created from this durable Environment Config. Keyset-paginated on an opaque cursor, newest first, same shape and status semantics as GET /v2/agents/sessions.
 ///
@@ -244,23 +326,59 @@ Future<DefinitionsListSessionsResponse>
 ///   SESSION_STATUS_UNSPECIFIED still hides destroyed and failed sessions by
 ///   default; SESSION_STATUS_ALL opts out and returns every session regardless of
 ///   status.
-Stream<DefinitionsSession> harnessListConfigSessionsPaginated(ClientConfig config, {required String configId, int? pageSize, String? pageToken, HarnessListConfigSessionsStatus? status, RequestOptions? requestOptions}) async* {
+Stream<DefinitionsSession> harnessListConfigSessionsPaginated(
+    ClientConfig config,
+    {required String configId,
+    int? pageSize,
+    String? pageToken,
+    HarnessListConfigSessionsStatus? status,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListConfigSessions(config, configId: configId, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), status: status == null ? const SdkOmitted<HarnessListConfigSessionsStatus>() : SdkPresent<HarnessListConfigSessionsStatus>(status), requestOptions: requestOptions);
+    final sdkPage = await harnessListConfigSessions(config,
+        configId: configId,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        status: status == null
+            ? const SdkOmitted<HarnessListConfigSessionsStatus>()
+            : SdkPresent<HarnessListConfigSessionsStatus>(status),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.sessions.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<DefinitionsListSessionsResponse, DefinitionsSession>> harnessListConfigSessionsPages(ClientConfig config, {required String configId, int? pageSize, String? pageToken, HarnessListConfigSessionsStatus? status, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<DefinitionsListSessionsResponse, DefinitionsSession>>
+    harnessListConfigSessionsPages(ClientConfig config,
+        {required String configId,
+        int? pageSize,
+        String? pageToken,
+        HarnessListConfigSessionsStatus? status,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListConfigSessions(config, configId: configId, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), status: status == null ? const SdkOmitted<HarnessListConfigSessionsStatus>() : SdkPresent<HarnessListConfigSessionsStatus>(status), requestOptions: requestOptions);
+    final sdkPage = await harnessListConfigSessions(config,
+        configId: configId,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        status: status == null
+            ? const SdkOmitted<HarnessListConfigSessionsStatus>()
+            : SdkPresent<HarnessListConfigSessionsStatus>(status),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.sessions.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -270,7 +388,6 @@ Stream<SdkPage<DefinitionsListSessionsResponse, DefinitionsSession>> harnessList
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Keyset-paginated on an opaque cursor. Results are scoped to the authenticated team. Destroyed and failed sessions are omitted by default (matching the Cloud Console); pass `status=SESSION_STATUS_ALL` to list every session regardless of status, or an explicit status such as `status=SESSION_STATUS_FAILED` or `status=SESSION_STATUS_DESTROYED` to list only those.
 ///
@@ -313,21 +430,32 @@ Future<DefinitionsListSessionsResponse> harnessListSessions(ClientConfig config,
           'GET', '/v2/agents/sessions',
           config: config,
           query: {
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
-            'name': SdkQueryValue(SdkUtils.unwrapOptional(name), style: 'form', explode: true),
-            'search': SdkQueryValue(SdkUtils.unwrapOptional(search), style: 'form', explode: true)
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true),
+            'name': SdkQueryValue(SdkUtils.unwrapOptional(name),
+                style: 'form', explode: true),
+            'search': SdkQueryValue(SdkUtils.unwrapOptional(search),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessListSessions',
-          fromJsonRaw: (value) => DefinitionsListSessionsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DefinitionsListSessionsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Keyset-paginated on an opaque cursor. Results are scoped to the authenticated team. Destroyed and failed sessions are omitted by default (matching the Cloud Console); pass `status=SESSION_STATUS_ALL` to list every session regardless of status, or an explicit status such as `status=SESSION_STATUS_FAILED` or `status=SESSION_STATUS_DESTROYED` to list only those.
 ///
@@ -352,23 +480,70 @@ Future<DefinitionsListSessionsResponse> harnessListSessions(ClientConfig config,
 ///   (contains), for callers that don't know the exact name (e.g. a UI search
 ///   box). Unlike `name`, this may return zero, one, or many sessions, including
 ///   terminal ones. Independent of `name`; at most 64 characters.
-Stream<DefinitionsSession> harnessListSessionsPaginated(ClientConfig config, {int? pageSize, String? pageToken, SessionStatus? status, String? name, String? search, RequestOptions? requestOptions}) async* {
+Stream<DefinitionsSession> harnessListSessionsPaginated(ClientConfig config,
+    {int? pageSize,
+    String? pageToken,
+    SessionStatus? status,
+    String? name,
+    String? search,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListSessions(config, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), status: status == null ? const SdkOmitted<SessionStatus>() : SdkPresent<SessionStatus>(status), name: name == null ? const SdkOmitted<String>() : SdkPresent<String>(name), search: search == null ? const SdkOmitted<String>() : SdkPresent<String>(search), requestOptions: requestOptions);
+    final sdkPage = await harnessListSessions(config,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        status: status == null
+            ? const SdkOmitted<SessionStatus>()
+            : SdkPresent<SessionStatus>(status),
+        name: name == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(name),
+        search: search == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(search),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.sessions.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<DefinitionsListSessionsResponse, DefinitionsSession>> harnessListSessionsPages(ClientConfig config, {int? pageSize, String? pageToken, SessionStatus? status, String? name, String? search, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<DefinitionsListSessionsResponse, DefinitionsSession>>
+    harnessListSessionsPages(ClientConfig config,
+        {int? pageSize,
+        String? pageToken,
+        SessionStatus? status,
+        String? name,
+        String? search,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListSessions(config, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), status: status == null ? const SdkOmitted<SessionStatus>() : SdkPresent<SessionStatus>(status), name: name == null ? const SdkOmitted<String>() : SdkPresent<String>(name), search: search == null ? const SdkOmitted<String>() : SdkPresent<String>(search), requestOptions: requestOptions);
+    final sdkPage = await harnessListSessions(config,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        status: status == null
+            ? const SdkOmitted<SessionStatus>()
+            : SdkPresent<SessionStatus>(status),
+        name: name == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(name),
+        search: search == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(search),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.sessions.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -378,7 +553,6 @@ Stream<SdkPage<DefinitionsListSessionsResponse, DefinitionsSession>> harnessList
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates a Harness Runtime session from a JSON configuration reference or an environment spec supplied as YAML. For JSON, provide `name` and `config_id`; for YAML, send the environment spec with a supported YAML `Content-Type`. Sandbox boot continues asynchronously after the session row is allocated.
 ///
@@ -406,15 +580,15 @@ Stream<SdkPage<DefinitionsListSessionsResponse, DefinitionsSession>> harnessList
 ///   not config-scoped: the referenced config never confers this, so one shared
 ///   config cannot enrol every session created from it. Omit to leave the default
 ///   (or to let the ?resume_on_topoff= query parameter supply it).
-Future<DefinitionsCreateSessionResponse>
-    harnessCreateSession(ClientConfig config,
-        {required String name,
-        required String configId,
-        SdkOptional<String> openaiSessionId = const SdkOmitted(),
-        SdkOptional<bool> resumeOnTopoff = const SdkOmitted(),
-        SdkOptional<String> xDeviceUuid = const SdkOmitted(),
-        SdkOptional<bool> resumeOnTopoff_2 = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<DefinitionsCreateSessionResponse> harnessCreateSession(
+    ClientConfig config,
+    {required String name,
+    required String configId,
+    SdkOptional<String> openaiSessionId = const SdkOmitted(),
+    SdkOptional<bool> resumeOnTopoff = const SdkOmitted(),
+    SdkOptional<String> xDeviceUuid = const SdkOmitted(),
+    SdkOptional<bool> resumeOnTopoff_2 = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   validateLength('name', name, min: 1, max: 64);
   sdkValidateUuid('config_id', configId);
 
@@ -422,8 +596,14 @@ Future<DefinitionsCreateSessionResponse>
           'POST', '/v2/agents/sessions',
           config: config,
           query: {
-            'openai_session_id': SdkQueryValue(SdkUtils.unwrapOptional(openaiSessionId), style: 'form', explode: true),
-            'resume_on_topoff': SdkQueryValue(SdkUtils.unwrapOptional(resumeOnTopoff), style: 'form', explode: true)
+            'openai_session_id': SdkQueryValue(
+                SdkUtils.unwrapOptional(openaiSessionId),
+                style: 'form',
+                explode: true),
+            'resume_on_topoff': SdkQueryValue(
+                SdkUtils.unwrapOptional(resumeOnTopoff),
+                style: 'form',
+                explode: true)
           },
           body: {
             'name': name,
@@ -431,14 +611,29 @@ Future<DefinitionsCreateSessionResponse>
             'resume_on_topoff': SdkUtils.unwrapOptional(resumeOnTopoff_2)
           },
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'X-Device-UUID': SdkUtils.unwrapOptional(xDeviceUuid)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'X-Device-UUID': SdkUtils.unwrapOptional(xDeviceUuid)}),
           operationId: 'harnessCreateSession',
-          fromJsonRaw: (value) => DefinitionsCreateSessionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DefinitionsCreateSessionResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '413': (value) => Error2.fromJson(value as Map<String, dynamic>), '415': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), '503': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '413': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '415': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '503': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Validates an environment spec's tool-permission policy against the capabilities of the agent selected by its template, without creating a session. Send the YAML environment spec and review the per-rule verdicts; `ok` is false when a strict rule is unsupported or unverified. Use this preflight to check whether CreateSession would accept the policy for the resolved agent and version.
 ///
@@ -470,12 +665,19 @@ Future<ValidationResult> harnessValidateSessionPolicy(ClientConfig config,
           contentType: 'application/x-yaml',
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessValidateSessionPolicy',
-          fromJsonRaw: (value) => ValidationResult.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ValidationResult.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Read-only catalog the UI (and other clients) render as the size picker, instead of hardcoding the list. The set is the single source of truth shared with create-time validation and the default-size fallback, so every `slug` returned here is accepted by CreateSession as spec.sandbox.sizeSlug. Sizes are returned smallest-to-largest. Static and safe to cache; independent of team/session; no pagination.
 Future<SandboxSizesResponse> harnessListSessionSandboxSizes(ClientConfig config,
@@ -485,12 +687,18 @@ Future<SandboxSizesResponse> harnessListSessionSandboxSizes(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessListSessionSandboxSizes',
-          fromJsonRaw: (value) => SandboxSizesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SandboxSizesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Persistent workspace contents are retained per tenant policy. Returns 204 No Content on success.
 ///
@@ -505,13 +713,21 @@ Future<void> harnessDeleteSession(ClientConfig config,
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders({'X-Device-UUID': SdkUtils.unwrapOptional(xDeviceUuid)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'X-Device-UUID': SdkUtils.unwrapOptional(xDeviceUuid)}),
           operationId: 'harnessDeleteSession',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// GetSession returns the current snapshot of a session.
 ///
@@ -523,12 +739,20 @@ Future<GetSessionResponse> harnessGetSession(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessGetSession',
-          fromJsonRaw: (value) => GetSessionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetSessionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Partial update of session-scoped settings (not the agent manifest / config). The body must include at least one recognized patchable property; an empty object {} is 400. Only properties listed on PatchSessionRequest are accepted — any other top-level JSON key is rejected with 400. Omitted properties are left unchanged. Today the only patchable field is resume_on_topoff; more session settings may be added over time. Terminal sessions (DESTROYED, FAILED) cannot be patched.
 ///
@@ -547,12 +771,22 @@ Future<GetSessionResponse> harnessUpdateSession(ClientConfig config,
           body: {'resume_on_topoff': SdkUtils.unwrapOptional(resumeOnTopoff)},
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessUpdateSession',
-          fromJsonRaw: (value) => GetSessionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetSessionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Keyset-paginated on an opaque cursor, like ListSessions.
 ///
@@ -560,28 +794,38 @@ Future<GetSessionResponse> harnessUpdateSession(ClientConfig config,
 /// [pageSize] Page size. Defaults to 50 when omitted or non-positive.
 /// [pageToken] Opaque keyset cursor returned by the previous page. Empty starts
 ///   from the beginning.
-Future<ListCheckpointsResponse>
-    harnessListSessionCheckpoints(ClientConfig config,
-        {required String sessionId,
-        SdkOptional<int> pageSize = const SdkOmitted(),
-        SdkOptional<String> pageToken = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ListCheckpointsResponse> harnessListSessionCheckpoints(
+    ClientConfig config,
+    {required String sessionId,
+    SdkOptional<int> pageSize = const SdkOmitted(),
+    SdkOptional<String> pageToken = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<ListCheckpointsResponse>('GET',
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/checkpoints',
           config: config,
           query: {
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true)
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessListSessionCheckpoints',
-          fromJsonRaw: (value) => ListCheckpointsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListCheckpointsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Keyset-paginated on an opaque cursor, like ListSessions.
 ///
@@ -589,23 +833,50 @@ Future<ListCheckpointsResponse>
 /// [pageSize] Page size. Defaults to 50 when omitted or non-positive.
 /// [pageToken] Opaque keyset cursor returned by the previous page. Empty starts
 ///   from the beginning.
-Stream<Checkpoint> harnessListSessionCheckpointsPaginated(ClientConfig config, {required String sessionId, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<Checkpoint> harnessListSessionCheckpointsPaginated(ClientConfig config,
+    {required String sessionId,
+    int? pageSize,
+    String? pageToken,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListSessionCheckpoints(config, sessionId: sessionId, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await harnessListSessionCheckpoints(config,
+        sessionId: sessionId,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.checkpoints.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListCheckpointsResponse, Checkpoint>> harnessListSessionCheckpointsPages(ClientConfig config, {required String sessionId, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListCheckpointsResponse, Checkpoint>>
+    harnessListSessionCheckpointsPages(ClientConfig config,
+        {required String sessionId,
+        int? pageSize,
+        String? pageToken,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListSessionCheckpoints(config, sessionId: sessionId, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await harnessListSessionCheckpoints(config,
+        sessionId: sessionId,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.checkpoints.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -616,29 +887,39 @@ Stream<SdkPage<ListCheckpointsResponse, Checkpoint>> harnessListSessionCheckpoin
   }
 }
 
-
 /// Synchronous: blocks until the capture reaches READY and returns the terminal Checkpoint — clients never see PENDING on this endpoint and need no poll loop. The checkpoint binds the machine-state capture to the event-log cursor at the cut, so it can later seed forks (POST .../fork) and rollback. Checkpoints are taken between turns; a session with an active turn in flight returns 409.
 ///
 /// [sessionId] The session UUID.
 /// [label] Optional human-readable label stored on the checkpoint; "" if
 ///   omitted.
-Future<CreateCheckpointResponse>
-    harnessCreateSessionCheckpoint(ClientConfig config,
-        {required String sessionId,
-        SdkOptional<String> label = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<CreateCheckpointResponse> harnessCreateSessionCheckpoint(
+    ClientConfig config,
+    {required String sessionId,
+    SdkOptional<String> label = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<CreateCheckpointResponse>('POST',
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/checkpoints',
           config: config,
           body: {'label': SdkUtils.unwrapOptional(label)},
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessCreateSessionCheckpoint',
-          fromJsonRaw: (value) => CreateCheckpointResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CreateCheckpointResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// GetCheckpoint returns the current snapshot of a checkpoint.
 ///
@@ -653,54 +934,81 @@ Future<GetCheckpointResponse> harnessGetSessionCheckpoint(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessGetSessionCheckpoint',
-          fromJsonRaw: (value) => GetCheckpointResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetCheckpointResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Idempotent: deleting an already-gone checkpoint still returns 200. Removes the DB row and the substrate checkpoint.
 ///
 /// [sessionId] The session UUID.
 /// [checkpointId] The checkpoint id.
-Future<DeleteCheckpointResponse>
-    harnessDeleteSessionCheckpoint(ClientConfig config,
-        {required String sessionId,
-        required String checkpointId,
-        RequestOptions? requestOptions}) async {
+Future<DeleteCheckpointResponse> harnessDeleteSessionCheckpoint(
+    ClientConfig config,
+    {required String sessionId,
+    required String checkpointId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<DeleteCheckpointResponse>('DELETE',
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/checkpoints/${Uri.encodeComponent(checkpointId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessDeleteSessionCheckpoint',
-          fromJsonRaw: (value) => DeleteCheckpointResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeleteCheckpointResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// In-place restore: boots a fresh sandbox from the checkpoint and atomically swaps the session's sandbox pointer to it, so the session keeps its same session_id; the old sandbox is then torn down.
 ///
 /// [sessionId] The session UUID.
 /// [checkpointId] The checkpoint id.
-Future<RollbackToCheckpointResponse>
-    harnessRevertSessionCheckpoint(ClientConfig config,
-        {required String sessionId,
-        required String checkpointId,
-        RequestOptions? requestOptions}) async {
+Future<RollbackToCheckpointResponse> harnessRevertSessionCheckpoint(
+    ClientConfig config,
+    {required String sessionId,
+    required String checkpointId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<RollbackToCheckpointResponse>('POST',
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/checkpoints/${Uri.encodeComponent(checkpointId.toString())}/rollback',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessRevertSessionCheckpoint',
-          fromJsonRaw: (value) => RollbackToCheckpointResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RollbackToCheckpointResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Each child boots a fresh sandbox from the checkpoint's machine-state capture and is drivable exactly like any other session (input, HITL), with parent_session_id and fork_id set for lineage. When from_checkpoint_id is omitted, an implicit checkpoint of the session "now" is captured first and the children fork from that. All-or-nothing: on failure nothing is left running.
 ///
@@ -728,12 +1036,23 @@ Future<ForkSessionResponse> harnessCreateSessionFork(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessCreateSessionFork',
-          fromJsonRaw: (value) => ForkSessionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ForkSessionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// harness-api forwards the decision into the owning microVM via the inbound runtime.v1.OHR.ResolveHITL RPC (dialed through the guest-fronting proxy), which unblocks the gated agent action. The resolution is also echoed to all attached clients as a HITLResolved event on StreamSession. Returns 204 No Content on success.
 ///
@@ -764,13 +1083,23 @@ Future<void> harnessPostSessionHitl(ClientConfig config,
             'source': SdkUtils.unwrapOptional(source)
           },
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders({'X-Device-UUID': SdkUtils.unwrapOptional(xDeviceUuid)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'X-Device-UUID': SdkUtils.unwrapOptional(xDeviceUuid)}),
           operationId: 'harnessPostSessionHitl',
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// The agent observes it on its next turn and emits subsequent events via StreamSession. The input is forwarded to the owning microVM's OHR inbound surface, which attributes it to a run and returns the run id.
 ///
@@ -786,12 +1115,23 @@ Future<SendInputResponse> harnessCreateSessionInput(ClientConfig config,
           body: {'text': text},
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessCreateSessionInput',
-          fromJsonRaw: (value) => SendInputResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SendInputResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Supported on microvm-substrate sessions only; dewdrop/docker sessions return 501 Not Implemented. Paused sessions count against quota. Clients learn state via GetSession/ListSessions; no live session.updated event is emitted.
 ///
@@ -806,13 +1146,24 @@ Future<void> harnessPostSessionPause(ClientConfig config,
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/pause',
           config: config,
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders({'X-Device-UUID': SdkUtils.unwrapOptional(xDeviceUuid)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'X-Device-UUID': SdkUtils.unwrapOptional(xDeviceUuid)}),
           operationId: 'harnessPostSessionPause',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Only valid for microvm-substrate sessions; dewdrop/docker sessions return 501 Not Implemented. Implicit resume also occurs when SendInput or ResolveHITL is called on a paused session. Returns synchronously once the sandbox is ready.
 ///
@@ -827,13 +1178,24 @@ Future<void> harnessPostSessionResume(ClientConfig config,
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/resume',
           config: config,
           decoder: SdkResponseDecoder.empty,
-          extraHeaders: SdkUtils.serializeHeaders({'X-Device-UUID': SdkUtils.unwrapOptional(xDeviceUuid)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'X-Device-UUID': SdkUtils.unwrapOptional(xDeviceUuid)}),
           operationId: 'harnessPostSessionResume',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Runs `argv` directly in the guest (no shell). Stdout/stderr are buffered and capped at 1 MiB each; truncation is indicated via response headers when present. A non-zero exit code is still HTTP 200.
 ///
@@ -865,12 +1227,23 @@ Future<ExecInSandboxResponse> harnessPostSessionSandboxExec(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessPostSessionSandboxExec',
-          fromJsonRaw: (value) => ExecInSandboxResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExecInSandboxResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Streams the workspace payload back as `application/octet-stream` using chunked transfer encoding, followed by a fixed integrity footer. Response body layout: `&lt;payload&gt;` + `&lt;footer&gt;`, where the footer is exactly 73 bytes: `DOWSSHA1` (8 bytes) + 64-char lowercase SHA-256 hex + `\n`. The client MUST strip the trailing 73 bytes before saving, verify SHA-256(payload) equals the footer digest, and treat a tail that does not match this shape (magic + 64 hex + newline) as a failed (truncated/corrupt) transfer. Other metadata: - `X-Workspace-Is-Archive: true` when the payload is a tar archive. - `X-Workspace-Size-Bytes` is a progress hint (not Content-Length) and excludes the footer. - The `X-Content-Sha256` trailer also carries the digest but is best-effort: edge proxies may strip HTTP trailers, so the body footer is authoritative. Concurrent transfers (upload + download) are capped server-side; over the cap the request blocks and may return 503.
 ///
@@ -890,15 +1263,28 @@ Future<List<int>> harnessGetSessionWorkspaceDownload(ClientConfig config,
           config: config,
           query: {
             'path': SdkQueryValue(path, style: 'form', explode: true),
-            'as_archive': SdkQueryValue(SdkUtils.unwrapOptional(asArchive), style: 'form', explode: true)
+            'as_archive': SdkQueryValue(SdkUtils.unwrapOptional(asArchive),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.bytes,
           operationId: 'harnessGetSessionWorkspaceDownload',
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), '502': (value) => Error2.fromJson(value as Map<String, dynamic>), '503': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '502': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '503': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates an asynchronous, object-storage-backed transfer for payloads larger than the streaming path supports (&gt; ~50 MiB). Bulk bytes never traverse harness-api: the client PUTs/GETs presigned DO Spaces URLs directly. Set `direction` to `upload` or `download`. - `upload`: responds 201 with `transfer_id` + `part_size`; the client then requests per-part presigned PUT URLs, uploads them to Spaces, and calls `commit`. - `download`: responds 202 with `transfer_id`; the client polls GET until `completed` and then fetches `download_url` from Spaces. Upload and cancel currently return 501 until the sandbox backend RPCs ship; download is live.
 ///
@@ -913,16 +1299,17 @@ Future<List<int>> harnessGetSessionWorkspaceDownload(ClientConfig config,
 ///   staged object size (50 GiB); a larger value returns 413.
 /// [sha256] Optional lowercase hex SHA-256 of the full payload. If set on an
 ///   upload, it must match on commit.
-Future<WorkspaceTransferCreated>
-    harnessCreateSessionWorkspaceTransfer(ClientConfig config,
-        {required String sessionId,
-        required HarnessCreateSessionWorkspaceTransferRequestBodyDirection direction,
-        required String path,
-        SdkOptional<bool> isArchive = const SdkOmitted(),
-        SdkOptional<bool> asArchive = const SdkOmitted(),
-        SdkOptional<String> sizeBytes = const SdkOmitted(),
-        SdkOptional<String> sha256 = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<WorkspaceTransferCreated> harnessCreateSessionWorkspaceTransfer(
+    ClientConfig config,
+    {required String sessionId,
+    required HarnessCreateSessionWorkspaceTransferRequestBodyDirection
+        direction,
+    required String path,
+    SdkOptional<bool> isArchive = const SdkOmitted(),
+    SdkOptional<bool> asArchive = const SdkOmitted(),
+    SdkOptional<String> sizeBytes = const SdkOmitted(),
+    SdkOptional<String> sha256 = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<WorkspaceTransferCreated>('POST',
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/workspace/transfers',
           config: config,
@@ -936,57 +1323,89 @@ Future<WorkspaceTransferCreated>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessCreateSessionWorkspaceTransfer',
-          fromJsonRaw: (value) => WorkspaceTransferCreated.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              WorkspaceTransferCreated.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '413': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), '502': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '413': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '502': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns the current transfer state. For a completed download the response also carries a freshly minted presigned GET `download_url` (its TTL starts at poll time) and the payload `sha256` for client-side verification.
 ///
 /// [sessionId] The session UUID.
 /// [transferId] The workspace transfer identifier.
-Future<WorkspaceTransferStatus>
-    harnessGetSessionWorkspaceTransfer(ClientConfig config,
-        {required String sessionId,
-        required String transferId,
-        RequestOptions? requestOptions}) async {
+Future<WorkspaceTransferStatus> harnessGetSessionWorkspaceTransfer(
+    ClientConfig config,
+    {required String sessionId,
+    required String transferId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<WorkspaceTransferStatus>('GET',
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/workspace/transfers/${Uri.encodeComponent(transferId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessGetSessionWorkspaceTransfer',
-          fromJsonRaw: (value) => WorkspaceTransferStatus.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              WorkspaceTransferStatus.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Aborts an in-flight transfer. Idempotent: cancelling an already-terminal transfer returns `aborted: false` with the current status. The request body is optional.
 ///
 /// [sessionId] The session UUID.
 /// [transferId] The workspace transfer identifier.
 /// [reason] Optional caller-visible audit/debug context.
-Future<WorkspaceTransferCancelled>
-    harnessCancelSessionWorkspaceTransfer(ClientConfig config,
-        {required String sessionId,
-        required String transferId,
-        SdkOptional<String> reason = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<WorkspaceTransferCancelled> harnessCancelSessionWorkspaceTransfer(
+    ClientConfig config,
+    {required String sessionId,
+    required String transferId,
+    SdkOptional<String> reason = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<WorkspaceTransferCancelled>('POST',
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/workspace/transfers/${Uri.encodeComponent(transferId.toString())}/cancel',
           config: config,
           body: {'reason': SdkUtils.unwrapOptional(reason)},
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessCancelSessionWorkspaceTransfer',
-          fromJsonRaw: (value) => WorkspaceTransferCancelled.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => WorkspaceTransferCancelled.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Upload only. Call once, after all parts have been uploaded. Completes the multipart upload and starts the asynchronous import into the workspace. Responds 202; poll the transfer until `completed` or `failed`.
 ///
@@ -994,48 +1413,70 @@ Future<WorkspaceTransferCancelled>
 /// [transferId] The workspace transfer identifier.
 /// [sha256] Optional lowercase hex SHA-256. Must match the value supplied at
 ///   create when both are set.
-Future<WorkspaceUploadCommitted>
-    harnessCommitSessionWorkspaceTransfer(ClientConfig config,
-        {required String sessionId,
-        required String transferId,
-        SdkOptional<String> sha256 = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<WorkspaceUploadCommitted> harnessCommitSessionWorkspaceTransfer(
+    ClientConfig config,
+    {required String sessionId,
+    required String transferId,
+    SdkOptional<String> sha256 = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<WorkspaceUploadCommitted>('POST',
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/workspace/transfers/${Uri.encodeComponent(transferId.toString())}/commit',
           config: config,
           body: {'sha256': SdkUtils.unwrapOptional(sha256)},
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessCommitSessionWorkspaceTransfer',
-          fromJsonRaw: (value) => WorkspaceUploadCommitted.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              WorkspaceUploadCommitted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Upload only. Pass one or more 1-based `part_numbers`; the response returns a presigned `upload_url` per part (all sharing one `expires_at`), so a client can drive parallel part uploads without a round trip per part. PUT each part's bytes directly to its URL (bypassing harness-api). If URLs expire before the PUT, request them again.
 ///
 /// [sessionId] The session UUID.
 /// [transferId] The workspace transfer identifier.
 /// [partNumbers] 1-based part indices to presign (single or batched).
-Future<WorkspacePartUploadUrls>
-    harnessCreateSessionWorkspacePartUploadUrls(ClientConfig config,
-        {required String sessionId,
-        required String transferId,
-        required List<int> partNumbers,
-        RequestOptions? requestOptions}) async {
+Future<WorkspacePartUploadUrls> harnessCreateSessionWorkspacePartUploadUrls(
+    ClientConfig config,
+    {required String sessionId,
+    required String transferId,
+    required List<int> partNumbers,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<WorkspacePartUploadUrls>('POST',
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/workspace/transfers/${Uri.encodeComponent(transferId.toString())}/part-upload-urls',
           config: config,
           body: {'part_numbers': partNumbers},
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessCreateSessionWorkspacePartUploadUrls',
-          fromJsonRaw: (value) => WorkspacePartUploadUrls.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              WorkspacePartUploadUrls.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Upload a file or tar archive to a path in a session's sandbox workspace. Send the raw bytes in the request body and use `is_archive` to have the guest extract a tar stream under the destination path. Include `X-Content-Sha256` to verify the payload after it is written; uploads are capped at 500 MiB.
 ///
@@ -1049,32 +1490,49 @@ Future<WorkspacePartUploadUrls>
 ///   `path`. Defaults to false (single file).
 /// [xContentSha256] Optional hex SHA-256 of the full payload. The guest
 ///   verifies it after writing; a mismatch returns 400.
-Future<WorkspaceUploadResponse>
-    harnessCreateSessionWorkspaceUpload(ClientConfig config,
-        {required String sessionId,
-        required String path,
-        required List<int> body,
-        SdkOptional<bool> isArchive = const SdkOmitted(),
-        SdkOptional<String> xContentSha256 = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<WorkspaceUploadResponse> harnessCreateSessionWorkspaceUpload(
+    ClientConfig config,
+    {required String sessionId,
+    required String path,
+    required List<int> body,
+    SdkOptional<bool> isArchive = const SdkOmitted(),
+    SdkOptional<String> xContentSha256 = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<WorkspaceUploadResponse>('POST',
           '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/workspace/upload',
           config: config,
           query: {
             'path': SdkQueryValue(path, style: 'form', explode: true),
-            'is_archive': SdkQueryValue(SdkUtils.unwrapOptional(isArchive), style: 'form', explode: true)
+            'is_archive': SdkQueryValue(SdkUtils.unwrapOptional(isArchive),
+                style: 'form', explode: true)
           },
           body: body,
           contentType: 'application/octet-stream',
           decoder: SdkResponseDecoder.json,
-          extraHeaders: SdkUtils.serializeHeaders({'X-Content-Sha256': SdkUtils.unwrapOptional(xContentSha256)}),
+          extraHeaders: SdkUtils.serializeHeaders(
+              {'X-Content-Sha256': SdkUtils.unwrapOptional(xContentSha256)}),
           operationId: 'harnessCreateSessionWorkspaceUpload',
-          fromJsonRaw: (value) => WorkspaceUploadResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              WorkspaceUploadResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '413': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), '502': (value) => Error2.fromJson(value as Map<String, dynamic>), '503': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '413': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '502': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '503': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Opens a `text/event-stream` of the session's canonical events, served by the MARS data plane (OHP). Each frame is `event: &lt;type&gt;` plus a `data:` line holding a JSON event envelope; comment lines (`: keepalive`) arrive about every 15s and must be ignored. Decode every `data:` with one envelope parser and dispatch on the envelope's `type`. Every stream opens with a `stream.state` control frame (its `data` is a `stream_state`). Delivery is at-least-once: clients MUST de-duplicate and order by `event_id` (a ULID), never by `seq`. The same path serves two modes: - live attach (default): recent context, then an open stream that stays live until the client disconnects. Pass `Last-Event-ID` (or `cursor`) to resume strictly after the last event the client already rendered, suppressing the last-N context floor. - finite replay (`replay_only=true`): writes a bounded slice of the stored transcript and closes. This is what `doctl agents logs` uses; paginate it with `replay_from`. OHP serves recent history only (bounded by Kafka retention and an event window); it is not an archive. OHP's own errors (404/429/500/503) use the DO-standard JSON `{id, message, request_id}` envelope (cthulhu#179797 / MARSOHS-2065); the 401 comes from the edge.
 ///
@@ -1095,29 +1553,52 @@ Future<WorkspaceUploadResponse>
 ///   presence marks the request a reconnect, so OHP serves strictly what follows
 ///   it with no last-N floor. Persist it only after rendering.
 /// [xDeviceUuid] A stable per-install device id. See `device_id`.
-Stream<StreamEvent> harnessGetSessionEvents(ClientConfig config, {required String sessionId, SdkOptional<bool> replayOnly = const SdkOmitted(), SdkOptional<String> replayFrom = const SdkOmitted(), SdkOptional<String> cursor = const SdkOmitted(), SdkOptional<String> deviceId = const SdkOmitted(), SdkOptional<String> lastEventId = const SdkOmitted(), SdkOptional<String> xDeviceUuid = const SdkOmitted(), RequestOptions? requestOptions}) async* {
+Stream<StreamEvent> harnessGetSessionEvents(ClientConfig config,
+    {required String sessionId,
+    SdkOptional<bool> replayOnly = const SdkOmitted(),
+    SdkOptional<String> replayFrom = const SdkOmitted(),
+    SdkOptional<String> cursor = const SdkOmitted(),
+    SdkOptional<String> deviceId = const SdkOmitted(),
+    SdkOptional<String> lastEventId = const SdkOmitted(),
+    SdkOptional<String> xDeviceUuid = const SdkOmitted(),
+    RequestOptions? requestOptions}) async* {
   await for (final event in sdkStream(
     'GET',
     '/v2/agents/sessions/${Uri.encodeComponent(sessionId.toString())}/events',
     query: {
-    'replay_only': SdkQueryValue(SdkUtils.unwrapOptional(replayOnly), style: 'form', explode: true),
-    'replay_from': SdkQueryValue(SdkUtils.unwrapOptional(replayFrom), style: 'form', explode: true),
-    'cursor': SdkQueryValue(SdkUtils.unwrapOptional(cursor), style: 'form', explode: true),
-    'device_id': SdkQueryValue(SdkUtils.unwrapOptional(deviceId), style: 'form', explode: true),
-  },
+      'replay_only': SdkQueryValue(SdkUtils.unwrapOptional(replayOnly),
+          style: 'form', explode: true),
+      'replay_from': SdkQueryValue(SdkUtils.unwrapOptional(replayFrom),
+          style: 'form', explode: true),
+      'cursor': SdkQueryValue(SdkUtils.unwrapOptional(cursor),
+          style: 'form', explode: true),
+      'device_id': SdkQueryValue(SdkUtils.unwrapOptional(deviceId),
+          style: 'form', explode: true),
+    },
     config: config,
-    extraHeaders: SdkUtils.serializeHeaders({'Last-Event-ID': SdkUtils.unwrapOptional(lastEventId), 'X-Device-UUID': SdkUtils.unwrapOptional(xDeviceUuid)}),
+    extraHeaders: SdkUtils.serializeHeaders({
+      'Last-Event-ID': SdkUtils.unwrapOptional(lastEventId),
+      'X-Device-UUID': SdkUtils.unwrapOptional(xDeviceUuid)
+    }),
     operationId: 'harnessGetSessionEvents',
     streamFormat: 'sse',
     streamMediaType: 'text/event-stream',
     chunkDomain: 'bytes',
     options: requestOptions,
-    errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '503': (value) => Error2.fromJson(value as Map<String, dynamic>)},
+    errors: {
+      '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+      '503': (value) => Error2.fromJson(value as Map<String, dynamic>)
+    },
   )) {
     if (event.data == '[DONE]') return;
-    yield sdkDecode(() => StreamEvent.fromJson(event.data as Map<String, dynamic>));
+    yield sdkDecode(
+        () => StreamEvent.fromJson(event.data as Map<String, dynamic>));
   }
 }
+
 /// Upgrades the request to a WebSocket and bridges it to one TCP connection on the session sandbox's guest `port`. Binary frames carry the opaque byte stream in both directions; the server closes with a descriptive WebSocket close code when the tunnel ends. This is the raw TCP tunnel; browser clients reaching the in-guest OpenHands Agent Server use the ingress URL (`GET /v2/agents/sessions/{session_id}/ingress`), which has replaced this bridge for them. WebSocket is not expressible in OpenAPI; this documents the GET that initiates the upgrade handshake (HTTP 101 Switching Protocols). The handler dials the guest before upgrading, so a PAUSED session is woken and served rather than rejected. `port` must be between 1024 and 65535. A request without the WebSocket upgrade headers is answered 400 by the handshake layer.
 ///
 /// [sessionId] The session UUID.
@@ -1133,12 +1614,23 @@ Future<Error2> harnessGetSessionPortForward(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessGetSessionPortForward',
-          fromJsonRaw: (value) => Error2.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Error2.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '502': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '502': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Publishes the URL on first call and returns it. Idempotent while the session runs: the same URL is returned until the session is paused, locked or rolled back, after which the next call returns a new hostname (pause and lock revoke the URL; rollback moves the session to a new sandbox, so re-fetch after resume, unlock or rollback). The URL fronts guest port 8000 (the OpenHands Agent Server, HTTP + WebSocket) and replaces the port-forward bridge for browser clients. Requests to the URL carry the caller's DO token as a Bearer header. Poll until `state` is INGRESS_URL_STATE_READY; there is no failed state. Only OpenHands sessions support ingress, and it is gated per team.
 ///
@@ -1150,12 +1642,22 @@ Future<GetIngressUrlResponse> harnessGetSessionIngress(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessGetSessionIngress',
-          fromJsonRaw: (value) => GetIngressUrlResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetIngressUrlResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '423': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '501': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '423': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '501': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// team_id is stamped from the authenticated principal; never accepted from the client.
 ///
@@ -1169,41 +1671,68 @@ Future<ListTemplatesResponse> harnessListTemplates(ClientConfig config,
   return (await sdkRequest<ListTemplatesResponse>('GET', '/v2/agents/templates',
           config: config,
           query: {
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true)
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessListTemplates',
-          fromJsonRaw: (value) => ListTemplatesResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListTemplatesResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// team_id is stamped from the authenticated principal; never accepted from the client.
 ///
 /// [pageSize] Page size. Defaults to 50 when omitted or non-positive.
 /// [pageToken] Optional pagination cursor (opaque). Empty starts from the
 ///   beginning.
-Stream<SandboxTemplate> harnessListTemplatesPaginated(ClientConfig config, {int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<SandboxTemplate> harnessListTemplatesPaginated(ClientConfig config,
+    {int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListTemplates(config, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await harnessListTemplates(config,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.templates.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListTemplatesResponse, SandboxTemplate>> harnessListTemplatesPages(ClientConfig config, {int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListTemplatesResponse, SandboxTemplate>>
+    harnessListTemplatesPages(ClientConfig config,
+        {int? pageSize,
+        String? pageToken,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListTemplates(config, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await harnessListTemplates(config,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.templates.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -1213,7 +1742,6 @@ Stream<SdkPage<ListTemplatesResponse, SandboxTemplate>> harnessListTemplatesPage
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Creates a team-owned template by rebasing a customer OCI reference onto a base template, then kicks off a build. Supply `name`, `base_template`, and `source_oci_ref`; `base_template` must identify one of the supported base templates. The team ID is taken from the authenticated user.
 ///
@@ -1239,12 +1767,19 @@ Future<CreateTemplateResponse> harnessCreateTemplate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessCreateTemplate',
-          fromJsonRaw: (value) => CreateTemplateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CreateTemplateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// GetTemplate returns a team custom template by public id.
 ///
@@ -1258,12 +1793,18 @@ Future<GetTemplateResponse> harnessGetTemplate(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessGetTemplate',
-          fromJsonRaw: (value) => GetTemplateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetTemplateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Replaces the source configuration of a team template and kicks off a new build. Supply `source_oci_ref`, `base_template`, or both to update the template; the body fields are optional.
 ///
@@ -1290,12 +1831,19 @@ Future<CreateTemplateResponse> harnessUpdateTemplate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessUpdateTemplate',
-          fromJsonRaw: (value) => CreateTemplateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CreateTemplateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '402': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '402': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a team-owned custom template. Use the template ID to identify the template to remove; global templates cannot be deleted through this operation.
 ///
@@ -1311,12 +1859,18 @@ Future<DeleteTemplateResponse> harnessDeleteTemplate(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessDeleteTemplate',
-          fromJsonRaw: (value) => DeleteTemplateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeleteTemplateResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// ListTemplateBuilds returns build history for a template.
 ///
@@ -1324,30 +1878,37 @@ Future<DeleteTemplateResponse> harnessDeleteTemplate(ClientConfig config,
 /// [pageSize] Page size. Defaults to 50 when omitted or non-positive.
 /// [pageToken] Optional pagination cursor (opaque). Empty starts from the
 ///   beginning.
-Future<ListTemplateBuildsResponse>
-    harnessListTemplateBuilds(ClientConfig config,
-        {required String templateId,
-        SdkOptional<int> pageSize = const SdkOmitted(),
-        SdkOptional<String> pageToken = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ListTemplateBuildsResponse> harnessListTemplateBuilds(
+    ClientConfig config,
+    {required String templateId,
+    SdkOptional<int> pageSize = const SdkOmitted(),
+    SdkOptional<String> pageToken = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   sdkValidateUuid('template_id', templateId);
 
   return (await sdkRequest<ListTemplateBuildsResponse>('GET',
           '/v2/agents/templates/${Uri.encodeComponent(templateId.toString())}/builds',
           config: config,
           query: {
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true)
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessListTemplateBuilds',
-          fromJsonRaw: (value) => ListTemplateBuildsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListTemplateBuildsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// ListTemplateBuilds returns build history for a template.
 ///
@@ -1355,23 +1916,51 @@ Future<ListTemplateBuildsResponse>
 /// [pageSize] Page size. Defaults to 50 when omitted or non-positive.
 /// [pageToken] Optional pagination cursor (opaque). Empty starts from the
 ///   beginning.
-Stream<SandboxTemplateBuild> harnessListTemplateBuildsPaginated(ClientConfig config, {required String templateId, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<SandboxTemplateBuild> harnessListTemplateBuildsPaginated(
+    ClientConfig config,
+    {required String templateId,
+    int? pageSize,
+    String? pageToken,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListTemplateBuilds(config, templateId: templateId, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await harnessListTemplateBuilds(config,
+        templateId: templateId,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.builds.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListTemplateBuildsResponse, SandboxTemplateBuild>> harnessListTemplateBuildsPages(ClientConfig config, {required String templateId, int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListTemplateBuildsResponse, SandboxTemplateBuild>>
+    harnessListTemplateBuildsPages(ClientConfig config,
+        {required String templateId,
+        int? pageSize,
+        String? pageToken,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListTemplateBuilds(config, templateId: templateId, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await harnessListTemplateBuilds(config,
+        templateId: templateId,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.builds.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -1381,7 +1970,6 @@ Stream<SdkPage<ListTemplateBuildsResponse, SandboxTemplateBuild>> harnessListTem
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Retrieves a single build for a template. Use the template and build UUIDs to identify the build and inspect its status, timestamps, and any reported error.
 ///
@@ -1401,12 +1989,18 @@ Future<GetTemplateBuildResponse> harnessGetTemplateBuild(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessGetTemplateBuild',
-          fromJsonRaw: (value) => GetTemplateBuildResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetTemplateBuildResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Keyset-paginated on an opaque cursor. Excludes soft-deleted triggers. Scoped to the authenticated team.
 ///
@@ -1429,20 +2023,29 @@ Future<ListTriggersResponse> harnessListTriggers(ClientConfig config,
   return (await sdkRequest<ListTriggersResponse>('GET', '/v2/agents/triggers',
           config: config,
           query: {
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true),
-            'kind': SdkQueryValue(SdkUtils.unwrapOptional(kind), style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true)
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true),
+            'kind': SdkQueryValue(SdkUtils.unwrapOptional(kind),
+                style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessListTriggers',
-          fromJsonRaw: (value) => ListTriggersResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListTriggersResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Keyset-paginated on an opaque cursor. Excludes soft-deleted triggers. Scoped to the authenticated team.
 ///
@@ -1452,23 +2055,62 @@ Future<ListTriggersResponse> harnessListTriggers(ClientConfig config,
 ///   from the beginning.
 /// [kind] Optional filter by trigger kind.
 /// [status] Optional filter by trigger status.
-Stream<Trigger> harnessListTriggersPaginated(ClientConfig config, {int? pageSize, String? pageToken, TriggerKind? kind, TriggerStatus? status, RequestOptions? requestOptions}) async* {
+Stream<Trigger> harnessListTriggersPaginated(ClientConfig config,
+    {int? pageSize,
+    String? pageToken,
+    TriggerKind? kind,
+    TriggerStatus? status,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListTriggers(config, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), kind: kind == null ? const SdkOmitted<TriggerKind>() : SdkPresent<TriggerKind>(kind), status: status == null ? const SdkOmitted<TriggerStatus>() : SdkPresent<TriggerStatus>(status), requestOptions: requestOptions);
+    final sdkPage = await harnessListTriggers(config,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        kind: kind == null
+            ? const SdkOmitted<TriggerKind>()
+            : SdkPresent<TriggerKind>(kind),
+        status: status == null
+            ? const SdkOmitted<TriggerStatus>()
+            : SdkPresent<TriggerStatus>(status),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.triggers.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListTriggersResponse, Trigger>> harnessListTriggersPages(ClientConfig config, {int? pageSize, String? pageToken, TriggerKind? kind, TriggerStatus? status, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListTriggersResponse, Trigger>> harnessListTriggersPages(
+    ClientConfig config,
+    {int? pageSize,
+    String? pageToken,
+    TriggerKind? kind,
+    TriggerStatus? status,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListTriggers(config, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), kind: kind == null ? const SdkOmitted<TriggerKind>() : SdkPresent<TriggerKind>(kind), status: status == null ? const SdkOmitted<TriggerStatus>() : SdkPresent<TriggerStatus>(status), requestOptions: requestOptions);
+    final sdkPage = await harnessListTriggers(config,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        kind: kind == null
+            ? const SdkOmitted<TriggerKind>()
+            : SdkPresent<TriggerKind>(kind),
+        status: status == null
+            ? const SdkOmitted<TriggerStatus>()
+            : SdkPresent<TriggerStatus>(status),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.triggers.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -1478,7 +2120,6 @@ Stream<SdkPage<ListTriggersResponse, Trigger>> harnessListTriggersPages(ClientCo
     sdkCursor = sdkNext;
   }
 }
-
 
 /// Validation is synchronous, so a mistake is a 400/409 at creation, not a silent miss at the first fire. Exactly one of `webhook` / `cron` must be present and match `kind`. kind=cron forbids a `webhook` block and requires a parseable `cron.cron_expr` and a valid IANA `cron.timezone`. session_mode=fresh requires `session_template` (a well-formed agents.yaml Agent manifest) and forbids `bound_session_id`; session_mode=reuse requires `bound_session_id` (an existing team-owned session) and forbids `session_template`. `output.mode` selects the destination block (email/slack), which is stored encrypted. `name` must be unique per team among non-deleted triggers. For webhook triggers the response includes `webhook_secret` exactly ONCE - it is never returned again. Cron triggers return no secret and carry a computed `trigger.cron.next_run_at`. The team and user identity are taken from the authenticated principal, never the body.
 ///
@@ -1512,7 +2153,8 @@ Future<CreateTriggerResponse> harnessCreateTrigger(ClientConfig config,
     SdkOptional<CreateCronConfig> cron = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   validateLength('name', name, min: 1, max: 64);
-  sdkValidatePattern('name', name, '^[A-Za-z0-9]([A-Za-z0-9._-]{0,62}[A-Za-z0-9])?\$');
+  sdkValidatePattern(
+      'name', name, '^[A-Za-z0-9]([A-Za-z0-9._-]{0,62}[A-Za-z0-9])?\$');
   if (boundSessionId is SdkPresent<String>) {
     sdkValidateUuid('bound_session_id', boundSessionId.value);
   }
@@ -1532,12 +2174,23 @@ Future<CreateTriggerResponse> harnessCreateTrigger(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessCreateTrigger',
-          fromJsonRaw: (value) => CreateTriggerResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CreateTriggerResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '502': (value) => Error2.fromJson(value as Map<String, dynamic>), '503': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '502': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '503': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns the trigger that produced (fresh) or binds (reuse) the given session. Resolves to the row even after the trigger is soft-deleted.
 ///
@@ -1549,12 +2202,18 @@ Future<GetTriggerResponse> harnessGetTriggerBySession(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessGetTriggerBySession',
-          fromJsonRaw: (value) => GetTriggerResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetTriggerResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Returns the team's sessions in status PAUSED, for binding a session_mode=reuse trigger. The item shape is the hosted-agents Session, so `agent_kind` and `status` use the AGENT_KIND_* / SESSION_STATUS_* spelling; `status` is always SESSION_STATUS_PAUSED here.
 ///
@@ -1562,11 +2221,11 @@ Future<GetTriggerResponse> harnessGetTriggerBySession(ClientConfig config,
 ///   server-clamped.
 /// [pageToken] Opaque keyset cursor returned by the previous page. Empty starts
 ///   from the beginning.
-Future<ListReusableSessionsResponse>
-    harnessListReusableSessions(ClientConfig config,
-        {SdkOptional<int> pageSize = const SdkOmitted(),
-        SdkOptional<String> pageToken = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ListReusableSessionsResponse> harnessListReusableSessions(
+    ClientConfig config,
+    {SdkOptional<int> pageSize = const SdkOmitted(),
+    SdkOptional<String> pageToken = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   if (pageSize is SdkPresent<int>) {
     validateRange('page_size', pageSize.value, min: 1);
   }
@@ -1575,18 +2234,24 @@ Future<ListReusableSessionsResponse>
           'GET', '/v2/agents/triggers/reusable-sessions',
           config: config,
           query: {
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true)
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessListReusableSessions',
-          fromJsonRaw: (value) => ListReusableSessionsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListReusableSessionsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Returns the team's sessions in status PAUSED, for binding a session_mode=reuse trigger. The item shape is the hosted-agents Session, so `agent_kind` and `status` use the AGENT_KIND_* / SESSION_STATUS_* spelling; `status` is always SESSION_STATUS_PAUSED here.
 ///
@@ -1594,23 +2259,47 @@ Future<ListReusableSessionsResponse>
 ///   server-clamped.
 /// [pageToken] Opaque keyset cursor returned by the previous page. Empty starts
 ///   from the beginning.
-Stream<ReusableSession> harnessListReusableSessionsPaginated(ClientConfig config, {int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<ReusableSession> harnessListReusableSessionsPaginated(
+    ClientConfig config,
+    {int? pageSize,
+    String? pageToken,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListReusableSessions(config, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await harnessListReusableSessions(config,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.sessions.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListReusableSessionsResponse, ReusableSession>> harnessListReusableSessionsPages(ClientConfig config, {int? pageSize, String? pageToken, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListReusableSessionsResponse, ReusableSession>>
+    harnessListReusableSessionsPages(ClientConfig config,
+        {int? pageSize,
+        String? pageToken,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListReusableSessions(config, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), requestOptions: requestOptions);
+    final sdkPage = await harnessListReusableSessions(config,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.sessions.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -1620,7 +2309,6 @@ Stream<SdkPage<ListReusableSessionsResponse, ReusableSession>> harnessListReusab
     sdkCursor = sdkNext;
   }
 }
-
 
 /// GetTrigger returns a single trigger by id. Write-only fields (webhook secret, output destination, session_template env values) are never included.
 ///
@@ -1632,12 +2320,18 @@ Future<GetTriggerResponse> harnessGetTrigger(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessGetTrigger',
-          fromJsonRaw: (value) => GetTriggerResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetTriggerResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates a trigger's mutable settings, including its name, status, prompt template, output configuration, session configuration, and schedule. Supply only the fields you want to change; `kind` and `webhook.provider` cannot be changed, and updating `session_template` replaces the stored template. Re-enabling a trigger does not produce a catch-up run, and schedule changes recompute `next_run_at`.
 ///
@@ -1670,7 +2364,8 @@ Future<GetTriggerResponse> harnessUpdateTrigger(ClientConfig config,
     RequestOptions? requestOptions}) async {
   if (name is SdkPresent<String>) {
     validateLength('name', name.value, min: 1, max: 64);
-    sdkValidatePattern('name', name.value, '^[A-Za-z0-9]([A-Za-z0-9._-]{0,62}[A-Za-z0-9])?\$');
+    sdkValidatePattern(
+        'name', name.value, '^[A-Za-z0-9]([A-Za-z0-9._-]{0,62}[A-Za-z0-9])?\$');
   }
   if (boundSessionId is SdkPresent<String>) {
     sdkValidateUuid('bound_session_id', boundSessionId.value);
@@ -1690,12 +2385,24 @@ Future<GetTriggerResponse> harnessUpdateTrigger(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessUpdateTrigger',
-          fromJsonRaw: (value) => GetTriggerResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetTriggerResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '502': (value) => Error2.fromJson(value as Map<String, dynamic>), '503': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '502': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '503': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Marks the trigger deleted, fails any pending executions, and purges the webhook secret / cron schedule. A fresh trigger owns no session; a reuse trigger only UNBINDS - it never destroys the customer's session. Execution history and by-session lookups continue to resolve to the deleted row. Returns 204 No Content on success.
 ///
@@ -1708,10 +2415,15 @@ Future<void> harnessDeleteTrigger(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'harnessDeleteTrigger',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Keyset-paginated. The large `payload` field is omitted from list items; fetch a single execution to read it.
 ///
@@ -1721,13 +2433,13 @@ Future<void> harnessDeleteTrigger(ClientConfig config,
 /// [pageToken] Opaque keyset cursor returned by the previous page. Empty starts
 ///   from the beginning.
 /// [status] Optional filter by execution status.
-Future<ListTriggerExecutionsResponse>
-    harnessListTriggerExecutions(ClientConfig config,
-        {required String triggerId,
-        SdkOptional<int> pageSize = const SdkOmitted(),
-        SdkOptional<String> pageToken = const SdkOmitted(),
-        SdkOptional<TriggerExecutionStatus> status = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<ListTriggerExecutionsResponse> harnessListTriggerExecutions(
+    ClientConfig config,
+    {required String triggerId,
+    SdkOptional<int> pageSize = const SdkOmitted(),
+    SdkOptional<String> pageToken = const SdkOmitted(),
+    SdkOptional<TriggerExecutionStatus> status = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   if (pageSize is SdkPresent<int>) {
     validateRange('page_size', pageSize.value, min: 1);
   }
@@ -1736,19 +2448,27 @@ Future<ListTriggerExecutionsResponse>
           '/v2/agents/triggers/${Uri.encodeComponent(triggerId.toString())}/executions',
           config: config,
           query: {
-            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize), style: 'form', explode: true),
-            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken), style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true)
+            'page_size': SdkQueryValue(SdkUtils.unwrapOptional(pageSize),
+                style: 'form', explode: true),
+            'page_token': SdkQueryValue(SdkUtils.unwrapOptional(pageToken),
+                style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessListTriggerExecutions',
-          fromJsonRaw: (value) => ListTriggerExecutionsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListTriggerExecutionsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
-
 
 /// Keyset-paginated. The large `payload` field is omitted from list items; fetch a single execution to read it.
 ///
@@ -1758,23 +2478,59 @@ Future<ListTriggerExecutionsResponse>
 /// [pageToken] Opaque keyset cursor returned by the previous page. Empty starts
 ///   from the beginning.
 /// [status] Optional filter by execution status.
-Stream<TriggerExecution> harnessListTriggerExecutionsPaginated(ClientConfig config, {required String triggerId, int? pageSize, String? pageToken, TriggerExecutionStatus? status, RequestOptions? requestOptions}) async* {
+Stream<TriggerExecution> harnessListTriggerExecutionsPaginated(
+    ClientConfig config,
+    {required String triggerId,
+    int? pageSize,
+    String? pageToken,
+    TriggerExecutionStatus? status,
+    RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListTriggerExecutions(config, triggerId: triggerId, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), status: status == null ? const SdkOmitted<TriggerExecutionStatus>() : SdkPresent<TriggerExecutionStatus>(status), requestOptions: requestOptions);
+    final sdkPage = await harnessListTriggerExecutions(config,
+        triggerId: triggerId,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        status: status == null
+            ? const SdkOmitted<TriggerExecutionStatus>()
+            : SdkPresent<TriggerExecutionStatus>(status),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.executions.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
-    for (final sdkItem in sdkItems) { yield sdkItem; }
+    for (final sdkItem in sdkItems) {
+      yield sdkItem;
+    }
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
     if (sdkNext == null) return;
     sdkCursor = sdkNext;
   }
 }
 
-Stream<SdkPage<ListTriggerExecutionsResponse, TriggerExecution>> harnessListTriggerExecutionsPages(ClientConfig config, {required String triggerId, int? pageSize, String? pageToken, TriggerExecutionStatus? status, RequestOptions? requestOptions}) async* {
+Stream<SdkPage<ListTriggerExecutionsResponse, TriggerExecution>>
+    harnessListTriggerExecutionsPages(ClientConfig config,
+        {required String triggerId,
+        int? pageSize,
+        String? pageToken,
+        TriggerExecutionStatus? status,
+        RequestOptions? requestOptions}) async* {
   var sdkCursor = pageToken;
   while (true) {
-    final sdkPage = await harnessListTriggerExecutions(config, triggerId: triggerId, pageSize: pageSize == null ? const SdkOmitted<int>() : SdkPresent<int>(pageSize), pageToken: sdkCursor == null ? const SdkOmitted<String>() : SdkPresent<String>(sdkCursor), status: status == null ? const SdkOmitted<TriggerExecutionStatus>() : SdkPresent<TriggerExecutionStatus>(status), requestOptions: requestOptions);
+    final sdkPage = await harnessListTriggerExecutions(config,
+        triggerId: triggerId,
+        pageSize: pageSize == null
+            ? const SdkOmitted<int>()
+            : SdkPresent<int>(pageSize),
+        pageToken: sdkCursor == null
+            ? const SdkOmitted<String>()
+            : SdkPresent<String>(sdkCursor),
+        status: status == null
+            ? const SdkOmitted<TriggerExecutionStatus>()
+            : SdkPresent<TriggerExecutionStatus>(status),
+        requestOptions: requestOptions);
     final sdkItems = sdkPage.executions.valueOrNull ?? [];
     if (sdkItems.isEmpty) return;
     final sdkNext = sdkPage.nextPageToken.valueOrNull;
@@ -1785,27 +2541,32 @@ Stream<SdkPage<ListTriggerExecutionsResponse, TriggerExecution>> harnessListTrig
   }
 }
 
-
 /// Returns the full execution row, including the `payload`, `output_text`, and `output_truncated` fields omitted from list items.
 ///
 /// [triggerId] The trigger UUID.
 /// [executionId] The execution UUID.
-Future<GetTriggerExecutionResponse>
-    harnessGetTriggerExecution(ClientConfig config,
-        {required String triggerId,
-        required String executionId,
-        RequestOptions? requestOptions}) async {
+Future<GetTriggerExecutionResponse> harnessGetTriggerExecution(
+    ClientConfig config,
+    {required String triggerId,
+    required String executionId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<GetTriggerExecutionResponse>('GET',
           '/v2/agents/triggers/${Uri.encodeComponent(triggerId.toString())}/executions/${Uri.encodeComponent(executionId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessGetTriggerExecution',
-          fromJsonRaw: (value) => GetTriggerExecutionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetTriggerExecutionResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Fails the execution and frees the trigger's in-flight slot. A fresh-mode session is destroyed outright. A reuse-mode session is only paused, not stopped - harness has no run-interrupt call, so the agent's turn may still be in flight server-side; this frees the queue, not necessarily the agent's work. A non-running execution is a no-op that still returns 200.
 ///
@@ -1814,26 +2575,34 @@ Future<GetTriggerExecutionResponse>
 /// [force] Cancel even if the execution has not started a run yet (the worker's
 ///   own dispatch may still be in flight). Without this, that case returns 409;
 ///   reclaim clears it automatically within 15m regardless.
-Future<GetTriggerExecutionResponse>
-    harnessCancelTriggerExecution(ClientConfig config,
-        {required String triggerId,
-        required String executionId,
-        SdkOptional<bool> force = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<GetTriggerExecutionResponse> harnessCancelTriggerExecution(
+    ClientConfig config,
+    {required String triggerId,
+    required String executionId,
+    SdkOptional<bool> force = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<GetTriggerExecutionResponse>('POST',
           '/v2/agents/triggers/${Uri.encodeComponent(triggerId.toString())}/executions/${Uri.encodeComponent(executionId.toString())}/cancel',
           config: config,
           query: {
-            'force': SdkQueryValue(SdkUtils.unwrapOptional(force), style: 'form', explode: true)
+            'force': SdkQueryValue(SdkUtils.unwrapOptional(force),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessCancelTriggerExecution',
-          fromJsonRaw: (value) => GetTriggerExecutionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetTriggerExecutionResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Webhook triggers only (409 for cron). Issues a new secret (shown once) and moves the old value to the previous slot, where it keeps verifying deliveries until previous_secret_expires_at. Default grace is 5 minutes when grace_period_seconds is omitted, so deliveries already in flight (signed with the old value) still succeed while the customer updates their external system. After that instant the old value is refused with 401. Pass grace_period_seconds=0 to retire the old secret on this call (breach response), or a positive value (up to the server max, default 1 hour) for a custom window; above the max is 400.
 ///
@@ -1856,16 +2625,27 @@ Future<RotateSecretResponse> harnessPostTriggerRotateSecret(ClientConfig config,
           '/v2/agents/triggers/${Uri.encodeComponent(triggerId.toString())}/rotate-secret',
           config: config,
           query: {
-            'grace_period_seconds': SdkQueryValue(SdkUtils.unwrapOptional(gracePeriodSeconds), style: 'form', explode: true)
+            'grace_period_seconds': SdkQueryValue(
+                SdkUtils.unwrapOptional(gracePeriodSeconds),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessPostTriggerRotateSecret',
-          fromJsonRaw: (value) => RotateSecretResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RotateSecretResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '409': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '409': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Receives a signed webhook delivery from an external system for a trigger. The caller is the external system, and each delivery is authenticated with the trigger's provider-specific signature or token. Successful deliveries are accepted for asynchronous processing; paused triggers and deduplicated retries also receive an accepted response.
 ///
@@ -1883,23 +2663,37 @@ Future<WebhookAcceptedResponse> harnessPostTriggerWebhook(ClientConfig config,
           contentType: 'application/octet-stream',
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessPostTriggerWebhook',
-          fromJsonRaw: (value) => WebhookAcceptedResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              WebhookAcceptedResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => Error2.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
 
-
 /// A static, code-defined registry (not a database table), webhook-only. Cron triggers have no provider and never call this. Used to populate the provider dropdown with display name, docs link, paste hint, and the signature scheme.
-Future<ListWebhookProvidersResponse> harnessListWebhookProviders(ClientConfig config,
+Future<ListWebhookProvidersResponse> harnessListWebhookProviders(
+    ClientConfig config,
     {RequestOptions? requestOptions}) async {
   return (await sdkRequest<ListWebhookProvidersResponse>(
           'GET', '/v2/agents/webhook-providers',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'harnessListWebhookProviders',
-          fromJsonRaw: (value) => ListWebhookProvidersResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ListWebhookProvidersResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

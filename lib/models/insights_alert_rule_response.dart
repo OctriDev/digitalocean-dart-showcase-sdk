@@ -8,6 +8,7 @@ part of 'insights_alert.dart';
 class AlertRuleResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An Insights alert rule.
   final AlertRule alertRule;
 
@@ -15,16 +16,24 @@ class AlertRuleResponse implements SdkJsonModel {
 
   AlertRuleResponse Function({AlertRule alertRule}) get copyWith => _copyWith;
 
-  AlertRuleResponse _copyWith({Object? alertRule = sdkOmittedValue}) => AlertRuleResponse(
-    alertRule: identical(alertRule, sdkOmittedValue) ? this.alertRule : alertRule as AlertRule,
-  );
+  AlertRuleResponse _copyWith({Object? alertRule = sdkOmittedValue}) =>
+      AlertRuleResponse(
+        alertRule: identical(alertRule, sdkOmittedValue)
+            ? this.alertRule
+            : alertRule as AlertRule,
+      );
 
-  factory AlertRuleResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AlertRuleResponse(
-    alertRule: (json['alert_rule'] != null ? AlertRule.fromJson(json['alert_rule'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory AlertRuleResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AlertRuleResponse(
+            alertRule: (json['alert_rule'] != null
+                ? AlertRule.fromJson(json['alert_rule'] as Map<String, dynamic>)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'alert_rule': alertRule.toJson(),
-  };
+        'alert_rule': alertRule.toJson(),
+      };
 }

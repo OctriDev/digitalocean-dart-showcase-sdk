@@ -8,6 +8,7 @@ part of 'monitoring.dart';
 class Sinks implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `sink` wire field.
   final SdkOptional<SinksResponse> sink;
 
@@ -16,18 +17,28 @@ class Sinks implements SdkJsonModel {
   Sinks Function({SdkOptional<SinksResponse> sink}) get copyWith => _copyWith;
 
   Sinks _copyWith({Object? sink = sdkOmittedValue}) => Sinks(
-    sink: identical(sink, sdkOmittedValue) ? this.sink : sink as SdkOptional<SinksResponse>,
-  );
+        sink: identical(sink, sdkOmittedValue)
+            ? this.sink
+            : sink as SdkOptional<SinksResponse>,
+      );
 
-  factory Sinks.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(Sinks(
-    sink: json['sink'] != null ? SdkPresent((json['sink'] != null ? SinksResponse.fromJson(json['sink'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory Sinks.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      Sinks(
+        sink: json['sink'] != null
+            ? SdkPresent((json['sink'] != null
+                ? SinksResponse.fromJson(json['sink'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (sink) {
-      SdkPresent<SinksResponse>(value: final value) => {'sink': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sink) {
+          SdkPresent<SinksResponse>(value: final value) => {
+              'sink': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

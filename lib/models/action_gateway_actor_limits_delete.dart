@@ -8,23 +8,33 @@ part of 'action_gateway.dart';
 class ClearActorLimits implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required. Categories to clear, each at most once.
   final List<LimitCategory> categories;
 
   const ClearActorLimits({required this.categories});
 
-  ClearActorLimits Function({List<LimitCategory> categories}) get copyWith => _copyWith;
+  ClearActorLimits Function({List<LimitCategory> categories}) get copyWith =>
+      _copyWith;
 
-  ClearActorLimits _copyWith({Object? categories = sdkOmittedValue}) => ClearActorLimits(
-    categories: identical(categories, sdkOmittedValue) ? this.categories : categories as List<LimitCategory>,
-  );
+  ClearActorLimits _copyWith({Object? categories = sdkOmittedValue}) =>
+      ClearActorLimits(
+        categories: identical(categories, sdkOmittedValue)
+            ? this.categories
+            : categories as List<LimitCategory>,
+      );
 
-  factory ClearActorLimits.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ClearActorLimits(
-    categories: ((json['categories'] as List?)?.map((e) => LimitCategory.fromJson(e as String)).toList())!,
-  ), json);
+  factory ClearActorLimits.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ClearActorLimits(
+            categories: ((json['categories'] as List?)
+                ?.map((e) => LimitCategory.fromJson(e as String))
+                .toList())!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'categories': categories.map((item) => item.toJson()).toList(),
-  };
+        'categories': categories.map((item) => item.toJson()).toList(),
+      };
 }

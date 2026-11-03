@@ -10,14 +10,20 @@ class ApiDeleteCustomEvaluationMetricOutput implements SdkJsonModel {
   static const String constructionSurface = 'named';
   final Map<String, dynamic> additionalProperties;
 
-  const ApiDeleteCustomEvaluationMetricOutput({this.additionalProperties = const <String, dynamic>{}});
+  const ApiDeleteCustomEvaluationMetricOutput(
+      {this.additionalProperties = const <String, dynamic>{}});
 
-  factory ApiDeleteCustomEvaluationMetricOutput.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiDeleteCustomEvaluationMetricOutput(
-    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{}.contains(key)),
-  ), json);
+  factory ApiDeleteCustomEvaluationMetricOutput.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiDeleteCustomEvaluationMetricOutput(
+            additionalProperties: Map.of(json)
+              ..removeWhere((key, _) => const <String>{}.contains(key)),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...additionalProperties,
-  };
+        ...additionalProperties,
+      };
 }

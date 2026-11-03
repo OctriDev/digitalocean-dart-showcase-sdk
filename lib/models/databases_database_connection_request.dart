@@ -11,10 +11,9 @@ class DatabaseConnectionRequest implements SdkJsonModel {
 
   const DatabaseConnectionRequest();
 
-  factory DatabaseConnectionRequest.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DatabaseConnectionRequest(
-  ), json);
+  factory DatabaseConnectionRequest.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(DatabaseConnectionRequest(), json);
 
   @override
-  Map<String, dynamic> toJson() => {
-  };
+  Map<String, dynamic> toJson() => {};
 }

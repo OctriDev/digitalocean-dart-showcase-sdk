@@ -11,23 +11,36 @@ class AllAlertsVariant0 implements SdkJsonModel {
 
   const AllAlertsVariant0({this.alerts = const SdkOmitted()});
 
-  AllAlertsVariant0 Function({SdkOptional<List<Alert>> alerts}) get copyWith => _copyWith;
+  AllAlertsVariant0 Function({SdkOptional<List<Alert>> alerts}) get copyWith =>
+      _copyWith;
 
-  AllAlertsVariant0 _copyWith({Object? alerts = sdkOmittedValue}) => AllAlertsVariant0(
-    alerts: identical(alerts, sdkOmittedValue) ? this.alerts : alerts as SdkOptional<List<Alert>>,
-  );
+  AllAlertsVariant0 _copyWith({Object? alerts = sdkOmittedValue}) =>
+      AllAlertsVariant0(
+        alerts: identical(alerts, sdkOmittedValue)
+            ? this.alerts
+            : alerts as SdkOptional<List<Alert>>,
+      );
 
-  factory AllAlertsVariant0.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AllAlertsVariant0(
-    alerts: json['alerts'] != null ? SdkPresent(((json['alerts'] as List?)?.map((e) => Alert.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory AllAlertsVariant0.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AllAlertsVariant0(
+            alerts: json['alerts'] != null
+                ? SdkPresent(((json['alerts'] as List?)
+                    ?.map((e) => Alert.fromJson(e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (alerts) {
-      SdkPresent<List<Alert>>(value: final value) => {'alerts': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (alerts) {
+          SdkPresent<List<Alert>>(value: final value) => {
+              'alerts': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllAlerts` API schema.
@@ -35,37 +48,71 @@ class AllAlerts implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Alert>> alerts;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllAlerts({this.alerts = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllAlerts(
+      {this.alerts = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllAlerts Function({SdkOptional<List<Alert>> alerts, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllAlerts Function(
+      {SdkOptional<List<Alert>> alerts,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllAlerts _copyWith({Object? alerts = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllAlerts(
-    alerts: identical(alerts, sdkOmittedValue) ? this.alerts : alerts as SdkOptional<List<Alert>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllAlerts _copyWith(
+          {Object? alerts = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllAlerts(
+        alerts: identical(alerts, sdkOmittedValue)
+            ? this.alerts
+            : alerts as SdkOptional<List<Alert>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AllAlerts.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AllAlerts(
-    alerts: json['alerts'] != null ? SdkPresent(((json['alerts'] as List?)?.map((e) => Alert.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory AllAlerts.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      AllAlerts(
+        alerts: json['alerts'] != null
+            ? SdkPresent(((json['alerts'] as List?)
+                ?.map((e) => Alert.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (alerts) {
-      SdkPresent<List<Alert>>(value: final value) => {'alerts': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (alerts) {
+          SdkPresent<List<Alert>>(value: final value) => {
+              'alerts': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

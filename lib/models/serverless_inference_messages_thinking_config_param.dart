@@ -8,23 +8,29 @@ part of 'serverless_inference_messages.dart';
 class MessagesThinkingConfigParam implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Thinking mode discriminator (for example enabled or disabled).
   final String type_;
 
   const MessagesThinkingConfigParam({required this.type_});
 
-  MessagesThinkingConfigParam Function({String type_}) get copyWith => _copyWith;
+  MessagesThinkingConfigParam Function({String type_}) get copyWith =>
+      _copyWith;
 
-  MessagesThinkingConfigParam _copyWith({Object? type_ = sdkOmittedValue}) => MessagesThinkingConfigParam(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-  );
+  MessagesThinkingConfigParam _copyWith({Object? type_ = sdkOmittedValue}) =>
+      MessagesThinkingConfigParam(
+        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+      );
 
-  factory MessagesThinkingConfigParam.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(MessagesThinkingConfigParam(
-    type_: (json['type'] as String?)!,
-  ), json);
+  factory MessagesThinkingConfigParam.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          MessagesThinkingConfigParam(
+            type_: (json['type'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_,
-  };
+        'type': type_,
+      };
 }

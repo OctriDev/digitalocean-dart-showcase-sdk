@@ -8,28 +8,45 @@ part of 'insights_prom.dart';
 class PromSeriesResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `status` wire field.
   final PromSeriesResponseStatus status;
+
   /// Required array value serialized in the `data` wire field.
   final List<Map<String, dynamic>> data;
 
   const PromSeriesResponse({required this.status, required this.data});
 
-  PromSeriesResponse Function({PromSeriesResponseStatus status, List<Map<String, dynamic>> data}) get copyWith => _copyWith;
+  PromSeriesResponse Function(
+      {PromSeriesResponseStatus status,
+      List<Map<String, dynamic>> data}) get copyWith => _copyWith;
 
-  PromSeriesResponse _copyWith({Object? status = sdkOmittedValue, Object? data = sdkOmittedValue}) => PromSeriesResponse(
-    status: identical(status, sdkOmittedValue) ? this.status : status as PromSeriesResponseStatus,
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<Map<String, dynamic>>,
-  );
+  PromSeriesResponse _copyWith(
+          {Object? status = sdkOmittedValue, Object? data = sdkOmittedValue}) =>
+      PromSeriesResponse(
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as PromSeriesResponseStatus,
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<Map<String, dynamic>>,
+      );
 
-  factory PromSeriesResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(PromSeriesResponse(
-    status: (json['status'] != null ? PromSeriesResponseStatus.fromJson(json['status'] as String) : null)!,
-    data: ((json['data'] as List?)?.map((e) => e as Map<String, dynamic>).toList())!,
-  ), json);
+  factory PromSeriesResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          PromSeriesResponse(
+            status: (json['status'] != null
+                ? PromSeriesResponseStatus.fromJson(json['status'] as String)
+                : null)!,
+            data: ((json['data'] as List?)
+                ?.map((e) => e as Map<String, dynamic>)
+                .toList())!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'status': status.toJson(),
-    'data': data,
-  };
+        'status': status.toJson(),
+        'data': data,
+      };
 }

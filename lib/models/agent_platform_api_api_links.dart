@@ -8,6 +8,7 @@ part of 'agent_platform_api_api.dart';
 class ApiLinks implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Information about how to reach other pages
   final SdkOptional<ApiPages> pages;
 
@@ -16,18 +17,28 @@ class ApiLinks implements SdkJsonModel {
   ApiLinks Function({SdkOptional<ApiPages> pages}) get copyWith => _copyWith;
 
   ApiLinks _copyWith({Object? pages = sdkOmittedValue}) => ApiLinks(
-    pages: identical(pages, sdkOmittedValue) ? this.pages : pages as SdkOptional<ApiPages>,
-  );
+        pages: identical(pages, sdkOmittedValue)
+            ? this.pages
+            : pages as SdkOptional<ApiPages>,
+      );
 
-  factory ApiLinks.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiLinks(
-    pages: json['pages'] != null ? SdkPresent((json['pages'] != null ? ApiPages.fromJson(json['pages'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory ApiLinks.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      ApiLinks(
+        pages: json['pages'] != null
+            ? SdkPresent((json['pages'] != null
+                ? ApiPages.fromJson(json['pages'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (pages) {
-      SdkPresent<ApiPages>(value: final value) => {'pages': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (pages) {
+          SdkPresent<ApiPages>(value: final value) => {
+              'pages': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

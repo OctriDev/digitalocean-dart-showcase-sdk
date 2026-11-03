@@ -8,28 +8,42 @@ part of 'monitoring.dart';
 class Metrics implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `data` wire field.
   final MetricsData data;
+
   /// Required enumerated value serialized in the `status` wire field.
   final MetricsStatus status;
 
   const Metrics({required this.data, required this.status});
 
-  Metrics Function({MetricsData data, MetricsStatus status}) get copyWith => _copyWith;
+  Metrics Function({MetricsData data, MetricsStatus status}) get copyWith =>
+      _copyWith;
 
-  Metrics _copyWith({Object? data = sdkOmittedValue, Object? status = sdkOmittedValue}) => Metrics(
-    data: identical(data, sdkOmittedValue) ? this.data : data as MetricsData,
-    status: identical(status, sdkOmittedValue) ? this.status : status as MetricsStatus,
-  );
+  Metrics _copyWith(
+          {Object? data = sdkOmittedValue, Object? status = sdkOmittedValue}) =>
+      Metrics(
+        data:
+            identical(data, sdkOmittedValue) ? this.data : data as MetricsData,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as MetricsStatus,
+      );
 
-  factory Metrics.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(Metrics(
-    data: (json['data'] != null ? MetricsData.fromJson(json['data'] as Map<String, dynamic>) : null)!,
-    status: (json['status'] != null ? MetricsStatus.fromJson(json['status'] as String) : null)!,
-  ), json);
+  factory Metrics.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      Metrics(
+        data: (json['data'] != null
+            ? MetricsData.fromJson(json['data'] as Map<String, dynamic>)
+            : null)!,
+        status: (json['status'] != null
+            ? MetricsStatus.fromJson(json['status'] as String)
+            : null)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'data': data.toJson(),
-    'status': status.toJson(),
-  };
+        'data': data.toJson(),
+        'status': status.toJson(),
+      };
 }

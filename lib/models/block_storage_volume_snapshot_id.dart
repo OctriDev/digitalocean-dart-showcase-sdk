@@ -8,26 +8,38 @@ part of 'block_storage.dart';
 class VolumeSnapshotId implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The unique identifier for the volume snapshot from which to create the volume.
   final SdkOptional<String> snapshotId;
 
   const VolumeSnapshotId({this.snapshotId = const SdkOmitted()});
 
-  VolumeSnapshotId Function({SdkOptional<String> snapshotId}) get copyWith => _copyWith;
+  VolumeSnapshotId Function({SdkOptional<String> snapshotId}) get copyWith =>
+      _copyWith;
 
-  VolumeSnapshotId _copyWith({Object? snapshotId = sdkOmittedValue}) => VolumeSnapshotId(
-    snapshotId: identical(snapshotId, sdkOmittedValue) ? this.snapshotId : snapshotId as SdkOptional<String>,
-  );
+  VolumeSnapshotId _copyWith({Object? snapshotId = sdkOmittedValue}) =>
+      VolumeSnapshotId(
+        snapshotId: identical(snapshotId, sdkOmittedValue)
+            ? this.snapshotId
+            : snapshotId as SdkOptional<String>,
+      );
 
-  factory VolumeSnapshotId.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(VolumeSnapshotId(
-    snapshotId: json['snapshot_id'] != null ? SdkPresent((json['snapshot_id'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory VolumeSnapshotId.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          VolumeSnapshotId(
+            snapshotId: json['snapshot_id'] != null
+                ? SdkPresent((json['snapshot_id'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (snapshotId) {
-      SdkPresent<String>(value: final value) => {'snapshot_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (snapshotId) {
+          SdkPresent<String>(value: final value) => {
+              'snapshot_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

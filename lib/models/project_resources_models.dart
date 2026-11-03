@@ -8,62 +8,91 @@ part of 'project_resources.dart';
 class AssignedResourcesList implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// All resources, including the ones added in the request, that are assigned to the project. Only resources that you are authorized to see will be returned.
   final SdkOptional<List<Resource>> resources;
 
   const AssignedResourcesList({this.resources = const SdkOmitted()});
 
-  AssignedResourcesList Function({SdkOptional<List<Resource>> resources}) get copyWith => _copyWith;
+  AssignedResourcesList Function({SdkOptional<List<Resource>> resources})
+      get copyWith => _copyWith;
 
-  AssignedResourcesList _copyWith({Object? resources = sdkOmittedValue}) => AssignedResourcesList(
-    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<List<Resource>>,
-  );
+  AssignedResourcesList _copyWith({Object? resources = sdkOmittedValue}) =>
+      AssignedResourcesList(
+        resources: identical(resources, sdkOmittedValue)
+            ? this.resources
+            : resources as SdkOptional<List<Resource>>,
+      );
 
-  factory AssignedResourcesList.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AssignedResourcesList(
-    resources: json['resources'] != null ? SdkPresent(((json['resources'] as List?)?.map((e) => Resource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory AssignedResourcesList.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AssignedResourcesList(
+            resources: json['resources'] != null
+                ? SdkPresent(((json['resources'] as List?)
+                    ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (resources) {
-      SdkPresent<List<Resource>>(value: final value) => {'resources': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (resources) {
+          SdkPresent<List<Resource>>(value: final value) => {
+              'resources': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ProjectAssignment` API schema.
 class ProjectAssignment implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A list of uniform resource names (URNs) to be added to a project. Only resources that you are authorized to see will be returned.
   final SdkOptional<List<String>> resources;
 
   const ProjectAssignment({this.resources = const SdkOmitted()});
 
-  ProjectAssignment Function({SdkOptional<List<String>> resources}) get copyWith => _copyWith;
+  ProjectAssignment Function({SdkOptional<List<String>> resources})
+      get copyWith => _copyWith;
 
-  ProjectAssignment _copyWith({Object? resources = sdkOmittedValue}) => ProjectAssignment(
-    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<List<String>>,
-  );
+  ProjectAssignment _copyWith({Object? resources = sdkOmittedValue}) =>
+      ProjectAssignment(
+        resources: identical(resources, sdkOmittedValue)
+            ? this.resources
+            : resources as SdkOptional<List<String>>,
+      );
 
-  factory ProjectAssignment.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ProjectAssignment(
-    resources: json['resources'] != null ? SdkPresent(((json['resources'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  ), json);
+  factory ProjectAssignment.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ProjectAssignment(
+            resources: json['resources'] != null
+                ? SdkPresent(((json['resources'] as List?)
+                    ?.map((e) => e as String)
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (resources) {
-      SdkPresent<List<String>>(value: final value) => {'resources': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (resources) {
+          SdkPresent<List<String>>(value: final value) => {
+              'resources': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The links object contains the `self` object, which contains the resource relationship.
 class ResourceLinks implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A URI that can be used to retrieve the resource.
   final SdkOptional<String> self;
 
@@ -72,138 +101,242 @@ class ResourceLinks implements SdkJsonModel {
   ResourceLinks Function({SdkOptional<String> self}) get copyWith => _copyWith;
 
   ResourceLinks _copyWith({Object? self = sdkOmittedValue}) => ResourceLinks(
-    self: identical(self, sdkOmittedValue) ? this.self : self as SdkOptional<String>,
-  );
+        self: identical(self, sdkOmittedValue)
+            ? this.self
+            : self as SdkOptional<String>,
+      );
 
-  factory ResourceLinks.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ResourceLinks(
-    self: json['self'] != null ? SdkPresent((json['self'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory ResourceLinks.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      ResourceLinks(
+        self: json['self'] != null
+            ? SdkPresent((json['self'] as String?)!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (self) {
-      SdkPresent<String>(value: final value) => {'self': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (self) {
+          SdkPresent<String>(value: final value) => {
+              'self': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `Resource` API schema.
 class Resource implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The uniform resource name (URN) for the resource in the format do:resource_type:resource_id.
   final SdkOptional<String> urn;
+
   /// A time value given in ISO8601 combined date and time format that represents when the project was created.
   final SdkOptional<String> assignedAt;
+
   /// The links object contains the `self` object, which contains the resource relationship.
   final SdkOptional<ResourceLinks> links;
+
   /// The status of assigning and fetching the resources.
   final SdkOptional<ResourceStatus> status;
 
-  const Resource({this.urn = const SdkOmitted(), this.assignedAt = const SdkOmitted(), this.links = const SdkOmitted(), this.status = const SdkOmitted()});
+  const Resource(
+      {this.urn = const SdkOmitted(),
+      this.assignedAt = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      this.status = const SdkOmitted()});
 
-  Resource Function({SdkOptional<String> urn, SdkOptional<String> assignedAt, SdkOptional<ResourceLinks> links, SdkOptional<ResourceStatus> status}) get copyWith => _copyWith;
+  Resource Function(
+      {SdkOptional<String> urn,
+      SdkOptional<String> assignedAt,
+      SdkOptional<ResourceLinks> links,
+      SdkOptional<ResourceStatus> status}) get copyWith => _copyWith;
 
-  Resource _copyWith({Object? urn = sdkOmittedValue, Object? assignedAt = sdkOmittedValue, Object? links = sdkOmittedValue, Object? status = sdkOmittedValue}) => Resource(
-    urn: identical(urn, sdkOmittedValue) ? this.urn : urn as SdkOptional<String>,
-    assignedAt: identical(assignedAt, sdkOmittedValue) ? this.assignedAt : assignedAt as SdkOptional<String>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<ResourceLinks>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<ResourceStatus>,
-  );
+  Resource _copyWith(
+          {Object? urn = sdkOmittedValue,
+          Object? assignedAt = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      Resource(
+        urn: identical(urn, sdkOmittedValue)
+            ? this.urn
+            : urn as SdkOptional<String>,
+        assignedAt: identical(assignedAt, sdkOmittedValue)
+            ? this.assignedAt
+            : assignedAt as SdkOptional<String>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<ResourceLinks>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<ResourceStatus>,
+      );
 
-  factory Resource.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(Resource(
-    urn: json['urn'] != null ? SdkPresent((json['urn'] as String?)!) : const SdkOmitted(),
-    assignedAt: json['assigned_at'] != null ? SdkPresent((json['assigned_at'] as String?)!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? ResourceLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? ResourceStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-  ), json);
+  factory Resource.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      Resource(
+        urn: json['urn'] != null
+            ? SdkPresent((json['urn'] as String?)!)
+            : const SdkOmitted(),
+        assignedAt: json['assigned_at'] != null
+            ? SdkPresent((json['assigned_at'] as String?)!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? ResourceLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? ResourceStatus.fromJson(json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (urn) {
-      SdkPresent<String>(value: final value) => {'urn': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (assignedAt) {
-      SdkPresent<String>(value: final value) => {'assigned_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<ResourceLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<ResourceStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (urn) {
+          SdkPresent<String>(value: final value) => {
+              'urn': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (assignedAt) {
+          SdkPresent<String>(value: final value) => {
+              'assigned_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<ResourceLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<ResourceStatus>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class ResourcesListVariant0 implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The resources that are assigned to this project. Only resources that you are authorized to see will be returned.
   final SdkOptional<List<Resource>> resources;
 
   const ResourcesListVariant0({this.resources = const SdkOmitted()});
 
-  ResourcesListVariant0 Function({SdkOptional<List<Resource>> resources}) get copyWith => _copyWith;
+  ResourcesListVariant0 Function({SdkOptional<List<Resource>> resources})
+      get copyWith => _copyWith;
 
-  ResourcesListVariant0 _copyWith({Object? resources = sdkOmittedValue}) => ResourcesListVariant0(
-    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<List<Resource>>,
-  );
+  ResourcesListVariant0 _copyWith({Object? resources = sdkOmittedValue}) =>
+      ResourcesListVariant0(
+        resources: identical(resources, sdkOmittedValue)
+            ? this.resources
+            : resources as SdkOptional<List<Resource>>,
+      );
 
-  factory ResourcesListVariant0.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ResourcesListVariant0(
-    resources: json['resources'] != null ? SdkPresent(((json['resources'] as List?)?.map((e) => Resource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory ResourcesListVariant0.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ResourcesListVariant0(
+            resources: json['resources'] != null
+                ? SdkPresent(((json['resources'] as List?)
+                    ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (resources) {
-      SdkPresent<List<Resource>>(value: final value) => {'resources': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (resources) {
+          SdkPresent<List<Resource>>(value: final value) => {
+              'resources': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ResourcesList` API schema.
 class ResourcesList implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The resources that are assigned to this project. Only resources that you are authorized to see will be returned.
   final SdkOptional<List<Resource>> resources;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const ResourcesList({this.resources = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const ResourcesList(
+      {this.resources = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  ResourcesList Function({SdkOptional<List<Resource>> resources, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  ResourcesList Function(
+      {SdkOptional<List<Resource>> resources,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  ResourcesList _copyWith({Object? resources = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => ResourcesList(
-    resources: identical(resources, sdkOmittedValue) ? this.resources : resources as SdkOptional<List<Resource>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  ResourcesList _copyWith(
+          {Object? resources = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      ResourcesList(
+        resources: identical(resources, sdkOmittedValue)
+            ? this.resources
+            : resources as SdkOptional<List<Resource>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory ResourcesList.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ResourcesList(
-    resources: json['resources'] != null ? SdkPresent(((json['resources'] as List?)?.map((e) => Resource.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory ResourcesList.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      ResourcesList(
+        resources: json['resources'] != null
+            ? SdkPresent(((json['resources'] as List?)
+                ?.map((e) => Resource.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (resources) {
-      SdkPresent<List<Resource>>(value: final value) => {'resources': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (resources) {
+          SdkPresent<List<Resource>>(value: final value) => {
+              'resources': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

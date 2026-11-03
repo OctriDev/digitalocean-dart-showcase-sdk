@@ -11,10 +11,9 @@ class WebhookSignatureConfig implements SdkJsonModel {
 
   const WebhookSignatureConfig();
 
-  factory WebhookSignatureConfig.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(WebhookSignatureConfig(
-  ), json);
+  factory WebhookSignatureConfig.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(WebhookSignatureConfig(), json);
 
   @override
-  Map<String, dynamic> toJson() => {
-  };
+  Map<String, dynamic> toJson() => {};
 }

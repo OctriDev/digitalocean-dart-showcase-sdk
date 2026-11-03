@@ -12,8 +12,14 @@ Future<AccountResponse> accountGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'accountGet',
-          fromJsonRaw: (value) => AccountResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AccountResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

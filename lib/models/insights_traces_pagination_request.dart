@@ -8,26 +8,38 @@ part of 'insights_traces.dart';
 class TracesPaginationRequest implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Maximum number of traces to return. Omitted or `0` uses the default of 100. Negative values or values above 1000 return `400`; they are not clamped.
   final SdkOptional<int> limit;
 
   const TracesPaginationRequest({this.limit = const SdkOmitted()});
 
-  TracesPaginationRequest Function({SdkOptional<int> limit}) get copyWith => _copyWith;
+  TracesPaginationRequest Function({SdkOptional<int> limit}) get copyWith =>
+      _copyWith;
 
-  TracesPaginationRequest _copyWith({Object? limit = sdkOmittedValue}) => TracesPaginationRequest(
-    limit: identical(limit, sdkOmittedValue) ? this.limit : limit as SdkOptional<int>,
-  );
+  TracesPaginationRequest _copyWith({Object? limit = sdkOmittedValue}) =>
+      TracesPaginationRequest(
+        limit: identical(limit, sdkOmittedValue)
+            ? this.limit
+            : limit as SdkOptional<int>,
+      );
 
-  factory TracesPaginationRequest.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(TracesPaginationRequest(
-    limit: json['limit'] != null ? SdkPresent(((json['limit'] as num?)?.toInt())!) : const SdkOmitted(),
-  ), json);
+  factory TracesPaginationRequest.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          TracesPaginationRequest(
+            limit: json['limit'] != null
+                ? SdkPresent(((json['limit'] as num?)?.toInt())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (limit) {
-      SdkPresent<int>(value: final value) => {'limit': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (limit) {
+          SdkPresent<int>(value: final value) => {
+              'limit': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

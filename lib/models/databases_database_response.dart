@@ -8,6 +8,7 @@ part of 'databases_database.dart';
 class DatabaseResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `db` wire field.
   final Database db;
 
@@ -15,16 +16,22 @@ class DatabaseResponse implements SdkJsonModel {
 
   DatabaseResponse Function({Database db}) get copyWith => _copyWith;
 
-  DatabaseResponse _copyWith({Object? db = sdkOmittedValue}) => DatabaseResponse(
-    db: identical(db, sdkOmittedValue) ? this.db : db as Database,
-  );
+  DatabaseResponse _copyWith({Object? db = sdkOmittedValue}) =>
+      DatabaseResponse(
+        db: identical(db, sdkOmittedValue) ? this.db : db as Database,
+      );
 
-  factory DatabaseResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DatabaseResponse(
-    db: (json['db'] != null ? Database.fromJson(json['db'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory DatabaseResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          DatabaseResponse(
+            db: (json['db'] != null
+                ? Database.fromJson(json['db'] as Map<String, dynamic>)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'db': db.toJson(),
-  };
+        'db': db.toJson(),
+      };
 }

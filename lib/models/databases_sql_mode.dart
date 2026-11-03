@@ -8,6 +8,7 @@ part of 'databases.dart';
 class SqlMode implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A string specifying the configured SQL modes for the MySQL cluster.
   final String sqlMode;
 
@@ -16,15 +17,19 @@ class SqlMode implements SdkJsonModel {
   SqlMode Function({String sqlMode}) get copyWith => _copyWith;
 
   SqlMode _copyWith({Object? sqlMode = sdkOmittedValue}) => SqlMode(
-    sqlMode: identical(sqlMode, sdkOmittedValue) ? this.sqlMode : sqlMode as String,
-  );
+        sqlMode: identical(sqlMode, sdkOmittedValue)
+            ? this.sqlMode
+            : sqlMode as String,
+      );
 
-  factory SqlMode.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(SqlMode(
-    sqlMode: (json['sql_mode'] as String?)!,
-  ), json);
+  factory SqlMode.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      SqlMode(
+        sqlMode: (json['sql_mode'] as String?)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'sql_mode': sqlMode,
-  };
+        'sql_mode': sqlMode,
+      };
 }

@@ -8,26 +8,40 @@ part of 'apps_apps.dart';
 class AppsRestartRequest implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `components` wire field.
   final SdkOptional<List<String>> components;
 
   const AppsRestartRequest({this.components = const SdkOmitted()});
 
-  AppsRestartRequest Function({SdkOptional<List<String>> components}) get copyWith => _copyWith;
+  AppsRestartRequest Function({SdkOptional<List<String>> components})
+      get copyWith => _copyWith;
 
-  AppsRestartRequest _copyWith({Object? components = sdkOmittedValue}) => AppsRestartRequest(
-    components: identical(components, sdkOmittedValue) ? this.components : components as SdkOptional<List<String>>,
-  );
+  AppsRestartRequest _copyWith({Object? components = sdkOmittedValue}) =>
+      AppsRestartRequest(
+        components: identical(components, sdkOmittedValue)
+            ? this.components
+            : components as SdkOptional<List<String>>,
+      );
 
-  factory AppsRestartRequest.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AppsRestartRequest(
-    components: json['components'] != null ? SdkPresent(((json['components'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-  ), json);
+  factory AppsRestartRequest.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AppsRestartRequest(
+            components: json['components'] != null
+                ? SdkPresent(((json['components'] as List?)
+                    ?.map((e) => e as String)
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (components) {
-      SdkPresent<List<String>>(value: final value) => {'components': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (components) {
+          SdkPresent<List<String>>(value: final value) => {
+              'components': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

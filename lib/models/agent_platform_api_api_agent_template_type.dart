@@ -6,22 +6,27 @@ part of 'agent_platform_api_api_agent.dart';
 // agent_platform_api_api_agent domain models
 /// - AGENT_TEMPLATE_TYPE_STANDARD: The standard agent template - AGENT_TEMPLATE_TYPE_ONE_CLICK: The one click agent template
 final class ApiAgentTemplateType {
-
   final String value;
 
   const ApiAgentTemplateType._(this.value);
 
-  factory ApiAgentTemplateType.fromJson(String value) => ApiAgentTemplateType._(value);
+  factory ApiAgentTemplateType.fromJson(String value) =>
+      ApiAgentTemplateType._(value);
 
-  static const agentTemplateTypeStandard = ApiAgentTemplateType._('AGENT_TEMPLATE_TYPE_STANDARD');
-  static const agentTemplateTypeOneClick = ApiAgentTemplateType._('AGENT_TEMPLATE_TYPE_ONE_CLICK');
+  static const agentTemplateTypeStandard =
+      ApiAgentTemplateType._('AGENT_TEMPLATE_TYPE_STANDARD');
+  static const agentTemplateTypeOneClick =
+      ApiAgentTemplateType._('AGENT_TEMPLATE_TYPE_ONE_CLICK');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiAgentTemplateType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiAgentTemplateType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

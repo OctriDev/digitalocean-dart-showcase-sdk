@@ -8,6 +8,7 @@ part of 'webhook_basic_auth.dart';
 class WebhookBasicAuth implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Basic auth username.
   final String username;
 
@@ -15,16 +16,22 @@ class WebhookBasicAuth implements SdkJsonModel {
 
   WebhookBasicAuth Function({String username}) get copyWith => _copyWith;
 
-  WebhookBasicAuth _copyWith({Object? username = sdkOmittedValue}) => WebhookBasicAuth(
-    username: identical(username, sdkOmittedValue) ? this.username : username as String,
-  );
+  WebhookBasicAuth _copyWith({Object? username = sdkOmittedValue}) =>
+      WebhookBasicAuth(
+        username: identical(username, sdkOmittedValue)
+            ? this.username
+            : username as String,
+      );
 
-  factory WebhookBasicAuth.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(WebhookBasicAuth(
-    username: (json['username'] as String?)!,
-  ), json);
+  factory WebhookBasicAuth.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          WebhookBasicAuth(
+            username: (json['username'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'username': username,
-  };
+        'username': username,
+      };
 }

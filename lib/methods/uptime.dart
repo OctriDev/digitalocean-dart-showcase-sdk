@@ -25,17 +25,25 @@ Future<AllChecks> uptimeListChecks(ClientConfig config,
   return (await sdkRequest<AllChecks>('GET', '/v2/uptime/checks',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'uptimeListChecks',
-          fromJsonRaw: (value) => AllChecks.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllChecks.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To create an Uptime check, send a POST request to `/v2/uptime/checks` specifying the attributes in the table below in the JSON body.
 ///
@@ -63,12 +71,17 @@ Future<ExistingCheck> uptimeCreateCheck(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'uptimeCreateCheck',
-          fromJsonRaw: (value) => ExistingCheck.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingCheck.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To show information about an existing check, send a GET request to `/v2/uptime/checks/$CHECK_ID`.
 ///
@@ -82,12 +95,18 @@ Future<ExistingCheck> uptimeGetCheck(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'uptimeGetCheck',
-          fromJsonRaw: (value) => ExistingCheck.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingCheck.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To update the settings of an Uptime check, send a PUT request to `/v2/uptime/checks/$CHECK_ID`.
 ///
@@ -104,12 +123,18 @@ Future<ExistingCheck> uptimeUpdateCheck(ClientConfig config,
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'uptimeUpdateCheck',
-          fromJsonRaw: (value) => ExistingCheck.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingCheck.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To delete an Uptime check, send a DELETE request to `/v2/uptime/checks/$CHECK_ID`. A 204 status code with no body will be returned in response to a successful request. Deleting a check will also delete alerts associated with the check.
 ///
@@ -124,10 +149,15 @@ Future<void> uptimeDeleteCheck(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'uptimeDeleteCheck',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To show information about an existing check's state, send a GET request to `/v2/uptime/checks/$CHECK_ID/state`.
 ///
@@ -141,12 +171,18 @@ Future<ExistingCheckState> uptimeGetCheckState(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'uptimeGetCheckState',
-          fromJsonRaw: (value) => ExistingCheckState.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingCheckState.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To list all of the alerts for an Uptime check, send a GET request to `/v2/uptime/checks/$CHECK_ID/alerts`.
 ///
@@ -170,17 +206,25 @@ Future<AllAlerts> uptimeListAlerts(ClientConfig config,
           '/v2/uptime/checks/${Uri.encodeComponent(checkId.toString())}/alerts',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'uptimeListAlerts',
-          fromJsonRaw: (value) => AllAlerts.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllAlerts.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To create an Uptime alert, send a POST request to `/v2/uptime/checks/$CHECK_ID/alerts` specifying the attributes in the table below in the JSON body.
 ///
@@ -199,7 +243,8 @@ Future<ExistingAlert> uptimeCreateAlert(ClientConfig config,
     required Notification notifications,
     required UptimeCreateAlertRequestBodyPeriod period,
     SdkOptional<int> threshold = const SdkOmitted(),
-    SdkOptional<UptimeCreateAlertRequestBodyComparison> comparison = const SdkOmitted(),
+    SdkOptional<UptimeCreateAlertRequestBodyComparison> comparison =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   sdkValidateUuid('check_id', checkId);
 
@@ -216,12 +261,18 @@ Future<ExistingAlert> uptimeCreateAlert(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'uptimeCreateAlert',
-          fromJsonRaw: (value) => ExistingAlert.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingAlert.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To show information about an existing alert, send a GET request to `/v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID`.
 ///
@@ -239,12 +290,18 @@ Future<ExistingAlert> uptimeGetAlert(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'uptimeGetAlert',
-          fromJsonRaw: (value) => ExistingAlert.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingAlert.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To update the settings of an Uptime alert, send a PUT request to `/v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID`.
 ///
@@ -265,7 +322,8 @@ Future<ExistingAlert> uptimeUpdateAlert(ClientConfig config,
     required Notification notifications,
     required UptimeUpdateAlertRequestBodyPeriod period,
     SdkOptional<int> threshold = const SdkOmitted(),
-    SdkOptional<UptimeUpdateAlertRequestBodyComparison> comparison = const SdkOmitted(),
+    SdkOptional<UptimeUpdateAlertRequestBodyComparison> comparison =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   sdkValidateUuid('check_id', checkId);
   sdkValidateUuid('alert_id', alertId);
@@ -283,12 +341,18 @@ Future<ExistingAlert> uptimeUpdateAlert(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'uptimeUpdateAlert',
-          fromJsonRaw: (value) => ExistingAlert.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExistingAlert.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To delete an Uptime alert, send a DELETE request to `/v2/uptime/checks/$CHECK_ID/alerts/$ALERT_ID`. A 204 status code with no body will be returned in response to a successful request.
 ///
@@ -307,6 +371,12 @@ Future<void> uptimeDeleteAlert(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'uptimeDeleteAlert',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

@@ -8,26 +8,41 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetModelCatalogCardOutput implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Detail view for GetModelCatalogCard
   final SdkOptional<ApiModelCatalogCard> data;
 
   const ApiGetModelCatalogCardOutput({this.data = const SdkOmitted()});
 
-  ApiGetModelCatalogCardOutput Function({SdkOptional<ApiModelCatalogCard> data}) get copyWith => _copyWith;
+  ApiGetModelCatalogCardOutput Function({SdkOptional<ApiModelCatalogCard> data})
+      get copyWith => _copyWith;
 
-  ApiGetModelCatalogCardOutput _copyWith({Object? data = sdkOmittedValue}) => ApiGetModelCatalogCardOutput(
-    data: identical(data, sdkOmittedValue) ? this.data : data as SdkOptional<ApiModelCatalogCard>,
-  );
+  ApiGetModelCatalogCardOutput _copyWith({Object? data = sdkOmittedValue}) =>
+      ApiGetModelCatalogCardOutput(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as SdkOptional<ApiModelCatalogCard>,
+      );
 
-  factory ApiGetModelCatalogCardOutput.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiGetModelCatalogCardOutput(
-    data: json['data'] != null ? SdkPresent((json['data'] != null ? ApiModelCatalogCard.fromJson(json['data'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory ApiGetModelCatalogCardOutput.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiGetModelCatalogCardOutput(
+            data: json['data'] != null
+                ? SdkPresent((json['data'] != null
+                    ? ApiModelCatalogCard.fromJson(
+                        json['data'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (data) {
-      SdkPresent<ApiModelCatalogCard>(value: final value) => {'data': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (data) {
+          SdkPresent<ApiModelCatalogCard>(value: final value) => {
+              'data': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,26 +8,40 @@ part of 'vpc_nat_gateways.dart';
 class VpcNatGateway implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `vpc_nat_gateway` wire field.
   final SdkOptional<VpcNatGatewayGet> vpcNatGateway;
 
   const VpcNatGateway({this.vpcNatGateway = const SdkOmitted()});
 
-  VpcNatGateway Function({SdkOptional<VpcNatGatewayGet> vpcNatGateway}) get copyWith => _copyWith;
+  VpcNatGateway Function({SdkOptional<VpcNatGatewayGet> vpcNatGateway})
+      get copyWith => _copyWith;
 
-  VpcNatGateway _copyWith({Object? vpcNatGateway = sdkOmittedValue}) => VpcNatGateway(
-    vpcNatGateway: identical(vpcNatGateway, sdkOmittedValue) ? this.vpcNatGateway : vpcNatGateway as SdkOptional<VpcNatGatewayGet>,
-  );
+  VpcNatGateway _copyWith({Object? vpcNatGateway = sdkOmittedValue}) =>
+      VpcNatGateway(
+        vpcNatGateway: identical(vpcNatGateway, sdkOmittedValue)
+            ? this.vpcNatGateway
+            : vpcNatGateway as SdkOptional<VpcNatGatewayGet>,
+      );
 
-  factory VpcNatGateway.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(VpcNatGateway(
-    vpcNatGateway: json['vpc_nat_gateway'] != null ? SdkPresent((json['vpc_nat_gateway'] != null ? VpcNatGatewayGet.fromJson(json['vpc_nat_gateway'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory VpcNatGateway.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      VpcNatGateway(
+        vpcNatGateway: json['vpc_nat_gateway'] != null
+            ? SdkPresent((json['vpc_nat_gateway'] != null
+                ? VpcNatGatewayGet.fromJson(
+                    json['vpc_nat_gateway'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (vpcNatGateway) {
-      SdkPresent<VpcNatGatewayGet>(value: final value) => {'vpc_nat_gateway': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (vpcNatGateway) {
+          SdkPresent<VpcNatGatewayGet>(value: final value) => {
+              'vpc_nat_gateway': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

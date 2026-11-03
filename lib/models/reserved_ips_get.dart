@@ -8,26 +8,41 @@ part of 'reserved_ips.dart';
 class ReservedIpResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `reserved_ip` wire field.
   final SdkOptional<ReservedIp> reservedIp;
 
   const ReservedIpResponse({this.reservedIp = const SdkOmitted()});
 
-  ReservedIpResponse Function({SdkOptional<ReservedIp> reservedIp}) get copyWith => _copyWith;
+  ReservedIpResponse Function({SdkOptional<ReservedIp> reservedIp})
+      get copyWith => _copyWith;
 
-  ReservedIpResponse _copyWith({Object? reservedIp = sdkOmittedValue}) => ReservedIpResponse(
-    reservedIp: identical(reservedIp, sdkOmittedValue) ? this.reservedIp : reservedIp as SdkOptional<ReservedIp>,
-  );
+  ReservedIpResponse _copyWith({Object? reservedIp = sdkOmittedValue}) =>
+      ReservedIpResponse(
+        reservedIp: identical(reservedIp, sdkOmittedValue)
+            ? this.reservedIp
+            : reservedIp as SdkOptional<ReservedIp>,
+      );
 
-  factory ReservedIpResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ReservedIpResponse(
-    reservedIp: json['reserved_ip'] != null ? SdkPresent((json['reserved_ip'] != null ? ReservedIp.fromJson(json['reserved_ip'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory ReservedIpResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ReservedIpResponse(
+            reservedIp: json['reserved_ip'] != null
+                ? SdkPresent((json['reserved_ip'] != null
+                    ? ReservedIp.fromJson(
+                        json['reserved_ip'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (reservedIp) {
-      SdkPresent<ReservedIp>(value: final value) => {'reserved_ip': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (reservedIp) {
+          SdkPresent<ReservedIp>(value: final value) => {
+              'reserved_ip': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

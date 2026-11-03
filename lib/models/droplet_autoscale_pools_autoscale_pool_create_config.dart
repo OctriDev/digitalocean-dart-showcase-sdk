@@ -10,24 +10,44 @@ sealed class AutoscalePoolCreateConfig {
   const AutoscalePoolCreateConfig();
   factory AutoscalePoolCreateConfig.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = AutoscalePoolStaticConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AutoscalePoolCreateConfigAutoscalePoolStaticConfig(value); } } catch (_) {}
-      try { final value = AutoscalePoolDynamicConfig.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return AutoscalePoolCreateConfigAutoscalePoolDynamicConfig(value); } } catch (_) {}
+      try {
+        final value = AutoscalePoolStaticConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AutoscalePoolCreateConfigAutoscalePoolStaticConfig(value);
+        }
+      } catch (_) {}
+      try {
+        final value = AutoscalePoolDynamicConfig.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return AutoscalePoolCreateConfigAutoscalePoolDynamicConfig(value);
+        }
+      } catch (_) {}
     }
-    try { return AutoscalePoolCreateConfigAutoscalePoolStaticConfig(AutoscalePoolStaticConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return AutoscalePoolCreateConfigAutoscalePoolDynamicConfig(AutoscalePoolDynamicConfig.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return AutoscalePoolCreateConfigAutoscalePoolStaticConfig(
+          AutoscalePoolStaticConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return AutoscalePoolCreateConfigAutoscalePoolDynamicConfig(
+          AutoscalePoolDynamicConfig.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for AutoscalePoolCreateConfig");
   }
   Object? toJson();
 }
 
-final class AutoscalePoolCreateConfigAutoscalePoolStaticConfig extends AutoscalePoolCreateConfig {
+final class AutoscalePoolCreateConfigAutoscalePoolStaticConfig
+    extends AutoscalePoolCreateConfig {
   final AutoscalePoolStaticConfig value;
   const AutoscalePoolCreateConfigAutoscalePoolStaticConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class AutoscalePoolCreateConfigAutoscalePoolDynamicConfig extends AutoscalePoolCreateConfig {
+final class AutoscalePoolCreateConfigAutoscalePoolDynamicConfig
+    extends AutoscalePoolCreateConfig {
   final AutoscalePoolDynamicConfig value;
   const AutoscalePoolCreateConfigAutoscalePoolDynamicConfig(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }

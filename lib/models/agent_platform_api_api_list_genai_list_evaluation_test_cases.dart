@@ -8,26 +8,46 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListEvaluationTestCasesOutput implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Alternative way of authentication for internal usage only - should not be exposed to public api
   final SdkOptional<List<ApiEvaluationTestCase>> evaluationTestCases;
 
-  const ApiListEvaluationTestCasesOutput({this.evaluationTestCases = const SdkOmitted()});
+  const ApiListEvaluationTestCasesOutput(
+      {this.evaluationTestCases = const SdkOmitted()});
 
-  ApiListEvaluationTestCasesOutput Function({SdkOptional<List<ApiEvaluationTestCase>> evaluationTestCases}) get copyWith => _copyWith;
+  ApiListEvaluationTestCasesOutput Function(
+          {SdkOptional<List<ApiEvaluationTestCase>> evaluationTestCases})
+      get copyWith => _copyWith;
 
-  ApiListEvaluationTestCasesOutput _copyWith({Object? evaluationTestCases = sdkOmittedValue}) => ApiListEvaluationTestCasesOutput(
-    evaluationTestCases: identical(evaluationTestCases, sdkOmittedValue) ? this.evaluationTestCases : evaluationTestCases as SdkOptional<List<ApiEvaluationTestCase>>,
-  );
+  ApiListEvaluationTestCasesOutput _copyWith(
+          {Object? evaluationTestCases = sdkOmittedValue}) =>
+      ApiListEvaluationTestCasesOutput(
+        evaluationTestCases: identical(evaluationTestCases, sdkOmittedValue)
+            ? this.evaluationTestCases
+            : evaluationTestCases as SdkOptional<List<ApiEvaluationTestCase>>,
+      );
 
-  factory ApiListEvaluationTestCasesOutput.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiListEvaluationTestCasesOutput(
-    evaluationTestCases: json['evaluation_test_cases'] != null ? SdkPresent(((json['evaluation_test_cases'] as List?)?.map((e) => ApiEvaluationTestCase.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory ApiListEvaluationTestCasesOutput.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiListEvaluationTestCasesOutput(
+            evaluationTestCases: json['evaluation_test_cases'] != null
+                ? SdkPresent(((json['evaluation_test_cases'] as List?)
+                    ?.map((e) => ApiEvaluationTestCase.fromJson(
+                        e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (evaluationTestCases) {
-      SdkPresent<List<ApiEvaluationTestCase>>(value: final value) => {'evaluation_test_cases': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (evaluationTestCases) {
+          SdkPresent<List<ApiEvaluationTestCase>>(value: final value) => {
+              'evaluation_test_cases':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

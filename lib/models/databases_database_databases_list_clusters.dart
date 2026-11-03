@@ -8,26 +8,41 @@ part of 'databases_database.dart';
 class DatabaseClusters implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `databases` wire field.
   final SdkOptional<List<DatabaseClusterRead>> databases;
 
   const DatabaseClusters({this.databases = const SdkOmitted()});
 
-  DatabaseClusters Function({SdkOptional<List<DatabaseClusterRead>> databases}) get copyWith => _copyWith;
+  DatabaseClusters Function({SdkOptional<List<DatabaseClusterRead>> databases})
+      get copyWith => _copyWith;
 
-  DatabaseClusters _copyWith({Object? databases = sdkOmittedValue}) => DatabaseClusters(
-    databases: identical(databases, sdkOmittedValue) ? this.databases : databases as SdkOptional<List<DatabaseClusterRead>>,
-  );
+  DatabaseClusters _copyWith({Object? databases = sdkOmittedValue}) =>
+      DatabaseClusters(
+        databases: identical(databases, sdkOmittedValue)
+            ? this.databases
+            : databases as SdkOptional<List<DatabaseClusterRead>>,
+      );
 
-  factory DatabaseClusters.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DatabaseClusters(
-    databases: json['databases'] != null ? SdkPresent(((json['databases'] as List?)?.map((e) => DatabaseClusterRead.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory DatabaseClusters.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          DatabaseClusters(
+            databases: json['databases'] != null
+                ? SdkPresent(((json['databases'] as List?)
+                    ?.map((e) =>
+                        DatabaseClusterRead.fromJson(e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (databases) {
-      SdkPresent<List<DatabaseClusterRead>>(value: final value) => {'databases': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (databases) {
+          SdkPresent<List<DatabaseClusterRead>>(value: final value) => {
+              'databases': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

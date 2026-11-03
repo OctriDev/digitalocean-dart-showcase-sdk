@@ -8,26 +8,45 @@ part of 'agent_platform_api_api_list.dart';
 class ApiListEvaluationDatasetsOutput implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The list of evaluation datasets.
   final SdkOptional<List<ApiEvaluationDataset>> evaluationDatasets;
 
-  const ApiListEvaluationDatasetsOutput({this.evaluationDatasets = const SdkOmitted()});
+  const ApiListEvaluationDatasetsOutput(
+      {this.evaluationDatasets = const SdkOmitted()});
 
-  ApiListEvaluationDatasetsOutput Function({SdkOptional<List<ApiEvaluationDataset>> evaluationDatasets}) get copyWith => _copyWith;
+  ApiListEvaluationDatasetsOutput Function(
+          {SdkOptional<List<ApiEvaluationDataset>> evaluationDatasets})
+      get copyWith => _copyWith;
 
-  ApiListEvaluationDatasetsOutput _copyWith({Object? evaluationDatasets = sdkOmittedValue}) => ApiListEvaluationDatasetsOutput(
-    evaluationDatasets: identical(evaluationDatasets, sdkOmittedValue) ? this.evaluationDatasets : evaluationDatasets as SdkOptional<List<ApiEvaluationDataset>>,
-  );
+  ApiListEvaluationDatasetsOutput _copyWith(
+          {Object? evaluationDatasets = sdkOmittedValue}) =>
+      ApiListEvaluationDatasetsOutput(
+        evaluationDatasets: identical(evaluationDatasets, sdkOmittedValue)
+            ? this.evaluationDatasets
+            : evaluationDatasets as SdkOptional<List<ApiEvaluationDataset>>,
+      );
 
-  factory ApiListEvaluationDatasetsOutput.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiListEvaluationDatasetsOutput(
-    evaluationDatasets: json['evaluation_datasets'] != null ? SdkPresent(((json['evaluation_datasets'] as List?)?.map((e) => ApiEvaluationDataset.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory ApiListEvaluationDatasetsOutput.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiListEvaluationDatasetsOutput(
+            evaluationDatasets: json['evaluation_datasets'] != null
+                ? SdkPresent(((json['evaluation_datasets'] as List?)
+                    ?.map((e) => ApiEvaluationDataset.fromJson(
+                        e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (evaluationDatasets) {
-      SdkPresent<List<ApiEvaluationDataset>>(value: final value) => {'evaluation_datasets': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (evaluationDatasets) {
+          SdkPresent<List<ApiEvaluationDataset>>(value: final value) => {
+              'evaluation_datasets':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

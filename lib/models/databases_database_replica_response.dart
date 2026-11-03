@@ -8,26 +8,41 @@ part of 'databases_database.dart';
 class DatabaseReplicaResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `replica` wire field.
   final SdkOptional<DatabaseReplicaRead> replica;
 
   const DatabaseReplicaResponse({this.replica = const SdkOmitted()});
 
-  DatabaseReplicaResponse Function({SdkOptional<DatabaseReplicaRead> replica}) get copyWith => _copyWith;
+  DatabaseReplicaResponse Function({SdkOptional<DatabaseReplicaRead> replica})
+      get copyWith => _copyWith;
 
-  DatabaseReplicaResponse _copyWith({Object? replica = sdkOmittedValue}) => DatabaseReplicaResponse(
-    replica: identical(replica, sdkOmittedValue) ? this.replica : replica as SdkOptional<DatabaseReplicaRead>,
-  );
+  DatabaseReplicaResponse _copyWith({Object? replica = sdkOmittedValue}) =>
+      DatabaseReplicaResponse(
+        replica: identical(replica, sdkOmittedValue)
+            ? this.replica
+            : replica as SdkOptional<DatabaseReplicaRead>,
+      );
 
-  factory DatabaseReplicaResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DatabaseReplicaResponse(
-    replica: json['replica'] != null ? SdkPresent((json['replica'] != null ? DatabaseReplicaRead.fromJson(json['replica'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory DatabaseReplicaResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          DatabaseReplicaResponse(
+            replica: json['replica'] != null
+                ? SdkPresent((json['replica'] != null
+                    ? DatabaseReplicaRead.fromJson(
+                        json['replica'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (replica) {
-      SdkPresent<DatabaseReplicaRead>(value: final value) => {'replica': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (replica) {
+          SdkPresent<DatabaseReplicaRead>(value: final value) => {
+              'replica': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

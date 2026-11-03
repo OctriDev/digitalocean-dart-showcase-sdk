@@ -8,26 +8,42 @@ part of 'databases_database.dart';
 class DatabaseMetricsAuth implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `credentials` wire field.
   final SdkOptional<DatabaseMetricsCredentials> credentials;
 
   const DatabaseMetricsAuth({this.credentials = const SdkOmitted()});
 
-  DatabaseMetricsAuth Function({SdkOptional<DatabaseMetricsCredentials> credentials}) get copyWith => _copyWith;
+  DatabaseMetricsAuth Function(
+          {SdkOptional<DatabaseMetricsCredentials> credentials})
+      get copyWith => _copyWith;
 
-  DatabaseMetricsAuth _copyWith({Object? credentials = sdkOmittedValue}) => DatabaseMetricsAuth(
-    credentials: identical(credentials, sdkOmittedValue) ? this.credentials : credentials as SdkOptional<DatabaseMetricsCredentials>,
-  );
+  DatabaseMetricsAuth _copyWith({Object? credentials = sdkOmittedValue}) =>
+      DatabaseMetricsAuth(
+        credentials: identical(credentials, sdkOmittedValue)
+            ? this.credentials
+            : credentials as SdkOptional<DatabaseMetricsCredentials>,
+      );
 
-  factory DatabaseMetricsAuth.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DatabaseMetricsAuth(
-    credentials: json['credentials'] != null ? SdkPresent((json['credentials'] != null ? DatabaseMetricsCredentials.fromJson(json['credentials'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory DatabaseMetricsAuth.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          DatabaseMetricsAuth(
+            credentials: json['credentials'] != null
+                ? SdkPresent((json['credentials'] != null
+                    ? DatabaseMetricsCredentials.fromJson(
+                        json['credentials'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (credentials) {
-      SdkPresent<DatabaseMetricsCredentials>(value: final value) => {'credentials': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (credentials) {
+          SdkPresent<DatabaseMetricsCredentials>(value: final value) => {
+              'credentials': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

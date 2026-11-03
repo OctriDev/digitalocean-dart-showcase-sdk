@@ -8,6 +8,7 @@ part of 'dedicated_inference.dart';
 class CaCertificate implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Base64-encoded CA certificate.
   final String cert;
 
@@ -16,15 +17,17 @@ class CaCertificate implements SdkJsonModel {
   CaCertificate Function({String cert}) get copyWith => _copyWith;
 
   CaCertificate _copyWith({Object? cert = sdkOmittedValue}) => CaCertificate(
-    cert: identical(cert, sdkOmittedValue) ? this.cert : cert as String,
-  );
+        cert: identical(cert, sdkOmittedValue) ? this.cert : cert as String,
+      );
 
-  factory CaCertificate.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(CaCertificate(
-    cert: (json['cert'] as String?)!,
-  ), json);
+  factory CaCertificate.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      CaCertificate(
+        cert: (json['cert'] as String?)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'cert': cert,
-  };
+        'cert': cert,
+      };
 }

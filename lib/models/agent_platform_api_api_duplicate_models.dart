@@ -8,54 +8,85 @@ part of 'agent_platform_api_api_duplicate.dart';
 class ApiDuplicateScenarioSetInputPublic implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// UUID of the scenario set to duplicate.
   final SdkOptional<String> scenarioSetUuid;
 
-  const ApiDuplicateScenarioSetInputPublic({this.scenarioSetUuid = const SdkOmitted()});
+  const ApiDuplicateScenarioSetInputPublic(
+      {this.scenarioSetUuid = const SdkOmitted()});
 
-  ApiDuplicateScenarioSetInputPublic Function({SdkOptional<String> scenarioSetUuid}) get copyWith => _copyWith;
+  ApiDuplicateScenarioSetInputPublic Function(
+      {SdkOptional<String> scenarioSetUuid}) get copyWith => _copyWith;
 
-  ApiDuplicateScenarioSetInputPublic _copyWith({Object? scenarioSetUuid = sdkOmittedValue}) => ApiDuplicateScenarioSetInputPublic(
-    scenarioSetUuid: identical(scenarioSetUuid, sdkOmittedValue) ? this.scenarioSetUuid : scenarioSetUuid as SdkOptional<String>,
-  );
+  ApiDuplicateScenarioSetInputPublic _copyWith(
+          {Object? scenarioSetUuid = sdkOmittedValue}) =>
+      ApiDuplicateScenarioSetInputPublic(
+        scenarioSetUuid: identical(scenarioSetUuid, sdkOmittedValue)
+            ? this.scenarioSetUuid
+            : scenarioSetUuid as SdkOptional<String>,
+      );
 
-  factory ApiDuplicateScenarioSetInputPublic.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiDuplicateScenarioSetInputPublic(
-    scenarioSetUuid: json['scenario_set_uuid'] != null ? SdkPresent((json['scenario_set_uuid'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory ApiDuplicateScenarioSetInputPublic.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiDuplicateScenarioSetInputPublic(
+            scenarioSetUuid: json['scenario_set_uuid'] != null
+                ? SdkPresent((json['scenario_set_uuid'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (scenarioSetUuid) {
-      SdkPresent<String>(value: final value) => {'scenario_set_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (scenarioSetUuid) {
+          SdkPresent<String>(value: final value) => {
+              'scenario_set_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Output for duplicating a scenario set.
 class ApiDuplicateScenarioSetOutput implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A team-owned collection of scenarios.
   final SdkOptional<ApiScenarioSet> scenarioSet;
 
   const ApiDuplicateScenarioSetOutput({this.scenarioSet = const SdkOmitted()});
 
-  ApiDuplicateScenarioSetOutput Function({SdkOptional<ApiScenarioSet> scenarioSet}) get copyWith => _copyWith;
+  ApiDuplicateScenarioSetOutput Function(
+      {SdkOptional<ApiScenarioSet> scenarioSet}) get copyWith => _copyWith;
 
-  ApiDuplicateScenarioSetOutput _copyWith({Object? scenarioSet = sdkOmittedValue}) => ApiDuplicateScenarioSetOutput(
-    scenarioSet: identical(scenarioSet, sdkOmittedValue) ? this.scenarioSet : scenarioSet as SdkOptional<ApiScenarioSet>,
-  );
+  ApiDuplicateScenarioSetOutput _copyWith(
+          {Object? scenarioSet = sdkOmittedValue}) =>
+      ApiDuplicateScenarioSetOutput(
+        scenarioSet: identical(scenarioSet, sdkOmittedValue)
+            ? this.scenarioSet
+            : scenarioSet as SdkOptional<ApiScenarioSet>,
+      );
 
-  factory ApiDuplicateScenarioSetOutput.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiDuplicateScenarioSetOutput(
-    scenarioSet: json['scenario_set'] != null ? SdkPresent((json['scenario_set'] != null ? ApiScenarioSet.fromJson(json['scenario_set'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory ApiDuplicateScenarioSetOutput.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiDuplicateScenarioSetOutput(
+            scenarioSet: json['scenario_set'] != null
+                ? SdkPresent((json['scenario_set'] != null
+                    ? ApiScenarioSet.fromJson(
+                        json['scenario_set'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (scenarioSet) {
-      SdkPresent<ApiScenarioSet>(value: final value) => {'scenario_set': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (scenarioSet) {
+          SdkPresent<ApiScenarioSet>(value: final value) => {
+              'scenario_set': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

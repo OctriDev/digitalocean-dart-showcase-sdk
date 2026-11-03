@@ -11,23 +11,39 @@ class TokensListVariant0 implements SdkJsonModel {
 
   const TokensListVariant0({this.tokens = const SdkOmitted()});
 
-  TokensListVariant0 Function({SdkOptional<List<DedicatedInferenceAccessToken>> tokens}) get copyWith => _copyWith;
+  TokensListVariant0 Function(
+          {SdkOptional<List<DedicatedInferenceAccessToken>> tokens})
+      get copyWith => _copyWith;
 
-  TokensListVariant0 _copyWith({Object? tokens = sdkOmittedValue}) => TokensListVariant0(
-    tokens: identical(tokens, sdkOmittedValue) ? this.tokens : tokens as SdkOptional<List<DedicatedInferenceAccessToken>>,
-  );
+  TokensListVariant0 _copyWith({Object? tokens = sdkOmittedValue}) =>
+      TokensListVariant0(
+        tokens: identical(tokens, sdkOmittedValue)
+            ? this.tokens
+            : tokens as SdkOptional<List<DedicatedInferenceAccessToken>>,
+      );
 
-  factory TokensListVariant0.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(TokensListVariant0(
-    tokens: json['tokens'] != null ? SdkPresent(((json['tokens'] as List?)?.map((e) => DedicatedInferenceAccessToken.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory TokensListVariant0.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          TokensListVariant0(
+            tokens: json['tokens'] != null
+                ? SdkPresent(((json['tokens'] as List?)
+                    ?.map((e) => DedicatedInferenceAccessToken.fromJson(
+                        e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (tokens) {
-      SdkPresent<List<DedicatedInferenceAccessToken>>(value: final value) => {'tokens': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (tokens) {
+          SdkPresent<List<DedicatedInferenceAccessToken>>(value: final value) =>
+            {
+              'tokens': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `TokensList` API schema.
@@ -35,37 +51,73 @@ class TokensList implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<DedicatedInferenceAccessToken>> tokens;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const TokensList({this.tokens = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const TokensList(
+      {this.tokens = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  TokensList Function({SdkOptional<List<DedicatedInferenceAccessToken>> tokens, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  TokensList Function(
+      {SdkOptional<List<DedicatedInferenceAccessToken>> tokens,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  TokensList _copyWith({Object? tokens = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => TokensList(
-    tokens: identical(tokens, sdkOmittedValue) ? this.tokens : tokens as SdkOptional<List<DedicatedInferenceAccessToken>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  TokensList _copyWith(
+          {Object? tokens = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      TokensList(
+        tokens: identical(tokens, sdkOmittedValue)
+            ? this.tokens
+            : tokens as SdkOptional<List<DedicatedInferenceAccessToken>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory TokensList.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(TokensList(
-    tokens: json['tokens'] != null ? SdkPresent(((json['tokens'] as List?)?.map((e) => DedicatedInferenceAccessToken.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory TokensList.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      TokensList(
+        tokens: json['tokens'] != null
+            ? SdkPresent(((json['tokens'] as List?)
+                ?.map((e) => DedicatedInferenceAccessToken.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (tokens) {
-      SdkPresent<List<DedicatedInferenceAccessToken>>(value: final value) => {'tokens': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (tokens) {
+          SdkPresent<List<DedicatedInferenceAccessToken>>(value: final value) =>
+            {
+              'tokens': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

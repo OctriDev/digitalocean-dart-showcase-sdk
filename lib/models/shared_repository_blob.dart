@@ -8,34 +8,57 @@ part of 'shared_repository.dart';
 class RepositoryBlob implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The digest of the blob
   final SdkOptional<String> digest;
+
   /// The compressed size of the blob in bytes.
   final SdkOptional<int> compressedSizeBytes;
 
-  const RepositoryBlob({this.digest = const SdkOmitted(), this.compressedSizeBytes = const SdkOmitted()});
+  const RepositoryBlob(
+      {this.digest = const SdkOmitted(),
+      this.compressedSizeBytes = const SdkOmitted()});
 
-  RepositoryBlob Function({SdkOptional<String> digest, SdkOptional<int> compressedSizeBytes}) get copyWith => _copyWith;
+  RepositoryBlob Function(
+      {SdkOptional<String> digest,
+      SdkOptional<int> compressedSizeBytes}) get copyWith => _copyWith;
 
-  RepositoryBlob _copyWith({Object? digest = sdkOmittedValue, Object? compressedSizeBytes = sdkOmittedValue}) => RepositoryBlob(
-    digest: identical(digest, sdkOmittedValue) ? this.digest : digest as SdkOptional<String>,
-    compressedSizeBytes: identical(compressedSizeBytes, sdkOmittedValue) ? this.compressedSizeBytes : compressedSizeBytes as SdkOptional<int>,
-  );
+  RepositoryBlob _copyWith(
+          {Object? digest = sdkOmittedValue,
+          Object? compressedSizeBytes = sdkOmittedValue}) =>
+      RepositoryBlob(
+        digest: identical(digest, sdkOmittedValue)
+            ? this.digest
+            : digest as SdkOptional<String>,
+        compressedSizeBytes: identical(compressedSizeBytes, sdkOmittedValue)
+            ? this.compressedSizeBytes
+            : compressedSizeBytes as SdkOptional<int>,
+      );
 
-  factory RepositoryBlob.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(RepositoryBlob(
-    digest: json['digest'] != null ? SdkPresent((json['digest'] as String?)!) : const SdkOmitted(),
-    compressedSizeBytes: json['compressed_size_bytes'] != null ? SdkPresent(((json['compressed_size_bytes'] as num?)?.toInt())!) : const SdkOmitted(),
-  ), json);
+  factory RepositoryBlob.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      RepositoryBlob(
+        digest: json['digest'] != null
+            ? SdkPresent((json['digest'] as String?)!)
+            : const SdkOmitted(),
+        compressedSizeBytes: json['compressed_size_bytes'] != null
+            ? SdkPresent(((json['compressed_size_bytes'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (digest) {
-      SdkPresent<String>(value: final value) => {'digest': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (compressedSizeBytes) {
-      SdkPresent<int>(value: final value) => {'compressed_size_bytes': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (digest) {
+          SdkPresent<String>(value: final value) => {
+              'digest': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (compressedSizeBytes) {
+          SdkPresent<int>(value: final value) => {
+              'compressed_size_bytes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

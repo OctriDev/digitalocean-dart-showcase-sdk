@@ -8,6 +8,7 @@ part of 'vpc_subnets_public_preview.dart';
 class VpcSubnetUpdate implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new human-readable name of the VPC subnet.
   final String name;
 
@@ -15,16 +16,19 @@ class VpcSubnetUpdate implements SdkJsonModel {
 
   VpcSubnetUpdate Function({String name}) get copyWith => _copyWith;
 
-  VpcSubnetUpdate _copyWith({Object? name = sdkOmittedValue}) => VpcSubnetUpdate(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-  );
+  VpcSubnetUpdate _copyWith({Object? name = sdkOmittedValue}) =>
+      VpcSubnetUpdate(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+      );
 
-  factory VpcSubnetUpdate.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(VpcSubnetUpdate(
-    name: (json['name'] as String?)!,
-  ), json);
+  factory VpcSubnetUpdate.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      VpcSubnetUpdate(
+        name: (json['name'] as String?)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'name': name,
-  };
+        'name': name,
+      };
 }

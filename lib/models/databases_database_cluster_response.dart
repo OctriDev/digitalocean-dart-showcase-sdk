@@ -8,23 +8,34 @@ part of 'databases_database.dart';
 class DatabaseClusterResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `database` wire field.
   final DatabaseClusterRead database;
 
   const DatabaseClusterResponse({required this.database});
 
-  DatabaseClusterResponse Function({DatabaseClusterRead database}) get copyWith => _copyWith;
+  DatabaseClusterResponse Function({DatabaseClusterRead database})
+      get copyWith => _copyWith;
 
-  DatabaseClusterResponse _copyWith({Object? database = sdkOmittedValue}) => DatabaseClusterResponse(
-    database: identical(database, sdkOmittedValue) ? this.database : database as DatabaseClusterRead,
-  );
+  DatabaseClusterResponse _copyWith({Object? database = sdkOmittedValue}) =>
+      DatabaseClusterResponse(
+        database: identical(database, sdkOmittedValue)
+            ? this.database
+            : database as DatabaseClusterRead,
+      );
 
-  factory DatabaseClusterResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DatabaseClusterResponse(
-    database: (json['database'] != null ? DatabaseClusterRead.fromJson(json['database'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory DatabaseClusterResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          DatabaseClusterResponse(
+            database: (json['database'] != null
+                ? DatabaseClusterRead.fromJson(
+                    json['database'] as Map<String, dynamic>)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'database': database.toJson(),
-  };
+        'database': database.toJson(),
+      };
 }

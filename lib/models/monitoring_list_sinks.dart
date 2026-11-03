@@ -8,26 +8,38 @@ part of 'monitoring.dart';
 class ListSinks implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// List of sinks identified by their URNs.
   final SdkOptional<List<SinksResponse>> sinks;
 
   const ListSinks({this.sinks = const SdkOmitted()});
 
-  ListSinks Function({SdkOptional<List<SinksResponse>> sinks}) get copyWith => _copyWith;
+  ListSinks Function({SdkOptional<List<SinksResponse>> sinks}) get copyWith =>
+      _copyWith;
 
   ListSinks _copyWith({Object? sinks = sdkOmittedValue}) => ListSinks(
-    sinks: identical(sinks, sdkOmittedValue) ? this.sinks : sinks as SdkOptional<List<SinksResponse>>,
-  );
+        sinks: identical(sinks, sdkOmittedValue)
+            ? this.sinks
+            : sinks as SdkOptional<List<SinksResponse>>,
+      );
 
-  factory ListSinks.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ListSinks(
-    sinks: json['sinks'] != null ? SdkPresent(((json['sinks'] as List?)?.map((e) => SinksResponse.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory ListSinks.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      ListSinks(
+        sinks: json['sinks'] != null
+            ? SdkPresent(((json['sinks'] as List?)
+                ?.map((e) => SinksResponse.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (sinks) {
-      SdkPresent<List<SinksResponse>>(value: final value) => {'sinks': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (sinks) {
+          SdkPresent<List<SinksResponse>>(value: final value) => {
+              'sinks': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

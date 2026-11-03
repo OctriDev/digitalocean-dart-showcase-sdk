@@ -8,26 +8,38 @@ part of 'kubernetes_kubernetes.dart';
 class KubernetesNodePoolSize implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The slug identifier for the type of Droplet used as workers in the node pool.
   final SdkOptional<String> size;
 
   const KubernetesNodePoolSize({this.size = const SdkOmitted()});
 
-  KubernetesNodePoolSize Function({SdkOptional<String> size}) get copyWith => _copyWith;
+  KubernetesNodePoolSize Function({SdkOptional<String> size}) get copyWith =>
+      _copyWith;
 
-  KubernetesNodePoolSize _copyWith({Object? size = sdkOmittedValue}) => KubernetesNodePoolSize(
-    size: identical(size, sdkOmittedValue) ? this.size : size as SdkOptional<String>,
-  );
+  KubernetesNodePoolSize _copyWith({Object? size = sdkOmittedValue}) =>
+      KubernetesNodePoolSize(
+        size: identical(size, sdkOmittedValue)
+            ? this.size
+            : size as SdkOptional<String>,
+      );
 
-  factory KubernetesNodePoolSize.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(KubernetesNodePoolSize(
-    size: json['size'] != null ? SdkPresent((json['size'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory KubernetesNodePoolSize.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          KubernetesNodePoolSize(
+            size: json['size'] != null
+                ? SdkPresent((json['size'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (size) {
-      SdkPresent<String>(value: final value) => {'size': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (size) {
+          SdkPresent<String>(value: final value) => {
+              'size': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,28 +8,43 @@ part of 'snapshots.dart';
 class SnapshotsExisting implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `snapshot` wire field.
   final SdkOptional<Snapshots> snapshot;
 
   const SnapshotsExisting({this.snapshot = const SdkOmitted()});
 
-  SnapshotsExisting Function({SdkOptional<Snapshots> snapshot}) get copyWith => _copyWith;
+  SnapshotsExisting Function({SdkOptional<Snapshots> snapshot}) get copyWith =>
+      _copyWith;
 
-  SnapshotsExisting _copyWith({Object? snapshot = sdkOmittedValue}) => SnapshotsExisting(
-    snapshot: identical(snapshot, sdkOmittedValue) ? this.snapshot : snapshot as SdkOptional<Snapshots>,
-  );
+  SnapshotsExisting _copyWith({Object? snapshot = sdkOmittedValue}) =>
+      SnapshotsExisting(
+        snapshot: identical(snapshot, sdkOmittedValue)
+            ? this.snapshot
+            : snapshot as SdkOptional<Snapshots>,
+      );
 
-  factory SnapshotsExisting.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(SnapshotsExisting(
-    snapshot: json['snapshot'] != null ? SdkPresent((json['snapshot'] != null ? Snapshots.fromJson(json['snapshot'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory SnapshotsExisting.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          SnapshotsExisting(
+            snapshot: json['snapshot'] != null
+                ? SdkPresent((json['snapshot'] != null
+                    ? Snapshots.fromJson(
+                        json['snapshot'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (snapshot) {
-      SdkPresent<Snapshots>(value: final value) => {'snapshot': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (snapshot) {
+          SdkPresent<Snapshots>(value: final value) => {
+              'snapshot': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class SnapshotsResponseVariant0 implements SdkJsonModel {
@@ -39,23 +54,36 @@ class SnapshotsResponseVariant0 implements SdkJsonModel {
 
   const SnapshotsResponseVariant0({this.snapshots = const SdkOmitted()});
 
-  SnapshotsResponseVariant0 Function({SdkOptional<List<Snapshots>> snapshots}) get copyWith => _copyWith;
+  SnapshotsResponseVariant0 Function({SdkOptional<List<Snapshots>> snapshots})
+      get copyWith => _copyWith;
 
-  SnapshotsResponseVariant0 _copyWith({Object? snapshots = sdkOmittedValue}) => SnapshotsResponseVariant0(
-    snapshots: identical(snapshots, sdkOmittedValue) ? this.snapshots : snapshots as SdkOptional<List<Snapshots>>,
-  );
+  SnapshotsResponseVariant0 _copyWith({Object? snapshots = sdkOmittedValue}) =>
+      SnapshotsResponseVariant0(
+        snapshots: identical(snapshots, sdkOmittedValue)
+            ? this.snapshots
+            : snapshots as SdkOptional<List<Snapshots>>,
+      );
 
-  factory SnapshotsResponseVariant0.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(SnapshotsResponseVariant0(
-    snapshots: json['snapshots'] != null ? SdkPresent(((json['snapshots'] as List?)?.map((e) => Snapshots.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory SnapshotsResponseVariant0.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          SnapshotsResponseVariant0(
+            snapshots: json['snapshots'] != null
+                ? SdkPresent(((json['snapshots'] as List?)
+                    ?.map((e) => Snapshots.fromJson(e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (snapshots) {
-      SdkPresent<List<Snapshots>>(value: final value) => {'snapshots': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (snapshots) {
+          SdkPresent<List<Snapshots>>(value: final value) => {
+              'snapshots': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `SnapshotsResponse` API schema.
@@ -63,37 +91,72 @@ class SnapshotsResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Snapshots>> snapshots;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const SnapshotsResponse({this.snapshots = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const SnapshotsResponse(
+      {this.snapshots = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  SnapshotsResponse Function({SdkOptional<List<Snapshots>> snapshots, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  SnapshotsResponse Function(
+      {SdkOptional<List<Snapshots>> snapshots,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  SnapshotsResponse _copyWith({Object? snapshots = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => SnapshotsResponse(
-    snapshots: identical(snapshots, sdkOmittedValue) ? this.snapshots : snapshots as SdkOptional<List<Snapshots>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  SnapshotsResponse _copyWith(
+          {Object? snapshots = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      SnapshotsResponse(
+        snapshots: identical(snapshots, sdkOmittedValue)
+            ? this.snapshots
+            : snapshots as SdkOptional<List<Snapshots>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory SnapshotsResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(SnapshotsResponse(
-    snapshots: json['snapshots'] != null ? SdkPresent(((json['snapshots'] as List?)?.map((e) => Snapshots.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory SnapshotsResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          SnapshotsResponse(
+            snapshots: json['snapshots'] != null
+                ? SdkPresent(((json['snapshots'] as List?)
+                    ?.map((e) => Snapshots.fromJson(e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+            links: json['links'] != null
+                ? SdkPresent((json['links'] != null
+                    ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+            meta: (json['meta'] != null
+                ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (snapshots) {
-      SdkPresent<List<Snapshots>>(value: final value) => {'snapshots': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (snapshots) {
+          SdkPresent<List<Snapshots>>(value: final value) => {
+              'snapshots': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

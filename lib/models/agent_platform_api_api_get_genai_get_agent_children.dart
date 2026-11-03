@@ -8,26 +8,40 @@ part of 'agent_platform_api_api_get.dart';
 class ApiGetChildrenOutput implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Child agents
   final SdkOptional<List<ApiAgent>> children;
 
   const ApiGetChildrenOutput({this.children = const SdkOmitted()});
 
-  ApiGetChildrenOutput Function({SdkOptional<List<ApiAgent>> children}) get copyWith => _copyWith;
+  ApiGetChildrenOutput Function({SdkOptional<List<ApiAgent>> children})
+      get copyWith => _copyWith;
 
-  ApiGetChildrenOutput _copyWith({Object? children = sdkOmittedValue}) => ApiGetChildrenOutput(
-    children: identical(children, sdkOmittedValue) ? this.children : children as SdkOptional<List<ApiAgent>>,
-  );
+  ApiGetChildrenOutput _copyWith({Object? children = sdkOmittedValue}) =>
+      ApiGetChildrenOutput(
+        children: identical(children, sdkOmittedValue)
+            ? this.children
+            : children as SdkOptional<List<ApiAgent>>,
+      );
 
-  factory ApiGetChildrenOutput.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiGetChildrenOutput(
-    children: json['children'] != null ? SdkPresent(((json['children'] as List?)?.map((e) => ApiAgent.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory ApiGetChildrenOutput.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiGetChildrenOutput(
+            children: json['children'] != null
+                ? SdkPresent(((json['children'] as List?)
+                    ?.map((e) => ApiAgent.fromJson(e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (children) {
-      SdkPresent<List<ApiAgent>>(value: final value) => {'children': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (children) {
+          SdkPresent<List<ApiAgent>>(value: final value) => {
+              'children': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

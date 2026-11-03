@@ -6,12 +6,12 @@ part of 'agent_platform_api_api.dart';
 // agent_platform_api_api domain models
 /// Options for specifying how URLs found on pages should be handled. - UNKNOWN: Default unknown value - SCOPED: Only include the base URL. - PATH: Crawl the base URL and linked pages within the URL path. - DOMAIN: Crawl the base URL and linked pages within the same domain. - SUBDOMAINS: Crawl the base URL and linked pages for any subdomain. - SITEMAP: Crawl URLs discovered in the sitemap.
 final class ApiCrawlingOption {
-
   final String value;
 
   const ApiCrawlingOption._(this.value);
 
-  factory ApiCrawlingOption.fromJson(String value) => ApiCrawlingOption._(value);
+  factory ApiCrawlingOption.fromJson(String value) =>
+      ApiCrawlingOption._(value);
 
   static const unknown = ApiCrawlingOption._('UNKNOWN');
   static const scoped = ApiCrawlingOption._('SCOPED');
@@ -22,10 +22,13 @@ final class ApiCrawlingOption {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiCrawlingOption && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiCrawlingOption && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

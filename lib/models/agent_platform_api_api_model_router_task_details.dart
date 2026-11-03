@@ -8,34 +8,57 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelRouterTaskDetails implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Short task description
   final SdkOptional<String> description;
+
   /// Task name
   final SdkOptional<String> name;
 
-  const ApiModelRouterTaskDetails({this.description = const SdkOmitted(), this.name = const SdkOmitted()});
+  const ApiModelRouterTaskDetails(
+      {this.description = const SdkOmitted(), this.name = const SdkOmitted()});
 
-  ApiModelRouterTaskDetails Function({SdkOptional<String> description, SdkOptional<String> name}) get copyWith => _copyWith;
+  ApiModelRouterTaskDetails Function(
+      {SdkOptional<String> description,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  ApiModelRouterTaskDetails _copyWith({Object? description = sdkOmittedValue, Object? name = sdkOmittedValue}) => ApiModelRouterTaskDetails(
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  ApiModelRouterTaskDetails _copyWith(
+          {Object? description = sdkOmittedValue,
+          Object? name = sdkOmittedValue}) =>
+      ApiModelRouterTaskDetails(
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory ApiModelRouterTaskDetails.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiModelRouterTaskDetails(
-    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory ApiModelRouterTaskDetails.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiModelRouterTaskDetails(
+            description: json['description'] != null
+                ? SdkPresent((json['description'] as String?)!)
+                : const SdkOmitted(),
+            name: json['name'] != null
+                ? SdkPresent((json['name'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (description) {
-      SdkPresent<String>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

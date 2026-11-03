@@ -7,59 +7,91 @@ part of 'droplet_actions.dart';
 class DropletActionRenameVariant1 implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new name for the Droplet.
   final SdkOptional<String> name;
 
   const DropletActionRenameVariant1({this.name = const SdkOmitted()});
 
-  DropletActionRenameVariant1 Function({SdkOptional<String> name}) get copyWith => _copyWith;
+  DropletActionRenameVariant1 Function({SdkOptional<String> name})
+      get copyWith => _copyWith;
 
-  DropletActionRenameVariant1 _copyWith({Object? name = sdkOmittedValue}) => DropletActionRenameVariant1(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  DropletActionRenameVariant1 _copyWith({Object? name = sdkOmittedValue}) =>
+      DropletActionRenameVariant1(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory DropletActionRenameVariant1.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DropletActionRenameVariant1(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory DropletActionRenameVariant1.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          DropletActionRenameVariant1(
+            name: json['name'] != null
+                ? SdkPresent((json['name'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DropletActionRename` API schema.
 class DropletActionRename implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of action to initiate for the Droplet.
   final DropletActionType type_;
+
   /// The new name for the Droplet.
   final SdkOptional<String> name;
 
-  const DropletActionRename({required this.type_, this.name = const SdkOmitted()});
+  const DropletActionRename(
+      {required this.type_, this.name = const SdkOmitted()});
 
-  DropletActionRename Function({DropletActionType type_, SdkOptional<String> name}) get copyWith => _copyWith;
+  DropletActionRename Function(
+      {DropletActionType type_,
+      SdkOptional<String> name}) get copyWith => _copyWith;
 
-  DropletActionRename _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) => DropletActionRename(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as DropletActionType,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-  );
+  DropletActionRename _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue}) =>
+      DropletActionRename(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as DropletActionType,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+      );
 
-  factory DropletActionRename.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DropletActionRename(
-    type_: (json['type'] != null ? DropletActionType.fromJson(json['type'] as String) : null)!,
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory DropletActionRename.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          DropletActionRename(
+            type_: (json['type'] != null
+                ? DropletActionType.fromJson(json['type'] as String)
+                : null)!,
+            name: json['name'] != null
+                ? SdkPresent((json['name'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

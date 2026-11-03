@@ -13,18 +13,26 @@ class AllImagesVariant0 implements SdkJsonModel {
 
   AllImagesVariant0 Function({List<Image> images}) get copyWith => _copyWith;
 
-  AllImagesVariant0 _copyWith({Object? images = sdkOmittedValue}) => AllImagesVariant0(
-    images: identical(images, sdkOmittedValue) ? this.images : images as List<Image>,
-  );
+  AllImagesVariant0 _copyWith({Object? images = sdkOmittedValue}) =>
+      AllImagesVariant0(
+        images: identical(images, sdkOmittedValue)
+            ? this.images
+            : images as List<Image>,
+      );
 
-  factory AllImagesVariant0.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AllImagesVariant0(
-    images: ((json['images'] as List?)?.map((e) => Image.fromJson(e as Map<String, dynamic>)).toList())!,
-  ), json);
+  factory AllImagesVariant0.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AllImagesVariant0(
+            images: ((json['images'] as List?)
+                ?.map((e) => Image.fromJson(e as Map<String, dynamic>))
+                .toList())!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'images': images.map((item) => item.toJson()).toList(),
-  };
+        'images': images.map((item) => item.toJson()).toList(),
+      };
 }
 
 /// Typed representation of the `AllImages` API schema.
@@ -32,34 +40,64 @@ class AllImages implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final List<Image> images;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllImages({required this.images, this.links = const SdkOmitted(), required this.meta});
+  const AllImages(
+      {required this.images,
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllImages Function({List<Image> images, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllImages Function(
+      {List<Image> images,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllImages _copyWith({Object? images = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllImages(
-    images: identical(images, sdkOmittedValue) ? this.images : images as List<Image>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllImages _copyWith(
+          {Object? images = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllImages(
+        images: identical(images, sdkOmittedValue)
+            ? this.images
+            : images as List<Image>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AllImages.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AllImages(
-    images: ((json['images'] as List?)?.map((e) => Image.fromJson(e as Map<String, dynamic>)).toList())!,
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory AllImages.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      AllImages(
+        images: ((json['images'] as List?)
+            ?.map((e) => Image.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'images': images.map((item) => item.toJson()).toList(),
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        'images': images.map((item) => item.toJson()).toList(),
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

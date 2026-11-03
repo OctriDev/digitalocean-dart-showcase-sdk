@@ -6,258 +6,340 @@ part of 'inline.dart';
 // Inline operation models
 /// Explicit lifecycle discriminator. Defaults to "interactive" (spec.serving forbidden); "served" requires spec.serving.
 final class AgentManifestSpecMode {
-
   final String value;
 
   const AgentManifestSpecMode._(this.value);
 
-  factory AgentManifestSpecMode.fromJson(String value) => AgentManifestSpecMode._(value);
+  factory AgentManifestSpecMode.fromJson(String value) =>
+      AgentManifestSpecMode._(value);
 
   static const interactive = AgentManifestSpecMode._('interactive');
   static const served = AgentManifestSpecMode._('served');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AgentManifestSpecMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AgentManifestSpecMode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `adapter` wire field.
 final class AgentManifestSpecRuntimeAdapter {
-
   final String value;
 
   const AgentManifestSpecRuntimeAdapter._(this.value);
 
-  factory AgentManifestSpecRuntimeAdapter.fromJson(String value) => AgentManifestSpecRuntimeAdapter._(value);
+  factory AgentManifestSpecRuntimeAdapter.fromJson(String value) =>
+      AgentManifestSpecRuntimeAdapter._(value);
 
   static const claudeCode = AgentManifestSpecRuntimeAdapter._('claude-code');
   static const opencode = AgentManifestSpecRuntimeAdapter._('opencode');
   static const codex = AgentManifestSpecRuntimeAdapter._('codex');
   static const cursor = AgentManifestSpecRuntimeAdapter._('cursor');
   static const hermes = AgentManifestSpecRuntimeAdapter._('hermes');
-  static const codexAgentapi = AgentManifestSpecRuntimeAdapter._('codex-agentapi');
+  static const codexAgentapi =
+      AgentManifestSpecRuntimeAdapter._('codex-agentapi');
   static const custom = AgentManifestSpecRuntimeAdapter._('custom');
   static const codexCli = AgentManifestSpecRuntimeAdapter._('codex-cli');
   static const cursorCli = AgentManifestSpecRuntimeAdapter._('cursor-cli');
-  static const openaiAgents = AgentManifestSpecRuntimeAdapter._('openai-agents');
-  static const claudeAgentSdk = AgentManifestSpecRuntimeAdapter._('claude-agent-sdk');
+  static const openaiAgents =
+      AgentManifestSpecRuntimeAdapter._('openai-agents');
+  static const claudeAgentSdk =
+      AgentManifestSpecRuntimeAdapter._('claude-agent-sdk');
   static const crewai = AgentManifestSpecRuntimeAdapter._('crewai');
   static const langgraph = AgentManifestSpecRuntimeAdapter._('langgraph');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AgentManifestSpecRuntimeAdapter && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AgentManifestSpecRuntimeAdapter && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
 final class AgentManifestSpecSandboxMountsItemType {
-
   final String value;
 
   const AgentManifestSpecSandboxMountsItemType._(this.value);
 
-  factory AgentManifestSpecSandboxMountsItemType.fromJson(String value) => AgentManifestSpecSandboxMountsItemType._(value);
+  factory AgentManifestSpecSandboxMountsItemType.fromJson(String value) =>
+      AgentManifestSpecSandboxMountsItemType._(value);
 
   static const s3fuse = AgentManifestSpecSandboxMountsItemType._('s3fuse');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AgentManifestSpecSandboxMountsItemType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AgentManifestSpecSandboxMountsItemType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `source` wire field.
 final class AgentManifestSpecSecretsItemSource {
-
   final String value;
 
   const AgentManifestSpecSecretsItemSource._(this.value);
 
-  factory AgentManifestSpecSecretsItemSource.fromJson(String value) => AgentManifestSpecSecretsItemSource._(value);
+  factory AgentManifestSpecSecretsItemSource.fromJson(String value) =>
+      AgentManifestSpecSecretsItemSource._(value);
 
   static const oauth = AgentManifestSpecSecretsItemSource._('oauth');
-  static const tenantsecret = AgentManifestSpecSecretsItemSource._('tenantSecret');
+  static const tenantsecret =
+      AgentManifestSpecSecretsItemSource._('tenantSecret');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AgentManifestSpecSecretsItemSource && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AgentManifestSpecSecretsItemSource && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Time window over which the metric is evaluated. Allowed values: - `EVALUATION_WINDOW_1M` = `1m` - `EVALUATION_WINDOW_5M` = `5m` - `EVALUATION_WINDOW_10M` = `10m` - `EVALUATION_WINDOW_15M` = `15m` - `EVALUATION_WINDOW_30M` = `30m` - `EVALUATION_WINDOW_1H` = `1h`
 final class AlertConditionWindow {
-
   final String value;
 
   const AlertConditionWindow._(this.value);
 
-  factory AlertConditionWindow.fromJson(String value) => AlertConditionWindow._(value);
+  factory AlertConditionWindow.fromJson(String value) =>
+      AlertConditionWindow._(value);
 
-  static const evaluationWindow1m = AlertConditionWindow._('EVALUATION_WINDOW_1M');
-  static const evaluationWindow5m = AlertConditionWindow._('EVALUATION_WINDOW_5M');
-  static const evaluationWindow10m = AlertConditionWindow._('EVALUATION_WINDOW_10M');
-  static const evaluationWindow15m = AlertConditionWindow._('EVALUATION_WINDOW_15M');
-  static const evaluationWindow30m = AlertConditionWindow._('EVALUATION_WINDOW_30M');
-  static const evaluationWindow1h = AlertConditionWindow._('EVALUATION_WINDOW_1H');
+  static const evaluationWindow1m =
+      AlertConditionWindow._('EVALUATION_WINDOW_1M');
+  static const evaluationWindow5m =
+      AlertConditionWindow._('EVALUATION_WINDOW_5M');
+  static const evaluationWindow10m =
+      AlertConditionWindow._('EVALUATION_WINDOW_10M');
+  static const evaluationWindow15m =
+      AlertConditionWindow._('EVALUATION_WINDOW_15M');
+  static const evaluationWindow30m =
+      AlertConditionWindow._('EVALUATION_WINDOW_30M');
+  static const evaluationWindow1h =
+      AlertConditionWindow._('EVALUATION_WINDOW_1H');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AlertConditionWindow && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AlertConditionWindow && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Severity of the breached threshold.
 final class AlertInstanceSeverity {
-
   final String value;
 
   const AlertInstanceSeverity._(this.value);
 
-  factory AlertInstanceSeverity.fromJson(String value) => AlertInstanceSeverity._(value);
+  factory AlertInstanceSeverity.fromJson(String value) =>
+      AlertInstanceSeverity._(value);
 
   static const warning = AlertInstanceSeverity._('warning');
   static const critical = AlertInstanceSeverity._('critical');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AlertInstanceSeverity && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AlertInstanceSeverity && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Current status of the alert instance.
 final class AlertInstanceStatus {
-
   final String value;
 
   const AlertInstanceStatus._(this.value);
 
-  factory AlertInstanceStatus.fromJson(String value) => AlertInstanceStatus._(value);
+  factory AlertInstanceStatus.fromJson(String value) =>
+      AlertInstanceStatus._(value);
 
   static const active = AlertInstanceStatus._('active');
   static const resolved = AlertInstanceStatus._('resolved');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AlertInstanceStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AlertInstanceStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `compare` wire field.
 final class AlertPolicyCompare {
-
   final String value;
 
   const AlertPolicyCompare._(this.value);
 
-  factory AlertPolicyCompare.fromJson(String value) => AlertPolicyCompare._(value);
+  factory AlertPolicyCompare.fromJson(String value) =>
+      AlertPolicyCompare._(value);
 
   static const greaterthan = AlertPolicyCompare._('GreaterThan');
   static const lessthan = AlertPolicyCompare._('LessThan');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AlertPolicyCompare && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AlertPolicyCompare && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `type` wire field.
 final class AlertPolicyType {
-
   final String value;
 
   const AlertPolicyType._(this.value);
 
   factory AlertPolicyType.fromJson(String value) => AlertPolicyType._(value);
 
-  static const v1InsightsDropletLoad1 = AlertPolicyType._('v1/insights/droplet/load_1');
-  static const v1InsightsDropletLoad5 = AlertPolicyType._('v1/insights/droplet/load_5');
-  static const v1InsightsDropletLoad15 = AlertPolicyType._('v1/insights/droplet/load_15');
-  static const v1InsightsDropletMemoryUtilizationPercent = AlertPolicyType._('v1/insights/droplet/memory_utilization_percent');
-  static const v1InsightsDropletDiskUtilizationPercent = AlertPolicyType._('v1/insights/droplet/disk_utilization_percent');
-  static const v1InsightsDropletCpu = AlertPolicyType._('v1/insights/droplet/cpu');
-  static const v1InsightsDropletDiskRead = AlertPolicyType._('v1/insights/droplet/disk_read');
-  static const v1InsightsDropletDiskWrite = AlertPolicyType._('v1/insights/droplet/disk_write');
-  static const v1InsightsDropletPublicOutboundBandwidth = AlertPolicyType._('v1/insights/droplet/public_outbound_bandwidth');
-  static const v1InsightsDropletPublicInboundBandwidth = AlertPolicyType._('v1/insights/droplet/public_inbound_bandwidth');
-  static const v1InsightsDropletPrivateOutboundBandwidth = AlertPolicyType._('v1/insights/droplet/private_outbound_bandwidth');
-  static const v1InsightsDropletPrivateInboundBandwidth = AlertPolicyType._('v1/insights/droplet/private_inbound_bandwidth');
-  static const v1InsightsLbaasAvgCpuUtilizationPercent = AlertPolicyType._('v1/insights/lbaas/avg_cpu_utilization_percent');
-  static const v1InsightsLbaasConnectionUtilizationPercent = AlertPolicyType._('v1/insights/lbaas/connection_utilization_percent');
-  static const v1InsightsLbaasDropletHealth = AlertPolicyType._('v1/insights/lbaas/droplet_health');
-  static const v1InsightsLbaasTlsConnectionsPerSecondUtilizationPercent = AlertPolicyType._('v1/insights/lbaas/tls_connections_per_second_utilization_percent');
-  static const v1InsightsLbaasIncreaseInHttpErrorRatePercentage5xx = AlertPolicyType._('v1/insights/lbaas/increase_in_http_error_rate_percentage_5xx');
-  static const v1InsightsLbaasIncreaseInHttpErrorRatePercentage4xx = AlertPolicyType._('v1/insights/lbaas/increase_in_http_error_rate_percentage_4xx');
-  static const v1InsightsLbaasIncreaseInHttpErrorRateCount5xx = AlertPolicyType._('v1/insights/lbaas/increase_in_http_error_rate_count_5xx');
-  static const v1InsightsLbaasIncreaseInHttpErrorRateCount4xx = AlertPolicyType._('v1/insights/lbaas/increase_in_http_error_rate_count_4xx');
-  static const v1InsightsLbaasHighHttpRequestResponseTime = AlertPolicyType._('v1/insights/lbaas/high_http_request_response_time');
-  static const v1InsightsLbaasHighHttpRequestResponseTime50p = AlertPolicyType._('v1/insights/lbaas/high_http_request_response_time_50p');
-  static const v1InsightsLbaasHighHttpRequestResponseTime95p = AlertPolicyType._('v1/insights/lbaas/high_http_request_response_time_95p');
-  static const v1InsightsLbaasHighHttpRequestResponseTime99p = AlertPolicyType._('v1/insights/lbaas/high_http_request_response_time_99p');
-  static const v1DbaasAlertsLoad15Alerts = AlertPolicyType._('v1/dbaas/alerts/load_15_alerts');
-  static const v1DbaasAlertsMemoryUtilizationAlerts = AlertPolicyType._('v1/dbaas/alerts/memory_utilization_alerts');
-  static const v1DbaasAlertsDiskUtilizationAlerts = AlertPolicyType._('v1/dbaas/alerts/disk_utilization_alerts');
-  static const v1DbaasAlertsCpuAlerts = AlertPolicyType._('v1/dbaas/alerts/cpu_alerts');
-  static const v1DropletAutoscaleAlertsCurrentInstances = AlertPolicyType._('v1/droplet/autoscale_alerts/current_instances');
-  static const v1DropletAutoscaleAlertsTargetInstances = AlertPolicyType._('v1/droplet/autoscale_alerts/target_instances');
-  static const v1DropletAutoscaleAlertsCurrentCpuUtilization = AlertPolicyType._('v1/droplet/autoscale_alerts/current_cpu_utilization');
-  static const v1DropletAutoscaleAlertsTargetCpuUtilization = AlertPolicyType._('v1/droplet/autoscale_alerts/target_cpu_utilization');
-  static const v1DropletAutoscaleAlertsCurrentMemoryUtilization = AlertPolicyType._('v1/droplet/autoscale_alerts/current_memory_utilization');
-  static const v1DropletAutoscaleAlertsTargetMemoryUtilization = AlertPolicyType._('v1/droplet/autoscale_alerts/target_memory_utilization');
-  static const v1DropletAutoscaleAlertsScaleUp = AlertPolicyType._('v1/droplet/autoscale_alerts/scale_up');
-  static const v1DropletAutoscaleAlertsScaleDown = AlertPolicyType._('v1/droplet/autoscale_alerts/scale_down');
+  static const v1InsightsDropletLoad1 =
+      AlertPolicyType._('v1/insights/droplet/load_1');
+  static const v1InsightsDropletLoad5 =
+      AlertPolicyType._('v1/insights/droplet/load_5');
+  static const v1InsightsDropletLoad15 =
+      AlertPolicyType._('v1/insights/droplet/load_15');
+  static const v1InsightsDropletMemoryUtilizationPercent =
+      AlertPolicyType._('v1/insights/droplet/memory_utilization_percent');
+  static const v1InsightsDropletDiskUtilizationPercent =
+      AlertPolicyType._('v1/insights/droplet/disk_utilization_percent');
+  static const v1InsightsDropletCpu =
+      AlertPolicyType._('v1/insights/droplet/cpu');
+  static const v1InsightsDropletDiskRead =
+      AlertPolicyType._('v1/insights/droplet/disk_read');
+  static const v1InsightsDropletDiskWrite =
+      AlertPolicyType._('v1/insights/droplet/disk_write');
+  static const v1InsightsDropletPublicOutboundBandwidth =
+      AlertPolicyType._('v1/insights/droplet/public_outbound_bandwidth');
+  static const v1InsightsDropletPublicInboundBandwidth =
+      AlertPolicyType._('v1/insights/droplet/public_inbound_bandwidth');
+  static const v1InsightsDropletPrivateOutboundBandwidth =
+      AlertPolicyType._('v1/insights/droplet/private_outbound_bandwidth');
+  static const v1InsightsDropletPrivateInboundBandwidth =
+      AlertPolicyType._('v1/insights/droplet/private_inbound_bandwidth');
+  static const v1InsightsLbaasAvgCpuUtilizationPercent =
+      AlertPolicyType._('v1/insights/lbaas/avg_cpu_utilization_percent');
+  static const v1InsightsLbaasConnectionUtilizationPercent =
+      AlertPolicyType._('v1/insights/lbaas/connection_utilization_percent');
+  static const v1InsightsLbaasDropletHealth =
+      AlertPolicyType._('v1/insights/lbaas/droplet_health');
+  static const v1InsightsLbaasTlsConnectionsPerSecondUtilizationPercent =
+      AlertPolicyType._(
+          'v1/insights/lbaas/tls_connections_per_second_utilization_percent');
+  static const v1InsightsLbaasIncreaseInHttpErrorRatePercentage5xx =
+      AlertPolicyType._(
+          'v1/insights/lbaas/increase_in_http_error_rate_percentage_5xx');
+  static const v1InsightsLbaasIncreaseInHttpErrorRatePercentage4xx =
+      AlertPolicyType._(
+          'v1/insights/lbaas/increase_in_http_error_rate_percentage_4xx');
+  static const v1InsightsLbaasIncreaseInHttpErrorRateCount5xx =
+      AlertPolicyType._(
+          'v1/insights/lbaas/increase_in_http_error_rate_count_5xx');
+  static const v1InsightsLbaasIncreaseInHttpErrorRateCount4xx =
+      AlertPolicyType._(
+          'v1/insights/lbaas/increase_in_http_error_rate_count_4xx');
+  static const v1InsightsLbaasHighHttpRequestResponseTime =
+      AlertPolicyType._('v1/insights/lbaas/high_http_request_response_time');
+  static const v1InsightsLbaasHighHttpRequestResponseTime50p =
+      AlertPolicyType._(
+          'v1/insights/lbaas/high_http_request_response_time_50p');
+  static const v1InsightsLbaasHighHttpRequestResponseTime95p =
+      AlertPolicyType._(
+          'v1/insights/lbaas/high_http_request_response_time_95p');
+  static const v1InsightsLbaasHighHttpRequestResponseTime99p =
+      AlertPolicyType._(
+          'v1/insights/lbaas/high_http_request_response_time_99p');
+  static const v1DbaasAlertsLoad15Alerts =
+      AlertPolicyType._('v1/dbaas/alerts/load_15_alerts');
+  static const v1DbaasAlertsMemoryUtilizationAlerts =
+      AlertPolicyType._('v1/dbaas/alerts/memory_utilization_alerts');
+  static const v1DbaasAlertsDiskUtilizationAlerts =
+      AlertPolicyType._('v1/dbaas/alerts/disk_utilization_alerts');
+  static const v1DbaasAlertsCpuAlerts =
+      AlertPolicyType._('v1/dbaas/alerts/cpu_alerts');
+  static const v1DropletAutoscaleAlertsCurrentInstances =
+      AlertPolicyType._('v1/droplet/autoscale_alerts/current_instances');
+  static const v1DropletAutoscaleAlertsTargetInstances =
+      AlertPolicyType._('v1/droplet/autoscale_alerts/target_instances');
+  static const v1DropletAutoscaleAlertsCurrentCpuUtilization =
+      AlertPolicyType._('v1/droplet/autoscale_alerts/current_cpu_utilization');
+  static const v1DropletAutoscaleAlertsTargetCpuUtilization =
+      AlertPolicyType._('v1/droplet/autoscale_alerts/target_cpu_utilization');
+  static const v1DropletAutoscaleAlertsCurrentMemoryUtilization =
+      AlertPolicyType._(
+          'v1/droplet/autoscale_alerts/current_memory_utilization');
+  static const v1DropletAutoscaleAlertsTargetMemoryUtilization =
+      AlertPolicyType._(
+          'v1/droplet/autoscale_alerts/target_memory_utilization');
+  static const v1DropletAutoscaleAlertsScaleUp =
+      AlertPolicyType._('v1/droplet/autoscale_alerts/scale_up');
+  static const v1DropletAutoscaleAlertsScaleDown =
+      AlertPolicyType._('v1/droplet/autoscale_alerts/scale_down');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AlertPolicyType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AlertPolicyType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `window` wire field.
 final class AlertPolicyWindow {
-
   final String value;
 
   const AlertPolicyWindow._(this.value);
 
-  factory AlertPolicyWindow.fromJson(String value) => AlertPolicyWindow._(value);
+  factory AlertPolicyWindow.fromJson(String value) =>
+      AlertPolicyWindow._(value);
 
   static const v5m = AlertPolicyWindow._('5m');
   static const v10m = AlertPolicyWindow._('10m');
@@ -266,10 +348,13 @@ final class AlertPolicyWindow {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AlertPolicyWindow && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AlertPolicyWindow && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

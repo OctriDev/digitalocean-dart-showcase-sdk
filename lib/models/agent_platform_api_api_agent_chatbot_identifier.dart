@@ -8,26 +8,41 @@ part of 'agent_platform_api_api_agent.dart';
 class ApiAgentChatbotIdentifier implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Agent chatbot identifier
   final SdkOptional<String> agentChatbotIdentifier;
 
-  const ApiAgentChatbotIdentifier({this.agentChatbotIdentifier = const SdkOmitted()});
+  const ApiAgentChatbotIdentifier(
+      {this.agentChatbotIdentifier = const SdkOmitted()});
 
-  ApiAgentChatbotIdentifier Function({SdkOptional<String> agentChatbotIdentifier}) get copyWith => _copyWith;
+  ApiAgentChatbotIdentifier Function(
+      {SdkOptional<String> agentChatbotIdentifier}) get copyWith => _copyWith;
 
-  ApiAgentChatbotIdentifier _copyWith({Object? agentChatbotIdentifier = sdkOmittedValue}) => ApiAgentChatbotIdentifier(
-    agentChatbotIdentifier: identical(agentChatbotIdentifier, sdkOmittedValue) ? this.agentChatbotIdentifier : agentChatbotIdentifier as SdkOptional<String>,
-  );
+  ApiAgentChatbotIdentifier _copyWith(
+          {Object? agentChatbotIdentifier = sdkOmittedValue}) =>
+      ApiAgentChatbotIdentifier(
+        agentChatbotIdentifier:
+            identical(agentChatbotIdentifier, sdkOmittedValue)
+                ? this.agentChatbotIdentifier
+                : agentChatbotIdentifier as SdkOptional<String>,
+      );
 
-  factory ApiAgentChatbotIdentifier.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiAgentChatbotIdentifier(
-    agentChatbotIdentifier: json['agent_chatbot_identifier'] != null ? SdkPresent((json['agent_chatbot_identifier'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory ApiAgentChatbotIdentifier.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiAgentChatbotIdentifier(
+            agentChatbotIdentifier: json['agent_chatbot_identifier'] != null
+                ? SdkPresent((json['agent_chatbot_identifier'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (agentChatbotIdentifier) {
-      SdkPresent<String>(value: final value) => {'agent_chatbot_identifier': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (agentChatbotIdentifier) {
+          SdkPresent<String>(value: final value) => {
+              'agent_chatbot_identifier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,26 +8,39 @@ part of 'projects.dart';
 class DefaultProject implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional API value serialized in the `project` wire field.
   final SdkOptional<Project> project;
 
   const DefaultProject({this.project = const SdkOmitted()});
 
-  DefaultProject Function({SdkOptional<Project> project}) get copyWith => _copyWith;
+  DefaultProject Function({SdkOptional<Project> project}) get copyWith =>
+      _copyWith;
 
-  DefaultProject _copyWith({Object? project = sdkOmittedValue}) => DefaultProject(
-    project: identical(project, sdkOmittedValue) ? this.project : project as SdkOptional<Project>,
-  );
+  DefaultProject _copyWith({Object? project = sdkOmittedValue}) =>
+      DefaultProject(
+        project: identical(project, sdkOmittedValue)
+            ? this.project
+            : project as SdkOptional<Project>,
+      );
 
-  factory DefaultProject.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DefaultProject(
-    project: json['project'] != null ? SdkPresent((json['project'] != null ? Project.fromJson(json['project'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory DefaultProject.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      DefaultProject(
+        project: json['project'] != null
+            ? SdkPresent((json['project'] != null
+                ? Project.fromJson(json['project'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (project) {
-      SdkPresent<Project>(value: final value) => {'project': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (project) {
+          SdkPresent<Project>(value: final value) => {
+              'project': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

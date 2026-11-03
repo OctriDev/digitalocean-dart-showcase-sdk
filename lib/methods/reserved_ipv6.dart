@@ -25,17 +25,24 @@ Future<ReservedIPv6ListResponse> reservedIPv6List(ClientConfig config,
   return (await sdkRequest<ReservedIPv6ListResponse>('GET', '/v2/reserved_ipv6',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'reservedIPv6List',
-          fromJsonRaw: (value) => ReservedIPv6ListResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ReservedIPv6ListResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// On creation, a reserved IPv6 must be reserved to a region. * To create a new reserved IPv6 reserved to a region, send a POST request to `/v2/reserved_ipv6` with the `region_slug` attribute.
 ///
@@ -49,12 +56,17 @@ Future<ReservedIpv6CreateResponse> reservedIPv6Create(ClientConfig config,
           body: {'region_slug': regionSlug},
           decoder: SdkResponseDecoder.json,
           operationId: 'reservedIPv6Create',
-          fromJsonRaw: (value) => ReservedIpv6CreateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ReservedIpv6CreateResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To show information about a reserved IPv6, send a GET request to `/v2/reserved_ipv6/$RESERVED_IPV6`.
 ///
@@ -66,12 +78,18 @@ Future<ReservedIpv6Response> reservedIPv6Get(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'reservedIPv6Get',
-          fromJsonRaw: (value) => ReservedIpv6Response.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ReservedIpv6Response.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To delete a reserved IP and remove it from your account, send a DELETE request to `/v2/reserved_ipv6/$RESERVED_IPV6`. A successful request will receive a 204 status code with no body in response. This indicates that the request was processed successfully.
 ///
@@ -84,6 +102,13 @@ Future<void> reservedIPv6Delete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'reservedIPv6Delete',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '422': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '422': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

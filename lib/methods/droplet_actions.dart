@@ -29,17 +29,25 @@ Future<AllDropletActions> dropletActionsList(ClientConfig config,
           '/v2/droplets/${Uri.encodeComponent(dropletId.toString())}/actions',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletActionsList',
-          fromJsonRaw: (value) => AllDropletActions.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllDropletActions.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Triggers an action on a specific Droplet, such as rebooting it, changing its size, or creating a snapshot. Supply the action `type` and any additional fields required for that action; restoring a Droplet requires a backup image of that Droplet. A 201 response includes an action object you can use to track the operation.
 ///
@@ -58,12 +66,18 @@ Future<DropletActionResponse> dropletActionsPost(ClientConfig config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletActionsPost',
-          fromJsonRaw: (value) => DropletActionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DropletActionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Triggers a supported action on Droplets that match a tag. Set the action `type` in the request body; bulk actions support power, shutdown, IPv6, backup, and snapshot operations, with IPv6 enablement requiring the Droplet to be powered off. A 201 response includes an action object for each affected Droplet.
 ///
@@ -79,17 +93,23 @@ Future<DropletActionsResponse> dropletActionsPostByTag(ClientConfig config,
           'POST', '/v2/droplets/actions',
           config: config,
           query: {
-            'tag_name': SdkQueryValue(SdkUtils.unwrapOptional(tagName), style: 'form', explode: true)
+            'tag_name': SdkQueryValue(SdkUtils.unwrapOptional(tagName),
+                style: 'form', explode: true)
           },
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletActionsPostByTag',
-          fromJsonRaw: (value) => DropletActionsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DropletActionsResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve a Droplet action, send a GET request to `/v2/droplets/$DROPLET_ID/actions/$ACTION_ID`. The response will be a JSON object with a key called `action`. The value will be a Droplet action object.
 ///
@@ -108,8 +128,15 @@ Future<ActionResponse> dropletActionsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'dropletActionsGet',
-          fromJsonRaw: (value) => ActionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ActionResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

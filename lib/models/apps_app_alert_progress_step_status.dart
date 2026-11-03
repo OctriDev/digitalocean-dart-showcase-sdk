@@ -6,12 +6,12 @@ part of 'apps_app_alert.dart';
 // apps_app_alert domain models
 /// Typed representation of the `AppAlertProgressStepStatus` API schema.
 final class AppAlertProgressStepStatus {
-
   final String value;
 
   const AppAlertProgressStepStatus._(this.value);
 
-  factory AppAlertProgressStepStatus.fromJson(String value) => AppAlertProgressStepStatus._(value);
+  factory AppAlertProgressStepStatus.fromJson(String value) =>
+      AppAlertProgressStepStatus._(value);
 
   static const unknown = AppAlertProgressStepStatus._('UNKNOWN');
   static const pending = AppAlertProgressStepStatus._('PENDING');
@@ -21,10 +21,13 @@ final class AppAlertProgressStepStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is AppAlertProgressStepStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is AppAlertProgressStepStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

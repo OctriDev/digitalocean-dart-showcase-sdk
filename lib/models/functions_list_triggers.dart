@@ -11,23 +11,37 @@ class ListTriggersVariant0 implements SdkJsonModel {
 
   const ListTriggersVariant0({this.triggers = const SdkOmitted()});
 
-  ListTriggersVariant0 Function({SdkOptional<List<TriggerInfo>> triggers}) get copyWith => _copyWith;
+  ListTriggersVariant0 Function({SdkOptional<List<TriggerInfo>> triggers})
+      get copyWith => _copyWith;
 
-  ListTriggersVariant0 _copyWith({Object? triggers = sdkOmittedValue}) => ListTriggersVariant0(
-    triggers: identical(triggers, sdkOmittedValue) ? this.triggers : triggers as SdkOptional<List<TriggerInfo>>,
-  );
+  ListTriggersVariant0 _copyWith({Object? triggers = sdkOmittedValue}) =>
+      ListTriggersVariant0(
+        triggers: identical(triggers, sdkOmittedValue)
+            ? this.triggers
+            : triggers as SdkOptional<List<TriggerInfo>>,
+      );
 
-  factory ListTriggersVariant0.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ListTriggersVariant0(
-    triggers: json['triggers'] != null ? SdkPresent(((json['triggers'] as List?)?.map((e) => TriggerInfo.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory ListTriggersVariant0.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ListTriggersVariant0(
+            triggers: json['triggers'] != null
+                ? SdkPresent(((json['triggers'] as List?)
+                    ?.map(
+                        (e) => TriggerInfo.fromJson(e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (triggers) {
-      SdkPresent<List<TriggerInfo>>(value: final value) => {'triggers': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (triggers) {
+          SdkPresent<List<TriggerInfo>>(value: final value) => {
+              'triggers': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `ListTriggers` API schema.
@@ -38,21 +52,32 @@ class ListTriggers implements SdkJsonModel {
 
   const ListTriggers({this.triggers = const SdkOmitted()});
 
-  ListTriggers Function({SdkOptional<List<TriggerInfo>> triggers}) get copyWith => _copyWith;
+  ListTriggers Function({SdkOptional<List<TriggerInfo>> triggers})
+      get copyWith => _copyWith;
 
   ListTriggers _copyWith({Object? triggers = sdkOmittedValue}) => ListTriggers(
-    triggers: identical(triggers, sdkOmittedValue) ? this.triggers : triggers as SdkOptional<List<TriggerInfo>>,
-  );
+        triggers: identical(triggers, sdkOmittedValue)
+            ? this.triggers
+            : triggers as SdkOptional<List<TriggerInfo>>,
+      );
 
-  factory ListTriggers.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ListTriggers(
-    triggers: json['triggers'] != null ? SdkPresent(((json['triggers'] as List?)?.map((e) => TriggerInfo.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory ListTriggers.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      ListTriggers(
+        triggers: json['triggers'] != null
+            ? SdkPresent(((json['triggers'] as List?)
+                ?.map((e) => TriggerInfo.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (triggers) {
-      SdkPresent<List<TriggerInfo>>(value: final value) => {'triggers': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (triggers) {
+          SdkPresent<List<TriggerInfo>>(value: final value) => {
+              'triggers': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

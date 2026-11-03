@@ -8,58 +8,82 @@ part of 'uptime.dart';
 class NotificationSlackItem implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Slack channel to notify of an alert trigger.
   final String channel;
+
   /// Slack Webhook URL.
   final String url;
 
   const NotificationSlackItem({required this.channel, required this.url});
 
-  NotificationSlackItem Function({String channel, String url}) get copyWith => _copyWith;
+  NotificationSlackItem Function({String channel, String url}) get copyWith =>
+      _copyWith;
 
-  NotificationSlackItem _copyWith({Object? channel = sdkOmittedValue, Object? url = sdkOmittedValue}) => NotificationSlackItem(
-    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as String,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-  );
+  NotificationSlackItem _copyWith(
+          {Object? channel = sdkOmittedValue, Object? url = sdkOmittedValue}) =>
+      NotificationSlackItem(
+        channel: identical(channel, sdkOmittedValue)
+            ? this.channel
+            : channel as String,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+      );
 
-  factory NotificationSlackItem.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(NotificationSlackItem(
-    channel: (json['channel'] as String?)!,
-    url: (json['url'] as String?)!,
-  ), json);
+  factory NotificationSlackItem.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          NotificationSlackItem(
+            channel: (json['channel'] as String?)!,
+            url: (json['url'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'channel': channel,
-    'url': url,
-  };
+        'channel': channel,
+        'url': url,
+      };
 }
 
 /// The notification settings for a trigger alert.
 class Notification implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// An email to notify on an alert trigger. The Email has to be one that is verified on that DigitalOcean account.
   final List<String> email;
+
   /// Slack integration details.
   final List<NotificationSlackItem> slack;
 
   const Notification({required this.email, required this.slack});
 
-  Notification Function({List<String> email, List<NotificationSlackItem> slack}) get copyWith => _copyWith;
+  Notification Function({List<String> email, List<NotificationSlackItem> slack})
+      get copyWith => _copyWith;
 
-  Notification _copyWith({Object? email = sdkOmittedValue, Object? slack = sdkOmittedValue}) => Notification(
-    email: identical(email, sdkOmittedValue) ? this.email : email as List<String>,
-    slack: identical(slack, sdkOmittedValue) ? this.slack : slack as List<NotificationSlackItem>,
-  );
+  Notification _copyWith(
+          {Object? email = sdkOmittedValue, Object? slack = sdkOmittedValue}) =>
+      Notification(
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as List<String>,
+        slack: identical(slack, sdkOmittedValue)
+            ? this.slack
+            : slack as List<NotificationSlackItem>,
+      );
 
-  factory Notification.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(Notification(
-    email: ((json['email'] as List?)?.map((e) => e as String).toList())!,
-    slack: ((json['slack'] as List?)?.map((e) => NotificationSlackItem.fromJson(e as Map<String, dynamic>)).toList())!,
-  ), json);
+  factory Notification.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      Notification(
+        email: ((json['email'] as List?)?.map((e) => e as String).toList())!,
+        slack: ((json['slack'] as List?)
+            ?.map((e) =>
+                NotificationSlackItem.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'email': email,
-    'slack': slack.map((item) => item.toJson()).toList(),
-  };
+        'email': email,
+        'slack': slack.map((item) => item.toJson()).toList(),
+      };
 }

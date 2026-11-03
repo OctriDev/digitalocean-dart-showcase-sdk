@@ -6,23 +6,29 @@ part of 'agent_platform_api_api_evaluation.dart';
 // agent_platform_api_api_evaluation domain models
 /// Distinguishes platform catalog metrics from user-defined LLM-as-judge metrics.
 final class ApiEvaluationMetricSource {
-
   final String value;
 
   const ApiEvaluationMetricSource._(this.value);
 
-  factory ApiEvaluationMetricSource.fromJson(String value) => ApiEvaluationMetricSource._(value);
+  factory ApiEvaluationMetricSource.fromJson(String value) =>
+      ApiEvaluationMetricSource._(value);
 
-  static const evaluationMetricSourceUnspecified = ApiEvaluationMetricSource._('EVALUATION_METRIC_SOURCE_UNSPECIFIED');
-  static const evaluationMetricSourceBuiltin = ApiEvaluationMetricSource._('EVALUATION_METRIC_SOURCE_BUILTIN');
-  static const evaluationMetricSourceCustom = ApiEvaluationMetricSource._('EVALUATION_METRIC_SOURCE_CUSTOM');
+  static const evaluationMetricSourceUnspecified =
+      ApiEvaluationMetricSource._('EVALUATION_METRIC_SOURCE_UNSPECIFIED');
+  static const evaluationMetricSourceBuiltin =
+      ApiEvaluationMetricSource._('EVALUATION_METRIC_SOURCE_BUILTIN');
+  static const evaluationMetricSourceCustom =
+      ApiEvaluationMetricSource._('EVALUATION_METRIC_SOURCE_CUSTOM');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiEvaluationMetricSource && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiEvaluationMetricSource && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

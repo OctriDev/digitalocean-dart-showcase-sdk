@@ -8,26 +8,41 @@ part of 'domain_records.dart';
 class CreatedDomainRecord implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `domain_record` wire field.
   final SdkOptional<DomainRecord> domainRecord;
 
   const CreatedDomainRecord({this.domainRecord = const SdkOmitted()});
 
-  CreatedDomainRecord Function({SdkOptional<DomainRecord> domainRecord}) get copyWith => _copyWith;
+  CreatedDomainRecord Function({SdkOptional<DomainRecord> domainRecord})
+      get copyWith => _copyWith;
 
-  CreatedDomainRecord _copyWith({Object? domainRecord = sdkOmittedValue}) => CreatedDomainRecord(
-    domainRecord: identical(domainRecord, sdkOmittedValue) ? this.domainRecord : domainRecord as SdkOptional<DomainRecord>,
-  );
+  CreatedDomainRecord _copyWith({Object? domainRecord = sdkOmittedValue}) =>
+      CreatedDomainRecord(
+        domainRecord: identical(domainRecord, sdkOmittedValue)
+            ? this.domainRecord
+            : domainRecord as SdkOptional<DomainRecord>,
+      );
 
-  factory CreatedDomainRecord.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(CreatedDomainRecord(
-    domainRecord: json['domain_record'] != null ? SdkPresent((json['domain_record'] != null ? DomainRecord.fromJson(json['domain_record'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory CreatedDomainRecord.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          CreatedDomainRecord(
+            domainRecord: json['domain_record'] != null
+                ? SdkPresent((json['domain_record'] != null
+                    ? DomainRecord.fromJson(
+                        json['domain_record'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (domainRecord) {
-      SdkPresent<DomainRecord>(value: final value) => {'domain_record': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (domainRecord) {
+          SdkPresent<DomainRecord>(value: final value) => {
+              'domain_record': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -9,25 +9,44 @@ class AllPartnerAttachmentRemoteRoutesVariant0 implements SdkJsonModel {
   static const String constructionSurface = 'named';
   final SdkOptional<List<PartnerAttachmentRemoteRoute>> remoteRoutes;
 
-  const AllPartnerAttachmentRemoteRoutesVariant0({this.remoteRoutes = const SdkOmitted()});
+  const AllPartnerAttachmentRemoteRoutesVariant0(
+      {this.remoteRoutes = const SdkOmitted()});
 
-  AllPartnerAttachmentRemoteRoutesVariant0 Function({SdkOptional<List<PartnerAttachmentRemoteRoute>> remoteRoutes}) get copyWith => _copyWith;
+  AllPartnerAttachmentRemoteRoutesVariant0 Function(
+          {SdkOptional<List<PartnerAttachmentRemoteRoute>> remoteRoutes})
+      get copyWith => _copyWith;
 
-  AllPartnerAttachmentRemoteRoutesVariant0 _copyWith({Object? remoteRoutes = sdkOmittedValue}) => AllPartnerAttachmentRemoteRoutesVariant0(
-    remoteRoutes: identical(remoteRoutes, sdkOmittedValue) ? this.remoteRoutes : remoteRoutes as SdkOptional<List<PartnerAttachmentRemoteRoute>>,
-  );
+  AllPartnerAttachmentRemoteRoutesVariant0 _copyWith(
+          {Object? remoteRoutes = sdkOmittedValue}) =>
+      AllPartnerAttachmentRemoteRoutesVariant0(
+        remoteRoutes: identical(remoteRoutes, sdkOmittedValue)
+            ? this.remoteRoutes
+            : remoteRoutes as SdkOptional<List<PartnerAttachmentRemoteRoute>>,
+      );
 
-  factory AllPartnerAttachmentRemoteRoutesVariant0.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AllPartnerAttachmentRemoteRoutesVariant0(
-    remoteRoutes: json['remote_routes'] != null ? SdkPresent(((json['remote_routes'] as List?)?.map((e) => PartnerAttachmentRemoteRoute.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory AllPartnerAttachmentRemoteRoutesVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AllPartnerAttachmentRemoteRoutesVariant0(
+            remoteRoutes: json['remote_routes'] != null
+                ? SdkPresent(((json['remote_routes'] as List?)
+                    ?.map((e) => PartnerAttachmentRemoteRoute.fromJson(
+                        e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (remoteRoutes) {
-      SdkPresent<List<PartnerAttachmentRemoteRoute>>(value: final value) => {'remote_routes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (remoteRoutes) {
+          SdkPresent<List<PartnerAttachmentRemoteRoute>>(value: final value) =>
+            {
+              'remote_routes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllPartnerAttachmentRemoteRoutes` API schema.
@@ -35,65 +54,115 @@ class AllPartnerAttachmentRemoteRoutes implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<PartnerAttachmentRemoteRoute>> remoteRoutes;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllPartnerAttachmentRemoteRoutes({this.remoteRoutes = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllPartnerAttachmentRemoteRoutes(
+      {this.remoteRoutes = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllPartnerAttachmentRemoteRoutes Function({SdkOptional<List<PartnerAttachmentRemoteRoute>> remoteRoutes, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllPartnerAttachmentRemoteRoutes Function(
+      {SdkOptional<List<PartnerAttachmentRemoteRoute>> remoteRoutes,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllPartnerAttachmentRemoteRoutes _copyWith({Object? remoteRoutes = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllPartnerAttachmentRemoteRoutes(
-    remoteRoutes: identical(remoteRoutes, sdkOmittedValue) ? this.remoteRoutes : remoteRoutes as SdkOptional<List<PartnerAttachmentRemoteRoute>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllPartnerAttachmentRemoteRoutes _copyWith(
+          {Object? remoteRoutes = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllPartnerAttachmentRemoteRoutes(
+        remoteRoutes: identical(remoteRoutes, sdkOmittedValue)
+            ? this.remoteRoutes
+            : remoteRoutes as SdkOptional<List<PartnerAttachmentRemoteRoute>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AllPartnerAttachmentRemoteRoutes.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AllPartnerAttachmentRemoteRoutes(
-    remoteRoutes: json['remote_routes'] != null ? SdkPresent(((json['remote_routes'] as List?)?.map((e) => PartnerAttachmentRemoteRoute.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory AllPartnerAttachmentRemoteRoutes.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AllPartnerAttachmentRemoteRoutes(
+            remoteRoutes: json['remote_routes'] != null
+                ? SdkPresent(((json['remote_routes'] as List?)
+                    ?.map((e) => PartnerAttachmentRemoteRoute.fromJson(
+                        e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+            links: json['links'] != null
+                ? SdkPresent((json['links'] != null
+                    ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+            meta: (json['meta'] != null
+                ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (remoteRoutes) {
-      SdkPresent<List<PartnerAttachmentRemoteRoute>>(value: final value) => {'remote_routes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (remoteRoutes) {
+          SdkPresent<List<PartnerAttachmentRemoteRoute>>(value: final value) =>
+            {
+              'remote_routes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }
 
 /// Typed representation of the `PartnerAttachmentRemoteRoute` API schema.
 class PartnerAttachmentRemoteRoute implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A CIDR block representing a remote route.
   final SdkOptional<String> cidr;
 
   const PartnerAttachmentRemoteRoute({this.cidr = const SdkOmitted()});
 
-  PartnerAttachmentRemoteRoute Function({SdkOptional<String> cidr}) get copyWith => _copyWith;
+  PartnerAttachmentRemoteRoute Function({SdkOptional<String> cidr})
+      get copyWith => _copyWith;
 
-  PartnerAttachmentRemoteRoute _copyWith({Object? cidr = sdkOmittedValue}) => PartnerAttachmentRemoteRoute(
-    cidr: identical(cidr, sdkOmittedValue) ? this.cidr : cidr as SdkOptional<String>,
-  );
+  PartnerAttachmentRemoteRoute _copyWith({Object? cidr = sdkOmittedValue}) =>
+      PartnerAttachmentRemoteRoute(
+        cidr: identical(cidr, sdkOmittedValue)
+            ? this.cidr
+            : cidr as SdkOptional<String>,
+      );
 
-  factory PartnerAttachmentRemoteRoute.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(PartnerAttachmentRemoteRoute(
-    cidr: json['cidr'] != null ? SdkPresent((json['cidr'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory PartnerAttachmentRemoteRoute.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          PartnerAttachmentRemoteRoute(
+            cidr: json['cidr'] != null
+                ? SdkPresent((json['cidr'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (cidr) {
-      SdkPresent<String>(value: final value) => {'cidr': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (cidr) {
+          SdkPresent<String>(value: final value) => {
+              'cidr': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -32,20 +32,30 @@ Future<AllMicrovms> microvmsList(ClientConfig config,
   return (await sdkRequest<AllMicrovms>('GET', '/v2/microvms',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'region': SdkQueryValue(SdkUtils.unwrapOptional(region), style: 'form', explode: true),
-            'name': SdkQueryValue(SdkUtils.unwrapOptional(name), style: 'form', explode: true),
-            'tag_name': SdkQueryValue(SdkUtils.unwrapOptional(tagName), style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'region': SdkQueryValue(SdkUtils.unwrapOptional(region),
+                style: 'form', explode: true),
+            'name': SdkQueryValue(SdkUtils.unwrapOptional(name),
+                style: 'form', explode: true),
+            'tag_name': SdkQueryValue(SdkUtils.unwrapOptional(tagName),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'microvmsList',
-          fromJsonRaw: (value) => AllMicrovms.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllMicrovms.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To create a MicroVM, send a POST request to `/v2/microvms`. `name` and `source` are required. Set `source.oci_ref` to create the MicroVM from a `linux/amd64` container image, or `source.checkpoint_id` to create it from a checkpoint. With `oci_ref`, `region` and `size` are also required. A MicroVM created from an image is returned with `state` set to `creating`. Poll `GET /v2/microvms/{microvm_id}` until `state` is `running`. A MicroVM created from a checkpoint is usually returned already `running`. All settings are fixed at creation. There is no update endpoint.
 ///
@@ -86,7 +96,8 @@ Future<MicrovmCreated> microvmsCreate(ClientConfig config,
     SdkOptional<MicrovmAutoPause> autoPause = const SdkOmitted(),
     SdkOptional<bool> autoResume = const SdkOmitted(),
     SdkOptional<int> httpPort = const SdkOmitted(),
-    SdkOptional<MicrovmCreateRequestHttpProtocol> httpProtocol = const SdkOmitted(),
+    SdkOptional<MicrovmCreateRequestHttpProtocol> httpProtocol =
+        const SdkOmitted(),
     SdkOptional<List<int>> ports = const SdkOmitted(),
     SdkOptional<Map<String, String>> environment = const SdkOmitted(),
     SdkOptional<List<String>> tags = const SdkOmitted(),
@@ -118,12 +129,21 @@ Future<MicrovmCreated> microvmsCreate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'microvmsCreate',
-          fromJsonRaw: (value) => MicrovmCreated.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              MicrovmCreated.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                MicrovmError.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                MicrovmError.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To list the default region, sizes, prices, account limits, and features available to your team, send a GET request to `/v2/microvms/options`.
 Future<MicrovmOptions> microvmsGetOptions(ClientConfig config,
@@ -132,12 +152,17 @@ Future<MicrovmOptions> microvmsGetOptions(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'microvmsGetOptions',
-          fromJsonRaw: (value) => MicrovmOptions.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              MicrovmOptions.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To list your team's checkpoints, newest first, send a GET request to `/v2/microvms/checkpoints`. To list one MicroVM's checkpoints, add the `microvm_id` query parameter.
 ///
@@ -162,18 +187,26 @@ Future<AllCheckpoints> microvmCheckpointsList(ClientConfig config,
   return (await sdkRequest<AllCheckpoints>('GET', '/v2/microvms/checkpoints',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'microvm_id': SdkQueryValue(SdkUtils.unwrapOptional(microvmId), style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'microvm_id': SdkQueryValue(SdkUtils.unwrapOptional(microvmId),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'microvmCheckpointsList',
-          fromJsonRaw: (value) => AllCheckpoints.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllCheckpoints.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To show information about a checkpoint, send a GET request to `/v2/microvms/checkpoints/{checkpoint_id}`.
 ///
@@ -187,12 +220,18 @@ Future<CheckpointResponse> microvmCheckpointsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'microvmCheckpointsGet',
-          fromJsonRaw: (value) => CheckpointResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CheckpointResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To delete a checkpoint, send a DELETE request to `/v2/microvms/checkpoints/{checkpoint_id}`. You can no longer create MicroVMs from a deleted checkpoint. The request returns HTTP 400 while the checkpoint is still being captured. A successful request returns a `204 No Content` status code.
 ///
@@ -207,10 +246,16 @@ Future<void> microvmCheckpointsDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'microvmCheckpointsDelete',
           options: requestOptions,
-          errors: {'400': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => MicrovmError.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To show information about a MicroVM, send a GET request to `/v2/microvms/{microvm_id}`. The endpoint is in the `urls` entry with `default` set to `true`. Its `hostname` is empty and its `status` is `PENDING` until provisioning finishes.
 ///
@@ -224,12 +269,18 @@ Future<MicrovmResponse> microvmsGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'microvmsGet',
-          fromJsonRaw: (value) => MicrovmResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              MicrovmResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To delete a MicroVM and the data on its disk, send a DELETE request to `/v2/microvms/{microvm_id}`. The MicroVM's checkpoints are not deleted. A successful request returns a `204 No Content` status code.
 ///
@@ -244,10 +295,15 @@ Future<void> microvmsDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'microvmsDelete',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To pause a MicroVM, send a POST request to `/v2/microvms/{microvm_id}/pause`. Pausing suspends the MicroVM's processes and preserves its memory, files, and processes. A paused MicroVM incurs storage charges only. The request returns when the change completes. Pausing a MicroVM that is already paused succeeds. The request returns HTTP 400 when the MicroVM is `creating`, `terminated`, or `failed`.
 ///
@@ -261,12 +317,19 @@ Future<MicrovmResponse> microvmsPostPause(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'microvmsPostPause',
-          fromJsonRaw: (value) => MicrovmResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              MicrovmResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => MicrovmError.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To resume a paused MicroVM, send a POST request to `/v2/microvms/{microvm_id}/resume`. The request returns when the change completes. Resuming a MicroVM that is already running succeeds. The request returns HTTP 400 when the MicroVM is `creating`, `terminated`, or `failed`.
 ///
@@ -280,12 +343,19 @@ Future<MicrovmResponse> microvmsPostResume(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'microvmsPostResume',
-          fromJsonRaw: (value) => MicrovmResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              MicrovmResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => MicrovmError.fromJson(value as Map<String, dynamic>),
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To run a command in a MicroVM's workload container, send a POST request to `/v2/microvms/{microvm_id}/exec`. `argv` runs directly, not through a shell, with standard input closed. If the MicroVM is paused and auto-resume is on, the request resumes it and waits until it is running. A command has 60 seconds to finish. Your team can run 32 commands at once and 60 commands per minute. Rejected requests count toward the per-minute limit.
 ///
@@ -306,12 +376,25 @@ Future<ExecResponse> microvmsRunCommand(ClientConfig config,
           body: {'argv': argv, 'cwd': SdkUtils.unwrapOptional(cwd)},
           decoder: SdkResponseDecoder.json,
           operationId: 'microvmsRunCommand',
-          fromJsonRaw: (value) => ExecResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ExecResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), '502': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                MicrovmError.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                MicrovmError.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                MicrovmError.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '502': (value) =>
+                MicrovmError.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To open an interactive `/bin/sh` console in a MicroVM's workload container, open a WebSocket connection to `wss://api.digitalocean.com/v2/microvms/{microvm_id}/console`. Send the API token in the `Authorization` header of the handshake. Browsers cannot set this header, so you cannot open the console from browser JavaScript. The image must include `/bin/sh`. A MicroVM can have four consoles open at a time. If the MicroVM is paused and auto-resume is on, opening a console resumes it.
 ///
@@ -335,17 +418,28 @@ Future<Error2> microvmsGetConsole(ClientConfig config,
           '/v2/microvms/${Uri.encodeComponent(microvmId.toString())}/console',
           config: config,
           query: {
-            'rows': SdkQueryValue(SdkUtils.unwrapOptional(rows), style: 'form', explode: true),
-            'cols': SdkQueryValue(SdkUtils.unwrapOptional(cols), style: 'form', explode: true)
+            'rows': SdkQueryValue(SdkUtils.unwrapOptional(rows),
+                style: 'form', explode: true),
+            'cols': SdkQueryValue(SdkUtils.unwrapOptional(cols),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'microvmsGetConsole',
-          fromJsonRaw: (value) => Error2.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Error2.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '403': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                MicrovmError.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                MicrovmError.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To create a checkpoint of a running or paused MicroVM, send a POST request to `/v2/microvms/{microvm_id}/checkpoints`. The capture runs in the background and does not change the MicroVM's state. Poll `GET /v2/microvms/checkpoints/{checkpoint_id}` until `status` is `CHECKPOINT_AVAILABLE`.
 ///
@@ -364,8 +458,18 @@ Future<CheckpointResponse> microvmCheckpointsCreate(ClientConfig config,
           body: {'name': SdkUtils.unwrapOptional(name)},
           decoder: SdkResponseDecoder.json,
           operationId: 'microvmCheckpointsCreate',
-          fromJsonRaw: (value) => CheckpointResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CheckpointResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => MicrovmError.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                MicrovmError.fromJson(value as Map<String, dynamic>),
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                MicrovmError.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

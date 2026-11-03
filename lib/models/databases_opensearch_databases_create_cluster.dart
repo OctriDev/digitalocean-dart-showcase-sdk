@@ -11,10 +11,9 @@ class OpensearchConnectionRequest implements SdkJsonModel {
 
   const OpensearchConnectionRequest();
 
-  factory OpensearchConnectionRequest.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(OpensearchConnectionRequest(
-  ), json);
+  factory OpensearchConnectionRequest.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(OpensearchConnectionRequest(), json);
 
   @override
-  Map<String, dynamic> toJson() => {
-  };
+  Map<String, dynamic> toJson() => {};
 }

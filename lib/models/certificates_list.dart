@@ -11,23 +11,37 @@ class AllCertificatesVariant0 implements SdkJsonModel {
 
   const AllCertificatesVariant0({this.certificates = const SdkOmitted()});
 
-  AllCertificatesVariant0 Function({SdkOptional<List<Certificate>> certificates}) get copyWith => _copyWith;
+  AllCertificatesVariant0 Function(
+      {SdkOptional<List<Certificate>> certificates}) get copyWith => _copyWith;
 
-  AllCertificatesVariant0 _copyWith({Object? certificates = sdkOmittedValue}) => AllCertificatesVariant0(
-    certificates: identical(certificates, sdkOmittedValue) ? this.certificates : certificates as SdkOptional<List<Certificate>>,
-  );
+  AllCertificatesVariant0 _copyWith({Object? certificates = sdkOmittedValue}) =>
+      AllCertificatesVariant0(
+        certificates: identical(certificates, sdkOmittedValue)
+            ? this.certificates
+            : certificates as SdkOptional<List<Certificate>>,
+      );
 
-  factory AllCertificatesVariant0.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AllCertificatesVariant0(
-    certificates: json['certificates'] != null ? SdkPresent(((json['certificates'] as List?)?.map((e) => Certificate.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory AllCertificatesVariant0.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AllCertificatesVariant0(
+            certificates: json['certificates'] != null
+                ? SdkPresent(((json['certificates'] as List?)
+                    ?.map(
+                        (e) => Certificate.fromJson(e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (certificates) {
-      SdkPresent<List<Certificate>>(value: final value) => {'certificates': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (certificates) {
+          SdkPresent<List<Certificate>>(value: final value) => {
+              'certificates': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AllCertificates` API schema.
@@ -35,37 +49,71 @@ class AllCertificates implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<Certificate>> certificates;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AllCertificates({this.certificates = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AllCertificates(
+      {this.certificates = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AllCertificates Function({SdkOptional<List<Certificate>> certificates, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AllCertificates Function(
+      {SdkOptional<List<Certificate>> certificates,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AllCertificates _copyWith({Object? certificates = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AllCertificates(
-    certificates: identical(certificates, sdkOmittedValue) ? this.certificates : certificates as SdkOptional<List<Certificate>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AllCertificates _copyWith(
+          {Object? certificates = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AllCertificates(
+        certificates: identical(certificates, sdkOmittedValue)
+            ? this.certificates
+            : certificates as SdkOptional<List<Certificate>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AllCertificates.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AllCertificates(
-    certificates: json['certificates'] != null ? SdkPresent(((json['certificates'] as List?)?.map((e) => Certificate.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory AllCertificates.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      AllCertificates(
+        certificates: json['certificates'] != null
+            ? SdkPresent(((json['certificates'] as List?)
+                ?.map((e) => Certificate.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        links: json['links'] != null
+            ? SdkPresent((json['links'] != null
+                ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        meta: (json['meta'] != null
+            ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+            : null)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (certificates) {
-      SdkPresent<List<Certificate>>(value: final value) => {'certificates': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (certificates) {
+          SdkPresent<List<Certificate>>(value: final value) => {
+              'certificates': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

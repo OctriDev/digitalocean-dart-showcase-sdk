@@ -11,23 +11,40 @@ class AcceleratorsListVariant0 implements SdkJsonModel {
 
   const AcceleratorsListVariant0({this.accelerators = const SdkOmitted()});
 
-  AcceleratorsListVariant0 Function({SdkOptional<List<DedicatedInferenceAccelerator>> accelerators}) get copyWith => _copyWith;
+  AcceleratorsListVariant0 Function(
+          {SdkOptional<List<DedicatedInferenceAccelerator>> accelerators})
+      get copyWith => _copyWith;
 
-  AcceleratorsListVariant0 _copyWith({Object? accelerators = sdkOmittedValue}) => AcceleratorsListVariant0(
-    accelerators: identical(accelerators, sdkOmittedValue) ? this.accelerators : accelerators as SdkOptional<List<DedicatedInferenceAccelerator>>,
-  );
+  AcceleratorsListVariant0 _copyWith(
+          {Object? accelerators = sdkOmittedValue}) =>
+      AcceleratorsListVariant0(
+        accelerators: identical(accelerators, sdkOmittedValue)
+            ? this.accelerators
+            : accelerators as SdkOptional<List<DedicatedInferenceAccelerator>>,
+      );
 
-  factory AcceleratorsListVariant0.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AcceleratorsListVariant0(
-    accelerators: json['accelerators'] != null ? SdkPresent(((json['accelerators'] as List?)?.map((e) => DedicatedInferenceAccelerator.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory AcceleratorsListVariant0.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AcceleratorsListVariant0(
+            accelerators: json['accelerators'] != null
+                ? SdkPresent(((json['accelerators'] as List?)
+                    ?.map((e) => DedicatedInferenceAccelerator.fromJson(
+                        e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (accelerators) {
-      SdkPresent<List<DedicatedInferenceAccelerator>>(value: final value) => {'accelerators': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (accelerators) {
+          SdkPresent<List<DedicatedInferenceAccelerator>>(value: final value) =>
+            {
+              'accelerators': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `AcceleratorsList` API schema.
@@ -35,37 +52,74 @@ class AcceleratorsList implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<List<DedicatedInferenceAccelerator>> accelerators;
+
   /// Optional object value serialized in the `links` wire field.
   final SdkOptional<PageLinks> links;
+
   /// Required API value serialized in the `meta` wire field.
   final MetaProperties meta;
 
-  const AcceleratorsList({this.accelerators = const SdkOmitted(), this.links = const SdkOmitted(), required this.meta});
+  const AcceleratorsList(
+      {this.accelerators = const SdkOmitted(),
+      this.links = const SdkOmitted(),
+      required this.meta});
 
-  AcceleratorsList Function({SdkOptional<List<DedicatedInferenceAccelerator>> accelerators, SdkOptional<PageLinks> links, MetaProperties meta}) get copyWith => _copyWith;
+  AcceleratorsList Function(
+      {SdkOptional<List<DedicatedInferenceAccelerator>> accelerators,
+      SdkOptional<PageLinks> links,
+      MetaProperties meta}) get copyWith => _copyWith;
 
-  AcceleratorsList _copyWith({Object? accelerators = sdkOmittedValue, Object? links = sdkOmittedValue, Object? meta = sdkOmittedValue}) => AcceleratorsList(
-    accelerators: identical(accelerators, sdkOmittedValue) ? this.accelerators : accelerators as SdkOptional<List<DedicatedInferenceAccelerator>>,
-    links: identical(links, sdkOmittedValue) ? this.links : links as SdkOptional<PageLinks>,
-    meta: identical(meta, sdkOmittedValue) ? this.meta : meta as MetaProperties,
-  );
+  AcceleratorsList _copyWith(
+          {Object? accelerators = sdkOmittedValue,
+          Object? links = sdkOmittedValue,
+          Object? meta = sdkOmittedValue}) =>
+      AcceleratorsList(
+        accelerators: identical(accelerators, sdkOmittedValue)
+            ? this.accelerators
+            : accelerators as SdkOptional<List<DedicatedInferenceAccelerator>>,
+        links: identical(links, sdkOmittedValue)
+            ? this.links
+            : links as SdkOptional<PageLinks>,
+        meta: identical(meta, sdkOmittedValue)
+            ? this.meta
+            : meta as MetaProperties,
+      );
 
-  factory AcceleratorsList.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AcceleratorsList(
-    accelerators: json['accelerators'] != null ? SdkPresent(((json['accelerators'] as List?)?.map((e) => DedicatedInferenceAccelerator.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    links: json['links'] != null ? SdkPresent((json['links'] != null ? PageLinks.fromJson(json['links'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    meta: (json['meta'] != null ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory AcceleratorsList.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AcceleratorsList(
+            accelerators: json['accelerators'] != null
+                ? SdkPresent(((json['accelerators'] as List?)
+                    ?.map((e) => DedicatedInferenceAccelerator.fromJson(
+                        e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+            links: json['links'] != null
+                ? SdkPresent((json['links'] != null
+                    ? PageLinks.fromJson(json['links'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+            meta: (json['meta'] != null
+                ? MetaProperties.fromJson(json['meta'] as Map<String, dynamic>)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (accelerators) {
-      SdkPresent<List<DedicatedInferenceAccelerator>>(value: final value) => {'accelerators': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (links) {
-      SdkPresent<PageLinks>(value: final value) => {'links': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'meta': meta.toJson(),
-  };
+        ...switch (accelerators) {
+          SdkPresent<List<DedicatedInferenceAccelerator>>(value: final value) =>
+            {
+              'accelerators': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (links) {
+          SdkPresent<PageLinks>(value: final value) => {
+              'links': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'meta': meta.toJson(),
+      };
 }

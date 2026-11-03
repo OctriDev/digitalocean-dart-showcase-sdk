@@ -7,25 +7,31 @@ part of 'nfs_actions.dart';
 class NfsActionAttachVariant1Params implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the VPC to which the NFS share will be attached
   final String vpcId;
 
   const NfsActionAttachVariant1Params({required this.vpcId});
 
-  NfsActionAttachVariant1Params Function({String vpcId}) get copyWith => _copyWith;
+  NfsActionAttachVariant1Params Function({String vpcId}) get copyWith =>
+      _copyWith;
 
-  NfsActionAttachVariant1Params _copyWith({Object? vpcId = sdkOmittedValue}) => NfsActionAttachVariant1Params(
-    vpcId: identical(vpcId, sdkOmittedValue) ? this.vpcId : vpcId as String,
-  );
+  NfsActionAttachVariant1Params _copyWith({Object? vpcId = sdkOmittedValue}) =>
+      NfsActionAttachVariant1Params(
+        vpcId: identical(vpcId, sdkOmittedValue) ? this.vpcId : vpcId as String,
+      );
 
-  factory NfsActionAttachVariant1Params.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(NfsActionAttachVariant1Params(
-    vpcId: (json['vpc_id'] as String?)!,
-  ), json);
+  factory NfsActionAttachVariant1Params.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          NfsActionAttachVariant1Params(
+            vpcId: (json['vpc_id'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'vpc_id': vpcId,
-  };
+        'vpc_id': vpcId,
+      };
 }
 
 class NfsActionAttachVariant1 implements SdkJsonModel {
@@ -35,61 +41,110 @@ class NfsActionAttachVariant1 implements SdkJsonModel {
 
   const NfsActionAttachVariant1({this.params = const SdkOmitted()});
 
-  NfsActionAttachVariant1 Function({SdkOptional<NfsActionAttachVariant1Params> params}) get copyWith => _copyWith;
+  NfsActionAttachVariant1 Function(
+          {SdkOptional<NfsActionAttachVariant1Params> params})
+      get copyWith => _copyWith;
 
-  NfsActionAttachVariant1 _copyWith({Object? params = sdkOmittedValue}) => NfsActionAttachVariant1(
-    params: identical(params, sdkOmittedValue) ? this.params : params as SdkOptional<NfsActionAttachVariant1Params>,
-  );
+  NfsActionAttachVariant1 _copyWith({Object? params = sdkOmittedValue}) =>
+      NfsActionAttachVariant1(
+        params: identical(params, sdkOmittedValue)
+            ? this.params
+            : params as SdkOptional<NfsActionAttachVariant1Params>,
+      );
 
-  factory NfsActionAttachVariant1.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(NfsActionAttachVariant1(
-    params: json['params'] != null ? SdkPresent((json['params'] != null ? NfsActionAttachVariant1Params.fromJson(json['params'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory NfsActionAttachVariant1.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          NfsActionAttachVariant1(
+            params: json['params'] != null
+                ? SdkPresent((json['params'] != null
+                    ? NfsActionAttachVariant1Params.fromJson(
+                        json['params'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (params) {
-      SdkPresent<NfsActionAttachVariant1Params>(value: final value) => {'params': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (params) {
+          SdkPresent<NfsActionAttachVariant1Params>(value: final value) => {
+              'params': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `NfsActionAttach` API schema.
 class NfsActionAttach implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of action to initiate for the NFS share (such as resize or snapshot).
   final NfsActionType type_;
+
   /// The DigitalOcean region slug (e.g. atl1, nyc2) where the NFS snapshot resides.
   final SdkOptional<String> region;
   final SdkOptional<NfsActionAttachVariant1Params> params;
 
-  const NfsActionAttach({required this.type_, this.region = const SdkOmitted(), this.params = const SdkOmitted()});
+  const NfsActionAttach(
+      {required this.type_,
+      this.region = const SdkOmitted(),
+      this.params = const SdkOmitted()});
 
-  NfsActionAttach Function({NfsActionType type_, SdkOptional<String> region, SdkOptional<NfsActionAttachVariant1Params> params}) get copyWith => _copyWith;
+  NfsActionAttach Function(
+          {NfsActionType type_,
+          SdkOptional<String> region,
+          SdkOptional<NfsActionAttachVariant1Params> params})
+      get copyWith => _copyWith;
 
-  NfsActionAttach _copyWith({Object? type_ = sdkOmittedValue, Object? region = sdkOmittedValue, Object? params = sdkOmittedValue}) => NfsActionAttach(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as NfsActionType,
-    region: identical(region, sdkOmittedValue) ? this.region : region as SdkOptional<String>,
-    params: identical(params, sdkOmittedValue) ? this.params : params as SdkOptional<NfsActionAttachVariant1Params>,
-  );
+  NfsActionAttach _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? region = sdkOmittedValue,
+          Object? params = sdkOmittedValue}) =>
+      NfsActionAttach(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as NfsActionType,
+        region: identical(region, sdkOmittedValue)
+            ? this.region
+            : region as SdkOptional<String>,
+        params: identical(params, sdkOmittedValue)
+            ? this.params
+            : params as SdkOptional<NfsActionAttachVariant1Params>,
+      );
 
-  factory NfsActionAttach.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(NfsActionAttach(
-    type_: (json['type'] != null ? NfsActionType.fromJson(json['type'] as String) : null)!,
-    region: json['region'] != null ? SdkPresent((json['region'] as String?)!) : const SdkOmitted(),
-    params: json['params'] != null ? SdkPresent((json['params'] != null ? NfsActionAttachVariant1Params.fromJson(json['params'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory NfsActionAttach.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      NfsActionAttach(
+        type_: (json['type'] != null
+            ? NfsActionType.fromJson(json['type'] as String)
+            : null)!,
+        region: json['region'] != null
+            ? SdkPresent((json['region'] as String?)!)
+            : const SdkOmitted(),
+        params: json['params'] != null
+            ? SdkPresent((json['params'] != null
+                ? NfsActionAttachVariant1Params.fromJson(
+                    json['params'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'type': type_.toJson(),
-    ...switch (region) {
-      SdkPresent<String>(value: final value) => {'region': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (params) {
-      SdkPresent<NfsActionAttachVariant1Params>(value: final value) => {'params': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'type': type_.toJson(),
+        ...switch (region) {
+          SdkPresent<String>(value: final value) => {
+              'region': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (params) {
+          SdkPresent<NfsActionAttachVariant1Params>(value: final value) => {
+              'params': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

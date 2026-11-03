@@ -6,7 +6,6 @@ part of 'agent_platform_api_api_agent.dart';
 // agent_platform_api_api_agent domain models
 /// Agent span
 final class ApiAgentType {
-
   final String value;
 
   const ApiAgentType._(this.value);
@@ -25,10 +24,13 @@ final class ApiAgentType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ApiAgentType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ApiAgentType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

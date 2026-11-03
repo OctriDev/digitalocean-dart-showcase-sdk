@@ -8,26 +8,42 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelPricingDetail implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Each available pricing variant for the model.
   final SdkOptional<List<ApiModelPricingVariant>> variants;
 
   const ApiModelPricingDetail({this.variants = const SdkOmitted()});
 
-  ApiModelPricingDetail Function({SdkOptional<List<ApiModelPricingVariant>> variants}) get copyWith => _copyWith;
+  ApiModelPricingDetail Function(
+          {SdkOptional<List<ApiModelPricingVariant>> variants})
+      get copyWith => _copyWith;
 
-  ApiModelPricingDetail _copyWith({Object? variants = sdkOmittedValue}) => ApiModelPricingDetail(
-    variants: identical(variants, sdkOmittedValue) ? this.variants : variants as SdkOptional<List<ApiModelPricingVariant>>,
-  );
+  ApiModelPricingDetail _copyWith({Object? variants = sdkOmittedValue}) =>
+      ApiModelPricingDetail(
+        variants: identical(variants, sdkOmittedValue)
+            ? this.variants
+            : variants as SdkOptional<List<ApiModelPricingVariant>>,
+      );
 
-  factory ApiModelPricingDetail.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiModelPricingDetail(
-    variants: json['variants'] != null ? SdkPresent(((json['variants'] as List?)?.map((e) => ApiModelPricingVariant.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  ), json);
+  factory ApiModelPricingDetail.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiModelPricingDetail(
+            variants: json['variants'] != null
+                ? SdkPresent(((json['variants'] as List?)
+                    ?.map((e) => ApiModelPricingVariant.fromJson(
+                        e as Map<String, dynamic>))
+                    .toList())!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (variants) {
-      SdkPresent<List<ApiModelPricingVariant>>(value: final value) => {'variants': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (variants) {
+          SdkPresent<List<ApiModelPricingVariant>>(value: final value) => {
+              'variants': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

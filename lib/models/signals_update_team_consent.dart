@@ -8,23 +8,34 @@ part of 'signals.dart';
 class UpdateTeamConsentResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A consent record indicating whether signals collection is enabled for a source. Records with `source: agent` apply to one environment; the record with `source: inference` applies to the whole team.
   final ConsentRecord consent;
 
   const UpdateTeamConsentResponse({required this.consent});
 
-  UpdateTeamConsentResponse Function({ConsentRecord consent}) get copyWith => _copyWith;
+  UpdateTeamConsentResponse Function({ConsentRecord consent}) get copyWith =>
+      _copyWith;
 
-  UpdateTeamConsentResponse _copyWith({Object? consent = sdkOmittedValue}) => UpdateTeamConsentResponse(
-    consent: identical(consent, sdkOmittedValue) ? this.consent : consent as ConsentRecord,
-  );
+  UpdateTeamConsentResponse _copyWith({Object? consent = sdkOmittedValue}) =>
+      UpdateTeamConsentResponse(
+        consent: identical(consent, sdkOmittedValue)
+            ? this.consent
+            : consent as ConsentRecord,
+      );
 
-  factory UpdateTeamConsentResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(UpdateTeamConsentResponse(
-    consent: (json['consent'] != null ? ConsentRecord.fromJson(json['consent'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory UpdateTeamConsentResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          UpdateTeamConsentResponse(
+            consent: (json['consent'] != null
+                ? ConsentRecord.fromJson(
+                    json['consent'] as Map<String, dynamic>)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'consent': consent.toJson(),
-  };
+        'consent': consent.toJson(),
+      };
 }

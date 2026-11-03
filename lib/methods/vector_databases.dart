@@ -17,17 +17,25 @@ Future<VectordbListVectorDBsResponse> vectorDatabasesList(ClientConfig config,
           'GET', '/v2/vector-databases',
           config: config,
           query: {
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true),
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true)
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true),
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vectorDatabasesList',
-          fromJsonRaw: (value) => VectordbListVectorDBsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectordbListVectorDBsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To create a vector database, send a POST request to `/v2/vector-databases`. The response body contains a JSON object with a `vector_db` key holding the newly created database. Its initial `status` is `creating` and changes to `active` once the database is ready to receive traffic.
 ///
@@ -36,14 +44,14 @@ Future<VectordbListVectorDBsResponse> vectorDatabasesList(ClientConfig config,
 /// [region] Required. Region slug where the database will be provisioned.
 /// [size] Required. Resource tier: small, medium, or large.
 /// [tags] A set of arbitrary tags to organize your vector database
-Future<VectordbCreateVectorDBResponse>
-    vectorDatabasesCreate(ClientConfig config,
-        {SdkOptional<String> name = const SdkOmitted(),
-        SdkOptional<String> projectId = const SdkOmitted(),
-        SdkOptional<String> region = const SdkOmitted(),
-        SdkOptional<String> size = const SdkOmitted(),
-        SdkOptional<List<String>> tags = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<VectordbCreateVectorDBResponse> vectorDatabasesCreate(
+    ClientConfig config,
+    {SdkOptional<String> name = const SdkOmitted(),
+    SdkOptional<String> projectId = const SdkOmitted(),
+    SdkOptional<String> region = const SdkOmitted(),
+    SdkOptional<String> size = const SdkOmitted(),
+    SdkOptional<List<String>> tags = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<VectordbCreateVectorDBResponse>(
           'POST', '/v2/vector-databases',
           config: config,
@@ -56,12 +64,18 @@ Future<VectordbCreateVectorDBResponse>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vectorDatabasesCreate',
-          fromJsonRaw: (value) => VectordbCreateVectorDBResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectordbCreateVectorDBResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To show information about an existing vector database, send a GET request to `/v2/vector-databases/{id}`. The response body contains a JSON object with a `vector_db` key holding the standard vector database attributes, including an embedded `endpoints` object with the connection information needed to access the database.
 ///
@@ -73,12 +87,18 @@ Future<VectordbGetVectorDBResponse> vectorDatabasesGet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'vectorDatabasesGet',
-          fromJsonRaw: (value) => VectordbGetVectorDBResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectordbGetVectorDBResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To update an existing vector database, send a PUT request to `/v2/vector-databases/{id}`. The response body contains a JSON object with a `vector_db` key holding the updated vector database.
 ///
@@ -86,13 +106,13 @@ Future<VectordbGetVectorDBResponse> vectorDatabasesGet(ClientConfig config,
 /// [config_] VectorDBConfig holds optional, advanced cluster settings.
 /// [id_2] ID of the vector database.
 /// [projectId] Optional. New project UUID to assign the database to.
-Future<VectordbUpdateVectorDBResponse>
-    vectorDatabasesUpdate(ClientConfig config,
-        {required String id,
-        SdkOptional<VectordbVectorDBConfig> config_ = const SdkOmitted(),
-        SdkOptional<String> id_2 = const SdkOmitted(),
-        SdkOptional<String> projectId = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<VectordbUpdateVectorDBResponse> vectorDatabasesUpdate(
+    ClientConfig config,
+    {required String id,
+    SdkOptional<VectordbVectorDBConfig> config_ = const SdkOmitted(),
+    SdkOptional<String> id_2 = const SdkOmitted(),
+    SdkOptional<String> projectId = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<VectordbUpdateVectorDBResponse>(
           'PUT', '/v2/vector-databases/${Uri.encodeComponent(id.toString())}',
           config: config,
@@ -103,12 +123,18 @@ Future<VectordbUpdateVectorDBResponse>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vectorDatabasesUpdate',
-          fromJsonRaw: (value) => VectordbUpdateVectorDBResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectordbUpdateVectorDBResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To delete a vector database, send a DELETE request to `/v2/vector-databases/{id}`. Deleting a vector database is irreversible and destroys the underlying instance along with its data.
 ///
@@ -121,48 +147,67 @@ Future<void> vectorDatabasesDelete(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'vectorDatabasesDelete',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To list the available backups for a vector database, send a GET request to `/v2/vector-databases/{id}/backups`. Only backups with a status of `SUCCESS` are returned.
 ///
 /// [id] Required. ID of the vector database.
-Future<VectordbListBackupsResponse> vectorDatabasesListBackups(ClientConfig config,
-    {required String id, RequestOptions? requestOptions}) async {
+Future<VectordbListBackupsResponse> vectorDatabasesListBackups(
+    ClientConfig config,
+    {required String id,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<VectordbListBackupsResponse>('GET',
           '/v2/vector-databases/${Uri.encodeComponent(id.toString())}/backups',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'vectorDatabasesListBackups',
-          fromJsonRaw: (value) => VectordbListBackupsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectordbListBackupsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To check the status of a restore operation, send a GET request to `/v2/vector-databases/{id}/backups/{backup_id}/restore`. The response body contains the current status of the restore.
 ///
 /// [id] Required. ID of the vector database.
 /// [backupId] Required. ID of the backup being restored.
-Future<VectordbGetRestoreStatusResponse>
-    vectorDatabasesGetRestoreStatus(ClientConfig config,
-        {required String id,
-        required String backupId,
-        RequestOptions? requestOptions}) async {
+Future<VectordbGetRestoreStatusResponse> vectorDatabasesGetRestoreStatus(
+    ClientConfig config,
+    {required String id,
+    required String backupId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<VectordbGetRestoreStatusResponse>('GET',
           '/v2/vector-databases/${Uri.encodeComponent(id.toString())}/backups/${Uri.encodeComponent(backupId.toString())}/restore',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'vectorDatabasesGetRestoreStatus',
-          fromJsonRaw: (value) => VectordbGetRestoreStatusResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectordbGetRestoreStatusResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To restore a vector database from a backup, send a POST request to `/v2/vector-databases/{id}/backups/{backup_id}/restore`. The restore runs asynchronously; use the restore-status endpoint to monitor its progress.
 ///
@@ -170,13 +215,13 @@ Future<VectordbGetRestoreStatusResponse>
 /// [backupId] Required. ID of the backup to restore from.
 /// [backupId_2] Required. ID of the backup to restore from.
 /// [id_2] Required. ID of the vector database.
-Future<VectordbRestoreBackupResponse>
-    vectorDatabasesPostRestoreBackup(ClientConfig config,
-        {required String id,
-        required String backupId,
-        SdkOptional<String> backupId_2 = const SdkOmitted(),
-        SdkOptional<String> id_2 = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<VectordbRestoreBackupResponse> vectorDatabasesPostRestoreBackup(
+    ClientConfig config,
+    {required String id,
+    required String backupId,
+    SdkOptional<String> backupId_2 = const SdkOmitted(),
+    SdkOptional<String> id_2 = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<VectordbRestoreBackupResponse>('POST',
           '/v2/vector-databases/${Uri.encodeComponent(id.toString())}/backups/${Uri.encodeComponent(backupId.toString())}/restore',
           config: config,
@@ -186,41 +231,55 @@ Future<VectordbRestoreBackupResponse>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vectorDatabasesPostRestoreBackup',
-          fromJsonRaw: (value) => VectordbRestoreBackupResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectordbRestoreBackupResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve the admin credentials for a vector database, send a GET request to `/v2/vector-databases/{id}/credentials`. The response body contains the `user_id` and `api_token` for the admin user provisioned on the cluster.
 ///
 /// [id] ID of the vector database.
-Future<VectordbGetVectorDBAdminCredentialsResponse> vectorDatabasesGetCredentials(ClientConfig config,
-    {required String id, RequestOptions? requestOptions}) async {
+Future<VectordbGetVectorDBAdminCredentialsResponse>
+    vectorDatabasesGetCredentials(ClientConfig config,
+        {required String id, RequestOptions? requestOptions}) async {
   return (await sdkRequest<VectordbGetVectorDBAdminCredentialsResponse>('GET',
           '/v2/vector-databases/${Uri.encodeComponent(id.toString())}/credentials',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'vectorDatabasesGetCredentials',
-          fromJsonRaw: (value) => VectordbGetVectorDBAdminCredentialsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VectordbGetVectorDBAdminCredentialsResponse.fromJson(
+                  value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To resize a vector database, send a POST request to `/v2/vector-databases/{id}/resize`. This changes the database's resource tier. The response body contains a JSON object with the updated vector database.
 ///
 /// [id] Required. ID of the vector database to resize.
 /// [id_2] Required. ID of the vector database to resize.
 /// [size] Required. Target resource tier: small, medium, or large.
-Future<VectordbResizeVectorDBResponse>
-    vectorDatabasesPostResize(ClientConfig config,
-        {required String id,
-        SdkOptional<String> id_2 = const SdkOmitted(),
-        SdkOptional<String> size = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<VectordbResizeVectorDBResponse> vectorDatabasesPostResize(
+    ClientConfig config,
+    {required String id,
+    SdkOptional<String> id_2 = const SdkOmitted(),
+    SdkOptional<String> size = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<VectordbResizeVectorDBResponse>('POST',
           '/v2/vector-databases/${Uri.encodeComponent(id.toString())}/resize',
           config: config,
@@ -230,24 +289,30 @@ Future<VectordbResizeVectorDBResponse>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vectorDatabasesPostResize',
-          fromJsonRaw: (value) => VectordbResizeVectorDBResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectordbResizeVectorDBResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To update the tags on a vector database, send a PUT request to `/v2/vector-databases/{id}/tags`. The supplied set of tags replaces the database's existing tags.
 ///
 /// [id] Required. ID of the vector database to update tags for.
 /// [id_2] Required. ID of the vector database to update tags for.
 /// [tags] Tags to set on the vector database. Replaces all existing tags.
-Future<VectordbUpdateVectorDBTagsResponse>
-    vectorDatabasesUpdateTags(ClientConfig config,
-        {required String id,
-        SdkOptional<String> id_2 = const SdkOmitted(),
-        SdkOptional<List<String>> tags = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<VectordbUpdateVectorDBTagsResponse> vectorDatabasesUpdateTags(
+    ClientConfig config,
+    {required String id,
+    SdkOptional<String> id_2 = const SdkOmitted(),
+    SdkOptional<List<String>> tags = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<VectordbUpdateVectorDBTagsResponse>('PUT',
           '/v2/vector-databases/${Uri.encodeComponent(id.toString())}/tags',
           config: config,
@@ -257,8 +322,15 @@ Future<VectordbUpdateVectorDBTagsResponse>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'vectorDatabasesUpdateTags',
-          fromJsonRaw: (value) => VectordbUpdateVectorDBTagsResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VectordbUpdateVectorDBTagsResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

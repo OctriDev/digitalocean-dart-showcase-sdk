@@ -8,8 +8,10 @@ part of 'monitoring.dart';
 class SlackDetails implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Slack channel to notify of an alert trigger.
   final String channel;
+
   /// Slack Webhook URL.
   final String url;
 
@@ -17,19 +19,25 @@ class SlackDetails implements SdkJsonModel {
 
   SlackDetails Function({String channel, String url}) get copyWith => _copyWith;
 
-  SlackDetails _copyWith({Object? channel = sdkOmittedValue, Object? url = sdkOmittedValue}) => SlackDetails(
-    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as String,
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-  );
+  SlackDetails _copyWith(
+          {Object? channel = sdkOmittedValue, Object? url = sdkOmittedValue}) =>
+      SlackDetails(
+        channel: identical(channel, sdkOmittedValue)
+            ? this.channel
+            : channel as String,
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+      );
 
-  factory SlackDetails.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(SlackDetails(
-    channel: (json['channel'] as String?)!,
-    url: (json['url'] as String?)!,
-  ), json);
+  factory SlackDetails.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      SlackDetails(
+        channel: (json['channel'] as String?)!,
+        url: (json['url'] as String?)!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'channel': channel,
-    'url': url,
-  };
+        'channel': channel,
+        'url': url,
+      };
 }

@@ -8,26 +8,39 @@ part of 'agent_platform_api_api_delete.dart';
 class ApiDeleteWorkspaceOutput implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Workspace
   final SdkOptional<String> workspaceUuid;
 
   const ApiDeleteWorkspaceOutput({this.workspaceUuid = const SdkOmitted()});
 
-  ApiDeleteWorkspaceOutput Function({SdkOptional<String> workspaceUuid}) get copyWith => _copyWith;
+  ApiDeleteWorkspaceOutput Function({SdkOptional<String> workspaceUuid})
+      get copyWith => _copyWith;
 
-  ApiDeleteWorkspaceOutput _copyWith({Object? workspaceUuid = sdkOmittedValue}) => ApiDeleteWorkspaceOutput(
-    workspaceUuid: identical(workspaceUuid, sdkOmittedValue) ? this.workspaceUuid : workspaceUuid as SdkOptional<String>,
-  );
+  ApiDeleteWorkspaceOutput _copyWith(
+          {Object? workspaceUuid = sdkOmittedValue}) =>
+      ApiDeleteWorkspaceOutput(
+        workspaceUuid: identical(workspaceUuid, sdkOmittedValue)
+            ? this.workspaceUuid
+            : workspaceUuid as SdkOptional<String>,
+      );
 
-  factory ApiDeleteWorkspaceOutput.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiDeleteWorkspaceOutput(
-    workspaceUuid: json['workspace_uuid'] != null ? SdkPresent((json['workspace_uuid'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory ApiDeleteWorkspaceOutput.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiDeleteWorkspaceOutput(
+            workspaceUuid: json['workspace_uuid'] != null
+                ? SdkPresent((json['workspace_uuid'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (workspaceUuid) {
-      SdkPresent<String>(value: final value) => {'workspace_uuid': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (workspaceUuid) {
+          SdkPresent<String>(value: final value) => {
+              'workspace_uuid': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

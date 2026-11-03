@@ -8,26 +8,38 @@ part of 'apps_apps.dart';
 class AppsDeleteAppResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String> id;
 
   const AppsDeleteAppResponse({this.id = const SdkOmitted()});
 
-  AppsDeleteAppResponse Function({SdkOptional<String> id}) get copyWith => _copyWith;
+  AppsDeleteAppResponse Function({SdkOptional<String> id}) get copyWith =>
+      _copyWith;
 
-  AppsDeleteAppResponse _copyWith({Object? id = sdkOmittedValue}) => AppsDeleteAppResponse(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-  );
+  AppsDeleteAppResponse _copyWith({Object? id = sdkOmittedValue}) =>
+      AppsDeleteAppResponse(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+      );
 
-  factory AppsDeleteAppResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AppsDeleteAppResponse(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory AppsDeleteAppResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AppsDeleteAppResponse(
+            id: json['id'] != null
+                ? SdkPresent((json['id'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

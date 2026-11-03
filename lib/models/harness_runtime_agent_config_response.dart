@@ -8,26 +8,41 @@ part of 'harness_runtime_agent.dart';
 class AgentConfigResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Immutable team-scoped Environment Config: one sanitized manifest per config. There is no update; clone to a new config to change content.
   final SdkOptional<AgentConfig> config;
 
   const AgentConfigResponse({this.config = const SdkOmitted()});
 
-  AgentConfigResponse Function({SdkOptional<AgentConfig> config}) get copyWith => _copyWith;
+  AgentConfigResponse Function({SdkOptional<AgentConfig> config})
+      get copyWith => _copyWith;
 
-  AgentConfigResponse _copyWith({Object? config = sdkOmittedValue}) => AgentConfigResponse(
-    config: identical(config, sdkOmittedValue) ? this.config : config as SdkOptional<AgentConfig>,
-  );
+  AgentConfigResponse _copyWith({Object? config = sdkOmittedValue}) =>
+      AgentConfigResponse(
+        config: identical(config, sdkOmittedValue)
+            ? this.config
+            : config as SdkOptional<AgentConfig>,
+      );
 
-  factory AgentConfigResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(AgentConfigResponse(
-    config: json['config'] != null ? SdkPresent((json['config'] != null ? AgentConfig.fromJson(json['config'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory AgentConfigResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          AgentConfigResponse(
+            config: json['config'] != null
+                ? SdkPresent((json['config'] != null
+                    ? AgentConfig.fromJson(
+                        json['config'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (config) {
-      SdkPresent<AgentConfig>(value: final value) => {'config': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (config) {
+          SdkPresent<AgentConfig>(value: final value) => {
+              'config': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

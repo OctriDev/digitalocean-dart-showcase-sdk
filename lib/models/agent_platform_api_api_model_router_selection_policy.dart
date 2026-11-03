@@ -8,26 +8,38 @@ part of 'agent_platform_api_api_model.dart';
 class ApiModelRouterSelectionPolicy implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// One of: none, cheapest, fastest
   final SdkOptional<String> prefer;
 
   const ApiModelRouterSelectionPolicy({this.prefer = const SdkOmitted()});
 
-  ApiModelRouterSelectionPolicy Function({SdkOptional<String> prefer}) get copyWith => _copyWith;
+  ApiModelRouterSelectionPolicy Function({SdkOptional<String> prefer})
+      get copyWith => _copyWith;
 
-  ApiModelRouterSelectionPolicy _copyWith({Object? prefer = sdkOmittedValue}) => ApiModelRouterSelectionPolicy(
-    prefer: identical(prefer, sdkOmittedValue) ? this.prefer : prefer as SdkOptional<String>,
-  );
+  ApiModelRouterSelectionPolicy _copyWith({Object? prefer = sdkOmittedValue}) =>
+      ApiModelRouterSelectionPolicy(
+        prefer: identical(prefer, sdkOmittedValue)
+            ? this.prefer
+            : prefer as SdkOptional<String>,
+      );
 
-  factory ApiModelRouterSelectionPolicy.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ApiModelRouterSelectionPolicy(
-    prefer: json['prefer'] != null ? SdkPresent((json['prefer'] as String?)!) : const SdkOmitted(),
-  ), json);
+  factory ApiModelRouterSelectionPolicy.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ApiModelRouterSelectionPolicy(
+            prefer: json['prefer'] != null
+                ? SdkPresent((json['prefer'] as String?)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (prefer) {
-      SdkPresent<String>(value: final value) => {'prefer': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (prefer) {
+          SdkPresent<String>(value: final value) => {
+              'prefer': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

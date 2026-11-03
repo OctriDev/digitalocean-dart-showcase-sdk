@@ -11,11 +11,11 @@ import '../types.dart';
 ///
 /// [perPage] Number of items returned per page
 /// [page] Which 'page' of paginated results to return.
-Future<MonitoringListAlertPolicyResponse>
-    monitoringListAlertPolicy(ClientConfig config,
-        {SdkOptional<int> perPage = const SdkOmitted(),
-        SdkOptional<int> page = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<MonitoringListAlertPolicyResponse> monitoringListAlertPolicy(
+    ClientConfig config,
+    {SdkOptional<int> perPage = const SdkOmitted(),
+    SdkOptional<int> page = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   if (perPage is SdkPresent<int>) {
     validateRange('per_page', perPage.value, min: 1, max: 200);
   }
@@ -27,17 +27,24 @@ Future<MonitoringListAlertPolicyResponse>
           'GET', '/v2/monitoring/alerts',
           config: config,
           query: {
-            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage), style: 'form', explode: true),
-            'page': SdkQueryValue(SdkUtils.unwrapOptional(page), style: 'form', explode: true)
+            'per_page': SdkQueryValue(SdkUtils.unwrapOptional(perPage),
+                style: 'form', explode: true),
+            'page': SdkQueryValue(SdkUtils.unwrapOptional(page),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringListAlertPolicy',
-          fromJsonRaw: (value) => MonitoringListAlertPolicyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MonitoringListAlertPolicyResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates an alert policy that monitors a selected metric for droplets, load balancers, databases, or autoscale pools. Set `type`, `entities`, and `tags` to define what the policy monitors; when both `entities` and `tags` are empty, it applies to all entities of the selected type in the account. A 200 response returns the alert policy, including its generated UUID.
 ///
@@ -80,12 +87,17 @@ Future<AlertPolicyResponse> monitoringCreateAlertPolicy(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringCreateAlertPolicy',
-          fromJsonRaw: (value) => AlertPolicyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AlertPolicyResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve a given alert policy, send a GET request to `/v2/monitoring/alerts/{alert_uuid}`
 ///
@@ -97,12 +109,18 @@ Future<AlertPolicyResponse> monitoringGetAlertPolicy(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetAlertPolicy',
-          fromJsonRaw: (value) => AlertPolicyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AlertPolicyResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Replaces the configuration of an existing alert policy identified by its UUID. Provide the complete policy configuration, including its metric type, threshold, evaluation window, monitored entities, tags, notifications, and enabled state. A 200 response returns the updated alert policy.
 ///
@@ -148,12 +166,18 @@ Future<AlertPolicyResponse> monitoringUpdateAlertPolicy(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringUpdateAlertPolicy',
-          fromJsonRaw: (value) => AlertPolicyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AlertPolicyResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To delete an alert policy, send a DELETE request to `/v2/monitoring/alerts/{alert_uuid}`
 ///
@@ -166,10 +190,15 @@ Future<void> monitoringDeleteAlertPolicy(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'monitoringDeleteAlertPolicy',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To retrieve bandwidth metrics for a given Droplet, send a GET request to `/v2/monitoring/metrics/droplet/bandwidth`. Use the `interface` query parameter to specify if the results should be for the `private` or `public` interface. Use the `direction` query parameter to specify if the results should be for `inbound` or `outbound` traffic. The metrics in the response body are in megabits per second (Mbps).
 ///
@@ -190,19 +219,25 @@ Future<Metrics> monitoringGetDropletBandwidthMetrics(ClientConfig config,
           config: config,
           query: {
             'host_id': SdkQueryValue(hostId, style: 'form', explode: true),
-            'interface': SdkQueryValue(interface_, style: 'form', explode: true),
+            'interface':
+                SdkQueryValue(interface_, style: 'form', explode: true),
             'direction': SdkQueryValue(direction, style: 'form', explode: true),
             'start': SdkQueryValue(start, style: 'form', explode: true),
             'end': SdkQueryValue(end, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletBandwidthMetrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve CPU metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/cpu`.
 ///
@@ -223,12 +258,17 @@ Future<Metrics> monitoringGetDropletCpuMetrics(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletCpuMetrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve filesystem free metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/filesystem_free`.
 ///
@@ -250,12 +290,17 @@ Future<Metrics> monitoringGetDropletFilesystemFreeMetrics(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletFilesystemFreeMetrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve filesystem size metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/filesystem_size`.
 ///
@@ -277,12 +322,17 @@ Future<Metrics> monitoringGetDropletFilesystemSizeMetrics(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletFilesystemSizeMetrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve 1 minute load average metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/load_1`.
 ///
@@ -304,12 +354,17 @@ Future<Metrics> monitoringGetDropletLoad1Metrics(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletLoad1Metrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve 5 minute load average metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/load_5`.
 ///
@@ -331,12 +386,17 @@ Future<Metrics> monitoringGetDropletLoad5Metrics(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletLoad5Metrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve 15 minute load average metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/load_15`.
 ///
@@ -358,12 +418,17 @@ Future<Metrics> monitoringGetDropletLoad15Metrics(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletLoad15Metrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve cached memory metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/memory_cached`.
 ///
@@ -385,12 +450,17 @@ Future<Metrics> monitoringGetDropletMemoryCachedMetrics(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletMemoryCachedMetrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve free memory metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/memory_free`.
 ///
@@ -412,12 +482,17 @@ Future<Metrics> monitoringGetDropletMemoryFreeMetrics(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletMemoryFreeMetrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve total memory metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/memory_total`.
 ///
@@ -439,12 +514,17 @@ Future<Metrics> monitoringGetDropletMemoryTotalMetrics(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletMemoryTotalMetrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve available memory metrics for a given droplet, send a GET request to `/v2/monitoring/metrics/droplet/memory_available`.
 ///
@@ -466,12 +546,17 @@ Future<Metrics> monitoringGetDropletMemoryAvailableMetrics(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletMemoryAvailableMetrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve memory percentage metrics for a given app, send a GET request to `/v2/monitoring/metrics/apps/memory_percentage`.
 ///
@@ -492,16 +577,24 @@ Future<Metrics> monitoringGetAppMemoryPercentageMetrics(ClientConfig config,
             'app_id': SdkQueryValue(appId, style: 'form', explode: true),
             'start': SdkQueryValue(start, style: 'form', explode: true),
             'end': SdkQueryValue(end, style: 'form', explode: true),
-            'app_component': SdkQueryValue(SdkUtils.unwrapOptional(appComponent), style: 'form', explode: true)
+            'app_component': SdkQueryValue(
+                SdkUtils.unwrapOptional(appComponent),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetAppMemoryPercentageMetrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve cpu percentage metrics for a given app, send a GET request to `/v2/monitoring/metrics/apps/cpu_percentage`.
 ///
@@ -522,16 +615,24 @@ Future<Metrics> monitoringGetAppCpuPercentageMetrics(ClientConfig config,
             'app_id': SdkQueryValue(appId, style: 'form', explode: true),
             'start': SdkQueryValue(start, style: 'form', explode: true),
             'end': SdkQueryValue(end, style: 'form', explode: true),
-            'app_component': SdkQueryValue(SdkUtils.unwrapOptional(appComponent), style: 'form', explode: true)
+            'app_component': SdkQueryValue(
+                SdkUtils.unwrapOptional(appComponent),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetAppCpuPercentageMetrics',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve restart count metrics for a given app, send a GET request to `/v2/monitoring/metrics/apps/restart_count`.
 ///
@@ -552,16 +653,24 @@ Future<Metrics> monitoringGetAppRestartCountMetricsYml(ClientConfig config,
             'app_id': SdkQueryValue(appId, style: 'form', explode: true),
             'start': SdkQueryValue(start, style: 'form', explode: true),
             'end': SdkQueryValue(end, style: 'form', explode: true),
-            'app_component': SdkQueryValue(SdkUtils.unwrapOptional(appComponent), style: 'form', explode: true)
+            'app_component': SdkQueryValue(
+                SdkUtils.unwrapOptional(appComponent),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetAppRestartCountMetricsYml',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend total current active connections for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_connections_current`.
 ///
@@ -583,12 +692,17 @@ Future<Metrics> monitoringGetLbFrontendConnectionsCurrent(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendConnectionsCurrent',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend max connections limit for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_connections_limit`.
 ///
@@ -610,12 +724,17 @@ Future<Metrics> monitoringGetLbFrontendConnectionsLimit(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendConnectionsLimit',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend average percentage CPU utilization for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_cpu_utilization`.
 ///
@@ -637,12 +756,17 @@ Future<Metrics> monitoringGetLbFrontendCpuUtilization(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendCpuUtilization',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve firewall dropped bytes for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_firewall_dropped_bytes`. This is currently only supported for network load balancers.
 ///
@@ -664,24 +788,29 @@ Future<Metrics> monitoringGetLbFrontendFirewallDroppedBytes(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendFirewallDroppedBytes',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve firewall dropped packets per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_firewall_dropped_packets`. This is currently only supported for network load balancers.
 ///
 /// [lbId] A unique identifier for a load balancer.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetLbFrontendFirewallDroppedPackets(ClientConfig config,
-        {required String lbId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetLbFrontendFirewallDroppedPackets(
+    ClientConfig config,
+    {required String lbId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/load_balancer/frontend_firewall_dropped_packets',
           config: config,
@@ -692,12 +821,17 @@ Future<Metrics>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendFirewallDroppedPackets',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend HTTP rate of response code for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_http_responses`.
 ///
@@ -719,24 +853,29 @@ Future<Metrics> monitoringGetLbFrontendHttpResponses(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendHttpResponses',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend HTTP requests per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_http_requests_per_second`.
 ///
 /// [lbId] A unique identifier for a load balancer.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetLbFrontendHttpRequestsPerSecond(ClientConfig config,
-        {required String lbId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetLbFrontendHttpRequestsPerSecond(
+    ClientConfig config,
+    {required String lbId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/load_balancer/frontend_http_requests_per_second',
           config: config,
@@ -747,24 +886,29 @@ Future<Metrics>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendHttpRequestsPerSecond',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend HTTP throughput in bytes per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_network_throughput_http`.
 ///
 /// [lbId] A unique identifier for a load balancer.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetLbFrontendNetworkThroughputHttp(ClientConfig config,
-        {required String lbId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetLbFrontendNetworkThroughputHttp(
+    ClientConfig config,
+    {required String lbId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/load_balancer/frontend_network_throughput_http',
           config: config,
@@ -775,12 +919,17 @@ Future<Metrics>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendNetworkThroughputHttp',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend UDP throughput in bytes per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_network_throughput_udp`.
 ///
@@ -802,12 +951,17 @@ Future<Metrics> monitoringGetLbFrontendNetworkThroughputUdp(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendNetworkThroughputUdp',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend TCP throughput in bytes per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_network_throughput_tcp`.
 ///
@@ -829,24 +983,29 @@ Future<Metrics> monitoringGetLbFrontendNetworkThroughputTcp(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendNetworkThroughputTcp',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend TCP throughput in bytes per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_nlb_tcp_network_throughput`.
 ///
 /// [lbId] A unique identifier for a load balancer.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetLbFrontendNlbTcpNetworkThroughput(ClientConfig config,
-        {required String lbId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetLbFrontendNlbTcpNetworkThroughput(
+    ClientConfig config,
+    {required String lbId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/load_balancer/frontend_nlb_tcp_network_throughput',
           config: config,
@@ -857,24 +1016,29 @@ Future<Metrics>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendNlbTcpNetworkThroughput',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend UDP throughput in bytes per second for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_nlb_udp_network_throughput`.
 ///
 /// [lbId] A unique identifier for a load balancer.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetLbFrontendNlbUdpNetworkThroughput(ClientConfig config,
-        {required String lbId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetLbFrontendNlbUdpNetworkThroughput(
+    ClientConfig config,
+    {required String lbId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/load_balancer/frontend_nlb_udp_network_throughput',
           config: config,
@@ -885,24 +1049,29 @@ Future<Metrics>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendNlbUdpNetworkThroughput',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend current TLS connections rate for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_tls_connections_current`.
 ///
 /// [lbId] A unique identifier for a load balancer.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetLbFrontendTlsConnectionsCurrent(ClientConfig config,
-        {required String lbId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetLbFrontendTlsConnectionsCurrent(
+    ClientConfig config,
+    {required String lbId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/load_balancer/frontend_tls_connections_current',
           config: config,
@@ -913,12 +1082,17 @@ Future<Metrics>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendTlsConnectionsCurrent',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend max TLS connections limit for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_tls_connections_limit`.
 ///
@@ -940,24 +1114,29 @@ Future<Metrics> monitoringGetLbFrontendTlsConnectionsLimit(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbFrontendTlsConnectionsLimit',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve frontend closed TLS connections for exceeded rate limit for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/frontend_tls_connections_exceeding_rate_limit`.
 ///
 /// [lbId] A unique identifier for a load balancer.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetLbFrontendTlsConnectionsExceedingRateLimit(ClientConfig config,
-        {required String lbId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetLbFrontendTlsConnectionsExceedingRateLimit(
+    ClientConfig config,
+    {required String lbId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/load_balancer/frontend_tls_connections_exceeding_rate_limit',
           config: config,
@@ -967,25 +1146,31 @@ Future<Metrics>
             'end': SdkQueryValue(end, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
-          operationId: 'monitoringGetLbFrontendTlsConnectionsExceedingRateLimit',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          operationId:
+              'monitoringGetLbFrontendTlsConnectionsExceedingRateLimit',
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve Droplets average HTTP session duration in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_session_duration_avg`.
 ///
 /// [lbId] A unique identifier for a load balancer.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetLbDropletsHttpSessionDurationAvg(ClientConfig config,
-        {required String lbId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetLbDropletsHttpSessionDurationAvg(
+    ClientConfig config,
+    {required String lbId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/load_balancer/droplets_http_session_duration_avg',
           config: config,
@@ -996,24 +1181,29 @@ Future<Metrics>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbDropletsHttpSessionDurationAvg',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve Droplets 50th percentile HTTP session duration in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_session_duration_50p`.
 ///
 /// [lbId] A unique identifier for a load balancer.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetLbDropletsHttpSessionDuration50p(ClientConfig config,
-        {required String lbId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetLbDropletsHttpSessionDuration50p(
+    ClientConfig config,
+    {required String lbId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/load_balancer/droplets_http_session_duration_50p',
           config: config,
@@ -1024,24 +1214,29 @@ Future<Metrics>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbDropletsHttpSessionDuration50p',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve Droplets 95th percentile HTTP session duration in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_session_duration_95p`.
 ///
 /// [lbId] A unique identifier for a load balancer.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetLbDropletsHttpSessionDuration95p(ClientConfig config,
-        {required String lbId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetLbDropletsHttpSessionDuration95p(
+    ClientConfig config,
+    {required String lbId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/load_balancer/droplets_http_session_duration_95p',
           config: config,
@@ -1052,12 +1247,17 @@ Future<Metrics>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbDropletsHttpSessionDuration95p',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve Droplets average HTTP response time in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_response_time_avg`.
 ///
@@ -1079,12 +1279,17 @@ Future<Metrics> monitoringGetLbDropletsHttpResponseTimeAvg(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbDropletsHttpResponseTimeAvg',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve Droplets 50th percentile HTTP response time in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_response_time_50p`.
 ///
@@ -1106,12 +1311,17 @@ Future<Metrics> monitoringGetLbDropletsHttpResponseTime50p(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbDropletsHttpResponseTime50p',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve Droplets 95th percentile HTTP response time in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_response_time_95p`.
 ///
@@ -1133,12 +1343,17 @@ Future<Metrics> monitoringGetLbDropletsHttpResponseTime95p(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbDropletsHttpResponseTime95p',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve Droplets 99th percentile HTTP response time in seconds for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_response_time_99p`.
 ///
@@ -1160,12 +1375,17 @@ Future<Metrics> monitoringGetLbDropletsHttpResponseTime99p(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbDropletsHttpResponseTime99p',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve Droplets queue size for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_queue_size`.
 ///
@@ -1187,12 +1407,17 @@ Future<Metrics> monitoringGetLbDropletsQueueSize(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbDropletsQueueSize',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve Droplets HTTP rate of response code for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_http_responses`.
 ///
@@ -1214,12 +1439,17 @@ Future<Metrics> monitoringGetLbDropletsHttpResponses(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbDropletsHttpResponses',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve Droplets active connections for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_connections`.
 ///
@@ -1241,12 +1471,17 @@ Future<Metrics> monitoringGetLbDropletsConnections(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbDropletsConnections',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve Droplets health check status for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_health_checks`.
 ///
@@ -1268,12 +1503,17 @@ Future<Metrics> monitoringGetLbDropletsHealthChecks(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbDropletsHealthChecks',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve Droplets downtime status for a given load balancer, send a GET request to `/v2/monitoring/metrics/load_balancer/droplets_downtime`.
 ///
@@ -1295,180 +1535,221 @@ Future<Metrics> monitoringGetLbDropletsDowntime(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetLbDropletsDowntime',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve the current size for a given Droplet Autoscale Pool, send a GET request to `/v2/monitoring/metrics/droplet_autoscale/current_instances`.
 ///
 /// [autoscalePoolId] A unique identifier for an autoscale pool.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetDropletAutoscaleCurrentInstances(ClientConfig config,
-        {required String autoscalePoolId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetDropletAutoscaleCurrentInstances(
+    ClientConfig config,
+    {required String autoscalePoolId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>(
           'GET', '/v2/monitoring/metrics/droplet_autoscale/current_instances',
           config: config,
           query: {
-            'autoscale_pool_id': SdkQueryValue(autoscalePoolId, style: 'form', explode: true),
+            'autoscale_pool_id':
+                SdkQueryValue(autoscalePoolId, style: 'form', explode: true),
             'start': SdkQueryValue(start, style: 'form', explode: true),
             'end': SdkQueryValue(end, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletAutoscaleCurrentInstances',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve the target size for a given Droplet Autoscale Pool, send a GET request to `/v2/monitoring/metrics/droplet_autoscale/target_instances`.
 ///
 /// [autoscalePoolId] A unique identifier for an autoscale pool.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetDropletAutoscaleTargetInstances(ClientConfig config,
-        {required String autoscalePoolId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetDropletAutoscaleTargetInstances(
+    ClientConfig config,
+    {required String autoscalePoolId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>(
           'GET', '/v2/monitoring/metrics/droplet_autoscale/target_instances',
           config: config,
           query: {
-            'autoscale_pool_id': SdkQueryValue(autoscalePoolId, style: 'form', explode: true),
+            'autoscale_pool_id':
+                SdkQueryValue(autoscalePoolId, style: 'form', explode: true),
             'start': SdkQueryValue(start, style: 'form', explode: true),
             'end': SdkQueryValue(end, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletAutoscaleTargetInstances',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve the current average CPU utilization for a given Droplet Autoscale Pool, send a GET request to `/v2/monitoring/metrics/droplet_autoscale/current_cpu_utilization`.
 ///
 /// [autoscalePoolId] A unique identifier for an autoscale pool.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetDropletAutoscaleCurrentCpuUtilizationYml(ClientConfig config,
-        {required String autoscalePoolId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetDropletAutoscaleCurrentCpuUtilizationYml(
+    ClientConfig config,
+    {required String autoscalePoolId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/droplet_autoscale/current_cpu_utilization',
           config: config,
           query: {
-            'autoscale_pool_id': SdkQueryValue(autoscalePoolId, style: 'form', explode: true),
+            'autoscale_pool_id':
+                SdkQueryValue(autoscalePoolId, style: 'form', explode: true),
             'start': SdkQueryValue(start, style: 'form', explode: true),
             'end': SdkQueryValue(end, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletAutoscaleCurrentCpuUtilizationYml',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve the target average CPU utilization for a given Droplet Autoscale Pool, send a GET request to `/v2/monitoring/metrics/droplet_autoscale/target_cpu_utilization`.
 ///
 /// [autoscalePoolId] A unique identifier for an autoscale pool.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetDropletAutoscaleTargetCpuUtilization(ClientConfig config,
-        {required String autoscalePoolId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetDropletAutoscaleTargetCpuUtilization(
+    ClientConfig config,
+    {required String autoscalePoolId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/droplet_autoscale/target_cpu_utilization',
           config: config,
           query: {
-            'autoscale_pool_id': SdkQueryValue(autoscalePoolId, style: 'form', explode: true),
+            'autoscale_pool_id':
+                SdkQueryValue(autoscalePoolId, style: 'form', explode: true),
             'start': SdkQueryValue(start, style: 'form', explode: true),
             'end': SdkQueryValue(end, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletAutoscaleTargetCpuUtilization',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve the current average memory utilization for a given Droplet Autoscale Pool, send a GET request to `/v2/monitoring/metrics/droplet_autoscale/current_memory_utilization`.
 ///
 /// [autoscalePoolId] A unique identifier for an autoscale pool.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetDropletAutoscaleCurrentMemoryUtilization(ClientConfig config,
-        {required String autoscalePoolId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetDropletAutoscaleCurrentMemoryUtilization(
+    ClientConfig config,
+    {required String autoscalePoolId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/droplet_autoscale/current_memory_utilization',
           config: config,
           query: {
-            'autoscale_pool_id': SdkQueryValue(autoscalePoolId, style: 'form', explode: true),
+            'autoscale_pool_id':
+                SdkQueryValue(autoscalePoolId, style: 'form', explode: true),
             'start': SdkQueryValue(start, style: 'form', explode: true),
             'end': SdkQueryValue(end, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletAutoscaleCurrentMemoryUtilization',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To retrieve the target average memory utilization for a given Droplet Autoscale Pool, send a GET request to `/v2/monitoring/metrics/droplet_autoscale/target_memory_utilization`.
 ///
 /// [autoscalePoolId] A unique identifier for an autoscale pool.
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetDropletAutoscaleTargetMemoryUtilization(ClientConfig config,
-        {required String autoscalePoolId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetDropletAutoscaleTargetMemoryUtilization(
+    ClientConfig config,
+    {required String autoscalePoolId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<Metrics>('GET',
           '/v2/monitoring/metrics/droplet_autoscale/target_memory_utilization',
           config: config,
           query: {
-            'autoscale_pool_id': SdkQueryValue(autoscalePoolId, style: 'form', explode: true),
+            'autoscale_pool_id':
+                SdkQueryValue(autoscalePoolId, style: 'form', explode: true),
             'start': SdkQueryValue(start, style: 'form', explode: true),
             'end': SdkQueryValue(end, style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDropletAutoscaleTargetMemoryUtilization',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve CPU usage (percent) for a MySQL cluster. Response is a time series of cluster-level CPU usage. Use **aggregate** to get avg, max, or min over the range.
 ///
@@ -1495,12 +1776,18 @@ Future<Metrics> monitoringGetDatabaseMysqlCpuUsage(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDatabaseMysqlCpuUsage',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve load metrics for a MySQL cluster. Use **metric** for the window: **load1** (1-minute), **load5** (5-minute), or **load15** (15-minute). Use **aggregate** to get either the average (avg) or maximum (max) over that window over the time range.
 ///
@@ -1532,12 +1819,18 @@ Future<Metrics> monitoringGetDatabaseMysqlLoad(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDatabaseMysqlLoad',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve memory usage (percent) for a MySQL cluster. Use **aggregate** (avg, max, or min) over the time range.
 ///
@@ -1564,12 +1857,18 @@ Future<Metrics> monitoringGetDatabaseMysqlMemoryUsage(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDatabaseMysqlMemoryUsage',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve disk usage (percent) for a MySQL cluster. Use **aggregate** (avg, max, or min) over the time range.
 ///
@@ -1596,12 +1895,18 @@ Future<Metrics> monitoringGetDatabaseMysqlDiskUsage(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDatabaseMysqlDiskUsage',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve current threads connected for a MySQL service (gauge).
 ///
@@ -1625,24 +1930,30 @@ Future<Metrics> monitoringGetDatabaseMysqlThreadsConnected(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDatabaseMysqlThreadsConnected',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve threads created rate for a MySQL service (per second).
 ///
 /// [dbId] The DBaaS cluster UUID (database ID).
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetDatabaseMysqlThreadsCreatedRate(ClientConfig config,
-        {required String dbId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetDatabaseMysqlThreadsCreatedRate(
+    ClientConfig config,
+    {required String dbId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   sdkValidateUuid('db_id', dbId);
 
   return (await sdkRequest<Metrics>(
@@ -1655,12 +1966,18 @@ Future<Metrics>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDatabaseMysqlThreadsCreatedRate',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve active (running) threads for a MySQL service.
 ///
@@ -1684,24 +2001,30 @@ Future<Metrics> monitoringGetDatabaseMysqlThreadsActive(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDatabaseMysqlThreadsActive',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve index vs sequential reads ratio (percent) for a MySQL service — i.e. percentage of reads using an index.
 ///
 /// [dbId] The DBaaS cluster UUID (database ID).
 /// [start] UNIX timestamp to start metric window.
 /// [end] UNIX timestamp to end metric window.
-Future<Metrics>
-    monitoringGetDatabaseMysqlIndexVsSequentialReads(ClientConfig config,
-        {required String dbId,
-        required String start,
-        required String end,
-        RequestOptions? requestOptions}) async {
+Future<Metrics> monitoringGetDatabaseMysqlIndexVsSequentialReads(
+    ClientConfig config,
+    {required String dbId,
+    required String start,
+    required String end,
+    RequestOptions? requestOptions}) async {
   sdkValidateUuid('db_id', dbId);
 
   return (await sdkRequest<Metrics>('GET',
@@ -1714,12 +2037,18 @@ Future<Metrics>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDatabaseMysqlIndexVsSequentialReads',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve operations rate (per second) for a MySQL service. Use **metric** to choose select, insert, update, or delete.
 ///
@@ -1746,12 +2075,18 @@ Future<Metrics> monitoringGetDatabaseMysqlOpRates(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDatabaseMysqlOpRates',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve table I/O throughput (rows per second) for a schema. Requires **schema** and **metric** (insert, fetch, update, delete).
 ///
@@ -1781,12 +2116,18 @@ Future<Metrics> monitoringGetDatabaseMysqlSchemaThroughput(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDatabaseMysqlSchemaThroughput',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve table I/O latency (seconds) for a schema. Requires **schema** and **metric** (insert, fetch, update, delete).
 ///
@@ -1816,12 +2157,18 @@ Future<Metrics> monitoringGetDatabaseMysqlSchemaLatency(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDatabaseMysqlSchemaLatency',
-          fromJsonRaw: (value) => Metrics.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Metrics.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a logging destination for sending logs to a managed or externally managed OpenSearch cluster. Supply `type` and `config`, including the cluster `endpoint`; include credentials unless you provide a managed cluster's `cluster_uuid`. A 200 response returns the created destination.
 ///
@@ -1846,27 +2193,40 @@ Future<DestinationResponse> monitoringCreateDestination(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringCreateDestination',
-          fromJsonRaw: (value) => DestinationResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DestinationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
 
-
 /// To list all logging destinations, send a GET request to `/v2/monitoring/sinks/destinations`.
-Future<MonitoringListDestinations> monitoringListDestinations(ClientConfig config,
+Future<MonitoringListDestinations> monitoringListDestinations(
+    ClientConfig config,
     {RequestOptions? requestOptions}) async {
   return (await sdkRequest<MonitoringListDestinations>(
           'GET', '/v2/monitoring/sinks/destinations',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringListDestinations',
-          fromJsonRaw: (value) => MonitoringListDestinations.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MonitoringListDestinations.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To get the details of a destination, send a GET request to `/v2/monitoring/sinks/destinations/${destination_uuid}`.
 ///
@@ -1878,12 +2238,18 @@ Future<DestinationResponse> monitoringGetDestination(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringGetDestination',
-          fromJsonRaw: (value) => DestinationResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DestinationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the configuration of an existing logging destination. Identify it with `destination_uuid` and supply the required `type` and `config` fields, including the cluster `endpoint`; credentials are optional if you provide a managed cluster's `cluster_uuid`. A 204 response confirms the update and has no response body.
 ///
@@ -1911,10 +2277,15 @@ Future<void> monitoringUpdateDestination(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'monitoringUpdateDestination',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To delete a destination and all associated sinks, send a DELETE request to `/v2/monitoring/sinks/destinations/${destination_uuid}`.
 ///
@@ -1927,10 +2298,15 @@ Future<void> monitoringDeleteDestination(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'monitoringDeleteDestination',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To create a new sink, send a POST request to `/v2/monitoring/sinks`. Forwards logs from the resources identified in `resources` to the specified pre-existing destination.
 ///
@@ -1949,10 +2325,15 @@ Future<void> monitoringCreateSink(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'monitoringCreateSink',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To list all sinks, send a GET request to `/v2/monitoring/sinks`.
 ///
@@ -1961,22 +2342,30 @@ Future<ListSinks> monitoringListSinks(ClientConfig config,
     {SdkOptional<String> resourceId = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (resourceId is SdkPresent<String>) {
-    sdkValidatePattern('resource_id', resourceId.value, '^do:(dbaas|domain|droplet|floatingip|loadbalancer|space|volume|kubernetes|vpc):.*');
+    sdkValidatePattern('resource_id', resourceId.value,
+        '^do:(dbaas|domain|droplet|floatingip|loadbalancer|space|volume|kubernetes|vpc):.*');
   }
 
   return (await sdkRequest<ListSinks>('GET', '/v2/monitoring/sinks',
           config: config,
           query: {
-            'resource_id': SdkQueryValue(SdkUtils.unwrapOptional(resourceId), style: 'form', explode: true)
+            'resource_id': SdkQueryValue(SdkUtils.unwrapOptional(resourceId),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'monitoringListSinks',
-          fromJsonRaw: (value) => ListSinks.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListSinks.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+            'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// To get the details of a sink (resources and destination), send a GET request to `/v2/monitoring/sinks/${sink_uuid}`.
 ///
@@ -1990,10 +2379,15 @@ Future<Sinks> monitoringGetSink(ClientConfig config,
           operationId: 'monitoringGetSink',
           fromJsonRaw: (value) => Sinks.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// To delete a sink, send a DELETE request to `/v2/monitoring/sinks/${sink_uuid}`.
 ///
@@ -2006,6 +2400,12 @@ Future<void> monitoringDeleteSink(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'monitoringDeleteSink',
           options: requestOptions,
-          errors: {'401': (value) => Error2.fromJson(value as Map<String, dynamic>), '404': (value) => Error2.fromJson(value as Map<String, dynamic>), '429': (value) => Error2.fromJson(value as Map<String, dynamic>), '500': (value) => Error2.fromJson(value as Map<String, dynamic>), 'default': (value) => Error2.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '404': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '429': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        '500': (value) => Error2.fromJson(value as Map<String, dynamic>),
+        'default': (value) => Error2.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

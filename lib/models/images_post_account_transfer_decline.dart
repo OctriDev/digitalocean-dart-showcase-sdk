@@ -8,23 +8,33 @@ part of 'images.dart';
 class ImagesPostAccountTransferDecline implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A unique number that used to identify and reference an image account transfer.
   final int transferId;
 
   const ImagesPostAccountTransferDecline({required this.transferId});
 
-  ImagesPostAccountTransferDecline Function({int transferId}) get copyWith => _copyWith;
+  ImagesPostAccountTransferDecline Function({int transferId}) get copyWith =>
+      _copyWith;
 
-  ImagesPostAccountTransferDecline _copyWith({Object? transferId = sdkOmittedValue}) => ImagesPostAccountTransferDecline(
-    transferId: identical(transferId, sdkOmittedValue) ? this.transferId : transferId as int,
-  );
+  ImagesPostAccountTransferDecline _copyWith(
+          {Object? transferId = sdkOmittedValue}) =>
+      ImagesPostAccountTransferDecline(
+        transferId: identical(transferId, sdkOmittedValue)
+            ? this.transferId
+            : transferId as int,
+      );
 
-  factory ImagesPostAccountTransferDecline.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ImagesPostAccountTransferDecline(
-    transferId: ((json['transfer_id'] as num?)?.toInt())!,
-  ), json);
+  factory ImagesPostAccountTransferDecline.fromJson(
+          Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ImagesPostAccountTransferDecline(
+            transferId: ((json['transfer_id'] as num?)?.toInt())!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'transfer_id': transferId,
-  };
+        'transfer_id': transferId,
+      };
 }

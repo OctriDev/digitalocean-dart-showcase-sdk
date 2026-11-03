@@ -8,26 +8,42 @@ part of 'monitoring.dart';
 class DestinationResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional object value serialized in the `destination` wire field.
   final SdkOptional<DestinationOmitCredentials> destination;
 
   const DestinationResponse({this.destination = const SdkOmitted()});
 
-  DestinationResponse Function({SdkOptional<DestinationOmitCredentials> destination}) get copyWith => _copyWith;
+  DestinationResponse Function(
+          {SdkOptional<DestinationOmitCredentials> destination})
+      get copyWith => _copyWith;
 
-  DestinationResponse _copyWith({Object? destination = sdkOmittedValue}) => DestinationResponse(
-    destination: identical(destination, sdkOmittedValue) ? this.destination : destination as SdkOptional<DestinationOmitCredentials>,
-  );
+  DestinationResponse _copyWith({Object? destination = sdkOmittedValue}) =>
+      DestinationResponse(
+        destination: identical(destination, sdkOmittedValue)
+            ? this.destination
+            : destination as SdkOptional<DestinationOmitCredentials>,
+      );
 
-  factory DestinationResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(DestinationResponse(
-    destination: json['destination'] != null ? SdkPresent((json['destination'] != null ? DestinationOmitCredentials.fromJson(json['destination'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  ), json);
+  factory DestinationResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          DestinationResponse(
+            destination: json['destination'] != null
+                ? SdkPresent((json['destination'] != null
+                    ? DestinationOmitCredentials.fromJson(
+                        json['destination'] as Map<String, dynamic>)
+                    : null)!)
+                : const SdkOmitted(),
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    ...switch (destination) {
-      SdkPresent<DestinationOmitCredentials>(value: final value) => {'destination': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (destination) {
+          SdkPresent<DestinationOmitCredentials>(value: final value) => {
+              'destination': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
